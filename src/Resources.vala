@@ -91,7 +91,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     
     public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
     
-    public const string ICON_ABOUT_LOGO = "shotwell";
+    public const string ICON_ABOUT_LOGO = "shotwell.svg";
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
