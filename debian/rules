@@ -8,10 +8,10 @@ LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 VALAFLAGS:=$(foreach w,$(CPPFLAGS) $(CFLAGS) $(LDFLAGS),-X $(w))
 
 %:
-	dh $@ --dbg-package=shotwell-dbg --with-scour
+	dh $@ --dbg-package=pantheon-photos-dbg --with-scour
 
 override_dh_auto_configure:
-	./configure --prefix=/usr --libexec=/usr/lib/shotwell --disable-schemas-compile  --disable-icon-update --unity-support
+	./configure --prefix=/usr --libexec=/usr/lib/pantheon-photos --disable-schemas-compile  --disable-icon-update --unity-support
 
 override_dh_installchangelogs:
 	dh_installchangelogs NEWS

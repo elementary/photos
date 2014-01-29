@@ -1,7 +1,7 @@
-Source: shotwell
+Source: pantheon-photos
 Section: gnome
 Priority: optional
-Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
+Maintainer: elementary OS Team <builds@elementaryos.org>
 XSBC-Original-Maintainer: Debian Shotwell Maintainers <pkg-shotwell-maint@lists.alioth.debian.org>
 Uploaders: Devid Antonio Filoni <d.filoni@ubuntu.com>
 Build-Depends: debhelper (>= 9),
@@ -28,53 +28,53 @@ Build-Depends: debhelper (>= 9),
                libunity-dev,
                python-scour,
                desktop-file-utils,
-Standards-Version: 3.9.4
-Homepage: http://yorba.org/shotwell/
-Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/shotwell/ubuntu
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/pantheon-photos
+Vcs-Bzr: https://code.launchpad.net/~pantheon-photos/pantheon-photos/trunk
 XS-Testsuite: autopkgtest
 
-Package: shotwell
+Package: pantheon-photos
 Architecture: linux-any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         shotwell-common (= ${source:Version}),
+         pantheon-photos-common (= ${source:Version}),
          librsvg2-common,
          dbus-x11
 Suggests: account-plugin-facebook, account-plugin-google, account-plugin-flickr
 Description: digital photo organizer
- Shotwell is a digital photo organizer designed for the GNOME desktop
+ Photos is a digital photo organizer designed for the GNOME desktop
  environment. It allows you to import photos from disk or camera, organize
  them in various ways, view them in full-window or fullscreen mode, and
  export them to share with others. It is able to manage a lot of different
  image formats, also including raw CR2 files.
 
-Package: shotwell-common
+Package: pantheon-photos-common
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: shotwell
+Recommends: pantheon-photos
 Breaks: shotwell (<< 0.14.1-1)
 Replaces: shotwell (<< 0.14.1-1)
 Description: digital photo organizer - common files
- Shotwell is a digital photo organizer designed for the GNOME desktop
+ Photos is a digital photo organizer designed for elementary's Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
  them in various ways, view them in full-window or fullscreen mode, and
  export them to share with others. It is able to manage a lot of different
  image formats, also including raw CR2 files.
  .
- This package provides images and documentation for Shotwell
+ This package provides images and documentation for Photos
 
-Package: shotwell-dbg
+Package: pantheon-photos-dbg
 Priority: extra
 Section: debug
 Architecture: linux-any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         shotwell (= ${binary:Version})
+         pantheon-photos (= ${binary:Version})
 Description: digital photo organizer - debugging symbols
- Shotwell is a digital photo organizer designed for the GNOME desktop
+ Photos is a digital photo organizer designed for elementary's Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
  them in various ways, view them in full-window or fullscreen mode, and
  export them to share with others. It is able to manage a lot of different
  image formats, also including raw CR2 files.
  .
- This package contains the debugging symbols for Shotwell.
+ This package contains the debugging symbols for Photos.

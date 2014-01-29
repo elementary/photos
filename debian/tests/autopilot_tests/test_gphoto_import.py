@@ -25,7 +25,7 @@ class T(AutopilotTestCase):
         self.app = self.launch_test_application(
             'umockdev-run', '-d', os.path.join(mydir, 'powershot.umockdev'),
             '-i', 'dev/bus/usb/001/011=' + os.path.join(mydir, 'powershot-import.ioctl'),
-            '--', 'shotwell', app_type='gtk')
+            '--', 'pantheon-photos', app_type='gtk')
 
         # we expect the welcome dialog, otherwise we don't have a pristine
         # config/data; wait until it's gone
