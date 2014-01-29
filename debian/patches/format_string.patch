@@ -1,0 +1,16 @@
+Description: Fix FTBFS with missing format string parameter
+Author: Luca Falavigna <dktrkranz@debian.org>
+
+Index: shotwell-0.12.2/src/Dialogs.vala
+===================================================================
+--- shotwell-0.12.2.orig/src/Dialogs.vala	2012-04-11 20:18:19.000000000 +0200
++++ shotwell-0.12.2/src/Dialogs.vala	2012-05-06 19:47:46.625600885 +0200
+@@ -31,7 +31,7 @@
+ 
+ public bool confirm_warn_developer_changed(int number) {
+     Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup(AppWindow.get_instance(),
+-        Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE,
++        Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s",
+         "<span weight=\"bold\" size=\"larger\">%s</span>".printf(ngettext("Switching developers will undo all changes you have made to this photo in Shotwell",
+         "Switching developers will undo all changes you have made to these photos in Shotwell", number)));
+ 
