@@ -121,7 +121,8 @@ VAPI_FILES = \
 	libraw.vapi \
 	webkitgtk-3.0.vapi \
 	unique-3.0.vapi \
-	unity.vapi
+	unity.vapi \
+	granite.vapi
 
 DEPS_FILES = \
 	webkitgtk-3.0.deps \
@@ -316,7 +317,8 @@ EXT_PKGS = \
 	libsoup-2.4 \
 	libxml-2.0 \
 	sqlite3 \
-	webkitgtk-3.0
+	webkitgtk-3.0 \
+	granite
 ifdef UNITY_SUPPORT
 EXT_PKGS += unity
 endif
