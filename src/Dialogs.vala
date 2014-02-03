@@ -1597,7 +1597,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         set_transient_for(AppWindow.get_instance());
 
         add_buttons(Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
-                    Gtk.Stock.APPLY, Gtk.ResponseType.OK);
+                    new Gtk.Button.with_label("Apply");, Gtk.ResponseType.OK);
         set_title(Resources.ADJUST_DATE_TIME_LABEL);
 
         calendar = new Gtk.Calendar();
