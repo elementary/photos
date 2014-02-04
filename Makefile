@@ -116,13 +116,13 @@ THUMBNAILER_SRC_FILES = \
 
 VAPI_FILES = \
 	ExtendedPosix.vapi \
+	granite.vapi \
 	LConv.vapi \
 	libexif.vapi \
 	libraw.vapi \
 	webkitgtk-3.0.vapi \
 	unique-3.0.vapi \
-	unity.vapi \
-	granite.vapi
+	unity.vapi
 
 DEPS_FILES = \
 	webkitgtk-3.0.deps \
@@ -305,6 +305,7 @@ EXT_PKGS = \
 	gio-unix-2.0 \
 	glib-2.0 \
 	gmodule-2.0 \
+	granite \
 	gstreamer-1.0 \
 	gstreamer-base-1.0 \
 	gstreamer-pbutils-1.0 \
@@ -317,8 +318,8 @@ EXT_PKGS = \
 	libsoup-2.4 \
 	libxml-2.0 \
 	sqlite3 \
-	webkitgtk-3.0 \
-	granite
+	webkitgtk-3.0
+	
 ifdef UNITY_SUPPORT
 EXT_PKGS += unity
 endif
