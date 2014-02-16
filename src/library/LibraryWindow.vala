@@ -1327,7 +1327,6 @@ public class LibraryWindow : AppWindow {
         right_vbox.pack_start(search_toolbar, false, false, 0);
         right_vbox.pack_start(notebook, true, true, 0);
         
-        client_paned = new Granite.Widgets.ThinPaned();
         client_paned.pack1(sidebar_paned, false, false);
         sidebar_tree.set_size_request(SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2(right_frame, true, false);
