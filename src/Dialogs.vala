@@ -35,7 +35,7 @@ public bool confirm_warn_developer_changed(int number) {
         "<span weight=\"bold\" size=\"larger\">%s</span>".printf(ngettext("Switching developers will undo all changes you have made to this photo in Shotwell",
         "Switching developers will undo all changes you have made to these photos in Shotwell", number)));
 
-    dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL);
+    dialog.add_buttons(_("_Cancel"), Gtk.ResponseType.CANCEL);
     dialog.add_buttons(_("_Switch Developer"), Gtk.ResponseType.YES);
     
     int response = dialog.run();
@@ -58,8 +58,8 @@ public File? choose_file(string current_file_basename) {
         _("Export Video") : _("Export Photo");
         
     Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog(file_chooser_title,
-        AppWindow.get_instance(), Gtk.FileChooserAction.SAVE, _("Cancel"), 
-        Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.ACCEPT, null);
+        AppWindow.get_instance(), Gtk.FileChooserAction.SAVE, _("_Cancel"), 
+        Gtk.ResponseType.CANCEL, _("_Save"), Gtk.ResponseType.ACCEPT, null);
     chooser.set_do_overwrite_confirmation(true);
     chooser.set_current_folder(current_export_dir.get_path());
     chooser.set_current_name(current_file_basename);
@@ -87,8 +87,8 @@ public File? choose_dir(string? user_title = null) {
         user_title = _("Export Photos");
 
     Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog(user_title,
-        AppWindow.get_instance(), Gtk.FileChooserAction.SELECT_FOLDER, _("Cancel"), 
-        Gtk.ResponseType.CANCEL, _("Select"), Gtk.ResponseType.ACCEPT, null);
+        AppWindow.get_instance(), Gtk.FileChooserAction.SELECT_FOLDER, _("_Cancel"), 
+        Gtk.ResponseType.CANCEL, _("_Select"), Gtk.ResponseType.ACCEPT, null);
     chooser.set_current_folder(current_export_dir.get_path());
     chooser.set_local_only(false);
     
@@ -240,8 +240,8 @@ public class ExportDialog : Gtk.Dialog {
         ((Gtk.Box) get_content_area()).add(table);
         
         // add buttons to action area
-        add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
-        ok_button = add_button(_("Export"), Gtk.ResponseType.OK);
+        add_button(_("_Cancel"), Gtk.ResponseType.CANCEL);
+        ok_button = add_button(_("_Export"), Gtk.ResponseType.OK);
         
         ok_button.set_can_default(true);
         ok_button.has_default = true;
@@ -857,7 +857,7 @@ public bool report_manifest(ImportManifest manifest, bool show_dest_id,
         Gtk.Widget save_results_button = dialog.add_button(ImportUI.SAVE_RESULTS_BUTTON_NAME,
             ImportUI.SAVE_RESULTS_RESPONSE_ID);
         save_results_button.set_visible(manifest.success.size < manifest.all.size);
-        Gtk.Widget ok_button = dialog.add_button(_("Done"), Gtk.ResponseType.OK);
+        Gtk.Widget ok_button = dialog.add_button(_("_Done"), Gtk.ResponseType.OK);
         dialog.set_default(ok_button);
         
         Gtk.Window dialog_parent = (Gtk.Window) dialog.get_parent();
@@ -896,7 +896,7 @@ public bool report_manifest(ImportManifest manifest, bool show_dest_id,
 internal void save_import_results(Gtk.Window? chooser_dialog_parent, string results_log) {
     Gtk.FileChooserDialog chooser_dialog = new Gtk.FileChooserDialog(
         ImportUI.SAVE_RESULTS_FILE_CHOOSER_TITLE, chooser_dialog_parent, Gtk.FileChooserAction.SAVE,
-        _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.ACCEPT, null);
+        (_("_Cancel")), Gtk.ResponseType.CANCEL, (_("_Save")), Gtk.ResponseType.ACCEPT, null);
     chooser_dialog.set_do_overwrite_confirmation(true);
     chooser_dialog.set_current_folder(Environment.get_home_dir());
     chooser_dialog.set_current_name("Shotwell Import Log.txt");
@@ -1164,8 +1164,8 @@ public class TextEntryDialog : Gtk.Dialog {
         action_area_box = (Gtk.ButtonBox) get_action_area();
         action_area_box.set_layout(Gtk.ButtonBoxStyle.END);
         
-        button1 = (Gtk.Button) add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
-        button2 = (Gtk.Button) add_button(_("Save"), Gtk.ResponseType.OK);
+        button1 = (Gtk.Button) add_button(_("_Cancel"), Gtk.ResponseType.CANCEL);
+        button2 = (Gtk.Button) add_button(_("_Save"), Gtk.ResponseType.OK);
         set_default_response(Gtk.ResponseType.OK);
         
         if (completion_list != null) { // Textfield with autocompletion
@@ -1238,8 +1238,8 @@ public class MultiTextEntryDialog : Gtk.Dialog {
         action_area_box = (Gtk.ButtonBox) get_action_area();
         action_area_box.set_layout(Gtk.ButtonBoxStyle.END);
         
-        button1 = (Gtk.Button) add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
-        button2 = (Gtk.Button) add_button(_("Save"), Gtk.ResponseType.OK);
+        button1 = (Gtk.Button) add_button(_("_Cancel"), Gtk.ResponseType.CANCEL);
+        button2 = (Gtk.Button) add_button(_("_Save"), Gtk.ResponseType.OK);
         
         set_has_resize_grip(true);
     }
@@ -1421,7 +1421,7 @@ public class ProgressDialog : Gtk.Window {
         vbox_bar.pack_start(progress_bar, true, false, 0);
         
         if (cancellable != null) {
-            cancel_button = new Gtk.Button.with_label (_("Cancel"));
+            cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
             cancel_button.clicked.connect(on_cancel);
             delete_event.connect(on_window_closed);
         }
@@ -1596,8 +1596,8 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         set_resizable(false);
         set_transient_for(AppWindow.get_instance());
 
-        add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
-                    _("Apply"), Gtk.ResponseType.OK);
+        add_buttons((_("_Cancel")), Gtk.ResponseType.CANCEL,
+                    (_("_Apply")), Gtk.ResponseType.OK);
         set_title(Resources.ADJUST_DATE_TIME_LABEL);
 
         calendar = new Gtk.Calendar();
@@ -2010,7 +2010,7 @@ public class WelcomeDialog : Gtk.Dialog {
     public WelcomeDialog(Gtk.Window owner) {
         import_meta_host = new Spit.DataImports.WelcomeImportMetaHost(this);
         bool show_system_pictures_import = is_system_pictures_import_possible();
-        Gtk.Widget ok_button = add_button(_("Close"), Gtk.ResponseType.OK);
+        Gtk.Widget ok_button = add_button(_("_Close"), Gtk.ResponseType.OK);
         set_title(_("Welcome!"));
         set_resizable(false);
         set_type_hint(Gdk.WindowTypeHint.DIALOG);
