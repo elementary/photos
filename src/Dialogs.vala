@@ -58,8 +58,8 @@ public File? choose_file(string current_file_basename) {
         _("Export Video") : _("Export Photo");
         
     Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog(file_chooser_title,
-        AppWindow.get_instance(), Gtk.FileChooserAction.SAVE, ("Cancel"), 
-        Gtk.ResponseType.CANCEL, ("Save"), Gtk.ResponseType.ACCEPT, null);
+        AppWindow.get_instance(), Gtk.FileChooserAction.SAVE, _("Cancel"), 
+        Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.ACCEPT, null);
     chooser.set_do_overwrite_confirmation(true);
     chooser.set_current_folder(current_export_dir.get_path());
     chooser.set_current_name(current_file_basename);
@@ -87,8 +87,8 @@ public File? choose_dir(string? user_title = null) {
         user_title = _("Export Photos");
 
     Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog(user_title,
-        AppWindow.get_instance(), Gtk.FileChooserAction.SELECT_FOLDER, ("Cancel"), 
-        Gtk.ResponseType.CANCEL, ("Select"), Gtk.ResponseType.ACCEPT, null);
+        AppWindow.get_instance(), Gtk.FileChooserAction.SELECT_FOLDER, _("Cancel"), 
+        Gtk.ResponseType.CANCEL, _("Select"), Gtk.ResponseType.ACCEPT, null);
     chooser.set_current_folder(current_export_dir.get_path());
     chooser.set_local_only(false);
     
@@ -896,7 +896,7 @@ public bool report_manifest(ImportManifest manifest, bool show_dest_id,
 internal void save_import_results(Gtk.Window? chooser_dialog_parent, string results_log) {
     Gtk.FileChooserDialog chooser_dialog = new Gtk.FileChooserDialog(
         ImportUI.SAVE_RESULTS_FILE_CHOOSER_TITLE, chooser_dialog_parent, Gtk.FileChooserAction.SAVE,
-        ("Cancel"), Gtk.ResponseType.CANCEL, ("Save"), Gtk.ResponseType.ACCEPT, null);
+        _("Cancel"), Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.ACCEPT, null);
     chooser_dialog.set_do_overwrite_confirmation(true);
     chooser_dialog.set_current_folder(Environment.get_home_dir());
     chooser_dialog.set_current_name("Shotwell Import Log.txt");
@@ -1421,7 +1421,7 @@ public class ProgressDialog : Gtk.Window {
         vbox_bar.pack_start(progress_bar, true, false, 0);
         
         if (cancellable != null) {
-            cancel_button = new Gtk.Button.with_label ("Cancel");
+            cancel_button = new Gtk.Button.with_label (_("Cancel"));
             cancel_button.clicked.connect(on_cancel);
             delete_event.connect(on_window_closed);
         }
@@ -1596,8 +1596,8 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         set_resizable(false);
         set_transient_for(AppWindow.get_instance());
 
-        add_buttons("Cancel", Gtk.ResponseType.CANCEL,
-                    "Apply", Gtk.ResponseType.OK);
+        add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
+                    _("Apply"), Gtk.ResponseType.OK);
         set_title(Resources.ADJUST_DATE_TIME_LABEL);
 
         calendar = new Gtk.Calendar();
@@ -2010,7 +2010,7 @@ public class WelcomeDialog : Gtk.Dialog {
     public WelcomeDialog(Gtk.Window owner) {
         import_meta_host = new Spit.DataImports.WelcomeImportMetaHost(this);
         bool show_system_pictures_import = is_system_pictures_import_possible();
-        Gtk.Widget ok_button = add_button(("Close"), Gtk.ResponseType.OK);
+        Gtk.Widget ok_button = add_button(_("Close"), Gtk.ResponseType.OK);
         set_title(_("Welcome!"));
         set_resizable(false);
         set_type_hint(Gdk.WindowTypeHint.DIALOG);
