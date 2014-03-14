@@ -150,6 +150,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         icon_theme.changed.connect(on_theme_change);
         
         setup_default_context_menu();
+        get_style_context().add_class("source-list");
         
         drag_begin.connect(on_drag_begin);
         drag_end.connect(on_drag_end);
@@ -1175,4 +1176,3 @@ public class Sidebar.Tree : Gtk.TreeView {
         LibraryWindow.get_app().rename_tag_in_sidebar(creation_command.get_created_tag());
     }    
 }
-
