@@ -2180,7 +2180,7 @@ public class WelcomeDialog : Gtk.Dialog {
     }
 }
 
-public class PreferencesDialog : Granite.Widgets.LightWindow {
+public class PreferencesDialog : Gtk.Dialog {
     private class PathFormat {
         public PathFormat(string name, string? pattern) {
             this.name = name;
@@ -2221,6 +2221,7 @@ public class PreferencesDialog : Granite.Widgets.LightWindow {
         type_hint = Gdk.WindowTypeHint.DIALOG;
         resizable = false;
         delete_event.connect(on_delete);
+        
         set_parent_window(AppWindow.get_instance().get_parent_window());
         
         // Create our stack container and load in each preference container from shotwell.glade
@@ -2247,11 +2248,10 @@ public class PreferencesDialog : Granite.Widgets.LightWindow {
         button_container.add (close_button);
         
         // Add the switcher, stack container and button container to the window
-        Gtk.Box content = new Gtk.Box(Gtk.Orientation.VERTICAL, 14);
+        Gtk.Box content = get_content_area () as Gtk.Box;
         content.add (switcher);
         content.add (container);
         content.add (button_container);
-        add (content);
         
         // Set the bg color value
         bg_color_adjustment = builder.get_object("bg_color_adjustment") as Gtk.Adjustment;
