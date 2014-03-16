@@ -2192,6 +2192,7 @@ public class PreferencesDialog {
     
     private static PreferencesDialog preferences_dialog;
     
+    private Granite.Widgets.LightWindow window;
     private Gtk.Dialog dialog;
     private Gtk.Builder builder;
     private Gtk.Adjustment bg_color_adjustment;
@@ -2215,6 +2216,38 @@ public class PreferencesDialog {
 
     private PreferencesDialog() {
         builder = AppWindow.create_builder();
+        
+        window = new Granite.Widgets.LightWindow(_("Preferences"));
+        window.set_default_size (700, 440);
+        window.type_hint = Gdk.WindowTypeHint.DIALOG;
+        window.resizable = false;
+        window.delete_event.connect(on_delete);
+        
+        Gtk.Stack container = new Gtk.Stack ();
+        container.add_titled (builder.get_object("preferences_library") as Gtk.Box, "library", "Library");
+        container.add_titled (builder.get_object("preferences_external") as Gtk.Box, "external", "External");
+        container.add_titled (builder.get_object("preferences_plugins") as Gtk.Box, "plugins", "Plugins");
+        
+        Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
+        switcher.stack = container;
+        switcher.expand = true;
+        switcher.halign = Gtk.Align.CENTER;
+        
+        Gtk.Button close_button = new Gtk.Button.with_mnemonic (_("_Close"));
+        close_button.clicked.connect(on_close);
+        
+        Gtk.ButtonBox button_container = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+        button_container.halign = Gtk.Align.END;
+        button_container.margin_bottom = 11;
+        button_container.margin_right = 8;
+        button_container.add (close_button);
+        
+        Gtk.Box content = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
+        content.add (switcher);
+        content.add (container);
+        content.add (button_container);
+        
+        window.add (content);
         
         dialog = builder.get_object("preferences_dialog") as Gtk.Dialog;
         dialog.set_parent_window(AppWindow.get_instance().get_parent_window());
@@ -2258,7 +2291,7 @@ public class PreferencesDialog {
         }
         
         dir_pattern_combo = new Gtk.ComboBoxText();
-        Gtk.Alignment dir_choser_align = builder.get_object("dir choser") as Gtk.Alignment;
+        Gtk.Alignment dir_choser_align = builder.get_object("dir_choser") as Gtk.Alignment;
         dir_choser_align.add(dir_pattern_combo);
         dir_pattern_entry = builder.get_object("dir_pattern_entry") as Gtk.Entry;
         dir_pattern_example = builder.get_object("dynamic example") as Gtk.Label;
@@ -2298,6 +2331,7 @@ public class PreferencesDialog {
         set_raw_developer_combo(Config.Facade.get_instance().get_default_raw_developer());
         default_raw_developer_combo.changed.connect(on_default_raw_developer_changed);
         
+        window.show_all ();
         dialog.map_event.connect(map_event);
     }
     
