@@ -2180,7 +2180,7 @@ public class WelcomeDialog : Gtk.Dialog {
     }
 }
 
-public class PreferencesDialog {
+public class PreferencesDialog : Granite.Widgets.LightWindow {
     private class PathFormat {
         public PathFormat(string name, string? pattern) {
             this.name = name;
@@ -2192,8 +2192,6 @@ public class PreferencesDialog {
     
     private static PreferencesDialog preferences_dialog;
     
-    private Granite.Widgets.LightWindow window;
-    private Gtk.Dialog dialog;
     private Gtk.Builder builder;
     private Gtk.Adjustment bg_color_adjustment;
     private Gtk.Scale bg_color_slider;
@@ -2217,23 +2215,29 @@ public class PreferencesDialog {
     private PreferencesDialog() {
         builder = AppWindow.create_builder();
         
-        window = new Granite.Widgets.LightWindow(_("Preferences"));
-        window.set_default_size (700, 440);
-        window.type_hint = Gdk.WindowTypeHint.DIALOG;
-        window.resizable = false;
-        window.delete_event.connect(on_delete);
+        // Preferences dialog window settings
+        title = _("Preferences");
+        width_request = 450;
+        type_hint = Gdk.WindowTypeHint.DIALOG;
+        resizable = false;
+        delete_event.connect(on_delete);
+        set_parent_window(AppWindow.get_instance().get_parent_window());
         
+        // Create our stack container and load in each preference container from shotwell.glade
         Gtk.Stack container = new Gtk.Stack ();
-        container.add_titled (builder.get_object("preferences_library") as Gtk.Box, "library", "Library");
-        container.add_titled (builder.get_object("preferences_external") as Gtk.Box, "external", "External");
-        container.add_titled (builder.get_object("preferences_plugins") as Gtk.Box, "plugins", "Plugins");
+        container.expand = true;
+        container.add_titled (builder.get_object("preferences_library") as Gtk.Box, "library", _("Library"));
+        container.add_titled (builder.get_object("preferences_external") as Gtk.Box, "external", _("External"));
+        container.add_titled (builder.get_object("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
         
         Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
         switcher.stack = container;
         switcher.expand = true;
         switcher.halign = Gtk.Align.CENTER;
+        switcher.margin_top = 7;
         
-        Gtk.Button close_button = new Gtk.Button.with_mnemonic (_("_Close"));
+        // Add close button to window
+        close_button = new Gtk.Button.with_mnemonic (_("_Close"));
         close_button.clicked.connect(on_close);
         
         Gtk.ButtonBox button_container = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
@@ -2242,20 +2246,14 @@ public class PreferencesDialog {
         button_container.margin_right = 8;
         button_container.add (close_button);
         
-        Gtk.Box content = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
+        // Add the switcher, stack container and button container to the window
+        Gtk.Box content = new Gtk.Box(Gtk.Orientation.VERTICAL, 14);
         content.add (switcher);
         content.add (container);
         content.add (button_container);
+        add (content);
         
-        window.add (content);
-        
-        dialog = builder.get_object("preferences_dialog") as Gtk.Dialog;
-        dialog.set_parent_window(AppWindow.get_instance().get_parent_window());
-        dialog.set_transient_for(AppWindow.get_instance());
-        dialog.delete_event.connect(on_delete);
-        dialog.response.connect(on_close);
-        dialog.set_has_resize_grip(false);
-        
+        // Set the bg color value
         bg_color_adjustment = builder.get_object("bg_color_adjustment") as Gtk.Adjustment;
         bg_color_adjustment.set_value(bg_color_adjustment.get_upper() - 
             (Config.Facade.get_instance().get_bg_color().red * 65535.0));
@@ -2331,8 +2329,7 @@ public class PreferencesDialog {
         set_raw_developer_combo(Config.Facade.get_instance().get_default_raw_developer());
         default_raw_developer_combo.changed.connect(on_default_raw_developer_changed);
         
-        window.show_all ();
-        dialog.map_event.connect(map_event);
+        map_event.connect(map_event_handler);
     }
     
     public void populate_preference_options() {
@@ -2446,17 +2443,17 @@ public class PreferencesDialog {
         on_dir_pattern_combo_changed();
     }
     
-    public static void show() {
+    public static new void show() {
         if (preferences_dialog == null) 
             preferences_dialog = new PreferencesDialog();
         
         preferences_dialog.populate_preference_options();
-        preferences_dialog.dialog.show_all();
+        preferences_dialog.show_all();
         preferences_dialog.library_dir_button.set_current_folder(AppDirs.get_import_dir().get_path());
 
         // Ticket #3001: Cause the dialog to become active if the user chooses 'Preferences'
         // from the menus a second time.
-        preferences_dialog.dialog.present();
+        preferences_dialog.present();
     }
 
     // For items that should only be committed when the dialog is closed, not as soon as the change
@@ -2489,14 +2486,14 @@ public class PreferencesDialog {
             return true;
         
         commit_on_close();
-        return dialog.hide_on_delete(); //prevent widgets from getting destroyed
+        return hide_on_delete(); //prevent widgets from getting destroyed
     }
     
     private void on_close() {
         if (!get_allow_closing())
             return;
             
-        dialog.hide();
+        hide();
         commit_on_close();
     }
     
@@ -2553,7 +2550,7 @@ public class PreferencesDialog {
     }
     
     private void set_allow_closing(bool allow) {
-        dialog.set_deletable(allow);
+        set_deletable(allow);
         close_button.set_sensitive(allow);
         allow_closing = allow;
     }
@@ -2620,7 +2617,7 @@ public class PreferencesDialog {
         lib_dir = library_dir_button.get_filename();
     }
     
-    private bool map_event() {
+    private bool map_event_handler() {
         // Set the signal for the lib dir button after the dialog is displayed, 
         // because the FileChooserButton has a nasty habbit of selecting a
         // different folder when displayed if the provided path doesn't exist.
