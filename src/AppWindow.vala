@@ -674,18 +674,7 @@ public abstract class AppWindow : PageWindow {
     public abstract string get_app_role();
 
     protected void on_about() {
-        Gtk.show_about_dialog(this,
-            "version", Resources.APP_VERSION,
-            "comments", get_app_role(),
-            "copyright", Resources.COPYRIGHT,
-            "website", Resources.YORBA_URL,
-            "license", Resources.LICENSE,
-            "website-label", _("Visit the Yorba web site"),
-            "authors", Resources.AUTHORS,
-            "logo", Resources.get_icon(Resources.ICON_ABOUT_LOGO, -1),
-            "translator-credits", _("translator-credits"),
-            null
-        );
+        Application.get_instance ().show_about (this);
     }
 
     private void on_help_contents() {
@@ -953,4 +942,3 @@ public abstract class AppWindow : PageWindow {
     }
     
 }
-

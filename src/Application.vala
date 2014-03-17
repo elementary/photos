@@ -4,9 +4,8 @@
  * (version 2.1 or later).  See the COPYING file in this distribution.
  */
 
-public class Application {
+public class Application : Granite.Application {
     private static Application instance = null;
-    private Gtk.Application system_app = null;
     private int system_app_run_retval = 0;
     private bool direct;
 
@@ -31,6 +30,28 @@ public class Application {
 
     private bool running = false;
     private bool exiting_fired = false;
+    
+    construct {
+        build_release_name = "Pantheon Photos";
+        build_version = Resources.APP_VERSION;
+
+        program_name = "Pantheon Photos";
+        exec_name = "shotwell";
+        app_years = "2011-2014";
+        app_icon = "shotwell.svg";
+        app_launcher = "shotwell.desktop";
+        application_id = "org.elementary.pantheon-photos";
+        main_url = "https://launchpad.net/pantheon-photos";
+        bug_url = "https://bugs.launchpad.net/pantheon-photos";
+        help_url = "https://answers.launchpad.net/pantheon-photos";
+        translate_url = "https://translations.launchpad.net/pantheon-photos";
+        about_authors = Resources.AUTHORS;
+        about_documenters = {};
+        about_artists = {};
+        about_translators = "Launchpad Translators";
+        about_license = Resources.LICENSE;
+        about_license_type = Gtk.License.GPL_3_0;
+    }
 
     private Application(bool is_direct) {
         if (is_direct) {
@@ -38,19 +59,21 @@ public class Application {
             // attempt to be unique.  We don't request any command-line handling
             // here because this is processed elsewhere, and we don't need to handle
             // command lines from remote instances, since we don't care about them.
-            system_app = new Gtk.Application("org.yorba.shotwell-direct", GLib.ApplicationFlags.HANDLES_OPEN |
-                GLib.ApplicationFlags.NON_UNIQUE);
+                
+           application_id = "org.elementaryos.pantheon-photos-direct";
+           flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
             // of incoming command lines from remote instances (needed for getting
             // storage device and camera mounts).
-            system_app = new Gtk.Application("org.yorba.shotwell", GLib.ApplicationFlags.HANDLES_OPEN |
-                GLib.ApplicationFlags.HANDLES_COMMAND_LINE);
+                
+           application_id = "org.elementaryos.pantheon-photos";
+           flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
 
         // GLib will assert if we don't do this...
         try {
-            system_app.register();
+            register();
         } catch (Error e) {
             panic();
         }
@@ -58,11 +81,11 @@ public class Application {
         direct = is_direct;
 
         if (!direct) {
-            system_app.command_line.connect(on_command_line);
+            command_line.connect(on_command_line);
         }
 
-        system_app.activate.connect(on_activated);
-        system_app.startup.connect(on_activated);
+        activate.connect(on_activated);
+        startup.connect(on_activated);
     }
 
     /**
@@ -71,7 +94,8 @@ public class Application {
      * instance.
      */
     public static void send_to_primary_instance(string[]? argv) {
-        get_instance().system_app.run(argv);
+        print("Send to!\n");
+        get_instance().run(argv);
     }
     
     /**
@@ -80,14 +104,14 @@ public class Application {
      * should only be called if we are _not_ the primary instance.
      */
     public static void present_primary_instance() {
-        get_instance().system_app.activate();
+        get_instance().activate();
     }
 
-    public static bool get_is_remote() {
-        return get_instance().system_app.get_is_remote();
+    public static bool app_get_is_remote() {
+        return get_instance().get_is_remote ();
     }
     
-    public static bool get_is_direct() {
+    public static bool app_get_is_direct() {
         return get_instance().direct;
     }
 
@@ -103,7 +127,7 @@ public class Application {
         get_instance();
 
         LibraryWindow lw = AppWindow.get_instance() as LibraryWindow;
-        if ((lw != null) && (!get_is_direct())) {
+        if ((lw != null) && (!app_get_is_direct())) {
             LibraryWindow.get_app().present();
         }
     }
@@ -164,17 +188,17 @@ public class Application {
         running = true;
 
         starting();
-
+        
         assert(AppWindow.get_instance() != null);
-        system_app.add_window(AppWindow.get_instance());
-        system_app_run_retval = system_app.run(argv);
+        add_window(AppWindow.get_instance());
+        system_app_run_retval = run(argv);
 
         if (!direct) {
-            system_app.command_line.disconnect(on_command_line);
+            command_line.disconnect(on_command_line);
         }
 
-        system_app.activate.disconnect(on_activated);
-        system_app.startup.disconnect(on_activated);
+        activate.disconnect(on_activated);
+        startup.disconnect(on_activated);
 
         running = false;
     }
@@ -186,10 +210,8 @@ public class Application {
             return;
 
         exiting_fired = true;
-
         exiting(false);
-
-        system_app.release();
+        release();
     }
 
     // This will fire the exiting signal with panicked set to true, but only if exit() hasn't
@@ -199,6 +221,7 @@ public class Application {
             exiting_fired = true;
             exiting(true);
         }
+        
         Posix.exit(1);
     }
 
@@ -209,20 +232,19 @@ public class Application {
      * @note The return value is a 'cookie' that needs to be passed to 'uninhibit' to turn
      * off a requested inhibition and should be saved by the caller.
      */ 
-    public uint inhibit(Gtk.ApplicationInhibitFlags what, string? reason="none given") {
-        return system_app.inhibit(AppWindow.get_instance(), what, reason);
+    public uint app_inhibit(Gtk.ApplicationInhibitFlags what, string? reason="none given") {
+        return inhibit(AppWindow.get_instance(), what, reason);
     }
 
     /**
      * @brief Turns off a previously-requested inhibition. Wrapper for
      * Gtk.Application.uninhibit().
      */
-    public void uninhibit(uint cookie) {
-        system_app.uninhibit(cookie);
+    public void app_uninhibit(uint cookie) {
+        uninhibit(cookie);
     }
 
     public int get_run_return_value() {
         return system_app_run_retval;
     }
 }
-

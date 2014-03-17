@@ -14,7 +14,7 @@ public class Screensaver {
         if (cookie != 0)
             return;
 
-        cookie = Application.get_instance().inhibit(
+        cookie = Application.get_instance().app_inhibit(
             Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND, _("Slideshow"));
     }
     
@@ -26,4 +26,3 @@ public class Screensaver {
         cookie = 0;
     }
 }
-
