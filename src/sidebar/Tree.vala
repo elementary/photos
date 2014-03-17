@@ -150,7 +150,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         icon_theme.changed.connect(on_theme_change);
         
         setup_default_context_menu();
-        get_style_context().add_class("source-list");
+        get_style_context().add_class(Granite.StyleClass.SOURCE_LIST);
         
         drag_begin.connect(on_drag_begin);
         drag_end.connect(on_drag_end);

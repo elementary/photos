@@ -100,7 +100,7 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir();
 
-    private Granite.Widgets.ThinPaned sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
+    private Gtk.Paned sidebar_paned = new Gtk.Paned(Gtk.Orientation.VERTICAL);
     private Granite.Widgets.ThinPaned client_paned = new Granite.Widgets.ThinPaned();
     private Gtk.Frame bottom_frame = new Gtk.Frame(null);
     
