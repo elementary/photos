@@ -1049,6 +1049,13 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         providers.set(widget, styler);
     }
     
+    public const string SIDEBAR_PANED_STYLESHEET = 
+        """ .paned {
+               border-style: inset;
+               border-right-width: 1px;
+        }""";
+
+
     public const string INSET_FRAME_STYLESHEET =
         """ .frame {
                border-style: inset;

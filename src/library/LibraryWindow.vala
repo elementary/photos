@@ -1302,6 +1302,7 @@ public class LibraryWindow : AppWindow {
 
         Resources.style_widget(scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
         Resources.style_widget(bottom_frame, Resources.INSET_FRAME_STYLESHEET);
+        Resources.style_widget(sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
         
         bottom_alignment.set_padding(10, 10, 6, 0);
         bottom_alignment.add(basic_properties);
