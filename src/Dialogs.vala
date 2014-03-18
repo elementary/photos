@@ -2180,7 +2180,7 @@ public class WelcomeDialog : Gtk.Dialog {
     }
 }
 
-public class PreferencesDialog : Gtk.Dialog {
+public class PreferencesDialog {
     private class PathFormat {
         public PathFormat(string name, string? pattern) {
             this.name = name;
@@ -2192,6 +2192,7 @@ public class PreferencesDialog : Gtk.Dialog {
     
     private static PreferencesDialog preferences_dialog;
     
+    private Gtk.Dialog dialog;
     private Gtk.Builder builder;
     private Gtk.Adjustment bg_color_adjustment;
     private Gtk.Scale bg_color_slider;
@@ -2216,13 +2217,14 @@ public class PreferencesDialog : Gtk.Dialog {
         builder = AppWindow.create_builder();
         
         // Preferences dialog window settings
-        title = _("Preferences");
-        width_request = 450;
-        type_hint = Gdk.WindowTypeHint.DIALOG;
-        resizable = false;
-        delete_event.connect(on_delete);
-        
-        set_parent_window(AppWindow.get_instance().get_parent_window());
+        dialog = new Gtk.Dialog();
+        dialog.title = _("Preferences");
+        dialog.width_request = 450;
+        dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
+        dialog.resizable = false;
+        dialog.delete_event.connect(on_delete);
+        dialog.map_event.connect(map_event_handler);
+        dialog.set_parent_window(AppWindow.get_instance().get_parent_window());
         
         // Create our stack container and load in each preference container from shotwell.glade
         Gtk.Stack container = new Gtk.Stack ();
@@ -2238,7 +2240,7 @@ public class PreferencesDialog : Gtk.Dialog {
         switcher.margin_top = 7;
         
         // Add the switcher, stack container and button container to the window
-        Gtk.Box content = get_content_area () as Gtk.Box;
+        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
         content.add (switcher);
         content.add (container);
         
@@ -2246,7 +2248,7 @@ public class PreferencesDialog : Gtk.Dialog {
         close_button = new Gtk.Button.with_mnemonic (_("_Close"));
         close_button.clicked.connect(on_close);
         
-        Gtk.Box button_container = get_action_area() as Gtk.Box;
+        Gtk.Box button_container = dialog.get_action_area () as Gtk.Box;
         button_container.add (close_button);
         
         // Set the bg color value
@@ -2324,8 +2326,6 @@ public class PreferencesDialog : Gtk.Dialog {
         default_raw_developer_combo.append_text(RawDeveloper.SHOTWELL.get_label());
         set_raw_developer_combo(Config.Facade.get_instance().get_default_raw_developer());
         default_raw_developer_combo.changed.connect(on_default_raw_developer_changed);
-        
-        map_event.connect(map_event_handler);
     }
     
     public void populate_preference_options() {
@@ -2439,17 +2439,17 @@ public class PreferencesDialog : Gtk.Dialog {
         on_dir_pattern_combo_changed();
     }
     
-    public static new void show() {
+    public static void show() {
         if (preferences_dialog == null) 
             preferences_dialog = new PreferencesDialog();
         
         preferences_dialog.populate_preference_options();
-        preferences_dialog.show_all();
+        preferences_dialog.dialog.show_all();
         preferences_dialog.library_dir_button.set_current_folder(AppDirs.get_import_dir().get_path());
 
         // Ticket #3001: Cause the dialog to become active if the user chooses 'Preferences'
         // from the menus a second time.
-        preferences_dialog.present();
+        preferences_dialog.dialog.present();
     }
 
     // For items that should only be committed when the dialog is closed, not as soon as the change
@@ -2482,14 +2482,14 @@ public class PreferencesDialog : Gtk.Dialog {
             return true;
         
         commit_on_close();
-        return hide_on_delete(); //prevent widgets from getting destroyed
+        return dialog.hide_on_delete(); //prevent widgets from getting destroyed
     }
     
     private void on_close() {
         if (!get_allow_closing())
             return;
             
-        hide();
+        dialog.hide();
         commit_on_close();
     }
     
@@ -2546,7 +2546,7 @@ public class PreferencesDialog : Gtk.Dialog {
     }
     
     private void set_allow_closing(bool allow) {
-        set_deletable(allow);
+        dialog.set_deletable(allow);
         close_button.set_sensitive(allow);
         allow_closing = allow;
     }
