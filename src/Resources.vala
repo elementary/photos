@@ -1064,8 +1064,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
            }
            
             .frame {
-                border-width: 1px;
-                border-style: inset;
+                border-width: 0px;
+                border-style: none;
+                border-radius: 0;
+                padding: 0;
             }""";
 
     public const string PAGE_STYLESHEET =

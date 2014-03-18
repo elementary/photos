@@ -100,8 +100,8 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir();
 
-    private Gtk.Paned sidebar_paned = new Gtk.Paned(Gtk.Orientation.VERTICAL);
-    private Granite.Widgets.ThinPaned client_paned = new Granite.Widgets.ThinPaned();
+    private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
+    private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned();
     private Gtk.Frame bottom_frame = new Gtk.Frame(null);
     
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup("LibraryWindowGlobalActionGroup");
@@ -1292,10 +1292,10 @@ public class LibraryWindow : AppWindow {
         // divy the sidebar up into selection tree list, background progress bar, and properties
         Gtk.Frame top_frame = new Gtk.Frame(null);
         top_frame.add(scrolled_sidebar);
-        top_frame.set_shadow_type(Gtk.ShadowType.IN);
+        top_frame.set_shadow_type(Gtk.ShadowType.NONE);
         
         background_progress_frame.add(background_progress_bar);
-        background_progress_frame.set_shadow_type(Gtk.ShadowType.IN);
+        background_progress_frame.set_shadow_type(Gtk.ShadowType.NONE);
 
         // pad the bottom frame (properties)
         Gtk.Alignment bottom_alignment = new Gtk.Alignment(0, 0.5f, 1, 0);
@@ -1307,7 +1307,7 @@ public class LibraryWindow : AppWindow {
         bottom_alignment.add(basic_properties);
 
         bottom_frame.add(bottom_alignment);
-        bottom_frame.set_shadow_type(Gtk.ShadowType.IN);
+        bottom_frame.set_shadow_type(Gtk.ShadowType.NONE);
         
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two and the basic information pane
