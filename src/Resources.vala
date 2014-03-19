@@ -515,13 +515,27 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
+    private struct RatingTrinket {
+        public int stars;
+        public int scale;
+        public Gdk.Pixbuf icon;
+    }
+
+    private static Gee.ArrayList<RatingTrinket?> rating_trinket_cache;
+
     private Gdk.Pixbuf? get_rating_trinket(Rating rating, int scale) {
 
-        int width = scale*rating.serialize();
-        int height = scale;
+        int stars = rating.serialize();
 
-        if(width<=0)
+        if (stars <= 0 || stars > 5)
             return null;
+
+        foreach(RatingTrinket trinket in rating_trinket_cache)
+            if (trinket.stars == stars && trinket.scale == scale)
+                return trinket.icon;
+
+        int width = scale*stars;
+        int height = scale;
         
         Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface(width, height);
         Cairo.Context cr = surface.context;
@@ -534,7 +548,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         Gdk.Pixbuf star;
 
         try {
-            star = icon_theme.load_icon ("starred", scale, Gtk.IconLookupFlags.FORCE_SIZE);
+            star = icon_theme.load_icon ("starred-symbolic", scale, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch(Error e) {
             return null;
         }
@@ -544,7 +558,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
             cr.paint();
         }
 
-        return surface.load_to_pixbuf();
+        RatingTrinket trinket = {stars, scale, surface.load_to_pixbuf()};
+        rating_trinket_cache.add(trinket);
+
+        return trinket.icon;
 
     }
     
@@ -714,6 +731,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         factory.add_default();
 
         generate_rating_strings();
+
+        rating_trinket_cache = new Gee.ArrayList<RatingTrinket?>();
     }
     
     public void terminate() {
