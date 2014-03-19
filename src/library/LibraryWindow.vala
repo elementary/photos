@@ -1290,10 +1290,6 @@ public class LibraryWindow : AppWindow {
         get_style_context().add_class("sidebar-pane-separator");
         
         // divy the sidebar up into selection tree list, background progress bar, and properties
-        Gtk.Frame top_frame = new Gtk.Frame(null);
-        top_frame.add(scrolled_sidebar);
-        top_frame.set_shadow_type(Gtk.ShadowType.NONE);
-        
         background_progress_frame.add(background_progress_bar);
         background_progress_frame.set_shadow_type(Gtk.ShadowType.NONE);
 
@@ -1312,7 +1308,7 @@ public class LibraryWindow : AppWindow {
         
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two and the basic information pane
-        top_section.pack_start(top_frame, true, true, 0);
+        top_section.pack_start(scrolled_sidebar, true, true, 0);
 
         sidebar_paned.pack1(top_section, true, false);
         sidebar_paned.pack2(bottom_frame, false, false);
