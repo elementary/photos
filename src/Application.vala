@@ -37,8 +37,8 @@ public class Application : Granite.Application {
 
         program_name = "Pantheon Photos";
         exec_name = "shotwell";
-        app_years = "2011-2014";
-        app_icon = "shotwell.svg";
+        app_years = "2014";
+        app_icon = "shotwell";
         app_launcher = "shotwell.desktop";
         application_id = "org.elementary.pantheon-photos";
         main_url = "https://launchpad.net/pantheon-photos";
