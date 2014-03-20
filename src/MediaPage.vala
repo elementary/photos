@@ -1303,4 +1303,3 @@ public abstract class MediaPage : CheckerboardPage {
         return get_checkerboard_layout().get_scale();
     }
 }
-
