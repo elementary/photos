@@ -2216,13 +2216,42 @@ public class PreferencesDialog {
     private PreferencesDialog() {
         builder = AppWindow.create_builder();
         
-        dialog = builder.get_object("preferences_dialog") as Gtk.Dialog;
-        dialog.set_parent_window(AppWindow.get_instance().get_parent_window());
-        dialog.set_transient_for(AppWindow.get_instance());
+        // Preferences dialog window settings
+        dialog = new Gtk.Dialog();
+        dialog.title = _("Preferences");
+        dialog.width_request = 450;
+        dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
+        dialog.resizable = false;
         dialog.delete_event.connect(on_delete);
-        dialog.response.connect(on_close);
-        dialog.set_has_resize_grip(false);
+        dialog.map_event.connect(map_event_handler);
+        dialog.set_parent_window(AppWindow.get_instance().get_parent_window());
         
+        // Create our stack container and load in each preference container from shotwell.glade
+        Gtk.Stack container = new Gtk.Stack ();
+        container.expand = true;
+        container.add_titled (builder.get_object("preferences_library") as Gtk.Box, "library", _("Library"));
+        container.add_titled (builder.get_object("preferences_external") as Gtk.Box, "external", _("External"));
+        container.add_titled (builder.get_object("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
+        
+        Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
+        switcher.stack = container;
+        switcher.expand = true;
+        switcher.halign = Gtk.Align.CENTER;
+        switcher.margin_top = 7;
+        
+        // Add the switcher, stack container and button container to the window
+        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
+        content.add (switcher);
+        content.add (container);
+        
+        // Add close button to window
+        close_button = new Gtk.Button.with_mnemonic (_("_Close"));
+        close_button.clicked.connect(on_close);
+        
+        Gtk.Box button_container = dialog.get_action_area () as Gtk.Box;
+        button_container.add (close_button);
+        
+        // Set the bg color value
         bg_color_adjustment = builder.get_object("bg_color_adjustment") as Gtk.Adjustment;
         bg_color_adjustment.set_value(bg_color_adjustment.get_upper() - 
             (Config.Facade.get_instance().get_bg_color().red * 65535.0));
@@ -2258,7 +2287,7 @@ public class PreferencesDialog {
         }
         
         dir_pattern_combo = new Gtk.ComboBoxText();
-        Gtk.Alignment dir_choser_align = builder.get_object("dir choser") as Gtk.Alignment;
+        Gtk.Alignment dir_choser_align = builder.get_object("dir_choser") as Gtk.Alignment;
         dir_choser_align.add(dir_pattern_combo);
         dir_pattern_entry = builder.get_object("dir_pattern_entry") as Gtk.Entry;
         dir_pattern_example = builder.get_object("dynamic example") as Gtk.Label;
@@ -2297,8 +2326,6 @@ public class PreferencesDialog {
         default_raw_developer_combo.append_text(RawDeveloper.SHOTWELL.get_label());
         set_raw_developer_combo(Config.Facade.get_instance().get_default_raw_developer());
         default_raw_developer_combo.changed.connect(on_default_raw_developer_changed);
-        
-        dialog.map_event.connect(map_event);
     }
     
     public void populate_preference_options() {
@@ -2586,7 +2613,7 @@ public class PreferencesDialog {
         lib_dir = library_dir_button.get_filename();
     }
     
-    private bool map_event() {
+    private bool map_event_handler() {
         // Set the signal for the lib dir button after the dialog is displayed, 
         // because the FileChooserButton has a nasty habbit of selecting a
         // different folder when displayed if the provided path doesn't exist.
