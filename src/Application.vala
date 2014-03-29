@@ -46,7 +46,6 @@ public class Application : Granite.Application {
         about_artists = {};
         about_translators = "Launchpad Translators";
         about_license = Resources.LICENSE;
-        //about_license_type = Gtk.License.GPL_3_0;
     }
 
     private Application(bool is_direct) {
@@ -98,7 +97,6 @@ public class Application : Granite.Application {
      * instance.
      */
     public static void send_to_primary_instance(string[]? argv) {
-        print("Send to!\n");
         get_instance().run(argv);
     }
     
