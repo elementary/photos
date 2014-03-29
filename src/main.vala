@@ -13,7 +13,7 @@ private Timer startup_timer = null;
 private bool was_already_running = false;
 
 void library_exec(string[] mounts) {
-    was_already_running = Application.get_is_remote();
+    was_already_running = Application.app_get_is_remote();
     
     if (was_already_running) {
         // Send attached cameras out to the primary instance.
@@ -278,40 +278,38 @@ void editing_exec(string filename) {
 }
 
 namespace CommandlineOptions {
+    bool no_startup_progress = false;
+    string data_dir = null;
+    bool show_version = false;
+    bool no_runtime_monitoring = false;
 
-bool no_startup_progress = false;
-string data_dir = null;
-bool show_version = false;
-bool no_runtime_monitoring = false;
+    private OptionEntry[]? entries = null;
 
-private OptionEntry[]? entries = null;
-
-public OptionEntry[] get_options() {
-    if (entries != null)
+    public OptionEntry[] get_options() {
+        if (entries != null)
+            return entries;
+        
+        OptionEntry datadir = { "datadir", 'd', 0, OptionArg.FILENAME, &data_dir,
+            _("Path to Shotwell's private data"), _("DIRECTORY") };
+        entries += datadir;
+        
+        OptionEntry no_monitoring = { "no-runtime-monitoring", 0, 0, OptionArg.NONE, &no_runtime_monitoring,
+            _("Do not monitor library directory at runtime for changes"), null };
+        entries += no_monitoring;
+        
+        OptionEntry no_startup = { "no-startup-progress", 0, 0, OptionArg.NONE, &no_startup_progress,
+            _("Don't display startup progress meter"), null };
+        entries += no_startup;
+        
+        OptionEntry version = { "version", 'V', 0, OptionArg.NONE, &show_version, 
+            _("Show the application's version"), null };
+        entries += version;
+        
+        OptionEntry terminator = { null, 0, 0, 0, null, null, null };
+        entries += terminator;
+        
         return entries;
-    
-    OptionEntry datadir = { "datadir", 'd', 0, OptionArg.FILENAME, &data_dir,
-        _("Path to Shotwell's private data"), _("DIRECTORY") };
-    entries += datadir;
-    
-    OptionEntry no_monitoring = { "no-runtime-monitoring", 0, 0, OptionArg.NONE, &no_runtime_monitoring,
-        _("Do not monitor library directory at runtime for changes"), null };
-    entries += no_monitoring;
-    
-    OptionEntry no_startup = { "no-startup-progress", 0, 0, OptionArg.NONE, &no_startup_progress,
-        _("Don't display startup progress meter"), null };
-    entries += no_startup;
-    
-    OptionEntry version = { "version", 'V', 0, OptionArg.NONE, &show_version, 
-        _("Show the application's version"), null };
-    entries += version;
-    
-    OptionEntry terminator = { null, 0, 0, 0, null, null, null };
-    entries += terminator;
-    
-    return entries;
-}
-
+    }
 }
 
 void main(string[] args) {
@@ -376,13 +374,7 @@ void main(string[] args) {
     }
     
     Debug.init(is_string_empty(filename) ? Debug.LIBRARY_PREFIX : Debug.VIEWER_PREFIX);
-
-    if (Resources.GIT_VERSION != null)
-        message("Shotwell %s %s (%s)",
-            is_string_empty(filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
-            Resources.APP_VERSION, Resources.GIT_VERSION);
-    else
-        message("Shotwell %s %s",
+    message("Shotwell %s %s",
             is_string_empty(filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
             Resources.APP_VERSION);
         
@@ -405,9 +397,6 @@ void main(string[] args) {
     
     startup_timer = new Timer();
     startup_timer.start();
-    
-    // set up GLib environment
-    GLib.Environment.set_application_name(Resources.APP_TITLE);
     
     // in both the case of running as the library or an editor, Resources is always
     // initialized
@@ -438,4 +427,3 @@ void main(string[] args) {
         Posix.system("sync");
     }
 }
-
