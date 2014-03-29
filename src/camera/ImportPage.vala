@@ -809,17 +809,23 @@ public class ImportPage : CheckerboardPage {
             // Separator
             toolbar.insert(new Gtk.SeparatorToolItem(), -1);
             
-            // Import selected
-            Gtk.ToolButton import_selected_button = new Gtk.ToolButton.from_stock(Resources.IMPORT);
-            import_selected_button.set_related_action(get_action("ImportSelected"));
+            // Import selected            
+            Gtk.ToolItem import_sel_ti = new Gtk.ToolItem();
+            toolbar.insert(import_sel_ti, -1);
             
-            toolbar.insert(import_selected_button, -1);
+            Gtk.Button import_selected_button = new Gtk.Button.with_label("Import Selected");
+            import_selected_button.set_related_action(get_action("ImportSelected"));
+            import_sel_ti.add(import_selected_button);
             
             // Import all
-            Gtk.ToolButton import_all_button = new Gtk.ToolButton.from_stock(Resources.IMPORT_ALL);
+            Gtk.ToolItem import_all_ti = new Gtk.ToolItem();
+            import_all_ti.margin_left = 6;
+            toolbar.insert(import_all_ti, -1);
+            
+            Gtk.Button import_all_button = new Gtk.Button.with_label("Import All");
             import_all_button.set_related_action(get_action("ImportAll"));
             
-            toolbar.insert(import_all_button, -1);
+            import_all_ti.add(import_all_button);
 
             // restrain the recalcitrant rascal!  prevents the progress bar from being added to the
             // show_all queue so we have more control over its visibility
