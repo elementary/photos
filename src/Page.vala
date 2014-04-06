@@ -218,6 +218,7 @@ public abstract class Page : Gtk.ScrolledWindow {
             toolbar = toolbar_path == null ? new Gtk.Toolbar() :
                                              ui.get_widget(toolbar_path) as Gtk.Toolbar;
             toolbar.get_style_context().add_class("bottom-toolbar");  // for elementary theme
+            toolbar.set_style(Gtk.ToolbarStyle.ICONS);
         }
         return toolbar;
     }
