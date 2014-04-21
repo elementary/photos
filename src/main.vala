@@ -170,10 +170,15 @@ void library_exec(string[] mounts) {
 
     library_window.show_all();
 
-	// removed the startup "Welcome To Pantheon Photos!" Call
     WelcomeServiceEntry[] selected_import_entries = new WelcomeServiceEntry[0];
-
+    if (Config.Facade.get_instance().get_show_welcome_dialog() &&
+        LibraryPhoto.global.get_count() == 0) {
+        WelcomeDialog welcome = new WelcomeDialog(library_window);
+        Config.Facade.get_instance().set_show_welcome_dialog(welcome.execute(out selected_import_entries,
+            out do_system_pictures_import));
+    } else {
         Config.Facade.get_instance().set_show_welcome_dialog(false);
+    }
     
     if (selected_import_entries.length > 0) {
         do_external_import = true;
