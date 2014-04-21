@@ -175,7 +175,6 @@ void library_exec(string[] mounts) {
 
         Config.Facade.get_instance().set_show_welcome_dialog(false);
     
-    
     if (selected_import_entries.length > 0) {
         do_external_import = true;
         foreach (WelcomeServiceEntry entry in selected_import_entries)
