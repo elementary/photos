@@ -13,7 +13,7 @@ extern const string _LIBEXECDIR;
 extern const string? _GIT_VERSION;
 
 namespace Resources {
-    public const string APP_TITLE = "Shotwell";
+    public const string APP_TITLE = "Photos";
     public const string APP_LIBRARY_ROLE = _("Photo Manager");
     public const string APP_DIRECT_ROLE = _("Photo Viewer");
     public const string APP_VERSION = _VERSION;
@@ -30,7 +30,7 @@ namespace Resources {
     public const string YORBA_URL = "http://www.yorba.org";
     public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/Shotwell";
     public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
-    public const string BUG_DB_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ReportingABug";
+    public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
     public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
     private const string LIB = _LIB;
@@ -53,18 +53,18 @@ namespace Resources {
     };
 
     public const string LICENSE = """
-Shotwell is free software; you can redistribute it and/or modify it under the 
+Pantheon Photos is free software; you can redistribute it and/or modify it under the 
 terms of the GNU Lesser General Public License as published by the Free 
 Software Foundation; either version 2.1 of the License, or (at your option) 
 any later version.
 
-Shotwell is distributed in the hope that it will be useful, but WITHOUT 
+Pantheon Photos is distributed in the hope that it will be useful, but WITHOUT 
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for 
 more details.
 
 You should have received a copy of the GNU Lesser General Public License 
-along with Shotwell; if not, write to the Free Software Foundation, Inc., 
+along with Pantheon Photos; if not, write to the Free Software Foundation, Inc., 
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 """;
 
@@ -85,13 +85,13 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string PUBLISH = "applications-internet";
     public const string MERGE = "shotwell-merge-events";
 
-    public const string ICON_APP = "shotwell.svg";
-    public const string ICON_APP16 = "shotwell-16.svg";
-    public const string ICON_APP24 = "shotwell-24.svg";
+    public const string ICON_APP = "multimeda-photo-manager";
+    public const string ICON_APP16 = "multimeda-photo-manager";
+    public const string ICON_APP24 = "multimeda-photo-manager";
     
     public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
     
-    public const string ICON_ABOUT_LOGO = "shotwell.svg";
+    public const string ICON_ABOUT_LOGO = "multimeda-photo-manager";
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
