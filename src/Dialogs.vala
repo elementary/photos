@@ -2218,6 +2218,7 @@ public class PreferencesDialog {
         
         // Preferences dialog window settings
         dialog = new Gtk.Dialog();
+        dialog.border_width = 6;
         dialog.title = _("Preferences");
         dialog.width_request = 450;
         dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
@@ -2237,7 +2238,8 @@ public class PreferencesDialog {
         switcher.stack = container;
         switcher.expand = true;
         switcher.halign = Gtk.Align.CENTER;
-        switcher.margin_top = 7;
+        switcher.margin_top = 6;
+        switcher.margin_bottom = 12;
         
         // Add the switcher, stack container and button container to the window
         Gtk.Box content = dialog.get_content_area () as Gtk.Box;
