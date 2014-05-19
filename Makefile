@@ -195,27 +195,17 @@ ICON_FILES = \
 	four-star-filter-plus.svg \
 	four-stars.svg \
 	image-adjust.svg \
-	import-all.png \
-	import.svg \
 	make-primary.svg \
 	merge.svg \
 	multiple-events.png \
 	multiple-tags.png \
-	no-event.png \
 	noninterpretable-video.png \
-	one-event.png \
 	one-star-filter-plus.svg \
 	one-star.svg \
-	one-tag.png \
 	pin-toolbar.svg \
 	publish.png \
 	redeye.png \
 	rejected.svg \
-	shotwell-16.svg \
-	shotwell-24.svg \
-	shotwell.ico \
-	shotwell-street.jpg \
-	shotwell.svg \
 	sprocket.png \
 	straighten.svg \
 	three-star-filter-plus.svg \
@@ -223,9 +213,6 @@ ICON_FILES = \
 	two-star-filter-plus.svg \
 	two-stars.svg \
 	videos-page.png \
-	zoom-in.png \
-	zoom-out.png \
-	slideshow-extension-point.png \
 	generic-plugin.png \
 	filter-raw.png \
 	filter-photos.png \
@@ -361,13 +348,13 @@ ifndef BUILD_DIR
 BUILD_DIR=src
 endif
 
-DESKTOP_APP_SHORT_NAME="Shotwell"
-DESKTOP_APP_FULL_NAME="Shotwell Photo Manager"
+DESKTOP_APP_SHORT_NAME="Photos"
+DESKTOP_APP_FULL_NAME="Photo Manager"
 DESKTOP_APPLICATION_COMMENT="Organize your photos"
 DESKTOP_APPLICATION_CLASS="Photo Manager"
 DESKTOP_APP_KEYWORDS="album;camera;cameras;crop;edit;enhance;export;gallery;image;images;import;organize;photo;photographs;photos;picture;pictures;photography;print;publish;rotate;share;tags;video;facebook;flickr;picasa;youtube;piwigo;"
-DIRECT_EDIT_DESKTOP_APP_SHORT_NAME="Shotwell"
-DIRECT_EDIT_DESKTOP_APP_FULL_NAME="Shotwell Photo Viewer"
+DIRECT_EDIT_DESKTOP_APP_SHORT_NAME="Photo Viewer"
+DIRECT_EDIT_DESKTOP_APP_FULL_NAME="Photo Viewer"
 DIRECT_EDIT_DESKTOP_APPLICATION_CLASS="Photo Viewer"
 TEMPORARY_DESKTOP_FILES = misc/shotwell.desktop misc/shotwell-viewer.desktop
 
@@ -567,12 +554,6 @@ install:
 	$(INSTALL_PROGRAM) $(MIGRATOR_BIN) $(DESTDIR)$(LIBEXECDIR)
 	mkdir -p $(DESTDIR)$(PREFIX)/share/shotwell/icons
 	$(INSTALL_DATA) icons/* $(DESTDIR)$(PREFIX)/share/shotwell/icons
-	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps
-	$(INSTALL_DATA) icons/shotwell.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps
-	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/16x16/apps
-	$(INSTALL_DATA) icons/shotwell-16.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/16x16/apps/shotwell.svg
-	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/apps
-	$(INSTALL_DATA) icons/shotwell-24.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/apps/shotwell.svg
 	mkdir -p $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.shotwell.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.shotwell-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
