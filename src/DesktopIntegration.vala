@@ -72,7 +72,7 @@ public SortedList<AppInfo> get_apps_for_mime_types(string[] mime_types) {
             }
             
             // dont add Shotwell to app list
-            if (!already_contains && !external_app.get_name().contains(Resources.APP_TITLE))
+            if (!already_contains && !external_app.get_name().contains(_(Resources.APP_TITLE)))
                 external_apps.add(external_app);
         }
     }

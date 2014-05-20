@@ -38,7 +38,7 @@ public class DirectWindow : AppWindow {
     
     public void update_title(File file, bool modified) {
         title = "%s%s (%s) - %s".printf((modified) ? "*" : "", file.get_basename(),
-            get_display_pathname(file.get_parent()), Resources.APP_TITLE);
+            get_display_pathname(file.get_parent()), _(Resources.APP_TITLE));
     }
     
     protected override void on_fullscreen() {
@@ -95,4 +95,3 @@ public class DirectWindow : AppWindow {
        return (base.key_press_event != null) ? base.key_press_event(event) : false;
     }
 }
-
