@@ -85,13 +85,13 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string PUBLISH = "applications-internet";
     public const string MERGE = "shotwell-merge-events";
 
-    public const string ICON_APP = "multimeda-photo-manager";
-    public const string ICON_APP16 = "multimeda-photo-manager";
-    public const string ICON_APP24 = "multimeda-photo-manager";
+    public const string ICON_APP = "multimedia-photo-manager";
+    public const string ICON_APP16 = "multimedia-photo-manager";
+    public const string ICON_APP24 = "multimedia-photo-manager";
     
     public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
     
-    public const string ICON_ABOUT_LOGO = "multimeda-photo-manager";
+    public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
