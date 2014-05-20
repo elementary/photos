@@ -147,7 +147,7 @@ public class MetadataWriter : Object {
 
             // add the software name/version only if updating the metadata in the file
             if (changed)
-                metadata.set_software(Resources.APP_TITLE, Resources.APP_VERSION);
+                metadata.set_software(_(Resources.APP_TITLE), Resources.APP_VERSION);
             
             return changed;
         }
@@ -672,4 +672,3 @@ public class MetadataWriter : Object {
         count_cancelled_work(1, true);
     }
 }
-

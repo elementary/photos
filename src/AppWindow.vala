@@ -440,7 +440,7 @@ public abstract class AppWindow : PageWindow {
         assert(instance == null);
         instance = this;
 
-        title = Resources.APP_TITLE;
+        title = _(Resources.APP_TITLE);
         
         GLib.List<Gdk.Pixbuf> pixbuf_list = new GLib.List<Gdk.Pixbuf>();
         foreach (string resource in Resources.APP_ICONS)
@@ -572,7 +572,7 @@ public abstract class AppWindow : PageWindow {
     }
     
     public static void error_message(string message, Gtk.Window? parent = null) {
-        error_message_with_title(Resources.APP_TITLE, message, parent);
+        error_message_with_title(_(Resources.APP_TITLE), message, parent);
     }
     
     public static void error_message_with_title(string title, string message, Gtk.Window? parent = null, bool should_escape = true) {
@@ -632,7 +632,7 @@ public abstract class AppWindow : PageWindow {
         // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
         dialog.set_markup(message);
         dialog.use_markup = true;
-        dialog.title = (title != null) ? title : Resources.APP_TITLE;
+        dialog.title = (title != null) ? title : _(Resources.APP_TITLE);
         dialog.add_buttons(affirmative, Gtk.ResponseType.YES, _("_Cancel"),
             Gtk.ResponseType.CANCEL);
         
@@ -648,7 +648,7 @@ public abstract class AppWindow : PageWindow {
         Gtk.Window? parent = null) {
         Gtk.MessageDialog dialog = new Gtk.MessageDialog((parent != null) ? parent : get_instance(),
             Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        dialog.title = (title != null) ? title : Resources.APP_TITLE;
+        dialog.title = (title != null) ? title : _(Resources.APP_TITLE);
         dialog.add_buttons(negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
             affirmative_all, Gtk.ResponseType.APPLY,  _("_Cancel"), Gtk.ResponseType.CANCEL);
         
@@ -953,4 +953,3 @@ public abstract class AppWindow : PageWindow {
     }
     
 }
-

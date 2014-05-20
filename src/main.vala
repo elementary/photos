@@ -76,7 +76,7 @@ void library_exec(string[] mounts) {
     if (errormsg != null) {
         Gtk.MessageDialog dialog = new Gtk.MessageDialog(null, Gtk.DialogFlags.MODAL, 
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", errormsg);
-        dialog.title = Resources.APP_TITLE;
+        dialog.title = _(Resources.APP_TITLE);
         dialog.run();
         dialog.destroy();
         
@@ -346,9 +346,9 @@ void main(string[] args) {
     
     if (CommandlineOptions.show_version) {
         if (Resources.GIT_VERSION != null)
-            print("%s %s (%s)\n", Resources.APP_TITLE, Resources.APP_VERSION, Resources.GIT_VERSION);
+            print("%s %s (%s)\n", _(Resources.APP_TITLE), Resources.APP_VERSION, Resources.GIT_VERSION);
         else
-            print("%s %s\n", Resources.APP_TITLE, Resources.APP_VERSION);
+            print("%s %s\n", _(Resources.APP_TITLE), Resources.APP_VERSION);
 
         AppDirs.terminate();
         
@@ -407,7 +407,7 @@ void main(string[] args) {
     startup_timer.start();
     
     // set up GLib environment
-    GLib.Environment.set_application_name(Resources.APP_TITLE);
+    GLib.Environment.set_application_name(_(Resources.APP_TITLE));
     
     // in both the case of running as the library or an editor, Resources is always
     // initialized
