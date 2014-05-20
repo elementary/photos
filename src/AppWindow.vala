@@ -440,6 +440,12 @@ public abstract class AppWindow : PageWindow {
         assert(instance == null);
         instance = this;
 
+        var header = new Gtk.HeaderBar ();
+        header.set_show_close_button (true);
+        header.get_style_context ().remove_class ("header-bar");
+
+        this.set_titlebar (header);
+        
         title = _(Resources.APP_TITLE);
         
         GLib.List<Gdk.Pixbuf> pixbuf_list = new GLib.List<Gdk.Pixbuf>();
