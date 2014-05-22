@@ -548,7 +548,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         Gdk.Pixbuf star;
 
         try {
-            star = icon_theme.load_icon ("starred", scale, Gtk.IconLookupFlags.FORCE_SIZE);
+            star = icon_theme.load_icon ("starred-symbolic", scale, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch(Error e) {
             return null;
         }
