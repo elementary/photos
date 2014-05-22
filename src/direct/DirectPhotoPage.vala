@@ -229,7 +229,7 @@ public class DirectPhotoPage : EditingHostPage {
             AppWindow.error_message(_("%s is not a file.").printf(file.get_path()));
         else if (!PhotoFileFormat.is_file_supported(file))
             AppWindow.error_message(_("%s does not support the file format of\n%s.").printf(
-                Resources.APP_TITLE, file.get_path()));
+                _(Resources.APP_TITLE), file.get_path()));
         else
             return true;
         

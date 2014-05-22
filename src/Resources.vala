@@ -13,7 +13,7 @@ extern const string _LIBEXECDIR;
 extern const string? _GIT_VERSION;
 
 namespace Resources {
-    public const string APP_TITLE = "Shotwell";
+    public const string APP_TITLE = _("Photos");
     public const string APP_LIBRARY_ROLE = _("Photo Manager");
     public const string APP_DIRECT_ROLE = _("Photo Viewer");
     public const string APP_VERSION = _VERSION;
@@ -30,7 +30,7 @@ namespace Resources {
     public const string YORBA_URL = "http://www.yorba.org";
     public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/Shotwell";
     public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
-    public const string BUG_DB_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ReportingABug";
+    public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
     public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
     private const string LIB = _LIB;
@@ -85,13 +85,13 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string PUBLISH = "applications-internet";
     public const string MERGE = "shotwell-merge-events";
 
-    public const string ICON_APP = "shotwell.svg";
-    public const string ICON_APP16 = "shotwell-16.svg";
-    public const string ICON_APP24 = "shotwell-24.svg";
+    public const string ICON_APP = "multimedia-photo-manager";
+    public const string ICON_APP16 = "multimedia-photo-manager";
+    public const string ICON_APP24 = "multimedia-photo-manager";
     
     public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
     
-    public const string ICON_ABOUT_LOGO = "shotwell.svg";
+    public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
@@ -1077,6 +1077,13 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         providers.set(widget, styler);
     }
     
+    public const string SIDEBAR_PANED_STYLESHEET = 
+        """ .paned {
+               border-style: inset;
+               border-right-width: 1px;
+        }""";
+
+
     public const string INSET_FRAME_STYLESHEET =
         """ .frame {
                border-style: inset;
@@ -1092,8 +1099,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
            }
            
             .frame {
-                border-width: 1px;
-                border-style: inset;
+                border-width: 0px;
+                border-style: none;
+                border-radius: 0;
+                padding: 0;
             }""";
 
     public const string PAGE_STYLESHEET =
@@ -1112,60 +1121,6 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                border-radius: 0;
                padding: 0;
            }""";
-
-    public const string TOOLBAR_STYLESHEET_TEMPLATE =
-        """
-             @define-color primary-bg %s;
-             
-            .toolbar {
-                background-color: @primary-bg;
-                border-width: 1px;
-                border-color: shade (@primary-bg, 0.75);
-                border-style: solid;
-            }""";
-
-    public const string SEARCH_BUTTON_STYLESHEET_TEMPLATE =
-        """ 
-             @define-color primary-bg %s;
-             
-            .button {
-                background-image: none;
-                background-color: @primary-bg;
-                border-image: none;
-                border-color: shade (@primary-bg, 0.75) @primary-bg shade (@primary-bg, 0.75) @primary-bg;
-                border-style: solid;
-                margin: 5px;
-                
-                -unico-border-gradient: none;
-                -unico-outer-stroke-width: 0;
-                -unico-outer-stroke-gradient: none;
-                -unico-glow-radius: 0;
-                -unico-inner-stroke-width: 0;
-                -unico-inner-stroke-color: shade (@primary-bg, 1.1);
-            }
-            
-            .button:prelight {
-                border-style: solid;
-                border-width: 1px;
-                border-color: shade (@primary-bg, 1.1);
-                
-                -unico-inner-stroke-color: shade (@primary-bg, 1.1);
-                -unico-inner-stroke-width: 0;
-
-                -unico-outer-stroke-width: 1px;
-                -unico-outer-stroke-color: shade (@primary-bg, 0.8);
-            }
-            
-            .button:active {
-                background-image: none;
-                background-color: shade (@primary-bg, 0.75);
-                border-style: solid;
-                border-width: 1px;
-                border-color: shade (@primary-bg, 0.6);
-                
-                -unico-outer-stroke-width: 1px;
-                -unico-outer-stroke-color: shade (@primary-bg, 1.1);
-            }""";
     
     public const string ONIMAGE_FONT_COLOR = "#000000";
     public const string ONIMAGE_FONT_BACKGROUND = "rgba(255,255,255,0.5)";

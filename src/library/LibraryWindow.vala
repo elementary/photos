@@ -100,8 +100,8 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir();
 
-    private Gtk.Paned sidebar_paned = new Gtk.Paned(Gtk.Orientation.VERTICAL);
-    private Granite.Widgets.ThinPaned client_paned = new Granite.Widgets.ThinPaned();
+    private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
+    private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned();
     private Gtk.Frame bottom_frame = new Gtk.Frame(null);
     
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup("LibraryWindowGlobalActionGroup");
@@ -1290,28 +1290,25 @@ public class LibraryWindow : AppWindow {
         get_style_context().add_class("sidebar-pane-separator");
         
         // divy the sidebar up into selection tree list, background progress bar, and properties
-        Gtk.Frame top_frame = new Gtk.Frame(null);
-        top_frame.add(scrolled_sidebar);
-        top_frame.set_shadow_type(Gtk.ShadowType.IN);
-        
         background_progress_frame.add(background_progress_bar);
-        background_progress_frame.set_shadow_type(Gtk.ShadowType.IN);
+        background_progress_frame.set_shadow_type(Gtk.ShadowType.NONE);
 
         // pad the bottom frame (properties)
         Gtk.Alignment bottom_alignment = new Gtk.Alignment(0, 0.5f, 1, 0);
 
         Resources.style_widget(scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
         Resources.style_widget(bottom_frame, Resources.INSET_FRAME_STYLESHEET);
+        Resources.style_widget(sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
         
         bottom_alignment.set_padding(10, 10, 6, 0);
         bottom_alignment.add(basic_properties);
 
         bottom_frame.add(bottom_alignment);
-        bottom_frame.set_shadow_type(Gtk.ShadowType.IN);
+        bottom_frame.set_shadow_type(Gtk.ShadowType.NONE);
         
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two and the basic information pane
-        top_section.pack_start(top_frame, true, true, 0);
+        top_section.pack_start(scrolled_sidebar, true, true, 0);
 
         sidebar_paned.pack1(top_section, true, false);
         sidebar_paned.pack2(bottom_frame, false, false);
@@ -1583,4 +1580,3 @@ public class LibraryWindow : AppWindow {
         return false;
     }
 }
-
