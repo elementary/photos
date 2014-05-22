@@ -226,6 +226,10 @@ public abstract class Page : Gtk.ScrolledWindow {
     public virtual Gtk.Menu? get_page_context_menu() {
         return null;
     }
+
+    public virtual Gtk.Menu? get_page_sidebar_menu() {
+        return null;
+    }
     
     public virtual void switching_from() {
         in_view = false;
@@ -1170,6 +1174,7 @@ public abstract class CheckerboardPage : Page {
     private CheckerboardLayout layout;
     private string item_context_menu_path = null;
     private string page_context_menu_path = null;
+    private string page_sidebar_menu_path = null;
     private Gtk.Viewport viewport = new Gtk.Viewport(null, null);
     protected CheckerboardItem anchor = null;
     protected CheckerboardItem cursor = null;
@@ -1237,6 +1242,10 @@ public abstract class CheckerboardPage : Page {
         item_context_menu_path = path;
     }
 
+    public void init_page_sidebar_menu(string path) {
+        page_sidebar_menu_path = path;
+    }
+
     public void init_page_context_menu(string path) {
         page_context_menu_path = path;
     }
@@ -1260,7 +1269,15 @@ public abstract class CheckerboardPage : Page {
         assert(menu != null);
         return menu;
     }
-    
+
+    public override Gtk.Menu? get_page_sidebar_menu() {
+        if (page_sidebar_menu_path == null)
+            return null;
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget(page_sidebar_menu_path);
+        assert(menu != null);
+        return menu;
+    }
+
     protected override bool on_context_keypress() {
         return popup_context_menu(get_context_menu());
     }

@@ -231,7 +231,7 @@ public abstract class MediaPage : CheckerboardPage {
         base (page_name);
         
         tracker = new MediaViewTracker(get_view());
-        
+        init_page_context_menu("/MediaViewMenu");
         get_view().items_altered.connect(on_media_altered);
 
         get_view().freeze_notifications();

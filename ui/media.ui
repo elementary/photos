@@ -21,32 +21,6 @@
             <menuitem name="Preferences" action="CommonPreferences" />
         </menu>
 
-        <menu name="ViewMenu" action="ViewMenu">
-            <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-            <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
-            <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
-            <separator />
-            <menuitem name="ViewTitle" action="ViewTitle" />
-            <menuitem name="ViewComment" action="ViewComment" />
-            <menuitem name="ViewTags" action="ViewTags" />
-            <menuitem name="ViewRatings" action="ViewRatings" />
-            <separator />
-            <menu name="SortPhotos" action="SortPhotos">
-                <menuitem name="SortByTitle" action="SortByTitle" />
-                <menuitem name="SortByExposureDate" action="SortByExposureDate" />
-                <menuitem name="SortByRating" action="SortByRating" />
-                <separator />
-                <menuitem name="SortAscending" action="SortAscending" />
-                <menuitem name="SortDescending" action="SortDescending" />
-            </menu>
-            <menu name="SortEvents" action="CommonSortEvents">
-                <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
-                <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
-            </menu>
-            <separator />
-            <placeholder name="ViewExtrasFullscreenSlideshowPlaceholder" />
-        </menu>
-                
         <menu name="PhotosMenu" action="PhotosMenu">
             <menuitem name="FlipHorizontally" action="FlipHorizontally" />
             <menuitem name="FlipVertically" action="FlipVertically" />
@@ -73,5 +47,34 @@
             <menuitem name="About" action="CommonAbout" />
         </menu>
     </menubar>
+
+    <popup name="MediaViewMenu" action="ViewMenu">
+        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
+        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
+        <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <separator />
+        <menuitem name="ViewTitle" action="ViewTitle" />
+        <menuitem name="ViewComment" action="ViewComment" />
+        <menuitem name="ViewTags" action="ViewTags" />
+        <menuitem name="ViewRatings" action="ViewRatings" />
+        <separator />
+        <menu name="SortPhotos" action="SortPhotos">
+            <menuitem name="SortByTitle" action="SortByTitle" />
+            <menuitem name="SortByExposureDate" action="SortByExposureDate" />
+            <menuitem name="SortByRating" action="SortByRating" />
+            <separator />
+            <menuitem name="SortAscending" action="SortAscending" />
+            <menuitem name="SortDescending" action="SortDescending" />
+        </menu>
+        <menu name="SortEvents" action="CommonSortEvents">
+            <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
+            <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
+        </menu>
+        <separator />
+        <placeholder name="ViewExtrasFullscreenSlideshowPlaceholder" />
+        <separator />
+        <menuitem name="SelectAll" action="CommonSelectAll" />
+    </popup>
+    
 </ui>
 

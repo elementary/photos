@@ -356,9 +356,9 @@ public class LibraryWindow : AppWindow {
         edit.label = _("_Edit");
         actions += edit;
 
-        Gtk.ActionEntry view = { "ViewMenu", null, TRANSLATABLE, null, null, null };
-        view.label = _("_View");
-        actions += view;
+        //Gtk.ActionEntry view = { "ViewMenu", null, TRANSLATABLE, null, null, null };
+        //view.label = _("_View");
+        //actions += view;
 
         Gtk.ActionEntry photo = { "PhotoMenu", null, TRANSLATABLE, null, null, null };
         photo.label = _("_Photo");
