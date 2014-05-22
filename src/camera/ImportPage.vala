@@ -1020,7 +1020,7 @@ public class ImportPage : CheckerboardPage {
                     Gtk.MessageDialog dialog = new Gtk.MessageDialog(AppWindow.get_instance(), 
                         Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION,
                         Gtk.ButtonsType.CANCEL, "%s", mounted_message);
-                    dialog.title = Resources.APP_TITLE;
+                    dialog.title = _(Resources.APP_TITLE);
                     dialog.add_button(_("_Unmount"), Gtk.ResponseType.YES);
                     int dialog_res = dialog.run();
                     dialog.destroy();
@@ -1037,7 +1037,7 @@ public class ImportPage : CheckerboardPage {
                     Gtk.MessageDialog dialog = new Gtk.MessageDialog(AppWindow.get_instance(),
                         Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING,
                         Gtk.ButtonsType.OK, "%s", locked_message);
-                    dialog.title = Resources.APP_TITLE;
+                    dialog.title = _(Resources.APP_TITLE);
                     dialog.run();
                     dialog.destroy();
                     
@@ -1802,4 +1802,3 @@ public class ImportPage : CheckerboardPage {
         return search_filter;
     }
 }
-
