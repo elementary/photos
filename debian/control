@@ -35,6 +35,8 @@ XS-Testsuite: autopkgtest
 
 Package: pantheon-photos
 Architecture: linux-any
+Conflicts: shotwell
+Replaces: shotwell
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          pantheon-photos-common (= ${source:Version}),
@@ -50,10 +52,10 @@ Description: digital photo organizer
 
 Package: pantheon-photos-common
 Architecture: all
+Conflicts: shotwell-common
 Depends: ${misc:Depends}
 Recommends: pantheon-photos
-Breaks: shotwell (<< 0.14.1-1)
-Replaces: shotwell (<< 0.14.1-1)
+Replaces: shotwell-common
 Description: digital photo organizer - common files
  Photos is a digital photo organizer designed for elementary's Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
