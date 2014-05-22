@@ -174,7 +174,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         event_source.add_events(Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK
             | Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.POINTER_MOTION_HINT_MASK
             | Gdk.EventMask.BUTTON_MOTION_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK
-            | Gdk.EventMask.SCROLL_MASK);
+            | Gdk.EventMask.SCROLL_MASK | Gdk.EventMask.SMOOTH_SCROLL_MASK);
         event_source.button_press_event.connect(on_button_pressed_internal);
         event_source.button_release_event.connect(on_button_released_internal);
         event_source.motion_notify_event.connect(on_motion_internal);
@@ -1039,7 +1039,23 @@ public abstract class Page : Gtk.ScrolledWindow {
 
             case Gdk.ScrollDirection.RIGHT:
                 return on_mousewheel_right(event);
-           
+
+            case Gdk.ScrollDirection.SMOOTH:
+                double dx, dy;
+                bool vertical = false;
+                bool horizontal = false;
+                if (event.get_scroll_deltas (out dx, out dy)) {
+                    if (dx != 0) {
+                        horizontal = dx > 0 ? on_mousewheel_right (event)
+                                            : on_mousewheel_left (event);
+                    }
+                    if (dy != 0) {
+                        vertical = dy > 0 ? on_mousewheel_down (event)
+                                          : on_mousewheel_up (event);
+                    }
+                    return horizontal || vertical;
+                }
+                return false;
             default:
                 return false;
         }
