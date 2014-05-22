@@ -22,7 +22,6 @@ public class DirectPhotoPage : EditingHostPage {
         initial_file = file;
         view_controller = new DirectViewCollection();
         current_save_dir = file.get_parent();
-        
         DirectPhoto.global.items_altered.connect(on_photos_altered);
         
         get_view().selection_group_altered.connect(on_selection_group_altered);
