@@ -13,7 +13,7 @@ private Timer startup_timer = null;
 private bool was_already_running = false;
 
 void library_exec(string[] mounts) {
-    was_already_running = Application.app_get_is_remote();
+    was_already_running = Application.app_get_is_remote ();
     
     if (was_already_running) {
         // Send attached cameras out to the primary instance.
@@ -285,7 +285,7 @@ namespace CommandlineOptions {
 
     private OptionEntry[]? entries = null;
 
-    public OptionEntry[] get_options() {
+    public OptionEntry[] get_options () {
         if (entries != null)
             return entries;
         
@@ -374,7 +374,7 @@ void main(string[] args) {
     }
     
     Debug.init(is_string_empty(filename) ? Debug.LIBRARY_PREFIX : Debug.VIEWER_PREFIX);
-    message("Shotwell %s %s",
+    message ("Shotwell %s %s",
             is_string_empty(filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
             Resources.APP_VERSION);
         
