@@ -76,7 +76,7 @@ public class Application : Granite.Application {
 
         // GLib will assert if we don't do this...
         try {
-            register ();
+            register();
         } catch (Error e) {
             panic();
         }
@@ -84,11 +84,11 @@ public class Application : Granite.Application {
         direct = is_direct;
 
         if (!direct) {
-            command_line.connect (on_command_line);
+            command_line.connect(on_command_line);
         }
 
-        activate.connect (on_activated);
-        startup.connect (on_activated);
+        activate.connect(on_activated);
+        startup.connect(on_activated);
     }
 
     /**
@@ -97,7 +97,7 @@ public class Application : Granite.Application {
      * instance.
      */
     public static void send_to_primary_instance(string[]? argv) {
-        get_instance ().run (argv);
+        get_instance().run(argv);
     }
     
     /**
@@ -106,15 +106,15 @@ public class Application : Granite.Application {
      * should only be called if we are _not_ the primary instance.
      */
     public static void present_primary_instance() {
-        get_instance ().activate ();
+        get_instance().activate();
     }
 
-    public static bool app_get_is_remote () {
-        return get_instance ().get_is_remote ();
+    public static bool app_get_is_remote() {
+        return get_instance().get_is_remote();
     }
     
-    public static bool app_get_is_direct () {
-        return get_instance ().direct;
+    public static bool app_get_is_direct() {
+        return get_instance().direct;
     }
 
     /**
@@ -129,7 +129,7 @@ public class Application : Granite.Application {
         get_instance();
 
         LibraryWindow lw = AppWindow.get_instance() as LibraryWindow;
-        if ((lw != null) && (!app_get_is_direct ())) {
+        if ((lw != null) && (!app_get_is_direct())) {
             LibraryWindow.get_app().present();
         }
     }
@@ -196,11 +196,11 @@ public class Application : Granite.Application {
         system_app_run_retval = run (argv);
 
         if (!direct) {
-            command_line.disconnect (on_command_line);
+            command_line.disconnect(on_command_line);
         }
 
-        activate.disconnect (on_activated);
-        startup.disconnect (on_activated);
+        activate.disconnect(on_activated);
+        startup.disconnect(on_activated);
 
         running = false;
     }
@@ -211,14 +211,14 @@ public class Application : Granite.Application {
      * @param parent This widget is the window that is calling the about page being created.
      */
     public override void show_about (Gtk.Widget parent) {
-        assert (parent is Gtk.Window);
+        assert(parent is Gtk.Window);
 
         var developers_string = _("Developers");
         string about_copyright = 
             "2009-2014 Yorba Foundation\n"+
-            "Copyright © %s %s %s".printf (app_years, program_name, developers_string);
+            "Copyright © %s %s %s".printf(app_years, program_name, developers_string);
 
-        Granite.Widgets.show_about_dialog ((Gtk.Window) parent,
+        Granite.Widgets.show_about_dialog((Gtk.Window) parent,
                                            "program_name", program_name,
                                            "version", build_version,
                                            "logo_icon_name", app_icon,
@@ -247,8 +247,8 @@ public class Application : Granite.Application {
             return;
 
         exiting_fired = true;
-        exiting (false);
-        release ();
+        exiting(false);
+        release();
     }
 
     // This will fire the exiting signal with panicked set to true, but only if exit() hasn't
@@ -270,7 +270,7 @@ public class Application : Granite.Application {
      * off a requested inhibition and should be saved by the caller.
      */ 
     public uint app_inhibit(Gtk.ApplicationInhibitFlags what, string? reason="none given") {
-        return inhibit (AppWindow.get_instance (), what, reason);
+        return inhibit(AppWindow.get_instance (), what, reason);
     }
 
     /**
@@ -278,7 +278,7 @@ public class Application : Granite.Application {
      * Gtk.Application.uninhibit().
      */
     public void app_uninhibit(uint cookie) {
-        uninhibit (cookie);
+        uninhibit(cookie);
     }
 
     public int get_run_return_value() {
