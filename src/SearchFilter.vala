@@ -342,7 +342,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
     
     public SearchFilterToolbar() {
         toolbar = new Gtk.Toolbar ();
-        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+        toolbar.get_style_context ().add_class ("secondary-toolbar");
         
         // Ticket #3260 - Add a 'close' context menu to
         // the searchbar.
@@ -467,7 +467,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
         // Search box.
         search_entry = new Gtk.SearchEntry ();
         search_entry.search_changed.connect (() => {on_search_text_changed ();});
-        search_entry.placeholder_text = _("Search…");
+        search_entry.placeholder_text = _("Search Photos");
         search_entry.key_press_event.connect (on_escape_key);
         var search_item = new Gtk.ToolItem ();
         search_item.add (search_entry);
