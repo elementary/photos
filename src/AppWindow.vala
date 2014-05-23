@@ -9,8 +9,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
     
-    private Gtk.Window toolbar_window = new Gtk.Window(Gtk.WindowType.POPUP);
-    private Gtk.ToolButton close_button = new Gtk.ToolButton.from_stock(Gtk.Stock.LEAVE_FULLSCREEN);
+    private Gtk.Window toolbar_window = new Gtk.Window(Gtk.WindowType.POPUP);  
     private Gtk.ToggleToolButton pin_button = new Gtk.ToggleToolButton.from_stock(Resources.PIN_TOOLBAR);
     private bool is_toolbar_shown = false;
     private bool waiting_for_invoke = false;
@@ -50,6 +49,8 @@ public class FullscreenWindow : PageWindow {
         pin_button.set_tooltip_text(_("Pin the toolbar open"));
         pin_button.clicked.connect(update_toolbar_dismissal);
         
+        Gtk.Image img = new Gtk.Image.from_icon_name("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        Gtk.ToolButton close_button = new Gtk.ToolButton(img, null);
         close_button.set_tooltip_text(_("Leave fullscreen"));
         close_button.clicked.connect(on_close);
         
