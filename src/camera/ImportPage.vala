@@ -760,7 +760,8 @@ public class ImportPage : CheckerboardPage {
         Video.global.contents_altered.connect(on_media_added_removed);
         
         init_item_context_menu("/ImportContextMenu");
-        init_page_context_menu("/ImportContextMenu");
+        init_page_sidebar_menu("/ImportContextMenu");
+        init_page_context_menu("/ImportViewMenu");
     }
     
     ~ImportPage() {

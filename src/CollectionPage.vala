@@ -88,7 +88,7 @@ public abstract class CollectionPage : MediaPage {
     }
 
     private static InjectionGroup create_view_menu_fullscreen_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/ViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
+        InjectionGroup group = new InjectionGroup("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
         
         group.add_menu_item("Fullscreen", "CommonFullscreen");
         group.add_separator();

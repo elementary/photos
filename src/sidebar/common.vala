@@ -92,7 +92,7 @@ public abstract class Sidebar.SimplePageEntry : Object, Sidebar.Entry, Sidebar.S
     }
     
     public Gtk.Menu? get_sidebar_context_menu(Gdk.EventButton? event) {
-        return get_page().get_page_context_menu();
+        return get_page().get_page_sidebar_menu();
     }
 }
 

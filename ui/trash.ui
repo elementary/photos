@@ -21,32 +21,7 @@
             <menuitem name="Delete" action="Delete" />
             <menuitem name="Restore" action="Restore" />
             <separator />
-            <menuitem name="SelectAll" action="CommonSelectAll" />
-            <separator />
             <menuitem name="Preferences" action="CommonPreferences" />
-        </menu>
-        
-        <menu name="ViewMenu" action="ViewMenu">
-            <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-            <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
-            <menuitem name="DisplaySearchbar" action="CommonDisplaySearchbar" />
-            <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
-            <separator />
-            <menu name="FilterPhotos" action="CommonFilterPhotos">
-                <menuitem name="DisplayFiveOrHigher" action="CommonDisplayFiveOrHigher" />
-                <menuitem name="DisplayFourOrHigher" action="CommonDisplayFourOrHigher" />
-                <menuitem name="DisplayThreeOrHigher" action="CommonDisplayThreeOrHigher" />
-                <menuitem name="DisplayTwoOrHigher" action="CommonDisplayTwoOrHigher" />
-                <menuitem name="DisplayOneOrHigher" action="CommonDisplayOneOrHigher" />
-                <menuitem name="DisplayUnratedOrHigher" action="CommonDisplayUnratedOrHigher" />
-                <menuitem name="DisplayRejectedOrHigher" action="CommonDisplayRejectedOrHigher" />
-                <menuitem name="DisplayRejectedOnly" action="CommonDisplayRejectedOnly" />
-            </menu>
-            <separator />
-            <menu name="SortEvents" action="CommonSortEvents">
-                <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
-                <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
-            </menu>
         </menu>
         
         <menu name="HelpMenu" action="HelpMenu">
@@ -78,5 +53,30 @@
         <separator />
         <toolitem name="ToolFind" action="CommonDisplaySearchbar" />
     </toolbar>
+
+    <popup name="TrashViewMenu" action="ViewMenu">
+        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
+        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
+        <menuitem name="DisplaySearchbar" action="CommonDisplaySearchbar" />
+        <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <separator />
+        <menu name="FilterPhotos" action="CommonFilterPhotos">
+            <menuitem name="DisplayFiveOrHigher" action="CommonDisplayFiveOrHigher" />
+            <menuitem name="DisplayFourOrHigher" action="CommonDisplayFourOrHigher" />
+            <menuitem name="DisplayThreeOrHigher" action="CommonDisplayThreeOrHigher" />
+            <menuitem name="DisplayTwoOrHigher" action="CommonDisplayTwoOrHigher" />
+            <menuitem name="DisplayOneOrHigher" action="CommonDisplayOneOrHigher" />
+            <menuitem name="DisplayUnratedOrHigher" action="CommonDisplayUnratedOrHigher" />
+            <menuitem name="DisplayRejectedOrHigher" action="CommonDisplayRejectedOrHigher" />
+            <menuitem name="DisplayRejectedOnly" action="CommonDisplayRejectedOnly" />
+        </menu>
+        <separator />
+        <menu name="SortEvents" action="CommonSortEvents">
+            <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
+            <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
+        </menu>
+        <separator />
+        <menuitem name="SelectAll" action="CommonSelectAll" />
+    </popup>
     
 </ui>

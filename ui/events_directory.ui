@@ -17,27 +17,9 @@
             <menuitem name="Find" action="CommonFind" />
             <menuitem name="NewSearch" action="CommonNewSearch" />
             <separator />
-            <menuitem name="SelectAll" action="CommonSelectAll" />
-            <separator />
             <menuitem name="Preferences" action="CommonPreferences" />
         </menu>
         
-        <menu name="ViewMenu" action="ViewMenu">
-            <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-            <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
-            <menuitem name="DisplaySearchbar" action="CommonDisplaySearchbar" />
-            <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
-            <separator />
-            <menuitem name="ViewComment" action="ViewComment" />
-            <separator />
-            <menu name="SortEvents" action="CommonSortEvents">
-                <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
-                <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
-            </menu>
-            <separator />
-            <menuitem name="Fullscreen" action="CommonFullscreen" />
-        </menu>
-
         <menu name="EventsMenu" action="EventsMenu">
             <menuitem name="EventMerge" action="Merge" />
             <menuitem name="EventRename" action="Rename" />
@@ -57,6 +39,24 @@
         <menuitem name="ContextMerge" action="Merge" />
         <menuitem name="ContextRename" action="Rename" />
         <menuitem name="ContextEditComment" action="EditComment" />
+    </popup>
+
+    <popup name="EventsDirectoryViewMenu" action="ViewMenu">
+        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
+        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
+        <menuitem name="DisplaySearchbar" action="CommonDisplaySearchbar" />
+        <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <separator />
+        <menuitem name="ViewComment" action="ViewComment" />
+        <separator />
+        <menu name="SortEvents" action="CommonSortEvents">
+            <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
+            <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
+        </menu>
+        <separator />
+        <menuitem name="Fullscreen" action="CommonFullscreen" />
+        <separator />
+        <menuitem name="SelectAll" action="CommonSelectAll" />
     </popup>
 
 </ui>
