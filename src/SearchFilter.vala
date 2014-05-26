@@ -410,34 +410,40 @@ public class SearchFilterToolbar : Gtk.Revealer {
         rejected_only.tooltip_text = Resources.DISPLAY_REJECTED_ONLY_TOOLTIP;
         rejected_only.toggled.connect (() => {apply_filter_if_true (rejected_only.active, RatingFilter.REJECTED_ONLY);});
 
-        var rejected_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_REJECTED_OR_HIGHER_MENU);
-        rejected_or_higher.tooltip_text = Resources.DISPLAY_REJECTED_OR_HIGHER_TOOLTIP;
-        rejected_or_higher.toggled.connect (() => {apply_filter_if_true (rejected_or_higher.active, RatingFilter.REJECTED_OR_HIGHER);});
+        var rejected_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_REJECTED_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_REJECTED_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.REJECTED_OR_HIGHER);
 
-        var unrated_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_UNRATED_OR_HIGHER_MENU);
-        unrated_or_higher.tooltip_text = Resources.DISPLAY_UNRATED_OR_HIGHER_TOOLTIP;
-        unrated_or_higher.active = true;
-        unrated_or_higher.toggled.connect (() => {apply_filter_if_true (unrated_or_higher.active, RatingFilter.UNRATED_OR_HIGHER);});
+        var unrated_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_UNRATED_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_UNRATED_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.UNRATED_OR_HIGHER, true);
 
-        var one_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_ONE_OR_HIGHER_MENU);
-        one_or_higher.tooltip_text = Resources.DISPLAY_ONE_OR_HIGHER_TOOLTIP;
-        one_or_higher.toggled.connect (() => {apply_filter_if_true (one_or_higher.active, RatingFilter.ONE_OR_HIGHER);});
+        var one_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_ONE_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_ONE_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.ONE_OR_HIGHER);
 
-        var two_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_TWO_OR_HIGHER_MENU);
-        two_or_higher.tooltip_text = Resources.DISPLAY_TWO_OR_HIGHER_TOOLTIP;
-        two_or_higher.toggled.connect (() => {apply_filter_if_true (two_or_higher.active, RatingFilter.TWO_OR_HIGHER);});
+        var two_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_TWO_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_TWO_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.TWO_OR_HIGHER);
 
-        var three_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_THREE_OR_HIGHER_MENU);
-        three_or_higher.tooltip_text = Resources.DISPLAY_THREE_OR_HIGHER_TOOLTIP;
-        three_or_higher.toggled.connect (() => {apply_filter_if_true (three_or_higher.active, RatingFilter.THREE_OR_HIGHER);});
+        var three_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_THREE_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_THREE_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.THREE_OR_HIGHER);
 
-        var four_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_FOUR_OR_HIGHER_MENU);
-        four_or_higher.tooltip_text = Resources.DISPLAY_FOUR_OR_HIGHER_TOOLTIP;
-        four_or_higher.toggled.connect (() => {apply_filter_if_true (four_or_higher.active, RatingFilter.FOUR_OR_HIGHER);});
+        var four_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_FOUR_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_FOUR_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.FOUR_OR_HIGHER);
 
-        var five_or_higher = new Gtk.RadioMenuItem.with_mnemonic_from_widget (rejected_only, Resources.DISPLAY_FIVE_OR_HIGHER_MENU);
-        five_or_higher.tooltip_text = Resources.DISPLAY_FIVE_OR_HIGHER_TOOLTIP;
-        five_or_higher.toggled.connect (() => {apply_filter_if_true (five_or_higher.active, RatingFilter.FIVE_OR_HIGHER);});
+        var five_or_higher = create_radio_from_widget (rejected_only,
+                                    Resources.DISPLAY_FIVE_OR_HIGHER_MENU,
+                                    Resources.DISPLAY_FIVE_OR_HIGHER_TOOLTIP,
+                                    RatingFilter.FIVE_OR_HIGHER);
 
         var rating_menu = new Gtk.Menu ();
         rating_menu.add (five_or_higher);
@@ -482,6 +488,14 @@ public class SearchFilterToolbar : Gtk.Revealer {
 
     ~SearchFilterToolbar() {
         toolbar.popup_context_menu.disconnect(on_context_menu_requested); 
+    }
+
+    private Gtk.RadioMenuItem create_radio_from_widget (Gtk.RadioMenuItem? widget, string mnemonic, string tooltip, RatingFilter filter, bool active = false) {
+        var radio = new Gtk.RadioMenuItem.with_mnemonic_from_widget (widget, mnemonic);
+        radio.tooltip_text = tooltip;
+        radio.active = active;
+        radio.toggled.connect (() => {apply_filter_if_true (radio.active, filter);});
+        return radio;
     }
 
     private void apply_filter_if_true (bool apply, RatingFilter ratingfilter) {
