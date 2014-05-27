@@ -364,10 +364,6 @@ public class LibraryWindow : AppWindow {
         photos.label = _("_Photos");
         actions += photos;
 
-        Gtk.ActionEntry event = { "EventsMenu", null, TRANSLATABLE, null, null, null };
-        event.label = _("Even_ts");
-        actions += event;
-
         Gtk.ActionEntry tags = { "TagsMenu", null, TRANSLATABLE, null, null, null };
         tags.label = _("Ta_gs");
         actions += tags;
