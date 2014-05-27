@@ -790,11 +790,6 @@ public class LibraryWindow : AppWindow {
         set_common_action_sensitive("CommonJumpToEvent", can_jump_to_event());
     }
     
-    private void on_clear_search() {
-        /*if (is_search_toolbar_visible)
-            search_actions.reset();*/
-    }
-    
     public int get_events_sort() {
         Gtk.RadioAction? action = get_common_action("CommonSortEventsAscending") as Gtk.RadioAction;
         
@@ -1574,11 +1569,6 @@ public class LibraryWindow : AppWindow {
         
         if (base.key_press_event(event))
             return true;
-        
-        if (Gdk.keyval_name(event.keyval) == "Escape") {
-            on_clear_search();
-            return true;
-        }
         
         return false;
     }
