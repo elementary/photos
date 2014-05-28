@@ -49,16 +49,6 @@ namespace Resources {
         "Allison Barlow <allison@yorba.org>",
         "Eric Gregory <eric@yorba.org>",
         "Clinton Rogers <clinton@yorba.org>",
-        "Daniel Fore <daniel@elementaryos.org>",
-        "Tristan Petersen <tristang4@me.com>",
-        "Cody Garver <cody@elementaryos.org>",
-        "Jeremy Vaartjes <me@jeremyvaartjes.com>",
-        "Erasmo Marín <erasmo.marin@gmail.com>",
-        "KJ Lawrence <kjtehprogrammer@gmail.com>",
-        "José M. Benítez <jmiguelbenitez@gmail.com>",
-        "Isaac Parris <dexcasul@zoho.com>",
-        "Robert Roth <evfool@yahoo.com>",
-        "Corentin Noël <corentin@elementaryos.org>",
         null
     };
 
