@@ -55,7 +55,7 @@ public class Application : Granite.Application {
             // here because this is processed elsewhere, and we don't need to handle
             // command lines from remote instances, since we don't care about them.
            
-           exec_name = "shotwell";     
+           exec_name = GETTEXT_PACKAGE;     
            application_id = "org.elementaryos.pantheon-photos-direct";
            app_icon = "multimedia-photo-viewer";
            app_launcher = "shotwell-viewer.desktop";
@@ -66,7 +66,7 @@ public class Application : Granite.Application {
             // of incoming command lines from remote instances (needed for getting
             // storage device and camera mounts).
                 
-           exec_name = "shotwell";
+           exec_name = GETTEXT_PACKAGE;
            application_id = "org.elementaryos.pantheon-photos";
            app_icon = "multimedia-photo-manager";
            app_launcher = "shotwell.desktop";
