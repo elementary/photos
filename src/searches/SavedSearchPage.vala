@@ -31,7 +31,7 @@ public class SavedSearchPage : CollectionPage {
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance().get_all())
             get_view().monitor_source_collection(sources, new SavedSearchManager(this, search), null);
         
-        init_page_context_menu("/SearchContextMenu");
+        init_page_sidebar_menu("/SearchContextMenu");
     }
     
     protected override void get_config_photos_sort(out bool sort_order, out int sort_by) {

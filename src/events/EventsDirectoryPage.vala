@@ -55,6 +55,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             Config.Facade.get_instance().get_display_event_comments());
         
         init_item_context_menu("/EventsDirectoryContextMenu");
+        init_page_context_menu("/EventsDirectoryViewMenu");
 
         this.view_manager = view_manager;
 
