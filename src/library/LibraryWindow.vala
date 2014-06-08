@@ -44,13 +44,13 @@ public class LibraryWindow : AppWindow {
         LIBRARY,
         FLAGGED,
         LAST_IMPORTED,
+        TRASH,
         CAMERAS,
         IMPORT_QUEUE,
         SAVED_SEARCH,
         EVENTS,
         FOLDERS,
         TAGS,
-        TRASH,
         OFFLINE
     }
     
