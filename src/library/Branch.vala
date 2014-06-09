@@ -78,9 +78,8 @@ public class Library.Branch : Sidebar.Branch {
         if (entry.visible) {
             if (!has_entry(entry))
                 insert(entry, position);
-        } else {
-            if (has_entry(entry))
-                prune(entry);
+        } else if (has_entry(entry)) {
+            prune(entry);
         }
     }
 
@@ -120,7 +119,7 @@ public abstract class Library.HideablePageEntry : Sidebar.SimplePageEntry {
                 return;
 
             show_entry = value;
-            visibility_changed(visible);
+            visibility_changed(value);
         }
     }
 
