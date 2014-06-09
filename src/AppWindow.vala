@@ -508,21 +508,6 @@ public abstract class AppWindow : PageWindow {
         fullscreen.label = _("Fulls_creen");
         actions += fullscreen;
 
-        Gtk.ActionEntry help_contents = { "CommonHelpContents", Gtk.Stock.HELP,
-            TRANSLATABLE, "F1", TRANSLATABLE, on_help_contents };
-        help_contents.label = _("_Contents");
-        actions += help_contents;
-        
-        Gtk.ActionEntry help_faq = { "CommonHelpFAQ", null, TRANSLATABLE, null, 
-            TRANSLATABLE, on_help_faq };
-        help_faq.label = _("_Frequently Asked Questions");
-        actions += help_faq;
-        
-        Gtk.ActionEntry help_report_problem = { "CommonHelpReportProblem", null, TRANSLATABLE, null, 
-            TRANSLATABLE, on_help_report_problem };
-        help_report_problem.label = _("_Report a Problem...");
-        actions += help_report_problem;
-
         Gtk.ActionEntry undo = { "CommonUndo", Gtk.Stock.UNDO, TRANSLATABLE, "<Ctrl>Z",
             TRANSLATABLE, on_undo };
         undo.label = Resources.UNDO_MENU;
@@ -681,44 +666,9 @@ public abstract class AppWindow : PageWindow {
     public abstract string get_app_role();
 
     protected void on_about() {
-        Gtk.show_about_dialog(this,
-            "version", Resources.APP_VERSION,
-            "comments", get_app_role(),
-            "copyright", Resources.COPYRIGHT,
-            "website", Resources.YORBA_URL,
-            "license", Resources.LICENSE,
-            "website-label", _("Visit the Yorba web site"),
-            "authors", Resources.AUTHORS,
-            "logo", Resources.get_icon(Resources.ICON_ABOUT_LOGO, -1),
-            "translator-credits", _("translator-credits"),
-            null
-        );
+        Application.get_instance ().show_about (this);
     }
-
-    private void on_help_contents() {
-        try {
-            Resources.launch_help(get_screen());
-        } catch (Error err) {
-            error_message(_("Unable to display help: %s").printf(err.message));
-        }
-    }
-
-    private void on_help_report_problem() {
-        try {
-            show_uri(Resources.BUG_DB_URL);
-        } catch (Error err) {
-            error_message(_("Unable to navigate to bug database: %s").printf(err.message));
-        }
-    }
-    
-    private void on_help_faq() {
-        try {
-            show_uri(Resources.FAQ_URL);
-        } catch (Error err) {
-            error_message(_("Unable to display FAQ: %s").printf(err.message));
-        }
-    }
-    
+        
     protected virtual void on_quit() {
         Application.get_instance().exit();
     }
