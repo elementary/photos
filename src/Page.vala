@@ -1048,14 +1048,12 @@ public abstract class Page : Gtk.ScrolledWindow {
                 double dx, dy;
                 bool vertical = false;
                 bool horizontal = false;
-                if (event.get_scroll_deltas (out dx, out dy)) {
+                if (event.get_scroll_deltas(out dx, out dy)) {
                     if (dx != 0) {
-                        horizontal = dx > 0 ? on_mousewheel_right (event)
-                                            : on_mousewheel_left (event);
+                        horizontal = dx > 0 ? on_mousewheel_right(event) : on_mousewheel_left(event);
                     }
                     if (dy != 0) {
-                        vertical = dy > 0 ? on_mousewheel_down (event)
-                                          : on_mousewheel_up (event);
+                        vertical = dy > 0 ? on_mousewheel_down(event) : on_mousewheel_up(event);
                     }
                     return horizontal || vertical;
                 }
