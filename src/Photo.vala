@@ -499,15 +499,7 @@ public abstract class Photo : PhotoSource, Dateable {
             }
         }
         
-        if (file != null) {
-            try {
-                ret = file.trash(null);
-            } catch (Error err) {
-                ret = false;
-                message("Unable to move editable %s for %s to trash: %s", file.get_path(), 
-                    to_string(), err.message);
-            }
-        }
+        delete_original_file();
         
         // Return false if parent method failed.
         return base.internal_delete_backing() && ret;
