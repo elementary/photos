@@ -52,6 +52,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         PIXBUF,
         CLOSED_PIXBUF,
         OPEN_PIXBUF,
+        PIXBUF_VISIBLE,
         N_COLUMNS
     }
     
@@ -61,7 +62,8 @@ public class Sidebar.Tree : Gtk.TreeView {
         typeof (EntryWrapper),      // WRAPPER
         typeof (Gdk.Pixbuf?),       // PIXBUF
         typeof (Gdk.Pixbuf?),       // CLOSED_PIXBUF
-        typeof (Gdk.Pixbuf?)        // OPEN_PIXBUF
+        typeof (Gdk.Pixbuf?),       // OPEN_PIXBUF
+        typeof (bool)               // PIXBUF_VISIBLE
     );
     
     private Gtk.UIManager ui = new Gtk.UIManager();
@@ -106,6 +108,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         text_column.add_attribute(icon_renderer, "pixbuf", Columns.PIXBUF);
         text_column.add_attribute(icon_renderer, "pixbuf_expander_closed", Columns.CLOSED_PIXBUF);
         text_column.add_attribute(icon_renderer, "pixbuf_expander_open", Columns.OPEN_PIXBUF);
+        text_column.add_attribute(icon_renderer, "visible", Columns.PIXBUF_VISIBLE);
         text_renderer = new Gtk.CellRendererText();
         text_renderer.editing_canceled.connect(on_editing_canceled);
         text_renderer.editing_started.connect(on_editing_started);
@@ -447,7 +450,6 @@ public class Sidebar.Tree : Gtk.TreeView {
         assert(!entry_map.has_key(entry));
         entry_map.set(entry, wrapper);
         
-        store.set(assoc_iter, Columns.NAME, guarded_markup_escape_text(entry.get_sidebar_name()));
         store.set(assoc_iter, Columns.TOOLTIP, guarded_markup_escape_text(entry.get_sidebar_tooltip()));
         store.set(assoc_iter, Columns.WRAPPER, wrapper);
         load_entry_icons(assoc_iter);
@@ -468,8 +470,18 @@ public class Sidebar.Tree : Gtk.TreeView {
         Sidebar.ExpandableEntry? expandable = entry as Sidebar.ExpandableEntry;
         if (expandable != null)
             expandable.sidebar_open_closed_icons_changed.connect(on_sidebar_open_closed_icons_changed);
+
+        string sidebar_name = guarded_markup_escape_text(entry.get_sidebar_name());
+        if (is_category_header(wrapper))
+            store.set(assoc_iter, Columns.NAME, "<b>%s</b>".printf(sidebar_name));
+        else
+            store.set(assoc_iter, Columns.NAME, sidebar_name);
         
         entry.grafted(this);
+    }
+
+    private static bool is_category_header(EntryWrapper wrapper) {
+        return (wrapper.entry is Sidebar.ExpandableEntry) && (wrapper.get_path().get_depth() == 1);
     }
     
     private EntryWrapper reparent_wrapper(Gtk.TreeIter new_iter, EntryWrapper current_wrapper) {
@@ -710,6 +722,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         assert(wrapper != null);
         
         store.set(wrapper.get_iter(), Columns.PIXBUF, fetch_icon_pixbuf(icon));
+        store.set(wrapper.get_iter(), Columns.PIXBUF_VISIBLE, !is_category_header(wrapper));
     }
     
     private void on_sidebar_page_created(Sidebar.PageRepresentative entry, Page page) {
@@ -727,6 +740,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         
         store.set(wrapper.get_iter(), Columns.OPEN_PIXBUF, fetch_icon_pixbuf(open));
         store.set(wrapper.get_iter(), Columns.CLOSED_PIXBUF, fetch_icon_pixbuf(closed));
+        store.set(wrapper.get_iter(), Columns.PIXBUF_VISIBLE, !is_category_header(wrapper));
     }
     
     private void on_sidebar_name_changed(Sidebar.RenameableEntry entry, string name) {
@@ -787,6 +801,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         store.set(iter, Columns.PIXBUF, fetch_icon_pixbuf(icon));
         store.set(iter, Columns.OPEN_PIXBUF, fetch_icon_pixbuf(open));
         store.set(iter, Columns.CLOSED_PIXBUF, fetch_icon_pixbuf(closed));
+        store.set(wrapper.get_iter(), Columns.PIXBUF_VISIBLE, !is_category_header(wrapper));
     }
     
     private void load_branch_icons(Gtk.TreeIter iter) {
