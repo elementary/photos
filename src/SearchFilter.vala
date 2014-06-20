@@ -327,7 +327,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
     private SearchFilterCriteria criteria = SearchFilterCriteria.ALL;
     private RatingFilter filter = RatingFilter.UNRATED_OR_HIGHER;
     private Gtk.SearchEntry search_entry;
-    private Gtk.MenuButton rating_button;
+    private Gtk.ComboBoxText rating_button;
     private SearchViewFilter? search_filter = null;
     private Gtk.Toolbar toolbar;
     private Gtk.Label label_type;
@@ -406,60 +406,19 @@ public class SearchFilterToolbar : Gtk.Revealer {
         label_rating_item.add (label_rating);
         toolbar.insert (label_rating_item, -1);
 
-        var rejected_only = new Gtk.RadioMenuItem.with_mnemonic (null, Resources.DISPLAY_REJECTED_ONLY_MENU);
-        rejected_only.tooltip_text = Resources.DISPLAY_REJECTED_ONLY_TOOLTIP;
-        rejected_only.toggled.connect (() => {apply_filter_if_true (rejected_only.active, RatingFilter.REJECTED_ONLY);});
-
-        var rejected_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_REJECTED_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_REJECTED_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.REJECTED_OR_HIGHER);
-
-        var unrated_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_UNRATED_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_UNRATED_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.UNRATED_OR_HIGHER, true);
-
-        var one_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_ONE_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_ONE_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.ONE_OR_HIGHER);
-
-        var two_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_TWO_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_TWO_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.TWO_OR_HIGHER);
-
-        var three_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_THREE_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_THREE_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.THREE_OR_HIGHER);
-
-        var four_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_FOUR_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_FOUR_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.FOUR_OR_HIGHER);
-
-        var five_or_higher = create_radio_from_widget (rejected_only,
-                                    Resources.DISPLAY_FIVE_OR_HIGHER_MENU,
-                                    Resources.DISPLAY_FIVE_OR_HIGHER_TOOLTIP,
-                                    RatingFilter.FIVE_OR_HIGHER);
-
-        var rating_menu = new Gtk.Menu ();
-        rating_menu.add (five_or_higher);
-        rating_menu.add (four_or_higher);
-        rating_menu.add (three_or_higher);
-        rating_menu.add (two_or_higher);
-        rating_menu.add (one_or_higher);
-        rating_menu.add (unrated_or_higher);
-        rating_menu.add (rejected_or_higher);
-        rating_menu.add (rejected_only);
-        rating_menu.show_all ();
-
-        rating_button = new Gtk.MenuButton ();
-        rating_button.popup = rating_menu;
-        rating_button.image = new Gtk.Image.from_gicon (get_filter_gicon (filter), Gtk.IconSize.BUTTON);
+        rating_button = new Gtk.ComboBoxText ();
+        rating_button.append_text (Resources.DISPLAY_REJECTED_ONLY_MENU);
+        rating_button.append_text (Resources.DISPLAY_REJECTED_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_UNRATED_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_ONE_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_TWO_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_THREE_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_FOUR_OR_HIGHER_MENU);
+        rating_button.append_text (Resources.DISPLAY_FIVE_OR_HIGHER_MENU);
         rating_button.tooltip_text = Resources.get_rating_filter_tooltip (filter);
+        rating_button.active = 2;
+        rating_button.changed.connect (() => {on_rating_changed ();});
+
         var rating_item = new Gtk.ToolItem ();
         rating_item.add (rating_button);
         toolbar.insert (rating_item, -1);
@@ -490,21 +449,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         toolbar.popup_context_menu.disconnect(on_context_menu_requested); 
     }
 
-    private Gtk.RadioMenuItem create_radio_from_widget (Gtk.RadioMenuItem? widget, string mnemonic, string tooltip, RatingFilter filter, bool active = false) {
-        var radio = new Gtk.RadioMenuItem.with_mnemonic_from_widget (widget, mnemonic);
-        radio.tooltip_text = tooltip;
-        radio.active = active;
-        radio.toggled.connect (() => {apply_filter_if_true (radio.active, filter);});
-        return radio;
-    }
-
-    private void apply_filter_if_true (bool apply, RatingFilter ratingfilter) {
-        if (apply == true) {
-            filter = ratingfilter;
-            on_rating_changed();
-        }
-    }
-
     // Ticket #3124 - user should be able to clear 
     // the search textbox by typing 'Esc'. 
     private bool on_escape_key(Gdk.EventKey e) { 
@@ -520,48 +464,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
     private bool on_context_menu_requested (int x, int y, int button) { 
         close_menu.popup (null, null, null, button, Gtk.get_current_event_time ()); 
         return false;
-    }
-
-    private Icon get_filter_gicon (RatingFilter filter) {
-        string filename = null;
-
-        switch (filter) {
-            case RatingFilter.ONE_OR_HIGHER:
-                filename = Resources.ICON_FILTER_ONE_OR_BETTER;
-            break;
-
-            case RatingFilter.TWO_OR_HIGHER:
-                filename = Resources.ICON_FILTER_TWO_OR_BETTER;
-            break;
-
-            case RatingFilter.THREE_OR_HIGHER:
-                filename = Resources.ICON_FILTER_THREE_OR_BETTER;
-            break;
-
-            case RatingFilter.FOUR_OR_HIGHER:
-                filename = Resources.ICON_FILTER_FOUR_OR_BETTER;
-            break;
-
-            case RatingFilter.FIVE_OR_HIGHER:
-                filename = Resources.ICON_FILTER_FIVE;
-            break;
-
-            case RatingFilter.REJECTED_OR_HIGHER:
-                filename = Resources.ICON_FILTER_REJECTED_OR_BETTER;
-            break;
-
-            case RatingFilter.REJECTED_ONLY:
-                filename = Resources.ICON_RATING_REJECTED;
-            break;
-
-            case RatingFilter.UNRATED_OR_HIGHER:
-            default:
-                filename = Resources.ICON_FILTER_UNRATED_OR_BETTER;
-            break;
-        }
-
-        File icons_dir = AppDirs.get_resources_dir().get_child("icons");
-        return new FileIcon (icons_dir.get_child (filename));
     }
 
     private void on_flagged_toggled() {
@@ -585,6 +487,32 @@ public class SearchFilterToolbar : Gtk.Revealer {
     }
 
     private void on_rating_changed() {
+        switch (rating_button.active) {
+            case 0:
+                filter = RatingFilter.REJECTED_ONLY;
+                break;
+            case 1:
+                filter = RatingFilter.REJECTED_OR_HIGHER;
+                break;
+            case 2:
+                filter = RatingFilter.UNRATED_OR_HIGHER;
+                break;
+            case 3:
+                filter = RatingFilter.ONE_OR_HIGHER;
+                break;
+            case 4:
+                filter = RatingFilter.TWO_OR_HIGHER;
+                break;
+            case 5:
+                filter = RatingFilter.THREE_OR_HIGHER;
+                break;
+            case 6:
+                filter = RatingFilter.FOUR_OR_HIGHER;
+                break;
+            case 7:
+                filter = RatingFilter.FIVE_OR_HIGHER;
+                break;
+        }
         update();
     }
 
@@ -610,29 +538,28 @@ public class SearchFilterToolbar : Gtk.Revealer {
             // Search bar isn't being shown, need to toggle it.
             LibraryWindow.get_app().show_search_bar (true);
         }
-        
+
         assert(null != search_filter);
-        
+
         search_filter.set_search_filter (search_entry.text);
         search_filter.flagged = toolbtn_flag.active;
         search_filter.show_media_video = toolbtn_videos.active;
         search_filter.show_media_photos = toolbtn_photos.active;
         search_filter.show_media_raw = toolbtn_raw.active;
-        
+
         search_filter.set_rating_filter (filter);
-        rating_button.image = new Gtk.Image.from_gicon (get_filter_gicon (filter), Gtk.IconSize.BUTTON);
         rating_button.tooltip_text = Resources.get_rating_filter_tooltip(filter);
-        
+
         // Ticket #3290, part III - check the current criteria
         // and show or hide widgets as needed.
         search_entry.visible = ((criteria & SearchFilterCriteria.TEXT) != 0);
 
         rating_button.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
         label_rating.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
-        
+
         label_flagged.visible = ((criteria & SearchFilterCriteria.FLAG) != 0);
         toolbtn_flag.visible = ((criteria & SearchFilterCriteria.FLAG) != 0);
-        
+
         label_type.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
         toolbtn_photos.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0); 
         toolbtn_videos.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
