@@ -48,7 +48,7 @@ public class SavedSearchDialog {
             set_type_combo_box(SearchCondition.SearchType.ANY_TEXT); // Sets default.
             type_combo.changed.connect(on_type_changed);
             
-            remove_button = new Gtk.Button.from_icon_name ("list-remove-symbolic", Gtk.IconSize.BUTTON);
+            remove_button = new Gtk.Button.from_icon_name("list-remove-symbolic", Gtk.IconSize.BUTTON);
             remove_button.button_press_event.connect(on_removed);
             
             align = new Gtk.Alignment(0,0,0,0);
@@ -499,8 +499,8 @@ public class SavedSearchDialog {
             context.set_active(0);
             context.changed.connect(on_changed);
             
-            datepicker_one = new Granite.Widgets.DatePicker ();
-            datepicker_two = new Granite.Widgets.DatePicker ();
+            datepicker_one = new Granite.Widgets.DatePicker();
+            datepicker_two = new Granite.Widgets.DatePicker();
             
             and = new Gtk.Label(_("and"));
             
@@ -511,7 +511,7 @@ public class SavedSearchDialog {
             box.pack_start(datepicker_two, false, false, 0);
             
             box.show_all();
-            update_datepickers ();
+            update_datepickers();
         }
         
         ~SearchRowRating() {
@@ -519,7 +519,7 @@ public class SavedSearchDialog {
         }
         
         private void update_datepickers() {
-            SearchConditionDate.Context c = (SearchConditionDate.Context) context.get_active();
+            SearchConditionDate.Context c = (SearchConditionDate.Context)context.get_active();
             
             // Only show "and" and 2nd date label for between mode.
             if (c == SearchConditionDate.Context.BETWEEN) {
@@ -563,7 +563,7 @@ public class SavedSearchDialog {
         }
         
         private void on_changed() {
-            parent.changed (parent);
+            parent.changed(parent);
             update_datepickers();
         }
     }
@@ -590,8 +590,8 @@ public class SavedSearchDialog {
         row_list.get(0).allow_removal(false);
         
         // Add buttons for new search.
-        dialog.add_action_widget(new Gtk.Button.with_label (_("Cancel")), Gtk.ResponseType.CANCEL);
-        Gtk.Button ok_button = new Gtk.Button.with_label (_("Add"));
+        dialog.add_action_widget(new Gtk.Button.with_label(_("Cancel")), Gtk.ResponseType.CANCEL);
+        Gtk.Button ok_button = new Gtk.Button.with_label(_("Add"));
         ok_button.can_default = true;
         dialog.add_action_widget(ok_button, Gtk.ResponseType.OK);
         dialog.set_default_response(Gtk.ResponseType.OK);
@@ -606,7 +606,7 @@ public class SavedSearchDialog {
         setup_dialog();
         
         // Add close button.
-        Gtk.Button close_button = new Gtk.Button.with_label (_("Save"));
+        Gtk.Button close_button = new Gtk.Button.with_label(_("Save"));
         close_button.can_default = true;
         dialog.add_action_widget(close_button, Gtk.ResponseType.OK);
         dialog.set_default_response(Gtk.ResponseType.OK);
@@ -631,65 +631,65 @@ public class SavedSearchDialog {
     }
 
     // Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show().
-    private void setup_dialog () {
-        dialog = new Gtk.Dialog ();
+    private void setup_dialog() {
+        dialog = new Gtk.Dialog();
         dialog.title = _("Search");
         dialog.modal = true;
-        dialog.transient_for= AppWindow.get_instance ();
-        dialog.response.connect (on_response);
+        dialog.transient_for= AppWindow.get_instance();
+        dialog.response.connect(on_response);
 
-        add_criteria = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
+        add_criteria = new Gtk.Button.from_icon_name("list-add-symbolic", Gtk.IconSize.BUTTON);
         add_criteria.button_press_event.connect (on_add_criteria);
 
-        var search_label = new Gtk.Label.with_mnemonic ("_Name of search:");
+        Gtk.Label search_label = new Gtk.Label.with_mnemonic("_Name of search:");
 
-        search_title = new Gtk.Entry ();
+        search_title = new Gtk.Entry();
         search_title.activates_default = true;
         search_title.hexpand = true;
-        search_title.changed.connect (on_title_changed);
+        search_title.changed.connect(on_title_changed);
 
-        var search_content_grid = new Gtk.Grid ();
+        Gtk.Grid search_content_grid = new Gtk.Grid();
         search_content_grid.orientation = Gtk.Orientation.HORIZONTAL;
         search_content_grid.column_spacing = 6;
-        search_content_grid.add (search_label);
-        search_content_grid.add (search_title);
+        search_content_grid.add(search_label);
+        search_content_grid.add(search_title);
 
-        var match_label = new Gtk.Label.with_mnemonic (_("_Match"));
-        var match2_label = new Gtk.Label.with_mnemonic (_("of the following:"));
+        Gtk.Label match_label = new Gtk.Label.with_mnemonic(_("_Match"));
+        Gtk.Label match2_label = new Gtk.Label.with_mnemonic(_("of the following:"));
         match2_label.hexpand = true;
         match2_label.xalign = 0;
 
-        row_box = new Gtk.Grid ();
+        row_box = new Gtk.Grid();
         row_box.orientation = Gtk.Orientation.VERTICAL;
         row_box.row_spacing = 12;
 
-        operator = new Gtk.ComboBoxText ();
-        operator.append_text (_("any"));
-        operator.append_text (_("all"));
-        operator.append_text (_("none"));
+        operator = new Gtk.ComboBoxText();
+        operator.append_text(_("any"));
+        operator.append_text(_("all"));
+        operator.append_text(_("none"));
         operator.active = 0;
 
-        var match_grid = new Gtk.Grid ();
+        Gtk.Grid match_grid = new Gtk.Grid();
         match_grid.orientation = Gtk.Orientation.HORIZONTAL;
         match_grid.column_spacing = 6;
-        match_grid.add (match_label);
-        match_grid.add (operator);
-        match_grid.add (match2_label);
-        match_grid.add (add_criteria);
+        match_grid.add(match_label);
+        match_grid.add(operator);
+        match_grid.add(match2_label);
+        match_grid.add(add_criteria);
 
-        var search_grid = new Gtk.Grid ();
+        Gtk.Grid search_grid = new Gtk.Grid();
         search_grid.orientation = Gtk.Orientation.VERTICAL;
         search_grid.margin = 12;
         search_grid.row_spacing = 12;
 
-        search_grid.add (search_content_grid);
-        search_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        search_grid.add (match_grid);
-        search_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        search_grid.add (row_box);
+        search_grid.add(search_content_grid);
+        search_grid.add(new Gtk.Separator(Gtk.Orientation.HORIZONTAL));
+        search_grid.add(match_grid);
+        search_grid.add(new Gtk.Separator(Gtk.Orientation.HORIZONTAL));
+        search_grid.add(row_box);
 
-        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
-        content.add (search_grid);
+        Gtk.Box content = dialog.get_content_area() as Gtk.Box;
+        content.add(search_grid);
     }
 
     // Displays the dialog.
