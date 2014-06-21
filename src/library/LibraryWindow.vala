@@ -190,14 +190,14 @@ public class LibraryWindow : AppWindow {
         
         // setup search bar and add its accelerators to the window
         search_toolbar = new SearchFilterToolbar();
-        search_toolbar.close.connect (() => {
+        search_toolbar.close.connect(() => {
             // Try to obtain the action for toggling the searchbar.  If
             // it's null, then we're probably in direct edit mode, and 
             // shouldn't do anything anyway.
-            var searchbar_toggle = get_common_action ("CommonDisplaySearchbar") as Gtk.ToggleAction;
+            Gtk.ToggleAction searchbar_toggle = get_common_action("CommonDisplaySearchbar") as Gtk.ToggleAction;
             
             // Could we find the appropriate action?
-            if(searchbar_toggle != null) {
+            if (searchbar_toggle != null) {
                 // Yes, hide the search bar.
                 searchbar_toggle.set_active(false);
             }
@@ -1430,7 +1430,7 @@ public class LibraryWindow : AppWindow {
     
     // Turns the search bar on or off.  Note that if show is true, page must not be null.
     private void toggle_search_bar(bool show, CheckerboardPage? page = null) {
-        search_toolbar.set_reveal_child (show);
+        search_toolbar.set_reveal_child(show);
         if (show) {
             assert(null != page);
             search_toolbar.set_view_filter(page.get_search_view_filter());
