@@ -633,7 +633,7 @@ public class SavedSearchDialog {
     // Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show().
     private void setup_dialog() {
         dialog = new Gtk.Dialog();
-        dialog.title = _("Search");
+        dialog.title = _("Smart Album");
         dialog.modal = true;
         dialog.transient_for= AppWindow.get_instance();
         dialog.response.connect(on_response);
@@ -641,7 +641,7 @@ public class SavedSearchDialog {
         add_criteria = new Gtk.Button.from_icon_name("list-add-symbolic", Gtk.IconSize.BUTTON);
         add_criteria.button_press_event.connect (on_add_criteria);
 
-        Gtk.Label search_label = new Gtk.Label.with_mnemonic("_Name of search:");
+        Gtk.Label search_label = new Gtk.Label("Name:");
 
         search_title = new Gtk.Entry();
         search_title.activates_default = true;
