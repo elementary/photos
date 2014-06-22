@@ -230,7 +230,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
     public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
     
-    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected _Only");
+    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
     
