@@ -126,7 +126,6 @@ public class LibraryWindow : AppWindow {
     // Want to instantiate this in the constructor rather than here because the search bar has its
     // own UIManager which will suck up the accelerators, and we want them to be associated with
     // AppWindows instead.
-    private SearchFilterActions search_actions = new SearchFilterActions();
     private SearchFilterToolbar search_toolbar;
     
     private Gtk.Box top_section = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
@@ -175,7 +174,19 @@ public class LibraryWindow : AppWindow {
             on_update_properties_now);
         
         // setup search bar and add its accelerators to the window
-        search_toolbar = new SearchFilterToolbar(search_actions);
+        search_toolbar = new SearchFilterToolbar();
+        search_toolbar.close.connect(() => {
+            // Try to obtain the action for toggling the searchbar.  If
+            // it's null, then we're probably in direct edit mode, and 
+            // shouldn't do anything anyway.
+            Gtk.ToggleAction searchbar_toggle = get_common_action("CommonDisplaySearchbar") as Gtk.ToggleAction;
+            
+            // Could we find the appropriate action?
+            if (searchbar_toggle != null) {
+                // Yes, hide the search bar.
+                searchbar_toggle.set_active(false);
+            }
+        });
         
         try {
             File ui_file = Resources.get_ui("top.ui");
@@ -424,7 +435,6 @@ public class LibraryWindow : AppWindow {
         }
         
         groups += common_action_group;
-        groups += search_actions.get_action_group();
         
         return groups;
     }
@@ -446,8 +456,6 @@ public class LibraryWindow : AppWindow {
             new_page.get_view().view_filter_installed.connect(on_view_filter_installed);
             new_page.get_view().view_filter_removed.connect(on_view_filter_removed);
         }
-        
-        search_actions.monitor_page_contents(old_page, new_page);
     }
     
     private void on_view_filter_installed(ViewFilter filter) {
@@ -753,18 +761,10 @@ public class LibraryWindow : AppWindow {
         Gtk.ToggleAction action = (Gtk.ToggleAction) get_current_page().get_common_action(
             "CommonDisplaySearchbar");
         action.active = true;
-        
-        // give it focus (which should move cursor to the text entry control)
-        search_toolbar.take_focus();
     }
     
     private void on_media_altered() {
         set_common_action_sensitive("CommonJumpToEvent", can_jump_to_event());
-    }
-    
-    private void on_clear_search() {
-        if (is_search_toolbar_visible)
-            search_actions.reset();
     }
     
     public int get_events_sort() {
@@ -823,8 +823,6 @@ public class LibraryWindow : AppWindow {
             
         is_search_toolbar_visible = display;
         toggle_search_bar(should_show_search_bar(), get_current_page() as CheckerboardPage);
-        if (!display)
-            search_actions.reset();
     }
     
     private void on_display_sidebar(Gtk.Action action) {
@@ -1409,7 +1407,7 @@ public class LibraryWindow : AppWindow {
     
     // Turns the search bar on or off.  Note that if show is true, page must not be null.
     private void toggle_search_bar(bool show, CheckerboardPage? page = null) {
-        search_toolbar.visible = show;
+        search_toolbar.set_reveal_child(show);
         if (show) {
             assert(null != page);
             search_toolbar.set_view_filter(page.get_search_view_filter());
@@ -1550,11 +1548,6 @@ public class LibraryWindow : AppWindow {
         
         if (base.key_press_event(event))
             return true;
-        
-        if (Gdk.keyval_name(event.keyval) == "Escape") {
-            on_clear_search();
-            return true;
-        }
         
         return false;
     }

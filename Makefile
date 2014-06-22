@@ -149,7 +149,6 @@ RESOURCE_FILES = \
 	photo.ui \
 	photo_context.ui \
 	savedsearch.ui \
-	search_bar.ui \
 	search_sidebar_context.ui \
 	set_background_dialog.glade \
 	shotwell.glade \
