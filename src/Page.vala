@@ -1297,6 +1297,7 @@ public abstract class CheckerboardPage : Page {
     }
     
     protected virtual string get_view_empty_message() {
+        (get_container() as LibraryWindow).toggle_welcome_page(true);
         return _("No photos/videos");
     }
 
@@ -1378,6 +1379,8 @@ public abstract class CheckerboardPage : Page {
     }
     
     private void update_view_filter_message() {
+        (get_container() as LibraryWindow).toggle_welcome_page(false);
+        
         if (get_view().are_items_filtered_out() && get_view().get_count() == 0) {
             set_page_message(get_filter_no_match_message());
         } else if (get_view().get_count() == 0) {

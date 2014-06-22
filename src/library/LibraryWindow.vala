@@ -105,6 +105,8 @@ public class LibraryWindow : AppWindow {
     private bool notify_library_is_home_dir = true;
     
     // Sidebar tree and roots (ordered by SidebarRootPosition)
+    private Granite.Widgets.Welcome welcome_page;
+    private Gtk.Frame right_frame;
     private Sidebar.Tree sidebar_tree;
     private Library.Branch library_branch = new Library.Branch();
     private Tags.Branch tags_branch = new Tags.Branch();
@@ -1291,7 +1293,7 @@ public class LibraryWindow : AppWindow {
 
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
-        Gtk.Frame right_frame = new Gtk.Frame(null);
+        right_frame = new Gtk.Frame(null);
         right_frame.set_shadow_type(Gtk.ShadowType.IN);
         
         right_vbox = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
@@ -1403,6 +1405,38 @@ public class LibraryWindow : AppWindow {
 
     private bool should_show_search_bar() {
         return (get_current_page() is CheckerboardPage) ? is_search_toolbar_visible : false;
+    }
+    
+    public void toggle_welcome_page(bool show) {
+        if (show == true && welcome_page == null) {
+        	var color = new Gdk.RGBA ();
+        	color.parse ("#F5F5F5");
+        	
+        	welcome_page = new Granite.Widgets.Welcome (_("Take Some Photos"), _("Add photos and videos to your library."));
+        	welcome_page.override_background_color (Gtk.StateFlags.NORMAL, color);
+        	welcome_page.append ("add", _("Import Photos or Videos"), _("Load photos and videos from a folder, network or external disk."));
+        	welcome_page.append ("folder-pictures", _("Change Library Folder"), _("Choose where to import photos and videos."));
+        	welcome_page.activated.connect ((index) => {
+        		switch (index) {
+        			case 0:
+        				on_file_import ();
+        				break;
+        			case 1:
+           				on_preferences ();
+        				break;
+        		}
+        	});
+        }
+        
+        right_frame.remove (welcome_page);
+        if (show) {
+            right_frame.remove (right_vbox);
+            right_frame.add (welcome_page);
+        } else {
+            right_frame.add (right_vbox);
+        }
+        
+        right_frame.show_all ();
     }
     
     // Turns the search bar on or off.  Note that if show is true, page must not be null.
