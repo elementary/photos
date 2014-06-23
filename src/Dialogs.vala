@@ -22,7 +22,7 @@ public bool confirm_delete_tag(Tag tag) {
 }
 
 public bool confirm_delete_saved_search(SavedSearch search) {
-    string msg = _("This will remove the saved search \"%s\".  Continue?")
+    string msg = _("This will remove the smart album \"%s\".  Continue?")
         .printf(search.get_name());
     
     return AppWindow.negate_affirm_question(msg, _("_Cancel"), _("_Delete"),
