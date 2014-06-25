@@ -1409,11 +1409,7 @@ public class LibraryWindow : AppWindow {
     
     public void toggle_welcome_page(bool show) {
         if (show == true && welcome_page == null) {
-        	var color = new Gdk.RGBA ();
-        	color.parse ("#F5F5F5");
-        	
         	welcome_page = new Granite.Widgets.Welcome (_("Add Some Photos"), "No photos were found in your library.");
-        	welcome_page.override_background_color (Gtk.StateFlags.NORMAL, color);
         	welcome_page.append ("document-import", _("Import Photos"), _("Copy photos from folder or external device."));
         	welcome_page.append ("folder-pictures", _("Change Library Folder"), _("Choose where to keep your photos."));
         	welcome_page.activated.connect ((index) => {
