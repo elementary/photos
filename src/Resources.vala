@@ -95,11 +95,15 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
-    public const string ICON_RATING_ONE = "one-star.svg";
-    public const string ICON_RATING_TWO = "two-stars.svg";
-    public const string ICON_RATING_THREE = "three-stars.svg";
-    public const string ICON_RATING_FOUR = "four-stars.svg";
-    public const string ICON_RATING_FIVE = "five-stars.svg";
+    public const string ICON_FILTER_REJECTED_OR_BETTER = "all-rejected.png";
+    public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
+    public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
+    public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
+    public const string ICON_FILTER_ONE_OR_BETTER = "one-star-filter-plus.svg";
+    public const string ICON_FILTER_TWO_OR_BETTER = "two-star-filter-plus.svg";
+    public const string ICON_FILTER_THREE_OR_BETTER = "three-star-filter-plus.svg";
+    public const string ICON_FILTER_FOUR_OR_BETTER = "four-star-filter-plus.svg";
+    public const string ICON_FILTER_FIVE = "five-star-filter.svg";
     public const string ICON_ZOOM_IN = "zoom-in-symbolic";
     public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
     public const int ICON_ZOOM_SCALE = 16;
@@ -511,26 +515,57 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
+    private struct RatingTrinket {
+        public int stars;
+        public int scale;
+        public Gdk.Pixbuf icon;
+    }
+
+    private static Gee.ArrayList<RatingTrinket?> rating_trinket_cache;
+
     private Gdk.Pixbuf? get_rating_trinket(Rating rating, int scale) {
-        switch (rating) {
-            case Rating.REJECTED:
-                return Resources.get_icon(Resources.ICON_RATING_REJECTED, scale);
-            // case Rating.UNRATED needs no icon
-            case Rating.ONE:
-                return Resources.get_icon(Resources.ICON_RATING_ONE, scale);
-            case Rating.TWO:
-                return Resources.get_icon(Resources.ICON_RATING_TWO, scale*2);
-            case Rating.THREE:
-                return Resources.get_icon(Resources.ICON_RATING_THREE, scale*3);
-            case Rating.FOUR:
-                return Resources.get_icon(Resources.ICON_RATING_FOUR, scale*4);
-            case Rating.FIVE:
-                return Resources.get_icon(Resources.ICON_RATING_FIVE, scale*5);
-            default:
-                return null;
+
+        int stars = rating.serialize();
+
+        if (stars <= 0 || stars > 5)
+            return null;
+
+        foreach(RatingTrinket trinket in rating_trinket_cache)
+            if (trinket.stars == stars && trinket.scale == scale)
+                return trinket.icon;
+
+        int width = scale*stars;
+        int height = scale;
+        
+        Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface(width, height);
+        Cairo.Context cr = surface.context;
+
+        cr.set_source_rgba(0,0,0,0.8);
+        cr.rectangle (0,0,width,height);
+        cr.paint();
+
+        Gtk.IconTheme icon_theme = get_icon_theme_engine();
+        Gdk.Pixbuf star;
+
+        try {
+            star = icon_theme.load_icon ("starred-symbolic", scale, Gtk.IconLookupFlags.FORCE_SIZE);
+        } catch(Error e) {
+            return null;
         }
+
+        for (int i=0; i<rating.serialize(); i++) {
+            Gdk.cairo_set_source_pixbuf (cr, star, i*scale, 0);
+            cr.paint();
+        }
+
+        RatingTrinket trinket = {stars, scale, surface.load_to_pixbuf()};
+        rating_trinket_cache.add(trinket);
+
+        return trinket.icon;
+
     }
     
+
     private void generate_rating_strings() {
         string menu_base = "%s";
         string label_base = _("Rate %s");
@@ -696,6 +731,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         factory.add_default();
 
         generate_rating_strings();
+
+        rating_trinket_cache = new Gee.ArrayList<RatingTrinket?>();
     }
     
     public void terminate() {

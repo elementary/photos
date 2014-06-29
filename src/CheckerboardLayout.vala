@@ -111,7 +111,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     public const int SHADOW_RADIUS = 4;
     public const float SHADOW_INITIAL_ALPHA = 0.5f;
     
-    public const int TRINKET_SCALE = 12;
+    public const int TRINKET_SCALE = 16;
     public const int TRINKET_PADDING = 1;
     
     public const int BRIGHTEN_SHIFT = 0x18;
