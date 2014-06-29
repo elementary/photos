@@ -231,7 +231,7 @@ public abstract class MediaPage : CheckerboardPage {
         base (page_name);
         
         tracker = new MediaViewTracker(get_view());
-        
+        init_page_context_menu("/MediaViewMenu");
         get_view().items_altered.connect(on_media_altered);
 
         get_view().freeze_notifications();
@@ -1209,17 +1209,17 @@ public abstract class MediaPage : CheckerboardPage {
     protected string get_sortby_path(int sort_by) {
         switch(sort_by) {
             case SortBy.TITLE:
-                return "/MenuBar/ViewMenu/SortPhotos/SortByTitle";
+                return "/MediaViewMenu/SortPhotos/SortByTitle";
             
             case SortBy.EXPOSURE_DATE:
-                return "/MenuBar/ViewMenu/SortPhotos/SortByExposureDate";
+                return "/MediaViewMenu/SortPhotos/SortByExposureDate";
             
             case SortBy.RATING:
-                return "/MenuBar/ViewMenu/SortPhotos/SortByRating";
+                return "/MediaViewMenu/SortPhotos/SortByRating";
             
             default:
                 debug("Unknown sort criteria: %d", sort_by);
-                return "/MenuBar/ViewMenu/SortPhotos/SortByTitle";
+                return "/MediaViewMenu/SortPhotos/SortByTitle";
         }
     }
 

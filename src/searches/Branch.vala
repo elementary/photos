@@ -42,14 +42,14 @@ public class Searches.Branch : Sidebar.Branch {
     }
     
     private void on_saved_search_added(SavedSearch search) {
-        debug("search added");
+        debug("smart album added");
         Searches.SidebarEntry entry = new Searches.SidebarEntry(search);
         entry_map.set(search, entry);
         graft(get_root(), entry);
     }
     
     private void on_saved_search_removed(SavedSearch search) {
-        debug("search removed");
+        debug("smart album removed");
         Searches.SidebarEntry? entry = entry_map.get(search);
         assert(entry != null);
         
@@ -65,7 +65,7 @@ public class Searches.Grouping : Sidebar.Grouping, Sidebar.Contextable {
     private Gtk.Menu? context_menu = null;
     
     public Grouping() {
-        base (_("Saved Searches"), new ThemedIcon(Gtk.Stock.FIND));
+        base (_("Smart Albums"), new ThemedIcon("playlist-automatic"));
         setup_context_menu();
     }
     
@@ -74,7 +74,7 @@ public class Searches.Grouping : Sidebar.Grouping, Sidebar.Contextable {
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
         
         Gtk.ActionEntry new_search = { "CommonNewSearch", null, TRANSLATABLE, null, null, on_new_search };
-        new_search.label = _("Ne_w Saved Search...");
+        new_search.label = _("New Smart Album…");
         actions += new_search;
         
         group.add_actions(actions, this);
@@ -113,7 +113,7 @@ public class Searches.SidebarEntry : Sidebar.SimplePageEntry, Sidebar.Renameable
     }
     
     internal static void init() {
-        single_search_icon = new ThemedIcon(Gtk.Stock.FIND);
+        single_search_icon = new ThemedIcon("playlist-automatic");
     }
     
     internal static void terminate() {

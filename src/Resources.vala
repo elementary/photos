@@ -234,15 +234,15 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
     public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
     
-    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected _Only");
+    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
     
-    public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + _Rejected");
+    public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + Rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_LABEL = _("Show all photos, including rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_TOOLTIP = _("Show all photos, including rejected");
     
-    public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("_All Photos");
+    public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("All Photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_LABEL = _("Show all photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_TOOLTIP = _("Show all photos");
 
@@ -366,9 +366,9 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         return _("Unable to rename search to \"%s\" because the search already exists.").printf(name);
     }
     
-    public const string DEFAULT_SAVED_SEARCH_NAME = _("Saved Search");
+    public const string DEFAULT_SAVED_SEARCH_NAME = _("Smart Album");
     
-    public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Search");
+    public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Album");
     
     public const string DELETE_SEARCH_MENU = _("_Delete");
     public const string EDIT_SEARCH_MENU = _("_Edit...");

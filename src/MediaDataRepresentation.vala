@@ -99,11 +99,11 @@ public abstract class MediaSource : ThumbnailSource, Indexable {
         File file = get_master_file();
         
         try {
-            ret = file.trash(null);
+            ret = file.delete(null);
         } catch (Error err) {
             // log error but don't abend, as this is not fatal to operation (also, could be
             // the photo is removed because it could not be found during a verify)
-            message("Unable to move original photo %s to trash: %s", file.get_path(), err.message);
+            message("Unable to delete original photo %s: %s", file.get_path(), err.message);
         }
         
         // remove empty directories corresponding to imported path, but only if file is located

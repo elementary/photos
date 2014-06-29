@@ -9,8 +9,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
     
-    private Gtk.Window toolbar_window = new Gtk.Window(Gtk.WindowType.POPUP);
-    private Gtk.ToolButton close_button = new Gtk.ToolButton.from_stock(Gtk.Stock.LEAVE_FULLSCREEN);
+    private Gtk.Window toolbar_window = new Gtk.Window(Gtk.WindowType.POPUP);  
     private Gtk.ToggleToolButton pin_button = new Gtk.ToggleToolButton.from_stock(Resources.PIN_TOOLBAR);
     private bool is_toolbar_shown = false;
     private bool waiting_for_invoke = false;
@@ -50,6 +49,8 @@ public class FullscreenWindow : PageWindow {
         pin_button.set_tooltip_text(_("Pin the toolbar open"));
         pin_button.clicked.connect(update_toolbar_dismissal);
         
+        Gtk.Image img = new Gtk.Image.from_icon_name("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        Gtk.ToolButton close_button = new Gtk.ToolButton(img, null);
         close_button.set_tooltip_text(_("Leave fullscreen"));
         close_button.clicked.connect(on_close);
         
@@ -507,21 +508,6 @@ public abstract class AppWindow : PageWindow {
         fullscreen.label = _("Fulls_creen");
         actions += fullscreen;
 
-        Gtk.ActionEntry help_contents = { "CommonHelpContents", Gtk.Stock.HELP,
-            TRANSLATABLE, "F1", TRANSLATABLE, on_help_contents };
-        help_contents.label = _("_Contents");
-        actions += help_contents;
-        
-        Gtk.ActionEntry help_faq = { "CommonHelpFAQ", null, TRANSLATABLE, null, 
-            TRANSLATABLE, on_help_faq };
-        help_faq.label = _("_Frequently Asked Questions");
-        actions += help_faq;
-        
-        Gtk.ActionEntry help_report_problem = { "CommonHelpReportProblem", null, TRANSLATABLE, null, 
-            TRANSLATABLE, on_help_report_problem };
-        help_report_problem.label = _("_Report a Problem...");
-        actions += help_report_problem;
-
         Gtk.ActionEntry undo = { "CommonUndo", Gtk.Stock.UNDO, TRANSLATABLE, "<Ctrl>Z",
             TRANSLATABLE, on_undo };
         undo.label = Resources.UNDO_MENU;
@@ -680,44 +666,9 @@ public abstract class AppWindow : PageWindow {
     public abstract string get_app_role();
 
     protected void on_about() {
-        Gtk.show_about_dialog(this,
-            "version", Resources.APP_VERSION,
-            "comments", get_app_role(),
-            "copyright", Resources.COPYRIGHT,
-            "website", Resources.YORBA_URL,
-            "license", Resources.LICENSE,
-            "website-label", _("Visit the Yorba web site"),
-            "authors", Resources.AUTHORS,
-            "logo", Resources.get_icon(Resources.ICON_ABOUT_LOGO, -1),
-            "translator-credits", _("translator-credits"),
-            null
-        );
+        Application.get_instance ().show_about (this);
     }
-
-    private void on_help_contents() {
-        try {
-            Resources.launch_help(get_screen());
-        } catch (Error err) {
-            error_message(_("Unable to display help: %s").printf(err.message));
-        }
-    }
-
-    private void on_help_report_problem() {
-        try {
-            show_uri(Resources.BUG_DB_URL);
-        } catch (Error err) {
-            error_message(_("Unable to navigate to bug database: %s").printf(err.message));
-        }
-    }
-    
-    private void on_help_faq() {
-        try {
-            show_uri(Resources.FAQ_URL);
-        } catch (Error err) {
-            error_message(_("Unable to display FAQ: %s").printf(err.message));
-        }
-    }
-    
+        
     protected virtual void on_quit() {
         Application.get_instance().exit();
     }

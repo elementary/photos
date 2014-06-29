@@ -174,7 +174,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         event_source.add_events(Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK
             | Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.POINTER_MOTION_HINT_MASK
             | Gdk.EventMask.BUTTON_MOTION_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK
-            | Gdk.EventMask.SCROLL_MASK);
+            | Gdk.EventMask.SCROLL_MASK | Gdk.EventMask.SMOOTH_SCROLL_MASK);
         event_source.button_press_event.connect(on_button_pressed_internal);
         event_source.button_release_event.connect(on_button_released_internal);
         event_source.motion_notify_event.connect(on_motion_internal);
@@ -224,6 +224,10 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
     
     public virtual Gtk.Menu? get_page_context_menu() {
+        return null;
+    }
+
+    public virtual Gtk.Menu? get_page_sidebar_menu() {
         return null;
     }
     
@@ -1039,7 +1043,21 @@ public abstract class Page : Gtk.ScrolledWindow {
 
             case Gdk.ScrollDirection.RIGHT:
                 return on_mousewheel_right(event);
-           
+
+            case Gdk.ScrollDirection.SMOOTH:
+                double dx, dy;
+                bool vertical = false;
+                bool horizontal = false;
+                if (event.get_scroll_deltas(out dx, out dy)) {
+                    if (dx != 0) {
+                        horizontal = dx > 0 ? on_mousewheel_right(event) : on_mousewheel_left(event);
+                    }
+                    if (dy != 0) {
+                        vertical = dy > 0 ? on_mousewheel_down(event) : on_mousewheel_up(event);
+                    }
+                    return horizontal || vertical;
+                }
+                return false;
             default:
                 return false;
         }
@@ -1170,6 +1188,7 @@ public abstract class CheckerboardPage : Page {
     private CheckerboardLayout layout;
     private string item_context_menu_path = null;
     private string page_context_menu_path = null;
+    private string page_sidebar_menu_path = null;
     private Gtk.Viewport viewport = new Gtk.Viewport(null, null);
     protected CheckerboardItem anchor = null;
     protected CheckerboardItem cursor = null;
@@ -1237,6 +1256,10 @@ public abstract class CheckerboardPage : Page {
         item_context_menu_path = path;
     }
 
+    public void init_page_sidebar_menu(string path) {
+        page_sidebar_menu_path = path;
+    }
+
     public void init_page_context_menu(string path) {
         page_context_menu_path = path;
     }
@@ -1260,7 +1283,15 @@ public abstract class CheckerboardPage : Page {
         assert(menu != null);
         return menu;
     }
-    
+
+    public override Gtk.Menu? get_page_sidebar_menu() {
+        if (page_sidebar_menu_path == null)
+            return null;
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget(page_sidebar_menu_path);
+        assert(menu != null);
+        return menu;
+    }
+
     protected override bool on_context_keypress() {
         return popup_context_menu(get_context_menu());
     }

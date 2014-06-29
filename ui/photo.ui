@@ -21,27 +21,6 @@
             <menuitem name="Preferences" action="CommonPreferences" />
         </menu>
         
-        <menu name="ViewMenu" action="ViewMenu">
-            <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-            <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
-            <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
-            <separator />
-            <menuitem name="ViewRatings" action="ViewRatings" />
-            <separator />
-            <menu name="SortEvents" action="CommonSortEvents">
-                <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
-                <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
-            </menu>
-            <separator />
-            <menuitem name="ZoomFit" action="ZoomFit" />
-            <menuitem name="Zoom100" action="Zoom100" />
-            <menuitem name="Zoom200" action="Zoom200" />
-            <separator />
-            <menuitem name="Fullscreen" action="CommonFullscreen" />
-            <separator />
-            <menuitem name="Slideshow" action="Slideshow" />
-        </menu>
-        
         <menu name="PhotoMenu" action="PhotoMenu">
             <menuitem name="FlipHorizontally" action="FlipHorizontally" />
             <menuitem name="FlipVertically" action="FlipVertically" />
@@ -53,10 +32,6 @@
         </menu>
 
         <menu name="HelpMenu" action="HelpMenu">
-            <menuitem name="Contents" action="CommonHelpContents" />
-            <menuitem name="Frequently Asked Questions" action="CommonHelpFAQ" />
-            <menuitem name="Report a Problem..." action="CommonHelpReportProblem" />
-            <separator />
             <menuitem name="About" action="CommonAbout" />
         </menu>
     </menubar>
@@ -66,6 +41,27 @@
             <menuitem name="ContextJumpToEvent" action="CommonJumpToEvent" />
             <menuitem name="ContextJumpToFile" action="CommonJumpToFile" />
         </placeholder>
+    </popup>
+
+    <popup name="PhotoViewMenu" action="ViewMenu">
+        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
+        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
+        <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <separator />
+        <menuitem name="ViewRatings" action="ViewRatings" />
+        <separator />
+        <menu name="SortEvents" action="CommonSortEvents">
+            <menuitem name="SortEventsAscending" action="CommonSortEventsAscending" />
+            <menuitem name="SortEventsDescending" action="CommonSortEventsDescending" />
+        </menu>
+        <separator />
+        <menuitem name="ZoomFit" action="ZoomFit" />
+        <menuitem name="Zoom100" action="Zoom100" />
+        <menuitem name="Zoom200" action="Zoom200" />
+        <separator />
+        <menuitem name="Fullscreen" action="CommonFullscreen" />
+        <separator />
+        <menuitem name="Slideshow" action="Slideshow" />
     </popup>
     
 </ui>

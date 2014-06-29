@@ -15,7 +15,7 @@ public class TagPage : CollectionPage {
         Tag.global.items_altered.connect(on_tags_altered);
         tag.mirror_sources(get_view(), create_thumbnail);
         
-        init_page_context_menu("/TagsContextMenu");
+        init_page_sidebar_menu("/TagsContextMenu");
     }
     
     ~TagPage() {
