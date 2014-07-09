@@ -96,15 +96,6 @@ public abstract class CollectionPage : MediaPage {
         
         return group;
     }
-
-    private static InjectionGroup create_photos_menu_edits_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/PhotosMenu/PhotosExtrasEditsPlaceholder");
-        
-        group.add_menu_item("CopyColorAdjustments");
-        group.add_menu_item("PasteColorAdjustments");
-        
-        return group;
-    }
   
     private static InjectionGroup create_photos_menu_date_injectables() {
         InjectionGroup group = new InjectionGroup("/MenuBar/PhotosMenu/PhotosExtrasDateTimePlaceholder");
@@ -229,7 +220,6 @@ public abstract class CollectionPage : MediaPage {
         groups += create_file_menu_injectables();
         groups += create_edit_menu_injectables();
         groups += create_view_menu_fullscreen_injectables();
-        groups += create_photos_menu_edits_injectables();
         groups += create_photos_menu_date_injectables();
         groups += create_photos_menu_externals_injectables();
         
