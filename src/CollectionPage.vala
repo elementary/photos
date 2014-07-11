@@ -18,7 +18,7 @@ public class CollectionViewManager : ViewManager {
 
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
-    
+	
     protected class CollectionSearchViewFilter : DefaultSearchViewFilter {
         public override uint get_criteria() {
             return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG | 
@@ -28,7 +28,7 @@ public abstract class CollectionPage : MediaPage {
     
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter();
-    
+    private Gtk.ToolButton show_sidebar_button;
     public CollectionPage(string page_name) {
         base (page_name);
         
@@ -63,10 +63,19 @@ public abstract class CollectionPage : MediaPage {
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly();
             connect_slider(zoom_slider_assembly);
             get_toolbar().insert(zoom_slider_assembly, -1);
+
+			//  show metadata sidebar button
+    		show_sidebar_button = new Gtk.ToolButton.from_stock (Resources.HIDE_PANE);
+    		show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
+    		show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+    		show_sidebar_button.clicked.connect (on_show_sidebar);
+    		show_sidebar_button.is_important = true;
+    		toolbar.insert (show_sidebar_button, -1);
         }
         
         return toolbar;
     }
+
     
     private static InjectionGroup create_file_menu_injectables() {
         InjectionGroup group = new InjectionGroup("/MenuBar/FileMenu/FileExtrasPlaceholder");
@@ -307,6 +316,7 @@ public abstract class CollectionPage : MediaPage {
                     : Resources.SET_BACKGROUND_SLIDESHOW_MENU;
             }
         }
+		toggle_sidebar_button_image ();
     }
 
     private void on_photos_altered(Gee.Map<DataObject, Alteration> altered) {
@@ -739,6 +749,23 @@ public abstract class CollectionPage : MediaPage {
     
     public override SearchViewFilter get_search_view_filter() {
         return search_filter;
+    }
+
+	private void on_show_sidebar () {
+		var app = AppWindow.get_instance () as LibraryWindow;
+		bool hide = false;
+		if (app.metadata_sidebar_visible ())
+				hide = true;
+		app.show_metadata_sidebar (hide);
+		toggle_sidebar_button_image ();
+    }
+
+	private void toggle_sidebar_button_image () {
+		var app = AppWindow.get_instance () as LibraryWindow;
+		if (app.metadata_sidebar_visible ())
+			show_sidebar_button.set_stock_id(Resources.HIDE_PANE);
+		else
+			show_sidebar_button.set_stock_id(Resources.SHOW_PANE);
     }
 }
 

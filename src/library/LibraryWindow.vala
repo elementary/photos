@@ -98,7 +98,10 @@ public class LibraryWindow : AppWindow {
     private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
     private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned();
     private Gtk.Frame bottom_frame = new Gtk.Frame(null);
-    
+    private Gtk.Paned metadata_sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
+    private Gtk.Paned right_client_paned = new Granite.Widgets.ThinPaned();
+	private Metadata metadata_sidebar = new Metadata();
+	
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup("LibraryWindowGlobalActionGroup");
     
     private OneShotScheduler properties_scheduler = null;
@@ -790,6 +793,7 @@ public class LibraryWindow : AppWindow {
         bool display = ((Gtk.ToggleAction) action).get_active();
 
         if (display) {
+			this.metadata_sidebar.basic_properties.update_properties(get_current_page());
             basic_properties.update_properties(get_current_page());
             bottom_frame.show();
         } else {
@@ -1276,6 +1280,7 @@ public class LibraryWindow : AppWindow {
         Resources.style_widget(scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
         Resources.style_widget(bottom_frame, Resources.INSET_FRAME_STYLESHEET);
         Resources.style_widget(sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
+        Resources.style_widget(metadata_sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
         
         bottom_alignment.set_padding(10, 10, 6, 0);
         bottom_alignment.add(basic_properties);
@@ -1290,6 +1295,8 @@ public class LibraryWindow : AppWindow {
         sidebar_paned.pack1(top_section, true, false);
         sidebar_paned.pack2(bottom_frame, false, false);
         sidebar_paned.set_position(1000);
+        
+        metadata_sidebar_paned.set_position(1000);
 
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
@@ -1301,10 +1308,16 @@ public class LibraryWindow : AppWindow {
         right_vbox.pack_start(search_toolbar, false, false, 0);
         right_vbox.pack_start(notebook, true, true, 0);
         
+        right_client_paned.pack1(right_frame, true, false);
+        right_client_paned.pack2(metadata_sidebar_paned, true, false);
+		
+        metadata_sidebar_paned.pack1(metadata_sidebar, true, false);
+		
         client_paned.pack1(sidebar_paned, false, false);
         sidebar_tree.set_size_request(SIDEBAR_MIN_WIDTH, -1);
-        client_paned.pack2(right_frame, true, false);
+        client_paned.pack2(right_client_paned, true, false);
         client_paned.set_position(Config.Facade.get_instance().get_sidebar_position());
+        right_client_paned.set_position(Config.Facade.get_instance().get_sidebar_position());
         // TODO: Calc according to layout's size, to give sidebar a maximum width
         notebook.set_size_request(PAGE_MIN_WIDTH, -1);
 
@@ -1527,7 +1540,11 @@ public class LibraryWindow : AppWindow {
     
     private void on_update_properties_now() {
         if (bottom_frame.visible)
-            basic_properties.update_properties(get_current_page());
+		{
+			basic_properties.update_properties(get_current_page());
+			metadata_sidebar.basic_properties.update_properties(get_current_page());
+		}
+            
 
         if (extended_properties.visible)
             extended_properties.update_properties(get_current_page());
@@ -1581,4 +1598,17 @@ public class LibraryWindow : AppWindow {
         
         return false;
     }
+    
+    public void show_metadata_sidebar (bool hide)
+    {
+		if (hide)
+			metadata_sidebar_paned.hide ();
+		else
+			metadata_sidebar_paned.show ();
+	}
+	
+	public bool metadata_sidebar_visible ()
+	{
+		return metadata_sidebar_paned.visible;
+	}
 }

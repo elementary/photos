@@ -203,7 +203,9 @@ ICON_FILES = \
 	filter-raw.png \
 	filter-photos.png \
 	filter-videos.png \
-	filter-flagged.png
+	filter-flagged.png\
+    pane-hide-symbolic.svg\
+    pane-show-symbolic.svg
 
 HELP_FILES = \
 	edit-adjustments.page \

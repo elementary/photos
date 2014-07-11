@@ -4,7 +4,7 @@
  * See the COPYING file in this distribution.
  */
 
-private abstract class Properties : Gtk.Grid {
+public abstract class Properties : Gtk.Grid {
     uint line_count = 0;
 
     public Properties() {
@@ -150,7 +150,7 @@ private abstract class Properties : Gtk.Grid {
     }
 }
 
-private class BasicProperties : Properties {
+public class BasicProperties : Properties {
     private string title;
     private time_t start_time = time_t();
     private time_t end_time = time_t();

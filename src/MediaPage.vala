@@ -117,7 +117,7 @@ public abstract class MediaPage : CheckerboardPage {
         
         public signal void zoom_changed();
 
-        public ZoomSliderAssembly() {
+        public ZoomSliderAssembly() { 
             Gtk.Box zoom_group = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
 
             Gtk.Image zoom_out = new Gtk.Image.from_icon_name(Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);

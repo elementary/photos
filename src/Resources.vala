@@ -81,6 +81,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string IMPORT = "shotwell-import";
     public const string IMPORT_ALL = "shotwell-import-all";
     public const string ENHANCE = "shotwell-auto-enhance";
+    public const string HIDE_PANE = "shotwell-hide-pane";
+    public const string SHOW_PANE = "shotwell-show-pane";
     public const string CROP_PIVOT_RETICLE = "shotwell-crop-pivot-reticle";
     public const string PUBLISH = "applications-internet";
     public const string MERGE = "shotwell-merge-events";
@@ -108,6 +110,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
     public const int ICON_ZOOM_SCALE = 16;
 
+    
     public const string ICON_CAMERAS = "camera-photo";
     public const string ICON_EVENTS = "office-calendar";
     public const string ICON_ONE_EVENT = "office-calendar";
@@ -257,6 +260,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
     public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo");
 
+    public const string TOGGLE_METAPANE_MENU = _("_Toggle metadata sidebar");
+    public const string TOGGLE_METAPANE_LABEL = _("Toggle metadata sidebar");
+    public const string TOGGLE_METAPANE_TOOLTIP = _("Toggles the left metadata sidebar");
+    
     public const string EXPORT_MENU = _("_Export...");
     
     public const string PRINT_MENU = _("_Print...");
@@ -712,6 +719,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         add_stock_icon(icons_dir.get_child("straighten.svg"), STRAIGHTEN);
         add_stock_icon(icons_dir.get_child("import-all.png"), IMPORT_ALL);
         add_stock_icon(icons_dir.get_child("enhance.png"), ENHANCE);
+        add_stock_icon(icons_dir.get_child("pane-hide-symbolic.svg"), HIDE_PANE);
+        add_stock_icon(icons_dir.get_child("pane-show-symbolic.svg"), SHOW_PANE);
         add_stock_icon(icons_dir.get_child("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
         add_stock_icon(icons_dir.get_child("merge.svg"), MERGE);
         add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FLAGGED_PAGE), ICON_FLAGGED_PAGE);
@@ -1124,4 +1133,183 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     
     public const string ONIMAGE_FONT_COLOR = "#000000";
     public const string ONIMAGE_FONT_BACKGROUND = "rgba(255,255,255,0.5)";
+    
+	public class Icons {
+
+	
+		public static Icon STARRED { get; private set; default = new Icon ("starred"); }
+		public static Icon NOT_STARRED { get; private set; default = new Icon ("non-starred"); }
+
+
+		/**
+		 * This is needed until vala really supports initialization of static members.
+		 * See https://bugzilla.gnome.org/show_bug.cgi?id=543189
+		 */
+		public static void init () {
+			new Icons (); // dummy instantiation to init static members
+		}
+
+		public static Gdk.Pixbuf? render_icon (string icon_name, Gtk.IconSize size, Gtk.StyleContext? context = null) {
+			return new Icon (icon_name).render (size, context);
+		}
+
+		public static Gtk.Image? render_image (string icon_name, Gtk.IconSize size) {
+			return new Icon (icon_name).render_image (size);
+		}
+	}
+ public class Icon : Object {   
+        private static Gtk.IconTheme? _theme;
+    public static Gtk.IconTheme theme {
+        get {
+            if (_theme == null) {
+                _theme = Gtk.IconTheme.get_default ();
+
+                // This only works if Build.ICON_DIR contains a sub-directory named "hicolor"
+                // containing all the fallback icons (possibly organized into sub-folders as well),
+                // or if the icons are immediate children of this directory.
+                File icons_dir = AppDirs.get_resources_dir().get_child("icons");
+                _theme.append_search_path (icons_dir.get_path());
+            }
+
+            return _theme;
+        }
+    }
+
+    /**
+     * The name of the icon, as passed to the constructor. If the icon points to an absolute
+     * file name, this will return null.
+     */
+    public string? name { get; private set; }
+
+    /**
+     * The absolute file name of the icon, as passed to the constructor. If the icon points to
+     * an icon name instead, this will return null.
+     */
+    public string? file_name { get; private set; }
+
+    /**
+     * The {@link GLib.Icon} representing the icon.
+     */
+    public GLib.Icon gicon { get; private set; }
+
+
+    /**
+     * Creates a new icon object.
+     *
+     * @param file_name A filename pointing to the icon file. If it is an absolute file name,
+     * the icon will be loaded from the file it points to; otherwise, it is assumed that the
+     * string only specifies the icon name (without filename extension), and it will be loaded from
+     * the available icon themes.
+     */
+    public Icon (string file_name) {
+        if (Path.is_absolute (file_name)) {
+            this.file_name = file_name;
+            gicon = new FileIcon (File.new_for_path (this.file_name));
+        } else {
+            this.name = file_name;
+            gicon = new ThemedIcon (this.name); // no need for ugly generic fallbacks
+        }
+    }
+
+
+    public Gtk.IconInfo? get_icon_info (int size) {
+        return theme.lookup_by_gicon (gicon, size, Gtk.IconLookupFlags.USE_BUILTIN);
+    }
+
+    /**
+     * Returns a file representing the icon in the filesystem. If this icon represents a
+     * file, it returns a file at a location equivalent to {@link Noise.Icon.file_name}.
+     * Otherwise, a file pointing to the image in the icon theme is returned.
+     *
+     * @param size Icon size to query.
+     * @return A {@link GLib.File} representing the icon, or //null// if none is found.
+     */
+    public File? get_file (int size = 16) {
+        if (gicon is FileIcon)
+            return (gicon as FileIcon).file;
+
+        var info = get_icon_info (size);
+        return info != null ? File.new_for_path (info.get_filename ()) : null;
+    }
+
+    /**
+     * Creates a new {@link Gdk.Pixbuf} from the icon at the specified icon size.
+     *
+     * @param size The pixbuf's icon size.
+     * @param style_context The style context used to render the icon, or null to use none.
+     * @return a newly-created Gdk.Pixbuf displaying the icon (or a "missing-image" icon)
+     * @see Noise.Icon.render_at_size
+     */
+    public Gdk.Pixbuf? render (Gtk.IconSize size, Gtk.StyleContext? style_context = null) {
+        int width, height;
+        Gtk.icon_size_lookup (size, out width, out height);
+        return render_at_size (int.max (width, height), style_context);
+    }
+
+
+    /**
+     * Creates a new {@link Gdk.Pixbuf} from the icon at the specified pixel size.
+     *
+     * @param pixel_size The pixbuf's pixel size.
+     * @param style_context The style context used to render the icon, or null to use none.
+     * @return a newly-created Gdk.Pixbuf displaying the icon (or a "missing-image" icon)
+     * @see Noise.Icon.render
+     */
+    public Gdk.Pixbuf? render_at_size (int pixel_size, Gtk.StyleContext? style_context = null) {
+        Gdk.Pixbuf? rv = null;
+
+        try {
+            var icon_info = get_icon_info (pixel_size);
+
+            if (icon_info != null) {
+                if (style_context != null)
+                    rv = icon_info.load_symbolic_for_context (style_context);
+                else
+                    rv = icon_info.load_icon ();
+            }
+
+            // If we failed at loading the icon, try to load the default "missing-image"
+            if (rv == null) {
+                warning ("Icon not found: %s", file_name ?? name);
+                rv = theme.load_icon ("image-missing", pixel_size,
+                                      Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            }
+        } catch (Error err) {
+            warning ("Could not load icon [%s]: %s", file_name ?? name, err.message);
+        }
+
+        return rv;
+    }
+
+
+    /**
+     * Creates a new {@link Gtk.Image} displaying the icon at the specified size.
+     *
+     * @param size The image's icon size.
+     * @return a newly-created Gtk.Image.
+     * @see Noise.Icon.render_image_at_size
+     */
+    public Gtk.Image render_image (Gtk.IconSize size) {
+        Gtk.Image image;
+        if (name != null)
+            image = new Gtk.Image.from_icon_name (name, size);
+        else
+            image = new Gtk.Image.from_gicon (gicon, size);
+        return image;
+    }
+
+
+    /**
+     * Creates a new {@link Gtk.Image} displaying the icon at the specified pixel size.
+     *
+     * @param pixel_size The image's pixel size.
+     * @return a newly-created Gtk.Image.
+     * @see Noise.Icon.render_image
+     */
+    public Gtk.Image render_image_at_size (int pixel_size) {
+        var rv = render_image (Gtk.IconSize.MENU);
+        rv.set_pixel_size (pixel_size);
+        return rv;
+    }
+}
 }
