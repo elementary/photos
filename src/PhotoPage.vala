@@ -3069,7 +3069,7 @@ public class LibraryPhotoPage : EditingHostPage {
         Gee.Collection<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto>();
         photos.add(photo);
         
-        remove_from_app(photos, _("Remove From Library"), _("Removing Photo From Library"));
+        remove_from_app(photos, _("Remove From Library"), _("Removing Photo From Library"), false);
     }
     
     private void on_move_to_trash() {        
