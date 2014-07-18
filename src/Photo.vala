@@ -3651,9 +3651,7 @@ public abstract class Photo : PhotoSource, Dateable {
         return generate_unique_file(backing.get_parent(), editable_basename, out collision);
     }
     
-    private static bool launch_editor(File file, PhotoFileFormat file_format) throws Error {
-        string commandline = file_format == PhotoFileFormat.RAW ? Config.Facade.get_instance().get_external_raw_app() : 
-            Config.Facade.get_instance().get_external_photo_app();
+    private static bool launch_editor(File file, PhotoFileFormat file_format, string commandline) throws Error {
 
         if (is_string_empty(commandline))
             return false;
@@ -3688,12 +3686,14 @@ public abstract class Photo : PhotoSource, Dateable {
     }
     
     // Opens with Ufraw, etc.
-    public void open_with_raw_external_editor() throws Error {
-        launch_editor(get_master_file(), get_master_file_format());
+    public void open_with_raw_external_editor(string external_editor) throws Error {
+		//store last used
+		Config.Facade.get_instance().set_external_raw_app(external_editor);
+        launch_editor(get_master_file(), get_master_file_format(), external_editor);
     }
     
     // Opens with GIMP, etc.
-    public void open_with_external_editor() throws Error {
+    public void open_with_external_editor(string external_editor) throws Error {
         File current_editable_file = null;
         File create_editable_file = null;
         PhotoFileFormat editable_file_format;
@@ -3744,8 +3744,10 @@ public abstract class Photo : PhotoSource, Dateable {
         // if not already monitoring, monitor now
         if (editable_monitor == null)
             start_monitoring_editable(current_editable_file);
-        
-        launch_editor(current_editable_file, get_file_format());
+            
+        //store last used
+		Config.Facade.get_instance().set_external_photo_app(external_editor);
+        launch_editor(current_editable_file, get_file_format(), external_editor);
     }
     
     public void revert_to_master(bool notify = true) {

@@ -32,8 +32,10 @@
         <separator />
         <menuitem name="ContextEditTitle" action="EditTitle" />
         <menuitem name="ContextEditComment" action="EditComment" />
-        <menuitem name="ContextExternalEdit" action="ExternalEdit" />
-        <menuitem name="ContextExternalEditRAW" action="ExternalEditRAW" />
+        <menu name="OpenWith" action="OpenWith">
+        </menu>
+        <menu name="OpenWithRaw" action="OpenWithRaw">
+        </menu>
         <separator />
         <menuitem name="NewEvent" action="NewEvent" />
         <menuitem name="ContextJumpToEvent" action="CommonJumpToEvent" />

@@ -2196,10 +2196,6 @@ public class PreferencesDialog {
     private Gtk.Builder builder;
     private Gtk.Adjustment bg_color_adjustment;
     private Gtk.Scale bg_color_slider;
-    private Gtk.ComboBox photo_editor_combo;
-    private Gtk.ComboBox raw_editor_combo;
-    private SortedList<AppInfo> external_raw_apps;
-    private SortedList<AppInfo> external_photo_apps;
     private Gtk.FileChooserButton library_dir_button;
     private Gtk.ComboBoxText dir_pattern_combo;
     private Gtk.Entry dir_pattern_entry;
@@ -2231,7 +2227,6 @@ public class PreferencesDialog {
         Gtk.Stack container = new Gtk.Stack ();
         container.expand = true;
         container.add_titled (builder.get_object("preferences_library") as Gtk.Box, "library", _("Library"));
-        container.add_titled (builder.get_object("preferences_external") as Gtk.Box, "external", _("External"));
         container.add_titled (builder.get_object("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
         
         Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
@@ -2265,9 +2260,7 @@ public class PreferencesDialog {
         library_dir_button = builder.get_object("library_dir_button") as Gtk.FileChooserButton;
         
         close_button = builder.get_object("close_button") as Gtk.Button;
-        
-        photo_editor_combo = builder.get_object("external_photo_editor_combo") as Gtk.ComboBox;
-        raw_editor_combo = builder.get_object("external_raw_editor_combo") as Gtk.ComboBox;
+     
         
         Gtk.Label pattern_help = builder.get_object("pattern_help") as Gtk.Label;
 
@@ -2314,8 +2307,6 @@ public class PreferencesDialog {
         
         populate_preference_options();
 
-        photo_editor_combo.changed.connect(on_photo_editor_changed);
-        raw_editor_combo.changed.connect(on_raw_editor_changed);
         
         Gtk.CheckButton auto_import_button = builder.get_object("autoimport") as Gtk.CheckButton;
         auto_import_button.set_active(Config.Facade.get_instance().get_auto_import_from_library());
@@ -2331,11 +2322,6 @@ public class PreferencesDialog {
     }
     
     public void populate_preference_options() {
-        populate_app_combo_box(photo_editor_combo, PhotoFileFormat.get_editable_mime_types(), 
-            Config.Facade.get_instance().get_external_photo_app(), out external_photo_apps);
-
-        populate_app_combo_box(raw_editor_combo, PhotoFileFormat.RAW.get_mime_types(), 
-            Config.Facade.get_instance().get_external_raw_app(), out external_raw_apps);
         
         setup_dir_pattern(dir_pattern_combo, dir_pattern_entry);
         
@@ -2351,64 +2337,6 @@ public class PreferencesDialog {
             message("Unable to launch help: %s", e.message);
         }
         return true;
-    }
-    
-    private void populate_app_combo_box(Gtk.ComboBox combo_box, string[] mime_types,
-        string current_app_executable, out SortedList<AppInfo> external_apps) {
-        // get list of all applications for the given mime types
-        assert(mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types(mime_types);
-        
-        if (external_apps.size == 0)
-            return;
-        
-        // populate application ComboBox with app names and icons
-        Gtk.CellRendererPixbuf pixbuf_renderer = new Gtk.CellRendererPixbuf();
-        Gtk.CellRendererText text_renderer = new Gtk.CellRendererText();
-        combo_box.clear();
-        combo_box.pack_start(pixbuf_renderer, false);
-        combo_box.pack_start(text_renderer, false);
-        combo_box.add_attribute(pixbuf_renderer, "pixbuf", 0);
-        combo_box.add_attribute(text_renderer, "text", 1);
-        
-        // TODO: need more space between icons and text
-        Gtk.ListStore combo_store = new Gtk.ListStore(2, typeof(Gdk.Pixbuf), typeof(string));
-        Gtk.TreeIter iter;
-        
-        int current_app = -1;
-        
-        foreach (AppInfo app in external_apps) {
-            combo_store.append(out iter);
-
-            Icon app_icon = app.get_icon();
-            try {
-                if (app_icon is FileIcon) {
-                    combo_store.set_value(iter, 0, scale_pixbuf(new Gdk.Pixbuf.from_file(
-                        ((FileIcon) app_icon).get_file().get_path()), Resources.DEFAULT_ICON_SCALE,
-                        Gdk.InterpType.BILINEAR, false));
-                } else if (app_icon is ThemedIcon) {
-                    Gdk.Pixbuf icon_pixbuf = 
-                        Gtk.IconTheme.get_default().load_icon(((ThemedIcon) app_icon).get_names()[0],
-                        Resources.DEFAULT_ICON_SCALE, Gtk.IconLookupFlags.FORCE_SIZE);
-                    
-                    combo_store.set_value(iter, 0, icon_pixbuf);
-                }
-            } catch (GLib.Error error) {
-                warning("Error loading icon pixbuf: " + error.message);
-            }
-
-            combo_store.set_value(iter, 1, app.get_name());
-            
-            if (app.get_commandline() == current_app_executable)
-                current_app = external_apps.index_of(app);
-        }
-        
-        // TODO: allow users to choose unlisted applications like Nautilus's "Open with -> Other Application..."
-
-        combo_box.set_model(combo_store);
-
-        if (current_app != -1)
-            combo_box.set_active(current_app);
     }
     
     private void setup_dir_pattern(Gtk.ComboBox combo_box, Gtk.Entry entry) {
@@ -2570,28 +2498,6 @@ public class PreferencesDialog {
         color.alpha = 1.0;
         
         return color;
-    }
-    
-    private void on_photo_editor_changed() {
-        int photo_app_choice_index = (photo_editor_combo.get_active() < external_photo_apps.size) ? 
-            photo_editor_combo.get_active() : external_photo_apps.size;
-            
-        AppInfo app = external_photo_apps.get_at(photo_app_choice_index);
-
-        Config.Facade.get_instance().set_external_photo_app(DesktopIntegration.get_app_open_command(app));
-
-        debug("setting external photo editor to: %s", DesktopIntegration.get_app_open_command(app));
-    }
-    
-    private void on_raw_editor_changed() {
-        int raw_app_choice_index = (raw_editor_combo.get_active() < external_raw_apps.size) ? 
-            raw_editor_combo.get_active() : external_raw_apps.size;
-        
-        AppInfo app = external_raw_apps.get_at(raw_app_choice_index);
-        
-        Config.Facade.get_instance().set_external_raw_app(app.get_commandline());
-        
-        debug("setting external raw editor to: %s", app.get_commandline());
     }
     
     private RawDeveloper raw_developer_from_combo() {
