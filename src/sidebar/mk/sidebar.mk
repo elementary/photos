@@ -15,7 +15,6 @@ UNIT_FILES := \
 	Entry.vala \
 	Tree.vala \
 	common.vala \
-	RatingWidget.vala \
 	Metadata.vala 
 	
 

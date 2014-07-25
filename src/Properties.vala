@@ -5,7 +5,7 @@
  */
 
 public abstract class Properties : Gtk.Grid {
-    uint line_count = 0;
+    protected uint line_count = 0;
 
     public Properties() {
         row_spacing = 0;
@@ -148,10 +148,12 @@ public abstract class Properties : Gtk.Grid {
                 ((Gtk.Label) child).select_region(0, 0);
         }
     }
+
+    public abstract string get_header_title();
 }
 
 public class BasicProperties : Properties {
-    private string title;
+    protected string title;
     private time_t start_time = time_t();
     private time_t end_time = time_t();
     private Dimensions dimensions;
@@ -166,6 +168,10 @@ public class BasicProperties : Properties {
     private string raw_assoc;
 
     public BasicProperties() {
+    }
+
+    public override string get_header_title() {
+        return Resources.BASIC_PROPERTIES_LABEL;
     }
 
     protected override void clear_properties() {
@@ -335,9 +341,6 @@ public class BasicProperties : Properties {
         // display the title if a Tag page
         if (title == "" && page is TagPage)
             title = ((TagPage) page).get_tag().get_user_visible_name();
-            
-        if (title != "")
-            add_line(_("Title:"), guarded_markup_escape_text(title));
 
         if (photo_count >= 0 || video_count >= 0) {
             string label = _("Items:");
@@ -451,12 +454,7 @@ public class BasicProperties : Properties {
     }
 }
 
-private class ExtendedPropertiesWindow : Gtk.Dialog {
-    private ExtendedProperties properties = null;
-    private const int FRAME_BORDER = 6;
-    private Gtk.Button close_button;
-
-    private class ExtendedProperties : Properties {
+private class ExtendedProperties : Properties {
         private const string NO_VALUE = "";
         // Photo stuff
         private string file_path;
@@ -486,7 +484,12 @@ private class ExtendedPropertiesWindow : Gtk.Dialog {
         
         // common stuff
         private string comment;
-            
+
+        public override string get_header_title()
+        {
+            return Resources.EXTENDED_PROPERTIES_LABEL;
+        } 
+
         protected override void clear_properties() {
             base.clear_properties();
 
@@ -589,9 +592,9 @@ private class ExtendedPropertiesWindow : Gtk.Dialog {
                     format_size((int64) filesize) : NO_VALUE);
 
                 if (is_raw)
-                    add_line(_("Current Development:"), development_path);
+                    add_line(_("Developer:"), development_path);
 
-                add_line(_("Original dimensions:"), (original_dim != null && original_dim.has_area()) ?
+                add_line(_("Original size:"), (original_dim != null && original_dim.has_area()) ?
                     "%d &#215; %d".printf(original_dim.width, original_dim.height) : NO_VALUE);
 
                 add_line(_("Camera make:"), (camera_make != "" && camera_make != null) ?
@@ -631,70 +634,3 @@ private class ExtendedPropertiesWindow : Gtk.Dialog {
         }
     }
 
-    public ExtendedPropertiesWindow(Gtk.Window owner) {
-        add_events(Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
-        focus_on_map = true;
-        set_accept_focus(true);
-        set_can_focus(true);
-        set_title(_("Extended Information"));
-        set_size_request(300,-1);
-        set_default_size(520, -1);
-        set_position(Gtk.WindowPosition.CENTER);
-        set_transient_for(owner);
-        set_type_hint(Gdk.WindowTypeHint.DIALOG);
-
-        delete_event.connect(hide_on_delete);
-
-        properties = new ExtendedProperties();
-        Gtk.Alignment alignment = new Gtk.Alignment(0.5f,0.5f,1,1);
-        alignment.add(properties);
-        alignment.set_padding(4, 4, 4, 4);
-        ((Gtk.Box) get_content_area()).add(alignment);
-        close_button = new Gtk.Button.from_stock(Gtk.Stock.CLOSE);
-        close_button.clicked.connect(on_close_clicked);
-    
-        Gtk.Alignment action_alignment = new Gtk.Alignment(1, 0.5f, 1, 1);
-        action_alignment.add(close_button);
-        ((Gtk.Container) get_action_area()).add(action_alignment);
-        
-        set_has_resize_grip(false);
-    }
-
-    ~ExtendedPropertiesWindow() {
-        close_button.clicked.disconnect(on_close_clicked);
-    }
-
-    public override bool button_press_event(Gdk.EventButton event) {
-        // LMB only
-        if (event.button != 1)
-            return (base.button_press_event != null) ? base.button_press_event(event) : true;
-
-        begin_move_drag((int) event.button, (int) event.x_root, (int) event.y_root, event.time);
-
-        return true;
-    }
-
-    private void on_close_clicked() {
-        hide();
-    }
-
-    public override bool key_press_event(Gdk.EventKey event) {
-        // hide properties
-        if (Gdk.keyval_name(event.keyval) == "Escape") {
-            hide();
-            return true;
-        }
-        // or send through to AppWindow
-        return AppWindow.get_instance().key_press_event(event);
-    }
-
-    public void update_properties(Page page) {
-        properties.update_properties(page);
-    }
-    
-    public override void show_all() {
-        base.show_all();
-        properties.unselect_text();
-        grab_focus();
-    }
-}

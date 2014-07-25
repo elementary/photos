@@ -26,7 +26,7 @@ namespace Resources {
 
     public const string COPYRIGHT = _("Copyright 2009-2013 Yorba Foundation");
     public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
-    
+
     public const string YORBA_URL = "http://www.yorba.org";
     public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/Shotwell";
     public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
@@ -40,11 +40,11 @@ namespace Resources {
     public const string PREFIX = _PREFIX;
 
     public const double TRANSIENT_WINDOW_OPACITY = 0.90;
-    
+
     public const int DEFAULT_ICON_SCALE = 24;
-   
-    public const string[] AUTHORS = { 
-        "Jim Nelson <jim@yorba.org>", 
+
+    public const string[] AUTHORS = {
+        "Jim Nelson <jim@yorba.org>",
         "Lucas Beeler <lucas@yorba.org>",
         "Allison Barlow <allison@yorba.org>",
         "Eric Gregory <eric@yorba.org>",
@@ -53,18 +53,18 @@ namespace Resources {
     };
 
     public const string LICENSE = """
-Shotwell is free software; you can redistribute it and/or modify it under the 
-terms of the GNU Lesser General Public License as published by the Free 
-Software Foundation; either version 2.1 of the License, or (at your option) 
+Shotwell is free software; you can redistribute it and/or modify it under the
+terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option)
 any later version.
 
-Shotwell is distributed in the hope that it will be useful, but WITHOUT 
+Shotwell is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for 
+FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
 more details.
 
-You should have received a copy of the GNU Lesser General Public License 
-along with Shotwell; if not, write to the Free Software Foundation, Inc., 
+You should have received a copy of the GNU Lesser General Public License
+along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 """;
 
@@ -90,9 +90,9 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ICON_APP = "multimedia-photo-manager";
     public const string ICON_APP16 = "multimedia-photo-manager";
     public const string ICON_APP24 = "multimedia-photo-manager";
-    
+
     public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
-    
+
     public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
@@ -110,7 +110,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
     public const int ICON_ZOOM_SCALE = 16;
 
-    
+
     public const string ICON_CAMERAS = "camera-photo";
     public const string ICON_EVENTS = "office-calendar";
     public const string ICON_ONE_EVENT = "office-calendar";
@@ -143,74 +143,74 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ROTATE_CW_LABEL = _("Rotate");
     public const string ROTATE_CW_FULL_LABEL = _("Rotate Right");
     public const string ROTATE_CW_TOOLTIP = _("Rotate the photos right (press Ctrl to rotate left)");
-    
+
     public const string ROTATE_CCW_MENU = _("Rotate _Left");
     public const string ROTATE_CCW_LABEL = _("Rotate");
     public const string ROTATE_CCW_FULL_LABEL = _("Rotate Left");
     public const string ROTATE_CCW_TOOLTIP = _("Rotate the photos left");
-    
+
     public const string HFLIP_MENU = _("Flip Hori_zontally");
     public const string HFLIP_LABEL = _("Flip Horizontally");
-    
+
     public const string VFLIP_MENU = _("Flip Verti_cally");
     public const string VFLIP_LABEL = _("Flip Vertically");
-    
+
     public const string ENHANCE_MENU = _("_Enhance");
     public const string ENHANCE_LABEL = _("Enhance");
     public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance");
-    
+
     public const string COPY_ADJUSTMENTS_MENU = _("_Copy Color Adjustments");
     public const string COPY_ADJUSTMENTS_LABEL = _("Copy Color Adjustments");
     public const string COPY_ADJUSTMENTS_TOOLTIP = _("Copy the color adjustments applied to the photo");
-    
+
     public const string PASTE_ADJUSTMENTS_MENU = _("_Paste Color Adjustments");
     public const string PASTE_ADJUSTMENTS_LABEL = _("Paste Color Adjustments");
     public const string PASTE_ADJUSTMENTS_TOOLTIP = _("Apply copied color adjustments to the selected photos");
-    
+
     public const string CROP_MENU = _("_Crop");
     public const string CROP_LABEL = _("Crop");
     public const string CROP_TOOLTIP = _("Crop the photo's size");
 
     public const string STRAIGHTEN_MENU = _("_Straighten");
-    public const string STRAIGHTEN_LABEL = _("Straighten");    
-    public const string STRAIGHTEN_TOOLTIP = _("Straighten the photo");    
-    
+    public const string STRAIGHTEN_LABEL = _("Straighten");
+    public const string STRAIGHTEN_TOOLTIP = _("Straighten the photo");
+
     public const string RED_EYE_MENU = _("_Red-eye");
     public const string RED_EYE_LABEL = _("Red-eye");
     public const string RED_EYE_TOOLTIP = _("Reduce or eliminate any red-eye effects in the photo");
-    
+
     public const string ADJUST_MENU = _("_Adjust");
     public const string ADJUST_LABEL = _("Adjust");
     public const string ADJUST_TOOLTIP = _("Adjust the photo's color and tone");
-    
+
     public const string REVERT_MENU = _("Re_vert to Original");
     public const string REVERT_LABEL = _("Revert to Original");
-    
+
     public const string REVERT_EDITABLE_MENU = _("Revert External E_dits");
     public const string REVERT_EDITABLE_TOOLTIP = _("Revert to the master photo");
-    
+
     public const string SET_BACKGROUND_MENU = _("Set as _Desktop Background");
     public const string SET_BACKGROUND_TOOLTIP = _("Set selected image to be the new desktop background");
     public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow...");
-    
+
     public const string UNDO_MENU = _("_Undo");
     public const string UNDO_LABEL = _("Undo");
-    
+
     public const string REDO_MENU = _("_Redo");
     public const string REDO_LABEL = _("Redo");
-    
+
     public const string RENAME_EVENT_MENU = _("Re_name Event...");
     public const string RENAME_EVENT_LABEL = _("Rename Event");
-    
+
     public const string MAKE_KEY_PHOTO_MENU = _("Make _Key Photo for Event");
     public const string MAKE_KEY_PHOTO_LABEL = _("Make Key Photo for Event");
-    
+
     public const string NEW_EVENT_MENU = _("_New Event");
     public const string NEW_EVENT_LABEL = _("New Event");
-            
+
     public const string SET_PHOTO_EVENT_LABEL = _("Move Photos");
     public const string SET_PHOTO_EVENT_TOOLTIP = _("Move photos to an event");
-    
+
     public const string MERGE_MENU = _("_Merge Events");
     public const string MERGE_LABEL = _("Merge");
     public const string MERGE_TOOLTIP = _("Combine events into a single event");
@@ -221,7 +221,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 
     public const string INCREASE_RATING_MENU = _("_Increase");
     public const string INCREASE_RATING_LABEL = _("Increase Rating");
-    
+
     public const string DECREASE_RATING_MENU = _("_Decrease");
     public const string DECREASE_RATING_LABEL = _("Decrease Rating");
 
@@ -230,21 +230,22 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string RATE_UNRATED_LABEL = _("Rate Unrated");
     public const string RATE_UNRATED_PROGRESS = _("Setting as unrated");
     public const string RATE_UNRATED_TOOLTIP = _("Remove any ratings");
-    
+    public const string RATE_UNRATED_DISPLAY_LABEL = _("Unrated");
+
     public const string RATE_REJECTED_MENU = _("_Rejected");
     public const string RATE_REJECTED_COMBO_BOX = _("Rejected");
     public const string RATE_REJECTED_LABEL = _("Rate Rejected");
     public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
     public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
-    
+
     public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
-    
+
     public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + Rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_LABEL = _("Show all photos, including rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_TOOLTIP = _("Show all photos, including rejected");
-    
+
     public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("All Photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_LABEL = _("Show all photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_TOOLTIP = _("Show all photos");
@@ -255,7 +256,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string FILTER_PHOTOS_MENU = _("_Filter Photos");
     public const string FILTER_PHOTOS_LABEL = _("Filter Photos");
     public const string FILTER_PHOTOS_TOOLTIP = _("Limit the number of photos displayed based on a filter");
-    
+
     public const string DUPLICATE_PHOTO_MENU = _("_Duplicate");
     public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
     public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo");
@@ -263,11 +264,11 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string TOGGLE_METAPANE_MENU = _("_Toggle metadata sidebar");
     public const string TOGGLE_METAPANE_LABEL = _("Toggle metadata sidebar");
     public const string TOGGLE_METAPANE_TOOLTIP = _("Toggles the left metadata sidebar");
-    
+
     public const string EXPORT_MENU = _("_Export...");
-    
+
     public const string PRINT_MENU = _("_Print...");
-    
+
     public const string PUBLISH_MENU = _("Pu_blish...");
     public const string PUBLISH_LABEL = _("Publish");
     public const string PUBLISH_TOOLTIP = _("Publish to various websites");
@@ -283,32 +284,36 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 
     public const string ADJUST_DATE_TIME_MENU = _("_Adjust Date and Time...");
     public const string ADJUST_DATE_TIME_LABEL = _("Adjust Date and Time");
-    
+
     public const string ADD_TAGS_MENU = _("Add _Tags...");
     public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags...");
     public const string ADD_TAGS_TITLE = _("Add Tags");
 
     public const string PREFERENCES_MENU = _("_Preferences");
-    
+
     public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
-    
+
     public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
-    
+
     public const string SEND_TO_MENU = _("Send _To...");
     public const string SEND_TO_CONTEXT_MENU = _("Send T_o...");
-    
+
     public const string FIND_MENU = _("_Find...");
     public const string FIND_LABEL = _("Find");
     public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
-    
+
     public const string FLAG_MENU = _("_Flag");
-    
+
     public const string UNFLAG_MENU = _("Un_flag");
+
+    public const string BASIC_PROPERTIES_LABEL = _("Image Details");
+    public const string EXTENDED_PROPERTIES_LABEL = _("Extended Details");
+    public const string LIBRARY_PROPERTIES_LABEL = _("Library Details");
 
     public string launch_editor_failed(Error err) {
         return _("Unable to launch editor: %s").printf(err.message);
     }
-    
+
     public string add_tags_label(string[] names) {
         if (names.length == 1)
             return _("Add Tag \"%s\"").printf(HierarchicalTagUtilities.get_basename(names[0]));
@@ -319,76 +324,76 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         else
             return _("Add Tags");
     }
-    
+
     public string delete_tag_menu(string name) {
         return _("_Delete Tag \"%s\"").printf(name);
     }
-    
+
     public string delete_tag_label(string name) {
         return _("Delete Tag \"%s\"").printf(name);
     }
-    
+
     public const string DELETE_TAG_TITLE = _("Delete Tag");
     public const string DELETE_TAG_SIDEBAR_MENU = _("_Delete");
-    
+
     public const string NEW_CHILD_TAG_SIDEBAR_MENU = _("_New");
-    
+
     public string rename_tag_menu(string name) {
         return _("Re_name Tag \"%s\"...").printf(name);
     }
-    
+
     public string rename_tag_label(string old_name, string new_name) {
         return _("Rename Tag \"%s\" to \"%s\"").printf(old_name, new_name);
     }
-    
+
     public const string RENAME_TAG_SIDEBAR_MENU = _("_Rename...");
-    
+
     public const string MODIFY_TAGS_MENU = _("Modif_y Tags...");
     public const string MODIFY_TAGS_LABEL = _("Modify Tags");
-    
+
     public string tag_photos_label(string name, int count) {
         return ((count == 1) ? _("Tag Photo as \"%s\"") : _("Tag Photos as \"%s\"")).printf(name);
     }
-    
+
     public string tag_photos_tooltip(string name, int count) {
         return ((count == 1) ? _("Tag the selected photo as \"%s\"") :
             _("Tag the selected photos as \"%s\"")).printf(name);
     }
-    
+
     public string untag_photos_menu(string name, int count) {
         return ((count == 1) ? _("Remove Tag \"%s\" From _Photo") :
             _("Remove Tag \"%s\" From _Photos")).printf(name);
     }
-    
+
     public string untag_photos_label(string name, int count) {
         return ((count == 1) ? _("Remove Tag \"%s\" From Photo") :
             _("Remove Tag \"%s\" From Photos")).printf(name);
     }
-    
+
     public static string rename_tag_exists_message(string name) {
         return _("Unable to rename tag to \"%s\" because the tag already exists.").printf(name);
     }
-    
+
     public static string rename_search_exists_message(string name) {
         return _("Unable to rename search to \"%s\" because the search already exists.").printf(name);
     }
-    
+
     public const string DEFAULT_SAVED_SEARCH_NAME = _("Smart Album");
-    
+
     public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Album");
-    
+
     public const string DELETE_SEARCH_MENU = _("_Delete");
     public const string EDIT_SEARCH_MENU = _("_Edit...");
     public const string RENAME_SEARCH_MENU = _("Re_name...");
-    
+
     public string rename_search_label(string old_name, string new_name) {
         return _("Rename Search \"%s\" to \"%s\"").printf(old_name, new_name);
     }
-    
+
     public string delete_search_label(string name) {
         return _("Delete Search \"%s\"").printf(name);
     }
-    
+
     private unowned string rating_menu(Rating rating) {
         switch (rating) {
             case Rating.REJECTED:
@@ -430,7 +435,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                 return RATE_UNRATED_LABEL;
         }
     }
-    
+
     private unowned string rating_combo_box(Rating rating) {
         switch (rating) {
             case Rating.REJECTED:
@@ -451,31 +456,31 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                 return RATE_UNRATED_MENU;
         }
     }
-    
+
     private string get_rating_filter_tooltip(RatingFilter filter) {
         switch (filter) {
             case RatingFilter.REJECTED_OR_HIGHER:
                 return Resources.DISPLAY_REJECTED_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.ONE_OR_HIGHER:
                 return Resources.DISPLAY_ONE_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.TWO_OR_HIGHER:
                 return Resources.DISPLAY_TWO_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.THREE_OR_HIGHER:
                 return Resources.DISPLAY_THREE_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.FOUR_OR_HIGHER:
                 return Resources.DISPLAY_FOUR_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.FIVE_ONLY:
             case RatingFilter.FIVE_OR_HIGHER:
                 return Resources.DISPLAY_FIVE_OR_HIGHER_TOOLTIP;
-            
+
             case RatingFilter.REJECTED_ONLY:
                 return Resources.DISPLAY_REJECTED_ONLY_TOOLTIP;
-            
+
             case RatingFilter.UNRATED_OR_HIGHER:
             default:
                 return Resources.DISPLAY_UNRATED_OR_HIGHER_TOOLTIP;
@@ -505,7 +510,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 
     private const int[] rating_thresholds = { 0, 1, 25, 50, 75, 99 };
 
-    private string get_stars(Rating rating) {
+    public string get_stars(Rating rating) {
         switch (rating) {
             case Rating.ONE:
                 return "\xE2\x98\x85";
@@ -543,7 +548,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 
         int width = scale*stars;
         int height = scale;
-        
+
         Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface(width, height);
         Cairo.Context cr = surface.context;
 
@@ -571,7 +576,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         return trinket.icon;
 
     }
-    
+
 
     private void generate_rating_strings() {
         string menu_base = "%s";
@@ -632,7 +637,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     private string RATE_ONE_LABEL;
     private string RATE_ONE_TOOLTIP;
     private string RATE_ONE_PROGRESS;
-    
+
     private string RATE_TWO_MENU;
     private string RATE_TWO_LABEL;
     private string RATE_TWO_TOOLTIP;
@@ -676,35 +681,35 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string DELETE_PHOTOS_MENU = _("_Delete");
     public const string DELETE_FROM_TRASH_TOOLTIP = _("Remove the selected photos from the trash");
     public const string DELETE_FROM_LIBRARY_TOOLTIP = _("Remove the selected photos from the library");
-    
+
     public const string RESTORE_PHOTOS_MENU = _("_Restore");
     public const string RESTORE_PHOTOS_TOOLTIP = _("Move the selected photos back into the library");
-    
+
     public const string JUMP_TO_FILE_MENU = _("Show in File Mana_ger");
     public const string JUMP_TO_FILE_TOOLTIP = _("Open the selected photo's directory in the file manager");
-    
+
     public string jump_to_file_failed(Error err) {
         return _("Unable to open in file manager: %s").printf(err.message);
     }
-    
+
     public const string REMOVE_FROM_LIBRARY_MENU = _("R_emove From Library");
-    
+
     public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
-    
+
     public const string SELECT_ALL_MENU = _("Select _All");
     public const string SELECT_ALL_TOOLTIP = _("Select all items");
-    
+
     private Gtk.IconFactory factory = null;
     private Gee.HashMap<string, Gdk.Pixbuf> icon_cache = null;
     Gee.HashMap<string, Gdk.Pixbuf> scaled_icon_cache = null;
-    
+
     private string HH_MM_FORMAT_STRING = null;
     private string HH_MM_SS_FORMAT_STRING = null;
     private string LONG_DATE_FORMAT_STRING = null;
     private string START_MULTIDAY_DATE_FORMAT_STRING = null;
     private string END_MULTIDAY_DATE_FORMAT_STRING = null;
     private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
-        
+
     public void init () {
         // load application-wide stock icons as IconSets
         factory = new Gtk.IconFactory();
@@ -727,34 +732,34 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
         add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
         add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_CAMERAS), ICON_CAMERAS);
-        
-        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_FLAGGED), 
+
+        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_FLAGGED),
             ICON_FILTER_FLAGGED_DISABLED, dim_pixbuf);
-        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_PHOTOS), 
+        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_PHOTOS),
             ICON_FILTER_PHOTOS_DISABLED, dim_pixbuf);
-        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_VIDEOS), 
+        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_VIDEOS),
             ICON_FILTER_VIDEOS_DISABLED, dim_pixbuf);
-        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_RAW), 
+        add_stock_icon_from_themed_icon(new GLib.ThemedIcon(ICON_FILTER_RAW),
             ICON_FILTER_RAW_DISABLED, dim_pixbuf);
-        
+
         factory.add_default();
 
         generate_rating_strings();
 
         rating_trinket_cache = new Gee.ArrayList<RatingTrinket?>();
     }
-    
+
     public void terminate() {
     }
-    
+
     /**
      * @brief Helper for getting a format string that matches the
-     * user's LC_TIME settings from the system.  This is intended 
-     * to help support the use case where a user wants the text 
+     * user's LC_TIME settings from the system.  This is intended
+     * to help support the use case where a user wants the text
      * from one locale, but the timestamp format of another.
-     * 
+     *
      * Stolen wholesale from code written for Geary by Jim Nelson
-     * and from Marcel Stimberg's original patch to Shotwell to 
+     * and from Marcel Stimberg's original patch to Shotwell to
      * try to fix this; both are graciously thanked for their help.
      */
     private void fetch_lc_time_format() {
@@ -764,88 +769,88 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         if (old_language != null) {
             Environment.unset_variable("LANGUAGE");
         }
-        
+
         // switch LC_MESSAGES to LC_TIME...
         string? old_messages = Intl.setlocale(LocaleCategory.MESSAGES, null);
         string? lc_time = Intl.setlocale(LocaleCategory.TIME, null);
-        
+
         if (lc_time != null) {
             Intl.setlocale(LocaleCategory.MESSAGES, lc_time);
         }
-        
+
         // ...precache the timestamp string...
         /// Locale-specific time format for 12-hour time, i.e. 8:31 PM
         /// Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         HH_MM_FORMAT_STRING = _("%-I:%M %p");
-        
+
         /// Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
         /// Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         HH_MM_SS_FORMAT_STRING = _("%-I:%M:%S %p");
-        
+
         /// Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         LONG_DATE_FORMAT_STRING = _("%a %b %d, %Y");
-        
+
         /// Locale-specific starting date format for multi-date strings,
         /// i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         START_MULTIDAY_DATE_FORMAT_STRING = _("%a %b %d");
-        
+
         /// Locale-specific ending date format for multi-date strings,
         /// i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         END_MULTIDAY_DATE_FORMAT_STRING = _("%d, %Y");
-        
+
         /// Locale-specific calendar date format for multi-month strings,
         /// i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
         /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
         START_MULTIMONTH_DATE_FORMAT_STRING = _("%a %b %d");
-        
+
         // ...put everything back like we found it.
         if (old_messages != null) {
             Intl.setlocale(LocaleCategory.MESSAGES, old_messages);
         }
-        
+
         if (old_language != null) {
             Environment.set_variable("LANGUAGE", old_language, true);
         }
     }
-    
+
     /**
      * @brief Returns a precached format string that matches the
-     * user's LC_TIME settings.  
+     * user's LC_TIME settings.
      */
     public string get_hh_mm_format_string() {
         if (HH_MM_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return HH_MM_FORMAT_STRING;
     }
-    
+
     public string get_hh_mm_ss_format_string() {
         if (HH_MM_SS_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return HH_MM_SS_FORMAT_STRING;
     }
-    
+
     public string get_long_date_format_string() {
         if (LONG_DATE_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return LONG_DATE_FORMAT_STRING;
     }
-    
+
     public string get_start_multiday_span_format_string() {
         if (START_MULTIDAY_DATE_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return START_MULTIDAY_DATE_FORMAT_STRING;
     }
 
@@ -853,7 +858,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         if (END_MULTIDAY_DATE_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return END_MULTIDAY_DATE_FORMAT_STRING;
     }
 
@@ -861,7 +866,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         if (START_MULTIMONTH_DATE_FORMAT_STRING == null) {
             fetch_lc_time_format();
         }
-        
+
         return START_MULTIMONTH_DATE_FORMAT_STRING;
     }
 
@@ -885,17 +890,17 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                 error("VideoReader can't load noninterpretable badge image: %s", err.message);
             }
         }
-        
+
         return noninterpretable_badge_pixbuf;
     }
-    
+
     public Gtk.IconTheme get_icon_theme_engine() {
         Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default();
         icon_theme.append_search_path(AppDirs.get_resources_dir().get_child("icons").get_path());
-        
+
         return icon_theme;
     }
-    
+
     // This method returns a reference to a cached pixbuf that may be shared throughout the system.
     // If the pixbuf is to be modified, make a copy of it.
     public Gdk.Pixbuf? get_icon(string name, int scale = DEFAULT_ICON_SCALE) {
@@ -904,38 +909,38 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
             if (scaled_icon_cache.has_key(scaled_name))
                 return scaled_icon_cache.get(scaled_name);
         }
-        
+
         // stash icons not available through the UI Manager (i.e. used directly as pixbufs)
         // in the local cache
         if (icon_cache == null)
             icon_cache = new Gee.HashMap<string, Gdk.Pixbuf>();
-        
+
         // fetch from cache and if not present, from disk
         Gdk.Pixbuf? pixbuf = icon_cache.get(name);
         if (pixbuf == null) {
             pixbuf = load_icon(name, 0);
             if (pixbuf == null)
                 return null;
-            
+
             icon_cache.set(name, pixbuf);
         }
-        
+
         if (scale <= 0)
             return pixbuf;
-        
+
         Gdk.Pixbuf scaled_pixbuf = scale_pixbuf(pixbuf, scale, Gdk.InterpType.BILINEAR, false);
-        
+
         if (scaled_icon_cache == null)
             scaled_icon_cache = new Gee.HashMap<string, Gdk.Pixbuf>();
-        
+
         scaled_icon_cache.set("%s-%d".printf(name, scale), scaled_pixbuf);
-        
+
         return scaled_pixbuf;
     }
-    
+
     public Gdk.Pixbuf? load_icon(string name, int scale = DEFAULT_ICON_SCALE) {
         File icons_dir = AppDirs.get_resources_dir().get_child("icons");
-        
+
         Gdk.Pixbuf pixbuf = null;
         try {
             pixbuf = new Gdk.Pixbuf.from_file(icons_dir.get_child(name).get_path());
@@ -945,10 +950,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
 
         if (pixbuf == null)
             return null;
-        
+
         return (scale > 0) ? scale_pixbuf(pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
     }
-    
+
     private void add_stock_icon(File file, string stock_id) {
         Gdk.Pixbuf pixbuf = null;
         try {
@@ -956,25 +961,25 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         } catch (Error err) {
             critical("Unable to load stock icon %s: %s", stock_id, err.message);
         }
-        
+
         Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf(pixbuf);
         factory.add(stock_id, icon_set);
     }
-    
+
     public delegate void AddStockIconModify(Gdk.Pixbuf pixbuf);
-    
-    private void add_stock_icon_from_themed_icon(GLib.ThemedIcon gicon, string stock_id, 
+
+    private void add_stock_icon_from_themed_icon(GLib.ThemedIcon gicon, string stock_id,
         AddStockIconModify? modify = null) {
         Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default();
         icon_theme.append_search_path(AppDirs.get_resources_dir().get_child("icons").get_path());
 
-        Gtk.IconInfo? info = icon_theme.lookup_by_gicon(gicon, 
+        Gtk.IconInfo? info = icon_theme.lookup_by_gicon(gicon,
             Resources.DEFAULT_ICON_SCALE, Gtk.IconLookupFlags.FORCE_SIZE);
         if (info == null) {
             debug("unable to load icon for: %s", stock_id);
             return;
         }
-        
+
         try {
             Gdk.Pixbuf pix = info.load_icon();
             if (modify != null) {
@@ -994,53 +999,53 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         // Try looking for our 'index.page' in the build directory.
         //
         // TODO: Need to look for internationalized help before falling back on help/C
-        
+
         File help_dir = AppDirs.get_exec_dir().get_child("help").get_child("C");
         File help_index = help_dir.get_child("index.page");
-        
+
         if (help_index.query_exists(null)) {
             string help_path;
 
             help_path = help_dir.get_path();
-         
+
             if (!help_path.has_suffix("/"))
                 help_path += "/";
-            
+
             // Found it.
             return help_path;
         }
-        
-        // "./help/C/index.page" doesn't exist, so we're installed  
-        // system-wide, and the caller should assume the default 
-        // help location. 
+
+        // "./help/C/index.page" doesn't exist, so we're installed
+        // system-wide, and the caller should assume the default
+        // help location.
         return null;
     }
 
     public static void launch_help(Gdk.Screen screen, string? anchor=null) throws Error {
         string? help_path = get_help_path();
-        
+
         if(help_path != null) {
             // We're running from the build directory; use local help.
-            
+
             // Allow the caller to request a specific page.
             if (anchor != null) {
                 help_path +=anchor;
             }
-            
+
             string[] argv = new string[3];
             argv[0] = "gnome-help";
             argv[1] = help_path;
             argv[2] = null;
-            
+
             Pid pid;
             if (Process.spawn_async(AppDirs.get_exec_dir().get_path(), argv, null,
                 SpawnFlags.SEARCH_PATH | SpawnFlags.STDERR_TO_DEV_NULL, null, out pid)) {
                 return;
             }
-            
+
             warning("Unable to launch %s", argv[0]);
         }
-        
+
         // launch from system-installed help
         if (anchor != null) {
             sys_show_uri(screen, "ghelp:shotwell" + anchor);
@@ -1048,19 +1053,19 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
             sys_show_uri(screen, "ghelp:shotwell");
         }
     }
-    
+
     public string to_css_color(Gdk.RGBA color) {
         int r = (int) (color.red * 255);
         int g = (int) (color.green * 255);
         int b = (int) (color.blue * 255);
-        
+
         return "rgb(%d, %d, %d)".printf(r, g, b);
     }
-    
+
     public const int ALL_DATA = -1;
-    
+
     private static Gee.Map<Gtk.Widget, Gtk.CssProvider> providers = null;
-    
+
     public static void style_widget(Gtk.Widget widget, string stylesheet) {
         if (providers == null)
             providers = new Gee.HashMap<Gtk.Widget, Gtk.CssProvider>();
@@ -1069,7 +1074,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
             widget.get_style_context().remove_provider(providers.get(widget));
 
         Gtk.CssProvider styler = new Gtk.CssProvider();
-        
+
         try {
             styler.load_from_data(stylesheet, ALL_DATA);
         } catch (Error e) {
@@ -1079,14 +1084,14 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
             // then we can't do anything more
             return;
         }
-        
+
         widget.get_style_context().add_provider(styler,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         providers.set(widget, styler);
     }
-    
-    public const string SIDEBAR_PANED_STYLESHEET = 
+
+    public const string SIDEBAR_PANED_STYLESHEET =
         """ .paned {
                border-style: inset;
                border-right-width: 1px;
@@ -1098,7 +1103,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                border-style: inset;
                border-width: 1px;
            }""";
-           
+
     public const string SCROLL_FRAME_STYLESHEET =
         """ GtkScrolledWindow {
                border-width: 0;
@@ -1106,7 +1111,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                border-radius: 0;
                padding: 0;
            }
-           
+
             .frame {
                 border-width: 0px;
                 border-style: none;
@@ -1119,10 +1124,10 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                border-width: 1px;
                border-style: inset;
                border-radius: 0;
-               
+
                padding: 0;
            }""";
-    
+
     public const string VIEWPORT_STYLESHEET =
         """ GtkViewport {
                border-width: 1px;
@@ -1130,186 +1135,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                border-radius: 0;
                padding: 0;
            }""";
-    
+
     public const string ONIMAGE_FONT_COLOR = "#000000";
     public const string ONIMAGE_FONT_BACKGROUND = "rgba(255,255,255,0.5)";
-    
-	public class Icons {
 
-	
-		public static Icon STARRED { get; private set; default = new Icon ("starred"); }
-		public static Icon NOT_STARRED { get; private set; default = new Icon ("non-starred"); }
-
-
-		/**
-		 * This is needed until vala really supports initialization of static members.
-		 * See https://bugzilla.gnome.org/show_bug.cgi?id=543189
-		 */
-		public static void init () {
-			new Icons (); // dummy instantiation to init static members
-		}
-
-		public static Gdk.Pixbuf? render_icon (string icon_name, Gtk.IconSize size, Gtk.StyleContext? context = null) {
-			return new Icon (icon_name).render (size, context);
-		}
-
-		public static Gtk.Image? render_image (string icon_name, Gtk.IconSize size) {
-			return new Icon (icon_name).render_image (size);
-		}
-	}
- public class Icon : Object {   
-        private static Gtk.IconTheme? _theme;
-    public static Gtk.IconTheme theme {
-        get {
-            if (_theme == null) {
-                _theme = Gtk.IconTheme.get_default ();
-
-                // This only works if Build.ICON_DIR contains a sub-directory named "hicolor"
-                // containing all the fallback icons (possibly organized into sub-folders as well),
-                // or if the icons are immediate children of this directory.
-                File icons_dir = AppDirs.get_resources_dir().get_child("icons");
-                _theme.append_search_path (icons_dir.get_path());
-            }
-
-            return _theme;
-        }
-    }
-
-    /**
-     * The name of the icon, as passed to the constructor. If the icon points to an absolute
-     * file name, this will return null.
-     */
-    public string? name { get; private set; }
-
-    /**
-     * The absolute file name of the icon, as passed to the constructor. If the icon points to
-     * an icon name instead, this will return null.
-     */
-    public string? file_name { get; private set; }
-
-    /**
-     * The {@link GLib.Icon} representing the icon.
-     */
-    public GLib.Icon gicon { get; private set; }
-
-
-    /**
-     * Creates a new icon object.
-     *
-     * @param file_name A filename pointing to the icon file. If it is an absolute file name,
-     * the icon will be loaded from the file it points to; otherwise, it is assumed that the
-     * string only specifies the icon name (without filename extension), and it will be loaded from
-     * the available icon themes.
-     */
-    public Icon (string file_name) {
-        if (Path.is_absolute (file_name)) {
-            this.file_name = file_name;
-            gicon = new FileIcon (File.new_for_path (this.file_name));
-        } else {
-            this.name = file_name;
-            gicon = new ThemedIcon (this.name); // no need for ugly generic fallbacks
-        }
-    }
-
-
-    public Gtk.IconInfo? get_icon_info (int size) {
-        return theme.lookup_by_gicon (gicon, size, Gtk.IconLookupFlags.USE_BUILTIN);
-    }
-
-    /**
-     * Returns a file representing the icon in the filesystem. If this icon represents a
-     * file, it returns a file at a location equivalent to {@link Noise.Icon.file_name}.
-     * Otherwise, a file pointing to the image in the icon theme is returned.
-     *
-     * @param size Icon size to query.
-     * @return A {@link GLib.File} representing the icon, or //null// if none is found.
-     */
-    public File? get_file (int size = 16) {
-        if (gicon is FileIcon)
-            return (gicon as FileIcon).file;
-
-        var info = get_icon_info (size);
-        return info != null ? File.new_for_path (info.get_filename ()) : null;
-    }
-
-    /**
-     * Creates a new {@link Gdk.Pixbuf} from the icon at the specified icon size.
-     *
-     * @param size The pixbuf's icon size.
-     * @param style_context The style context used to render the icon, or null to use none.
-     * @return a newly-created Gdk.Pixbuf displaying the icon (or a "missing-image" icon)
-     * @see Noise.Icon.render_at_size
-     */
-    public Gdk.Pixbuf? render (Gtk.IconSize size, Gtk.StyleContext? style_context = null) {
-        int width, height;
-        Gtk.icon_size_lookup (size, out width, out height);
-        return render_at_size (int.max (width, height), style_context);
-    }
-
-
-    /**
-     * Creates a new {@link Gdk.Pixbuf} from the icon at the specified pixel size.
-     *
-     * @param pixel_size The pixbuf's pixel size.
-     * @param style_context The style context used to render the icon, or null to use none.
-     * @return a newly-created Gdk.Pixbuf displaying the icon (or a "missing-image" icon)
-     * @see Noise.Icon.render
-     */
-    public Gdk.Pixbuf? render_at_size (int pixel_size, Gtk.StyleContext? style_context = null) {
-        Gdk.Pixbuf? rv = null;
-
-        try {
-            var icon_info = get_icon_info (pixel_size);
-
-            if (icon_info != null) {
-                if (style_context != null)
-                    rv = icon_info.load_symbolic_for_context (style_context);
-                else
-                    rv = icon_info.load_icon ();
-            }
-
-            // If we failed at loading the icon, try to load the default "missing-image"
-            if (rv == null) {
-                warning ("Icon not found: %s", file_name ?? name);
-                rv = theme.load_icon ("image-missing", pixel_size,
-                                      Gtk.IconLookupFlags.GENERIC_FALLBACK);
-            }
-        } catch (Error err) {
-            warning ("Could not load icon [%s]: %s", file_name ?? name, err.message);
-        }
-
-        return rv;
-    }
-
-
-    /**
-     * Creates a new {@link Gtk.Image} displaying the icon at the specified size.
-     *
-     * @param size The image's icon size.
-     * @return a newly-created Gtk.Image.
-     * @see Noise.Icon.render_image_at_size
-     */
-    public Gtk.Image render_image (Gtk.IconSize size) {
-        Gtk.Image image;
-        if (name != null)
-            image = new Gtk.Image.from_icon_name (name, size);
-        else
-            image = new Gtk.Image.from_gicon (gicon, size);
-        return image;
-    }
-
-
-    /**
-     * Creates a new {@link Gtk.Image} displaying the icon at the specified pixel size.
-     *
-     * @param pixel_size The image's pixel size.
-     * @return a newly-created Gtk.Image.
-     * @see Noise.Icon.render_image
-     */
-    public Gtk.Image render_image_at_size (int pixel_size) {
-        var rv = render_image (Gtk.IconSize.MENU);
-        rv.set_pixel_size (pixel_size);
-        return rv;
-    }
-}
 }

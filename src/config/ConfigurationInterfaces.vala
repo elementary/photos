@@ -72,6 +72,7 @@ public enum ConfigurableProperty {
     RAW_DEVELOPER_DEFAULT,
     SHOW_WELCOME_DIALOG,
     SIDEBAR_POSITION,
+    METADATA_SIDEBAR_POSITION,
     SLIDESHOW_DELAY,
     SLIDESHOW_TRANSITION_DELAY,
     SLIDESHOW_TRANSITION_EFFECT_ID,
@@ -239,7 +240,9 @@ public enum ConfigurableProperty {
                 return "SHOW_WELCOME_DIALOG";
                 
             case SIDEBAR_POSITION:
-                return "SIDEBAR_POSITION";
+                return "SIDEBAR_POSITION";            
+            case METADATA_SIDEBAR_POSITION:
+                return "METADATA_SIDEBAR_POSITION";
                 
             case SLIDESHOW_DELAY:
                 return "SLIDESHOW_DELAY";
@@ -1367,6 +1370,27 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_sidebar_position(int position) {
         try {
             get_engine().set_int_property(ConfigurableProperty.SIDEBAR_POSITION, position);
+        } catch (ConfigurationError err) {
+            on_configuration_error(err);
+        }
+    }
+
+    //
+    // sidebar position
+    //
+    public virtual int get_metadata_sidebar_position() {
+        try {
+            return get_engine().get_int_property(ConfigurableProperty.METADATA_SIDEBAR_POSITION);
+        } catch (ConfigurationError err) {
+            on_configuration_error(err);
+
+            return -1;
+        }
+    }
+    
+    public virtual void set_metadata_sidebar_position(int position) {
+        try {
+            get_engine().set_int_property(ConfigurableProperty.METADATA_SIDEBAR_POSITION, position);
         } catch (ConfigurationError err) {
             on_configuration_error(err);
         }
