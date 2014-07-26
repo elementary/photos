@@ -68,6 +68,15 @@ public abstract class CollectionPage : MediaPage {
         return toolbar;
     }
     
+    public override Gtk.Menu? get_item_context_menu(){
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget("/CollectionContextMenu");
+        assert(menu != null);
+        
+        populate_contractor_menu(menu,"/CollectionContextMenu/ContractorPlaceholder");
+        
+        return menu;
+    }
+    
     private static InjectionGroup create_file_menu_injectables() {
         InjectionGroup group = new InjectionGroup("/MenuBar/FileMenu/FileExtrasPlaceholder");
         
@@ -741,4 +750,3 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 }
-

@@ -3040,6 +3040,9 @@ public class LibraryPhotoPage : EditingHostPage {
     private Gtk.Menu get_context_menu() {
         Gtk.Menu menu = (Gtk.Menu) ui.get_widget("/PhotoContextMenu");
         assert(menu != null);
+        
+        populate_contractor_menu(menu,"/PhotoContextMenu/ContractorPlaceholder");
+        
         return menu;
     }
     

@@ -105,6 +105,45 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
     
+    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
+    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui){
+        File[] files = {};
+        Gee.List<Granite.Services.Contract> contracts = null;
+        try {
+            var selected= get_view().get_selected_sources();
+            foreach (var item in selected)
+                files += (((Photo)item).get_file());
+            contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
+        } catch (Error e) {
+            warning (e.message);
+        }
+        // Remove old contracts
+        contractor_menu_items.foreach ((item) => { if (item != null) item.destroy (); });
+        
+        Gtk.Widget holder= ui.get_widget (placeholder_ui);
+        int pos=0;
+        foreach (Gtk.Widget w in menu.get_children()){
+            if (w==holder)
+                break;
+            pos++;
+        }
+        if (contracts.size>0){
+            var separator = new Gtk.SeparatorMenuItem();
+            menu.add(separator);
+            menu.reorder_child(separator, pos);
+            contractor_menu_items.append(separator);
+        }
+        for (int i = 0; i < contracts.size; i++) {
+            var contract = contracts.get (i);
+            Gtk.MenuItem menu_item;
+
+            menu_item = new ContractMenuItem (contract, files);
+            menu.append (menu_item);
+            menu.reorder_child(menu_item, pos);
+            contractor_menu_items.append(menu_item);
+        }
+        menu.show_all();
+    }
     // This is called by the page controller when it has removed this page ... pages should override
     // this (or the signal) to clean up
     public override void destroy() {
@@ -2620,5 +2659,25 @@ public class DragAndDropHandler {
     
     private void on_export_completed() {
         exporter = null;
+    }
+}
+public class ContractMenuItem : Gtk.MenuItem {
+    private Granite.Services.Contract contract;
+    private File[] files;
+
+    public ContractMenuItem (Granite.Services.Contract contract, File[] files) {
+        this.contract = contract;
+        this.files = files;
+
+        label = contract.get_display_name ();
+        tooltip_text = contract.get_description ();
+    }
+
+    public override void activate () {
+        try {
+            contract.execute_with_files (files);
+        } catch (Error err) {
+            warning (err.message);
+        }
     }
 }
