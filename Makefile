@@ -35,7 +35,7 @@ CORE_SUPPORTED_LANGUAGES=$(shell cat po/LINGUAS)
 LOCAL_LANG_DIR=locale-langpack
 SYSTEM_LANG_DIR := $(DESTDIR)$(PREFIX)/share/locale
 
-VALAFLAGS := -g --enable-checking --target-glib=2.32 --thread --enable-experimental --enable-deprecated $(USER_VALAFLAGS)
+VALAFLAGS := -g --enable-checking --target-glib=2.32 --thread --fatal-warnings --enable-experimental --enable-deprecated $(USER_VALAFLAGS)
 ifdef UNITY_SUPPORT
 VALAFLAGS := $(VALAFLAGS) --define UNITY_SUPPORT
 endif
