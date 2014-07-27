@@ -15,7 +15,7 @@ public class Thumbnail : MediaSourceItem {
     
     public static int MIN_SCALE {
         get {
-            return 72;
+            return 92;
         }
     }
     public static int MAX_SCALE {

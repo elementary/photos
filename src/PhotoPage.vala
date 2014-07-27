@@ -362,7 +362,7 @@ public class ZoomBuffer : Object {
 }
 
 public abstract class EditingHostPage : SinglePhotoPage {
-    public const int TRINKET_SCALE = 20;
+    public const int TRINKET_SCALE = 24;
     public const int TRINKET_PADDING = 1;
     
     public const double ZOOM_INCREMENT_SIZE = 0.1;
@@ -3351,4 +3351,3 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
 }
-

@@ -95,11 +95,6 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
     public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
     public const string ICON_RATING_REJECTED = "rejected.svg";
-    public const string ICON_RATING_ONE = "one-star.svg";
-    public const string ICON_RATING_TWO = "two-stars.svg";
-    public const string ICON_RATING_THREE = "three-stars.svg";
-    public const string ICON_RATING_FOUR = "four-stars.svg";
-    public const string ICON_RATING_FIVE = "five-stars.svg";
     public const string ICON_FILTER_REJECTED_OR_BETTER = "all-rejected.png";
     public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
     public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
@@ -239,15 +234,15 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
     public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
     public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
     
-    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected _Only");
+    public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
     public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
     
-    public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + _Rejected");
+    public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + Rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_LABEL = _("Show all photos, including rejected");
     public const string DISPLAY_REJECTED_OR_HIGHER_TOOLTIP = _("Show all photos, including rejected");
     
-    public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("_All Photos");
+    public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("All Photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_LABEL = _("Show all photos");
     public const string DISPLAY_UNRATED_OR_HIGHER_TOOLTIP = _("Show all photos");
 
@@ -371,9 +366,9 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         return _("Unable to rename search to \"%s\" because the search already exists.").printf(name);
     }
     
-    public const string DEFAULT_SAVED_SEARCH_NAME = _("Saved Search");
+    public const string DEFAULT_SAVED_SEARCH_NAME = _("Smart Album");
     
-    public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Search");
+    public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Album");
     
     public const string DELETE_SEARCH_MENU = _("_Delete");
     public const string EDIT_SEARCH_MENU = _("_Edit...");
@@ -520,26 +515,57 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
+    private struct RatingTrinket {
+        public int stars;
+        public int scale;
+        public Gdk.Pixbuf icon;
+    }
+
+    private static Gee.ArrayList<RatingTrinket?> rating_trinket_cache;
+
     private Gdk.Pixbuf? get_rating_trinket(Rating rating, int scale) {
-        switch (rating) {
-            case Rating.REJECTED:
-                return Resources.get_icon(Resources.ICON_RATING_REJECTED, scale);
-            // case Rating.UNRATED needs no icon
-            case Rating.ONE:
-                return Resources.get_icon(Resources.ICON_RATING_ONE, scale);
-            case Rating.TWO:
-                return Resources.get_icon(Resources.ICON_RATING_TWO, scale*2);
-            case Rating.THREE:
-                return Resources.get_icon(Resources.ICON_RATING_THREE, scale*3);
-            case Rating.FOUR:
-                return Resources.get_icon(Resources.ICON_RATING_FOUR, scale*4);
-            case Rating.FIVE:
-                return Resources.get_icon(Resources.ICON_RATING_FIVE, scale*5);
-            default:
-                return null;
+
+        int stars = rating.serialize();
+
+        if (stars <= 0 || stars > 5)
+            return null;
+
+        foreach(RatingTrinket trinket in rating_trinket_cache)
+            if (trinket.stars == stars && trinket.scale == scale)
+                return trinket.icon;
+
+        int width = scale*stars;
+        int height = scale;
+        
+        Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface(width, height);
+        Cairo.Context cr = surface.context;
+
+        cr.set_source_rgba(0,0,0,0.8);
+        cr.rectangle (0,0,width,height);
+        cr.paint();
+
+        Gtk.IconTheme icon_theme = get_icon_theme_engine();
+        Gdk.Pixbuf star;
+
+        try {
+            star = icon_theme.load_icon ("starred-symbolic", scale, Gtk.IconLookupFlags.FORCE_SIZE);
+        } catch(Error e) {
+            return null;
         }
+
+        for (int i=0; i<rating.serialize(); i++) {
+            Gdk.cairo_set_source_pixbuf (cr, star, i*scale, 0);
+            cr.paint();
+        }
+
+        RatingTrinket trinket = {stars, scale, surface.load_to_pixbuf()};
+        rating_trinket_cache.add(trinket);
+
+        return trinket.icon;
+
     }
     
+
     private void generate_rating_strings() {
         string menu_base = "%s";
         string label_base = _("Rate %s");
@@ -705,6 +731,8 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         factory.add_default();
 
         generate_rating_strings();
+
+        rating_trinket_cache = new Gee.ArrayList<RatingTrinket?>();
     }
     
     public void terminate() {

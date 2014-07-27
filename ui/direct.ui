@@ -20,6 +20,17 @@
             <menuitem name="Redo" action="CommonRedo" />
         </menu>
         
+        <menu name="ViewMenu" action="ViewMenu">
+            <menuitem name="Fullscreen" action="CommonFullscreen" />
+            <separator />
+            <menuitem name="IncreaseSize" action="IncreaseSize" />
+            <menuitem name="DecreaseSize" action="DecreaseSize" />
+            <separator />
+            <menuitem name="ZoomFit" action="ZoomFit" />
+            <menuitem name="Zoom100" action="Zoom100" />
+            <menuitem name="Zoom200" action="Zoom200" />
+        </menu>
+
         <menu name="PhotoMenu" action="PhotoMenu">
             <menuitem name="PrevPhoto" action="PrevPhoto" />
             <menuitem name="NextPhoto" action="NextPhoto" />
@@ -40,10 +51,6 @@
         </menu>
         
         <menu name="HelpMenu" action="HelpMenu">
-            <menuitem name="Contents" action="CommonHelpContents" />
-            <menuitem name="Frequently Asked Questions" action="CommonHelpFAQ" />
-            <menuitem name="Report a Problem..." action="CommonHelpReportProblem" />
-            <separator />
             <menuitem name="About" action="CommonAbout" />
         </menu>
     </menubar>
@@ -52,16 +59,5 @@
         <placeholder name="ContextJumpPlaceholder">
             <menuitem name="ContextJumpToFile" action="CommonJumpToFile" />
         </placeholder>
-    </popup>
-    
-    <popup name="DirectViewMenu" action="ViewMenu">
-        <menuitem name="Fullscreen" action="CommonFullscreen" />
-        <separator />
-        <menuitem name="IncreaseSize" action="IncreaseSize" />
-        <menuitem name="DecreaseSize" action="DecreaseSize" />
-        <separator />
-        <menuitem name="ZoomFit" action="ZoomFit" />
-        <menuitem name="Zoom100" action="Zoom100" />
-        <menuitem name="Zoom200" action="Zoom200" />
     </popup>
 </ui>
