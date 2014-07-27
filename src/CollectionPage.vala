@@ -69,7 +69,7 @@ public abstract class CollectionPage : MediaPage {
     }
     
     public override Gtk.Menu? get_item_context_menu(){
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget("/CollectionContextMenu");
+        Gtk.Menu menu = base.get_item_context_menu();
         assert(menu != null);
         
         populate_contractor_menu(menu,"/CollectionContextMenu/ContractorPlaceholder");

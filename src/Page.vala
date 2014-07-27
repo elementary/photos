@@ -78,6 +78,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private OneShotScheduler? update_actions_scheduler = null;
     private Gtk.ActionGroup? action_group = null;
     private Gtk.ActionGroup[]? common_action_groups = null;
+    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     
     private uint[] merge_ids = new uint[0];
     
@@ -105,7 +106,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
     
-    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui){
         File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
@@ -127,12 +127,12 @@ public abstract class Page : Gtk.ScrolledWindow {
                 break;
             pos++;
         }
-        if (contracts.size>0){
+        /*if (contracts.size>0){
             var separator = new Gtk.SeparatorMenuItem();
             menu.add(separator);
             menu.reorder_child(separator, pos);
             contractor_menu_items.append(separator);
-        }
+        }*/
         for (int i = 0; i < contracts.size; i++) {
             var contract = contracts.get (i);
             Gtk.MenuItem menu_item;
