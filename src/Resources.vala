@@ -415,6 +415,48 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
+    public int rating_int(Rating rating) {
+        switch (rating) {
+            case Rating.REJECTED:
+                return -1;
+            case Rating.UNRATED:
+                return 0;
+            case Rating.ONE:
+                return 1;
+            case Rating.TWO:
+                return 2;
+            case Rating.THREE:
+                return 3;
+            case Rating.FOUR:
+                return 4;
+            case Rating.FIVE:
+                return 5;
+            default:
+                return 0;
+        }
+    }
+
+    public Rating int_to_rating(int rating) {
+        switch (rating) {
+            case -1:
+                return Rating.REJECTED;
+            case 0:
+                return Rating.UNRATED;
+            case 1:
+                return Rating.ONE;
+            case 2:
+                return Rating.TWO;
+            case 3:
+                return Rating.THREE;
+            case 4:
+                return Rating.FOUR;
+            case 5:
+                return Rating.FIVE;
+            default:
+                return 0;
+        }
+    }
+
     private unowned string rating_label(Rating rating) {
         switch (rating) {
             case Rating.REJECTED:

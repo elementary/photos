@@ -15,7 +15,8 @@ UNIT_FILES := \
 	Entry.vala \
 	Tree.vala \
 	common.vala \
-	Metadata.vala 
+	Metadata.vala \
+	Rating.vala
 	
 
 # Any unit this unit relies upon (and should be initialized before it's initialized) should
