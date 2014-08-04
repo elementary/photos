@@ -1084,26 +1084,6 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         providers.set(widget, styler);
     }
     
-    public static Gdk.Pixbuf get_icon_for_app (AppInfo app) {
-		Gdk.Pixbuf icon_pixbuf = null;
-		Icon app_icon = app.get_icon ();
-		try {
-			if (app_icon is FileIcon) {
-				icon_pixbuf = scale_pixbuf(new Gdk.Pixbuf.from_file(
-					((FileIcon) app_icon).get_file().get_path()), Resources.DEFAULT_ICON_SCALE,
-					Gdk.InterpType.BILINEAR, false);
-			} else if (app_icon is ThemedIcon) {
-				icon_pixbuf = 
-					Gtk.IconTheme.get_default().load_icon(((ThemedIcon) app_icon).get_names()[0],
-					Resources.DEFAULT_ICON_SCALE, Gtk.IconLookupFlags.FORCE_SIZE);
-				
-			}
-		} catch (GLib.Error error) {
-			warning ("Error loading icon pixbuf: " + error.message);
-		}
-		return icon_pixbuf;
-	}
-    
     public const string SIDEBAR_PANED_STYLESHEET = 
         """ .paned {
                border-style: inset;

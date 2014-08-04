@@ -3032,18 +3032,17 @@ public class LibraryPhotoPage : EditingHostPage {
     }
     
     private Gtk.Menu get_context_menu() {
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/PhotoContextMenu");
-        assert (menu != null);
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget("/PhotoContextMenu");
+        assert(menu != null);
         
-        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWith");
-        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
-        open_with_menu_item.show ();
+        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget("/PhotoContextMenu/OpenWith");
+        populate_external_app_menu((Gtk.Menu)open_with_menu_item.get_submenu(), false);
+        open_with_menu_item.show();
 
-        if (has_photo () && get_photo ().get_master_file_format () == PhotoFileFormat.RAW)
-        {
-            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWithRaw");
-            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
-            open_with_raw_menu_item.show ();
+        if(has_photo() && get_photo().get_master_file_format() == PhotoFileFormat.RAW) {
+            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget("/PhotoContextMenu/OpenWithRaw");
+            populate_external_app_menu((Gtk.Menu)open_with_raw_menu_item.get_submenu(), true);
+            open_with_raw_menu_item.show();
         }
         return menu;
     }
@@ -3060,46 +3059,45 @@ public class LibraryPhotoPage : EditingHostPage {
         return true;
     }
     
-    private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
-        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
+    private void populate_external_app_menu(Gtk.Menu menu, bool raw) {
+        Gtk.MenuItem parent = menu.get_attach_widget() as Gtk.MenuItem;
         SortedList<AppInfo> external_apps;
         string[] mime_types;
         
         // get list of all applications for the given mime types
-        if(raw)
+        if (raw)
             mime_types = PhotoFileFormat.RAW.get_mime_types();
         else
-            mime_types = PhotoFileFormat.get_editable_mime_types ();
+            mime_types = PhotoFileFormat.get_editable_mime_types();
         assert(mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+        external_apps = DesktopIntegration.get_apps_for_mime_types(mime_types);
         
         if (external_apps.size == 0) {
             parent.sensitive = false;
             return;
         }
         
-        foreach (Gtk.Widget item in menu.get_children ())
-            menu.remove (item);
+        foreach (Gtk.Widget item in menu.get_children())
+            menu.remove(item);
         parent.sensitive = true;
         
         foreach (AppInfo app in external_apps) {
-            var icon_pixbuf = Resources.get_icon_for_app (app);
-            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
-            Gtk.Image image = new Gtk.Image.from_pixbuf (icon_pixbuf);
+            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label(app.get_name());
+            Gtk.Image image = new Gtk.Image.from_gicon(app.get_icon(), Gtk.IconSize.MENU);
             item_app.always_show_image = true;
-            item_app.set_image (image);
-            item_app.activate.connect ( () => {
+            item_app.set_image(image);
+            item_app.activate.connect(() => {
                 if(raw)
-                    on_open_with_raw (app.get_commandline ());
+                    on_open_with_raw(app.get_commandline());
                 else
-                    on_open_with (app.get_commandline ());
+                    on_open_with(app.get_commandline());
             });
-            menu.add (item_app);
+            menu.add(item_app);
         }  
-        menu.show_all ();
+        menu.show_all();
     }
     
-    private void on_open_with (string app) {
+    private void on_open_with(string app) {
        if (!has_photo())
             return;
         
