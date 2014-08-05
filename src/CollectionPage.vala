@@ -64,13 +64,11 @@ public abstract class CollectionPage : MediaPage {
             connect_slider(zoom_slider_assembly);
             get_toolbar().insert(zoom_slider_assembly, -1);
 
-			//  show metadata sidebar button
-    		show_sidebar_button = new Gtk.ToolButton.from_stock (Resources.HIDE_PANE);
-    		show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-    		show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
     		show_sidebar_button.clicked.connect (on_show_sidebar);
-    		show_sidebar_button.is_important = true;
     		toolbar.insert (show_sidebar_button, -1);
+            toggle_sidebar_button_image ();
         }
         
         return toolbar;
@@ -301,8 +299,6 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive("AdjustDateTime", has_selected);
         
         set_action_sensitive("NewEvent", has_selected);
-        set_action_sensitive("AddTags", has_selected);
-        set_action_sensitive("ModifyTags", one_selected);
         set_action_sensitive("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive("Publish", has_selected);
@@ -524,7 +520,21 @@ public abstract class CollectionPage : MediaPage {
         
         return false;
     }
-   
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        toggle_sidebar_button_image ();
+    }
+
+    private void toggle_sidebar_button_image () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        if (app.is_metadata_sidebar_visible ())
+            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
+        else
+            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+    }
+
     private void on_rotate_clockwise() {
         if (get_view().get_selected_count() == 0)
             return;
@@ -751,21 +761,5 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 
-	private void on_show_sidebar () {
-		var app = AppWindow.get_instance () as LibraryWindow;
-		bool hide = false;
-		if (app.metadata_sidebar_visible ())
-				hide = true;
-		app.show_metadata_sidebar (hide);
-		toggle_sidebar_button_image ();
-    }
-
-	private void toggle_sidebar_button_image () {
-		var app = AppWindow.get_instance () as LibraryWindow;
-		if (app.metadata_sidebar_visible ())
-			show_sidebar_button.set_stock_id(Resources.HIDE_PANE);
-		else
-			show_sidebar_button.set_stock_id(Resources.SHOW_PANE);
-    }
 }
 

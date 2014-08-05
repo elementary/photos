@@ -41,6 +41,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     protected ViewManager view_manager;
     
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter();
+    private Gtk.ToolButton show_sidebar_button;
 
     public EventsDirectoryPage(string page_name, ViewManager view_manager,
         Gee.Collection<Event>? initial_events) {
@@ -67,6 +68,24 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         merge_button.set_related_action(get_action("Merge"));
         
         toolbar.insert(merge_button, -1);
+
+        // separator to force slider to right side of toolbar
+        Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+        separator.set_expand (true);
+        separator.set_draw (false);
+        get_toolbar ().insert (separator, -1);
+
+        Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
+        drawn_separator.set_expand (false);
+        drawn_separator.set_draw (true);
+        
+        get_toolbar().insert (drawn_separator, -1);
+
+        //  show metadata sidebar button
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.insert (show_sidebar_button, -1);
+        toggle_sidebar_button_image ();
     }
     
     ~EventsDirectoryPage() {
@@ -115,11 +134,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         merge.label = Resources.MERGE_MENU;
         actions += merge;
         
-        Gtk.ActionEntry comment = { "EditComment", null, TRANSLATABLE, null, Resources.EDIT_COMMENT_MENU,
-            on_edit_comment };
-        comment.label = Resources.EDIT_COMMENT_MENU;
-        actions += comment;
-        
         return actions;
     }
     
@@ -147,7 +161,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         set_action_sensitive("Merge", selected_count > 1);
         set_action_important("Merge", true);
         set_action_sensitive("Rename", selected_count == 1);
-        set_action_sensitive("EditComment", selected_count == 1);
         
         base.update_actions(selected_count, count);
     }
@@ -173,7 +186,21 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             get_event_comparator(current.current_value == LibraryWindow.SORT_EVENTS_ORDER_ASCENDING),
             event_comparator_predicate);
     }
-    
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        toggle_sidebar_button_image ();
+    }
+
+    private void toggle_sidebar_button_image () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        if (app.is_metadata_sidebar_visible ())
+            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
+        else
+            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+    }
+
     private void on_rename() {
         // only rename one at a time
         if (get_view().get_selected_count() != 1)
@@ -189,23 +216,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         RenameEventCommand command = new RenameEventCommand(item.event, new_name);
         get_command_manager().execute(command);
     }
-    
-    protected void on_edit_comment() {
-        // only edit one at a time
-        if (get_view().get_selected_count() != 1)
-            return;
-        
-        EventDirectoryItem item = (EventDirectoryItem) get_view().get_selected_at(0);
-        
-        EditCommentDialog edit_comment_dialog = new EditCommentDialog(item.event.get_comment());
-        string? new_comment = edit_comment_dialog.execute();
-        if (new_comment == null)
-            return;
-        
-        EditEventCommentCommand command = new EditEventCommentCommand(item.event, new_comment);
-        get_command_manager().execute(command);
-    }
-    
+
     private void on_merge() {
         if (get_view().get_selected_count() <= 1)
             return;

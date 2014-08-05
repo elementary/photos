@@ -415,7 +415,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
-    public int rating_int(Rating rating) {
+    public int rating_int (Rating rating) {
         switch (rating) {
             case Rating.REJECTED:
                 return -1;
@@ -436,7 +436,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
-    public Rating int_to_rating(int rating) {
+    public Rating int_to_rating (int rating) {
         switch (rating) {
             case -1:
                 return Rating.REJECTED;
@@ -457,7 +457,7 @@ along with Shotwell; if not, write to the Free Software Foundation, Inc.,
         }
     }
 
-    private unowned string rating_label(Rating rating) {
+    private unowned string rating_label (Rating rating) {
         switch (rating) {
             case Rating.REJECTED:
                 return RATE_REJECTED_LABEL;

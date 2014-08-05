@@ -24,6 +24,7 @@ public class TrashPage : CheckerboardPage {
     
     private TrashSearchViewFilter search_filter = new TrashSearchViewFilter();
     private MediaViewTracker tracker;
+    private Gtk.ToolButton show_sidebar_button;
     
     public TrashPage() {
         base (NAME);
@@ -40,8 +41,39 @@ public class TrashPage : CheckerboardPage {
         Video.global.trashcan_contents_altered.connect(on_trashcan_contents_altered);
         on_trashcan_contents_altered(LibraryPhoto.global.get_trashcan_contents(), null);
         on_trashcan_contents_altered(Video.global.get_trashcan_contents(), null);
+
+        //  show metadata sidebar button
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.insert (show_sidebar_button, -1);
+        toggle_sidebar_button_image ();
     }
-    
+
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            base.get_toolbar ();
+
+            // separator to force slider to right side of toolbar
+            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            separator.set_expand (true);
+            separator.set_draw (false);
+            toolbar.insert (separator, -1);
+
+            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
+            drawn_separator.set_expand (false);
+            drawn_separator.set_draw (true);
+            
+            toolbar.insert (drawn_separator, -1);
+
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            toggle_sidebar_button_image ();
+        }
+        return toolbar;
+    }
+
     protected override void init_collect_ui_filenames(Gee.List<string> ui_filenames) {
         base.init_collect_ui_filenames(ui_filenames);
         
@@ -116,6 +148,20 @@ public class TrashPage : CheckerboardPage {
     
     public override SearchViewFilter get_search_view_filter() {
         return search_filter;
+    }
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        toggle_sidebar_button_image ();
+    }
+
+    private void toggle_sidebar_button_image () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        if (app.is_metadata_sidebar_visible ())
+            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
+        else
+            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
     }
 }
 

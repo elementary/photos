@@ -152,14 +152,7 @@ public class Tags.Grouping : Sidebar.Grouping, Sidebar.InternalDropTargetEntry,
         ui.ensure_update();
     }
     
-    public bool internal_drop_received(Gee.List<MediaSource> media) {
-        AddTagsDialog dialog = new AddTagsDialog();
-        string[]? names = dialog.execute();
-        if (names == null || names.length == 0)
-            return false;
-        
-        AppWindow.get_command_manager().execute(new AddTagsCommand(names, media));
-        
+    public bool internal_drop_received(Gee.List<MediaSource> media) {      
         return true;
     }
 

@@ -97,9 +97,8 @@ public class LibraryWindow : AppWindow {
 
     private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned(Gtk.Orientation.VERTICAL);
     private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned();
-    private Gtk.Frame bottom_frame = new Gtk.Frame(null);
     private Gtk.Paned right_client_paned = new Granite.Widgets.ThinPaned();
-	private MetadataView metadata_sidebar = new MetadataView();
+	private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup("LibraryWindowGlobalActionGroup");
 
@@ -370,12 +369,6 @@ public class LibraryWindow : AppWindow {
     private Gtk.ToggleActionEntry[] create_common_toggle_actions() {
         Gtk.ToggleActionEntry[] actions = new Gtk.ToggleActionEntry[0];
 
-        Gtk.ToggleActionEntry basic_props = { "CommonDisplayBasicProperties", null,
-            TRANSLATABLE, "<Ctrl><Shift>I", TRANSLATABLE, on_display_basic_properties, false };
-        basic_props.label = _("_Basic Information");
-        basic_props.tooltip = _("Display basic information for the selection");
-        actions += basic_props;
-
         Gtk.ToggleActionEntry searchbar = { "CommonDisplaySearchbar", Gtk.Stock.FIND, TRANSLATABLE,
             "F8", TRANSLATABLE, on_display_searchbar, is_search_toolbar_visible };
         searchbar.label = _("_Search Bar");
@@ -473,12 +466,6 @@ public class LibraryWindow : AppWindow {
     public override void show_all() {
         base.show_all();
 
-        Gtk.ToggleAction? basic_properties_action = get_current_page().get_common_action(
-            "CommonDisplayBasicProperties") as Gtk.ToggleAction;
-        assert(basic_properties_action != null);
-
-        if (!basic_properties_action.get_active())
-            bottom_frame.hide();
 
         Gtk.ToggleAction? searchbar_action = get_current_page().get_common_action(
             "CommonDisplaySearchbar") as Gtk.ToggleAction;
@@ -493,6 +480,7 @@ public class LibraryWindow : AppWindow {
 
         // Sidebar
         set_sidebar_visible(is_sidebar_visible());
+        set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 
     public static LibraryWindow get_app() {
@@ -543,7 +531,7 @@ public class LibraryWindow : AppWindow {
         Config.Facade.get_instance().set_library_window_state(maximized, dimensions);
 
         Config.Facade.get_instance().set_sidebar_position(client_paned.position);
-        Config.Facade.get_instance().set_metadata_sidebar_position(right_client_paned.position);
+        Config.Facade.get_instance ().set_metadata_sidebar_position (right_client_paned.position);
 
         base.on_quit();
     }
@@ -775,21 +763,6 @@ public class LibraryWindow : AppWindow {
         PreferencesDialog.show();
     }
 
-    private void on_display_basic_properties(Gtk.Action action) {
-        bool display = ((Gtk.ToggleAction) action).get_active();
-
-        if (display) {
-			this.metadata_sidebar.update_properties(get_current_page());
-        } else {
-            if (sidebar_paned.get_child2() != null) {
-                bottom_frame.hide();
-            }
-        }
-
-        // sync the setting so it will persist
-        Config.Facade.get_instance().set_display_basic_properties(display);
-    }
-
     private void on_display_searchbar(Gtk.Action action) {
         bool is_shown = ((Gtk.ToggleAction) action).get_active();
         Config.Facade.get_instance().set_display_search_bar(is_shown);
@@ -816,6 +789,15 @@ public class LibraryWindow : AppWindow {
 
     private bool is_sidebar_visible() {
         return Config.Facade.get_instance().get_display_sidebar();
+    }
+
+    public void set_metadata_sidebar_visible (bool visible) {
+        metadata_sidebar.set_visible (visible);
+        Config.Facade.get_instance ().set_display_metadata_sidebar (visible);
+    }
+
+    public bool is_metadata_sidebar_visible () {
+        return Config.Facade.get_instance().get_display_metadata_sidebar ();
     }
 
     public void enqueue_batch_import(BatchImport batch_import, bool allow_user_cancel) {
@@ -1053,11 +1035,6 @@ public class LibraryWindow : AppWindow {
 
     // check for settings that should persist between instances
     private void load_configuration() {
-        Gtk.ToggleAction? basic_display_action = get_common_action("CommonDisplayBasicProperties")
-            as Gtk.ToggleAction;
-        assert(basic_display_action != null);
-        basic_display_action.set_active(Config.Facade.get_instance().get_display_basic_properties());
-
         Gtk.ToggleAction? search_bar_display_action = get_common_action("CommonDisplaySearchbar")
             as Gtk.ToggleAction;
         assert(search_bar_display_action != null);
@@ -1228,26 +1205,18 @@ public class LibraryWindow : AppWindow {
         Gtk.Alignment bottom_alignment = new Gtk.Alignment(0, 0.5f, 1, 0);
 
         Resources.style_widget(scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
-        Resources.style_widget(bottom_frame, Resources.INSET_FRAME_STYLESHEET);
         Resources.style_widget(sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
-        Resources.style_widget(right_client_paned, Resources.SIDEBAR_PANED_STYLESHEET);
+        Resources.style_widget (right_client_paned, Resources.SIDEBAR_PANED_STYLESHEET);
 
         bottom_alignment.set_padding(10, 10, 6, 0);
-
-
-        bottom_frame.add(bottom_alignment);
-        bottom_frame.set_shadow_type(Gtk.ShadowType.NONE);
 
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two and the basic information pane
         top_section.pack_start(scrolled_sidebar, true, true, 0);
 
         sidebar_paned.pack1(top_section, true, false);
-        sidebar_paned.pack2(bottom_frame, false, false);
         sidebar_paned.set_position(1000);
-
         
-
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
         right_frame = new Gtk.Frame(null);
@@ -1258,21 +1227,19 @@ public class LibraryWindow : AppWindow {
         right_vbox.pack_start(search_toolbar, false, false, 0);
         right_vbox.pack_start(notebook, true, true, 0);
 
-        right_client_paned.pack1(right_frame, true, false);
-        right_client_paned.pack2(metadata_sidebar, false, false);
+        right_client_paned.pack1 (right_frame, true, false);
+        right_client_paned.pack2 (metadata_sidebar, false, false);
 		
-        metadata_sidebar.set_size_request(METADATA_SIDEBAR_MIN_WIDTH,-1);
-		right_client_paned.set_size_request(METADATA_SIDEBAR_MIN_WIDTH,-1);
+        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH,-1);
+		right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH,-1);
 		
         client_paned.pack1(sidebar_paned, false, false);
         sidebar_tree.set_size_request(SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2(right_client_paned, true, false);
         client_paned.set_position(Config.Facade.get_instance().get_sidebar_position());
-        int metadata_sidebar_pos = Config.Facade.get_instance().get_metadata_sidebar_position();
-        print("%i", metadata_sidebar_pos);
-        print("*****");
-        if(metadata_sidebar_pos > 0)
-        right_client_paned.set_position(metadata_sidebar_pos);
+        int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
+        if (metadata_sidebar_pos > 0)
+            right_client_paned.set_position (metadata_sidebar_pos);
         // TODO: Calc according to layout's size, to give sidebar a maximum width
         notebook.set_size_request(PAGE_MIN_WIDTH, -1);
 
@@ -1494,9 +1461,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_update_properties_now() {
-        if (bottom_frame.visible)
-			metadata_sidebar.update_properties(get_current_page());
-
+			metadata_sidebar.update_properties (get_current_page ());
     }
 
     public void mounted_camera_shell_notification(string uri, bool at_startup) {
@@ -1548,16 +1513,5 @@ public class LibraryWindow : AppWindow {
         return false;
     }
 
-    public void show_metadata_sidebar (bool hide)
-    {
-		if (hide)
-			metadata_sidebar.hide ();
-		else
-			metadata_sidebar.show ();
-	}
 
-	public bool metadata_sidebar_visible ()
-	{
-		return metadata_sidebar.visible;
-	}
 }

@@ -59,11 +59,6 @@ public class EventPage : CollectionPage {
         rename.label = Resources.RENAME_EVENT_MENU;
         new_actions += rename;
 
-        Gtk.ActionEntry comment = { "EditEventComment", null, TRANSLATABLE, null,
-            Resources.EDIT_EVENT_COMMENT_MENU, on_edit_comment};
-        comment.label = Resources.EDIT_EVENT_COMMENT_MENU;
-        new_actions += comment;
-
         return new_actions;
     }
     
@@ -95,22 +90,6 @@ public class EventPage : CollectionPage {
     private void on_events_altered(Gee.Map<DataObject, Alteration> map) {
         if (map.has_key(page_event))
             set_page_name(page_event.get_name());
-    }
-    
-    protected override void on_edit_comment() {
-        if (get_view().get_selected_count() == 0) {
-            EditCommentDialog edit_comment_dialog = new EditCommentDialog(page_event.get_comment(),
-                true);
-            string? new_comment = edit_comment_dialog.execute();
-            if (new_comment == null)
-                return;
-            
-            EditEventCommentCommand command = new EditEventCommentCommand(page_event, new_comment);
-            get_command_manager().execute(command);
-            return;
-        }
-        
-        base.on_edit_comment();
     }
         
     private void on_make_primary() {

@@ -413,7 +413,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private double saved_slider_val = 0.0;
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int>();
-    
+    private Gtk.ToolButton show_sidebar_button;
+
     public EditingHostPage(SourceCollection sources, string name) {
         base(name, false);
         
@@ -535,6 +536,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
         next_button.set_tooltip_text(_("Next photo"));
         next_button.clicked.connect(on_next_photo);
         toolbar.insert(next_button, -1);
+
+        //  show metadata sidebar button
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.insert (show_sidebar_button, -1);
+        toggle_sidebar_button_image ();
     }
     
     ~EditingHostPage() {
@@ -543,7 +550,21 @@ public abstract class EditingHostPage : SinglePhotoPage {
         get_view().contents_altered.disconnect(on_view_contents_ordering_altered);
         get_view().ordering_changed.disconnect(on_view_contents_ordering_altered);
     }
-    
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        toggle_sidebar_button_image ();
+    }
+
+    private void toggle_sidebar_button_image () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        if (app.is_metadata_sidebar_visible ())
+            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
+        else
+            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+    }
+
     private void on_zoom_slider_value_changed() {
         ZoomState new_zoom_state = ZoomState.rescale(get_zoom_state(), zoom_slider.get_value());
 
@@ -1350,7 +1371,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
             is_enhance_available(photo) : false;
         straighten_button.sensitive = ((photo != null) && (!photo_missing)) ?
             EditingTools.StraightenTool.is_available(photo, scaling) : false;
-                    
+        toggle_sidebar_button_image ();
+
         base.update_actions(selected_count, count);
     }
     
@@ -1946,38 +1968,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         RevertSingleCommand command = new RevertSingleCommand(get_photo());
         get_command_manager().execute(command);
     }
-    
-    public void on_edit_title() {
-        LibraryPhoto item;
-        if (get_photo() is LibraryPhoto)
-            item = get_photo() as LibraryPhoto;
-        else
-            return;
-        
-        EditTitleDialog edit_title_dialog = new EditTitleDialog(item.get_title());
-        string? new_title = edit_title_dialog.execute();
-        if (new_title == null)
-            return;
-        
-        EditTitleCommand command = new EditTitleCommand(item, new_title);
-        get_command_manager().execute(command);
-    }
-
-    public void on_edit_comment() {
-        LibraryPhoto item;
-        if (get_photo() is LibraryPhoto)
-            item = get_photo() as LibraryPhoto;
-        else
-            return;
-        
-        EditCommentDialog edit_comment_dialog = new EditCommentDialog(item.get_comment());
-        string? new_comment = edit_comment_dialog.execute();
-        if (new_comment == null)
-            return;
-        
-        EditCommentCommand command = new EditCommentCommand(item, new_comment);
-        get_command_manager().execute(command);
-    }
 
     public void on_adjust_date_time() {
         if (!has_photo())
@@ -2486,16 +2476,6 @@ public class LibraryPhotoPage : EditingHostPage {
             null, TRANSLATABLE, on_revert };
         revert.label = Resources.REVERT_MENU;
         actions += revert;
-        
-        Gtk.ActionEntry edit_title = { "EditTitle", null, TRANSLATABLE, "F2", TRANSLATABLE,
-            on_edit_title };
-        edit_title.label = Resources.EDIT_TITLE_MENU;
-        actions += edit_title;
-
-        Gtk.ActionEntry edit_comment = { "EditComment", null, TRANSLATABLE, "F3", TRANSLATABLE,
-            on_edit_comment };
-        edit_comment.label = Resources.EDIT_COMMENT_MENU;
-        actions += edit_comment;
 
         Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, TRANSLATABLE, null,
             TRANSLATABLE, on_adjust_date_time };
@@ -2609,16 +2589,6 @@ public class LibraryPhotoPage : EditingHostPage {
         /// xgettext:no-c-format
         max_size.tooltip = _("Zoom the photo to 200% magnification");
         actions += max_size;
-
-        Gtk.ActionEntry add_tags = { "AddTags", null, TRANSLATABLE, "<Ctrl>T", TRANSLATABLE, 
-            on_add_tags };
-        add_tags.label = Resources.ADD_TAGS_MENU;
-        actions += add_tags;
-        
-        Gtk.ActionEntry modify_tags = { "ModifyTags", null, TRANSLATABLE, "<Ctrl>M", TRANSLATABLE, 
-            on_modify_tags };
-        modify_tags.label = Resources.MODIFY_TAGS_MENU;
-        actions += modify_tags;
         
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
             on_slideshow };
@@ -2636,11 +2606,6 @@ public class LibraryPhotoPage : EditingHostPage {
             TRANSLATABLE, on_send_to };
         send_to_context_menu.label = Resources.SEND_TO_CONTEXT_MENU;
         actions += send_to_context_menu;        
-
-        Gtk.ActionEntry add_tags_context_menu = { "AddTagsContextMenu", null, TRANSLATABLE, "<Ctrl>A", TRANSLATABLE,
-            on_add_tags };
-        add_tags_context_menu.label = Resources.ADD_TAGS_CONTEXT_MENU;
-        actions += add_tags_context_menu;
 
         return actions;
     }
@@ -2911,7 +2876,6 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive("Crop", sensitivity);
         set_action_sensitive("RedEye", sensitivity);
         set_action_sensitive("Adjust", sensitivity);
-        set_action_sensitive("EditTitle", sensitivity);
         set_action_sensitive("AdjustDateTime", sensitivity);
         set_action_sensitive("ExternalEdit", sensitivity);
         set_action_sensitive("ExternalEditRAW", sensitivity);
@@ -2919,8 +2883,6 @@ public class LibraryPhotoPage : EditingHostPage {
         
         set_action_sensitive("Rate", sensitivity);
         set_action_sensitive("Flag", sensitivity);
-        set_action_sensitive("AddTags", sensitivity);
-        set_action_sensitive("ModifyTags", sensitivity);
         
         set_action_sensitive("SetBackground", sensitivity);
         
@@ -3326,28 +3288,6 @@ public class LibraryPhotoPage : EditingHostPage {
     private void on_metadata_altered(Gee.Map<DataObject, Alteration> map) {
         if (map.has_key(get_photo()) && map.get(get_photo()).has_subject("metadata"))
             repaint();
-    }
-
-    private void on_add_tags() {
-        AddTagsDialog dialog = new AddTagsDialog();
-        string[]? names = dialog.execute();
-        if (names != null) {
-            get_command_manager().execute(new AddTagsCommand(
-                HierarchicalTagIndex.get_global_index().get_paths_for_names_array(names), 
-                (Gee.Collection<LibraryPhoto>) get_view().get_selected_sources()));
-        }
-    }
-
-    private void on_modify_tags() {
-        LibraryPhoto photo = (LibraryPhoto) get_view().get_selected_at(0).get_source();
-        
-        ModifyTagsDialog dialog = new ModifyTagsDialog(photo);
-        Gee.ArrayList<Tag>? new_tags = dialog.execute();
-        
-        if (new_tags == null)
-            return;
-        
-        get_command_manager().execute(new ModifyTagsCommand(photo, new_tags));
     }
 
 }

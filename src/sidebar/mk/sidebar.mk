@@ -15,8 +15,12 @@ UNIT_FILES := \
 	Entry.vala \
 	Tree.vala \
 	common.vala \
-	Metadata.vala \
-	Rating.vala
+	Rating.vala \
+	metadata/Properties.vala \
+	metadata/ExtendedProperties.vala \
+	metadata/BasicProperties.vala \
+	metadata/LibraryProperties.vala \
+	metadata/MetadataSidebar.vala
 	
 
 # Any unit this unit relies upon (and should be initialized before it's initialized) should
