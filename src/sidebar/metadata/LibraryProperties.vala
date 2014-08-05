@@ -73,7 +73,7 @@ private class LibraryProperties : Properties {
             comment_entry.buffer.changed.connect (comment_entry_changed);
             add_entry_line ("Comment", comment_entry);
 
-            var rating_widget = new Granite.Widgets.Rating (true, 15);
+            var rating_widget = new PhotoRatingWidget (true, 15);
             rating_widget.rating = Resources.rating_int (rating);
             rating_widget.rating_changed.connect (rating_widget_changed);
 

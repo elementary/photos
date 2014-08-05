@@ -23,7 +23,7 @@
  *
  *
  */
-public class Granite.Widgets.Rating : Gtk.EventBox {
+public class PhotoRatingWidget : Gtk.EventBox {
     /**
      * Emitted when a new rating is selected.
      *
@@ -128,7 +128,7 @@ public class Granite.Widgets.Rating : Gtk.EventBox {
         default = false;
     }
 
-    private RatingRenderer renderer;
+    private PhotoRatingRenderer renderer;
     private int hover_rating = 0;
 
     /**
@@ -139,9 +139,9 @@ public class Granite.Widgets.Rating : Gtk.EventBox {
      * @param symbolic Whether to use symbolic icons.
      *
      */
-    public Rating (bool centered, int size, bool symbolic = false) {
+    public PhotoRatingWidget (bool centered, int size, bool symbolic = false) {
         this.centered = centered;
-        this.renderer = new RatingRenderer (size, symbolic, get_style_context ());
+        this.renderer = new PhotoRatingRenderer (size, symbolic, get_style_context ());
         visible_window = false;
 
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK
@@ -214,7 +214,7 @@ public class Granite.Widgets.Rating : Gtk.EventBox {
  *
  *
  */
-public class Granite.Widgets.RatingMenuItem : Gtk.MenuItem {
+public class PhotoRatingMenuItem : Gtk.MenuItem {
     /**
      * Current displayed rating. Note that you should read this value
      * after the {@link Gtk.MenuItem.activate} signal is emitted.
@@ -229,15 +229,15 @@ public class Granite.Widgets.RatingMenuItem : Gtk.MenuItem {
         }
     }
 
-    private Rating rating;
+    private PhotoRatingWidget rating;
 
     /**
      * Creates a new rating menu item.
      *
      *
      */
-    public RatingMenuItem (int icon_size = 16) {
-        rating = new Rating (false, icon_size, false);
+    public PhotoRatingMenuItem (int icon_size = 16) {
+        rating = new PhotoRatingWidget (false, icon_size, false);
         add (rating);
 
         // Workaround. Move the offset one star to the left for menuitems.
@@ -281,7 +281,7 @@ public class Granite.Widgets.RatingMenuItem : Gtk.MenuItem {
  *
  *
  */
-public class Granite.Widgets.CellRendererRating : Gtk.CellRendererPixbuf {
+public class PhotoCellRendererRating : Gtk.CellRendererPixbuf {
     /**
      * New rating was set. It is only emmited when the rating changes by activating the renderer.
      *
@@ -292,7 +292,7 @@ public class Granite.Widgets.CellRendererRating : Gtk.CellRendererPixbuf {
      */
     public signal void rating_changed (int new_rating, Gtk.Widget widget, string path);
 
-    private RatingRenderer renderer;
+    private PhotoRatingRenderer renderer;
 
     /**
      * Creates a new rating cell renderer.
@@ -300,11 +300,11 @@ public class Granite.Widgets.CellRendererRating : Gtk.CellRendererPixbuf {
      * @param icon_size Pixel size of the star icons
      *
      */
-    public CellRendererRating (int icon_size = 16) {
+    public PhotoCellRendererRating (int icon_size = 16) {
         this.xalign = 0.0f;
         this.mode = Gtk.CellRendererMode.ACTIVATABLE;
 
-        renderer = new RatingRenderer (icon_size, true, null);
+        renderer = new PhotoRatingRenderer (icon_size, true, null);
 
         // We'll only redraw from render() for performance reasons
         renderer.delayed_render_mode = true;
@@ -404,7 +404,7 @@ public class Granite.Widgets.CellRendererRating : Gtk.CellRendererPixbuf {
     }
 }
 
-public class Granite.Widgets.RatingRenderer : Object {
+public class PhotoRatingRenderer : Object {
     /**
      * Whether to delay the rendering of the rating until the next call
      * to render() after a property change. This is recommended in cases
@@ -625,7 +625,7 @@ public class Granite.Widgets.RatingRenderer : Object {
      * @param context style context to use as reference for rendering, or //null//.
      *
      */
-    public RatingRenderer (int icon_size, bool symbolic, Gtk.StyleContext? context) {
+    public PhotoRatingRenderer (int icon_size, bool symbolic, Gtk.StyleContext? context) {
         starred_pixbufs = new Gee.HashMap<int, Gdk.Pixbuf> ();
         not_starred_pixbufs = new Gee.HashMap<int, Gdk.Pixbuf> ();
         plus_sign_pixbufs = new Gee.HashMap<int, Gdk.Pixbuf> ();
@@ -661,7 +661,7 @@ public class Granite.Widgets.RatingRenderer : Object {
         var plus_sign_pix = plus_sign_pixbufs.get (state);
 
         // if no cached star pixbufs were found, render them.
-        var factory = Services.IconFactory.get_default ();
+        var factory = Granite.Services.IconFactory.get_default ();
 
         if (starred_pix == null) {
             string starred = symbolic ? "starred-symbolic" : "starred";

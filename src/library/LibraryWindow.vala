@@ -1237,9 +1237,11 @@ public class LibraryWindow : AppWindow {
         sidebar_tree.set_size_request(SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2(right_client_paned, true, false);
         client_paned.set_position(Config.Facade.get_instance().get_sidebar_position());
+        
         int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
+
         // TODO: Calc according to layout's size, to give sidebar a maximum width
         notebook.set_size_request(PAGE_MIN_WIDTH, -1);
 
