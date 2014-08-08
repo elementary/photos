@@ -5,39 +5,39 @@
  */
 
 public class Library.OfflineSidebarEntry : Library.HideablePageEntry {
-    public OfflineSidebarEntry() {
-        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance().get_all())
-            media_sources.offline_contents_altered.connect(on_offline_contents_altered);
-        
-        visible = (get_total_offline() != 0);
+    public OfflineSidebarEntry () {
+        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ())
+            media_sources.offline_contents_altered.connect (on_offline_contents_altered);
+
+        visible = (get_total_offline () != 0);
     }
 
-    ~OfflineSidebarEntry() {
-        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance().get_all())
-            media_sources.trashcan_contents_altered.disconnect(on_offline_contents_altered);
+    ~OfflineSidebarEntry () {
+        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ())
+            media_sources.trashcan_contents_altered.disconnect (on_offline_contents_altered);
     }
-    
-    public override string get_sidebar_name() {
+
+    public override string get_sidebar_name () {
         return OfflinePage.NAME;
     }
-    
-    public override Icon? get_sidebar_icon() {
-        return new ThemedIcon(Resources.ICON_MISSING_FILES);
+
+    public override Icon? get_sidebar_icon () {
+        return new ThemedIcon (Resources.ICON_MISSING_FILES);
     }
-    
-    protected override Page create_page() {
-        return new OfflinePage();
+
+    protected override Page create_page () {
+        return new OfflinePage ();
     }
-    
-    private void on_offline_contents_altered() {
-        visible = (get_total_offline() != 0);
+
+    private void on_offline_contents_altered () {
+        visible = (get_total_offline () != 0);
     }
-    
-    private int get_total_offline() {
+
+    private int get_total_offline () {
         int total = 0;
-        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance().get_all())
-            total += media_sources.get_offline_bin_contents().size;
-        
+        foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ())
+            total += media_sources.get_offline_bin_contents ().size;
+
         return total;
     }
 }

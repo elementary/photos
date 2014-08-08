@@ -85,7 +85,7 @@ public errordomain PublishingError {
     EXPIRED_SESSION
 }
 
-/** 
+/**
  * Represents a connection to a publishing service.
  *
  * Developers of publishing plugins provide a class that implements this interface. At
@@ -111,7 +111,7 @@ public interface Publisher : GLib.Object {
     /**
      * Returns a {@link Service} object describing the service to which this connects.
      */
-    public abstract Service get_service();
+    public abstract Service get_service ();
 
     /**
      * Makes this publisher enter the running state and endows it with exclusive access
@@ -119,30 +119,30 @@ public interface Publisher : GLib.Object {
      * this publisher can install user interface panes and query configuration information.
      * Only running services should perform network operations.
      */
-    public abstract void start();
+    public abstract void start ();
 
     /**
      * Returns true if this publisher is in the running state; false otherwise.
      */
-    public abstract bool is_running();
-    
+    public abstract bool is_running ();
+
     /**
      * Causes this publisher to enter a non-running state. This publisher should stop all
      * network operations and cease use of the shared services provided by the {@link PluginHost}.
      */
-    public abstract void stop();
-    
+    public abstract void stop ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -157,7 +157,7 @@ public interface DialogPane : GLib.Object {
      * pane is installed in the on-screen publishing dialog box.
      */
     public enum GeometryOptions {
-    
+
         /**
          * When the associated pane is installed, the on-screen publishing dialog box will be
          * sized normally and will not allow the user to change its size.
@@ -187,37 +187,37 @@ public interface DialogPane : GLib.Object {
     /**
      * Returns the Gtk.Widget that is this pane's on-screen representation.
      */
-    public abstract Gtk.Widget get_widget();
-    
+    public abstract Gtk.Widget get_widget ();
+
     /**
      * Returns a {@link GeometryOptions} bitfield describing how the on-screen publishing dialog
      * box should look and behave when this pane is installed.
      */
-    public abstract GeometryOptions get_preferred_geometry();
+    public abstract GeometryOptions get_preferred_geometry ();
 
     /**
      * Invoked automatically by Shotwell when this pane has been installed into the on-screen
      * publishing dialog box and become visible to the user.
      */
-    public abstract void on_pane_installed();
+    public abstract void on_pane_installed ();
 
     /**
      * Invoked automatically by Shotwell when this pane has been removed from the on-screen
      * publishing dialog box and is no longer visible to the user.
      */
-    public abstract void on_pane_uninstalled();
-    
+    public abstract void on_pane_uninstalled ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -230,13 +230,13 @@ public interface DialogPane : GLib.Object {
  * @param fraction_complete the fraction of the current publishing operation that has been
  *                          completed, from 0.0 to 1.0, inclusive.
  */
-public delegate void ProgressCallback(int file_number, double fraction_complete);
+public delegate void ProgressCallback (int file_number, double fraction_complete);
 
 /**
  * Called by the publishing system when the user clicks the 'Login' button in a service welcome
  * pane.
  */
-public delegate void LoginCallback();
+public delegate void LoginCallback ();
 
 /**
  * Manages and provides services for publishing plugins.
@@ -267,7 +267,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * @param err An error object that describes the kind of error that occurred.
      */
-    public abstract void post_error(Error err);
+    public abstract void post_error (Error err);
 
     /**
      * Halts the publishing process.
@@ -275,19 +275,19 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * Calling this method stops all network activity and hides the on-screen publishing
      * dialog box.
      */
-    public abstract void stop_publishing();
+    public abstract void stop_publishing ();
 
     /**
      * Returns a reference to the {@link Publisher} object that this is currently hosting.
      */
-    public abstract Publisher get_publisher();
+    public abstract Publisher get_publisher ();
 
     /**
      * Attempts to install a pane in the on-screen publishing dialog box, making the pane visible
      * and allowing it to interact with the user.
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
-     * 
+     *
      * @param pane the pane to install
      *
      * @param mode allows you to set the text displayed on the close/cancel button in the
@@ -300,8 +300,8 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * should be ButtonMode.CLOSE, because all cancellable publishing actions have already
      * occurred.
      */
-    public abstract void install_dialog_pane(Spit.Publishing.DialogPane pane,
-        ButtonMode mode = ButtonMode.CANCEL);
+    public abstract void install_dialog_pane (Spit.Publishing.DialogPane pane,
+            ButtonMode mode = ButtonMode.CANCEL);
 
     /**
      * Attempts to install a pane in the on-screen publishing dialog box that contains
@@ -316,7 +316,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * you need to display static text to the user.
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
-     * 
+     *
      * @param message the text to show in the pane
      *
      * @param mode allows you to set the text displayed on the close/cancel button in the
@@ -329,15 +329,15 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * should be ButtonMode.CLOSE, because all cancellable publishing actions have already
      * occurred.
      */
-    public abstract void install_static_message_pane(string message,
-        ButtonMode mode = ButtonMode.CANCEL);
+    public abstract void install_static_message_pane (string message,
+            ButtonMode mode = ButtonMode.CANCEL);
 
     /**
      * Works just like {@link install_static_message_pane} but allows markup to contain
      * Pango text formatting tags as well as unstyled text.
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
-     * 
+     *
      * @param markup the text to show in the pane, marked up with Pango formatting tags.
      *
      * @param mode allows you to set the text displayed on the close/cancel button in the
@@ -350,13 +350,13 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * should be ButtonMode.CLOSE, because all cancellable publishing actions have already
      * occurred.
      */
-    public abstract void install_pango_message_pane(string markup,
-        ButtonMode mode = ButtonMode.CANCEL);
+    public abstract void install_pango_message_pane (string markup,
+            ButtonMode mode = ButtonMode.CANCEL);
 
     /**
      * Attempts to install a pane in the on-screen publishing dialog box notifying the user
      * that his or her publishing operation completed successfully.
-     * 
+     *
      * The text displayed depends on the type of media the current publishing service
      * supports. To provide visual consistency across publishing services and to allow
      * Shotwell to handle internationalization, always use this convenience method; don’t
@@ -365,7 +365,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * If an error has posted, the {@link PluginHost} will not honor
      * this request.
      */
-    public abstract void install_success_pane();
+    public abstract void install_success_pane ();
 
     /**
      * Attempts to install a pane displaying the static text “Fetching account information...”
@@ -378,16 +378,16 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * you need to tell the user that you’re querying account information over the network.
      * Queries such as this are almost always performed immediately after the user has logged
      * in to the remote service.
-     * 
+     *
      * If an error has posted, the {@link PluginHost} will not honor this request.
      */
-    public abstract void install_account_fetch_wait_pane();
+    public abstract void install_account_fetch_wait_pane ();
 
 
     /**
      * Works just like {@link install_account_fetch_wait_pane} but displays the static text
      * “Logging in...“
-     * 
+     *
      * As with {@link install_account_fetch_wait_pane}, this is a convenience method, but
      * you should you use it provide to visual consistency and to let Shotwell handle
      * internationalization. See the description of {@link install_account_fetch_wait_pane}
@@ -395,7 +395,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
      */
-    public abstract void install_login_wait_pane();
+    public abstract void install_login_wait_pane ();
 
     /**
      * Attempts to install a pane displaying the text 'welcome_message' above a push
@@ -417,8 +417,8 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param on_login_clicked specifies the callback that is invoked when the user clicks
      * the “Login” button.
      */
-    public abstract void install_welcome_pane(string welcome_message,
-        LoginCallback on_login_clicked);
+    public abstract void install_welcome_pane (string welcome_message,
+            LoginCallback on_login_clicked);
 
     /**
      * Toggles whether the service selector combo box in the upper-right-hand corner of the
@@ -432,9 +432,9 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param is_locked when is_locked is true, the service selector combo box is made insensitive.
      * It appears greyed out and the user is prevented from switching to another publishing service.
      * When is_locked is false, the combo box is sensitive, allowing the user to freely switch
-     * from the current service to another service. 
+     * from the current service to another service.
      */
-    public abstract void set_service_locked(bool is_locked);
+    public abstract void set_service_locked (bool is_locked);
 
     /**
      * Makes the designated widget the default widget for the publishing dialog.
@@ -446,13 +446,13 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param widget a reference to the widget to designate as the default widget for the
      *               publishing dialog.
      */
-    public abstract void set_dialog_default_widget(Gtk.Widget widget);
+    public abstract void set_dialog_default_widget (Gtk.Widget widget);
 
     /**
      * Returns an array of the publishable media items that the user has selected for upload to the
      * remote service.
      */
-    public abstract Publishable[] get_publishables();
+    public abstract Publishable[] get_publishables ();
 
     /**
      * Writes all of the publishable media items that the user has selected for upload to the
@@ -484,27 +484,27 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *                       metadata will be left intact. The value of this parameter has no
      *                       effect on video publishables.
      */
-    public abstract ProgressCallback? serialize_publishables(int content_major_axis,
-        bool strip_metadata = false);
+    public abstract ProgressCallback? serialize_publishables (int content_major_axis,
+            bool strip_metadata = false);
 
     /**
      * Returns a {@link Publisher.MediaType} bitfield describing which kinds of media are present
      * in the set of publishable media items that the user has selected for upload to the remote
      * service.
      */
-    public abstract Spit.Publishing.Publisher.MediaType get_publishable_media_type();
-    
+    public abstract Spit.Publishing.Publisher.MediaType get_publishable_media_type ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -516,7 +516,7 @@ public interface Publishable : GLib.Object {
     public static const string PARAM_STRING_BASENAME    = "basename";
     public static const string PARAM_STRING_TITLE       = "title";
     public static const string PARAM_STRING_COMMENT     = "comment";
-    public static const string PARAM_STRING_EVENTCOMMENT= "eventcomment";
+    public static const string PARAM_STRING_EVENTCOMMENT = "eventcomment";
 
     /**
      * Returns a handle to the file on disk to which this publishable's data has been
@@ -525,7 +525,7 @@ public interface Publishable : GLib.Object {
      * You should use this file handle to read into memory the binary data you will send over
      * the network to the remote publishing service when this publishable is uploaded.
      */
-    public abstract GLib.File? get_serialized_file();
+    public abstract GLib.File? get_serialized_file ();
 
     /**
      * Returns a name that can be used to identify this publishable to the remote service.
@@ -534,41 +534,41 @@ public interface Publishable : GLib.Object {
      * and provide a fallback value. One possible option for a fallback is:
      * get_param_string(Spit.Publishing.Publishable.PARAM_STRING_BASENAME)
      */
-    public abstract string get_publishing_name();
+    public abstract string get_publishing_name ();
 
     /**
-     * Returns a string value from the publishable corresponding with the parameter name 
+     * Returns a string value from the publishable corresponding with the parameter name
      * provided, or null if there is no value for this name.
      */
-    public abstract string? get_param_string(string name);
+    public abstract string? get_param_string (string name);
 
     /**
      * Returns an array of strings that should be used to tag or mark this publishable on the
      * remote service, or null if this publishable has no tags or markings.
      */
-    public abstract string[] get_publishing_keywords();
+    public abstract string[] get_publishing_keywords ();
 
     /**
      * Returns the kind of media item this publishable encapsulates.
      */
-    public abstract Spit.Publishing.Publisher.MediaType get_media_type();
-    
+    public abstract Spit.Publishing.Publisher.MediaType get_media_type ();
+
     /**
      * Returns the creation timestamp on the file.
      */
-    public abstract GLib.DateTime get_exposure_date_time();
-    
+    public abstract GLib.DateTime get_exposure_date_time ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -581,24 +581,24 @@ public interface Service : Object, Spit.Pluggable {
      * A factory method that instantiates and returns a new {@link Publisher} object that
      * encapsulates a connection to the remote publishing service that this Service describes.
      */
-    public abstract Spit.Publishing.Publisher create_publisher(Spit.Publishing.PluginHost host);
+    public abstract Spit.Publishing.Publisher create_publisher (Spit.Publishing.PluginHost host);
 
     /**
      * Returns the kinds of media that this service can work with.
      */
-    public abstract Spit.Publishing.Publisher.MediaType get_supported_media();
-    
+    public abstract Spit.Publishing.Publisher.MediaType get_supported_media ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 }

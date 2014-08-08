@@ -11,7 +11,7 @@ public class DetectedPhotoInformation {
     public string? exif_md5 = null;
     public string? thumbnail_md5 = null;
     public string? format_name = null;
-    public Dimensions image_dim = Dimensions();
+    public Dimensions image_dim = Dimensions ();
     public Gdk.Colorspace colorspace = Gdk.Colorspace.RGB;
     public int channels = 0;
     public int bits_per_channel = 0;
@@ -34,19 +34,19 @@ public abstract class PhotoFileSniffer {
         GET_ALL =       0x00000000,
         NO_MD5 =        0x00000001
     }
-    
+
     protected File file;
     protected Options options;
     protected bool calc_md5;
-    
-    public PhotoFileSniffer(File file, Options options) {
+
+    public PhotoFileSniffer (File file, Options options) {
         this.file = file;
         this.options = options;
-        
+
         calc_md5 = (options & Options.NO_MD5) == 0;
     }
-    
-    public abstract DetectedPhotoInformation? sniff() throws Error;
+
+    public abstract DetectedPhotoInformation? sniff () throws Error;
 }
 
 //
@@ -62,26 +62,26 @@ public class PhotoFileInterrogator {
     private File file;
     private PhotoFileSniffer.Options options;
     private DetectedPhotoInformation? detected = null;
-    
-    public PhotoFileInterrogator(File file,
-        PhotoFileSniffer.Options options = PhotoFileSniffer.Options.GET_ALL) {
+
+    public PhotoFileInterrogator (File file,
+                                  PhotoFileSniffer.Options options = PhotoFileSniffer.Options.GET_ALL) {
         this.file = file;
         this.options = options;
     }
-    
-    // This should only be called after interrogate().  Will return null every time, otherwise.
+
+    // This should only be called after interrogate ().  Will return null every time, otherwise.
     // If called after interrogate and returns null, that indicates the file is not an image file.
-    public DetectedPhotoInformation? get_detected_photo_information() {
+    public DetectedPhotoInformation? get_detected_photo_information () {
         return detected;
     }
-    
-    public void interrogate() throws Error {
-        foreach (PhotoFileFormat file_format in PhotoFileFormat.get_supported()) {
-            PhotoFileSniffer sniffer = file_format.create_sniffer(file, options);
-            detected = sniffer.sniff();
+
+    public void interrogate () throws Error {
+        foreach (PhotoFileFormat file_format in PhotoFileFormat.get_supported ()) {
+            PhotoFileSniffer sniffer = file_format.create_sniffer (file, options);
+            detected = sniffer.sniff ();
             if (detected != null) {
-                assert(detected.file_format == file_format);
-                
+                assert (detected.file_format == file_format);
+
                 break;
             }
         }

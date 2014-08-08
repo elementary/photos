@@ -66,167 +66,167 @@ public enum InterpolationQuality {
 public class ProcessedImage {
     private LibRaw.ProcessedImage image;
     private Gdk.Pixbuf pixbuf = null;
-    
+
     public ushort width {
         get {
             return image.width;
         }
     }
-    
+
     public ushort height {
         get {
             return image.height;
         }
     }
-    
+
     public ushort colors {
         get {
             return image.colors;
         }
     }
-    
+
     public ushort bits {
         get {
             return image.bits;
         }
     }
-    
-    public uint8* data {
+
+    public uint8 *data {
         get {
             return image.data;
         }
     }
-    
+
     public uint data_size {
         get {
             return image.data_size;
         }
     }
-    
-    public ProcessedImage(LibRaw.Processor proc) throws Exception {
+
+    public ProcessedImage (LibRaw.Processor proc) throws Exception {
         LibRaw.Result result = LibRaw.Result.SUCCESS;
-        image = proc.make_mem_image(ref result);
-        throw_exception("ProcessedImage", result);
-        assert(image != null);
-        
+        image = proc.make_mem_image (ref result);
+        throw_exception ("ProcessedImage", result);
+        assert (image != null);
+
         // A regular mem image comes back with raw RGB data ready for pixbuf (data buffer is shared
         // between the ProcessedImage and the Gdk.Pixbuf)
-        pixbuf = new Gdk.Pixbuf.with_unowned_data(image.data, Gdk.Colorspace.RGB, false, image.bits,
-            image.width, image.height, image.width * image.colors, null);
+        pixbuf = new Gdk.Pixbuf.with_unowned_data (image.data, Gdk.Colorspace.RGB, false, image.bits,
+        image.width, image.height, image.width * image.colors, null);
     }
-    
-    public ProcessedImage.from_thumb(LibRaw.Processor proc) throws Exception {
+
+    public ProcessedImage.from_thumb (LibRaw.Processor proc) throws Exception {
         LibRaw.Result result = LibRaw.Result.SUCCESS;
-        image = proc.make_mem_thumb(ref result);
-        throw_exception("ProcessedImage.from_thumb", result);
-        assert(image != null);
-        
+        image = proc.make_mem_thumb (ref result);
+        throw_exception ("ProcessedImage.from_thumb", result);
+        assert (image != null);
+
         // A mem thumb comes back as the raw bytes from the data segment in the file -- this needs
         // to be decoded before being useful.  This will throw an error if the format is not
         // supported
         try {
-            pixbuf = new Gdk.Pixbuf.from_stream(new MemoryInputStream.from_data(image.data, null),
-                null);
+            pixbuf = new Gdk.Pixbuf.from_stream (new MemoryInputStream.from_data (image.data, null),
+            null);
         } catch (Error err) {
-            throw new Exception.UNSUPPORTED_THUMBNAIL(err.message);
+            throw new Exception.UNSUPPORTED_THUMBNAIL (err.message);
         }
-        
+
         // fix up the ProcessedImage fields (which are unset when decoding the thumb)
         image.width = (ushort) pixbuf.width;
         image.height = (ushort) pixbuf.height;
         image.colors = (ushort) pixbuf.n_channels;
         image.bits = (ushort) pixbuf.bits_per_sample;
     }
-    
+
     // This method returns a copy of a pixbuf representing the ProcessedImage.
-    public Gdk.Pixbuf get_pixbuf_copy() {
-        return pixbuf.copy();
+    public Gdk.Pixbuf get_pixbuf_copy () {
+        return pixbuf.copy ();
     }
 }
 
 public class Processor {
-    public LibRaw.OutputParams* output_params {
+    public LibRaw.OutputParams *output_params {
         get {
             return &proc.params;
         }
     }
-    
+
     private LibRaw.Processor proc;
-    
-    public Processor(LibRaw.Options options = LibRaw.Options.NONE) {
-        proc = new LibRaw.Processor(options);
+
+    public Processor (LibRaw.Options options = LibRaw.Options.NONE) {
+        proc = new LibRaw.Processor (options);
     }
-    
-    public void adjust_sizes_info_only() throws Exception {
-        throw_exception("adjust_sizes_info_only", proc.adjust_sizes_info_only());
+
+    public void adjust_sizes_info_only () throws Exception {
+        throw_exception ("adjust_sizes_info_only", proc.adjust_sizes_info_only ());
     }
-    
-    public unowned LibRaw.ImageOther get_image_other() {
-        return proc.get_image_other();
+
+    public unowned LibRaw.ImageOther get_image_other () {
+        return proc.get_image_other ();
     }
-    
-    public unowned LibRaw.ImageParams get_image_params() {
-        return proc.get_image_params();
+
+    public unowned LibRaw.ImageParams get_image_params () {
+        return proc.get_image_params ();
     }
-    
-    public unowned LibRaw.ImageSizes get_sizes() {
-        return proc.get_sizes();
+
+    public unowned LibRaw.ImageSizes get_sizes () {
+        return proc.get_sizes ();
     }
-    
-    public unowned LibRaw.Thumbnail get_thumbnail() {
-        return proc.get_thumbnail();
+
+    public unowned LibRaw.Thumbnail get_thumbnail () {
+        return proc.get_thumbnail ();
     }
-    
-    public ProcessedImage make_mem_image() throws Exception {
-        return new ProcessedImage(proc);
+
+    public ProcessedImage make_mem_image () throws Exception {
+        return new ProcessedImage (proc);
     }
-    
-    public ProcessedImage make_thumb_image() throws Exception {
-        return new ProcessedImage.from_thumb(proc);
+
+    public ProcessedImage make_thumb_image () throws Exception {
+        return new ProcessedImage.from_thumb (proc);
     }
-    
-    public void open_buffer(uint8[] buffer) throws Exception {
-        throw_exception("open_buffer", proc.open_buffer(buffer));
+
+    public void open_buffer (uint8[] buffer) throws Exception {
+        throw_exception ("open_buffer", proc.open_buffer (buffer));
     }
-    
-    public void open_file(string filename) throws Exception {
-        throw_exception("open_file", proc.open_file(filename));
+
+    public void open_file (string filename) throws Exception {
+        throw_exception ("open_file", proc.open_file (filename));
     }
-    
-    public void process() throws Exception {
-        throw_exception("process", proc.process());
+
+    public void process () throws Exception {
+        throw_exception ("process", proc.process ());
     }
-    
-    public void ppm_tiff_writer(string filename) throws Exception {
-        throw_exception("ppm_tiff_writer", proc.ppm_tiff_writer(filename));
+
+    public void ppm_tiff_writer (string filename) throws Exception {
+        throw_exception ("ppm_tiff_writer", proc.ppm_tiff_writer (filename));
     }
-    
-    public void thumb_writer(string filename) throws Exception {
-        throw_exception("thumb_writer", proc.thumb_writer(filename));
+
+    public void thumb_writer (string filename) throws Exception {
+        throw_exception ("thumb_writer", proc.thumb_writer (filename));
     }
-    
-    public void recycle() {
-        proc.recycle();
+
+    public void recycle () {
+        proc.recycle ();
     }
-    
-    public void unpack() throws Exception {
-        throw_exception("unpack", proc.unpack());
+
+    public void unpack () throws Exception {
+        throw_exception ("unpack", proc.unpack ());
     }
-    
-    public void unpack_thumb() throws Exception {
-        throw_exception("unpack_thumb", proc.unpack_thumb());
+
+    public void unpack_thumb () throws Exception {
+        throw_exception ("unpack_thumb", proc.unpack_thumb ());
     }
-    
-    // This configures output_params for reasonable settings for turning a RAW image into an 
+
+    // This configures output_params for reasonable settings for turning a RAW image into an
     // RGB ProcessedImage suitable for display.  Tweaks can occur after this call and before
-    // process().
-    public void configure_for_rgb_display(bool half_size) {
+    // process ().
+    public void configure_for_rgb_display (bool half_size) {
         // Fields in comments are left to their defaults and/or should be modified by the caller.
         // These fields are set to reasonable defaults by libraw.
-        
+
         // greybox
-        output_params->set_chromatic_aberrations(1.0, 1.0);
-        output_params->set_gamma_curve(GRaw.SRGB_POWER, GRaw.SRGB_SLOPE);
+        output_params->set_chromatic_aberrations (1.0, 1.0);
+        output_params->set_gamma_curve (GRaw.SRGB_POWER, GRaw.SRGB_SLOPE);
         // user_mul
         // shot_select
         // multi_out
@@ -256,50 +256,50 @@ public class Processor {
     }
 }
 
-private void throw_exception(string caller, LibRaw.Result result) throws Exception {
+private void throw_exception (string caller, LibRaw.Result result) throws Exception {
     if (result == LibRaw.Result.SUCCESS)
         return;
     else if (result > 0)
-        throw new Exception.SYSTEM_ERROR("%s: System error %d: %s", caller, (int) result, strerror(result));
-    
-    string msg = "%s: %s".printf(caller, result.to_string());
-    
+        throw new Exception.SYSTEM_ERROR ("%s: System error %d: %s", caller, (int) result, strerror (result));
+
+    string msg = "%s: %s".printf (caller, result.to_string ());
+
     switch (result) {
-        case LibRaw.Result.UNSPECIFIED_ERROR:
-            throw new Exception.UNSPECIFIED(msg);
-        
-        case LibRaw.Result.FILE_UNSUPPORTED:
-            throw new Exception.UNSUPPORTED_FILE(msg);
-        
-        case LibRaw.Result.REQUEST_FOR_NONEXISTENT_IMAGE:
-            throw new Exception.NONEXISTANT_IMAGE(msg);
-        
-        case LibRaw.Result.OUT_OF_ORDER_CALL:
-            throw new Exception.OUT_OF_ORDER_CALL(msg);
-        
-        case LibRaw.Result.NO_THUMBNAIL:
-            throw new Exception.NO_THUMBNAIL(msg);
-        
-        case LibRaw.Result.UNSUPPORTED_THUMBNAIL:
-            throw new Exception.UNSUPPORTED_THUMBNAIL(msg);
-        
-        case LibRaw.Result.UNSUFFICIENT_MEMORY:
-            throw new Exception.OUT_OF_MEMORY(msg);
-        
-        case LibRaw.Result.DATA_ERROR:
-            throw new Exception.DATA_ERROR(msg);
-        
-        case LibRaw.Result.IO_ERROR:
-            throw new Exception.IO_ERROR(msg);
-        
-        case LibRaw.Result.CANCELLED_BY_CALLBACK:
-            throw new Exception.CANCELLED_BY_CALLBACK(msg);
-        
-        case LibRaw.Result.BAD_CROP:
-            throw new Exception.BAD_CROP(msg);
-        
-        default:
-            return;
+    case LibRaw.Result.UNSPECIFIED_ERROR:
+        throw new Exception.UNSPECIFIED (msg);
+
+    case LibRaw.Result.FILE_UNSUPPORTED:
+        throw new Exception.UNSUPPORTED_FILE (msg);
+
+    case LibRaw.Result.REQUEST_FOR_NONEXISTENT_IMAGE:
+        throw new Exception.NONEXISTANT_IMAGE (msg);
+
+    case LibRaw.Result.OUT_OF_ORDER_CALL:
+        throw new Exception.OUT_OF_ORDER_CALL (msg);
+
+    case LibRaw.Result.NO_THUMBNAIL:
+        throw new Exception.NO_THUMBNAIL (msg);
+
+    case LibRaw.Result.UNSUPPORTED_THUMBNAIL:
+        throw new Exception.UNSUPPORTED_THUMBNAIL (msg);
+
+    case LibRaw.Result.UNSUFFICIENT_MEMORY:
+        throw new Exception.OUT_OF_MEMORY (msg);
+
+    case LibRaw.Result.DATA_ERROR:
+        throw new Exception.DATA_ERROR (msg);
+
+    case LibRaw.Result.IO_ERROR:
+        throw new Exception.IO_ERROR (msg);
+
+    case LibRaw.Result.CANCELLED_BY_CALLBACK:
+        throw new Exception.CANCELLED_BY_CALLBACK (msg);
+
+    case LibRaw.Result.BAD_CROP:
+        throw new Exception.BAD_CROP (msg);
+
+    default:
+        return;
     }
 }
 
