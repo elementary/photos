@@ -12,8 +12,8 @@ public const int64 INVALID_ID = -1;
 /**
  * Initialization method for the whole module.
  */
-public void init() {
-    FSpotDatabaseBehavior.create_behavior_map();
+public void init () {
+    FSpotDatabaseBehavior.create_behavior_map ();
 }
 
 /**
@@ -28,29 +28,29 @@ public class FSpotDatabase : Object {
     public FSpotTagsTable tags_table;
     public FSpotRollsTable rolls_table;
     public int64 hidden_tag_id;
-    
-    public FSpotDatabase(File db_file) throws DatabaseError, Spit.DataImports.DataImportError {
-        string filename = db_file.get_path();
-        int res = Sqlite.Database.open_v2(filename, out fspot_db,
-            Sqlite.OPEN_READONLY, null);
+
+    public FSpotDatabase (File db_file) throws DatabaseError, Spit.DataImports.DataImportError {
+        string filename = db_file.get_path ();
+        int res = Sqlite.Database.open_v2 (filename, out fspot_db,
+        Sqlite.OPEN_READONLY, null);
         if (res != Sqlite.OK)
-            throw new DatabaseError.ERROR("Unable to open F-Spot database %s: %d", filename, res);
-        meta_table = new FSpotMetaTable(fspot_db);
-        hidden_tag_id = meta_table.get_hidden_tag_id();
-        
-        FSpotDatabaseBehavior db_behavior = new FSpotDatabaseBehavior(get_version());
-        
-        photos_table = new FSpotPhotosTable(fspot_db, db_behavior);
-        photo_versions_table = new FSpotPhotoVersionsTable(fspot_db, db_behavior);
-        tags_table = new FSpotTagsTable(fspot_db, db_behavior);
-        rolls_table = new FSpotRollsTable(fspot_db, db_behavior);
+            throw new DatabaseError.ERROR ("Unable to open F-Spot database %s: %d", filename, res);
+        meta_table = new FSpotMetaTable (fspot_db);
+        hidden_tag_id = meta_table.get_hidden_tag_id ();
+
+        FSpotDatabaseBehavior db_behavior = new FSpotDatabaseBehavior (get_version ());
+
+        photos_table = new FSpotPhotosTable (fspot_db, db_behavior);
+        photo_versions_table = new FSpotPhotoVersionsTable (fspot_db, db_behavior);
+        tags_table = new FSpotTagsTable (fspot_db, db_behavior);
+        rolls_table = new FSpotRollsTable (fspot_db, db_behavior);
     }
-    
-    ~FSpotDatabase() {
+
+    ~FSpotDatabase () {
     }
-    
-    private Utils.VersionNumber get_version() throws DatabaseError {
-        return new Utils.VersionNumber.from_string(meta_table.get_db_version());
+
+    private Utils.VersionNumber get_version () throws DatabaseError {
+        return new Utils.VersionNumber.from_string (meta_table.get_db_version ());
     }
 }
 
