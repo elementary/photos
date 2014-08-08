@@ -2660,7 +2660,7 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override InjectionGroup[] init_collect_injection_groups() {
         InjectionGroup[] groups = base.init_collect_injection_groups();
         
-        InjectionGroup print_group = new InjectionGroup("/MenuBar/FileMenu/PrintPlaceholder");
+        InjectionGroup print_group = new InjectionGroup("/PhotoContextMenu/PrintPlaceholder");
         print_group.add_menu_item("Print");
         
         groups += print_group;
