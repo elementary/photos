@@ -662,6 +662,10 @@ public class LibraryWindow : AppWindow {
         int response = import_dialog.run();
         
         if (response == Gtk.ResponseType.OK) {
+            /* Set invisible the dialog because some wm keep it in front
+             * giving the sensation of a froozen program.*/
+            import_dialog.set_visible(false);
+            
             // force file linking if directory is inside current library directory
             Gtk.ResponseType copy_files_response =
                 AppDirs.is_in_import_dir(File.new_for_uri(import_dialog.get_uri()))
