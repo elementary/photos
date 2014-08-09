@@ -2680,24 +2680,24 @@ public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_
     }
 
     // Remove and attempt to trash.
-    LibraryPhoto.global.remove_from_app(photos, delete_files, monitor, null);
-    Video.global.remove_from_app(videos, delete_files, monitor, null);
+    LibraryPhoto.global.remove_from_app (photos, delete_files, monitor, null);
+    Video.global.remove_from_app (videos, delete_files, monitor, null);
 
     if (delete_files) {
         // Attempt to delete the files.
-        Gee.ArrayList<LibraryPhoto> not_deleted_photos = new Gee.ArrayList<LibraryPhoto>();
-        Gee.ArrayList<Video> not_deleted_videos = new Gee.ArrayList<Video>();
-        LibraryPhoto.global.delete_backing_files(photos, monitor, not_deleted_photos);
-        Video.global.delete_backing_files(videos, monitor, not_deleted_videos);
+        Gee.ArrayList<LibraryPhoto> not_deleted_photos = new Gee.ArrayList<LibraryPhoto> ();
+        Gee.ArrayList<Video> not_deleted_videos = new Gee.ArrayList<Video> ();
+        LibraryPhoto.global.delete_backing_files (photos, monitor, not_deleted_photos);
+        Video.global.delete_backing_files (videos, monitor, not_deleted_videos);
 
         int num_not_deleted = not_deleted_photos.size + not_deleted_videos.size;
         if (num_not_deleted > 0) {
             // Alert the user that the files were not removed.
             string delete_failed_message = 
-                ngettext("The photo or video cannot be deleted.",
-                    "%d photos/videos cannot be deleted.",
-                    num_not_deleted).printf(num_not_deleted);
-            AppWindow.error_message_with_title(dialog_title, delete_failed_message, AppWindow.get_instance());
+                ngettext ("The photo or video cannot be deleted.",
+                          "%d photos/videos cannot be deleted.",
+                          num_not_deleted).printf (num_not_deleted);
+            AppWindow.error_message_with_title (dialog_title, delete_failed_message, AppWindow.get_instance ());
         }
     }
 
