@@ -737,7 +737,7 @@ public class LibraryWindow : AppWindow {
         to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
         to_remove.add_all (Video.global.get_trashcan_contents ());
 
-        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash..."));
+        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash..."), true);
 
         AppWindow.get_command_manager ().reset ();
     }
