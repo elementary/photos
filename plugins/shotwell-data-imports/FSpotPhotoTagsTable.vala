@@ -19,37 +19,37 @@ public class FSpotPhotoTagRow : Object {
  */
 public class FSpotPhotoTagsTable : FSpotDatabaseTable<FSpotPhotoTagRow> {
     public static const string TABLE_NAME = "Photo_Tags";
-    
-    public FSpotPhotoTagsTable(Sqlite.Database db, FSpotDatabaseBehavior db_behavior) {
-        base(db);
-        set_behavior(db_behavior.get_photo_tags_behavior());
+
+    public FSpotPhotoTagsTable (Sqlite.Database db, FSpotDatabaseBehavior db_behavior) {
+        base (db);
+        set_behavior (db_behavior.get_photo_tags_behavior ());
     }
 }
 
 public class FSpotPhotoTagsV0Behavior : FSpotTableBehavior<FSpotPhotoTagRow>, Object {
     private static FSpotPhotoTagsV0Behavior instance;
-    
-    private FSpotPhotoTagsV0Behavior() {
+
+    private FSpotPhotoTagsV0Behavior () {
     }
-    
-    public static FSpotPhotoTagsV0Behavior get_instance() {
+
+    public static FSpotPhotoTagsV0Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotoTagsV0Behavior();
+            instance = new FSpotPhotoTagsV0Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotoTagsTable.TABLE_NAME;
     }
 
-    public string[] list_columns() {
+    public string[] list_columns () {
         return { "photo_id", "tag_id" };
     }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoTagRow row, int offset = 0) {
-        row = new FSpotPhotoTagRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.tag_id = stmt.column_int64(offset + 1);
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoTagRow row, int offset = 0) {
+        row = new FSpotPhotoTagRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.tag_id = stmt.column_int64 (offset + 1);
     }
 }
 

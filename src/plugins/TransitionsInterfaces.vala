@@ -19,11 +19,11 @@ namespace Spit.Transitions {
 public const int CURRENT_INTERFACE = 0;
 
 /**
- * Direction indicates what direction (animated motion) the {@link Effect} should simulate the 
+ * Direction indicates what direction (animated motion) the {@link Effect} should simulate the
  * images are moving, if appropriate.
- * 
+ *
  * The direction indicates from what side or corner of the screen the new image should come in from.
- * Thus, a LEFT slide means the current image exits via the left-hand edge of the screen and the 
+ * Thus, a LEFT slide means the current image exits via the left-hand edge of the screen and the
  * new image moves into place from the right-hand edge.
  *
  * UP, DOWN, and diagonals may be added at some point.
@@ -31,12 +31,12 @@ public const int CURRENT_INTERFACE = 0;
 public enum Direction {
     LEFT = 0,
     RIGHT = 1,
-    
+
     /**
      * Convenience definition (for LTR readers).
      */
     FORWARD = LEFT,
-    
+
     /**
      * Convenience definition (for LTR readers).
      */
@@ -45,8 +45,8 @@ public enum Direction {
 
 /**
  * Visuals contains the pertinent drawing information for the transition that must occur.
- * 
- * A Visuals object is supplied to {@link Effect} at the start of the transition and during each 
+ *
+ * A Visuals object is supplied to {@link Effect} at the start of the transition and during each
  * call to paint to the screen.
  *
  * Note that if starting with a blank screen, from_pixbuf will be null and from_pos will be
@@ -63,88 +63,112 @@ public class Visuals : Object {
      *
      * If transitioning from a blank screen, this will return null.
      */
-    public Gdk.Pixbuf? from_pixbuf { get; private set; }
-    
+    public Gdk.Pixbuf? from_pixbuf {
+        get;
+        private set;
+    }
+
     /**
      * Returns the position of the starting pixbuf on the display.
      *
      * If transitioning from a blank screen, this will be zeroed.
      */
-    public Gdk.Rectangle from_pos { get; private set; }
-    
+    public Gdk.Rectangle from_pos {
+        get;
+        private set;
+    }
+
     /**
      * Returns the ending pixbuf (the pixbuf that the transition should result in).
      *
      * If transitioning to a blank screen, this will return null.
      */
-    public Gdk.Pixbuf? to_pixbuf { get; private set; }
-    
+    public Gdk.Pixbuf? to_pixbuf {
+        get;
+        private set;
+    }
+
     /**
      * Returns the position of the ending pixbuf on the display.
      *
      * If transitioning to a blank screen, this will be zeroed.
      */
-    public Gdk.Rectangle to_pos { get; private set; }
-    
+    public Gdk.Rectangle to_pos {
+        get;
+        private set;
+    }
+
     /**
      * Returns the background color of the viewport.
      */
-    public Gdk.RGBA bg_color { get; private set; }
-    
-    public Visuals(Gdk.Pixbuf? from_pixbuf, Gdk.Rectangle from_pos, Gdk.Pixbuf? to_pixbuf,
-        Gdk.Rectangle to_pos, Gdk.RGBA bg_color) {
+    public Gdk.RGBA bg_color {
+        get;
+        private set;
+    }
+
+    public Visuals (Gdk.Pixbuf? from_pixbuf, Gdk.Rectangle from_pos, Gdk.Pixbuf? to_pixbuf,
+                    Gdk.Rectangle to_pos, Gdk.RGBA bg_color) {
         this.from_pixbuf = from_pixbuf;
         this.from_pos = from_pos;
         this.to_pixbuf = to_pixbuf;
         this.to_pos = to_pos;
         this.bg_color = bg_color;
     }
-    
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
  * Motion contains all the pertinent information regarding the animation of the transition.
  *
- * Some of Motion's information may not apply to a transition effect (such as Direction for a 
+ * Some of Motion's information may not apply to a transition effect (such as Direction for a
  * fade effect).
  */
 public class Motion : Object {
     /**
      * Returns the direction the transition should occur in (if pertinent to the {@link Effect}.
      */
-    public Direction direction { get; private set; }
-    
+    public Direction direction {
+        get;
+        private set;
+    }
+
     /**
      * Returns the frames per second of the {@link Effect}.
      */
-    public int fps { get; private set; }
-    
+    public int fps {
+        get;
+        private set;
+    }
+
     /**
      * Returns the amount of time the transition should take (in milliseconds).
      */
-    public int duration_msec { get; private set; }
-    
+    public int duration_msec {
+        get;
+        private set;
+    }
+
     /**
      * Returns the number of frames that should be required to perform the transition in the
      * expected {@link duration_msec}.
      */
-    public int total_frames { 
+    public int total_frames {
         get {
             return (int) ((double) fps * ((double) duration_msec / 1000.0));
         }
     }
-    
+
     /**
      * Returns the approximate time between each frame draw (in milliseconds).
      */
@@ -153,32 +177,32 @@ public class Motion : Object {
             return (int) (1000.0 / (double) fps);
         }
     }
-    
-    public Motion(Direction direction, int fps, int duration_msec) {
+
+    public Motion (Direction direction, int fps, int duration_msec) {
         this.direction = direction;
         this.fps = fps;
         this.duration_msec = duration_msec;
     }
-    
+
     /**
      * Returns a value from 0.0 to 1.0 that represents the percentage of the transition's completion
      * for the specified frame.
      */
-    public double get_alpha(int frame_number) {
+    public double get_alpha (int frame_number) {
         return (double) frame_number / (double) total_frames;
     }
-    
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -188,25 +212,25 @@ public interface Descriptor : Object, Spit.Pluggable {
     /**
      * Returns an instance of the {@link Effect} this descriptor represents.
      */
-    public abstract Effect create(Spit.HostInterface host);
-    
+    public abstract Effect create (Spit.HostInterface host);
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
- * An Effect represents an interstitial effect that is used to transition the display from one 
+ * An Effect represents an interstitial effect that is used to transition the display from one
  * image to another.
- * 
+ *
  * An Effect must hold state so that it knows what it should be drawn at any call to {@link paint}
  * (which is called regularly during a transition). That is, it should be able to draw any frame of
  * the transition at any time. The same frame may need to be drawn multiple times, or the host
@@ -237,24 +261,24 @@ public interface Effect : Object {
      * @param min_fps The minimum FPS before the effect is consider "ruined".
      *        Return zero if any FPS is acceptable.
      */
-    public abstract void get_fps(out int desired_fps, out int min_fps);
-    
+    public abstract void get_fps (out int desired_fps, out int min_fps);
+
     /**
      * Called when the effect is starting.
-     * 
+     *
      * All state should be reset. The frame number, which is not supplied, is one.
      */
-    public abstract void start(Visuals visuals, Motion motion);
-    
+    public abstract void start (Visuals visuals, Motion motion);
+
     /**
      * Return true if the Effect needs the background cleared prior to calling {@link paint}.
      */
-    public abstract bool needs_clear_background();
-    
+    public abstract bool needs_clear_background ();
+
     /**
      * Called when the effect needs to paint (i.e. an expose or draw event has occurred).
-     * 
-     * This call should ''not'' advance the state of the effect (i.e. it may be called more than 
+     *
+     * This call should ''not'' advance the state of the effect (i.e. it may be called more than
      * once for the same frame).
      *
      * @param ctx The Cairo context the Effect should use to paint the transition.
@@ -262,38 +286,38 @@ public interface Effect : Object {
      * @param height The height (in pixels) of the Cairo surface.
      * @param frame_number The ''one-based'' frame being drawn.
      */
-    public abstract void paint(Visuals visuals, Motion motion, Cairo.Context ctx, int width,
-        int height, int frame_number);
-    
+    public abstract void paint (Visuals visuals, Motion motion, Cairo.Context ctx, int width,
+                                int height, int frame_number);
+
     /**
      * Called to notify the effect that the state of the transition should advance to the specified
      * frame number.
-     * 
+     *
      * Note: There is no guarantee frame numbers will be consecutive between calls
      * to next, especially if the transition clock is attempting to catch up.
      *
      * @param frame_number The ''one-based'' frame being advanced to.
      */
-    public abstract void advance(Visuals visuals, Motion motion, int frame_number);
-    
+    public abstract void advance (Visuals visuals, Motion motion, int frame_number);
+
     /**
      * Called if the Effect should halt the transition.
-     * 
+     *
      * It only needs to reset state if {@link start} is called again.
      */
-    public abstract void cancel();
-    
+    public abstract void cancel ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 }
