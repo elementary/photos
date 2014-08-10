@@ -6,13 +6,13 @@
 
 namespace Library {
 
-public void init() throws Error {
-    Library.TrashSidebarEntry.init();
+public void init () throws Error {
+    Library.TrashSidebarEntry.init ();
     Photo.develop_raw_photos_to_files = true;
 }
 
-public void terminate() {
-    Library.TrashSidebarEntry.terminate();
+public void terminate () {
+    Library.TrashSidebarEntry.terminate ();
 }
 
 }

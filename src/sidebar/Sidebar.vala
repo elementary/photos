@@ -6,10 +6,10 @@
 
 namespace Sidebar {
 
-public void init() throws Error {
+public void init () throws Error {
 }
 
-public void terminate() {
+public void terminate () {
 }
 
 }
