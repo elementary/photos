@@ -6,18 +6,18 @@
 
 namespace Publishing {
 
-public void init() throws Error {
+public void init () throws Error {
     string[] core_ids = new string[0];
     core_ids += "org.yorba.shotwell.publishing.facebook";
     core_ids += "org.yorba.shotwell.publishing.picasa";
     core_ids += "org.yorba.shotwell.publishing.flickr";
     core_ids += "org.yorba.shotwell.publishing.youtube";
-    
-    Plugins.register_extension_point(typeof(Spit.Publishing.Service), _("Publishing"),
-        Resources.PUBLISH, core_ids);
+
+    Plugins.register_extension_point (typeof (Spit.Publishing.Service), _ ("Publishing"),
+    Resources.PUBLISH, core_ids);
 }
 
-public void terminate() {
+public void terminate () {
 }
 
 }

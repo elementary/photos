@@ -17,11 +17,11 @@ namespace DataImports.FSpot.Db {
  * contain the data for a single database row.
  */
 public interface FSpotTableBehavior<T> : Object {
-    public abstract string get_table_name();
-    
-    public abstract string[] list_columns();
-    
-    public abstract void build_row(Sqlite.Statement stmt, out T row, int offset = 0);
+    public abstract string get_table_name ();
+
+    public abstract string[] list_columns ();
+
+    public abstract void build_row (Sqlite.Statement stmt, out T row, int offset = 0);
 }
 
 }

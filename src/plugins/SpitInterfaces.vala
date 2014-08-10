@@ -40,12 +40,12 @@ public const int CURRENT_INTERFACE = 0;
  * @param min_host_interface The minimum supported host interface version.
  * @param max_host_interface The maximum supported host interface version.
  * @param plugin_interface The interface version supported by the Pluggable.
- * 
+ *
  * @return The plugin's interface version if supported, {@link UNSUPPORTED_INTERFACE} otherwise.
  */
-public int negotiate_interfaces(int min_host_interface, int max_host_interface, int plugin_interface) {
+public int negotiate_interfaces (int min_host_interface, int max_host_interface, int plugin_interface) {
     return (min_host_interface > plugin_interface || max_host_interface < plugin_interface)
-        ? UNSUPPORTED_INTERFACE : plugin_interface;
+           ? UNSUPPORTED_INTERFACE : plugin_interface;
 }
 
 /**
@@ -83,16 +83,16 @@ public struct EntryPointParams {
  * SPIT API entry point.
  *
  * Host application passes in the minimum and maximum version of the SPIT
- * interface it supports (values are inclusive) in the {@link EntryPointParams} struct. 
- * The module returns the version it wishes to use and a pointer to a {@link Spit.Module} (which 
- * will remain ref'ed by the host as long as the module is loaded in memory). The module should 
- * return {@link UNSUPPORTED_INTERFACE} if the min/max are out of its range and null for its 
+ * interface it supports (values are inclusive) in the {@link EntryPointParams} struct.
+ * The module returns the version it wishes to use and a pointer to a {@link Spit.Module} (which
+ * will remain ref'ed by the host as long as the module is loaded in memory). The module should
+ * return {@link UNSUPPORTED_INTERFACE} if the min/max are out of its range and null for its
  * Spit.Module. ({@link negotiate_interfaces} is good for dealing with this.)
- * 
+ *
  * @return A {@link Spit.Module} if the interface negotiation is acceptable, null otherwise.
  */
 [CCode (has_target = false)]
-public delegate Module? EntryPoint(EntryPointParams *params);
+public delegate Module? EntryPoint (EntryPointParams *params);
 
 /**
  * SPIT entry point name, which matches {@link EntryPoint}'s interface
@@ -114,46 +114,46 @@ public interface Module : Object {
     /**
      * Returns a user-visible string describing the module.
      */
-    public abstract unowned string get_module_name();
-    
+    public abstract unowned string get_module_name ();
+
     /**
      * Returns a user-visible string describing the module version.
-     * 
-     * Note that this may be programmatically interpreted at some point, so use a widespread 
+     *
+     * Note that this may be programmatically interpreted at some point, so use a widespread
      * versioning scheme.
      */
-    public abstract unowned string get_version();
-    
+    public abstract unowned string get_version ();
+
     /**
      * Returns a unique identifier for this module.
-     * 
+     *
      * This is used to differentiate between multiple
      * installed versions and to determine which one should be used (i.e. if a module is available
      * in a system directory and a user directory). This name is case-sensitive.
-     * 
+     *
      * Best practice: use a reverse-DNS-order scheme, a la Java's packages
      * (i.e. "org.yorba.shotwell.frotz").
      */
-    public abstract unowned string get_id();
-    
+    public abstract unowned string get_id ();
+
     /**
      * Returns an array of {@link Pluggable} that represent each plugin available in the module.
      *
      * May return NULL or an empty array.
      */
-    public abstract unowned Pluggable[]? get_pluggables();
-    
+    public abstract unowned Pluggable[]? get_pluggables ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -173,7 +173,7 @@ public struct PluggableInfo {
     public string? website_name;
     public string? translators;
     /**
-     * An icon representing this plugin at one or more sizes. Shotwell may select an icon 
+     * An icon representing this plugin at one or more sizes. Shotwell may select an icon
      * according to the size that closest fits the control its being drawn in.
      */
     public Gdk.Pixbuf[]? icons;
@@ -207,32 +207,32 @@ public interface Pluggable : Object {
      * @return The version number supported by the host and the Pluggable or
      *         {@link UNSUPPORTED_INTERFACE}.
      */
-    public abstract int get_pluggable_interface(int min_host_interface, int max_host_interface);
-    
+    public abstract int get_pluggable_interface (int min_host_interface, int max_host_interface);
+
     /**
      * Returns a unique identifier for this Pluggable.
      *
-     * Like {@link Module.get_id}, best practice is to use a reverse-DNS-order scheme to avoid 
+     * Like {@link Module.get_id}, best practice is to use a reverse-DNS-order scheme to avoid
      * conflicts.
      */
-    public abstract unowned string get_id();
-    
+    public abstract unowned string get_id ();
+
     /**
      * Returns a user-visible name for the Pluggable.
      */
-    public abstract unowned string get_pluggable_name();
-    
+    public abstract unowned string get_pluggable_name ();
+
     /**
      * Returns extra information about the Pluggable that is used to identify it to the user.
      */
-    public abstract void get_info(ref PluggableInfo info);
-    
+    public abstract void get_info (ref PluggableInfo info);
+
     /**
      * Called when the Pluggable is enabled (activated) or disabled (deactivated).
      *
-     * activation will be called at the start of the program if the user previously 
-     * enabled/disabled it as well as during program execution if the user changes its state. Note 
-     * that disabling a Pluggable does not require destroying existing resources or objects 
+     * activation will be called at the start of the program if the user previously
+     * enabled/disabled it as well as during program execution if the user changes its state. Note
+     * that disabling a Pluggable does not require destroying existing resources or objects
      * the Pluggable has previously handed off to the host.
      *
      * This is purely informational. The Pluggable should acquire any long-term resources
@@ -240,29 +240,29 @@ public interface Pluggable : Object {
      *
      * @param enabled ``true`` if the Pluggable has been enabled, ``false`` otherwise.
      */
-    public abstract void activation(bool enabled);
-    
+    public abstract void activation (bool enabled);
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
  * An interface to common services supplied by the host (Shotwell).
  *
  * Each {@link Pluggable} is offered a HostInterface for needs common to most plugins.
- * 
+ *
  * Note that
- * a HostInterface is not explicitly handed to the Pluggable through the SPIT interface, but is expected 
- * to be offered to the Pluggable through an interface applicable to the extension point. This 
+ * a HostInterface is not explicitly handed to the Pluggable through the SPIT interface, but is expected
+ * to be offered to the Pluggable through an interface applicable to the extension point. This
  * also allows the extension point to extend HostInterface to offer other services applicable to the
  * type of plugin.
  */
@@ -271,8 +271,8 @@ public interface HostInterface : Object {
      * Returns a File object representing the library file (.so/la.) that the plugin was loaded
      * from.
      */
-    public abstract File get_module_file();
-    
+    public abstract File get_module_file ();
+
     /**
      * Get a boolean from a persistent configuration store.
      *
@@ -281,16 +281,16 @@ public interface HostInterface : Object {
      *
      * @return The value associated with key, def if not set.
      */
-    public abstract bool get_config_bool(string key, bool def);
-    
+    public abstract bool get_config_bool (string key, bool def);
+
     /**
      * Store a boolean in a persistent configuration store.
      *
      * @param key The name of the value to be stored.
      * @param val The value to be stored.
      */
-    public abstract void set_config_bool(string key, bool val);
-    
+    public abstract void set_config_bool (string key, bool val);
+
     /**
      * Get an integer from a persistent configuration store.
      *
@@ -299,16 +299,16 @@ public interface HostInterface : Object {
      *
      * @return The value associated with key, def if not set.
      */
-    public abstract int get_config_int(string key, int def);
-    
+    public abstract int get_config_int (string key, int def);
+
     /**
      * Store an integer in a persistent configuration store.
      *
      * @param key The name of the value to be stored.
      * @param val The value to be stored.
      */
-    public abstract void set_config_int(string key, int val);
-    
+    public abstract void set_config_int (string key, int val);
+
     /**
      * Get a string from a persistent configuration store.
      *
@@ -317,16 +317,16 @@ public interface HostInterface : Object {
      *
      * @return The value associated with key, def if not set.
      */
-    public abstract string? get_config_string(string key, string? def);
-    
+    public abstract string? get_config_string (string key, string? def);
+
     /**
      * Store a string in a persistent configuration store.
      *
      * @param key The name of the value to be stored.
      * @param val The value to be stored.
      */
-    public abstract void set_config_string(string key, string? val);
-    
+    public abstract void set_config_string (string key, string? val);
+
     /**
      * Get a double from a persistent configuration store.
      *
@@ -335,32 +335,32 @@ public interface HostInterface : Object {
      *
      * @return The value associated with key, def if not set.
      */
-    public abstract double get_config_double(string key, double def);
-    
+    public abstract double get_config_double (string key, double def);
+
     /**
      * Store a double in a persistent configuration store.
      *
      * @param key The name of the value to be stored.
      * @param val The value to be stored.
      */
-    public abstract void set_config_double(string key, double val);
-    
+    public abstract void set_config_double (string key, double val);
+
     /**
      * Delete the value from the persistent configuration store.
      */
-    public abstract void unset_config_key(string key);
-    
+    public abstract void unset_config_key (string key);
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 }

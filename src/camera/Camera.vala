@@ -6,12 +6,12 @@
 
 namespace Camera {
 
-public void init() throws Error {
-    Camera.Branch.init();
+public void init () throws Error {
+    Camera.Branch.init ();
 }
 
-public void terminate() {
-    Camera.Branch.terminate();
+public void terminate () {
+    Camera.Branch.terminate ();
 }
 
 }

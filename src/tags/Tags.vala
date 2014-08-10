@@ -6,12 +6,12 @@
 
 namespace Tags {
 
-public void init() throws Error {
-    Tags.SidebarEntry.init();
+public void init () throws Error {
+    Tags.SidebarEntry.init ();
 }
 
-public void terminate() {
-    Tags.SidebarEntry.terminate();
+public void terminate () {
+    Tags.SidebarEntry.terminate ();
 }
 
 }
