@@ -67,6 +67,7 @@ public const string LICENSE = """
                               along with Shotwell; if not, write to the Free Software Foundation, Inc.,
                               51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
                               """;
+
 public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
 public const string HFLIP = "object-flip-horizontal";
@@ -705,7 +706,7 @@ private string START_MULTIDAY_DATE_FORMAT_STRING = null;
 private string END_MULTIDAY_DATE_FORMAT_STRING = null;
 private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
 
-public void init  () {
+public void init () {
     // load application-wide stock icons as IconSets
     factory = new Gtk.IconFactory ();
 

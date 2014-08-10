@@ -16,29 +16,29 @@
 // "indexable:keywords".  The prepare methods will not do this.
 
 public interface Indexable : DataSource {
-    public abstract unowned string? get_indexable_keywords();
-    
-    public static string? prepare_indexable_string(string? str) {
-        if(is_string_empty(str))
+    public abstract unowned string? get_indexable_keywords ();
+
+    public static string? prepare_indexable_string (string? str) {
+        if (is_string_empty (str))
             return null;
-        return String.remove_diacritics(str.down());
+        return String.remove_diacritics (str.down ());
     }
-    
-    public static string? prepare_indexable_strings(string[]? strs) {
+
+    public static string? prepare_indexable_strings (string[]? strs) {
         if (strs == null || strs.length == 0)
             return null;
-        
-        StringBuilder builder = new StringBuilder();
+
+        StringBuilder builder = new StringBuilder ();
         int ctr = 0;
         do {
-            if (!is_string_empty(strs[ctr])) {
-                builder.append(strs[ctr].down());
+            if (!is_string_empty (strs[ctr])) {
+                builder.append (strs[ctr].down ());
                 if (ctr < strs.length - 1)
-                    builder.append_c(' ');
+                    builder.append_c (' ');
             }
         } while (++ctr < strs.length);
-        
-        return !is_string_empty(builder.str) ? builder.str : null;
+
+        return !is_string_empty (builder.str) ? builder.str : null;
     }
 }
 

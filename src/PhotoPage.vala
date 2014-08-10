@@ -2519,7 +2519,7 @@ public class LibraryPhotoPage : EditingHostPage {
                                            };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-
+        
         Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
                                     TRANSLATABLE, on_send_to
                                   };
@@ -3188,7 +3188,7 @@ public class LibraryPhotoPage : EditingHostPage {
         Gee.Collection<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto> ();
         photos.add (photo);
 
-        remove_from_app (photos, _ ("Remove From Library"), _ ("Removing Photo From Library"));
+        remove_from_app (photos, _ ("Remove From Library"), _ ("Removing Photo From Library"), false);
     }
 
     private void on_move_to_trash () {

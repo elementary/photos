@@ -94,14 +94,6 @@ public abstract class CollectionPage : MediaPage {
         return group;
     }
 
-    private static InjectionGroup create_photos_menu_date_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasDateTimePlaceholder");
-
-        group.add_menu_item ("AdjustDateTime");
-
-        return group;
-    }
-
     private static InjectionGroup create_photos_menu_externals_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
 
@@ -229,7 +221,6 @@ public abstract class CollectionPage : MediaPage {
         groups += create_file_menu_injectables ();
         groups += create_edit_menu_injectables ();
         groups += create_view_menu_fullscreen_injectables ();
-        groups += create_photos_menu_date_injectables ();
         groups += create_photos_menu_externals_injectables ();
 
         return groups;
