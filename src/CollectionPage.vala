@@ -6,512 +6,526 @@
 
 public class CollectionViewManager : ViewManager {
     private CollectionPage page;
-    
-    public CollectionViewManager(CollectionPage page) {
+
+    public CollectionViewManager (CollectionPage page) {
         this.page = page;
     }
-    
-    public override DataView create_view(DataSource source) {
-        return page.create_thumbnail(source);
+
+    public override DataView create_view (DataSource source) {
+        return page.create_thumbnail (source);
     }
 }
 
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
-    
+
     protected class CollectionSearchViewFilter : DefaultSearchViewFilter {
-        public override uint get_criteria() {
-            return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG | 
-                SearchFilterCriteria.MEDIA | SearchFilterCriteria.RATING;
+        public override uint get_criteria () {
+            return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG |
+                   SearchFilterCriteria.MEDIA | SearchFilterCriteria.RATING;
         }
     }
 
     private ExporterUI exporter = null;
-    private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter();
-    
-    public CollectionPage(string page_name) {
-        base (page_name);
-        
-        get_view().items_altered.connect(on_photos_altered);
-        
-        init_item_context_menu("/CollectionContextMenu");
-        init_toolbar("/CollectionToolbar");
+    private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
 
-        show_all();
+    public CollectionPage (string page_name) {
+        base (page_name);
+
+        get_view ().items_altered.connect (on_photos_altered);
+
+        init_item_context_menu ("/CollectionContextMenu");
+        init_toolbar ("/CollectionToolbar");
+
+        show_all ();
     }
 
-    public override Gtk.Toolbar get_toolbar() {
+    public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            base.get_toolbar();
-            
-            // separator to force slider to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem();
-            separator.set_expand(true);
-            separator.set_draw(false);
-            get_toolbar().insert(separator, -1);
+            base.get_toolbar ();
 
-            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem();
-            drawn_separator.set_expand(false);
-            drawn_separator.set_draw(true);
-            
-            get_toolbar().insert(drawn_separator, -1);
-            
+            // separator to force slider to right side of toolbar
+            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            separator.set_expand (true);
+            separator.set_draw (false);
+            get_toolbar ().insert (separator, -1);
+
+            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
+            drawn_separator.set_expand (false);
+            drawn_separator.set_draw (true);
+
+            get_toolbar ().insert (drawn_separator, -1);
+
             // zoom slider assembly
-            MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly();
-            connect_slider(zoom_slider_assembly);
-            get_toolbar().insert(zoom_slider_assembly, -1);
+            MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
+            connect_slider (zoom_slider_assembly);
+            get_toolbar ().insert (zoom_slider_assembly, -1);
         }
-        
+
         return toolbar;
     }
-    
-    private static InjectionGroup create_file_menu_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/FileMenu/FileExtrasPlaceholder");
-        
-        group.add_menu_item("Print");
-        group.add_separator();
-        group.add_menu_item("SendTo");
-        group.add_menu_item("SetBackground");
-        
-        return group;
-    }
-    
-    private static InjectionGroup create_edit_menu_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/EditMenu/EditExtrasPlaceholder");
-        
-        group.add_menu_item("Duplicate");
+
+    private static InjectionGroup create_file_menu_injectables () {
+        InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
+
+        group.add_menu_item ("Print");
+        group.add_separator ();
+        group.add_menu_item ("SendTo");
+        group.add_menu_item ("SetBackground");
 
         return group;
     }
 
-    private static InjectionGroup create_view_menu_fullscreen_injectables() {
-        InjectionGroup group = new InjectionGroup("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
-        
-        group.add_menu_item("Fullscreen", "CommonFullscreen");
-        group.add_separator();
-        group.add_menu_item("Slideshow");
-        
-        return group;
-    }
-  
-    private static InjectionGroup create_photos_menu_date_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/PhotosMenu/PhotosExtrasDateTimePlaceholder");
-        
-        group.add_menu_item("AdjustDateTime");
-        
+    private static InjectionGroup create_edit_menu_injectables () {
+        InjectionGroup group = new InjectionGroup ("/MenuBar/EditMenu/EditExtrasPlaceholder");
+
+        group.add_menu_item ("Duplicate");
+
         return group;
     }
 
-    private static InjectionGroup create_photos_menu_externals_injectables() {
-        InjectionGroup group = new InjectionGroup("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
-        
-        group.add_menu_item("PlayVideo");
-        
+    private static InjectionGroup create_view_menu_fullscreen_injectables () {
+        InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
+
+        group.add_menu_item ("Fullscreen", "CommonFullscreen");
+        group.add_separator ();
+        group.add_menu_item ("Slideshow");
+
         return group;
     }
-    
-    protected override void init_collect_ui_filenames(Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames(ui_filenames);
-        
-        ui_filenames.add("collection.ui");
+
+    private static InjectionGroup create_photos_menu_date_injectables () {
+        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasDateTimePlaceholder");
+
+        group.add_menu_item ("AdjustDateTime");
+
+        return group;
     }
-    
-    protected override Gtk.ActionEntry[] init_collect_action_entries() {
-        Gtk.ActionEntry[] actions = base.init_collect_action_entries();
+
+    private static InjectionGroup create_photos_menu_externals_injectables () {
+        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
+
+        group.add_menu_item ("PlayVideo");
+
+        return group;
+    }
+
+    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
+        base.init_collect_ui_filenames (ui_filenames);
+
+        ui_filenames.add ("collection.ui");
+    }
+
+    protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
         Gtk.ActionEntry print = { "Print", Gtk.Stock.PRINT, TRANSLATABLE, "<Ctrl>P",
-            TRANSLATABLE, on_print };
+                                  TRANSLATABLE, on_print
+                                };
         print.label = Resources.PRINT_MENU;
         actions += print;
-        
+
         Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, TRANSLATABLE, "<Ctrl><Shift>P",
-            TRANSLATABLE, on_publish };
+                                    TRANSLATABLE, on_publish
+                                  };
         publish.label = Resources.PUBLISH_MENU;
         publish.tooltip = Resources.PUBLISH_TOOLTIP;
         actions += publish;
-  
+
         Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE,
-            TRANSLATABLE, "<Ctrl>R", TRANSLATABLE, on_rotate_clockwise };
+                                         TRANSLATABLE, "<Ctrl>R", TRANSLATABLE, on_rotate_clockwise
+                                       };
         rotate_right.label = Resources.ROTATE_CW_MENU;
         rotate_right.tooltip = Resources.ROTATE_CW_TOOLTIP;
         actions += rotate_right;
 
         Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-            TRANSLATABLE, "<Ctrl><Shift>R", TRANSLATABLE, on_rotate_counterclockwise };
+                                        TRANSLATABLE, "<Ctrl><Shift>R", TRANSLATABLE, on_rotate_counterclockwise
+                                      };
         rotate_left.label = Resources.ROTATE_CCW_MENU;
         rotate_left.tooltip = Resources.ROTATE_CCW_TOOLTIP;
         actions += rotate_left;
 
         Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, TRANSLATABLE, null,
-            TRANSLATABLE, on_flip_horizontally };
+                                  TRANSLATABLE, on_flip_horizontally
+                                };
         hflip.label = Resources.HFLIP_MENU;
         actions += hflip;
-        
+
         Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, TRANSLATABLE, null,
-            TRANSLATABLE, on_flip_vertically };
+                                  TRANSLATABLE, on_flip_vertically
+                                };
         vflip.label = Resources.VFLIP_MENU;
         actions += vflip;
 
         Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
-            TRANSLATABLE, on_enhance };
+                                    TRANSLATABLE, on_enhance
+                                  };
         enhance.label = Resources.ENHANCE_MENU;
         enhance.tooltip = Resources.ENHANCE_TOOLTIP;
         actions += enhance;
 
         Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, TRANSLATABLE,
-            "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments};
+                                             "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments
+                                           };
         copy_adjustments.label = Resources.COPY_ADJUSTMENTS_MENU;
         copy_adjustments.tooltip = Resources.COPY_ADJUSTMENTS_TOOLTIP;
         actions += copy_adjustments;
 
         Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, TRANSLATABLE,
-            "<Ctrl><Shift>V", TRANSLATABLE, on_paste_adjustments};
+                                              "<Ctrl><Shift>V", TRANSLATABLE, on_paste_adjustments
+                                            };
         paste_adjustments.label = Resources.PASTE_ADJUSTMENTS_MENU;
         paste_adjustments.tooltip = Resources.PASTE_ADJUSTMENTS_TOOLTIP;
         actions += paste_adjustments;
 
         Gtk.ActionEntry revert = { "Revert", Gtk.Stock.REVERT_TO_SAVED, TRANSLATABLE, null,
-            TRANSLATABLE, on_revert };
+                                   TRANSLATABLE, on_revert
+                                 };
         revert.label = Resources.REVERT_MENU;
         actions += revert;
-        
+
         Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-            TRANSLATABLE, on_set_background };
+                                           TRANSLATABLE, on_set_background
+                                         };
         set_background.label = Resources.SET_BACKGROUND_MENU;
         set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
         actions += set_background;
 
         Gtk.ActionEntry duplicate = { "Duplicate", null, TRANSLATABLE, "<Ctrl>D", TRANSLATABLE,
-            on_duplicate_photo };
+                                      on_duplicate_photo
+                                    };
         duplicate.label = Resources.DUPLICATE_PHOTO_MENU;
         duplicate.tooltip = Resources.DUPLICATE_PHOTO_TOOLTIP;
         actions += duplicate;
 
         Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, TRANSLATABLE, null,
-            TRANSLATABLE, on_adjust_date_time };
+                                             TRANSLATABLE, on_adjust_date_time
+                                           };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-        
+
         Gtk.ActionEntry open_with = { "OpenWith", null, TRANSLATABLE, null, null, null };
         open_with.label = Resources.OPEN_WITH_MENU;
         actions += open_with;
-        
+
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
-        
+
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
-            on_slideshow };
-        slideshow.label = _("S_lideshow");
-        slideshow.tooltip = _("Play a slideshow");
+                                      on_slideshow
+                                    };
+        slideshow.label = _ ("S_lideshow");
+        slideshow.tooltip = _ ("Play a slideshow");
         actions += slideshow;
-        
+
         return actions;
     }
-    
-    protected override InjectionGroup[] init_collect_injection_groups() {
-        InjectionGroup[] groups = base.init_collect_injection_groups();
-        
-        groups += create_file_menu_injectables();
-        groups += create_edit_menu_injectables();
-        groups += create_view_menu_fullscreen_injectables();
-        groups += create_photos_menu_date_injectables();
-        groups += create_photos_menu_externals_injectables();
-        
+
+    protected override InjectionGroup[] init_collect_injection_groups () {
+        InjectionGroup[] groups = base.init_collect_injection_groups ();
+
+        groups += create_file_menu_injectables ();
+        groups += create_edit_menu_injectables ();
+        groups += create_view_menu_fullscreen_injectables ();
+        groups += create_photos_menu_date_injectables ();
+        groups += create_photos_menu_externals_injectables ();
+
         return groups;
     }
 
-    public override Gtk.Menu? get_item_context_menu() {
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget("/CollectionContextMenu");
-        assert(menu != null);
+    public override Gtk.Menu? get_item_context_menu () {
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/CollectionContextMenu");
+        assert (menu != null);
 
         Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWith");
-        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu(), false);
-        open_with_menu_item.show();
+        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
+        open_with_menu_item.show ();
 
-        if (((Photo) get_view().get_selected_at(0).get_source()).get_master_file_format() == PhotoFileFormat.RAW) {
+        if (((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () == PhotoFileFormat.RAW) {
             Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWithRaw");
-            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu(), true);
-            open_with_raw_menu_item.show();
+            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
+            open_with_raw_menu_item.show ();
         }
 
         return menu;
     }
 
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
-        Gtk.MenuItem parent = menu.get_attach_widget() as Gtk.MenuItem;
+        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
         SortedList<AppInfo> external_apps;
         string[] mime_types;
-        
+
         // get list of all applications for the given mime types
         if (raw)
-            mime_types = PhotoFileFormat.RAW.get_mime_types();
+            mime_types = PhotoFileFormat.RAW.get_mime_types ();
         else
-            mime_types = PhotoFileFormat.get_editable_mime_types();
-        assert(mime_types.length != 0);
+            mime_types = PhotoFileFormat.get_editable_mime_types ();
+        assert (mime_types.length != 0);
         external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
-        
+
         if (external_apps.size == 0) {
             parent.sensitive = false;
             return;
         }
-        
-        foreach (Gtk.Widget item in menu.get_children())
+
+        foreach (Gtk.Widget item in menu.get_children ())
             menu.remove (item);
         parent.sensitive = true;
-        
+
         foreach (AppInfo app in external_apps) {
-            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name());
-            Gtk.Image image = new Gtk.Image.from_gicon(app.get_icon(), Gtk.IconSize.MENU);
+            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
+            Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
             item_app.always_show_image = true;
             item_app.set_image (image);
-            item_app.activate.connect (() => {
+            item_app.activate.connect ( () => {
                 if (raw)
-                    on_open_with_raw (app.get_commandline());
+                    on_open_with_raw (app.get_commandline ());
                 else
-                    on_open_with (app.get_commandline());
+                    on_open_with (app.get_commandline ());
             });
             menu.add (item_app);
-        }  
-        menu.show_all();
+        }
+        menu.show_all ();
     }
-    
+
     private void on_open_with (string app) {
-        if (get_view().get_selected_count() != 1)
+        if (get_view ().get_selected_count () != 1)
             return;
-        
-        Photo photo = (Photo) get_view().get_selected_at(0).get_source();
+
+        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
         try {
-            AppWindow.get_instance().set_busy_cursor();
-            photo.open_with_external_editor(app);
-            AppWindow.get_instance().set_normal_cursor();
+            AppWindow.get_instance ().set_busy_cursor ();
+            photo.open_with_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
         } catch (Error err) {
-            AppWindow.get_instance().set_normal_cursor();
-            open_external_editor_error_dialog(err, photo);
+            AppWindow.get_instance ().set_normal_cursor ();
+            open_external_editor_error_dialog (err, photo);
         }
     }
-    
+
     private void on_open_with_raw (string app) {
-        if (get_view().get_selected_count() != 1)
+        if (get_view ().get_selected_count () != 1)
             return;
-        
-        Photo photo = (Photo) get_view().get_selected_at(0).get_source();
-        if (photo.get_master_file_format() != PhotoFileFormat.RAW)
+
+        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        if (photo.get_master_file_format () != PhotoFileFormat.RAW)
             return;
 
         try {
-            AppWindow.get_instance().set_busy_cursor();
-            photo.open_with_raw_external_editor(app);
-            AppWindow.get_instance().set_normal_cursor();
+            AppWindow.get_instance ().set_busy_cursor ();
+            photo.open_with_raw_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
         } catch (Error err) {
-            AppWindow.get_instance().set_normal_cursor();
-            AppWindow.error_message(Resources.launch_editor_failed(err));
+            AppWindow.get_instance ().set_normal_cursor ();
+            AppWindow.error_message (Resources.launch_editor_failed (err));
         }
     }
-    
-    private bool selection_has_video() {
-        return MediaSourceCollection.has_video((Gee.Collection<MediaSource>) get_view().get_selected_sources());
+
+    private bool selection_has_video () {
+        return MediaSourceCollection.has_video ((Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
-    
-    private bool page_has_photo() {
-        return MediaSourceCollection.has_photo((Gee.Collection<MediaSource>) get_view().get_sources());
+
+    private bool page_has_photo () {
+        return MediaSourceCollection.has_photo ((Gee.Collection<MediaSource>) get_view ().get_sources ());
     }
-    
-    private bool selection_has_photo() {
-        return MediaSourceCollection.has_photo((Gee.Collection<MediaSource>) get_view().get_selected_sources());
+
+    private bool selection_has_photo () {
+        return MediaSourceCollection.has_photo ((Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
-    
-    protected override void init_actions(int selected_count, int count) {
-        base.init_actions(selected_count, count);
-        
-        set_action_short_label("RotateClockwise", Resources.ROTATE_CW_LABEL);
-        set_action_short_label("RotateCounterclockwise", Resources.ROTATE_CCW_LABEL);
-        set_action_short_label("Publish", Resources.PUBLISH_LABEL);
-        
-        set_action_important("RotateClockwise", true);
-        set_action_important("RotateCounterclockwise", true);
-        set_action_important("Enhance", true);
-        set_action_important("Publish", true);
+
+    protected override void init_actions (int selected_count, int count) {
+        base.init_actions (selected_count, count);
+
+        set_action_short_label ("RotateClockwise", Resources.ROTATE_CW_LABEL);
+        set_action_short_label ("RotateCounterclockwise", Resources.ROTATE_CCW_LABEL);
+        set_action_short_label ("Publish", Resources.PUBLISH_LABEL);
+
+        set_action_important ("RotateClockwise", true);
+        set_action_important ("RotateCounterclockwise", true);
+        set_action_important ("Enhance", true);
+        set_action_important ("Publish", true);
     }
-    
-    protected override void update_actions(int selected_count, int count) {
-        base.update_actions(selected_count, count);
+
+    protected override void update_actions (int selected_count, int count) {
+        base.update_actions (selected_count, count);
 
         bool one_selected = selected_count == 1;
         bool has_selected = selected_count > 0;
 
         bool primary_is_video = false;
         if (has_selected)
-            if (get_view().get_selected_at(0).get_source() is Video)
+            if (get_view ().get_selected_at (0).get_source () is Video)
                 primary_is_video = true;
 
-        bool selection_has_videos = selection_has_video();
-        bool page_has_photos = page_has_photo();
-        
+        bool selection_has_videos = selection_has_video ();
+        bool page_has_photos = page_has_photo ();
+
         // don't allow duplication of the selection if it contains a video -- videos are huge and
         // and they're not editable anyway, so there seems to be no use case for duplicating them
-        set_action_sensitive("Duplicate", has_selected && (!selection_has_videos));
-        set_action_visible("OpenWith", (!primary_is_video));
-        set_action_sensitive("OpenWith", one_selected);
-        set_action_visible("OpenWithRaw",
-            one_selected && (!primary_is_video)
-            && ((Photo) get_view().get_selected_at(0).get_source()).get_master_file_format() == 
-                PhotoFileFormat.RAW);
-        set_action_sensitive("Revert", (!selection_has_videos) && can_revert_selected());
-        set_action_sensitive("Enhance", (!selection_has_videos) && has_selected);
-        set_action_sensitive("CopyColorAdjustments", (!selection_has_videos) && one_selected &&
-            ((Photo) get_view().get_selected_at(0).get_source()).has_color_adjustments());
-        set_action_sensitive("PasteColorAdjustments", (!selection_has_videos) && has_selected &&
-            PixelTransformationBundle.has_copied_color_adjustments());
-        set_action_sensitive("RotateClockwise", (!selection_has_videos) && has_selected);
-        set_action_sensitive("RotateCounterclockwise", (!selection_has_videos) && has_selected);
-        set_action_sensitive("FlipHorizontally", (!selection_has_videos) && has_selected);
-        set_action_sensitive("FlipVertically", (!selection_has_videos) && has_selected);
-        
+        set_action_sensitive ("Duplicate", has_selected && (!selection_has_videos));
+        set_action_visible ("OpenWith", (!primary_is_video));
+        set_action_sensitive ("OpenWith", one_selected);
+        set_action_visible ("OpenWithRaw",
+                            one_selected && (!primary_is_video)
+                            && ((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () ==
+                            PhotoFileFormat.RAW);
+        set_action_sensitive ("Revert", (!selection_has_videos) && can_revert_selected ());
+        set_action_sensitive ("Enhance", (!selection_has_videos) && has_selected);
+        set_action_sensitive ("CopyColorAdjustments", (!selection_has_videos) && one_selected &&
+                              ((Photo) get_view ().get_selected_at (0).get_source ()).has_color_adjustments ());
+        set_action_sensitive ("PasteColorAdjustments", (!selection_has_videos) && has_selected &&
+                              PixelTransformationBundle.has_copied_color_adjustments ());
+        set_action_sensitive ("RotateClockwise", (!selection_has_videos) && has_selected);
+        set_action_sensitive ("RotateCounterclockwise", (!selection_has_videos) && has_selected);
+        set_action_sensitive ("FlipHorizontally", (!selection_has_videos) && has_selected);
+        set_action_sensitive ("FlipVertically", (!selection_has_videos) && has_selected);
+
         // Allow changing of exposure time, even if there's a video in the current
         // selection.
-        set_action_sensitive("AdjustDateTime", has_selected);
-        
-        set_action_sensitive("NewEvent", has_selected);
-        set_action_sensitive("AddTags", has_selected);
-        set_action_sensitive("ModifyTags", one_selected);
-        set_action_sensitive("Slideshow", page_has_photos && (!primary_is_video));
-        set_action_sensitive("Print", (!selection_has_videos) && has_selected);
-        set_action_sensitive("Publish", has_selected);
-        
-        set_action_sensitive("SetBackground", (!selection_has_videos) && has_selected );
+        set_action_sensitive ("AdjustDateTime", has_selected);
+
+        set_action_sensitive ("NewEvent", has_selected);
+        set_action_sensitive ("AddTags", has_selected);
+        set_action_sensitive ("ModifyTags", one_selected);
+        set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
+        set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
+        set_action_sensitive ("Publish", has_selected);
+
+        set_action_sensitive ("SetBackground", (!selection_has_videos) && has_selected );
         if (has_selected) {
-            Gtk.Action? set_background = get_action("SetBackground");
+            Gtk.Action? set_background = get_action ("SetBackground");
             if (set_background != null) {
                 set_background.label = one_selected
-                    ? Resources.SET_BACKGROUND_MENU
-                    : Resources.SET_BACKGROUND_SLIDESHOW_MENU;
+                                       ? Resources.SET_BACKGROUND_MENU
+                                       : Resources.SET_BACKGROUND_SLIDESHOW_MENU;
             }
         }
     }
 
-    private void on_photos_altered(Gee.Map<DataObject, Alteration> altered) {
-        // only check for revert if the media object is a photo and its image has changed in some 
+    private void on_photos_altered (Gee.Map<DataObject, Alteration> altered) {
+        // only check for revert if the media object is a photo and its image has changed in some
         // way and it's in the selection
         foreach (DataObject object in altered.keys) {
             DataView view = (DataView) object;
-            
-            if (!view.is_selected() || !altered.get(view).has_subject("image"))
-            continue;
-            
-            LibraryPhoto? photo = view.get_source() as LibraryPhoto;
+
+            if (!view.is_selected () || !altered.get (view).has_subject ("image"))
+                continue;
+
+            LibraryPhoto? photo = view.get_source () as LibraryPhoto;
             if (photo == null)
                 continue;
-            
+
             // since the photo can be altered externally to Shotwell now, need to make the revert
             // command available appropriately, even if the selection doesn't change
-            set_action_sensitive("Revert", can_revert_selected());
-            set_action_sensitive("CopyColorAdjustments", photo.has_color_adjustments());
-            
+            set_action_sensitive ("Revert", can_revert_selected ());
+            set_action_sensitive ("CopyColorAdjustments", photo.has_color_adjustments ());
+
             break;
         }
     }
-    
-    private void on_print() {
-        if (get_view().get_selected_count() > 0) {
-            PrintManager.get_instance().spool_photo(
-                (Gee.Collection<Photo>) get_view().get_selected_sources_of_type(typeof(Photo)));
+
+    private void on_print () {
+        if (get_view ().get_selected_count () > 0) {
+            PrintManager.get_instance ().spool_photo (
+                (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
         }
     }
-    
+
     // see #2020
     // double clcik = switch to photo page
     // Super + double click = open in external editor
     // Enter = switch to PhotoPage
     // Ctrl + Enter = open in external editor (handled with accelerators)
     // Shift + Ctrl + Enter = open in external RAW editor (handled with accelerators)
-    protected override void on_item_activated(CheckerboardItem item, CheckerboardPage.Activator 
-        activator, CheckerboardPage.KeyboardModifiers modifiers) {
+    protected override void on_item_activated (CheckerboardItem item, CheckerboardPage.Activator
+            activator, CheckerboardPage.KeyboardModifiers modifiers) {
         Thumbnail thumbnail = (Thumbnail) item;
 
         // none of the fancy Super, Ctrl, Shift, etc., keyboard accelerators apply to videos,
         // since they can't be RAW files or be opened in an external editor, etc., so if this is
         // a video, just play it and do a short-circuit return
-        if (thumbnail.get_media_source() is Video) {
-            on_play_video();
+        if (thumbnail.get_media_source () is Video) {
+            on_play_video ();
             return;
         }
-        
-        LibraryPhoto? photo = thumbnail.get_media_source() as LibraryPhoto;
+
+        LibraryPhoto? photo = thumbnail.get_media_source () as LibraryPhoto;
         if (photo == null)
             return;
-        
+
         // switch to full-page view or open in external editor
-        debug("activating %s", photo.to_string());
+        debug ("activating %s", photo.to_string ());
 
         if (activator == CheckerboardPage.Activator.MOUSE) {
             if (modifiers.super_pressed)
                 //last used
-                on_open_with(Config.Facade.get_instance().get_external_photo_app());
+                on_open_with (Config.Facade.get_instance ().get_external_photo_app ());
             else
-                LibraryWindow.get_app().switch_to_photo_page(this, photo);
+                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
         } else if (activator == CheckerboardPage.Activator.KEYBOARD) {
             if (!modifiers.shift_pressed && !modifiers.ctrl_pressed)
-                LibraryWindow.get_app().switch_to_photo_page(this, photo);
+                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
         }
-    }
-    
-    protected override bool on_app_key_pressed(Gdk.EventKey event) {
-        bool handled = true;
-        switch (Gdk.keyval_name(event.keyval)) {
-            case "Page_Up":
-            case "KP_Page_Up":
-            case "Page_Down":
-            case "KP_Page_Down":
-            case "Home":
-            case "KP_Home":
-            case "End":
-            case "KP_End":
-                key_press_event(event);
-            break;
-            
-            case "bracketright":
-                activate_action("RotateClockwise");
-            break;
-            
-            case "bracketleft":
-                activate_action("RotateCounterclockwise");
-            break;
-            
-            default:
-                handled = false;
-            break;
-        }
-        
-        return handled ? true : base.on_app_key_pressed(event);
     }
 
-    protected override void on_export() {
+    protected override bool on_app_key_pressed (Gdk.EventKey event) {
+        bool handled = true;
+        switch (Gdk.keyval_name (event.keyval)) {
+        case "Page_Up":
+        case "KP_Page_Up":
+        case "Page_Down":
+        case "KP_Page_Down":
+        case "Home":
+        case "KP_Home":
+        case "End":
+        case "KP_End":
+            key_press_event (event);
+            break;
+
+        case "bracketright":
+            activate_action ("RotateClockwise");
+            break;
+
+        case "bracketleft":
+            activate_action ("RotateCounterclockwise");
+            break;
+
+        default:
+            handled = false;
+            break;
+        }
+
+        return handled ? true : base.on_app_key_pressed (event);
+    }
+
+    protected override void on_export () {
         if (exporter != null)
             return;
-        
+
         Gee.Collection<MediaSource> export_list =
-            (Gee.Collection<MediaSource>) get_view().get_selected_sources();
+            (Gee.Collection<MediaSource>) get_view ().get_selected_sources ();
         if (export_list.size == 0)
             return;
 
-        bool has_some_photos = selection_has_photo();
-        bool has_some_videos = selection_has_video();
-        assert(has_some_photos || has_some_videos);
-               
+        bool has_some_photos = selection_has_photo ();
+        bool has_some_videos = selection_has_video ();
+        assert (has_some_photos || has_some_videos);
+
         // if we don't have any photos, then everything is a video, so skip displaying the Export
         // dialog and go right to the video export operation
         if (!has_some_photos) {
-            exporter = Video.export_many((Gee.Collection<Video>) export_list, on_export_completed);
+            exporter = Video.export_many ((Gee.Collection<Video>) export_list, on_export_completed);
             return;
         }
 
         string title = null;
         if (has_some_videos)
-            title = (export_list.size == 1) ? _("Export Photo/Video") : _("Export Photos/Videos");
+            title = (export_list.size == 1) ? _ ("Export Photo/Video") : _ ("Export Photos/Videos");
         else
-            title = (export_list.size == 1) ?  _("Export Photo") : _("Export Photos");
-        ExportDialog export_dialog = new ExportDialog(title);
+            title = (export_list.size == 1) ?  _ ("Export Photo") : _ ("Export Photos");
+        ExportDialog export_dialog = new ExportDialog (title);
 
         // Setting up the parameters object requires a bit of thinking about what the user wants.
         // If the selection contains only photos, then we do what we've done in previous versions
@@ -521,16 +535,16 @@ public abstract class CollectionPage : MediaPage {
         // operation you'll also be exporting a small PNG for your blog). However, if the selection
         // contains any videos, then we set the parameters to the "Current" operating mode, since
         // videos can't be saved as PNGs (or any other specific photo format).
-        ExportFormatParameters export_params = (has_some_videos) ? ExportFormatParameters.current() :
-            ExportFormatParameters.last();
+        ExportFormatParameters export_params = (has_some_videos) ? ExportFormatParameters.current () :
+                                               ExportFormatParameters.last ();
 
         int scale;
         ScaleConstraint constraint;
-        if (!export_dialog.execute(out scale, out constraint, ref export_params))
+        if (!export_dialog.execute (out scale, out constraint, ref export_params))
             return;
-        
-        Scaling scaling = Scaling.for_constraint(constraint, scale, false);
-        
+
+        Scaling scaling = Scaling.for_constraint (constraint, scale, false);
+
         // handle the single-photo case, which is treated like a Save As file operation
         if (export_list.size == 1) {
             LibraryPhoto photo = null;
@@ -538,249 +552,249 @@ public abstract class CollectionPage : MediaPage {
                 photo = p;
                 break;
             }
-            
+
             File save_as =
-                ExportUI.choose_file(photo.get_export_basename_for_parameters(export_params));
+                ExportUI.choose_file (photo.get_export_basename_for_parameters (export_params));
             if (save_as == null)
                 return;
-            
+
             try {
-                AppWindow.get_instance().set_busy_cursor();
-                photo.export(save_as, scaling, export_params.quality,
-                    photo.get_export_format_for_parameters(export_params), export_params.mode ==
-                    ExportFormatMode.UNMODIFIED, export_params.export_metadata);
-                AppWindow.get_instance().set_normal_cursor();
+                AppWindow.get_instance ().set_busy_cursor ();
+                photo.export (save_as, scaling, export_params.quality,
+                              photo.get_export_format_for_parameters (export_params), export_params.mode ==
+                              ExportFormatMode.UNMODIFIED, export_params.export_metadata);
+                AppWindow.get_instance ().set_normal_cursor ();
             } catch (Error err) {
-                AppWindow.get_instance().set_normal_cursor();
-                export_error_dialog(save_as, false);
+                AppWindow.get_instance ().set_normal_cursor ();
+                export_error_dialog (save_as, false);
             }
-            
+
             return;
         }
 
         // multiple photos or videos
-        File export_dir = ExportUI.choose_dir(title);
+        File export_dir = ExportUI.choose_dir (title);
         if (export_dir == null)
             return;
-        
-        exporter = new ExporterUI(new Exporter(export_list, export_dir, scaling, export_params));
-        exporter.export(on_export_completed);
+
+        exporter = new ExporterUI (new Exporter (export_list, export_dir, scaling, export_params));
+        exporter.export (on_export_completed);
     }
-    
-    private void on_export_completed() {
+
+    private void on_export_completed () {
         exporter = null;
     }
-    
-    private bool can_revert_selected() {
-        foreach (DataSource source in get_view().get_selected_sources()) {
+
+    private bool can_revert_selected () {
+        foreach (DataSource source in get_view ().get_selected_sources ()) {
             LibraryPhoto? photo = source as LibraryPhoto;
-            if (photo != null && (photo.has_transformations() || photo.has_editable()))
+            if (photo != null && (photo.has_transformations () || photo.has_editable ()))
                 return true;
         }
-        
+
         return false;
     }
-    
-    private bool can_revert_editable_selected() {
-        foreach (DataSource source in get_view().get_selected_sources()) {
+
+    private bool can_revert_editable_selected () {
+        foreach (DataSource source in get_view ().get_selected_sources ()) {
             LibraryPhoto? photo = source as LibraryPhoto;
-            if (photo != null && photo.has_editable())
+            if (photo != null && photo.has_editable ())
                 return true;
         }
-        
+
         return false;
     }
-   
-    private void on_rotate_clockwise() {
-        if (get_view().get_selected_count() == 0)
+
+    private void on_rotate_clockwise () {
+        if (get_view ().get_selected_count () == 0)
             return;
-        
-        RotateMultipleCommand command = new RotateMultipleCommand(get_view().get_selected(), 
-            Rotation.CLOCKWISE, Resources.ROTATE_CW_FULL_LABEL, Resources.ROTATE_CW_TOOLTIP,
-            _("Rotating"), _("Undoing Rotate"));
-        get_command_manager().execute(command);
+
+        RotateMultipleCommand command = new RotateMultipleCommand (get_view ().get_selected (),
+                Rotation.CLOCKWISE, Resources.ROTATE_CW_FULL_LABEL, Resources.ROTATE_CW_TOOLTIP,
+                _ ("Rotating"), _ ("Undoing Rotate"));
+        get_command_manager ().execute (command);
     }
 
-    private void on_publish() {
-        if (get_view().get_selected_count() > 0)
-            PublishingUI.PublishingDialog.go(
-                (Gee.Collection<MediaSource>) get_view().get_selected_sources());
+    private void on_publish () {
+        if (get_view ().get_selected_count () > 0)
+            PublishingUI.PublishingDialog.go (
+                (Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
 
-    private void on_rotate_counterclockwise() {
-        if (get_view().get_selected_count() == 0)
+    private void on_rotate_counterclockwise () {
+        if (get_view ().get_selected_count () == 0)
             return;
-        
-        RotateMultipleCommand command = new RotateMultipleCommand(get_view().get_selected(), 
-            Rotation.COUNTERCLOCKWISE, Resources.ROTATE_CCW_FULL_LABEL, Resources.ROTATE_CCW_TOOLTIP,
-            _("Rotating"), _("Undoing Rotate"));
-        get_command_manager().execute(command);
+
+        RotateMultipleCommand command = new RotateMultipleCommand (get_view ().get_selected (),
+                Rotation.COUNTERCLOCKWISE, Resources.ROTATE_CCW_FULL_LABEL, Resources.ROTATE_CCW_TOOLTIP,
+                _ ("Rotating"), _ ("Undoing Rotate"));
+        get_command_manager ().execute (command);
     }
-    
-    private void on_flip_horizontally() {
-        if (get_view().get_selected_count() == 0)
+
+    private void on_flip_horizontally () {
+        if (get_view ().get_selected_count () == 0)
             return;
-        
-        RotateMultipleCommand command = new RotateMultipleCommand(get_view().get_selected(),
-            Rotation.MIRROR, Resources.HFLIP_LABEL, "", _("Flipping Horizontally"),
-            _("Undoing Flip Horizontally"));
-        get_command_manager().execute(command);
+
+        RotateMultipleCommand command = new RotateMultipleCommand (get_view ().get_selected (),
+                Rotation.MIRROR, Resources.HFLIP_LABEL, "", _ ("Flipping Horizontally"),
+                _ ("Undoing Flip Horizontally"));
+        get_command_manager ().execute (command);
     }
-    
-    private void on_flip_vertically() {
-        if (get_view().get_selected_count() == 0)
+
+    private void on_flip_vertically () {
+        if (get_view ().get_selected_count () == 0)
             return;
-        
-        RotateMultipleCommand command = new RotateMultipleCommand(get_view().get_selected(),
-            Rotation.UPSIDE_DOWN, Resources.VFLIP_LABEL, "", _("Flipping Vertically"),
-            _("Undoing Flip Vertically"));
-        get_command_manager().execute(command);
+
+        RotateMultipleCommand command = new RotateMultipleCommand (get_view ().get_selected (),
+                Rotation.UPSIDE_DOWN, Resources.VFLIP_LABEL, "", _ ("Flipping Vertically"),
+                _ ("Undoing Flip Vertically"));
+        get_command_manager ().execute (command);
     }
-    
-    private void on_revert() {
-        if (get_view().get_selected_count() == 0)
+
+    private void on_revert () {
+        if (get_view ().get_selected_count () == 0)
             return;
-        
-        if (can_revert_editable_selected()) {
-            if (!revert_editable_dialog(AppWindow.get_instance(),
-                (Gee.Collection<Photo>) get_view().get_selected_sources())) {
+
+        if (can_revert_editable_selected ()) {
+            if (!revert_editable_dialog (AppWindow.get_instance (),
+                                         (Gee.Collection<Photo>) get_view ().get_selected_sources ())) {
                 return;
             }
-            
-            foreach (DataObject object in get_view().get_selected_sources())
-                ((Photo) object).revert_to_master();
+
+            foreach (DataObject object in get_view ().get_selected_sources ())
+                ((Photo) object).revert_to_master ();
         }
-        
-        RevertMultipleCommand command = new RevertMultipleCommand(get_view().get_selected());
-        get_command_manager().execute(command);
-    }
-    
-    public void on_copy_adjustments() {
-        if (get_view().get_selected_count() != 1)
-            return;
-        Photo photo = (Photo) get_view().get_selected_at(0).get_source();
-        PixelTransformationBundle.set_copied_color_adjustments(photo.get_color_adjustments());
-        set_action_sensitive("PasteColorAdjustments", true);
-    }
-    
-    public void on_paste_adjustments() {
-        PixelTransformationBundle? copied_adjustments = PixelTransformationBundle.get_copied_color_adjustments();
-        if (get_view().get_selected_count() == 0 || copied_adjustments == null)
-            return;
-        
-        AdjustColorsMultipleCommand command = new AdjustColorsMultipleCommand(get_view().get_selected(),
-            copied_adjustments, Resources.PASTE_ADJUSTMENTS_LABEL, Resources.PASTE_ADJUSTMENTS_TOOLTIP);
-        get_command_manager().execute(command);
-    }
-    
-    private void on_enhance() {
-        if (get_view().get_selected_count() == 0)
-            return;
-        
-        EnhanceMultipleCommand command = new EnhanceMultipleCommand(get_view().get_selected());
-        get_command_manager().execute(command);
-    }
-    
-    private void on_duplicate_photo() {
-        if (get_view().get_selected_count() == 0)
-            return;
-        
-        DuplicateMultiplePhotosCommand command = new DuplicateMultiplePhotosCommand(
-            get_view().get_selected());
-        get_command_manager().execute(command);
+
+        RevertMultipleCommand command = new RevertMultipleCommand (get_view ().get_selected ());
+        get_command_manager ().execute (command);
     }
 
-    private void on_adjust_date_time() {
-        if (get_view().get_selected_count() == 0)
+    public void on_copy_adjustments () {
+        if (get_view ().get_selected_count () != 1)
+            return;
+        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        PixelTransformationBundle.set_copied_color_adjustments (photo.get_color_adjustments ());
+        set_action_sensitive ("PasteColorAdjustments", true);
+    }
+
+    public void on_paste_adjustments () {
+        PixelTransformationBundle? copied_adjustments = PixelTransformationBundle.get_copied_color_adjustments ();
+        if (get_view ().get_selected_count () == 0 || copied_adjustments == null)
+            return;
+
+        AdjustColorsMultipleCommand command = new AdjustColorsMultipleCommand (get_view ().get_selected (),
+                copied_adjustments, Resources.PASTE_ADJUSTMENTS_LABEL, Resources.PASTE_ADJUSTMENTS_TOOLTIP);
+        get_command_manager ().execute (command);
+    }
+
+    private void on_enhance () {
+        if (get_view ().get_selected_count () == 0)
+            return;
+
+        EnhanceMultipleCommand command = new EnhanceMultipleCommand (get_view ().get_selected ());
+        get_command_manager ().execute (command);
+    }
+
+    private void on_duplicate_photo () {
+        if (get_view ().get_selected_count () == 0)
+            return;
+
+        DuplicateMultiplePhotosCommand command = new DuplicateMultiplePhotosCommand (
+            get_view ().get_selected ());
+        get_command_manager ().execute (command);
+    }
+
+    private void on_adjust_date_time () {
+        if (get_view ().get_selected_count () == 0)
             return;
 
         bool selected_has_videos = false;
         bool only_videos_selected = true;
-        
-        foreach (DataView dv in get_view().get_selected()) {
-            if (dv.get_source() is Video)
+
+        foreach (DataView dv in get_view ().get_selected ()) {
+            if (dv.get_source () is Video)
                 selected_has_videos = true;
             else
                 only_videos_selected = false;
         }
 
-        Dateable photo_source = (Dateable) get_view().get_selected_at(0).get_source();
+        Dateable photo_source = (Dateable) get_view ().get_selected_at (0).get_source ();
 
-        AdjustDateTimeDialog dialog = new AdjustDateTimeDialog(photo_source,
-            get_view().get_selected_count(), true, selected_has_videos, only_videos_selected);
+        AdjustDateTimeDialog dialog = new AdjustDateTimeDialog (photo_source,
+                get_view ().get_selected_count (), true, selected_has_videos, only_videos_selected);
 
         int64 time_shift;
         bool keep_relativity, modify_originals;
-        if (dialog.execute(out time_shift, out keep_relativity, out modify_originals)) {
-            AdjustDateTimePhotosCommand command = new AdjustDateTimePhotosCommand(
-                get_view().get_selected(), time_shift, keep_relativity, modify_originals);
-            get_command_manager().execute(command);
+        if (dialog.execute (out time_shift, out keep_relativity, out modify_originals)) {
+            AdjustDateTimePhotosCommand command = new AdjustDateTimePhotosCommand (
+                get_view ().get_selected (), time_shift, keep_relativity, modify_originals);
+            get_command_manager ().execute (command);
         }
     }
-    
-    public void on_set_background() {
-        Gee.ArrayList<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto>();
-        MediaSourceCollection.filter_media((Gee.Collection<MediaSource>) get_view().get_selected_sources(),
-            photos, null);
-        
+
+    public void on_set_background () {
+        Gee.ArrayList<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto> ();
+        MediaSourceCollection.filter_media ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (),
+                                            photos, null);
+
         if (photos.size == 1) {
-            AppWindow.get_instance().set_busy_cursor();
-            DesktopIntegration.set_background(photos[0]);
-            AppWindow.get_instance().set_normal_cursor();
+            AppWindow.get_instance ().set_busy_cursor ();
+            DesktopIntegration.set_background (photos[0]);
+            AppWindow.get_instance ().set_normal_cursor ();
         } else if (photos.size > 1) {
-            SetBackgroundSlideshowDialog dialog = new SetBackgroundSlideshowDialog();
+            SetBackgroundSlideshowDialog dialog = new SetBackgroundSlideshowDialog ();
             int delay;
-            if (dialog.execute(out delay)) {
-                AppWindow.get_instance().set_busy_cursor();
-                DesktopIntegration.set_background_slideshow(photos, delay,
-                    DESKTOP_SLIDESHOW_TRANSITION_SEC);
-                AppWindow.get_instance().set_normal_cursor();
+            if (dialog.execute (out delay)) {
+                AppWindow.get_instance ().set_busy_cursor ();
+                DesktopIntegration.set_background_slideshow (photos, delay,
+                        DESKTOP_SLIDESHOW_TRANSITION_SEC);
+                AppWindow.get_instance ().set_normal_cursor ();
             }
         }
     }
-    
-    private void on_slideshow() {
-        if (get_view().get_count() == 0)
+
+    private void on_slideshow () {
+        if (get_view ().get_count () == 0)
             return;
-        
+
         // use first selected photo, else use first photo
-        Gee.List<DataSource>? sources = (get_view().get_selected_count() > 0)
-            ? get_view().get_selected_sources_of_type(typeof(LibraryPhoto))
-            : get_view().get_sources_of_type(typeof(LibraryPhoto));
+        Gee.List<DataSource>? sources = (get_view ().get_selected_count () > 0)
+                                        ? get_view ().get_selected_sources_of_type (typeof (LibraryPhoto))
+                                        : get_view ().get_sources_of_type (typeof (LibraryPhoto));
         if (sources == null || sources.size == 0)
             return;
-        
-        Thumbnail? thumbnail = (Thumbnail?) get_view().get_view_for_source(sources[0]);
+
+        Thumbnail? thumbnail = (Thumbnail? ) get_view ().get_view_for_source (sources[0]);
         if (thumbnail == null)
             return;
-        
-        LibraryPhoto? photo = thumbnail.get_media_source() as LibraryPhoto;
+
+        LibraryPhoto? photo = thumbnail.get_media_source () as LibraryPhoto;
         if (photo == null)
             return;
-        
-        AppWindow.get_instance().go_fullscreen(new SlideshowPage(LibraryPhoto.global, get_view(),
-            photo));
+
+        AppWindow.get_instance ().go_fullscreen (new SlideshowPage (LibraryPhoto.global, get_view (),
+                                                photo));
     }
-    
-    protected override bool on_ctrl_pressed(Gdk.EventKey? event) {
-        Gtk.ToolButton? rotate_button = ui.get_widget("/CollectionToolbar/ToolRotate")
-            as Gtk.ToolButton;
+
+    protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
+        Gtk.ToolButton? rotate_button = ui.get_widget ("/CollectionToolbar/ToolRotate")
+                                        as Gtk.ToolButton;
         if (rotate_button != null)
-            rotate_button.set_related_action(get_action("RotateCounterclockwise"));
-        
-        return base.on_ctrl_pressed(event);
+            rotate_button.set_related_action (get_action ("RotateCounterclockwise"));
+
+        return base.on_ctrl_pressed (event);
     }
-    
-    protected override bool on_ctrl_released(Gdk.EventKey? event) {
-        Gtk.ToolButton? rotate_button = ui.get_widget("/CollectionToolbar/ToolRotate")
-            as Gtk.ToolButton;
+
+    protected override bool on_ctrl_released (Gdk.EventKey? event) {
+        Gtk.ToolButton? rotate_button = ui.get_widget ("/CollectionToolbar/ToolRotate")
+                                        as Gtk.ToolButton;
         if (rotate_button != null)
-            rotate_button.set_related_action(get_action("RotateClockwise"));
-        
-        return base.on_ctrl_released(event);
+            rotate_button.set_related_action (get_action ("RotateClockwise"));
+
+        return base.on_ctrl_released (event);
     }
-    
-    public override SearchViewFilter get_search_view_filter() {
+
+    public override SearchViewFilter get_search_view_filter () {
         return search_filter;
     }
 }
