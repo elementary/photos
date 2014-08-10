@@ -145,12 +145,14 @@ public abstract class CollectionPage : MediaPage {
                                   TRANSLATABLE, on_flip_horizontally
                                 };
         hflip.label = Resources.HFLIP_MENU;
+        hflip.tooltip = Resources.HFLIP_TOOLTIP;
         actions += hflip;
 
         Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, TRANSLATABLE, null,
                                   TRANSLATABLE, on_flip_vertically
                                 };
         vflip.label = Resources.VFLIP_MENU;
+        vflip.tooltip = Resources.VFLIP_TOOLTIP;
         actions += vflip;
 
         Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",

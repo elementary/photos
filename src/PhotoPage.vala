@@ -392,6 +392,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
     private Gtk.ToolButton rotate_button = null;
+    private Gtk.ToolButton hflip_button = null;
+    private Gtk.ToolButton vflip_button = null;
     private Gtk.ToggleToolButton crop_button = null;
     private Gtk.ToggleToolButton redeye_button = null;
     private Gtk.ToggleToolButton adjust_button = null;
@@ -441,6 +443,24 @@ public abstract class EditingHostPage : SinglePhotoPage {
         rotate_button.clicked.connect (on_rotate_clockwise);
         rotate_button.is_important = true;
         toolbar.insert (rotate_button, -1);
+
+        // horizontal flip tool
+        hflip_button = new Gtk.ToolButton.from_stock ("");
+        hflip_button.set_icon_name (Resources.HFLIP);
+        hflip_button.set_label (Resources.HFLIP_LABEL);
+        hflip_button.set_tooltip_text (Resources.HFLIP_TOOLTIP);
+        hflip_button.clicked.connect (on_flip_horizontally);
+        hflip_button.is_important = true;
+        toolbar.insert (hflip_button, -1);
+
+        // vertical flip tool
+        vflip_button = new Gtk.ToolButton.from_stock ("");
+        vflip_button.set_icon_name (Resources.VFLIP);
+        vflip_button.set_label (Resources.VFLIP_LABEL);
+        vflip_button.set_tooltip_text (Resources.VFLIP_TOOLTIP);
+        vflip_button.clicked.connect (on_flip_vertically);
+        vflip_button.is_important = true;
+        toolbar.insert (vflip_button, -1);
 
         // crop tool
         crop_button = new Gtk.ToggleToolButton.from_stock (Resources.CROP);
@@ -1076,6 +1096,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected virtual void update_ui (bool missing) {
         bool sensitivity = !missing;
 
+        hflip_button.sensitive = sensitivity;
+        vflip_button.sensitive = sensitivity;
         rotate_button.sensitive = sensitivity;
         crop_button.sensitive = sensitivity;
         straighten_button.sensitive = sensitivity;

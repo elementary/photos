@@ -148,9 +148,11 @@ public const string ROTATE_CCW_TOOLTIP = _ ("Rotate the photos left");
 
 public const string HFLIP_MENU = _ ("Flip Hori_zontally");
 public const string HFLIP_LABEL = _ ("Flip Horizontally");
+public const string HFLIP_TOOLTIP = _ ("Flip the image horizontally");
 
 public const string VFLIP_MENU = _ ("Flip Verti_cally");
 public const string VFLIP_LABEL = _ ("Flip Vertically");
+public const string VFLIP_TOOLTIP = _ ("Flip the image vertically");
 
 public const string ENHANCE_MENU = _ ("_Enhance");
 public const string ENHANCE_LABEL = _ ("Enhance");
