@@ -270,7 +270,7 @@ public abstract class CollectionPage : MediaPage {
             Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
             item_app.always_show_image = true;
             item_app.set_image (image);
-            item_app.activate.connect ( () => {
+            item_app.activate.connect (() => {
                 if (raw)
                     on_open_with_raw (app.get_commandline ());
                 else

@@ -2226,7 +2226,7 @@ public class PreferencesDialog {
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
 
         // Create our stack container and load in each preference container from shotwell.glade
-        Gtk.Stack container = new Gtk.Stack  ();
+        Gtk.Stack container = new Gtk.Stack ();
         container.expand = true;
         container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _ ("Library"));
         container.add_titled (builder.get_object ("preferences_external") as Gtk.Box, "external", _ ("External"));
@@ -2240,7 +2240,7 @@ public class PreferencesDialog {
         switcher.margin_bottom = 12;
 
         // Add the switcher, stack container and button container to the window
-        Gtk.Box content = dialog.get_content_area  () as Gtk.Box;
+        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
         content.add (switcher);
         content.add (container);
 
