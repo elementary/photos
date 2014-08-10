@@ -5,46 +5,46 @@
  */
 
 public class ThumbnailView : DataView {
-    public virtual signal void thumbnail_altered() {
+    public virtual signal void thumbnail_altered () {
     }
-    
-    public ThumbnailView(ThumbnailSource source) {
-        base(source);
+
+    public ThumbnailView (ThumbnailSource source) {
+        base (source);
     }
-    
-    public virtual void notify_thumbnail_altered() {
+
+    public virtual void notify_thumbnail_altered () {
         // fire signal on self
-        thumbnail_altered();
+        thumbnail_altered ();
     }
 }
 
 public class PhotoView : ThumbnailView {
-    public PhotoView(PhotoSource source) {
-        base(source);
+    public PhotoView (PhotoSource source) {
+        base (source);
     }
-    
-    public PhotoSource get_photo_source() {
-        return (PhotoSource) get_source();
+
+    public PhotoSource get_photo_source () {
+        return (PhotoSource) get_source ();
     }
 }
 
 public class VideoView : ThumbnailView {
-    public VideoView(VideoSource source) {
-        base(source);
+    public VideoView (VideoSource source) {
+        base (source);
     }
-    
-    public VideoSource get_video_source() {
-        return (VideoSource) get_source();
+
+    public VideoSource get_video_source () {
+        return (VideoSource) get_source ();
     }
 }
 
 public class EventView : ThumbnailView {
-    public EventView(EventSource source) {
-        base(source);
+    public EventView (EventSource source) {
+        base (source);
     }
-    
-    public EventSource get_event_source() {
-        return (EventSource) get_source();
+
+    public EventSource get_event_source () {
+        return (EventSource) get_source ();
     }
 }
 

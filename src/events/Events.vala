@@ -6,12 +6,12 @@
 
 namespace Events {
 
-public void init() throws Error {
-    Events.Branch.init();
+public void init () throws Error {
+    Events.Branch.init ();
 }
 
-public void terminate() {
-    Events.Branch.terminate();
+public void terminate () {
+    Events.Branch.terminate ();
 }
 
 }
