@@ -19,18 +19,18 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     private const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
     private const string SYSTEM_DESKTOP_SCHEMA_NAME = "org.gnome.desktop.background";
     private const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME +
-        ".plugins.enable-state";
+            ".plugins.enable-state";
 
     private Gee.Set<string> known_schemas;
     private string[] schema_names;
     private string[] key_names;
-    
-    public GSettingsConfigurationEngine() {
-        known_schemas = new Gee.HashSet<string>();
-        
-        foreach (string current_schema in Settings.list_schemas())
-            known_schemas.add(current_schema);
-        
+
+    public GSettingsConfigurationEngine () {
+        known_schemas = new Gee.HashSet<string> ();
+
+        foreach (string current_schema in Settings.list_schemas ())
+            known_schemas.add (current_schema);
+
         schema_names = new string[ConfigurableProperty.NUM_PROPERTIES];
 
         schema_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = FILES_PREFS_SCHEMA_NAME;
@@ -94,9 +94,9 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.USE_24_HOUR_TIME] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = VIDEO_SCHEMA_NAME;
-        
+
         key_names = new string[ConfigurableProperty.NUM_PROPERTIES];
-        
+
         key_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = "auto-import";
         key_names[ConfigurableProperty.BG_COLOR_NAME] = "background-color";
         key_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = "commit-metadata";
@@ -159,312 +159,312 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = "use-lowercase-filenames";
         key_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = "interpreter-state-cookie";
     }
-    
-    private bool schema_has_key(Settings schema_object, string key) {
-        foreach (string current_key in schema_object.list_keys()) {
+
+    private bool schema_has_key (Settings schema_object, string key) {
+        foreach (string current_key in schema_object.list_keys ()) {
             if (current_key == key)
                 return true;
         }
-        
+
         return false;
     }
-    
-    private void check_key_valid(string schema, string key) throws ConfigurationError {
-        if (!known_schemas.contains(schema))
-            throw new ConfigurationError.ENGINE_ERROR("schema '%s' is not installed".printf(schema));
 
-        Settings schema_object = new Settings(schema);
-        
-        if (!schema_has_key(schema_object, key))
-            throw new ConfigurationError.ENGINE_ERROR("schema '%s' does not define key '%s'".printf(
+    private void check_key_valid (string schema, string key) throws ConfigurationError {
+        if (!known_schemas.contains (schema))
+            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' is not installed".printf (schema));
+
+        Settings schema_object = new Settings (schema);
+
+        if (!schema_has_key (schema_object, key))
+            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' does not define key '%s'".printf (
                 schema, key));
     }
 
-    private bool get_gs_bool(string schema, string key) throws ConfigurationError {
-        check_key_valid(schema, key);
+    private bool get_gs_bool (string schema, string key) throws ConfigurationError {
+        check_key_valid (schema, key);
 
-        Settings schema_object = new Settings(schema);
+        Settings schema_object = new Settings (schema);
 
-        return schema_object.get_boolean(key);
-    }
-    
-    private void set_gs_bool(string schema, string key, bool value) throws ConfigurationError {
-        check_key_valid(schema, key);
-
-        Settings schema_object = new Settings(schema);
-
-        schema_object.set_boolean(key, value);
+        return schema_object.get_boolean (key);
     }
 
-    private int get_gs_int(string schema, string key) throws ConfigurationError {
-        check_key_valid(schema, key);
+    private void set_gs_bool (string schema, string key, bool value) throws ConfigurationError {
+        check_key_valid (schema, key);
 
-        Settings schema_object = new Settings(schema);
+        Settings schema_object = new Settings (schema);
 
-        return schema_object.get_int(key);
-    }
-    
-    private void set_gs_int(string schema, string key, int value) throws ConfigurationError {
-        check_key_valid(schema, key);
-
-        Settings schema_object = new Settings(schema);
-
-        schema_object.set_int(key, value);
+        schema_object.set_boolean (key, value);
     }
 
-    private double get_gs_double(string schema, string key) throws ConfigurationError {
-        check_key_valid(schema, key);
+    private int get_gs_int (string schema, string key) throws ConfigurationError {
+        check_key_valid (schema, key);
 
-        Settings schema_object = new Settings(schema);
+        Settings schema_object = new Settings (schema);
 
-        return schema_object.get_double(key);
-    }
-    
-    private void set_gs_double(string schema, string key, double value) throws ConfigurationError {
-        check_key_valid(schema, key);
-
-        Settings schema_object = new Settings(schema);
-
-        schema_object.set_double(key, value);
+        return schema_object.get_int (key);
     }
 
-    private string get_gs_string(string schema, string key) throws ConfigurationError {
-        check_key_valid(schema, key);
+    private void set_gs_int (string schema, string key, int value) throws ConfigurationError {
+        check_key_valid (schema, key);
 
-        Settings schema_object = new Settings(schema);
+        Settings schema_object = new Settings (schema);
 
-        return schema_object.get_string(key);
-    }
-    
-    private void set_gs_string(string schema, string key, string value) throws ConfigurationError {
-        check_key_valid(schema, key);
-
-        Settings schema_object = new Settings(schema);
-
-        schema_object.set_string(key, value);
-    }
-    
-    private void reset_gs_to_default(string schema, string key) throws ConfigurationError {
-        check_key_valid(schema, key);
-
-        Settings schema_object = new Settings(schema);
-
-        schema_object.reset(key);
+        schema_object.set_int (key, value);
     }
 
-    private static string? clean_plugin_id(string id) {
-        string cleaned = id.replace("/", "-");
-        cleaned = cleaned.strip();
-        
-        return !is_string_empty(cleaned) ? cleaned : null;
+    private double get_gs_double (string schema, string key) throws ConfigurationError {
+        check_key_valid (schema, key);
+
+        Settings schema_object = new Settings (schema);
+
+        return schema_object.get_double (key);
     }
-    
-    private static string get_plugin_enable_disable_name(string id) {
-        string? cleaned_id = clean_plugin_id(id);
+
+    private void set_gs_double (string schema, string key, double value) throws ConfigurationError {
+        check_key_valid (schema, key);
+
+        Settings schema_object = new Settings (schema);
+
+        schema_object.set_double (key, value);
+    }
+
+    private string get_gs_string (string schema, string key) throws ConfigurationError {
+        check_key_valid (schema, key);
+
+        Settings schema_object = new Settings (schema);
+
+        return schema_object.get_string (key);
+    }
+
+    private void set_gs_string (string schema, string key, string value) throws ConfigurationError {
+        check_key_valid (schema, key);
+
+        Settings schema_object = new Settings (schema);
+
+        schema_object.set_string (key, value);
+    }
+
+    private void reset_gs_to_default (string schema, string key) throws ConfigurationError {
+        check_key_valid (schema, key);
+
+        Settings schema_object = new Settings (schema);
+
+        schema_object.reset (key);
+    }
+
+    private static string? clean_plugin_id (string id) {
+        string cleaned = id.replace ("/", "-");
+        cleaned = cleaned.strip ();
+
+        return !is_string_empty (cleaned) ? cleaned : null;
+    }
+
+    private static string get_plugin_enable_disable_name (string id) {
+        string? cleaned_id = clean_plugin_id (id);
         if (cleaned_id == null)
             cleaned_id = "default";
 
-        cleaned_id = cleaned_id.replace("org.yorba.shotwell.", "");
-        cleaned_id = cleaned_id.replace(".", "-");
-        
+        cleaned_id = cleaned_id.replace ("org.yorba.shotwell.", "");
+        cleaned_id = cleaned_id.replace (".", "-");
+
         return cleaned_id;
     }
-    
-    private static string make_plugin_schema_name(string domain, string id) {
-        string? cleaned_id = clean_plugin_id(id);
+
+    private static string make_plugin_schema_name (string domain, string id) {
+        string? cleaned_id = clean_plugin_id (id);
         if (cleaned_id == null)
             cleaned_id = "default";
-        cleaned_id = cleaned_id.replace(".", "-");
-        
-        return "org.yorba.shotwell.%s.%s".printf(domain, cleaned_id);
-    }
-    
-    private static string make_gsettings_key(string gconf_key) {
-        return gconf_key.replace("_", "-");
+        cleaned_id = cleaned_id.replace (".", "-");
+
+        return "org.yorba.shotwell.%s.%s".printf (domain, cleaned_id);
     }
 
-    public string get_name() {
+    private static string make_gsettings_key (string gconf_key) {
+        return gconf_key.replace ("_", "-");
+    }
+
+    public string get_name () {
         return "GSettings";
     }
 
-    public int get_int_property(ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_int(schema_names[p], key_names[p]);
+    public int get_int_property (ConfigurableProperty p) throws ConfigurationError {
+        return get_gs_int (schema_names[p], key_names[p]);
     }
 
-    public void set_int_property(ConfigurableProperty p, int val) throws ConfigurationError {
-        set_gs_int(schema_names[p], key_names[p], val);
-        property_changed(p);
+    public void set_int_property (ConfigurableProperty p, int val) throws ConfigurationError {
+        set_gs_int (schema_names[p], key_names[p], val);
+        property_changed (p);
     }
-    
-    public string get_string_property(ConfigurableProperty p) throws ConfigurationError {
-        string gs_result = get_gs_string(schema_names[p], key_names[p]);
-        
+
+    public string get_string_property (ConfigurableProperty p) throws ConfigurationError {
+        string gs_result = get_gs_string (schema_names[p], key_names[p]);
+
         // if we're getting the desktop background file, convert the file uri we get back from
         // GSettings into a file path
         string result = gs_result;
         if (p == ConfigurableProperty.DESKTOP_BACKGROUND_FILE) {
-            result = gs_result.substring(7);
+            result = gs_result.substring (7);
         }
-        
+
         return result;
     }
-    
-    public void set_string_property(ConfigurableProperty p, string val) throws ConfigurationError {
+
+    public void set_string_property (ConfigurableProperty p, string val) throws ConfigurationError {
         // if we're setting the desktop background file, convert the filename into a file URI
         string converted_val = val;
         if (p == ConfigurableProperty.DESKTOP_BACKGROUND_FILE) {
             converted_val = "file://" + val;
         }
 
-        set_gs_string(schema_names[p], key_names[p], converted_val);
-        property_changed(p);
-    }
-    
-    public bool get_bool_property(ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_bool(schema_names[p], key_names[p]);
-    }
-    
-    public void set_bool_property(ConfigurableProperty p, bool val) throws ConfigurationError {
-        set_gs_bool(schema_names[p], key_names[p], val);
-        property_changed(p);
-    }
-    
-    public double get_double_property(ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_double(schema_names[p], key_names[p]);
-    }
-    
-    public void set_double_property(ConfigurableProperty p, double val) throws ConfigurationError {
-        set_gs_double(schema_names[p], key_names[p], val);
-        property_changed(p);
+        set_gs_string (schema_names[p], key_names[p], converted_val);
+        property_changed (p);
     }
 
-    public bool get_plugin_bool(string domain, string id, string key, bool def) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
-        try {
-            return get_gs_bool(schema_name, make_gsettings_key(key));
-        } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
-            return def;
-        }
-    }
-    
-    public void set_plugin_bool(string domain, string id, string key, bool val) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
-        try {
-            set_gs_bool(schema_name, make_gsettings_key(key), val);
-        } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
-        }
+    public bool get_bool_property (ConfigurableProperty p) throws ConfigurationError {
+        return get_gs_bool (schema_names[p], key_names[p]);
     }
 
-    public double get_plugin_double(string domain, string id, string key, double def) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
+    public void set_bool_property (ConfigurableProperty p, bool val) throws ConfigurationError {
+        set_gs_bool (schema_names[p], key_names[p], val);
+        property_changed (p);
+    }
+
+    public double get_double_property (ConfigurableProperty p) throws ConfigurationError {
+        return get_gs_double (schema_names[p], key_names[p]);
+    }
+
+    public void set_double_property (ConfigurableProperty p, double val) throws ConfigurationError {
+        set_gs_double (schema_names[p], key_names[p], val);
+        property_changed (p);
+    }
+
+    public bool get_plugin_bool (string domain, string id, string key, bool def) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
         try {
-            return get_gs_double(schema_name, make_gsettings_key(key));
+            return get_gs_bool (schema_name, make_gsettings_key (key));
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
             return def;
         }
     }
 
-    public void set_plugin_double(string domain, string id, string key, double val) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
+    public void set_plugin_bool (string domain, string id, string key, bool val) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
         try {
-            set_gs_double(schema_name, make_gsettings_key(key), val);
+            set_gs_bool (schema_name, make_gsettings_key (key), val);
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
 
-    public int get_plugin_int(string domain, string id, string key, int def) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
+    public double get_plugin_double (string domain, string id, string key, double def) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
         try {
-            return get_gs_int(schema_name, make_gsettings_key(key));
+            return get_gs_double (schema_name, make_gsettings_key (key));
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
             return def;
-        }
-    }
-    
-    public void set_plugin_int(string domain, string id, string key, int val) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
-        try {
-            set_gs_int(schema_name, make_gsettings_key(key), val);
-        } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
-        }
-    }
-    
-    public string? get_plugin_string(string domain, string id, string key, string? def) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
-        try {
-            return get_gs_string(schema_name, make_gsettings_key(key));
-        } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
-            return def;
-        }
-    }
-    
-    public void set_plugin_string(string domain, string id, string key, string? val) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
-        try {
-            set_gs_string(schema_name, make_gsettings_key(key), val);
-        } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
 
-    public void unset_plugin_key(string domain, string id, string key) {
-        string schema_name = make_plugin_schema_name(domain, id);
-        
+    public void set_plugin_double (string domain, string id, string key, double val) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
         try {
-            reset_gs_to_default(schema_name, make_gsettings_key(key));
+            set_gs_double (schema_name, make_gsettings_key (key), val);
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
-    
-    public FuzzyPropertyState is_plugin_enabled(string id) {
-        string enable_disable_name = get_plugin_enable_disable_name(id);
-        
+
+    public int get_plugin_int (string domain, string id, string key, int def) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
         try {
-            return (get_gs_bool(PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name)) ?
-                FuzzyPropertyState.ENABLED : FuzzyPropertyState.DISABLED;
+            return get_gs_int (schema_name, make_gsettings_key (key));
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
+            return def;
+        }
+    }
+
+    public void set_plugin_int (string domain, string id, string key, int val) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
+        try {
+            set_gs_int (schema_name, make_gsettings_key (key), val);
+        } catch (ConfigurationError err) {
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
+        }
+    }
+
+    public string? get_plugin_string (string domain, string id, string key, string? def) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
+        try {
+            return get_gs_string (schema_name, make_gsettings_key (key));
+        } catch (ConfigurationError err) {
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
+            return def;
+        }
+    }
+
+    public void set_plugin_string (string domain, string id, string key, string? val) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
+        try {
+            set_gs_string (schema_name, make_gsettings_key (key), val);
+        } catch (ConfigurationError err) {
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
+        }
+    }
+
+    public void unset_plugin_key (string domain, string id, string key) {
+        string schema_name = make_plugin_schema_name (domain, id);
+
+        try {
+            reset_gs_to_default (schema_name, make_gsettings_key (key));
+        } catch (ConfigurationError err) {
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
+        }
+    }
+
+    public FuzzyPropertyState is_plugin_enabled (string id) {
+        string enable_disable_name = get_plugin_enable_disable_name (id);
+
+        try {
+            return (get_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name)) ?
+                   FuzzyPropertyState.ENABLED : FuzzyPropertyState.DISABLED;
+        } catch (ConfigurationError err) {
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
             return FuzzyPropertyState.UNKNOWN;
         }
     }
 
-    public void set_plugin_enabled(string id, bool enabled) {
-        string enable_disable_name = get_plugin_enable_disable_name(id);
-        
+    public void set_plugin_enabled (string id, bool enabled) {
+        string enable_disable_name = get_plugin_enable_disable_name (id);
+
         try {
-            set_gs_bool(PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name, enabled);
+            set_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name, enabled);
         } catch (ConfigurationError err) {
-            critical("GSettingsConfigurationEngine: error: %s", err.message);
+            critical ("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
-    
+
     /*! @brief Migrates settings data over from old-style /apps/ paths to /org/yorba/ ones.
      *  Should only be called ONCE, during DB upgrading; otherwise, stale data may be copied
      *  over newer data by accident.
      */
-    public static void run_gsettings_migrator() {
-        string cmd_line = "sh " + AppDirs.get_settings_migrator_bin().get_path();
+    public static void run_gsettings_migrator () {
+        string cmd_line = "sh " + AppDirs.get_settings_migrator_bin ().get_path ();
 
         try {
-            Process.spawn_command_line_sync(cmd_line);
+            Process.spawn_command_line_sync (cmd_line);
         } catch (Error err) {
-            message("Error running shotwell-settings-migrator: %s", err.message);
+            message ("Error running shotwell-settings-migrator: %s", err.message);
         }
     }
 

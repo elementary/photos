@@ -5,10 +5,10 @@
  */
 
 namespace Threads {
-    public void init() throws Error {
-    }
-    
-    public void terminate() {
-    }
+public void init () throws Error {
+}
+
+public void terminate () {
+}
 }
 

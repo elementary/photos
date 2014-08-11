@@ -36,7 +36,7 @@ public errordomain DataImportError {
     UNSUPPORTED_VERSION
 }
 
-/** 
+/**
  * Represents a module that is able to import data from a specific database format.
  *
  * Developers of data import plugins provide a class that implements this interface. At
@@ -50,47 +50,47 @@ public interface DataImporter : GLib.Object {
     /**
      * Returns a {@link Service} object describing the service to which this connects.
      */
-    public abstract Service get_service();
+    public abstract Service get_service ();
 
     /**
      * Makes this data importer enter the running state and endows it with exclusive access
      * to the shared services provided by the {@link PluginHost}. Through the host’s interface,
      * this data importer can install user interface panes and query configuration information.
      */
-    public abstract void start();
+    public abstract void start ();
 
     /**
      * Returns true if this data importer is in the running state; false otherwise.
      */
-    public abstract bool is_running();
-    
+    public abstract bool is_running ();
+
     /**
      * Causes this data importer to enter a non-running state. This data importer should stop all
      * data access operations and cease use of the shared services provided by the {@link PluginHost}.
      */
-    public abstract void stop();
-    
+    public abstract void stop ();
+
     /**
      * Causes this data importer to enter start the import of a library.
      */
-    public abstract void on_library_selected(ImportableLibrary library);
-    
+    public abstract void on_library_selected (ImportableLibrary library);
+
     /**
      * Causes this data importer to enter start the import of a library file.
      */
-    public abstract void on_file_selected(File file);
-    
+    public abstract void on_file_selected (File file);
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -99,7 +99,7 @@ public interface DataImporter : GLib.Object {
  * Developers of data import plugins provide a class that implements this interface.
  */
 public interface ImportableLibrary : GLib.Object {
-    public abstract string get_display_name();
+    public abstract string get_display_name ();
 }
 
 /**
@@ -108,17 +108,17 @@ public interface ImportableLibrary : GLib.Object {
  * Developers of data import plugins provide a class that implements this interface.
  */
 public interface ImportableMediaItem : GLib.Object {
-    public abstract ImportableTag[] get_tags();
-    
-    public abstract ImportableEvent? get_event();
-    
-    public abstract ImportableRating get_rating();
-    
-    public abstract string? get_title();
-    
-    public abstract string get_folder_path();
-    
-    public abstract string get_filename();
+    public abstract ImportableTag[] get_tags ();
+
+    public abstract ImportableEvent? get_event ();
+
+    public abstract ImportableRating get_rating ();
+
+    public abstract string? get_title ();
+
+    public abstract string get_folder_path ();
+
+    public abstract string get_filename ();
 }
 
 /**
@@ -127,9 +127,9 @@ public interface ImportableMediaItem : GLib.Object {
  * Developers of data import plugins provide a class that implements this interface.
  */
 public interface ImportableTag : GLib.Object {
-    public abstract string get_name();
-    
-    public abstract ImportableTag? get_parent();
+    public abstract string get_name ();
+
+    public abstract ImportableTag? get_parent ();
 }
 
 /**
@@ -138,7 +138,7 @@ public interface ImportableTag : GLib.Object {
  * Developers of data import plugins provide a class that implements this interface.
  */
 public interface ImportableEvent : GLib.Object {
-    public abstract string get_name();
+    public abstract string get_name ();
 }
 
 /**
@@ -150,11 +150,11 @@ public interface ImportableEvent : GLib.Object {
  * value is unspecified.
  */
 public interface ImportableRating : GLib.Object {
-    public abstract bool is_unrated();
-    
-    public abstract bool is_rejected();
-    
-    public abstract int get_value();
+    public abstract bool is_unrated ();
+
+    public abstract bool is_rejected ();
+
+    public abstract int get_value ();
 }
 
 /**
@@ -169,7 +169,7 @@ public interface DialogPane : GLib.Object {
      * pane is installed in the on-screen publishing dialog box.
      */
     public enum GeometryOptions {
-    
+
         /**
          * When the associated pane is installed, the on-screen publishing dialog box will be
          * sized normally and will not allow the user to change its size.
@@ -199,37 +199,37 @@ public interface DialogPane : GLib.Object {
     /**
      * Returns the Gtk.Widget that is this pane's on-screen representation.
      */
-    public abstract Gtk.Widget get_widget();
-    
+    public abstract Gtk.Widget get_widget ();
+
     /**
      * Returns a {@link GeometryOptions} bitfield describing how the on-screen publishing dialog
      * box should look and behave when this pane is installed.
      */
-    public abstract GeometryOptions get_preferred_geometry();
+    public abstract GeometryOptions get_preferred_geometry ();
 
     /**
      * Invoked automatically by Shotwell when this pane has been installed into the on-screen
      * publishing dialog box and become visible to the user.
      */
-    public abstract void on_pane_installed();
+    public abstract void on_pane_installed ();
 
     /**
      * Invoked automatically by Shotwell when this pane has been removed from the on-screen
      * publishing dialog box and is no longer visible to the user.
      */
-    public abstract void on_pane_uninstalled();
-    
+    public abstract void on_pane_uninstalled ();
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -238,7 +238,7 @@ public interface DialogPane : GLib.Object {
  * the plugin to display a final message to the user. However, the plugin
  * should not rely on this callback being called in order to clean up.
  */
-public delegate void ImportedItemsCountCallback(int imported_items_count);
+public delegate void ImportedItemsCountCallback (int imported_items_count);
 
 /**
  * Manages and provides services for data import plugins.
@@ -259,14 +259,14 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
         CLOSE = 0,
         CANCEL = 1
     }
-    
+
     /**
      * Notifies the user that an unrecoverable import error has occurred and halts
      * the import process.
      *
      * @param err An error object that describes the kind of error that occurred.
      */
-    public abstract void post_error(Error err);
+    public abstract void post_error (Error err);
 
     /**
      * Notifies the user that an unrecoverable import error has occurred and halts
@@ -274,14 +274,14 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * @param msg A message that describes the kind of error that occurred.
      */
-    public abstract void post_error_message(string msg);
+    public abstract void post_error_message (string msg);
 
     /**
      * Starts the import process.
      *
      * Calling this method starts the import activity for this host.
      */
-    public abstract void start_importing();
+    public abstract void start_importing ();
 
     /**
      * Halts the import process.
@@ -289,19 +289,19 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * Calling this method stops all import activity and hides the on-screen import
      * dialog box.
      */
-    public abstract void stop_importing();
+    public abstract void stop_importing ();
 
     /**
      * Returns a reference to the {@link DataImporter} object that this is currently hosting.
      */
-    public abstract DataImporter get_data_importer();
+    public abstract DataImporter get_data_importer ();
 
     /**
      * Attempts to install a pane in the on-screen data import dialog box, making the pane visible
      * and allowing it to interact with the user.
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
-     * 
+     *
      * @param pane the pane to install
      *
      * @param mode allows you to set the text displayed on the close/cancel button in the
@@ -314,8 +314,8 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * should be ButtonMode.CLOSE, because all cancellable actions have already
      * occurred.
      */
-    public abstract void install_dialog_pane(Spit.DataImports.DialogPane pane,
-        ButtonMode mode = ButtonMode.CANCEL);
+    public abstract void install_dialog_pane (Spit.DataImports.DialogPane pane,
+            ButtonMode mode = ButtonMode.CANCEL);
 
     /**
      * Attempts to install a pane in the on-screen data import dialog box that contains
@@ -330,7 +330,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * you need to display static text to the user.
      *
      * If an error has posted, the {@link PluginHost} will not honor this request.
-     * 
+     *
      * @param message the text to show in the pane
      *
      * @param mode allows you to set the text displayed on the close/cancel button in the
@@ -343,9 +343,9 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * should be ButtonMode.CLOSE, because all cancellable actions have already
      * occurred.
      */
-    public abstract void install_static_message_pane(string message,
-        ButtonMode mode = ButtonMode.CANCEL);
-    
+    public abstract void install_static_message_pane (string message,
+            ButtonMode mode = ButtonMode.CANCEL);
+
     /**
      * Attempts to install a library selection pane that presents a list of
      * discovered libraries to the user.
@@ -366,12 +366,12 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * option. If this label is null, the
      * user will not be presented with a file selection option.
      */
-    public abstract void install_library_selection_pane(
+    public abstract void install_library_selection_pane (
         string welcome_message,
         ImportableLibrary[] discovered_libraries,
         string? file_select_label
     );
-    
+
     /**
      * Attempts to install a progress pane that provides the user with feedback
      * on import preparation.
@@ -380,10 +380,10 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * @param message the text to be displayed above the progress bar.
      */
-    public abstract void install_import_progress_pane(
+    public abstract void install_import_progress_pane (
         string message
     );
-    
+
     /**
      * Update the progress bar installed by install_import_progress_pane.
      *
@@ -395,11 +395,11 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param progress_label the text to be displayed below the progress bar. If that
      * parameter is null, the message will be left unchanged.
      */
-    public abstract void update_import_progress_pane(
+    public abstract void update_import_progress_pane (
         double progress,
         string? progress_message = null
     );
-    
+
     /**
      * Sends an importable media item to the host in order to prepare it for import
      * and update the progress bar installed by install_import_progress_pane.
@@ -419,13 +419,13 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param progress_message the text to be displayed below the progress bar. If that
      * parameter is null, the message will be left unchanged.
      */
-    public abstract void prepare_media_items_for_import(
+    public abstract void prepare_media_items_for_import (
         ImportableMediaItem[] items,
         double progress,
         double host_progress_delta = 0.0,
         string? progress_message = null
     );
-    
+
     /**
      * Finalize the import sequence for the plugin. This tells the host that
      * all media items have been processed and that the plugin has finished all
@@ -442,22 +442,22 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * @param finalize_message the text to be displayed below the progress bar. If that
      * parameter is null, the message will be left unchanged.
      */
-    public abstract void finalize_import(
+    public abstract void finalize_import (
         ImportedItemsCountCallback report_imported_items_count,
         string? finalize_message = null
     );
-    
+
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 /**
@@ -470,19 +470,19 @@ public interface Service : Object, Spit.Pluggable {
      * A factory method that instantiates and returns a new {@link DataImporter} object
      * that this Service describes.
      */
-    public abstract Spit.DataImports.DataImporter create_data_importer(Spit.DataImports.PluginHost host);
+    public abstract Spit.DataImports.DataImporter create_data_importer (Spit.DataImports.PluginHost host);
 
     //
     // For future expansion.
     //
-    protected virtual void reserved0() {}
-    protected virtual void reserved1() {}
-    protected virtual void reserved2() {}
-    protected virtual void reserved3() {}
-    protected virtual void reserved4() {}
-    protected virtual void reserved5() {}
-    protected virtual void reserved6() {}
-    protected virtual void reserved7() {}
+    protected virtual void reserved0 () {}
+    protected virtual void reserved1 () {}
+    protected virtual void reserved2 () {}
+    protected virtual void reserved3 () {}
+    protected virtual void reserved4 () {}
+    protected virtual void reserved5 () {}
+    protected virtual void reserved6 () {}
+    protected virtual void reserved7 () {}
 }
 
 }

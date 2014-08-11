@@ -26,24 +26,24 @@ public class FSpotPhotoRow : Object {
  */
 public class FSpotPhotosTable : FSpotDatabaseTable<FSpotPhotoRow> {
     public static const string TABLE_NAME = "Photos";
-    
-    public FSpotPhotosTable(Sqlite.Database db, FSpotDatabaseBehavior db_behavior) {
-        base(db);
-        set_behavior(db_behavior.get_photos_behavior());
+
+    public FSpotPhotosTable (Sqlite.Database db, FSpotDatabaseBehavior db_behavior) {
+        base (db);
+        set_behavior (db_behavior.get_photos_behavior ());
     }
-    
-    public Gee.ArrayList<FSpotPhotoRow> get_all() throws DatabaseError {
-        Gee.ArrayList<FSpotPhotoRow> all = new Gee.ArrayList<FSpotPhotoRow?>();
-        
+
+    public Gee.ArrayList<FSpotPhotoRow> get_all () throws DatabaseError {
+        Gee.ArrayList<FSpotPhotoRow> all = new Gee.ArrayList < FSpotPhotoRow?> ();
+
         Sqlite.Statement stmt;
-        int res = select_all(out stmt);
+        int res = select_all (out stmt);
         while (res == Sqlite.ROW) {
             FSpotPhotoRow row;
-            behavior.build_row(stmt, out row);
-            all.add(row);
-            res = stmt.step();
+            behavior.build_row (stmt, out row);
+            all.add (row);
+            res = stmt.step ();
         }
-        
+
         return all;
     }
 }
@@ -52,40 +52,41 @@ public class FSpotPhotosTable : FSpotDatabaseTable<FSpotPhotoRow> {
 // The original table format
 public class FSpotPhotosV0Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV0Behavior instance;
-    
-    private FSpotPhotosV0Behavior() {
+
+    private FSpotPhotosV0Behavior () {
     }
-    
-    public static FSpotPhotosV0Behavior get_instance() {
+
+    public static FSpotPhotosV0Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV0Behavior();
+            instance = new FSpotPhotosV0Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
+
+    public string[] list_columns () {
         return { "id", "time", "directory_path", "name", "description",
-            "default_version_id" };
+                 "default_version_id"
+               };
     }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
-        
-        string? base_path = stmt.column_text(offset + 2);
-        string? filename = stmt.column_text(offset + 3);
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? base_path = stmt.column_text (offset + 2);
+        string? filename = stmt.column_text (offset + 3);
         if (base_path != null && filename != null) {
-            row.base_path = File.new_for_uri(base_path);
+            row.base_path = File.new_for_uri (base_path);
             row.filename = filename;
         }
-        
-        row.description = stmt.column_text(offset + 4);
+
+        row.description = stmt.column_text (offset + 4);
         row.roll_id = INVALID_ID;
-        row.default_version_id = stmt.column_int64(offset + 5);
+        row.default_version_id = stmt.column_int64 (offset + 5);
         row.rating = 0;
         row.md5_sum = "";
     }
@@ -96,40 +97,41 @@ public class FSpotPhotosV0Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
 // table migrated from imports)
 public class FSpotPhotosV5Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV5Behavior instance;
-    
-    private FSpotPhotosV5Behavior() {
+
+    private FSpotPhotosV5Behavior () {
     }
-    
-    public static FSpotPhotosV5Behavior get_instance() {
+
+    public static FSpotPhotosV5Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV5Behavior();
+            instance = new FSpotPhotosV5Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
+
+    public string[] list_columns () {
         return { "id", "time", "directory_path", "name", "description", "roll_id",
-            "default_version_id" };
+                 "default_version_id"
+               };
     }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
-        
-        string? base_path = stmt.column_text(offset + 2);
-        string? filename = stmt.column_text(offset + 3);
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? base_path = stmt.column_text (offset + 2);
+        string? filename = stmt.column_text (offset + 3);
         if (base_path != null && filename != null) {
-            row.base_path = File.new_for_uri(base_path);
+            row.base_path = File.new_for_uri (base_path);
             row.filename = filename;
         }
-        
-        row.description = stmt.column_text(offset + 4);
-        row.roll_id = stmt.column_int64(offset + 5);
-        row.default_version_id = stmt.column_int64(offset + 6);
+
+        row.description = stmt.column_text (offset + 4);
+        row.roll_id = stmt.column_int64 (offset + 5);
+        row.default_version_id = stmt.column_int64 (offset + 6);
         row.rating = 0;
         row.md5_sum = "";
     }
@@ -141,40 +143,41 @@ public class FSpotPhotosV5Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
 // different URI prefix such as remote files
 public class FSpotPhotosV7Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV7Behavior instance;
-    
-    private FSpotPhotosV7Behavior() {
+
+    private FSpotPhotosV7Behavior () {
     }
-    
-    public static FSpotPhotosV7Behavior get_instance() {
+
+    public static FSpotPhotosV7Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV7Behavior();
+            instance = new FSpotPhotosV7Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
-        return { "id", "time", "uri", "description", "roll_id",
-            "default_version_id" };
-    }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
 
-        string? full_path = stmt.column_text(offset + 2);
+    public string[] list_columns () {
+        return { "id", "time", "uri", "description", "roll_id",
+                 "default_version_id"
+               };
+    }
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? full_path = stmt.column_text (offset + 2);
         if (full_path != null) {
-            File uri = File.new_for_uri(full_path);
-            row.base_path = uri.get_parent();
-            row.filename = uri.get_basename();
+            File uri = File.new_for_uri (full_path);
+            row.base_path = uri.get_parent ();
+            row.filename = uri.get_basename ();
         }
 
-        row.description = stmt.column_text(offset + 3);
-        row.roll_id = stmt.column_int64(offset + 4);
-        row.default_version_id = stmt.column_int64(offset + 5);
+        row.description = stmt.column_text (offset + 3);
+        row.roll_id = stmt.column_int64 (offset + 4);
+        row.default_version_id = stmt.column_int64 (offset + 5);
         row.rating = 0;
         row.md5_sum = "";
     }
@@ -184,41 +187,42 @@ public class FSpotPhotosV7Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
 // v11 introduced the concept of rating so add this to the list of fields
 public class FSpotPhotosV11Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV11Behavior instance;
-    
-    private FSpotPhotosV11Behavior() {
+
+    private FSpotPhotosV11Behavior () {
     }
-    
-    public static FSpotPhotosV11Behavior get_instance() {
+
+    public static FSpotPhotosV11Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV11Behavior();
+            instance = new FSpotPhotosV11Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
-        return { "id", "time", "uri", "description", "roll_id",
-            "default_version_id", "rating" };
-    }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
 
-        string? full_path = stmt.column_text(offset + 2);
+    public string[] list_columns () {
+        return { "id", "time", "uri", "description", "roll_id",
+                 "default_version_id", "rating"
+               };
+    }
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? full_path = stmt.column_text (offset + 2);
         if (full_path != null) {
-            File uri = File.new_for_uri(full_path);
-            row.base_path = uri.get_parent();
-            row.filename = uri.get_basename();
+            File uri = File.new_for_uri (full_path);
+            row.base_path = uri.get_parent ();
+            row.filename = uri.get_basename ();
         }
 
-        row.description = stmt.column_text(offset + 3);
-        row.roll_id = stmt.column_int64(offset + 4);
-        row.default_version_id = stmt.column_int64(offset + 5);
-        row.rating = stmt.column_int(offset + 6);
+        row.description = stmt.column_text (offset + 3);
+        row.roll_id = stmt.column_int64 (offset + 4);
+        row.default_version_id = stmt.column_int64 (offset + 5);
+        row.rating = stmt.column_int (offset + 6);
         row.md5_sum = "";
     }
 }
@@ -227,42 +231,43 @@ public class FSpotPhotosV11Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object 
 // v16 introduced the MD5 sum so add this to the list of fields
 public class FSpotPhotosV16Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV16Behavior instance;
-    
-    private FSpotPhotosV16Behavior() {
+
+    private FSpotPhotosV16Behavior () {
     }
-    
-    public static FSpotPhotosV16Behavior get_instance() {
+
+    public static FSpotPhotosV16Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV16Behavior();
+            instance = new FSpotPhotosV16Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
-        return { "id", "time", "uri", "description", "roll_id",
-            "default_version_id", "rating", "md5_sum" };
-    }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
 
-        string? full_path = stmt.column_text(offset + 2);
+    public string[] list_columns () {
+        return { "id", "time", "uri", "description", "roll_id",
+                 "default_version_id", "rating", "md5_sum"
+               };
+    }
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? full_path = stmt.column_text (offset + 2);
         if (full_path != null) {
-            File uri = File.new_for_uri(full_path);
-            row.base_path = uri.get_parent();
-            row.filename = uri.get_basename();
+            File uri = File.new_for_uri (full_path);
+            row.base_path = uri.get_parent ();
+            row.filename = uri.get_basename ();
         }
 
-        row.description = stmt.column_text(offset + 3);
-        row.roll_id = stmt.column_int64(offset + 4);
-        row.default_version_id = stmt.column_int64(offset + 5);
-        row.rating = stmt.column_int(offset + 6);
-        row.md5_sum = stmt.column_text(offset + 7);
+        row.description = stmt.column_text (offset + 3);
+        row.roll_id = stmt.column_int64 (offset + 4);
+        row.default_version_id = stmt.column_int64 (offset + 5);
+        row.rating = stmt.column_int (offset + 6);
+        row.md5_sum = stmt.column_text (offset + 7);
     }
 }
 
@@ -271,83 +276,85 @@ public class FSpotPhotosV16Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object 
 // design introduced in v0, albeit with a URI rather than a file system path)
 public class FSpotPhotosV17Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV17Behavior instance;
-    
-    private FSpotPhotosV17Behavior() {
+
+    private FSpotPhotosV17Behavior () {
     }
-    
-    public static FSpotPhotosV17Behavior get_instance() {
+
+    public static FSpotPhotosV17Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV17Behavior();
+            instance = new FSpotPhotosV17Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
+
+    public string[] list_columns () {
         return { "id", "time", "base_uri", "filename", "description", "roll_id",
-            "default_version_id", "rating", "md5_sum" };
+                 "default_version_id", "rating", "md5_sum"
+               };
     }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
-        
-        string? base_path = stmt.column_text(offset + 2);
-        string? filename = stmt.column_text(offset + 3);
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? base_path = stmt.column_text (offset + 2);
+        string? filename = stmt.column_text (offset + 3);
         if (base_path != null && filename != null) {
-            row.base_path = File.new_for_uri(base_path);
+            row.base_path = File.new_for_uri (base_path);
             row.filename = filename;
         }
-        
-        row.description = stmt.column_text(offset + 4);
-        row.roll_id = stmt.column_int64(offset + 5);
-        row.default_version_id = stmt.column_int64(offset + 6);
-        row.rating = stmt.column_int(offset + 7);
-        row.md5_sum = stmt.column_text(offset + 8);
+
+        row.description = stmt.column_text (offset + 4);
+        row.roll_id = stmt.column_int64 (offset + 5);
+        row.default_version_id = stmt.column_int64 (offset + 6);
+        row.rating = stmt.column_int (offset + 7);
+        row.md5_sum = stmt.column_text (offset + 8);
     }
 }
 
 // v18: no more MD5 hash in the photos table: moved to photo_versions table
 public class FSpotPhotosV18Behavior : FSpotTableBehavior<FSpotPhotoRow>, Object {
     private static FSpotPhotosV18Behavior instance;
-    
-    private FSpotPhotosV18Behavior() {
+
+    private FSpotPhotosV18Behavior () {
     }
-    
-    public static FSpotPhotosV18Behavior get_instance() {
+
+    public static FSpotPhotosV18Behavior get_instance () {
         if (instance == null)
-            instance = new FSpotPhotosV18Behavior();
+            instance = new FSpotPhotosV18Behavior ();
         return instance;
     }
-    
-    public string get_table_name() {
+
+    public string get_table_name () {
         return FSpotPhotosTable.TABLE_NAME;
     }
-    
-    public string[] list_columns() {
+
+    public string[] list_columns () {
         return { "id", "time", "base_uri", "filename", "description", "roll_id",
-            "default_version_id", "rating" };
+                 "default_version_id", "rating"
+               };
     }
-    
-    public void build_row(Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
-        row = new FSpotPhotoRow();
-        row.photo_id = stmt.column_int64(offset + 0);
-        row.time = (time_t) stmt.column_int64(offset + 1);
-        
-        string? base_path = stmt.column_text(offset + 2);
-        string? filename = stmt.column_text(offset + 3);
+
+    public void build_row (Sqlite.Statement stmt, out FSpotPhotoRow row, int offset = 0) {
+        row = new FSpotPhotoRow ();
+        row.photo_id = stmt.column_int64 (offset + 0);
+        row.time = (time_t) stmt.column_int64 (offset + 1);
+
+        string? base_path = stmt.column_text (offset + 2);
+        string? filename = stmt.column_text (offset + 3);
         if (base_path != null && filename != null) {
-            row.base_path = File.new_for_uri(base_path);
+            row.base_path = File.new_for_uri (base_path);
             row.filename = filename;
         }
-        
-        row.description = stmt.column_text(offset + 4);
-        row.roll_id = stmt.column_int64(offset + 5);
-        row.default_version_id = stmt.column_int64(offset + 6);
-        row.rating = stmt.column_int(offset + 7);
+
+        row.description = stmt.column_text (offset + 4);
+        row.roll_id = stmt.column_int64 (offset + 5);
+        row.default_version_id = stmt.column_int64 (offset + 6);
+        row.rating = stmt.column_int (offset + 7);
         row.md5_sum = "";
     }
 }

@@ -21,33 +21,33 @@ public abstract class PhotoFileAdapter {
     private string filepath;
     private PhotoFileFormat file_format;
     private File file = null;
-    
-    public PhotoFileAdapter(string filepath, PhotoFileFormat file_format) {
+
+    public PhotoFileAdapter (string filepath, PhotoFileFormat file_format) {
         this.filepath = filepath;
         this.file_format = file_format;
     }
-    
-    public bool file_exists() {
-        return FileUtils.test(filepath, FileTest.IS_REGULAR);
+
+    public bool file_exists () {
+        return FileUtils.test (filepath, FileTest.IS_REGULAR);
     }
-    
-    public string get_filepath() {
+
+    public string get_filepath () {
         return filepath;
     }
-    
-    public File get_file() {
+
+    public File get_file () {
         File result;
         lock (file) {
             if (file == null)
-                file = File.new_for_path(filepath);
-            
+                file = File.new_for_path (filepath);
+
             result = file;
         }
-        
+
         return result;
     }
-    
-    public PhotoFileFormat get_file_format() {
+
+    public PhotoFileFormat get_file_format () {
         return file_format;
     }
 }
@@ -57,24 +57,24 @@ public abstract class PhotoFileAdapter {
 //
 
 public abstract class PhotoFileReader : PhotoFileAdapter {
-    protected PhotoFileReader(string filepath, PhotoFileFormat file_format) {
+    protected PhotoFileReader (string filepath, PhotoFileFormat file_format) {
         base (filepath, file_format);
     }
-    
-    public PhotoFileWriter create_writer() throws PhotoFormatError {
-        return get_file_format().create_writer(get_filepath());
+
+    public PhotoFileWriter create_writer () throws PhotoFormatError {
+        return get_file_format ().create_writer (get_filepath ());
     }
-    
-    public PhotoFileMetadataWriter create_metadata_writer() throws PhotoFormatError {
-        return get_file_format().create_metadata_writer(get_filepath());
+
+    public PhotoFileMetadataWriter create_metadata_writer () throws PhotoFormatError {
+        return get_file_format ().create_metadata_writer (get_filepath ());
     }
-    
-    public abstract PhotoMetadata read_metadata() throws Error;
-    
-    public abstract Gdk.Pixbuf unscaled_read() throws Error;
-    
-    public virtual Gdk.Pixbuf scaled_read(Dimensions full, Dimensions scaled) throws Error {
-        return resize_pixbuf(unscaled_read(), scaled, Gdk.InterpType.BILINEAR);
+
+    public abstract PhotoMetadata read_metadata () throws Error;
+
+    public abstract Gdk.Pixbuf unscaled_read () throws Error;
+
+    public virtual Gdk.Pixbuf scaled_read (Dimensions full, Dimensions scaled) throws Error {
+        return resize_pixbuf (unscaled_read (), scaled, Gdk.InterpType.BILINEAR);
     }
 }
 
@@ -83,15 +83,15 @@ public abstract class PhotoFileReader : PhotoFileAdapter {
 //
 
 public abstract class PhotoFileWriter : PhotoFileAdapter {
-    protected PhotoFileWriter(string filepath, PhotoFileFormat file_format) {
+    protected PhotoFileWriter (string filepath, PhotoFileFormat file_format) {
         base (filepath, file_format);
     }
-    
-    public PhotoFileReader create_reader() {
-        return get_file_format().create_reader(get_filepath());
+
+    public PhotoFileReader create_reader () {
+        return get_file_format ().create_reader (get_filepath ());
     }
-    
-    public abstract void write(Gdk.Pixbuf pixbuf, Jpeg.Quality quality) throws Error;
+
+    public abstract void write (Gdk.Pixbuf pixbuf, Jpeg.Quality quality) throws Error;
 }
 
 //
@@ -99,14 +99,14 @@ public abstract class PhotoFileWriter : PhotoFileAdapter {
 //
 
 public abstract class PhotoFileMetadataWriter : PhotoFileAdapter {
-    protected PhotoFileMetadataWriter(string filepath, PhotoFileFormat file_format) {
+    protected PhotoFileMetadataWriter (string filepath, PhotoFileFormat file_format) {
         base (filepath, file_format);
     }
-    
-    public PhotoFileReader create_reader() {
-        return get_file_format().create_reader(get_filepath());
+
+    public PhotoFileReader create_reader () {
+        return get_file_format ().create_reader (get_filepath ());
     }
-    
-    public abstract void write_metadata(PhotoMetadata metadata) throws Error;
+
+    public abstract void write_metadata (PhotoMetadata metadata) throws Error;
 }
 
