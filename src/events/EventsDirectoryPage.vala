@@ -49,11 +49,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         // set comparator before monitoring source collection, to prevent a re-sort
         get_view ().set_comparator (get_event_comparator (Config.Facade.get_instance ().get_events_sort_ascending ()),
-                                   event_comparator_predicate);
+                                    event_comparator_predicate);
         get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
 
         get_view ().set_property (Event.PROP_SHOW_COMMENTS,
-                                 Config.Facade.get_instance ().get_display_event_comments ());
+                                  Config.Facade.get_instance ().get_display_event_comments ());
 
         init_item_context_menu ("/EventsDirectoryContextMenu");
         init_page_context_menu ("/EventsDirectoryViewMenu");
@@ -78,7 +78,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
         drawn_separator.set_expand (false);
         drawn_separator.set_draw (true);
-        
+
         get_toolbar().insert (drawn_separator, -1);
 
         //  show metadata sidebar button

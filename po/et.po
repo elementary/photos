@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-04-25 10:12+0000\n"
-"PO-Revision-Date: 2014-06-30 09:33+0000\n"
+"PO-Revision-Date: 2014-08-13 01:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian "
 "(http://www.transifex.com/projects/p/shotwell/language/et/)\n"
@@ -22,8 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2014-07-01 06:20+0000\n"
-"X-Generator: Launchpad (build 17082)\n"
+"X-Launchpad-Export-Date: 2014-08-13 06:57+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 "Language: et\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -798,12 +798,12 @@ msgstr ""
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Puhvrite kataloogi %s pole võimalik luua: %s"
+msgstr "Puhvrite kausta %s pole võimalik luua: %s"
 
 #: ../src/AppDirs.vala:58 ../src/AppDirs.vala:88
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "Andmekataloogi %s loomine pole võimalik: %s"
+msgstr "Andmete kausta %s loomine pole võimalik: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: ../src/AppDirs.vala:152
@@ -813,12 +813,12 @@ msgstr "Pildid"
 #: ../src/AppDirs.vala:190
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "Ajutise kataloogi %s loomine pole võimalik: %s"
+msgstr "Ajutise kausta %s loomine pole võimalik: %s"
 
 #: ../src/AppDirs.vala:207 ../src/AppDirs.vala:223
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "Andmete alamkataloogi %s loomine pole võimalik: %s"
+msgstr "Andmete alamkausta %s loomine pole võimalik: %s"
 
 #. restore pin state
 #: ../src/AppWindow.vala:52
@@ -843,7 +843,7 @@ msgstr "_Lõpeta"
 
 #: ../src/AppWindow.vala:501
 msgid "_About"
-msgstr "_Lähemalt"
+msgstr "Rakendusest…"
 
 #: ../src/AppWindow.vala:506
 msgid "Fulls_creen"
@@ -1473,9 +1473,9 @@ msgid_plural ""
 "%d photos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 foto importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"1 foto importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 msgstr[1] ""
-"%d foto importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"%d foto importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 
 #: ../src/Dialogs.vala:709
 #, c-format
@@ -1485,9 +1485,9 @@ msgid_plural ""
 "%d videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 video importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"1 video importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 msgstr[1] ""
-"%d video importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"%d video importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 
 #: ../src/Dialogs.vala:712
 #, c-format
@@ -1498,9 +1498,9 @@ msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 foto/video importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"1 foto/video importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 msgstr[1] ""
-"%d foto/video importimine nurjus, kuna fotokogu kataloog polnud kirjutatav:\n"
+"%d foto/video importimine nurjus, kuna fotokogu kaust polnud kirjutatav:\n"
 
 #: ../src/Dialogs.vala:715
 #, c-format
@@ -1510,9 +1510,9 @@ msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 faili importimine nurjus, kuna fotokogu kataloog pole kirjutatav:\n"
+"1 faili importimine nurjus, kuna fotokogu kaust pole kirjutatav:\n"
 msgstr[1] ""
-"%d faili importimine nurjus, kuna fotokogu kataloog pole kirjutatav:\n"
+"%d faili importimine nurjus, kuna fotokogu kaust pole kirjutatav:\n"
 
 #: ../src/Dialogs.vala:729
 #, c-format
@@ -2097,7 +2097,7 @@ msgstr "Kõrgus"
 #: ../src/DirectoryMonitor.vala:889
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
-msgstr "%s monitoorimine pole võimalik: pole kataloog (%s)"
+msgstr "%s jälgimine pole võimalik: pole kaust (%s)"
 
 #. if no name, pretty up the start time
 #: ../src/Event.vala:753
@@ -2271,7 +2271,7 @@ msgstr "Ühtegi fotot/videot ei leitud"
 
 #: ../src/Page.vala:2569
 msgid "Photos cannot be exported to this directory."
-msgstr "Sellesse kataloogi pole võimalik fotosid eksportida."
+msgstr "Sellesse kausta pole võimalik fotosid eksportida."
 
 #: ../src/Photo.vala:3656
 msgid "modified"
@@ -3044,7 +3044,7 @@ msgstr "_Otsi..."
 
 #: ../src/Resources.vala:299
 msgid "Find"
-msgstr "Otsi"
+msgstr "Otsing"
 
 #: ../src/Resources.vala:300
 msgid "Find an image by typing text that appears in its name or tags"
@@ -3210,7 +3210,7 @@ msgstr "Hinnanguks %s määramine"
 #: ../src/Resources.vala:549
 #, c-format
 msgid "Display %s"
-msgstr "Kuva %s"
+msgstr "Ekraan %s"
 
 #: ../src/Resources.vala:550
 #, c-format
@@ -3254,7 +3254,7 @@ msgstr "Näita faili_halduris"
 
 #: ../src/Resources.vala:651
 msgid "Open the selected photo's directory in the file manager"
-msgstr "Valitud fotode kataloogi avamine failihalduris"
+msgstr "Valitud fotode kausta avamine failihalduris"
 
 #: ../src/Resources.vala:654
 #, c-format
@@ -3414,7 +3414,7 @@ msgstr "Videote eksportimine"
 
 #: ../src/camera/Branch.vala:87
 msgid "Cameras"
-msgstr "Kaamerad"
+msgstr "Kaamerad:"
 
 #: ../src/camera/ImportPage.vala:459
 msgid ""
@@ -3876,7 +3876,7 @@ msgstr "Sündmuseid ei leitud"
 
 #: ../src/events/EventsDirectoryPage.vala:230
 msgid "Events"
-msgstr "Sündmused"
+msgstr "Sündmused:"
 
 #: ../src/events/EventsDirectoryPage.vala:244
 msgid "Undated"
@@ -3892,7 +3892,7 @@ msgstr "%B"
 
 #: ../src/folders/Branch.vala:141
 msgid "Folders"
-msgstr "Kaustad"
+msgstr "Kaustad:"
 
 #: ../src/library/Branch.vala:37 ../ui/shotwell.glade.h:33
 msgid "Library"
@@ -4027,12 +4027,12 @@ msgstr ""
 
 #: ../src/library/LibraryWindow.vala:899 ../ui/shotwell.glade.h:19
 msgid "Library Location"
-msgstr "Fotokogu kataloog"
+msgstr "Fotokogu kaust"
 
 #. TODO: Specify which directory/file.
 #: ../src/library/LibraryWindow.vala:912
 msgid "Photos cannot be imported from this directory."
-msgstr "Fotosid pole võimalik sellest kataloogist importida."
+msgstr "Fotosid pole võimalik sellest kaustast importida."
 
 #: ../src/library/LibraryWindow.vala:1200
 #, c-format
@@ -4128,11 +4128,11 @@ msgstr "Shotwelli privaatandmete asukoht"
 
 #: ../src/main.vala:294
 msgid "DIRECTORY"
-msgstr "KATALOOG"
+msgstr "KAUST"
 
 #: ../src/main.vala:298
 msgid "Do not monitor library directory at runtime for changes"
-msgstr "Töö ajal ei jälgita fotokogu kataloogi muudatusi"
+msgstr "Töö ajal ei jälgita fotokogu kausta muudatusi"
 
 #: ../src/main.vala:302
 msgid "Don't display startup progress meter"
@@ -4568,7 +4568,7 @@ msgstr "Must"
 
 #: ../ui/shotwell.glade.h:20
 msgid "_Watch library directory for new files"
-msgstr "Kataloogi _jälgimine uute failide avastamiseks"
+msgstr "Kausta _jälgimine uute failide avastamiseks"
 
 #: ../ui/shotwell.glade.h:21
 msgid "Metadata"
@@ -4584,7 +4584,7 @@ msgstr "Kuva"
 
 #: ../ui/shotwell.glade.h:24
 msgid "_Import photos to:"
-msgstr "_Fotod imporditakse kataloogi:"
+msgstr "_Fotod imporditakse kausta:"
 
 #: ../ui/shotwell.glade.h:25
 msgid "_Background:"
@@ -4596,7 +4596,7 @@ msgstr "Importimine"
 
 #: ../ui/shotwell.glade.h:27
 msgid "_Directory structure:"
-msgstr "_Kataloogistruktuur:"
+msgstr "_Kaustastruktuur:"
 
 #: ../ui/shotwell.glade.h:28
 msgid "_Pattern:"

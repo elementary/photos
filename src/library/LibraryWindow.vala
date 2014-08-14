@@ -98,7 +98,7 @@ public class LibraryWindow : AppWindow {
     private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned (Gtk.Orientation.VERTICAL);
     private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned ();
     private Gtk.Paned right_client_paned = new Granite.Widgets.ThinPaned ();
-	private MetadataView metadata_sidebar = new MetadataView ();
+    private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
 
@@ -137,7 +137,7 @@ public class LibraryWindow : AppWindow {
     private bool background_progress_displayed = false;
 
     private Gtk.Notebook notebook = new Gtk.Notebook();
-    private Gtk.Box layout = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
+    private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
 
     private int current_progress_priority = 0;
@@ -485,7 +485,7 @@ public class LibraryWindow : AppWindow {
         toggle_search_bar (should_show_search_bar (), current_page);
 
         // Sidebar
-        set_sidebar_visible(is_sidebar_visible());
+        set_sidebar_visible (is_sidebar_visible());
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 
@@ -856,7 +856,7 @@ public class LibraryWindow : AppWindow {
         Gdk.ModifierType mask;
 
         get_window ().get_device_position (Gdk.Display.get_default ().get_device_manager ()
-                                          .get_client_pointer (), null, null, out mask);
+                                           .get_client_pointer (), null, null, out mask);
 
         bool ctrl = (mask & Gdk.ModifierType.CONTROL_MASK) != 0;
         bool alt = (mask & Gdk.ModifierType.MOD1_MASK) != 0;
@@ -1046,7 +1046,7 @@ public class LibraryWindow : AppWindow {
     // check for settings that should persist between instances
     private void load_configuration() {
         Gtk.ToggleAction? search_bar_display_action = get_common_action ("CommonDisplaySearchbar")
-            as Gtk.ToggleAction;
+                as Gtk.ToggleAction;
         assert (search_bar_display_action != null);
         search_bar_display_action.set_active (Config.Facade.get_instance ().get_display_search_bar ());
 
@@ -1226,7 +1226,7 @@ public class LibraryWindow : AppWindow {
 
         sidebar_paned.pack1 (top_section, true, false);
         sidebar_paned.set_position (1000);
-        
+
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
         right_frame = new Gtk.Frame (null);
@@ -1239,15 +1239,15 @@ public class LibraryWindow : AppWindow {
 
         right_client_paned.pack1 (right_frame, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
-		
-        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH,-1);
-		right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH,-1);
-		
+
+        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
+        right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
+
         client_paned.pack1 (sidebar_paned, false, false);
         sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2 (right_client_paned, true, false);
         client_paned.set_position (Config.Facade.get_instance ().get_sidebar_position ());
-        
+
         int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
@@ -1473,7 +1473,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_update_properties_now() {
-			metadata_sidebar.update_properties (get_current_page ());
+        metadata_sidebar.update_properties (get_current_page ());
     }
 
     public void mounted_camera_shell_notification (string uri, bool at_startup) {
