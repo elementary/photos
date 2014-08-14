@@ -246,7 +246,7 @@ public class PhotoRatingMenuItem : Gtk.MenuItem {
         this.state_flags_changed.connect (() => {
             // Suppress SELECTED and PRELIGHT states, since these are usually obtrusive
             var selected_flags = Gtk.StateFlags.SELECTED | Gtk.StateFlags.PRELIGHT;
-            if ((get_state_flags() & selected_flags) != 0)
+            if ((get_state_flags () & selected_flags) != 0)
                 unset_state_flags (selected_flags);
         });
     }
