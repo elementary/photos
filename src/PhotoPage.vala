@@ -2357,9 +2357,6 @@ public class LibraryPhotoPage : EditingHostPage {
         LibraryPhoto.global.item_destroyed.connect (on_photo_destroyed);
         LibraryPhoto.global.items_altered.connect (on_metadata_altered);
 
-        // watch for updates to the external app settings
-        Config.Facade.get_instance ().external_app_changed.connect (on_external_app_changed);
-
         // Filter out trashed files.
         get_view ().install_view_filter (filter);
         LibraryPhoto.global.items_unlinking.connect (on_photo_unlinking);
@@ -2369,7 +2366,6 @@ public class LibraryPhotoPage : EditingHostPage {
     ~LibraryPhotoPage () {
         LibraryPhoto.global.item_destroyed.disconnect (on_photo_destroyed);
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
-        Config.Facade.get_instance ().external_app_changed.disconnect (on_external_app_changed);
     }
 
     public bool not_trashed_view_filter (DataView view) {
@@ -2545,19 +2541,7 @@ public class LibraryPhotoPage : EditingHostPage {
                                            };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-
-        Gtk.ActionEntry external_edit = { "ExternalEdit", Gtk.Stock.EDIT, TRANSLATABLE,
-                                          "<Ctrl>Return", TRANSLATABLE, on_external_edit
-                                        };
-        external_edit.label = Resources.EXTERNAL_EDIT_MENU;
-        actions += external_edit;
-
-        Gtk.ActionEntry edit_raw = { "ExternalEditRAW", null, TRANSLATABLE, "<Ctrl><Shift>Return",
-                                     TRANSLATABLE, on_external_edit_raw
-                                   };
-        edit_raw.label = Resources.EXTERNAL_EDIT_RAW_MENU;
-        actions += edit_raw;
-
+        
         Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
                                     TRANSLATABLE, on_send_to
                                   };
@@ -2695,6 +2679,14 @@ public class LibraryPhotoPage : EditingHostPage {
         raw_developer.label = _ ("_Developer");
         actions += raw_developer;
 
+        Gtk.ActionEntry open_with = { "OpenWith", null, TRANSLATABLE, null, null, null };
+        open_with.label = Resources.OPEN_WITH_MENU;
+        actions += open_with;
+
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
+        open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
+        actions += open_with_raw;
+
         // These are identical to add_tags and send_to, except that they have
         // different mnemonics and are _only_ for use in the context menu.
         Gtk.ActionEntry send_to_context_menu = { "SendToContextMenu", "document-send", TRANSLATABLE, null,
@@ -2786,8 +2778,8 @@ public class LibraryPhotoPage : EditingHostPage {
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
         bool is_raw = has_photo () && get_photo ().get_master_file_format () == PhotoFileFormat.RAW;
 
-        set_action_sensitive ("ExternalEdit",
-                              has_photo () && Config.Facade.get_instance ().get_external_photo_app () != "");
+        set_action_sensitive ("OpenWith",
+                              has_photo ());
 
         set_action_sensitive ("Revert", has_photo () ?
                               (get_photo ().has_transformations () || get_photo ().has_editable ()) : false);
@@ -2817,8 +2809,8 @@ public class LibraryPhotoPage : EditingHostPage {
 
         update_flag_action ();
 
-        set_action_visible ("ExternalEditRAW",
-                            is_raw && Config.Facade.get_instance ().get_external_raw_app () != "");
+        set_action_visible ("OpenWithRaw",
+                            is_raw);
 
         base.update_actions (selected_count, count);
     }
@@ -2983,8 +2975,8 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("Adjust", sensitivity);
         set_action_sensitive ("EditTitle", sensitivity);
         set_action_sensitive ("AdjustDateTime", sensitivity);
-        set_action_sensitive ("ExternalEdit", sensitivity);
-        set_action_sensitive ("ExternalEditRAW", sensitivity);
+        set_action_sensitive ("OpenWith", sensitivity);
+        set_action_sensitive ("OpenWithRaw", sensitivity);
         set_action_sensitive ("Revert", sensitivity);
 
         set_action_sensitive ("Rate", sensitivity);
@@ -3110,6 +3102,16 @@ public class LibraryPhotoPage : EditingHostPage {
     private Gtk.Menu get_context_menu () {
         Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/PhotoContextMenu");
         assert (menu != null);
+
+        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWith");
+        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
+        open_with_menu_item.show ();
+
+        if (has_photo () && get_photo ().get_master_file_format () == PhotoFileFormat.RAW) {
+            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWithRaw");
+            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
+            open_with_raw_menu_item.show ();
+        }
         return menu;
     }
 
@@ -3123,6 +3125,75 @@ public class LibraryPhotoPage : EditingHostPage {
         popup_context_menu (get_context_menu ());
 
         return true;
+    }
+
+    private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
+        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
+        SortedList<AppInfo> external_apps;
+        string[] mime_types;
+
+        // get list of all applications for the given mime types
+        if (raw)
+            mime_types = PhotoFileFormat.RAW.get_mime_types ();
+        else
+            mime_types = PhotoFileFormat.get_editable_mime_types ();
+        assert (mime_types.length != 0);
+        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+
+        if (external_apps.size == 0) {
+            parent.sensitive = false;
+            return;
+        }
+
+        foreach (Gtk.Widget item in menu.get_children ())
+            menu.remove (item);
+        parent.sensitive = true;
+
+        foreach (AppInfo app in external_apps) {
+            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
+            Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+            item_app.always_show_image = true;
+            item_app.set_image (image);
+            item_app.activate.connect ( () => {
+                if (raw)
+                    on_open_with_raw (app.get_commandline ());
+                else
+                    on_open_with (app.get_commandline ());
+            });
+            menu.add (item_app);
+        }
+        menu.show_all ();
+    }
+
+    private void on_open_with (string app) {
+        if (!has_photo ())
+            return;
+
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            get_photo ().open_with_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            open_external_editor_error_dialog (err, get_photo ());
+        }
+    }
+
+    private void on_open_with_raw (string app) {
+        if (!has_photo ())
+            return;
+
+        if (get_photo ().get_master_file_format () != PhotoFileFormat.RAW)
+            return;
+
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            get_photo ().open_with_raw_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            AppWindow.error_message (Resources.launch_editor_failed (err));
+        }
     }
 
     private void return_to_collection () {
@@ -3211,43 +3282,6 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_selected_count () > 0) {
             PrintManager.get_instance ().spool_photo (
                 (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
-        }
-    }
-
-    private void on_external_app_changed () {
-        set_action_sensitive ("ExternalEdit", has_photo () &&
-                              Config.Facade.get_instance ().get_external_photo_app () != "");
-    }
-
-    private void on_external_edit () {
-        if (!has_photo ())
-            return;
-
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_external_editor ();
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            open_external_editor_error_dialog (err, get_photo ());
-        }
-
-    }
-
-    private void on_external_edit_raw () {
-        if (!has_photo ())
-            return;
-
-        if (get_photo ().get_master_file_format () != PhotoFileFormat.RAW)
-            return;
-
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_raw_external_editor ();
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            AppWindow.error_message (Resources.launch_editor_failed (err));
         }
     }
 
