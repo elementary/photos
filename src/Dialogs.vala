@@ -2195,6 +2195,7 @@ public class PreferencesDialog {
     private static PreferencesDialog preferences_dialog;
 
     private Gtk.Dialog dialog;
+    private Gtk.HeaderBar header;
     private Gtk.Builder builder;
     private Gtk.Adjustment bg_color_adjustment;
     private Gtk.Scale bg_color_slider;
@@ -2216,14 +2217,19 @@ public class PreferencesDialog {
 
         // Preferences dialog window settings
         dialog = new Gtk.Dialog ();
-        dialog.border_width = 6;
-        dialog.title = _ ("Preferences");
         dialog.width_request = 450;
         dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
         dialog.resizable = false;
         dialog.delete_event.connect (on_delete);
         dialog.map_event.connect (map_event_handler);
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
+        
+        header = new Gtk.HeaderBar ();
+        header.show_close_button = false;
+        header.title = _("Preferences");
+        header.get_style_context ().remove_class ("header-bar");
+        
+        dialog.set_titlebar (header);
 
         // Create our stack container and load in each preference container from shotwell.glade
         Gtk.Stack container = new Gtk.Stack ();
@@ -2237,10 +2243,13 @@ public class PreferencesDialog {
         switcher.expand = true;
         switcher.halign = Gtk.Align.CENTER;
         switcher.margin_top = 6;
-        switcher.margin_bottom = 12;
-
+        switcher.margin_bottom = 6;
+        
         // Add the switcher, stack container and button container to the window
         Gtk.Box content = dialog.get_content_area () as Gtk.Box;
+        content.margin_bottom = 6;
+        content.margin_start = 6;
+        content.margin_end = 6;
         content.add (switcher);
         content.add (container);
 
