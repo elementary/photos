@@ -606,7 +606,7 @@ public abstract class ConfigurationFacade : Object {
     //
     public virtual bool get_display_metadata_sidebar () {
         try {
-            return get_engine().get_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR);
+            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
 
@@ -1394,7 +1394,7 @@ public abstract class ConfigurationFacade : Object {
 
     public virtual void set_sidebar_position (int position) {
         try {
-            get_engine().set_int_property (ConfigurableProperty.SIDEBAR_POSITION, position);
+            get_engine ().set_int_property (ConfigurableProperty.SIDEBAR_POSITION, position);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }

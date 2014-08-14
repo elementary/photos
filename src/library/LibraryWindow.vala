@@ -136,7 +136,7 @@ public class LibraryWindow : AppWindow {
     private Gtk.ProgressBar background_progress_bar = new Gtk.ProgressBar ();
     private bool background_progress_displayed = false;
 
-    private Gtk.Notebook notebook = new Gtk.Notebook();
+    private Gtk.Notebook notebook = new Gtk.Notebook ();
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
 
@@ -170,7 +170,7 @@ public class LibraryWindow : AppWindow {
 
         // setup search bar and add its accelerators to the window
         search_toolbar = new SearchFilterToolbar ();
-        search_toolbar.close.connect (() => {
+        search_toolbar.close.connect ( () => {
             // Try to obtain the action for toggling the searchbar.  If
             // it's null, then we're probably in direct edit mode, and
             // shouldn't do anything anyway.
@@ -485,7 +485,7 @@ public class LibraryWindow : AppWindow {
         toggle_search_bar (should_show_search_bar (), current_page);
 
         // Sidebar
-        set_sidebar_visible (is_sidebar_visible());
+        set_sidebar_visible (is_sidebar_visible ());
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 
@@ -807,7 +807,7 @@ public class LibraryWindow : AppWindow {
     }
 
     public bool is_metadata_sidebar_visible () {
-        return Config.Facade.get_instance().get_display_metadata_sidebar ();
+        return Config.Facade.get_instance ().get_display_metadata_sidebar ();
     }
 
     public void enqueue_batch_import (BatchImport batch_import, bool allow_user_cancel) {
@@ -1044,7 +1044,7 @@ public class LibraryWindow : AppWindow {
     }
 
     // check for settings that should persist between instances
-    private void load_configuration() {
+    private void load_configuration () {
         Gtk.ToggleAction? search_bar_display_action = get_common_action ("CommonDisplaySearchbar")
                 as Gtk.ToggleAction;
         assert (search_bar_display_action != null);
@@ -1472,7 +1472,7 @@ public class LibraryWindow : AppWindow {
         properties_scheduler.at_idle ();
     }
 
-    private void on_update_properties_now() {
+    private void on_update_properties_now () {
         metadata_sidebar.update_properties (get_current_page ());
     }
 

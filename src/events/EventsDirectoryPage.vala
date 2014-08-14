@@ -79,7 +79,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         drawn_separator.set_expand (false);
         drawn_separator.set_draw (true);
 
-        get_toolbar().insert (drawn_separator, -1);
+        get_toolbar ().insert (drawn_separator, -1);
 
         //  show metadata sidebar button
         show_sidebar_button = MediaPage.create_sidebar_button ();

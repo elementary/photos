@@ -11,22 +11,22 @@ public class TrashPage : CheckerboardPage {
         public TrashView (MediaSource source) {
             base (source);
 
-            assert (source.is_trashed());
+            assert (source.is_trashed ());
         }
     }
 
     private class TrashSearchViewFilter : DefaultSearchViewFilter {
-        public override uint get_criteria() {
+        public override uint get_criteria () {
             return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG |
                    SearchFilterCriteria.MEDIA | SearchFilterCriteria.RATING;
         }
     }
 
-    private TrashSearchViewFilter search_filter = new TrashSearchViewFilter();
+    private TrashSearchViewFilter search_filter = new TrashSearchViewFilter ();
     private MediaViewTracker tracker;
     private Gtk.ToolButton show_sidebar_button;
 
-    public TrashPage() {
+    public TrashPage () {
         base (NAME);
 
         init_item_context_menu ("/TrashContextMenu");
@@ -34,13 +34,13 @@ public class TrashPage : CheckerboardPage {
         init_page_context_menu ("/TrashViewMenu");
         init_toolbar ("/TrashToolbar");
 
-        tracker = new MediaViewTracker (get_view());
+        tracker = new MediaViewTracker (get_view ());
 
         // monitor trashcans and initialize view with all items in them
         LibraryPhoto.global.trashcan_contents_altered.connect (on_trashcan_contents_altered);
         Video.global.trashcan_contents_altered.connect (on_trashcan_contents_altered);
-        on_trashcan_contents_altered (LibraryPhoto.global.get_trashcan_contents(), null);
-        on_trashcan_contents_altered (Video.global.get_trashcan_contents(), null);
+        on_trashcan_contents_altered (LibraryPhoto.global.get_trashcan_contents (), null);
+        on_trashcan_contents_altered (Video.global.get_trashcan_contents (), null);
 
         //  show metadata sidebar button
         show_sidebar_button = MediaPage.create_sidebar_button ();
@@ -80,8 +80,8 @@ public class TrashPage : CheckerboardPage {
         ui_filenames.add ("trash.ui");
     }
 
-    protected override Gtk.ActionEntry[] init_collect_action_entries() {
-        Gtk.ActionEntry[] actions = base.init_collect_action_entries();
+    protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
         Gtk.ActionEntry delete_action = { "Delete", Gtk.Stock.DELETE, TRANSLATABLE, "Delete",
                                           TRANSLATABLE, on_delete
@@ -100,7 +100,7 @@ public class TrashPage : CheckerboardPage {
         return actions;
     }
 
-    public override Core.ViewTracker? get_view_tracker() {
+    public override Core.ViewTracker? get_view_tracker () {
         return tracker;
     }
 
@@ -120,35 +120,35 @@ public class TrashPage : CheckerboardPage {
             Gee.Collection<MediaSource>? removed) {
         if (added != null) {
             foreach (MediaSource source in added)
-                get_view().add (new TrashView (source));
+                get_view ().add (new TrashView (source));
         }
 
         if (removed != null) {
-            Marker marker = get_view().start_marking();
+            Marker marker = get_view ().start_marking ();
             foreach (MediaSource source in removed)
-                marker.mark (get_view().get_view_for_source (source));
-            get_view().remove_marked (marker);
+                marker.mark (get_view ().get_view_for_source (source));
+            get_view ().remove_marked (marker);
         }
     }
 
-    private void on_restore() {
-        if (get_view().get_selected_count() == 0)
+    private void on_restore () {
+        if (get_view ().get_selected_count () == 0)
             return;
 
-        get_command_manager().execute (new TrashUntrashPhotosCommand (
-                                           (Gee.Collection<LibraryPhoto>) get_view().get_selected_sources(), false));
+        get_command_manager ().execute (new TrashUntrashPhotosCommand (
+                                            (Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources (), false));
     }
 
-    protected override string get_view_empty_message() {
+    protected override string get_view_empty_message () {
         return _ ("Trash is empty");
     }
 
-    private void on_delete() {
-        remove_from_app ((Gee.Collection<MediaSource>) get_view().get_selected_sources(), _ ("Delete"),
-                         (get_view().get_selected_count() == 1) ? ("Deleting a Photo") : _ ("Deleting Photos"), true);
+    private void on_delete () {
+        remove_from_app ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (), _ ("Delete"),
+                         (get_view ().get_selected_count () == 1) ? ("Deleting a Photo") : _ ("Deleting Photos"), true);
     }
 
-    public override SearchViewFilter get_search_view_filter() {
+    public override SearchViewFilter get_search_view_filter () {
         return search_filter;
     }
 
