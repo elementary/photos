@@ -2328,15 +2328,6 @@ public class LibraryPhotoPage : EditingHostPage {
     public LibraryPhotoPage () {
         base (LibraryPhoto.global, "Photo");
 
-        // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-        Gtk.Toolbar toolbar = get_toolbar();
-        
-        Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
-        Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
-        slideshow_button.set_tooltip_text (_("Play a slideshow"));
-        slideshow_button.clicked.connect (on_slideshow);
-        toolbar.insert (slideshow_button, 8);
-
         // monitor view to update UI elements
         get_view ().items_altered.connect (on_photos_altered);
 
@@ -2357,6 +2348,19 @@ public class LibraryPhotoPage : EditingHostPage {
         LibraryPhoto.global.item_destroyed.disconnect (on_photo_destroyed);
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
         Config.Facade.get_instance ().external_app_changed.disconnect (on_external_app_changed);
+    }
+
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            base.get_toolbar ();
+
+            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
+            slideshow_button.set_tooltip_text (_("Play a slideshow"));
+            slideshow_button.clicked.connect (on_slideshow);
+            get_toolbar ().insert (slideshow_button, 0);
+        }
+        return toolbar;
     }
 
     public bool not_trashed_view_filter (DataView view) {
