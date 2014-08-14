@@ -38,9 +38,6 @@ public abstract class CollectionPage : MediaPage {
         init_toolbar ("/CollectionToolbar");
 
         show_all ();
-
-        // watch for updates to the external app settings
-        Config.Facade.get_instance ().external_app_changed.connect (on_external_app_changed);
     }
 
     public override Gtk.Toolbar get_toolbar () {
@@ -204,17 +201,13 @@ public abstract class CollectionPage : MediaPage {
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
 
-        Gtk.ActionEntry external_edit = { "ExternalEdit", Gtk.Stock.EDIT, TRANSLATABLE, "<Ctrl>Return",
-                                          TRANSLATABLE, on_external_edit
-                                        };
-        external_edit.label = Resources.EXTERNAL_EDIT_MENU;
-        actions += external_edit;
+        Gtk.ActionEntry open_with = { "OpenWith", null, TRANSLATABLE, null, null, null };
+        open_with.label = Resources.OPEN_WITH_MENU;
+        actions += open_with;
 
-        Gtk.ActionEntry edit_raw = { "ExternalEditRAW", null, TRANSLATABLE, "<Ctrl><Shift>Return",
-                                     TRANSLATABLE, on_external_edit_raw
-                                   };
-        edit_raw.label = Resources.EXTERNAL_EDIT_RAW_MENU;
-        actions += edit_raw;
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
+        open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
+        actions += open_with_raw;
 
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
                                       on_slideshow
@@ -235,6 +228,94 @@ public abstract class CollectionPage : MediaPage {
         groups += create_photos_menu_externals_injectables ();
 
         return groups;
+    }
+
+    public override Gtk.Menu? get_item_context_menu () {
+        Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/CollectionContextMenu");
+        assert (menu != null);
+
+        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWith");
+        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
+        open_with_menu_item.show ();
+
+        if (((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () == PhotoFileFormat.RAW) {
+            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWithRaw");
+            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
+            open_with_raw_menu_item.show ();
+        }
+
+        return menu;
+    }
+
+    private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
+        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
+        SortedList<AppInfo> external_apps;
+        string[] mime_types;
+
+        // get list of all applications for the given mime types
+        if (raw)
+            mime_types = PhotoFileFormat.RAW.get_mime_types ();
+        else
+            mime_types = PhotoFileFormat.get_editable_mime_types ();
+        assert (mime_types.length != 0);
+        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+
+        if (external_apps.size == 0) {
+            parent.sensitive = false;
+            return;
+        }
+
+        foreach (Gtk.Widget item in menu.get_children ())
+            menu.remove (item);
+        parent.sensitive = true;
+
+        foreach (AppInfo app in external_apps) {
+            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
+            Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+            item_app.always_show_image = true;
+            item_app.set_image (image);
+            item_app.activate.connect (() => {
+                if (raw)
+                    on_open_with_raw (app.get_commandline ());
+                else
+                    on_open_with (app.get_commandline ());
+            });
+            menu.add (item_app);
+        }
+        menu.show_all ();
+    }
+
+    private void on_open_with (string app) {
+        if (get_view ().get_selected_count () != 1)
+            return;
+
+        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            photo.open_with_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            open_external_editor_error_dialog (err, photo);
+        }
+    }
+
+    private void on_open_with_raw (string app) {
+        if (get_view ().get_selected_count () != 1)
+            return;
+
+        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        if (photo.get_master_file_format () != PhotoFileFormat.RAW)
+            return;
+
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            photo.open_with_raw_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            AppWindow.error_message (Resources.launch_editor_failed (err));
+        }
     }
 
     private bool selection_has_video () {
@@ -279,14 +360,12 @@ public abstract class CollectionPage : MediaPage {
         // don't allow duplication of the selection if it contains a video -- videos are huge and
         // and they're not editable anyway, so there seems to be no use case for duplicating them
         set_action_sensitive ("Duplicate", has_selected && (!selection_has_videos));
-        set_action_visible ("ExternalEdit", (!primary_is_video));
-        set_action_sensitive ("ExternalEdit",
-                              one_selected && !is_string_empty (Config.Facade.get_instance ().get_external_photo_app ()));
-        set_action_visible ("ExternalEditRAW",
+        set_action_visible ("OpenWith", (!primary_is_video));
+        set_action_sensitive ("OpenWith", one_selected);
+        set_action_visible ("OpenWithRaw",
                             one_selected && (!primary_is_video)
                             && ((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () ==
-                            PhotoFileFormat.RAW
-                            && !is_string_empty (Config.Facade.get_instance ().get_external_raw_app ()));
+                            PhotoFileFormat.RAW);
         set_action_sensitive ("Revert", (!selection_has_videos) && can_revert_selected ());
         set_action_sensitive ("Enhance", (!selection_has_videos) && has_selected);
         set_action_sensitive ("CopyColorAdjustments", (!selection_has_videos) && one_selected &&
@@ -349,12 +428,6 @@ public abstract class CollectionPage : MediaPage {
         }
     }
 
-    private void on_external_app_changed () {
-        int selected_count = get_view ().get_selected_count ();
-
-        set_action_sensitive ("ExternalEdit", selected_count == 1 && Config.Facade.get_instance ().get_external_photo_app () != "");
-    }
-
     // see #2020
     // double clcik = switch to photo page
     // Super + double click = open in external editor
@@ -382,7 +455,8 @@ public abstract class CollectionPage : MediaPage {
 
         if (activator == CheckerboardPage.Activator.MOUSE) {
             if (modifiers.super_pressed)
-                on_external_edit ();
+                //last used
+                on_open_with (Config.Facade.get_instance ().get_external_photo_app ());
             else
                 LibraryWindow.get_app ().switch_to_photo_page (this, photo);
         } else if (activator == CheckerboardPage.Activator.KEYBOARD) {
@@ -653,39 +727,6 @@ public abstract class CollectionPage : MediaPage {
         }
     }
 
-    private void on_external_edit () {
-        if (get_view ().get_selected_count () != 1)
-            return;
-
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            photo.open_with_external_editor ();
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            open_external_editor_error_dialog (err, photo);
-        }
-    }
-
-    private void on_external_edit_raw () {
-        if (get_view ().get_selected_count () != 1)
-            return;
-
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
-        if (photo.get_master_file_format () != PhotoFileFormat.RAW)
-            return;
-
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            photo.open_with_raw_external_editor ();
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            AppWindow.error_message (Resources.launch_editor_failed (err));
-        }
-    }
-
     public void on_set_background () {
         Gee.ArrayList<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto> ();
         MediaSourceCollection.filter_media ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (),
@@ -752,3 +793,4 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 }
+
