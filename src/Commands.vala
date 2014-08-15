@@ -275,7 +275,7 @@ public abstract class GenericPhotoTransformationCommand : SingleDataSourceComman
 public abstract class MultipleDataSourceCommand : PageCommand {
     protected const int MIN_OPS_FOR_PROGRESS_WINDOW = 5;
 
-    protected Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
+    public Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
 
     private string progress_text;
     private string undo_progress_text;
@@ -785,7 +785,7 @@ public class EnhanceMultipleCommand : MultiplePhotoTransformationCommand {
 
 public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
     public UnEnhanceSingleCommand (Photo photo) {
-        base (photo, "unenhance", "unenhance");
+        base (photo, Resources.UNENHANCE_LABEL, Resources.ENHANCE_TOOLTIP);
     }
 
     public override void execute_on_photo (Photo photo) {
@@ -804,6 +804,17 @@ public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
 
         // multiple successive enhances on the same photo are as good as a single
         return true;
+    }
+}
+
+public class UnEnhanceMultipleCommand : MultiplePhotoTransformationCommand {
+    public UnEnhanceMultipleCommand (Gee.Iterable<DataView> iter) {
+        base (iter, _ ("UnEnhancing"), _ ("Undoing UnEnhance"), Resources.UNENHANCE_LABEL,
+              Resources.ENHANCE_TOOLTIP);
+    }
+
+    public override void execute_on_source (DataSource source) {
+        ((Photo) source).unenhance ();
     }
 }
 

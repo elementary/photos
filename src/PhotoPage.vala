@@ -776,6 +776,24 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return parent_view;
     }
 
+    protected void update_enhance_action () {
+        if (has_photo ()) {
+            Gtk.Action? action = get_action ("Enhance");
+            assert (action != null);
+
+            bool is_enhanced = get_photo ().is_enhanced ();
+
+            action.label = is_enhanced ? Resources.UNENHANCE_MENU : Resources.ENHANCE_MENU;
+            action.sensitive = true;
+
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = get_photo ().is_enhanced ();
+            enhance_button.clicked.connect (on_enhance);
+        } else {
+            set_action_sensitive ("Enhance", false);
+        }
+    }
+
     public bool has_photo () {
         return get_photo () != null;
     }
@@ -800,10 +818,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         else
             set_photo_missing (!new_photo.get_file ().query_exists ());
 
-        enhance_button.clicked.disconnect (on_enhance);
-        enhance_button.active = new_photo.is_enhanced ();
-        enhance_button.clicked.connect (on_enhance);
-
+        update_enhance_action ();
         update_ui (photo_missing);
     }
 
@@ -2074,9 +2089,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private void on_tool_cancelled () {
         deactivate_tool ();
            
-        enhance_button.clicked.disconnect (on_enhance);
-        enhance_button.active = has_photo () ? get_photo ().is_enhanced () : false;
-        enhance_button.clicked.connect (on_enhance);
+        update_enhance_action ();
         restore_zoom_state ();
         repaint ();
     }
@@ -2173,9 +2186,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             get_photo ().set_enhanced (true);   
         }
 
-        enhance_button.clicked.disconnect (on_enhance);
-        enhance_button.active = get_photo ().is_enhanced ();
-        enhance_button.clicked.connect (on_enhance);
+        update_enhance_action ();
     }
 
     public void on_copy_adjustments () {
@@ -2822,7 +2833,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
 
         update_flag_action ();
-
+        update_enhance_action ();
         set_action_visible ("OpenWithRaw",
                             is_raw);
 
@@ -2833,6 +2844,7 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("Revert", has_photo () ?
                               (get_photo ().has_transformations () || get_photo ().has_editable ()) : false);
         update_flag_action ();
+        update_enhance_action ();
     }
 
     private void on_raw_developer_changed (Gtk.Action action, Gtk.Action current) {
@@ -2870,7 +2882,7 @@ public class LibraryPhotoPage : EditingHostPage {
         } else {
             set_action_sensitive ("Flag", false);
         }
-    }
+    }    
 
     // Displays a photo from a specific CollectionPage.  When the user exits this view,
     // they will be sent back to the return_page. The optional view paramters is for using
@@ -3442,9 +3454,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private void on_metadata_altered (Gee.Map<DataObject, Alteration> map) {
         if (has_photo ()) {
-            enhance_button.clicked.disconnect (on_enhance);
-            enhance_button.active = get_photo ().is_enhanced ();
-            enhance_button.clicked.connect (on_enhance);
+            update_enhance_action ();
         }
         if (map.has_key (get_photo ()) && map.get (get_photo ()).has_subject ("metadata"))
             repaint ();

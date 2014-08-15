@@ -156,6 +156,9 @@ public const string ENHANCE_MENU = _("_Enhance");
 public const string ENHANCE_LABEL = _("Enhance");
 public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance");
 
+public const string UNENHANCE_MENU = _("Revert _Enhancement");
+public const string UNENHANCE_LABEL = _("Revert Enhancement");
+
 public const string COPY_ADJUSTMENTS_MENU = _("_Copy Color Adjustments");
 public const string COPY_ADJUSTMENTS_LABEL = _("Copy Color Adjustments");
 public const string COPY_ADJUSTMENTS_TOOLTIP = _("Copy the color adjustments applied to the photo");

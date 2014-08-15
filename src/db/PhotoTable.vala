@@ -869,7 +869,6 @@ public class PhotoTable : DatabaseTable {
 
     public bool remove_transformation (PhotoID photo_id, string object) {
         string trans = get_raw_transformations (photo_id);
-        print("hiiiiii");
         if (trans == null)
             return true;
 
