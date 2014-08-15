@@ -101,7 +101,7 @@ public abstract class PageCommand : Command {
 }
 
 public abstract class SingleDataSourceCommand : PageCommand {
-    protected DataSource source;
+    public DataSource source;
 
     public SingleDataSourceCommand (DataSource source, string name, string explanation) {
         base (name, explanation);
@@ -780,6 +780,30 @@ public class EnhanceMultipleCommand : MultiplePhotoTransformationCommand {
 
     public override void execute_on_source (DataSource source) {
         ((Photo) source).enhance ();
+    }
+}
+
+public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
+    public UnEnhanceSingleCommand (Photo photo) {
+        base (photo, "unenhance", "unenhance");
+    }
+
+    public override void execute_on_photo (Photo photo) {
+        AppWindow.get_instance ().set_busy_cursor ();
+        photo.unenhance ();
+        AppWindow.get_instance ().set_normal_cursor ();
+    }
+
+    public override bool compress (Command command) {
+        UnEnhanceSingleCommand unenhance_single_command = command as UnEnhanceSingleCommand;
+        if (unenhance_single_command == null)
+            return false;
+
+        if (unenhance_single_command.source != source)
+            return false;
+
+        // multiple successive enhances on the same photo are as good as a single
+        return true;
     }
 }
 

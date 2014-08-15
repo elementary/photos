@@ -26,7 +26,7 @@ void library_exec (string[] mounts) {
         Application.send_to_primary_instance (mounts);
         return;
     }
-
+    print(AppDirs.get_data_subdir ("data").get_child ("photo.db").get_parse_name());
     // preconfigure units
     Db.preconfigure (AppDirs.get_data_subdir ("data").get_child ("photo.db"));
 

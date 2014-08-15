@@ -89,6 +89,8 @@ public class PhotoRow {
     public time_t time_reimported;
     public BackingPhotoID editable_id;
     public bool metadata_dirty;
+    public bool enhanced;
+    public Gee.HashMap<string, KeyValueMap>? original_transforms;
 
     // Currently selected developer (RAW only)
     public RawDeveloper developer;
@@ -140,7 +142,9 @@ public class PhotoTable : DatabaseTable {
                                  + "develop_shotwell_id INTEGER DEFAULT -1, "
                                  + "develop_camera_id INTEGER DEFAULT -1, "
                                  + "develop_embedded_id INTEGER DEFAULT -1, "
-                                 + "comment TEXT"
+                                 + "comment TEXT, "
+                                 + "enhanced INTEGER DEFAULT 0, "
+                                 + "original_transforms TEXT "
                                  + ")", -1, out stmt);
         assert (res == Sqlite.OK);
 
@@ -356,7 +360,7 @@ public class PhotoTable : DatabaseTable {
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
                       + "exif_md5, time_created, flags, rating, file_format, title, backlinks, "
                       + "time_reimported, editable_id, metadata_dirty, developer, develop_shotwell_id, "
-                      + "develop_camera_id, develop_embedded_id, comment "
+                      + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms"
                       + "FROM PhotoTable WHERE id=?",
                       -1, out stmt);
         assert (res == Sqlite.OK);
@@ -397,6 +401,8 @@ public class PhotoTable : DatabaseTable {
         row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (25));
         row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (26));
         row.comment = stmt.column_text (27);
+        row.enhanced = stmt.column_int (28) != 0;
+        row.original_transforms = marshall_all_transformations (stmt.column_text (29));
 
         return row;
     }
@@ -408,7 +414,7 @@ public class PhotoTable : DatabaseTable {
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
                       + "exif_md5, time_created, flags, rating, file_format, title, backlinks, time_reimported, "
                       + "editable_id, metadata_dirty, developer, develop_shotwell_id, develop_camera_id, "
-                      + "develop_embedded_id, comment FROM PhotoTable",
+                      + "develop_embedded_id, comment, enhanced, original_transforms FROM PhotoTable",
                       -1, out stmt);
         assert (res == Sqlite.OK);
 
@@ -445,7 +451,8 @@ public class PhotoTable : DatabaseTable {
             row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (26));
             row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (27));
             row.comment = stmt.column_text (28);
-
+            row.enhanced = stmt.column_int (29) != 0;
+            row.original_transforms = marshall_all_transformations (stmt.column_text (30));
             validate_orientation (row);
 
             all.add (row);
@@ -467,7 +474,7 @@ public class PhotoTable : DatabaseTable {
                                  + "timestamp, exposure_time, orientation, original_orientation, import_id, event_id, "
                                  + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, rating, "
                                  + "file_format, title, editable_id, developer, develop_shotwell_id, develop_camera_id, "
-                                 + "develop_embedded_id, comment) "
+                                 + "develop_embedded_id, comment, enhanced) "
                                  + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                                  -1, out stmt);
         assert (res == Sqlite.OK);
@@ -522,6 +529,10 @@ public class PhotoTable : DatabaseTable {
         res = stmt.bind_int64 (24, develop_embedded_id.id);
         assert (res == Sqlite.OK);
         res = stmt.bind_text (25, original.comment);
+        assert (res == Sqlite.OK);
+        res = stmt.bind_int (26, original.enhanced ? 1 : 0);
+        assert (res == Sqlite.OK);
+        res = stmt.bind_text (27, unmarshall_all_transformations (original.original_transforms));
         assert (res == Sqlite.OK);
 
         res = stmt.step ();
@@ -725,6 +736,10 @@ public class PhotoTable : DatabaseTable {
         return update_text_by_id (photo_id.id, "transformations", trans);
     }
 
+    private bool set_raw_original_transforms (PhotoID photo_id, string trans) {
+        return update_text_by_id (photo_id.id, "original_transforms", trans);
+    }
+
     public bool set_transformation_state (PhotoID photo_id, Orientation orientation,
                                           Gee.HashMap<string, KeyValueMap>? transformations) {
         Sqlite.Statement stmt;
@@ -831,10 +846,30 @@ public class PhotoTable : DatabaseTable {
         }
 
         return set_raw_transformations (photo_id, trans);
+    }    
+
+    public bool set_original_transforms (PhotoID photo_id, KeyValueMap? map) {
+        if (map == null)
+            return set_raw_original_transforms (photo_id, "");
+
+        KeyFile keyfile = new KeyFile ();
+        Gee.Set<string> keys = map.get_keys ();
+        foreach (string key in keys) {
+            string value = map.get_string (key, null);
+            assert (value != null);
+
+            keyfile.set_string (map.get_group (), key, value);
+        }
+
+        size_t length;
+        string trans = keyfile.to_data (out length);
+
+        return set_raw_original_transforms (photo_id, trans);      
     }
 
     public bool remove_transformation (PhotoID photo_id, string object) {
         string trans = get_raw_transformations (photo_id);
+        print("hiiiiii");
         if (trans == null)
             return true;
 
@@ -983,6 +1018,10 @@ public class PhotoTable : DatabaseTable {
 
     public void set_metadata_dirty (PhotoID photo_id, bool dirty) throws DatabaseError {
         update_int_by_id_2 (photo_id.id, "metadata_dirty", dirty ? 1 : 0);
+    }    
+
+    public bool set_enhanced (PhotoID photo_id, bool enhanced) {
+        return update_int_by_id (photo_id.id, "enhanced", enhanced ? 1 : 0);
     }
 
     public void update_raw_development (PhotoRow row, RawDeveloper rd, BackingPhotoID backing_photo_id)

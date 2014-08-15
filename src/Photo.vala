@@ -1543,6 +1543,7 @@ public abstract class Photo : PhotoSource, Dateable {
             set_title (reimport_state.metadata.get_title ());
             set_comment (reimport_state.metadata.get_comment ());
             set_rating (reimport_state.metadata.get_rating ());
+          //  set_enhanced (reimport_state.metadata.get_enhanced ());
             apply_user_metadata_for_reimport (reimport_state.metadata);
         }
 
@@ -2121,6 +2122,26 @@ public abstract class Photo : PhotoSource, Dateable {
 
         if (committed)
             notify_altered (new Alteration ("metadata", "master-dirty"));
+    }    
+
+    public bool is_enhanced () {
+        lock (row) {
+            return row.enhanced;
+        }
+    }
+
+    public void set_enhanced (bool enhanced) {
+        bool committed = false;
+        lock (row) {
+            if (row.enhanced != enhanced) {
+                committed = PhotoTable.get_instance ().set_enhanced (get_photo_id (), enhanced);
+                if (committed)
+                    row.enhanced = enhanced;
+            }
+        }
+
+        if (committed)
+            notify_altered (new Alteration ("metadata", "enhanced"));
     }
 
     public override Rating get_rating () {
@@ -2521,6 +2542,37 @@ public abstract class Photo : PhotoSource, Dateable {
 
             return adjustments.copy ();
         }
+    } 
+
+    // This method *must* be called with row locked.
+    private PixelTransformationBundle locked_original_color_adjustments () {
+        var original_adjustments = new PixelTransformationBundle ();
+
+        KeyValueMap map;
+        if (row.original_transforms != null) {
+            map = row.original_transforms.get ("adjustments");
+            if (map != null)
+                map = map.copy ();
+        }
+        else 
+            map = new KeyValueMap ("adjustments");
+
+        if (map == null)
+            original_adjustments.set_to_identity ();
+        else
+            original_adjustments.load (map);
+        return original_adjustments;
+    }
+
+
+    // Returns a copy of the color adjustments as a map.
+    private KeyValueMap get_color_adjustments_map () {
+        lock (row) {
+            KeyValueMap map = get_transformation ("adjustments");
+            if (map == null)
+                map = new KeyValueMap("adjustments");
+            return map;
+        }
     }
 
     public PixelTransformer get_pixel_transformer () {
@@ -2540,9 +2592,10 @@ public abstract class Photo : PhotoSource, Dateable {
         return get_color_adjustments ().get_transformation (type);
     }
 
-    public void set_color_adjustments (PixelTransformationBundle new_adjustments) {
+    public void set_color_adjustments (PixelTransformationBundle new_adjustments) {  
         /* if every transformation in 'new_adjustments' is the identity, then just remove all
            adjustments from the database */
+        set_enhanced (false);
         if (new_adjustments.is_identity ()) {
             bool result;
             lock (row) {
@@ -2850,6 +2903,25 @@ public abstract class Photo : PhotoSource, Dateable {
             row.transformations.set (trans.get_group (), trans);
 
             return PhotoTable.get_instance ().set_transformation (row.photo_id, trans);
+        }
+    }
+
+    private bool set_original_transforms (KeyValueMap trans) {
+        lock (row) {
+            if (row.original_transforms == null)
+                row.original_transforms = new Gee.HashMap<string, KeyValueMap> ();
+
+            row.original_transforms.set (trans.get_group (), trans);
+
+            return PhotoTable.get_instance ().set_original_transforms (row.photo_id, trans);
+        }
+    }    
+
+    private bool clear_original_transforms () {
+        lock (row) {
+            if (row.original_transforms == null)
+                row.original_transforms = new Gee.HashMap<string, KeyValueMap> ();
+            return PhotoTable.get_instance ().set_original_transforms (row.photo_id, null);
         }
     }
 
@@ -4318,6 +4390,8 @@ public abstract class Photo : PhotoSource, Dateable {
         Timer apply_timer = new Timer ();
 #endif
         lock (row) {
+            clear_original_transforms ();
+            set_original_transforms (get_color_adjustments_map ());
             set_color_adjustments (transformations);
         }
 
@@ -4325,7 +4399,29 @@ public abstract class Photo : PhotoSource, Dateable {
         apply_timer.stop ();
         debug ("Auto-Enhance apply time: %f sec", apply_timer.elapsed ());
 #endif
+        set_enhanced(true);
         return true;
+    }
+
+    public bool unenhance () {
+        lock (row) {
+            if (row.enhanced) {
+                if (row.original_transforms == null || row.original_transforms.get ("adjustments") == null) {
+                    remove_transformation("adjustments");
+                    bool result = false;
+                    result = remove_transformation ("adjustments");
+                    adjustments = null;
+                    transformer = null;
+                    if (result)
+                        notify_altered (new Alteration ("image", "color-adjustments"));
+                }
+                else
+                    set_color_adjustments (locked_original_color_adjustments());
+                set_enhanced (false);
+                return true;
+            }
+        }
+        return false;
     }
 }
 
