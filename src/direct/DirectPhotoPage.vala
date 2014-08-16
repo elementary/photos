@@ -375,26 +375,26 @@ public class DirectPhotoPage : EditingHostPage {
     }
     
     protected override void update_actions(int selected_count, int count) {
-        bool multiple = get_view().get_count() > 1;
-        bool revert_possible = has_photo() ? get_photo().has_transformations() 
-            && !get_photo_missing() : false;
-        bool rotate_possible = has_photo() ? is_rotate_available(get_photo()) : false;
-        bool enhance_possible = has_photo() ? is_enhance_available(get_photo()) : false;
+        bool multiple = get_view ().get_count () > 1;
+        bool revert_possible = has_photo () ? get_photo ().has_transformations () 
+            && !get_photo_missing () : false;
+        bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
+        bool enhance_possible = has_photo () ? is_enhance_available (get_photo ()) : false;
         
-        set_action_sensitive("PrevPhoto", multiple);
-        set_action_sensitive("NextPhoto", multiple);
-        set_action_sensitive("RotateClockwise", rotate_possible);
-        set_action_sensitive("RotateCounterclockwise", rotate_possible);
-        set_action_sensitive("FlipHorizontally", rotate_possible);
-        set_action_sensitive("FlipVertically", rotate_possible);
-        set_action_sensitive("Revert", revert_possible);
-        set_action_sensitive("Enhance", enhance_possible);
+        set_action_sensitive ("PrevPhoto", multiple);
+        set_action_sensitive ("NextPhoto", multiple);
+        set_action_sensitive ("RotateClockwise", rotate_possible);
+        set_action_sensitive ("RotateCounterclockwise", rotate_possible);
+        set_action_sensitive ("FlipHorizontally", rotate_possible);
+        set_action_sensitive ("FlipVertically", rotate_possible);
+        set_action_sensitive ("Revert", revert_possible);
+        set_action_sensitive ("Enhance", enhance_possible);
         set_action_sensitive ("SetBackground", has_photo ());
         
         if (has_photo()) {
-            set_action_sensitive("Crop", EditingTools.CropTool.is_available(get_photo(), Scaling.for_original()));
-            set_action_sensitive("RedEye", EditingTools.RedeyeTool.is_available(get_photo(), 
-                Scaling.for_original()));
+            set_action_sensitive ("Crop", EditingTools.CropTool.is_available (get_photo (), Scaling.for_original ()));
+            set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (), 
+                Scaling.for_original ()));
         }
 
         // can't write to raws, and trapping the output JPEG here is tricky,
