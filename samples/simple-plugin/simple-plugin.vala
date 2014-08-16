@@ -12,38 +12,38 @@ extern const string _VERSION;
 //
 
 private class SimplePluginModule : Object, Spit.Module {
-    public unowned string get_module_name() {
+    public unowned string get_module_name () {
         return "Simple Plugin Sample";
     }
-    
-    public unowned string get_version() {
+
+    public unowned string get_version () {
         return _VERSION;
     }
-    
+
     // Every module needs to have a unique ID.
-    public unowned string get_id() {
+    public unowned string get_id () {
         return "org.yorba.shotwell.samples.simple-plugin";
     }
-    
-    public unowned Spit.Pluggable[]? get_pluggables() {
+
+    public unowned Spit.Pluggable[]? get_pluggables () {
         return null;
     }
 }
 
 //
-// spit_entry_point() is required for all SPIT modules.
+// spit_entry_point () is required for all SPIT modules.
 //
 
-public Spit.Module? spit_entry_point(Spit.EntryPointParams *params) {
+public Spit.Module? spit_entry_point (Spit.EntryPointParams *params) {
     // Spit.negotiate_interfaces is a simple way to deal with the parameters from the host
-    params->module_spit_interface = Spit.negotiate_interfaces(params->host_min_spit_interface,
-        params->host_max_spit_interface, Spit.CURRENT_INTERFACE);
-    
+    params->module_spit_interface = Spit.negotiate_interfaces (params->host_min_spit_interface,
+                                    params->host_max_spit_interface, Spit.CURRENT_INTERFACE);
+
     return (params->module_spit_interface != Spit.UNSUPPORTED_INTERFACE)
-        ? new SimplePluginModule() : null;
+           ? new SimplePluginModule () : null;
 }
 
 // This is here to keep valac happy.
-private void dummy_main() {
+private void dummy_main () {
 }
 

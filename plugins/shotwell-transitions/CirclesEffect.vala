@@ -8,20 +8,20 @@
 using Spit;
 
 private class CirclesEffectDescriptor : ShotwellTransitionDescriptor {
-    public CirclesEffectDescriptor(GLib.File resource_directory) {
-        base(resource_directory);
+    public CirclesEffectDescriptor (GLib.File resource_directory) {
+        base (resource_directory);
     }
 
-    public override unowned string get_id() {
+    public override unowned string get_id () {
         return "org.yorba.shotwell.transitions.circles";
     }
 
-    public override unowned string get_pluggable_name() {
-        return _("Circles");
+    public override unowned string get_pluggable_name () {
+        return _ ("Circles");
     }
 
-    public override Transitions.Effect create(HostInterface host) {
-        return new CirclesEffect();
+    public override Transitions.Effect create (HostInterface host) {
+        return new CirclesEffect ();
     }
 }
 
@@ -30,57 +30,57 @@ private class CirclesEffect : Object, Transitions.Effect {
     private const int MIN_FPS = 15;
     private const double SPEED = 2.5;
 
-    public CirclesEffect() {
+    public CirclesEffect () {
     }
 
-    public void get_fps(out int desired_fps, out int min_fps) {
+    public void get_fps (out int desired_fps, out int min_fps) {
         desired_fps = CirclesEffect.DESIRED_FPS;
         min_fps = CirclesEffect.MIN_FPS;
     }
 
-    public void start(Transitions.Visuals visuals, Transitions.Motion motion) {
+    public void start (Transitions.Visuals visuals, Transitions.Motion motion) {
     }
 
-    public bool needs_clear_background() {
+    public bool needs_clear_background () {
         return true;
     }
 
-    public void paint(Transitions.Visuals visuals, Transitions.Motion motion, Cairo.Context ctx,
-        int width, int height, int frame_number) {
-        double alpha = motion.get_alpha(frame_number);
+    public void paint (Transitions.Visuals visuals, Transitions.Motion motion, Cairo.Context ctx,
+                       int width, int height, int frame_number) {
+        double alpha = motion.get_alpha (frame_number);
         int distance = 60, radius;
         int circleCountX = width / (2 * distance);
         int circleCountY = height / distance;
         double maxRadius = SPEED * distance;
-        
+
         if (visuals.from_pixbuf != null) {
-            Gdk.cairo_set_source_pixbuf(ctx, visuals.from_pixbuf, visuals.from_pos.x,
-                visuals.from_pos.y);
-            ctx.paint_with_alpha(1 - alpha);
+            Gdk.cairo_set_source_pixbuf (ctx, visuals.from_pixbuf, visuals.from_pos.x,
+                                         visuals.from_pos.y);
+            ctx.paint_with_alpha (1 - alpha);
         }
-        
+
         if (visuals.to_pixbuf != null) {
-            Gdk.cairo_set_source_pixbuf(ctx, visuals.to_pixbuf,visuals.to_pos.x, visuals.to_pos.y);
-            
-            for(int y = 0; y <= circleCountY; y++){
-                for(int x = 0; x <= circleCountX; x++){
-                    radius = (int) (Math.fmax(0,Math.fmin(1, alpha-((double) (x + y)/(double)
-                        ((circleCountY + circleCountX) * SPEED)))) * maxRadius);
-                    ctx.arc(2 * distance * x, 2 * distance * y, radius, 0, 2 * Math.PI);
-                    ctx.fill();
+            Gdk.cairo_set_source_pixbuf (ctx, visuals.to_pixbuf, visuals.to_pos.x, visuals.to_pos.y);
+
+            for (int y = 0; y <= circleCountY; y++) {
+                for (int x = 0; x <= circleCountX; x++) {
+                    radius = (int) (Math.fmax (0, Math.fmin (1, alpha - ((double) (x + y) / (double)
+                                               ((circleCountY + circleCountX) * SPEED)))) * maxRadius);
+                    ctx.arc (2 * distance * x, 2 * distance * y, radius, 0, 2 * Math.PI);
+                    ctx.fill ();
                 }
             }
-            
-            ctx.clip();
-            ctx.paint_with_alpha(alpha);
+
+            ctx.clip ();
+            ctx.paint_with_alpha (alpha);
         }
 
 
     }
 
-    public void advance(Transitions.Visuals visuals, Transitions.Motion motion, int frame_number) {
+    public void advance (Transitions.Visuals visuals, Transitions.Motion motion, int frame_number) {
     }
 
-    public void cancel() {
+    public void cancel () {
     }
 }
