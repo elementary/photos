@@ -65,15 +65,6 @@ public abstract class CollectionPage : MediaPage {
         return toolbar;
     }
 
-    public override Gtk.Menu? get_item_context_menu (){
-        Gtk.Menu menu = base.get_item_context_menu ();
-        assert (menu != null);
-        
-        populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
-        
-        return menu;
-    }
-
     private static InjectionGroup create_file_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
 
@@ -247,6 +238,8 @@ public abstract class CollectionPage : MediaPage {
             populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
             open_with_raw_menu_item.show ();
         }
+
+        populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
 
         return menu;
     }
