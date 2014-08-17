@@ -2674,7 +2674,10 @@ public class ContractMenuItem : Gtk.MenuItem {
             File[] modified_files = null;
             foreach (var source in sources) {
                 Photo modified_file = (Photo)source;
-                modified_files += modified_file.get_modified_file ();
+                if modified_files.get_file_format () == PhotoFormat.RAW
+                    modified_files += modified_file.get_file ();
+                else
+                    modified_files += modified_file.get_modified_file ();
             }
             contract.execute_with_files (modified_files);
         } catch (Error err) {
