@@ -389,6 +389,7 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("FlipVertically", rotate_possible);
         set_action_sensitive ("Revert", revert_possible);
         set_action_sensitive ("Enhance", enhance_possible);
+
         set_action_sensitive ("SetBackground", has_photo ());
 
         if (has_photo ()) {
