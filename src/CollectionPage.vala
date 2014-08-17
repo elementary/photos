@@ -178,7 +178,7 @@ public abstract class CollectionPage : MediaPage {
         actions += revert;
 
         Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                   TRANSLATABLE, on_set_background };
+                                           TRANSLATABLE, on_set_background };
         set_background.label = Resources.SET_BACKGROUND_SLIDESHOW_MENU;
         set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
         actions += set_background;

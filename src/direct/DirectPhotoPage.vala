@@ -280,8 +280,9 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override bool on_context_buttonpress (Gdk.EventButton event) {
         Gtk.Menu context_menu = (Gtk.Menu) ui.get_widget ("/DirectContextMenu");
-        populate_contractor_menu (context_menu,"/DirectContextMenu/ContractorPlaceholder");
+        populate_contractor_menu (context_menu, "/DirectContextMenu/ContractorPlaceholder");
         popup_context_menu (context_menu, event);
+
         return true;
     }
 
@@ -374,13 +375,13 @@ public class DirectPhotoPage : EditingHostPage {
         base.update_ui (missing);
     }
     
-    protected override void update_actions(int selected_count, int count) {
+    protected override void update_actions (int selected_count, int count) {
         bool multiple = get_view ().get_count () > 1;
         bool revert_possible = has_photo () ? get_photo ().has_transformations () 
             && !get_photo_missing () : false;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
         bool enhance_possible = has_photo () ? is_enhance_available (get_photo ()) : false;
-        
+
         set_action_sensitive ("PrevPhoto", multiple);
         set_action_sensitive ("NextPhoto", multiple);
         set_action_sensitive ("RotateClockwise", rotate_possible);
@@ -390,8 +391,8 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("Revert", revert_possible);
         set_action_sensitive ("Enhance", enhance_possible);
         set_action_sensitive ("SetBackground", has_photo ());
-        
-        if (has_photo()) {
+
+        if (has_photo ()) {
             set_action_sensitive ("Crop", EditingTools.CropTool.is_available (get_photo (), Scaling.for_original ()));
             set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (), 
                 Scaling.for_original ()));

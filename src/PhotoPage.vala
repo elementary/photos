@@ -3079,7 +3079,7 @@ public class LibraryPhotoPage : EditingHostPage {
             open_with_raw_menu_item.show ();
         }
 
-        populate_contractor_menu(menu,"/PhotoContextMenu/ContractorPlaceholder");
+        populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
         return menu;
     }
 
