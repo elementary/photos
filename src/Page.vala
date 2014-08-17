@@ -2684,13 +2684,11 @@ public class ContractMenuItem : Gtk.MenuItem {
                 else
                     modified_files += modified_file.get_modified_file ();
             }
-            assert (modified_files == null);
 
             if (modified_files.length > 1)
                 contract.execute_with_files (modified_files);
-            else{
+            else
                 contract.execute_with_file (modified_files[0]);
-                }
         } catch (Error err) {
             warning (err.message);
         }
