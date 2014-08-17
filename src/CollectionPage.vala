@@ -74,8 +74,6 @@ public abstract class CollectionPage : MediaPage {
     private static InjectionGroup create_file_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
 
-        group.add_menu_item ("Print");
-        group.add_separator ();
         group.add_menu_item ("SendTo");
         group.add_menu_item ("SetBackground");
 
