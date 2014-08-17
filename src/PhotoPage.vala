@@ -2521,13 +2521,6 @@ public class LibraryPhotoPage : EditingHostPage {
         send_to.label = Resources.SEND_TO_MENU;
         actions += send_to;
 
-        /*Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;*/
-
         Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
         flag.label = Resources.FLAG_MENU;
         actions += flag;

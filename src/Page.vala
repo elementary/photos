@@ -112,7 +112,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         try {
             var selected = get_view ().get_selected_sources ();
             foreach (var item in selected)
-                files += (((Photo)item).get_file());
+                files += (((Photo)item).get_file ());
             contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
         } catch (Error e) {
             warning (e.message);
@@ -127,17 +127,11 @@ public abstract class Page : Gtk.ScrolledWindow {
                 break;
             pos++;
         }
-        /*if (contracts.size>0){
-            var separator = new Gtk.SeparatorMenuItem();
-            menu.add(separator);
-            menu.reorder_child(separator, pos);
-            contractor_menu_items.append(separator);
-        }*/
         for (int i = 0; i < contracts.size; i++) {
             var contract = contracts.get (i);
             Gtk.MenuItem menu_item;
 
-            menu_item = new ContractMenuItem (contract, files);
+            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
             menu.append (menu_item);
             menu.reorder_child (menu_item, pos);
             contractor_menu_items.append (menu_item);
@@ -2665,11 +2659,11 @@ public class DragAndDropHandler {
 
 public class ContractMenuItem : Gtk.MenuItem {
     private Granite.Services.Contract contract;
-    private File[] files;
+    private Gee.List<DataSource> sources;
 
-    public ContractMenuItem (Granite.Services.Contract contract, File[] files) {
+    public ContractMenuItem (Granite.Services.Contract contract, Gee.List<DataSource> sources) {
         this.contract = contract;
-        this.files = files;
+        this.sources = sources;
 
         label = contract.get_display_name ();
         tooltip_text = contract.get_description ();
@@ -2677,10 +2671,14 @@ public class ContractMenuItem : Gtk.MenuItem {
 
     public override void activate () {
         try {
-            contract.execute_with_files (files);
+            File[] modified_files = null;
+            foreach (var source in sources) {
+                Photo modified_file = (Photo)source;
+                modified_files += modified_file.get_modified_file ();
+            }
+            contract.execute_with_files (modified_files);
         } catch (Error err) {
             warning (err.message);
         }
     }
 }
-
