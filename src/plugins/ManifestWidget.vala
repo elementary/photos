@@ -79,7 +79,7 @@ public class ManifestWidgetMediator {
         about_dialog.license = info.license;
         about_dialog.wrap_license = info.is_license_wordwrapped;
         about_dialog.logo = (info.icons != null && info.icons.length > 0) ? info.icons[0] :
-                            Resources.get_icon (Resources.ICON_GENERIC_PLUGIN);
+                             Resources.get_icon (Resources.ICON_GENERIC_PLUGIN);
         about_dialog.program_name = get_pluggable_name (id);
         about_dialog.translator_credits = info.translators;
         about_dialog.version = info.version;
@@ -279,4 +279,3 @@ private class ManifestListView : Gtk.TreeView {
 }
 
 }
-
