@@ -2336,6 +2336,19 @@ public class LibraryPhotoPage : EditingHostPage {
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
     }
 
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            base.get_toolbar ();
+
+            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
+            slideshow_button.set_tooltip_text (_("Play a slideshow"));
+            slideshow_button.clicked.connect (on_slideshow);
+            get_toolbar ().insert (slideshow_button, 0);
+        }
+        return toolbar;
+    }
+
     public bool not_trashed_view_filter (DataView view) {
         return ! ((MediaSource) view.get_source ()).is_trashed ();
     }
@@ -2658,7 +2671,7 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override InjectionGroup[] init_collect_injection_groups () {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
-        InjectionGroup print_group = new InjectionGroup ("/MenuBar/FileMenu/PrintPlaceholder");
+        InjectionGroup print_group = new InjectionGroup ("/PhotoContextMenu/PrintPlaceholder");
         print_group.add_menu_item ("Print");
 
         groups += print_group;

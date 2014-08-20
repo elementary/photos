@@ -2114,14 +2114,12 @@ public class PreferencesDialog {
         Gtk.Stack container = new Gtk.Stack ();
         container.expand = true;
         container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _ ("Library"));
-        container.add_titled (builder.get_object ("preferences_external") as Gtk.Box, "external", _ ("External"));
         container.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _ ("Plugins"));
 
         Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
         switcher.stack = container;
         switcher.expand = true;
         switcher.halign = Gtk.Align.CENTER;
-        switcher.margin_top = 6;
         switcher.margin_bottom = 6;
         
         // Add the switcher, stack container and button container to the window
