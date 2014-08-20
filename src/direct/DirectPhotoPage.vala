@@ -25,6 +25,8 @@ public class DirectPhotoPage : EditingHostPage {
         DirectPhoto.global.items_altered.connect (on_photos_altered);
 
         get_view ().selection_group_altered.connect (on_selection_group_altered);
+        Gtk.Toolbar toolbar = get_toolbar ();
+        toolbar.remove (show_sidebar_button);
     }
 
     ~DirectPhotoPage () {

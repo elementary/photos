@@ -1279,6 +1279,7 @@ public class LibraryWindow : AppWindow {
         if (page == get_current_page ())
             return;
 
+        metadata_sidebar.save_changes ();
         Page current_page = get_current_page ();
         if (current_page != null) {
             Gtk.Toolbar toolbar = current_page.get_toolbar ();

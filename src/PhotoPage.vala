@@ -413,7 +413,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private double saved_slider_val = 0.0;
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int> ();
-    private Gtk.ToolButton show_sidebar_button;
+    protected Gtk.ToolButton show_sidebar_button;
 
     public EditingHostPage (SourceCollection sources, string name) {
         base (name, false);

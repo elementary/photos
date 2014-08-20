@@ -18,6 +18,11 @@ private class LibraryProperties : Properties {
 
     public LibraryProperties () {
         set_column_homogeneous (true);
+        Tag.global.container_contents_altered.connect (on_tag_contents_altered);
+    }
+
+    ~LibraryProperties () {
+        Tag.global.container_contents_altered.disconnect (on_tag_contents_altered);
     }
 
     public override string get_header_title () {
@@ -25,30 +30,36 @@ private class LibraryProperties : Properties {
     }
 
     protected override void clear_properties () {
-        save_changes_to_source ();
         base.clear_properties ();
         rating = Rating.UNRATED;
         comment = "";
         title = "";
+        tags = "";
         is_media = false;
+    }
+    public override void update_properties (Page page) {
+        internal_update_properties (page);
+        show_all ();
     }
 
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
-        DataSource source = view.get_source ();
 
-        media_source = source as MediaSource;
+        MediaSource source = view.get_source () as MediaSource;
+        if (source != media_source)
+            save_changes_to_source ();
+
+        clear_properties ();
+        media_source = source;
+
         Flaggable? flaggable = media_source as Flaggable;
         if (media_source != null && flaggable != null) {
             tags = get_initial_tag_text (media_source);
-            title = source.get_name ();
+            title = media_source.get_name ();
             comment = media_source.get_comment ();
             rating = media_source.get_rating ();
-
-
             if (flaggable != null)
                 is_flagged = flaggable.is_flagged ();
-
             is_media = true;
         }
     }
@@ -112,6 +123,7 @@ private class LibraryProperties : Properties {
     }
 
     private void rating_widget_changed (int rating) {
+        save_changes_to_source ();
         if (media_source != null) {
             SetRatingSingleCommand command = new SetRatingSingleCommand (
                 media_source, Resources.int_to_rating (rating));
@@ -121,6 +133,7 @@ private class LibraryProperties : Properties {
     }
 
     private void flag_btn_clicked () {
+        save_changes_to_source ();
         Flaggable? flaggable = media_source as Flaggable;
 
         if (flaggable != null) {
@@ -143,14 +156,14 @@ private class LibraryProperties : Properties {
         comment = comment_entry.buffer.text;
     }
 
-    private void save_changes_to_source () {
+    public override void save_changes_to_source () {
         if (media_source != null && is_media) {
-            if (title != null)
+            if (title != null && title != media_source.get_name ())
                 AppWindow.get_command_manager ().execute (new EditTitleCommand (media_source, title));
-            if (comment != null)
+            if (comment != null && comment != media_source.get_comment ())
                 AppWindow.get_command_manager ().execute (new EditCommentCommand (media_source, comment));
             Gee.ArrayList<Tag>? new_tags = tag_entry_to_array ();
-            if (new_tags != null)
+            if (new_tags != null && tags != get_initial_tag_text (media_source))
                 AppWindow.get_command_manager ().execute (new ModifyTagsCommand (media_source, new_tags));
         }
     }
@@ -216,5 +229,17 @@ private class LibraryProperties : Properties {
             new_tags.add (Tag.for_path (name));
 
         return new_tags;
+    }
+
+    private void on_tag_contents_altered (ContainerSource container, Gee.Collection<DataSource>? added,
+                                          bool relinking, Gee.Collection<DataSource>? removed, bool unlinking) {
+        Flaggable? flaggable = media_source as Flaggable;
+        if (media_source != null && flaggable != null) {
+            tags = get_initial_tag_text (media_source);
+            if (tags != null)
+                tags_entry.text = tags;
+            else
+                tags_entry.text = "";
+        }
     }
 }

@@ -90,6 +90,11 @@ public class MetadataView : Gtk.ScrolledWindow {
         }
         notebook.set_current_page (page_num);
     }
+
+    public void save_changes () {
+        foreach (var properties in properties_collection)
+            properties.save_changes_to_source ();
+    }
 }
 
 

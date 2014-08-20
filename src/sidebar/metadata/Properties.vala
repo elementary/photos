@@ -132,7 +132,7 @@ public abstract class Properties : Gtk.Grid {
         line_count = 0;
     }
 
-    public void update_properties (Page page) {
+    public virtual void update_properties (Page page) {
         clear_properties ();
         internal_update_properties (page);
         show_all ();
@@ -149,7 +149,11 @@ public abstract class Properties : Gtk.Grid {
         }
     }
 
+    public virtual void save_changes_to_source () {
+    }
+
     public abstract string get_header_title ();
+
 }
 
 

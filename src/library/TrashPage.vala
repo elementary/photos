@@ -41,12 +41,6 @@ public class TrashPage : CheckerboardPage {
         Video.global.trashcan_contents_altered.connect (on_trashcan_contents_altered);
         on_trashcan_contents_altered (LibraryPhoto.global.get_trashcan_contents (), null);
         on_trashcan_contents_altered (Video.global.get_trashcan_contents (), null);
-
-        //  show metadata sidebar button
-        show_sidebar_button = MediaPage.create_sidebar_button ();
-        show_sidebar_button.clicked.connect (on_show_sidebar);
-        toolbar.insert (show_sidebar_button, -1);
-        toggle_sidebar_button_image ();
     }
 
     public override Gtk.Toolbar get_toolbar () {
