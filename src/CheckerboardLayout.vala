@@ -106,10 +106,10 @@ public abstract class CheckerboardItem : ThumbnailView {
 
     public const int FRAME_WIDTH = 8;
     public const int LABEL_PADDING = 4;
-    public const int BORDER_WIDTH = 1;
+    public const int BORDER_WIDTH = 0;
 
     public const int SHADOW_RADIUS = 4;
-    public const float SHADOW_INITIAL_ALPHA = 0.5f;
+    public const float SHADOW_INITIAL_ALPHA = 0.3f;
 
     public const int TRINKET_SCALE = 16;
     public const int TRINKET_PADDING = 1;
