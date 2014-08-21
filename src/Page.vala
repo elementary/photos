@@ -106,19 +106,14 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
 
-    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui) {
+    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui){
+        File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
-            if (get_view ().get_selected_count () > 1) {
-                var selected = get_view ().get_selected_sources ();
-                File[] files = {};
-                foreach (var item in selected)
-                    files += (((Photo)item).get_file ());
-                contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
-            } else {
-                Photo photo = (Photo) get_view ().get_selected_source_at (0);
-                contracts = Granite.Services.ContractorProxy.get_contracts_for_file (photo.get_file ());
-            }
+            var selected = get_view ().get_selected_sources ();
+            foreach (var item in selected)
+                files += (((Photo)item).get_file ());
+            contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
         } catch (Error e) {
             warning (e.message);
         }
@@ -2679,16 +2674,12 @@ public class ContractMenuItem : Gtk.MenuItem {
             File[] modified_files = null;
             foreach (var source in sources) {
                 Photo modified_file = (Photo)source;
-                if (modified_file.get_file_format () == PhotoFileFormat.RAW)
+                if modified_files.get_file_format () == PhotoFormat.RAW
                     modified_files += modified_file.get_file ();
                 else
                     modified_files += modified_file.get_modified_file ();
             }
-
-            if (modified_files.length > 1)
-                contract.execute_with_files (modified_files);
-            else
-                contract.execute_with_file (modified_files[0]);
+            contract.execute_with_files (modified_files);
         } catch (Error err) {
             warning (err.message);
         }
