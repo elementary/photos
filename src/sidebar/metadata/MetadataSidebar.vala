@@ -15,7 +15,6 @@ public class MetadataView : Gtk.ScrolledWindow {
     public MetadataView () {
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-
         properties_collection.append (new LibraryProperties ());
         properties_collection.append (new BasicProperties ());
         properties_collection.append (new ExtendedProperties ());
@@ -25,7 +24,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         grid.set_row_spacing (16);
         grid.margin = 5;
-        this.add (notebook);
+        add (notebook);
         notebook.append_page (grid);
         notebook.append_page (colletion_page_properties);
         notebook.append_page (no_items_label);
@@ -51,6 +50,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         if (view == null) {
             notebook.set_current_page ( notebook.page_num (no_items_label));
+            save_changes ();
             return;
         }
 
@@ -65,6 +65,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         if (iter == null || count == 0) {
             notebook.set_current_page (notebook.page_num (no_items_label));
+            save_changes ();
             return;
         }
 
@@ -81,6 +82,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         int page_num = 0;
         if (display_single) {
+            save_changes ();
             colletion_page_properties.update_properties (page);
             page_num = notebook.page_num (colletion_page_properties);
         } else {

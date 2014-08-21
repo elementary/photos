@@ -93,7 +93,7 @@ private class LibraryProperties : Properties {
             spacerrate.hexpand = true;
 
             var toolbtn_flag = new Gtk.ToggleButton ();
-            toolbtn_flag.image = new Gtk.Image.from_icon_name (Resources.ICON_FILTER_FLAGGED, Gtk.IconSize.MENU);
+            toolbtn_flag.image = new Gtk.Image.from_icon_name (Resources.EDIT_FLAG, Gtk.IconSize.MENU);
             toolbtn_flag.halign = Gtk.Align.END;
             toolbtn_flag.valign = Gtk.Align.END;
             toolbtn_flag.set_active (is_flagged);

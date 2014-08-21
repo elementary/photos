@@ -28,7 +28,6 @@ public abstract class CollectionPage : MediaPage {
 
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
-    private Gtk.ToolButton show_sidebar_button;
     public CollectionPage (string page_name) {
         base (page_name);
 
@@ -69,9 +68,10 @@ public abstract class CollectionPage : MediaPage {
 
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
-    		show_sidebar_button.clicked.connect (on_show_sidebar);
-    		toolbar.insert (show_sidebar_button, -1);
-            toggle_sidebar_button_image ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
 
         return toolbar;
@@ -605,15 +605,7 @@ public abstract class CollectionPage : MediaPage {
     private void on_show_sidebar () {
         var app = AppWindow.get_instance () as LibraryWindow;
         app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-        toggle_sidebar_button_image ();
-    }
-
-    private void toggle_sidebar_button_image () {
-        var app = AppWindow.get_instance () as LibraryWindow;
-        if (app.is_metadata_sidebar_visible ())
-            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
-        else
-            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     private void on_rotate_clockwise () {

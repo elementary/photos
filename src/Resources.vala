@@ -85,6 +85,7 @@ public const string HIDE_PANE = "shotwell-hide-pane";
 public const string SHOW_PANE = "shotwell-show-pane";
 public const string CROP_PIVOT_RETICLE = "shotwell-crop-pivot-reticle";
 public const string PUBLISH = "applications-internet";
+public const string EDIT_FLAG= "edit-flag";
 public const string MERGE = "shotwell-merge-events";
 
 public const string ICON_APP = "multimedia-photo-manager";
@@ -137,6 +138,7 @@ public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "videos-page";
 public const string ICON_FLAGGED_PAGE = "flag-page";
 public const string ICON_FLAGGED_TRINKET = "flag-trinket.png";
+public const string ICON_EDIT_FLAGGED = "filter-flagged";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
 public const string ROTATE_CW_LABEL = _("Rotate");
@@ -263,9 +265,13 @@ public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo")
 
 public const string EXPORT_MENU = _("_Export...");
 
-public const string TOGGLE_METAPANE_MENU = _("_Toggle metadata sidebar");
-public const string TOGGLE_METAPANE_LABEL = _("Toggle metadata sidebar");
-public const string TOGGLE_METAPANE_TOOLTIP = _("Toggles the left metadata sidebar");
+public const string TOGGLE_METAPANE_MENU = _("_Show details");
+public const string TOGGLE_METAPANE_LABEL = _("Show details");
+public const string TOGGLE_METAPANE_TOOLTIP = _("Shows details sidebar");
+
+public const string UNTOGGLE_METAPANE_MENU = _("_Hide details");
+public const string UNTOGGLE_METAPANE_LABEL = _("Hide details");
+public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hides details sidebar");
 
 public const string PRINT_MENU = _("_Print...");
 

@@ -13,6 +13,8 @@ public abstract class Properties : Gtk.Grid {
     }
 
     protected void add_line (string label_text, string info_text, bool multi_line = false) {
+        if (info_text == null || info_text == "")
+            return;
         Gtk.Label label = new Gtk.Label ("");
         Gtk.Widget info;
 

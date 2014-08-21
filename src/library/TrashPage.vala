@@ -24,7 +24,6 @@ public class TrashPage : CheckerboardPage {
 
     private TrashSearchViewFilter search_filter = new TrashSearchViewFilter ();
     private MediaViewTracker tracker;
-    private Gtk.ToolButton show_sidebar_button;
 
     public TrashPage () {
         base (NAME);
@@ -63,7 +62,8 @@ public class TrashPage : CheckerboardPage {
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
             toolbar.insert (show_sidebar_button, -1);
-            toggle_sidebar_button_image ();
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
         return toolbar;
     }
@@ -149,15 +149,7 @@ public class TrashPage : CheckerboardPage {
     private void on_show_sidebar () {
         var app = AppWindow.get_instance () as LibraryWindow;
         app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-        toggle_sidebar_button_image ();
-    }
-
-    private void toggle_sidebar_button_image () {
-        var app = AppWindow.get_instance () as LibraryWindow;
-        if (app.is_metadata_sidebar_visible ())
-            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
-        else
-            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 }
 

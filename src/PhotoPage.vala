@@ -413,7 +413,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private double saved_slider_val = 0.0;
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int> ();
-    protected Gtk.ToolButton show_sidebar_button;
 
     public EditingHostPage (SourceCollection sources, string name) {
         base (name, false);
@@ -541,7 +540,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         show_sidebar_button = MediaPage.create_sidebar_button ();
         show_sidebar_button.clicked.connect (on_show_sidebar);
         toolbar.insert (show_sidebar_button, -1);
-        toggle_sidebar_button_image ();
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     ~EditingHostPage () {
@@ -554,15 +554,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private void on_show_sidebar () {
         var app = AppWindow.get_instance () as LibraryWindow;
         app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-        toggle_sidebar_button_image ();
-    }
-
-    private void toggle_sidebar_button_image () {
-        var app = AppWindow.get_instance () as LibraryWindow;
-        if (app.is_metadata_sidebar_visible ())
-            show_sidebar_button.set_stock_id (Resources.HIDE_PANE);
-        else
-            show_sidebar_button.set_stock_id (Resources.SHOW_PANE);
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     private void on_zoom_slider_value_changed () {
@@ -862,6 +854,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // check if the photo altered while away
         if (has_photo () && pixbuf_dirty)
             replace_photo (get_photo ());
+            
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     public override void switching_from () {
@@ -1371,7 +1366,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
                                    is_enhance_available (photo) : false;
         straighten_button.sensitive = ((photo != null) && (!photo_missing)) ?
                                       EditingTools.StraightenTool.is_available (photo, scaling) : false;
-		toggle_sidebar_button_image ();
 
         base.update_actions (selected_count, count);
     }
