@@ -10,11 +10,12 @@ private class LibraryProperties : Properties {
     private string comment;
     private Gtk.Entry title_entry;
     private Gtk.Entry tags_entry;
-    Gtk.TextView comment_entry;
+    PlaceHolderTextView comment_entry;
     private bool is_media;
     private string title;
     private string tags;
     private bool is_flagged = false;
+    Gtk.ToggleButton toolbtn_flag = null;
 
     public LibraryProperties () {
         set_column_homogeneous (true);
@@ -74,14 +75,11 @@ private class LibraryProperties : Properties {
             title_entry.changed.connect (title_entry_changed);
             add_entry_line ("Title", title_entry);
 
-            comment_entry = new Gtk.TextView ();
+            comment_entry = new PlaceHolderTextView (comment, "Comment");
             comment_entry.set_wrap_mode (Gtk.WrapMode.WORD);
             comment_entry.set_size_request (-1, 50);
             // textview in sidebar css class for non entry we make an exception
             comment_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ENTRY);
-            if (comment != null)
-                comment_entry.buffer.text = comment;
-            comment_entry.buffer.changed.connect (comment_entry_changed);
             add_entry_line ("Comment", comment_entry);
 
             var rating_widget = new PhotoRatingWidget (true, 15);
@@ -92,12 +90,13 @@ private class LibraryProperties : Properties {
             spacerrate.set_size_request (50, -1);
             spacerrate.hexpand = true;
 
-            var toolbtn_flag = new Gtk.ToggleButton ();
+            toolbtn_flag = new Gtk.ToggleButton ();
             toolbtn_flag.image = new Gtk.Image.from_icon_name (Resources.EDIT_FLAG, Gtk.IconSize.MENU);
             toolbtn_flag.halign = Gtk.Align.END;
             toolbtn_flag.valign = Gtk.Align.END;
             toolbtn_flag.set_active (is_flagged);
             toolbtn_flag.clicked.connect (flag_btn_clicked);
+            update_flag_action ();
 
             var rate_grid = new Gtk.Grid ();
             rate_grid.hexpand = true;
@@ -142,6 +141,14 @@ private class LibraryProperties : Properties {
             else
                 flaggable.mark_flagged ();
         }
+        update_flag_action ();
+    }
+
+    private void update_flag_action () {
+        if (toolbtn_flag.active)
+            toolbtn_flag.tooltip_text = Resources.UNFLAG_LABEL;
+        else
+            toolbtn_flag.tooltip_text = Resources.FLAG_LABEL;
     }
 
     private void title_entry_changed () {
@@ -152,11 +159,8 @@ private class LibraryProperties : Properties {
         tags = tags_entry.get_text ();
     }
 
-    private void comment_entry_changed () {
-        comment = comment_entry.buffer.text;
-    }
-
     public override void save_changes_to_source () {
+        comment = comment_entry.get_text ();
         if (media_source != null && is_media) {
             if (title != null && title != media_source.get_name ())
                 AppWindow.get_command_manager ().execute (new EditTitleCommand (media_source, title));
@@ -169,13 +173,11 @@ private class LibraryProperties : Properties {
     }
 
     private void add_entry_line (string label_text, Gtk.Widget entry) {
-        Gtk.Label label = new Gtk.Label (label_text);
-        label.halign = Gtk.Align.START;
-        label.set_justify (Gtk.Justification.LEFT);
-        label.set_markup (GLib.Markup.printf_escaped ("<span font_weight=\"bold\">%s</span>", label_text));
+        Gtk.Entry text_entry = entry as Gtk.Entry;
+        if (text_entry != null)
+            text_entry.placeholder_text = label_text;
+        entry.tooltip_text = label_text;
 
-        attach (label, 0, (int) line_count, 1, 1);
-        line_count++;
         attach (entry, 0, (int) line_count, 1, 1);
         line_count++;
 
@@ -240,6 +242,45 @@ private class LibraryProperties : Properties {
                 tags_entry.text = tags;
             else
                 tags_entry.text = "";
+        }
+    }
+
+    private class PlaceHolderTextView : Gtk.TextView {
+        public string placeholder_text;
+        private Gtk.TextBuffer placeholder_buffer = new Gtk.TextBuffer (null);
+        public Gtk.TextBuffer original_buffer = new Gtk.TextBuffer (null);
+
+        public PlaceHolderTextView (string? text, string placeholder_text) {
+            this.placeholder_buffer.text = this.placeholder_text = placeholder_text;
+            if (text == null || text == "") {
+                this.buffer = placeholder_buffer;
+                this.original_buffer.text = "";
+            } else {
+                this.buffer = original_buffer;
+                this.buffer.text = text;
+            }
+
+            this.focus_in_event.connect (focus_in);
+            this.focus_out_event.connect (focus_out);
+        }
+
+        public string get_text () {
+            if (original_buffer != null && original_buffer.text != null)
+                return original_buffer.text;
+            else {
+                return "";
+            }
+        }
+
+        private bool focus_in (Gdk.EventFocus event) {
+            this.buffer = original_buffer;
+            return false;
+        }
+
+        private bool focus_out (Gdk.EventFocus event) {
+            if (this.buffer.text == null || this.buffer.text == "")
+                this.buffer = placeholder_buffer;
+            return false;
         }
     }
 }

@@ -11,7 +11,7 @@ public class MetadataView : Gtk.ScrolledWindow {
     private int line_count = 0;
     private BasicProperties colletion_page_properties = new BasicProperties ();
     private Gtk.Label no_items_label = new Gtk.Label ("No items selected");
-
+    public const int SIDEBAR_PADDING = 12;
     public MetadataView () {
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
@@ -23,7 +23,8 @@ public class MetadataView : Gtk.ScrolledWindow {
             add_expander (properties);
 
         grid.set_row_spacing (16);
-        grid.margin = 5;
+        grid.margin = SIDEBAR_PADDING;
+        colletion_page_properties.margin = SIDEBAR_PADDING;
         add (notebook);
         notebook.append_page (grid);
         notebook.append_page (colletion_page_properties);

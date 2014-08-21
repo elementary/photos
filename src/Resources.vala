@@ -265,13 +265,13 @@ public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo")
 
 public const string EXPORT_MENU = _("_Export...");
 
-public const string TOGGLE_METAPANE_MENU = _("_Show details");
-public const string TOGGLE_METAPANE_LABEL = _("Show details");
-public const string TOGGLE_METAPANE_TOOLTIP = _("Shows details sidebar");
+public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
+public const string TOGGLE_METAPANE_LABEL = _("Show info panel");
+public const string TOGGLE_METAPANE_TOOLTIP = _("Show info panel");
 
-public const string UNTOGGLE_METAPANE_MENU = _("_Hide details");
-public const string UNTOGGLE_METAPANE_LABEL = _("Hide details");
-public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hides details sidebar");
+public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
+public const string UNTOGGLE_METAPANE_LABEL = _("Hide info panel");
+public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
 public const string PRINT_MENU = _("_Print...");
 
@@ -317,7 +317,9 @@ public const string FIND_LABEL = _("Find");
 public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
 
 public const string FLAG_MENU = _("_Flag");
+public const string FLAG_LABEL = _("Flag");
 public const string UNFLAG_MENU = _("Un_flag");
+public const string UNFLAG_LABEL = _("Unflag");
 
 public const string BASIC_PROPERTIES_LABEL = _("Image Details");
 public const string EXTENDED_PROPERTIES_LABEL = _("Extended Details");

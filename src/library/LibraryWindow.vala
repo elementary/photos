@@ -389,7 +389,7 @@ public class LibraryWindow : AppWindow {
         Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, TRANSLATABLE,
                                           "F10", TRANSLATABLE, on_display_metadata_sidebar, is_metadata_sidebar_visible ()
                                         };
-        meta_sidebar.label = _ ("In_fo Sidebar");
+        meta_sidebar.label = _ ("Edit Photo In_fo");
         actions += meta_sidebar;
 
         return actions;

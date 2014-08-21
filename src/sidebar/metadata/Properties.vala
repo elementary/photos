@@ -20,7 +20,7 @@ public abstract class Properties : Gtk.Grid {
 
         label.set_justify (Gtk.Justification.RIGHT);
 
-        label.set_markup (GLib.Markup.printf_escaped ("<span font_weight=\"bold\">%s</span>", label_text));
+        label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
 
         if (multi_line) {
             Gtk.ScrolledWindow info_scroll = new Gtk.ScrolledWindow (null, null);
