@@ -234,23 +234,30 @@ public abstract class Photo : PhotoSource, Dateable {
         private Photo photo;
         private Orientation orientation;
         private Gee.HashMap<string, KeyValueMap>? transformations;
+        private Gee.HashMap<string, KeyValueMap>? original_transformations;
         private PixelTransformer? transformer;
         private PixelTransformationBundle? adjustments;
+        private bool enhanced;
 
         public PhotoTransformationStateImpl (Photo photo, Orientation orientation,
                                              Gee.HashMap<string, KeyValueMap>? transformations, PixelTransformer? transformer,
-                                             PixelTransformationBundle? adjustments) {
+                                             PixelTransformationBundle? adjustments,Gee.HashMap<string, KeyValueMap>? original_transformations, bool enhanced) {
             this.photo = photo;
             this.orientation = orientation;
             this.transformations = copy_transformations (transformations);
+            this.original_transformations = copy_transformations (original_transformations);
             this.transformer = transformer;
             this.adjustments = adjustments;
-
+            this.enhanced = enhanced;
             photo.baseline_replaced.connect (on_photo_baseline_replaced);
         }
 
         ~PhotoTransformationStateImpl () {
             photo.baseline_replaced.disconnect (on_photo_baseline_replaced);
+        }
+
+        public bool get_enhanced () {
+            return enhanced;
         }
 
         public Orientation get_orientation () {
@@ -259,6 +266,10 @@ public abstract class Photo : PhotoSource, Dateable {
 
         public Gee.HashMap<string, KeyValueMap>? get_transformations () {
             return copy_transformations (transformations);
+        }        
+
+        public Gee.HashMap<string, KeyValueMap>? get_original_transformations () {
+            return copy_transformations (original_transformations);
         }
 
         public PixelTransformer? get_transformer () {
@@ -1543,7 +1554,6 @@ public abstract class Photo : PhotoSource, Dateable {
             set_title (reimport_state.metadata.get_title ());
             set_comment (reimport_state.metadata.get_comment ());
             set_rating (reimport_state.metadata.get_rating ());
-          //  set_enhanced (reimport_state.metadata.get_enhanced ());
             apply_user_metadata_for_reimport (reimport_state.metadata);
         }
 
@@ -2778,7 +2788,8 @@ public abstract class Photo : PhotoSource, Dateable {
             return new PhotoTransformationStateImpl (this, row.orientation,
                     row.transformations,
                     transformer != null ? transformer.copy () : null,
-                    adjustments != null ? adjustments.copy () : null);
+                    adjustments != null ? adjustments.copy () : null,
+                    row.original_transforms, row.enhanced);
         }
     }
 
@@ -2788,17 +2799,21 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
 
         Orientation saved_orientation = state_impl.get_orientation ();
+        bool saved_enhanced = state_impl.get_enhanced ();
         Gee.HashMap<string, KeyValueMap>? saved_transformations = state_impl.get_transformations ();
+        Gee.HashMap<string, KeyValueMap>? saved_original_transformations = state_impl.get_original_transformations ();
         PixelTransformer? saved_transformer = state_impl.get_transformer ();
         PixelTransformationBundle? saved_adjustments = state_impl.get_color_adjustments ();
 
         bool committed;
         lock (row) {
             committed = PhotoTable.get_instance ().set_transformation_state (row.photo_id,
-                        saved_orientation, saved_transformations);
+                        saved_orientation, saved_transformations, saved_transformations, saved_enhanced);
             if (committed) {
                 row.orientation = saved_orientation;
                 row.transformations = saved_transformations;
+                row.original_transforms = saved_original_transformations;
+                row.enhanced = saved_enhanced;
                 transformer = saved_transformer;
                 adjustments = saved_adjustments;
             }
@@ -2819,7 +2834,7 @@ public abstract class Photo : PhotoSource, Dateable {
         lock (row) {
             is_altered = PhotoTable.get_instance ().remove_all_transformations (row.photo_id);
             row.transformations = null;
-
+            row.enhanced = false;
             transformer = null;
             adjustments = null;
 

@@ -741,7 +741,9 @@ public class PhotoTable : DatabaseTable {
     }
 
     public bool set_transformation_state (PhotoID photo_id, Orientation orientation,
-                                          Gee.HashMap<string, KeyValueMap>? transformations) {
+                                          Gee.HashMap<string, KeyValueMap>? transformations,
+                                          Gee.HashMap<string, KeyValueMap>? original_transforms = null,
+                                          bool enhanced = false) {
         Sqlite.Statement stmt;
         int res = db.prepare_v2 ("UPDATE PhotoTable SET orientation = ?, transformations = ? WHERE id = ?",
                                  -1, out stmt);
@@ -893,6 +895,7 @@ public class PhotoTable : DatabaseTable {
     }
 
     public bool remove_all_transformations (PhotoID photo_id) {
+        set_enhanced (photo_id, false);
         if (get_raw_transformations (photo_id) == null)
             return false;
 

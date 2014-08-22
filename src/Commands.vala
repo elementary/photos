@@ -783,6 +783,7 @@ public class EnhanceMultipleCommand : MultiplePhotoTransformationCommand {
     }
 }
 
+// Different from undo as these restore state from db
 public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
     public UnEnhanceSingleCommand (Photo photo) {
         base (photo, Resources.UNENHANCE_LABEL, Resources.ENHANCE_TOOLTIP);
