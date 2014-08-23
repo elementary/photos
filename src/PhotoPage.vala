@@ -789,9 +789,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
             enhance_button.clicked.disconnect (on_enhance);
             enhance_button.active = get_photo ().is_enhanced ();
             enhance_button.clicked.connect (on_enhance);
-        } else {
+        } else 
             set_action_sensitive ("Enhance", false);
-        }
     }
 
     public bool has_photo () {
@@ -3453,9 +3452,8 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private void on_metadata_altered (Gee.Map<DataObject, Alteration> map) {
-        if (has_photo ()) {
+        if (has_photo ())
             update_enhance_action ();
-        }
         if (map.has_key (get_photo ()) && map.get (get_photo ()).has_subject ("metadata"))
             repaint ();
     }

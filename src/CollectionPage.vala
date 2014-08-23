@@ -428,7 +428,7 @@ public abstract class CollectionPage : MediaPage {
 
     private void update_enhance_toggled () {
         bool toggled = false;
-        foreach (DataView view in get_view () .get_selected ()) {
+        foreach (DataView view in get_view ().get_selected ()) {
             Photo photo = view.get_source () as Photo;
             if (photo != null && !photo.is_enhanced ()) {
                 toggled = false;
@@ -713,9 +713,9 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () == 0)
             return;
             
-        /* If one photo in the selection is unenhanced set enhance button to untoggled
-           we also just want to execute the enhance command on the unenhanced so we can unenhance properley
-           on those that were previousley enhanced. Also need to sort out non photos */
+        /* If one photo in the selection is unenhanced, set the enhance button to untoggled. 
+          We also just want to execute the enhance command on the unenhanced photo so that
+          we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view () .get_selected ()) {
@@ -862,4 +862,3 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 }
-

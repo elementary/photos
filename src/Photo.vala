@@ -2563,14 +2563,14 @@ public abstract class Photo : PhotoSource, Dateable {
             map = row.original_transforms.get ("adjustments");
             if (map != null)
                 map = map.copy ();
-        }
-        else 
+        } else 
             map = new KeyValueMap ("adjustments");
 
         if (map == null)
             original_adjustments.set_to_identity ();
         else
             original_adjustments.load (map);
+            
         return original_adjustments;
     }
 
@@ -4424,7 +4424,7 @@ public abstract class Photo : PhotoSource, Dateable {
         lock (row) {
             if (row.enhanced) {
                 if (row.original_transforms == null || row.original_transforms.get ("adjustments") == null) {
-                    remove_transformation("adjustments");
+                    remove_transformation ("adjustments");
                     bool result = false;
                     result = remove_transformation ("adjustments");
                     adjustments = null;
@@ -4433,7 +4433,7 @@ public abstract class Photo : PhotoSource, Dateable {
                         notify_altered (new Alteration ("image", "color-adjustments"));
                 }
                 else
-                    set_color_adjustments (locked_original_color_adjustments());
+                    set_color_adjustments (locked_original_color_adjustments ());
                 set_enhanced (false);
                 return true;
             }
