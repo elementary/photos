@@ -398,8 +398,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleToolButton straighten_button = null;
     private Gtk.ToolButton enhance_button = null;
     private Gtk.Scale zoom_slider = null;
-    private Gtk.ToolButton prev_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_BACK);
-    private Gtk.ToolButton next_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_FORWARD);
+    private Gtk.ToolButton prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+    private Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
@@ -434,10 +434,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Gtk.Toolbar toolbar = get_toolbar ();
 
         // rotate tool
-        rotate_button = new Gtk.ToolButton.from_stock ("");
-        rotate_button.set_icon_name (Resources.CLOCKWISE);
-        rotate_button.set_label (Resources.ROTATE_CW_LABEL);
-        rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
+        rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
+        rotate_button.set_tooltip_text (_("Rotate the photos right (press Ctrl to rotate left)"));
         rotate_button.clicked.connect (on_rotate_clockwise);
         rotate_button.is_important = true;
         toolbar.insert (rotate_button, -1);
