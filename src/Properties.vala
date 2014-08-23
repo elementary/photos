@@ -650,7 +650,7 @@ private class ExtendedPropertiesWindow : Gtk.Dialog {
         alignment.add (properties);
         alignment.set_padding (4, 4, 4, 4);
         ((Gtk.Box) get_content_area ()).add (alignment);
-        close_button = new Gtk.Button.from_stock (Gtk.Stock.CLOSE);
+        close_button = new Gtk.Button.with_label (_("Close"));
         close_button.clicked.connect (on_close_clicked);
 
         Gtk.Alignment action_alignment = new Gtk.Alignment (1, 0.5f, 1, 1);

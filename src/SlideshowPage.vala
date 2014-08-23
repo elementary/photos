@@ -157,29 +157,26 @@ class SlideshowPage : SinglePhotoPage {
         Gtk.Toolbar toolbar = get_toolbar ();
 
         // add toolbar buttons
-        Gtk.ToolButton previous_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_BACK);
-        previous_button.set_label (_ ("Back"));
+        Gtk.ToolButton previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
         previous_button.set_tooltip_text (_ ("Go to the previous photo"));
         previous_button.clicked.connect (on_previous_photo);
 
         toolbar.insert (previous_button, -1);
 
-        play_pause_button = new Gtk.ToolButton.from_stock (Gtk.Stock.MEDIA_PAUSE);
-        play_pause_button.set_label (_ ("Pause"));
+        play_pause_button = new Gtk.ToolButton (null, _("Pause"));
+        play_pause_button.set_icon_name ("media-playback-pause-symbolic");
         play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
         play_pause_button.clicked.connect (on_play_pause);
 
         toolbar.insert (play_pause_button, -1);
 
-        Gtk.ToolButton next_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_FORWARD);
-        next_button.set_label (_ ("Next"));
+        Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
         next_button.set_tooltip_text (_ ("Go to the next photo"));
         next_button.clicked.connect (on_next_photo);
 
         toolbar.insert (next_button, -1);
 
-        settings_button = new Gtk.ToolButton.from_stock (Gtk.Stock.PREFERENCES);
-        settings_button.set_label (_ ("Settings"));
+        settings_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), _("Settings"));
         settings_button.set_tooltip_text (_ ("Change slideshow settings"));
         settings_button.clicked.connect (on_change_settings);
         settings_button.is_important = true;
@@ -265,11 +262,11 @@ class SlideshowPage : SinglePhotoPage {
 
     private void on_play_pause () {
         if (playing) {
-            play_pause_button.set_stock_id (Gtk.Stock.MEDIA_PLAY);
+            play_pause_button.set_icon_name ("media-playback-start-symbolic");
             play_pause_button.set_label (_ ("Play"));
             play_pause_button.set_tooltip_text (_ ("Continue the slideshow"));
         } else {
-            play_pause_button.set_stock_id (Gtk.Stock.MEDIA_PAUSE);
+            play_pause_button.set_icon_name ("media-playback-pause-symbolic");
             play_pause_button.set_label (_ ("Pause"));
             play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
         }
@@ -463,4 +460,3 @@ class SlideshowPage : SinglePhotoPage {
             paint_title (ctx, ctx_dim);
     }
 }
-
