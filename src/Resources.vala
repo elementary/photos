@@ -571,17 +571,19 @@ private Gdk.Pixbuf? get_rating_trinket (Rating rating, int scale) {
 }
 
 private static Gdk.Pixbuf? flag_trinket_cache;
+private static const int flag_padding = 2;
 
 public Gdk.Pixbuf? get_flag_trinket () {
     if (flag_trinket_cache != null)
       return flag_trinket_cache;
 
     int size = 16;
-    Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface (size, size);
+    int padded_size = size + flag_padding * 2;
+    Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface (padded_size, padded_size);
     Cairo.Context cr = surface.context;
 
     cr.set_source_rgba (0, 0, 0, 0.35);
-    cr.rectangle (0, 0, size, size);
+    cr.rectangle (0, 0, padded_size, padded_size);
     cr.paint ();
 
     Gdk.Pixbuf flag;
@@ -592,7 +594,7 @@ public Gdk.Pixbuf? get_flag_trinket () {
         return null;
     }
     
-    Gdk.cairo_set_source_pixbuf (cr, flag, 0, 0);
+    Gdk.cairo_set_source_pixbuf (cr, flag, flag_padding, flag_padding);
     cr.paint ();
     flag_trinket_cache = surface.load_to_pixbuf ();
     return flag_trinket_cache;
