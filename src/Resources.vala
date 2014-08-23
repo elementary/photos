@@ -128,13 +128,10 @@ public const string ICON_FILTER_VIDEOS = "filter-videos";
 public const string ICON_FILTER_VIDEOS_DISABLED = "filter-videos-disabled";
 public const string ICON_FILTER_RAW = "filter-raw";
 public const string ICON_FILTER_RAW_DISABLED = "filter-raw-disabled";
-public const string ICON_FILTER_FLAGGED = "filter-flagged";
-public const string ICON_FILTER_FLAGGED_DISABLED = "filter-flagged-disabled";
 public const string ICON_TRASH_EMPTY = "user-trash";
 public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "videos-page";
-public const string ICON_FLAGGED_PAGE = "flag-page";
-public const string ICON_FLAGGED_TRINKET = "flag-trinket.png";
+public const string ICON_FLAGGED_PAGE = "edit-flag";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
 public const string ROTATE_CW_LABEL = _("Rotate");
@@ -573,6 +570,33 @@ private Gdk.Pixbuf? get_rating_trinket (Rating rating, int scale) {
 
 }
 
+private static Gdk.Pixbuf? flag_trinket_cache;
+
+public Gdk.Pixbuf? get_flag_trinket () {
+    if (flag_trinket_cache != null)
+      return flag_trinket_cache;
+
+    int size = 16;
+    Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface (size, size);
+    Cairo.Context cr = surface.context;
+
+    cr.set_source_rgba (0, 0, 0, 0.35);
+    cr.rectangle (0, 0, size, size);
+    cr.paint ();
+
+    Gdk.Pixbuf flag;
+    Gtk.IconTheme icon_theme = get_icon_theme_engine ();
+    try {
+        flag = icon_theme.load_icon ("edit-flag", size, Gtk.IconLookupFlags.FORCE_SIZE);
+    } catch (Error e) {
+        return null;
+    }
+    
+    Gdk.cairo_set_source_pixbuf (cr, flag, 0, 0);
+    cr.paint ();
+    flag_trinket_cache = surface.load_to_pixbuf ();
+    return flag_trinket_cache;
+}
 
 private void generate_rating_strings () {
     string menu_base = "%s";
@@ -722,13 +746,11 @@ public void init () {
     add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
     add_stock_icon (icons_dir.get_child ("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
     add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FLAGGED_PAGE), ICON_FLAGGED_PAGE);
+
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_CAMERAS), ICON_CAMERAS);
 
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_FLAGGED),
-                                     ICON_FILTER_FLAGGED_DISABLED, dim_pixbuf);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_PHOTOS),
                                      ICON_FILTER_PHOTOS_DISABLED, dim_pixbuf);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_VIDEOS),
