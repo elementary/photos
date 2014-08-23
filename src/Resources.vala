@@ -122,10 +122,6 @@ public const string ICON_LAST_IMPORT = "document-open-recent";
 public const string ICON_MISSING_FILES = "process-stop";
 public const string ICON_PHOTOS = "folder-pictures";
 public const string ICON_SINGLE_PHOTO = "image-x-generic";
-public const string ICON_FILTER_PHOTOS = "filter-photos";
-public const string ICON_FILTER_PHOTOS_DISABLED = "filter-photos-disabled";
-public const string ICON_FILTER_VIDEOS = "filter-videos";
-public const string ICON_FILTER_VIDEOS_DISABLED = "filter-videos-disabled";
 public const string ICON_FILTER_RAW = "filter-raw";
 public const string ICON_FILTER_RAW_DISABLED = "filter-raw-disabled";
 public const string ICON_FILTER_FLAGGED = "filter-flagged";
@@ -727,10 +723,6 @@ public void init () {
 
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_FLAGGED),
                                      ICON_FILTER_FLAGGED_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_PHOTOS),
-                                     ICON_FILTER_PHOTOS_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_VIDEOS),
-                                     ICON_FILTER_VIDEOS_DISABLED, dim_pixbuf);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_RAW),
                                      ICON_FILTER_RAW_DISABLED, dim_pixbuf);
 

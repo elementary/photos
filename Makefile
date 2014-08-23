@@ -200,9 +200,7 @@ ICON_FILES = \
 	two-stars.svg \
 	videos-page.png \
 	generic-plugin.png \
-	filter-raw.png \
-	filter-photos.png \
-	filter-videos.png \
+	filter-raw.svg \
 	filter-flagged.png
 
 HELP_FILES = \
