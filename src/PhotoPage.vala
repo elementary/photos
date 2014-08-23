@@ -435,7 +435,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // rotate tool
         rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
-        rotate_button.set_tooltip_text (_("Rotate the photos right (press Ctrl to rotate left)"));
+        rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
         rotate_button.clicked.connect (on_rotate_clockwise);
         rotate_button.is_important = true;
         toolbar.insert (rotate_button, -1);
@@ -2002,7 +2002,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);
-        rotate_button.show_all();
+        rotate_button.show_all ();
         rotate_button.clicked.disconnect (on_rotate_clockwise);
         rotate_button.clicked.connect (on_rotate_counterclockwise);
 
@@ -2015,7 +2015,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
         rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
-        rotate_button.show_all();
+        rotate_button.show_all ();
         rotate_button.clicked.disconnect (on_rotate_counterclockwise);
         rotate_button.clicked.connect (on_rotate_clockwise);
 
