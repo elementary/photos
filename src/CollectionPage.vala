@@ -775,6 +775,11 @@ public abstract class CollectionPage : MediaPage {
         if (rotate_button != null)
             rotate_button.set_related_action (get_action ("RotateCounterclockwise"));
 
+        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
+                                        as Gtk.ToolButton;
+        if (flip_button != null)
+            flip_button.set_related_action (get_action ("FlipVertically"));
+
         return base.on_ctrl_pressed (event);
     }
 
@@ -783,6 +788,11 @@ public abstract class CollectionPage : MediaPage {
                                         as Gtk.ToolButton;
         if (rotate_button != null)
             rotate_button.set_related_action (get_action ("RotateClockwise"));
+            
+        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
+                                        as Gtk.ToolButton;
+        if (flip_button != null)
+            flip_button.set_related_action (get_action ("FlipHorizontally"));
 
         return base.on_ctrl_released (event);
     }
@@ -791,4 +801,3 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 }
-
