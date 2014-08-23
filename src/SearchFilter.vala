@@ -338,7 +338,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
     // the searchbar.
     // The close menu. Populated below in the constructor.
     private Gtk.Menu close_menu = new Gtk.Menu ();
-    private Gtk.ImageMenuItem close_item = new Gtk.ImageMenuItem.from_stock (Gtk.Stock.CLOSE, null);
+    private Gtk.MenuItem close_item = new Gtk.MenuItem.with_label (_("Close"));
 
     private SearchFilterCriteria criteria = SearchFilterCriteria.ALL;
     private RatingFilter filter = RatingFilter.UNRATED_OR_HIGHER;
@@ -366,7 +366,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         // display it yet; we'll connect it to secondary
         // click later on.
         ((Gtk.MenuItem) close_item).show ();
-        close_item.always_show_image = true;
         close_item.activate.connect ( () => close ());
         close_menu.append (close_item);
 
