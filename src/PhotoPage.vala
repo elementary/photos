@@ -392,6 +392,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
     private Gtk.ToolButton rotate_button = null;
+    private Gtk.ToolButton flip_button = null;
     private Gtk.ToggleToolButton crop_button = null;
     private Gtk.ToggleToolButton redeye_button = null;
     private Gtk.ToggleToolButton adjust_button = null;
@@ -439,6 +440,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
         rotate_button.clicked.connect (on_rotate_clockwise);
         rotate_button.is_important = true;
         toolbar.insert (rotate_button, -1);
+
+        // horizontal flip tool
+        flip_button = new Gtk.ToolButton (null, null);
+        flip_button.set_icon_name (Resources.HFLIP);
+        flip_button.set_label (Resources.HFLIP_LABEL);
+        flip_button.set_tooltip_text (Resources.HFLIP_TOOLTIP);
+        flip_button.clicked.connect (on_flip_horizontally);
+        flip_button.is_important = true;
+        toolbar.insert (flip_button, -1);
 
         // crop tool
         crop_button = new Gtk.ToggleToolButton.from_stock (Resources.CROP);
@@ -1074,6 +1084,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected virtual void update_ui (bool missing) {
         bool sensitivity = !missing;
 
+        flip_button.sensitive = sensitivity;
         rotate_button.sensitive = sensitivity;
         crop_button.sensitive = sensitivity;
         straighten_button.sensitive = sensitivity;
@@ -2006,6 +2017,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
         rotate_button.clicked.disconnect (on_rotate_clockwise);
         rotate_button.clicked.connect (on_rotate_counterclockwise);
 
+        flip_button.set_icon_name (Resources.VFLIP);
+        flip_button.set_label (Resources.VFLIP_LABEL);
+        flip_button.set_tooltip_text (Resources.VFLIP_TOOLTIP);
+        flip_button.clicked.disconnect (on_flip_horizontally);
+        flip_button.clicked.connect (on_flip_vertically);
+
         if (current_tool == null)
             swap_out_original ();
 
@@ -2018,6 +2035,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
         rotate_button.show_all ();
         rotate_button.clicked.disconnect (on_rotate_counterclockwise);
         rotate_button.clicked.connect (on_rotate_clockwise);
+
+        flip_button.set_icon_name (Resources.HFLIP);
+        flip_button.set_label (Resources.HFLIP_LABEL);
+        flip_button.set_tooltip_text (Resources.HFLIP_TOOLTIP);
+        flip_button.clicked.disconnect (on_flip_vertically);
+        flip_button.clicked.connect (on_flip_horizontally);
 
         if (current_tool == null && get_shift_pressed () && !get_alt_pressed ())
             swap_in_original ();

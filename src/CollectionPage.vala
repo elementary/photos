@@ -144,12 +144,14 @@ public abstract class CollectionPage : MediaPage {
                                   TRANSLATABLE, on_flip_horizontally
                                 };
         hflip.label = Resources.HFLIP_MENU;
+        hflip.tooltip = Resources.HFLIP_TOOLTIP;
         actions += hflip;
 
         Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, TRANSLATABLE, null,
                                   TRANSLATABLE, on_flip_vertically
                                 };
         vflip.label = Resources.VFLIP_MENU;
+        vflip.tooltip = Resources.VFLIP_TOOLTIP;
         actions += vflip;
 
         Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
@@ -775,6 +777,11 @@ public abstract class CollectionPage : MediaPage {
         if (rotate_button != null)
             rotate_button.set_related_action (get_action ("RotateCounterclockwise"));
 
+        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
+                                        as Gtk.ToolButton;
+        if (flip_button != null)
+            flip_button.set_related_action (get_action ("FlipVertically"));
+
         return base.on_ctrl_pressed (event);
     }
 
@@ -783,6 +790,11 @@ public abstract class CollectionPage : MediaPage {
                                         as Gtk.ToolButton;
         if (rotate_button != null)
             rotate_button.set_related_action (get_action ("RotateClockwise"));
+            
+        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
+                                        as Gtk.ToolButton;
+        if (flip_button != null)
+            flip_button.set_related_action (get_action ("FlipHorizontally"));
 
         return base.on_ctrl_released (event);
     }
@@ -791,4 +803,3 @@ public abstract class CollectionPage : MediaPage {
         return search_filter;
     }
 }
-
