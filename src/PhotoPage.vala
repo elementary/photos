@@ -399,8 +399,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleToolButton straighten_button = null;
     private Gtk.ToolButton enhance_button = null;
     private Gtk.Scale zoom_slider = null;
-    private Gtk.ToolButton prev_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_BACK);
-    private Gtk.ToolButton next_button = new Gtk.ToolButton.from_stock (Gtk.Stock.GO_FORWARD);
+    private Gtk.ToolButton prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+    private Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
@@ -435,9 +435,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Gtk.Toolbar toolbar = get_toolbar ();
 
         // rotate tool
-        rotate_button = new Gtk.ToolButton.from_stock ("");
-        rotate_button.set_icon_name (Resources.CLOCKWISE);
-        rotate_button.set_label (Resources.ROTATE_CW_LABEL);
+        rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
         rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
         rotate_button.clicked.connect (on_rotate_clockwise);
         rotate_button.is_important = true;
@@ -2013,9 +2011,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
-        rotate_button.set_icon_name (Resources.COUNTERCLOCKWISE);
-        rotate_button.set_label (Resources.ROTATE_CCW_LABEL);
+        rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);
+        rotate_button.show_all ();
         rotate_button.clicked.disconnect (on_rotate_clockwise);
         rotate_button.clicked.connect (on_rotate_counterclockwise);
 
@@ -2032,9 +2030,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
-        rotate_button.set_icon_name (Resources.CLOCKWISE);
-        rotate_button.set_label (Resources.ROTATE_CW_LABEL);
+        rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
+        rotate_button.show_all ();
         rotate_button.clicked.disconnect (on_rotate_counterclockwise);
         rotate_button.clicked.connect (on_rotate_clockwise);
 
@@ -2367,6 +2365,19 @@ public class LibraryPhotoPage : EditingHostPage {
     ~LibraryPhotoPage () {
         LibraryPhoto.global.item_destroyed.disconnect (on_photo_destroyed);
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
+    }
+
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            base.get_toolbar ();
+
+            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
+            slideshow_button.set_tooltip_text (_("Play a slideshow"));
+            slideshow_button.clicked.connect (on_slideshow);
+            get_toolbar ().insert (slideshow_button, 0);
+        }
+        return toolbar;
     }
 
     public bool not_trashed_view_filter (DataView view) {
@@ -2721,9 +2732,8 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override InjectionGroup[] init_collect_injection_groups () {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
-        InjectionGroup print_group = new InjectionGroup ("/MenuBar/FileMenu/PrintPlaceholder");
+        InjectionGroup print_group = new InjectionGroup ("/PhotoContextMenu/PrintPlaceholder");
         print_group.add_menu_item ("Print");
-
         groups += print_group;
 
         InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");

@@ -30,14 +30,14 @@ public class Facade : ConfigurationFacade {
     public const int NO_VIDEO_INTERPRETER_STATE = -1;
 
     private const double BLACK_THRESHOLD = 0.61;
-    private const string DARK_SELECTED_COLOR = "#0AD";
-    private const string LIGHT_SELECTED_COLOR = "#2DF";
+    private const string DARK_SELECTED_COLOR = "#08c";
+    private const string LIGHT_SELECTED_COLOR = "#08c";
     private const string DARK_UNSELECTED_COLOR = "#000";
     private const string LIGHT_UNSELECTED_COLOR = "#FFF";
     private const string DARK_BORDER_COLOR = "#999";
     private const string LIGHT_BORDER_COLOR = "#AAA";
-    private const string DARK_UNFOCUSED_SELECTED_COLOR = "#6fc4dd";
-    private const string LIGHT_UNFOCUSED_SELECTED_COLOR = "#99efff";
+    private const string DARK_UNFOCUSED_SELECTED_COLOR = "#888";
+    private const string LIGHT_UNFOCUSED_SELECTED_COLOR = "#888";
 
     private string bg_color = null;
     private string selected_color = null;
@@ -152,4 +152,3 @@ public void terminate () {
 }
 
 }
-

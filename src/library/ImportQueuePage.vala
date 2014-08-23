@@ -28,7 +28,7 @@ public class ImportQueuePage : SinglePhotoPage {
         Gtk.Toolbar toolbar = get_toolbar ();
 
         // Stop button
-        Gtk.ToolButton stop_button = new Gtk.ToolButton.from_stock (Gtk.Stock.STOP);
+        Gtk.ToolButton stop_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
         stop_button.set_related_action (get_action ("Stop"));
 
         toolbar.insert (stop_button, -1);
@@ -206,4 +206,3 @@ public class ImportQueuePage : SinglePhotoPage {
         AppWindow.error_message (message);
     }
 }
-

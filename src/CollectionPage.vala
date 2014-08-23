@@ -60,6 +60,12 @@ public abstract class CollectionPage : MediaPage {
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
             connect_slider (zoom_slider_assembly);
             get_toolbar ().insert (zoom_slider_assembly, -1);
+            
+            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
+            slideshow_button.set_tooltip_text (_("Play a slideshow"));
+            slideshow_button.clicked.connect (on_slideshow);
+            get_toolbar ().insert (slideshow_button, 0);
         }
 
         return toolbar;
@@ -68,8 +74,6 @@ public abstract class CollectionPage : MediaPage {
     private static InjectionGroup create_file_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
 
-        group.add_menu_item ("Print");
-        group.add_separator ();
         group.add_menu_item ("SendTo");
         group.add_menu_item ("SetBackground");
 
@@ -88,8 +92,6 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
 
         group.add_menu_item ("Fullscreen", "CommonFullscreen");
-        group.add_separator ();
-        group.add_menu_item ("Slideshow");
 
         return group;
     }
