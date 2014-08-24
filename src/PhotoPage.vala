@@ -2553,12 +2553,6 @@ public class LibraryPhotoPage : EditingHostPage {
                                            };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-        
-        Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
-                                    TRANSLATABLE, on_send_to
-                                  };
-        send_to.label = Resources.SEND_TO_MENU;
-        actions += send_to;
 
         Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
                                            TRANSLATABLE, on_set_background
@@ -2698,14 +2692,6 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
-
-        // These are identical to add_tags and send_to, except that they have
-        // different mnemonics and are _only_ for use in the context menu.
-        Gtk.ActionEntry send_to_context_menu = { "SendToContextMenu", "document-send", TRANSLATABLE, null,
-                                                 TRANSLATABLE, on_send_to
-                                               };
-        send_to_context_menu.label = Resources.SEND_TO_CONTEXT_MENU;
-        actions += send_to_context_menu;
 
         Gtk.ActionEntry add_tags_context_menu = { "AddTagsContextMenu", null, TRANSLATABLE, "<Ctrl>A", TRANSLATABLE,
                                                   on_add_tags
@@ -2961,7 +2947,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override void update_ui (bool missing) {
         bool sensitivity = !missing;
 
-        set_action_sensitive ("SendTo", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         set_action_sensitive ("CommonJumpToFile", sensitivity);
@@ -3294,11 +3279,6 @@ public class LibraryPhotoPage : EditingHostPage {
             PrintManager.get_instance ().spool_photo (
                 (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
         }
-    }
-
-    private void on_send_to () {
-        if (has_photo ())
-            DesktopIntegration.send_to ((Gee.Collection<Photo>) get_view ().get_selected_sources ());
     }
 
     private void on_export () {

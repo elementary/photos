@@ -6,12 +6,9 @@
 
 namespace DesktopIntegration {
 
-private const string SENDTO_EXEC = "nautilus-sendto";
 private const string DESKTOP_SLIDESHOW_XML_FILENAME = "wallpaper.xml";
 
 private int init_count = 0;
-private bool send_to_installed = false;
-private ExporterUI send_to_exporter = null;
 private ExporterUI desktop_slideshow_exporter = null;
 private double desktop_slideshow_transition = 0.0;
 private double desktop_slideshow_duration = 0.0;
@@ -19,8 +16,6 @@ private double desktop_slideshow_duration = 0.0;
 public void init () {
     if (init_count++ != 0)
         return;
-
-    send_to_installed = Environment.find_program_in_path (SENDTO_EXEC) != null;
 }
 
 public void terminate () {
@@ -84,72 +79,6 @@ public string? get_app_open_command (AppInfo app_info) {
     string? str = app_info.get_commandline ();
 
     return str != null ? str : app_info.get_executable ();
-}
-
-public bool is_send_to_installed () {
-    return send_to_installed;
-}
-
-public void files_send_to (File[] files) {
-    if (files.length == 0)
-        return;
-
-    string[] argv = new string[files.length + 1];
-    argv[0] = SENDTO_EXEC;
-
-    for (int ctr = 0; ctr < files.length; ctr++)
-        argv[ctr + 1] = files[ctr].get_path ();
-
-    try {
-        AppWindow.get_instance ().set_busy_cursor ();
-
-        Pid child_pid;
-        Process.spawn_async (
-            "/",
-            argv,
-            null, // environment
-            SpawnFlags.SEARCH_PATH,
-            null, // child setup
-            out child_pid);
-
-        AppWindow.get_instance ().set_normal_cursor ();
-    } catch (Error err) {
-        AppWindow.get_instance ().set_normal_cursor ();
-        AppWindow.error_message (_ ("Unable to launch Nautilus Send-To: %s").printf (err.message));
-    }
-}
-
-public void send_to (Gee.Collection<MediaSource> media) {
-    if (media.size == 0 || send_to_exporter != null)
-        return;
-
-    ExportDialog dialog = new ExportDialog (_ ("Send To"));
-
-    // determine the mix of media in the export collection -- if it contains only
-    // videos then we can use the Video.export_many( ) fast path and not have to
-    // worry about ExportFormatParameters or the Export... dialog
-    if (MediaSourceCollection.has_video (media) && !MediaSourceCollection.has_photo (media)) {
-        send_to_exporter = Video.export_many ((Gee.Collection<Video>) media,
-                                              on_send_to_export_completed, true);
-        return;
-    }
-
-    int scale;
-    ScaleConstraint constraint;
-    ExportFormatParameters export_params = ExportFormatParameters.current ();
-    if (!dialog.execute (out scale, out constraint, ref export_params))
-        return;
-
-    send_to_exporter = new ExporterUI (new Exporter.for_temp_file (media,
-                                       Scaling.for_constraint (constraint, scale, false), export_params));
-    send_to_exporter.export (on_send_to_export_completed);
-}
-
-private void on_send_to_export_completed (Exporter exporter, bool is_cancelled) {
-    if (!is_cancelled)
-        files_send_to (exporter.get_exported_files ());
-
-    send_to_exporter = null;
 }
 
 public void set_background (Photo photo) {
