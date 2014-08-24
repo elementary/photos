@@ -1493,7 +1493,7 @@ internal class GraphSession {
 
         case EXPIRED_SESSION_STATUS_CODE:
             error = new Spit.Publishing.PublishingError.EXPIRED_SESSION (
-                "OAuth Access Token has Expired. Logout user.", real_message.get_uri (), msg.status_code);
+                "OAuth Access Token has Expired. Logout user. URI: %s STATUS CODE: %u ", real_message.get_uri (), msg.status_code);
             break;
 
         case Soup.KnownStatusCode.CANT_RESOLVE:
@@ -1672,4 +1672,3 @@ internal class Uploader {
 }
 
 }
-
