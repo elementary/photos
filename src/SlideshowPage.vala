@@ -358,6 +358,7 @@ class SlideshowPage : SinglePhotoPage {
 
     public override bool button_press_event (Gdk.EventButton event) {
         if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS && event.button == Gdk.BUTTON_PRIMARY) {
+            hide_toolbar ();
             AppWindow.get_instance ().end_fullscreen ();
             switching_from ();
         }
