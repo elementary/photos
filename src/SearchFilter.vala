@@ -390,7 +390,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
         toolbtn_videos.toggled.connect (on_videos_toggled);
 
         toolbtn_raw = new Gtk.ToggleToolButton ();
-        var raw_icon = new Gtk.Image.from_icon_name (Resources.ICON_FILTER_RAW, Gtk.IconSize.MENU);
+        var raw_icon = new Gtk.Image.from_icon_name ("accessories-camera", Gtk.IconSize.MENU);
         raw_icon.pixel_size = 16;
         toolbtn_raw.set_icon_widget (raw_icon);
         toolbtn_raw.tooltip_text = _ ("RAW photos");
