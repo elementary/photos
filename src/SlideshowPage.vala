@@ -206,7 +206,6 @@ class SlideshowPage : SinglePhotoPage {
 
     public override void switching_from () {
         base.switching_from ();
-
         screensaver.uninhibit ();
         exiting = true;
     }
@@ -355,6 +354,14 @@ class SlideshowPage : SinglePhotoPage {
         on_next_photo ();
 
         return true;
+    }
+
+    public override bool button_press_event (Gdk.EventButton event) {
+        if(event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS && event.button == Gdk.BUTTON_PRIMARY) {
+            AppWindow.get_instance ().end_fullscreen ();
+            switching_from ();
+        }
+        return false;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
