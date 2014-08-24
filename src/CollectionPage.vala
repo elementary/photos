@@ -28,7 +28,7 @@ public abstract class CollectionPage : MediaPage {
 
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
-
+    private Gtk.ToggleToolButton enhance_button = null;
     public CollectionPage (string page_name) {
         base (page_name);
 
@@ -43,6 +43,13 @@ public abstract class CollectionPage : MediaPage {
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
             base.get_toolbar ();
+            // enhance tool
+            enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
+            enhance_button.set_label (Resources.ENHANCE_LABEL);
+            enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
+            enhance_button.clicked.connect (on_enhance);
+            enhance_button.is_important = true;
+            toolbar.insert (enhance_button, 2);
 
             // separator to force slider to right side of toolbar
             Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
@@ -153,13 +160,6 @@ public abstract class CollectionPage : MediaPage {
         vflip.tooltip = Resources.VFLIP_TOOLTIP;
         actions += vflip;
 
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
-                                    TRANSLATABLE, on_enhance
-                                  };
-        enhance.label = Resources.ENHANCE_MENU;
-        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
-        actions += enhance;
-
         Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, TRANSLATABLE,
                                              "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments
                                            };
@@ -207,6 +207,13 @@ public abstract class CollectionPage : MediaPage {
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
+
+        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
+                                    TRANSLATABLE, on_enhance
+                                  };
+        enhance.label = Resources.ENHANCE_MENU;
+        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
+        actions += enhance;
 
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
                                       on_slideshow
@@ -386,6 +393,8 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
+        enhance_button.sensitive = (!selection_has_videos) && has_selected;
+        update_enhance_toggled ();
 
         set_action_sensitive ("SetBackground", (!selection_has_videos) && has_selected );
         if (has_selected) {
@@ -415,9 +424,31 @@ public abstract class CollectionPage : MediaPage {
             // command available appropriately, even if the selection doesn't change
             set_action_sensitive ("Revert", can_revert_selected ());
             set_action_sensitive ("CopyColorAdjustments", photo.has_color_adjustments ());
-
+            update_enhance_toggled ();
             break;
         }
+    }
+
+    private void update_enhance_toggled () {
+        bool toggled = false;
+        foreach (DataView view in get_view ().get_selected ()) {
+            Photo photo = view.get_source () as Photo;
+            if (photo != null && !photo.is_enhanced ()) {
+                toggled = false;
+                break;
+            }
+            else if (photo != null)
+                toggled = true;
+        }
+
+        enhance_button.clicked.disconnect (on_enhance);
+        enhance_button.active = toggled;
+        enhance_button.clicked.connect (on_enhance);
+
+        Gtk.Action? action = get_action ("Enhance");
+        assert (action != null);
+        action.label = toggled ? Resources.UNENHANCE_MENU : Resources.ENHANCE_MENU;
+
     }
 
     private void on_print () {
@@ -684,9 +715,51 @@ public abstract class CollectionPage : MediaPage {
     private void on_enhance () {
         if (get_view ().get_selected_count () == 0)
             return;
+            
+        /* If one photo in the selection is unenhanced, set the enhance button to untoggled. 
+          We also just want to execute the enhance command on the unenhanced photo so that
+          we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
+        Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
+        Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
+        foreach (DataView view in get_view () .get_selected ()) {
+            Photo photo = view.get_source () as Photo;
+            if (photo != null && !photo.is_enhanced ())
+                unenhanced_list.add (view);
+            else if (photo != null)
+                enhanced_list.add (view);
+        }
 
-        EnhanceMultipleCommand command = new EnhanceMultipleCommand (get_view ().get_selected ());
-        get_command_manager ().execute (command);
+        if (enhanced_list.size == 0 && unenhanced_list.size == 0)
+            return;
+
+        if (unenhanced_list.size == 0) {
+            // Just undo if last on stack was enhance
+            EnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as EnhanceMultipleCommand;
+            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+                get_command_manager ().undo ();
+            else {
+                UnEnhanceMultipleCommand command = new UnEnhanceMultipleCommand (enhanced_list);
+                get_command_manager ().execute (command);     
+            }
+            foreach (DataView view in enhanced_list) {
+                Photo photo = view.get_source () as Photo;
+                photo.set_enhanced (false);   
+            }
+        } else {
+            // Just undo if last on stack was unenhance
+            UnEnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceMultipleCommand;
+            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+                get_command_manager ().undo ();
+            else {
+                EnhanceMultipleCommand command = new EnhanceMultipleCommand (unenhanced_list);
+                get_command_manager ().execute (command);
+            }    
+            foreach (DataView view in enhanced_list) {
+                Photo photo = view.get_source () as Photo;
+                photo.set_enhanced (true);   
+            }  
+        }
+        update_enhance_toggled ();
     }
 
     private void on_duplicate_photo () {
