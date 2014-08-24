@@ -59,12 +59,6 @@ public class DirectPhotoPage : EditingHostPage {
         save_as.tooltip = _ ("Save photo with a different name");
         actions += save_as;
 
-        Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
-                                    TRANSLATABLE, on_send_to
-                                  };
-        send_to.label = Resources.SEND_TO_MENU;
-        actions += send_to;
-
         Gtk.ActionEntry print = { "Print", Gtk.Stock.PRINT, TRANSLATABLE, "<Ctrl>P",
                                   TRANSLATABLE, on_print
                                 };
@@ -231,9 +225,8 @@ public class DirectPhotoPage : EditingHostPage {
     protected override InjectionGroup[] init_collect_injection_groups () {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
-        InjectionGroup print_group = new InjectionGroup ("/MenuBar/FileMenu/PrintPlaceholder");
+        InjectionGroup print_group = new InjectionGroup ("/DirectContextMenu/PrintPlaceholder");
         print_group.add_menu_item ("Print");
-
         groups += print_group;
 
         InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
@@ -356,7 +349,6 @@ public class DirectPhotoPage : EditingHostPage {
 
         set_action_sensitive ("Save", sensitivity);
         set_action_sensitive ("SaveAs", sensitivity);
-        set_action_sensitive ("SendTo", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         set_action_sensitive ("CommonJumpToFile", sensitivity);
@@ -546,11 +538,6 @@ public class DirectPhotoPage : EditingHostPage {
         }
 
         save_as_dialog.destroy ();
-    }
-
-    private void on_send_to () {
-        if (has_photo ())
-            DesktopIntegration.send_to ((Gee.Collection<Photo>) get_view ().get_selected_sources ());
     }
 
     protected override bool on_app_key_pressed (Gdk.EventKey event) {

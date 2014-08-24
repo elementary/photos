@@ -41,13 +41,15 @@
         <menuitem name="NewEvent" action="NewEvent" />
         <menuitem name="ContextJumpToEvent" action="CommonJumpToEvent" />
         <menuitem name="ContextJumpToFile" action="CommonJumpToFile" />
-        <menuitem name="ContextSendTo" action="SendToContextMenu" />
+        <menuitem name="ContextPrint" action="Print"/>
+        <menuitem name="ContextExport" action="Export" />
         <separator />
         <menuitem name="ContextMoveToTrash" action="MoveToTrash" />
     </popup>
     
     <toolbar name="CollectionToolbar">
         <toolitem name="ToolRotate" action="RotateClockwise" />
+        <toolitem name="ToolFlip" action="FlipHorizontally" />
         <separator />
         <toolitem name="ToolPublish" action="Publish" />
         <separator />

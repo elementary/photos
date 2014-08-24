@@ -275,20 +275,6 @@ public abstract class MediaPage : CheckerboardPage {
         export.label = Resources.EXPORT_MENU;
         actions += export;
 
-        Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
-                                    TRANSLATABLE, on_send_to
-                                  };
-        send_to.label = Resources.SEND_TO_MENU;
-        actions += send_to;
-
-        // This is identical to the above action, except that it has different
-        // mnemonics and is _only_ for use in the context menu.
-        Gtk.ActionEntry send_to_context_menu = { "SendToContextMenu", "document-send", TRANSLATABLE, null,
-                                                 TRANSLATABLE, on_send_to
-                                               };
-        send_to_context_menu.label = Resources.SEND_TO_CONTEXT_MENU;
-        actions += send_to_context_menu;
-
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", Gtk.Stock.REMOVE, TRANSLATABLE,
                                                 "<Shift>Delete", TRANSLATABLE, on_remove_from_library
                                               };
@@ -548,11 +534,6 @@ public abstract class MediaPage : CheckerboardPage {
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
         set_action_sensitive ("MoveToTrash", selected_count > 0);
 
-        if (DesktopIntegration.is_send_to_installed ())
-            set_action_sensitive ("SendTo", selected_count > 0);
-        else
-            set_action_visible ("SendTo", false);
-
         set_action_sensitive ("Rate", selected_count > 0);
         update_rating_sensitivities ();
 
@@ -714,10 +695,6 @@ public abstract class MediaPage : CheckerboardPage {
         } else {
             return base.on_mousewheel_down (event);
         }
-    }
-
-    private void on_send_to () {
-        DesktopIntegration.send_to ((Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
 
     protected void on_play_video () {

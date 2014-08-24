@@ -42,16 +42,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-04-25 10:12+0000\n"
-"PO-Revision-Date: 2014-07-11 13:40+0000\n"
-"Last-Translator: Phillip Sz <Unknown>\n"
+"PO-Revision-Date: 2014-08-21 04:42+0000\n"
+"Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: German "
 "(http://www.transifex.com/projects/p/shotwell/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2014-07-12 07:10+0000\n"
-"X-Generator: Launchpad (build 17111)\n"
+"X-Launchpad-Export-Date: 2014-08-22 08:11+0000\n"
+"X-Generator: Launchpad (build 17163)\n"
 "Language: de\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -88,6 +88,7 @@ msgstr ""
 "  Christoph Brill https://launchpad.net/~egore911-4\n"
 "  Phillip Sz https://launchpad.net/~phillip-sz\n"
 "  Tobias Bannert https://launchpad.net/~toba\n"
+"  UweS https://launchpad.net/~uwes\n"
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: ../plugins/shotwell-data-imports/FSpotImporter.vala:34
@@ -108,10 +109,10 @@ msgid ""
 "libraries found by Shotwell or by selecting an alternative F-Spot database "
 "file."
 msgstr ""
-"Herzlich Willkommen zum F-Spot Bibliotheksimport-Dienst.\n"
+"Herzlich willkommen zum F-Spot Bibliotheksimport-Dienst.\n"
 "\n"
 "Bitte wählen Sie eine zu importierende Bibliothek, entweder durch das "
-"Auswählen einer von Shotwell automatisch erkannten Datenbank, oder durch ein "
+"Auswählen einer von Shotwell automatisch erkannten Datenbank oder durch ein "
 "manuelles Auswählen einer F-Spot Datenbankdatei."
 
 #: ../plugins/shotwell-data-imports/FSpotImporter.vala:58
@@ -170,8 +171,8 @@ msgid ""
 msgstr ""
 "Shotwell hat %d Fotos in der F-Spot Datenbank gefunden und importiert diese "
 "zurzeit. Duplikate werden automatisch erkannt und entfernt. ⏎ ⏎ Sie können "
-"diesen Dialog schließen und Shotwell schon einmal nutzen während im "
-"Hintergrund noch der Import läuft."
+"diesen Dialog schließen und mit Shotwell arbeiten, während im Hintergrund "
+"noch der Import läuft."
 
 #: ../plugins/shotwell-data-imports/FSpotImporter.vala:84
 #, c-format
@@ -180,7 +181,7 @@ msgstr "F-Spot Bibliothek: %s"
 
 #: ../plugins/shotwell-data-imports/FSpotImporter.vala:416
 msgid "Preparing to import"
-msgstr "Vorbereite Import"
+msgstr "Import wird vorbereitet"
 
 #: ../plugins/shotwell-data-imports/shotwell-data-imports.vala:22
 msgid "Core Data Import Services"
@@ -1442,7 +1443,7 @@ msgid ""
 "Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Dateien wurden nicht importiert da Sie nicht in die Bibliothek kopiert "
+"Fotos/Filme wurden nicht importiert, da sie nicht in die Bibliothek kopiert "
 "werden konnten:"
 
 #: ../src/Dialogs.vala:616
@@ -1540,10 +1541,10 @@ msgid_plural ""
 "%d photos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Foto wurden nicht importiert, weil der Ordner mit der Foto-Bibliothek "
-"nicht beschreibbar ist:\n"
+"1 Foto wurde nicht importiert, weil der Ordner mit der Foto-Bibliothek nicht "
+"beschreibbar ist:\n"
 msgstr[1] ""
-"%d Fotos wurden nicht importiert, weil der Ordner der Foto-Bibliothek nicht "
+"%d Fotos wurden nicht importiert, da der Foto-Bibliothek Ordner nicht "
 "beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:709
@@ -1554,10 +1555,10 @@ msgid_plural ""
 "%d videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Videos wurden nicht importiert, weil der Foto-Bibliothek Ordner nicht "
+"1 Video wurde nicht importiert, weil der Ordner der Foto-Bibliothek nicht "
 "beschreibbar ist:\n"
 msgstr[1] ""
-"%d Videos wurden nicht importiert, weil der Foto-Bibliothek Ordner nicht "
+"%d Videos wurden nicht importiert, da der Ordner der Foto-Bibliothek nicht "
 "beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:712
@@ -1569,10 +1570,10 @@ msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Fotos/Videos wurden nicht importiert, weil der Foto-Bibliothek Ordner "
+"1 Foto/Video wurde nicht importiert, weil der Ordner der Foto-Bibliothek "
 "nicht beschreibbar ist:\n"
 msgstr[1] ""
-"%d Fotos/Videos wurden nicht importiert, weil der Foto-Bibliothek Ordner "
+"%d Fotos/Videos wurden nicht importiert, da der Ordner der Foto-Bibliothek "
 "nicht beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:715
@@ -1583,10 +1584,10 @@ msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Datei wurde nicht importiert, weil der Ordner mit der Foto-Bibliothek "
-"nicht beschreibbar ist:\n"
+"Eine Datei wurde nicht importiert, weil der Ordner der Foto-Bibliothek nicht "
+"beschreibbar ist:\n"
 msgstr[1] ""
-"%d Dateien wurden nicht importiert, weil der Ordner mit der Foto-Bibliothek "
+"%d Dateien wurden nicht importiert, weil der Ordner der Foto-Bibliothek "
 "nicht beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:729
@@ -1844,8 +1845,8 @@ msgstr "Externe _Veränderungen zurücknehmen"
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
-msgstr[0] "Dies wird das Foto aus der Bibliothek entfernen. Fortsetzen?"
-msgstr[1] "Dies wird %d Fotos aus der Bibliothek entfernen. Fortsetzen?"
+msgstr[0] "Das Foto wird aus der Bibliothek entfernt. Fortfahren?"
+msgstr[1] "%d Fotos werden aus der Bibliothek entfernt. Fortfahren?"
 
 #: ../src/Dialogs.vala:1385
 msgid "_Remove"
@@ -2019,7 +2020,7 @@ msgstr "Diese Meldung nicht noch einmal _zeigen"
 #: ../src/Dialogs.vala:2108
 #, c-format
 msgid "Import photos from your %s library"
-msgstr "Importiere Bilder aus der %s Bibliothek"
+msgstr "Fotos aus der %s-Bibliothek importieren"
 
 #. We're installed system-wide, so use the system help.
 #. We're being run from the build directory; we'll have to handle clicks to this
@@ -3679,13 +3680,15 @@ msgstr "%s Datenbank"
 #: ../src/data_imports/DataImportsPluginHost.vala:294
 #, c-format
 msgid "Importing from %s can't continue because an error occurred:"
-msgstr "Von %s kann nicht weiter importiert werden, da ein Fehler auftrat:"
+msgstr ""
+"Der Import von %s kann nicht fortgesetzt werden, da ein Fehler auftrat:"
 
 #: ../src/data_imports/DataImportsPluginHost.vala:151
 msgid ""
 "To try importing from another service, select one from the above menu."
 msgstr ""
-"Um von einem anderen Dienst zu importieren, wähle einen aus dem Menü oben."
+"Wenn Sie Daten von einem anderen Dienst importieren wollen, wählen Sie "
+"diesen im Menü aus."
 
 #: ../src/data_imports/DataImportsUI.vala:10
 msgid ""
@@ -4019,7 +4022,7 @@ msgstr "Import _abbrechen"
 
 #: ../src/library/ImportQueuePage.vala:67
 msgid "Stop importing photos"
-msgstr "Foto-Import abbrechen"
+msgstr "Fotoimport abbrechen"
 
 #: ../src/library/ImportQueuePage.vala:123
 msgid "Preparing to import..."
@@ -4215,9 +4218,9 @@ msgid ""
 "%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
 "at %s"
 msgstr ""
-"Shotwell konnte ihre Foto-Bibliothek nicht von Version %s (Schema %d) zu %s "
-"(Schema %d) aktualisieren. Schauen Sie bitte für weitere Informationen in "
-"das Shotwell-Wiki unter %s"
+"Shotwell konnte Ihre Foto-Bibliothek nicht von Version %s (Schema %d) zu %s "
+"(Schema %d) aktualisieren. Weitere Informationen finden Sie im Shotwell-Wiki "
+"unter %s"
 
 #: ../src/main.vala:65
 #, c-format
@@ -4251,7 +4254,7 @@ msgstr "Verzeichnis"
 
 #: ../src/main.vala:298
 msgid "Do not monitor library directory at runtime for changes"
-msgstr "Bibliothek nicht auf laufend auf Verändungen"
+msgstr "Bibliothek während der Ausführung nicht auf Verändungen überwachen"
 
 #: ../src/main.vala:302
 msgid "Don't display startup progress meter"
@@ -4689,7 +4692,7 @@ msgstr "schwarz"
 
 #: ../ui/shotwell.glade.h:20
 msgid "_Watch library directory for new files"
-msgstr "_Überwache Bibliotheksordner auf neue Dateien"
+msgstr "Ordner mit Ihrer Bibliothek auf neue Dateien _überwachen"
 
 #: ../ui/shotwell.glade.h:21
 msgid "Metadata"
@@ -4737,7 +4740,7 @@ msgstr "RAW-Entwickler"
 
 #: ../ui/shotwell.glade.h:32
 msgid "De_fault:"
-msgstr "Standart:"
+msgstr "_Vorgabe:"
 
 #: ../ui/shotwell.glade.h:34
 msgid "E_xternal photo editor:"

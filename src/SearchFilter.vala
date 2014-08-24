@@ -338,7 +338,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
     // the searchbar.
     // The close menu. Populated below in the constructor.
     private Gtk.Menu close_menu = new Gtk.Menu ();
-    private Gtk.ImageMenuItem close_item = new Gtk.ImageMenuItem.from_stock (Gtk.Stock.CLOSE, null);
+    private Gtk.MenuItem close_item = new Gtk.MenuItem.with_label (_("Close"));
 
     private SearchFilterCriteria criteria = SearchFilterCriteria.ALL;
     private RatingFilter filter = RatingFilter.UNRATED_OR_HIGHER;
@@ -366,7 +366,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         // display it yet; we'll connect it to secondary
         // click later on.
         ((Gtk.MenuItem) close_item).show ();
-        close_item.always_show_image = true;
         close_item.activate.connect ( () => close ());
         close_menu.append (close_item);
 
@@ -377,17 +376,23 @@ public class SearchFilterToolbar : Gtk.Revealer {
         toolbar.insert (label_type_item, -1);
 
         toolbtn_photos = new Gtk.ToggleToolButton ();
-        toolbtn_photos.icon_name = Resources.ICON_FILTER_PHOTOS;
+        var photos_icon = new Gtk.Image.from_icon_name ("folder-pictures", Gtk.IconSize.MENU);
+        photos_icon.pixel_size = 16;
+        toolbtn_photos.set_icon_widget (photos_icon);
         toolbtn_photos.tooltip_text = _ ("Photos");
         toolbtn_photos.toggled.connect (on_photos_toggled);
 
         toolbtn_videos = new Gtk.ToggleToolButton ();
-        toolbtn_videos.icon_name = Resources.ICON_FILTER_VIDEOS;
+        var videos_icon = new Gtk.Image.from_icon_name ("folder-videos", Gtk.IconSize.MENU);
+        videos_icon.pixel_size = 16;
+        toolbtn_videos.set_icon_widget (videos_icon);
         toolbtn_videos.tooltip_text = _ ("Videos");
         toolbtn_videos.toggled.connect (on_videos_toggled);
 
         toolbtn_raw = new Gtk.ToggleToolButton ();
-        toolbtn_raw.icon_name = Resources.ICON_FILTER_RAW;
+        var raw_icon = new Gtk.Image.from_icon_name ("accessories-camera", Gtk.IconSize.MENU);
+        raw_icon.pixel_size = 16;
+        toolbtn_raw.set_icon_widget (raw_icon);
         toolbtn_raw.tooltip_text = _ ("RAW photos");
         toolbtn_raw.toggled.connect (on_raw_toggled);
 
