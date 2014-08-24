@@ -152,9 +152,11 @@ public const string ROTATE_CCW_TOOLTIP = _("Rotate the photos left");
 
 public const string HFLIP_MENU = _("Flip Hori_zontally");
 public const string HFLIP_LABEL = _("Flip Horizontally");
+public const string HFLIP_TOOLTIP = _("Flip the image horizontally (press Ctrl to flip vertically)");
 
 public const string VFLIP_MENU = _("Flip Verti_cally");
 public const string VFLIP_LABEL = _("Flip Vertically");
+public const string VFLIP_TOOLTIP = _("Flip the image vertically");
 
 public const string ENHANCE_MENU = _("_Enhance");
 public const string ENHANCE_LABEL = _("Enhance");
@@ -777,9 +779,7 @@ public void init () {
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("import.svg"), IMPORT);
     add_stock_icon (icons_dir.get_child ("straighten.svg"), STRAIGHTEN);
-    add_stock_icon (icons_dir.get_child ("import-all.png"), IMPORT_ALL);
     add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
     add_stock_icon (icons_dir.get_child ("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
     add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
