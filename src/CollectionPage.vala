@@ -49,7 +49,7 @@ public abstract class CollectionPage : MediaPage {
             enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
             enhance_button.clicked.connect (on_enhance);
             enhance_button.is_important = true;
-            toolbar.insert (enhance_button, 1);
+            toolbar.insert (enhance_button, 2);
 
             // separator to force slider to right side of toolbar
             Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
