@@ -10,12 +10,12 @@ private class LibraryProperties : Properties {
     private string comment;
     private Gtk.Entry title_entry;
     private Gtk.Entry tags_entry;
-    PlaceHolderTextView comment_entry;
+    private PlaceHolderTextView comment_entry;
     private bool is_media;
     private string title;
     private string tags;
     private bool is_flagged = false;
-    Gtk.ToggleButton toolbtn_flag = null;
+    private Gtk.ToggleButton toolbtn_flag = null;
 
     public LibraryProperties () {
         set_column_homogeneous (true);
@@ -160,8 +160,8 @@ private class LibraryProperties : Properties {
     }
 
     public override void save_changes_to_source () {
-        comment = comment_entry.get_text ();
         if (media_source != null && is_media) {
+            comment = comment_entry.get_text ();
             if (title != null && title != media_source.get_name ())
                 AppWindow.get_command_manager ().execute (new EditTitleCommand (media_source, title));
             if (comment != null && comment != media_source.get_comment ())
