@@ -354,6 +354,24 @@ private VerifyResult upgrade_database (int input_version) {
     // Finalize the upgrade process
     //
 
+    //
+    // Version 21:
+    // * Added enhanced column to PhotoTable for reverting
+    //   the enhance toggle button
+    //
+    if (!DatabaseTable.has_column ("PhotoTable", "enhanced")) {
+        message ("upgrade_database: adding enhanced column to PhotoTable");
+        if (!DatabaseTable.add_column ("PhotoTable", "enhanced", "INTEGER DEFAULT 0"))
+            return VerifyResult.UPGRADE_ERROR;
+    }
+
+    if (!DatabaseTable.has_column ("PhotoTable", "original_transforms")) {
+        message ("upgrade_database: adding original_transforms column to PhotoTable");
+        if (!DatabaseTable.add_column ("PhotoTable", "original_transforms", "TEXT"))
+            return VerifyResult.UPGRADE_ERROR;
+    }
+    version = 21;
+
     assert (version == DatabaseTable.SCHEMA_VERSION);
     VersionTable.get_instance ().update_version (version, Resources.APP_VERSION);
 

@@ -397,7 +397,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleToolButton redeye_button = null;
     private Gtk.ToggleToolButton adjust_button = null;
     private Gtk.ToggleToolButton straighten_button = null;
-    private Gtk.ToolButton enhance_button = null;
+    protected Gtk.ToggleToolButton enhance_button = null;
     private Gtk.Scale zoom_slider = null;
     private Gtk.ToolButton prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
     private Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
@@ -483,7 +483,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (adjust_button, -1);
 
         // enhance tool
-        enhance_button = new Gtk.ToolButton.from_stock (Resources.ENHANCE);
+        enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
         enhance_button.set_label (Resources.ENHANCE_LABEL);
         enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
         enhance_button.clicked.connect (on_enhance);
@@ -797,6 +797,23 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return parent_view;
     }
 
+    protected void update_enhance_action () {
+        if (has_photo ()) {
+            Gtk.Action? action = get_action ("Enhance");
+            assert (action != null);
+
+            bool is_enhanced = get_photo ().is_enhanced ();
+
+            action.label = is_enhanced ? Resources.UNENHANCE_MENU : Resources.ENHANCE_MENU;
+            action.sensitive = true;
+
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = get_photo ().is_enhanced ();
+            enhance_button.clicked.connect (on_enhance);
+        } else 
+            set_action_sensitive ("Enhance", false);
+    }
+
     public bool has_photo () {
         return get_photo () != null;
     }
@@ -821,6 +838,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         else
             set_photo_missing (!new_photo.get_file ().query_exists ());
 
+        update_enhance_action ();
         update_ui (photo_missing);
     }
 
@@ -1989,11 +2007,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    public void on_set_background () {
-        if (has_photo ())
-            DesktopIntegration.set_background (get_photo ());
-    }
-
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);
@@ -2077,7 +2090,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_tool_cancelled () {
         deactivate_tool ();
-
+           
+        update_enhance_action ();
         restore_zoom_state ();
         repaint ();
     }
@@ -2117,6 +2131,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_adjust_toggled () {
         on_tool_button_toggled (adjust_button, EditingTools.AdjustTool.factory);
+
+        // with adjust tool open turn enhance into normal non toggle button 
+        if (adjust_button.active){
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = false;
+            enhance_button.clicked.connect (on_enhance);
+        }
     }
 
     public bool is_enhance_available (Photo photo) {
@@ -2139,12 +2160,36 @@ public abstract class EditingHostPage : SinglePhotoPage {
         EditingTools.AdjustTool adjust_tool = current_tool as EditingTools.AdjustTool;
         if (adjust_tool != null) {
             adjust_tool.enhance ();
-
+            // with adjust tool open turn enhance into normal non toggle button 
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = false;
+            enhance_button.clicked.connect (on_enhance);
             return;
         }
 
-        EnhanceSingleCommand command = new EnhanceSingleCommand (get_photo ());
-        get_command_manager ().execute (command);
+        if (get_photo ().is_enhanced ()) {
+            // Just undo if last on stack was enhance
+            EnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as EnhanceSingleCommand;
+            if (cmd != null && cmd.source == get_photo ())
+                get_command_manager ().undo ();
+            else {
+                UnEnhanceSingleCommand command = new UnEnhanceSingleCommand (get_photo ());
+                get_command_manager ().execute (command);       
+            }
+            get_photo ().set_enhanced (false);
+        } else {
+            // Just undo if last on stack was unenhance
+            UnEnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceSingleCommand;
+            if (cmd != null && cmd.source == get_photo ())
+                get_command_manager ().undo ();
+            else {
+                EnhanceSingleCommand command = new EnhanceSingleCommand (get_photo ());
+                get_command_manager ().execute (command);   
+            }    
+            get_photo ().set_enhanced (true);   
+        }
+
+        update_enhance_action ();
     }
 
     public void on_copy_adjustments () {
@@ -2525,19 +2570,6 @@ public class LibraryPhotoPage : EditingHostPage {
                                            };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-        
-        Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
-                                    TRANSLATABLE, on_send_to
-                                  };
-        send_to.label = Resources.SEND_TO_MENU;
-        actions += send_to;
-
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
 
         Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
         flag.label = Resources.FLAG_MENU;
@@ -2659,13 +2691,6 @@ public class LibraryPhotoPage : EditingHostPage {
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
 
-        // These are identical to add_tags and send_to, except that they have
-        // different mnemonics and are _only_ for use in the context menu.
-        Gtk.ActionEntry send_to_context_menu = { "SendToContextMenu", "document-send", TRANSLATABLE, null,
-                                                 TRANSLATABLE, on_send_to
-                                               };
-        send_to_context_menu.label = Resources.SEND_TO_CONTEXT_MENU;
-        actions += send_to_context_menu;
 
         return actions;
     }
@@ -2688,13 +2713,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         InjectionGroup print_group = new InjectionGroup ("/PhotoContextMenu/PrintPlaceholder");
         print_group.add_menu_item ("Print");
-
         groups += print_group;
-
-        InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
-        bg_group.add_menu_item ("SetBackground");
-
-        groups += bg_group;
 
         return groups;
     }
@@ -2755,8 +2774,6 @@ public class LibraryPhotoPage : EditingHostPage {
             update_development_menu_item_sensitivity ();
         }
 
-        set_action_sensitive ("SetBackground", has_photo ());
-
         set_action_sensitive ("CopyColorAdjustments", (has_photo () && get_photo ().has_color_adjustments ()));
         set_action_sensitive ("PasteColorAdjustments", PixelTransformationBundle.has_copied_color_adjustments ());
 
@@ -2774,7 +2791,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
 
         update_flag_action ();
-
+        update_enhance_action ();
         set_action_visible ("OpenWithRaw",
                             is_raw);
 
@@ -2785,6 +2802,7 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("Revert", has_photo () ?
                               (get_photo ().has_transformations () || get_photo ().has_editable ()) : false);
         update_flag_action ();
+        update_enhance_action ();
     }
 
     private void on_raw_developer_changed (Gtk.Action action, Gtk.Action current) {
@@ -2916,7 +2934,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override void update_ui (bool missing) {
         bool sensitivity = !missing;
 
-        set_action_sensitive ("SendTo", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         set_action_sensitive ("CommonJumpToFile", sensitivity);
@@ -2946,8 +2963,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
         set_action_sensitive ("Rate", sensitivity);
         set_action_sensitive ("Flag", sensitivity);
-
-        set_action_sensitive ("SetBackground", sensitivity);
 
         base.update_ui (missing);
     }
@@ -3075,6 +3090,8 @@ public class LibraryPhotoPage : EditingHostPage {
             populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
             open_with_raw_menu_item.show ();
         }
+
+        populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
         return menu;
     }
 
@@ -3248,11 +3265,6 @@ public class LibraryPhotoPage : EditingHostPage {
         }
     }
 
-    private void on_send_to () {
-        if (has_photo ())
-            DesktopIntegration.send_to ((Gee.Collection<Photo>) get_view ().get_selected_sources ());
-    }
-
     private void on_export () {
         if (!has_photo ())
             return;
@@ -3391,6 +3403,8 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private void on_metadata_altered (Gee.Map<DataObject, Alteration> map) {
+        if (has_photo ())
+            update_enhance_action ();
         if (map.has_key (get_photo ()) && map.get (get_photo ()).has_subject ("metadata"))
             repaint ();
     }

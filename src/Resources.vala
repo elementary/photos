@@ -125,12 +125,6 @@ public const string ICON_LAST_IMPORT = "document-open-recent";
 public const string ICON_MISSING_FILES = "process-stop";
 public const string ICON_PHOTOS = "folder-pictures";
 public const string ICON_SINGLE_PHOTO = "image-x-generic";
-public const string ICON_FILTER_PHOTOS = "filter-photos";
-public const string ICON_FILTER_PHOTOS_DISABLED = "filter-photos-disabled";
-public const string ICON_FILTER_VIDEOS = "filter-videos";
-public const string ICON_FILTER_VIDEOS_DISABLED = "filter-videos-disabled";
-public const string ICON_FILTER_RAW = "filter-raw";
-public const string ICON_FILTER_RAW_DISABLED = "filter-raw-disabled";
 public const string ICON_FILTER_FLAGGED = "filter-flagged";
 public const string ICON_FILTER_FLAGGED_DISABLED = "filter-flagged-disabled";
 public const string ICON_TRASH_EMPTY = "user-trash";
@@ -160,7 +154,10 @@ public const string VFLIP_TOOLTIP = _("Flip the image vertically");
 
 public const string ENHANCE_MENU = _("_Enhance");
 public const string ENHANCE_LABEL = _("Enhance");
-public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance");
+public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance \n(Overwrites previous color adjustments)");
+
+public const string UNENHANCE_MENU = _("Revert _Enhancement");
+public const string UNENHANCE_LABEL = _("Revert Enhancement");
 
 public const string COPY_ADJUSTMENTS_MENU = _("_Copy Color Adjustments");
 public const string COPY_ADJUSTMENTS_LABEL = _("Copy Color Adjustments");
@@ -790,12 +787,6 @@ public void init () {
 
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_FLAGGED),
                                      ICON_FILTER_FLAGGED_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_PHOTOS),
-                                     ICON_FILTER_PHOTOS_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_VIDEOS),
-                                     ICON_FILTER_VIDEOS_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_RAW),
-                                     ICON_FILTER_RAW_DISABLED, dim_pixbuf);
 
     factory.add_default ();
 

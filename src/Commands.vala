@@ -101,7 +101,7 @@ public abstract class PageCommand : Command {
 }
 
 public abstract class SingleDataSourceCommand : PageCommand {
-    protected DataSource source;
+    public DataSource source;
 
     public SingleDataSourceCommand (DataSource source, string name, string explanation) {
         base (name, explanation);
@@ -275,7 +275,7 @@ public abstract class GenericPhotoTransformationCommand : SingleDataSourceComman
 public abstract class MultipleDataSourceCommand : PageCommand {
     protected const int MIN_OPS_FOR_PROGRESS_WINDOW = 5;
 
-    protected Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
+    public Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
 
     private string progress_text;
     private string undo_progress_text;
@@ -780,6 +780,42 @@ public class EnhanceMultipleCommand : MultiplePhotoTransformationCommand {
 
     public override void execute_on_source (DataSource source) {
         ((Photo) source).enhance ();
+    }
+}
+
+// Different from undo as these restore state from db
+public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
+    public UnEnhanceSingleCommand (Photo photo) {
+        base (photo, Resources.UNENHANCE_LABEL, Resources.ENHANCE_TOOLTIP);
+    }
+
+    public override void execute_on_photo (Photo photo) {
+        AppWindow.get_instance ().set_busy_cursor ();
+        photo.unenhance ();
+        AppWindow.get_instance ().set_normal_cursor ();
+    }
+
+    public override bool compress (Command command) {
+        UnEnhanceSingleCommand unenhance_single_command = command as UnEnhanceSingleCommand;
+        if (unenhance_single_command == null)
+            return false;
+
+        if (unenhance_single_command.source != source)
+            return false;
+
+        // multiple successive enhances on the same photo are as good as a single
+        return true;
+    }
+}
+
+public class UnEnhanceMultipleCommand : MultiplePhotoTransformationCommand {
+    public UnEnhanceMultipleCommand (Gee.Iterable<DataView> iter) {
+        base (iter, _ ("UnEnhancing"), _ ("Undoing UnEnhance"), Resources.UNENHANCE_LABEL,
+              Resources.ENHANCE_TOOLTIP);
+    }
+
+    public override void execute_on_source (DataSource source) {
+        ((Photo) source).unenhance ();
     }
 }
 
