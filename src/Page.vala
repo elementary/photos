@@ -106,7 +106,7 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
 
-    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui){
+    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui) {
         File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
@@ -119,14 +119,16 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
         // Remove old contracts
         contractor_menu_items.foreach ((item) => { if (item != null) item.destroy (); });
-        
+
+        //find where is contractor_placeholder in the menu
         Gtk.Widget holder= ui.get_widget (placeholder_ui);
         int pos=0;
-        foreach (Gtk.Widget w in menu.get_children ()){
+        foreach (Gtk.Widget w in menu.get_children ()) {
             if (w == holder)
                 break;
             pos++;
         }
+        //and replace it with menu_item from contractor
         for (int i = 0; i < contracts.size; i++) {
             var contract = contracts.get (i);
             Gtk.MenuItem menu_item;
