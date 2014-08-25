@@ -165,13 +165,6 @@ public class DirectPhotoPage : EditingHostPage {
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
 
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
-
         Gtk.ActionEntry view = { "ViewMenu", null, TRANSLATABLE, null, null, null };
         view.label = _ ("_View");
         actions += view;
@@ -229,11 +222,6 @@ public class DirectPhotoPage : EditingHostPage {
         print_group.add_menu_item ("Print");
         groups += print_group;
 
-        InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
-        bg_group.add_menu_item ("SetBackground");
-
-        groups += bg_group;
-
         return groups;
     }
 
@@ -285,6 +273,7 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override bool on_context_buttonpress (Gdk.EventButton event) {
         Gtk.Menu context_menu = (Gtk.Menu) ui.get_widget ("/DirectContextMenu");
+        populate_contractor_menu (context_menu, "/DirectContextMenu/ContractorPlaceholder");
         popup_context_menu (context_menu, event);
 
         return true;
@@ -375,15 +364,13 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("AdjustDateTime", sensitivity);
         set_action_sensitive ("Fullscreen", sensitivity);
 
-        set_action_sensitive ("SetBackground", has_photo () && !get_photo_missing ());
-
         base.update_ui (missing);
     }
-
+    
     protected override void update_actions (int selected_count, int count) {
         bool multiple = get_view ().get_count () > 1;
-        bool revert_possible = has_photo () ? get_photo ().has_transformations ()
-                               && !get_photo_missing () : false;
+        bool revert_possible = has_photo () ? get_photo ().has_transformations () 
+            && !get_photo_missing () : false;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
         bool enhance_possible = has_photo () ? is_enhance_available (get_photo ()) : false;
 
@@ -400,8 +387,8 @@ public class DirectPhotoPage : EditingHostPage {
 
         if (has_photo ()) {
             set_action_sensitive ("Crop", EditingTools.CropTool.is_available (get_photo (), Scaling.for_original ()));
-            set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (),
-                                  Scaling.for_original ()));
+            set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (), 
+                Scaling.for_original ()));
         }
 
         // can't write to raws, and trapping the output JPEG here is tricky,

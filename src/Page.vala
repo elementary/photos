@@ -78,6 +78,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private OneShotScheduler? update_actions_scheduler = null;
     private Gtk.ActionGroup? action_group = null;
     private Gtk.ActionGroup[]? common_action_groups = null;
+    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
 
     private uint[] merge_ids = new uint[0];
 
@@ -103,6 +104,41 @@ public abstract class Page : Gtk.ScrolledWindow {
 #if TRACE_DTORS
         debug ("DTOR: Page %s", page_name);
 #endif
+    }
+
+    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui) {
+        File[] files = {};
+        Gee.List<Granite.Services.Contract> contracts = null;
+        try {
+            var selected = get_view ().get_selected_sources ();
+            foreach (var item in selected)
+                files += (((Photo)item).get_file ());
+            contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
+        } catch (Error e) {
+            warning (e.message);
+        }
+        // Remove old contracts
+        contractor_menu_items.foreach ((item) => { if (item != null) item.destroy (); });
+
+        //find where is contractor_placeholder in the menu
+        Gtk.Widget holder= ui.get_widget (placeholder_ui);
+        int pos=0;
+        foreach (Gtk.Widget w in menu.get_children ()) {
+            if (w == holder)
+                break;
+            pos++;
+        }
+        //and replace it with menu_item from contractor
+        for (int i = 0; i < contracts.size; i++) {
+            var contract = contracts.get (i);
+            Gtk.MenuItem menu_item;
+
+            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
+            menu.append (menu_item);
+            menu.reorder_child (menu_item, pos);
+            contractor_menu_items.append (menu_item);
+        }
+        menu.show_all ();
     }
 
     // This is called by the page controller when it has removed this page ... pages should override
@@ -2623,3 +2659,31 @@ public class DragAndDropHandler {
     }
 }
 
+public class ContractMenuItem : Gtk.MenuItem {
+    private Granite.Services.Contract contract;
+    private Gee.List<DataSource> sources;
+
+    public ContractMenuItem (Granite.Services.Contract contract, Gee.List<DataSource> sources) {
+        this.contract = contract;
+        this.sources = sources;
+
+        label = contract.get_display_name ();
+        tooltip_text = contract.get_description ();
+    }
+
+    public override void activate () {
+        try {
+            File[] modified_files = null;
+            foreach (var source in sources) {
+                Photo modified_file = (Photo)source;
+                if (modified_file.get_file_format () == PhotoFileFormat.RAW)
+                    modified_files += modified_file.get_file ();
+                else
+                    modified_files += modified_file.get_modified_file ();
+            }
+            contract.execute_with_files (modified_files);
+        } catch (Error err) {
+            warning (err.message);
+        }
+    }
+}

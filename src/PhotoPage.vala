@@ -2020,11 +2020,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    public void on_set_background () {
-        if (has_photo ())
-            DesktopIntegration.set_background (get_photo ());
-    }
-
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);
@@ -2600,13 +2595,6 @@ public class LibraryPhotoPage : EditingHostPage {
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
 
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
-
         Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
         flag.label = Resources.FLAG_MENU;
         actions += flag;
@@ -2768,11 +2756,6 @@ public class LibraryPhotoPage : EditingHostPage {
         print_group.add_menu_item ("Print");
         groups += print_group;
 
-        InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
-        bg_group.add_menu_item ("SetBackground");
-
-        groups += bg_group;
-
         return groups;
     }
 
@@ -2831,8 +2814,6 @@ public class LibraryPhotoPage : EditingHostPage {
             update_rating_menu_item_sensitivity ();
             update_development_menu_item_sensitivity ();
         }
-
-        set_action_sensitive ("SetBackground", has_photo ());
 
         set_action_sensitive ("CopyColorAdjustments", (has_photo () && get_photo ().has_color_adjustments ()));
         set_action_sensitive ("PasteColorAdjustments", PixelTransformationBundle.has_copied_color_adjustments ());
@@ -3027,7 +3008,6 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("AddTags", sensitivity);
         set_action_sensitive ("ModifyTags", sensitivity);
 
-        set_action_sensitive ("SetBackground", sensitivity);
         base.update_ui (missing);
     }
 
@@ -3154,6 +3134,8 @@ public class LibraryPhotoPage : EditingHostPage {
             populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
             open_with_raw_menu_item.show ();
         }
+
+        populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
         return menu;
     }
 

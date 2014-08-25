@@ -3783,6 +3783,14 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Opens with GIMP, etc.
     public void open_with_external_editor (string external_editor) throws Error {
+        File modified_file = get_modified_file ();
+
+        //store last used
+        Config.Facade.get_instance ().set_external_photo_app (external_editor);
+        launch_editor (modified_file, get_file_format (), external_editor);
+    }
+
+    public File get_modified_file () throws Error {
         File current_editable_file = null;
         File create_editable_file = null;
         PhotoFileFormat editable_file_format;
@@ -3834,9 +3842,7 @@ public abstract class Photo : PhotoSource, Dateable {
         if (editable_monitor == null)
             start_monitoring_editable (current_editable_file);
 
-        //store last used
-        Config.Facade.get_instance ().set_external_photo_app (external_editor);
-        launch_editor (current_editable_file, get_file_format (), external_editor);
+        return current_editable_file;
     }
 
     public void revert_to_master (bool notify = true) {
