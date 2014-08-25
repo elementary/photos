@@ -2756,11 +2756,6 @@ public class LibraryPhotoPage : EditingHostPage {
         print_group.add_menu_item ("Print");
         groups += print_group;
 
-        InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
-        bg_group.add_menu_item ("SetBackground");
-
-        groups += bg_group;
-
         return groups;
     }
 
@@ -2819,8 +2814,6 @@ public class LibraryPhotoPage : EditingHostPage {
             update_rating_menu_item_sensitivity ();
             update_development_menu_item_sensitivity ();
         }
-
-        set_action_sensitive ("SetBackground", has_photo ());
 
         set_action_sensitive ("CopyColorAdjustments", (has_photo () && get_photo ().has_color_adjustments ()));
         set_action_sensitive ("PasteColorAdjustments", PixelTransformationBundle.has_copied_color_adjustments ());
@@ -3015,7 +3008,6 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("AddTags", sensitivity);
         set_action_sensitive ("ModifyTags", sensitivity);
 
-        set_action_sensitive ("SetBackground", sensitivity);
         base.update_ui (missing);
     }
 

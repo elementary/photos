@@ -81,8 +81,6 @@ public abstract class CollectionPage : MediaPage {
     private static InjectionGroup create_file_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
 
-        group.add_menu_item ("SetBackground");
-
         return group;
     }
 
@@ -179,13 +177,6 @@ public abstract class CollectionPage : MediaPage {
                                  };
         revert.label = Resources.REVERT_MENU;
         actions += revert;
-
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background 
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_SLIDESHOW_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
 
         Gtk.ActionEntry duplicate = { "Duplicate", null, TRANSLATABLE, "<Ctrl>D", TRANSLATABLE,
                                       on_duplicate_photo
@@ -397,8 +388,6 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("Publish", has_selected);
         enhance_button.sensitive = (!selection_has_videos) && has_selected;
         update_enhance_toggled ();
-
-        set_action_sensitive("SetBackground", (!selection_has_videos) && has_selected && (!one_selected));
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> altered) {
@@ -790,27 +779,6 @@ public abstract class CollectionPage : MediaPage {
             AdjustDateTimePhotosCommand command = new AdjustDateTimePhotosCommand (
                 get_view ().get_selected (), time_shift, keep_relativity, modify_originals);
             get_command_manager ().execute (command);
-        }
-    }
-
-    public void on_set_background () {
-        Gee.ArrayList<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto> ();
-        MediaSourceCollection.filter_media ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (),
-                                            photos, null);
-
-        if (photos.size == 1) {
-            AppWindow.get_instance ().set_busy_cursor ();
-            DesktopIntegration.set_background (photos[0]);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } else if (photos.size > 1) {
-            SetBackgroundSlideshowDialog dialog = new SetBackgroundSlideshowDialog ();
-            int delay;
-            if (dialog.execute (out delay)) {
-                AppWindow.get_instance ().set_busy_cursor ();
-                DesktopIntegration.set_background_slideshow (photos, delay,
-                        DESKTOP_SLIDESHOW_TRANSITION_SEC);
-                AppWindow.get_instance ().set_normal_cursor ();
-            }
         }
     }
 
