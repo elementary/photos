@@ -3034,6 +3034,7 @@ public class LibraryPhotoPage : EditingHostPage {
             break;
 
         case "Delete":
+        case "BackSpace":
             // although bound as an accelerator in the menu, accelerators are currently
             // unavailable in fullscreen mode (a variant of #324), so we do this manually
             // here
