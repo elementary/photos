@@ -589,7 +589,7 @@ public Gdk.Pixbuf? get_flag_trinket () {
     Gdk.Pixbuf flag;
     Gtk.IconTheme icon_theme = get_icon_theme_engine ();
     try {
-        flag = icon_theme.load_icon ("edit-flag", size, Gtk.IconLookupFlags.FORCE_SIZE);
+        flag = icon_theme.load_icon (ICON_FLAGGED_PAGE, size, Gtk.IconLookupFlags.FORCE_SIZE);
     } catch (Error e) {
         return null;
     }

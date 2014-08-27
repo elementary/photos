@@ -407,7 +407,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
 
         toolbtn_flag = new Gtk.ToggleToolButton ();
 
-        var flag_icon = new Gtk.Image.from_icon_name ("edit-flag", Gtk.IconSize.MENU);
+        var flag_icon = new Gtk.Image.from_icon_name (Resources.ICON_FLAGGED_PAGE, Gtk.IconSize.MENU);
         flag_icon.pixel_size = 16;
         toolbtn_flag.set_icon_widget (flag_icon);
         toolbtn_flag.tooltip_text = _ ("Flagged");
