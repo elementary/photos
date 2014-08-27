@@ -2465,7 +2465,6 @@ public abstract class SinglePhotoPage : Page {
         switch (Gdk.keyval_name (event.keyval)) {
         case "Left":
         case "KP_Left":
-        case "BackSpace":
             if (nav_ok) {
                 on_previous_photo ();
                 last_nav_key = event.time;

@@ -846,7 +846,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
         zoom_slider.set_value (0.0);
         zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
-
         photo_changing (photo);
         DataView view = get_view ().get_view_for_source (photo);
         assert (view != null);
@@ -1393,7 +1392,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
                                    is_enhance_available (photo) : false;
         straighten_button.sensitive = ((photo != null) && (!photo_missing)) ?
                                       EditingTools.StraightenTool.is_available (photo, scaling) : false;
-
         base.update_actions (selected_count, count);
     }
 
@@ -2691,7 +2689,6 @@ public class LibraryPhotoPage : EditingHostPage {
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
 
-
         return actions;
     }
 
@@ -2840,7 +2837,7 @@ public class LibraryPhotoPage : EditingHostPage {
         } else {
             set_action_sensitive ("Flag", false);
         }
-    }
+    }    
 
     // Displays a photo from a specific CollectionPage.  When the user exits this view,
     // they will be sent back to the return_page. The optional view paramters is for using
@@ -2990,6 +2987,7 @@ public class LibraryPhotoPage : EditingHostPage {
             break;
 
         case "Delete":
+        case "BackSpace":
             // although bound as an accelerator in the menu, accelerators are currently
             // unavailable in fullscreen mode (a variant of #324), so we do this manually
             // here
