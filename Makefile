@@ -175,8 +175,6 @@ ICON_FILES = \
 	enhance.png \
 	five-star-filter.svg \
 	five-stars.svg \
-	flag-page.png \
-	flag-trinket.png \
 	four-star-filter-plus.svg \
 	four-stars.svg \
 	image-adjust.svg \
@@ -198,8 +196,7 @@ ICON_FILES = \
 	two-star-filter-plus.svg \
 	two-stars.svg \
 	videos-page.png \
-	generic-plugin.png \
-	filter-flagged.png
+	generic-plugin.png
 
 HELP_FILES = \
 	edit-adjustments.page \

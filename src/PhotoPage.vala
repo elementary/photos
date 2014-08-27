@@ -2887,7 +2887,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (!has_photo () || ! ((LibraryPhoto) get_photo ()).is_flagged ())
             return null;
 
-        return Resources.get_icon (Resources.ICON_FLAGGED_TRINKET);
+        return Resources.get_flag_trinket ();
     }
 
     private void on_slideshow () {
