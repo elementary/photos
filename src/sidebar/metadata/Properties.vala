@@ -46,8 +46,8 @@ public abstract class Properties : Gtk.Grid {
             info_label.set_alignment (0, (float) 5e-1);
             info_label.set_ellipsize (Pango.EllipsizeMode.END);
             info_label.set_line_wrap (true);
-            info_label.set_line_wrap_mode (Pango.WrapMode.WORD);
-            info_label.set_lines (5);
+            info_label.set_line_wrap_mode (Pango.WrapMode.WORD_CHAR);
+            info_label.set_lines (8);
             info_label.set_selectable (true);
             label.set_alignment (1, (float) 5e-1);
             info = (Gtk.Widget) info_label;
