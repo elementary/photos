@@ -19,7 +19,7 @@ public abstract class Properties : Gtk.Grid {
         Gtk.Widget info;
 
         label.set_justify (Gtk.Justification.RIGHT);
-
+        label.valign = Gtk.Align.START;
         label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
 
         if (multi_line) {
@@ -45,6 +45,9 @@ public abstract class Properties : Gtk.Grid {
             info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
             info_label.set_alignment (0, (float) 5e-1);
             info_label.set_ellipsize (Pango.EllipsizeMode.END);
+            info_label.set_line_wrap (true);
+            info_label.set_line_wrap_mode (Pango.WrapMode.WORD);
+            info_label.set_lines (5);
             info_label.set_selectable (true);
             label.set_alignment (1, (float) 5e-1);
             info = (Gtk.Widget) info_label;
