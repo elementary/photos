@@ -293,26 +293,6 @@ public abstract class MediaPage : CheckerboardPage {
         new_event.label = Resources.NEW_EVENT_MENU;
         actions += new_event;
 
-        Gtk.ActionEntry add_tags = { "AddTags", null, TRANSLATABLE, "<Ctrl>T", TRANSLATABLE,
-                                     on_add_tags
-                                   };
-        add_tags.label = Resources.ADD_TAGS_MENU;
-        actions += add_tags;
-
-        // This is identical to the above action, except that it has different
-        // mnemonics and is _only_ for use in the context menu.
-        Gtk.ActionEntry add_tags_context_menu = { "AddTagsContextMenu", null, TRANSLATABLE, "<Ctrl>A", TRANSLATABLE,
-                                                  on_add_tags
-                                                };
-        add_tags_context_menu.label = Resources.ADD_TAGS_CONTEXT_MENU;
-        actions += add_tags_context_menu;
-
-        Gtk.ActionEntry modify_tags = { "ModifyTags", null, TRANSLATABLE, "<Ctrl>M", TRANSLATABLE,
-                                        on_modify_tags
-                                      };
-        modify_tags.label = Resources.MODIFY_TAGS_MENU;
-        actions += modify_tags;
-
         Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
                                         };
@@ -388,18 +368,6 @@ public abstract class MediaPage : CheckerboardPage {
                                     };
         rate_five.label = Resources.rating_menu (Rating.FIVE);
         actions += rate_five;
-
-        Gtk.ActionEntry edit_title = { "EditTitle", null, TRANSLATABLE, "F2", TRANSLATABLE,
-                                       on_edit_title
-                                     };
-        edit_title.label = Resources.EDIT_TITLE_MENU;
-        actions += edit_title;
-
-        Gtk.ActionEntry edit_comment = { "EditComment", null, TRANSLATABLE, "F3", TRANSLATABLE,
-                                         on_edit_comment
-                                       };
-        edit_comment.label = Resources.EDIT_COMMENT_MENU;
-        actions += edit_comment;
 
         Gtk.ActionEntry sort_photos = { "SortPhotos", null, TRANSLATABLE, null, null, null };
         sort_photos.label = _ ("Sort _Photos");
@@ -527,8 +495,6 @@ public abstract class MediaPage : CheckerboardPage {
 
     protected override void update_actions (int selected_count, int count) {
         set_action_sensitive ("Export", selected_count > 0);
-        set_action_sensitive ("EditTitle", selected_count > 0);
-        set_action_sensitive ("EditComment", selected_count > 0);
         set_action_sensitive ("IncreaseSize", get_thumb_size () < Thumbnail.MAX_SCALE);
         set_action_sensitive ("DecreaseSize", get_thumb_size () > Thumbnail.MIN_SCALE);
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
@@ -884,35 +850,6 @@ public abstract class MediaPage : CheckerboardPage {
         decrease_zoom_level ();
     }
 
-    private void on_add_tags () {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        AddTagsDialog dialog = new AddTagsDialog ();
-        string[]? names = dialog.execute ();
-
-        if (names != null) {
-            get_command_manager ().execute (new AddTagsCommand (
-                                               HierarchicalTagIndex.get_global_index ().get_paths_for_names_array (names),
-                                               (Gee.Collection<MediaSource>) get_view ().get_selected_sources ()));
-        }
-    }
-
-    private void on_modify_tags () {
-        if (get_view ().get_selected_count () != 1)
-            return;
-
-        MediaSource media = (MediaSource) get_view ().get_selected_at (0).get_source ();
-
-        ModifyTagsDialog dialog = new ModifyTagsDialog (media);
-        Gee.ArrayList<Tag>? new_tags = dialog.execute ();
-
-        if (new_tags == null)
-            return;
-
-        get_command_manager ().execute (new ModifyTagsCommand (media, new_tags));
-    }
-
     private void set_display_tags (bool display) {
         get_view ().freeze_notifications ();
         get_view ().set_property (Thumbnail.PROP_SHOW_TAGS, display);
@@ -1026,30 +963,6 @@ public abstract class MediaPage : CheckerboardPage {
         if ((restore_point != null) && (get_view ().contains (restore_point))) {
             set_cursor (restore_point);
         }
-    }
-
-    protected virtual void on_edit_title () {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        Gee.List<MediaSource> media_sources = (Gee.List<MediaSource>) get_view ().get_selected_sources ();
-
-        EditTitleDialog edit_title_dialog = new EditTitleDialog (media_sources[0].get_title ());
-        string? new_title = edit_title_dialog.execute ();
-        if (new_title != null)
-            get_command_manager ().execute (new EditMultipleTitlesCommand (media_sources, new_title));
-    }
-
-    protected virtual void on_edit_comment () {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        Gee.List<MediaSource> media_sources = (Gee.List<MediaSource>) get_view ().get_selected_sources ();
-
-        EditCommentDialog edit_comment_dialog = new EditCommentDialog (media_sources[0].get_comment ());
-        string? new_comment = edit_comment_dialog.execute ();
-        if (new_comment != null)
-            get_command_manager ().execute (new EditMultipleCommentsCommand (media_sources, new_comment));
     }
 
     protected virtual void on_display_titles (Gtk.Action action) {
@@ -1312,5 +1225,14 @@ public abstract class MediaPage : CheckerboardPage {
             get_checkerboard_layout ().set_scale (Config.Facade.get_instance ().get_photo_thumbnail_scale ());
 
         return get_checkerboard_layout ().get_scale ();
+    }
+
+    public static Gtk.ToolButton create_sidebar_button () {
+        var show_sidebar_button = new Gtk.ToolButton (null,null);
+        show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
+        show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
+        show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+        show_sidebar_button.is_important = true;
+        return show_sidebar_button;
     }
 }

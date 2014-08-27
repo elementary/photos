@@ -14,7 +14,14 @@ UNIT_FILES := \
 	Branch.vala \
 	Entry.vala \
 	Tree.vala \
-	common.vala
+	common.vala \
+	Rating.vala \
+	metadata/Properties.vala \
+	metadata/ExtendedProperties.vala \
+	metadata/BasicProperties.vala \
+	metadata/LibraryProperties.vala \
+	metadata/MetadataSidebar.vala
+	
 
 # Any unit this unit relies upon (and should be initialized before it's initialized) should
 # be listed here using its Vala namespace.

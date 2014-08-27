@@ -1,14 +1,12 @@
 <ui>
     <popup name="PhotoContextMenu">
+        <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" />
+        <separator />
         <menuitem name="ContextEnhance" action="Enhance" />
         <menuitem name="ContextRevert" action="Revert" />
         <separator />
         <menuitem name="ContextCopyColorAdjustments" action="CopyColorAdjustments" />
         <menuitem name="ContextPasteColorAdjustments" action="PasteColorAdjustments" />
-        <separator />
-        <menuitem name="ContextAddTags" action="AddTagsContextMenu" />
-        <menuitem name="ContextModifyTags" action="ModifyTags" />
-        <placeholder name="ContextTagsPlaceholder" />
         <separator />
         <menuitem name="ContextFlag" action="Flag" />
         <menu name="Rate" action="Rate">
@@ -28,8 +26,7 @@
             <menuitem name="RawDeveloperCamera" action="RawDeveloperCamera" />
         </menu>
         <separator />
-        <menuitem name="ContextEditTitle" action="EditTitle" />
-        <menuitem name="ContextEditComment" action="EditComment" />
+		<menuitem name="AdjustDateTime" action="AdjustDateTime" />
         <menu name="OpenWith" action="OpenWith">
         </menu>
         <menu name="OpenWithRaw" action="OpenWithRaw">

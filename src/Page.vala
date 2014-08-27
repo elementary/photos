@@ -52,6 +52,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.UIManager ui;
     protected Gtk.Toolbar toolbar;
     protected bool in_view = false;
+    protected Gtk.ToolButton show_sidebar_button;
 
     private string page_name;
     private ViewCollection view = null;
@@ -368,6 +369,22 @@ public abstract class Page : Gtk.ScrolledWindow {
             warning ("Page %s: Unable to locate common action %s", get_page_name (), name);
 
         return null;
+    }
+    
+    public void update_sidebar_action (bool show) {
+        if (show_sidebar_button == null)
+            return;
+        if (!show) {
+            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
+            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+        } else {
+            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
+            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+        }
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.update_common_toggle_actions ();
     }
 
     public void set_common_action_sensitive (string name, bool sensitive) {
@@ -1362,7 +1379,6 @@ public abstract class CheckerboardPage : Page {
 
         // unselect everything so selection won't persist after page loses focus
         get_view ().unselect_all ();
-
         base.switching_from ();
     }
 
@@ -1393,7 +1409,6 @@ public abstract class CheckerboardPage : Page {
 
             }
         }
-
         base.switched_to ();
     }
 

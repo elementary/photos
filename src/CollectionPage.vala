@@ -67,12 +67,19 @@ public abstract class CollectionPage : MediaPage {
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
             connect_slider (zoom_slider_assembly);
             get_toolbar ().insert (zoom_slider_assembly, -1);
-            
+
             Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
             slideshow_button.set_tooltip_text (_("Play a slideshow"));
             slideshow_button.clicked.connect (on_slideshow);
             get_toolbar ().insert (slideshow_button, 0);
+
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
 
         return toolbar;
@@ -381,8 +388,6 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("AdjustDateTime", has_selected);
 
         set_action_sensitive ("NewEvent", has_selected);
-        set_action_sensitive ("AddTags", has_selected);
-        set_action_sensitive ("ModifyTags", one_selected);
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
@@ -611,6 +616,12 @@ public abstract class CollectionPage : MediaPage {
         }
 
         return false;
+    }
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     private void on_rotate_clockwise () {

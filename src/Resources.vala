@@ -81,8 +81,11 @@ public const string MAKE_PRIMARY = "shotwell-make-primary";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "shotwell-auto-enhance";
+public const string HIDE_PANE = "pane-hide-symbolic";
+public const string SHOW_PANE = "pane-show-symbolic";
 public const string CROP_PIVOT_RETICLE = "shotwell-crop-pivot-reticle";
 public const string PUBLISH = "applications-internet";
+public const string EDIT_FLAG= "edit-flag";
 public const string MERGE = "shotwell-merge-events";
 
 public const string ICON_APP = "multimedia-photo-manager";
@@ -129,6 +132,7 @@ public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "videos-page";
 public const string ICON_FLAGGED_PAGE = "flag-page";
 public const string ICON_FLAGGED_TRINKET = "flag-trinket.png";
+public const string ICON_EDIT_FLAGGED = "filter-flagged";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
 public const string ROTATE_CW_LABEL = _("Rotate");
@@ -233,6 +237,8 @@ public const string RATE_REJECTED_LABEL = _("Rate Rejected");
 public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
 public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
 
+public const string RATE_UNRATED_DISPLAY_LABEL = _("Rejected");
+
 public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
 public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
 public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
@@ -257,6 +263,14 @@ public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
 public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo");
 
 public const string EXPORT_MENU = _("_Export...");
+
+public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
+public const string TOGGLE_METAPANE_LABEL = _("Show info panel");
+public const string TOGGLE_METAPANE_TOOLTIP = _("Show info panel");
+
+public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
+public const string UNTOGGLE_METAPANE_LABEL = _("Hide info panel");
+public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
 public const string PRINT_MENU = _("_Print...");
 
@@ -302,8 +316,13 @@ public const string FIND_LABEL = _("Find");
 public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
 
 public const string FLAG_MENU = _("_Flag");
-
+public const string FLAG_LABEL = _("Flag");
 public const string UNFLAG_MENU = _("Un_flag");
+public const string UNFLAG_LABEL = _("Unflag");
+
+public const string BASIC_PROPERTIES_LABEL = _("Image Details");
+public const string EXTENDED_PROPERTIES_LABEL = _("Extended Details");
+public const string LIBRARY_PROPERTIES_LABEL = _("Library Details");
 
 public string launch_editor_failed (Error err) {
     return _("Unable to launch editor: %s").printf (err.message);
@@ -428,6 +447,48 @@ private unowned string rating_label (Rating rating) {
         return RATE_FIVE_LABEL;
     default:
         return RATE_UNRATED_LABEL;
+    }
+}
+
+public int rating_int (Rating rating) {
+        switch (rating) {
+            case Rating.REJECTED:
+                return -1;
+            case Rating.UNRATED:
+                return 0;
+            case Rating.ONE:
+                return 1;
+            case Rating.TWO:
+                return 2;
+            case Rating.THREE:
+                return 3;
+            case Rating.FOUR:
+                return 4;
+            case Rating.FIVE:
+                return 5;
+            default:
+                return 0;
+        }
+}
+
+public Rating int_to_rating (int rating) {
+    switch (rating) {
+    case -1:
+        return Rating.REJECTED;
+    case 0:
+        return Rating.UNRATED;
+    case 1:
+        return Rating.ONE;
+    case 2:
+        return Rating.TWO;
+    case 3:
+        return Rating.THREE;
+    case 4:
+        return Rating.FOUR;
+    case 5:
+        return Rating.FIVE;
+    default:
+        return 0;
     }
 }
 
