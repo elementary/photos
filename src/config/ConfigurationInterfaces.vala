@@ -34,6 +34,7 @@ public enum ConfigurableProperty {
     DISPLAY_EVENT_COMMENTS,
     DISPLAY_EXTENDED_PROPERTIES,
     DISPLAY_SIDEBAR,
+    DISPLAY_METADATA_SIDEBAR,
     DISPLAY_SEARCH_BAR,
     DISPLAY_PHOTO_RATINGS,
     DISPLAY_PHOTO_TAGS,
@@ -72,6 +73,7 @@ public enum ConfigurableProperty {
     RAW_DEVELOPER_DEFAULT,
     SHOW_WELCOME_DIALOG,
     SIDEBAR_POSITION,
+    METADATA_SIDEBAR_POSITION,
     SLIDESHOW_DELAY,
     SLIDESHOW_TRANSITION_DELAY,
     SLIDESHOW_TRANSITION_EFFECT_ID,
@@ -123,6 +125,9 @@ public enum ConfigurableProperty {
 
         case DISPLAY_SIDEBAR:
             return "DISPLAY_SIDEBAR";
+
+        case DISPLAY_METADATA_SIDEBAR:
+            return "DISPLAY_METADATA_SIDEBAR";
 
         case DISPLAY_SEARCH_BAR:
             return "DISPLAY_SEARCH_BAR";
@@ -240,6 +245,9 @@ public enum ConfigurableProperty {
 
         case SIDEBAR_POSITION:
             return "SIDEBAR_POSITION";
+
+        case METADATA_SIDEBAR_POSITION:
+            return "METADATA_SIDEBAR_POSITION";
 
         case SLIDESHOW_DELAY:
             return "SLIDESHOW_DELAY";
@@ -379,7 +387,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_auto_import_from_library (bool auto_import) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY,
-                                            auto_import);
+                                             auto_import);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
@@ -424,7 +432,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_commit_metadata_to_masters (bool commit_metadata) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.COMMIT_METADATA_TO_MASTERS,
-                                            commit_metadata);
+                                             commit_metadata);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
@@ -447,9 +455,9 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_desktop_background (string filename) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.DESKTOP_BACKGROUND_FILE,
-                                              filename);
+                                               filename);
             get_engine ().set_string_property (ConfigurableProperty.DESKTOP_BACKGROUND_MODE,
-                                              "zoom");
+                                               "zoom");
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -521,9 +529,9 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.DIRECT_WINDOW_MAXIMIZE, maximize);
             get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_WIDTH,
-                                           dimensions.width);
+                                            dimensions.width);
             get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_HEIGHT,
-                                           dimensions.height);
+                                            dimensions.height);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -566,7 +574,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_display_extended_properties (bool display) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES,
-                                            display);
+                                             display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -588,6 +596,27 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_display_sidebar (bool display) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SIDEBAR, display);
+        } catch (ConfigurationError err) {
+            on_configuration_error (err);
+        }
+    }
+
+    //
+    // display sidebar
+    //
+    public virtual bool get_display_metadata_sidebar () {
+        try {
+            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR);
+        } catch (ConfigurationError err) {
+            on_configuration_error (err);
+
+            return false;
+        }
+    }
+
+    public virtual void set_display_metadata_sidebar (bool display) {
+        try {
+            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR, display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -737,9 +766,9 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_event_photos_sort (bool sort_order, int sort_by) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.EVENT_PHOTOS_SORT_ASCENDING,
-                                            sort_order);
+                                             sort_order);
             get_engine ().set_int_property (ConfigurableProperty.EVENT_PHOTOS_SORT_BY,
-                                           sort_by);
+                                            sort_by);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -783,7 +812,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_external_photo_app (string external_photo_app) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.EXTERNAL_PHOTO_APP,
-                                              external_photo_app);
+                                               external_photo_app);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
@@ -806,7 +835,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_external_raw_app (string external_raw_app) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.EXTERNAL_RAW_APP,
-                                              external_raw_app);
+                                               external_raw_app);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
@@ -830,7 +859,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_default_raw_developer (RawDeveloper d) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.RAW_DEVELOPER_DEFAULT,
-                                              d.to_string ());
+                                               d.to_string ());
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
@@ -1030,9 +1059,9 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_library_photos_sort (bool sort_order, int sort_by) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.LIBRARY_PHOTOS_SORT_ASCENDING,
-                                            sort_order);
+                                             sort_order);
             get_engine ().set_int_property (ConfigurableProperty.LIBRARY_PHOTOS_SORT_BY,
-                                           sort_by);
+                                            sort_by);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1058,9 +1087,9 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.LIBRARY_WINDOW_MAXIMIZE, maximize);
             get_engine ().set_int_property (ConfigurableProperty.LIBRARY_WINDOW_WIDTH,
-                                           dimensions.width);
+                                            dimensions.width);
             get_engine ().set_int_property (ConfigurableProperty.LIBRARY_WINDOW_HEIGHT,
-                                           dimensions.height);
+                                            dimensions.height);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1124,7 +1153,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_content_height (double content_height) {
         try {
             get_engine ().set_double_property (ConfigurableProperty.PRINTING_CONTENT_HEIGHT,
-                                              content_height);
+                                               content_height);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1146,7 +1175,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_content_layout (int layout_code) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.PRINTING_CONTENT_LAYOUT,
-                                           layout_code + 1);
+                                            layout_code + 1);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1189,7 +1218,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_content_units (int units_code) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.PRINTING_CONTENT_UNITS,
-                                           units_code + 1);
+                                            units_code + 1);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1211,7 +1240,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_content_width (double content_width) {
         try {
             get_engine ().set_double_property (ConfigurableProperty.PRINTING_CONTENT_WIDTH,
-                                              content_width);
+                                               content_width);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1233,7 +1262,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_images_per_page (int images_per_page_code) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.PRINTING_IMAGES_PER_PAGE,
-                                           images_per_page_code + 1);
+                                            images_per_page_code + 1);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1255,7 +1284,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_match_aspect_ratio (bool match_aspect_ratio) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.PRINTING_MATCH_ASPECT_RATIO,
-                                            match_aspect_ratio);
+                                             match_aspect_ratio);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1277,7 +1306,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_print_titles (bool print_titles) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.PRINTING_PRINT_TITLES,
-                                            print_titles);
+                                             print_titles);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1299,7 +1328,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_printing_size_selection (int size_code) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.PRINTING_SIZE_SELECTION,
-                                           size_code + 1);
+                                            size_code + 1);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1344,7 +1373,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_show_welcome_dialog (bool show) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG,
-                                            show);
+                                             show);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1366,6 +1395,27 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_sidebar_position (int position) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.SIDEBAR_POSITION, position);
+        } catch (ConfigurationError err) {
+            on_configuration_error (err);
+        }
+    }
+
+    //
+    // sidebar position
+    //
+    public virtual int get_metadata_sidebar_position () {
+        try {
+            return get_engine ().get_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION);
+        } catch (ConfigurationError err) {
+            on_configuration_error (err);
+
+            return -1;
+        }
+    }
+
+    public virtual void set_metadata_sidebar_position (int position) {
+        try {
+            get_engine ().set_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION, position);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1409,7 +1459,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_slideshow_transition_delay (double delay) {
         try {
             get_engine ().set_double_property (ConfigurableProperty.SLIDESHOW_TRANSITION_DELAY,
-                                              delay);
+                                               delay);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1434,7 +1484,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_slideshow_transition_effect_id (string id) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.SLIDESHOW_TRANSITION_EFFECT_ID,
-                                              id);
+                                               id);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1522,7 +1572,7 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_video_interpreter_state_cookie (int state_cookie) {
         try {
             get_engine ().set_int_property (ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE,
-                                           state_cookie);
+                                            state_cookie);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }

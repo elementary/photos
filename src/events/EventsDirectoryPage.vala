@@ -48,11 +48,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         // set comparator before monitoring source collection, to prevent a re-sort
         get_view ().set_comparator (get_event_comparator (Config.Facade.get_instance ().get_events_sort_ascending ()),
-                                   event_comparator_predicate);
+                                    event_comparator_predicate);
         get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
 
         get_view ().set_property (Event.PROP_SHOW_COMMENTS,
-                                 Config.Facade.get_instance ().get_display_event_comments ());
+                                  Config.Facade.get_instance ().get_display_event_comments ());
 
         init_item_context_menu ("/EventsDirectoryContextMenu");
         init_page_context_menu ("/EventsDirectoryViewMenu");
@@ -67,6 +67,25 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         merge_button.set_related_action (get_action ("Merge"));
 
         toolbar.insert (merge_button, -1);
+
+        // separator to force slider to right side of toolbar
+        Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+        separator.set_expand (true);
+        separator.set_draw (false);
+        get_toolbar ().insert (separator, -1);
+
+        Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
+        drawn_separator.set_expand (false);
+        drawn_separator.set_draw (true);
+
+        get_toolbar ().insert (drawn_separator, -1);
+
+        //  show metadata sidebar button
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.insert (show_sidebar_button, -1);
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     ~EventsDirectoryPage () {
@@ -116,12 +135,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         merge.label = Resources.MERGE_MENU;
         actions += merge;
 
-        Gtk.ActionEntry comment = { "EditComment", null, TRANSLATABLE, null, Resources.EDIT_COMMENT_MENU,
-                                    on_edit_comment
-                                  };
-        comment.label = Resources.EDIT_COMMENT_MENU;
-        actions += comment;
-
         return actions;
     }
 
@@ -150,7 +163,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         set_action_sensitive ("Merge", selected_count > 1);
         set_action_important ("Merge", true);
         set_action_sensitive ("Rename", selected_count == 1);
-        set_action_sensitive ("EditComment", selected_count == 1);
 
         base.update_actions (selected_count, count);
     }
@@ -177,6 +189,12 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             event_comparator_predicate);
     }
 
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+    }
+
     private void on_rename () {
         // only rename one at a time
         if (get_view ().get_selected_count () != 1)
@@ -190,22 +208,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             return;
 
         RenameEventCommand command = new RenameEventCommand (item.event, new_name);
-        get_command_manager ().execute (command);
-    }
-
-    protected void on_edit_comment () {
-        // only edit one at a time
-        if (get_view ().get_selected_count () != 1)
-            return;
-
-        EventDirectoryItem item = (EventDirectoryItem) get_view ().get_selected_at (0);
-
-        EditCommentDialog edit_comment_dialog = new EditCommentDialog (item.event.get_comment ());
-        string? new_comment = edit_comment_dialog.execute ();
-        if (new_comment == null)
-            return;
-
-        EditEventCommentCommand command = new EditEventCommentCommand (item.event, new_comment);
         get_command_manager ().execute (command);
     }
 

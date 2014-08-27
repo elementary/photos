@@ -81,8 +81,11 @@ public const string MAKE_PRIMARY = "shotwell-make-primary";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "shotwell-auto-enhance";
+public const string HIDE_PANE = "pane-hide-symbolic";
+public const string SHOW_PANE = "pane-show-symbolic";
 public const string CROP_PIVOT_RETICLE = "shotwell-crop-pivot-reticle";
 public const string PUBLISH = "applications-internet";
+public const string EDIT_FLAG= "edit-flag";
 public const string MERGE = "shotwell-merge-events";
 
 public const string ICON_APP = "multimedia-photo-manager";
@@ -122,12 +125,6 @@ public const string ICON_LAST_IMPORT = "document-open-recent";
 public const string ICON_MISSING_FILES = "process-stop";
 public const string ICON_PHOTOS = "folder-pictures";
 public const string ICON_SINGLE_PHOTO = "image-x-generic";
-public const string ICON_FILTER_PHOTOS = "filter-photos";
-public const string ICON_FILTER_PHOTOS_DISABLED = "filter-photos-disabled";
-public const string ICON_FILTER_VIDEOS = "filter-videos";
-public const string ICON_FILTER_VIDEOS_DISABLED = "filter-videos-disabled";
-public const string ICON_FILTER_RAW = "filter-raw";
-public const string ICON_FILTER_RAW_DISABLED = "filter-raw-disabled";
 public const string ICON_TRASH_EMPTY = "user-trash";
 public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "videos-page";
@@ -145,13 +142,18 @@ public const string ROTATE_CCW_TOOLTIP = _("Rotate the photos left");
 
 public const string HFLIP_MENU = _("Flip Hori_zontally");
 public const string HFLIP_LABEL = _("Flip Horizontally");
+public const string HFLIP_TOOLTIP = _("Flip the image horizontally (press Ctrl to flip vertically)");
 
 public const string VFLIP_MENU = _("Flip Verti_cally");
 public const string VFLIP_LABEL = _("Flip Vertically");
+public const string VFLIP_TOOLTIP = _("Flip the image vertically");
 
 public const string ENHANCE_MENU = _("_Enhance");
 public const string ENHANCE_LABEL = _("Enhance");
-public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance");
+public const string ENHANCE_TOOLTIP = _("Automatically improve the photo's appearance \n(Overwrites previous color adjustments)");
+
+public const string UNENHANCE_MENU = _("Revert _Enhancement");
+public const string UNENHANCE_LABEL = _("Revert Enhancement");
 
 public const string COPY_ADJUSTMENTS_MENU = _("_Copy Color Adjustments");
 public const string COPY_ADJUSTMENTS_LABEL = _("Copy Color Adjustments");
@@ -231,6 +233,8 @@ public const string RATE_REJECTED_LABEL = _("Rate Rejected");
 public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
 public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
 
+public const string RATE_UNRATED_DISPLAY_LABEL = _("Rejected");
+
 public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
 public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
 public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
@@ -255,6 +259,14 @@ public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
 public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo");
 
 public const string EXPORT_MENU = _("_Export...");
+
+public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
+public const string TOGGLE_METAPANE_LABEL = _("Show info panel");
+public const string TOGGLE_METAPANE_TOOLTIP = _("Show info panel");
+
+public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
+public const string UNTOGGLE_METAPANE_LABEL = _("Hide info panel");
+public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
 public const string PRINT_MENU = _("_Print...");
 
@@ -300,8 +312,13 @@ public const string FIND_LABEL = _("Find");
 public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
 
 public const string FLAG_MENU = _("_Flag");
-
+public const string FLAG_LABEL = _("Flag");
 public const string UNFLAG_MENU = _("Un_flag");
+public const string UNFLAG_LABEL = _("Unflag");
+
+public const string BASIC_PROPERTIES_LABEL = _("Image Details");
+public const string EXTENDED_PROPERTIES_LABEL = _("Extended Details");
+public const string LIBRARY_PROPERTIES_LABEL = _("Library Details");
 
 public string launch_editor_failed (Error err) {
     return _("Unable to launch editor: %s").printf (err.message);
@@ -426,6 +443,48 @@ private unowned string rating_label (Rating rating) {
         return RATE_FIVE_LABEL;
     default:
         return RATE_UNRATED_LABEL;
+    }
+}
+
+public int rating_int (Rating rating) {
+        switch (rating) {
+            case Rating.REJECTED:
+                return -1;
+            case Rating.UNRATED:
+                return 0;
+            case Rating.ONE:
+                return 1;
+            case Rating.TWO:
+                return 2;
+            case Rating.THREE:
+                return 3;
+            case Rating.FOUR:
+                return 4;
+            case Rating.FIVE:
+                return 5;
+            default:
+                return 0;
+        }
+}
+
+public Rating int_to_rating (int rating) {
+    switch (rating) {
+    case -1:
+        return Rating.REJECTED;
+    case 0:
+        return Rating.UNRATED;
+    case 1:
+        return Rating.ONE;
+    case 2:
+        return Rating.TWO;
+    case 3:
+        return Rating.THREE;
+    case 4:
+        return Rating.FOUR;
+    case 5:
+        return Rating.FIVE;
+    default:
+        return 0;
     }
 }
 
@@ -742,9 +801,7 @@ public void init () {
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("import.svg"), IMPORT);
     add_stock_icon (icons_dir.get_child ("straighten.svg"), STRAIGHTEN);
-    add_stock_icon (icons_dir.get_child ("import-all.png"), IMPORT_ALL);
     add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
     add_stock_icon (icons_dir.get_child ("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
     add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
@@ -752,13 +809,6 @@ public void init () {
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_CAMERAS), ICON_CAMERAS);
-
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_PHOTOS),
-                                     ICON_FILTER_PHOTOS_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_VIDEOS),
-                                     ICON_FILTER_VIDEOS_DISABLED, dim_pixbuf);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_FILTER_RAW),
-                                     ICON_FILTER_RAW_DISABLED, dim_pixbuf);
 
     factory.add_default ();
 

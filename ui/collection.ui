@@ -1,14 +1,12 @@
 <ui>
     <popup name="CollectionContextMenu">
+        <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" />
+        <separator />
         <menuitem name="ContextEnhance" action="Enhance" />
         <menuitem name="ContextRevert" action="Revert" />
         <separator />
         <menuitem name="ContextCopyColorAdjustments" action="CopyColorAdjustments" />
         <menuitem name="ContextPasteColorAdjustments" action="PasteColorAdjustments" />
-        <separator />
-        <menuitem name="ContextAddTags" action="AddTagsContextMenu" />
-        <menuitem name="ContextModifyTags" action="ModifyTags" />
-        <placeholder name="ContextTagsPlaceholder" />
         <separator />
         <placeholder name="ContextFacesPlaceholder" />
         <separator />
@@ -30,8 +28,6 @@
             <menuitem name="RawDeveloperCamera" action="RawDeveloperCamera" />
         </menu>
         <separator />
-        <menuitem name="ContextEditTitle" action="EditTitle" />
-        <menuitem name="ContextEditComment" action="EditComment" />
         <menuitem name="AdjustDateTime" action="AdjustDateTime" />
         <menu name="OpenWith" action="OpenWith">
         </menu>
@@ -42,14 +38,15 @@
         <menuitem name="ContextJumpToEvent" action="CommonJumpToEvent" />
         <menuitem name="ContextJumpToFile" action="CommonJumpToFile" />
         <menuitem name="ContextPrint" action="Print"/>
-        <menuitem name="ContextSendTo" action="SendToContextMenu" />
+        <menuitem name="ContextExport" action="Export" />
+        <placeholder name="ContractorPlaceholder" />
         <separator />
         <menuitem name="ContextMoveToTrash" action="MoveToTrash" />
     </popup>
     
     <toolbar name="CollectionToolbar">
         <toolitem name="ToolRotate" action="RotateClockwise" />
-        <toolitem name="ToolEnhance" action="Enhance" />
+        <toolitem name="ToolFlip" action="FlipHorizontally" />
         <separator />
         <toolitem name="ToolPublish" action="Publish" />
         <separator />

@@ -7,7 +7,7 @@
 public class LibraryWindow : AppWindow {
     public const int SIDEBAR_MIN_WIDTH = 96;
     public const int SIDEBAR_MAX_WIDTH = 320;
-
+    public const int METADATA_SIDEBAR_MIN_WIDTH = 150;
     public static int PAGE_MIN_WIDTH {
         get {
             return Thumbnail.MAX_SCALE + (CheckerboardLayout.COLUMN_GUTTER_PADDING * 2);
@@ -97,7 +97,8 @@ public class LibraryWindow : AppWindow {
 
     private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned (Gtk.Orientation.VERTICAL);
     private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned ();
-    private Gtk.Frame bottom_frame = new Gtk.Frame (null);
+    private Gtk.Paned right_client_paned = new Granite.Widgets.ThinPaned ();
+    private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
 
@@ -135,9 +136,6 @@ public class LibraryWindow : AppWindow {
     private Gtk.ProgressBar background_progress_bar = new Gtk.ProgressBar ();
     private bool background_progress_displayed = false;
 
-    private BasicProperties basic_properties = new BasicProperties ();
-    private ExtendedPropertiesWindow extended_properties;
-
     private Gtk.Notebook notebook = new Gtk.Notebook ();
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
@@ -166,11 +164,6 @@ public class LibraryWindow : AppWindow {
         sidebar_tree.graft (events_branch, SidebarRootPosition.EVENTS);
         sidebar_tree.graft (camera_branch, SidebarRootPosition.CAMERAS);
         sidebar_tree.graft (saved_search_branch, SidebarRootPosition.SAVED_SEARCH);
-
-        // create and connect extended properties window
-        extended_properties = new ExtendedPropertiesWindow (this);
-        extended_properties.hide.connect (hide_extended_properties);
-        extended_properties.show.connect (show_extended_properties);
 
         properties_scheduler = new OneShotScheduler ("LibraryWindow properties",
                 on_update_properties_now);
@@ -248,9 +241,6 @@ public class LibraryWindow : AppWindow {
         sidebar_tree.selected_entry_removed.disconnect (on_sidebar_selected_entry_removed);
 
         unsubscribe_from_basic_information (get_current_page ());
-
-        extended_properties.hide.disconnect (hide_extended_properties);
-        extended_properties.show.disconnect (show_extended_properties);
 
         foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ()) {
             media_sources.trashcan_contents_altered.disconnect (on_trashcan_contents_altered);
@@ -382,20 +372,6 @@ public class LibraryWindow : AppWindow {
     private Gtk.ToggleActionEntry[] create_common_toggle_actions () {
         Gtk.ToggleActionEntry[] actions = new Gtk.ToggleActionEntry[0];
 
-        Gtk.ToggleActionEntry basic_props = { "CommonDisplayBasicProperties", null,
-                                              TRANSLATABLE, "<Ctrl><Shift>I", TRANSLATABLE, on_display_basic_properties, false
-                                            };
-        basic_props.label = _ ("_Basic Information");
-        basic_props.tooltip = _ ("Display basic information for the selection");
-        actions += basic_props;
-
-        Gtk.ToggleActionEntry extended_props = { "CommonDisplayExtendedProperties", null,
-                                                 TRANSLATABLE, "<Ctrl><Shift>X", TRANSLATABLE, on_display_extended_properties, false
-                                               };
-        extended_props.label = _ ("E_xtended Information");
-        extended_props.tooltip = _ ("Display extended information for the selection");
-        actions += extended_props;
-
         Gtk.ToggleActionEntry searchbar = { "CommonDisplaySearchbar", Gtk.Stock.FIND, TRANSLATABLE,
                                             "F8", TRANSLATABLE, on_display_searchbar, is_search_toolbar_visible
                                           };
@@ -408,7 +384,13 @@ public class LibraryWindow : AppWindow {
                                         };
         sidebar.label = _ ("S_idebar");
         sidebar.tooltip = _ ("Display the sidebar");
-        actions += sidebar;
+        actions += sidebar;        
+
+        Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, TRANSLATABLE,
+                                          "F10", TRANSLATABLE, on_display_metadata_sidebar, is_metadata_sidebar_visible ()
+                                        };
+        meta_sidebar.label = _ ("Edit Photo In_fo");
+        actions += meta_sidebar;
 
         return actions;
     }
@@ -497,13 +479,6 @@ public class LibraryWindow : AppWindow {
     public override void show_all () {
         base.show_all ();
 
-        Gtk.ToggleAction? basic_properties_action = get_current_page ().get_common_action (
-                    "CommonDisplayBasicProperties") as Gtk.ToggleAction;
-        assert (basic_properties_action != null);
-
-        if (!basic_properties_action.get_active ())
-            bottom_frame.hide ();
-
         Gtk.ToggleAction? searchbar_action = get_current_page ().get_common_action (
                 "CommonDisplaySearchbar") as Gtk.ToggleAction;
         assert (searchbar_action != null);
@@ -517,6 +492,7 @@ public class LibraryWindow : AppWindow {
 
         // Sidebar
         set_sidebar_visible (is_sidebar_visible ());
+        set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 
     public static LibraryWindow get_app () {
@@ -567,6 +543,7 @@ public class LibraryWindow : AppWindow {
         Config.Facade.get_instance ().set_library_window_state (maximized, dimensions);
 
         Config.Facade.get_instance ().set_sidebar_position (client_paned.position);
+        Config.Facade.get_instance ().set_metadata_sidebar_position (right_client_paned.position);
 
         base.on_quit ();
     }
@@ -724,6 +701,14 @@ public class LibraryWindow : AppWindow {
         base.update_common_actions (page, selected_count, count);
     }
 
+    public void update_common_toggle_actions () {
+        Gtk.ToggleAction? sidebar_action = get_common_action ("CommonDisplayMetadataSidebar") as Gtk.ToggleAction;
+        if (sidebar_action != null) {
+            sidebar_action.toggled.disconnect (on_display_metadata_sidebar);
+            sidebar_action.active = is_metadata_sidebar_visible ();
+            sidebar_action.toggled.connect (on_display_metadata_sidebar);
+        }
+    }
     private void on_trashcan_contents_altered () {
         set_common_action_sensitive ("CommonEmptyTrash", can_empty_trash ());
     }
@@ -802,33 +787,6 @@ public class LibraryWindow : AppWindow {
         PreferencesDialog.show ();
     }
 
-    private void on_display_basic_properties (Gtk.Action action) {
-        bool display = ((Gtk.ToggleAction) action).get_active ();
-
-        if (display) {
-            basic_properties.update_properties (get_current_page ());
-            bottom_frame.show ();
-        } else {
-            if (sidebar_paned.get_child2 () != null) {
-                bottom_frame.hide ();
-            }
-        }
-
-        // sync the setting so it will persist
-        Config.Facade.get_instance ().set_display_basic_properties (display);
-    }
-
-    private void on_display_extended_properties (Gtk.Action action) {
-        bool display = ((Gtk.ToggleAction) action).get_active ();
-
-        if (display) {
-            extended_properties.update_properties (get_current_page ());
-            extended_properties.show_all ();
-        } else {
-            extended_properties.hide ();
-        }
-    }
-
     private void on_display_searchbar (Gtk.Action action) {
         bool is_shown = ((Gtk.ToggleAction) action).get_active ();
         Config.Facade.get_instance ().set_display_search_bar (is_shown);
@@ -846,6 +804,11 @@ public class LibraryWindow : AppWindow {
     private void on_display_sidebar (Gtk.Action action) {
         set_sidebar_visible (((Gtk.ToggleAction) action).get_active ());
 
+    }    
+
+    private void on_display_metadata_sidebar (Gtk.Action action) {
+        set_metadata_sidebar_visible (((Gtk.ToggleAction) action).get_active ());
+        get_current_page ().update_sidebar_action (!is_metadata_sidebar_visible ());
     }
 
     private void set_sidebar_visible (bool visible) {
@@ -857,22 +820,13 @@ public class LibraryWindow : AppWindow {
         return Config.Facade.get_instance ().get_display_sidebar ();
     }
 
-    private void show_extended_properties () {
-        sync_extended_properties (true);
+    public void set_metadata_sidebar_visible (bool visible) {
+        metadata_sidebar.set_visible (visible);
+        Config.Facade.get_instance ().set_display_metadata_sidebar (visible);
     }
 
-    private void hide_extended_properties () {
-        sync_extended_properties (false);
-    }
-
-    private void sync_extended_properties (bool show) {
-        Gtk.ToggleAction? extended_display_action = get_common_action ("CommonDisplayExtendedProperties")
-                as Gtk.ToggleAction;
-        assert (extended_display_action != null);
-        extended_display_action.set_active (show);
-
-        // sync the setting so it will persist
-        Config.Facade.get_instance ().set_display_extended_properties (show);
+    public bool is_metadata_sidebar_visible () {
+        return Config.Facade.get_instance ().get_display_metadata_sidebar ();
     }
 
     public void enqueue_batch_import (BatchImport batch_import, bool allow_user_cancel) {
@@ -921,7 +875,7 @@ public class LibraryWindow : AppWindow {
         Gdk.ModifierType mask;
 
         get_window ().get_device_position (Gdk.Display.get_default ().get_device_manager ()
-                                          .get_client_pointer (), null, null, out mask);
+                                           .get_client_pointer (), null, null, out mask);
 
         bool ctrl = (mask & Gdk.ModifierType.CONTROL_MASK) != 0;
         bool alt = (mask & Gdk.ModifierType.MOD1_MASK) != 0;
@@ -1110,16 +1064,6 @@ public class LibraryWindow : AppWindow {
 
     // check for settings that should persist between instances
     private void load_configuration () {
-        Gtk.ToggleAction? basic_display_action = get_common_action ("CommonDisplayBasicProperties")
-                as Gtk.ToggleAction;
-        assert (basic_display_action != null);
-        basic_display_action.set_active (Config.Facade.get_instance ().get_display_basic_properties ());
-
-        Gtk.ToggleAction? extended_display_action = get_common_action ("CommonDisplayExtendedProperties")
-                as Gtk.ToggleAction;
-        assert (extended_display_action != null);
-        extended_display_action.set_active (Config.Facade.get_instance ().get_display_extended_properties ());
-
         Gtk.ToggleAction? search_bar_display_action = get_common_action ("CommonDisplaySearchbar")
                 as Gtk.ToggleAction;
         assert (search_bar_display_action != null);
@@ -1286,41 +1230,41 @@ public class LibraryWindow : AppWindow {
         background_progress_frame.add (background_progress_bar);
         background_progress_frame.set_shadow_type (Gtk.ShadowType.NONE);
 
-        // pad the bottom frame (properties)
-        Gtk.Alignment bottom_alignment = new Gtk.Alignment (0, 0.5f, 1, 0);
-
         Resources.style_widget (scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
-        Resources.style_widget (bottom_frame, Resources.INSET_FRAME_STYLESHEET);
         Resources.style_widget (sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
-
-        bottom_alignment.set_padding (10, 10, 6, 0);
-        bottom_alignment.add (basic_properties);
-
-        bottom_frame.add (bottom_alignment);
-        bottom_frame.set_shadow_type (Gtk.ShadowType.NONE);
+        Resources.style_widget (right_client_paned, Resources.SIDEBAR_PANED_STYLESHEET);
 
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
-        // top two and the basic information pane
+        // top two
         top_section.pack_start (scrolled_sidebar, true, true, 0);
-
         sidebar_paned.pack1 (top_section, true, false);
-        sidebar_paned.pack2 (bottom_frame, false, false);
-        sidebar_paned.set_position (1000);
 
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
         right_frame = new Gtk.Frame (null);
         right_frame.set_shadow_type (Gtk.ShadowType.IN);
 
+        right_client_paned.pack1 (notebook, true, false);
+        right_client_paned.pack2 (metadata_sidebar, false, false);
+
         right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        right_frame.add (right_vbox);
         right_vbox.pack_start (search_toolbar, false, false, 0);
-        right_vbox.pack_start (notebook, true, true, 0);
+        right_vbox.pack_start (right_client_paned, true, true, 0);
+
+        right_frame.add (right_vbox);
+
+        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
+        right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
 
         client_paned.pack1 (sidebar_paned, false, false);
         sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2 (right_frame, true, false);
         client_paned.set_position (Config.Facade.get_instance ().get_sidebar_position ());
+
+       int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
+        if (metadata_sidebar_pos > 0)
+            right_client_paned.set_position (metadata_sidebar_pos);
+
         // TODO: Calc according to layout's size, to give sidebar a maximum width
         notebook.set_size_request (PAGE_MIN_WIDTH, -1);
 
@@ -1348,6 +1292,7 @@ public class LibraryWindow : AppWindow {
         if (page == get_current_page ())
             return;
 
+        metadata_sidebar.save_changes ();
         Page current_page = get_current_page ();
         if (current_page != null) {
             Gtk.Toolbar toolbar = current_page.get_toolbar ();
@@ -1449,6 +1394,7 @@ public class LibraryWindow : AppWindow {
         }
 
         right_frame.show_all ();
+        set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 
     // Turns the search bar on or off.  Note that if show is true, page must not be null.
@@ -1542,11 +1488,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_update_properties_now () {
-        if (bottom_frame.visible)
-            basic_properties.update_properties (get_current_page ());
-
-        if (extended_properties.visible)
-            extended_properties.update_properties (get_current_page ());
+        metadata_sidebar.update_properties (get_current_page ());
     }
 
     public void mounted_camera_shell_notification (string uri, bool at_startup) {

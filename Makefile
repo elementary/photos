@@ -72,7 +72,6 @@ UNUNITIZED_SRC_FILES = \
 	Resources.vala \
 	Debug.vala \
 	ColorTransformation.vala \
-	Properties.vala \
 	CustomComponents.vala \
 	Event.vala \
 	International.vala \
@@ -197,10 +196,7 @@ ICON_FILES = \
 	two-star-filter-plus.svg \
 	two-stars.svg \
 	videos-page.png \
-	generic-plugin.png \
-	filter-raw.png \
-	filter-photos.png \
-	filter-videos.png
+	generic-plugin.png
 
 HELP_FILES = \
 	edit-adjustments.page \

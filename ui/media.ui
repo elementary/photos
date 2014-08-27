@@ -4,7 +4,6 @@
         <menu name="FileMenu" action="FileMenu">
             <menuitem name="Import" action="CommonFileImport" />
             <menuitem name="ImportExternal" action="ExternalLibraryImport" />
-            <menuitem name="Export" action="Export" />
             <separator />
             <placeholder name="FileExtrasPlaceholder" />
         </menu>
@@ -20,9 +19,6 @@
         </menu>
 
         <menu name="PhotosMenu" action="PhotosMenu">
-            <menuitem name="FlipHorizontally" action="FlipHorizontally" />
-            <menuitem name="FlipVertically" action="FlipVertically" />
-            <separator />
             <placeholder name="PhotosExtrasEditsPlaceholder" />
             <separator />
             <placeholder name="PhotosExtrasExternalsPlaceholder" />
@@ -36,9 +32,8 @@
     </menubar>
 
     <popup name="MediaViewMenu" action="ViewMenu">
-        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
         <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" /> 
         <separator />
         <menuitem name="ViewTitle" action="ViewTitle" />
         <menuitem name="ViewComment" action="ViewComment" />
