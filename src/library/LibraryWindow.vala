@@ -288,13 +288,6 @@ public class LibraryWindow : AppWindow {
         import.tooltip = _ ("Import photos from disk to library");
         actions += import;
 
-        Gtk.ActionEntry import_from_external = {
-            "ExternalLibraryImport", Resources.IMPORT, TRANSLATABLE,
-            null, TRANSLATABLE, on_external_library_import
-        };
-        import_from_external.label = _ ("Import From _Application...");
-        actions += import_from_external;
-
         Gtk.ActionEntry sort = { "CommonSortEvents", null, TRANSLATABLE, null, null, null };
         sort.label = _ ("Sort _Events");
         actions += sort;
@@ -665,12 +658,6 @@ public class LibraryWindow : AppWindow {
 
         import_dir = import_dialog.get_current_folder ();
         import_dialog.destroy ();
-    }
-
-    private void on_external_library_import () {
-        Gtk.Dialog import_dialog = DataImportsUI.DataImportsDialog.get_or_create_instance ();
-
-        import_dialog.run ();
     }
 
     protected override void update_common_action_availability (Page? old_page, Page? new_page) {
