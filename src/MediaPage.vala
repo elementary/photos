@@ -341,13 +341,6 @@ public abstract class MediaPage : CheckerboardPage {
         filter_photos.label = Resources.FILTER_PHOTOS_MENU;
         actions += filter_photos;
 
-        Gtk.ActionEntry play = { "PlayVideo", Gtk.Stock.MEDIA_PLAY, TRANSLATABLE, "<Ctrl>Y",
-                                 TRANSLATABLE, on_play_video
-                               };
-        play.label = _ ("_Play Video");
-        play.tooltip = _ ("Open the selected videos in the system video player");
-        actions += play;
-
         Gtk.ActionEntry raw_developer = { "RawDeveloper", null, TRANSLATABLE, null, null, null };
         raw_developer.label = _ ("_Developer");
         actions += raw_developer;
