@@ -42,7 +42,6 @@ UNIT_USES := \
 	Tags \
 	Camera \
 	Searches \
-	DataImports \
 	Folders
 
 # List any additional files that are used in the build process as a part of this unit that should

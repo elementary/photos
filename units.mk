@@ -25,7 +25,6 @@ UNITS = \
 	camera \
 	searches \
 	config \
-	data_imports \
 	folders
 
 # Name(s) of units that represent application entry points.  These units will have init and

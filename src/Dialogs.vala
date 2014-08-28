@@ -1884,12 +1884,10 @@ public class WelcomeDialog : Gtk.Dialog {
     Gtk.Box import_content;
     Gtk.Box import_action_checkbox_packer;
     Gtk.Box external_import_action_checkbox_packer;
-    Spit.DataImports.WelcomeImportMetaHost import_meta_host;
     bool import_content_already_installed = false;
     bool ok_clicked = false;
 
     public WelcomeDialog (Gtk.Window owner) {
-        import_meta_host = new Spit.DataImports.WelcomeImportMetaHost (this);
         bool show_system_pictures_import = is_system_pictures_import_possible ();
         Gtk.Widget ok_button = add_button (_ ("_Close"), Gtk.ResponseType.OK);
         set_title (_ ("Welcome!"));
@@ -1966,8 +1964,6 @@ public class WelcomeDialog : Gtk.Dialog {
         ok_button.grab_focus ();
 
         install_import_content ();
-
-        import_meta_host.start ();
     }
 
     private void install_import_content () {
