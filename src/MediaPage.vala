@@ -333,42 +333,6 @@ public abstract class MediaPage : CheckerboardPage {
         rate_rejected.label = Resources.rating_menu (Rating.REJECTED);
         actions += rate_rejected;
 
-        Gtk.ActionEntry rate_unrated = { "RateUnrated", null, TRANSLATABLE,
-                                         "0", TRANSLATABLE, on_rate_unrated
-                                       };
-        rate_unrated.label = Resources.rating_menu (Rating.UNRATED);
-        actions += rate_unrated;
-
-        Gtk.ActionEntry rate_one = { "RateOne", null, TRANSLATABLE,
-                                     "1", TRANSLATABLE, on_rate_one
-                                   };
-        rate_one.label = Resources.rating_menu (Rating.ONE);
-        actions += rate_one;
-
-        Gtk.ActionEntry rate_two = { "RateTwo", null, TRANSLATABLE,
-                                     "2", TRANSLATABLE, on_rate_two
-                                   };
-        rate_two.label = Resources.rating_menu (Rating.TWO);
-        actions += rate_two;
-
-        Gtk.ActionEntry rate_three = { "RateThree", null, TRANSLATABLE,
-                                       "3", TRANSLATABLE, on_rate_three
-                                     };
-        rate_three.label = Resources.rating_menu (Rating.THREE);
-        actions += rate_three;
-
-        Gtk.ActionEntry rate_four = { "RateFour", null, TRANSLATABLE,
-                                      "4", TRANSLATABLE, on_rate_four
-                                    };
-        rate_four.label = Resources.rating_menu (Rating.FOUR);
-        actions += rate_four;
-
-        Gtk.ActionEntry rate_five = { "RateFive", null, TRANSLATABLE,
-                                      "5", TRANSLATABLE, on_rate_five
-                                    };
-        rate_five.label = Resources.rating_menu (Rating.FIVE);
-        actions += rate_five;
-
         Gtk.ActionEntry sort_photos = { "SortPhotos", null, TRANSLATABLE, null, null, null };
         sort_photos.label = _ ("Sort _Photos");
         actions += sort_photos;
@@ -523,16 +487,17 @@ public abstract class MediaPage : CheckerboardPage {
         }
     }
 
-    private void update_rating_sensitivities () {
-        set_action_sensitive ("RateRejected", can_rate_selected (Rating.REJECTED));
-        set_action_sensitive ("RateUnrated", can_rate_selected (Rating.UNRATED));
-        set_action_sensitive ("RateOne", can_rate_selected (Rating.ONE));
-        set_action_sensitive ("RateTwo", can_rate_selected (Rating.TWO));
-        set_action_sensitive ("RateThree", can_rate_selected (Rating.THREE));
-        set_action_sensitive ("RateFour", can_rate_selected (Rating.FOUR));
-        set_action_sensitive ("RateFive", can_rate_selected (Rating.FIVE));
+    protected void update_rating_sensitivities () {
+        if (rating_menu_item != null) {
+            rating_menu_item.sensitive =  can_rate_selected ();
+            rating_menu_item.rating_value = Resources.int_to_rating (get_selected_rating ());
+        }
         set_action_sensitive ("IncreaseRating", can_increase_selected_rating ());
         set_action_sensitive ("DecreaseRating", can_decrease_selected_rating ());
+    }
+
+    protected override void on_rating_widget_activate () {
+        on_set_rating (Resources.int_to_rating(rating_menu_item.rating_value));
     }
 
     private void update_development_menu_item_sensitivity () {
@@ -614,13 +579,22 @@ public abstract class MediaPage : CheckerboardPage {
             action.set_active (display);
     }
 
-    private bool can_rate_selected (Rating rating) {
-        foreach (DataView view in get_view ().get_selected ()) {
-            if (((Thumbnail) view).get_media_source ().get_rating () != rating)
-                return true;
-        }
+    private bool can_rate_selected () {
+        return get_view ().get_selected ().size > 0;
+    }
 
-        return false;
+    private Rating get_selected_rating () {
+        bool init = false;
+        Rating last_rating = Rating.UNRATED;
+        foreach (DataView view in get_view ().get_selected ()) {
+            var rating = ((Thumbnail) view).get_media_source ().get_rating ();
+            if (!init)
+                init = true;
+            else if (last_rating != rating)
+                return Rating.UNRATED;
+            last_rating = rating;
+        }
+        return last_rating;
     }
 
     private bool can_increase_selected_rating () {
@@ -702,31 +676,31 @@ public abstract class MediaPage : CheckerboardPage {
             activate_action ("DecreaseRating");
             break;
 
-        case "KP_1":
-            activate_action ("RateOne");
+        case "1":
+            on_set_rating (Rating.ONE);
             break;
 
-        case "KP_2":
-            activate_action ("RateTwo");
+        case "2":
+            on_set_rating (Rating.TWO);
             break;
 
-        case "KP_3":
-            activate_action ("RateThree");
+        case "3":
+            on_set_rating (Rating.THREE);
             break;
 
-        case "KP_4":
-            activate_action ("RateFour");
+        case "4":
+            on_set_rating (Rating.FOUR);
             break;
 
-        case "KP_5":
-            activate_action ("RateFive");
+        case "5":
+            on_set_rating (Rating.FIVE);    
             break;
 
-        case "KP_0":
-            activate_action ("RateUnrated");
+        case "0":
+            on_set_rating (Rating.UNRATED);
             break;
 
-        case "KP_9":
+        case "9":
             activate_action ("RateRejected");
             break;
 
@@ -918,30 +892,6 @@ public abstract class MediaPage : CheckerboardPage {
 
     protected virtual void on_rate_rejected () {
         on_set_rating (Rating.REJECTED);
-    }
-
-    protected virtual void on_rate_unrated () {
-        on_set_rating (Rating.UNRATED);
-    }
-
-    protected virtual void on_rate_one () {
-        on_set_rating (Rating.ONE);
-    }
-
-    protected virtual void on_rate_two () {
-        on_set_rating (Rating.TWO);
-    }
-
-    protected virtual void on_rate_three () {
-        on_set_rating (Rating.THREE);
-    }
-
-    protected virtual void on_rate_four () {
-        on_set_rating (Rating.FOUR);
-    }
-
-    protected virtual void on_rate_five () {
-        on_set_rating (Rating.FIVE);
     }
 
     private void on_remove_from_library () {

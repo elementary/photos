@@ -249,7 +249,9 @@ public abstract class CollectionPage : MediaPage {
         }
 
         populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
-
+        populate_rating_widget_menu_item (menu, "/CollectionContextMenu/RatingWidgetPlaceholder");
+        update_rating_sensitivities ();
+        menu.show_all ();
         return menu;
     }
 
@@ -496,7 +498,6 @@ public abstract class CollectionPage : MediaPage {
         case "KP_End":
             key_press_event (event);
             break;
-
         case "bracketright":
             activate_action ("RotateClockwise");
             break;
