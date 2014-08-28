@@ -45,7 +45,6 @@ public class LibraryWindow : AppWindow {
         CAMERAS,
         SAVED_SEARCH,
         EVENTS,
-        FOLDERS,
         TAGS,
     }
 
@@ -111,7 +110,6 @@ public class LibraryWindow : AppWindow {
     private Sidebar.Tree sidebar_tree;
     private Library.Branch library_branch = new Library.Branch ();
     private Tags.Branch tags_branch = new Tags.Branch ();
-    private Folders.Branch folders_branch = new Folders.Branch ();
     private Events.Branch events_branch = new Events.Branch ();
     private Camera.Branch camera_branch = new Camera.Branch ();
     private Searches.Branch saved_search_branch = new Searches.Branch ();
@@ -160,7 +158,6 @@ public class LibraryWindow : AppWindow {
 
         sidebar_tree.graft (library_branch, SidebarRootPosition.LIBRARY);
         sidebar_tree.graft (tags_branch, SidebarRootPosition.TAGS);
-        sidebar_tree.graft (folders_branch, SidebarRootPosition.FOLDERS);
         sidebar_tree.graft (events_branch, SidebarRootPosition.EVENTS);
         sidebar_tree.graft (camera_branch, SidebarRootPosition.CAMERAS);
         sidebar_tree.graft (saved_search_branch, SidebarRootPosition.SAVED_SEARCH);
