@@ -1270,35 +1270,6 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-public class EditTitleDialog : TextEntryDialogMediator {
-    public EditTitleDialog (string? photo_title) {
-        base (_ ("Edit Title"), _ ("Title:"), photo_title);
-    }
-
-    public virtual string? execute () {
-        return MediaSource.prep_title (_execute ());
-    }
-
-    protected override bool on_modify_validate (string text) {
-        return true;
-    }
-}
-
-public class EditCommentDialog : MultiTextEntryDialogMediator {
-    public EditCommentDialog (string? comment, bool is_event = false) {
-        string title_tmp = (is_event) ? _ ("Edit Event Comment") : _ ("Edit Photo/Video Comment");
-        base (title_tmp, _ ("Comment:"), comment);
-    }
-
-    public virtual string? execute () {
-        return MediaSource.prep_comment (_execute ());
-    }
-
-    protected override bool on_modify_validate (string text) {
-        return true;
-    }
-}
-
 // Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (only remove photos) and
 // Gtk.ResponseType.CANCEL.
 public Gtk.ResponseType remove_from_library_dialog (Gtk.Window owner, string title,
@@ -1897,98 +1868,6 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
     dialog.destroy ();
 }
 
-public abstract class TagsDialog : TextEntryDialogMediator {
-    public TagsDialog (string title, string label, string? initial_text = null) {
-        base (title, label, initial_text, HierarchicalTagIndex.get_global_index ().get_all_tags (),
-              ",");
-    }
-}
-
-public class AddTagsDialog : TagsDialog {
-    public AddTagsDialog () {
-        base (Resources.ADD_TAGS_TITLE, _ ("Tags (separated by commas):"));
-    }
-
-    public string[]? execute () {
-        string? text = _execute ();
-        if (text == null)
-            return null;
-
-        // only want to return null if the user chose cancel, however, on_modify_validate ensures
-        // that Tag.prep_tag_names won't return a zero-length array (and it never returns null)
-        return Tag.prep_tag_names (text.split (","));
-    }
-
-    protected override bool on_modify_validate (string text) {
-        if (text.contains (Tag.PATH_SEPARATOR_STRING))
-            return false;
-
-        // Can't simply call Tag.prep_tag_names ().length because of this bug:
-        // https://bugzilla.gnome.org/show_bug.cgi?id=602208
-        string[] names = Tag.prep_tag_names (text.split (","));
-
-        return names.length > 0;
-    }
-}
-
-public class ModifyTagsDialog : TagsDialog {
-    public ModifyTagsDialog (MediaSource source) {
-        base (Resources.MODIFY_TAGS_LABEL, _ ("Tags (separated by commas):"),
-              get_initial_text (source));
-    }
-
-    private static string? get_initial_text (MediaSource source) {
-        Gee.Collection<Tag>? source_tags = Tag.global.fetch_for_source (source);
-        if (source_tags == null)
-            return null;
-
-        Gee.Collection<Tag> terminal_tags = Tag.get_terminal_tags (source_tags);
-
-        Gee.SortedSet<string> tag_basenames = new Gee.TreeSet<string> ();
-        foreach (Tag tag in terminal_tags)
-            tag_basenames.add (HierarchicalTagUtilities.get_basename (tag.get_path ()));
-
-        string? text = null;
-        foreach (string name in tag_basenames) {
-            if (text == null)
-                text = "";
-            else
-                text += ", ";
-
-            text += name;
-        }
-
-        return text;
-    }
-
-    public Gee.ArrayList<Tag>? execute () {
-        string? text = _execute ();
-        if (text == null)
-            return null;
-
-        Gee.ArrayList<Tag> new_tags = new Gee.ArrayList<Tag> ();
-
-        // return empty list if no tags specified
-        if (is_string_empty (text))
-            return new_tags;
-
-        // break up by comma-delimiter, prep for use, and separate into list
-        string[] tag_names = Tag.prep_tag_names (text.split (","));
-
-        tag_names = HierarchicalTagIndex.get_global_index ().get_paths_for_names_array (tag_names);
-
-        foreach (string name in tag_names)
-            new_tags.add (Tag.for_path (name));
-
-        return new_tags;
-    }
-
-    protected override bool on_modify_validate (string text) {
-        return (!text.contains (Tag.PATH_SEPARATOR_STRING));
-    }
-
-}
-
 public interface WelcomeServiceEntry : GLib.Object {
     public abstract string get_service_name ();
 
@@ -2005,12 +1884,10 @@ public class WelcomeDialog : Gtk.Dialog {
     Gtk.Box import_content;
     Gtk.Box import_action_checkbox_packer;
     Gtk.Box external_import_action_checkbox_packer;
-    Spit.DataImports.WelcomeImportMetaHost import_meta_host;
     bool import_content_already_installed = false;
     bool ok_clicked = false;
 
     public WelcomeDialog (Gtk.Window owner) {
-        import_meta_host = new Spit.DataImports.WelcomeImportMetaHost (this);
         bool show_system_pictures_import = is_system_pictures_import_possible ();
         Gtk.Widget ok_button = add_button (_ ("_Close"), Gtk.ResponseType.OK);
         set_title (_ ("Welcome!"));
@@ -2087,8 +1964,6 @@ public class WelcomeDialog : Gtk.Dialog {
         ok_button.grab_focus ();
 
         install_import_content ();
-
-        import_meta_host.start ();
     }
 
     private void install_import_content () {

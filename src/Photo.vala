@@ -234,23 +234,30 @@ public abstract class Photo : PhotoSource, Dateable {
         private Photo photo;
         private Orientation orientation;
         private Gee.HashMap<string, KeyValueMap>? transformations;
+        private Gee.HashMap<string, KeyValueMap>? original_transformations;
         private PixelTransformer? transformer;
         private PixelTransformationBundle? adjustments;
+        private bool enhanced;
 
         public PhotoTransformationStateImpl (Photo photo, Orientation orientation,
                                              Gee.HashMap<string, KeyValueMap>? transformations, PixelTransformer? transformer,
-                                             PixelTransformationBundle? adjustments) {
+                                             PixelTransformationBundle? adjustments,Gee.HashMap<string, KeyValueMap>? original_transformations, bool enhanced) {
             this.photo = photo;
             this.orientation = orientation;
             this.transformations = copy_transformations (transformations);
+            this.original_transformations = copy_transformations (original_transformations);
             this.transformer = transformer;
             this.adjustments = adjustments;
-
+            this.enhanced = enhanced;
             photo.baseline_replaced.connect (on_photo_baseline_replaced);
         }
 
         ~PhotoTransformationStateImpl () {
             photo.baseline_replaced.disconnect (on_photo_baseline_replaced);
+        }
+
+        public bool get_enhanced () {
+            return enhanced;
         }
 
         public Orientation get_orientation () {
@@ -259,6 +266,10 @@ public abstract class Photo : PhotoSource, Dateable {
 
         public Gee.HashMap<string, KeyValueMap>? get_transformations () {
             return copy_transformations (transformations);
+        }        
+
+        public Gee.HashMap<string, KeyValueMap>? get_original_transformations () {
+            return copy_transformations (original_transformations);
         }
 
         public PixelTransformer? get_transformer () {
@@ -2121,6 +2132,26 @@ public abstract class Photo : PhotoSource, Dateable {
 
         if (committed)
             notify_altered (new Alteration ("metadata", "master-dirty"));
+    }    
+
+    public bool is_enhanced () {
+        lock (row) {
+            return row.enhanced;
+        }
+    }
+
+    public void set_enhanced (bool enhanced) {
+        bool committed = false;
+        lock (row) {
+            if (row.enhanced != enhanced) {
+                committed = PhotoTable.get_instance ().set_enhanced (get_photo_id (), enhanced);
+                if (committed)
+                    row.enhanced = enhanced;
+            }
+        }
+
+        if (committed)
+            notify_altered (new Alteration ("metadata", "enhanced"));
     }
 
     public override Rating get_rating () {
@@ -2521,6 +2552,37 @@ public abstract class Photo : PhotoSource, Dateable {
 
             return adjustments.copy ();
         }
+    } 
+
+    // This method *must* be called with row locked.
+    private PixelTransformationBundle locked_original_color_adjustments () {
+        var original_adjustments = new PixelTransformationBundle ();
+
+        KeyValueMap map;
+        if (row.original_transforms != null) {
+            map = row.original_transforms.get ("adjustments");
+            if (map != null)
+                map = map.copy ();
+        } else 
+            map = new KeyValueMap ("adjustments");
+
+        if (map == null)
+            original_adjustments.set_to_identity ();
+        else
+            original_adjustments.load (map);
+            
+        return original_adjustments;
+    }
+
+
+    // Returns a copy of the color adjustments as a map.
+    private KeyValueMap get_color_adjustments_map () {
+        lock (row) {
+            KeyValueMap map = get_transformation ("adjustments");
+            if (map == null)
+                map = new KeyValueMap("adjustments");
+            return map;
+        }
     }
 
     public PixelTransformer get_pixel_transformer () {
@@ -2540,9 +2602,10 @@ public abstract class Photo : PhotoSource, Dateable {
         return get_color_adjustments ().get_transformation (type);
     }
 
-    public void set_color_adjustments (PixelTransformationBundle new_adjustments) {
+    public void set_color_adjustments (PixelTransformationBundle new_adjustments) {  
         /* if every transformation in 'new_adjustments' is the identity, then just remove all
            adjustments from the database */
+        set_enhanced (false);
         if (new_adjustments.is_identity ()) {
             bool result;
             lock (row) {
@@ -2725,7 +2788,8 @@ public abstract class Photo : PhotoSource, Dateable {
             return new PhotoTransformationStateImpl (this, row.orientation,
                     row.transformations,
                     transformer != null ? transformer.copy () : null,
-                    adjustments != null ? adjustments.copy () : null);
+                    adjustments != null ? adjustments.copy () : null,
+                    row.original_transforms, row.enhanced);
         }
     }
 
@@ -2735,17 +2799,21 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
 
         Orientation saved_orientation = state_impl.get_orientation ();
+        bool saved_enhanced = state_impl.get_enhanced ();
         Gee.HashMap<string, KeyValueMap>? saved_transformations = state_impl.get_transformations ();
+        Gee.HashMap<string, KeyValueMap>? saved_original_transformations = state_impl.get_original_transformations ();
         PixelTransformer? saved_transformer = state_impl.get_transformer ();
         PixelTransformationBundle? saved_adjustments = state_impl.get_color_adjustments ();
 
         bool committed;
         lock (row) {
             committed = PhotoTable.get_instance ().set_transformation_state (row.photo_id,
-                        saved_orientation, saved_transformations);
+                        saved_orientation, saved_transformations, saved_transformations, saved_enhanced);
             if (committed) {
                 row.orientation = saved_orientation;
                 row.transformations = saved_transformations;
+                row.original_transforms = saved_original_transformations;
+                row.enhanced = saved_enhanced;
                 transformer = saved_transformer;
                 adjustments = saved_adjustments;
             }
@@ -2766,7 +2834,7 @@ public abstract class Photo : PhotoSource, Dateable {
         lock (row) {
             is_altered = PhotoTable.get_instance ().remove_all_transformations (row.photo_id);
             row.transformations = null;
-
+            row.enhanced = false;
             transformer = null;
             adjustments = null;
 
@@ -2850,6 +2918,25 @@ public abstract class Photo : PhotoSource, Dateable {
             row.transformations.set (trans.get_group (), trans);
 
             return PhotoTable.get_instance ().set_transformation (row.photo_id, trans);
+        }
+    }
+
+    private bool set_original_transforms (KeyValueMap trans) {
+        lock (row) {
+            if (row.original_transforms == null)
+                row.original_transforms = new Gee.HashMap<string, KeyValueMap> ();
+
+            row.original_transforms.set (trans.get_group (), trans);
+
+            return PhotoTable.get_instance ().set_original_transforms (row.photo_id, trans);
+        }
+    }    
+
+    private bool clear_original_transforms () {
+        lock (row) {
+            if (row.original_transforms == null)
+                row.original_transforms = new Gee.HashMap<string, KeyValueMap> ();
+            return PhotoTable.get_instance ().set_original_transforms (row.photo_id, null);
         }
     }
 
@@ -3696,6 +3783,14 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Opens with GIMP, etc.
     public void open_with_external_editor (string external_editor) throws Error {
+        File modified_file = get_modified_file ();
+
+        //store last used
+        Config.Facade.get_instance ().set_external_photo_app (external_editor);
+        launch_editor (modified_file, get_file_format (), external_editor);
+    }
+
+    public File get_modified_file () throws Error {
         File current_editable_file = null;
         File create_editable_file = null;
         PhotoFileFormat editable_file_format;
@@ -3747,9 +3842,7 @@ public abstract class Photo : PhotoSource, Dateable {
         if (editable_monitor == null)
             start_monitoring_editable (current_editable_file);
 
-        //store last used
-        Config.Facade.get_instance ().set_external_photo_app (external_editor);
-        launch_editor (current_editable_file, get_file_format (), external_editor);
+        return current_editable_file;
     }
 
     public void revert_to_master (bool notify = true) {
@@ -4320,6 +4413,8 @@ public abstract class Photo : PhotoSource, Dateable {
         Timer apply_timer = new Timer ();
 #endif
         lock (row) {
+            clear_original_transforms ();
+            set_original_transforms (get_color_adjustments_map ());
             set_color_adjustments (transformations);
         }
 
@@ -4327,7 +4422,29 @@ public abstract class Photo : PhotoSource, Dateable {
         apply_timer.stop ();
         debug ("Auto-Enhance apply time: %f sec", apply_timer.elapsed ());
 #endif
+        set_enhanced(true);
         return true;
+    }
+
+    public bool unenhance () {
+        lock (row) {
+            if (row.enhanced) {
+                if (row.original_transforms == null || row.original_transforms.get ("adjustments") == null) {
+                    remove_transformation ("adjustments");
+                    bool result = false;
+                    result = remove_transformation ("adjustments");
+                    adjustments = null;
+                    transformer = null;
+                    if (result)
+                        notify_altered (new Alteration ("image", "color-adjustments"));
+                }
+                else
+                    set_color_adjustments (locked_original_color_adjustments ());
+                set_enhanced (false);
+                return true;
+            }
+        }
+        return false;
     }
 }
 

@@ -2,8 +2,7 @@
 PLUGIN_INTERFACES := \
 	src/plugins/SpitInterfaces.vala \
 	src/plugins/TransitionsInterfaces.vala \
-	src/plugins/PublishingInterfaces.vala \
-	src/plugins/DataImportsInterfaces.vala
+	src/plugins/PublishingInterfaces.vala
 
 PLUGIN_PKG_REQS := \
 	gobject-2.0 \

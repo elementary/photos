@@ -4,22 +4,11 @@
         <menu name="FileMenu" action="FileMenu">
             <menuitem name="Import" action="CommonFileImport" />
             <menuitem name="ImportExternal" action="ExternalLibraryImport" />
-            <separator />
-            <menuitem name="JumpToFile" action="CommonJumpToFile" />
-            <menuitem name="EmptyTrash" action="CommonEmptyTrash" />
-            <separator />
-            <menuitem name="Quit" action="CommonQuit" />
         </menu>
         
         <menu name="EditMenu" action="EditMenu">
             <menuitem name="Undo" action="CommonUndo" />
             <menuitem name="Redo" action="CommonRedo" />
-            <separator />
-            <menuitem name="Find" action="CommonFind" />
-            <menuitem name="NewSearch" action="CommonNewSearch" />
-            <separator />
-            <menuitem name="Delete" action="Delete" />
-            <menuitem name="Restore" action="Restore" />
             <separator />
             <menuitem name="Preferences" action="CommonPreferences" />
         </menu>
@@ -41,7 +30,7 @@
     <popup name="TrashPageMenu">
         <menuitem name="ContextEmptyTrash" action="CommonEmptyTrash" />
     </popup>
-    
+
     <toolbar name="TrashToolbar">
         <toolitem name="ToolDelete" action="Delete" />
         <toolitem name="ToolRestore" action="Restore" />
@@ -51,10 +40,9 @@
     </toolbar>
 
     <popup name="TrashViewMenu" action="ViewMenu">
-        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
         <menuitem name="DisplaySearchbar" action="CommonDisplaySearchbar" />
         <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" />
         <separator />
         <menu name="FilterPhotos" action="CommonFilterPhotos">
             <menuitem name="DisplayFiveOrHigher" action="CommonDisplayFiveOrHigher" />

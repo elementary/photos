@@ -376,17 +376,23 @@ public class SearchFilterToolbar : Gtk.Revealer {
         toolbar.insert (label_type_item, -1);
 
         toolbtn_photos = new Gtk.ToggleToolButton ();
-        toolbtn_photos.icon_name = Resources.ICON_FILTER_PHOTOS;
+        var photos_icon = new Gtk.Image.from_icon_name ("folder-pictures", Gtk.IconSize.MENU);
+        photos_icon.pixel_size = 16;
+        toolbtn_photos.set_icon_widget (photos_icon);
         toolbtn_photos.tooltip_text = _ ("Photos");
         toolbtn_photos.toggled.connect (on_photos_toggled);
 
         toolbtn_videos = new Gtk.ToggleToolButton ();
-        toolbtn_videos.icon_name = Resources.ICON_FILTER_VIDEOS;
+        var videos_icon = new Gtk.Image.from_icon_name ("folder-videos", Gtk.IconSize.MENU);
+        videos_icon.pixel_size = 16;
+        toolbtn_videos.set_icon_widget (videos_icon);
         toolbtn_videos.tooltip_text = _ ("Videos");
         toolbtn_videos.toggled.connect (on_videos_toggled);
 
         toolbtn_raw = new Gtk.ToggleToolButton ();
-        toolbtn_raw.icon_name = Resources.ICON_FILTER_RAW;
+        var raw_icon = new Gtk.Image.from_icon_name ("accessories-camera", Gtk.IconSize.MENU);
+        raw_icon.pixel_size = 16;
+        toolbtn_raw.set_icon_widget (raw_icon);
         toolbtn_raw.tooltip_text = _ ("RAW photos");
         toolbtn_raw.toggled.connect (on_raw_toggled);
 
@@ -405,10 +411,12 @@ public class SearchFilterToolbar : Gtk.Revealer {
         toolbar.insert (label_flagged_item, -1);
 
         toolbtn_flag = new Gtk.ToggleToolButton ();
-        toolbtn_flag.icon_name = Resources.ICON_FILTER_FLAGGED;
+
+        var flag_icon = new Gtk.Image.from_icon_name (Resources.ICON_FLAGGED_PAGE, Gtk.IconSize.MENU);
+        flag_icon.pixel_size = 16;
+        toolbtn_flag.set_icon_widget (flag_icon);
         toolbtn_flag.tooltip_text = _ ("Flagged");
         toolbtn_flag.toggled.connect (on_flagged_toggled);
-
         toolbar.insert (toolbtn_flag, -1);
 
         // separator

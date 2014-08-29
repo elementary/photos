@@ -28,7 +28,7 @@ public abstract class CollectionPage : MediaPage {
 
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
-
+    private Gtk.ToggleToolButton enhance_button = null;
     public CollectionPage (string page_name) {
         base (page_name);
 
@@ -43,6 +43,13 @@ public abstract class CollectionPage : MediaPage {
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
             base.get_toolbar ();
+            // enhance tool
+            enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
+            enhance_button.set_label (Resources.ENHANCE_LABEL);
+            enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
+            enhance_button.clicked.connect (on_enhance);
+            enhance_button.is_important = true;
+            toolbar.insert (enhance_button, 2);
 
             // separator to force slider to right side of toolbar
             Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
@@ -60,12 +67,19 @@ public abstract class CollectionPage : MediaPage {
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
             connect_slider (zoom_slider_assembly);
             get_toolbar ().insert (zoom_slider_assembly, -1);
-            
+
             Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
             slideshow_button.set_tooltip_text (_("Play a slideshow"));
             slideshow_button.clicked.connect (on_slideshow);
             get_toolbar ().insert (slideshow_button, 0);
+
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
 
         return toolbar;
@@ -74,14 +88,11 @@ public abstract class CollectionPage : MediaPage {
     private static InjectionGroup create_file_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
 
-        group.add_menu_item ("SendTo");
-        group.add_menu_item ("SetBackground");
-
         return group;
     }
 
-    private static InjectionGroup create_edit_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/EditMenu/EditExtrasPlaceholder");
+    private static InjectionGroup create_context_menu_injectables () {
+        InjectionGroup group = new InjectionGroup ("/CollectionContextMenu/EditExtrasPlaceholder");
 
         group.add_menu_item ("Duplicate");
 
@@ -92,14 +103,6 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
 
         group.add_menu_item ("Fullscreen", "CommonFullscreen");
-
-        return group;
-    }
-
-    private static InjectionGroup create_photos_menu_externals_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
-
-        group.add_menu_item ("PlayVideo");
 
         return group;
     }
@@ -154,13 +157,6 @@ public abstract class CollectionPage : MediaPage {
         vflip.tooltip = Resources.VFLIP_TOOLTIP;
         actions += vflip;
 
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
-                                    TRANSLATABLE, on_enhance
-                                  };
-        enhance.label = Resources.ENHANCE_MENU;
-        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
-        actions += enhance;
-
         Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, TRANSLATABLE,
                                              "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments
                                            };
@@ -180,13 +176,6 @@ public abstract class CollectionPage : MediaPage {
                                  };
         revert.label = Resources.REVERT_MENU;
         actions += revert;
-
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
 
         Gtk.ActionEntry duplicate = { "Duplicate", null, TRANSLATABLE, "<Ctrl>D", TRANSLATABLE,
                                       on_duplicate_photo
@@ -209,6 +198,13 @@ public abstract class CollectionPage : MediaPage {
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
 
+        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
+                                    TRANSLATABLE, on_enhance
+                                  };
+        enhance.label = Resources.ENHANCE_MENU;
+        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
+        actions += enhance;
+
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
                                       on_slideshow
                                     };
@@ -223,9 +219,8 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
         groups += create_file_menu_injectables ();
-        groups += create_edit_menu_injectables ();
+        groups += create_context_menu_injectables ();
         groups += create_view_menu_fullscreen_injectables ();
-        groups += create_photos_menu_externals_injectables ();
 
         return groups;
     }
@@ -244,6 +239,10 @@ public abstract class CollectionPage : MediaPage {
             open_with_raw_menu_item.show ();
         }
 
+        populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
+        populate_rating_widget_menu_item (menu, "/CollectionContextMenu/RatingWidgetPlaceholder");
+        update_rating_sensitivities ();
+        menu.show_all ();
         return menu;
     }
 
@@ -382,21 +381,11 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("AdjustDateTime", has_selected);
 
         set_action_sensitive ("NewEvent", has_selected);
-        set_action_sensitive ("AddTags", has_selected);
-        set_action_sensitive ("ModifyTags", one_selected);
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
-
-        set_action_sensitive ("SetBackground", (!selection_has_videos) && has_selected );
-        if (has_selected) {
-            Gtk.Action? set_background = get_action ("SetBackground");
-            if (set_background != null) {
-                set_background.label = one_selected
-                                       ? Resources.SET_BACKGROUND_MENU
-                                       : Resources.SET_BACKGROUND_SLIDESHOW_MENU;
-            }
-        }
+        enhance_button.sensitive = (!selection_has_videos) && has_selected;
+        update_enhance_toggled ();
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> altered) {
@@ -416,9 +405,31 @@ public abstract class CollectionPage : MediaPage {
             // command available appropriately, even if the selection doesn't change
             set_action_sensitive ("Revert", can_revert_selected ());
             set_action_sensitive ("CopyColorAdjustments", photo.has_color_adjustments ());
-
+            update_enhance_toggled ();
             break;
         }
+    }
+
+    private void update_enhance_toggled () {
+        bool toggled = false;
+        foreach (DataView view in get_view ().get_selected ()) {
+            Photo photo = view.get_source () as Photo;
+            if (photo != null && !photo.is_enhanced ()) {
+                toggled = false;
+                break;
+            }
+            else if (photo != null)
+                toggled = true;
+        }
+
+        enhance_button.clicked.disconnect (on_enhance);
+        enhance_button.active = toggled;
+        enhance_button.clicked.connect (on_enhance);
+
+        Gtk.Action? action = get_action ("Enhance");
+        assert (action != null);
+        action.label = toggled ? Resources.UNENHANCE_MENU : Resources.ENHANCE_MENU;
+
     }
 
     private void on_print () {
@@ -478,7 +489,6 @@ public abstract class CollectionPage : MediaPage {
         case "KP_End":
             key_press_event (event);
             break;
-
         case "bracketright":
             activate_action ("RotateClockwise");
             break;
@@ -600,6 +610,12 @@ public abstract class CollectionPage : MediaPage {
         return false;
     }
 
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+    }
+
     private void on_rotate_clockwise () {
         if (get_view ().get_selected_count () == 0)
             return;
@@ -685,9 +701,51 @@ public abstract class CollectionPage : MediaPage {
     private void on_enhance () {
         if (get_view ().get_selected_count () == 0)
             return;
+            
+        /* If one photo in the selection is unenhanced, set the enhance button to untoggled. 
+          We also just want to execute the enhance command on the unenhanced photo so that
+          we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
+        Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
+        Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
+        foreach (DataView view in get_view () .get_selected ()) {
+            Photo photo = view.get_source () as Photo;
+            if (photo != null && !photo.is_enhanced ())
+                unenhanced_list.add (view);
+            else if (photo != null)
+                enhanced_list.add (view);
+        }
 
-        EnhanceMultipleCommand command = new EnhanceMultipleCommand (get_view ().get_selected ());
-        get_command_manager ().execute (command);
+        if (enhanced_list.size == 0 && unenhanced_list.size == 0)
+            return;
+
+        if (unenhanced_list.size == 0) {
+            // Just undo if last on stack was enhance
+            EnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as EnhanceMultipleCommand;
+            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+                get_command_manager ().undo ();
+            else {
+                UnEnhanceMultipleCommand command = new UnEnhanceMultipleCommand (enhanced_list);
+                get_command_manager ().execute (command);     
+            }
+            foreach (DataView view in enhanced_list) {
+                Photo photo = view.get_source () as Photo;
+                photo.set_enhanced (false);   
+            }
+        } else {
+            // Just undo if last on stack was unenhance
+            UnEnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceMultipleCommand;
+            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+                get_command_manager ().undo ();
+            else {
+                EnhanceMultipleCommand command = new EnhanceMultipleCommand (unenhanced_list);
+                get_command_manager ().execute (command);
+            }    
+            foreach (DataView view in enhanced_list) {
+                Photo photo = view.get_source () as Photo;
+                photo.set_enhanced (true);   
+            }  
+        }
+        update_enhance_toggled ();
     }
 
     private void on_duplicate_photo () {
@@ -724,27 +782,6 @@ public abstract class CollectionPage : MediaPage {
             AdjustDateTimePhotosCommand command = new AdjustDateTimePhotosCommand (
                 get_view ().get_selected (), time_shift, keep_relativity, modify_originals);
             get_command_manager ().execute (command);
-        }
-    }
-
-    public void on_set_background () {
-        Gee.ArrayList<LibraryPhoto> photos = new Gee.ArrayList<LibraryPhoto> ();
-        MediaSourceCollection.filter_media ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (),
-                                            photos, null);
-
-        if (photos.size == 1) {
-            AppWindow.get_instance ().set_busy_cursor ();
-            DesktopIntegration.set_background (photos[0]);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } else if (photos.size > 1) {
-            SetBackgroundSlideshowDialog dialog = new SetBackgroundSlideshowDialog ();
-            int delay;
-            if (dialog.execute (out delay)) {
-                AppWindow.get_instance ().set_busy_cursor ();
-                DesktopIntegration.set_background_slideshow (photos, delay,
-                        DESKTOP_SLIDESHOW_TRANSITION_SEC);
-                AppWindow.get_instance ().set_normal_cursor ();
-            }
         }
     }
 

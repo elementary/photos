@@ -397,7 +397,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleToolButton redeye_button = null;
     private Gtk.ToggleToolButton adjust_button = null;
     private Gtk.ToggleToolButton straighten_button = null;
-    private Gtk.ToolButton enhance_button = null;
+    protected Gtk.ToggleToolButton enhance_button = null;
     private Gtk.Scale zoom_slider = null;
     private Gtk.ToolButton prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
     private Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
@@ -483,7 +483,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (adjust_button, -1);
 
         // enhance tool
-        enhance_button = new Gtk.ToolButton.from_stock (Resources.ENHANCE);
+        enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
         enhance_button.set_label (Resources.ENHANCE_LABEL);
         enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
         enhance_button.clicked.connect (on_enhance);
@@ -543,6 +543,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
         next_button.set_tooltip_text (_ ("Next photo"));
         next_button.clicked.connect (on_next_photo);
         toolbar.insert (next_button, -1);
+
+        //  show metadata sidebar button
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.insert (show_sidebar_button, -1);
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     ~EditingHostPage () {
@@ -550,6 +557,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         get_view ().contents_altered.disconnect (on_view_contents_ordering_altered);
         get_view ().ordering_changed.disconnect (on_view_contents_ordering_altered);
+    }
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     private void on_zoom_slider_value_changed () {
@@ -784,6 +797,23 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return parent_view;
     }
 
+    protected void update_enhance_action () {
+        if (has_photo ()) {
+            Gtk.Action? action = get_action ("Enhance");
+            assert (action != null);
+
+            bool is_enhanced = get_photo ().is_enhanced ();
+
+            action.label = is_enhanced ? Resources.UNENHANCE_MENU : Resources.ENHANCE_MENU;
+            action.sensitive = true;
+
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = get_photo ().is_enhanced ();
+            enhance_button.clicked.connect (on_enhance);
+        } else 
+            set_action_sensitive ("Enhance", false);
+    }
+
     public bool has_photo () {
         return get_photo () != null;
     }
@@ -808,6 +838,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         else
             set_photo_missing (!new_photo.get_file ().query_exists ());
 
+        update_enhance_action ();
         update_ui (photo_missing);
     }
 
@@ -815,7 +846,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
         zoom_slider.set_value (0.0);
         zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
-
         photo_changing (photo);
         DataView view = get_view ().get_view_for_source (photo);
         assert (view != null);
@@ -849,6 +879,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // check if the photo altered while away
         if (has_photo () && pixbuf_dirty)
             replace_photo (get_photo ());
+            
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     public override void switching_from () {
@@ -1359,7 +1392,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
                                    is_enhance_available (photo) : false;
         straighten_button.sensitive = ((photo != null) && (!photo_missing)) ?
                                       EditingTools.StraightenTool.is_available (photo, scaling) : false;
-
         base.update_actions (selected_count, count);
     }
 
@@ -1956,38 +1988,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         get_command_manager ().execute (command);
     }
 
-    public void on_edit_title () {
-        LibraryPhoto item;
-        if (get_photo () is LibraryPhoto)
-            item = get_photo () as LibraryPhoto;
-        else
-            return;
-
-        EditTitleDialog edit_title_dialog = new EditTitleDialog (item.get_title ());
-        string? new_title = edit_title_dialog.execute ();
-        if (new_title == null)
-            return;
-
-        EditTitleCommand command = new EditTitleCommand (item, new_title);
-        get_command_manager ().execute (command);
-    }
-
-    public void on_edit_comment () {
-        LibraryPhoto item;
-        if (get_photo () is LibraryPhoto)
-            item = get_photo () as LibraryPhoto;
-        else
-            return;
-
-        EditCommentDialog edit_comment_dialog = new EditCommentDialog (item.get_comment ());
-        string? new_comment = edit_comment_dialog.execute ();
-        if (new_comment == null)
-            return;
-
-        EditCommentCommand command = new EditCommentCommand (item, new_comment);
-        get_command_manager ().execute (command);
-    }
-
     public void on_adjust_date_time () {
         if (!has_photo ())
             return;
@@ -2003,11 +2003,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     time_shift, modify_originals);
             get_command_manager ().execute (command);
         }
-    }
-
-    public void on_set_background () {
-        if (has_photo ())
-            DesktopIntegration.set_background (get_photo ());
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
@@ -2093,7 +2088,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_tool_cancelled () {
         deactivate_tool ();
-
+           
+        update_enhance_action ();
         restore_zoom_state ();
         repaint ();
     }
@@ -2133,6 +2129,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_adjust_toggled () {
         on_tool_button_toggled (adjust_button, EditingTools.AdjustTool.factory);
+
+        // with adjust tool open turn enhance into normal non toggle button 
+        if (adjust_button.active){
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = false;
+            enhance_button.clicked.connect (on_enhance);
+        }
     }
 
     public bool is_enhance_available (Photo photo) {
@@ -2155,12 +2158,36 @@ public abstract class EditingHostPage : SinglePhotoPage {
         EditingTools.AdjustTool adjust_tool = current_tool as EditingTools.AdjustTool;
         if (adjust_tool != null) {
             adjust_tool.enhance ();
-
+            // with adjust tool open turn enhance into normal non toggle button 
+            enhance_button.clicked.disconnect (on_enhance);
+            enhance_button.active = false;
+            enhance_button.clicked.connect (on_enhance);
             return;
         }
 
-        EnhanceSingleCommand command = new EnhanceSingleCommand (get_photo ());
-        get_command_manager ().execute (command);
+        if (get_photo ().is_enhanced ()) {
+            // Just undo if last on stack was enhance
+            EnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as EnhanceSingleCommand;
+            if (cmd != null && cmd.source == get_photo ())
+                get_command_manager ().undo ();
+            else {
+                UnEnhanceSingleCommand command = new UnEnhanceSingleCommand (get_photo ());
+                get_command_manager ().execute (command);       
+            }
+            get_photo ().set_enhanced (false);
+        } else {
+            // Just undo if last on stack was unenhance
+            UnEnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceSingleCommand;
+            if (cmd != null && cmd.source == get_photo ())
+                get_command_manager ().undo ();
+            else {
+                EnhanceSingleCommand command = new EnhanceSingleCommand (get_photo ());
+                get_command_manager ().execute (command);   
+            }    
+            get_photo ().set_enhanced (true);   
+        }
+
+        update_enhance_action ();
     }
 
     public void on_copy_adjustments () {
@@ -2536,36 +2563,11 @@ public class LibraryPhotoPage : EditingHostPage {
         revert.label = Resources.REVERT_MENU;
         actions += revert;
 
-        Gtk.ActionEntry edit_title = { "EditTitle", null, TRANSLATABLE, "F2", TRANSLATABLE,
-                                       on_edit_title
-                                     };
-        edit_title.label = Resources.EDIT_TITLE_MENU;
-        actions += edit_title;
-
-        Gtk.ActionEntry edit_comment = { "EditComment", null, TRANSLATABLE, "F3", TRANSLATABLE,
-                                         on_edit_comment
-                                       };
-        edit_comment.label = Resources.EDIT_COMMENT_MENU;
-        actions += edit_comment;
-
         Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, TRANSLATABLE, null,
                                              TRANSLATABLE, on_adjust_date_time
                                            };
         adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
-        
-        Gtk.ActionEntry send_to = { "SendTo", "document-send", TRANSLATABLE, null,
-                                    TRANSLATABLE, on_send_to
-                                  };
-        send_to.label = Resources.SEND_TO_MENU;
-        actions += send_to;
-
-        Gtk.ActionEntry set_background = { "SetBackground", null, TRANSLATABLE, "<Ctrl>B",
-                                           TRANSLATABLE, on_set_background
-                                         };
-        set_background.label = Resources.SET_BACKGROUND_MENU;
-        set_background.tooltip = Resources.SET_BACKGROUND_TOOLTIP;
-        actions += set_background;
 
         Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
         flag.label = Resources.FLAG_MENU;
@@ -2592,42 +2594,6 @@ public class LibraryPhotoPage : EditingHostPage {
                                         };
         rate_rejected.label = Resources.rating_menu (Rating.REJECTED);
         actions += rate_rejected;
-
-        Gtk.ActionEntry rate_unrated = { "RateUnrated", null, TRANSLATABLE,
-                                         "0", TRANSLATABLE, on_rate_unrated
-                                       };
-        rate_unrated.label = Resources.rating_menu (Rating.UNRATED);
-        actions += rate_unrated;
-
-        Gtk.ActionEntry rate_one = { "RateOne", null, TRANSLATABLE,
-                                     "1", TRANSLATABLE, on_rate_one
-                                   };
-        rate_one.label = Resources.rating_menu (Rating.ONE);
-        actions += rate_one;
-
-        Gtk.ActionEntry rate_two = { "RateTwo", null, TRANSLATABLE,
-                                     "2", TRANSLATABLE, on_rate_two
-                                   };
-        rate_two.label = Resources.rating_menu (Rating.TWO);
-        actions += rate_two;
-
-        Gtk.ActionEntry rate_three = { "RateThree", null, TRANSLATABLE,
-                                       "3", TRANSLATABLE, on_rate_three
-                                     };
-        rate_three.label = Resources.rating_menu (Rating.THREE);
-        actions += rate_three;
-
-        Gtk.ActionEntry rate_four = { "RateFour", null, TRANSLATABLE,
-                                      "4", TRANSLATABLE, on_rate_four
-                                    };
-        rate_four.label = Resources.rating_menu (Rating.FOUR);
-        actions += rate_four;
-
-        Gtk.ActionEntry rate_five = { "RateFive", null, TRANSLATABLE,
-                                      "5", TRANSLATABLE, on_rate_five
-                                    };
-        rate_five.label = Resources.rating_menu (Rating.FIVE);
-        actions += rate_five;
 
         Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
@@ -2668,18 +2634,6 @@ public class LibraryPhotoPage : EditingHostPage {
         max_size.tooltip = _ ("Zoom the photo to 200% magnification");
         actions += max_size;
 
-        Gtk.ActionEntry add_tags = { "AddTags", null, TRANSLATABLE, "<Ctrl>T", TRANSLATABLE,
-                                     on_add_tags
-                                   };
-        add_tags.label = Resources.ADD_TAGS_MENU;
-        actions += add_tags;
-
-        Gtk.ActionEntry modify_tags = { "ModifyTags", null, TRANSLATABLE, "<Ctrl>M", TRANSLATABLE,
-                                        on_modify_tags
-                                      };
-        modify_tags.label = Resources.MODIFY_TAGS_MENU;
-        actions += modify_tags;
-
         Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
                                       on_slideshow
                                     };
@@ -2698,20 +2652,6 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
         open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
         actions += open_with_raw;
-
-        // These are identical to add_tags and send_to, except that they have
-        // different mnemonics and are _only_ for use in the context menu.
-        Gtk.ActionEntry send_to_context_menu = { "SendToContextMenu", "document-send", TRANSLATABLE, null,
-                                                 TRANSLATABLE, on_send_to
-                                               };
-        send_to_context_menu.label = Resources.SEND_TO_CONTEXT_MENU;
-        actions += send_to_context_menu;
-
-        Gtk.ActionEntry add_tags_context_menu = { "AddTagsContextMenu", null, TRANSLATABLE, "<Ctrl>A", TRANSLATABLE,
-                                                  on_add_tags
-                                                };
-        add_tags_context_menu.label = Resources.ADD_TAGS_CONTEXT_MENU;
-        actions += add_tags_context_menu;
 
         return actions;
     }
@@ -2735,11 +2675,6 @@ public class LibraryPhotoPage : EditingHostPage {
         InjectionGroup print_group = new InjectionGroup ("/PhotoContextMenu/PrintPlaceholder");
         print_group.add_menu_item ("Print");
         groups += print_group;
-
-        InjectionGroup bg_group = new InjectionGroup ("/MenuBar/FileMenu/SetBackgroundPlaceholder");
-        bg_group.add_menu_item ("SetBackground");
-
-        groups += bg_group;
 
         return groups;
     }
@@ -2800,8 +2735,6 @@ public class LibraryPhotoPage : EditingHostPage {
             update_development_menu_item_sensitivity ();
         }
 
-        set_action_sensitive ("SetBackground", has_photo ());
-
         set_action_sensitive ("CopyColorAdjustments", (has_photo () && get_photo ().has_color_adjustments ()));
         set_action_sensitive ("PasteColorAdjustments", PixelTransformationBundle.has_copied_color_adjustments ());
 
@@ -2819,7 +2752,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
 
         update_flag_action ();
-
+        update_enhance_action ();
         set_action_visible ("OpenWithRaw",
                             is_raw);
 
@@ -2830,6 +2763,7 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("Revert", has_photo () ?
                               (get_photo ().has_transformations () || get_photo ().has_editable ()) : false);
         update_flag_action ();
+        update_enhance_action ();
     }
 
     private void on_raw_developer_changed (Gtk.Action action, Gtk.Action current) {
@@ -2867,7 +2801,7 @@ public class LibraryPhotoPage : EditingHostPage {
         } else {
             set_action_sensitive ("Flag", false);
         }
-    }
+    }    
 
     // Displays a photo from a specific CollectionPage.  When the user exits this view,
     // they will be sent back to the return_page. The optional view paramters is for using
@@ -2917,7 +2851,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (!has_photo () || ! ((LibraryPhoto) get_photo ()).is_flagged ())
             return null;
 
-        return Resources.get_icon (Resources.ICON_FLAGGED_TRINKET);
+        return Resources.get_flag_trinket ();
     }
 
     private void on_slideshow () {
@@ -2961,7 +2895,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override void update_ui (bool missing) {
         bool sensitivity = !missing;
 
-        set_action_sensitive ("SendTo", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         set_action_sensitive ("CommonJumpToFile", sensitivity);
@@ -2984,7 +2917,6 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("Crop", sensitivity);
         set_action_sensitive ("RedEye", sensitivity);
         set_action_sensitive ("Adjust", sensitivity);
-        set_action_sensitive ("EditTitle", sensitivity);
         set_action_sensitive ("AdjustDateTime", sensitivity);
         set_action_sensitive ("OpenWith", sensitivity);
         set_action_sensitive ("OpenWithRaw", sensitivity);
@@ -2992,10 +2924,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
         set_action_sensitive ("Rate", sensitivity);
         set_action_sensitive ("Flag", sensitivity);
-        set_action_sensitive ("AddTags", sensitivity);
-        set_action_sensitive ("ModifyTags", sensitivity);
-
-        set_action_sensitive ("SetBackground", sensitivity);
 
         base.update_ui (missing);
     }
@@ -3023,6 +2951,7 @@ public class LibraryPhotoPage : EditingHostPage {
             break;
 
         case "Delete":
+        case "BackSpace":
             // although bound as an accelerator in the menu, accelerators are currently
             // unavailable in fullscreen mode (a variant of #324), so we do this manually
             // here
@@ -3039,31 +2968,31 @@ public class LibraryPhotoPage : EditingHostPage {
             activate_action ("DecreaseRating");
             break;
 
-        case "KP_1":
-            activate_action ("RateOne");
+        case "1":
+            on_set_rating (Rating.ONE);
             break;
 
-        case "KP_2":
-            activate_action ("RateTwo");
+        case "2":
+            on_set_rating (Rating.TWO);
             break;
 
-        case "KP_3":
-            activate_action ("RateThree");
+        case "3":
+            on_set_rating (Rating.THREE);
             break;
 
-        case "KP_4":
-            activate_action ("RateFour");
+        case "4":
+            on_set_rating (Rating.FOUR);
             break;
 
-        case "KP_5":
-            activate_action ("RateFive");
+        case "5":
+            on_set_rating (Rating.FIVE);    
             break;
 
-        case "KP_0":
-            activate_action ("RateUnrated");
+        case "0":
+            on_set_rating (Rating.UNRATED);
             break;
 
-        case "KP_9":
+        case "9":
             activate_action ("RateRejected");
             break;
 
@@ -3123,6 +3052,11 @@ public class LibraryPhotoPage : EditingHostPage {
             populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
             open_with_raw_menu_item.show ();
         }
+
+        populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
+        populate_rating_widget_menu_item (menu, "/PhotoContextMenu/RatingWidgetPlaceholder");
+        update_rating_menu_item_sensitivity ();
+        menu.show_all ();
         return menu;
     }
 
@@ -3296,11 +3230,6 @@ public class LibraryPhotoPage : EditingHostPage {
         }
     }
 
-    private void on_send_to () {
-        if (has_photo ())
-            DesktopIntegration.send_to ((Gee.Collection<Photo>) get_view ().get_selected_sources ());
-    }
-
     private void on_export () {
         if (!has_photo ())
             return;
@@ -3358,6 +3287,10 @@ public class LibraryPhotoPage : EditingHostPage {
 
         update_rating_menu_item_sensitivity ();
     }
+    
+    protected virtual void on_rate_rejected () {
+        on_set_rating (Rating.REJECTED);
+    }
 
     private void on_set_rating (Rating rating) {
         if (!has_photo () || get_photo_missing ())
@@ -3369,42 +3302,16 @@ public class LibraryPhotoPage : EditingHostPage {
         update_rating_menu_item_sensitivity ();
     }
 
-    private void on_rate_rejected () {
-        on_set_rating (Rating.REJECTED);
-    }
-
-    private void on_rate_unrated () {
-        on_set_rating (Rating.UNRATED);
-    }
-
-    private void on_rate_one () {
-        on_set_rating (Rating.ONE);
-    }
-
-    private void on_rate_two () {
-        on_set_rating (Rating.TWO);
-    }
-
-    private void on_rate_three () {
-        on_set_rating (Rating.THREE);
-    }
-
-    private void on_rate_four () {
-        on_set_rating (Rating.FOUR);
-    }
-
-    private void on_rate_five () {
-        on_set_rating (Rating.FIVE);
+    protected override void on_rating_widget_activate () {
+        on_set_rating (Resources.int_to_rating(rating_menu_item.rating_value));
     }
 
     private void update_rating_menu_item_sensitivity () {
         set_action_sensitive ("RateRejected", get_photo ().get_rating () != Rating.REJECTED);
-        set_action_sensitive ("RateUnrated", get_photo ().get_rating () != Rating.UNRATED);
-        set_action_sensitive ("RateOne", get_photo ().get_rating () != Rating.ONE);
-        set_action_sensitive ("RateTwo", get_photo ().get_rating () != Rating.TWO);
-        set_action_sensitive ("RateThree", get_photo ().get_rating () != Rating.THREE);
-        set_action_sensitive ("RateFour", get_photo ().get_rating () != Rating.FOUR);
-        set_action_sensitive ("RateFive", get_photo ().get_rating () != Rating.FIVE);
+        if (rating_menu_item != null) {
+            rating_menu_item.sensitive =  (get_photo () != null);
+            rating_menu_item.rating_value = get_photo ().get_rating ();
+        }
         set_action_sensitive ("IncreaseRating", get_photo ().get_rating ().can_increase ());
         set_action_sensitive ("DecreaseRating", get_photo ().get_rating ().can_decrease ());
     }
@@ -3439,30 +3346,9 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private void on_metadata_altered (Gee.Map<DataObject, Alteration> map) {
+        if (has_photo ())
+            update_enhance_action ();
         if (map.has_key (get_photo ()) && map.get (get_photo ()).has_subject ("metadata"))
             repaint ();
     }
-
-    private void on_add_tags () {
-        AddTagsDialog dialog = new AddTagsDialog ();
-        string[]? names = dialog.execute ();
-        if (names != null) {
-            get_command_manager ().execute (new AddTagsCommand (
-                                               HierarchicalTagIndex.get_global_index ().get_paths_for_names_array (names),
-                                               (Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources ()));
-        }
-    }
-
-    private void on_modify_tags () {
-        LibraryPhoto photo = (LibraryPhoto) get_view ().get_selected_at (0).get_source ();
-
-        ModifyTagsDialog dialog = new ModifyTagsDialog (photo);
-        Gee.ArrayList<Tag>? new_tags = dialog.execute ();
-
-        if (new_tags == null)
-            return;
-
-        get_command_manager ().execute (new ModifyTagsCommand (photo, new_tags));
-    }
-
 }

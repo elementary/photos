@@ -4,17 +4,11 @@
         <menu name="FileMenu" action="FileMenu">
             <menuitem name="Import" action="CommonFileImport" />
             <menuitem name="ImportExternal" action="ExternalLibraryImport" />
-            <menuitem name="Export" action="Export" />
-            <separator />
-            <menuitem name="SendTo" action="SendTo" />
-            <placeholder name="SetBackgroundPlaceholder" />
         </menu>
         
         <menu name="EditMenu" action="EditMenu">
             <menuitem name="Undo" action="CommonUndo" />
             <menuitem name="Redo" action="CommonRedo" />
-            <separator />
-            <menuitem name="RemoveFromLibrary" action="RemoveFromLibrary" />
             <separator />
             <menuitem name="Preferences" action="CommonPreferences" />
         </menu>
@@ -32,9 +26,8 @@
     </popup>
 
     <popup name="PhotoViewMenu" action="ViewMenu">
-        <menuitem name="DisplayBasicProperties" action="CommonDisplayBasicProperties" />
-        <menuitem name="DisplayExtendedProperties" action="CommonDisplayExtendedProperties" />
         <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
+        <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" />
         <separator />
         <menuitem name="ViewRatings" action="ViewRatings" />
         <separator />

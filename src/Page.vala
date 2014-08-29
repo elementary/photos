@@ -52,6 +52,8 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.UIManager ui;
     protected Gtk.Toolbar toolbar;
     protected bool in_view = false;
+    protected Gtk.ToolButton show_sidebar_button;
+    protected PhotoRatingMenuItem rating_menu_item;
 
     private string page_name;
     private ViewCollection view = null;
@@ -78,6 +80,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private OneShotScheduler? update_actions_scheduler = null;
     private Gtk.ActionGroup? action_group = null;
     private Gtk.ActionGroup[]? common_action_groups = null;
+    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
 
     private uint[] merge_ids = new uint[0];
 
@@ -105,7 +108,66 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
 
-    // This is called by the page controller when it has removed this page ... pages should override
+    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui) {
+        File[] files = {};
+        Gee.List<Granite.Services.Contract> contracts = null;
+        try {
+            var selected = get_view ().get_selected_sources ();
+            foreach (var item in selected)
+                files += (((Photo)item).get_file ());
+            contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
+        } catch (Error e) {
+            warning (e.message);
+        }
+        // Remove old contracts
+        contractor_menu_items.foreach ((item) => {
+            if (item != null) item.destroy ();
+        });
+
+        //find where is contractor_placeholder in the menu
+        Gtk.Widget holder = ui.get_widget (placeholder_ui);
+        int pos = 0;
+        foreach (Gtk.Widget w in menu.get_children ()) {
+            if (w == holder)
+                break;
+            pos++;
+        }
+        //and replace it with menu_item from contractor
+        for (int i = 0; i < contracts.size; i++) {
+            var contract = contracts.get (i);
+            Gtk.MenuItem menu_item;
+
+            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
+            menu.append (menu_item);
+            menu.reorder_child (menu_item, pos);
+            contractor_menu_items.append (menu_item);
+        }
+        menu.show_all ();
+    }
+    
+    protected void populate_rating_widget_menu_item (Gtk.Menu menu, string placeholder_ui) {
+        if (rating_menu_item != null) rating_menu_item.destroy ();
+        rating_menu_item = new PhotoRatingMenuItem ();
+        //find where is rating_placeholder in the menu
+        Gtk.Widget holder = ui.get_widget (placeholder_ui);
+        int pos = 0;
+        foreach (Gtk.Widget w in menu.get_children ()) {
+            if (w == holder)
+                break;
+            pos++;
+        }
+        
+        menu.append (rating_menu_item);
+        menu.reorder_child (rating_menu_item, pos);
+        rating_menu_item.activate.connect (on_rating_widget_activate);
+        menu.show_all ();
+    }
+
+    protected virtual void on_rating_widget_activate () {
+    }
+
+    // This is called by the page
+    // controller when it has removed this page ... pages should override
     // this (or the signal) to clean up
     public override void destroy () {
         if (is_destroyed)
@@ -332,6 +394,22 @@ public abstract class Page : Gtk.ScrolledWindow {
             warning ("Page %s: Unable to locate common action %s", get_page_name (), name);
 
         return null;
+    }
+
+    public void update_sidebar_action (bool show) {
+        if (show_sidebar_button == null)
+            return;
+        if (!show) {
+            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
+            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+        } else {
+            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
+            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+        }
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.update_common_toggle_actions ();
     }
 
     public void set_common_action_sensitive (string name, bool sensitive) {
@@ -1326,7 +1404,6 @@ public abstract class CheckerboardPage : Page {
 
         // unselect everything so selection won't persist after page loses focus
         get_view ().unselect_all ();
-
         base.switching_from ();
     }
 
@@ -1357,7 +1434,6 @@ public abstract class CheckerboardPage : Page {
 
             }
         }
-
         base.switched_to ();
     }
 
@@ -2414,7 +2490,6 @@ public abstract class SinglePhotoPage : Page {
         switch (Gdk.keyval_name (event.keyval)) {
         case "Left":
         case "KP_Left":
-        case "BackSpace":
             if (nav_ok) {
                 on_previous_photo ();
                 last_nav_key = event.time;
@@ -2623,3 +2698,31 @@ public class DragAndDropHandler {
     }
 }
 
+public class ContractMenuItem : Gtk.MenuItem {
+    private Granite.Services.Contract contract;
+    private Gee.List<DataSource> sources;
+
+    public ContractMenuItem (Granite.Services.Contract contract, Gee.List<DataSource> sources) {
+        this.contract = contract;
+        this.sources = sources;
+
+        label = contract.get_display_name ();
+        tooltip_text = contract.get_description ();
+    }
+
+    public override void activate () {
+        try {
+            File[] modified_files = null;
+            foreach (var source in sources) {
+                Photo modified_file = (Photo)source;
+                if (modified_file.get_file_format () == PhotoFileFormat.RAW)
+                    modified_files += modified_file.get_file ();
+                else
+                    modified_files += modified_file.get_modified_file ();
+            }
+            contract.execute_with_files (modified_files);
+        } catch (Error err) {
+            warning (err.message);
+        }
+    }
+}
