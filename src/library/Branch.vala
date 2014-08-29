@@ -206,7 +206,7 @@ public class Library.VideosPage : CollectionPage {
 }
 
 public class Library.PhotosEntry : Sidebar.SimplePageEntry {
-    private Icon icon = new ThemedIcon (Resources.ICON_PHOTOS);
+    private Icon icon = new ThemedIcon (Resources.ICON_PHOTOS_PAGE);
 
     public PhotosEntry () {
     }
