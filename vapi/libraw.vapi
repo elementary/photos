@@ -37,9 +37,9 @@ public struct ImageParams {
     public int colors;
     public uint filters;
     
-    char *make;
-    char *model;
-    char *cdesc;
+    public char *make;
+    public char *model;
+    public char *cdesc;
     
     public string get_make() {
         return build_string(make, 64);
