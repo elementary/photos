@@ -363,6 +363,8 @@ void main (string[] args) {
         return;
     }
 
+    // for now we create new Granite AboutDialog
+    // later it should be parsed in Application.
     if (CommandlineOptions.show_about) {
         
         var build_version = Resources.APP_VERSION;
