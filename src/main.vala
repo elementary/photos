@@ -282,6 +282,7 @@ bool no_startup_progress = false;
 string data_dir = null;
 bool show_version = false;
 bool no_runtime_monitoring = false;
+bool show_about = false;
 
 private OptionEntry[]? entries = null;
 
@@ -308,6 +309,11 @@ public OptionEntry[] get_options () {
                             _ ("Show the application's version"), null
                           };
     entries += version;
+
+    OptionEntry about = { "about", 'a', 0, OptionArg.NONE, &show_about,
+                            _ ("Show About dialog"), null
+                          };
+    entries += about;
 
     OptionEntry terminator = { null, 0, 0, 0, null, null, null };
     entries += terminator;
@@ -354,6 +360,44 @@ void main (string[] args) {
 
         AppDirs.terminate ();
 
+        return;
+    }
+
+    if (CommandlineOptions.show_about) {
+        
+        var build_version = Resources.APP_VERSION;
+
+        var developers_string = _ ("Developers");
+        var program_name = "Pantheon Photos";
+        var app_years = "2014";
+        string about_copyright =
+            "2009-2014 Yorba Foundation\n" +
+            "Copyright © %s %s %s".printf (app_years, program_name, developers_string);
+
+        var main_url = "https://launchpad.net/pantheon-photos";
+        var bug_url = "https://bugs.launchpad.net/pantheon-photos";
+        var help_url = "http://yorba.org/shotwell/help/";
+        var translate_url = "https://translations.launchpad.net/pantheon-photos";
+
+        var about = new Granite.Widgets.AboutDialog ();
+        about.program_name = program_name;
+        about.version = build_version;
+        about.logo_icon_name = "multimedia-photo-viewer";
+        //about_comments = 
+        about.copyright = about_copyright;
+        about.website = main_url;
+        about.authors = Resources.AUTHORS;
+        about.documenters = {};
+        about.artists = {};
+        about.translator_credits = "Launchpad Translators";
+        about.license = Resources.LICENSE;
+        about.help = help_url;
+        about.translate = translate_url;
+        about.bug = bug_url;
+        about.run ();
+        about.destroy ();
+
+        AppDirs.terminate ();
         return;
     }
 
