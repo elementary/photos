@@ -42,6 +42,32 @@ public class TrashPage : CheckerboardPage {
         on_trashcan_contents_altered (Video.global.get_trashcan_contents (), null);
     }
 
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            base.get_toolbar ();
+
+            // separator to force slider to right side of toolbar
+            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            separator.set_expand (true);
+            separator.set_draw (false);
+            toolbar.insert (separator, -1);
+
+            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
+            drawn_separator.set_expand (false);
+            drawn_separator.set_draw (true);
+
+            toolbar.insert (drawn_separator, -1);
+
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        }
+        return toolbar;
+    }
+
     protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
         base.init_collect_ui_filenames (ui_filenames);
 
@@ -104,7 +130,7 @@ public class TrashPage : CheckerboardPage {
             return;
 
         get_command_manager ().execute (new TrashUntrashPhotosCommand (
-                                           (Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources (), false));
+                                            (Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources (), false));
     }
 
     protected override string get_view_empty_message () {
@@ -113,11 +139,17 @@ public class TrashPage : CheckerboardPage {
 
     private void on_delete () {
         remove_from_app ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (), _ ("Delete"),
-                         ngettext("Deleting a Photo", "Deleting Photos", get_view().get_selected_count()), true);
+                         ngettext ("Deleting a Photo", "Deleting Photos", get_view().get_selected_count ()), true);
     }
 
     public override SearchViewFilter get_search_view_filter () {
         return search_filter;
+    }
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 }
 

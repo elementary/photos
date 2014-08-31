@@ -67,12 +67,19 @@ public abstract class CollectionPage : MediaPage {
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
             connect_slider (zoom_slider_assembly);
             get_toolbar ().insert (zoom_slider_assembly, -1);
-            
+
             Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
             slideshow_button.set_tooltip_text (_("Play a slideshow"));
             slideshow_button.clicked.connect (on_slideshow);
             get_toolbar ().insert (slideshow_button, 0);
+
+            //  show metadata sidebar button
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (on_show_sidebar);
+            toolbar.insert (show_sidebar_button, -1);
+            var app = AppWindow.get_instance () as LibraryWindow;
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
 
         return toolbar;
@@ -84,8 +91,8 @@ public abstract class CollectionPage : MediaPage {
         return group;
     }
 
-    private static InjectionGroup create_edit_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/EditMenu/EditExtrasPlaceholder");
+    private static InjectionGroup create_context_menu_injectables () {
+        InjectionGroup group = new InjectionGroup ("/CollectionContextMenu/EditExtrasPlaceholder");
 
         group.add_menu_item ("Duplicate");
 
@@ -96,14 +103,6 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
 
         group.add_menu_item ("Fullscreen", "CommonFullscreen");
-
-        return group;
-    }
-
-    private static InjectionGroup create_photos_menu_externals_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
-
-        group.add_menu_item ("PlayVideo");
 
         return group;
     }
@@ -220,9 +219,8 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
         groups += create_file_menu_injectables ();
-        groups += create_edit_menu_injectables ();
+        groups += create_context_menu_injectables ();
         groups += create_view_menu_fullscreen_injectables ();
-        groups += create_photos_menu_externals_injectables ();
 
         return groups;
     }
@@ -242,7 +240,9 @@ public abstract class CollectionPage : MediaPage {
         }
 
         populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
-
+        populate_rating_widget_menu_item (menu, "/CollectionContextMenu/RatingWidgetPlaceholder");
+        update_rating_sensitivities ();
+        menu.show_all ();
         return menu;
     }
 
@@ -381,8 +381,6 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("AdjustDateTime", has_selected);
 
         set_action_sensitive ("NewEvent", has_selected);
-        set_action_sensitive ("AddTags", has_selected);
-        set_action_sensitive ("ModifyTags", one_selected);
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
@@ -491,7 +489,6 @@ public abstract class CollectionPage : MediaPage {
         case "KP_End":
             key_press_event (event);
             break;
-
         case "bracketright":
             activate_action ("RotateClockwise");
             break;
@@ -611,6 +608,12 @@ public abstract class CollectionPage : MediaPage {
         }
 
         return false;
+    }
+
+    private void on_show_sidebar () {
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 
     private void on_rotate_clockwise () {

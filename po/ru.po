@@ -33,8 +33,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-04-25 10:12+0000\n"
-"PO-Revision-Date: 2014-06-24 21:54+0000\n"
-"Last-Translator: elementary Apps team <Unknown>\n"
+"PO-Revision-Date: 2014-08-29 21:17+0000\n"
+"Last-Translator: Binali Rustamov <binali.rustamov@gmail.com>\n"
 "Language-Team: Russian "
 "(http://www.transifex.com/projects/p/shotwell/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -42,8 +42,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2014-06-25 06:38+0000\n"
-"X-Generator: Launchpad (build 17065)\n"
+"X-Launchpad-Export-Date: 2014-08-30 07:50+0000\n"
+"X-Generator: Launchpad (build 17176)\n"
 "Language: ru\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -59,6 +59,11 @@ msgid ""
 "To continue publishing to Google services, quit and restart Shotwell, then "
 "try publishing again."
 msgstr ""
+"Вы уже выполнили вход и выход из службы Google во время сеанса работы в "
+"Shotwell.\n"
+"\n"
+"Чтобы продолжить публикацию в службах Google, выйдите из Shotwell и "
+"запустите его снова, затем повторите операцию публикации."
 
 #: ../plugins/common/Resources.vala:9 ../src/AppWindow.vala:688
 msgid "Visit the Yorba web site"
@@ -73,6 +78,8 @@ msgstr ""
 "Марк Коренберг <socketpair AT gmail.com>\n"
 "\n"
 "Launchpad Contributions:\n"
+"  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
+"  Binali Rustamov https://launchpad.net/~binali-rustamov\n"
 "  JTux https://launchpad.net/~juliette-tux\n"
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
@@ -84,7 +91,7 @@ msgstr ""
 #: ../plugins/shotwell-publishing/YouTubePublishing.vala:32
 #: ../src/Resources.vala:27
 msgid "Copyright 2009-2014 Yorba Foundation"
-msgstr ""
+msgstr "Авторские права 2009-2014 Yorba Foundation"
 
 #: ../plugins/shotwell-data-imports/FSpotImporter.vala:56
 msgid ""
@@ -215,7 +222,7 @@ msgstr ""
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:587
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1000
 msgid "Username and/or password invalid. Please try again"
-msgstr ""
+msgstr "Имя пользователя или пароль неверны. Пожалуйста, попробуйте снова"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:617
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1037
@@ -257,7 +264,7 @@ msgstr ""
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:1
 #: ../ui/shotwell.glade.h:15
 msgid "label"
-msgstr ""
+msgstr "надпись"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:2
 msgid "_Email address"
@@ -318,7 +325,7 @@ msgstr "_Запретить загрузку оригинала"
 
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:7
 msgid "Public"
-msgstr ""
+msgstr "Общий"
 
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:8
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:1181
@@ -751,6 +758,8 @@ msgstr "Комментарий к альбому:"
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:9
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
+"Если заголовок задан, а комментарий нет, использовать заголовок в качестве "
+"комментария"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:10
 msgid "_Do no upload tags"
@@ -820,6 +829,8 @@ msgstr "Основные эффекты переходов"
 #: ../plugins/shotwell-transitions/shotwell-transitions.vala:75
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2014 Yorba Foundation"
 msgstr ""
+"Авторские права 2010 Максим Карташев, Авторские права 2011-2014 Yorba "
+"Foundation"
 
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
@@ -1198,11 +1209,11 @@ msgstr "Снять отметку с выбранных фотографий"
 
 #: ../src/Commands.vala:2443
 msgid "Flagging selected photos"
-msgstr ""
+msgstr "Пометить выбранные фотографии"
 
 #: ../src/Commands.vala:2444
 msgid "Unflagging selected photos"
-msgstr ""
+msgstr "Снять пометку с выбранных фотографий"
 
 #: ../src/Commands.vala:2451
 msgid "Flag"
@@ -1632,29 +1643,34 @@ msgstr[2] "Не удалось импортировать %d файлов из-�
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 фотография не импортирована, т.к. повреждена:\n"
+msgstr[1] "%d фотографии не импортированы, т.к. повреждены:\n"
+msgstr[2] "%d фотографий не импортированы, т.к. повреждены:\n"
 
 #: ../src/Dialogs.vala:755
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 видеоролик не импортирован, т.к. поврежден:\n"
+msgstr[1] "%d видеоролика не импортированы, т.к. повреждены:\n"
+msgstr[2] "%d видеороликов не импортированы, т.к. повреждены:\n"
 
 #: ../src/Dialogs.vala:758
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
-msgstr[0] ""
+msgstr[0] "Импорт 1 изображения/видео не удался, поскольку оно повреждено:\n"
 msgstr[1] ""
+"Импорт %d изображений/видео не удался, поскольку они повреждены:\n"
+msgstr[2] ""
+"Импорт %d изображений/видео не удался, поскольку они повреждены:\n"
 
 #: ../src/Dialogs.vala:761
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Импорт 1 файла не удался, поскольку он поврежден:\n"
+msgstr[1] "Импорт %d файлов не удался, поскольку они повреждены:\n"
 
 #. we have no notion of "unsupported" video files right now in Shotwell (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1803,12 +1819,13 @@ msgstr "Комментарий:"
 #: ../src/Dialogs.vala:1304
 msgid "Remove and _Trash File"
 msgid_plural "Remove and _Trash Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Удалить и переместить файл в _корзину"
+msgstr[1] "Удалить и переместить файлы в _корзину"
+msgstr[2] "Удалить и переместить файлы в _корзину"
 
 #: ../src/Dialogs.vala:1308
 msgid "_Remove From Library"
-msgstr ""
+msgstr "_Удалить из библиотеки"
 
 #: ../src/Dialogs.vala:1328 ../src/camera/ImportPage.vala:1739
 msgid "_Keep"
@@ -2819,23 +2836,23 @@ msgstr "Автоматически улучшить внешний вид фот
 
 #: ../src/Resources.vala:164
 msgid "_Copy Color Adjustments"
-msgstr ""
+msgstr "_Копировать цветовые параметры"
 
 #: ../src/Resources.vala:165
 msgid "Copy Color Adjustments"
-msgstr ""
+msgstr "Копировать цветовые параметры"
 
 #: ../src/Resources.vala:166
 msgid "Copy the color adjustments applied to the photo"
-msgstr ""
+msgstr "Копировать цветовые параметры применённые к фотографии"
 
 #: ../src/Resources.vala:168
 msgid "_Paste Color Adjustments"
-msgstr ""
+msgstr "_Вставить цветовые параметры"
 
 #: ../src/Resources.vala:169
 msgid "Paste Color Adjustments"
-msgstr ""
+msgstr "Вставить цветовые параметры"
 
 #: ../src/Resources.vala:170
 msgid "Apply copied color adjustments to the selected photos"
@@ -3131,7 +3148,7 @@ msgstr "Изменить комментарий"
 
 #: ../src/Resources.vala:279
 msgid "Edit Event _Comment..."
-msgstr ""
+msgstr "Изменить комментарий _события..."
 
 #: ../src/Resources.vala:282
 msgid "_Adjust Date and Time..."
@@ -4164,6 +4181,10 @@ msgid ""
 "Preferences</span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
+"Shotwell настроен на импорт фотографий в ваш домашний каталог.\n"
+"Рекомендуем изменить настройки в <span weight=\"bold\">Редактировать %s "
+"Параметры</span>.\n"
+"Продолжить импорт фотографии?"
 
 #: ../src/library/LibraryWindow.vala:899 ../ui/shotwell.glade.h:19
 msgid "Library Location"
@@ -4487,11 +4508,11 @@ msgstr "видео"
 
 #: ../src/searches/SavedSearchDialog.vala:308
 msgid "has"
-msgstr ""
+msgstr "содержит"
 
 #: ../src/searches/SavedSearchDialog.vala:309
 msgid "has no"
-msgstr ""
+msgstr "не содержит"
 
 #: ../src/searches/SavedSearchDialog.vala:314
 msgid "modifications"

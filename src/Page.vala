@@ -52,6 +52,8 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.UIManager ui;
     protected Gtk.Toolbar toolbar;
     protected bool in_view = false;
+    protected Gtk.ToolButton show_sidebar_button;
+    protected PhotoRatingMenuItem rating_menu_item;
 
     private string page_name;
     private ViewCollection view = null;
@@ -118,11 +120,13 @@ public abstract class Page : Gtk.ScrolledWindow {
             warning (e.message);
         }
         // Remove old contracts
-        contractor_menu_items.foreach ((item) => { if (item != null) item.destroy (); });
+        contractor_menu_items.foreach ((item) => {
+            if (item != null) item.destroy ();
+        });
 
         //find where is contractor_placeholder in the menu
-        Gtk.Widget holder= ui.get_widget (placeholder_ui);
-        int pos=0;
+        Gtk.Widget holder = ui.get_widget (placeholder_ui);
+        int pos = 0;
         foreach (Gtk.Widget w in menu.get_children ()) {
             if (w == holder)
                 break;
@@ -140,8 +144,30 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
         menu.show_all ();
     }
+    
+    protected void populate_rating_widget_menu_item (Gtk.Menu menu, string placeholder_ui) {
+        if (rating_menu_item != null) rating_menu_item.destroy ();
+        rating_menu_item = new PhotoRatingMenuItem ();
+        //find where is rating_placeholder in the menu
+        Gtk.Widget holder = ui.get_widget (placeholder_ui);
+        int pos = 0;
+        foreach (Gtk.Widget w in menu.get_children ()) {
+            if (w == holder)
+                break;
+            pos++;
+        }
+        
+        menu.append (rating_menu_item);
+        menu.reorder_child (rating_menu_item, pos);
+        rating_menu_item.activate.connect (on_rating_widget_activate);
+        menu.show_all ();
+    }
 
-    // This is called by the page controller when it has removed this page ... pages should override
+    protected virtual void on_rating_widget_activate () {
+    }
+
+    // This is called by the page
+    // controller when it has removed this page ... pages should override
     // this (or the signal) to clean up
     public override void destroy () {
         if (is_destroyed)
@@ -368,6 +394,22 @@ public abstract class Page : Gtk.ScrolledWindow {
             warning ("Page %s: Unable to locate common action %s", get_page_name (), name);
 
         return null;
+    }
+
+    public void update_sidebar_action (bool show) {
+        if (show_sidebar_button == null)
+            return;
+        if (!show) {
+            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
+            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+        } else {
+            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
+            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
+            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+        }
+        var app = AppWindow.get_instance () as LibraryWindow;
+        app.update_common_toggle_actions ();
     }
 
     public void set_common_action_sensitive (string name, bool sensitive) {
@@ -1362,7 +1404,6 @@ public abstract class CheckerboardPage : Page {
 
         // unselect everything so selection won't persist after page loses focus
         get_view ().unselect_all ();
-
         base.switching_from ();
     }
 
@@ -1393,7 +1434,6 @@ public abstract class CheckerboardPage : Page {
 
             }
         }
-
         base.switched_to ();
     }
 
@@ -2450,7 +2490,6 @@ public abstract class SinglePhotoPage : Page {
         switch (Gdk.keyval_name (event.keyval)) {
         case "Left":
         case "KP_Left":
-        case "BackSpace":
             if (nav_ok) {
                 on_previous_photo ();
                 last_nav_key = event.time;

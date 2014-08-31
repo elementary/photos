@@ -360,7 +360,7 @@ public class PhotoTable : DatabaseTable {
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
                       + "exif_md5, time_created, flags, rating, file_format, title, backlinks, "
                       + "time_reimported, editable_id, metadata_dirty, developer, develop_shotwell_id, "
-                      + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms"
+                      + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms "
                       + "FROM PhotoTable WHERE id=?",
                       -1, out stmt);
         assert (res == Sqlite.OK);
@@ -474,8 +474,8 @@ public class PhotoTable : DatabaseTable {
                                  + "timestamp, exposure_time, orientation, original_orientation, import_id, event_id, "
                                  + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, rating, "
                                  + "file_format, title, editable_id, developer, develop_shotwell_id, develop_camera_id, "
-                                 + "develop_embedded_id, comment, enhanced) "
-                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                 + "develop_embedded_id, comment, enhanced, original_transforms) "
+                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                                  -1, out stmt);
         assert (res == Sqlite.OK);
 
@@ -1283,4 +1283,3 @@ public class BackingPhotoTable : DatabaseTable {
         update_int64_by_id_2 (id.id, "timestamp", timestamp);
     }
 }
-
