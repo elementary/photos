@@ -70,7 +70,7 @@ public class Application : Granite.Application {
             application_id = "org.elementaryos.pantheon-photos";
             app_icon = "multimedia-photo-manager";
             app_launcher = "shotwell.desktop";
-            program_name = "Pantheon Photos";
+            program_name = build_release_name;
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
 
