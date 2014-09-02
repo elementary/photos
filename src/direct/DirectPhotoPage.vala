@@ -47,14 +47,14 @@ public class DirectPhotoPage : EditingHostPage {
         file.label = _ ("_File");
         actions += file;
 
-        Gtk.ActionEntry save = { "Save", Gtk.Stock.SAVE, TRANSLATABLE, "<Ctrl>S", TRANSLATABLE,
+        Gtk.ActionEntry save = { "Save", "document-save", TRANSLATABLE, "<Ctrl>S", TRANSLATABLE,
                                  on_save
                                };
         save.label = _ ("_Save");
         save.tooltip = _ ("Save photo");
         actions += save;
 
-        Gtk.ActionEntry save_as = { "SaveAs", Gtk.Stock.SAVE_AS, TRANSLATABLE,
+        Gtk.ActionEntry save_as = { "SaveAs", "document-save-as", TRANSLATABLE,
                                     "<Ctrl><Shift>S", TRANSLATABLE, on_save_as
                                   };
         save_as.label = _ ("Save _As...");

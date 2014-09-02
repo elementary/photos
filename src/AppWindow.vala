@@ -434,6 +434,7 @@ public abstract class AppWindow : PageWindow {
     protected Dimensions dimensions;
     protected int pos_x = 0;
     protected int pos_y = 0;
+    protected Gtk.HeaderBar header;
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("AppWindowGlobalActionGroup");
 
@@ -442,10 +443,8 @@ public abstract class AppWindow : PageWindow {
         assert (instance == null);
         instance = this;
 
-        var header = new Gtk.HeaderBar ();
+        header = new Gtk.HeaderBar ();
         header.set_show_close_button (true);
-        header.get_style_context ().remove_class ("header-bar");
-
         this.set_titlebar (header);
 
         title = _ (Resources.APP_TITLE);
@@ -489,6 +488,20 @@ public abstract class AppWindow : PageWindow {
 
         ui.ensure_update ();
         add_accel_group (ui.get_accel_group ());
+
+        build_header_bar ();
+    }
+
+    protected virtual void build_header_bar () {
+        var undo_action = get_common_action ("CommonUndo");
+        var undo_btn = undo_action.create_tool_item ();
+        undo_btn.sensitive = true;
+        header.pack_start (undo_btn);
+
+        var redo_action = get_common_action ("CommonRedo");
+        var redo_btn = redo_action.create_tool_item ();
+        redo_btn.sensitive = true;
+        header.pack_start (redo_btn);
     }
 
     private Gtk.ActionEntry[] create_common_actions () {
@@ -512,13 +525,13 @@ public abstract class AppWindow : PageWindow {
         fullscreen.label = _ ("Fulls_creen");
         actions += fullscreen;
 
-        Gtk.ActionEntry undo = { "CommonUndo", Gtk.Stock.UNDO, TRANSLATABLE, "<Ctrl>Z",
+        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo-symbolic", TRANSLATABLE, "<Ctrl>Z",
                                  TRANSLATABLE, on_undo
                                };
         undo.label = Resources.UNDO_MENU;
         actions += undo;
 
-        Gtk.ActionEntry redo = { "CommonRedo", Gtk.Stock.REDO, TRANSLATABLE, "<Ctrl><Shift>Z",
+        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo-symbolic", TRANSLATABLE, "<Ctrl><Shift>Z",
                                  TRANSLATABLE, on_redo
                                };
         redo.label = Resources.REDO_MENU;
@@ -870,7 +883,7 @@ public abstract class AppWindow : PageWindow {
 
         if (desc != null) {
             action.label = "%s %s".printf (prefix, desc.get_name ());
-            action.tooltip = desc.get_explanation ();
+            action.tooltip = action.label;
             action.sensitive = true;
         } else {
             action.label = prefix;
@@ -880,12 +893,12 @@ public abstract class AppWindow : PageWindow {
     }
 
     public void decorate_undo_action () {
-        decorate_command_manager_action ("CommonUndo", Resources.UNDO_MENU, "",
+        decorate_command_manager_action ("CommonUndo", Resources.UNDO_LABEL, "",
                                          get_command_manager ().get_undo_description ());
     }
 
     public void decorate_redo_action () {
-        decorate_command_manager_action ("CommonRedo", Resources.REDO_MENU, "",
+        decorate_command_manager_action ("CommonRedo", Resources.REDO_LABEL, "",
                                          get_command_manager ().get_redo_description ());
     }
 

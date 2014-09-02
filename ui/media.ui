@@ -1,25 +1,4 @@
 <ui>
-
-    <menubar name="MenuBar">
-        <menu name="FileMenu" action="FileMenu">
-            <menuitem name="Import" action="CommonFileImport" />
-            <menuitem name="ImportExternal" action="ExternalLibraryImport" />
-        </menu>
-        
-        <menu name="EditMenu" action="EditMenu">
-            <menuitem name="Undo" action="CommonUndo" />
-            <menuitem name="Redo" action="CommonRedo" />
-            <separator />
-            <menuitem name="Preferences" action="CommonPreferences" />
-        </menu>
-
-        <placeholder name="FacesMenuPlaceholder" />
-
-        <menu name="HelpMenu" action="HelpMenu">
-            <menuitem name="About" action="CommonAbout" />
-        </menu>
-    </menubar>
-
     <popup name="MediaViewMenu" action="ViewMenu">
         <menuitem name="DisplaySidebar" action="CommonDisplaySidebar" />
         <menuitem name="DisplayMetadataSidebar" action="CommonDisplayMetadataSidebar" /> 

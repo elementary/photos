@@ -187,13 +187,6 @@ public class LibraryWindow : AppWindow {
             error (e.message);
         }
 
-        Gtk.MenuBar? menubar = ui.get_widget ("/MenuBar") as Gtk.MenuBar;
-        layout.add (menubar);
-
-        // We never want to invoke show_all () on the menubar since that will show empty menus,
-        // which should be hidden.
-        menubar.no_show_all = true;
-
         // create the main layout & start at the Library page
         create_layout (library_branch.photos_entry.get_page ());
 
@@ -229,6 +222,30 @@ public class LibraryWindow : AppWindow {
 
         background_progress_bar.set_show_text (true);
 
+        build_settings_header ();
+    }
+
+    protected void build_settings_header () {
+        var settings_menu = new Gtk.Menu ();
+
+        var import_action = get_common_action ("CommonFileImport");
+        settings_menu.add (import_action.create_menu_item ());
+
+        var sep = new Gtk.SeparatorMenuItem ();
+        settings_menu.add (sep);
+
+        var pref_action = get_common_action ("CommonPreferences");
+        settings_menu.add (pref_action.create_menu_item ());
+
+        var about_action = get_common_action ("CommonAbout");
+        settings_menu.add (about_action.create_menu_item ());
+
+        var settings = new Gtk.MenuButton ();
+        settings.image = new Gtk.Image.from_icon_name ("document-properties", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.set_tooltip_text (_ ("Settings"));
+        settings.popup = settings_menu;
+        settings.show_all ();
+        header.pack_end (settings);
     }
 
     ~LibraryWindow () {
@@ -374,11 +391,11 @@ public class LibraryWindow : AppWindow {
                                         };
         sidebar.label = _ ("S_idebar");
         sidebar.tooltip = _ ("Display the sidebar");
-        actions += sidebar;        
+        actions += sidebar;
 
         Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, TRANSLATABLE,
-                                          "F10", TRANSLATABLE, on_display_metadata_sidebar, is_metadata_sidebar_visible ()
-                                        };
+                                               "F10", TRANSLATABLE, on_display_metadata_sidebar, is_metadata_sidebar_visible ()
+                                             };
         meta_sidebar.label = _ ("Edit Photo In_fo");
         actions += meta_sidebar;
 
@@ -788,7 +805,7 @@ public class LibraryWindow : AppWindow {
     private void on_display_sidebar (Gtk.Action action) {
         set_sidebar_visible (((Gtk.ToggleAction) action).get_active ());
 
-    }    
+    }
 
     private void on_display_metadata_sidebar (Gtk.Action action) {
         set_metadata_sidebar_visible (((Gtk.ToggleAction) action).get_active ());
@@ -1245,7 +1262,7 @@ public class LibraryWindow : AppWindow {
         client_paned.pack2 (right_frame, true, false);
         client_paned.set_position (Config.Facade.get_instance ().get_sidebar_position ());
 
-       int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
+        int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
 

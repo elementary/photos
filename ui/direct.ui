@@ -1,21 +1,4 @@
 <ui>
-
-    <menubar name="MenuBar">
-        <menu name="FileMenu" action="FileMenu">
-            <menuitem name="Save" action="Save" />
-            <menuitem name="SaveAs" action="SaveAs" />
-        </menu>
-        
-        <menu name="EditMenu" action="EditMenu">
-            <menuitem name="Undo" action="CommonUndo" />
-            <menuitem name="Redo" action="CommonRedo" />
-        </menu>
-        
-        <menu name="HelpMenu" action="HelpMenu">
-            <menuitem name="About" action="CommonAbout" />
-        </menu>
-    </menubar>
-
     <popup name="DirectContextMenu">
         <placeholder name="ContextJumpPlaceholder">
             <menuitem name="ContextJumpToFile" action="CommonJumpToFile" />
