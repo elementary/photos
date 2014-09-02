@@ -161,7 +161,7 @@ private class LibraryProperties : Properties {
 
     public override void save_changes_to_source () {
         if (media_source != null && is_media) {
-            comment = comment_entry.get_text ();
+            comment = comment_entry.get_text ().strip ();
             if (title != null && title != media_source.get_name ())
                 AppWindow.get_command_manager ().execute (new EditTitleCommand (media_source, title));
             if (comment != null && comment != media_source.get_comment ())
