@@ -322,11 +322,11 @@ public OptionEntry[] get_options () {
 }
 }
 
-public Granite.Widgets.AboutDialog create_about_dialog () {
+public Granite.Widgets.AboutDialog create_about_dialog (bool is_direct = false) {
     var build_version = Resources.APP_VERSION;
 
     var about = new Granite.Widgets.AboutDialog ();
-    about.program_name = Resources.APP_TITLE;
+    about.program_name = is_direct ? Resources.APP_TITLE_VIEWER : Resources.APP_TITLE;
     about.version = build_version;
     about.logo_icon_name = "multimedia-photo-viewer";
     about.copyright = Resources.COPYRIGHT;

@@ -14,6 +14,7 @@ extern const string? _GIT_VERSION;
 
 namespace Resources {
 public const string APP_TITLE = _("Photos");
+public const string APP_TITLE_VIEWER = _("Photos Viewer");
 public const string APP_LIBRARY_ROLE = _("Photo Manager");
 public const string APP_DIRECT_ROLE = _("Photo Viewer");
 public const string APP_VERSION = _VERSION;
