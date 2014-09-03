@@ -240,6 +240,8 @@ public class LibraryWindow : AppWindow {
         var about_action = get_common_action ("CommonAbout");
         settings_menu.add (about_action.create_menu_item ());
 
+        settings_menu.show_all ();
+
         var settings = new Gtk.MenuButton ();
         settings.image = new Gtk.Image.from_icon_name ("document-properties", Gtk.IconSize.LARGE_TOOLBAR);
         settings.set_tooltip_text (_ ("Settings"));

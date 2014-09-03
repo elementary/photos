@@ -525,13 +525,13 @@ public abstract class AppWindow : PageWindow {
         fullscreen.label = _ ("Fulls_creen");
         actions += fullscreen;
 
-        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo-symbolic", TRANSLATABLE, "<Ctrl>Z",
+        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", TRANSLATABLE, "<Ctrl>Z",
                                  TRANSLATABLE, on_undo
                                };
         undo.label = Resources.UNDO_MENU;
         actions += undo;
 
-        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo-symbolic", TRANSLATABLE, "<Ctrl><Shift>Z",
+        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", TRANSLATABLE, "<Ctrl><Shift>Z",
                                  TRANSLATABLE, on_redo
                                };
         redo.label = Resources.REDO_MENU;
