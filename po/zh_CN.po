@@ -34,15 +34,15 @@ msgstr ""
 "http://bugzilla.gnome.org/enter_bug.cgi?product=shotwell&keywords=I18N+L10N&c"
 "omponent=general\n"
 "POT-Creation-Date: 2014-08-31 20:10-0300\n"
-"PO-Revision-Date: 2014-06-23 22:16+0000\n"
+"PO-Revision-Date: 2014-09-03 04:01+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2014-09-02 07:31+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
+"X-Launchpad-Export-Date: 2014-09-03 07:09+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 "Language: zh_CN\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -183,7 +183,7 @@ msgid ""
 "\n"
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
-msgstr ""
+msgstr "您正在以 (name) 身份登录 Tumblr."
 
 #: ../plugins/shotwell-publishing-extras/tumblr_publishing_options_pane.glade.h:5
 msgid "Blogs:"
@@ -249,7 +249,7 @@ msgstr "私人"
 #: ../plugins/shotwell-publishing/YouTubePublishing.vala:32
 #: ../src/Resources.vala:27
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr ""
+msgstr "Copyright 2009-2013 Yorba Foundation, Yorba 基金会版权所有"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:61
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:59
@@ -566,6 +566,8 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
+" (文本依赖于 FB 用户名，已在程序中修改 -\n"
+"在此输入此框内的一切均不会显示)"
 
 #: ../plugins/shotwell-publishing/facebook_publishing_options_pane.glade.h:3
 msgid "Publish to an e_xisting album:"
@@ -609,16 +611,22 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
+"您已登录到 Flickr 的 (name) 用户。\n"
+"\n"
+"(这个标签串设定于代码中\n"
+"在此的改变不会被显示)"
 
 #: ../plugins/shotwell-publishing/flickr_publishing_options_pane.glade.h:5
 msgid "_visibility label (populated in the code)"
-msgstr ""
+msgstr "可见度标签(位于代码中)(_V)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:1
 msgid ""
 "'you are logged in as $name'\n"
 "(populated in the application code)"
 msgstr ""
+"'您已登录为 $name'\n"
+"(位于程序代码中)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:3
 msgid "An _existing album:"
@@ -638,6 +646,8 @@ msgid ""
 "$mediatype will appear in\n"
 "(populated in code)"
 msgstr ""
+"$mediatype将被显示于\n"
+"(位于代码中)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:8
 msgid "Photo _size preset:"
@@ -747,6 +757,8 @@ msgstr "主要幻灯片变换"
 #: ../plugins/shotwell-transitions/shotwell-transitions.vala:75
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
+"Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation, Yorba "
+"基金会版权所有"
 
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
@@ -829,11 +841,11 @@ msgstr ""
 
 #: ../src/Application.vala:216
 msgid "Developers"
-msgstr ""
+msgstr "开发者"
 
 #: ../src/Application.vala:229
 msgid "Website"
-msgstr ""
+msgstr "网站"
 
 #: ../src/BatchImport.vala:26
 msgid "Success"
@@ -1167,7 +1179,7 @@ msgstr "保存(_S)"
 
 #: ../src/Dialogs.vala:91
 msgid "_Select"
-msgstr ""
+msgstr "选择(_S)"
 
 #. Ticket #3023
 #. Attempt to replace the system error with something friendlier
@@ -1233,7 +1245,7 @@ msgstr "导出元数据"
 
 #: ../src/Dialogs.vala:246
 msgid "_Export"
-msgstr ""
+msgstr "导出(_E)"
 
 #: ../src/Dialogs.vala:467
 msgid "Save Details..."
@@ -1534,7 +1546,7 @@ msgstr "导入完成"
 
 #: ../src/Dialogs.vala:862
 msgid "_Done"
-msgstr ""
+msgstr "完成(_D)"
 
 #: ../src/Dialogs.vala:1105
 #, c-format
@@ -1569,12 +1581,11 @@ msgstr "名称："
 #: ../src/Dialogs.vala:1277
 msgid "_Delete File"
 msgid_plural "_Delete Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "删除文件(_D)"
 
 #: ../src/Dialogs.vala:1281
 msgid "Only _Remove"
-msgstr ""
+msgstr "仅移除(_R)"
 
 #: ../src/Dialogs.vala:1301 ../src/camera/ImportPage.vala:1765
 msgid "_Keep"
@@ -1629,7 +1640,7 @@ msgstr "%d%%"
 #: ../src/Dialogs.vala:1573 ../src/editing_tools/EditingTools.vala:1865
 #: ../src/editing_tools/EditingTools.vala:2215
 msgid "_Apply"
-msgstr ""
+msgstr "应用(_A)"
 
 #: ../src/Dialogs.vala:1599
 msgid "AM"
@@ -1784,7 +1795,7 @@ msgstr "从您的 %s 照片库导入照片"
 
 #: ../src/Dialogs.vala:2104
 msgid "Preferences"
-msgstr ""
+msgstr "首选项"
 
 #: ../src/Dialogs.vala:2112 ../src/library/Branch.vala:48
 #: ../src/library/Branch.vala:150
@@ -2582,7 +2593,7 @@ msgstr "显示所有照片，包括次品"
 
 #: ../src/Resources.vala:246
 msgid "All Photos"
-msgstr ""
+msgstr "所有照片"
 
 #: ../src/Resources.vala:247 ../src/Resources.vala:248
 msgid "Show all photos"
@@ -2626,19 +2637,19 @@ msgstr "导出(_E)..."
 
 #: ../src/Resources.vala:263
 msgid "_Show info panel"
-msgstr ""
+msgstr "显示信息面板(_S)"
 
 #: ../src/Resources.vala:264 ../src/Resources.vala:265
 msgid "Show info panel"
-msgstr ""
+msgstr "显示信息面板"
 
 #: ../src/Resources.vala:267
 msgid "_Hide info panel"
-msgstr ""
+msgstr "隐藏信息面板(_H)"
 
 #: ../src/Resources.vala:268 ../src/Resources.vala:269
 msgid "Hide info panel"
-msgstr ""
+msgstr "隐藏信息面板"
 
 #: ../src/Resources.vala:271
 msgid "_Print..."
@@ -2710,27 +2721,27 @@ msgstr "用 RA_W 编辑器打开"
 
 #: ../src/Resources.vala:299
 msgid "_Open With..."
-msgstr ""
+msgstr "打开方式(_O)..."
 
 #: ../src/Resources.vala:300
 msgid "Open With"
-msgstr ""
+msgstr "打开方式"
 
 #: ../src/Resources.vala:301
 msgid "Open photo with external editor"
-msgstr ""
+msgstr "用外部编辑器打开"
 
 #: ../src/Resources.vala:303
 msgid "_Open With RAW Editor..."
-msgstr ""
+msgstr "用RAW编辑器打开(_O)"
 
 #: ../src/Resources.vala:304
 msgid "Open With Raw Editor"
-msgstr ""
+msgstr "用RAW编辑器打开"
 
 #: ../src/Resources.vala:305
 msgid "Open photo with external RAW editor"
-msgstr ""
+msgstr "用 外部RAW编辑器打开"
 
 #: ../src/Resources.vala:307
 msgid "Send _To..."
@@ -2762,15 +2773,15 @@ msgstr "取消标注(_F)"
 
 #: ../src/Resources.vala:319
 msgid "Image Details"
-msgstr ""
+msgstr "图片属性："
 
 #: ../src/Resources.vala:320
 msgid "Extended Details"
-msgstr ""
+msgstr "扩展详情"
 
 #: ../src/Resources.vala:321
 msgid "Library Details"
-msgstr ""
+msgstr "照片库详情"
 
 #: ../src/Resources.vala:324
 #, c-format
@@ -2879,11 +2890,11 @@ msgstr "无法重命名搜索为 %s，同名搜索已存在。"
 
 #: ../src/Resources.vala:391 ../src/searches/SavedSearchDialog.vala:636
 msgid "Smart Album"
-msgstr ""
+msgstr "智能相册"
 
 #: ../src/Resources.vala:393
 msgid "Delete Album"
-msgstr ""
+msgstr "删除相册"
 
 #: ../src/Resources.vala:396
 msgid "_Edit..."
@@ -3035,7 +3046,7 @@ msgstr "幻灯片放映"
 #. The close menu. Populated below in the constructor.
 #: ../src/SearchFilter.vala:341
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #. Type label and toggles
 #: ../src/SearchFilter.vala:373
@@ -3063,7 +3074,7 @@ msgstr "评分"
 
 #: ../src/SearchFilter.vala:458
 msgid "Search Photos"
-msgstr ""
+msgstr "搜索照片"
 
 #: ../src/SlideshowPage.vala:49 ../src/SlideshowPage.vala:179
 msgid "Settings"
@@ -3603,7 +3614,7 @@ msgstr "按照规则查找照片和视频"
 #: ../src/library/LibraryWindow.vala:330 ../src/searches/Branch.vala:77
 #: ../src/sidebar/Tree.vala:199
 msgid "New Smart Album…"
-msgstr ""
+msgstr "新建智能相册"
 
 #: ../src/library/LibraryWindow.vala:348
 msgid "_Photos"
@@ -3627,7 +3638,7 @@ msgstr "显示侧边栏"
 
 #: ../src/library/LibraryWindow.vala:382
 msgid "Edit Photo In_fo"
-msgstr ""
+msgstr "编辑照片信息(_F)"
 
 #: ../src/library/LibraryWindow.vala:634
 msgid "Import From Folder"
@@ -3690,27 +3701,27 @@ msgstr "写入元数据到文件..."
 
 #: ../src/library/LibraryWindow.vala:1357
 msgid "Add Some Photos"
-msgstr ""
+msgstr "添加一些照片"
 
 #: ../src/library/LibraryWindow.vala:1357
 msgid "No photos were found in your library."
-msgstr ""
+msgstr "在您的库中未发现照片。"
 
 #: ../src/library/LibraryWindow.vala:1358
 msgid "Import Photos"
-msgstr ""
+msgstr "导入照片"
 
 #: ../src/library/LibraryWindow.vala:1358
 msgid "Copy photos from a folder or external device."
-msgstr ""
+msgstr "从某个文件夹或外部设备中拷贝照片。"
 
 #: ../src/library/LibraryWindow.vala:1359
 msgid "Change Library Folder"
-msgstr ""
+msgstr "更改库文件夹"
 
 #: ../src/library/LibraryWindow.vala:1359
 msgid "Choose where to keep your photos."
-msgstr ""
+msgstr "选择放置您照片的位置。"
 
 #: ../src/library/OfflinePage.vala:8
 msgid "Missing Files"
@@ -3735,8 +3746,7 @@ msgstr "刪除"
 #: ../src/library/TrashPage.vala:142
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "删除照片"
 
 #: ../src/main.vala:54
 #, c-format
@@ -3942,7 +3952,7 @@ msgstr ""
 
 #: ../src/searches/Branch.vala:68
 msgid "Smart Albums"
-msgstr ""
+msgstr "智能相册"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: ../src/searches/SavedSearchDialog.vala:168
@@ -4056,16 +4066,16 @@ msgstr "和"
 #. Add buttons for new search.
 #: ../src/searches/SavedSearchDialog.vala:593
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../src/searches/SavedSearchDialog.vala:594
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #. Add close button.
 #: ../src/searches/SavedSearchDialog.vala:609
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: ../src/searches/SavedSearchDialog.vala:657
 msgid "_Match"
@@ -4253,11 +4263,11 @@ msgstr "外部编辑器"
 
 #: ../ui/shotwell.glade.h:23
 msgid "Library Location:"
-msgstr ""
+msgstr "照片库位置："
 
 #: ../ui/shotwell.glade.h:24
 msgid "Metadata:"
-msgstr ""
+msgstr "元数据："
 
 #: ../ui/shotwell.glade.h:25
 msgid "Display:"
