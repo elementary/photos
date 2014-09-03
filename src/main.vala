@@ -326,32 +326,25 @@ public Granite.Widgets.AboutDialog create_about_dialog () {
     var build_version = Resources.APP_VERSION;
 
     var developers_string = _ ("Developers");
-    var program_name = "Pantheon Photos";
     var app_years = "2014";
     string about_copyright =
         "2009-2014 Yorba Foundation\n" +
-        "Copyright © %s %s %s".printf (app_years, program_name, developers_string);
-
-    var main_url = "https://launchpad.net/pantheon-photos";
-    var bug_url = "https://bugs.launchpad.net/pantheon-photos";
-    var help_url = "http://yorba.org/shotwell/help/";
-    var translate_url = "https://translations.launchpad.net/pantheon-photos";
+        "Copyright © %s %s %s".printf (app_years, Resources.APP_TITLE, developers_string);
 
     var about = new Granite.Widgets.AboutDialog ();
-    about.program_name = program_name;
+    about.program_name = Resources.APP_TITLE;
     about.version = build_version;
     about.logo_icon_name = "multimedia-photo-viewer";
-    //about_comments = 
     about.copyright = about_copyright;
-    about.website = main_url;
+    about.website = Resources.PROJECT_URL;
     about.authors = Resources.AUTHORS;
     about.documenters = {};
     about.artists = {};
     about.translator_credits = "Launchpad Translators";
     about.license = Resources.LICENSE;
-    about.help = help_url;
-    about.translate = translate_url;
-    about.bug = bug_url;
+    about.help = Resources.HELP_URL;
+    about.translate = Resources.TRANSLATE_URL;
+    about.bug = Resources.BUG_DB_URL;
     return about;
 }
 
