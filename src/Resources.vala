@@ -24,7 +24,7 @@ public const string? GIT_VERSION = _GIT_VERSION;
 public const string? GIT_VERSION = null;
 #endif
 
-public const string COPYRIGHT = _("Copyright 2009-2013 Yorba Foundation");
+public const string COPYRIGHT = _("2009-2014 Yorba Foundation\nCopyright © 2014 Photos Developers");
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string YORBA_URL = "http://www.yorba.org";

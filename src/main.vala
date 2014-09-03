@@ -325,17 +325,11 @@ public OptionEntry[] get_options () {
 public Granite.Widgets.AboutDialog create_about_dialog () {
     var build_version = Resources.APP_VERSION;
 
-    var developers_string = _ ("Developers");
-    var app_years = "2014";
-    string about_copyright =
-        "2009-2014 Yorba Foundation\n" +
-        "Copyright © %s %s %s".printf (app_years, Resources.APP_TITLE, developers_string);
-
     var about = new Granite.Widgets.AboutDialog ();
     about.program_name = Resources.APP_TITLE;
     about.version = build_version;
     about.logo_icon_name = "multimedia-photo-viewer";
-    about.copyright = about_copyright;
+    about.copyright = Resources.COPYRIGHT;
     about.website = Resources.PROJECT_URL;
     about.authors = Resources.AUTHORS;
     about.documenters = {};
