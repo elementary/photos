@@ -211,33 +211,9 @@ public class Application : Granite.Application {
      * @param parent This widget is the window that is calling the about page being created.
      */
     public override void show_about (Gtk.Widget parent) {
-        assert (parent is Gtk.Window);
-
-        var developers_string = _ ("Developers");
-        string about_copyright =
-            "2009-2014 Yorba Foundation\n" +
-            "Copyright © %s %s %s".printf (app_years, program_name, developers_string);
-
-        Granite.Widgets.show_about_dialog ((Gtk.Window) parent,
-                                           "program_name", program_name,
-                                           "version", build_version,
-                                           "logo_icon_name", app_icon,
-
-                                           "comments", about_comments,
-                                           "copyright", about_copyright,
-                                           "website", main_url,
-                                           "website_label", _ ("Website"),
-
-                                           "authors", about_authors,
-                                           "documenters", about_documenters,
-                                           "artists", about_artists,
-                                           "translator_credits", about_translators,
-                                           "license", about_license,
-                                           "license_type", about_license_type,
-
-                                           "help", help_url,
-                                           "translate", translate_url,
-                                           "bug", bug_url);
+        var dialog = create_about_dialog (app_get_is_direct ());
+        dialog.run ();
+        dialog.destroy ();
     }
 
     public void exit () {

@@ -14,6 +14,7 @@ extern const string? _GIT_VERSION;
 
 namespace Resources {
 public const string APP_TITLE = _("Photos");
+public const string APP_TITLE_VIEWER = _("Photos Viewer");
 public const string APP_LIBRARY_ROLE = _("Photo Manager");
 public const string APP_DIRECT_ROLE = _("Photo Viewer");
 public const string APP_VERSION = _VERSION;
@@ -24,13 +25,16 @@ public const string? GIT_VERSION = _GIT_VERSION;
 public const string? GIT_VERSION = null;
 #endif
 
-public const string COPYRIGHT = _("Copyright 2009-2013 Yorba Foundation");
+public const string COPYRIGHT = _("2009-2014 Yorba Foundation\nCopyright © 2014 Photos Developers");
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string YORBA_URL = "http://www.yorba.org";
 public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/Shotwell";
 public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
+public const string PROJECT_URL = "https://launchpad.net/pantheon-photos";
 public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
+public const string TRANSLATE_URL = "https://translations.launchpad.net/pantheon-photos";
+public const string HELP_URL = "http://elementaryos.org/answers/+/shotwell/all/newest";
 public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
 private const string LIB = _LIB;
