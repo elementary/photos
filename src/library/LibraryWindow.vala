@@ -298,10 +298,10 @@ public class LibraryWindow : AppWindow {
         preferences.label = Resources.PREFERENCES_MENU;
         actions += preferences;
 
-        Gtk.ActionEntry empty = { "CommonEmptyTrash", Gtk.Stock.CLEAR, TRANSLATABLE, null, null,
+        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, TRANSLATABLE, "Delete All", TRANSLATABLE,
                                   on_empty_trash
                                 };
-        empty.label = _ ("Empty T_rash");
+        empty.label = _ ("_Delete All");
         empty.tooltip = _ ("Delete all photos in the trash");
         actions += empty;
 

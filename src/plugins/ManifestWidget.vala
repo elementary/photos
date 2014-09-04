@@ -78,8 +78,16 @@ public class ManifestWidgetMediator {
         about_dialog.copyright = info.copyright;
         about_dialog.license = info.license;
         about_dialog.wrap_license = info.is_license_wordwrapped;
+        Gdk.Pixbuf? pix_icon = null;
+        try {
+            Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
+            pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
+        } catch (Error e) {
+            warning (e.message);
+        }
+
         about_dialog.logo = (info.icons != null && info.icons.length > 0) ? info.icons[0] :
-                            Resources.get_icon (Resources.ICON_GENERIC_PLUGIN);
+                            pix_icon;
         about_dialog.program_name = get_pluggable_name (id);
         about_dialog.translator_credits = info.translators;
         about_dialog.version = info.version;
@@ -196,10 +204,15 @@ private class ManifestListView : Gtk.TreeView {
 
                 Spit.PluggableInfo info = Spit.PluggableInfo ();
                 pluggable.get_info (ref info);
-
+                Gdk.Pixbuf? pix_icon = null;
+                try {
+                    pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
+                } catch (Error e) {
+                    warning (e.message);
+                }
                 icon = (info.icons != null && info.icons.length > 0)
                        ? info.icons[0]
-                       : Resources.get_icon (Resources.ICON_GENERIC_PLUGIN, ICON_SIZE);
+                       : pix_icon;
 
                 Gtk.TreeIter plugin_iter;
                 store.append (out plugin_iter, category_iter);

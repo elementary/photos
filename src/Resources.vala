@@ -70,8 +70,8 @@ public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
 public const string HFLIP = "object-flip-horizontal";
 public const string VFLIP = "object-flip-vertical";
-public const string CROP = "shotwell-crop";
-public const string STRAIGHTEN = "shotwell-straighten";
+public const string CROP = "image-crop-symbolic";
+public const string STRAIGHTEN = "folder-templates";
 public const string REDEYE = "shotwell-redeye";
 public const string ADJUST = "shotwell-adjust";
 public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
@@ -93,7 +93,7 @@ public const string ICON_APP24 = "multimedia-photo-manager";
 public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
 
 public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
-public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
+public const string ICON_GENERIC_PLUGIN = "extension";
 public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
 public const string ICON_RATING_REJECTED = "rejected.svg";
 public const string ICON_FILTER_REJECTED_OR_BETTER = "all-rejected.png";
@@ -757,11 +757,11 @@ private string DISPLAY_FIVE_OR_HIGHER_MENU;
 private string DISPLAY_FIVE_OR_HIGHER_LABEL;
 private string DISPLAY_FIVE_OR_HIGHER_TOOLTIP;
 
-public const string DELETE_PHOTOS_MENU = _("_Delete");
+public const string DELETE_PHOTOS_MENU = _("_Delete Selection");
 public const string DELETE_FROM_TRASH_TOOLTIP = _("Remove the selected photos from the trash");
 public const string DELETE_FROM_LIBRARY_TOOLTIP = _("Remove the selected photos from the library");
 
-public const string RESTORE_PHOTOS_MENU = _("_Restore");
+public const string RESTORE_PHOTOS_MENU = _("_Restore Selection");
 public const string RESTORE_PHOTOS_TOOLTIP = _("Move the selected photos back into the library");
 
 public const string JUMP_TO_FILE_MENU = _("Show in File Mana_ger");
@@ -794,12 +794,10 @@ public void init () {
     factory = new Gtk.IconFactory ();
 
     File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-    add_stock_icon (icons_dir.get_child ("crop.svg"), CROP);
     add_stock_icon (icons_dir.get_child ("redeye.png"), REDEYE);
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("straighten.svg"), STRAIGHTEN);
     add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
     add_stock_icon (icons_dir.get_child ("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
     add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);

@@ -58,6 +58,15 @@ public class TrashPage : CheckerboardPage {
 
             toolbar.insert (drawn_separator, -1);
 
+            var restore = get_action ("Restore").create_tool_item ();
+            toolbar.insert ((Gtk.ToolItem)restore, -1);
+
+            var delete_button = get_action ("Delete").create_tool_item ();
+            toolbar.insert ((Gtk.ToolItem)delete_button, -1);
+
+            var empty_trash_button = get_action ("CommonEmptyTrash").create_tool_item ();
+            toolbar.insert ((Gtk.ToolItem)empty_trash_button, -1);
+
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
@@ -77,14 +86,14 @@ public class TrashPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry delete_action = { "Delete", Gtk.Stock.DELETE, TRANSLATABLE, "Delete",
+        Gtk.ActionEntry delete_action = { "Delete", null, TRANSLATABLE, "Delete",
                                           TRANSLATABLE, on_delete
                                         };
         delete_action.label = Resources.DELETE_PHOTOS_MENU;
         delete_action.tooltip = Resources.DELETE_FROM_TRASH_TOOLTIP;
         actions += delete_action;
 
-        Gtk.ActionEntry restore = { "Restore", Gtk.Stock.UNDELETE, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry restore = { "Restore", null, TRANSLATABLE, "Restore", TRANSLATABLE,
                                     on_restore
                                   };
         restore.label = Resources.RESTORE_PHOTOS_MENU;

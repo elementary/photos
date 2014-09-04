@@ -451,7 +451,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (flip_button, -1);
 
         // crop tool
-        crop_button = new Gtk.ToggleToolButton.from_stock (Resources.CROP);
+        crop_button = new Gtk.ToggleToolButton ();
+        crop_button.set_icon_widget (
+            new Gtk.Image.from_icon_name (Resources.CROP, Gtk.IconSize.LARGE_TOOLBAR));
         crop_button.set_label (Resources.CROP_LABEL);
         crop_button.set_tooltip_text (Resources.CROP_TOOLTIP);
         crop_button.toggled.connect (on_crop_toggled);
@@ -459,14 +461,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (crop_button, -1);
 
         // straightening tool
-        straighten_button = new Gtk.ToggleToolButton.from_stock (Resources.STRAIGHTEN);
+        straighten_button = new Gtk.ToggleToolButton ();
+        straighten_button.set_icon_widget (
+            new Gtk.Image.from_icon_name (Resources.STRAIGHTEN, Gtk.IconSize.LARGE_TOOLBAR));
         straighten_button.set_label (Resources.STRAIGHTEN_LABEL);
         straighten_button.set_tooltip_text (Resources.STRAIGHTEN_TOOLTIP);
         straighten_button.toggled.connect (on_straighten_toggled);
         straighten_button.is_important = true;
         toolbar.insert (straighten_button, -1);
 
-        // redeye reduction tool
         redeye_button = new Gtk.ToggleToolButton.from_stock (Resources.REDEYE);
         redeye_button.set_label (Resources.RED_EYE_LABEL);
         redeye_button.set_tooltip_text (Resources.RED_EYE_TOOLTIP);
