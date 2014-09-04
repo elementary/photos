@@ -148,7 +148,9 @@ RESOURCE_FILES = \
 SYS_INTEGRATION_FILES = \
 	shotwell.appdata.xml \
 	shotwell.desktop.head \
+	shotwell.desktop.tail \
 	shotwell-viewer.desktop.head \
+	shotwell-viewer.desktop.tail \
 	org.yorba.shotwell.gschema.xml \
 	org.yorba.shotwell-extras.gschema.xml \
 	shotwell.convert
@@ -485,7 +487,7 @@ ifndef DISABLE_DESKTOP_VALIDATE
 	fi
 endif
 	
-misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head $(EXPANDED_CORE_PO_FILES)
+misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop.tail $(EXPANDED_CORE_PO_FILES)
 	cp misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop
 	$(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack \
 		LANGUAGE=$(lang) gettext --domain=shotwell $(DESKTOP_APP_FULL_NAME)` \
@@ -493,6 +495,7 @@ misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head $(EXPANDED_CORE_
 		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APP_FULL_NAME)` >> misc/shotwell-viewer.desktop ; \
 		echo GenericName[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
 		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APPLICATION_CLASS)` >> misc/shotwell-viewer.desktop ;)
+	cat misc/shotwell-viewer.desktop.tail >> misc/shotwell-viewer.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
 	@ desktop-file-validate misc/shotwell-viewer.desktop 1>misc/shotwell-viewer.desktop.errors 2>&1; \
 	if test -s misc/shotwell-viewer.desktop.errors; then \
