@@ -33,7 +33,7 @@ public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/
 public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
 public const string PROJECT_URL = "https://launchpad.net/pantheon-photos";
 public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
-public const string TRANSLATE_URL = "https://bugs.launchpad.net/pantheon-photos";
+public const string TRANSLATE_URL = "https://translations.launchpad.net/pantheon-photos";
 public const string HELP_URL = "http://elementaryos.org/answers/+/shotwell/all/newest";
 public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
