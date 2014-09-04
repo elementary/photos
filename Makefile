@@ -464,7 +464,7 @@ package:
 	cp $(DIST_TAR_XZ) $(PACKAGE_ORIG_XZ)
 	rm -f $(DIST_TAR_XZ)
 
-misc/shotwell.desktop: misc/shotwell.desktop.head $(EXPANDED_CORE_PO_FILES)
+misc/shotwell.desktop: misc/shotwell.desktop.head misc/shotwell.desktop.tail $(EXPANDED_CORE_PO_FILES)
 	cp misc/shotwell.desktop.head misc/shotwell.desktop
 	@ $(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack \
 		LANGUAGE=$(lang) gettext --domain=shotwell $(DESKTOP_APP_FULL_NAME)` \
@@ -475,6 +475,7 @@ misc/shotwell.desktop: misc/shotwell.desktop.head $(EXPANDED_CORE_PO_FILES)
 		--domain=shotwell $(DESKTOP_APPLICATION_COMMENT)` >> misc/shotwell.desktop ; \
 		echo Keywords[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
 		--domain=shotwell $(DESKTOP_APP_KEYWORDS)` >> misc/shotwell.desktop ;) 
+	cat misc/shotwell.desktop.tail >> misc/shotwell.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
 	@ desktop-file-validate misc/shotwell.desktop 1>misc/shotwell.desktop.errors 2>&1; \
 	if test -s misc/shotwell.desktop.errors; then \
