@@ -237,9 +237,6 @@ public class LibraryWindow : AppWindow {
         var pref_action = get_common_action ("CommonPreferences");
         settings_menu.add (pref_action.create_menu_item ());
 
-        var about_action = get_common_action ("CommonAbout");
-        settings_menu.add (about_action.create_menu_item ());
-
         settings_menu.show_all ();
 
         var settings = new Gtk.MenuButton ();

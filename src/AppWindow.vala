@@ -513,12 +513,6 @@ public abstract class AppWindow : PageWindow {
         quit.label = _ ("_Quit");
         actions += quit;
 
-        Gtk.ActionEntry about = { "CommonAbout", Gtk.Stock.ABOUT, TRANSLATABLE, null,
-                                  TRANSLATABLE, on_about
-                                };
-        about.label = _ ("_About");
-        actions += about;
-
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", Gtk.Stock.FULLSCREEN,
                                        TRANSLATABLE, "F11", TRANSLATABLE, on_fullscreen
                                      };
