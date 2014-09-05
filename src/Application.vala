@@ -32,10 +32,10 @@ public class Application : Granite.Application {
     private bool exiting_fired = false;
 
     construct {
-        build_release_name = "Photos";
+        build_release_name = _("Photos");
         build_version = Resources.APP_VERSION;
 
-        program_name = build_release_name;
+        program_name = _(build_release_name);
         app_years = "2014";
         main_url = "https://launchpad.net/pantheon-photos";
         bug_url = "https://bugs.launchpad.net/pantheon-photos";
@@ -59,7 +59,7 @@ public class Application : Granite.Application {
             application_id = "org.elementaryos.pantheon-photos-direct";
             app_icon = "multimedia-photo-viewer";
             app_launcher = "shotwell-viewer.desktop";
-            program_name = "Photo Viewer";
+            program_name = _("Photo Viewer");
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
@@ -70,7 +70,7 @@ public class Application : Granite.Application {
             application_id = "org.elementaryos.pantheon-photos";
             app_icon = "multimedia-photo-manager";
             app_launcher = "shotwell.desktop";
-            program_name = build_release_name;
+            program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
 
