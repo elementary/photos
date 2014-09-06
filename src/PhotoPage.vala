@@ -470,7 +470,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         straighten_button.is_important = true;
         toolbar.insert (straighten_button, -1);
 
-        redeye_button = new Gtk.ToggleToolButton.from_stock (Resources.REDEYE);
+        redeye_button = new Gtk.ToggleToolButton ();
+        redeye_button.icon_widget = new Gtk.Image.from_icon_name (Resources.REDEYE, Gtk.IconSize.LARGE_TOOLBAR);
         redeye_button.set_label (Resources.RED_EYE_LABEL);
         redeye_button.set_tooltip_text (Resources.RED_EYE_TOOLTIP);
         redeye_button.toggled.connect (on_redeye_toggled);
@@ -487,6 +488,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // enhance tool
         enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
+        enhance_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
         enhance_button.set_label (Resources.ENHANCE_LABEL);
         enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
         enhance_button.clicked.connect (on_enhance);

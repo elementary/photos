@@ -169,7 +169,6 @@ TEXT_FILES = \
 
 ICON_FILES = \
 	drag_nub.png \
-	enhance.png \
 	image-adjust.svg \
 	make-primary.svg \
 	merge.svg \
@@ -177,7 +176,6 @@ ICON_FILES = \
 	multiple-tags.png \
 	noninterpretable-video.png \
 	pin-toolbar.svg \
-	redeye.png \
 	sprocket.png \
 	videos-page.png
 

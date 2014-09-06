@@ -70,15 +70,15 @@ public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
 public const string HFLIP = "object-flip-horizontal";
 public const string VFLIP = "object-flip-vertical";
-public const string CROP = "image-crop-symbolic";
-public const string STRAIGHTEN = "folder-templates";
-public const string REDEYE = "shotwell-redeye";
+public const string CROP = "image-crop";
+public const string STRAIGHTEN = "object-straighten";
+public const string REDEYE = "image-red-eye";
 public const string ADJUST = "shotwell-adjust";
 public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
 public const string MAKE_PRIMARY = "shotwell-make-primary";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
-public const string ENHANCE = "shotwell-auto-enhance";
+public const string ENHANCE = "image-auto-adjust";
 public const string HIDE_PANE = "pane-hide-symbolic";
 public const string SHOW_PANE = "pane-show-symbolic";
 public const string CROP_PIVOT_RETICLE = "object-rotate-right-symbolic";
@@ -788,11 +788,9 @@ public void init () {
     factory = new Gtk.IconFactory ();
 
     File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-    add_stock_icon (icons_dir.get_child ("redeye.png"), REDEYE);
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
     add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
 
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
