@@ -264,13 +264,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         return event_source;
     }
 
-    public virtual Gtk.MenuBar get_menubar () {
-        Gtk.MenuBar? menubar = ui.get_widget ("/MenuBar") as Gtk.MenuBar;
-        assert (menubar != null);
-
-        return menubar;
-    }
-
     public virtual unowned Gtk.Widget get_page_ui_widget (string path) {
         return ui.get_widget (path);
     }

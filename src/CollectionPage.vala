@@ -86,12 +86,6 @@ public abstract class CollectionPage : MediaPage {
         return toolbar;
     }
 
-    private static InjectionGroup create_file_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
-
-        return group;
-    }
-
     private static InjectionGroup create_context_menu_injectables () {
         InjectionGroup group = new InjectionGroup ("/CollectionContextMenu/EditExtrasPlaceholder");
 
@@ -219,7 +213,6 @@ public abstract class CollectionPage : MediaPage {
     protected override InjectionGroup[] init_collect_injection_groups () {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
-        groups += create_file_menu_injectables ();
         groups += create_context_menu_injectables ();
         groups += create_view_menu_fullscreen_injectables ();
 
