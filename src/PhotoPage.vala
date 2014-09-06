@@ -452,8 +452,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // crop tool
         crop_button = new Gtk.ToggleToolButton ();
-        crop_button.set_icon_widget (
-            new Gtk.Image.from_icon_name (Resources.CROP, Gtk.IconSize.LARGE_TOOLBAR));
+        crop_button.icon_widget = new Gtk.Image.from_icon_name (Resources.CROP, Gtk.IconSize.LARGE_TOOLBAR);
         crop_button.set_label (Resources.CROP_LABEL);
         crop_button.set_tooltip_text (Resources.CROP_TOOLTIP);
         crop_button.toggled.connect (on_crop_toggled);
@@ -462,8 +461,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // straightening tool
         straighten_button = new Gtk.ToggleToolButton ();
-        straighten_button.set_icon_widget (
-            new Gtk.Image.from_icon_name (Resources.STRAIGHTEN, Gtk.IconSize.LARGE_TOOLBAR));
+        straighten_button.icon_widget = new Gtk.Image.from_icon_name (Resources.STRAIGHTEN, Gtk.IconSize.LARGE_TOOLBAR);
         straighten_button.set_label (Resources.STRAIGHTEN_LABEL);
         straighten_button.set_tooltip_text (Resources.STRAIGHTEN_TOOLTIP);
         straighten_button.toggled.connect (on_straighten_toggled);
