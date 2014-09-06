@@ -21,11 +21,21 @@ public class DirectWindow : AppWindow {
         // simple layout: menu on top, photo in center, toolbar along bottom (mimicking the
         // PhotoPage in the library, but without the sidebar)
         Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        layout.pack_start (direct_photo_page.get_menubar (), false, false, 0);
         layout.pack_start (direct_photo_page, true, true, 0);
         layout.pack_end (direct_photo_page.get_toolbar (), false, false, 0);
 
         add (layout);
+        header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+
+        var save_action = get_direct_page ().get_action ("Save");
+        var save_btn = save_action.create_tool_item ();
+        save_btn.sensitive = true;
+        header.pack_start (save_btn);
+
+        var save_as_action = get_direct_page ().get_action ("SaveAs");
+        var save_as_btn = save_as_action.create_tool_item ();
+        save_as_btn.sensitive = true;
+        header.pack_start (save_as_btn);
     }
 
     public static DirectWindow get_app () {
