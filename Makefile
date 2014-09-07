@@ -170,35 +170,15 @@ TEXT_FILES = \
 	THANKS
 
 ICON_FILES = \
-	all-rejected.png \
-	crop-pivot-reticle.png \
-	crop.svg \
 	drag_nub.png \
-	enhance.png \
-	five-star-filter.svg \
-	five-stars.svg \
-	four-star-filter-plus.svg \
-	four-stars.svg \
 	image-adjust.svg \
 	make-primary.svg \
-	merge.svg \
 	multiple-events.png \
 	multiple-tags.png \
 	noninterpretable-video.png \
-	one-star-filter-plus.svg \
-	one-star.svg \
 	pin-toolbar.svg \
-	publish.png \
-	redeye.png \
-	rejected.svg \
 	sprocket.png \
-	straighten.svg \
-	three-star-filter-plus.svg \
-	three-stars.svg \
-	two-star-filter-plus.svg \
-	two-stars.svg \
-	videos-page.png \
-	generic-plugin.png
+	videos-page.png
 
 HELP_FILES = \
 	edit-adjustments.page \

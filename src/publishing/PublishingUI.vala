@@ -221,18 +221,23 @@ public class PublishingDialog : Gtk.Dialog {
             string curr_service_id = service.get_id ();
 
             service.get_info (ref info);
-
+            Gdk.Pixbuf? pix_icon = null;
+            try {
+                Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
+                pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
+            } catch (Error e) {
+                warning (e.message);
+            }
             if (null != info.icons && 0 < info.icons.length) {
                 // check if the icons object is set -- if set use that icon
                 service_selector_box_model.set (iter, 0, info.icons[0], 1,
                                                 service.get_pluggable_name ());
 
                 // in case the icons object is not set on the next iteration
-                info.icons[0] = Resources.get_icon (Resources.ICON_GENERIC_PLUGIN);
+                info.icons[0] = pix_icon;
             } else {
                 // if icons object is null or zero length use a generic icon
-                service_selector_box_model.set (iter, 0, Resources.get_icon (
-                                                    Resources.ICON_GENERIC_PLUGIN), 1, service.get_pluggable_name ());
+                service_selector_box_model.set (iter, 0, pix_icon, 1, service.get_pluggable_name ());
             }
 
             if (last_used_service == null) {

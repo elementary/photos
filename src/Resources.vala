@@ -74,21 +74,21 @@ public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
 public const string HFLIP = "object-flip-horizontal";
 public const string VFLIP = "object-flip-vertical";
-public const string CROP = "shotwell-crop";
-public const string STRAIGHTEN = "shotwell-straighten";
-public const string REDEYE = "shotwell-redeye";
+public const string CROP = "image-crop";
+public const string STRAIGHTEN = "object-straighten";
+public const string REDEYE = "image-red-eye";
 public const string ADJUST = "shotwell-adjust";
 public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
 public const string MAKE_PRIMARY = "shotwell-make-primary";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
-public const string ENHANCE = "shotwell-auto-enhance";
+public const string ENHANCE = "image-auto-adjust";
 public const string HIDE_PANE = "pane-hide-symbolic";
 public const string SHOW_PANE = "pane-show-symbolic";
-public const string CROP_PIVOT_RETICLE = "shotwell-crop-pivot-reticle";
+public const string CROP_PIVOT_RETICLE = "object-rotate-right";
 public const string PUBLISH = "applications-internet";
 public const string EDIT_FLAG= "edit-flag";
-public const string MERGE = "shotwell-merge-events";
+public const string MERGE = "object-merge";
 
 public const string ICON_APP = "multimedia-photo-manager";
 public const string ICON_APP16 = "multimedia-photo-manager";
@@ -97,18 +97,12 @@ public const string ICON_APP24 = "multimedia-photo-manager";
 public const string APP_ICONS[] = { ICON_APP, ICON_APP16, ICON_APP24 };
 
 public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
-public const string ICON_GENERIC_PLUGIN = "generic-plugin.png";
+public const string ICON_GENERIC_PLUGIN = "extension";
 public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
-public const string ICON_RATING_REJECTED = "rejected.svg";
-public const string ICON_FILTER_REJECTED_OR_BETTER = "all-rejected.png";
 public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
 public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
 public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
-public const string ICON_FILTER_ONE_OR_BETTER = "one-star-filter-plus.svg";
-public const string ICON_FILTER_TWO_OR_BETTER = "two-star-filter-plus.svg";
-public const string ICON_FILTER_THREE_OR_BETTER = "three-star-filter-plus.svg";
-public const string ICON_FILTER_FOUR_OR_BETTER = "four-star-filter-plus.svg";
-public const string ICON_FILTER_FIVE = "five-star-filter.svg";
+
 public const string ICON_ZOOM_IN = "zoom-in-symbolic";
 public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
 public const int ICON_ZOOM_SCALE = 16;
@@ -761,11 +755,11 @@ private string DISPLAY_FIVE_OR_HIGHER_MENU;
 private string DISPLAY_FIVE_OR_HIGHER_LABEL;
 private string DISPLAY_FIVE_OR_HIGHER_TOOLTIP;
 
-public const string DELETE_PHOTOS_MENU = _("_Delete");
+public const string DELETE_PHOTOS_MENU = _("_Delete Selection");
 public const string DELETE_FROM_TRASH_TOOLTIP = _("Remove the selected photos from the trash");
 public const string DELETE_FROM_LIBRARY_TOOLTIP = _("Remove the selected photos from the library");
 
-public const string RESTORE_PHOTOS_MENU = _("_Restore");
+public const string RESTORE_PHOTOS_MENU = _("_Restore Selection");
 public const string RESTORE_PHOTOS_TOOLTIP = _("Move the selected photos back into the library");
 
 public const string JUMP_TO_FILE_MENU = _("Show in File Mana_ger");
@@ -798,15 +792,9 @@ public void init () {
     factory = new Gtk.IconFactory ();
 
     File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-    add_stock_icon (icons_dir.get_child ("crop.svg"), CROP);
-    add_stock_icon (icons_dir.get_child ("redeye.png"), REDEYE);
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("straighten.svg"), STRAIGHTEN);
-    add_stock_icon (icons_dir.get_child ("enhance.png"), ENHANCE);
-    add_stock_icon (icons_dir.get_child ("crop-pivot-reticle.png"), CROP_PIVOT_RETICLE);
-    add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
 
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);

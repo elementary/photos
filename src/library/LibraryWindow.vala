@@ -314,10 +314,10 @@ public class LibraryWindow : AppWindow {
         preferences.label = Resources.PREFERENCES_MENU;
         actions += preferences;
 
-        Gtk.ActionEntry empty = { "CommonEmptyTrash", Gtk.Stock.CLEAR, TRANSLATABLE, null, null,
+        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, TRANSLATABLE, "Delete All", TRANSLATABLE,
                                   on_empty_trash
                                 };
-        empty.label = _ ("Empty T_rash");
+        empty.label = _ ("_Empty Trash");
         empty.tooltip = _ ("Delete all photos in the trash");
         actions += empty;
 
@@ -717,7 +717,7 @@ public class LibraryWindow : AppWindow {
         return (LibraryPhoto.global.get_trashcan_count () > 0) || (Video.global.get_trashcan_count () > 0);
     }
 
-    private void on_empty_trash () {
+    public void on_empty_trash () {
         Gee.ArrayList<MediaSource> to_remove = new Gee.ArrayList<MediaSource> ();
         to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
         to_remove.add_all (Video.global.get_trashcan_contents ());
