@@ -485,7 +485,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (adjust_button, -1);
 
         // enhance tool
-        enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
+        enhance_button = new Gtk.ToggleToolButton ();
         enhance_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
         enhance_button.set_label (Resources.ENHANCE_LABEL);
         enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);

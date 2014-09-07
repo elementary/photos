@@ -173,7 +173,6 @@ ICON_FILES = \
 	drag_nub.png \
 	image-adjust.svg \
 	make-primary.svg \
-	merge.svg \
 	multiple-events.png \
 	multiple-tags.png \
 	noninterpretable-video.png \

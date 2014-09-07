@@ -88,7 +88,7 @@ public const string SHOW_PANE = "pane-show-symbolic";
 public const string CROP_PIVOT_RETICLE = "object-rotate-right-symbolic";
 public const string PUBLISH = "applications-internet";
 public const string EDIT_FLAG= "edit-flag";
-public const string MERGE = "shotwell-merge-events";
+public const string MERGE = "object-merge";
 
 public const string ICON_APP = "multimedia-photo-manager";
 public const string ICON_APP16 = "multimedia-photo-manager";
@@ -795,7 +795,6 @@ public void init () {
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
     add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
-    add_stock_icon (icons_dir.get_child ("merge.svg"), MERGE);
 
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
