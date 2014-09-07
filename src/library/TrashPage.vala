@@ -70,6 +70,7 @@ public class TrashPage : CheckerboardPage {
             var empty_trash_btn = new Gtk.Button ();
             empty_trash_btn.clicked.connect (app.on_empty_trash);
             add_toolbutton_for_action ("CommonEmptyTrash", empty_trash_btn);
+            empty_trash_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
