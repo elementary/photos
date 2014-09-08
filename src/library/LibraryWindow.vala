@@ -118,7 +118,7 @@ public class LibraryWindow : AppWindow {
     private Gee.HashMap<Page, Sidebar.Entry> page_map = new Gee.HashMap<Page, Sidebar.Entry> ();
 
     private LibraryPhotoPage photo_page = null;
-
+    private CheckerboardPage last_checkerboard_page = null;
     // this is to keep track of cameras which initiate the app
     private static Gee.HashSet<string> initial_camera_uris = new Gee.HashSet<string> ();
 
@@ -137,7 +137,7 @@ public class LibraryWindow : AppWindow {
     private Gtk.Notebook notebook = new Gtk.Notebook ();
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
-
+    private Gtk.Button back_button;
     private int current_progress_priority = 0;
     private uint background_progress_pulse_id = 0;
 
@@ -221,17 +221,35 @@ public class LibraryWindow : AppWindow {
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
 
         background_progress_bar.set_show_text (true);
-
     }
 
     protected override void build_header_bar () {
+        // Left side of header bar
         base.build_header_bar ();
+
+        // Back Button
+        back_button = new Gtk.Button ();
+        back_button.clicked.connect (on_back_clicked);
+        back_button.get_style_context ().add_class ("back-button");
+        back_button.can_focus = false;
+        back_button.valign = Gtk.Align.CENTER;
+        back_button.vexpand = false;
+        header.pack_start (back_button);
+        back_button.visible = false;
+
+        // Right side of header bar
         build_settings_header ();
 
         // Find button
         Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
         find_button.set_related_action (get_common_action ("CommonDisplaySearchbar"));    
         header.pack_end (find_button);
+    }
+
+    public void on_back_clicked () {
+        if (last_checkerboard_page != null)
+            switch_to_page (last_checkerboard_page);
+        back_button.visible = false;
     }
 
     protected void build_settings_header () {
@@ -701,7 +719,6 @@ public class LibraryWindow : AppWindow {
         CollectionPage collection;
         Photo start;
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
-
         set_common_action_sensitive ("CommonEmptyTrash", can_empty_trash ());
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
@@ -1017,6 +1034,13 @@ public class LibraryWindow : AppWindow {
             spin_event_loop ();
         }
 
+        CheckerboardPage checkerboard_page = get_current_page () as CheckerboardPage;
+        if (checkerboard_page != null) {
+            this.back_button.label = get_current_page ().get_page_name ();
+            this.back_button.visible = true;
+            this.last_checkerboard_page = checkerboard_page;
+        }
+
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
     }
@@ -1329,8 +1353,11 @@ public class LibraryWindow : AppWindow {
         // renaming in the sidebar because a single click while in the LibraryPhotoPage indicates
         // the user wants to return to the controlling page ... that is, in this special case, the
         // sidebar cursor is set not to the 'current' page, but the page the user came from
-        if (page is LibraryPhotoPage)
+        if (page is LibraryPhotoPage) {
             sidebar_tree.disable_editing ();
+            back_button.visible = true;
+        } else
+            back_button.visible = false;
 
         // Update search filter to new page.
         toggle_search_bar (should_show_search_bar (), page as CheckerboardPage);
@@ -1497,6 +1524,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_update_properties_now () {
+        back_button.visible = last_checkerboard_page != null && get_current_page () is LibraryPhotoPage;
         metadata_sidebar.update_properties (get_current_page ());
     }
 
