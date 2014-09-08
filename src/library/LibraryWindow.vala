@@ -222,7 +222,16 @@ public class LibraryWindow : AppWindow {
 
         background_progress_bar.set_show_text (true);
 
+    }
+
+    protected override void build_header_bar () {
+        base.build_header_bar ();
         build_settings_header ();
+
+        // Find button
+        Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
+        find_button.set_related_action (get_common_action ("CommonDisplaySearchbar"));    
+        header.pack_end (find_button);
     }
 
     protected void build_settings_header () {

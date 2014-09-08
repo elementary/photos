@@ -817,12 +817,6 @@ public class ImportPage : CheckerboardPage {
 
             toolbar.insert (progress_item, -1);
 
-            // Find button
-            Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
-            find_button.set_related_action (get_action ("CommonDisplaySearchbar"));
-
-            toolbar.insert (find_button, -1);
-
             // Separator
             toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
