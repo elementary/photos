@@ -172,13 +172,9 @@ TEXT_FILES = \
 ICON_FILES = \
 	drag_nub.png \
 	image-adjust.svg \
-	make-primary.svg \
-	multiple-events.png \
-	multiple-tags.png \
 	noninterpretable-video.png \
 	pin-toolbar.svg \
-	sprocket.png \
-	videos-page.png
+	sprocket.png
 
 HELP_FILES = \
 	edit-adjustments.page \
