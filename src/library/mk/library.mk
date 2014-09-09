@@ -13,6 +13,9 @@ UNIT_DIR := library
 UNIT_FILES := \
 	LibraryWindow.vala \
 	Branch.vala \
+	PhotosPage.vala \
+	VideosPage.vala \
+	RawsPage.vala \
 	TrashSidebarEntry.vala \
 	OfflineSidebarEntry.vala \
 	FlaggedSidebarEntry.vala \
@@ -49,4 +52,3 @@ UNIT_RC :=
 
 # unitize.mk must be called at the end of each UNIT_DIR.mk file.
 include unitize.mk
-
