@@ -44,7 +44,8 @@ public abstract class CollectionPage : MediaPage {
         if (toolbar == null) {
             base.get_toolbar ();
             // enhance tool
-            enhance_button = new Gtk.ToggleToolButton.from_stock (Resources.ENHANCE);
+            enhance_button = new Gtk.ToggleToolButton ();
+            enhance_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
             enhance_button.set_label (Resources.ENHANCE_LABEL);
             enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
             enhance_button.clicked.connect (on_enhance);
@@ -85,14 +86,8 @@ public abstract class CollectionPage : MediaPage {
         return toolbar;
     }
 
-    private static InjectionGroup create_file_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/FileMenu/FileExtrasPlaceholder");
-
-        return group;
-    }
-
-    private static InjectionGroup create_edit_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/EditMenu/EditExtrasPlaceholder");
+    private static InjectionGroup create_context_menu_injectables () {
+        InjectionGroup group = new InjectionGroup ("/CollectionContextMenu/EditExtrasPlaceholder");
 
         group.add_menu_item ("Duplicate");
 
@@ -103,14 +98,6 @@ public abstract class CollectionPage : MediaPage {
         InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
 
         group.add_menu_item ("Fullscreen", "CommonFullscreen");
-
-        return group;
-    }
-
-    private static InjectionGroup create_photos_menu_externals_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MenuBar/PhotosMenu/PhotosExtrasExternalsPlaceholder");
-
-        group.add_menu_item ("PlayVideo");
 
         return group;
     }
@@ -226,10 +213,8 @@ public abstract class CollectionPage : MediaPage {
     protected override InjectionGroup[] init_collect_injection_groups () {
         InjectionGroup[] groups = base.init_collect_injection_groups ();
 
-        groups += create_file_menu_injectables ();
-        groups += create_edit_menu_injectables ();
+        groups += create_context_menu_injectables ();
         groups += create_view_menu_fullscreen_injectables ();
-        groups += create_photos_menu_externals_injectables ();
 
         return groups;
     }

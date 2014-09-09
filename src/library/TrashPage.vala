@@ -45,6 +45,7 @@ public class TrashPage : CheckerboardPage {
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
             base.get_toolbar ();
+            var app = AppWindow.get_instance () as LibraryWindow;
 
             // separator to force slider to right side of toolbar
             Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
@@ -58,14 +59,44 @@ public class TrashPage : CheckerboardPage {
 
             toolbar.insert (drawn_separator, -1);
 
+            var restore_button = new Gtk.Button ();
+            restore_button.clicked.connect (on_restore);
+            add_toolbutton_for_action ("Restore", restore_button);
+
+            var delete_button = new Gtk.Button ();
+            delete_button.clicked.connect (on_delete);
+            add_toolbutton_for_action ("Delete", delete_button);
+
+            var empty_trash_btn = new Gtk.Button ();
+            empty_trash_btn.clicked.connect (app.on_empty_trash);
+            add_toolbutton_for_action ("CommonEmptyTrash", empty_trash_btn);
+            empty_trash_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
             toolbar.insert (show_sidebar_button, -1);
-            var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
         return toolbar;
+    }
+
+    // Puts a normal Gtk.Button in a Toolbutton in order to set relief style
+    // to get around the ToolBars style control over it's children
+    private void add_toolbutton_for_action (string action_name, Gtk.Button wrap_btn) {
+        var action = get_action (action_name);
+        var tool_item = action.create_tool_item () as Gtk.ToolItem;
+
+        foreach (var child in tool_item.get_children ())
+            tool_item.remove (child);
+
+        wrap_btn.margin_left = wrap_btn.margin_right = 2;
+        wrap_btn.label = action.get_label ();
+        wrap_btn.use_underline = true;
+        wrap_btn.tooltip_text = action.tooltip;
+        
+        tool_item.add (wrap_btn);
+        toolbar.insert (tool_item, -1);
     }
 
     protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
@@ -77,14 +108,14 @@ public class TrashPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry delete_action = { "Delete", Gtk.Stock.DELETE, TRANSLATABLE, "Delete",
+        Gtk.ActionEntry delete_action = { "Delete", null, TRANSLATABLE, "Delete",
                                           TRANSLATABLE, on_delete
                                         };
         delete_action.label = Resources.DELETE_PHOTOS_MENU;
         delete_action.tooltip = Resources.DELETE_FROM_TRASH_TOOLTIP;
         actions += delete_action;
 
-        Gtk.ActionEntry restore = { "Restore", Gtk.Stock.UNDELETE, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry restore = { "Restore", null, TRANSLATABLE, "Restore", TRANSLATABLE,
                                     on_restore
                                   };
         restore.label = Resources.RESTORE_PHOTOS_MENU;

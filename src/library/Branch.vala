@@ -141,25 +141,6 @@ public abstract class Library.HideablePageEntry : Sidebar.SimplePageEntry {
     }
 }
 
-public class Library.VideosEntry : Sidebar.SimplePageEntry {
-    private Icon icon = new ThemedIcon (Resources.ICON_VIDEOS_PAGE);
-
-    public VideosEntry () {
-    }
-
-    public override string get_sidebar_name () {
-        return _ ("Videos");
-    }
-
-    public override Icon? get_sidebar_icon () {
-        return icon;
-    }
-
-    protected override Page create_page () {
-        return new Library.VideosPage ();
-    }
-}
-
 public class Library.VideosPage : CollectionPage {
     public const string NAME = _ ("Videos");
 
@@ -205,11 +186,8 @@ public class Library.VideosPage : CollectionPage {
     }
 }
 
-public class Library.PhotosEntry : Sidebar.SimplePageEntry {
-    private Icon icon = new ThemedIcon (Resources.ICON_PHOTOS_PAGE);
-
-    public PhotosEntry () {
-    }
+public abstract class Library.BaseEntry : Sidebar.SimplePageEntry {
+    protected Icon icon = new ThemedIcon (Resources.ICON_PHOTOS_PAGE);
 
     public override string get_sidebar_name () {
         return _ ("Photos");
@@ -218,9 +196,43 @@ public class Library.PhotosEntry : Sidebar.SimplePageEntry {
     public override Icon? get_sidebar_icon () {
         return icon;
     }
+}
 
+public class Library.PhotosEntry : Library.BaseEntry {
+    public PhotosEntry () {
+        icon = new ThemedIcon (Resources.ICON_PHOTOS_PAGE);
+    }
+    public override string get_sidebar_name () {
+        return _ ("Photos");
+    }
     protected override Page create_page () {
         return new Library.PhotosPage ();
+    }
+}
+
+public class Library.RawsEntry : Library.BaseEntry {
+    public RawsEntry () {
+        icon = new ThemedIcon (Resources.ICON_RAW_PAGE);
+    }
+
+    public override string get_sidebar_name () {
+        return _ ("RAW Photos");
+    }
+    protected override Page create_page () {
+        return new Library.RawsPage ();
+    }
+}
+
+public class Library.VideosEntry : Library.BaseEntry {
+    public VideosEntry () {
+        icon = new ThemedIcon (Resources.ICON_VIDEOS_PAGE);
+    }
+
+    public override string get_sidebar_name () {
+        return _ ("Videos");
+    }
+    protected override Page create_page () {
+        return new Library.VideosPage ();
     }
 }
 
@@ -266,25 +278,6 @@ public class Library.PhotosPage : CollectionPage {
     }
     public override SearchViewFilter get_search_view_filter () {
         return search_filter;
-    }
-}
-
-public class Library.RawsEntry : Sidebar.SimplePageEntry {
-    private Icon icon = new ThemedIcon (Resources.ICON_RAW_PAGE);
-
-    public RawsEntry () {
-    }
-
-    public override string get_sidebar_name () {
-        return _ ("RAW Photos");
-    }
-
-    public override Icon? get_sidebar_icon () {
-        return icon;
-    }
-
-    protected override Page create_page () {
-        return new Library.RawsPage ();
     }
 }
 

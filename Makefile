@@ -148,7 +148,9 @@ RESOURCE_FILES = \
 SYS_INTEGRATION_FILES = \
 	shotwell.appdata.xml \
 	shotwell.desktop.head \
+	shotwell.desktop.tail \
 	shotwell-viewer.desktop.head \
+	shotwell-viewer.desktop.tail \
 	org.yorba.shotwell.gschema.xml \
 	org.yorba.shotwell-extras.gschema.xml \
 	shotwell.convert
@@ -168,35 +170,15 @@ TEXT_FILES = \
 	THANKS
 
 ICON_FILES = \
-	all-rejected.png \
-	crop-pivot-reticle.png \
-	crop.svg \
 	drag_nub.png \
-	enhance.png \
-	five-star-filter.svg \
-	five-stars.svg \
-	four-star-filter-plus.svg \
-	four-stars.svg \
 	image-adjust.svg \
 	make-primary.svg \
-	merge.svg \
 	multiple-events.png \
 	multiple-tags.png \
 	noninterpretable-video.png \
-	one-star-filter-plus.svg \
-	one-star.svg \
 	pin-toolbar.svg \
-	publish.png \
-	redeye.png \
-	rejected.svg \
 	sprocket.png \
-	straighten.svg \
-	three-star-filter-plus.svg \
-	three-stars.svg \
-	two-star-filter-plus.svg \
-	two-stars.svg \
-	videos-page.png \
-	generic-plugin.png
+	videos-page.png
 
 HELP_FILES = \
 	edit-adjustments.page \
@@ -464,7 +446,7 @@ package:
 	cp $(DIST_TAR_XZ) $(PACKAGE_ORIG_XZ)
 	rm -f $(DIST_TAR_XZ)
 
-misc/shotwell.desktop: misc/shotwell.desktop.head $(EXPANDED_CORE_PO_FILES)
+misc/shotwell.desktop: misc/shotwell.desktop.head misc/shotwell.desktop.tail $(EXPANDED_CORE_PO_FILES)
 	cp misc/shotwell.desktop.head misc/shotwell.desktop
 	@ $(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack \
 		LANGUAGE=$(lang) gettext --domain=shotwell $(DESKTOP_APP_FULL_NAME)` \
@@ -475,6 +457,7 @@ misc/shotwell.desktop: misc/shotwell.desktop.head $(EXPANDED_CORE_PO_FILES)
 		--domain=shotwell $(DESKTOP_APPLICATION_COMMENT)` >> misc/shotwell.desktop ; \
 		echo Keywords[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
 		--domain=shotwell $(DESKTOP_APP_KEYWORDS)` >> misc/shotwell.desktop ;) 
+	cat misc/shotwell.desktop.tail >> misc/shotwell.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
 	@ desktop-file-validate misc/shotwell.desktop 1>misc/shotwell.desktop.errors 2>&1; \
 	if test -s misc/shotwell.desktop.errors; then \
@@ -484,7 +467,7 @@ ifndef DISABLE_DESKTOP_VALIDATE
 	fi
 endif
 	
-misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head $(EXPANDED_CORE_PO_FILES)
+misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop.tail $(EXPANDED_CORE_PO_FILES)
 	cp misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop
 	$(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack \
 		LANGUAGE=$(lang) gettext --domain=shotwell $(DESKTOP_APP_FULL_NAME)` \
@@ -492,6 +475,7 @@ misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head $(EXPANDED_CORE_
 		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APP_FULL_NAME)` >> misc/shotwell-viewer.desktop ; \
 		echo GenericName[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
 		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APPLICATION_CLASS)` >> misc/shotwell-viewer.desktop ;)
+	cat misc/shotwell-viewer.desktop.tail >> misc/shotwell-viewer.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
 	@ desktop-file-validate misc/shotwell-viewer.desktop 1>misc/shotwell-viewer.desktop.errors 2>&1; \
 	if test -s misc/shotwell-viewer.desktop.errors; then \

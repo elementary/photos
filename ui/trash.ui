@@ -1,34 +1,4 @@
 <ui>
-
-    <menubar name="MenuBar">
-        <menu name="FileMenu" action="FileMenu">
-            <menuitem name="Import" action="CommonFileImport" />
-            <menuitem name="ImportExternal" action="ExternalLibraryImport" />
-            <separator />
-            <menuitem name="JumpToFile" action="CommonJumpToFile" />
-            <menuitem name="EmptyTrash" action="CommonEmptyTrash" />
-            <separator />
-            <menuitem name="Quit" action="CommonQuit" />
-        </menu>
-        
-        <menu name="EditMenu" action="EditMenu">
-            <menuitem name="Undo" action="CommonUndo" />
-            <menuitem name="Redo" action="CommonRedo" />
-            <separator />
-            <menuitem name="Find" action="CommonFind" />
-            <menuitem name="NewSearch" action="CommonNewSearch" />
-            <separator />
-            <menuitem name="Delete" action="Delete" />
-            <menuitem name="Restore" action="Restore" />
-            <separator />
-            <menuitem name="Preferences" action="CommonPreferences" />
-        </menu>
-        
-        <menu name="HelpMenu" action="HelpMenu">
-            <menuitem name="About" action="CommonAbout" />
-        </menu>
-    </menubar>
-    
     <popup name="TrashContextMenu">
         <menuitem name="ContextDelete" action="Delete" />
         <menuitem name="ContextRestore" action="Restore" />
@@ -41,12 +11,8 @@
     <popup name="TrashPageMenu">
         <menuitem name="ContextEmptyTrash" action="CommonEmptyTrash" />
     </popup>
-    
+
     <toolbar name="TrashToolbar">
-        <toolitem name="ToolDelete" action="Delete" />
-        <toolitem name="ToolRestore" action="Restore" />
-        <toolitem name="ToolEmptyTrash" action="CommonEmptyTrash" />
-        <separator />
         <toolitem name="ToolFind" action="CommonDisplaySearchbar" />
     </toolbar>
 
