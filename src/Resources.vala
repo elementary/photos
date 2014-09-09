@@ -79,7 +79,6 @@ public const string STRAIGHTEN = "object-straighten";
 public const string REDEYE = "image-red-eye";
 public const string ADJUST = "shotwell-adjust";
 public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
-public const string MAKE_PRIMARY = "shotwell-make-primary";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "image-auto-adjust";
@@ -123,7 +122,6 @@ public const string ICON_PHOTOS = "folder-pictures";
 public const string ICON_SINGLE_PHOTO = "image-x-generic";
 public const string ICON_TRASH_EMPTY = "user-trash";
 public const string ICON_TRASH_FULL = "user-trash-full";
-public const string ICON_VIDEOS_PAGE = "videos-page";
 public const string ICON_FLAGGED_PAGE = "edit-flag";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
@@ -794,9 +792,7 @@ public void init () {
     File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
     add_stock_icon (icons_dir.get_child ("image-adjust.svg"), ADJUST);
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
-    add_stock_icon (icons_dir.get_child ("make-primary.svg"), MAKE_PRIMARY);
 
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_VIDEOS_PAGE), ICON_VIDEOS_PAGE);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
     add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_CAMERAS), ICON_CAMERAS);
 
