@@ -156,6 +156,11 @@ public class Library.MainPage : CollectionPage {
             get_view ().monitor_source_collection (sources, new CollectionViewManager (this), null, null, monitor);
     }
 
+    protected override string get_view_empty_message () {
+        (get_container () as LibraryWindow).toggle_welcome_page (true, _ ("Add Some Photos"),_("No Photos were found in your library."), true);
+        return _ ("Trash is empty");
+    }
+
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
         Config.Facade.get_instance ().get_library_photos_sort (out sort_order, out sort_by);
     }
@@ -164,4 +169,3 @@ public class Library.MainPage : CollectionPage {
         Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
     }
 }
-

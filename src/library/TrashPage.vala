@@ -165,6 +165,7 @@ public class TrashPage : CheckerboardPage {
     }
 
     protected override string get_view_empty_message () {
+        (get_container () as LibraryWindow).toggle_welcome_page (true, "", _ ("Trash is empty"));
         return _ ("Trash is empty");
     }
 
@@ -183,4 +184,3 @@ public class TrashPage : CheckerboardPage {
         update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
 }
-

@@ -1368,7 +1368,7 @@ public abstract class CheckerboardPage : Page {
     }
 
     protected virtual string get_view_empty_message () {
-        (get_container () as LibraryWindow).toggle_welcome_page (true);
+//        (get_container () as LibraryWindow).toggle_welcome_page (true, _ ("No photos/videos"));
         return _ ("No photos/videos");
     }
 
