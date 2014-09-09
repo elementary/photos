@@ -33,8 +33,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-08-31 20:10-0300\n"
-"PO-Revision-Date: 2014-09-06 19:50+0000\n"
-"Last-Translator: Artem Anufrij <Unknown>\n"
+"PO-Revision-Date: 2014-09-08 23:29+0000\n"
+"Last-Translator: Binali Rustamov <binali.rustamov@gmail.com>\n"
 "Language-Team: Russian "
 "(http://www.transifex.com/projects/p/shotwell/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -42,14 +42,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2014-09-07 07:00+0000\n"
+"X-Launchpad-Export-Date: 2014-09-09 08:01+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: ru\n"
 
 #: ../plugins/common/RESTSupport.vala:424
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:967
 msgid "A temporary file needed for publishing is unavailable"
-msgstr ""
+msgstr "Временный файл, необходимый для публикации, недоступен"
 
 #: ../plugins/common/RESTSupport.vala:1138
 msgid ""
@@ -190,6 +190,10 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
+"Вы вошли в Tumblr как (name)\n"
+"\n"
+"(эта строка установлена и находится в коде приложения,\n"
+"поэтому изменения, сделанные здесь, не будут показаны)"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_publishing_options_pane.glade.h:5
 msgid "Blogs:"
@@ -639,6 +643,10 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
+"Вы вошли в Flickr как (name).\n"
+"\n"
+"(эта строка установлена и находится в коде приложения,\n"
+"поэтому изменения, сделанные здесь, не будут показаны)"
 
 #: ../plugins/shotwell-publishing/flickr_publishing_options_pane.glade.h:5
 msgid "_visibility label (populated in the code)"
@@ -1070,11 +1078,11 @@ msgstr "По убыванию оценок"
 
 #: ../src/Commands.vala:1280
 msgid "Setting RAW developer"
-msgstr "Установка обработчика RAW"
+msgstr "Установка редактора RAW"
 
 #: ../src/Commands.vala:1280
 msgid "Restoring previous RAW developer"
-msgstr "Восстановление предыдущего обработчика RAW"
+msgstr "Восстановление предыдущего редактора RAW"
 
 #: ../src/Commands.vala:1281
 msgid "Set Developer"
@@ -1188,7 +1196,7 @@ msgstr "_Удалить"
 #: ../src/Dialogs.vala:25
 #, c-format
 msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr ""
+msgstr "Это действие удалит динамический альбом \"%s\". Продолжить?"
 
 #: ../src/Dialogs.vala:35
 msgid ""
@@ -1746,12 +1754,13 @@ msgstr "Имя:"
 #: ../src/Dialogs.vala:1277
 msgid "_Delete File"
 msgid_plural "_Delete Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Удалить файл"
+msgstr[1] "_Удалить файлы"
+msgstr[2] "_Удалить файлы"
 
 #: ../src/Dialogs.vala:1281
 msgid "Only _Remove"
-msgstr ""
+msgstr "Только _удалить"
 
 #: ../src/Dialogs.vala:1301 ../src/camera/ImportPage.vala:1765
 msgid "_Keep"
@@ -1816,7 +1825,7 @@ msgstr "%d%%"
 #: ../src/Dialogs.vala:1573 ../src/editing_tools/EditingTools.vala:1865
 #: ../src/editing_tools/EditingTools.vala:2215
 msgid "_Apply"
-msgstr ""
+msgstr "_Применить"
 
 #: ../src/Dialogs.vala:1599
 msgid "AM"
@@ -1988,7 +1997,7 @@ msgstr "Импортировать фотографии из библиотек�
 
 #: ../src/Dialogs.vala:2104
 msgid "Preferences"
-msgstr ""
+msgstr "Параметры"
 
 #: ../src/Dialogs.vala:2112 ../src/library/Branch.vala:48
 #: ../src/library/Branch.vala:150
@@ -2570,7 +2579,7 @@ msgstr "Вставить цветовые параметры"
 
 #: ../src/Resources.vala:164
 msgid "Apply copied color adjustments to the selected photos"
-msgstr ""
+msgstr "Применить скопированные цветовые параметры к выбранным фотографиям"
 
 #: ../src/Resources.vala:166
 msgid "_Crop"
@@ -2782,7 +2791,7 @@ msgstr "Показать только отклонённые фото"
 
 #: ../src/Resources.vala:242
 msgid "All + Rejected"
-msgstr ""
+msgstr "Все фотографии + отклонённые"
 
 #: ../src/Resources.vala:243 ../src/Resources.vala:244
 msgid "Show all photos, including rejected"
@@ -2834,11 +2843,11 @@ msgstr "_Экспортировать…"
 
 #: ../src/Resources.vala:263
 msgid "_Show info panel"
-msgstr ""
+msgstr "_Показать дополнительную информацию"
 
 #: ../src/Resources.vala:264 ../src/Resources.vala:265
 msgid "Show info panel"
-msgstr ""
+msgstr "Показать дополнительную информацию"
 
 #: ../src/Resources.vala:267
 msgid "_Hide info panel"
@@ -2918,11 +2927,11 @@ msgstr "Открыть с помощью редактора _RAW"
 
 #: ../src/Resources.vala:299
 msgid "_Open With..."
-msgstr ""
+msgstr "_Открыть в программе..."
 
 #: ../src/Resources.vala:300
 msgid "Open With"
-msgstr ""
+msgstr "Открыть в программе"
 
 #: ../src/Resources.vala:301
 msgid "Open photo with external editor"
@@ -2930,11 +2939,11 @@ msgstr ""
 
 #: ../src/Resources.vala:303
 msgid "_Open With RAW Editor..."
-msgstr ""
+msgstr "_Открыть с помощью редактора RAW..."
 
 #: ../src/Resources.vala:304
 msgid "Open With Raw Editor"
-msgstr ""
+msgstr "Открыть с помощью редактора RAW"
 
 #: ../src/Resources.vala:305
 msgid "Open photo with external RAW editor"
@@ -3089,11 +3098,11 @@ msgstr ""
 
 #: ../src/Resources.vala:391 ../src/searches/SavedSearchDialog.vala:636
 msgid "Smart Album"
-msgstr ""
+msgstr "Динамический альбом"
 
 #: ../src/Resources.vala:393
 msgid "Delete Album"
-msgstr ""
+msgstr "Удалить альбом"
 
 #: ../src/Resources.vala:396
 msgid "_Edit..."
@@ -3247,7 +3256,7 @@ msgstr "Слайдшоу"
 #. The close menu. Populated below in the constructor.
 #: ../src/SearchFilter.vala:341
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #. Type label and toggles
 #: ../src/SearchFilter.vala:373
@@ -3275,7 +3284,7 @@ msgstr "Рейтинг"
 
 #: ../src/SearchFilter.vala:458
 msgid "Search Photos"
-msgstr ""
+msgstr "Поиск фотографий"
 
 #: ../src/SlideshowPage.vala:49 ../src/SlideshowPage.vala:179
 msgid "Settings"
@@ -3681,7 +3690,7 @@ msgstr "Тени:"
 
 #: ../src/editing_tools/EditingTools.vala:2271
 msgid "Highlights:"
-msgstr ""
+msgstr "Светлые части:"
 
 #: ../src/editing_tools/EditingTools.vala:2325
 msgid "Reset Colors"
@@ -3713,7 +3722,7 @@ msgstr "Тени"
 
 #: ../src/editing_tools/EditingTools.vala:2742
 msgid "Highlights"
-msgstr ""
+msgstr "Светлые части"
 
 #: ../src/editing_tools/EditingTools.vala:2752
 msgid "Contrast Expansion"
@@ -3839,7 +3848,7 @@ msgstr "Поиск фото и видео"
 #: ../src/library/LibraryWindow.vala:330 ../src/searches/Branch.vala:77
 #: ../src/sidebar/Tree.vala:199
 msgid "New Smart Album…"
-msgstr ""
+msgstr "Создать динамический альбом..."
 
 #: ../src/library/LibraryWindow.vala:348
 msgid "_Photos"
@@ -3863,7 +3872,7 @@ msgstr "Показывать боковую панель"
 
 #: ../src/library/LibraryWindow.vala:382
 msgid "Edit Photo In_fo"
-msgstr ""
+msgstr "Редактировать дополнительную _информацию"
 
 #: ../src/library/LibraryWindow.vala:634
 msgid "Import From Folder"
@@ -3927,7 +3936,7 @@ msgstr "Запись метаданных в файлы…"
 
 #: ../src/library/LibraryWindow.vala:1357
 msgid "Add Some Photos"
-msgstr ""
+msgstr "Добавить несколько фотографий"
 
 #: ../src/library/LibraryWindow.vala:1357
 msgid "No photos were found in your library."
@@ -3935,7 +3944,7 @@ msgstr ""
 
 #: ../src/library/LibraryWindow.vala:1358
 msgid "Import Photos"
-msgstr ""
+msgstr "Импорт фотографий"
 
 #: ../src/library/LibraryWindow.vala:1358
 msgid "Copy photos from a folder or external device."
@@ -3972,8 +3981,9 @@ msgstr "_Удалить"
 #: ../src/library/TrashPage.vala:142
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Удаление фотографии"
+msgstr[1] "Удаление фотографий"
+msgstr[2] "Удаление фотографий"
 
 #: ../src/main.vala:54
 #, c-format
@@ -4186,7 +4196,7 @@ msgstr ""
 
 #: ../src/searches/Branch.vala:68
 msgid "Smart Albums"
-msgstr ""
+msgstr "Динамические альбомы"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: ../src/searches/SavedSearchDialog.vala:168
@@ -4309,7 +4319,7 @@ msgstr ""
 #. Add close button.
 #: ../src/searches/SavedSearchDialog.vala:609
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: ../src/searches/SavedSearchDialog.vala:657
 msgid "_Match"
@@ -4498,23 +4508,23 @@ msgstr "Внешние редакторы"
 
 #: ../ui/shotwell.glade.h:23
 msgid "Library Location:"
-msgstr ""
+msgstr "Библиотека:"
 
 #: ../ui/shotwell.glade.h:24
 msgid "Metadata:"
-msgstr ""
+msgstr "Метаданные:"
 
 #: ../ui/shotwell.glade.h:25
 msgid "Display:"
-msgstr ""
+msgstr "Экран:"
 
 #: ../ui/shotwell.glade.h:26
 msgid "RAW Developer:"
-msgstr ""
+msgstr "Обработка RAW:"
 
 #: ../ui/shotwell.glade.h:27
 msgid "Importing:"
-msgstr ""
+msgstr "Импорт:"
 
 #: ../ui/shotwell.glade.h:28
 msgid "<b>Printed Image Size</b>"
