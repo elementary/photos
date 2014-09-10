@@ -42,15 +42,15 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-08-31 20:10-0300\n"
-"PO-Revision-Date: 2014-09-08 23:18+0000\n"
-"Last-Translator: UweS <Unknown>\n"
+"PO-Revision-Date: 2014-09-09 18:42+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German "
 "(http://www.transifex.com/projects/p/shotwell/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2014-09-09 08:01+0000\n"
+"X-Launchpad-Export-Date: 2014-09-10 08:08+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: de\n"
 
@@ -86,6 +86,7 @@ msgstr ""
 "\n"
 "Launchpad Contributions:\n"
 "  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
+"  CanviS https://launchpad.net/~d69e23df\n"
 "  Christoph Brill https://launchpad.net/~egore911-4\n"
 "  Phillip Sz https://launchpad.net/~phillip-sz\n"
 "  Tobias Bannert https://launchpad.net/~toba\n"
@@ -540,17 +541,16 @@ msgid ""
 "Enter the URL of your Piwigo photo library as well as the username and "
 "password associated with your Piwigo account for that library."
 msgstr ""
-"Bitte die Adresse Ihrer Piwigo-Fotobibliothek sowie den Benutzernamen und "
-"das Kennwort eingeben, die Ihrem Piwigo-Konto für diese Bibliothek "
-"zugeordnet sind."
+"Bitte die Adresse Ihrer Piwigo-Fotosammlung sowie den Benutzernamen und das "
+"Kennwort eingeben, die Ihrem Piwigo-Konto für diese Sammlung zugeordnet sind."
 
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:999
 msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell kann keinen Kontakt zu Ihrer Piwigo-Fotobibliothek herstellen. "
-"Bitte überprüfen Sie die eingegebene Adresse"
+"Shotwell kann keinen Kontakt zu Ihrer Piwigo-Fotosammlung herstellen. Bitte "
+"überprüfen Sie die eingegebene Adresse"
 
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1032
 msgid "Invalid URL"
@@ -705,7 +705,7 @@ msgstr "Voreingestellte Foto_größe:"
 
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:2
 msgid "_URL of your Piwigo photo library"
-msgstr "_Adresse Ihrer Piwigo-Fotobibliothek"
+msgstr "_Adresse Ihrer Piwigo-Fotosammlung"
 
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:3
 msgid "User _name"
@@ -885,7 +885,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Ein schwerwiegender Fehler ist beim Zugriff auf Shotwells Bibliothek "
+"Ein schwerwiegender Fehler ist beim Zugriff auf Shotwells Sammlung "
 "aufgetreten.  Shotwell kann nicht fortgesetzt werden.\n"
 "\n"
 "%s"
@@ -1159,7 +1159,7 @@ msgstr "Fotos in den Shotwell-Papierkorb verschieben"
 
 #: ../src/Commands.vala:2372
 msgid "Restore the photos back to the Shotwell library"
-msgstr "Stelle die Fotos in der Shotwell Bibliothek wieder her"
+msgstr "Stelle die Fotos in der Shotwell Sammlung wieder her"
 
 #: ../src/Commands.vala:2391
 msgid "Moving Photos to Trash"
@@ -1394,7 +1394,7 @@ msgid ""
 "Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Fotos/Filme wurden nicht importiert, da sie nicht in die Bibliothek kopiert "
+"Fotos/Filme wurden nicht importiert, da sie nicht in die Sammlung kopiert "
 "werden konnten:"
 
 #: ../src/Dialogs.vala:618
@@ -1492,10 +1492,10 @@ msgid_plural ""
 "%d photos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Foto wurde nicht importiert, weil der Ordner mit der Foto-Bibliothek nicht "
+"1 Foto wurde nicht importiert, weil der Ordner mit der Foto-Sammlung nicht "
 "beschreibbar ist:\n"
 msgstr[1] ""
-"%d Fotos wurden nicht importiert, da der Foto-Bibliothek Ordner nicht "
+"%d Fotos wurden nicht importiert, da der Foto-Sammlung Ordner nicht "
 "beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:711
@@ -1506,10 +1506,10 @@ msgid_plural ""
 "%d videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Video wurde nicht importiert, weil der Ordner der Foto-Bibliothek nicht "
+"1 Video wurde nicht importiert, weil der Ordner der Foto-Sammlung nicht "
 "beschreibbar ist:\n"
 msgstr[1] ""
-"%d Videos wurden nicht importiert, da der Ordner der Foto-Bibliothek nicht "
+"%d Videos wurden nicht importiert, da der Ordner der Foto-Sammlung nicht "
 "beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:714
@@ -1521,10 +1521,10 @@ msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"1 Foto/Video wurde nicht importiert, weil der Ordner der Foto-Bibliothek "
-"nicht beschreibbar ist:\n"
+"1 Foto/Video wurde nicht importiert, weil der Ordner der Foto-Sammlung nicht "
+"beschreibbar ist:\n"
 msgstr[1] ""
-"%d Fotos/Videos wurden nicht importiert, da der Ordner der Foto-Bibliothek "
+"%d Fotos/Videos wurden nicht importiert, da der Ordner der Foto-Sammlung "
 "nicht beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:717
@@ -1535,11 +1535,11 @@ msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Eine Datei wurde nicht importiert, weil der Ordner der Foto-Bibliothek nicht "
+"Eine Datei wurde nicht importiert, weil der Ordner der Foto-Sammlung nicht "
 "beschreibbar ist:\n"
 msgstr[1] ""
-"%d Dateien wurden nicht importiert, weil der Ordner der Foto-Bibliothek "
-"nicht beschreibbar ist:\n"
+"%d Dateien wurden nicht importiert, weil der Ordner der Foto-Sammlung nicht "
+"beschreibbar ist:\n"
 
 #: ../src/Dialogs.vala:731
 #, c-format
@@ -1780,8 +1780,8 @@ msgstr "Externe _Veränderungen zurücknehmen"
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
-msgstr[0] "Das Foto wird aus der Bibliothek entfernt. Fortfahren?"
-msgstr[1] "%d Fotos werden aus der Bibliothek entfernt. Fortfahren?"
+msgstr[0] "Das Foto wird aus der Sammlung entfernt. Fortfahren?"
+msgstr[1] "%d Fotos werden aus der Sammlung entfernt. Fortfahren?"
 
 #: ../src/Dialogs.vala:1358
 msgid "_Remove"
@@ -1789,11 +1789,11 @@ msgstr "Entfe_rnen"
 
 #: ../src/Dialogs.vala:1359
 msgid "Remove Photo From Library"
-msgstr "Foto aus der Bibliothek entfernen"
+msgstr "Foto aus der Sammlung entfernen"
 
 #: ../src/Dialogs.vala:1359
 msgid "Remove Photos From Library"
-msgstr "Fotos aus der Bibliothek entfernen"
+msgstr "Fotos aus der Sammlung entfernen"
 
 #: ../src/Dialogs.vala:1452
 #, c-format
@@ -1963,7 +1963,7 @@ msgstr "Diese Meldung nicht noch einmal _zeigen"
 #: ../src/Dialogs.vala:1985
 #, c-format
 msgid "Import photos from your %s library"
-msgstr "Fotos aus der %s-Bibliothek importieren"
+msgstr "Fotos aus der %s-Sammlung importieren"
 
 #: ../src/Dialogs.vala:2104
 msgid "Preferences"
@@ -1972,7 +1972,7 @@ msgstr "Einstellungen"
 #: ../src/Dialogs.vala:2112 ../src/library/Branch.vala:48
 #: ../src/library/Branch.vala:150
 msgid "Library"
-msgstr "Bibliothek"
+msgstr "Sammlung"
 
 #: ../src/Dialogs.vala:2113 ../ui/shotwell.glade.h:22
 msgid "Plugins"
@@ -2020,7 +2020,7 @@ msgid ""
 "Shotwell can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell kann die Fotos aus dem Ordner in die Bibliothek kopieren oder sie "
+"Shotwell kann die Fotos aus dem Ordner in die Sammlung kopieren oder sie "
 "können verlinkt werden, ohne sie zu kopieren."
 
 #: ../src/Dialogs.vala:2437
@@ -2033,19 +2033,19 @@ msgstr "_Import durch Verlinken"
 
 #: ../src/Dialogs.vala:2439
 msgid "Import to Library"
-msgstr "In Bibliothek importieren"
+msgstr "In Sammlung importieren"
 
 #: ../src/Dialogs.vala:2449 ../src/PhotoPage.vala:3158
 msgid "Remove From Library"
-msgstr "Aus Bibliothek entfernen"
+msgstr "Aus Sammlung entfernen"
 
 #: ../src/Dialogs.vala:2450 ../src/PhotoPage.vala:3158
 msgid "Removing Photo From Library"
-msgstr "Foto wird aus Bibliothek entfernt"
+msgstr "Foto wird aus Sammlung entfernt"
 
 #: ../src/Dialogs.vala:2450
 msgid "Removing Photos From Library"
-msgstr "Fotos werden aus Bibliothek entfernt"
+msgstr "Fotos werden aus Sammlung entfernt"
 
 #. Alert the user that the files were not removed.
 #: ../src/Dialogs.vala:2486
@@ -2962,7 +2962,7 @@ msgstr "Weitere Details"
 
 #: ../src/Resources.vala:321
 msgid "Library Details"
-msgstr "Bibliotheken-Details"
+msgstr "Sammlungs-Details"
 
 #: ../src/Resources.vala:324
 #, c-format
@@ -3145,7 +3145,7 @@ msgstr "Die ausgewählten Fotos aus dem Papierkorb entfernen"
 
 #: ../src/Resources.vala:764
 msgid "Remove the selected photos from the library"
-msgstr "Die ausgewählten Fotos aus der Bibliothek entfernen"
+msgstr "Die ausgewählten Fotos aus der Sammlung entfernen"
 
 #: ../src/Resources.vala:766
 msgid "_Restore"
@@ -3153,7 +3153,7 @@ msgstr "_Wiederherstellen"
 
 #: ../src/Resources.vala:767
 msgid "Move the selected photos back into the library"
-msgstr "Die ausgewählten Bilder zurück in die Bibliothek verschieben"
+msgstr "Die ausgewählten Bilder zurück in die Sammlung verschieben"
 
 #: ../src/Resources.vala:769
 msgid "Show in File Mana_ger"
@@ -3170,7 +3170,7 @@ msgstr "Konnte Speicherort nicht in der Dateiverwaltung öffnen: %s"
 
 #: ../src/Resources.vala:776
 msgid "R_emove From Library"
-msgstr "Aus Bibliothek _entfernen"
+msgstr "Aus Sammlung _entfernen"
 
 #: ../src/Resources.vala:778
 msgid "_Move to Trash"
@@ -3355,7 +3355,7 @@ msgstr "A_usgewählte importieren"
 
 #: ../src/camera/ImportPage.vala:910
 msgid "Import the selected photos into your library"
-msgstr "Die ausgewählten Bilder in die Bibliothek importieren"
+msgstr "Die ausgewählten Bilder in die Sammlung importieren"
 
 #: ../src/camera/ImportPage.vala:916
 msgid "Import _All"
@@ -3363,7 +3363,7 @@ msgstr "_Alle importieren"
 
 #: ../src/camera/ImportPage.vala:917
 msgid "Import all the photos into your library"
-msgstr "Alle Fotos in die Bibliothek importieren"
+msgstr "Alle Fotos in die Sammlung importieren"
 
 #. it's mounted, offer to unmount for the user
 #: ../src/camera/ImportPage.vala:1038
@@ -3792,7 +3792,7 @@ msgstr "Aus Ordner _importieren …"
 
 #: ../src/library/LibraryWindow.vala:288
 msgid "Import photos from disk to library"
-msgstr "Fotos von der Festplatte in die Bibliothek importieren"
+msgstr "Fotos von der Festplatte in die Sammlung importieren"
 
 #: ../src/library/LibraryWindow.vala:292
 msgid "Sort _Events"
@@ -3879,7 +3879,7 @@ msgstr "_Import"
 
 #: ../src/library/LibraryWindow.vala:830 ../ui/shotwell.glade.h:4
 msgid "Library Location"
-msgstr "Speicherort der Bibliothek"
+msgstr "Speicherort der Sammlung"
 
 #. TODO: Specify which directory/file.
 #: ../src/library/LibraryWindow.vala:843
@@ -3894,7 +3894,7 @@ msgstr "%s (%d%%)"
 #: ../src/library/LibraryWindow.vala:1165
 #: ../src/library/LibraryWindow.vala:1176
 msgid "Updating library..."
-msgstr "Bibliothek wird aktualisiert …"
+msgstr "Sammlung wird aktualisiert …"
 
 #: ../src/library/LibraryWindow.vala:1182
 msgid "Preparing to auto-import photos..."
@@ -3914,7 +3914,7 @@ msgstr "Fotos hinzufügen"
 
 #: ../src/library/LibraryWindow.vala:1357
 msgid "No photos were found in your library."
-msgstr "In Ihrer Bibliothek wurden keine Fotos gefunden."
+msgstr "In Ihrer Sammlung wurden keine Fotos gefunden."
 
 #: ../src/library/LibraryWindow.vala:1358
 msgid "Import Photos"
@@ -3926,7 +3926,7 @@ msgstr "Fotos aus einem Ordner oder von einem externen Gerät kopieren"
 
 #: ../src/library/LibraryWindow.vala:1359
 msgid "Change Library Folder"
-msgstr "Bibliotheken-Ordner ändern"
+msgstr "Sammlungs-Ordner ändern"
 
 #: ../src/library/LibraryWindow.vala:1359
 msgid "Choose where to keep your photos."
@@ -3965,7 +3965,7 @@ msgid ""
 "appears it was created by Shotwell %s (schema %d).  This version is %s "
 "(schema %d).  Please use the latest version of Shotwell."
 msgstr ""
-"Die Datenbank für die Foto-Bibliothek ist nicht mit dieser Version von "
+"Die Datenbank für die Foto-Sammlung ist nicht mit dieser Version von "
 "Shotwell kompatibel. Es sieht so aus, als wäre sie von Shotwell %s (Schema "
 "%d) erzeugt worden. Dies ist Version %s (Schema %d). Bitte verwenden Sie die "
 "neueste Shotwell-Version."
@@ -3977,7 +3977,7 @@ msgid ""
 "%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
 "at %s"
 msgstr ""
-"Shotwell konnte Ihre Foto-Bibliothek nicht von Version %s (Schema %d) zu %s "
+"Shotwell konnte Ihre Foto-Sammlung nicht von Version %s (Schema %d) zu %s "
 "(Schema %d) aktualisieren. Weitere Informationen finden Sie im Shotwell-Wiki "
 "unter %s"
 
@@ -3989,10 +3989,10 @@ msgid ""
 "(schema %d).  Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Die Datenbank für die Foto-Bibliothek ist nicht mit dieser Version von "
+"Die Datenbank für die Foto-Sammlung ist nicht mit dieser Version von "
 "Shotwell kompatibel. Es sieht so aus, als wäre sie von Shotwell %s (Schema "
 "%d) erzeugt worden. Dies ist Shotwell-Version %s (Schema %d). Bitte säubern "
-"Sie Ihre Bibliothek durch Löschen von %s und erneutem Import Ihrer Fotos."
+"Sie Ihre Sammlung durch Löschen von %s und erneutem Import Ihrer Fotos."
 
 #: ../src/main.vala:71
 #, c-format
@@ -4013,7 +4013,7 @@ msgstr "Verzeichnis"
 
 #: ../src/main.vala:298
 msgid "Do not monitor library directory at runtime for changes"
-msgstr "Bibliothek während der Ausführung nicht auf Verändungen überwachen"
+msgstr "Sammlung während der Ausführung nicht auf Veränderungen überwachen"
 
 #: ../src/main.vala:303
 msgid "Don't display startup progress meter"
@@ -4417,7 +4417,7 @@ msgstr "schwarz"
 
 #: ../ui/shotwell.glade.h:5
 msgid "_Watch library directory for new files"
-msgstr "Ordner mit Ihrer Bibliothek auf neue Dateien _überwachen"
+msgstr "Ordner mit Ihrer Sammlung auf neue Dateien _überwachen"
 
 #: ../ui/shotwell.glade.h:6
 msgid "Metadata"
@@ -4469,7 +4469,7 @@ msgstr "_Vorgabe:"
 
 #: ../ui/shotwell.glade.h:18
 msgid "Library Tab"
-msgstr "Bibliothek-Tab"
+msgstr "Sammlung-Tab"
 
 #: ../ui/shotwell.glade.h:19
 msgid "E_xternal photo editor:"
@@ -4485,7 +4485,7 @@ msgstr "Externe Editoren"
 
 #: ../ui/shotwell.glade.h:23
 msgid "Library Location:"
-msgstr "Speicherort der Bibliothek:"
+msgstr "Speicherort der Sammlung:"
 
 #: ../ui/shotwell.glade.h:24
 msgid "Metadata:"
@@ -4822,10 +4822,6 @@ msgstr "_Anmelden"
 #~ "Beim lesen der ausgewählten F-Spot Datenbank trat ein Fehler auf: Die "
 #~ "Tabelle \"Tags\" konnte nicht gelesen werden."
 
-#, c-format
-#~ msgid "F-Spot library: %s"
-#~ msgstr "F-Spot Bibliothek: %s"
-
 #~ msgid "Search"
 #~ msgstr "Suchen"
 
@@ -4834,9 +4830,6 @@ msgstr "_Anmelden"
 
 #~ msgid "Edit Photo/Video Comment"
 #~ msgstr "Foto/Video Kommentar bearbeiten"
-
-#~ msgid "_Remove From Library"
-#~ msgstr "Aus der Bibliothek entfe_rnen"
 
 #~ msgid "Remove and _Trash File"
 #~ msgid_plural "Remove and _Trash Files"
@@ -4987,3 +4980,10 @@ msgstr "_Anmelden"
 #~ "zurzeit. Duplikate werden automatisch erkannt und entfernt. ⏎ ⏎ Sie können "
 #~ "diesen Dialog schließen und mit Shotwell arbeiten, während im Hintergrund "
 #~ "noch der Import läuft."
+
+#, c-format
+#~ msgid "F-Spot library: %s"
+#~ msgstr "F-Spot Sammlung: %s"
+
+#~ msgid "_Remove From Library"
+#~ msgstr "Aus der sammlung entfe_rnen"
