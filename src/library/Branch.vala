@@ -163,5 +163,9 @@ public class Library.MainPage : CollectionPage {
     protected override void set_config_photos_sort (bool sort_order, int sort_by) {
         Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
     }
+
+    public override string get_back_name () {
+        return _("All Photos");
+    }
 }
 

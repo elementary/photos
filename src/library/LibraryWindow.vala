@@ -129,6 +129,7 @@ public class LibraryWindow : AppWindow {
     // AppWindows instead.
     private SearchFilterToolbar search_toolbar;
 
+    private Gtk.Box page_header_box;
     private Gtk.Box top_section = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Frame background_progress_frame = new Gtk.Frame (null);
     private Gtk.ProgressBar background_progress_bar = new Gtk.ProgressBar ();
@@ -137,7 +138,6 @@ public class LibraryWindow : AppWindow {
     private Gtk.Notebook notebook = new Gtk.Notebook ();
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
-    private Gtk.Button back_button;
     private int current_progress_priority = 0;
     private uint background_progress_pulse_id = 0;
 
@@ -227,16 +227,6 @@ public class LibraryWindow : AppWindow {
         // Left side of header bar
         base.build_header_bar ();
 
-        // Back Button
-        back_button = new Gtk.Button ();
-        back_button.clicked.connect (on_back_clicked);
-        back_button.get_style_context ().add_class ("back-button");
-        back_button.can_focus = false;
-        back_button.valign = Gtk.Align.CENTER;
-        back_button.vexpand = false;
-        header.pack_start (back_button);
-        back_button.visible = false;
-
         // Right side of header bar
         build_settings_header ();
 
@@ -249,7 +239,6 @@ public class LibraryWindow : AppWindow {
     public void on_back_clicked () {
         if (last_checkerboard_page != null)
             switch_to_page (last_checkerboard_page);
-        back_button.visible = false;
     }
 
     protected void build_settings_header () {
@@ -1005,6 +994,10 @@ public class LibraryWindow : AppWindow {
         switch_to_page (library_branch.photos_entry.get_page ());
     }
 
+    public void switch_to_event_directory () {
+        switch_to_page (events_branch.get_master_entry ().get_page ());
+    }
+
     public void switch_to_event (Event event) {
         Events.EventEntry? entry = events_branch.get_entry_for_event (event);
         if (entry != null)
@@ -1035,11 +1028,9 @@ public class LibraryWindow : AppWindow {
         }
 
         CheckerboardPage checkerboard_page = get_current_page () as CheckerboardPage;
-        if (checkerboard_page != null) {
-            this.back_button.label = get_current_page ().get_page_name ();
-            this.back_button.visible = true;
+        if (checkerboard_page != null)
             this.last_checkerboard_page = checkerboard_page;
-        }
+        
 
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
@@ -1331,6 +1322,8 @@ public class LibraryWindow : AppWindow {
             Gtk.Toolbar toolbar = current_page.get_toolbar ();
             if (toolbar != null)
                 right_vbox.remove (toolbar);
+            if (page_header_box != null)
+                header.remove (page_header_box);
 
             current_page.switching_from ();
 
@@ -1348,16 +1341,15 @@ public class LibraryWindow : AppWindow {
         // do this prior to changing selection, as the change will fire a cursor-changed event,
         // which will then call this function again
         base.set_current_page (page);
-
+        page_header_box = page.get_header_buttons ();
+        header.pack_start (page_header_box);
+        header.show_all ();
         // if the visible page is the LibraryPhotoPage, we need to prevent single-click inline
         // renaming in the sidebar because a single click while in the LibraryPhotoPage indicates
         // the user wants to return to the controlling page ... that is, in this special case, the
         // sidebar cursor is set not to the 'current' page, but the page the user came from
-        if (page is LibraryPhotoPage) {
+        if (page is LibraryPhotoPage)
             sidebar_tree.disable_editing ();
-            back_button.visible = true;
-        } else
-            back_button.visible = false;
 
         // Update search filter to new page.
         toggle_search_bar (should_show_search_bar (), page as CheckerboardPage);
@@ -1394,6 +1386,13 @@ public class LibraryWindow : AppWindow {
 
         page.ready ();
     }
+
+    public string? get_last_page_name () {
+        if (last_checkerboard_page != null)
+            return last_checkerboard_page.get_back_name ();
+        return null;
+    }
+
 
     private void init_view_filter (CheckerboardPage page) {
         search_toolbar.set_view_filter (page.get_search_view_filter ());
@@ -1524,7 +1523,6 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_update_properties_now () {
-        back_button.visible = last_checkerboard_page != null && get_current_page () is LibraryPhotoPage;
         metadata_sidebar.update_properties (get_current_page ());
     }
 

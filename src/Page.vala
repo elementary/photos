@@ -81,7 +81,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private Gtk.ActionGroup? action_group = null;
     private Gtk.ActionGroup[]? common_action_groups = null;
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
-
+    protected Gtk.Box header_box;
     private uint[] merge_ids = new uint[0];
 
     protected Page (string page_name) {
@@ -144,7 +144,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
         menu.show_all ();
     }
-    
+
     protected void populate_rating_widget_menu_item (Gtk.Menu menu, string placeholder_ui) {
         if (rating_menu_item != null) rating_menu_item.destroy ();
         rating_menu_item = new PhotoRatingMenuItem ();
@@ -156,7 +156,7 @@ public abstract class Page : Gtk.ScrolledWindow {
                 break;
             pos++;
         }
-        
+
         menu.append (rating_menu_item);
         menu.reorder_child (rating_menu_item, pos);
         rating_menu_item.activate.connect (on_rating_widget_activate);
@@ -579,6 +579,11 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     public void init_toolbar (string path) {
         toolbar_path = path;
+    }
+
+    public virtual Gtk.Box get_header_buttons () {
+        header_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        return header_box;
     }
 
     // Called from "realize"
@@ -1323,6 +1328,11 @@ public abstract class CheckerboardPage : Page {
         Resources.style_widget (this, Resources.PAGE_STYLESHEET);
     }
 
+    // Returns the name for the back button that goes to this page
+    public virtual string get_back_name () {
+        return get_page_name ();
+    }
+
     public void init_item_context_menu (string path) {
         item_context_menu_path = path;
     }
@@ -2051,6 +2061,29 @@ public abstract class SinglePhotoPage : Page {
 
         // style the viewport
         Resources.style_widget (viewport, Resources.VIEWPORT_STYLESHEET);
+    }
+
+    public override Gtk.Box get_header_buttons () {
+        header_box = base.get_header_buttons ();
+        LibraryWindow app = AppWindow.get_instance () as LibraryWindow;
+        if (app == null)
+            return header_box;
+
+        var last_name = app.get_last_page_name ();
+        if (last_name != null) {
+            // Back Button
+            var back_button = new Gtk.Button ();
+            back_button.clicked.connect (app.on_back_clicked);
+            back_button.get_style_context ().add_class ("back-button");
+            back_button.can_focus = false;
+            back_button.valign = Gtk.Align.CENTER;
+            back_button.vexpand = false;
+            back_button.visible = false;
+            back_button.label = last_name;
+            header_box.pack_start (back_button);
+        }
+
+        return header_box;
     }
 
     public bool is_transition_in_progress () {
