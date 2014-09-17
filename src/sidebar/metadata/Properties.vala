@@ -21,6 +21,9 @@ public abstract class Properties : Gtk.Grid {
         label.set_justify (Gtk.Justification.RIGHT);
         label.valign = Gtk.Align.START;
         label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
+        label.set_line_wrap (true);
+        label.set_line_wrap_mode (Pango.WrapMode.WORD_CHAR);
+        label.set_lines (8);
 
         if (multi_line) {
             Gtk.ScrolledWindow info_scroll = new Gtk.ScrolledWindow (null, null);
