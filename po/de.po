@@ -42,7 +42,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-08-31 20:10-0300\n"
-"PO-Revision-Date: 2014-09-15 15:26+0000\n"
+"PO-Revision-Date: 2014-09-18 15:07+0000\n"
 "Last-Translator: UweS <Unknown>\n"
 "Language-Team: German "
 "(http://www.transifex.com/projects/p/shotwell/language/de/)\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2014-09-16 08:32+0000\n"
+"X-Launchpad-Export-Date: 2014-09-19 08:13+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: de\n"
 
@@ -245,7 +245,7 @@ msgstr "Zugriffs_typ"
 
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:3
 msgid "Disable _comments"
-msgstr "_Kommentare deaktivieren"
+msgstr "_Notizfunktion deaktivieren"
 
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:4
 msgid "_Forbid downloading original photo"
@@ -289,13 +289,6 @@ msgid ""
 "upload photos and publish to your feed. These permissions are required for "
 "Shotwell Connect to function."
 msgstr ""
-"Sie sind gerade nicht bei Facebook angemeldet.\n"
-"\n"
-"Wenn Sie noch kein Facebook-Konto besitzen, können Sie während des "
-"Anmeldevorgangs eines erstellen. Während der Anmeldung wird Sie Shotwell-"
-"Connect möglicherweise nach der Berechtigung fragen, Fotos hochzuladen und "
-"in Ihrem Feed freizugeben. Diese Berechtigungen sind notwendig, damit sich "
-"Fotos mit Facebook verbinden kann."
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:65
 msgid ""
@@ -732,13 +725,12 @@ msgstr "in der Kategorie"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:7
 msgid "Album comment:"
-msgstr "Albumkommentar:"
+msgstr "Albumnotiz:"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:9
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
-"_Falls ein Titel angegeben ist und kein Kommentar, den Titel als Kommentar "
-"verwenden"
+"_Falls ein Titel angegeben ist und keine Notiz, den Titel als Notiz verwenden"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:10
 msgid "_Do no upload tags"
@@ -1110,11 +1102,11 @@ msgstr "Das Originalfoto konnte nicht geändert werden."
 
 #: ../src/Commands.vala:1392
 msgid "Adjusting Date and Time"
-msgstr "Datum und Zeit werden geändert"
+msgstr "Datum und Uhrzeit werden geändert"
 
 #: ../src/Commands.vala:1392
 msgid "Undoing Date and Time Adjustment"
-msgstr "Änderung von Datum und Zeit wird rückgängig gemacht"
+msgstr "Änderung von Datum und Uhrzeit wird rückgängig gemacht"
 
 #: ../src/Commands.vala:1423
 msgid "One original photo could not be adjusted."
@@ -1124,17 +1116,17 @@ msgstr[1] "Die folgenden Originalfotos konnten nicht geändert werden."
 
 #: ../src/Commands.vala:1425 ../src/Commands.vala:1449
 msgid "Time Adjustment Error"
-msgstr "Fehler bei Änderung der Zeit"
+msgstr "Fehler bei Änderung der Uhrzeit"
 
 #: ../src/Commands.vala:1447
 msgid "Time adjustments could not be undone on the following photo file."
 msgid_plural ""
 "Time adjustments could not be undone on the following photo files."
 msgstr[0] ""
-"Die Änderung der Zeit für das folgende Foto konnte nicht rückgängig gemacht "
-"werden."
+"Die Änderung der Uhrzeit für das folgende Foto konnte nicht rückgängig "
+"gemacht werden."
 msgstr[1] ""
-"Die Änderung der Zeit für die folgenden Fotos konnte nicht rückgängig "
+"Die Änderung der Uhrzeit für die folgenden Fotos konnte nicht rückgängig "
 "gemacht werden."
 
 #: ../src/Commands.vala:1661 ../src/Commands.vala:1684
@@ -1144,7 +1136,7 @@ msgstr "Tag erstellen"
 #: ../src/Commands.vala:1719
 #, c-format
 msgid "Move Tag \"%s\""
-msgstr "Verschiebe Tag \"%s\""
+msgstr "Tag »%s« verschieben"
 
 #: ../src/Commands.vala:2371
 msgid "Move Photos to Trash"
@@ -1198,8 +1190,8 @@ msgstr "Markierung aufheben"
 #, c-format
 msgid "This will remove the tag \"%s\" from one photo.  Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
-msgstr[0] "Dies wird den Tag »%s« von einem Foto entfernen. Fortsetzen?"
-msgstr[1] "Dies wird den Tag »%s« von %d  Fotos entfernen. Fortsetzen?"
+msgstr[0] "Der Tag »%s« von einem Foto entfernt. Fortsetzen?"
+msgstr[1] "Der Tag »%s« von %d Fotos entfernt. Fortsetzen?"
 
 #: ../src/Dialogs.vala:20 ../src/Dialogs.vala:28 ../src/Dialogs.vala:1302
 #: ../src/Resources.vala:347 ../src/Resources.vala:395
@@ -1824,7 +1816,7 @@ msgstr "Fotos/Videos um gleichen Wert _verschieben"
 
 #: ../src/Dialogs.vala:1621
 msgid "Set _all photos/videos to this time"
-msgstr "_Alle Fotos/Videos auf diese Zeit setzen"
+msgstr "_Alle Fotos/Videos auf diesen Zeitpunkt setzen"
 
 #: ../src/Dialogs.vala:1628
 msgid "_Modify original photo file"
@@ -1840,7 +1832,7 @@ msgstr "Originaldatei _ändern"
 
 #: ../src/Dialogs.vala:1631
 msgid "_Modify original files"
-msgstr "_Verändere Originaldateien"
+msgstr "Originaldateien _ändern"
 
 #: ../src/Dialogs.vala:1717
 msgid "Original: "
@@ -1860,8 +1852,8 @@ msgid ""
 "Exposure time will be shifted forward by\n"
 "%d %s, %d %s, %d %s, and %d %s."
 msgstr ""
-"Aufnahmezeit wird um \n"
-"%d %s, %d %s, %d %s, und %d %s nach vorne verlegt."
+"Zeitpunkt der Aufnahme wird um \n"
+"%d %s, %d %s, %d %s, und %d %s vorverlegt."
 
 #: ../src/Dialogs.vala:1809
 #, c-format
@@ -1869,8 +1861,8 @@ msgid ""
 "Exposure time will be shifted backward by\n"
 "%d %s, %d %s, %d %s, and %d %s."
 msgstr ""
-"Aufnahmezeit wird um \n"
-"%d %s, %d %s, %d %s, und %d %s nach hinten verlegt."
+"Zeitpunkt der Aufnahme wird um \n"
+"%d %s, %d %s, %d %s, und %d %s zurückverlegt."
 
 #: ../src/Dialogs.vala:1811
 msgid "day"
@@ -2038,7 +2030,7 @@ msgstr "In Sammlung importieren"
 
 #: ../src/Dialogs.vala:2449 ../src/PhotoPage.vala:3158
 msgid "Remove From Library"
-msgstr "Aus Sammlung entfernen"
+msgstr "Aus der Sammlung entfernen"
 
 #: ../src/Dialogs.vala:2450 ../src/PhotoPage.vala:3158
 msgid "Removing Photo From Library"
@@ -2165,11 +2157,11 @@ msgstr "Titel jedes Fotos anzeigen"
 
 #: ../src/MediaPage.vala:378 ../src/events/EventsDirectoryPage.vala:147
 msgid "_Comments"
-msgstr "_Kommentare"
+msgstr "_Notizen"
 
 #: ../src/MediaPage.vala:379
 msgid "Display the comment of each photo"
-msgstr "Kommentare zu den Bildern anzeigen"
+msgstr "Notizen zu den Bildern anzeigen"
 
 #: ../src/MediaPage.vala:392 ../src/library/LibraryWindow.vala:352
 msgid "Ta_gs"
@@ -2595,11 +2587,11 @@ msgstr "Den Rote-Augen Effekt in diesem Foto vermindern oder beseitigen"
 
 #: ../src/Resources.vala:178
 msgid "_Adjust"
-msgstr "_Anpassen"
+msgstr "Ä_ndern"
 
 #: ../src/Resources.vala:179
 msgid "Adjust"
-msgstr "Anpassen"
+msgstr "Ändern"
 
 #: ../src/Resources.vala:180
 msgid "Adjust the photo's color and tone"
@@ -2743,7 +2735,7 @@ msgstr "A_bgelehnt"
 
 #: ../src/Resources.vala:231 ../src/Resources.vala:236
 msgid "Rejected"
-msgstr "Abgelehnt"
+msgstr "Aussortieren"
 
 #: ../src/Resources.vala:232
 msgid "Rate Rejected"
@@ -2751,27 +2743,27 @@ msgstr "Ablehnen"
 
 #: ../src/Resources.vala:233
 msgid "Setting as rejected"
-msgstr "Wird als abgelehnt bewertet"
+msgstr "Als »aussortiert« bewerten"
 
 #: ../src/Resources.vala:234
 msgid "Set rating to rejected"
-msgstr "Foto als abgelehnt bewerten"
+msgstr "Foto als »aussortiert« bewerten"
 
 #: ../src/Resources.vala:238 ../src/Resources.vala:239
 msgid "Rejected Only"
-msgstr "Nur Abgelehnte"
+msgstr "Nur aussortierte Fotos"
 
 #: ../src/Resources.vala:240
 msgid "Show only rejected photos"
-msgstr "Nur abgelehnte Fotos zeigen"
+msgstr "Nur aussortierte Fotos zeigen"
 
 #: ../src/Resources.vala:242
 msgid "All + Rejected"
-msgstr "Alle Fotos + abgelehnte"
+msgstr "Alle Fotos + aussortierte"
 
 #: ../src/Resources.vala:243 ../src/Resources.vala:244
 msgid "Show all photos, including rejected"
-msgstr "Alle Fotos einschließlich abgelehnter anzeigen"
+msgstr "Alle Fotos einschließlich der aussortierten anzeigen"
 
 #: ../src/Resources.vala:246
 msgid "All Photos"
@@ -2855,35 +2847,35 @@ msgstr "Titel bearbeiten"
 
 #: ../src/Resources.vala:280
 msgid "Edit _Comment..."
-msgstr "_Kommentar bearbeiten …"
+msgstr "_Notiz bearbeiten …"
 
 #: ../src/Resources.vala:281
 msgid "Edit Comment"
-msgstr "Kommentar bearbeiten"
+msgstr "Notiz bearbeiten"
 
 #: ../src/Resources.vala:283
 msgid "Edit Event _Comment..."
-msgstr "_Ereigniskommentar bearbeiten …"
+msgstr "_Ereignisnotiz bearbeiten …"
 
 #: ../src/Resources.vala:284
 msgid "Edit Event Comment"
-msgstr "Ereigniskommentar bearbeiten"
+msgstr "Ereignisnotiz bearbeiten"
 
 #: ../src/Resources.vala:286
 msgid "_Adjust Date and Time..."
-msgstr "Datum und Zeit _ändern …"
+msgstr "Datum und Uhrzeit _ändern …"
 
 #: ../src/Resources.vala:287
 msgid "Adjust Date and Time"
-msgstr "Datum und Zeit ändern"
+msgstr "Datum und Uhrzeit ändern"
 
 #: ../src/Resources.vala:289
 msgid "Add _Tags..."
-msgstr "_Schlagworte hinzufügen …"
+msgstr "_Tags hinzufügen …"
 
 #: ../src/Resources.vala:290
 msgid "_Add Tags..."
-msgstr "_Schlagworte hinzufügen …"
+msgstr "_Tags hinzufügen …"
 
 #: ../src/Resources.vala:291 ../src/Resources.vala:335
 msgid "Add Tags"
@@ -3003,7 +2995,7 @@ msgstr "_Neu"
 #: ../src/Resources.vala:352
 #, c-format
 msgid "Re_name Tag \"%s\"..."
-msgstr "Schlagwort »%s« _umbenennen …"
+msgstr "Tag »%s« _umbenennen …"
 
 #: ../src/Resources.vala:356
 #, c-format
@@ -3016,7 +3008,7 @@ msgstr "_Umbenennen"
 
 #: ../src/Resources.vala:361
 msgid "Modif_y Tags..."
-msgstr "Schlagworte _ändern …"
+msgstr "Tags _ändern …"
 
 #: ../src/Resources.vala:362
 msgid "Modify Tags"
@@ -3239,7 +3231,7 @@ msgstr "Schließen"
 #. Type label and toggles
 #: ../src/SearchFilter.vala:373
 msgid "Type"
-msgstr "Typ"
+msgstr "Typ:"
 
 #: ../src/SearchFilter.vala:389
 msgid "Videos"
@@ -3258,7 +3250,7 @@ msgstr "Markiert"
 #. Rating label and button
 #: ../src/SearchFilter.vala:427 ../src/searches/SearchBoolean.vala:186
 msgid "Rating"
-msgstr "Bewertung"
+msgstr "Bewertung:"
 
 #: ../src/SearchFilter.vala:458
 msgid "Search Photos"
@@ -3649,7 +3641,7 @@ msgstr "_Zurücksetzen"
 
 #: ../src/editing_tools/EditingTools.vala:2230
 msgid "Exposure:"
-msgstr "Belichtung:"
+msgstr "Helligkeit:"
 
 #: ../src/editing_tools/EditingTools.vala:2238
 msgid "Saturation:"
@@ -3657,7 +3649,7 @@ msgstr "Sättigung:"
 
 #: ../src/editing_tools/EditingTools.vala:2246
 msgid "Tint:"
-msgstr "Farbstich:"
+msgstr "Farbton:"
 
 #: ../src/editing_tools/EditingTools.vala:2255
 msgid "Temperature:"
@@ -3685,7 +3677,7 @@ msgstr "Temperatur"
 
 #: ../src/editing_tools/EditingTools.vala:2690
 msgid "Tint"
-msgstr "Farbstich"
+msgstr "Farbton"
 
 #: ../src/editing_tools/EditingTools.vala:2703
 msgid "Saturation"
@@ -3693,7 +3685,7 @@ msgstr "Sättigung"
 
 #: ../src/editing_tools/EditingTools.vala:2716
 msgid "Exposure"
-msgstr "Belichtung"
+msgstr "Helligkeit"
 
 #: ../src/editing_tools/EditingTools.vala:2729
 msgid "Shadows"
@@ -3738,7 +3730,7 @@ msgstr "Ohne Ereignis"
 
 #: ../src/events/EventsDirectoryPage.vala:148
 msgid "Display the comment of each event"
-msgstr "Kommentare zu den Ereignissen anzeigen"
+msgstr "Notizen zu den Ereignissen anzeigen"
 
 #: ../src/events/EventsDirectoryPage.vala:171
 msgid "No events"
@@ -4304,15 +4296,15 @@ msgstr "Speichern"
 
 #: ../src/searches/SavedSearchDialog.vala:657
 msgid "_Match"
-msgstr "Finde _gleiche"
+msgstr "Bei Erfüllen"
 
 #: ../src/searches/SavedSearchDialog.vala:658
 msgid "of the following:"
-msgstr "von den Folgenden:"
+msgstr "der folgenden Bedingungen:"
 
 #: ../src/searches/SavedSearchDialog.vala:667
 msgid "any"
-msgstr "beliebig"
+msgstr "einer"
 
 #: ../src/searches/SavedSearchDialog.vala:668
 msgid "all"
@@ -4336,7 +4328,7 @@ msgstr "Tag"
 
 #: ../src/searches/SearchBoolean.vala:168
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "Notiz"
 
 #: ../src/searches/SearchBoolean.vala:171
 msgid "Event name"
@@ -4364,7 +4356,7 @@ msgstr "Datum"
 
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
-msgstr "Neues _Schlagwort …"
+msgstr "Neuer _Tag …"
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
