@@ -50,7 +50,7 @@ public class EventPage : CollectionPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] new_actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry make_primary = { "MakePrimary", Resources.MAKE_PRIMARY,
+        Gtk.ActionEntry make_primary = { "MakePrimary", null,
                                          TRANSLATABLE, null, TRANSLATABLE, on_make_primary
                                        };
         make_primary.label = Resources.MAKE_KEY_PHOTO_MENU;
