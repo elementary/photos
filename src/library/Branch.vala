@@ -45,8 +45,8 @@ public class Library.Branch : Sidebar.Branch {
     // outside the app.
     private enum EntryPosition {
         PHOTOS,
-        VIDEOS,
         RAWS,
+        VIDEOS,
         FLAGGED,
         LAST_IMPORTED,
         IMPORT_QUEUE,
