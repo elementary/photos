@@ -1,5 +1,17 @@
-public class Library.VideosEntry : Sidebar.SimplePageEntry {
+public class Library.VideosEntry :  Library.HideablePageEntry {
     protected Icon icon = new ThemedIcon (Resources.ICON_VIDEOS_PAGE);
+
+    public VideosEntry () {
+        Video.global.items_added.connect (on_item_altered);
+        Video.global.items_removed.connect (on_item_altered);
+
+        visible = has_video ();
+    }
+
+    ~VideosEntry () {
+        Video.global.items_added.disconnect (on_item_altered);
+        Video.global.items_removed.disconnect (on_item_altered);
+    }
 
     public override string get_sidebar_name () {
         return _ ("Videos");
@@ -11,6 +23,14 @@ public class Library.VideosEntry : Sidebar.SimplePageEntry {
 
     protected override Page create_page () {
         return new Library.VideosPage ();
+    }
+
+    private bool has_video () {
+        return Video.global.get_count () > 0;
+    }
+
+    private void on_item_altered (Gee.Iterable<DataObject> items) {
+        visible = has_video ();
     }
 }
 

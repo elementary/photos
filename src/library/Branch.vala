@@ -68,9 +68,11 @@ public class Library.Branch : Sidebar.Branch {
         import_queue_entry = new Library.ImportQueueSidebarEntry ();
 
         insert (photos_entry, EntryPosition.PHOTOS);
-        insert (videos_entry, EntryPosition.VIDEOS);
         insert (raws_entry, EntryPosition.RAWS);
         insert (trash_entry, EntryPosition.TRASH);
+
+        videos_entry.visibility_changed.connect (on_videos_visibility_changed);
+        on_videos_visibility_changed ();
 
         flagged_entry.visibility_changed.connect (on_flagged_visibility_changed);
         on_flagged_visibility_changed ();
@@ -88,6 +90,10 @@ public class Library.Branch : Sidebar.Branch {
     private void insert (Sidebar.Entry entry, int position) {
         entry.set_data<int> (POSITION_DATA, position);
         graft (get_root (), entry);
+    }
+
+    private void on_videos_visibility_changed () {
+        update_entry_visibility (videos_entry, EntryPosition.VIDEOS);
     }
 
     private void on_flagged_visibility_changed () {
