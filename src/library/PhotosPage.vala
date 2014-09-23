@@ -1,3 +1,9 @@
+/* Copyright 2014 Pantheon Photos Developer (http://launchpad.net/pantheon-photos)
+ *
+ * This software is licensed under the GNU Lesser General Public License
+ * (version 2.1 or later).  See the COPYING file in this distribution.
+ */
+
 public class Library.PhotosEntry : Sidebar.SimplePageEntry {
     protected Icon icon = new ThemedIcon (Resources.ICON_PHOTOS_PAGE);
 
