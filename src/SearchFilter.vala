@@ -346,15 +346,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
     private Gtk.ComboBoxText rating_button;
     private SearchViewFilter? search_filter = null;
     private Gtk.Toolbar toolbar;
-    private Gtk.Label label_type;
-    private Gtk.Label label_flagged;
     private Gtk.Label label_rating;
-    private Gtk.ToggleToolButton toolbtn_photos;
-    private Gtk.ToggleToolButton toolbtn_videos;
-    private Gtk.ToggleToolButton toolbtn_raw;
-    private Gtk.ToggleToolButton toolbtn_flag;
-    private Gtk.SeparatorToolItem sepr_mediatype_flagged;
-    private Gtk.SeparatorToolItem sepr_flagged_rating;
 
     public SearchFilterToolbar () {
         toolbar = new Gtk.Toolbar ();
@@ -368,60 +360,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         ((Gtk.MenuItem) close_item).show ();
         close_item.activate.connect ( () => close ());
         close_menu.append (close_item);
-
-        // Type label and toggles
-        label_type = new Gtk.Label (_ ("Type"));
-        Gtk.ToolItem label_type_item = new Gtk.ToolItem ();
-        label_type_item.add (label_type);
-        toolbar.insert (label_type_item, -1);
-
-        toolbtn_photos = new Gtk.ToggleToolButton ();
-        var photos_icon = new Gtk.Image.from_icon_name ("folder-pictures", Gtk.IconSize.MENU);
-        photos_icon.pixel_size = 16;
-        toolbtn_photos.set_icon_widget (photos_icon);
-        toolbtn_photos.tooltip_text = _ ("Photos");
-        toolbtn_photos.toggled.connect (on_photos_toggled);
-
-        toolbtn_videos = new Gtk.ToggleToolButton ();
-        var videos_icon = new Gtk.Image.from_icon_name ("folder-videos", Gtk.IconSize.MENU);
-        videos_icon.pixel_size = 16;
-        toolbtn_videos.set_icon_widget (videos_icon);
-        toolbtn_videos.tooltip_text = _ ("Videos");
-        toolbtn_videos.toggled.connect (on_videos_toggled);
-
-        toolbtn_raw = new Gtk.ToggleToolButton ();
-        var raw_icon = new Gtk.Image.from_icon_name ("accessories-camera", Gtk.IconSize.MENU);
-        raw_icon.pixel_size = 16;
-        toolbtn_raw.set_icon_widget (raw_icon);
-        toolbtn_raw.tooltip_text = _ ("RAW photos");
-        toolbtn_raw.toggled.connect (on_raw_toggled);
-
-        toolbar.insert (toolbtn_photos, -1);
-        toolbar.insert (toolbtn_videos, -1);
-        toolbar.insert (toolbtn_raw, -1);
-
-        // separator
-        sepr_mediatype_flagged = new Gtk.SeparatorToolItem ();
-        toolbar.insert (sepr_mediatype_flagged, -1);
-
-        // Flagged label and toggle
-        label_flagged = new Gtk.Label (_ ("Flagged"));
-        Gtk.ToolItem label_flagged_item = new Gtk.ToolItem ();
-        label_flagged_item.add (label_flagged);
-        toolbar.insert (label_flagged_item, -1);
-
-        toolbtn_flag = new Gtk.ToggleToolButton ();
-
-        var flag_icon = new Gtk.Image.from_icon_name (Resources.ICON_FLAGGED_PAGE, Gtk.IconSize.MENU);
-        flag_icon.pixel_size = 16;
-        toolbtn_flag.set_icon_widget (flag_icon);
-        toolbtn_flag.tooltip_text = _ ("Flagged");
-        toolbtn_flag.toggled.connect (on_flagged_toggled);
-        toolbar.insert (toolbtn_flag, -1);
-
-        // separator
-        sepr_flagged_rating = new Gtk.SeparatorToolItem ();
-        toolbar.insert (sepr_flagged_rating, -1);
 
         // Rating label and button
         label_rating = new Gtk.Label (_ ("Rating"));
@@ -489,22 +427,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         return false;
     }
 
-    private void on_flagged_toggled () {
-        update ();
-    }
-
-    private void on_videos_toggled () {
-        update ();
-    }
-
-    private void on_photos_toggled () {
-        update ();
-    }
-
-    private void on_raw_toggled () {
-        update ();
-    }
-
     private void on_search_text_changed () {
         update ();
     }
@@ -565,10 +487,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         assert (null != search_filter);
 
         search_filter.set_search_filter (search_entry.text);
-        search_filter.flagged = toolbtn_flag.active;
-        search_filter.show_media_video = toolbtn_videos.active;
-        search_filter.show_media_photos = toolbtn_photos.active;
-        search_filter.show_media_raw = toolbtn_raw.active;
 
         search_filter.set_rating_filter (filter);
         rating_button.tooltip_text = Resources.get_rating_filter_tooltip (filter);
@@ -579,21 +497,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
 
         rating_button.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
         label_rating.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
-
-        label_flagged.visible = ((criteria & SearchFilterCriteria.FLAG) != 0);
-        toolbtn_flag.visible = ((criteria & SearchFilterCriteria.FLAG) != 0);
-
-        label_type.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
-        toolbtn_photos.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
-        toolbtn_videos.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
-        toolbtn_raw.visible = ((criteria & SearchFilterCriteria.MEDIA) != 0);
-
-        // Ticket #3290, part IV - ensure that the separators
-        // are shown and/or hidden as needed.
-        sepr_mediatype_flagged.visible = (label_type.visible && label_flagged.visible);
-
-        sepr_flagged_rating.visible = ((label_type.visible && label_rating.visible) ||
-                                       (label_flagged.visible && label_rating.visible));
 
         // Send update to view collection.
         search_filter.refresh ();

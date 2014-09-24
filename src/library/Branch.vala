@@ -11,6 +11,14 @@ public class Library.Branch : Sidebar.Branch {
         get;
         private set;
     }
+    public Library.VideosEntry videos_entry {
+        get;
+        private set;
+    }
+    public Library.RawsEntry raws_entry {
+        get;
+        private set;
+    }
     public Library.FlaggedSidebarEntry flagged_entry {
         get;
         private set;
@@ -37,6 +45,8 @@ public class Library.Branch : Sidebar.Branch {
     // outside the app.
     private enum EntryPosition {
         PHOTOS,
+        RAWS,
+        VIDEOS,
         FLAGGED,
         LAST_IMPORTED,
         IMPORT_QUEUE,
@@ -49,6 +59,8 @@ public class Library.Branch : Sidebar.Branch {
               Sidebar.Branch.Options.STARTUP_OPEN_GROUPING, comparator);
 
         photos_entry = new Library.PhotosEntry ();
+        videos_entry = new Library.VideosEntry ();
+        raws_entry = new Library.RawsEntry ();
         trash_entry = new Library.TrashSidebarEntry ();
         last_imported_entry = new Library.LastImportSidebarEntry ();
         flagged_entry = new Library.FlaggedSidebarEntry ();
@@ -56,7 +68,11 @@ public class Library.Branch : Sidebar.Branch {
         import_queue_entry = new Library.ImportQueueSidebarEntry ();
 
         insert (photos_entry, EntryPosition.PHOTOS);
+        insert (raws_entry, EntryPosition.RAWS);
         insert (trash_entry, EntryPosition.TRASH);
+
+        videos_entry.visibility_changed.connect (on_videos_visibility_changed);
+        on_videos_visibility_changed ();
 
         flagged_entry.visibility_changed.connect (on_flagged_visibility_changed);
         on_flagged_visibility_changed ();
@@ -74,6 +90,10 @@ public class Library.Branch : Sidebar.Branch {
     private void insert (Sidebar.Entry entry, int position) {
         entry.set_data<int> (POSITION_DATA, position);
         graft (get_root (), entry);
+    }
+
+    private void on_videos_visibility_changed () {
+        update_entry_visibility (videos_entry, EntryPosition.VIDEOS);
     }
 
     private void on_flagged_visibility_changed () {
@@ -106,25 +126,6 @@ public class Library.Branch : Sidebar.Branch {
     }
 }
 
-public class Library.PhotosEntry : Sidebar.SimplePageEntry {
-    private Icon icon = new ThemedIcon (Resources.ICON_PHOTOS);
-
-    public PhotosEntry () {
-    }
-
-    public override string get_sidebar_name () {
-        return _ ("Photos");
-    }
-
-    public override Icon? get_sidebar_icon () {
-        return icon;
-    }
-
-    protected override Page create_page () {
-        return new Library.MainPage ();
-    }
-}
-
 public abstract class Library.HideablePageEntry : Sidebar.SimplePageEntry {
     // container branch should listen to this signal
     public signal void visibility_changed (bool visible);
@@ -145,23 +146,3 @@ public abstract class Library.HideablePageEntry : Sidebar.SimplePageEntry {
     public HideablePageEntry () {
     }
 }
-
-public class Library.MainPage : CollectionPage {
-    public const string NAME = _ ("Library");
-
-    public MainPage (ProgressMonitor? monitor = null) {
-        base (NAME);
-
-        foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, new CollectionViewManager (this), null, null, monitor);
-    }
-
-    protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_library_photos_sort (out sort_order, out sort_by);
-    }
-
-    protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
-    }
-}
-
