@@ -118,7 +118,6 @@ public class LibraryWindow : AppWindow {
     private Gee.HashMap<Page, Sidebar.Entry> page_map = new Gee.HashMap<Page, Sidebar.Entry> ();
 
     private LibraryPhotoPage photo_page = null;
-    private CheckerboardPage last_checkerboard_page = null;
     // this is to keep track of cameras which initiate the app
     private static Gee.HashSet<string> initial_camera_uris = new Gee.HashSet<string> ();
 
@@ -234,11 +233,6 @@ public class LibraryWindow : AppWindow {
         Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
         find_button.set_related_action (get_common_action ("CommonDisplaySearchbar"));    
         header.pack_end (find_button);
-    }
-
-    public void on_back_clicked () {
-        if (last_checkerboard_page != null)
-            switch_to_page (last_checkerboard_page);
     }
 
     protected void build_settings_header () {
@@ -1026,12 +1020,7 @@ public class LibraryWindow : AppWindow {
             // before switching to it
             spin_event_loop ();
         }
-
-        CheckerboardPage checkerboard_page = get_current_page () as CheckerboardPage;
-        if (checkerboard_page != null)
-            this.last_checkerboard_page = checkerboard_page;
         
-
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
     }
@@ -1386,13 +1375,6 @@ public class LibraryWindow : AppWindow {
 
         page.ready ();
     }
-
-    public string? get_last_page_name () {
-        if (last_checkerboard_page != null)
-            return last_checkerboard_page.get_back_name ();
-        return null;
-    }
-
 
     private void init_view_filter (CheckerboardPage page) {
         search_toolbar.set_view_filter (page.get_search_view_filter ());

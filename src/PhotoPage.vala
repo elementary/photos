@@ -2410,6 +2410,29 @@ public class LibraryPhotoPage : EditingHostPage {
         return toolbar;
     }
 
+    public override Gtk.Box get_header_buttons () {
+        header_box = base.get_header_buttons ();
+        LibraryWindow app = AppWindow.get_instance () as LibraryWindow;
+        if (app == null)
+            return header_box;
+
+        if (return_page != null) {
+            var last_name = return_page.get_back_name ();
+            // Back Button
+            var back_button = new Gtk.Button ();
+            back_button.clicked.connect (return_to_collection);
+            back_button.get_style_context ().add_class ("back-button");
+            back_button.can_focus = false;
+            back_button.valign = Gtk.Align.CENTER;
+            back_button.vexpand = false;
+            back_button.visible = false;
+            back_button.label = last_name;
+            header_box.pack_start (back_button);
+        }
+
+        return header_box;
+    }
+
     public bool not_trashed_view_filter (DataView view) {
         return ! ((MediaSource) view.get_source ()).is_trashed ();
     }

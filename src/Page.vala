@@ -2063,29 +2063,6 @@ public abstract class SinglePhotoPage : Page {
         Resources.style_widget (viewport, Resources.VIEWPORT_STYLESHEET);
     }
 
-    public override Gtk.Box get_header_buttons () {
-        header_box = base.get_header_buttons ();
-        LibraryWindow app = AppWindow.get_instance () as LibraryWindow;
-        if (app == null)
-            return header_box;
-
-        var last_name = app.get_last_page_name ();
-        if (last_name != null) {
-            // Back Button
-            var back_button = new Gtk.Button ();
-            back_button.clicked.connect (app.on_back_clicked);
-            back_button.get_style_context ().add_class ("back-button");
-            back_button.can_focus = false;
-            back_button.valign = Gtk.Align.CENTER;
-            back_button.vexpand = false;
-            back_button.visible = false;
-            back_button.label = last_name;
-            header_box.pack_start (back_button);
-        }
-
-        return header_box;
-    }
-
     public bool is_transition_in_progress () {
         return transition_clock.is_in_progress ();
     }
