@@ -73,14 +73,14 @@ private class LibraryProperties : Properties {
             if (title != null)
                 title_entry.set_text (title);
             title_entry.changed.connect (title_entry_changed);
-            add_entry_line ("Title", title_entry);
+            add_entry_line (_("Title"), title_entry);
 
-            comment_entry = new PlaceHolderTextView (comment, "Comment");
+            comment_entry = new PlaceHolderTextView (comment, _("Comment"));
             comment_entry.set_wrap_mode (Gtk.WrapMode.WORD);
             comment_entry.set_size_request (-1, 50);
             // textview in sidebar css class for non entry we make an exception
             comment_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ENTRY);
-            add_entry_line ("Comment", comment_entry);
+            add_entry_line (_("Comment"), comment_entry);
 
             var rating_widget = new PhotoRatingWidget (true, 15);
             rating_widget.rating = Resources.rating_int (rating);
@@ -117,7 +117,8 @@ private class LibraryProperties : Properties {
             if (tags != null)
                 tags_entry.text = tags;
             tags_entry.changed.connect (tags_entry_changed);
-            add_entry_line ("Tags, seperated by commas", tags_entry);
+            tags_entry.activate.connect (tags_entry_activate);
+            add_entry_line (_("Tags, seperated by commas"), tags_entry);
         }
     }
 
@@ -157,6 +158,11 @@ private class LibraryProperties : Properties {
 
     private void tags_entry_changed () {
         tags = tags_entry.get_text ();
+    }
+
+    private void tags_entry_activate () {
+        tags = tags_entry.get_text ();
+        save_changes_to_source ();
     }
 
     public override void save_changes_to_source () {
