@@ -252,21 +252,7 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     protected override void photo_changing (Photo new_photo) {
-        if (get_photo () != null) {
-            DirectPhoto tmp = get_photo () as DirectPhoto;
-
-            if (tmp != null) {
-                tmp.can_rotate_changed.disconnect (on_dphoto_can_rotate_changed);
-            }
-        }
-
         ((DirectPhoto) new_photo).demand_load ();
-
-        DirectPhoto tmp = new_photo as DirectPhoto;
-
-        if (tmp != null) {
-            tmp.can_rotate_changed.connect (on_dphoto_can_rotate_changed);
-        }
     }
 
     public File get_current_file () {
@@ -337,7 +323,6 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override void update_ui (bool missing) {
         bool sensitivity = !missing;
-
         set_action_sensitive ("Save", sensitivity);
         set_action_sensitive ("SaveAs", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
@@ -368,7 +353,7 @@ public class DirectPhotoPage : EditingHostPage {
 
         base.update_ui (missing);
     }
-    
+
     protected override void update_actions (int selected_count, int count) {
         bool multiple = get_view ().get_count () > 1;
         bool revert_possible = has_photo () ? get_photo ().has_transformations () 
@@ -402,6 +387,7 @@ public class DirectPhotoPage : EditingHostPage {
         }
 
         base.update_actions (selected_count, count);
+        rotate_button.sensitive = rotate_possible;
     }
 
     private bool check_ok_to_close_photo (Photo photo) {
@@ -554,10 +540,6 @@ public class DirectPhotoPage : EditingHostPage {
             PrintManager.get_instance ().spool_photo (
                 (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
         }
-    }
-
-    private void on_dphoto_can_rotate_changed (bool should_allow_rotation) {
-        enable_rotate (should_allow_rotation);
     }
 
     protected override DataView create_photo_view (DataSource source) {

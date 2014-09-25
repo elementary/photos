@@ -391,7 +391,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private ViewCollection? parent_view = null;
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
-    private Gtk.ToolButton rotate_button = null;
+    protected Gtk.ToolButton rotate_button = null;
     private Gtk.ToolButton flip_button = null;
     private Gtk.ToggleToolButton crop_button = null;
     private Gtk.ToggleToolButton redeye_button = null;
