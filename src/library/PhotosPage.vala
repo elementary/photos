@@ -44,7 +44,9 @@ public class Library.PhotosPage : CollectionPage {
     }
 
     protected override string get_view_empty_message () {
-        (get_container () as LibraryWindow).toggle_welcome_page (true, _ ("Add Some Photos"),_("No Photos were found in your library."), true);
+        var library = get_container () as LibraryWindow;
+        return_if_fail (library != null);
+        library.toggle_welcome_page (true, _ ("Add Some Photos"),_("No Photos were found in your library."), true);
         return "";
     }
 

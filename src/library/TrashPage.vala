@@ -165,7 +165,9 @@ public class TrashPage : CheckerboardPage {
     }
 
     protected override string get_view_empty_message () {
-        (get_container () as LibraryWindow).toggle_welcome_page (true, "", _ ("Trash is empty"));
+        var library = get_container () as LibraryWindow;
+        return_if_fail (library != null);
+        library.toggle_welcome_page (true, "", _ ("Trash is empty"));
         return _ ("Trash is empty");
     }
 

@@ -831,7 +831,9 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override string get_view_empty_message () {
-        (get_container () as LibraryWindow).toggle_welcome_page (true, "", _ ("No photos/videos"));
+        var library = get_container () as LibraryWindow;
+        return_if_fail (library != null);
+        library.toggle_welcome_page (true, "", _ ("No photos/videos"));
         return _ ("No photos/videos");
     }
 
