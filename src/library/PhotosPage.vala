@@ -47,7 +47,7 @@ public class Library.PhotosPage : CollectionPage {
         var library = get_container () as LibraryWindow;
         return_if_fail (library != null);
         library.toggle_welcome_page (true, _ ("Add Some Photos"),_("No Photos were found in your library."), true);
-        return "";
+        return _("No photos/videos");
     }
 
     private class PhotosSearchViewFilter : CollectionPage.CollectionSearchViewFilter {

@@ -834,7 +834,7 @@ public abstract class CollectionPage : MediaPage {
         var library = get_container () as LibraryWindow;
         return_if_fail (library != null);
         library.toggle_welcome_page (true, "", _ ("No photos/videos"));
-        return _ ("No photos/videos");
+        return _("No photos/videos");
     }
 
     public override SearchViewFilter get_search_view_filter () {
