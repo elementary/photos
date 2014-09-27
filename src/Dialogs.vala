@@ -236,8 +236,8 @@ public class ExportDialog : Gtk.Dialog {
         table.set_column_spacing (4);
         table.set_margin_top (4);
         table.set_margin_bottom (4);
-        table.set_margin_left (4);
-        table.set_margin_right (4);
+        table.set_margin_start (4);
+        table.set_margin_end (4);
 
         ((Gtk.Box) get_content_area ()).add (table);
 

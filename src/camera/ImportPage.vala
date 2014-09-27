@@ -836,7 +836,7 @@ public class ImportPage : CheckerboardPage {
 
             // Import all
             Gtk.ToolItem import_all_ti = new Gtk.ToolItem ();
-            import_all_ti.margin_left = 6;
+            import_all_ti.margin_start = 6;
             toolbar.insert (import_all_ti, -1);
 
             Gtk.Button import_all_button = new Gtk.Button.with_label ("Import All");
