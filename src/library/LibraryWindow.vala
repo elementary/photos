@@ -1370,7 +1370,7 @@ public class LibraryWindow : AppWindow {
 
     public void toggle_welcome_page (bool show, string title = "", string subtitle = "", bool show_import = false) {
         if (show == true) {
-            welcome_page = null;
+            welcome_page.destroy ();
             welcome_page = new Granite.Widgets.Welcome (title, subtitle);
             if (show_import) {
                 welcome_page.append ("document-import", _ ("Import Photos"), _ ("Copy photos from a folder or external device."));
