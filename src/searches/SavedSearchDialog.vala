@@ -514,7 +514,7 @@ public class SavedSearchDialog {
             update_datepickers ();
         }
 
-        ~SearchRowRating () {
+        ~SearchRowDate () {
             context.changed.disconnect (on_changed);
         }
 
