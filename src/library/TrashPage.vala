@@ -90,7 +90,7 @@ public class TrashPage : CheckerboardPage {
         foreach (var child in tool_item.get_children ())
             tool_item.remove (child);
 
-        wrap_btn.margin_left = wrap_btn.margin_right = 2;
+        wrap_btn.margin_start = wrap_btn.margin_end = 2;
         wrap_btn.label = action.get_label ();
         wrap_btn.use_underline = true;
         wrap_btn.tooltip_text = action.tooltip;

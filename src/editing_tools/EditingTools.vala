@@ -2224,7 +2224,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.set_column_homogeneous (false);
             slider_organizer.set_row_spacing (12);
             slider_organizer.set_column_spacing (12);
-            slider_organizer.set_margin_left (12);
+            slider_organizer.set_margin_start (12);
             slider_organizer.set_margin_bottom (12);
 
             Gtk.Label exposure_label = new Gtk.Label.with_mnemonic (_ ("Exposure:"));
@@ -2233,7 +2233,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.attach (exposure_slider, 1, 0, 1, 1);
             exposure_slider.set_size_request (SLIDER_WIDTH, -1);
             exposure_slider.set_draw_value (false);
-            exposure_slider.set_margin_right (0);
+            exposure_slider.set_margin_end (0);
 
             Gtk.Label saturation_label = new Gtk.Label.with_mnemonic (_ ("Saturation:"));
             saturation_label.set_alignment (0.0f, 0.5f);
@@ -2241,7 +2241,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.attach (saturation_slider, 1, 1, 1, 1);
             saturation_slider.set_size_request (SLIDER_WIDTH, -1);
             saturation_slider.set_draw_value (false);
-            saturation_slider.set_margin_right (0);
+            saturation_slider.set_margin_end (0);
 
             Gtk.Label tint_label = new Gtk.Label.with_mnemonic (_ ("Tint:"));
             tint_label.set_alignment (0.0f, 0.5f);
@@ -2249,7 +2249,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.attach (tint_slider, 1, 2, 1, 1);
             tint_slider.set_size_request (SLIDER_WIDTH, -1);
             tint_slider.set_draw_value (false);
-            tint_slider.set_margin_right (0);
+            tint_slider.set_margin_end (0);
 
             Gtk.Label temperature_label =
                 new Gtk.Label.with_mnemonic (_ ("Temperature:"));
@@ -2258,7 +2258,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.attach (temperature_slider, 1, 3, 1, 1);
             temperature_slider.set_size_request (SLIDER_WIDTH, -1);
             temperature_slider.set_draw_value (false);
-            temperature_slider.set_margin_right (0);
+            temperature_slider.set_margin_end (0);
 
             Gtk.Label shadows_label = new Gtk.Label.with_mnemonic (_ ("Shadows:"));
             shadows_label.set_alignment (0.0f, 0.5f);
@@ -2266,7 +2266,7 @@ public class AdjustTool : EditingTool {
             slider_organizer.attach (shadows_slider, 1, 4, 1, 1);
             shadows_slider.set_size_request (SLIDER_WIDTH, -1);
             shadows_slider.set_draw_value (false);
-            shadows_slider.set_margin_right (0);
+            shadows_slider.set_margin_end (0);
 
             Gtk.Label highlights_label = new Gtk.Label.with_mnemonic (_ ("Highlights:"));
             highlights_label.set_alignment (0.0f, 0.5f);
