@@ -1447,6 +1447,8 @@ public abstract class CheckerboardPage : Page {
     }
 
     private void update_view_filter_message () {
+        (get_container () as LibraryWindow).toggle_welcome_page (false);
+
         if (get_view ().are_items_filtered_out () && get_view ().get_count () == 0) {
             set_page_message (get_filter_no_match_message ());
         } else if (get_view ().get_count () == 0) {
@@ -1454,10 +1456,6 @@ public abstract class CheckerboardPage : Page {
         } else {
             unset_page_message ();
         }
-
-        var library = get_container () as LibraryWindow;
-        return_if_fail (library != null);
-        library.toggle_welcome_page (false);
     }
 
     public void set_page_message (string message) {
