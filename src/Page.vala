@@ -1447,7 +1447,10 @@ public abstract class CheckerboardPage : Page {
     }
 
     private void update_view_filter_message () {
-        AppWindow.get_instance ().toggle_welcome_page (false);
+        var window = AppWindow.get_instance () as LibraryWindow;
+        warn_if_fail (window != null);
+        if (window != null)
+            window.toggle_welcome_page (false);
 
         if (get_view ().are_items_filtered_out () && get_view ().get_count () == 0) {
             set_page_message (get_filter_no_match_message ());
