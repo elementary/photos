@@ -118,7 +118,7 @@ private class LibraryProperties : Properties {
                 tags_entry.text = tags;
             tags_entry.changed.connect (tags_entry_changed);
             tags_entry.activate.connect (tags_entry_activate);
-            add_entry_line (_("Tags, seperated by commas"), tags_entry);
+            add_entry_line (_("Tags, separated by commas"), tags_entry);
         }
     }
 
