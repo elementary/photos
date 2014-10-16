@@ -830,6 +830,14 @@ public abstract class CollectionPage : MediaPage {
         return base.on_ctrl_released (event);
     }
 
+    protected override string get_view_empty_message () {
+        var window = AppWindow.get_instance () as LibraryWindow;
+        warn_if_fail (window != null);
+        if (window != null)
+            window.toggle_welcome_page (true, "", _ ("No photos/videos"));
+        return _ ("No photos/videos");
+    }
+
     public override SearchViewFilter get_search_view_filter () {
         return search_filter;
     }

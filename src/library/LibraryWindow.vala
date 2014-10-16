@@ -1368,21 +1368,24 @@ public class LibraryWindow : AppWindow {
         return (get_current_page () is CheckerboardPage) ? is_search_toolbar_visible : false;
     }
 
-    public void toggle_welcome_page (bool show) {
-        if (show == true && welcome_page == null) {
-            welcome_page = new Granite.Widgets.Welcome (_ ("Add Some Photos"), _ ("No photos were found in your library."));
-            welcome_page.append ("document-import", _ ("Import Photos"), _ ("Copy photos from a folder or external device."));
-            welcome_page.append ("folder-pictures", _ ("Change Library Folder"), _ ("Choose where to keep your photos."));
-            welcome_page.activated.connect ((index) => {
-                switch (index) {
-                case 0:
-                    on_file_import ();
-                    break;
-                case 1:
-                    on_preferences ();
-                    break;
-                }
-            });
+    public void toggle_welcome_page (bool show, string title = "", string subtitle = "", bool show_import = false) {
+        if (show == true) {
+            welcome_page = null;
+            welcome_page = new Granite.Widgets.Welcome (title, subtitle);
+            if (show_import) {
+                welcome_page.append ("document-import", _ ("Import Photos"), _ ("Copy photos from a folder or external device."));
+                welcome_page.append ("folder-pictures", _ ("Change Library Folder"), _ ("Choose where to keep your photos."));
+                welcome_page.activated.connect ((index) => {
+                    switch (index) {
+                    case 0:
+                        on_file_import ();
+                        break;
+                    case 1:
+                        on_preferences ();
+                        break;
+                    }
+                });
+            }
         }
 
         right_frame.remove (welcome_page);
