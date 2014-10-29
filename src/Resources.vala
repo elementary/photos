@@ -25,7 +25,7 @@ public const string? GIT_VERSION = _GIT_VERSION;
 public const string? GIT_VERSION = null;
 #endif
 
-public const string COPYRIGHT = _("2009-2014 Yorba Foundation\nCopyright © 2014 Photos Developers");
+public const string COPYRIGHT = _("2009-2014 Yorba Foundation\n© 2014 Photos Developers");
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string YORBA_URL = "http://www.yorba.org";
@@ -56,7 +56,7 @@ public const string[] AUTHORS = {
     null
 };
 
-public const string LICENSE = """Shotwell is free software; you can redistribute it and/or modify it under the
+public const string LICENSE = _("""Shotwell is free software; you can redistribute it and/or modify it under the
 terms of the GNU Lesser General Public License as published by the Free
 Software Foundation; either version 2.1 of the License, or (at your option)
 any later version.
@@ -68,7 +68,7 @@ more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with Shotwell; if not, write to the Free Software Foundation, Inc.,
-51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA""";
+51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA""");
 
 public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
