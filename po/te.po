@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2014-09-29 00:32-0500\n"
+"POT-Creation-Date: 2014-10-29 15:17-0500\n"
 "PO-Revision-Date: 2014-06-24 21:56+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Telugu "
@@ -22,8 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2014-09-30 07:21+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-11-07 07:01+0000\n"
+"X-Generator: Launchpad (build 17231)\n"
 "Language: te\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -686,7 +686,7 @@ msgid "Logout"
 msgstr "నిష్క్రమించు"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:12
-#: ../src/Resources.vala:270
+#: ../src/Resources.vala:271
 msgid "Publish"
 msgstr "ప్రచురించు"
 
@@ -942,6 +942,11 @@ msgstr "నిలువుగా తిప్పబడుతోంది"
 msgid "Undoing Flip Vertically"
 msgstr "నిలువుగా తిప్పినదానిని రద్దుచేయి"
 
+#: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
+#: ../src/Page.vala:1371
+msgid "No photos/videos"
+msgstr "ఫొటోలు/వీడియోలు లేవు"
+
 #: ../src/Commands.vala:733
 msgid "Reverting"
 msgstr "మార్పులురద్దుచేయబడుతున్నాయి"
@@ -1115,11 +1120,11 @@ msgstr ""
 msgid "Unflagging selected photos"
 msgstr ""
 
-#: ../src/Commands.vala:2487 ../src/Resources.vala:311
+#: ../src/Commands.vala:2487 ../src/Resources.vala:312
 msgid "Flag"
 msgstr "గుర్తుపెట్టు"
 
-#: ../src/Commands.vala:2487 ../src/Resources.vala:313
+#: ../src/Commands.vala:2487 ../src/Resources.vala:314
 msgid "Unflag"
 msgstr "గుర్తునుతీసివేయి"
 
@@ -1131,7 +1136,7 @@ msgstr[0] "ఇది \"%s\" ట్యాగును ఒక ఫొటో ను�
 msgstr[1] "ఇది \"%s\" ట్యాగును %d ఫొటోల నుండి తొలగిస్తుంది.  కొనసాగమంటారా?"
 
 #: ../src/Dialogs.vala:20 ../src/Dialogs.vala:28 ../src/Dialogs.vala:1302
-#: ../src/Resources.vala:343 ../src/Resources.vala:391
+#: ../src/Resources.vala:344 ../src/Resources.vala:392
 msgid "_Delete"
 msgstr "తీసివేయి(_D)"
 
@@ -1618,7 +1623,7 @@ msgstr[1] "%d గంటలు"
 msgid "1 day"
 msgstr "1 రోజు"
 
-#: ../src/Dialogs.vala:1265 ../src/Resources.vala:195
+#: ../src/Dialogs.vala:1265 ../src/Resources.vala:196
 msgid "Rename Event"
 msgstr "కార్యక్రమం పేరుమార్చు"
 
@@ -2117,15 +2122,11 @@ msgstr ""
 "షాట్‌వెల్ కొన్ని కారణాల వల్ల ఎంచుకున్న వీడియోను ప్లే చేయలేకపోతుంది:\n"
 "%s"
 
-#: ../src/Page.vala:1372
-msgid "No photos/videos"
-msgstr "ఫొటోలు/వీడియోలు లేవు"
-
-#: ../src/Page.vala:1376
+#: ../src/Page.vala:1375
 msgid "No photos/videos found"
 msgstr "ఫొటోలు/వీడియోలు కనబడలేదు"
 
-#: ../src/Page.vala:2672
+#: ../src/Page.vala:2674
 msgid "Photos cannot be exported to this directory."
 msgstr "ఈ డైరెక్టరీకి ఫొటోలను ఎగుమతి చేయడం వీలుకాదు."
 
@@ -2137,8 +2138,8 @@ msgstr "సవరించబడినది"
 #. disappears, for example)
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #. rotate tool
-#: ../src/PhotoPage.vala:438 ../src/Resources.vala:130
-#: ../src/Resources.vala:135
+#: ../src/PhotoPage.vala:438 ../src/Resources.vala:131
+#: ../src/Resources.vala:136
 msgid "Rotate"
 msgstr "తిప్పు"
 
@@ -2341,733 +2342,753 @@ msgstr ""
 msgid "Photo Manager"
 msgstr "ఫోటో నిర్వాహకం"
 
-#: ../src/Resources.vala:28
+#. TRANSLATORS: Don't forget to add the line break: \n
+#: ../src/Resources.vala:29
 msgid ""
 "2009-2014 Yorba Foundation\n"
-"Copyright © 2014 Photos Developers"
+"© 2014 Photos Developers"
 msgstr ""
 
-#: ../src/Resources.vala:129
+#: ../src/Resources.vala:60
+msgid ""
+"Shotwell is free software; you can redistribute it and/or modify it under "
+"the\n"
+"terms of the GNU Lesser General Public License as published by the Free\n"
+"Software Foundation; either version 2.1 of the License, or (at your option)\n"
+"any later version.\n"
+"\n"
+"Shotwell is distributed in the hope that it will be useful, but WITHOUT\n"
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS\n"
+"FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for\n"
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU Lesser General Public License\n"
+"along with Shotwell; if not, write to the Free Software Foundation, Inc.,\n"
+"51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
+msgstr ""
+
+#: ../src/Resources.vala:130
 msgid "Rotate _Right"
 msgstr "కుడివైపు తిప్పు(_R)"
 
-#: ../src/Resources.vala:131
+#: ../src/Resources.vala:132
 msgid "Rotate Right"
 msgstr "కుడివైపు తిప్పు"
 
-#: ../src/Resources.vala:132
+#: ../src/Resources.vala:133
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "ఫొటోలను కుడివైపుకు తిప్పండి (ఎడుమవైపు తిప్పుటకు Ctrl నొక్కండి)"
 
-#: ../src/Resources.vala:134
+#: ../src/Resources.vala:135
 msgid "Rotate _Left"
 msgstr "ఎడమవైపు తిప్పు (_L)"
 
-#: ../src/Resources.vala:136
+#: ../src/Resources.vala:137
 msgid "Rotate Left"
 msgstr "ఎడమవైపు తిప్పు"
 
-#: ../src/Resources.vala:137
+#: ../src/Resources.vala:138
 msgid "Rotate the photos left"
 msgstr "ఫొటోలను ఎడమవైపుకి తిప్పు"
 
-#: ../src/Resources.vala:139
+#: ../src/Resources.vala:140
 msgid "Flip Hori_zontally"
 msgstr "అడ్డంగా తారుమారుచేయి(_z)"
 
-#: ../src/Resources.vala:140
+#: ../src/Resources.vala:141
 msgid "Flip Horizontally"
 msgstr "అడ్డంగా తారుమారుచేయి"
 
-#: ../src/Resources.vala:141
+#: ../src/Resources.vala:142
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr ""
 
-#: ../src/Resources.vala:143
+#: ../src/Resources.vala:144
 msgid "Flip Verti_cally"
 msgstr "నిలువుగా తారుమారుచేయి (_c)"
 
-#: ../src/Resources.vala:144
+#: ../src/Resources.vala:145
 msgid "Flip Vertically"
 msgstr "నిలువుగా తారుమారుచేయి"
 
-#: ../src/Resources.vala:145
+#: ../src/Resources.vala:146
 msgid "Flip the image vertically"
 msgstr ""
 
-#: ../src/Resources.vala:147
+#: ../src/Resources.vala:148
 msgid "_Enhance"
 msgstr "మెరుగుపరుచు(_E)"
 
-#: ../src/Resources.vala:148
+#: ../src/Resources.vala:149
 msgid "Enhance"
 msgstr "మెరుగుపరుచు"
 
-#: ../src/Resources.vala:149
+#: ../src/Resources.vala:150
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
 
-#: ../src/Resources.vala:151
+#: ../src/Resources.vala:152
 msgid "Revert _Enhancement"
 msgstr ""
 
-#: ../src/Resources.vala:152
+#: ../src/Resources.vala:153
 msgid "Revert Enhancement"
 msgstr ""
 
-#: ../src/Resources.vala:154
+#: ../src/Resources.vala:155
 msgid "_Copy Color Adjustments"
 msgstr ""
 
-#: ../src/Resources.vala:155
+#: ../src/Resources.vala:156
 msgid "Copy Color Adjustments"
 msgstr ""
 
-#: ../src/Resources.vala:156
+#: ../src/Resources.vala:157
 msgid "Copy the color adjustments applied to the photo"
 msgstr ""
 
-#: ../src/Resources.vala:158
+#: ../src/Resources.vala:159
 msgid "_Paste Color Adjustments"
 msgstr ""
 
-#: ../src/Resources.vala:159
+#: ../src/Resources.vala:160
 msgid "Paste Color Adjustments"
 msgstr ""
 
-#: ../src/Resources.vala:160
+#: ../src/Resources.vala:161
 msgid "Apply copied color adjustments to the selected photos"
 msgstr ""
 
-#: ../src/Resources.vala:162
+#: ../src/Resources.vala:163
 msgid "_Crop"
 msgstr "కత్తిరించు(_c)"
 
-#: ../src/Resources.vala:163
+#: ../src/Resources.vala:164
 msgid "Crop"
 msgstr "కత్తిరించు"
 
-#: ../src/Resources.vala:164
+#: ../src/Resources.vala:165
 msgid "Crop the photo's size"
 msgstr "ఫొటో పరిమాణాన్ని కత్తిరించు"
 
-#: ../src/Resources.vala:166 ../src/editing_tools/StraightenTool.vala:100
+#: ../src/Resources.vala:167 ../src/editing_tools/StraightenTool.vala:100
 msgid "_Straighten"
 msgstr "సరిచేయి (_S)"
 
-#: ../src/Resources.vala:167
+#: ../src/Resources.vala:168
 msgid "Straighten"
 msgstr "సరిచేయి"
 
-#: ../src/Resources.vala:168
+#: ../src/Resources.vala:169
 msgid "Straighten the photo"
 msgstr "ఫొటోని సరిచేయి"
 
-#: ../src/Resources.vala:170
+#: ../src/Resources.vala:171
 msgid "_Red-eye"
 msgstr "రెడ్-ఐ(_R)"
 
-#: ../src/Resources.vala:171
+#: ../src/Resources.vala:172
 msgid "Red-eye"
 msgstr "రెడ్-ఐ"
 
-#: ../src/Resources.vala:172
+#: ../src/Resources.vala:173
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "ఫొటోలో ఉన్న ఏ రెడ్-ఐ ప్రాభావాన్నైనా తగ్గించు లేదా తొలగించు"
 
-#: ../src/Resources.vala:174
+#: ../src/Resources.vala:175
 msgid "_Adjust"
 msgstr "సరిచేయి(_A)"
 
-#: ../src/Resources.vala:175
+#: ../src/Resources.vala:176
 msgid "Adjust"
 msgstr "సరిచేయి"
 
-#: ../src/Resources.vala:176
+#: ../src/Resources.vala:177
 msgid "Adjust the photo's color and tone"
 msgstr "ఫొటో రంగును మరియు వర్ణస్థాయిని సవరించు"
 
-#: ../src/Resources.vala:178
+#: ../src/Resources.vala:179
 msgid "Re_vert to Original"
 msgstr "అసలుకి చేసిన మర్పులనురద్దుచేయి(_v)"
 
-#: ../src/Resources.vala:179
+#: ../src/Resources.vala:180
 msgid "Revert to Original"
 msgstr "అసలుకి చేసిన మర్పులనురద్దుచేయి"
 
-#: ../src/Resources.vala:181
+#: ../src/Resources.vala:182
 msgid "Revert External E_dits"
 msgstr "బయటి కూర్పుల మార్పులను రద్దుచేయి(_d)"
 
-#: ../src/Resources.vala:182
+#: ../src/Resources.vala:183
 msgid "Revert to the master photo"
 msgstr "ఉత్తమ ఫొటోకి చేసిన మార్పులను రద్దుచేయి"
 
-#: ../src/Resources.vala:184
+#: ../src/Resources.vala:185
 msgid "Set as _Desktop Background"
 msgstr "డెస్క్‍టాప్ నేపథ్యం వలె అమర్చు(_D)"
 
-#: ../src/Resources.vala:185
+#: ../src/Resources.vala:186
 msgid "Set selected image to be the new desktop background"
 msgstr "ఎంచుకున్న బొమ్మను కొత్త డెస్క్‍టాప్ నేపథ్యముగా అమర్చు"
 
-#: ../src/Resources.vala:186
+#: ../src/Resources.vala:187
 msgid "Set as _Desktop Slideshow..."
 msgstr "డెస్క్‍టాప్ స్లైడ్‌షోలాగ అమర్చు...(_D)"
 
-#: ../src/Resources.vala:188
+#: ../src/Resources.vala:189
 msgid "_Undo"
 msgstr "చేసినదానిని రద్దుచేయి(_U)"
 
-#: ../src/Resources.vala:189
+#: ../src/Resources.vala:190
 msgid "Undo"
 msgstr "చేసినదానిని రద్దుచేయి"
 
-#: ../src/Resources.vala:191
+#: ../src/Resources.vala:192
 msgid "_Redo"
 msgstr "మళ్ళీచేయి (_R)"
 
-#: ../src/Resources.vala:192
+#: ../src/Resources.vala:193
 msgid "Redo"
 msgstr "మళ్ళీచేయి"
 
-#: ../src/Resources.vala:194
+#: ../src/Resources.vala:195
 msgid "Re_name Event..."
 msgstr "కార్యక్రమం పేరుమార్చు...(_n)"
 
-#: ../src/Resources.vala:197
+#: ../src/Resources.vala:198
 msgid "Make _Key Photo for Event"
 msgstr "కార్యక్రమానికి ముఖచిత్రంగా చేయండి(_K)"
 
-#: ../src/Resources.vala:198
+#: ../src/Resources.vala:199
 msgid "Make Key Photo for Event"
 msgstr "కార్యక్రమానికి ముఖచిత్రంగా చేయండి"
 
-#: ../src/Resources.vala:200
+#: ../src/Resources.vala:201
 msgid "_New Event"
 msgstr "కొత్త కార్యక్రమం(_N)"
 
-#: ../src/Resources.vala:201
+#: ../src/Resources.vala:202
 msgid "New Event"
 msgstr "కొత్త కార్యక్రమం"
 
-#: ../src/Resources.vala:203
+#: ../src/Resources.vala:204
 msgid "Move Photos"
 msgstr "కార్యక్రమంలో చేర్చు"
 
-#: ../src/Resources.vala:204
+#: ../src/Resources.vala:205
 msgid "Move photos to an event"
 msgstr "ఫొటోలను కార్యక్రమంలో చేర్చు"
 
-#: ../src/Resources.vala:206
+#: ../src/Resources.vala:207
 msgid "_Merge Events"
 msgstr "కార్యక్రమాలను ఒకటిగాకలిపివేయి(_M)"
 
-#: ../src/Resources.vala:207
+#: ../src/Resources.vala:208
 msgid "Merge"
 msgstr "ఒకటిగాకలిపివేయి"
 
-#: ../src/Resources.vala:208
+#: ../src/Resources.vala:209
 msgid "Combine events into a single event"
 msgstr "కార్యక్రమాలన్నిటినీ ఒకే కార్యక్రమముగా కలిపివేయి"
 
-#: ../src/Resources.vala:210
+#: ../src/Resources.vala:211
 msgid "_Set Rating"
 msgstr "రేటింగు అమర్చు(_S)"
 
-#: ../src/Resources.vala:211
+#: ../src/Resources.vala:212
 msgid "Set Rating"
 msgstr "రేటింగు అమర్చు(_S)"
 
-#: ../src/Resources.vala:212
+#: ../src/Resources.vala:213
 msgid "Change the rating of your photo"
 msgstr "మీ ఫొటో యొక్క రేటింగు మార్చు"
 
-#: ../src/Resources.vala:214
+#: ../src/Resources.vala:215
 msgid "_Increase"
 msgstr "పెంచండి(_I)"
 
-#: ../src/Resources.vala:215
+#: ../src/Resources.vala:216
 msgid "Increase Rating"
 msgstr "రేటింగు పెంచండి"
 
-#: ../src/Resources.vala:217
+#: ../src/Resources.vala:218
 msgid "_Decrease"
 msgstr "తగ్గించండి(_D)"
 
-#: ../src/Resources.vala:218
+#: ../src/Resources.vala:219
 msgid "Decrease Rating"
 msgstr "రేటింగు తగ్గించండి"
 
-#: ../src/Resources.vala:220
+#: ../src/Resources.vala:221
 msgid "_Unrated"
 msgstr "రేటుచేయనివి(_U)"
 
-#: ../src/Resources.vala:221
+#: ../src/Resources.vala:222
 msgid "Unrated"
 msgstr "రేటింగుచేయనివి"
 
-#: ../src/Resources.vala:222
+#: ../src/Resources.vala:223
 msgid "Rate Unrated"
 msgstr "రేటుచేయనివాటిని రేట్‌చేయి"
 
-#: ../src/Resources.vala:223
+#: ../src/Resources.vala:224
 msgid "Setting as unrated"
 msgstr "రేట్‌చేయనివాటిగా అమరుస్తోంది"
 
-#: ../src/Resources.vala:224
+#: ../src/Resources.vala:225
 msgid "Remove any ratings"
 msgstr "ఏ రేటింగునైనా తొలగించండి"
 
-#: ../src/Resources.vala:226
+#: ../src/Resources.vala:227
 msgid "_Rejected"
 msgstr "తిరస్కరించబడినవి(_R)"
 
-#: ../src/Resources.vala:227 ../src/Resources.vala:232
+#: ../src/Resources.vala:228 ../src/Resources.vala:233
 msgid "Rejected"
 msgstr "తిరస్కరించబడినవి"
 
-#: ../src/Resources.vala:228
+#: ../src/Resources.vala:229
 msgid "Rate Rejected"
 msgstr "తిరస్కరించబడినవాటిని రేట్ చేయి"
 
-#: ../src/Resources.vala:229
+#: ../src/Resources.vala:230
 msgid "Setting as rejected"
 msgstr "తిరస్కరించిన వాటిగా అమరుస్తోంది"
 
-#: ../src/Resources.vala:230
+#: ../src/Resources.vala:231
 msgid "Set rating to rejected"
 msgstr "తిరస్కరించబడినవాటిగా రేటింగు అమర్చు"
 
-#: ../src/Resources.vala:234 ../src/Resources.vala:235
+#: ../src/Resources.vala:235 ../src/Resources.vala:236
 msgid "Rejected Only"
 msgstr "తిరస్కరించబడినవి మాత్రమే"
 
-#: ../src/Resources.vala:236
+#: ../src/Resources.vala:237
 msgid "Show only rejected photos"
 msgstr "తిరస్కరించబడిన ఫొటోలను మాత్రమే చూపించు"
 
-#: ../src/Resources.vala:238
+#: ../src/Resources.vala:239
 msgid "All + Rejected"
 msgstr ""
 
-#: ../src/Resources.vala:239 ../src/Resources.vala:240
+#: ../src/Resources.vala:240 ../src/Resources.vala:241
 msgid "Show all photos, including rejected"
 msgstr "అన్ని ఫొటోలను చూపించు, తిరస్కరించబడినవాటిని కూడా"
 
-#: ../src/Resources.vala:242
+#: ../src/Resources.vala:243
 msgid "All Photos"
 msgstr ""
 
-#: ../src/Resources.vala:243 ../src/Resources.vala:244
+#: ../src/Resources.vala:244 ../src/Resources.vala:245
 msgid "Show all photos"
 msgstr "అన్ని ఫొటోలను చూపించు"
 
-#: ../src/Resources.vala:246
+#: ../src/Resources.vala:247
 msgid "_Ratings"
 msgstr "రేటింగులు(_R)"
 
-#: ../src/Resources.vala:247
+#: ../src/Resources.vala:248
 msgid "Display each photo's rating"
 msgstr "ప్రతీ ఫొటో యొక్క రేటింగు చూపుము"
 
-#: ../src/Resources.vala:249
+#: ../src/Resources.vala:250
 msgid "_Filter Photos"
 msgstr "ఫొటోలను వడపోయి(_F)"
 
-#: ../src/Resources.vala:250
+#: ../src/Resources.vala:251
 msgid "Filter Photos"
 msgstr "ఫొటోలను వడపోయి"
 
-#: ../src/Resources.vala:251
+#: ../src/Resources.vala:252
 msgid "Limit the number of photos displayed based on a filter"
 msgstr "వడపోత ఆధారంగా కనబడే ఫోటోల సంఖ్యను పరిమితం చేయి"
 
-#: ../src/Resources.vala:253
+#: ../src/Resources.vala:254
 msgid "_Duplicate"
 msgstr "నకిలీచేయి(_D)"
 
-#: ../src/Resources.vala:254
+#: ../src/Resources.vala:255
 msgid "Duplicate"
 msgstr "నకిలీచేయి"
 
-#: ../src/Resources.vala:255
+#: ../src/Resources.vala:256
 msgid "Make a duplicate of the photo"
 msgstr "ఫోటో యొక్క నకిలీ తయారుచేయి"
 
-#: ../src/Resources.vala:257
+#: ../src/Resources.vala:258
 msgid "_Export..."
 msgstr "ఎగుమతిచేయి...(_E)"
 
-#: ../src/Resources.vala:259
+#: ../src/Resources.vala:260
 msgid "_Show info panel"
 msgstr ""
 
-#: ../src/Resources.vala:260 ../src/Resources.vala:261
+#: ../src/Resources.vala:261 ../src/Resources.vala:262
 msgid "Show info panel"
 msgstr ""
 
-#: ../src/Resources.vala:263
+#: ../src/Resources.vala:264
 msgid "_Hide info panel"
 msgstr ""
 
-#: ../src/Resources.vala:264 ../src/Resources.vala:265
+#: ../src/Resources.vala:265 ../src/Resources.vala:266
 msgid "Hide info panel"
 msgstr ""
 
-#: ../src/Resources.vala:267
+#: ../src/Resources.vala:268
 msgid "_Print..."
 msgstr "ముద్రించు...(_P)"
 
-#: ../src/Resources.vala:269
+#: ../src/Resources.vala:270
 msgid "Pu_blish..."
 msgstr "ప్రచురించు(_b)"
 
-#: ../src/Resources.vala:271
+#: ../src/Resources.vala:272
 msgid "Publish to various websites"
 msgstr "వివిధ వెబ్‌సైటులకు ప్రచురించు"
 
-#: ../src/Resources.vala:273
+#: ../src/Resources.vala:274
 msgid "Edit _Title..."
 msgstr "శీర్షికను సవరించు...(_T)"
 
-#: ../src/Resources.vala:274
+#: ../src/Resources.vala:275
 msgid "Edit Title"
 msgstr "శీర్షికను సవరించు"
 
-#: ../src/Resources.vala:276
+#: ../src/Resources.vala:277
 msgid "Edit _Comment..."
 msgstr "వ్యాఖ్యానము సరిచేయి... (_C)"
 
-#: ../src/Resources.vala:277
+#: ../src/Resources.vala:278
 msgid "Edit Comment"
 msgstr "వ్యాఖ్య సరికూర్చు"
 
-#: ../src/Resources.vala:279
+#: ../src/Resources.vala:280
 msgid "Edit Event _Comment..."
 msgstr ""
 
-#: ../src/Resources.vala:280
+#: ../src/Resources.vala:281
 msgid "Edit Event Comment"
 msgstr ""
 
-#: ../src/Resources.vala:282
+#: ../src/Resources.vala:283
 msgid "_Adjust Date and Time..."
 msgstr "తేదీ మరియు సమయాన్ని సరిచేయి...(_A)"
 
-#: ../src/Resources.vala:283
+#: ../src/Resources.vala:284
 msgid "Adjust Date and Time"
 msgstr "తేది మరియు సమయాన్ని సరిచేయి"
 
-#: ../src/Resources.vala:285
+#: ../src/Resources.vala:286
 msgid "Add _Tags..."
 msgstr "ట్యాగులను జతచేయి...(_T)"
 
-#: ../src/Resources.vala:286
+#: ../src/Resources.vala:287
 msgid "_Add Tags..."
 msgstr "టాగ్‌లను జతచేయి... (_A)"
 
-#: ../src/Resources.vala:287 ../src/Resources.vala:331
+#: ../src/Resources.vala:288 ../src/Resources.vala:332
 msgid "Add Tags"
 msgstr "ట్యాగులను జతచేయి"
 
-#: ../src/Resources.vala:289
+#: ../src/Resources.vala:290
 msgid "_Preferences"
 msgstr "ప్రాధాన్యతలు(_P)"
 
-#: ../src/Resources.vala:291
+#: ../src/Resources.vala:292
 msgid "Open With E_xternal Editor"
 msgstr "బయటి కూర్పకముతో తెరువు(_x)"
 
-#: ../src/Resources.vala:293
+#: ../src/Resources.vala:294
 msgid "Open With RA_W Editor"
 msgstr "RAW కూర్పరితో తెరువు(_R)"
 
-#: ../src/Resources.vala:295
+#: ../src/Resources.vala:296
 msgid "_Open With..."
 msgstr ""
 
-#: ../src/Resources.vala:296
+#: ../src/Resources.vala:297
 msgid "Open With"
 msgstr ""
 
-#: ../src/Resources.vala:297
+#: ../src/Resources.vala:298
 msgid "Open photo with external editor"
 msgstr ""
 
-#: ../src/Resources.vala:299
+#: ../src/Resources.vala:300
 msgid "_Open With RAW Editor..."
 msgstr ""
 
-#: ../src/Resources.vala:300
+#: ../src/Resources.vala:301
 msgid "Open With Raw Editor"
 msgstr ""
 
-#: ../src/Resources.vala:301
+#: ../src/Resources.vala:302
 msgid "Open photo with external RAW editor"
 msgstr ""
 
-#: ../src/Resources.vala:303
+#: ../src/Resources.vala:304
 msgid "Send _To..."
 msgstr "దీనికి పంపుము(_T)..."
 
-#: ../src/Resources.vala:304
+#: ../src/Resources.vala:305
 msgid "Send T_o..."
 msgstr "దీనికి పంపు... (_o)"
 
-#: ../src/Resources.vala:306
+#: ../src/Resources.vala:307
 msgid "_Find..."
 msgstr "కనుగొను...(_F)"
 
-#: ../src/Resources.vala:307
+#: ../src/Resources.vala:308
 msgid "Find"
 msgstr "కనుగొను"
 
-#: ../src/Resources.vala:308
+#: ../src/Resources.vala:309
 msgid "Find an image by typing text that appears in its name or tags"
 msgstr "పేరులో కాని టాగ్స్ లో కాని వున్న పాఠంతో  బొమ్మను వెతుకుట"
 
-#: ../src/Resources.vala:310
+#: ../src/Resources.vala:311
 msgid "_Flag"
 msgstr "గుర్తుపెట్టు(_F)"
 
-#: ../src/Resources.vala:312
+#: ../src/Resources.vala:313
 msgid "Un_flag"
 msgstr "గుర్తుతీసివేయి(_f)"
 
-#: ../src/Resources.vala:315
+#: ../src/Resources.vala:316
 msgid "Image Details"
 msgstr ""
 
-#: ../src/Resources.vala:316
+#: ../src/Resources.vala:317
 msgid "Extended Details"
 msgstr ""
 
-#: ../src/Resources.vala:317
+#: ../src/Resources.vala:318
 msgid "Library Details"
 msgstr ""
 
-#: ../src/Resources.vala:320
+#: ../src/Resources.vala:321
 #, c-format
 msgid "Unable to launch editor: %s"
 msgstr "కూర్పరిని ప్రారంభించలేకపోతోంది: %s"
 
-#: ../src/Resources.vala:325
+#: ../src/Resources.vala:326
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "\"%s\" ట్యాగు జతచేయి"
 
-#: ../src/Resources.vala:327
+#: ../src/Resources.vala:328
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "\"%s\" మరియు \"%s\" ట్యాగులను జతచేయి"
 
-#: ../src/Resources.vala:335
+#: ../src/Resources.vala:336
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "\"%s\" ట్యాగుని తీసివేయి(_D)"
 
-#: ../src/Resources.vala:339
+#: ../src/Resources.vala:340
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "\"%s\" ట్యాగుని తీసివేయి"
 
-#: ../src/Resources.vala:342
+#: ../src/Resources.vala:343
 msgid "Delete Tag"
 msgstr "ట్యాగును తీసివేయి"
 
-#: ../src/Resources.vala:345
+#: ../src/Resources.vala:346
 msgid "_New"
 msgstr "కొత్తది (_N)"
 
-#: ../src/Resources.vala:348
+#: ../src/Resources.vala:349
 #, c-format
 msgid "Re_name Tag \"%s\"..."
 msgstr "\"%s\" ట్యాగు పేరుమార్చు...(_n)"
 
-#: ../src/Resources.vala:352
+#: ../src/Resources.vala:353
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "ట్యాగుపేరుని \"%s\" నుండి \"%s\" కి మార్చండి"
 
-#: ../src/Resources.vala:355
+#: ../src/Resources.vala:356
 msgid "_Rename..."
 msgstr "పేరుమార్చు...(_R)"
 
-#: ../src/Resources.vala:357
+#: ../src/Resources.vala:358
 msgid "Modif_y Tags..."
 msgstr "ట్యాగులను సవరించు...(_y)"
 
-#: ../src/Resources.vala:358
+#: ../src/Resources.vala:359
 msgid "Modify Tags"
 msgstr "ట్యాగులను సవరించు"
 
-#: ../src/Resources.vala:361
+#: ../src/Resources.vala:362
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgstr "ఫొటోలను \"%s\" వలె ట్యాగ్‌చేయి"
 
-#: ../src/Resources.vala:361
+#: ../src/Resources.vala:362
 #, c-format
 msgid "Tag Photos as \"%s\""
 msgstr "ఫొటోలను ఇలా \"%s\" ట్యాగ్ చేయి"
 
-#: ../src/Resources.vala:365
+#: ../src/Resources.vala:366
 #, c-format
 msgid "Tag the selected photo as \"%s\""
 msgstr "ఎంచుకున్న ఫొటోలను \"%s\" వలె ట్యాగ్ చేయి"
 
-#: ../src/Resources.vala:366
+#: ../src/Resources.vala:367
 #, c-format
 msgid "Tag the selected photos as \"%s\""
 msgstr "ఎంచుకున్న ఫొటోలను ఇలా \"%s\" ట్యాగ్ చేయి"
 
-#: ../src/Resources.vala:370
+#: ../src/Resources.vala:371
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgstr "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు(_P)"
 
-#: ../src/Resources.vala:371
+#: ../src/Resources.vala:372
 #, c-format
 msgid "Remove Tag \"%s\" From _Photos"
 msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు (_P)"
 
-#: ../src/Resources.vala:375
+#: ../src/Resources.vala:376
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgstr "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు"
 
-#: ../src/Resources.vala:376
+#: ../src/Resources.vala:377
 #, c-format
 msgid "Remove Tag \"%s\" From Photos"
 msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు"
 
-#: ../src/Resources.vala:380
+#: ../src/Resources.vala:381
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "\"%s\" గా పేరు మార్చుట కుదరదు, ఎందుకంటే అది ఇప్పటికే వున్నది."
 
-#: ../src/Resources.vala:384
+#: ../src/Resources.vala:385
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "\"%s\" కి వెతుకులాట పేరుని మార్చలేకపోతుంది, ఎందుకంటే అటువంటి వెతుకలాట "
 "ఇంతకుముందే ఉన్నది."
 
-#: ../src/Resources.vala:387 ../src/searches/SavedSearchDialog.vala:636
+#: ../src/Resources.vala:388 ../src/searches/SavedSearchDialog.vala:636
 msgid "Smart Album"
 msgstr ""
 
-#: ../src/Resources.vala:389
+#: ../src/Resources.vala:390
 msgid "Delete Album"
 msgstr ""
 
-#: ../src/Resources.vala:392
+#: ../src/Resources.vala:393
 msgid "_Edit..."
 msgstr "సవరించు...(_E)"
 
-#: ../src/Resources.vala:393
+#: ../src/Resources.vala:394
 msgid "Re_name..."
 msgstr "పేరుమార్చు...(_n)"
 
-#: ../src/Resources.vala:396
+#: ../src/Resources.vala:397
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "శోధన పేరును \"%s\" నుండి \"%s\" కు మార్చు"
 
-#: ../src/Resources.vala:400
+#: ../src/Resources.vala:401
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" శోధనను తొలగించు"
 
-#: ../src/Resources.vala:660
+#: ../src/Resources.vala:661
 #, c-format
 msgid "Rate %s"
 msgstr "రేట్ %s"
 
-#: ../src/Resources.vala:661
+#: ../src/Resources.vala:662
 #, c-format
 msgid "Set rating to %s"
 msgstr "రేటింగుని %s కి అమర్చు"
 
-#: ../src/Resources.vala:662
+#: ../src/Resources.vala:663
 #, c-format
 msgid "Setting rating to %s"
 msgstr "రేటింగుని %s కి అమరుస్తోంది"
 
-#: ../src/Resources.vala:664
+#: ../src/Resources.vala:665
 #, c-format
 msgid "Display %s"
 msgstr "%s ప్రదర్శించు"
 
-#: ../src/Resources.vala:665
+#: ../src/Resources.vala:666
 #, c-format
 msgid "Only show photos with a rating of %s"
 msgstr "%s రేటింగుతో ఉన్న ఫొటోలను మాత్రమే చూపించు"
 
-#: ../src/Resources.vala:666
+#: ../src/Resources.vala:667
 #, c-format
 msgid "%s or Better"
 msgstr "%s లేదా ఇంకామెరుగైనవి"
 
-#: ../src/Resources.vala:667
+#: ../src/Resources.vala:668
 #, c-format
 msgid "Display %s or Better"
 msgstr "%s ప్రదర్శించు లేదా ఇంకా మెరుగైనవి"
 
-#: ../src/Resources.vala:668
+#: ../src/Resources.vala:669
 #, c-format
 msgid "Only show photos with a rating of %s or better"
 msgstr "%s రేటింగు లేదా అంతకంటే మెరుగైన రేటింగు ఉన్న ఫొటోలను మాత్రమే చూపించు"
 
-#: ../src/Resources.vala:758
+#: ../src/Resources.vala:759
 msgid "_Delete Selection"
 msgstr ""
 
-#: ../src/Resources.vala:759
+#: ../src/Resources.vala:760
 msgid "Remove the selected photos from the trash"
 msgstr "ఎంచుకున్న ఫొటోలను చెత్తబుట్ట నుండి తొలగించు"
 
-#: ../src/Resources.vala:760
+#: ../src/Resources.vala:761
 msgid "Remove the selected photos from the library"
 msgstr "ఎంచుకున్న ఫొటోలను లైబ్రరీ నుండి తొలగించు"
 
-#: ../src/Resources.vala:762
+#: ../src/Resources.vala:763
 msgid "_Restore Selection"
 msgstr ""
 
-#: ../src/Resources.vala:763
+#: ../src/Resources.vala:764
 msgid "Move the selected photos back into the library"
 msgstr "ఎంచుకున్న ఫొటోలను తిరిగి లైబ్రరీలోనికి తరలించు"
 
-#: ../src/Resources.vala:765
+#: ../src/Resources.vala:766
 msgid "Show in File Mana_ger"
 msgstr "ఫైల్ నిర్వాహకిలో చూపించు(_g)"
 
-#: ../src/Resources.vala:766
+#: ../src/Resources.vala:767
 msgid "Open the selected photo's directory in the file manager"
 msgstr "ఎంచుకున్న ఫొటో'ల డైరెక్టరీని ఫైల్ నిర్వాహకంలో తెరువు"
 
-#: ../src/Resources.vala:769
+#: ../src/Resources.vala:770
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ఫైల్ నిర్వాహకంలో తెరుచుటకు సాధ్యపడటంలేదు: %s"
 
-#: ../src/Resources.vala:772
+#: ../src/Resources.vala:773
 msgid "R_emove From Library"
 msgstr "లైబ్రరీ నుండి తొలగించు(_e)"
 
-#: ../src/Resources.vala:774
+#: ../src/Resources.vala:775
 msgid "_Move to Trash"
 msgstr "చెత్తబుట్టకి తరలించు(_M)"
 
-#: ../src/Resources.vala:776
+#: ../src/Resources.vala:777
 msgid "Select _All"
 msgstr "అన్నింటినీ ఎంచుకో(_A)"
 
-#: ../src/Resources.vala:777
+#: ../src/Resources.vala:778
 msgid "Select all items"
 msgstr "అన్ని అంశాలను ఎంచుకోండి"
 
@@ -3075,20 +3096,20 @@ msgstr "అన్ని అంశాలను ఎంచుకోండి"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: ../src/Resources.vala:841
+#: ../src/Resources.vala:842
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: ../src/Resources.vala:846
+#: ../src/Resources.vala:847
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: ../src/Resources.vala:850
+#: ../src/Resources.vala:851
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -3098,14 +3119,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: ../src/Resources.vala:855 ../src/Resources.vala:865
+#: ../src/Resources.vala:856 ../src/Resources.vala:866
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: ../src/Resources.vala:860
+#: ../src/Resources.vala:861
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -3774,27 +3795,19 @@ msgstr "ఫొటోలను స్వయం-దిగుమతిచేస్�
 msgid "Writing metadata to files..."
 msgstr "మెటాడేటాను ఫైళ్ళకి వ్రాస్తుంది..."
 
-#: ../src/library/LibraryWindow.vala:1373
-msgid "Add Some Photos"
-msgstr ""
-
-#: ../src/library/LibraryWindow.vala:1373
-msgid "No photos were found in your library."
-msgstr ""
-
-#: ../src/library/LibraryWindow.vala:1374
+#: ../src/library/LibraryWindow.vala:1376
 msgid "Import Photos"
 msgstr ""
 
-#: ../src/library/LibraryWindow.vala:1374
+#: ../src/library/LibraryWindow.vala:1376
 msgid "Copy photos from a folder or external device."
 msgstr ""
 
-#: ../src/library/LibraryWindow.vala:1375
+#: ../src/library/LibraryWindow.vala:1377
 msgid "Change Library Folder"
 msgstr ""
 
-#: ../src/library/LibraryWindow.vala:1375
+#: ../src/library/LibraryWindow.vala:1377
 msgid "Choose where to keep your photos."
 msgstr ""
 
@@ -3810,15 +3823,15 @@ msgstr "తీసివేస్తోంది..."
 msgid "Trash"
 msgstr "చెత్తబుట్ట"
 
-#: ../src/library/TrashPage.vala:168
+#: ../src/library/TrashPage.vala:171 ../src/library/TrashPage.vala:172
 msgid "Trash is empty"
 msgstr "చెత్తబుట్ట ఖాళీగాఉంది"
 
-#: ../src/library/TrashPage.vala:172
+#: ../src/library/TrashPage.vala:176
 msgid "Delete"
 msgstr "తీసివేయి"
 
-#: ../src/library/TrashPage.vala:173
+#: ../src/library/TrashPage.vala:177
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] ""
