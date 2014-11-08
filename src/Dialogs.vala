@@ -2072,8 +2072,6 @@ public class PreferencesDialog {
     private Gtk.Dialog dialog;
     private Gtk.HeaderBar header;
     private Gtk.Builder builder;
-    private Gtk.Adjustment bg_color_adjustment;
-    private Gtk.Scale bg_color_slider;
     private Gtk.FileChooserButton library_dir_button;
     private Gtk.ComboBoxText dir_pattern_combo;
     private Gtk.Entry dir_pattern_entry;
@@ -2132,15 +2130,6 @@ public class PreferencesDialog {
 
         Gtk.Box button_container = dialog.get_action_area () as Gtk.Box;
         button_container.add (close_button);
-
-        // Set the bg color value
-        bg_color_adjustment = builder.get_object ("bg_color_adjustment") as Gtk.Adjustment;
-        bg_color_adjustment.set_value (bg_color_adjustment.get_upper () -
-                                       (Config.Facade.get_instance ().get_bg_color ().red * 65535.0));
-        bg_color_adjustment.value_changed.connect (on_value_changed);
-
-        bg_color_slider = builder.get_object ("bg_color_slider") as Gtk.Scale;
-        bg_color_slider.button_press_event.connect (on_bg_color_reset);
 
         library_dir_button = builder.get_object ("library_dir_button") as Gtk.FileChooserButton;
 
@@ -2270,7 +2259,6 @@ public class PreferencesDialog {
     // For items that should only be committed when the dialog is closed, not as soon as the change
     // is made.
     private void commit_on_close () {
-        Config.Facade.get_instance ().commit_bg_color ();
 
         Gtk.CheckButton? autoimport = builder.get_object ("autoimport") as Gtk.CheckButton;
         if (autoimport != null)
@@ -2306,25 +2294,6 @@ public class PreferencesDialog {
 
         dialog.hide ();
         commit_on_close ();
-    }
-
-    private void on_value_changed () {
-        set_background_color ((double) (bg_color_adjustment.get_upper () -
-                                        bg_color_adjustment.get_value ()) / 65535.0);
-    }
-
-    private bool on_bg_color_reset (Gdk.EventButton event) {
-        if (event.button == 1 && event.type == Gdk.EventType.BUTTON_PRESS
-                && has_only_key_modifier (event.state, Gdk.ModifierType.CONTROL_MASK)) {
-            // Left Mouse Button and CTRL pressed
-            bg_color_slider.set_value (bg_color_adjustment.get_upper () -
-                                       (parse_color (Config.Facade.DEFAULT_BG_COLOR).red * 65536.0f));
-            on_value_changed ();
-
-            return true;
-        }
-
-        return false;
     }
 
     private void on_dir_pattern_combo_changed () {
@@ -2368,21 +2337,6 @@ public class PreferencesDialog {
 
     private bool get_allow_closing () {
         return allow_closing;
-    }
-
-    private void set_background_color (double bg_color_value) {
-        Config.Facade.get_instance ().set_bg_color (to_grayscale (bg_color_value));
-    }
-
-    private Gdk.RGBA to_grayscale (double color_value) {
-        Gdk.RGBA color = Gdk.RGBA ();
-
-        color.red = color_value;
-        color.green = color_value;
-        color.blue = color_value;
-        color.alpha = 1.0;
-
-        return color;
     }
 
     private RawDeveloper raw_developer_from_combo () {
