@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-10-29 15:17-0500\n"
-"PO-Revision-Date: 2014-11-14 17:05+0000\n"
+"PO-Revision-Date: 2014-11-25 23:54+0000\n"
 "Last-Translator: Ivan Vrljić <vrlja92@gmail.com>\n"
 "Language-Team: Croatian "
 "(http://www.transifex.com/projects/p/shotwell/language/hr/)\n"
@@ -24,8 +24,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2014-11-17 06:23+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-11-26 06:56+0000\n"
+"X-Generator: Launchpad (build 17252)\n"
 "Language: hr\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -3334,8 +3334,9 @@ msgstr[2] "Izbrisati %d fotografija/videa iz kamere?"
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Obrisati ove datoteke s kamere?"
+msgstr[1] "Obrisati ovih %d datoteka s kamere?"
+msgstr[2] "Obrisati ovih %d datoteka s kamere?"
 
 #: ../src/camera/ImportPage.vala:1784
 msgid "Removing photos/videos from camera"
@@ -3346,8 +3347,9 @@ msgstr "Brisanje fotografija s kamere"
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural ""
 "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nemoguće obrisati %d fotografiju/video s kamere zbog grešaka."
+msgstr[1] "Nemoguće obrisati %d fotografije/videa s kamere zbog grešaka."
+msgstr[2] "Nemoguće obrisati %d fotografije/videa s kamere zbog grešaka."
 
 #: ../src/db/DatabaseTable.vala:37
 #, c-format
@@ -3360,6 +3362,8 @@ msgid ""
 "Unable to write to photo database file:\n"
 " %s"
 msgstr ""
+"Nemoguće pisati u datoteku baze podataka slike:\n"
+" %s"
 
 #: ../src/db/DatabaseTable.vala:48
 #, c-format
@@ -3370,6 +3374,11 @@ msgid ""
 "Error was: \n"
 "%s"
 msgstr ""
+"Greška u pristupanju datoteke baze podataka:\n"
+" %s\n"
+"\n"
+"Greška je: \n"
+"%s"
 
 #: ../src/direct/DirectPhotoPage.vala:47 ../src/library/LibraryWindow.vala:352
 msgid "_File"
@@ -3497,11 +3506,11 @@ msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:775
 msgid "A4 (210 x 297 mm)"
-msgstr ""
+msgstr "A4 (210 x 297 mm)"
 
 #: ../src/editing_tools/EditingTools.vala:779
 msgid "A3 (297 x 420 mm)"
-msgstr ""
+msgstr "A3 (297 x 420 mm)"
 
 #: ../src/editing_tools/EditingTools.vala:1862
 msgid "Size:"
@@ -3582,7 +3591,7 @@ msgstr "Proširenje kontrasta"
 
 #: ../src/editing_tools/StraightenTool.vala:99
 msgid "Angle:"
-msgstr ""
+msgstr "Kut:"
 
 #: ../src/events/EventDirectoryItem.vala:83
 #, c-format
@@ -3683,7 +3692,7 @@ msgstr "Sortiraj _događaje"
 
 #: ../src/library/LibraryWindow.vala:320
 msgid "_Empty Trash"
-msgstr ""
+msgstr "_Isprazni smeće"
 
 #: ../src/library/LibraryWindow.vala:321
 msgid "Delete all photos in the trash"
@@ -3788,7 +3797,7 @@ msgstr "Zapisujem meta podatke u datoteke..."
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Import Photos"
-msgstr ""
+msgstr "Uvezi slike"
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Copy photos from a folder or external device."
@@ -4232,7 +4241,7 @@ msgstr ""
 
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
-msgstr ""
+msgstr "Nova _oznaka..."
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4248,7 +4257,7 @@ msgstr "Nema"
 
 #: ../src/slideshow/TransitionEffects.vala:339
 msgid "Random"
-msgstr ""
+msgstr "Nasumično"
 
 #: ../src/tags/Branch.vala:127
 msgid "Tags"
@@ -4332,11 +4341,11 @@ msgstr "P_reimenuj uvezene datoteke u mala slova"
 
 #: ../ui/shotwell.glade.h:16
 msgid "RAW Developer"
-msgstr ""
+msgstr "RAW razvijatelj"
 
 #: ../ui/shotwell.glade.h:17
 msgid "De_fault:"
-msgstr ""
+msgstr "_Zadano:"
 
 #: ../ui/shotwell.glade.h:18
 msgid "Library Tab"
@@ -4364,7 +4373,7 @@ msgstr ""
 
 #: ../ui/shotwell.glade.h:25
 msgid "Display:"
-msgstr ""
+msgstr "Prikaz:"
 
 #: ../ui/shotwell.glade.h:26
 msgid "RAW Developer:"
@@ -4372,7 +4381,7 @@ msgstr ""
 
 #: ../ui/shotwell.glade.h:27
 msgid "Importing:"
-msgstr ""
+msgstr "Uvoz:"
 
 #: ../ui/shotwell.glade.h:28
 msgid "<b>Printed Image Size</b>"
