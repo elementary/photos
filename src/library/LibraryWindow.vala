@@ -118,7 +118,6 @@ public class LibraryWindow : AppWindow {
     private Gee.HashMap<Page, Sidebar.Entry> page_map = new Gee.HashMap<Page, Sidebar.Entry> ();
 
     private LibraryPhotoPage photo_page = null;
-
     // this is to keep track of cameras which initiate the app
     private static Gee.HashSet<string> initial_camera_uris = new Gee.HashSet<string> ();
 
@@ -129,6 +128,7 @@ public class LibraryWindow : AppWindow {
     // AppWindows instead.
     private SearchFilterToolbar search_toolbar;
 
+    private Gtk.Box page_header_box;
     private Gtk.Box top_section = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Frame background_progress_frame = new Gtk.Frame (null);
     private Gtk.ProgressBar background_progress_bar = new Gtk.ProgressBar ();
@@ -137,7 +137,6 @@ public class LibraryWindow : AppWindow {
     private Gtk.Notebook notebook = new Gtk.Notebook ();
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
-
     private int current_progress_priority = 0;
     private uint background_progress_pulse_id = 0;
 
@@ -221,8 +220,19 @@ public class LibraryWindow : AppWindow {
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
 
         background_progress_bar.set_show_text (true);
+    }
 
+    protected override void build_header_bar () {
+        // Left side of header bar
+        base.build_header_bar ();
+
+        // Right side of header bar
         build_settings_header ();
+
+        // Find button
+        Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
+        find_button.set_related_action (get_common_action ("CommonDisplaySearchbar"));    
+        header.pack_end (find_button);
     }
 
     protected void build_settings_header () {
@@ -692,7 +702,6 @@ public class LibraryWindow : AppWindow {
         CollectionPage collection;
         Photo start;
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
-
         set_common_action_sensitive ("CommonEmptyTrash", can_empty_trash ());
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
@@ -979,6 +988,10 @@ public class LibraryWindow : AppWindow {
         switch_to_page (library_branch.photos_entry.get_page ());
     }
 
+    public void switch_to_event_directory () {
+        switch_to_page (events_branch.get_master_entry ().get_page ());
+    }
+
     public void switch_to_event (Event event) {
         Events.EventEntry? entry = events_branch.get_entry_for_event (event);
         if (entry != null)
@@ -1007,7 +1020,7 @@ public class LibraryWindow : AppWindow {
             // before switching to it
             spin_event_loop ();
         }
-
+        
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
     }
@@ -1298,6 +1311,8 @@ public class LibraryWindow : AppWindow {
             Gtk.Toolbar toolbar = current_page.get_toolbar ();
             if (toolbar != null)
                 right_vbox.remove (toolbar);
+            if (page_header_box != null)
+                header.remove (page_header_box);
 
             current_page.switching_from ();
 
@@ -1315,7 +1330,9 @@ public class LibraryWindow : AppWindow {
         // do this prior to changing selection, as the change will fire a cursor-changed event,
         // which will then call this function again
         base.set_current_page (page);
-
+        page_header_box = page.get_header_buttons ();
+        header.pack_start (page_header_box);
+        header.show_all ();
         // if the visible page is the LibraryPhotoPage, we need to prevent single-click inline
         // renaming in the sidebar because a single click while in the LibraryPhotoPage indicates
         // the user wants to return to the controlling page ... that is, in this special case, the

@@ -103,10 +103,32 @@ public class EventPage : CollectionPage {
     private void on_rename () {
         LibraryWindow.get_app ().rename_event_in_sidebar (page_event);
     }
+
+    public override Gtk.Box get_header_buttons () {
+        header_box = base.get_header_buttons ();
+        // Back Button
+        var back_button = new Gtk.Button ();
+        back_button.clicked.connect (back_to_master_clicked);
+        back_button.get_style_context ().add_class ("back-button");
+        back_button.can_focus = false;
+        back_button.valign = Gtk.Align.CENTER;
+        back_button.vexpand = false;
+        back_button.visible = false;
+        back_button.label = _("All Events");
+        header_box.pack_start (back_button);
+
+        return header_box;
+    }
+
+    public void back_to_master_clicked () {
+        LibraryWindow app = AppWindow.get_instance () as LibraryWindow;
+        app.switch_to_event_directory ();
+    }
+
 }
 
 public class NoEventPage : CollectionPage {
-    public const string NAME = _ ("No Event");
+    public const string NAME = _("No Event");
 
     // This seems very similar to EventSourceCollection -> ViewManager
     private class NoEventViewManager : CollectionViewManager {
