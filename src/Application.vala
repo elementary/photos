@@ -60,6 +60,7 @@ public class Application : Granite.Application {
             app_icon = "multimedia-photo-viewer";
             app_launcher = "shotwell-viewer.desktop";
             program_name = _("Photo Viewer");
+            Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
