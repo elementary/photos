@@ -2070,7 +2070,6 @@ public class PreferencesDialog {
     private static PreferencesDialog preferences_dialog;
 
     private Gtk.Dialog dialog;
-    private Gtk.HeaderBar header;
     private Gtk.Builder builder;
     private Gtk.FileChooserButton library_dir_button;
     private Gtk.ComboBoxText dir_pattern_combo;
@@ -2093,16 +2092,10 @@ public class PreferencesDialog {
         dialog.width_request = 450;
         dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
         dialog.resizable = false;
+        dialog.deletable = false;
         dialog.delete_event.connect (on_delete);
         dialog.map_event.connect (map_event_handler);
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
-        
-        header = new Gtk.HeaderBar ();
-        header.show_close_button = false;
-        header.title = _("Preferences");
-        header.get_style_context ().remove_class ("header-bar");
-        
-        dialog.set_titlebar (header);
 
         // Create our stack container and load in each preference container from shotwell.glade
         Gtk.Stack container = new Gtk.Stack ();
@@ -2330,7 +2323,6 @@ public class PreferencesDialog {
     }
 
     private void set_allow_closing (bool allow) {
-        dialog.set_deletable (allow);
         close_button.set_sensitive (allow);
         allow_closing = allow;
     }
