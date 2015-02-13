@@ -633,6 +633,27 @@ public abstract class AppWindow : PageWindow {
         return (Gtk.ResponseType) response;
     }
 
+    public static Gtk.ResponseType affirm_cancel_negate_question (string message,
+            string affirmative, string negative,
+            string? title = null, Gtk.Window? parent = null) {
+        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
+                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
+
+        dialog.add_buttons (affirmative, Gtk.ResponseType.YES,
+                            _ ("_Cancel"), Gtk.ResponseType.CANCEL,
+                            negative, Gtk.ResponseType.NO);
+
+        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
+        dialog.set_markup (build_alert_body_text (title, message));
+        dialog.use_markup = true;
+
+        int response = dialog.run ();
+
+        dialog.destroy ();
+
+        return (Gtk.ResponseType) response;
+    }
+
     public static Gtk.ResponseType affirm_cancel_question (string message, string affirmative,
             string? title = null, Gtk.Window? parent = null) {
         Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
@@ -643,6 +664,24 @@ public abstract class AppWindow : PageWindow {
         dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
         dialog.add_buttons (affirmative, Gtk.ResponseType.YES, _ ("_Cancel"),
                             Gtk.ResponseType.CANCEL);
+
+        int response = dialog.run ();
+
+        dialog.destroy ();
+
+        return (Gtk.ResponseType) response;
+    }
+
+    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative,
+            string? title = null, Gtk.Window? parent = null) {
+        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
+                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
+        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
+        dialog.set_markup (message);
+        dialog.use_markup = true;
+        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
+        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL,
+                            affirmative, Gtk.ResponseType.YES);
 
         int response = dialog.run ();
 
