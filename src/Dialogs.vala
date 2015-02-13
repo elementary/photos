@@ -128,7 +128,7 @@ public Gtk.ResponseType export_error_dialog (File dest, bool photos_remaining) {
 
     if (photos_remaining) {
         message += _ ("\n\nWould you like to continue exporting?");
-        response = AppWindow.affirm_cancel_question (message, _ ("Con_tinue"));
+        response = AppWindow.cancel_affirm_question (message, _ ("Con_tinue"));
     } else {
         AppWindow.error_message (message);
     }
