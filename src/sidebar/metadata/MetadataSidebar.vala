@@ -14,7 +14,6 @@ public class MetadataView : Gtk.ScrolledWindow {
     public const int SIDEBAR_PADDING = 12;
     public MetadataView () {
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         properties_collection.append (new LibraryProperties ());
         properties_collection.append (new BasicProperties ());
         properties_collection.append (new ExtendedProperties ());
