@@ -94,9 +94,9 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir ();
 
-    private Gtk.Paned sidebar_paned = new Granite.Widgets.ThinPaned (Gtk.Orientation.VERTICAL);
-    private Gtk.Paned client_paned = new Granite.Widgets.ThinPaned ();
-    private Gtk.Paned right_client_paned = new Granite.Widgets.ThinPaned ();
+    private Gtk.Paned sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+    private Gtk.Paned client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+    private Gtk.Paned right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
     private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
