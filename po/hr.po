@@ -24,8 +24,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-03-17 05:46+0000\n"
-"X-Generator: Launchpad (build 17389)\n"
+"X-Launchpad-Export-Date: 2015-04-10 05:28+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 "Language: hr\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -137,7 +137,7 @@ msgstr "Trenutno niste prijavljeni u Yandex.Fotki."
 
 #: ../plugins/shotwell-publishing-extras/shotwell-publishing-extras.vala:18
 msgid "Shotwell Extra Publishing Services"
-msgstr ""
+msgstr "Shotwell dodatne usluge objave"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:1
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:1
@@ -291,6 +291,8 @@ msgid ""
 "A file required for publishing is unavailable. Publishing to Facebook can't "
 "continue."
 msgstr ""
+"Datoteka potrebna za objavljivanje je nedostupna. Objava na Facebooku se ne "
+"može nastaviti."
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:1019
 #, c-format
@@ -353,6 +355,8 @@ msgid ""
 "A file required for publishing is unavailable. Publishing to Flickr can't "
 "continue."
 msgstr ""
+"Datoteka potrebna za objavljivanje je nedostupna. Objava na Flickru se ne "
+"može nastaviti."
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:457
 msgid "Verifying authorization..."
@@ -428,12 +432,19 @@ msgid ""
 "Click Login to log into Picasa Web Albums in your Web browser. You will have "
 "to authorize Shotwell Connect to link to your Picasa Web Albums account."
 msgstr ""
+"Trenutno niste prijavljeni u Picasa web album.\n"
+"\n"
+"Kliknite Prijava kako biste se prijavili u Picasa web albume u vašem web "
+"pregledniku. Morati ćete ovjeriti Shotwell povezivanje na poveznicu u vaš "
+"račun Picasa web albuma."
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:361
 msgid ""
 "A file required for publishing is unavailable. Publishing to Picasa can't "
 "continue."
 msgstr ""
+"Datoteka potrebna za objavljivanje je nedostupna. Objava na Picasu se ne "
+"može nastaviti."
 
 #. populate any widgets whose contents are programmatically-generated.
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:659
@@ -464,7 +475,7 @@ msgstr "Preporučeno ( 1600 x 1200 piksela )"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:748
 msgid "Google+ (2048 x 1536 pixels)"
-msgstr ""
+msgstr "Google+ (2048 x 1536 piksela)"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:749
 #: ../src/editing_tools/EditingTools.vala:756
@@ -479,7 +490,7 @@ msgstr "Stvaranje albuma %s..."
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:917
 msgid ""
 "An error message occurred when publishing to Piwigo. Please try again."
-msgstr ""
+msgstr "Nastala je greška prilikom prijave na Piwigo. Pokušajte ponovno.."
 
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:998
 msgid ""
@@ -536,6 +547,8 @@ msgid ""
 "A file required for publishing is unavailable. Publishing to Youtube can't "
 "continue."
 msgstr ""
+"Datoteka potrebna za objavljivanje je nedostupna. Objava na Youtube se ne "
+"može nastaviti."
 
 #: ../plugins/shotwell-publishing/YouTubePublishing.vala:461
 #, c-format
@@ -580,6 +593,7 @@ msgstr "Video i novi albumi s fotografijama su vidljivi:"
 msgid ""
 "_Remove location, camera, and other identifying information before uploading"
 msgstr ""
+"_Ukloni lokaciju, kameru, i ostale informacije identifikacije prije slanja"
 
 #: ../plugins/shotwell-publishing/flickr_pin_entry_pane.glade.h:1
 msgid ""
@@ -674,10 +688,11 @@ msgstr "Komentar albuma:"
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:9
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
+"_Ako je naslov postavljen a komentar nije, koristi naslov kao komentar"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:10
 msgid "_Do no upload tags"
-msgstr ""
+msgstr "_Ne šalji oznake"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:11
 msgid "Logout"
@@ -747,7 +762,7 @@ msgstr ""
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr ""
+msgstr "Nemoguće čitanje direktorija predmemorije %s: %s"
 
 #: ../src/AppDirs.vala:58 ../src/AppDirs.vala:88
 #, c-format
@@ -971,11 +986,11 @@ msgstr ""
 
 #: ../src/Commands.vala:881
 msgid "Applying Color Transformations"
-msgstr ""
+msgstr "Primjenjivanje transformacija boje"
 
 #: ../src/Commands.vala:881
 msgid "Undoing Color Transformations"
-msgstr ""
+msgstr "Poništavanje transformacija boje"
 
 #: ../src/Commands.vala:1031
 msgid "Creating New Event"
@@ -1117,7 +1132,7 @@ msgstr "Odznači odabrane fotografije"
 
 #: ../src/Commands.vala:2479
 msgid "Flagging selected photos"
-msgstr ""
+msgstr "Označavanje odabrane fotografije"
 
 #: ../src/Commands.vala:2480
 msgid "Unflagging selected photos"
@@ -1157,11 +1172,18 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Shotwell"
 msgstr[0] ""
+"Zamjena razvijatelja će poništiti sve promjene koje ste učinili na ovoj "
+"fotografiji u Shotwellu"
 msgstr[1] ""
+"Zamjena razvijatelja će poništiti sve promjene koje ste učinili na ovim "
+"fotografijama u Shotwellu"
+msgstr[2] ""
+"Zamjena razvijatelja će poništiti sve promjene koje ste učinili na ovim "
+"fotografijama u Shotwellu"
 
 #: ../src/Dialogs.vala:39
 msgid "_Switch Developer"
-msgstr ""
+msgstr "_Zamijeni razvijatelja"
 
 #: ../src/Dialogs.vala:58
 msgid "Export Video"
@@ -1188,6 +1210,8 @@ msgid ""
 "Shotwell couldn't create a file for editing this photo because you do not "
 "have permission to write to %s."
 msgstr ""
+"Shotwell nije mogao stvoriti datoteku za uređivanje ove fotografije jer "
+"nemate dozvole za pisanje u %s."
 
 #: ../src/Dialogs.vala:124
 msgid ""
@@ -1237,7 +1261,7 @@ msgstr " _piksela"
 
 #: ../src/Dialogs.vala:231
 msgid "Export metadata"
-msgstr ""
+msgstr "Izvezi metapodatke"
 
 #: ../src/Dialogs.vala:246
 msgid "_Export"
@@ -1258,44 +1282,46 @@ msgstr "Još %d.\n"
 
 #: ../src/Dialogs.vala:536
 msgid "Import Results Report"
-msgstr ""
+msgstr "Uvezi izvještaj rezultata"
 
 #: ../src/Dialogs.vala:540
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pokušaj uvoza %d datoteke."
+msgstr[1] "Pokušaj uvoza %d datoteke."
+msgstr[2] "Pokušaj uvoza %d datoteka."
 
 #: ../src/Dialogs.vala:543
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Od toga, %d datoteka je uspješno uvezena."
+msgstr[1] "Od toga, %d datoteke su uspješno uvezene."
+msgstr[2] "Od toga, %d datoteka je uspješno uvezeno."
 
 #. 
 #. Duplicates
 #. 
 #: ../src/Dialogs.vala:555
 msgid "Duplicate Photos/Videos Not Imported:"
-msgstr ""
+msgstr "Duplikat fotografija/video snimka nije uvezen:"
 
 #: ../src/Dialogs.vala:559
 msgid "duplicates existing media item"
-msgstr ""
+msgstr "napravi duplikat postojeće medijske stavke"
 
 #. 
 #. Files Not Imported Due to Camera Errors
 #. 
 #: ../src/Dialogs.vala:570
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
-msgstr ""
+msgstr "Fotografije/Video snimke nisu uvezeni zbog greške na kameri:"
 
 #: ../src/Dialogs.vala:573 ../src/Dialogs.vala:588 ../src/Dialogs.vala:603
 #: ../src/Dialogs.vala:619 ../src/Dialogs.vala:634 ../src/Dialogs.vala:648
 msgid "error message:"
-msgstr ""
+msgstr "poruka greške:"
 
 #. 
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
@@ -1304,6 +1330,7 @@ msgstr ""
 msgid ""
 "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
+"Datoteke nisu uvezene jer nisu prepoznate kao fotografije ili video snimke:"
 
 #. 
 #. Photos/Videos Not Imported Because They Weren't in a Format Shotwell Understands
@@ -1313,6 +1340,8 @@ msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Shotwell "
 "Understands:"
 msgstr ""
+"Fotografije/Video snimke nisu uvezene jer nisu u formatu koji Shotwell "
+"prepoznaje:"
 
 #. 
 #. Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library
@@ -1322,6 +1351,8 @@ msgid ""
 "Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
 "Library:"
 msgstr ""
+"Fotografije/Video snimke nisu uvezene zato jer ih Shotwell nije mogao "
+"kopirati u fototeku:"
 
 #: ../src/Dialogs.vala:618
 #, c-format
@@ -1329,20 +1360,22 @@ msgid ""
 "couldn't copy %s\n"
 "\tto %s"
 msgstr ""
+"nemoguće kopiranje %s\n"
+"\tu %s"
 
 #. 
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #. 
 #: ../src/Dialogs.vala:630
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
-msgstr ""
+msgstr "Fotografije/Video snimke nisu uvezene zato jer su oštećene:"
 
 #. 
 #. Photos/Videos Not Imported for Other Reasons
 #. 
 #: ../src/Dialogs.vala:645
 msgid "Photos/Videos Not Imported for Other Reasons:"
-msgstr ""
+msgstr "Fotografije/Video snimke nisu uvezene zbog drugih razloga:"
 
 #: ../src/Dialogs.vala:665
 #, c-format
@@ -1500,29 +1533,35 @@ msgstr[2] "%d datoteka nije uvezeno zbog greške u kameri:\n"
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 fotografija se nije uvezla zato jer je oštećena:\n"
+msgstr[1] "%d fotografije se nisu uvezle zato jer su oštećene:\n"
+msgstr[2] "%d fotografija se nije uvezlo zato jer su oštećene:\n"
 
 #: ../src/Dialogs.vala:757
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 video snimka se nije uvezla zato jer je oštećena:\n"
+msgstr[1] "%d video snimke se nisu uvezle zato jer su oštećene:\n"
+msgstr[2] "%d video snimaka se nije uvezlo zato jer su oštećene:\n"
 
 #: ../src/Dialogs.vala:760
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
-msgstr[0] ""
+msgstr[0] "1 fotografija/video snimka se nije uvezla zato jer je oštećena:\n"
 msgstr[1] ""
+"%d  fotografije/video snimke se nisu uvezle zato jer su oštećene:\n"
+msgstr[2] ""
+"%d  fotografija/video snimaka se nije uvezlo zato jer su oštećene:\n"
 
 #: ../src/Dialogs.vala:763
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 datoteka se nije uvezla zato jer je oštećena:\n"
+msgstr[1] "%d datoteke se nisu uvezle zato jer su oštećene:\n"
+msgstr[2] "%d datoteka se nije uvezlo zato jer su oštećene:\n"
 
 #. we have no notion of "unsupported" video files right now in Shotwell (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1747,11 +1786,11 @@ msgstr "Postavi _sve fotografije/videozapise na ovo vrijeme"
 
 #: ../src/Dialogs.vala:1628
 msgid "_Modify original photo file"
-msgstr ""
+msgstr "_Promjeni izvornu datoteku fotografije"
 
 #: ../src/Dialogs.vala:1628
 msgid "_Modify original photo files"
-msgstr ""
+msgstr "_Promjeni izvornu datoteku fotografija"
 
 #: ../src/Dialogs.vala:1631
 msgid "_Modify original file"
@@ -2096,7 +2135,7 @@ msgstr "_Komentari"
 
 #: ../src/MediaPage.vala:379
 msgid "Display the comment of each photo"
-msgstr ""
+msgstr "Prikaži komentar svake fotografije"
 
 #: ../src/MediaPage.vala:392 ../src/library/LibraryWindow.vala:368
 msgid "Ta_gs"
@@ -2475,27 +2514,27 @@ msgstr ""
 
 #: ../src/Resources.vala:155
 msgid "_Copy Color Adjustments"
-msgstr ""
+msgstr "_Kopiraj prilagodbe boje"
 
 #: ../src/Resources.vala:156
 msgid "Copy Color Adjustments"
-msgstr ""
+msgstr "Kopiraj prilagodbe boje"
 
 #: ../src/Resources.vala:157
 msgid "Copy the color adjustments applied to the photo"
-msgstr ""
+msgstr "Kopiraj prilagodbe boje primjenjene na fotografiju"
 
 #: ../src/Resources.vala:159
 msgid "_Paste Color Adjustments"
-msgstr ""
+msgstr "_Zalijepi prilagodbe boje"
 
 #: ../src/Resources.vala:160
 msgid "Paste Color Adjustments"
-msgstr ""
+msgstr "Zalijepi prilagodbe boje"
 
 #: ../src/Resources.vala:161
 msgid "Apply copied color adjustments to the selected photos"
-msgstr ""
+msgstr "Kopiraj prilagodbe boje primijenjene na odabranoj fotografiji"
 
 #: ../src/Resources.vala:163
 msgid "_Crop"
@@ -2663,7 +2702,7 @@ msgstr "_Neocijenjeno"
 
 #: ../src/Resources.vala:222
 msgid "Unrated"
-msgstr ""
+msgstr "Neocijenjeno"
 
 #: ../src/Resources.vala:223
 msgid "Rate Unrated"
@@ -2803,7 +2842,7 @@ msgstr "Uredi komentar"
 
 #: ../src/Resources.vala:280
 msgid "Edit Event _Comment..."
-msgstr ""
+msgstr "Uredi događaj _komentara..."
 
 #: ../src/Resources.vala:281
 msgid "Edit Event Comment"
@@ -3131,14 +3170,14 @@ msgstr "Odaberi sve stavke"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: ../src/Resources.vala:842
 msgid "%-I:%M %p"
-msgstr ""
+msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: ../src/Resources.vala:847
 msgid "%-I:%M:%S %p"
-msgstr ""
+msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
@@ -3537,11 +3576,11 @@ msgstr "HD Video (16 : 9)"
 
 #: ../src/editing_tools/EditingTools.vala:766
 msgid "Letter (8.5 x 11 in.)"
-msgstr ""
+msgstr "Pismo (8.5 x 11 in.)"
 
 #: ../src/editing_tools/EditingTools.vala:768
 msgid "Tabloid (11 x 17 in.)"
-msgstr ""
+msgstr "Tabloid (11 x 17 in.)"
 
 #: ../src/editing_tools/EditingTools.vala:775
 msgid "A4 (210 x 297 mm)"
@@ -3590,7 +3629,7 @@ msgstr "Sjene:"
 
 #: ../src/editing_tools/EditingTools.vala:2271
 msgid "Highlights:"
-msgstr ""
+msgstr "Istaknuto:"
 
 #: ../src/editing_tools/EditingTools.vala:2325
 msgid "Reset Colors"
@@ -3622,7 +3661,7 @@ msgstr "Sjene"
 
 #: ../src/editing_tools/EditingTools.vala:2742
 msgid "Highlights"
-msgstr ""
+msgstr "Istaknuto"
 
 #: ../src/editing_tools/EditingTools.vala:2752
 msgid "Contrast Expansion"
@@ -3798,6 +3837,10 @@ msgid ""
 "Preferences</span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
+"Shotwell je podešen za uvoz fotografija u vašu osobnu mapu.\n"
+"Preporučujemo promjenu ovoga u <span weight=\"bold\">Uredi %s "
+"Osobitosti</span>.\n"
+"Želite li nastaviti s uvozom fotografija?"
 
 #: ../src/library/LibraryWindow.vala:846
 msgid "_Import"
@@ -3930,19 +3973,19 @@ msgstr "Učitavanje Shotwell-a"
 
 #: ../src/main.vala:294
 msgid "Path to Shotwell's private data"
-msgstr ""
+msgstr "Putanja do Shotwellovih privatnih podataka"
 
 #: ../src/main.vala:294
 msgid "DIRECTORY"
-msgstr ""
+msgstr "DIREKTORIJ"
 
 #: ../src/main.vala:299
 msgid "Do not monitor library directory at runtime for changes"
-msgstr ""
+msgstr "Ne nadziri direktorij fototeke pri vremenu izvršavanja promjena"
 
 #: ../src/main.vala:304
 msgid "Don't display startup progress meter"
-msgstr ""
+msgstr "Ne prikazuj pokretanje prikaza napretka"
 
 #: ../src/main.vala:309
 msgid "Show the application's version"
@@ -4146,7 +4189,7 @@ msgstr "bilo koja fotografija"
 
 #: ../src/searches/SavedSearchDialog.vala:252
 msgid "a raw photo"
-msgstr ""
+msgstr "raw fotografija"
 
 #: ../src/searches/SavedSearchDialog.vala:253
 msgid "a video"
@@ -4158,19 +4201,19 @@ msgstr "ima"
 
 #: ../src/searches/SavedSearchDialog.vala:308
 msgid "has no"
-msgstr ""
+msgstr "nema"
 
 #: ../src/searches/SavedSearchDialog.vala:313
 msgid "modifications"
-msgstr ""
+msgstr "promjene"
 
 #: ../src/searches/SavedSearchDialog.vala:314
 msgid "internal modifications"
-msgstr ""
+msgstr "unutrašnje promjene"
 
 #: ../src/searches/SavedSearchDialog.vala:315
 msgid "external modifications"
-msgstr ""
+msgstr "vanjske promjene"
 
 #. Ordering must correspond with SearchConditionFlagged.State
 #: ../src/searches/SavedSearchDialog.vala:369
@@ -4277,7 +4320,7 @@ msgstr "Stanje oznake"
 
 #: ../src/searches/SearchBoolean.vala:183
 msgid "Photo state"
-msgstr ""
+msgstr "Stanje fotografije"
 
 #: ../src/searches/SearchBoolean.vala:189
 msgid "Date"
@@ -4449,7 +4492,7 @@ msgstr "_Automatska veličina:"
 
 #: ../ui/shotwell.glade.h:33
 msgid "<b>Titles</b>"
-msgstr ""
+msgstr "<b>Naslovi</b>"
 
 #: ../ui/shotwell.glade.h:34
 msgid "Print image _title"
@@ -4673,3 +4716,211 @@ msgstr "_Prijava"
 
 #~ msgid "Search"
 #~ msgstr "Pretraga"
+
+#~ msgid "Manually select an F-Spot database file to import:"
+#~ msgstr "Ručno odaberi F-Spot bazu podataka za uvoz:"
+
+#~ msgid "Copyright 2009-2014 Yorba Foundation"
+#~ msgstr "Autorko pravo 2009-2014 Yorba Foundation"
+
+#~ msgid ""
+#~ "Cannot read the selected F-Spot database file: error while reading photos "
+#~ "table"
+#~ msgstr ""
+#~ "Nemoguće pročitati odabranu F-Spot bazu podataka: greška pri čitanju tablice "
+#~ "fotografija"
+
+#~ msgid ""
+#~ "Cannot open the selected F-Spot database file: this version of the F-Spot "
+#~ "database is not supported by Shotwell"
+#~ msgstr ""
+#~ "Nemoguće otvoriti odabranu F-Spot bazu podataka: Shotwell ne podržava ovu "
+#~ "inačicu F-Spot baze podataka"
+
+#~ msgid ""
+#~ "Cannot open the selected F-Spot database file: the file does not exist or is "
+#~ "not an F-Spot database"
+#~ msgstr ""
+#~ "Nemoguće otvoriti odabranu F-Spot bazu podataka: datoteka ne postoji ili "
+#~ "nije F-Spot baza podataka"
+
+#~ msgid ""
+#~ "Cannot read the selected F-Spot database file: error while reading tags table"
+#~ msgstr ""
+#~ "Nemoguće pročitati odabranu F-Spot bazu podataka: greška pri čitanju tablice "
+#~ "oznaka"
+
+#~ msgid "Preparing to import"
+#~ msgstr "Priprema uvoza"
+
+#, c-format
+#~ msgid "Unable to navigate to bug database: %s"
+#~ msgstr "Nemoguće upravljanje bazom podataka greške: %s"
+
+#~ msgid "_Report a Problem..."
+#~ msgstr "_Prijavi problem..."
+
+#~ msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2014 Yorba Foundation"
+#~ msgstr ""
+#~ "Autorsko pravo 2010 Maxim Kartashev, autorsko pravo 2011-2014 Yorba fondacija"
+
+#, c-format
+#~ msgid "This will remove the saved search \"%s\".  Continue?"
+#~ msgstr "Ovo će ukloniti spremljeno pretraživanje %s. Nastavi?"
+
+#~ msgid "_Remove From Library"
+#~ msgstr "_Ukloni iz biblioteke"
+
+#~ msgid "Edit Photo/Video Comment"
+#~ msgstr "Uredi komentar fotografije/video snimke"
+
+#~ msgid "Comment:"
+#~ msgstr "Komentar:"
+
+#~ msgid "Current Development:"
+#~ msgstr "Trenutni razvoj:"
+
+#~ msgid "Developer:"
+#~ msgstr "Razvijatelj:"
+
+#, c-format
+#~ msgid ""
+#~ "The photo or video cannot be moved to your desktop trash.  Delete this file?"
+#~ msgid_plural ""
+#~ "%d photos/videos cannot be moved to your desktop trash.  Delete these files?"
+#~ msgstr[0] ""
+#~ "Fotografija ili video snimka se ne može premjestiti u smeće. Obriši ovu "
+#~ "datoteku?"
+#~ msgstr[1] ""
+#~ "%d fotografije/video snimke se ne mogu premjestiti u smeće. Obriši ove "
+#~ "datoteke?"
+#~ msgstr[2] ""
+#~ "%d fotografija/video snimaka se ne može premjestiti u smeće. Obriši ove "
+#~ "datoteke?"
+
+#, c-format
+#~ msgid ""
+#~ "This will remove the photo from your Shotwell library.  Would you also like "
+#~ "to move the file to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgid_plural ""
+#~ "This will remove %d photos from your Shotwell library.  Would you also like "
+#~ "to move the files to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr[0] ""
+#~ "Uklanjanje fotografije iz Shotwell fototeke. Želite li fotografiju "
+#~ "premjestiti u Smeće?\n"
+#~ "\n"
+#~ "Ova radnja se ne može vratiti natrag."
+#~ msgstr[1] ""
+#~ "Uklanjanje %d fotografije iz Shotwell fototeke. Želite li fotografije "
+#~ "premjestiti u Smeće?\n"
+#~ "\n"
+#~ "Ova radnja se ne može vratiti natrag."
+#~ msgstr[2] ""
+#~ "Uklanjanje %d fotografija iz Shotwell fototeke. Želite li fotografije "
+#~ "premjestiti u Smeće?\n"
+#~ "\n"
+#~ "Ova radnja se ne može vratiti natrag."
+
+#, c-format
+#~ msgid ""
+#~ "This will remove the video from your Shotwell library.  Would you also like "
+#~ "to move the file to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgid_plural ""
+#~ "This will remove %d videos from your Shotwell library.  Would you also like "
+#~ "to move the files to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr[0] ""
+#~ "Ovo će ukloniti video snimku iz vaše Shotwell fototeke. Želite li također "
+#~ "premjestiti datoteku u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+#~ msgstr[1] ""
+#~ "Ovo će ukloniti %d video snimke iz vaše Shotwell fototeke. Želite li također "
+#~ "premjestiti datoteke u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+#~ msgstr[2] ""
+#~ "Ovo će ukloniti %d video snimaka iz vaše Shotwell fototeke. Želite li "
+#~ "također premjestiti datoteke u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+
+#, c-format
+#~ msgid ""
+#~ "This will remove the photo/video from your Shotwell library.  Would you also "
+#~ "like to move the file to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgid_plural ""
+#~ "This will remove %d photos/videos from your Shotwell library.  Would you "
+#~ "also like to move the files to your desktop trash?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr[0] ""
+#~ "Ovo će ukloniti fotografiju/video snimke iz vaše Shotwell fototeke. Želite "
+#~ "li također premjestiti datoteku u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+#~ msgstr[1] ""
+#~ "Ovo će ukloniti %d fotografije/video snimke iz vaše Shotwell fototeke. "
+#~ "Želite li također premjestiti datoteke u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+#~ msgstr[2] ""
+#~ "Ovo će ukloniti %d fotografija/video snimaka iz vaše Shotwell fototeke. "
+#~ "Želite li također premjestiti datoteke u kantu za smeće?\n"
+#~ "\n"
+#~ "Ova se radnja ne može poništiti."
+
+#~ msgid ""
+#~ "You do not have any data imports plugins enabled.\n"
+#~ "\n"
+#~ "In order to use the Import From Application functionality, you need to have "
+#~ "at least one data imports plugin enabled. Plugins can be enabled in the "
+#~ "Preferences dialog."
+#~ msgstr ""
+#~ "Nemate omogućen nijedan priključak za uvoz podataka.\n"
+#~ "\n"
+#~ "Kako bi mogli koristiti uvoz iz aplikacija, morate imati omogućen barem "
+#~ "jedan takav priključak. Oni se mogu omogućiti u dijalogu \"Osobitosti\"."
+
+#~ msgid "Database file:"
+#~ msgstr "Datoteka baze podataka:"
+
+#~ msgid "Data Imports"
+#~ msgstr "Uvoz podataka"
+
+#~ msgid ""
+#~ "To try importing from another service, select one from the above menu."
+#~ msgstr ""
+#~ "Kako bi pokušali uvesti iz neke druge usluge, odaberite jednu iz gornjeg "
+#~ "izbornika."
+
+#, c-format
+#~ msgid "Importing from %s can't continue because an error occurred:"
+#~ msgstr "Uvoz iz %s se ne može nastaviti zbog greške:"
+
+#~ msgid "Saved Search"
+#~ msgstr "Spremljena pretraga"
+
+#~ msgid "Delete Search"
+#~ msgstr "Obriši pretragu"
+
+#~ msgid "Import From Application"
+#~ msgstr "Uvezi iz programa"
+
+#~ msgid "Import From _Application..."
+#~ msgstr "Uvezi iz _programa..."
+
+#~ msgid "Import media _from:"
+#~ msgstr "Uvezi medije _iz:"
+
+#~ msgid "Folders"
+#~ msgstr "Mape"
