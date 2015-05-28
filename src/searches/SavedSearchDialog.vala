@@ -657,7 +657,7 @@ public class SavedSearchDialog {
         Gtk.Label match_label = new Gtk.Label.with_mnemonic (_ ("_Match"));
         Gtk.Label match2_label = new Gtk.Label.with_mnemonic (_ ("of the following:"));
         match2_label.hexpand = true;
-        match2_label.xalign = 0;
+        ((Gtk.Misc) match2_label).xalign = 0.0f;
 
         row_box = new Gtk.Grid ();
         row_box.orientation = Gtk.Orientation.VERTICAL;
