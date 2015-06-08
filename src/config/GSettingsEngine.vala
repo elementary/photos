@@ -5,7 +5,7 @@
  */
 
 public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
-    private const string ROOT_SCHEMA_NAME = "org.yorba.shotwell";
+    private const string ROOT_SCHEMA_NAME = "org.yorba.pantheon-photos";
     private const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
     private const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
     private const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
@@ -264,7 +264,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         if (cleaned_id == null)
             cleaned_id = "default";
 
-        cleaned_id = cleaned_id.replace ("org.yorba.shotwell.", "");
+        cleaned_id = cleaned_id.replace ("org.yorba.pantheon-photos.", "");
         cleaned_id = cleaned_id.replace (".", "-");
 
         return cleaned_id;
@@ -276,7 +276,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
 
-        return "org.yorba.shotwell.%s.%s".printf (domain, cleaned_id);
+        return "org.yorba.pantheon-photos.%s.%s".printf (domain, cleaned_id);
     }
 
     private static string make_gsettings_key (string gconf_key) {
@@ -464,7 +464,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         try {
             Process.spawn_command_line_sync (cmd_line);
         } catch (Error err) {
-            message ("Error running shotwell-settings-migrator: %s", err.message);
+            message ("Error running pantheon-photos-settings-migrator: %s", err.message);
         }
     }
 

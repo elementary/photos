@@ -23,7 +23,7 @@ public class TumblrService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.yorba.shotwell.publishing.tumblr";
+        return "org.yorba.pantheon-photos.publishing.tumblr";
     }
 
     public unowned string get_pluggable_name () {

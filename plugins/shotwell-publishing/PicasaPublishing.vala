@@ -20,7 +20,7 @@ public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.yorba.shotwell.publishing.picasa";
+        return "org.yorba.pantheon-photos.publishing.picasa";
     }
 
     public unowned string get_pluggable_name () {

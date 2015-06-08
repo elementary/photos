@@ -1,6 +1,6 @@
-PROGRAM = shotwell
-PROGRAM_THUMBNAILER = shotwell-video-thumbnailer
-PROGRAM_MIGRATOR = shotwell-settings-migrator
+PROGRAM = pantheon-photos
+PROGRAM_THUMBNAILER = pantheon-photos-video-thumbnailer
+PROGRAM_MIGRATOR = pantheon-photos-settings-migrator
 
 VERSION = 0.1
 GITVER := $(shell git log -n 1 2>/dev/null | head -n 1 | awk '{print $$2}')
@@ -27,7 +27,7 @@ LIB=lib
 
 -include configure.mk
 ifndef LIBEXECDIR
-LIBEXECDIR=$(PREFIX)/libexec/shotwell
+LIBEXECDIR=$(PREFIX)/libexec/pantheon-photos
 endif
 
 CORE_SUPPORTED_LANGUAGES=$(shell cat po/LINGUAS)
@@ -146,14 +146,14 @@ RESOURCE_FILES = \
 	trash.ui 
 
 SYS_INTEGRATION_FILES = \
-	shotwell.appdata.xml \
-	shotwell.desktop.head \
-	shotwell.desktop.tail \
-	shotwell-viewer.desktop.head \
-	shotwell-viewer.desktop.tail \
-	org.yorba.shotwell.gschema.xml \
-	org.yorba.shotwell-extras.gschema.xml \
-	shotwell.convert
+	pantheon-photos.appdata.xml \
+	pantheon-photos.desktop.head \
+	pantheon-photos.desktop.tail \
+	pantheon-photos-viewer.desktop.head \
+	pantheon-photos-viewer.desktop.tail \
+	org.yorba.pantheon-photos.gschema.xml \
+	org.yorba.pantheon-photos-extras.gschema.xml \
+	pantheon-photos.convert
 
 SCHEMA_FILES := $(shell ls misc/*.gschema.xml)
 
@@ -306,7 +306,7 @@ DESKTOP_APP_KEYWORDS="album;camera;cameras;crop;edit;enhance;export;gallery;imag
 DIRECT_EDIT_DESKTOP_APP_SHORT_NAME="Photo Viewer"
 DIRECT_EDIT_DESKTOP_APP_FULL_NAME="Photo Viewer"
 DIRECT_EDIT_DESKTOP_APPLICATION_CLASS="Photo Viewer"
-TEMPORARY_DESKTOP_FILES = misc/shotwell.desktop misc/shotwell-viewer.desktop
+TEMPORARY_DESKTOP_FILES = misc/pantheon-photos.desktop misc/pantheon-photos-viewer.desktop
 
 # Process the units
 UNIT_MKS := $(foreach unit,$(UNITS),src/$(unit)/mk/$(notdir $(unit)).mk)
@@ -442,45 +442,45 @@ package:
 	cp $(DIST_TAR_XZ) $(PACKAGE_ORIG_XZ)
 	rm -f $(DIST_TAR_XZ)
 
-misc/shotwell.desktop: misc/shotwell.desktop.head misc/shotwell.desktop.tail $(EXPANDED_CORE_PO_FILES)
-	cp misc/shotwell.desktop.head misc/shotwell.desktop
+misc/pantheon-photos.desktop: misc/pantheon-photos.desktop.head misc/pantheon-photos.desktop.tail $(EXPANDED_CORE_PO_FILES)
+	cp misc/pantheon-photos.desktop.head misc/pantheon-photos.desktop
 	@ $(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack \
 		LANGUAGE=$(lang) gettext --domain=shotwell $(DESKTOP_APP_FULL_NAME)` \
-		>> misc/shotwell.desktop ; \
+		>> misc/pantheon-photos.desktop ; \
 		echo GenericName[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) \
-		gettext --domain=shotwell $(DESKTOP_APPLICATION_CLASS)` >> misc/shotwell.desktop ; \
+		gettext --domain=shotwell $(DESKTOP_APPLICATION_CLASS)` >> misc/pantheon-photos.desktop ; \
 		echo Comment[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
-		--domain=shotwell $(DESKTOP_APPLICATION_COMMENT)` >> misc/shotwell.desktop ; \
+		--domain=shotwell $(DESKTOP_APPLICATION_COMMENT)` >> misc/pantheon-photos.desktop ; \
 		echo Keywords[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
-		--domain=shotwell $(DESKTOP_APP_KEYWORDS)` >> misc/shotwell.desktop ;) 
-	cat misc/shotwell.desktop.tail >> misc/shotwell.desktop
+		--domain=shotwell $(DESKTOP_APP_KEYWORDS)` >> misc/pantheon-photos.desktop ;) 
+	cat misc/pantheon-photos.desktop.tail >> misc/pantheon-photos.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
-	@ desktop-file-validate misc/shotwell.desktop 1>misc/shotwell.desktop.errors 2>&1; \
-	if test -s misc/shotwell.desktop.errors; then \
-		echo -e "\nThe file misc/shotwell.desktop.head or one of the .po files contains errors and may need to be edited.\nPlease see the file misc/shotwell.desktop.errors for details."; \
+	@ desktop-file-validate misc/pantheon-photos.desktop 1>misc/pantheon-photos.desktop.errors 2>&1; \
+	if test -s misc/pantheon-photos.desktop.errors; then \
+		echo -e "\nThe file misc/pantheon-photos.desktop.head or one of the .po files contains errors and may need to be edited.\nPlease see the file misc/pantheon-photos.desktop.errors for details."; \
 		exit 1; \
-	else rm -f misc/shotwell.desktop.errors; \
+	else rm -f misc/pantheon-photos.desktop.errors; \
 	fi
 endif
 	
-misc/shotwell-viewer.desktop: misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop.tail $(EXPANDED_CORE_PO_FILES)
-	cp misc/shotwell-viewer.desktop.head misc/shotwell-viewer.desktop
+misc/pantheon-photos-viewer.desktop: misc/pantheon-photos-viewer.desktop.head misc/pantheon-photos-viewer.desktop.tail $(EXPANDED_CORE_PO_FILES)
+	cp misc/pantheon-photos-viewer.desktop.head misc/pantheon-photos-viewer.desktop
 	$(foreach lang,$(CORE_SUPPORTED_LANGUAGES), echo X-GNOME-FullName[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
-		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APP_FULL_NAME)` >> misc/shotwell-viewer.desktop ; \
+		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APP_FULL_NAME)` >> misc/pantheon-photos-viewer.desktop ; \
 		echo GenericName[$(lang)]=`TEXTDOMAINDIR=locale-langpack LANGUAGE=$(lang) gettext \
-		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APPLICATION_CLASS)` >> misc/shotwell-viewer.desktop ;)
-	cat misc/shotwell-viewer.desktop.tail >> misc/shotwell-viewer.desktop
+		--domain=shotwell $(DIRECT_EDIT_DESKTOP_APPLICATION_CLASS)` >> misc/pantheon-photos-viewer.desktop ;)
+	cat misc/pantheon-photos-viewer.desktop.tail >> misc/pantheon-photos-viewer.desktop
 ifndef DISABLE_DESKTOP_VALIDATE
-	@ desktop-file-validate misc/shotwell-viewer.desktop 1>misc/shotwell-viewer.desktop.errors 2>&1; \
-	if test -s misc/shotwell-viewer.desktop.errors; then \
-		echo -e S"\nThe file misc/shotwell-viewer.desktop.head or one of the .po files contains errors and may need to be edited.\nPlease see the file misc/shotwell-viewer.desktop.errors for details."; \
+	@ desktop-file-validate misc/pantheon-photos-viewer.desktop 1>misc/pantheon-photos-viewer.desktop.errors 2>&1; \
+	if test -s misc/pantheon-photos-viewer.desktop.errors; then \
+		echo -e S"\nThe file misc/pantheon-photos-viewer.desktop.head or one of the .po files contains errors and may need to be edited.\nPlease see the file misc/pantheon-photos-viewer.desktop.errors for details."; \
 		exit 1; \
-	else rm -f misc/shotwell-viewer.desktop.errors; \
+	else rm -f misc/pantheon-photos-viewer.desktop.errors; \
 	fi
 endif
 
 .PHONY: desktop
-desktop: misc/shotwell.desktop misc/shotwell-viewer.desktop
+desktop: misc/pantheon-photos.desktop misc/pantheon-photos-viewer.desktop
 
 .PHONY: dist
 dist:
@@ -502,28 +502,28 @@ install:
 	mkdir -p $(DESTDIR)$(LIBEXECDIR)
 	$(INSTALL_PROGRAM) $(THUMBNAILER_BIN) $(DESTDIR)$(LIBEXECDIR)
 	$(INSTALL_PROGRAM) $(MIGRATOR_BIN) $(DESTDIR)$(LIBEXECDIR)
-	mkdir -p $(DESTDIR)$(PREFIX)/share/shotwell/icons
-	$(INSTALL_DATA) icons/* $(DESTDIR)$(PREFIX)/share/shotwell/icons
+	mkdir -p $(DESTDIR)$(PREFIX)/share/pantheon-photos/icons
+	$(INSTALL_DATA) icons/* $(DESTDIR)$(PREFIX)/share/pantheon-photos/icons
 	mkdir -p $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
-	$(INSTALL_DATA) misc/org.yorba.shotwell.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
-	$(INSTALL_DATA) misc/org.yorba.shotwell-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
+	$(INSTALL_DATA) misc/org.yorba.pantheon-photos.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
+	$(INSTALL_DATA) misc/org.yorba.pantheon-photos-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 ifndef DISABLE_SCHEMAS_COMPILE
 	glib-compile-schemas $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 endif
 ifndef DISABLE_GSETTINGS_CONVERT_INSTALL
 	mkdir -p $(DESTDIR)/usr/share/GConf/gsettings
-	$(INSTALL_DATA) misc/shotwell.convert $(DESTDIR)/usr/share/GConf/gsettings
+	$(INSTALL_DATA) misc/pantheon-photos.convert $(DESTDIR)/usr/share/GConf/gsettings
 endif
 ifndef DISABLE_ICON_UPDATE
 	-gtk-update-icon-cache -t -f $(DESTDIR)$(PREFIX)/share/icons/hicolor || :
 endif
-	mkdir -p $(DESTDIR)$(PREFIX)/share/shotwell/ui
-	$(INSTALL_DATA) ui/* $(DESTDIR)$(PREFIX)/share/shotwell/ui
+	mkdir -p $(DESTDIR)$(PREFIX)/share/pantheon-photos/ui
+	$(INSTALL_DATA) ui/* $(DESTDIR)$(PREFIX)/share/pantheon-photos/ui
 	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
 	mkdir -p $(DESTDIR)$(PREFIX)/share/appdata
-	$(INSTALL_DATA) misc/shotwell.desktop $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_DATA) misc/shotwell-viewer.desktop $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_DATA) misc/shotwell.appdata.xml $(DESTDIR)$(PREFIX)/share/appdata
+	$(INSTALL_DATA) misc/pantheon-photos.desktop $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_DATA) misc/pantheon-photos-viewer.desktop $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_DATA) misc/pantheon-photos.appdata.xml $(DESTDIR)$(PREFIX)/share/appdata
 ifndef DISABLE_DESKTOP_UPDATE
 	-update-desktop-database || :
 endif
@@ -532,28 +532,28 @@ ifdef ENABLE_APPORT_HOOK_INSTALL
 	$(INSTALL_DATA) apport/shotwell.py $(DESTDIR)$(PREFIX)/share/apport/package-hooks
 endif
 ifndef DISABLE_HELP_INSTALL
-	mkdir -p $(DESTDIR)$(PREFIX)/share/gnome/help/shotwell/C
-	$(INSTALL_DATA) $(EXPANDED_HELP_FILES) $(DESTDIR)$(PREFIX)/share/gnome/help/shotwell/C
-	mkdir -p $(DESTDIR)$(PREFIX)/share/gnome/help/shotwell/C/figures
-	$(INSTALL_DATA) $(EXPANDED_HELP_IMAGES) $(DESTDIR)$(PREFIX)/share/gnome/help/shotwell/C/figures
+	mkdir -p $(DESTDIR)$(PREFIX)/share/gnome/help/pantheon-photos/C
+	$(INSTALL_DATA) $(EXPANDED_HELP_FILES) $(DESTDIR)$(PREFIX)/share/gnome/help/pantheon-photos/C
+	mkdir -p $(DESTDIR)$(PREFIX)/share/gnome/help/pantheon-photos/C/figures
+	$(INSTALL_DATA) $(EXPANDED_HELP_IMAGES) $(DESTDIR)$(PREFIX)/share/gnome/help/pantheon-photos/C/figures
 endif
 	-$(foreach lang,$(CORE_SUPPORTED_LANGUAGES),`mkdir -p $(SYSTEM_LANG_DIR)/$(lang)/LC_MESSAGES ; \
 		$(INSTALL_DATA) $(LOCAL_LANG_DIR)/$(lang)/LC_MESSAGES/shotwell.mo \
-		$(SYSTEM_LANG_DIR)/$(lang)/LC_MESSAGES/shotwell.mo`)
-	mkdir -p $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
-	$(INSTALL_PROGRAM) $(PLUGINS_SO) $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
+		$(SYSTEM_LANG_DIR)/$(lang)/LC_MESSAGES/pantheon-photos.mo`)
+	mkdir -p $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
+	$(INSTALL_PROGRAM) $(PLUGINS_SO) $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
 ifdef PLUGINS_RC
-	$(INSTALL_DATA) $(PLUGINS_RC) $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
+	$(INSTALL_DATA) $(PLUGINS_RC) $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
 endif
 ifndef DISABLE_EXTRA_PLUGINS_INSTALL
-	$(INSTALL_PROGRAM) $(EXTRA_PLUGINS_SO) $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
+	$(INSTALL_PROGRAM) $(EXTRA_PLUGINS_SO) $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
 ifdef EXTRA_PLUGINS_RC
-	$(INSTALL_DATA) $(EXTRA_PLUGINS_RC) $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
+	$(INSTALL_DATA) $(EXTRA_PLUGINS_RC) $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
 endif
 endif
 ifdef INSTALL_HEADERS
-	mkdir -p $(DESTDIR)$(PREFIX)/include/shotwell/plugins
-	$(INSTALL_DATA) $(PLUGIN_HEADER) $(DESTDIR)$(PREFIX)/include/shotwell/plugins
+	mkdir -p $(DESTDIR)$(PREFIX)/include/pantheon-photos/plugins
+	$(INSTALL_DATA) $(PLUGIN_HEADER) $(DESTDIR)$(PREFIX)/include/pantheon-photos/plugins
 	mkdir -p $(DESTDIR)$(PREFIX)/share/vala/vapi
 	$(INSTALL_DATA) $(PLUGIN_VAPI) $(DESTDIR)$(PREFIX)/share/vala/vapi
 	$(INSTALL_DATA) $(PLUGIN_DEPS) $(DESTDIR)$(PREFIX)/share/vala/vapi
@@ -568,37 +568,37 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/$(PROGRAM_MIGRATOR)
 	rm -f $(DESTDIR)$(LIBEXECDIR)/$(PROGRAM_THUMBNAILER)
 	rm -f $(DESTDIR)$(LIBEXECDIR)/$(PROGRAM_MIGRATOR)
-	rm -fr $(DESTDIR)$(PREFIX)/share/shotwell
-	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps/shotwell.svg
-	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/16x16/apps/shotwell.svg
-	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/apps/shotwell.svg
-	rm -f $(DESTDIR)$(PREFIX)/share/applications/shotwell.desktop
-	rm -f $(DESTDIR)$(PREFIX)/share/applications/shotwell-viewer.desktop
-	rm -f $(DESTDIR)$(PREFIX)/share/appdata/shotwell.appdata.xml
+	rm -fr $(DESTDIR)$(PREFIX)/share/pantheon-photos
+	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/scalable/apps/pantheon-photos.svg
+	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/16x16/apps/pantheon-photos.svg
+	rm -f $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/apps/pantheon-photos.svg
+	rm -f $(DESTDIR)$(PREFIX)/share/applications/pantheon-photos.desktop
+	rm -f $(DESTDIR)$(PREFIX)/share/applications/pantheon-photos-viewer.desktop
+	rm -f $(DESTDIR)$(PREFIX)/share/appdata/pantheon-photos.appdata.xml
 ifndef DISABLE_DESKTOP_UPDATE
 	-update-desktop-database || :
 endif
 ifndef DISABLE_HELP_INSTALL
-	rm -rf $(DESTDIR)$(PREFIX)/share/gnome/help/shotwell
+	rm -rf $(DESTDIR)$(PREFIX)/share/gnome/help/pantheon-photos
 endif
 ifdef ENABLE_APPORT_HOOK_INSTALL
 	rm -f $(DESTDIR)$(PREFIX)/share/apport/package-hooks/shotwell.py
 endif
-	$(foreach lang,$(CORE_SUPPORTED_LANGUAGES),`rm -f $(SYSTEM_LANG_DIR)/$(lang)/LC_MESSAGES/shotwell.mo`)
-	rm -rf $(DESTDIR)$(PREFIX)/$(LIB)/shotwell/plugins/builtin
+	$(foreach lang,$(CORE_SUPPORTED_LANGUAGES),`rm -f $(SYSTEM_LANG_DIR)/$(lang)/LC_MESSAGES/pantheon-photos.mo`)
+	rm -rf $(DESTDIR)$(PREFIX)/$(LIB)/pantheon-photos/plugins/builtin
 ifdef INSTALL_HEADERS
-	rm -rf $(DESTDIR)$(PREFIX)/include/shotwell
+	rm -rf $(DESTDIR)$(PREFIX)/include/pantheon-photos
 	rm -f $(foreach vapi,$(PLUGIN_VAPI),$(DESTDIR)$(PREFIX)/share/vala/vapi/$(notdir $(vapi)))
 	rm -f $(foreach dep,$(PLUGIN_DEPS),$(DESTDIR)$(PREFIX)/share/vala/vapi/$(notdir $(dep)))
 	rm -f $(DESTDIR)$(PREFIX)/$(LIB)/pkgconfig/$(PC_FILE)
 endif
-	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.shotwell.gschema.xml
-	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.shotwell-extras.gschema.xml
+	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.pantheon-photos.gschema.xml
+	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.pantheon-photos-extras.gschema.xml
 ifndef DISABLE_SCHEMAS_COMPILE
 	glib-compile-schemas $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 endif
 ifndef DISABLE_GSETTINGS_CONVERT_INSTALL
-	rm -f $(DESTDIR)/usr/share/GConf/gsettings/shotwell.convert
+	rm -f $(DESTDIR)/usr/share/GConf/gsettings/pantheon-photos.convert
 endif
 
 $(PC_FILE): $(PC_INPUT) $(MAKE_FILES)
@@ -658,7 +658,7 @@ $(PLUGINS_DIR): $(PLUGIN_VAPI) $(PLUGIN_HEADER) $(PLUGIN_DEPS)
 docs:
 # valadoc complains if the directory already exists
 	@rm -rf docs
-	valadoc --directory=docs --package-name=shotwell-plugin-dev --package-version=$(VERSION) --verbose \
+	valadoc --directory=docs --package-name=pantheon-photos-plugin-dev --package-version=$(VERSION) --verbose \
 		--no-protected \
 		$(foreach def,$(DEFINES),--define=$(def)) \
 		$(foreach pkg,$(VALA_PKGS),--pkg=$(pkg)) \

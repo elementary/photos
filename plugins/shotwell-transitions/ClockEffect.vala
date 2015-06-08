@@ -13,7 +13,7 @@ private class ClockEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.yorba.shotwell.transitions.clock";
+        return "org.yorba.pantheon-photos.transitions.clock";
     }
 
     public override unowned string get_pluggable_name () {

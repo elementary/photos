@@ -8,16 +8,16 @@ namespace Slideshow {
 
 public void init () throws Error {
     string[] core_ids = new string[0];
-    core_ids += "org.yorba.shotwell.transitions.crumble";
-    core_ids += "org.yorba.shotwell.transitions.fade";
-    core_ids += "org.yorba.shotwell.transitions.slide";
-    core_ids += "org.yorba.shotwell.transitions.blinds";
-    core_ids += "org.yorba.shotwell.transitions.circle";
-    core_ids += "org.yorba.shotwell.transitions.circles";
-    core_ids += "org.yorba.shotwell.transitions.clock";
-    core_ids += "org.yorba.shotwell.transitions.stripes";
-    core_ids += "org.yorba.shotwell.transitions.squares";
-    core_ids += "org.yorba.shotwell.transitions.chess";
+    core_ids += "org.yorba.pantheon-photos.transitions.crumble";
+    core_ids += "org.yorba.pantheon-photos.transitions.fade";
+    core_ids += "org.yorba.pantheon-photos.transitions.slide";
+    core_ids += "org.yorba.pantheon-photos.transitions.blinds";
+    core_ids += "org.yorba.pantheon-photos.transitions.circle";
+    core_ids += "org.yorba.pantheon-photos.transitions.circles";
+    core_ids += "org.yorba.pantheon-photos.transitions.clock";
+    core_ids += "org.yorba.pantheon-photos.transitions.stripes";
+    core_ids += "org.yorba.pantheon-photos.transitions.squares";
+    core_ids += "org.yorba.pantheon-photos.transitions.chess";
 
     Plugins.register_extension_point (typeof (Spit.Transitions.Descriptor), _ ("Slideshow Transitions"),
     Resources.ICON_SLIDESHOW_EXTENSION_POINT, core_ids);
