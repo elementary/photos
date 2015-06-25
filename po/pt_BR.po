@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-10-29 15:17-0500\n"
-"PO-Revision-Date: 2015-06-05 09:21+0000\n"
+"PO-Revision-Date: 2015-06-24 18:27+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "(http://www.transifex.com/projects/p/shotwell/language/pt_BR/)\n"
@@ -25,8 +25,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2015-06-06 05:32+0000\n"
-"X-Generator: Launchpad (build 17540)\n"
+"X-Launchpad-Export-Date: 2015-06-25 05:39+0000\n"
+"X-Generator: Launchpad (build 17578)\n"
 "Language: pt_BR\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -178,6 +178,10 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
+"Você está logado no Tumblr como (nome).\n"
+"\n"
+"(este texto é definido dentro do código, \n"
+"alterações feitas aqui não serão exibidas)"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_publishing_options_pane.glade.h:5
 msgid "Blogs:"
@@ -242,7 +246,7 @@ msgstr "Privado"
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:32
 #: ../plugins/shotwell-publishing/YouTubePublishing.vala:32
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr ""
+msgstr "Copyright 2009-2013 Yorba Foundation"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:61
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:59
@@ -580,6 +584,9 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
+" (o texto depende do nome de usuário do Facebook e é modificado no "
+"aplicativo - \n"
+"qualquer coisa inserida neste campo não será exibida)"
 
 #: ../plugins/shotwell-publishing/facebook_publishing_options_pane.glade.h:3
 msgid "Publish to an e_xisting album:"
@@ -627,16 +634,22 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
+"Vocês está logado no Flickr como (nome).\n"
+"\n"
+"(este texto é definido dentro do código, \n"
+"alterações feitas aqui não serão exibidas)"
 
 #: ../plugins/shotwell-publishing/flickr_publishing_options_pane.glade.h:5
 msgid "_visibility label (populated in the code)"
-msgstr ""
+msgstr "etiqueta de _visibilidade (preenchida no código)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:1
 msgid ""
 "'you are logged in as $name'\n"
 "(populated in the application code)"
 msgstr ""
+"'você está logado como $name'\n"
+"(preenchido no código da aplicação)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:3
 msgid "An _existing album:"
@@ -656,6 +669,8 @@ msgid ""
 "$mediatype will appear in\n"
 "(populated in code)"
 msgstr ""
+"$mediatype irá aparecer em \n"
+"(preenchido no código)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:8
 msgid "Photo _size preset:"
@@ -765,7 +780,7 @@ msgstr "Transições principais de exibição de slides"
 
 #: ../plugins/shotwell-transitions/shotwell-transitions.vala:75
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
+msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
@@ -986,11 +1001,11 @@ msgstr "Desfazendo melhoramento"
 
 #: ../src/Commands.vala:813
 msgid "UnEnhancing"
-msgstr ""
+msgstr "Desfazer melhorias"
 
 #: ../src/Commands.vala:813
 msgid "Undoing UnEnhance"
-msgstr ""
+msgstr "Desfazendo desfazer melhorias"
 
 #: ../src/Commands.vala:881
 msgid "Applying Color Transformations"
@@ -1166,7 +1181,7 @@ msgstr "_Apagar"
 #: ../src/Dialogs.vala:25
 #, c-format
 msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr ""
+msgstr "Isto irá remover o álbum inteligente \"%s\". Continuar?"
 
 #: ../src/Dialogs.vala:35
 msgid ""
@@ -1198,7 +1213,7 @@ msgstr "_Salvar"
 
 #: ../src/Dialogs.vala:91
 msgid "_Select"
-msgstr ""
+msgstr "_Selecionar"
 
 #. Ticket #3023
 #. Attempt to replace the system error with something friendlier
@@ -1266,7 +1281,7 @@ msgstr "Exportar metadados"
 
 #: ../src/Dialogs.vala:246
 msgid "_Export"
-msgstr ""
+msgstr "_Exportar"
 
 #: ../src/Dialogs.vala:467
 msgid "Save Details..."
@@ -1641,7 +1656,7 @@ msgstr "Importação concluída"
 
 #: ../src/Dialogs.vala:862
 msgid "_Done"
-msgstr ""
+msgstr "_Concluído"
 
 #: ../src/Dialogs.vala:1105
 #, c-format
@@ -1679,12 +1694,12 @@ msgstr "Nome:"
 #: ../src/Dialogs.vala:1277
 msgid "_Delete File"
 msgid_plural "_Delete Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Apagar arquivo"
+msgstr[1] "_Apagar arquivos"
 
 #: ../src/Dialogs.vala:1281
 msgid "Only _Remove"
-msgstr ""
+msgstr "_Somente remover"
 
 #: ../src/Dialogs.vala:1301 ../src/camera/ImportPage.vala:1765
 msgid "_Keep"
@@ -1745,7 +1760,7 @@ msgstr "%d%%"
 #: ../src/Dialogs.vala:1573 ../src/editing_tools/EditingTools.vala:1865
 #: ../src/editing_tools/EditingTools.vala:2215
 msgid "_Apply"
-msgstr ""
+msgstr "_Aplicar"
 
 #: ../src/Dialogs.vala:1599
 msgid "AM"
@@ -1909,7 +1924,7 @@ msgstr "Importar fotos de sua biblioteca %s"
 
 #: ../src/Dialogs.vala:2104
 msgid "Preferences"
-msgstr ""
+msgstr "Configurações"
 
 #: ../src/Dialogs.vala:2112 ../src/library/Branch.vala:58
 msgid "Library"
@@ -2382,7 +2397,7 @@ msgstr ""
 
 #: ../src/Resources.vala:17
 msgid "Photos Viewer"
-msgstr ""
+msgstr "Visualizador de fotos"
 
 #: ../src/Resources.vala:18
 msgid "Photo Manager"
@@ -2394,6 +2409,8 @@ msgid ""
 "2009-2014 Yorba Foundation\n"
 "© 2014 Photos Developers"
 msgstr ""
+"2009-2014 Yorba Foundation\n"
+"2014 Photos Developers"
 
 #: ../src/Resources.vala:60
 msgid ""
@@ -2450,6 +2467,7 @@ msgstr "Inverter horizontalmente"
 #: ../src/Resources.vala:142
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr ""
+"Virar a imagem horizontalmente (pressione Ctrl para virar verticalmente)"
 
 #: ../src/Resources.vala:144
 msgid "Flip Verti_cally"
@@ -2461,7 +2479,7 @@ msgstr "Inverter verticalmente"
 
 #: ../src/Resources.vala:146
 msgid "Flip the image vertically"
-msgstr ""
+msgstr "Virar a imagem verticalmente"
 
 #: ../src/Resources.vala:148
 msgid "_Enhance"
@@ -2476,14 +2494,16 @@ msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
+"Melhorar automaticamente a aparência da foto\n"
+"(Substitui ajustes de cor anteriores)"
 
 #: ../src/Resources.vala:152
 msgid "Revert _Enhancement"
-msgstr ""
+msgstr "Reverter_aprimoramento"
 
 #: ../src/Resources.vala:153
 msgid "Revert Enhancement"
-msgstr ""
+msgstr "Reverter aprimoramento"
 
 #: ../src/Resources.vala:155
 msgid "_Copy Color Adjustments"
@@ -2720,7 +2740,7 @@ msgstr "Exibir apenas fotos rejeitadas"
 
 #: ../src/Resources.vala:239
 msgid "All + Rejected"
-msgstr ""
+msgstr "Todos + Rejeitados"
 
 #: ../src/Resources.vala:240 ../src/Resources.vala:241
 msgid "Show all photos, including rejected"
@@ -2728,7 +2748,7 @@ msgstr "Mostrar todas as fotos, inclusive as rejeitadas"
 
 #: ../src/Resources.vala:243
 msgid "All Photos"
-msgstr ""
+msgstr "Todas as fotos"
 
 #: ../src/Resources.vala:244 ../src/Resources.vala:245
 msgid "Show all photos"
@@ -2772,19 +2792,19 @@ msgstr "_Exportar..."
 
 #: ../src/Resources.vala:260
 msgid "_Show info panel"
-msgstr ""
+msgstr "_Mostrar painel de informação"
 
 #: ../src/Resources.vala:261 ../src/Resources.vala:262
 msgid "Show info panel"
-msgstr ""
+msgstr "Mostrar painel de informação"
 
 #: ../src/Resources.vala:264
 msgid "_Hide info panel"
-msgstr ""
+msgstr "_Ocultar painel de informação"
 
 #: ../src/Resources.vala:265 ../src/Resources.vala:266
 msgid "Hide info panel"
-msgstr ""
+msgstr "Ocultar painel de informação"
 
 #: ../src/Resources.vala:268
 msgid "_Print..."
@@ -2857,27 +2877,27 @@ msgstr "Abrir com editor de RA_W"
 
 #: ../src/Resources.vala:296
 msgid "_Open With..."
-msgstr ""
+msgstr "_Abrir com..."
 
 #: ../src/Resources.vala:297
 msgid "Open With"
-msgstr ""
+msgstr "Abrir com"
 
 #: ../src/Resources.vala:298
 msgid "Open photo with external editor"
-msgstr ""
+msgstr "Abrir foto com um editor externo"
 
 #: ../src/Resources.vala:300
 msgid "_Open With RAW Editor..."
-msgstr ""
+msgstr "_Abrir com um editor RAW"
 
 #: ../src/Resources.vala:301
 msgid "Open With Raw Editor"
-msgstr ""
+msgstr "Abrir com um editor RAW"
 
 #: ../src/Resources.vala:302
 msgid "Open photo with external RAW editor"
-msgstr ""
+msgstr "Abrir foto com um editor RAW externo"
 
 #: ../src/Resources.vala:304
 msgid "Send _To..."
@@ -2910,15 +2930,15 @@ msgstr "Des_marcar"
 
 #: ../src/Resources.vala:316
 msgid "Image Details"
-msgstr ""
+msgstr "Detalhes da imagem"
 
 #: ../src/Resources.vala:317
 msgid "Extended Details"
-msgstr ""
+msgstr "Detalhes extendidos"
 
 #: ../src/Resources.vala:318
 msgid "Library Details"
-msgstr ""
+msgstr "Detalhes da biblioteca"
 
 #: ../src/Resources.vala:321
 #, c-format
@@ -3031,11 +3051,11 @@ msgstr ""
 
 #: ../src/Resources.vala:388 ../src/searches/SavedSearchDialog.vala:636
 msgid "Smart Album"
-msgstr ""
+msgstr "Álbum inteligente"
 
 #: ../src/Resources.vala:390
 msgid "Delete Album"
-msgstr ""
+msgstr "Excluir álbum"
 
 #: ../src/Resources.vala:393
 msgid "_Edit..."
@@ -3097,7 +3117,7 @@ msgstr "Mostra somente as fotos com avaliação de %s ou melhor"
 
 #: ../src/Resources.vala:759
 msgid "_Delete Selection"
-msgstr ""
+msgstr "_Excluir seleção"
 
 #: ../src/Resources.vala:760
 msgid "Remove the selected photos from the trash"
@@ -3109,7 +3129,7 @@ msgstr "Remover as fotos selecionadas da biblioteca"
 
 #: ../src/Resources.vala:763
 msgid "_Restore Selection"
-msgstr ""
+msgstr "_Restaurar seleção"
 
 #: ../src/Resources.vala:764
 msgid "Move the selected photos back into the library"
@@ -3191,7 +3211,7 @@ msgstr "Exibição de slides"
 #. The close menu. Populated below in the constructor.
 #: ../src/SearchFilter.vala:341
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #. Rating label and button
 #: ../src/SearchFilter.vala:365 ../src/searches/SearchBoolean.vala:186
@@ -3200,7 +3220,7 @@ msgstr "Avaliação"
 
 #: ../src/SearchFilter.vala:396
 msgid "Search Photos"
-msgstr ""
+msgstr "Pesquisar fotos"
 
 #: ../src/SlideshowPage.vala:49 ../src/SlideshowPage.vala:179
 #: ../src/library/LibraryWindow.vala:244
@@ -3745,7 +3765,7 @@ msgstr "Ordenar _Eventos"
 
 #: ../src/library/LibraryWindow.vala:320
 msgid "_Empty Trash"
-msgstr ""
+msgstr "_Esvaziar lixeira"
 
 #: ../src/library/LibraryWindow.vala:321
 msgid "Delete all photos in the trash"
@@ -3766,7 +3786,7 @@ msgstr "Localizar fotos e vídeos através de pesquisa"
 #: ../src/library/LibraryWindow.vala:346 ../src/searches/Branch.vala:77
 #: ../src/sidebar/Tree.vala:199
 msgid "New Smart Album…"
-msgstr ""
+msgstr "Novo álbum inteligente..."
 
 #: ../src/library/LibraryWindow.vala:364
 msgid "_Photos"
@@ -3790,7 +3810,7 @@ msgstr "Exibir sidebar"
 
 #: ../src/library/LibraryWindow.vala:398
 msgid "Edit Photo In_fo"
-msgstr ""
+msgstr "Editar in_formações da foto"
 
 #: ../src/library/LibraryWindow.vala:650
 msgid "Import From Folder"
@@ -3855,27 +3875,27 @@ msgstr "Escrevendo metadados para arquivos..."
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Import Photos"
-msgstr ""
+msgstr "Importar fotos"
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Copy photos from a folder or external device."
-msgstr ""
+msgstr "Copiar fotos de uma pasta ou de um dispositivo externo."
 
 #: ../src/library/PhotosPage.vala:50
 msgid "Add Some Photos"
-msgstr ""
+msgstr "Aicionar algumas fotos"
 
 #: ../src/library/PhotosPage.vala:50
 msgid "No Photos were found in your library."
-msgstr ""
+msgstr "Nenhuma foto foi encontrada em sua biblioteca."
 
 #: ../src/library/LibraryWindow.vala:1377
 msgid "Change Library Folder"
-msgstr ""
+msgstr "Alterar pasta da biblioteca"
 
 #: ../src/library/LibraryWindow.vala:1377
 msgid "Choose where to keep your photos."
-msgstr ""
+msgstr "Escolha onde deseja manter suas fotos."
 
 #: ../src/library/OfflinePage.vala:8
 msgid "Missing Files"
@@ -3900,8 +3920,8 @@ msgstr "Apagar"
 #: ../src/library/TrashPage.vala:177
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Apagando uma foto"
+msgstr[1] "Apagando fotos"
 
 #: ../src/main.vala:54
 #, c-format
@@ -3972,7 +3992,7 @@ msgstr "Exibir a versão do aplicativo"
 
 #: ../src/main.vala:314
 msgid "Show About dialog"
-msgstr ""
+msgstr "Mostrar a caixa de diálogo Sobre"
 
 #. init GTK (valac has already called g_threads_init ())
 #: ../src/main.vala:366
@@ -4121,7 +4141,7 @@ msgstr ""
 
 #: ../src/searches/Branch.vala:68
 msgid "Smart Albums"
-msgstr ""
+msgstr "Álbuns inteligentes"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: ../src/searches/SavedSearchDialog.vala:168
@@ -4235,16 +4255,16 @@ msgstr "e"
 #. Add buttons for new search.
 #: ../src/searches/SavedSearchDialog.vala:593
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: ../src/searches/SavedSearchDialog.vala:594
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #. Add close button.
 #: ../src/searches/SavedSearchDialog.vala:609
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: ../src/searches/SavedSearchDialog.vala:657
 msgid "_Match"
@@ -4417,7 +4437,7 @@ msgstr "Pa_drão"
 
 #: ../ui/shotwell.glade.h:18
 msgid "Library Tab"
-msgstr ""
+msgstr "Aba biblioteca"
 
 #: ../ui/shotwell.glade.h:19
 msgid "E_xternal photo editor:"
@@ -4433,23 +4453,23 @@ msgstr "Editores externos"
 
 #: ../ui/shotwell.glade.h:23
 msgid "Library Location:"
-msgstr ""
+msgstr "Localização da biblioteca:"
 
 #: ../ui/shotwell.glade.h:24
 msgid "Metadata:"
-msgstr ""
+msgstr "Metadados:"
 
 #: ../ui/shotwell.glade.h:25
 msgid "Display:"
-msgstr ""
+msgstr "Mostrar:"
 
 #: ../ui/shotwell.glade.h:26
 msgid "RAW Developer:"
-msgstr ""
+msgstr "Desenvolvedor RAW"
 
 #: ../ui/shotwell.glade.h:27
 msgid "Importing:"
-msgstr ""
+msgstr "Importando:"
 
 #: ../ui/shotwell.glade.h:28
 msgid "<b>Printed Image Size</b>"
