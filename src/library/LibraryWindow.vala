@@ -1509,6 +1509,7 @@ public class LibraryWindow : AppWindow {
 
     private void on_update_properties_now () {
         metadata_sidebar.update_properties (get_current_page ());
+        update_window_title ();
     }
 
     public void mounted_camera_shell_notification (string uri, bool at_startup) {
@@ -1558,5 +1559,29 @@ public class LibraryWindow : AppWindow {
             return true;
 
         return false;
+    }
+
+    private void update_window_title () {
+        Page current_page = get_current_page ();
+        ViewCollection view = current_page.get_view ();
+        if (view == null) {
+            title = _ (Resources.APP_TITLE);
+        }
+
+        uint count = view.get_selected_count ();
+        if (count > 0) {
+            Gee.Iterable<DataView> iter = view.get_selected ();
+            if (count == 1) {
+                foreach (DataView item in iter) {
+                    title = item.get_source ().get_name ();
+                    break;
+                }
+            } else {
+                // TODO
+                title = count.to_string() + _(" items");
+            }
+        } else {
+            title = current_page.to_string ();
+        }
     }
 }
