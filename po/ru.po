@@ -33,8 +33,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-10-29 15:17-0500\n"
-"PO-Revision-Date: 2015-03-17 17:22+0000\n"
-"Last-Translator: elementary Apps team <Unknown>\n"
+"PO-Revision-Date: 2015-07-06 07:36+0000\n"
+"Last-Translator: AbsoluteVasilii <basil_russu@hotmail.com>\n"
 "Language-Team: Russian "
 "(http://www.transifex.com/projects/p/shotwell/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -42,8 +42,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-06-05 06:04+0000\n"
-"X-Generator: Launchpad (build 17540)\n"
+"X-Launchpad-Export-Date: 2015-07-07 05:41+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 "Language: ru\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -78,6 +78,7 @@ msgstr ""
 "Марк Коренберг <socketpair AT gmail.com>\n"
 "\n"
 "Launchpad Contributions:\n"
+"  AbsoluteVasilii https://launchpad.net/~basil-russu\n"
 "  Alexander Vasilyev https://launchpad.net/~mizabrik\n"
 "  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
 "  Binali Rustamov https://launchpad.net/~binali-rustamov\n"
@@ -111,15 +112,14 @@ msgstr "1280 x 853 пикселя"
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:320
 #, c-format
 msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr ""
-"«%s» не является корректным ответом на запрос проверки подлинности OAuth"
+msgstr "'%s' не является верным ответом на запрос авторизации OAuth"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:558
 msgid ""
 "TumblrPublisher: start( ): can't start; this publisher is not restartable."
 msgstr ""
-"TumblrPublisher: start( ): запуск невозможен; этот публикатор не имеет "
-"возможности перезапуска."
+"TumblrPublisher: start( ): невозможно запустить, этот издатель не позволяет "
+"запуск."
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:586
 msgid "Enter the username and password associated with your Tumblr account."
@@ -140,7 +140,7 @@ msgstr "Недопустимое имя пользователя или паро
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:757
 #, c-format
 msgid "Could not load UI: %s"
-msgstr "Не могу загрузить интерфейс: %s"
+msgstr "Невозможно загрузить интерфейс пользователя: %s"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:739
 #, c-format
@@ -148,7 +148,7 @@ msgid ""
 "You are logged into Tumblr as %s.\n"
 "\n"
 msgstr ""
-"Вы вошли в Tumblr как %s.\n"
+"Выполнен вход в Tumblr от имени %s.\n"
 "\n"
 
 #: ../plugins/shotwell-publishing-extras/YandexPublishing.vala:22
@@ -157,7 +157,7 @@ msgstr "Авторские права 2010+ Евгений Поляков <zbr@i
 
 #: ../plugins/shotwell-publishing-extras/YandexPublishing.vala:25
 msgid "Visit the Yandex.Fotki web site"
-msgstr "Посетить сайт"
+msgstr "Перейти на сайт Яндекс.Фотки"
 
 #: ../plugins/shotwell-publishing-extras/YandexPublishing.vala:632
 msgid "You are not currently logged into Yandex.Fotki."
@@ -171,11 +171,11 @@ msgstr "Дополнительные службы публикации Shotwell"
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:1
 #: ../ui/shotwell.glade.h:38
 msgid "label"
-msgstr "надпись"
+msgstr "ярлык"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:2
 msgid "_Email address"
-msgstr "Адрес _электронной почты:"
+msgstr "_Адрес эл. почты"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:3
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:4
@@ -194,7 +194,7 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
-"Вы вошли в Tumblr как (name)\n"
+"Вы вошли в Tumblr как (имя)\n"
 "\n"
 "(эта строка установлена и находится в коде приложения,\n"
 "поэтому изменения, сделанные здесь, не будут показаны)"
@@ -360,8 +360,9 @@ msgid ""
 msgstr ""
 "Вы не авторизовались на Flickr.\n"
 "\n"
-"Нажмите кнопку «Войти» для входа на Flickr с помощью веб-браузера. Вам будет "
-"нужно разрешить подключение Shotwell для связи с вашей учетной записи Flickr."
+"Нажмите кнопку «Войти» для входа на Flickr с помощью веб-браузера. Вам нужно "
+"будет  разрешить подключение Shotwell для дальнейшей связи с вашей учетной "
+"записи Flickr."
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:63
 msgid ""
@@ -369,7 +370,7 @@ msgid ""
 "To continue publishing to Flickr, quit and restart Shotwell, then try "
 "publishing again."
 msgstr ""
-"Вы уже выходили из Flickr во время этой сессии Shotwell.\n"
+"Вы уже входили в Flickr во время этой сессии Shotwell.\n"
 "Для продолжения публикации на Flickr, перезапустите Shotwell и попробуйте "
 "снова."
 
@@ -404,18 +405,18 @@ msgid ""
 "Your free Flickr account limits how much data you can upload per month.\n"
 "This month, you have %d megabytes remaining in your upload quota."
 msgstr ""
-"Бесплатная учётная запись Flickr имеет ограничение по количеству загрузок\n"
-"в месяц. На этот месяц у вас имеется квота в %d мегабайт."
+"Бесплатный аккаунт Flickr имеет ограничение по количеству выгрузок\n"
+"в месяц. На этот месяце у вас имеется квота в %d мегабайт."
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1157
 msgid "Your Flickr Pro account entitles you to unlimited uploads."
 msgstr ""
-"Ваша подписка Flickr Pro позволяет вам делать неограниченное количество "
-"загрузок."
+"Ваш аккаунт Flickr Pro позволяет вам делать неограниченное количество "
+"выгрузок."
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1162
 msgid "Photos _visible to:"
-msgstr "Фотографии _видимы для:"
+msgstr "Снимки _видимы для:"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1164
 msgid "Videos _visible to:"
@@ -427,15 +428,15 @@ msgstr "Фотографии и видео _видимы для:"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1208
 msgid "Friends & family only"
-msgstr "Только друзьям и семье"
+msgstr "Только друзья и  и семья"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1209
 msgid "Family only"
-msgstr "Только семье"
+msgstr "Только семья"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1210
 msgid "Friends only"
-msgstr "Только друзьям"
+msgstr "Только друзья"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1231
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1248
@@ -451,7 +452,7 @@ msgstr "4096 x 3072 пикселей"
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1250
 #: ../src/Dimensions.vala:17
 msgid "Original size"
-msgstr "Размер изображения"
+msgstr "Оригинальный размер"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:58
 msgid ""
@@ -460,10 +461,11 @@ msgid ""
 "Click Login to log into Picasa Web Albums in your Web browser. You will have "
 "to authorize Shotwell Connect to link to your Picasa Web Albums account."
 msgstr ""
-"Вы не авторизовались в Picasa Web Albums.\n"
+"Вы не авторизовались в веб-альбомах Picasa.\n"
 "\n"
-"Нажмите кнопку «Войти» для входа в Picasa с помощью веб-браузера. Вам будет "
-"нужно разрешить подключение Shotwell для связи с вашей учетной записи Picasa."
+"Нажмите кнопку «Войти» для входа в Picasa с помощью веб-браузера. Вам нужно "
+"будет  разрешить подключение Shotwell для связи с вашей учетной записью "
+"Picasa."
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:361
 msgid ""
@@ -1017,11 +1019,11 @@ msgstr "Отменить улучшение"
 
 #: ../src/Commands.vala:813
 msgid "UnEnhancing"
-msgstr ""
+msgstr "UnEnhancing"
 
 #: ../src/Commands.vala:813
 msgid "Undoing UnEnhance"
-msgstr ""
+msgstr "Отменить UnEnhance"
 
 #: ../src/Commands.vala:881
 msgid "Applying Color Transformations"
@@ -2513,6 +2515,26 @@ msgid ""
 "along with Shotwell; if not, write to the Free Software Foundation, Inc.,\n"
 "51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"Shotwell является свободным программным обеспечением, которое можно "
+"распространять\n"
+"и/или изменять на условиях лицензии GNU Lesser General Public License, "
+"выпущенной\n"
+"Фондом свободного программного обеспечения; версия лицензии должна быть 2.1\n"
+"или более поздней (по вашему выбору).\n"
+"\n"
+"Shotwell распространяется в надежде на то, что программа окажется полезной,  "
+"БЕЗ\n"
+"КАКИХ-ЛИБО ГАРАНТИЙ, даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ\n"
+"ЦЕННОСТИ или ПРИГОДНОСТИ. Более подробная информация приведена в тексте "
+"лицензии\n"
+"GNU Lesser General Public License.\n"
+"\n"
+"Вместе с Shotwell необходимо получить копию лицензии GNU Lesser General "
+"Public License;\n"
+"при отсутствии лицензии необходимо написать письмо в Фонд свободного "
+"программного\n"
+"обеспечения, Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, "
+"Boston, MA  02110-1301 USA"
 
 #: ../src/Resources.vala:130
 msgid "Rotate _Right"
