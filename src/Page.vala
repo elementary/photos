@@ -1270,6 +1270,7 @@ public abstract class CheckerboardPage : Page {
     protected CheckerboardItem cursor = null;
     private CheckerboardItem highlighted = null;
     private bool autoscroll_scheduled = false;
+    private bool selection_button_clicked = false;
     private CheckerboardItem activated_item = null;
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
@@ -1576,6 +1577,8 @@ public abstract class CheckerboardPage : Page {
     }
 
     protected override bool on_left_click (Gdk.EventButton event) {
+        selection_button_clicked = false;
+
         // only interested in single-click and double-clicks for now
         if ((event.type != Gdk.EventType.BUTTON_PRESS) && (event.type != Gdk.EventType.2BUTTON_PRESS))
             return false;
@@ -1586,6 +1589,7 @@ public abstract class CheckerboardPage : Page {
         // use clicks for multiple selection and activation only; single selects are handled by
         // button release, to allow for multiple items to be selected then dragged
         CheckerboardItem item = get_item_at_pixel (event.x, event.y);
+        
         if (item != null) {
             switch (state) {
             case Gdk.ModifierType.CONTROL_MASK:
@@ -1625,6 +1629,28 @@ public abstract class CheckerboardPage : Page {
                 break;
 
             default:
+                // check if user clicked a blank area of the item or the selection button
+                Gdk.Rectangle button_area = item.get_selection_button_area ();
+                if (event.x >= button_area.x && event.x <= button_area.x + button_area.width
+                    && event.y >= button_area.y && event.y <= button_area.y + button_area.height) {
+                    debug ("Selection button clicked");
+
+                    // make sure we handle this kind of selection properly on button-release
+                    selection_button_clicked = true;
+
+                    // when selection button is clicked, multiple selections are possible ...
+                    // chosen item is toggled
+                    Marker marker = get_view ().mark (item);
+                    get_view ().toggle_marked (marker);
+
+                    if (item.is_selected ()) {
+                        anchor = item;
+                        cursor = item;
+                    }
+
+                    break;
+                }
+
                 if (event.type == Gdk.EventType.2BUTTON_PRESS) {
                     activated_item = item;
                 } else {
@@ -1704,8 +1730,10 @@ public abstract class CheckerboardPage : Page {
             // should be deselected, however, if they single-click in order to drag one or more items,
             // they should remain selected, hence performing this here rather than on_left_click
             // (item may not be selected if an unimplemented modifier key was used)
-            if (item.is_selected ())
+            if (item.is_selected () && !selection_button_clicked)
                 get_view ().unselect_all_but (item);
+
+            selection_button_clicked = false;
         }
 
         return true;

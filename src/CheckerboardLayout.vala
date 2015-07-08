@@ -119,11 +119,9 @@ public abstract class CheckerboardItem : ThumbnailView {
     public Dimensions requisition = Dimensions ();
     public Gdk.Rectangle allocation = Gdk.Rectangle ();
 
-    // TODO Move icon name to resources
-    private const string SELECTION_ICON = "object-select-symbolic";
     private const int SELECTION_ICON_SIZE = 32;
-    private const int SELECTION_ICON_LEFT_OFFSET = 12;
-    private const int SELECTION_ICON_TOP_OFFSET = 12;
+    private const int SELECTION_ICON_LEFT_OFFSET = 6;
+    private const int SELECTION_ICON_TOP_OFFSET = 6;
 
     private bool exposure = false;
     private CheckerboardItemText? title = null;
@@ -441,6 +439,15 @@ public abstract class CheckerboardItem : ThumbnailView {
         return origin;
     }
 
+    public Gdk.Rectangle get_selection_button_area () {
+        Gdk.Rectangle selection_button_area = Gdk.Rectangle ();
+        selection_button_area.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_LEFT_OFFSET;
+        selection_button_area.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_TOP_OFFSET;
+        selection_button_area.width = SELECTION_ICON_SIZE;
+        selection_button_area.height = SELECTION_ICON_SIZE;
+        return selection_button_area;
+    }
+
     protected virtual void paint_shadow (Cairo.Context ctx, Dimensions dimensions, Gdk.Point origin,
                                          int radius, float initial_alpha) {
         double rgb_all = 0.0;
@@ -541,11 +548,6 @@ public abstract class CheckerboardItem : ThumbnailView {
         pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
         pixbuf_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
 
-        // calc the top-left point of the selection button
-        Gdk.Point selection_icon_origin = Gdk.Point ();
-        selection_icon_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_LEFT_OFFSET;
-        selection_icon_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_TOP_OFFSET;
-
         ctx.set_line_width (FRAME_WIDTH);
         ctx.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue,
                              selected_color.alpha);
@@ -560,6 +562,8 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.restore ();
         }
 
+        string selection_icon = Resources.ICON_SELECTION_ADD;
+
         // draw selection border
         if (is_selected ()) {
             // border thickness depends on the size of the thumbnail
@@ -567,7 +571,12 @@ public abstract class CheckerboardItem : ThumbnailView {
             paint_border (ctx, pixbuf_dim, pixbuf_origin,
                           get_selection_border_width (int.max (pixbuf_dim.width, pixbuf_dim.height)));
             ctx.restore ();
+            
+            selection_icon = Resources.ICON_SELECTION_REMOVE;
         }
+
+        if (brightened != null && pixbuf != null)
+            selection_icon = Resources.ICON_SELECTION_CHECKED;
 
         // draw border
         if (border_color != null) {
@@ -587,13 +596,15 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // draw selection icon
         Granite.Services.IconFactory factory = Granite.Services.IconFactory.get_default ();
-        Gdk.Pixbuf? selection_icon = factory.load_symbolic_icon (style_context,
-            SELECTION_ICON, SELECTION_ICON_SIZE);
+        Gdk.Pixbuf? selection_icon_pix = factory.load_symbolic_icon (style_context, selection_icon,
+            SELECTION_ICON_SIZE);
 
         if (selection_icon != null) {
+            // calc the top-left point of the selection button
+            Gdk.Rectangle selection_icon_area = get_selection_button_area ();
+
             ctx.save ();
-            Gdk.cairo_set_source_pixbuf (ctx, selection_icon, selection_icon_origin.x,
-                selection_icon_origin.y);
+            Gdk.cairo_set_source_pixbuf (ctx, selection_icon_pix, selection_icon_area.x, selection_icon_area.y);
             ctx.paint ();
             ctx.restore ();
         }

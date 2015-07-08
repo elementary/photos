@@ -108,6 +108,10 @@ public const string ICON_ZOOM_IN = "zoom-in-symbolic";
 public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
 public const int ICON_ZOOM_SCALE = 16;
 
+public const string ICON_SELECTION_ADD = "selection-add";
+public const string ICON_SELECTION_CHECKED = "selection-checked";
+public const string ICON_SELECTION_REMOVE = "selection-remove";
+
 public const string ICON_CAMERAS = "camera-photo";
 public const string ICON_EVENTS = "office-calendar";
 public const string ICON_ONE_EVENT = "office-calendar";
