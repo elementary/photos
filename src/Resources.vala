@@ -103,6 +103,7 @@ public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
 public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
 public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
 
+public const string ICON_ZOOM_ORIGINAL = "zoom-original-symbolic";
 public const string ICON_ZOOM_IN = "zoom-in-symbolic";
 public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
 public const int ICON_ZOOM_SCALE = 16;

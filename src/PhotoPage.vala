@@ -501,6 +501,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         Gtk.Box zoom_group = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
+        Gtk.Image zoom_original = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_ORIGINAL, Gtk.IconSize.MENU);
+        Gtk.EventBox zoom_original_box = new Gtk.EventBox ();
+        zoom_original_box.set_above_child (true);
+        zoom_original_box.set_visible_window (false);
+        zoom_original_box.add (zoom_original);
+
+        zoom_original_box.button_press_event.connect (on_zoom_original_pressed);
+
+        zoom_group.pack_start (zoom_original_box, false, false, 5);
+
         Gtk.Image zoom_out = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
         Gtk.EventBox zoom_out_box = new Gtk.EventBox ();
         zoom_out_box.set_above_child (true);
@@ -609,6 +619,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
         repaint ();
 
         return false;
+    }
+
+    private bool on_zoom_original_pressed (Gdk.EventButton event) {
+        snap_zoom_to_isomorphic ();
+        return true;
     }
 
     private bool on_zoom_out_pressed (Gdk.EventButton event) {
