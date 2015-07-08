@@ -119,6 +119,12 @@ public abstract class CheckerboardItem : ThumbnailView {
     public Dimensions requisition = Dimensions ();
     public Gdk.Rectangle allocation = Gdk.Rectangle ();
 
+    // TODO Move icon name to resources
+    private const string SELECTION_ICON = "object-select-symbolic";
+    private const int SELECTION_ICON_SIZE = 32;
+    private const int SELECTION_ICON_LEFT_OFFSET = 12;
+    private const int SELECTION_ICON_TOP_OFFSET = 12;
+
     private bool exposure = false;
     private CheckerboardItemText? title = null;
     private bool title_visible = true;
@@ -529,11 +535,16 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public void paint (Cairo.Context ctx, Gdk.RGBA bg_color, Gdk.RGBA selected_color,
-                       Gdk.RGBA text_color, Gdk.RGBA? border_color) {
+                       Gdk.RGBA text_color, Gdk.RGBA? border_color, Gtk.StyleContext style_context) {
         // calc the top-left point of the pixbuf
         Gdk.Point pixbuf_origin = Gdk.Point ();
         pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
         pixbuf_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
+
+        // calc the top-left point of the selection button
+        Gdk.Point selection_icon_origin = Gdk.Point ();
+        selection_icon_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_LEFT_OFFSET;
+        selection_icon_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_TOP_OFFSET;
 
         ctx.set_line_width (FRAME_WIDTH);
         ctx.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue,
@@ -571,6 +582,19 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.save ();
             ctx.set_source_rgba (bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
             paint_image (ctx, display_pixbuf, pixbuf_origin);
+            ctx.restore ();
+        }
+
+        // draw selection icon
+        Granite.Services.IconFactory factory = Granite.Services.IconFactory.get_default ();
+        Gdk.Pixbuf? selection_icon = factory.load_symbolic_icon (style_context,
+            SELECTION_ICON, SELECTION_ICON_SIZE);
+
+        if (selection_icon != null) {
+            ctx.save ();
+            Gdk.cairo_set_source_pixbuf (ctx, selection_icon, selection_icon_origin.x,
+                selection_icon_origin.y);
+            ctx.paint ();
             ctx.restore ();
         }
 
@@ -1781,7 +1805,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             // have all items in the exposed area paint themselves
             foreach (CheckerboardItem item in intersection (visible_page)) {
                 item.paint (ctx, bg_color, item.is_selected () ? selected_color : unselected_color,
-                            unselected_color, border_color);
+                            unselected_color, border_color, get_style_context ());
             }
         } else {
             // draw the message in the center of the window
