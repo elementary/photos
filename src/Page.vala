@@ -1730,6 +1730,11 @@ public abstract class CheckerboardPage : Page {
             return true;
         }
 
+        if (selection_button_clicked) {
+            selection_button_clicked = false;
+            return true;
+        }
+
         if (cursor != item) {
             // user released mouse button after moving it off the initial item, or moved from dead
             // space onto one.  either way, unselect everything
@@ -1739,10 +1744,8 @@ public abstract class CheckerboardPage : Page {
             // should be deselected, however, if they single-click in order to drag one or more items,
             // they should remain selected, hence performing this here rather than on_left_click
             // (item may not be selected if an unimplemented modifier key was used)
-            if (item.is_selected () && !selection_button_clicked)
+            if (item.is_selected ())
                 get_view ().unselect_all_but (item);
-
-            selection_button_clicked = false;
         }
 
         return true;
