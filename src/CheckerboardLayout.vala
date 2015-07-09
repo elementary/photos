@@ -562,7 +562,7 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.restore ();
         }
 
-        string selection_icon = Resources.ICON_SELECTION_ADD;
+        string? selection_icon = null;
 
         // draw selection border
         if (is_selected ()) {
@@ -571,12 +571,9 @@ public abstract class CheckerboardItem : ThumbnailView {
             paint_border (ctx, pixbuf_dim, pixbuf_origin,
                           get_selection_border_width (int.max (pixbuf_dim.width, pixbuf_dim.height)));
             ctx.restore ();
-            
-            selection_icon = Resources.ICON_SELECTION_REMOVE;
-        }
 
-        if (brightened != null && pixbuf != null)
             selection_icon = Resources.ICON_SELECTION_CHECKED;
+        }
 
         // draw border
         if (border_color != null) {
@@ -595,11 +592,20 @@ public abstract class CheckerboardItem : ThumbnailView {
         }
 
         // draw selection icon
-        Granite.Services.IconFactory factory = Granite.Services.IconFactory.get_default ();
-        Gdk.Pixbuf? selection_icon_pix = factory.load_symbolic_icon (style_context, selection_icon,
-            SELECTION_ICON_SIZE);
+        if (brightened != null && pixbuf != null) {
+            if (is_selected ())
+                selection_icon = Resources.ICON_SELECTION_REMOVE;
+            else
+                selection_icon = Resources.ICON_SELECTION_ADD;
+        }
 
+        Gdk.Pixbuf? selection_icon_pix = null;
         if (selection_icon != null) {
+            Granite.Services.IconFactory factory = Granite.Services.IconFactory.get_default ();
+            selection_icon_pix = factory.load_symbolic_icon (style_context, selection_icon, SELECTION_ICON_SIZE);
+        }
+
+        if (selection_icon_pix != null) {
             // calc the top-left point of the selection button
             Gdk.Rectangle selection_icon_area = get_selection_button_area ();
 
