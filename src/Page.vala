@@ -1634,8 +1634,8 @@ public abstract class CheckerboardPage : Page {
 
                 // The user does not have to click exactly over button area for the click to
                 // be registered as valid. We virtually extend the clickable area around button.
-                const int x_error_margin = 6;
-                const int y_error_margin = 6;
+                const int x_error_margin = 12;
+                const int y_error_margin = 12;
 
                 if (event.x >= button_area.x - x_error_margin
                     && event.x <= button_area.x + button_area.width + x_error_margin

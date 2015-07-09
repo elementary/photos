@@ -115,13 +115,11 @@ public abstract class CheckerboardItem : ThumbnailView {
     public const int TRINKET_PADDING = 1;
 
     public const int BRIGHTEN_SHIFT = 0x18;
+    public const int SELECTION_ICON_SIZE = 24;
 
     public Dimensions requisition = Dimensions ();
     public Gdk.Rectangle allocation = Gdk.Rectangle ();
 
-    private const int SELECTION_ICON_SIZE = 32;
-    private const int SELECTION_ICON_LEFT_OFFSET = 6;
-    private const int SELECTION_ICON_TOP_OFFSET = 6;
 
     private bool exposure = false;
     private CheckerboardItemText? title = null;
@@ -441,8 +439,8 @@ public abstract class CheckerboardItem : ThumbnailView {
 
     public Gdk.Rectangle get_selection_button_area () {
         Gdk.Rectangle selection_button_area = Gdk.Rectangle ();
-        selection_button_area.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_LEFT_OFFSET;
-        selection_button_area.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH + SELECTION_ICON_TOP_OFFSET;
+        selection_button_area.x = allocation.x;
+        selection_button_area.y = allocation.y;
         selection_button_area.width = SELECTION_ICON_SIZE;
         selection_button_area.height = SELECTION_ICON_SIZE;
         return selection_button_area;
