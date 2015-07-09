@@ -1631,8 +1631,17 @@ public abstract class CheckerboardPage : Page {
             default:
                 // check if user clicked a blank area of the item or the selection button
                 Gdk.Rectangle button_area = item.get_selection_button_area ();
-                if (event.x >= button_area.x && event.x <= button_area.x + button_area.width
-                    && event.y >= button_area.y && event.y <= button_area.y + button_area.height) {
+
+                // The user does not have to click exactly over button area for the click to
+                // be registered as valid. We virtually extend the clickable area around button.
+                const int x_error_margin = 6;
+                const int y_error_margin = 6;
+
+                if (event.x >= button_area.x - x_error_margin
+                    && event.x <= button_area.x + button_area.width + x_error_margin
+                    && event.y >= button_area.y - y_error_margin
+                    && event.y <= button_area.y + button_area.height + y_error_margin)
+                {
                     debug ("Selection button clicked");
 
                     // make sure we handle this kind of selection properly on button-release
