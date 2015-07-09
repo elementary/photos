@@ -120,7 +120,6 @@ public abstract class CheckerboardItem : ThumbnailView {
     public Dimensions requisition = Dimensions ();
     public Gdk.Rectangle allocation = Gdk.Rectangle ();
 
-
     private bool exposure = false;
     private CheckerboardItemText? title = null;
     private bool title_visible = true;
