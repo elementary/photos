@@ -1270,6 +1270,7 @@ public abstract class CheckerboardPage : Page {
     protected CheckerboardItem cursor = null;
     private CheckerboardItem highlighted = null;
     private bool autoscroll_scheduled = false;
+    private bool selection_button_clicked = false;
     private CheckerboardItem activated_item = null;
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
@@ -1576,6 +1577,8 @@ public abstract class CheckerboardPage : Page {
     }
 
     protected override bool on_left_click (Gdk.EventButton event) {
+        selection_button_clicked = false;
+
         // only interested in single-click and double-clicks for now
         if ((event.type != Gdk.EventType.BUTTON_PRESS) && (event.type != Gdk.EventType.2BUTTON_PRESS))
             return false;
@@ -1586,6 +1589,7 @@ public abstract class CheckerboardPage : Page {
         // use clicks for multiple selection and activation only; single selects are handled by
         // button release, to allow for multiple items to be selected then dragged
         CheckerboardItem item = get_item_at_pixel (event.x, event.y);
+        
         if (item != null) {
             switch (state) {
             case Gdk.ModifierType.CONTROL_MASK:
@@ -1625,6 +1629,37 @@ public abstract class CheckerboardPage : Page {
                 break;
 
             default:
+                // check if user clicked a blank area of the item or the selection button
+                Gdk.Rectangle button_area = item.get_selection_button_area ();
+
+                // The user does not have to click exactly over button area for the click to
+                // be registered as valid. We virtually extend the clickable area around button.
+                const int x_error_margin = 12;
+                const int y_error_margin = 12;
+
+                if (event.x >= button_area.x - x_error_margin
+                    && event.x <= button_area.x + button_area.width + x_error_margin
+                    && event.y >= button_area.y - y_error_margin
+                    && event.y <= button_area.y + button_area.height + y_error_margin)
+                {
+                    debug ("Selection button clicked");
+
+                    // make sure we handle this kind of selection properly on button-release
+                    selection_button_clicked = true;
+
+                    // when selection button is clicked, multiple selections are possible ...
+                    // chosen item is toggled
+                    Marker marker = get_view ().mark (item);
+                    get_view ().toggle_marked (marker);
+
+                    if (item.is_selected ()) {
+                        anchor = item;
+                        cursor = item;
+                    }
+
+                    break;
+                }
+
                 if (event.type == Gdk.EventType.2BUTTON_PRESS) {
                     activated_item = item;
                 } else {
@@ -1692,6 +1727,11 @@ public abstract class CheckerboardPage : Page {
         CheckerboardItem item = get_item_at_pixel (event.x, event.y);
         if (item == null) {
             // released button on "dead" area
+            return true;
+        }
+
+        if (selection_button_clicked) {
+            selection_button_clicked = false;
             return true;
         }
 
