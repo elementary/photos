@@ -1255,7 +1255,7 @@ public class LibraryWindow : AppWindow {
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
         right_frame = new Gtk.Frame (null);
-        right_frame.set_shadow_type (Gtk.ShadowType.IN);
+        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
 
         right_client_paned.pack1 (notebook, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
