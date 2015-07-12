@@ -539,7 +539,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public void paint (Cairo.Context ctx, Gdk.RGBA bg_color, Gdk.RGBA selected_color,
-                       Gdk.RGBA text_color, Gdk.RGBA? border_color, Gtk.StyleContext style_context) {
+                       Gdk.RGBA text_color, Gdk.RGBA? border_color, int scale_factor) {
         // calc the top-left point of the pixbuf
         Gdk.Point pixbuf_origin = Gdk.Point ();
         pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
@@ -563,13 +563,13 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // draw selection border
         if (is_selected ()) {
+            selection_icon = Resources.ICON_SELECTION_CHECKED;
+
             // border thickness depends on the size of the thumbnail
             ctx.save ();
             paint_border (ctx, pixbuf_dim, pixbuf_origin,
                           get_selection_border_width (int.max (pixbuf_dim.width, pixbuf_dim.height)));
             ctx.restore ();
-
-            selection_icon = Resources.ICON_SELECTION_CHECKED;
         }
 
         // draw border
@@ -588,7 +588,7 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.restore ();
         }
 
-        // draw selection icon
+        // decide which icon to use for the selection button
         if (brightened != null && pixbuf != null) {
             if (is_selected ())
                 selection_icon = Resources.ICON_SELECTION_REMOVE;
@@ -598,16 +598,23 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         Gdk.Pixbuf? selection_icon_pix = null;
         if (selection_icon != null) {
-            Granite.Services.IconFactory factory = Granite.Services.IconFactory.get_default ();
-            selection_icon_pix = factory.load_symbolic_icon (style_context, selection_icon, SELECTION_ICON_SIZE);
+            try {
+                selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon,
+                    SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            } catch (Error err) {
+                warning ("Could not load %s: %s", selection_icon, err.message);
+            }
         }
 
+        // draw selector icon
         if (selection_icon_pix != null) {
             // calc the top-left point of the selection button
             Gdk.Rectangle selection_icon_area = get_selection_button_area ();
-
             ctx.save ();
-            Gdk.cairo_set_source_pixbuf (ctx, selection_icon_pix, selection_icon_area.x, selection_icon_area.y);
+            ctx.scale (1.0 / scale_factor, 1.0 / scale_factor);
+            int icon_x = selection_icon_area.x * scale_factor;
+            int icon_y = selection_icon_area.y * scale_factor;
+            Gdk.cairo_set_source_pixbuf (ctx, selection_icon_pix, icon_x, icon_y);
             ctx.paint ();
             ctx.restore ();
         }
@@ -1819,7 +1826,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             // have all items in the exposed area paint themselves
             foreach (CheckerboardItem item in intersection (visible_page)) {
                 item.paint (ctx, bg_color, item.is_selected () ? selected_color : unselected_color,
-                            unselected_color, border_color, get_style_context ());
+                            unselected_color, border_color, scale_factor);
             }
         } else {
             // draw the message in the center of the window
