@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2014-10-29 15:17-0500\n"
-"PO-Revision-Date: 2015-07-04 11:18+0000\n"
+"PO-Revision-Date: 2015-07-12 19:31+0000\n"
 "Last-Translator: AbsoluteVasilii <basil_russu@hotmail.com>\n"
 "Language-Team: Romanian "
 "(http://www.transifex.com/projects/p/shotwell/language/ro/)\n"
@@ -24,8 +24,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1 ? 0: (((n % 100 > 19) || ((n % 100 "
 "== 0) && (n != 0))) ? 2: 1));\n"
-"X-Launchpad-Export-Date: 2015-07-05 05:56+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-07-13 05:37+0000\n"
+"X-Generator: Launchpad (build 17620)\n"
 "Language: ro\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -1772,8 +1772,9 @@ msgstr "Nume:"
 #: ../src/Dialogs.vala:1277
 msgid "_Delete File"
 msgid_plural "_Delete Files"
-msgstr[0] "_Ştergerea Fişierului"
-msgstr[1] "_Ştergerea Fişierelor"
+msgstr[0] "_Ștergere Fișier"
+msgstr[1] "_Ștergerea Fișierului"
+msgstr[2] "_Ștergerea Fișierelor"
 
 #: ../src/Dialogs.vala:1281
 msgid "Only _Remove"
@@ -2520,6 +2521,21 @@ msgid ""
 "along with Shotwell; if not, write to the Free Software Foundation, Inc.,\n"
 "51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA"
 msgstr ""
+"Shotwell este un software liber; Dvs. puteți să-l distribuiți și/sau să "
+"introduceți schimbări în conformitatea cu prevederile  GNU Lesser General "
+"Public Licence publicat de către Free Software Foundation; inclusiv "
+"versiunea 2.1, sau (la preferința Dvs.) orice altă versiune mai recentă a "
+"licenței.\n"
+"\n"
+"Shotwell este distribuit în speranță de afi util, însă FĂRĂ NICI-O GARANȚIE; "
+"deasemenea și fără garanția implicită de COMERCIALIZARE sau de POTRIVIRE\n"
+"PENTRU SCOPURI PERSONALE.  Pentru mai multe detalii a se vedea GNU Lesser "
+"General Public Licence.\n"
+"\n"
+"Dvs. veți primi copie a GNU Lesser General Public License împreună cu "
+"pachetul Dvs. Shotwell;  Dacă nu ați primit-o, scrieți la adresa Free "
+"Software Foundation, Inc.: 51 Franklin St, Fifth Floor, Boston, MA 02110-"
+"1301 USA."
 
 #: ../src/Resources.vala:130
 msgid "Rotate _Right"
@@ -2557,6 +2573,7 @@ msgstr "Inversează pe orizontală"
 #: ../src/Resources.vala:142
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr ""
+"Rotire imaginea orizontal (apăsați CTRL pentru a roti imaginea vertical)"
 
 #: ../src/Resources.vala:144
 msgid "Flip Verti_cally"
@@ -2568,7 +2585,7 @@ msgstr "Inversează pe verticală"
 
 #: ../src/Resources.vala:146
 msgid "Flip the image vertically"
-msgstr ""
+msgstr "Rotire imaginea vertical"
 
 #: ../src/Resources.vala:148
 msgid "_Enhance"
@@ -2583,14 +2600,16 @@ msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
+"Îmbunătățirea calității imaginii în mod automat \n"
+"( Ajustarea anterioară modului de culoare)"
 
 #: ../src/Resources.vala:152
 msgid "Revert _Enhancement"
-msgstr ""
+msgstr "Revenire_Îmbunătățire"
 
 #: ../src/Resources.vala:153
 msgid "Revert Enhancement"
-msgstr ""
+msgstr "Revenire Îmbunătățire"
 
 #: ../src/Resources.vala:155
 msgid "_Copy Color Adjustments"
@@ -2826,7 +2845,7 @@ msgstr "Arată doar fotografiile respinse"
 
 #: ../src/Resources.vala:239
 msgid "All + Rejected"
-msgstr ""
+msgstr "Tot + Respins"
 
 #: ../src/Resources.vala:240 ../src/Resources.vala:241
 msgid "Show all photos, including rejected"
@@ -2834,7 +2853,7 @@ msgstr "Arată toate fotografiile, inclusiv cele respinse"
 
 #: ../src/Resources.vala:243
 msgid "All Photos"
-msgstr ""
+msgstr "Toate Fotografiile"
 
 #: ../src/Resources.vala:244 ../src/Resources.vala:245
 msgid "Show all photos"
@@ -2878,19 +2897,19 @@ msgstr "_Exportă..."
 
 #: ../src/Resources.vala:260
 msgid "_Show info panel"
-msgstr ""
+msgstr "_Arată panoul informativ"
 
 #: ../src/Resources.vala:261 ../src/Resources.vala:262
 msgid "Show info panel"
-msgstr ""
+msgstr "Arată panoul informativ"
 
 #: ../src/Resources.vala:264
 msgid "_Hide info panel"
-msgstr ""
+msgstr "_Ascunde panoul informativ"
 
 #: ../src/Resources.vala:265 ../src/Resources.vala:266
 msgid "Hide info panel"
-msgstr ""
+msgstr "Ascunde panoul informativ"
 
 #: ../src/Resources.vala:268
 msgid "_Print..."
@@ -2962,27 +2981,27 @@ msgstr "Deschide cu un editor RA_W"
 
 #: ../src/Resources.vala:296
 msgid "_Open With..."
-msgstr ""
+msgstr "_Deschide cu..."
 
 #: ../src/Resources.vala:297
 msgid "Open With"
-msgstr ""
+msgstr "Deschide cu"
 
 #: ../src/Resources.vala:298
 msgid "Open photo with external editor"
-msgstr ""
+msgstr "Deschide fotografie cu un editor terț"
 
 #: ../src/Resources.vala:300
 msgid "_Open With RAW Editor..."
-msgstr ""
+msgstr "_Deschide cu editorul RAW..."
 
 #: ../src/Resources.vala:301
 msgid "Open With Raw Editor"
-msgstr ""
+msgstr "Deschide cu editorul RAW..."
 
 #: ../src/Resources.vala:302
 msgid "Open photo with external RAW editor"
-msgstr ""
+msgstr "Deschide fotografie cu editorul Raw terț"
 
 #: ../src/Resources.vala:304
 msgid "Send _To..."
@@ -3014,15 +3033,15 @@ msgstr "Dema_rcare"
 
 #: ../src/Resources.vala:316
 msgid "Image Details"
-msgstr ""
+msgstr "Detaliile imaginii"
 
 #: ../src/Resources.vala:317
 msgid "Extended Details"
-msgstr ""
+msgstr "Detalii extinse"
 
 #: ../src/Resources.vala:318
 msgid "Library Details"
-msgstr ""
+msgstr "Detalii bibliotecă"
 
 #: ../src/Resources.vala:321
 #, c-format
@@ -3132,11 +3151,11 @@ msgstr ""
 
 #: ../src/Resources.vala:388 ../src/searches/SavedSearchDialog.vala:636
 msgid "Smart Album"
-msgstr ""
+msgstr "Album Inteligent"
 
 #: ../src/Resources.vala:390
 msgid "Delete Album"
-msgstr ""
+msgstr "Șterge Album"
 
 #: ../src/Resources.vala:393
 msgid "_Edit..."
@@ -3198,7 +3217,7 @@ msgstr "Afișează numai fotografiile cu aprecierea %s sau mai mare"
 
 #: ../src/Resources.vala:759
 msgid "_Delete Selection"
-msgstr ""
+msgstr "_Ștergere Selecție"
 
 #: ../src/Resources.vala:760
 msgid "Remove the selected photos from the trash"
@@ -3210,7 +3229,7 @@ msgstr "Șterge fotografiile selectate din colecție"
 
 #: ../src/Resources.vala:763
 msgid "_Restore Selection"
-msgstr ""
+msgstr "_Restabilire Selecție"
 
 #: ../src/Resources.vala:764
 msgid "Move the selected photos back into the library"
@@ -3292,7 +3311,7 @@ msgstr "Prezentare diapozitive"
 #. The close menu. Populated below in the constructor.
 #: ../src/SearchFilter.vala:341
 msgid "Close"
-msgstr ""
+msgstr "Inchideti"
 
 #. Rating label and button
 #: ../src/SearchFilter.vala:365 ../src/searches/SearchBoolean.vala:186
@@ -3301,7 +3320,7 @@ msgstr "Cotare"
 
 #: ../src/SearchFilter.vala:396
 msgid "Search Photos"
-msgstr ""
+msgstr "Căutare fotografii"
 
 #: ../src/SlideshowPage.vala:49 ../src/SlideshowPage.vala:179
 #: ../src/library/LibraryWindow.vala:244
@@ -3857,7 +3876,7 @@ msgstr "Sortează _evenimente"
 
 #: ../src/library/LibraryWindow.vala:320
 msgid "_Empty Trash"
-msgstr ""
+msgstr "_Golire Coșului de Gunoi"
 
 #: ../src/library/LibraryWindow.vala:321
 msgid "Delete all photos in the trash"
@@ -3878,7 +3897,7 @@ msgstr "Căutați fotografii și clipuri video după criterii de căutare"
 #: ../src/library/LibraryWindow.vala:346 ../src/searches/Branch.vala:77
 #: ../src/sidebar/Tree.vala:199
 msgid "New Smart Album…"
-msgstr ""
+msgstr "Noul Album Inteligent..."
 
 #: ../src/library/LibraryWindow.vala:364
 msgid "_Photos"
@@ -3902,7 +3921,7 @@ msgstr "Afișează bara laterală"
 
 #: ../src/library/LibraryWindow.vala:398
 msgid "Edit Photo In_fo"
-msgstr ""
+msgstr "Editare fotografiei în _fo"
 
 #: ../src/library/LibraryWindow.vala:650
 msgid "Import From Folder"
@@ -3924,6 +3943,10 @@ msgid ""
 "Preferences</span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
+"Shotwell este configurat pentru a importa fotografii în folderul home.\n"
+"Recomandăm să modificați aceasta în <span weight=\"bold\">Editare %s "
+"preferințe</span>.\n"
+"Sigur doriți să continuați importarea fotografiilor?"
 
 #: ../src/library/LibraryWindow.vala:846
 msgid "_Import"
@@ -3962,27 +3985,27 @@ msgstr "Se scriu metadatele fișierelor..."
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Import Photos"
-msgstr ""
+msgstr "Importă fotografii"
 
 #: ../src/library/LibraryWindow.vala:1376
 msgid "Copy photos from a folder or external device."
-msgstr ""
+msgstr "Copierea fotografiilor din directorul sau dispozitivul extern."
 
 #: ../src/library/PhotosPage.vala:50
 msgid "Add Some Photos"
-msgstr ""
+msgstr "Adăugarea Fotografiilor"
 
 #: ../src/library/PhotosPage.vala:50
 msgid "No Photos were found in your library."
-msgstr ""
+msgstr "Nici o fotgrafie nu a fost găsită în colecția Dvs."
 
 #: ../src/library/LibraryWindow.vala:1377
 msgid "Change Library Folder"
-msgstr ""
+msgstr "Schimbare directorului pentru colecție"
 
 #: ../src/library/LibraryWindow.vala:1377
 msgid "Choose where to keep your photos."
-msgstr ""
+msgstr "Alegețidirectorul unde se vor păstra fotografiile"
 
 #: ../src/library/OfflinePage.vala:8
 msgid "Missing Files"
@@ -4007,8 +4030,9 @@ msgstr "Şterge"
 #: ../src/library/TrashPage.vala:177
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ștergerea fotografiei"
+msgstr[1] "Se șterg fotografiile"
+msgstr[2] "Ștergerea fotografiilor"
 
 #: ../src/main.vala:54
 #, c-format
@@ -4079,7 +4103,7 @@ msgstr "Arată versiunea aplicației"
 
 #: ../src/main.vala:314
 msgid "Show About dialog"
-msgstr ""
+msgstr "Arată despre dialog"
 
 #. init GTK (valac has already called g_threads_init ())
 #: ../src/main.vala:366
@@ -4227,7 +4251,7 @@ msgstr ""
 
 #: ../src/searches/Branch.vala:68
 msgid "Smart Albums"
-msgstr ""
+msgstr "Albumurile Inteligente"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: ../src/searches/SavedSearchDialog.vala:168
@@ -4341,16 +4365,16 @@ msgstr "și"
 #. Add buttons for new search.
 #: ../src/searches/SavedSearchDialog.vala:593
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 #: ../src/searches/SavedSearchDialog.vala:594
 msgid "Add"
-msgstr ""
+msgstr "Adăugare"
 
 #. Add close button.
 #: ../src/searches/SavedSearchDialog.vala:609
 msgid "Save"
-msgstr ""
+msgstr "Salvare"
 
 #: ../src/searches/SavedSearchDialog.vala:657
 msgid "_Match"
@@ -4522,7 +4546,7 @@ msgstr "Implicit:"
 
 #: ../ui/shotwell.glade.h:18
 msgid "Library Tab"
-msgstr ""
+msgstr "Filă Bibliotecii"
 
 #: ../ui/shotwell.glade.h:19
 msgid "E_xternal photo editor:"
@@ -4538,23 +4562,23 @@ msgstr "Editoare externe"
 
 #: ../ui/shotwell.glade.h:23
 msgid "Library Location:"
-msgstr ""
+msgstr "Locație Bibliotecii"
 
 #: ../ui/shotwell.glade.h:24
 msgid "Metadata:"
-msgstr ""
+msgstr "Metadatele:"
 
 #: ../ui/shotwell.glade.h:25
 msgid "Display:"
-msgstr ""
+msgstr "Afisare:"
 
 #: ../ui/shotwell.glade.h:26
 msgid "RAW Developer:"
-msgstr ""
+msgstr "Dezvoltatorul RAW:"
 
 #: ../ui/shotwell.glade.h:27
 msgid "Importing:"
-msgstr ""
+msgstr "Importare:"
 
 #: ../ui/shotwell.glade.h:28
 msgid "<b>Printed Image Size</b>"
