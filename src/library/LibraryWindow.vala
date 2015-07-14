@@ -1236,16 +1236,11 @@ public class LibraryWindow : AppWindow {
         scrolled_sidebar.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scrolled_sidebar.add (sidebar_tree);
         scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_sidebar.set_shadow_type (Gtk.ShadowType.IN);
         get_style_context ().add_class ("sidebar-pane-separator");
 
         // divy the sidebar up into selection tree list, background progress bar, and properties
         background_progress_frame.add (background_progress_bar);
         background_progress_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
-        Resources.style_widget (scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
-        Resources.style_widget (sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
-        Resources.style_widget (right_client_paned, Resources.SIDEBAR_PANED_STYLESHEET);
 
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two
