@@ -98,8 +98,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         init_ui ();
 
         realize.connect (attach_view_signals);
-
-        Resources.style_widget (this, Resources.SCROLL_FRAME_STYLESHEET);
     }
 
     ~Page () {
@@ -1301,14 +1299,6 @@ public abstract class CheckerboardPage : Page {
 
         set_event_source (layout);
 
-        set_border_width (0);
-        set_shadow_type (Gtk.ShadowType.NONE);
-
-        viewport.set_border_width (0);
-        viewport.set_shadow_type (Gtk.ShadowType.NONE);
-
-        Resources.style_widget (viewport, Resources.VIEWPORT_STYLESHEET);
-
         viewport.add (layout);
 
         // want to set_adjustments before adding to ScrolledWindow to let our signal handlers
@@ -1325,8 +1315,6 @@ public abstract class CheckerboardPage : Page {
 
         // scrollbar policy
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
-
-        Resources.style_widget (this, Resources.PAGE_STYLESHEET);
     }
 
     // Returns the name for the back button that goes to this page
@@ -2078,11 +2066,6 @@ public abstract class SinglePhotoPage : Page {
         // should never be shown, but this may change if/when zooming is supported
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
 
-        set_border_width (0);
-        set_shadow_type (Gtk.ShadowType.NONE);
-
-        viewport.set_shadow_type (Gtk.ShadowType.NONE);
-        viewport.set_border_width (0);
         viewport.add (canvas);
 
         add (viewport);
@@ -2100,9 +2083,6 @@ public abstract class SinglePhotoPage : Page {
         canvas.draw.connect (on_canvas_exposed);
 
         set_event_source (canvas);
-
-        // style the viewport
-        Resources.style_widget (viewport, Resources.VIEWPORT_STYLESHEET);
     }
 
     public bool is_transition_in_progress () {

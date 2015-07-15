@@ -27,7 +27,6 @@ public abstract class Properties : Gtk.Grid {
 
         if (multi_line) {
             Gtk.ScrolledWindow info_scroll = new Gtk.ScrolledWindow (null, null);
-            info_scroll.shadow_type = Gtk.ShadowType.ETCHED_IN;
             Gtk.TextView view = new Gtk.TextView ();
             // by default TextView widgets have a white background, which
             // makes sense during editing. In this instance we only *show*
