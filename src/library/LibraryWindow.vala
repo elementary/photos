@@ -1561,27 +1561,22 @@ public class LibraryWindow : AppWindow {
         return false;
     }
 
-    private void update_window_title () {
-        Page current_page = get_current_page ();
-        ViewCollection view = current_page.get_view ();
-        if (view == null) {
-            title = _ (Resources.APP_TITLE);
-        }
-
-        uint count = view.get_selected_count ();
-        if (count > 0) {
-            Gee.Iterable<DataView> iter = view.get_selected ();
-            if (count == 1) {
-                foreach (DataView item in iter) {
-                    title = item.get_source ().get_name ();
-                    break;
-                }
+    protected void update_window_title () {
+        // show the name of the currently selected item when there's just one;
+        // if there are none or more than one, display the name of the current
+        // page instead
+        Page? current_page = get_current_page ();
+        if (current_page != null) {
+            ViewCollection view = current_page.get_view ();
+            if (view.get_selected_count () == 1) {
+                DataView selected_item = view.get_selected_at (0);
+                title = selected_item.get_source ().get_name ();
             } else {
-                // TODO
-                title = count.to_string() + _(" items");
+                title = current_page.to_string ();
             }
         } else {
-            title = current_page.to_string ();
+            // having no page is unlikely, but just in case
+            title = _(Resources.APP_TITLE);
         }
     }
 }
