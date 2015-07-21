@@ -447,7 +447,7 @@ public abstract class AppWindow : PageWindow {
         header.set_show_close_button (true);
         this.set_titlebar (header);
 
-        title = _ (Resources.APP_TITLE);
+        set_default_title ();
 
         GLib.List<Gdk.Pixbuf> pixbuf_list = new GLib.List<Gdk.Pixbuf> ();
         foreach (string resource in Resources.APP_ICONS)
@@ -492,6 +492,10 @@ public abstract class AppWindow : PageWindow {
         build_header_bar ();
     }
 
+    protected virtual void set_default_title () {
+        title = _ (Resources.APP_TITLE);
+    }
+    
     protected virtual void build_header_bar () {
         var undo_action = get_common_action ("CommonUndo");
         var undo_btn = undo_action.create_tool_item ();
