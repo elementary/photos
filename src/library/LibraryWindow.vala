@@ -1557,18 +1557,14 @@ public class LibraryWindow : AppWindow {
     }
 
     protected void update_window_title () {
-        // show the name of the currently selected item when there's just one;
-        // if there are none or more than one, display the name of the current
-        // page instead
+        // show the name of the current page, as each page instance is properly
+        // named: it displays the name of their collection (library, event, or
+        // tag) when the page holds a collection of items (CheckerboardPages and
+        // CollectionPages), and the name of the current photo when the page
+        // just holds a single photo (SinglePhotoPage)
         Page? current_page = get_current_page ();
         if (current_page != null) {
-            ViewCollection view = current_page.get_view ();
-            if (view.get_selected_count () == 1) {
-                DataView selected_item = view.get_selected_at (0);
-                title = selected_item.get_source ().get_name ();
-            } else {
                 title = current_page.to_string ();
-            }
         } else {
             // having no page is unlikely, but set the good old default title
             // just in case
