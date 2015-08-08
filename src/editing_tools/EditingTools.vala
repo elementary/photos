@@ -40,7 +40,6 @@ public abstract class EditingToolWindow : Gtk.Window {
 
         Gtk.Frame outer_frame = new Gtk.Frame (null);
         outer_frame.set_border_width (0);
-        outer_frame.set_shadow_type (Gtk.ShadowType.OUT);
 
         layout_frame.set_border_width (FRAME_BORDER);
         layout_frame.set_shadow_type (Gtk.ShadowType.NONE);
