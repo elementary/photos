@@ -51,7 +51,6 @@ public abstract class EditingToolWindow : Gtk.Window {
         focus_on_map = true;
         set_accept_focus (true);
         set_can_focus (true);
-        set_has_resize_grip (false);
 
         // Needed to prevent the (spurious) 'This event was synthesised outside of GDK'
         // warnings after a keypress.
@@ -656,10 +655,8 @@ public class CropTool : EditingTool {
             base (container);
 
             cancel_button.set_tooltip_text (_ ("Return to current photo dimensions"));
-            cancel_button.set_image_position (Gtk.PositionType.LEFT);
 
             ok_button.set_tooltip_text (_ ("Set the crop for this photo"));
-            ok_button.set_image_position (Gtk.PositionType.LEFT);
 
             constraint_combo = new Gtk.ComboBox ();
             Gtk.CellRendererText combo_text_renderer = new Gtk.CellRendererText ();
@@ -1868,10 +1865,8 @@ public class RedeyeTool : EditingTool {
             slider.set_draw_value (false);
 
             close_button.set_tooltip_text (_ ("Close the red-eye tool"));
-            close_button.set_image_position (Gtk.PositionType.LEFT);
 
             apply_button.set_tooltip_text (_ ("Remove any red-eye effects in the selected region"));
-            apply_button.set_image_position (Gtk.PositionType.LEFT);
 
             Gtk.Box layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
             layout.add (slider_label);
