@@ -477,7 +477,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.insert (redeye_button, -1);
 
         // adjust tool
-        adjust_button = new Gtk.ToggleToolButton.from_stock (Resources.ADJUST);
+        adjust_button = new Gtk.ToggleToolButton ();
+        adjust_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ADJUST, Gtk.IconSize.LARGE_TOOLBAR);
         adjust_button.set_label (Resources.ADJUST_LABEL);
         adjust_button.set_tooltip_text (Resources.ADJUST_TOOLTIP);
         adjust_button.toggled.connect (on_adjust_toggled);
