@@ -87,12 +87,6 @@ public abstract class EditingToolWindow : Gtk.Window {
 
         return true;
     }
-
-    public override void realize () {
-        set_opacity (Resources.TRANSIENT_WINDOW_OPACITY);
-
-        base.realize ();
-    }
 }
 
 // The PhotoCanvas is an interface object between an EditingTool and its host.  It provides objects
