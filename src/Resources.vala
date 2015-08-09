@@ -79,7 +79,6 @@ public const string CROP = "image-crop";
 public const string STRAIGHTEN = "object-straighten";
 public const string REDEYE = "image-red-eye";
 public const string ADJUST = "image-adjust";
-public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "image-auto-adjust";
@@ -782,7 +781,6 @@ public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
 public const string SELECT_ALL_MENU = _("Select _All");
 public const string SELECT_ALL_TOOLTIP = _("Select all items");
 
-private Gtk.IconFactory factory = null;
 private Gee.HashMap<string, Gdk.Pixbuf> icon_cache = null;
 Gee.HashMap<string, Gdk.Pixbuf> scaled_icon_cache = null;
 
@@ -794,13 +792,6 @@ private string END_MULTIDAY_DATE_FORMAT_STRING = null;
 private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
 
 public void init () {
-    // load application-wide stock icons as IconSets
-    factory = new Gtk.IconFactory ();
-
-    File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-    add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
-
-    factory.add_default ();
 
     generate_rating_strings ();
 
@@ -1010,18 +1001,6 @@ public Gdk.Pixbuf? load_icon (string name, int scale = DEFAULT_ICON_SCALE) {
         return null;
 
     return (scale > 0) ? scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
-}
-
-private void add_stock_icon (File file, string stock_id) {
-    Gdk.Pixbuf pixbuf = null;
-    try {
-        pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
-    } catch (Error err) {
-        critical ("Unable to load stock icon %s: %s", stock_id, err.message);
-    }
-
-    Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf (pixbuf);
-    factory.add (stock_id, icon_set);
 }
 
 public delegate void AddStockIconModify (Gdk.Pixbuf pixbuf);
