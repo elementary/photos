@@ -27,7 +27,7 @@ public void terminate () {
 
 public abstract class EditingToolWindow : Gtk.Window {
 
-    private Gtk.Frame layout_frame = new Gtk.Frame (null);
+    private Gtk.Frame outer_frame = new Gtk.Frame (null);
     private bool user_moved = false;
 
     public EditingToolWindow (Gtk.Window container) {
@@ -37,13 +37,6 @@ public abstract class EditingToolWindow : Gtk.Window {
         set_decorated (false);
         set_transient_for (container);
 
-        Gtk.Frame outer_frame = new Gtk.Frame (null);
-        outer_frame.set_border_width (0);
-
-        layout_frame.set_border_width (6);
-        layout_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
-        outer_frame.add (layout_frame);
         base.add (outer_frame);
 
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
@@ -61,7 +54,7 @@ public abstract class EditingToolWindow : Gtk.Window {
     }
 
     public override void add (Gtk.Widget widget) {
-        layout_frame.add (widget);
+        outer_frame.add (widget);
     }
 
     public bool has_user_moved () {
@@ -679,6 +672,7 @@ public class CropTool : EditingTool {
             response_layout.add (ok_button);
 
             layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
+            layout.margin = 12;
             layout.add (constraint_combo);
             layout.add (pivot_reticle_button);
             layout.add (response_layout);
@@ -1868,6 +1862,7 @@ public class RedeyeTool : EditingTool {
             apply_button.set_tooltip_text (_ ("Remove any red-eye effects in the selected region"));
 
             Gtk.Box layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
+            layout.margin = 12;
             layout.add (slider_label);
             layout.add (slider);
             layout.add (close_button);
@@ -2268,6 +2263,7 @@ public class AdjustTool : EditingTool {
             histogram_aligner.set_padding (12, 8, 12, 12);
 
             Gtk.Box pane_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
+            pane_layouter.margin = 12;
             pane_layouter.add (histogram_aligner);
             pane_layouter.add (slider_organizer);
             pane_layouter.add (button_layouter);
