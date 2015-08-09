@@ -26,7 +26,6 @@ public void terminate () {
 }
 
 public abstract class EditingToolWindow : Gtk.Window {
-    private const int FRAME_BORDER = 6;
 
     private Gtk.Frame layout_frame = new Gtk.Frame (null);
     private bool user_moved = false;
@@ -41,7 +40,7 @@ public abstract class EditingToolWindow : Gtk.Window {
         Gtk.Frame outer_frame = new Gtk.Frame (null);
         outer_frame.set_border_width (0);
 
-        layout_frame.set_border_width (FRAME_BORDER);
+        layout_frame.set_border_width (6);
         layout_frame.set_shadow_type (Gtk.ShadowType.NONE);
 
         outer_frame.add (layout_frame);
