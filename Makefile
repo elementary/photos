@@ -171,7 +171,6 @@ TEXT_FILES = \
 
 ICON_FILES = \
 	drag_nub.png \
-	image-adjust.svg \
 	noninterpretable-video.png \
 	pin-toolbar.svg \
 	sprocket.png
@@ -504,6 +503,8 @@ install:
 	$(INSTALL_PROGRAM) $(MIGRATOR_BIN) $(DESTDIR)$(LIBEXECDIR)
 	mkdir -p $(DESTDIR)$(PREFIX)/share/shotwell/icons
 	$(INSTALL_DATA) icons/* $(DESTDIR)$(PREFIX)/share/shotwell/icons
+	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
+	$(INSTALL_DATA) icons/pin-toolbar.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
 	mkdir -p $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.shotwell.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.shotwell-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
