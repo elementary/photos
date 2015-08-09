@@ -781,7 +781,6 @@ public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
 public const string SELECT_ALL_MENU = _("Select _All");
 public const string SELECT_ALL_TOOLTIP = _("Select all items");
 
-private Gtk.IconFactory factory = null;
 private Gee.HashMap<string, Gdk.Pixbuf> icon_cache = null;
 Gee.HashMap<string, Gdk.Pixbuf> scaled_icon_cache = null;
 
@@ -793,10 +792,6 @@ private string END_MULTIDAY_DATE_FORMAT_STRING = null;
 private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
 
 public void init () {
-    // load application-wide stock icons as IconSets
-    factory = new Gtk.IconFactory ();
-
-    factory.add_default ();
 
     generate_rating_strings ();
 
