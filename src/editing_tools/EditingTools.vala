@@ -2170,7 +2170,6 @@ public class RedeyeTool : EditingTool {
 }
 
 public class AdjustTool : EditingTool {
-    private const int SLIDER_WIDTH = 160;
     private const uint SLIDER_DELAY_MSEC = 100;
 
     private class AdjustToolWindow : EditingToolWindow {
