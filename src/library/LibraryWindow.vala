@@ -658,8 +658,8 @@ public class LibraryWindow : AppWindow {
 
     private void on_file_import () {
         Gtk.FileChooserDialog import_dialog = new Gtk.FileChooserDialog (_ ("Import From Folder"), null,
-                Gtk.FileChooserAction.SELECT_FOLDER, Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
-                Gtk.Stock.OK, Gtk.ResponseType.OK);
+                Gtk.FileChooserAction.SELECT_FOLDER, _("Cancel"), Gtk.ResponseType.CANCEL,
+                _("Import"), Gtk.ResponseType.OK);
         import_dialog.set_local_only (false);
         import_dialog.set_select_multiple (true);
         import_dialog.set_current_folder (import_dir);

@@ -44,8 +44,8 @@ class SlideshowPage : SinglePhotoPage {
             set_modal (true);
             set_transient_for (AppWindow.get_fullscreen ());
 
-            add_buttons (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
-                         Gtk.Stock.OK, Gtk.ResponseType.OK);
+            add_buttons (_("Cancel"), Gtk.ResponseType.CANCEL,
+                         _("Save Settings"), Gtk.ResponseType.OK);
             set_title (_ ("Settings"));
 
             Gtk.Adjustment adjustment = new Gtk.Adjustment (delay, Config.Facade.SLIDESHOW_DELAY_MIN, Config.Facade.SLIDESHOW_DELAY_MAX, 0.1, 1, 0);
