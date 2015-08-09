@@ -800,10 +800,6 @@ public void init () {
     File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
     add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
 
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ADJUST), ADJUST);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_CAMERAS), ICON_CAMERAS);
-
     factory.add_default ();
 
     generate_rating_strings ();
@@ -1029,30 +1025,6 @@ private void add_stock_icon (File file, string stock_id) {
 }
 
 public delegate void AddStockIconModify (Gdk.Pixbuf pixbuf);
-
-private void add_stock_icon_from_themed_icon (GLib.ThemedIcon gicon, string stock_id,
-        AddStockIconModify? modify = null) {
-    Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
-    icon_theme.append_search_path (AppDirs.get_resources_dir ().get_child ("icons").get_path ());
-
-    Gtk.IconInfo? info = icon_theme.lookup_by_gicon (gicon,
-                         Resources.DEFAULT_ICON_SCALE, Gtk.IconLookupFlags.FORCE_SIZE);
-    if (info == null) {
-        debug ("unable to load icon for: %s", stock_id);
-        return;
-    }
-
-    try {
-        Gdk.Pixbuf pix = info.load_icon ();
-        if (modify != null) {
-            modify (pix);
-        }
-        Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf (pix);
-        factory.add (stock_id, icon_set);
-    } catch (Error err) {
-        debug ("%s", err.message);
-    }
-}
 
 // Get the directory where our help files live.  Returns a string
 // describing the help path we want, or, if we're installed system
