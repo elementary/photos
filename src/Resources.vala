@@ -1008,18 +1008,6 @@ public Gdk.Pixbuf? load_icon (string name, int scale = DEFAULT_ICON_SCALE) {
     return (scale > 0) ? scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
 }
 
-/*private void add_stock_icon (File file, string stock_id) {
-    Gdk.Pixbuf pixbuf = null;
-    try {
-        pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
-    } catch (Error err) {
-        critical ("Unable to load stock icon %s: %s", stock_id, err.message);
-    }
-
-    Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf (pixbuf);
-    factory.add (stock_id, icon_set);
-}*/
-
 public delegate void AddStockIconModify (Gdk.Pixbuf pixbuf);
 
 // Get the directory where our help files live.  Returns a string
