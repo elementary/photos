@@ -172,6 +172,7 @@ public class ExportDialog : Gtk.Dialog {
     public ExportDialog (string title) {
         this.title = title;
         resizable = false;
+        deletable = false;
 
         quality_combo = new Gtk.ComboBoxText ();
         int ctr = 0;
@@ -1150,6 +1151,7 @@ public class TextEntryDialog : Gtk.Dialog {
                        string? initial_text, Gee.Collection<string>? completion_list, string? completion_delimiter) {
         set_title (title);
         set_resizable (true);
+        set_deletable (false);
         set_default_size (350, 104);
         set_parent_window (AppWindow.get_instance ().get_parent_window ());
         set_transient_for (AppWindow.get_instance ());
@@ -1219,6 +1221,7 @@ public class MultiTextEntryDialog : Gtk.Dialog {
     public void setup (OnModifyValidateType? modify_validate, string title, string label, string? initial_text) {
         set_title (title);
         set_resizable (true);
+        set_deletable (false);
         set_default_size (500, 300);
         set_parent_window (AppWindow.get_instance ().get_parent_window ());
         set_transient_for (AppWindow.get_instance ());
@@ -1382,6 +1385,7 @@ public class ProgressDialog : Gtk.Window {
 
         set_title (text);
         set_resizable (false);
+        set_deletable (false);
         if (owner != null)
             set_transient_for (owner);
         set_modal (true);
@@ -1567,6 +1571,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
 
         set_modal (true);
         set_resizable (false);
+        set_deletable (false);
         set_transient_for (AppWindow.get_instance ());
 
         add_buttons ((_ ("_Cancel")), Gtk.ResponseType.CANCEL,
@@ -1892,6 +1897,7 @@ public class WelcomeDialog : Gtk.Dialog {
         Gtk.Widget ok_button = add_button (_ ("_Close"), Gtk.ResponseType.OK);
         set_title (_ ("Welcome!"));
         set_resizable (false);
+        set_deletable (false);
         set_type_hint (Gdk.WindowTypeHint.DIALOG);
         set_transient_for (owner);
 
