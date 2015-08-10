@@ -310,7 +310,7 @@ public class LibraryWindow : AppWindow {
         Gtk.ActionEntry import = { "CommonFileImport", Resources.IMPORT,
                                    TRANSLATABLE, "<Ctrl>I", TRANSLATABLE, on_file_import
                                  };
-        import.label = _ ("_Import From Folder...");
+        import.label = _ ("_Import From Folder…");
         import.tooltip = _ ("Import photos from disk to library");
         actions += import;
 
@@ -731,7 +731,7 @@ public class LibraryWindow : AppWindow {
         to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
         to_remove.add_all (Video.global.get_trashcan_contents ());
 
-        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash..."), true);
+        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash…"), true);
 
         AppWindow.get_command_manager ().reset ();
     }
@@ -1191,7 +1191,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_library_monitor_discovery_started () {
-        start_pulse_background_progress_bar (_ ("Updating library..."), STARTUP_SCAN_PROGRESS_PRIORITY);
+        start_pulse_background_progress_bar (_ ("Updating library…"), STARTUP_SCAN_PROGRESS_PRIORITY);
     }
 
     private void on_library_monitor_discovery_completed () {
@@ -1202,18 +1202,18 @@ public class LibraryWindow : AppWindow {
         if (total_files < MIN_PROGRESS_BAR_FILES)
             clear_background_progress_bar (REALTIME_UPDATE_PROGRESS_PRIORITY);
         else {
-            update_background_progress_bar (_ ("Updating library..."), REALTIME_UPDATE_PROGRESS_PRIORITY,
+            update_background_progress_bar (_ ("Updating library…"), REALTIME_UPDATE_PROGRESS_PRIORITY,
                                             completed_files, total_files);
         }
     }
 
     private void on_library_monitor_auto_import_preparing () {
-        start_pulse_background_progress_bar (_ ("Preparing to auto-import photos..."),
+        start_pulse_background_progress_bar (_ ("Preparing to auto-import photos…"),
                                              REALTIME_IMPORT_PROGRESS_PRIORITY);
     }
 
     private void on_library_monitor_auto_import_progress (uint64 completed_bytes, uint64 total_bytes) {
-        update_background_progress_bar (_ ("Auto-importing photos..."),
+        update_background_progress_bar (_ ("Auto-importing photos…"),
                                         REALTIME_IMPORT_PROGRESS_PRIORITY, completed_bytes, total_bytes);
     }
 
@@ -1221,7 +1221,7 @@ public class LibraryWindow : AppWindow {
         if (total < MIN_PROGRESS_BAR_FILES)
             clear_background_progress_bar (METADATA_WRITER_PROGRESS_PRIORITY);
         else {
-            update_background_progress_bar (_ ("Writing metadata to files..."),
+            update_background_progress_bar (_ ("Writing metadata to files…"),
                                             METADATA_WRITER_PROGRESS_PRIORITY, completed, total);
         }
     }

@@ -637,6 +637,7 @@ public class SavedSearchDialog {
         dialog.modal = true;
         dialog.transient_for = AppWindow.get_instance ();
         dialog.response.connect (on_response);
+        dialog.deletable = false;
 
         add_criteria = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         add_criteria.button_press_event.connect (on_add_criteria);

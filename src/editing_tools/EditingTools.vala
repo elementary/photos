@@ -26,9 +26,8 @@ public void terminate () {
 }
 
 public abstract class EditingToolWindow : Gtk.Window {
-    private const int FRAME_BORDER = 6;
 
-    private Gtk.Frame layout_frame = new Gtk.Frame (null);
+    private Gtk.Frame outer_frame = new Gtk.Frame (null);
     private bool user_moved = false;
 
     public EditingToolWindow (Gtk.Window container) {
@@ -38,13 +37,6 @@ public abstract class EditingToolWindow : Gtk.Window {
         set_decorated (false);
         set_transient_for (container);
 
-        Gtk.Frame outer_frame = new Gtk.Frame (null);
-        outer_frame.set_border_width (0);
-
-        layout_frame.set_border_width (FRAME_BORDER);
-        layout_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
-        outer_frame.add (layout_frame);
         base.add (outer_frame);
 
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
@@ -62,7 +54,7 @@ public abstract class EditingToolWindow : Gtk.Window {
     }
 
     public override void add (Gtk.Widget widget) {
-        layout_frame.add (widget);
+        outer_frame.add (widget);
     }
 
     public bool has_user_moved () {
@@ -680,6 +672,7 @@ public class CropTool : EditingTool {
             response_layout.add (ok_button);
 
             layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
+            layout.margin = 12;
             layout.add (constraint_combo);
             layout.add (pivot_reticle_button);
             layout.add (response_layout);
@@ -1869,6 +1862,7 @@ public class RedeyeTool : EditingTool {
             apply_button.set_tooltip_text (_ ("Remove any red-eye effects in the selected region"));
 
             Gtk.Box layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
+            layout.margin = 12;
             layout.add (slider_label);
             layout.add (slider);
             layout.add (close_button);
@@ -2176,7 +2170,6 @@ public class RedeyeTool : EditingTool {
 }
 
 public class AdjustTool : EditingTool {
-    private const int SLIDER_WIDTH = 160;
     private const uint SLIDER_DELAY_MSEC = 100;
 
     private class AdjustToolWindow : EditingToolWindow {
@@ -2212,50 +2205,43 @@ public class AdjustTool : EditingTool {
             slider_organizer.set_column_homogeneous (false);
             slider_organizer.set_row_spacing (12);
             slider_organizer.set_column_spacing (12);
-            slider_organizer.set_margin_start (12);
             slider_organizer.set_margin_bottom (12);
 
             Gtk.Label exposure_label = new Gtk.Label.with_mnemonic (_ ("Exposure:"));
             exposure_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (exposure_label, 0, 0, 1, 1);
             slider_organizer.attach (exposure_slider, 1, 0, 1, 1);
-            exposure_slider.set_size_request (SLIDER_WIDTH, -1);
             exposure_slider.set_draw_value (false);
+            exposure_slider.set_hexpand (true);
 
             Gtk.Label saturation_label = new Gtk.Label.with_mnemonic (_ ("Saturation:"));
             saturation_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (saturation_label, 0, 1, 1, 1);
             slider_organizer.attach (saturation_slider, 1, 1, 1, 1);
-            saturation_slider.set_size_request (SLIDER_WIDTH, -1);
             saturation_slider.set_draw_value (false);
 
             Gtk.Label tint_label = new Gtk.Label.with_mnemonic (_ ("Tint:"));
             tint_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (tint_label, 0, 2, 1, 1);
             slider_organizer.attach (tint_slider, 1, 2, 1, 1);
-            tint_slider.set_size_request (SLIDER_WIDTH, -1);
             tint_slider.set_draw_value (false);
 
-            Gtk.Label temperature_label =
-                new Gtk.Label.with_mnemonic (_ ("Temperature:"));
+            Gtk.Label temperature_label = new Gtk.Label.with_mnemonic (_ ("Temperature:"));
             temperature_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (temperature_label, 0, 3, 1, 1);
             slider_organizer.attach (temperature_slider, 1, 3, 1, 1);
-            temperature_slider.set_size_request (SLIDER_WIDTH, -1);
             temperature_slider.set_draw_value (false);
 
             Gtk.Label shadows_label = new Gtk.Label.with_mnemonic (_ ("Shadows:"));
             shadows_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (shadows_label, 0, 4, 1, 1);
             slider_organizer.attach (shadows_slider, 1, 4, 1, 1);
-            shadows_slider.set_size_request (SLIDER_WIDTH, -1);
             shadows_slider.set_draw_value (false);
 
             Gtk.Label highlights_label = new Gtk.Label.with_mnemonic (_ ("Highlights:"));
             highlights_label.set_halign (Gtk.Align.END);
             slider_organizer.attach (highlights_label, 0, 5, 1, 1);
             slider_organizer.attach (highlights_slider, 1, 5, 1, 1);
-            highlights_slider.set_size_request (SLIDER_WIDTH, -1);
             highlights_slider.set_draw_value (false);
 
             Gtk.Box button_layouter = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
@@ -2264,15 +2250,12 @@ public class AdjustTool : EditingTool {
             button_layouter.pack_start (reset_button, true, true, 1);
             button_layouter.pack_start (ok_button, true, true, 1);
 
-            Gtk.Alignment histogram_aligner = new Gtk.Alignment (0.0f, 0.0f, 0.0f, 0.0f);
-            histogram_aligner.add (histogram_manipulator);
-            histogram_aligner.set_padding (12, 8, 12, 12);
-
             Gtk.Box pane_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
-            pane_layouter.add (histogram_aligner);
+            pane_layouter.margin = 12;
+            pane_layouter.add (histogram_manipulator);
             pane_layouter.add (slider_organizer);
             pane_layouter.add (button_layouter);
-            pane_layouter.set_child_packing (histogram_aligner, true, true, 0, Gtk.PackType.START);
+            pane_layouter.set_child_packing (histogram_manipulator, true, true, 0, Gtk.PackType.START);
 
             add (pane_layouter);
         }
