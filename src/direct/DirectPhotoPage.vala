@@ -491,8 +491,8 @@ public class DirectPhotoPage : EditingHostPage {
         }
 
         Gtk.FileChooserDialog save_as_dialog = new Gtk.FileChooserDialog (_ ("Save As"),
-                AppWindow.get_instance (), Gtk.FileChooserAction.SAVE, Gtk.Stock.CANCEL,
-                Gtk.ResponseType.CANCEL, Gtk.Stock.OK, Gtk.ResponseType.OK);
+                AppWindow.get_instance (), Gtk.FileChooserAction.SAVE, _("Cancel"),
+                Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
         save_as_dialog.set_select_multiple (false);
         save_as_dialog.set_current_name (filename);
         save_as_dialog.set_current_folder (current_save_dir.get_path ());

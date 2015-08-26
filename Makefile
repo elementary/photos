@@ -2,7 +2,7 @@ PROGRAM = pantheon-photos
 PROGRAM_THUMBNAILER = pantheon-photos-video-thumbnailer
 PROGRAM_MIGRATOR = pantheon-photos-settings-migrator
 
-VERSION = 0.1
+VERSION = 0.1.1
 GITVER := $(shell git log -n 1 2>/dev/null | head -n 1 | awk '{print $$2}')
 GETTEXT_PACKAGE = $(PROGRAM)
 BUILD_ROOT = 1
@@ -171,7 +171,6 @@ TEXT_FILES = \
 
 ICON_FILES = \
 	drag_nub.png \
-	image-adjust.svg \
 	noninterpretable-video.png \
 	pin-toolbar.svg \
 	sprocket.png
@@ -504,6 +503,8 @@ install:
 	$(INSTALL_PROGRAM) $(MIGRATOR_BIN) $(DESTDIR)$(LIBEXECDIR)
 	mkdir -p $(DESTDIR)$(PREFIX)/share/pantheon-photos/icons
 	$(INSTALL_DATA) icons/* $(DESTDIR)$(PREFIX)/share/pantheon-photos/icons
+	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
+	$(INSTALL_DATA) icons/pin-toolbar.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
 	mkdir -p $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.pantheon-photos.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 	$(INSTALL_DATA) misc/org.yorba.pantheon-photos-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas

@@ -115,6 +115,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     public const int TRINKET_PADDING = 1;
 
     public const int BRIGHTEN_SHIFT = 0x18;
+    public const int SELECTION_ICON_SIZE = 24;
 
     public Dimensions requisition = Dimensions ();
     public Gdk.Rectangle allocation = Gdk.Rectangle ();
@@ -435,6 +436,15 @@ public abstract class CheckerboardItem : ThumbnailView {
         return origin;
     }
 
+    public Gdk.Rectangle get_selection_button_area () {
+        Gdk.Rectangle selection_button_area = Gdk.Rectangle ();
+        selection_button_area.x = allocation.x;
+        selection_button_area.y = allocation.y;
+        selection_button_area.width = SELECTION_ICON_SIZE;
+        selection_button_area.height = SELECTION_ICON_SIZE;
+        return selection_button_area;
+    }
+
     protected virtual void paint_shadow (Cairo.Context ctx, Dimensions dimensions, Gdk.Point origin,
                                          int radius, float initial_alpha) {
         double rgb_all = 0.0;
@@ -529,7 +539,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public void paint (Cairo.Context ctx, Gdk.RGBA bg_color, Gdk.RGBA selected_color,
-                       Gdk.RGBA text_color, Gdk.RGBA? border_color) {
+                       Gdk.RGBA text_color, Gdk.RGBA? border_color, int scale_factor) {
         // calc the top-left point of the pixbuf
         Gdk.Point pixbuf_origin = Gdk.Point ();
         pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
@@ -549,8 +559,12 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.restore ();
         }
 
+        string? selection_icon = null;
+
         // draw selection border
         if (is_selected ()) {
+            selection_icon = Resources.ICON_SELECTION_CHECKED;
+
             // border thickness depends on the size of the thumbnail
             ctx.save ();
             paint_border (ctx, pixbuf_dim, pixbuf_origin,
@@ -571,6 +585,37 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.save ();
             ctx.set_source_rgba (bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
             paint_image (ctx, display_pixbuf, pixbuf_origin);
+            ctx.restore ();
+        }
+
+        // decide which icon to use for the selection button
+        if (brightened != null && pixbuf != null) {
+            if (is_selected ())
+                selection_icon = Resources.ICON_SELECTION_REMOVE;
+            else
+                selection_icon = Resources.ICON_SELECTION_ADD;
+        }
+
+        Gdk.Pixbuf? selection_icon_pix = null;
+        if (selection_icon != null) {
+            try {
+                selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon,
+                    SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            } catch (Error err) {
+                warning ("Could not load %s: %s", selection_icon, err.message);
+            }
+        }
+
+        // draw selector icon
+        if (selection_icon_pix != null) {
+            // calc the top-left point of the selection button
+            Gdk.Rectangle selection_icon_area = get_selection_button_area ();
+            ctx.save ();
+            ctx.scale (1.0 / scale_factor, 1.0 / scale_factor);
+            int icon_x = selection_icon_area.x * scale_factor;
+            int icon_y = selection_icon_area.y * scale_factor;
+            Gdk.cairo_set_source_pixbuf (ctx, selection_icon_pix, icon_x, icon_y);
+            ctx.paint ();
             ctx.restore ();
         }
 
@@ -1781,7 +1826,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             // have all items in the exposed area paint themselves
             foreach (CheckerboardItem item in intersection (visible_page)) {
                 item.paint (ctx, bg_color, item.is_selected () ? selected_color : unselected_color,
-                            unselected_color, border_color);
+                            unselected_color, border_color, scale_factor);
             }
         } else {
             // draw the message in the center of the window

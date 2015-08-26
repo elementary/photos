@@ -10,7 +10,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
     private Gtk.Window toolbar_window = new Gtk.Window (Gtk.WindowType.POPUP);
-    private Gtk.ToggleToolButton pin_button = new Gtk.ToggleToolButton.from_stock (Resources.PIN_TOOLBAR);
+    private Gtk.ToggleToolButton pin_button = new Gtk.ToggleToolButton ();
     private bool is_toolbar_shown = false;
     private bool waiting_for_invoke = false;
     private time_t left_toolbar_time = 0;
@@ -46,6 +46,7 @@ public class FullscreenWindow : PageWindow {
         set_border_width (0);
 
         pin_button.set_label (_ ("Pin Toolbar"));
+        pin_button.set_icon_widget (new Gtk.Image.from_icon_name ("pin-toolbar", Gtk.IconSize.LARGE_TOOLBAR));
         pin_button.set_tooltip_text (_ ("Pin the toolbar open"));
         pin_button.clicked.connect (update_toolbar_dismissal);
 

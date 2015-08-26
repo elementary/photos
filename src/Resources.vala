@@ -79,7 +79,6 @@ public const string CROP = "image-crop";
 public const string STRAIGHTEN = "object-straighten";
 public const string REDEYE = "image-red-eye";
 public const string ADJUST = "image-adjust";
-public const string PIN_TOOLBAR = "shotwell-pin-toolbar";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "image-auto-adjust";
@@ -103,9 +102,14 @@ public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
 public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
 public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
 
+public const string ICON_ZOOM_ORIGINAL = "zoom-original-symbolic";
 public const string ICON_ZOOM_IN = "zoom-in-symbolic";
 public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
 public const int ICON_ZOOM_SCALE = 16;
+
+public const string ICON_SELECTION_ADD = "selection-add";
+public const string ICON_SELECTION_CHECKED = "selection-checked";
+public const string ICON_SELECTION_REMOVE = "selection-remove";
 
 public const string ICON_CAMERAS = "camera-photo";
 public const string ICON_EVENTS = "office-calendar";
@@ -777,7 +781,6 @@ public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
 public const string SELECT_ALL_MENU = _("Select _All");
 public const string SELECT_ALL_TOOLTIP = _("Select all items");
 
-private Gtk.IconFactory factory = null;
 private Gee.HashMap<string, Gdk.Pixbuf> icon_cache = null;
 Gee.HashMap<string, Gdk.Pixbuf> scaled_icon_cache = null;
 
@@ -789,17 +792,6 @@ private string END_MULTIDAY_DATE_FORMAT_STRING = null;
 private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
 
 public void init () {
-    // load application-wide stock icons as IconSets
-    factory = new Gtk.IconFactory ();
-
-    File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-    add_stock_icon (icons_dir.get_child ("pin-toolbar.svg"), PIN_TOOLBAR);
-
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ADJUST), ADJUST);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_SINGLE_PHOTO), ICON_SINGLE_PHOTO);
-    add_stock_icon_from_themed_icon (new GLib.ThemedIcon (ICON_CAMERAS), ICON_CAMERAS);
-
-    factory.add_default ();
 
     generate_rating_strings ();
 
@@ -1011,43 +1003,7 @@ public Gdk.Pixbuf? load_icon (string name, int scale = DEFAULT_ICON_SCALE) {
     return (scale > 0) ? scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
 }
 
-private void add_stock_icon (File file, string stock_id) {
-    Gdk.Pixbuf pixbuf = null;
-    try {
-        pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
-    } catch (Error err) {
-        critical ("Unable to load stock icon %s: %s", stock_id, err.message);
-    }
-
-    Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf (pixbuf);
-    factory.add (stock_id, icon_set);
-}
-
 public delegate void AddStockIconModify (Gdk.Pixbuf pixbuf);
-
-private void add_stock_icon_from_themed_icon (GLib.ThemedIcon gicon, string stock_id,
-        AddStockIconModify? modify = null) {
-    Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
-    icon_theme.append_search_path (AppDirs.get_resources_dir ().get_child ("icons").get_path ());
-
-    Gtk.IconInfo? info = icon_theme.lookup_by_gicon (gicon,
-                         Resources.DEFAULT_ICON_SCALE, Gtk.IconLookupFlags.FORCE_SIZE);
-    if (info == null) {
-        debug ("unable to load icon for: %s", stock_id);
-        return;
-    }
-
-    try {
-        Gdk.Pixbuf pix = info.load_icon ();
-        if (modify != null) {
-            modify (pix);
-        }
-        Gtk.IconSet icon_set = new Gtk.IconSet.from_pixbuf (pix);
-        factory.add (stock_id, icon_set);
-    } catch (Error err) {
-        debug ("%s", err.message);
-    }
-}
 
 // Get the directory where our help files live.  Returns a string
 // describing the help path we want, or, if we're installed system
@@ -1120,78 +1076,6 @@ public string to_css_color (Gdk.RGBA color) {
 }
 
 public const int ALL_DATA = -1;
-
-private static Gee.Map<Gtk.Widget, Gtk.CssProvider> providers = null;
-
-public static void style_widget (Gtk.Widget widget, string stylesheet) {
-    if (providers == null)
-        providers = new Gee.HashMap<Gtk.Widget, Gtk.CssProvider> ();
-
-    if (providers.has_key (widget))
-        widget.get_style_context ().remove_provider (providers.get (widget));
-
-    Gtk.CssProvider styler = new Gtk.CssProvider ();
-
-    try {
-        styler.load_from_data (stylesheet, ALL_DATA);
-    } catch (Error e) {
-        warning ("couldn't parse widget stylesheet '%s': %s", stylesheet,
-                 e.message);
-        // short-circuit return -- if the stylesheet couldn't be interpreted
-        // then we can't do anything more
-        return;
-    }
-
-    widget.get_style_context ().add_provider (styler,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    providers.set (widget, styler);
-}
-
-public const string SIDEBAR_PANED_STYLESHEET =
-    """ .paned {
-    border-style: inset;
-    border-right-width: 1px;
-    }""";
-
-
-public const string INSET_FRAME_STYLESHEET =
-    """ .frame {
-    border-style: inset;
-    border-width: 1px;
-    }""";
-
-public const string SCROLL_FRAME_STYLESHEET =
-    """ GtkScrolledWindow {
-    border-width: 0;
-    border-style: none;
-    border-radius: 0;
-    padding: 0;
-    }
-
-    .frame {
-    border-width: 0px;
-    border-style: none;
-    border-radius: 0;
-    padding: 0;
-    }""";
-
-public const string PAGE_STYLESHEET =
-    """ .frame {
-    border-width: 1px;
-    border-style: inset;
-    border-radius: 0;
-
-    padding: 0;
-    }""";
-
-public const string VIEWPORT_STYLESHEET =
-    """ GtkViewport {
-    border-width: 1px;
-    border-style: inset;
-    border-radius: 0;
-    padding: 0;
-    }""";
 
 public const string ONIMAGE_FONT_COLOR = "#000000";
 public const string ONIMAGE_FONT_BACKGROUND = "rgba(255,255,255,0.5)";

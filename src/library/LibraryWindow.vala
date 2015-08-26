@@ -310,7 +310,7 @@ public class LibraryWindow : AppWindow {
         Gtk.ActionEntry import = { "CommonFileImport", Resources.IMPORT,
                                    TRANSLATABLE, "<Ctrl>I", TRANSLATABLE, on_file_import
                                  };
-        import.label = _ ("_Import From Folder...");
+        import.label = _ ("_Import From Folder…");
         import.tooltip = _ ("Import photos from disk to library");
         actions += import;
 
@@ -658,8 +658,8 @@ public class LibraryWindow : AppWindow {
 
     private void on_file_import () {
         Gtk.FileChooserDialog import_dialog = new Gtk.FileChooserDialog (_ ("Import From Folder"), null,
-                Gtk.FileChooserAction.SELECT_FOLDER, Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
-                Gtk.Stock.OK, Gtk.ResponseType.OK);
+                Gtk.FileChooserAction.SELECT_FOLDER, _("Cancel"), Gtk.ResponseType.CANCEL,
+                _("Import"), Gtk.ResponseType.OK);
         import_dialog.set_local_only (false);
         import_dialog.set_select_multiple (true);
         import_dialog.set_current_folder (import_dir);
@@ -731,7 +731,7 @@ public class LibraryWindow : AppWindow {
         to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
         to_remove.add_all (Video.global.get_trashcan_contents ());
 
-        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash..."), true);
+        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash…"), true);
 
         AppWindow.get_command_manager ().reset ();
     }
@@ -1191,7 +1191,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_library_monitor_discovery_started () {
-        start_pulse_background_progress_bar (_ ("Updating library..."), STARTUP_SCAN_PROGRESS_PRIORITY);
+        start_pulse_background_progress_bar (_ ("Updating library…"), STARTUP_SCAN_PROGRESS_PRIORITY);
     }
 
     private void on_library_monitor_discovery_completed () {
@@ -1202,18 +1202,18 @@ public class LibraryWindow : AppWindow {
         if (total_files < MIN_PROGRESS_BAR_FILES)
             clear_background_progress_bar (REALTIME_UPDATE_PROGRESS_PRIORITY);
         else {
-            update_background_progress_bar (_ ("Updating library..."), REALTIME_UPDATE_PROGRESS_PRIORITY,
+            update_background_progress_bar (_ ("Updating library…"), REALTIME_UPDATE_PROGRESS_PRIORITY,
                                             completed_files, total_files);
         }
     }
 
     private void on_library_monitor_auto_import_preparing () {
-        start_pulse_background_progress_bar (_ ("Preparing to auto-import photos..."),
+        start_pulse_background_progress_bar (_ ("Preparing to auto-import photos…"),
                                              REALTIME_IMPORT_PROGRESS_PRIORITY);
     }
 
     private void on_library_monitor_auto_import_progress (uint64 completed_bytes, uint64 total_bytes) {
-        update_background_progress_bar (_ ("Auto-importing photos..."),
+        update_background_progress_bar (_ ("Auto-importing photos…"),
                                         REALTIME_IMPORT_PROGRESS_PRIORITY, completed_bytes, total_bytes);
     }
 
@@ -1221,7 +1221,7 @@ public class LibraryWindow : AppWindow {
         if (total < MIN_PROGRESS_BAR_FILES)
             clear_background_progress_bar (METADATA_WRITER_PROGRESS_PRIORITY);
         else {
-            update_background_progress_bar (_ ("Writing metadata to files..."),
+            update_background_progress_bar (_ ("Writing metadata to files…"),
                                             METADATA_WRITER_PROGRESS_PRIORITY, completed, total);
         }
     }
@@ -1236,16 +1236,11 @@ public class LibraryWindow : AppWindow {
         scrolled_sidebar.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scrolled_sidebar.add (sidebar_tree);
         scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_sidebar.set_shadow_type (Gtk.ShadowType.IN);
         get_style_context ().add_class ("sidebar-pane-separator");
 
         // divy the sidebar up into selection tree list, background progress bar, and properties
         background_progress_frame.add (background_progress_bar);
         background_progress_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
-        Resources.style_widget (scrolled_sidebar, Resources.SCROLL_FRAME_STYLESHEET);
-        Resources.style_widget (sidebar_paned, Resources.SIDEBAR_PANED_STYLESHEET);
-        Resources.style_widget (right_client_paned, Resources.SIDEBAR_PANED_STYLESHEET);
 
         // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
         // top two
@@ -1255,7 +1250,7 @@ public class LibraryWindow : AppWindow {
         // layout the selection tree to the left of the collection/toolbar box with an adjustable
         // gutter between them, framed for presentation
         right_frame = new Gtk.Frame (null);
-        right_frame.set_shadow_type (Gtk.ShadowType.IN);
+        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
 
         right_client_paned.pack1 (notebook, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
