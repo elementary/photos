@@ -667,6 +667,7 @@
           <object class="GtkFileChooserButton" id="library_dir_button">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
             <property name="action">select-folder</property>
           </object>
           <packing>
@@ -708,6 +709,7 @@
           <object class="GtkComboBoxText" id="default_raw_developer">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
           </object>
           <packing>
             <property name="left_attach">1</property>
@@ -790,7 +792,7 @@
         </child>
       </object>
       <packing>
-        <property name="expand">False</property>
+        <property name="expand">True</property>
         <property name="fill">True</property>
         <property name="position">0</property>
       </packing>
