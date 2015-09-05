@@ -542,7 +542,6 @@
                         <property name="xpad">4</property>
                         <property name="label" translatable="yes">E_xternal photo editor:</property>
                         <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">external_photo_editor_combo2</property>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -559,7 +558,6 @@
                         <property name="xpad">4</property>
                         <property name="label" translatable="yes">External _RAW editor:</property>
                         <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">external_raw_editor_combo2</property>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -624,404 +622,284 @@
   <object class="GtkBox" id="preferences_library">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="margin_left">6</property>
+    <property name="margin_right">6</property>
+    <property name="margin_bottom">12</property>
     <property name="orientation">vertical</property>
     <child>
-      <object class="GtkAlignment" id="alignment3">
+      <object class="GtkGrid" id="grid2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="border_width">6</property>
+        <property name="row_spacing">6</property>
+        <property name="column_spacing">6</property>
+        <property name="column_homogeneous">True</property>
         <child>
-          <object class="GtkTable" id="table2">
+          <object class="GtkLabel" id="library location1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="n_rows">12</property>
-            <property name="n_columns">2</property>
-            <property name="column_spacing">8</property>
-            <property name="row_spacing">4</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Library Location:</property>
+            <style>
+              <class name="h4"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label15">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">_Import photos to:</property>
+            <property name="use_underline">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="library_dir_button">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="action">select-folder</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="autoimport">
+            <property name="label" translatable="yes">_Watch library directory for new files</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="margin_left">12</property>
+            <property name="use_underline">True</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="importing1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Importing:</property>
+            <style>
+              <class name="h4"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="dir_structure_label1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">_Directory structure:</property>
+            <property name="use_underline">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment" id="dir_choser">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <child>
-              <object class="GtkFileChooserButton" id="library_dir_button">
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="hbox5">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="patern1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="action">select-folder</property>
+                <property name="halign">end</property>
+                <property name="xalign">0</property>
+                <property name="xpad">6</property>
+                <property name="label" translatable="yes">_Pattern:</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">1</property>
-                <property name="bottom_attach">2</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkAlignment" id="alignment6">
+              <object class="GtkLabel" id="pattern_help">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="top_padding">3</property>
-                <property name="bottom_padding">3</property>
-                <child>
-                  <object class="GtkLabel" id="library location1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Library Location:</property>
-                    <style>
-                      <class name="h4"/>
-                    </style>
-                  </object>
-                </child>
+                <attributes>
+                  <attribute name="underline" value="True"/>
+                </attributes>
               </object>
               <packing>
-                <property name="right_attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="alignment7">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="top_padding">2</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkCheckButton" id="autoimport">
-                    <property name="label" translatable="yes">_Watch library directory for new files</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">2</property>
-                <property name="bottom_attach">3</property>
-                <property name="x_options">GTK_FILL</property>
-                <property name="y_options"/>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: metadata1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="top_padding">14</property>
-                <property name="bottom_padding">3</property>
-                <child>
-                  <object class="GtkLabel" id="label13">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Metadata:</property>
-                    <style>
-                      <class name="h4"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">8</property>
-                <property name="bottom_attach">9</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: metadate write1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkCheckButton" id="write_metadata">
-                    <property name="label" translatable="yes">Write tags, titles, and other _metadata to photo files</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">9</property>
-                <property name="bottom_attach">10</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: import to1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkLabel" id="label15">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">_Import photos to:</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="top_attach">1</property>
-                <property name="bottom_attach">2</property>
-                <property name="x_options">GTK_FILL</property>
-                <property name="y_options">GTK_FILL</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: directory structure1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkLabel" id="dir_structure_label1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">_Directory structure:</property>
-                    <property name="use_underline">True</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="top_attach">4</property>
-                <property name="bottom_attach">5</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="dir_choser">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">4</property>
-                <property name="bottom_attach">5</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: patern1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">34</property>
-                <child>
-                  <object class="GtkBox" id="hbox5">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkLabel" id="patern1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="halign">end</property>
-                        <property name="xalign">0</property>
-                        <property name="xpad">6</property>
-                        <property name="label" translatable="yes">_Pattern:</property>
-                        <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">dir_pattern_entry2</property>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="pattern_help">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <attributes>
-                          <attribute name="underline" value="True"/>
-                        </attributes>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="top_attach">5</property>
-                <property name="bottom_attach">6</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="entry: pattern1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkEntry" id="dir_pattern_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="invisible_char">•</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">5</property>
-                <property name="bottom_attach">6</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: dynamic example1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkLabel" id="dynamic example">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">6</property>
-                <property name="bottom_attach">7</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: example1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">34</property>
-                <child>
-                  <object class="GtkLabel" id="example1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Example:</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="top_attach">6</property>
-                <property name="bottom_attach">7</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="checkbox: lowercase1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="top_padding">2</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkCheckButton" id="lowercase">
-                    <property name="label" translatable="yes">R_ename imported files to lowercase</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="use_underline">True</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">7</property>
-                <property name="bottom_attach">8</property>
-                <property name="x_options">GTK_FILL</property>
-                <property name="y_options"/>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: developer1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="top_padding">14</property>
-                <property name="bottom_padding">3</property>
-                <child>
-                  <object class="GtkLabel" id="label16">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">RAW Developer:</property>
-                    <style>
-                      <class name="h4"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">10</property>
-                <property name="bottom_attach">11</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="default_raw_developer">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">11</property>
-                <property name="bottom_attach">12</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="alignment10">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">10</property>
-                <child>
-                  <object class="GtkLabel" id="label17">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">De_fault:</property>
-                    <property name="use_underline">True</property>
-                    <property name="mnemonic_widget">default_raw_developer2</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="top_attach">11</property>
-                <property name="bottom_attach">12</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment" id="label: importing1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="top_padding">14</property>
-                <property name="bottom_padding">3</property>
-                <child>
-                  <object class="GtkLabel" id="importing1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Importing:</property>
-                    <style>
-                      <class name="h4"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="right_attach">2</property>
-                <property name="top_attach">3</property>
-                <property name="bottom_attach">4</property>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="dir_pattern_entry">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
+            <property name="primary_icon_activatable">False</property>
+            <property name="secondary_icon_activatable">False</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="example1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Example:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="dynamic example">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="lowercase">
+            <property name="label" translatable="yes">R_ename imported files to lowercase</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="margin_left">12</property>
+            <property name="use_underline">True</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">7</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label13">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Metadata:</property>
+            <style>
+              <class name="h4"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">8</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="write_metadata">
+            <property name="label" translatable="yes">Write tags, titles, and other _metadata to photo files</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="margin_left">12</property>
+            <property name="use_underline">True</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">9</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label16">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">RAW Developer:</property>
+            <style>
+              <class name="h4"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">10</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label17">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">end</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">De_fault:</property>
+            <property name="use_underline">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">11</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="default_raw_developer">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">11</property>
+          </packing>
         </child>
       </object>
       <packing>
