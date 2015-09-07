@@ -538,7 +538,7 @@ public abstract class CheckerboardItem : ThumbnailView {
         return null;
     }
 
-    public void paint (Cairo.Context ctx, Gdk.RGBA bg_color, Gdk.RGBA selected_color,
+    public void paint (Cairo.Context ctx, Gdk.RGBA selected_color,
                        Gdk.RGBA text_color, Gdk.RGBA? border_color, int scale_factor) {
         // calc the top-left point of the pixbuf
         Gdk.Point pixbuf_origin = Gdk.Point ();
@@ -583,7 +583,6 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         if (display_pixbuf != null) {
             ctx.save ();
-            ctx.set_source_rgba (bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
             paint_image (ctx, display_pixbuf, pixbuf_origin);
             ctx.restore ();
         }
@@ -828,7 +827,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
     private Gdk.RGBA selected_color;
     private Gdk.RGBA unselected_color;
     private Gdk.RGBA border_color;
-    private Gdk.RGBA bg_color;
     private Gdk.Rectangle visible_page = Gdk.Rectangle ();
     private int last_width = 0;
     private int columns = 0;
@@ -847,6 +845,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
     public CheckerboardLayout (ViewCollection view) {
         this.view = view;
+        this.get_style_context ().add_class ("checkerboard-layout");
 
         clear_drag_select ();
 
@@ -860,8 +859,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         view.geometries_altered.connect (on_geometries_altered);
         view.items_selected.connect (on_items_selection_changed);
         view.items_unselected.connect (on_items_selection_changed);
-
-        override_background_color (Gtk.StateFlags.NORMAL, Config.Facade.get_instance ().get_bg_color ());
 
         Config.Facade.get_instance ().colors_changed.connect (on_colors_changed);
 
@@ -1797,7 +1794,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         selected_color = Config.Facade.get_instance ().get_selected_color (in_focus);
         unselected_color =  Config.Facade.get_instance ().get_unselected_color ();
         border_color =  Config.Facade.get_instance ().get_border_color ();
-        bg_color = get_style_context ().get_background_color (Gtk.StateFlags.NORMAL);
     }
 
     public override void size_allocate (Gtk.Allocation allocation) {
@@ -1825,7 +1821,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
             // have all items in the exposed area paint themselves
             foreach (CheckerboardItem item in intersection (visible_page)) {
-                item.paint (ctx, bg_color, item.is_selected () ? selected_color : unselected_color,
+                item.paint (ctx, item.is_selected () ? selected_color : unselected_color,
                             unselected_color, border_color, scale_factor);
             }
         } else {
@@ -1897,7 +1893,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
     }
 
     private void on_colors_changed () {
-        override_background_color (Gtk.StateFlags.NORMAL, Config.Facade.get_instance ().get_bg_color ());
         set_colors ();
     }
 
