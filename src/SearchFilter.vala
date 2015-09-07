@@ -346,7 +346,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
     private Gtk.ComboBoxText rating_button;
     private SearchViewFilter? search_filter = null;
     private Gtk.Toolbar toolbar;
-    private Gtk.Label label_rating;
 
     public SearchFilterToolbar () {
         toolbar = new Gtk.Toolbar ();
@@ -361,12 +360,7 @@ public class SearchFilterToolbar : Gtk.Revealer {
         close_item.activate.connect ( () => close ());
         close_menu.append (close_item);
 
-        // Rating label and button
-        label_rating = new Gtk.Label (_ ("Rating"));
-        Gtk.ToolItem label_rating_item = new Gtk.ToolItem ();
-        label_rating_item.add (label_rating);
-        toolbar.insert (label_rating_item, -1);
-
+        // Rating button
         rating_button = new Gtk.ComboBoxText ();
         rating_button.append_text (Resources.DISPLAY_REJECTED_ONLY_MENU);
         rating_button.append_text (Resources.DISPLAY_REJECTED_OR_HIGHER_MENU);
@@ -496,7 +490,6 @@ public class SearchFilterToolbar : Gtk.Revealer {
         search_entry.visible = ((criteria & SearchFilterCriteria.TEXT) != 0);
 
         rating_button.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
-        label_rating.visible = ((criteria & SearchFilterCriteria.RATING) != 0);
 
         // Send update to view collection.
         search_filter.refresh ();

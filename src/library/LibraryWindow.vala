@@ -1504,6 +1504,7 @@ public class LibraryWindow : AppWindow {
 
     private void on_update_properties_now () {
         metadata_sidebar.update_properties (get_current_page ());
+        update_window_title ();
     }
 
     public void mounted_camera_shell_notification (string uri, bool at_startup) {
@@ -1553,5 +1554,21 @@ public class LibraryWindow : AppWindow {
             return true;
 
         return false;
+    }
+
+    protected void update_window_title () {
+        // show the name of the current page, as each page instance is properly
+        // named: it displays the name of their collection (library, event, or
+        // tag) when the page holds a collection of items (CheckerboardPages and
+        // CollectionPages), and the name of the current photo when the page
+        // just holds a single photo (SinglePhotoPage)
+        Page? current_page = get_current_page ();
+        if (current_page != null) {
+                title = current_page.to_string ();
+        } else {
+            // having no page is unlikely, but set the good old default title
+            // just in case
+            set_default_title ();
+        }
     }
 }

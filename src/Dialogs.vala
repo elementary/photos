@@ -1894,14 +1894,8 @@ public class PreferencesDialog {
     private Gtk.Dialog dialog;
     private Gtk.Builder builder;
     private Gtk.FileChooserButton library_dir_button;
-    private Gtk.ComboBoxText dir_pattern_combo;
-    private Gtk.Entry dir_pattern_entry;
-    private Gtk.Label dir_pattern_example;
-    private bool allow_closing = false;
     private string? lib_dir = null;
-    private Gee.ArrayList<PathFormat> path_formats = new Gee.ArrayList<PathFormat> ();
-    private GLib.DateTime example_date = new GLib.DateTime.local (2009, 3, 10, 18, 16, 11);
-    private Gtk.CheckButton lowercase;
+    private Gtk.Switch lowercase;
     private Gtk.Button close_button;
     private Plugins.ManifestWidgetMediator plugins_mediator = new Plugins.ManifestWidgetMediator ();
     private Gtk.ComboBoxText default_raw_developer_combo;
@@ -1912,7 +1906,6 @@ public class PreferencesDialog {
         // Preferences dialog window settings
         dialog = new Gtk.Dialog ();
         dialog.width_request = 450;
-        dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
         dialog.resizable = false;
         dialog.deletable = false;
         dialog.delete_event.connect (on_delete);
@@ -1950,46 +1943,8 @@ public class PreferencesDialog {
 
         close_button = builder.get_object ("close_button") as Gtk.Button;
 
-
-        Gtk.Label pattern_help = builder.get_object ("pattern_help") as Gtk.Label;
-
-        // Ticket #3162 - Move dir pattern blurb into Gnome help.
-        // Because specifying a particular snippet of the help requires
-        // us to know where its located, we can't hardcode a URL anymore;
-        // instead, we ask for the help path, and if we find it, we tell
-        // yelp to read from there, otherwise, we read from system-wide.
-        string help_path = Resources.get_help_path ();
-
-        if (help_path == null) {
-            // We're installed system-wide, so use the system help.
-            pattern_help.set_markup ("<a href=\"" + Resources.DIR_PATTERN_URI_SYSWIDE + "\">" + _ ("(Help)") + "</a>");
-        } else {
-            // We're being run from the build directory; we'll have to handle clicks to this
-            // link manually ourselves, due to a limitation ghelp: URIs.
-            pattern_help.set_markup ("<a href=\"dummy:\">" + _ ("(Help)") + "</a>");
-            pattern_help.activate_link.connect (on_local_pattern_help);
-        }
-
-        dir_pattern_combo = new Gtk.ComboBoxText ();
-        Gtk.Alignment dir_choser_align = builder.get_object ("dir_choser") as Gtk.Alignment;
-        dir_choser_align.add (dir_pattern_combo);
-        dir_pattern_entry = builder.get_object ("dir_pattern_entry") as Gtk.Entry;
-        dir_pattern_example = builder.get_object ("dynamic example") as Gtk.Label;
-        add_to_dir_formats (_ ("Year%sMonth%sDay").printf (Path.DIR_SEPARATOR_S, Path.DIR_SEPARATOR_S),
-                            "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d");
-        add_to_dir_formats (_ ("Year%sMonth").printf (Path.DIR_SEPARATOR_S), "%Y" +
-                            Path.DIR_SEPARATOR_S + "%m");
-        add_to_dir_formats (_ ("Year%sMonth-Day").printf (Path.DIR_SEPARATOR_S),
-                            "%Y" + Path.DIR_SEPARATOR_S + "%m-%d");
-        add_to_dir_formats (_ ("Year-Month-Day"), "%Y-%m-%d");
-        add_to_dir_formats (_ ("Custom"), null); // Custom must always be last.
-        dir_pattern_combo.changed.connect (on_dir_pattern_combo_changed);
-        dir_pattern_entry.changed.connect (on_dir_pattern_entry_changed);
-
-        (builder.get_object ("dir_structure_label") as Gtk.Label).set_mnemonic_widget (dir_pattern_combo);
-
-        lowercase = builder.get_object ("lowercase") as Gtk.CheckButton;
-        lowercase.toggled.connect (on_lowercase_toggled);
+        lowercase = builder.get_object ("lowercase") as Gtk.Switch;
+        lowercase.notify["active"].connect (on_lowercase_toggled);
 
         Gtk.Bin plugin_manifest_container = builder.get_object ("plugin-manifest-bin") as Gtk.Bin;
         plugin_manifest_container.add (plugins_mediator.widget);
@@ -1997,10 +1952,10 @@ public class PreferencesDialog {
         populate_preference_options ();
 
 
-        Gtk.CheckButton auto_import_button = builder.get_object ("autoimport") as Gtk.CheckButton;
+        Gtk.Switch auto_import_button = builder.get_object ("autoimport") as Gtk.Switch;
         auto_import_button.set_active (Config.Facade.get_instance ().get_auto_import_from_library ());
 
-        Gtk.CheckButton commit_metadata_button = builder.get_object ("write_metadata") as Gtk.CheckButton;
+        Gtk.Switch commit_metadata_button = builder.get_object ("write_metadata") as Gtk.Switch;
         commit_metadata_button.set_active (Config.Facade.get_instance ().get_commit_metadata_to_masters ());
 
         default_raw_developer_combo = builder.get_object ("default_raw_developer") as Gtk.ComboBoxText;
@@ -2012,50 +1967,7 @@ public class PreferencesDialog {
 
     public void populate_preference_options () {
 
-        setup_dir_pattern (dir_pattern_combo, dir_pattern_entry);
-
         lowercase.set_active (Config.Facade.get_instance ().get_use_lowercase_filenames ());
-    }
-
-    // Ticket #3162, part II - if we're not yet installed, then we have to manually launch
-    // the help viewer and specify the full path to the subsection we want...
-    private bool on_local_pattern_help (string ignore) {
-        try {
-            Resources.launch_help (AppWindow.get_instance ().get_screen (), "?other-files");
-        } catch (Error e) {
-            message ("Unable to launch help: %s", e.message);
-        }
-        return true;
-    }
-
-    private void setup_dir_pattern (Gtk.ComboBox combo_box, Gtk.Entry entry) {
-        string? pattern = Config.Facade.get_instance ().get_directory_pattern ();
-        bool found = false;
-        if (null != pattern) {
-            // Locate pre-built text.
-            int i = 0;
-            foreach (PathFormat pf in path_formats) {
-                if (pf.pattern == pattern) {
-                    combo_box.set_active (i);
-                    found = true;
-                    break;
-                }
-                i++;
-            }
-        } else {
-            // Custom path.
-            string? s = Config.Facade.get_instance ().get_directory_pattern_custom ();
-            if (!is_string_empty (s)) {
-                combo_box.set_active (path_formats.size - 1); // Assume "custom" is last.
-                found = true;
-            }
-        }
-
-        if (!found) {
-            combo_box.set_active (0);
-        }
-
-        on_dir_pattern_combo_changed ();
     }
 
     public static void show () {
@@ -2075,82 +1987,27 @@ public class PreferencesDialog {
     // is made.
     private void commit_on_close () {
 
-        Gtk.CheckButton? autoimport = builder.get_object ("autoimport") as Gtk.CheckButton;
+        Gtk.Switch? autoimport = builder.get_object ("autoimport") as Gtk.Switch;
         if (autoimport != null)
             Config.Facade.get_instance ().set_auto_import_from_library (autoimport.active);
 
-        Gtk.CheckButton? commit_metadata = builder.get_object ("write_metadata") as Gtk.CheckButton;
+        Gtk.Switch? commit_metadata = builder.get_object ("write_metadata") as Gtk.Switch;
         if (commit_metadata != null)
             Config.Facade.get_instance ().set_commit_metadata_to_masters (commit_metadata.active);
 
         if (lib_dir != null)
             AppDirs.set_import_dir (lib_dir);
 
-        PathFormat pf = path_formats.get (dir_pattern_combo.get_active ());
-        if (null == pf.pattern) {
-            Config.Facade.get_instance ().set_directory_pattern_custom (dir_pattern_entry.text);
-            Config.Facade.get_instance ().set_directory_pattern (null);
-        } else {
-            Config.Facade.get_instance ().set_directory_pattern (pf.pattern);
-        }
     }
 
     private bool on_delete () {
-        if (!get_allow_closing ())
-            return true;
-
         commit_on_close ();
         return dialog.hide_on_delete (); //prevent widgets from getting destroyed
     }
 
     private void on_close () {
-        if (!get_allow_closing ())
-            return;
-
         dialog.hide ();
         commit_on_close ();
-    }
-
-    private void on_dir_pattern_combo_changed () {
-        PathFormat pf = path_formats.get (dir_pattern_combo.get_active ());
-        if (null == pf.pattern) {
-            // Custom format.
-            string? dir_pattern = Config.Facade.get_instance ().get_directory_pattern_custom ();
-            if (is_string_empty (dir_pattern))
-                dir_pattern = "";
-            dir_pattern_entry.set_text (dir_pattern);
-            dir_pattern_entry.editable = true;
-            dir_pattern_entry.sensitive = true;
-        } else {
-            dir_pattern_entry.set_text (pf.pattern);
-            dir_pattern_entry.editable = false;
-            dir_pattern_entry.sensitive = false;
-        }
-    }
-
-    private void on_dir_pattern_entry_changed () {
-        string example = example_date.format (dir_pattern_entry.text);
-        if (is_string_empty (example) && !is_string_empty (dir_pattern_entry.text)) {
-            // Invalid pattern.
-            dir_pattern_example.set_text (_ ("Invalid pattern"));
-            dir_pattern_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "process-error-symbolic");
-            dir_pattern_entry.set_icon_activatable (Gtk.EntryIconPosition.SECONDARY, false);
-            set_allow_closing (false);
-        } else {
-            // Valid pattern.
-            dir_pattern_example.set_text (example);
-            dir_pattern_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, null);
-            set_allow_closing (true);
-        }
-    }
-
-    private void set_allow_closing (bool allow) {
-        close_button.set_sensitive (allow);
-        allow_closing = allow;
-    }
-
-    private bool get_allow_closing () {
-        return allow_closing;
     }
 
     private RawDeveloper raw_developer_from_combo () {
@@ -2181,12 +2038,6 @@ public class PreferencesDialog {
         // See ticket #3000 for more info.
         library_dir_button.current_folder_changed.connect (on_current_folder_changed);
         return true;
-    }
-
-    private void add_to_dir_formats (string name, string? pattern) {
-        PathFormat pf = new PathFormat (name, pattern);
-        path_formats.add (pf);
-        dir_pattern_combo.append_text (name);
     }
 
     private void on_lowercase_toggled () {
