@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-10 04:22-0500\n"
+"POT-Creation-Date: 2015-09-07 11:31-0700\n"
 "PO-Revision-Date: 2015-08-11 14:13+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-08-12 06:32+0000\n"
-"X-Generator: Launchpad (build 17686)\n"
+"X-Launchpad-Export-Date: 2015-09-08 06:14+0000\n"
+"X-Generator: Launchpad (build 17706)\n"
 "X-Poedit-Country: Poland\n"
 "Language: pl\n"
 "X-Poedit-Language: Polish\n"
@@ -60,6 +60,7 @@ msgstr ""
 "\n"
 "Launchpad Contributions:\n"
 "  Adrian Widerski https://launchpad.net/~adrian-widerski\n"
+"  Angelika Owczarek https://launchpad.net/~cheese-ao\n"
 "  Damian Dygulski https://launchpad.net/~dygulski13\n"
 "  Daniel Wachna https://launchpad.net/~ravqe97\n"
 "  Marek Pikuła https://launchpad.net/~mar4k\n"
@@ -492,7 +493,7 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pikseli)"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:749
-#: ../src/editing_tools/EditingTools.vala:746
+#: ../src/editing_tools/EditingTools.vala:739
 msgid "Original Size"
 msgstr "Rozmiar pierwotny"
 
@@ -831,30 +832,30 @@ msgstr "Opuszcza pełny ekran"
 msgid "Leave _Fullscreen"
 msgstr "Opuść p_ełny ekran"
 
-#: ../src/AppWindow.vala:514
+#: ../src/AppWindow.vala:518
 msgid "_Quit"
 msgstr "Za_kończ"
 
-#: ../src/AppWindow.vala:520
+#: ../src/AppWindow.vala:524
 msgid "Fulls_creen"
 msgstr "_Pełny ekran"
 
 #. add buttons to action area
-#: ../src/AppWindow.vala:624 ../src/AppWindow.vala:644
-#: ../src/AppWindow.vala:666 ../src/AppWindow.vala:684
-#: ../src/AppWindow.vala:701 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
+#: ../src/AppWindow.vala:628 ../src/AppWindow.vala:648
+#: ../src/AppWindow.vala:670 ../src/AppWindow.vala:688
+#: ../src/AppWindow.vala:705 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
 #: ../src/Dialogs.vala:38 ../src/Dialogs.vala:61 ../src/Dialogs.vala:90
 #: ../src/Dialogs.vala:246 ../src/Dialogs.vala:902 ../src/Dialogs.vala:1171
 #: ../src/Dialogs.vala:1246 ../src/Dialogs.vala:1337 ../src/Dialogs.vala:1360
 #: ../src/Dialogs.vala:1401 ../src/Dialogs.vala:1577
-#: ../src/editing_tools/EditingTools.vala:642
-#: ../src/editing_tools/EditingTools.vala:2205
+#: ../src/editing_tools/EditingTools.vala:634
+#: ../src/editing_tools/EditingTools.vala:2198
 #: ../src/editing_tools/StraightenTool.vala:101
 #: ../src/publishing/PublishingUI.vala:504
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../src/AppWindow.vala:711
+#: ../src/AppWindow.vala:715
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
@@ -1859,8 +1860,8 @@ msgstr "Usuwanie zdjęć z kolekcji"
 msgid "%d%%"
 msgstr "%d%%"
 
-#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1855
-#: ../src/editing_tools/EditingTools.vala:2203
+#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1848
+#: ../src/editing_tools/EditingTools.vala:2196
 msgid "_Apply"
 msgstr "_Zastosuj"
 
@@ -1981,104 +1982,24 @@ msgstr[2] ""
 "\n"
 "Oraz %d innych."
 
-#. Add close button to window
-#: ../src/Dialogs.vala:1897 ../src/Dialogs.vala:2127
-#: ../src/editing_tools/EditingTools.vala:1857
-#: ../src/publishing/PublishingUI.vala:499
-msgid "_Close"
-msgstr "Zam_knij"
-
-#: ../src/Dialogs.vala:1898
-msgid "Welcome!"
-msgstr "Witaj"
-
-#: ../src/Dialogs.vala:1906
-msgid "Welcome to Shotwell!"
-msgstr "Witaj w programie Shotwell"
-
-#: ../src/Dialogs.vala:1910
-msgid "To get started, import photos in any of these ways:"
-msgstr ""
-"Aby rozpocząć, należy zaimportować zdjęcia na jeden z poniższych sposobów:"
-
-#: ../src/Dialogs.vala:1929
-#, c-format
-msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
-msgstr "Wybranie <span weight=\"bold\">Plik %s Zaimportuj z katalogu</span>"
-
-#: ../src/Dialogs.vala:1930
-msgid "Drag and drop photos onto the Shotwell window"
-msgstr "Przeniesienie zdjęć do okna programu Shotwell"
-
-#: ../src/Dialogs.vala:1931
-msgid "Connect a camera to your computer and import"
-msgstr "Połączenie aparatu do komputera i zaimportowanie"
-
-#: ../src/Dialogs.vala:1941
-#, c-format
-msgid "_Import photos from your %s folder"
-msgstr "_Zaimportuj zdjęcia z katalogu %s"
-
-#: ../src/Dialogs.vala:1948
-msgid "You can also import photos in any of these ways:"
-msgstr "Można także zaimportować zdjęcia na jeden z poniższych sposobów:"
-
-#: ../src/Dialogs.vala:1958
-msgid "_Don't show this message again"
-msgstr "_Bez wyświetlania tego komunikatu ponownie"
-
-#: ../src/Dialogs.vala:1991
-#, c-format
-msgid "Import photos from your %s library"
-msgstr "Import zdjęć z kolekcji programu %s"
-
-#: ../src/Dialogs.vala:2109 ../src/library/Branch.vala:58
+#: ../src/Dialogs.vala:1918 ../src/library/Branch.vala:58
 #: ../src/library/Branch.vala:151
 msgid "Library"
 msgstr "Kolekcja"
 
-#: ../src/Dialogs.vala:2110 ../ui/shotwell.glade.h:29
+#: ../src/Dialogs.vala:1919
 msgid "Plugins"
 msgstr "Wtyczki"
 
-#. We're installed system-wide, so use the system help.
-#. We're being run from the build directory; we'll have to handle clicks to this
-#. link manually ourselves, due to a limitation ghelp: URIs.
-#: ../src/Dialogs.vala:2149 ../src/Dialogs.vala:2153
-msgid "(Help)"
-msgstr "(Pomoc)"
-
-#: ../src/Dialogs.vala:2162
-#, c-format
-msgid "Year%sMonth%sDay"
-msgstr "Rok%smiesiąc%sdzień"
-
-#: ../src/Dialogs.vala:2164
-#, c-format
-msgid "Year%sMonth"
-msgstr "Rok%smiesiąc"
-
-#: ../src/Dialogs.vala:2166
-#, c-format
-msgid "Year%sMonth-Day"
-msgstr "Rok%smiesiąc-dzień"
-
-#: ../src/Dialogs.vala:2168
-msgid "Year-Month-Day"
-msgstr "Rok-miesiąc-dzień"
-
-#: ../src/Dialogs.vala:2169 ../src/editing_tools/EditingTools.vala:771
-msgid "Custom"
-msgstr "Własny"
-
-#. Invalid pattern.
-#: ../src/Dialogs.vala:2319
-msgid "Invalid pattern"
-msgstr "Nieprawidłowy wzór"
+#. Add close button to window
+#: ../src/Dialogs.vala:1936 ../src/editing_tools/EditingTools.vala:1850
+#: ../src/publishing/PublishingUI.vala:499
+msgid "_Close"
+msgstr "Zam_knij"
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: ../src/Dialogs.vala:2384
+#: ../src/Dialogs.vala:2051
 msgid ""
 "Shotwell can copy the photos into your library folder or it can import them "
 "without copying."
@@ -2086,32 +2007,32 @@ msgstr ""
 "Program Shotwell może skopiować zdjęcia do katalogu kolekcji lub może "
 "zaimportować je bez tworzenia ich kopii."
 
-#: ../src/Dialogs.vala:2389
+#: ../src/Dialogs.vala:2056
 msgid "Co_py Photos"
 msgstr "_Skopiowanie zdjęć"
 
-#: ../src/Dialogs.vala:2390
+#: ../src/Dialogs.vala:2057
 msgid "_Import in Place"
 msgstr "_Zaimportowanie"
 
-#: ../src/Dialogs.vala:2391
+#: ../src/Dialogs.vala:2058
 msgid "Import to Library"
 msgstr "Zaimportuj do kolekcji"
 
-#: ../src/Dialogs.vala:2401 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
 msgid "Remove From Library"
 msgstr "Usuń z kolekcji"
 
-#: ../src/Dialogs.vala:2402 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
 msgid "Removing Photo From Library"
 msgstr "Usuwanie zdjęcia z kolekcji"
 
-#: ../src/Dialogs.vala:2402
+#: ../src/Dialogs.vala:2069
 msgid "Removing Photos From Library"
 msgstr "Usuwanie zdjęć z kolekcji"
 
 #. Alert the user that the files were not removed.
-#: ../src/Dialogs.vala:2438
+#: ../src/Dialogs.vala:2105
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2428,59 +2349,59 @@ msgstr "cale"
 msgid "cm"
 msgstr "cm"
 
-#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:751
+#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:744
 msgid "Wallet (2 x 3 in.)"
 msgstr "Portfel (2x3 cale)"
 
-#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:752
+#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:745
 msgid "Notecard (3 x 5 in.)"
 msgstr "Notatka (3x5 cali)"
 
-#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:753
+#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:746
 msgid "4 x 6 in."
 msgstr "4x6 cali"
 
-#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:754
+#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:747
 msgid "5 x 7 in."
 msgstr "5x7 cali"
 
-#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:755
+#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:748
 msgid "8 x 10 in."
 msgstr "8x10 cali"
 
-#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:757
+#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:750
 msgid "11 x 14 in."
 msgstr "11x14 cali"
 
-#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:759
+#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:752
 msgid "16 x 20 in."
 msgstr "16x20 cali"
 
-#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:761
+#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:754
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Portfel metryczny (9x13 cm)"
 
-#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:762
+#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:755
 msgid "Postcard (10 x 15 cm)"
 msgstr "Kartka pocztowa (10x15 cm)"
 
-#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:763
+#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:756
 msgid "13 x 18 cm"
 msgstr "13x18 cm"
 
-#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:764
+#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:757
 msgid "18 x 24 cm"
 msgstr "18x24 cm"
 
-#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:766
+#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:759
 msgid "20 x 30 cm"
 msgstr "20x30 cm"
 
-#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:767
+#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:760
 msgid "24 x 40 cm"
 msgstr "24x40 cm"
 
-#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:768
+#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:761
 msgid "30 x 40 cm"
 msgstr "30x40 cm"
 
@@ -3318,12 +3239,7 @@ msgstr "Pokaz slajdów"
 msgid "Close"
 msgstr "Zamknij"
 
-#. Rating label and button
-#: ../src/SearchFilter.vala:365 ../src/searches/SearchBoolean.vala:186
-msgid "Rating"
-msgstr "Ocena"
-
-#: ../src/SearchFilter.vala:396
+#: ../src/SearchFilter.vala:390
 msgid "Search Photos"
 msgstr "Wyszukiwanie zdjęć"
 
@@ -3657,135 +3573,139 @@ msgstr "Zapisz jako"
 msgid "Save"
 msgstr "Zapisz"
 
-#: ../src/editing_tools/EditingTools.vala:657
+#: ../src/editing_tools/EditingTools.vala:649
 msgid "Return to current photo dimensions"
 msgstr "Powraca do bieżących wymiarów zdjęcia"
 
-#: ../src/editing_tools/EditingTools.vala:659
+#: ../src/editing_tools/EditingTools.vala:651
 msgid "Set the crop for this photo"
 msgstr "Ustawia przycięcie tego zdjęcia"
 
-#: ../src/editing_tools/EditingTools.vala:670
+#: ../src/editing_tools/EditingTools.vala:662
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Obraca prostokąt przycięcia między orientacją poziomą a pionową"
 
-#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:736
 msgid "Unconstrained"
 msgstr "Niewymuszony"
 
-#: ../src/editing_tools/EditingTools.vala:744
+#: ../src/editing_tools/EditingTools.vala:737
 msgid "Square"
 msgstr "Kwadratowy"
 
-#: ../src/editing_tools/EditingTools.vala:745
+#: ../src/editing_tools/EditingTools.vala:738
 msgid "Screen"
 msgstr "Ekran"
 
-#: ../src/editing_tools/EditingTools.vala:747
-#: ../src/editing_tools/EditingTools.vala:750
-#: ../src/editing_tools/EditingTools.vala:760
-#: ../src/editing_tools/EditingTools.vala:770
+#: ../src/editing_tools/EditingTools.vala:740
+#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:753
+#: ../src/editing_tools/EditingTools.vala:763
 msgid "-"
 msgstr "-"
 
-#: ../src/editing_tools/EditingTools.vala:748
+#: ../src/editing_tools/EditingTools.vala:741
 msgid "SD Video (4 : 3)"
 msgstr "Plik wideo SD (4:3)"
 
-#: ../src/editing_tools/EditingTools.vala:749
+#: ../src/editing_tools/EditingTools.vala:742
 msgid "HD Video (16 : 9)"
 msgstr "Plik wideo HD (16:9)"
 
-#: ../src/editing_tools/EditingTools.vala:756
+#: ../src/editing_tools/EditingTools.vala:749
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 cali)"
 
-#: ../src/editing_tools/EditingTools.vala:758
+#: ../src/editing_tools/EditingTools.vala:751
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 cali)"
 
-#: ../src/editing_tools/EditingTools.vala:765
+#: ../src/editing_tools/EditingTools.vala:758
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:769
+#: ../src/editing_tools/EditingTools.vala:762
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:1852
+#: ../src/editing_tools/EditingTools.vala:764
+msgid "Custom"
+msgstr "Własny"
+
+#: ../src/editing_tools/EditingTools.vala:1845
 msgid "Size:"
 msgstr "Rozmiar:"
 
-#: ../src/editing_tools/EditingTools.vala:1867
+#: ../src/editing_tools/EditingTools.vala:1860
 msgid "Close the red-eye tool"
 msgstr "Zamyka narzędzie usuwania czerwonych oczu"
 
-#: ../src/editing_tools/EditingTools.vala:1869
+#: ../src/editing_tools/EditingTools.vala:1862
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Usuwa wszystkie efekty czerwonych oczu na wybranym obszarze"
 
-#: ../src/editing_tools/EditingTools.vala:2204
+#: ../src/editing_tools/EditingTools.vala:2197
 #: ../src/editing_tools/StraightenTool.vala:102
 msgid "_Reset"
 msgstr "P_rzywróć"
 
-#: ../src/editing_tools/EditingTools.vala:2218
+#: ../src/editing_tools/EditingTools.vala:2210
 msgid "Exposure:"
 msgstr "Ekspozycja:"
 
-#: ../src/editing_tools/EditingTools.vala:2225
+#: ../src/editing_tools/EditingTools.vala:2217
 msgid "Saturation:"
 msgstr "Nasycenie:"
 
-#: ../src/editing_tools/EditingTools.vala:2232
+#: ../src/editing_tools/EditingTools.vala:2223
 msgid "Tint:"
 msgstr "Odcień:"
 
-#: ../src/editing_tools/EditingTools.vala:2240
+#: ../src/editing_tools/EditingTools.vala:2229
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: ../src/editing_tools/EditingTools.vala:2247
+#: ../src/editing_tools/EditingTools.vala:2235
 msgid "Shadows:"
 msgstr "Cienie:"
 
-#: ../src/editing_tools/EditingTools.vala:2254
+#: ../src/editing_tools/EditingTools.vala:2241
 msgid "Highlights:"
 msgstr "Wyróżnienia:"
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset Colors"
 msgstr "Przywróć kolory"
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset all color adjustments to original"
 msgstr "Przywraca wszystkie dostosowania kolorów do pierwotnych"
 
-#: ../src/editing_tools/EditingTools.vala:2660
+#: ../src/editing_tools/EditingTools.vala:2643
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: ../src/editing_tools/EditingTools.vala:2673
+#: ../src/editing_tools/EditingTools.vala:2656
 msgid "Tint"
 msgstr "Odcień"
 
-#: ../src/editing_tools/EditingTools.vala:2686
+#: ../src/editing_tools/EditingTools.vala:2669
 msgid "Saturation"
 msgstr "Nasycenie"
 
-#: ../src/editing_tools/EditingTools.vala:2699
+#: ../src/editing_tools/EditingTools.vala:2682
 msgid "Exposure"
 msgstr "Ekspozycja"
 
-#: ../src/editing_tools/EditingTools.vala:2712
+#: ../src/editing_tools/EditingTools.vala:2695
 msgid "Shadows"
 msgstr "Cienie"
 
-#: ../src/editing_tools/EditingTools.vala:2725
+#: ../src/editing_tools/EditingTools.vala:2708
 msgid "Highlights"
 msgstr "Wyróżnienia"
 
-#: ../src/editing_tools/EditingTools.vala:2735
+#: ../src/editing_tools/EditingTools.vala:2718
 msgid "Contrast Expansion"
 msgstr "Rozszerzenie kontrastu"
 
@@ -3977,7 +3897,7 @@ msgstr ""
 msgid "_Import"
 msgstr "Zai_mportuj"
 
-#: ../src/library/LibraryWindow.vala:855 ../ui/shotwell.glade.h:13
+#: ../src/library/LibraryWindow.vala:855
 msgid "Library Location"
 msgstr "Położenie kolekcji"
 
@@ -4096,36 +4016,36 @@ msgstr ""
 msgid "Loading Shotwell"
 msgstr "Wczytywanie programu Shotwell"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "Path to Shotwell's private data"
 msgstr "Ścieżka do prywatnych danych programu Shotwell"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "DIRECTORY"
 msgstr "KATALOG"
 
-#: ../src/main.vala:299
+#: ../src/main.vala:291
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "Bez monitorowania zmian w katalogu kolekcji podczas uruchamiania"
 
-#: ../src/main.vala:304
+#: ../src/main.vala:296
 msgid "Don't display startup progress meter"
 msgstr "Bez wyświetlania paska postępu uruchamiania"
 
-#: ../src/main.vala:309
+#: ../src/main.vala:301
 msgid "Show the application's version"
 msgstr "Wyświetla wersję programu"
 
-#: ../src/main.vala:314
+#: ../src/main.vala:306
 msgid "Show About dialog"
 msgstr "Pokaż okno o"
 
 #. init GTK (valac has already called g_threads_init ())
-#: ../src/main.vala:366
+#: ../src/main.vala:358
 msgid "[FILE]"
 msgstr "[PLIK]"
 
-#: ../src/main.vala:370
+#: ../src/main.vala:362
 #, c-format
 msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
@@ -4441,6 +4361,10 @@ msgstr "Stan flagi"
 msgid "Photo state"
 msgstr "Stan zdjęcia"
 
+#: ../src/searches/SearchBoolean.vala:186
+msgid "Rating"
+msgstr "Ocena"
+
 #: ../src/searches/SearchBoolean.vala:189
 msgid "Date"
 msgstr "Data"
@@ -4530,106 +4454,62 @@ msgid "pixels per inch"
 msgstr "piksele na cal"
 
 #: ../ui/shotwell.glade.h:12
-msgid "Shotwell Preferences"
-msgstr "Preferencje programu Shotwell"
-
-#: ../ui/shotwell.glade.h:14
-msgid "_Watch library directory for new files"
-msgstr "_Obserwacja katalogu kolekcji pod kątem nowych plików"
-
-#: ../ui/shotwell.glade.h:15
-msgid "Metadata"
-msgstr "Metadane"
-
-#: ../ui/shotwell.glade.h:16
-msgid "Write tags, titles, and other _metadata to photo files"
-msgstr "Zapisywanie etykiet, tytułów i innych metadanych do plików zdjęć"
-
-#: ../ui/shotwell.glade.h:17
-msgid "_Import photos to:"
-msgstr "_Importowanie zdjęć do:"
-
-#: ../ui/shotwell.glade.h:18
-msgid "Importing"
-msgstr "Importowanie"
-
-#: ../ui/shotwell.glade.h:19
-msgid "_Directory structure:"
-msgstr "Struktura _katalogów:"
-
-#: ../ui/shotwell.glade.h:20
-msgid "_Pattern:"
-msgstr "_Wzór:"
-
-#: ../ui/shotwell.glade.h:21
-msgid "Example:"
-msgstr "Przykład:"
-
-#: ../ui/shotwell.glade.h:22
-msgid "R_ename imported files to lowercase"
-msgstr "_Zmienianie nazw importowanych plików na małe litery"
-
-#: ../ui/shotwell.glade.h:23
-msgid "RAW Developer"
-msgstr "Wywoływacz RAW"
-
-#: ../ui/shotwell.glade.h:24
-msgid "De_fault:"
-msgstr "_Domyślnie:"
-
-#: ../ui/shotwell.glade.h:25
-msgid "Library Tab"
-msgstr "Karta biblioteki"
-
-#: ../ui/shotwell.glade.h:26
 msgid "E_xternal photo editor:"
 msgstr "_Zewnętrzny edytor zdjęć:"
 
-#: ../ui/shotwell.glade.h:27
+#: ../ui/shotwell.glade.h:13
 msgid "External _RAW editor:"
 msgstr "Zewnętrzny edytor plików _RAW:"
 
-#: ../ui/shotwell.glade.h:28
-msgid "External Editors"
-msgstr "Zewnętrzne edytory"
+#: ../ui/shotwell.glade.h:14
+msgid "Library:"
+msgstr ""
 
-#: ../ui/shotwell.glade.h:30
-msgid "Library Location:"
-msgstr "Położenie biblioteki:"
+#: ../ui/shotwell.glade.h:15
+msgid "_Import photos to:"
+msgstr "_Importowanie zdjęć do:"
 
-#: ../ui/shotwell.glade.h:31
-msgid "Metadata:"
-msgstr "Metadane:"
-
-#: ../ui/shotwell.glade.h:32
+#: ../ui/shotwell.glade.h:16
 msgid "RAW Developer:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:33
-msgid "Importing:"
-msgstr "Importowanie:"
+#: ../ui/shotwell.glade.h:17
+msgid "De_fault:"
+msgstr "_Domyślnie:"
 
-#: ../ui/shotwell.glade.h:34
+#: ../ui/shotwell.glade.h:18
+msgid "Watch library for new files:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:19
+msgid "Write  _metadata to files:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:20
+msgid "R_ename imported files to lowercase:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:21
 msgid "_Delay:"
 msgstr "_Opóźnienie:"
 
-#: ../ui/shotwell.glade.h:35
+#: ../ui/shotwell.glade.h:22
 msgid "_Transition effect:"
 msgstr "_Efekt przejścia:"
 
-#: ../ui/shotwell.glade.h:36
+#: ../ui/shotwell.glade.h:23
 msgid "Transition d_elay:"
 msgstr "Opóźnienie prz_ejścia:"
 
-#: ../ui/shotwell.glade.h:37
+#: ../ui/shotwell.glade.h:24
 msgid "Show t_itle"
 msgstr "Wyświetlanie tyt_ułu"
 
-#: ../ui/shotwell.glade.h:38
+#: ../ui/shotwell.glade.h:25
 msgid "seconds"
 msgstr "sekundy"
 
-#: ../ui/shotwell.glade.h:39
+#: ../ui/shotwell.glade.h:26
 msgid "_Login"
 msgstr "Za_loguj"
 
@@ -4763,6 +4643,61 @@ msgstr "Za_loguj"
 
 #~ msgid "Tags (separated by commas):"
 #~ msgstr "Etykiety (oddzielone przecinkami):"
+
+#~ msgid "Welcome!"
+#~ msgstr "Witaj"
+
+#~ msgid "Welcome to Shotwell!"
+#~ msgstr "Witaj w programie Shotwell"
+
+#~ msgid "To get started, import photos in any of these ways:"
+#~ msgstr ""
+#~ "Aby rozpocząć, należy zaimportować zdjęcia na jeden z poniższych sposobów:"
+
+#, c-format
+#~ msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
+#~ msgstr "Wybranie <span weight=\"bold\">Plik %s Zaimportuj z katalogu</span>"
+
+#~ msgid "Drag and drop photos onto the Shotwell window"
+#~ msgstr "Przeniesienie zdjęć do okna programu Shotwell"
+
+#~ msgid "Connect a camera to your computer and import"
+#~ msgstr "Połączenie aparatu do komputera i zaimportowanie"
+
+#, c-format
+#~ msgid "_Import photos from your %s folder"
+#~ msgstr "_Zaimportuj zdjęcia z katalogu %s"
+
+#~ msgid "You can also import photos in any of these ways:"
+#~ msgstr "Można także zaimportować zdjęcia na jeden z poniższych sposobów:"
+
+#~ msgid "_Don't show this message again"
+#~ msgstr "_Bez wyświetlania tego komunikatu ponownie"
+
+#, c-format
+#~ msgid "Import photos from your %s library"
+#~ msgstr "Import zdjęć z kolekcji programu %s"
+
+#~ msgid "(Help)"
+#~ msgstr "(Pomoc)"
+
+#, c-format
+#~ msgid "Year%sMonth%sDay"
+#~ msgstr "Rok%smiesiąc%sdzień"
+
+#, c-format
+#~ msgid "Year%sMonth"
+#~ msgstr "Rok%smiesiąc"
+
+#, c-format
+#~ msgid "Year%sMonth-Day"
+#~ msgstr "Rok%smiesiąc-dzień"
+
+#~ msgid "Year-Month-Day"
+#~ msgstr "Rok-miesiąc-dzień"
+
+#~ msgid "Invalid pattern"
+#~ msgstr "Nieprawidłowy wzór"
 
 #, c-format
 #~ msgid ""
@@ -5086,17 +5021,50 @@ msgstr "Za_loguj"
 #~ msgid "_Name of search:"
 #~ msgstr "_Nazwa wyszukiwania:"
 
+#~ msgid "Shotwell Preferences"
+#~ msgstr "Preferencje programu Shotwell"
+
 #~ msgid "white"
 #~ msgstr "biały"
 
 #~ msgid "black"
 #~ msgstr "czarny"
 
+#~ msgid "_Watch library directory for new files"
+#~ msgstr "_Obserwacja katalogu kolekcji pod kątem nowych plików"
+
+#~ msgid "Metadata"
+#~ msgstr "Metadane"
+
+#~ msgid "Write tags, titles, and other _metadata to photo files"
+#~ msgstr "Zapisywanie etykiet, tytułów i innych metadanych do plików zdjęć"
+
 #~ msgid "Display"
 #~ msgstr "Ekran"
 
 #~ msgid "_Background:"
 #~ msgstr "_Tło:"
+
+#~ msgid "Importing"
+#~ msgstr "Importowanie"
+
+#~ msgid "_Directory structure:"
+#~ msgstr "Struktura _katalogów:"
+
+#~ msgid "_Pattern:"
+#~ msgstr "_Wzór:"
+
+#~ msgid "Example:"
+#~ msgstr "Przykład:"
+
+#~ msgid "R_ename imported files to lowercase"
+#~ msgstr "_Zmienianie nazw importowanych plików na małe litery"
+
+#~ msgid "RAW Developer"
+#~ msgstr "Wywoływacz RAW"
+
+#~ msgid "External Editors"
+#~ msgstr "Zewnętrzne edytory"
 
 #~ msgid "Remove and _Trash File"
 #~ msgid_plural "Remove and _Trash Files"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-08-10 04:22-0500\n"
+"POT-Creation-Date: 2015-09-07 11:31-0700\n"
 "PO-Revision-Date: 2014-08-13 01:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian "
@@ -22,8 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-08-11 06:05+0000\n"
-"X-Generator: Launchpad (build 17686)\n"
+"X-Launchpad-Export-Date: 2015-09-08 06:12+0000\n"
+"X-Generator: Launchpad (build 17706)\n"
 "Language: et\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -467,7 +467,7 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pikslit)"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:749
-#: ../src/editing_tools/EditingTools.vala:746
+#: ../src/editing_tools/EditingTools.vala:739
 msgid "Original Size"
 msgstr "Originaalsuurus"
 
@@ -786,30 +786,30 @@ msgstr "Täisekraanist väljumine"
 msgid "Leave _Fullscreen"
 msgstr "_Välju täisekraanist"
 
-#: ../src/AppWindow.vala:514
+#: ../src/AppWindow.vala:518
 msgid "_Quit"
 msgstr "_Lõpeta"
 
-#: ../src/AppWindow.vala:520
+#: ../src/AppWindow.vala:524
 msgid "Fulls_creen"
 msgstr "Täisekr_aan"
 
 #. add buttons to action area
-#: ../src/AppWindow.vala:624 ../src/AppWindow.vala:644
-#: ../src/AppWindow.vala:666 ../src/AppWindow.vala:684
-#: ../src/AppWindow.vala:701 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
+#: ../src/AppWindow.vala:628 ../src/AppWindow.vala:648
+#: ../src/AppWindow.vala:670 ../src/AppWindow.vala:688
+#: ../src/AppWindow.vala:705 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
 #: ../src/Dialogs.vala:38 ../src/Dialogs.vala:61 ../src/Dialogs.vala:90
 #: ../src/Dialogs.vala:246 ../src/Dialogs.vala:902 ../src/Dialogs.vala:1171
 #: ../src/Dialogs.vala:1246 ../src/Dialogs.vala:1337 ../src/Dialogs.vala:1360
 #: ../src/Dialogs.vala:1401 ../src/Dialogs.vala:1577
-#: ../src/editing_tools/EditingTools.vala:642
-#: ../src/editing_tools/EditingTools.vala:2205
+#: ../src/editing_tools/EditingTools.vala:634
+#: ../src/editing_tools/EditingTools.vala:2198
 #: ../src/editing_tools/StraightenTool.vala:101
 #: ../src/publishing/PublishingUI.vala:504
 msgid "_Cancel"
 msgstr "_Loobu"
 
-#: ../src/AppWindow.vala:711
+#: ../src/AppWindow.vala:715
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
@@ -1692,8 +1692,8 @@ msgstr "Fotode andmebaasist eemaldamine"
 msgid "%d%%"
 msgstr "%d%%"
 
-#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1855
-#: ../src/editing_tools/EditingTools.vala:2203
+#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1848
+#: ../src/editing_tools/EditingTools.vala:2196
 msgid "_Apply"
 msgstr ""
 
@@ -1806,103 +1806,24 @@ msgstr[1] ""
 "\n"
 "ja veel %d."
 
-#. Add close button to window
-#: ../src/Dialogs.vala:1897 ../src/Dialogs.vala:2127
-#: ../src/editing_tools/EditingTools.vala:1857
-#: ../src/publishing/PublishingUI.vala:499
-msgid "_Close"
-msgstr "_Sulge"
-
-#: ../src/Dialogs.vala:1898
-msgid "Welcome!"
-msgstr "Tere tulemast!"
-
-#: ../src/Dialogs.vala:1906
-msgid "Welcome to Shotwell!"
-msgstr "Tere tulemast Shotwelli kasutama!"
-
-#: ../src/Dialogs.vala:1910
-msgid "To get started, import photos in any of these ways:"
-msgstr "Alustamiseks impordi fotod mõnel järgnevaist viisidest:"
-
-#: ../src/Dialogs.vala:1929
-#, c-format
-msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
-msgstr "Vali <span weight=\"bold\">Fail %s Impordi kaustast</span>"
-
-#: ../src/Dialogs.vala:1930
-msgid "Drag and drop photos onto the Shotwell window"
-msgstr "Lohistades fotod Shotwelli aknasse"
-
-#: ../src/Dialogs.vala:1931
-msgid "Connect a camera to your computer and import"
-msgstr "Ühendades kaamera arvutiga ja importides"
-
-#: ../src/Dialogs.vala:1941
-#, c-format
-msgid "_Import photos from your %s folder"
-msgstr "Fotode _importimine kaustast %s"
-
-#: ../src/Dialogs.vala:1948
-msgid "You can also import photos in any of these ways:"
-msgstr "Lisaks võib fotosid importida mõnel järgnevaist viisidest:"
-
-#: ../src/Dialogs.vala:1958
-msgid "_Don't show this message again"
-msgstr "_Seda teadet rohkem ei näidata"
-
-#: ../src/Dialogs.vala:1991
-#, c-format
-msgid "Import photos from your %s library"
-msgstr "Fotode importimine sinu %s kogust"
-
-#: ../src/Dialogs.vala:2109 ../src/library/Branch.vala:58
+#: ../src/Dialogs.vala:1918 ../src/library/Branch.vala:58
 #: ../src/library/Branch.vala:151
 msgid "Library"
 msgstr "Kogu"
 
-#: ../src/Dialogs.vala:2110 ../ui/shotwell.glade.h:29
+#: ../src/Dialogs.vala:1919
 msgid "Plugins"
 msgstr "Pluginad"
 
-#. We're installed system-wide, so use the system help.
-#. We're being run from the build directory; we'll have to handle clicks to this
-#. link manually ourselves, due to a limitation ghelp: URIs.
-#: ../src/Dialogs.vala:2149 ../src/Dialogs.vala:2153
-msgid "(Help)"
-msgstr "(Abi)"
-
-#: ../src/Dialogs.vala:2162
-#, c-format
-msgid "Year%sMonth%sDay"
-msgstr "Aasta%skuu%späev"
-
-#: ../src/Dialogs.vala:2164
-#, c-format
-msgid "Year%sMonth"
-msgstr "Aasta%skuu"
-
-#: ../src/Dialogs.vala:2166
-#, c-format
-msgid "Year%sMonth-Day"
-msgstr "Aasta%skuu-päev"
-
-#: ../src/Dialogs.vala:2168
-msgid "Year-Month-Day"
-msgstr "Aasta-kuu-päev"
-
-#: ../src/Dialogs.vala:2169 ../src/editing_tools/EditingTools.vala:771
-msgid "Custom"
-msgstr "Muu"
-
-#. Invalid pattern.
-#: ../src/Dialogs.vala:2319
-msgid "Invalid pattern"
-msgstr "Sobimatu muster"
+#. Add close button to window
+#: ../src/Dialogs.vala:1936 ../src/editing_tools/EditingTools.vala:1850
+#: ../src/publishing/PublishingUI.vala:499
+msgid "_Close"
+msgstr "_Sulge"
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: ../src/Dialogs.vala:2384
+#: ../src/Dialogs.vala:2051
 msgid ""
 "Shotwell can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1910,32 +1831,32 @@ msgstr ""
 "Shotwell võib kopeerida fotod sinu fotokogusse või viidata fotodele ilma "
 "neist duplikaate loomata."
 
-#: ../src/Dialogs.vala:2389
+#: ../src/Dialogs.vala:2056
 msgid "Co_py Photos"
 msgstr "F_otode kopeerimine"
 
-#: ../src/Dialogs.vala:2390
+#: ../src/Dialogs.vala:2057
 msgid "_Import in Place"
 msgstr "_Imporditakse sealt, kust on"
 
-#: ../src/Dialogs.vala:2391
+#: ../src/Dialogs.vala:2058
 msgid "Import to Library"
 msgstr "Kogusse importimine"
 
-#: ../src/Dialogs.vala:2401 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
 msgid "Remove From Library"
 msgstr "Fotokogust eemaldamine"
 
-#: ../src/Dialogs.vala:2402 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
 msgid "Removing Photo From Library"
 msgstr "Fotode eemaldamine kogust"
 
-#: ../src/Dialogs.vala:2402
+#: ../src/Dialogs.vala:2069
 msgid "Removing Photos From Library"
 msgstr "Fotode eemaldamine kogust"
 
 #. Alert the user that the files were not removed.
-#: ../src/Dialogs.vala:2438
+#: ../src/Dialogs.vala:2105
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2251,59 +2172,59 @@ msgstr "tolli"
 msgid "cm"
 msgstr "cm"
 
-#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:751
+#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:744
 msgid "Wallet (2 x 3 in.)"
 msgstr "Visiitkaart USA (2\" x 3\")"
 
-#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:752
+#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:745
 msgid "Notecard (3 x 5 in.)"
 msgstr "Märkepaber (3\" x 5\")"
 
-#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:753
+#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:746
 msgid "4 x 6 in."
 msgstr "4\" x 6\""
 
-#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:754
+#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:747
 msgid "5 x 7 in."
 msgstr "5\" x 7\""
 
-#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:755
+#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:748
 msgid "8 x 10 in."
 msgstr "8\" x 10\""
 
-#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:757
+#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:750
 msgid "11 x 14 in."
 msgstr "11\" x 14\""
 
-#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:759
+#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:752
 msgid "16 x 20 in."
 msgstr "16\" x 20\""
 
-#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:761
+#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:754
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Visiitkaart (9 x 13 cm)"
 
-#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:762
+#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:755
 msgid "Postcard (10 x 15 cm)"
 msgstr "Postkaart (10 x 15 cm)"
 
-#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:763
+#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:756
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:764
+#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:757
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:766
+#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:759
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:767
+#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:760
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:768
+#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:761
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -3134,12 +3055,7 @@ msgstr "Slaidiesitus"
 msgid "Close"
 msgstr ""
 
-#. Rating label and button
-#: ../src/SearchFilter.vala:365 ../src/searches/SearchBoolean.vala:186
-msgid "Rating"
-msgstr "Hinnang"
-
-#: ../src/SearchFilter.vala:396
+#: ../src/SearchFilter.vala:390
 msgid "Search Photos"
 msgstr ""
 
@@ -3469,135 +3385,139 @@ msgstr "Salvestamine nimega"
 msgid "Save"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:657
+#: ../src/editing_tools/EditingTools.vala:649
 msgid "Return to current photo dimensions"
 msgstr "Tagasipöördumine foto praeguste mõõtmete juurde"
 
-#: ../src/editing_tools/EditingTools.vala:659
+#: ../src/editing_tools/EditingTools.vala:651
 msgid "Set the crop for this photo"
 msgstr "Selle foto kärpimise määramine"
 
-#: ../src/editing_tools/EditingTools.vala:670
+#: ../src/editing_tools/EditingTools.vala:662
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Kärperistküliku pööramine püstiseks või rõhtseks"
 
-#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:736
 msgid "Unconstrained"
 msgstr "Piiranguteta"
 
-#: ../src/editing_tools/EditingTools.vala:744
+#: ../src/editing_tools/EditingTools.vala:737
 msgid "Square"
 msgstr "Ruut"
 
-#: ../src/editing_tools/EditingTools.vala:745
+#: ../src/editing_tools/EditingTools.vala:738
 msgid "Screen"
 msgstr "Monitor"
 
-#: ../src/editing_tools/EditingTools.vala:747
-#: ../src/editing_tools/EditingTools.vala:750
-#: ../src/editing_tools/EditingTools.vala:760
-#: ../src/editing_tools/EditingTools.vala:770
+#: ../src/editing_tools/EditingTools.vala:740
+#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:753
+#: ../src/editing_tools/EditingTools.vala:763
 msgid "-"
 msgstr "-"
 
-#: ../src/editing_tools/EditingTools.vala:748
+#: ../src/editing_tools/EditingTools.vala:741
 msgid "SD Video (4 : 3)"
 msgstr "SD-video (4 : 3)"
 
-#: ../src/editing_tools/EditingTools.vala:749
+#: ../src/editing_tools/EditingTools.vala:742
 msgid "HD Video (16 : 9)"
 msgstr "HD-video (16 : 9)"
 
-#: ../src/editing_tools/EditingTools.vala:756
+#: ../src/editing_tools/EditingTools.vala:749
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8,5 x 11 tolli)"
 
-#: ../src/editing_tools/EditingTools.vala:758
+#: ../src/editing_tools/EditingTools.vala:751
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 tolli)"
 
-#: ../src/editing_tools/EditingTools.vala:765
+#: ../src/editing_tools/EditingTools.vala:758
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:769
+#: ../src/editing_tools/EditingTools.vala:762
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:1852
+#: ../src/editing_tools/EditingTools.vala:764
+msgid "Custom"
+msgstr "Muu"
+
+#: ../src/editing_tools/EditingTools.vala:1845
 msgid "Size:"
 msgstr "Suurus:"
 
-#: ../src/editing_tools/EditingTools.vala:1867
+#: ../src/editing_tools/EditingTools.vala:1860
 msgid "Close the red-eye tool"
 msgstr "Punasilmsuse eemaldaja sulgemine"
 
-#: ../src/editing_tools/EditingTools.vala:1869
+#: ../src/editing_tools/EditingTools.vala:1862
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Punasilmsuse eemaldamine valitud piirkonnast"
 
-#: ../src/editing_tools/EditingTools.vala:2204
+#: ../src/editing_tools/EditingTools.vala:2197
 #: ../src/editing_tools/StraightenTool.vala:102
 msgid "_Reset"
 msgstr "_Taasta"
 
-#: ../src/editing_tools/EditingTools.vala:2218
+#: ../src/editing_tools/EditingTools.vala:2210
 msgid "Exposure:"
 msgstr "Säritus:"
 
-#: ../src/editing_tools/EditingTools.vala:2225
+#: ../src/editing_tools/EditingTools.vala:2217
 msgid "Saturation:"
 msgstr "Küllastus:"
 
-#: ../src/editing_tools/EditingTools.vala:2232
+#: ../src/editing_tools/EditingTools.vala:2223
 msgid "Tint:"
 msgstr "Värvus:"
 
-#: ../src/editing_tools/EditingTools.vala:2240
+#: ../src/editing_tools/EditingTools.vala:2229
 msgid "Temperature:"
 msgstr "Temperatuur:"
 
-#: ../src/editing_tools/EditingTools.vala:2247
+#: ../src/editing_tools/EditingTools.vala:2235
 msgid "Shadows:"
 msgstr "Varjud:"
 
-#: ../src/editing_tools/EditingTools.vala:2254
+#: ../src/editing_tools/EditingTools.vala:2241
 msgid "Highlights:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset Colors"
 msgstr "Värvide lähtestamine"
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset all color adjustments to original"
 msgstr "Kõigi värvikohenduste tühistamine"
 
-#: ../src/editing_tools/EditingTools.vala:2660
+#: ../src/editing_tools/EditingTools.vala:2643
 msgid "Temperature"
 msgstr "Temperatuur"
 
-#: ../src/editing_tools/EditingTools.vala:2673
+#: ../src/editing_tools/EditingTools.vala:2656
 msgid "Tint"
 msgstr "Värvus"
 
-#: ../src/editing_tools/EditingTools.vala:2686
+#: ../src/editing_tools/EditingTools.vala:2669
 msgid "Saturation"
 msgstr "Küllastus"
 
-#: ../src/editing_tools/EditingTools.vala:2699
+#: ../src/editing_tools/EditingTools.vala:2682
 msgid "Exposure"
 msgstr "Säritus"
 
-#: ../src/editing_tools/EditingTools.vala:2712
+#: ../src/editing_tools/EditingTools.vala:2695
 msgid "Shadows"
 msgstr "Varjud"
 
-#: ../src/editing_tools/EditingTools.vala:2725
+#: ../src/editing_tools/EditingTools.vala:2708
 msgid "Highlights"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2735
+#: ../src/editing_tools/EditingTools.vala:2718
 msgid "Contrast Expansion"
 msgstr "Kontrastsuse suurendamine"
 
@@ -3781,7 +3701,7 @@ msgstr ""
 msgid "_Import"
 msgstr "_Impordi"
 
-#: ../src/library/LibraryWindow.vala:855 ../ui/shotwell.glade.h:13
+#: ../src/library/LibraryWindow.vala:855
 msgid "Library Location"
 msgstr "Fotokogu kaust"
 
@@ -3896,36 +3816,36 @@ msgstr "Shotwelli andmebaasi kontrollimise katsel esines tundmatu viga: %s"
 msgid "Loading Shotwell"
 msgstr "Shotwelli laadimine"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "Path to Shotwell's private data"
 msgstr "Shotwelli privaatandmete asukoht"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "DIRECTORY"
 msgstr "KAUST"
 
-#: ../src/main.vala:299
+#: ../src/main.vala:291
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "Töö ajal ei jälgita fotokogu kausta muudatusi"
 
-#: ../src/main.vala:304
+#: ../src/main.vala:296
 msgid "Don't display startup progress meter"
 msgstr "Käivitusel ei näidata edenemise riba"
 
-#: ../src/main.vala:309
+#: ../src/main.vala:301
 msgid "Show the application's version"
 msgstr "Rakenduse versiooni kuvamine"
 
-#: ../src/main.vala:314
+#: ../src/main.vala:306
 msgid "Show About dialog"
 msgstr ""
 
 #. init GTK (valac has already called g_threads_init ())
-#: ../src/main.vala:366
+#: ../src/main.vala:358
 msgid "[FILE]"
 msgstr "[FAIL]"
 
-#: ../src/main.vala:370
+#: ../src/main.vala:362
 #, c-format
 msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
@@ -4240,6 +4160,10 @@ msgstr "Lipukese olek"
 msgid "Photo state"
 msgstr ""
 
+#: ../src/searches/SearchBoolean.vala:186
+msgid "Rating"
+msgstr "Hinnang"
+
 #: ../src/searches/SearchBoolean.vala:189
 msgid "Date"
 msgstr "Kuupäev"
@@ -4329,106 +4253,62 @@ msgid "pixels per inch"
 msgstr "pikslit tollile"
 
 #: ../ui/shotwell.glade.h:12
-msgid "Shotwell Preferences"
-msgstr "Shotwelli eelistused"
-
-#: ../ui/shotwell.glade.h:14
-msgid "_Watch library directory for new files"
-msgstr "Kausta _jälgimine uute failide avastamiseks"
-
-#: ../ui/shotwell.glade.h:15
-msgid "Metadata"
-msgstr "Metaandmed"
-
-#: ../ui/shotwell.glade.h:16
-msgid "Write tags, titles, and other _metadata to photo files"
-msgstr "_Siltide, pealkirjade jm metateabe kirjutamine fotofailidesse"
-
-#: ../ui/shotwell.glade.h:17
-msgid "_Import photos to:"
-msgstr "_Fotod imporditakse kausta:"
-
-#: ../ui/shotwell.glade.h:18
-msgid "Importing"
-msgstr "Importimine"
-
-#: ../ui/shotwell.glade.h:19
-msgid "_Directory structure:"
-msgstr "_Kaustastruktuur:"
-
-#: ../ui/shotwell.glade.h:20
-msgid "_Pattern:"
-msgstr "_Muster:"
-
-#: ../ui/shotwell.glade.h:21
-msgid "Example:"
-msgstr "Näidis:"
-
-#: ../ui/shotwell.glade.h:22
-msgid "R_ename imported files to lowercase"
-msgstr "Imporditud failid nimetatakse ümber _väiketähtedega"
-
-#: ../ui/shotwell.glade.h:23
-msgid "RAW Developer"
-msgstr "RAW-ilmutaja:"
-
-#: ../ui/shotwell.glade.h:24
-msgid "De_fault:"
-msgstr "_Vaikimisi:"
-
-#: ../ui/shotwell.glade.h:25
-msgid "Library Tab"
-msgstr ""
-
-#: ../ui/shotwell.glade.h:26
 msgid "E_xternal photo editor:"
 msgstr "_Väline fotoredaktor:"
 
-#: ../ui/shotwell.glade.h:27
+#: ../ui/shotwell.glade.h:13
 msgid "External _RAW editor:"
 msgstr "Väline _RAW-redaktor:"
 
-#: ../ui/shotwell.glade.h:28
-msgid "External Editors"
-msgstr "Välised redaktorid"
-
-#: ../ui/shotwell.glade.h:30
-msgid "Library Location:"
+#: ../ui/shotwell.glade.h:14
+msgid "Library:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:31
-msgid "Metadata:"
-msgstr ""
+#: ../ui/shotwell.glade.h:15
+msgid "_Import photos to:"
+msgstr "_Fotod imporditakse kausta:"
 
-#: ../ui/shotwell.glade.h:32
+#: ../ui/shotwell.glade.h:16
 msgid "RAW Developer:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:33
-msgid "Importing:"
+#: ../ui/shotwell.glade.h:17
+msgid "De_fault:"
+msgstr "_Vaikimisi:"
+
+#: ../ui/shotwell.glade.h:18
+msgid "Watch library for new files:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:34
+#: ../ui/shotwell.glade.h:19
+msgid "Write  _metadata to files:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:20
+msgid "R_ename imported files to lowercase:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:21
 msgid "_Delay:"
 msgstr "_Viivitus:"
 
-#: ../ui/shotwell.glade.h:35
+#: ../ui/shotwell.glade.h:22
 msgid "_Transition effect:"
 msgstr "_Üleminekuefekt:"
 
-#: ../ui/shotwell.glade.h:36
+#: ../ui/shotwell.glade.h:23
 msgid "Transition d_elay:"
 msgstr "Ülemineku v_iivitus:"
 
-#: ../ui/shotwell.glade.h:37
+#: ../ui/shotwell.glade.h:24
 msgid "Show t_itle"
 msgstr "Näita _pealkirja"
 
-#: ../ui/shotwell.glade.h:38
+#: ../ui/shotwell.glade.h:25
 msgid "seconds"
 msgstr "sekundit"
 
-#: ../ui/shotwell.glade.h:39
+#: ../ui/shotwell.glade.h:26
 msgid "_Login"
 msgstr "_Logi sisse"
 
@@ -4538,6 +4418,60 @@ msgstr "_Logi sisse"
 
 #~ msgid "Tags (separated by commas):"
 #~ msgstr "Sildid (eralda komaga):"
+
+#~ msgid "Welcome!"
+#~ msgstr "Tere tulemast!"
+
+#~ msgid "Welcome to Shotwell!"
+#~ msgstr "Tere tulemast Shotwelli kasutama!"
+
+#~ msgid "To get started, import photos in any of these ways:"
+#~ msgstr "Alustamiseks impordi fotod mõnel järgnevaist viisidest:"
+
+#, c-format
+#~ msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
+#~ msgstr "Vali <span weight=\"bold\">Fail %s Impordi kaustast</span>"
+
+#~ msgid "Drag and drop photos onto the Shotwell window"
+#~ msgstr "Lohistades fotod Shotwelli aknasse"
+
+#~ msgid "Connect a camera to your computer and import"
+#~ msgstr "Ühendades kaamera arvutiga ja importides"
+
+#, c-format
+#~ msgid "_Import photos from your %s folder"
+#~ msgstr "Fotode _importimine kaustast %s"
+
+#~ msgid "You can also import photos in any of these ways:"
+#~ msgstr "Lisaks võib fotosid importida mõnel järgnevaist viisidest:"
+
+#~ msgid "_Don't show this message again"
+#~ msgstr "_Seda teadet rohkem ei näidata"
+
+#, c-format
+#~ msgid "Import photos from your %s library"
+#~ msgstr "Fotode importimine sinu %s kogust"
+
+#~ msgid "(Help)"
+#~ msgstr "(Abi)"
+
+#, c-format
+#~ msgid "Year%sMonth%sDay"
+#~ msgstr "Aasta%skuu%späev"
+
+#, c-format
+#~ msgid "Year%sMonth"
+#~ msgstr "Aasta%skuu"
+
+#, c-format
+#~ msgid "Year%sMonth-Day"
+#~ msgstr "Aasta%skuu-päev"
+
+#~ msgid "Year-Month-Day"
+#~ msgstr "Aasta-kuu-päev"
+
+#~ msgid "Invalid pattern"
+#~ msgstr "Sobimatu muster"
 
 #, c-format
 #~ msgid ""
@@ -4856,11 +4790,38 @@ msgstr "_Logi sisse"
 #~ msgid "_Name of search:"
 #~ msgstr "_Otsingu nimi:"
 
+#~ msgid "Shotwell Preferences"
+#~ msgstr "Shotwelli eelistused"
+
+#~ msgid "Metadata"
+#~ msgstr "Metaandmed"
+
+#~ msgid "Write tags, titles, and other _metadata to photo files"
+#~ msgstr "_Siltide, pealkirjade jm metateabe kirjutamine fotofailidesse"
+
 #~ msgid "Display"
 #~ msgstr "Kuva"
 
 #~ msgid "_Background:"
 #~ msgstr "_Taust:"
+
+#~ msgid "Importing"
+#~ msgstr "Importimine"
+
+#~ msgid "_Pattern:"
+#~ msgstr "_Muster:"
+
+#~ msgid "Example:"
+#~ msgstr "Näidis:"
+
+#~ msgid "R_ename imported files to lowercase"
+#~ msgstr "Imporditud failid nimetatakse ümber _väiketähtedega"
+
+#~ msgid "RAW Developer"
+#~ msgstr "RAW-ilmutaja:"
+
+#~ msgid "External Editors"
+#~ msgstr "Välised redaktorid"
 
 #~ msgid "white"
 #~ msgstr "Valge"
@@ -4873,3 +4834,9 @@ msgstr "_Logi sisse"
 
 #~ msgid "Folders"
 #~ msgstr "Kaustad:"
+
+#~ msgid "_Watch library directory for new files"
+#~ msgstr "Kausta _jälgimine uute failide avastamiseks"
+
+#~ msgid "_Directory structure:"
+#~ msgstr "_Kaustastruktuur:"
