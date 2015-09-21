@@ -1400,15 +1400,21 @@ public class LibraryWindow : AppWindow {
             }
         }
 
-        right_frame.remove (welcome_page);
-        if (show) {
-            right_frame.remove (right_vbox);
-            right_frame.add (welcome_page);
-        } else {
-            right_frame.add (right_vbox);
+        if (right_frame != null) {
+            if (right_frame.get_child () == welcome_page)
+                right_frame.remove (welcome_page);
+
+            if (show) {
+                if (right_frame.get_child () == right_vbox)
+                    right_frame.remove (right_vbox);
+                right_frame.add (welcome_page);
+            } else {
+                right_frame.add (right_vbox);
+            }
+
+            right_frame.show_all ();
         }
 
-        right_frame.show_all ();
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 

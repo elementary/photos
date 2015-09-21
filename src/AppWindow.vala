@@ -450,11 +450,6 @@ public abstract class AppWindow : PageWindow {
 
         set_default_title ();
 
-        GLib.List<Gdk.Pixbuf> pixbuf_list = new GLib.List<Gdk.Pixbuf> ();
-        foreach (string resource in Resources.APP_ICONS)
-            pixbuf_list.append (Resources.get_icon (resource, 0));
-        set_default_icon_list (pixbuf_list.copy ());
-
         // restore previous size and maximization state
         if (this is LibraryWindow) {
             Config.Facade.get_instance ().get_library_window_state (out maximized, out dimensions);
