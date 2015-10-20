@@ -365,7 +365,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int TRINKET_SCALE = 24;
     public const int TRINKET_PADDING = 1;
 
-    public const double ZOOM_INCREMENT_SIZE = 0.1;
+    public const double ZOOM_INCREMENT_SIZE = 0.03;
     public const int PAN_INCREMENT_SIZE = 64; /* in pixels */
     public const int TOOL_WINDOW_SEPARATOR = 8;
     public const int PIXBUF_CACHE_COUNT = 5;
@@ -777,6 +777,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_mousewheel_up (Gdk.EventScroll event) {
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
+            return false;
+
         if (get_zoom_state ().is_max () || !zoom_slider.get_sensitive ())
             return false;
 
@@ -785,6 +788,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_mousewheel_down (Gdk.EventScroll event) {
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
+            return false;
+
         if (get_zoom_state ().is_min () || !zoom_slider.get_sensitive ())
             return false;
 
