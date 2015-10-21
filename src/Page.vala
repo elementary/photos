@@ -1624,12 +1624,12 @@ public abstract class CheckerboardPage : Page {
                 // be registered as valid. We virtually extend the clickable area around button.
                 const int x_error_margin = 12;
                 const int y_error_margin = 12;
-
+                
                 if (event.x >= button_area.x - x_error_margin
                     && event.x <= button_area.x + button_area.width + x_error_margin
                     && event.y >= button_area.y - y_error_margin
-                    && event.y <= button_area.y + button_area.height + y_error_margin)
-                {
+                    && event.y <= button_area.y + button_area.height + y_error_margin) {
+                    
                     debug ("Selection button clicked");
 
                     // make sure we handle this kind of selection properly on button-release
@@ -1644,27 +1644,29 @@ public abstract class CheckerboardPage : Page {
                         anchor = item;
                         cursor = item;
                     }
-
-                    break;
-                }
-
-                if (event.type == Gdk.EventType.2BUTTON_PRESS) {
-                    activated_item = item;
                 } else {
-                    // if the user has selected one or more items and is preparing for a drag,
-                    // don't want to blindly unselect: if they've clicked on an unselected item
-                    // unselect all and select that one; if they've clicked on a previously
-                    // selected item, do nothing
-                    if (!item.is_selected ()) {
-                        Marker all = get_view ().start_marking ();
-                        all.mark_many (get_view ().get_selected ());
+                    activated_item = item;
 
-                        get_view ().unselect_and_select_marked (all, get_view ().mark (item));
+/*
+                    if (event.type == Gdk.EventType.2BUTTON_PRESS) {
+                        activated_item = item;
+                    } else {
+                        // if the user has selected one or more items and is preparing for a drag,
+                        // don't want to blindly unselect: if they've clicked on an unselected item
+                        // unselect all and select that one; if they've clicked on a previously
+                        // selected item, do nothing
+                        if (!item.is_selected ()) {
+                            Marker all = get_view ().start_marking ();
+                            all.mark_many (get_view ().get_selected ());
+
+                            get_view ().unselect_and_select_marked (all, get_view ().mark (item));
+                        }
                     }
-                }
+*/
 
-                anchor = item;
-                cursor = item;
+                    anchor = item;
+                    cursor = item;
+                }
                 break;
             }
         } else {
