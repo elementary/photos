@@ -1564,6 +1564,19 @@ public abstract class CheckerboardPage : Page {
         return (base.key_press_event != null) ? base.key_press_event (event) : true;
     }
 
+    protected virtual bool is_point_on_item_selection_button (double x, double y, CheckerboardItem item) {
+        Gdk.Rectangle button_area = item.get_selection_button_area ();
+
+        // The point does not have to be exactly over button area
+        const int x_error_margin = 3;
+        const int y_error_margin = 3;
+        
+        return x >= button_area.x - x_error_margin
+            && x <= button_area.x + button_area.width + x_error_margin
+            && y >= button_area.y - y_error_margin
+            && y <= button_area.y + button_area.height + y_error_margin;
+    }
+    
     protected override bool on_left_click (Gdk.EventButton event) {
         selection_button_clicked = false;
 
@@ -1618,17 +1631,7 @@ public abstract class CheckerboardPage : Page {
 
             default:
                 // check if user clicked a blank area of the item or the selection button
-                Gdk.Rectangle button_area = item.get_selection_button_area ();
-
-                // The user does not have to click exactly over button area for the click to
-                // be registered as valid. We virtually extend the clickable area around button.
-                const int x_error_margin = 12;
-                const int y_error_margin = 12;
-                
-                if (event.x >= button_area.x - x_error_margin
-                    && event.x <= button_area.x + button_area.width + x_error_margin
-                    && event.y >= button_area.y - y_error_margin
-                    && event.y <= button_area.y + button_area.height + y_error_margin) {
+                if (is_point_on_item_selection_button (event.x, event.y, item)) {
                     
                     debug ("Selection button clicked");
 
@@ -1788,23 +1791,26 @@ public abstract class CheckerboardPage : Page {
     protected virtual bool on_mouse_over (CheckerboardItem? item, int x, int y, Gdk.ModifierType mask) {
         // if hovering over the last hovered item, or both are null (nothing highlighted and
         // hovering over empty space), do nothing
-        if (item == highlighted)
-            return true;
+        if (item != highlighted) {
+            // either something new is highlighted or now hovering over empty space, so dim old item
+            if (highlighted != null) {
+                highlighted.unbrighten ();
+                highlighted = null;
+            }
 
-        // either something new is highlighted or now hovering over empty space, so dim old item
-        if (highlighted != null) {
-            highlighted.unbrighten ();
-            highlighted = null;
+            // if over empty space, done
+            if (item != null) {
+                // brighten the new item otherwise
+                item.brighten ();
+                highlighted = item;
+            }
         }
-
-        // if over empty space, done
-        if (item == null)
-            return true;
-
-        // brighten the new item
-        item.brighten ();
-        highlighted = item;
-
+        
+        // use "hand" cursor only to indicate that an item is ready for activation
+        Gdk.CursorType cursor_type = item != null && !is_point_on_item_selection_button (x, y, item)
+            ? Gdk.CursorType.HAND1 : Gdk.CursorType.ARROW;
+        set_page_cursor (cursor_type);
+        
         return true;
     }
 
