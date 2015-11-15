@@ -1650,23 +1650,6 @@ public abstract class CheckerboardPage : Page {
                 } else {
                     activated_item = item;
 
-/*
-                    if (event.type == Gdk.EventType.2BUTTON_PRESS) {
-                        activated_item = item;
-                    } else {
-                        // if the user has selected one or more items and is preparing for a drag,
-                        // don't want to blindly unselect: if they've clicked on an unselected item
-                        // unselect all and select that one; if they've clicked on a previously
-                        // selected item, do nothing
-                        if (!item.is_selected ()) {
-                            Marker all = get_view ().start_marking ();
-                            all.mark_many (get_view ().get_selected ());
-
-                            get_view ().unselect_and_select_marked (all, get_view ().mark (item));
-                        }
-                    }
-*/
-
                     anchor = item;
                     cursor = item;
                 }
