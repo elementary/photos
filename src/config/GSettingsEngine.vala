@@ -98,7 +98,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names = new string[ConfigurableProperty.NUM_PROPERTIES];
 
         key_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = "auto-import";
-        key_names[ConfigurableProperty.BG_COLOR_NAME] = "background-color";
         key_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = "commit-metadata";
         key_names[ConfigurableProperty.DESKTOP_BACKGROUND_FILE] = "picture-uri";
         key_names[ConfigurableProperty.DESKTOP_BACKGROUND_MODE] = "picture-options";

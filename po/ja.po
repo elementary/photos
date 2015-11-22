@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-08-10 04:22-0500\n"
+"POT-Creation-Date: 2015-09-07 11:31-0700\n"
 "PO-Revision-Date: 2014-06-24 21:58+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Japanese "
@@ -30,8 +30,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-08-11 06:06+0000\n"
-"X-Generator: Launchpad (build 17686)\n"
+"X-Launchpad-Export-Date: 2015-09-08 06:13+0000\n"
+"X-Generator: Launchpad (build 17706)\n"
 "Language: ja\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -468,7 +468,7 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: ../plugins/shotwell-publishing/PicasaPublishing.vala:749
-#: ../src/editing_tools/EditingTools.vala:746
+#: ../src/editing_tools/EditingTools.vala:739
 msgid "Original Size"
 msgstr "オリジナルのサイズ"
 
@@ -781,30 +781,30 @@ msgstr "全画面表示の解除"
 msgid "Leave _Fullscreen"
 msgstr "全画面表示の解除(_F)"
 
-#: ../src/AppWindow.vala:514
+#: ../src/AppWindow.vala:518
 msgid "_Quit"
 msgstr "終了(_Q)"
 
-#: ../src/AppWindow.vala:520
+#: ../src/AppWindow.vala:524
 msgid "Fulls_creen"
 msgstr "全画面表示(_C)"
 
 #. add buttons to action area
-#: ../src/AppWindow.vala:624 ../src/AppWindow.vala:644
-#: ../src/AppWindow.vala:666 ../src/AppWindow.vala:684
-#: ../src/AppWindow.vala:701 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
+#: ../src/AppWindow.vala:628 ../src/AppWindow.vala:648
+#: ../src/AppWindow.vala:670 ../src/AppWindow.vala:688
+#: ../src/AppWindow.vala:705 ../src/Dialogs.vala:20 ../src/Dialogs.vala:28
 #: ../src/Dialogs.vala:38 ../src/Dialogs.vala:61 ../src/Dialogs.vala:90
 #: ../src/Dialogs.vala:246 ../src/Dialogs.vala:902 ../src/Dialogs.vala:1171
 #: ../src/Dialogs.vala:1246 ../src/Dialogs.vala:1337 ../src/Dialogs.vala:1360
 #: ../src/Dialogs.vala:1401 ../src/Dialogs.vala:1577
-#: ../src/editing_tools/EditingTools.vala:642
-#: ../src/editing_tools/EditingTools.vala:2205
+#: ../src/editing_tools/EditingTools.vala:634
+#: ../src/editing_tools/EditingTools.vala:2198
 #: ../src/editing_tools/StraightenTool.vala:101
 #: ../src/publishing/PublishingUI.vala:504
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: ../src/AppWindow.vala:711
+#: ../src/AppWindow.vala:715
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
@@ -1624,8 +1624,8 @@ msgstr "ライブラリから写真を削除"
 msgid "%d%%"
 msgstr "%d%%"
 
-#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1855
-#: ../src/editing_tools/EditingTools.vala:2203
+#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1848
+#: ../src/editing_tools/EditingTools.vala:2196
 msgid "_Apply"
 msgstr ""
 
@@ -1730,134 +1730,55 @@ msgstr[0] ""
 "\n"
 "その他 %d 個"
 
-#. Add close button to window
-#: ../src/Dialogs.vala:1897 ../src/Dialogs.vala:2127
-#: ../src/editing_tools/EditingTools.vala:1857
-#: ../src/publishing/PublishingUI.vala:499
-msgid "_Close"
-msgstr "閉じる(_C)"
-
-#: ../src/Dialogs.vala:1898
-msgid "Welcome!"
-msgstr "ようこそ！"
-
-#: ../src/Dialogs.vala:1906
-msgid "Welcome to Shotwell!"
-msgstr "ようこそ Shotwell へ！"
-
-#: ../src/Dialogs.vala:1910
-msgid "To get started, import photos in any of these ways:"
-msgstr "始めるには、いずれかの方法で写真をインポートしてください:"
-
-#: ../src/Dialogs.vala:1929
-#, c-format
-msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
-msgstr "<span weight=\\\"bold\\\">ファイル %s をフォルダーからインポート</span> を選択する"
-
-#: ../src/Dialogs.vala:1930
-msgid "Drag and drop photos onto the Shotwell window"
-msgstr "Shotwell ウィンドウに写真をドラッグアンドドロップする"
-
-#: ../src/Dialogs.vala:1931
-msgid "Connect a camera to your computer and import"
-msgstr "コンピューターにカメラを接続してインポートする"
-
-#: ../src/Dialogs.vala:1941
-#, c-format
-msgid "_Import photos from your %s folder"
-msgstr "%s フォルダーから写真をインポート(_I)"
-
-#: ../src/Dialogs.vala:1948
-msgid "You can also import photos in any of these ways:"
-msgstr "いずれかの方法で写真をインポートすることができます:"
-
-#: ../src/Dialogs.vala:1958
-msgid "_Don't show this message again"
-msgstr "このメッセージを再び表示しない(_D)"
-
-#: ../src/Dialogs.vala:1991
-#, c-format
-msgid "Import photos from your %s library"
-msgstr "%s ライブラリから写真をインポート"
-
-#: ../src/Dialogs.vala:2109 ../src/library/Branch.vala:58
+#: ../src/Dialogs.vala:1918 ../src/library/Branch.vala:58
 #: ../src/library/Branch.vala:151
 msgid "Library"
 msgstr "ライブラリ"
 
-#: ../src/Dialogs.vala:2110 ../ui/shotwell.glade.h:29
+#: ../src/Dialogs.vala:1919
 msgid "Plugins"
 msgstr "プラグイン"
 
-#. We're installed system-wide, so use the system help.
-#. We're being run from the build directory; we'll have to handle clicks to this
-#. link manually ourselves, due to a limitation ghelp: URIs.
-#: ../src/Dialogs.vala:2149 ../src/Dialogs.vala:2153
-msgid "(Help)"
-msgstr "(ヘルプ)"
-
-#: ../src/Dialogs.vala:2162
-#, c-format
-msgid "Year%sMonth%sDay"
-msgstr "年%s月%s日"
-
-#: ../src/Dialogs.vala:2164
-#, c-format
-msgid "Year%sMonth"
-msgstr "年%s月"
-
-#: ../src/Dialogs.vala:2166
-#, c-format
-msgid "Year%sMonth-Day"
-msgstr "年%s月-日"
-
-#: ../src/Dialogs.vala:2168
-msgid "Year-Month-Day"
-msgstr "年-月-日"
-
-#: ../src/Dialogs.vala:2169 ../src/editing_tools/EditingTools.vala:771
-msgid "Custom"
-msgstr "カスタム"
-
-#. Invalid pattern.
-#: ../src/Dialogs.vala:2319
-msgid "Invalid pattern"
-msgstr "無効なパターン"
+#. Add close button to window
+#: ../src/Dialogs.vala:1936 ../src/editing_tools/EditingTools.vala:1850
+#: ../src/publishing/PublishingUI.vala:499
+msgid "_Close"
+msgstr "閉じる(_C)"
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: ../src/Dialogs.vala:2384
+#: ../src/Dialogs.vala:2051
 msgid ""
 "Shotwell can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr "Shotwell はライブラリフォルダーに写真をコピーしたり、写真をコピーせずにインポートすることもできます。"
 
-#: ../src/Dialogs.vala:2389
+#: ../src/Dialogs.vala:2056
 msgid "Co_py Photos"
 msgstr "写真をコピー(_P)"
 
-#: ../src/Dialogs.vala:2390
+#: ../src/Dialogs.vala:2057
 msgid "_Import in Place"
 msgstr "元の場所でインポート(_I)"
 
-#: ../src/Dialogs.vala:2391
+#: ../src/Dialogs.vala:2058
 msgid "Import to Library"
 msgstr "ライブラリにインポート"
 
-#: ../src/Dialogs.vala:2401 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
 msgid "Remove From Library"
 msgstr "ライブラリから削除"
 
-#: ../src/Dialogs.vala:2402 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
 msgid "Removing Photo From Library"
 msgstr "ライブラリから写真を削除しています"
 
-#: ../src/Dialogs.vala:2402
+#: ../src/Dialogs.vala:2069
 msgid "Removing Photos From Library"
 msgstr "ライブラリから写真を削除しています"
 
 #. Alert the user that the files were not removed.
-#: ../src/Dialogs.vala:2438
+#: ../src/Dialogs.vala:2105
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2172,59 +2093,59 @@ msgstr "インチ"
 msgid "cm"
 msgstr "センチメートル"
 
-#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:751
+#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:744
 msgid "Wallet (2 x 3 in.)"
 msgstr "ウォレット (2 x 3 インチ)"
 
-#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:752
+#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:745
 msgid "Notecard (3 x 5 in.)"
 msgstr "ノートカード (3 x 5 インチ)"
 
-#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:753
+#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:746
 msgid "4 x 6 in."
 msgstr "4 x 6 インチ"
 
-#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:754
+#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:747
 msgid "5 x 7 in."
 msgstr "5 x 7 インチ"
 
-#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:755
+#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:748
 msgid "8 x 10 in."
 msgstr "8 x 10 インチ"
 
-#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:757
+#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:750
 msgid "11 x 14 in."
 msgstr "11 x 14 インチ"
 
-#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:759
+#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:752
 msgid "16 x 20 in."
 msgstr "16 x 20 インチ"
 
-#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:761
+#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:754
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "メトリック・ウォレット (9 x 13 cm)"
 
-#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:762
+#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:755
 msgid "Postcard (10 x 15 cm)"
 msgstr "ポストカード (10 x 15 cm)"
 
-#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:763
+#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:756
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:764
+#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:757
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:766
+#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:759
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:767
+#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:760
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:768
+#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:761
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -3052,12 +2973,7 @@ msgstr "スライドショー"
 msgid "Close"
 msgstr ""
 
-#. Rating label and button
-#: ../src/SearchFilter.vala:365 ../src/searches/SearchBoolean.vala:186
-msgid "Rating"
-msgstr "評価"
-
-#: ../src/SearchFilter.vala:396
+#: ../src/SearchFilter.vala:390
 msgid "Search Photos"
 msgstr ""
 
@@ -3375,135 +3291,139 @@ msgstr "別名で保存"
 msgid "Save"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:657
+#: ../src/editing_tools/EditingTools.vala:649
 msgid "Return to current photo dimensions"
 msgstr "現在の写真サイズに戻す"
 
-#: ../src/editing_tools/EditingTools.vala:659
+#: ../src/editing_tools/EditingTools.vala:651
 msgid "Set the crop for this photo"
 msgstr "この写真の切り抜きを設定"
 
-#: ../src/editing_tools/EditingTools.vala:670
+#: ../src/editing_tools/EditingTools.vala:662
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "切り抜く長方形の縦方向と横方向を回転させます"
 
-#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:736
 msgid "Unconstrained"
 msgstr "制限なし"
 
-#: ../src/editing_tools/EditingTools.vala:744
+#: ../src/editing_tools/EditingTools.vala:737
 msgid "Square"
 msgstr "正方形"
 
-#: ../src/editing_tools/EditingTools.vala:745
+#: ../src/editing_tools/EditingTools.vala:738
 msgid "Screen"
 msgstr "画面"
 
-#: ../src/editing_tools/EditingTools.vala:747
-#: ../src/editing_tools/EditingTools.vala:750
-#: ../src/editing_tools/EditingTools.vala:760
-#: ../src/editing_tools/EditingTools.vala:770
+#: ../src/editing_tools/EditingTools.vala:740
+#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/EditingTools.vala:753
+#: ../src/editing_tools/EditingTools.vala:763
 msgid "-"
 msgstr "-"
 
-#: ../src/editing_tools/EditingTools.vala:748
+#: ../src/editing_tools/EditingTools.vala:741
 msgid "SD Video (4 : 3)"
 msgstr "SD動画サイズ (4:3)"
 
-#: ../src/editing_tools/EditingTools.vala:749
+#: ../src/editing_tools/EditingTools.vala:742
 msgid "HD Video (16 : 9)"
 msgstr "HD動画サイズ (16:9)"
 
-#: ../src/editing_tools/EditingTools.vala:756
+#: ../src/editing_tools/EditingTools.vala:749
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 in.)"
 
-#: ../src/editing_tools/EditingTools.vala:758
+#: ../src/editing_tools/EditingTools.vala:751
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 in.)"
 
-#: ../src/editing_tools/EditingTools.vala:765
+#: ../src/editing_tools/EditingTools.vala:758
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:769
+#: ../src/editing_tools/EditingTools.vala:762
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: ../src/editing_tools/EditingTools.vala:1852
+#: ../src/editing_tools/EditingTools.vala:764
+msgid "Custom"
+msgstr "カスタム"
+
+#: ../src/editing_tools/EditingTools.vala:1845
 msgid "Size:"
 msgstr "サイズ:"
 
-#: ../src/editing_tools/EditingTools.vala:1867
+#: ../src/editing_tools/EditingTools.vala:1860
 msgid "Close the red-eye tool"
 msgstr "赤目ツールを閉じる"
 
-#: ../src/editing_tools/EditingTools.vala:1869
+#: ../src/editing_tools/EditingTools.vala:1862
 msgid "Remove any red-eye effects in the selected region"
 msgstr "選択された範囲で赤目現象を取り除きます"
 
-#: ../src/editing_tools/EditingTools.vala:2204
+#: ../src/editing_tools/EditingTools.vala:2197
 #: ../src/editing_tools/StraightenTool.vala:102
 msgid "_Reset"
 msgstr "リセット(_R)"
 
-#: ../src/editing_tools/EditingTools.vala:2218
+#: ../src/editing_tools/EditingTools.vala:2210
 msgid "Exposure:"
 msgstr "露出:"
 
-#: ../src/editing_tools/EditingTools.vala:2225
+#: ../src/editing_tools/EditingTools.vala:2217
 msgid "Saturation:"
 msgstr "彩度:"
 
-#: ../src/editing_tools/EditingTools.vala:2232
+#: ../src/editing_tools/EditingTools.vala:2223
 msgid "Tint:"
 msgstr "色合い:"
 
-#: ../src/editing_tools/EditingTools.vala:2240
+#: ../src/editing_tools/EditingTools.vala:2229
 msgid "Temperature:"
 msgstr "温度:"
 
-#: ../src/editing_tools/EditingTools.vala:2247
+#: ../src/editing_tools/EditingTools.vala:2235
 msgid "Shadows:"
 msgstr "シャドウ:"
 
-#: ../src/editing_tools/EditingTools.vala:2254
+#: ../src/editing_tools/EditingTools.vala:2241
 msgid "Highlights:"
 msgstr "ハイライト:"
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset Colors"
 msgstr "色をリセット"
 
-#: ../src/editing_tools/EditingTools.vala:2308
+#: ../src/editing_tools/EditingTools.vala:2291
 msgid "Reset all color adjustments to original"
 msgstr "すべての色調整をオリジナルの状態に戻す"
 
-#: ../src/editing_tools/EditingTools.vala:2660
+#: ../src/editing_tools/EditingTools.vala:2643
 msgid "Temperature"
 msgstr "温度"
 
-#: ../src/editing_tools/EditingTools.vala:2673
+#: ../src/editing_tools/EditingTools.vala:2656
 msgid "Tint"
 msgstr "色合い"
 
-#: ../src/editing_tools/EditingTools.vala:2686
+#: ../src/editing_tools/EditingTools.vala:2669
 msgid "Saturation"
 msgstr "彩度"
 
-#: ../src/editing_tools/EditingTools.vala:2699
+#: ../src/editing_tools/EditingTools.vala:2682
 msgid "Exposure"
 msgstr "露出"
 
-#: ../src/editing_tools/EditingTools.vala:2712
+#: ../src/editing_tools/EditingTools.vala:2695
 msgid "Shadows"
 msgstr "シャドウ"
 
-#: ../src/editing_tools/EditingTools.vala:2725
+#: ../src/editing_tools/EditingTools.vala:2708
 msgid "Highlights"
 msgstr "ハイライト"
 
-#: ../src/editing_tools/EditingTools.vala:2735
+#: ../src/editing_tools/EditingTools.vala:2718
 msgid "Contrast Expansion"
 msgstr "コントラストの拡張"
 
@@ -3684,7 +3604,7 @@ msgstr ""
 msgid "_Import"
 msgstr "インポート(_I)"
 
-#: ../src/library/LibraryWindow.vala:855 ../ui/shotwell.glade.h:13
+#: ../src/library/LibraryWindow.vala:855
 msgid "Library Location"
 msgstr "ライブラリの場所"
 
@@ -3798,36 +3718,36 @@ msgstr "Shotwell のデータベースを検査する際に不明なエラーが
 msgid "Loading Shotwell"
 msgstr "Shotwell を読み込み中"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "Path to Shotwell's private data"
 msgstr "Shotwellのプライベートデータのパス"
 
-#: ../src/main.vala:294
+#: ../src/main.vala:286
 msgid "DIRECTORY"
 msgstr "ディレクトリ"
 
-#: ../src/main.vala:299
+#: ../src/main.vala:291
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "変更処理実行時にライブラリのディレクトリを監視しない"
 
-#: ../src/main.vala:304
+#: ../src/main.vala:296
 msgid "Don't display startup progress meter"
 msgstr "起動時のプログレスバーを表示できません。"
 
-#: ../src/main.vala:309
+#: ../src/main.vala:301
 msgid "Show the application's version"
 msgstr "アプリケーションのバージョンを表示"
 
-#: ../src/main.vala:314
+#: ../src/main.vala:306
 msgid "Show About dialog"
 msgstr ""
 
 #. init GTK (valac has already called g_threads_init ())
-#: ../src/main.vala:366
+#: ../src/main.vala:358
 msgid "[FILE]"
 msgstr "[ファイル]"
 
-#: ../src/main.vala:370
+#: ../src/main.vala:362
 #, c-format
 msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
@@ -4137,6 +4057,10 @@ msgstr "フラグの状態"
 msgid "Photo state"
 msgstr "写真の状態"
 
+#: ../src/searches/SearchBoolean.vala:186
+msgid "Rating"
+msgstr "評価"
+
 #: ../src/searches/SearchBoolean.vala:189
 msgid "Date"
 msgstr "日付"
@@ -4226,106 +4150,62 @@ msgid "pixels per inch"
 msgstr "ピクセル/インチ"
 
 #: ../ui/shotwell.glade.h:12
-msgid "Shotwell Preferences"
-msgstr "Shotwell の設定"
-
-#: ../ui/shotwell.glade.h:14
-msgid "_Watch library directory for new files"
-msgstr "ライブラリのディレクトリで新規ファイルを監視する(_W)"
-
-#: ../ui/shotwell.glade.h:15
-msgid "Metadata"
-msgstr "メタデータ"
-
-#: ../ui/shotwell.glade.h:16
-msgid "Write tags, titles, and other _metadata to photo files"
-msgstr "タグ、タイトル、他のメタデータをファイルに書き込む(_M)"
-
-#: ../ui/shotwell.glade.h:17
-msgid "_Import photos to:"
-msgstr "写真のインポート先(_I):"
-
-#: ../ui/shotwell.glade.h:18
-msgid "Importing"
-msgstr "インポート"
-
-#: ../ui/shotwell.glade.h:19
-msgid "_Directory structure:"
-msgstr "ディレクトリ構造(_D):"
-
-#: ../ui/shotwell.glade.h:20
-msgid "_Pattern:"
-msgstr "パターン(_P):"
-
-#: ../ui/shotwell.glade.h:21
-msgid "Example:"
-msgstr "例:"
-
-#: ../ui/shotwell.glade.h:22
-msgid "R_ename imported files to lowercase"
-msgstr "インポートしたファイル名を小文字にする(_E)"
-
-#: ../ui/shotwell.glade.h:23
-msgid "RAW Developer"
-msgstr "RAW現像"
-
-#: ../ui/shotwell.glade.h:24
-msgid "De_fault:"
-msgstr "デフォルト(_F):"
-
-#: ../ui/shotwell.glade.h:25
-msgid "Library Tab"
-msgstr ""
-
-#: ../ui/shotwell.glade.h:26
 msgid "E_xternal photo editor:"
 msgstr "外部のフォトエディター(_X):"
 
-#: ../ui/shotwell.glade.h:27
+#: ../ui/shotwell.glade.h:13
 msgid "External _RAW editor:"
 msgstr "外部のRAWエディター(_R):"
 
-#: ../ui/shotwell.glade.h:28
-msgid "External Editors"
-msgstr "外部のエディター"
-
-#: ../ui/shotwell.glade.h:30
-msgid "Library Location:"
+#: ../ui/shotwell.glade.h:14
+msgid "Library:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:31
-msgid "Metadata:"
-msgstr ""
+#: ../ui/shotwell.glade.h:15
+msgid "_Import photos to:"
+msgstr "写真のインポート先(_I):"
 
-#: ../ui/shotwell.glade.h:32
+#: ../ui/shotwell.glade.h:16
 msgid "RAW Developer:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:33
-msgid "Importing:"
+#: ../ui/shotwell.glade.h:17
+msgid "De_fault:"
+msgstr "デフォルト(_F):"
+
+#: ../ui/shotwell.glade.h:18
+msgid "Watch library for new files:"
 msgstr ""
 
-#: ../ui/shotwell.glade.h:34
+#: ../ui/shotwell.glade.h:19
+msgid "Write  _metadata to files:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:20
+msgid "R_ename imported files to lowercase:"
+msgstr ""
+
+#: ../ui/shotwell.glade.h:21
 msgid "_Delay:"
 msgstr "間隔(_D):"
 
-#: ../ui/shotwell.glade.h:35
+#: ../ui/shotwell.glade.h:22
 msgid "_Transition effect:"
 msgstr "トランジションの効果(_T):"
 
-#: ../ui/shotwell.glade.h:36
+#: ../ui/shotwell.glade.h:23
 msgid "Transition d_elay:"
 msgstr "トランジションの間隔(_E):"
 
-#: ../ui/shotwell.glade.h:37
+#: ../ui/shotwell.glade.h:24
 msgid "Show t_itle"
 msgstr "タイトルを表示する (_I)"
 
-#: ../ui/shotwell.glade.h:38
+#: ../ui/shotwell.glade.h:25
 msgid "seconds"
 msgstr "秒"
 
-#: ../ui/shotwell.glade.h:39
+#: ../ui/shotwell.glade.h:26
 msgid "_Login"
 msgstr "ログイン(_L)"
 
@@ -4437,6 +4317,60 @@ msgstr "ログイン(_L)"
 
 #~ msgid "Tags (separated by commas):"
 #~ msgstr "タグ (カンマ区切り):"
+
+#~ msgid "Welcome!"
+#~ msgstr "ようこそ！"
+
+#~ msgid "Welcome to Shotwell!"
+#~ msgstr "ようこそ Shotwell へ！"
+
+#~ msgid "To get started, import photos in any of these ways:"
+#~ msgstr "始めるには、いずれかの方法で写真をインポートしてください:"
+
+#, c-format
+#~ msgid "Choose <span weight=\"bold\">File %s Import From Folder</span>"
+#~ msgstr "<span weight=\\\"bold\\\">ファイル %s をフォルダーからインポート</span> を選択する"
+
+#~ msgid "Drag and drop photos onto the Shotwell window"
+#~ msgstr "Shotwell ウィンドウに写真をドラッグアンドドロップする"
+
+#~ msgid "Connect a camera to your computer and import"
+#~ msgstr "コンピューターにカメラを接続してインポートする"
+
+#, c-format
+#~ msgid "_Import photos from your %s folder"
+#~ msgstr "%s フォルダーから写真をインポート(_I)"
+
+#~ msgid "You can also import photos in any of these ways:"
+#~ msgstr "いずれかの方法で写真をインポートすることができます:"
+
+#~ msgid "_Don't show this message again"
+#~ msgstr "このメッセージを再び表示しない(_D)"
+
+#, c-format
+#~ msgid "Import photos from your %s library"
+#~ msgstr "%s ライブラリから写真をインポート"
+
+#~ msgid "(Help)"
+#~ msgstr "(ヘルプ)"
+
+#, c-format
+#~ msgid "Year%sMonth%sDay"
+#~ msgstr "年%s月%s日"
+
+#, c-format
+#~ msgid "Year%sMonth"
+#~ msgstr "年%s月"
+
+#, c-format
+#~ msgid "Year%sMonth-Day"
+#~ msgstr "年%s月-日"
+
+#~ msgid "Year-Month-Day"
+#~ msgstr "年-月-日"
+
+#~ msgid "Invalid pattern"
+#~ msgstr "無効なパターン"
 
 #, c-format
 #~ msgid ""
@@ -4729,14 +4663,47 @@ msgstr "ログイン(_L)"
 #~ msgid "_Name of search:"
 #~ msgstr "検索の名前(_N):"
 
+#~ msgid "Shotwell Preferences"
+#~ msgstr "Shotwell の設定"
+
 #~ msgid "white"
 #~ msgstr "白"
 
 #~ msgid "black"
 #~ msgstr "黒"
 
+#~ msgid "_Watch library directory for new files"
+#~ msgstr "ライブラリのディレクトリで新規ファイルを監視する(_W)"
+
+#~ msgid "Metadata"
+#~ msgstr "メタデータ"
+
+#~ msgid "Write tags, titles, and other _metadata to photo files"
+#~ msgstr "タグ、タイトル、他のメタデータをファイルに書き込む(_M)"
+
 #~ msgid "Display"
 #~ msgstr "表示"
 
 #~ msgid "_Background:"
 #~ msgstr "背景(_B):"
+
+#~ msgid "Importing"
+#~ msgstr "インポート"
+
+#~ msgid "_Directory structure:"
+#~ msgstr "ディレクトリ構造(_D):"
+
+#~ msgid "_Pattern:"
+#~ msgstr "パターン(_P):"
+
+#~ msgid "Example:"
+#~ msgstr "例:"
+
+#~ msgid "R_ename imported files to lowercase"
+#~ msgstr "インポートしたファイル名を小文字にする(_E)"
+
+#~ msgid "RAW Developer"
+#~ msgstr "RAW現像"
+
+#~ msgid "External Editors"
+#~ msgstr "外部のエディター"
