@@ -13,7 +13,7 @@ private class StripesEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.yorba.pantheon-photos.transitions.stripes";
+        return "org.pantheon.photos.transitions.stripes";
     }
 
     public override unowned string get_pluggable_name () {

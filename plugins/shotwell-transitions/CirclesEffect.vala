@@ -13,7 +13,7 @@ private class CirclesEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.yorba.pantheon-photos.transitions.circles";
+        return "org.pantheon.photos.transitions.circles";
     }
 
     public override unowned string get_pluggable_name () {

@@ -20,7 +20,7 @@ public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.yorba.pantheon-photos.publishing.youtube";
+        return "org.pantheon.photos.publishing.youtube";
     }
 
     public unowned string get_pluggable_name () {

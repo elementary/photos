@@ -31,7 +31,7 @@ private class ShotwellPublishingCoreServices : Object, Spit.Module {
     }
 
     public unowned string get_id () {
-        return "org.yorba.pantheon-photos.publishing.core_services";
+        return "org.pantheon.photos.publishing.core_services";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {

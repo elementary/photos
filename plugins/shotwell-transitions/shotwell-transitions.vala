@@ -33,7 +33,7 @@ private class ShotwellTransitions : Object, Spit.Module {
     }
 
     public unowned string get_id () {
-        return "org.yorba.pantheon-photos.transitions";
+        return "org.pantheon.photos.transitions";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {

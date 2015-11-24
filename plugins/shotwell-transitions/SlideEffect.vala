@@ -13,7 +13,7 @@ private class SlideEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.yorba.pantheon-photos.transitions.slide";
+        return "org.pantheon.photos.transitions.slide";
     }
 
     public override unowned string get_pluggable_name () {

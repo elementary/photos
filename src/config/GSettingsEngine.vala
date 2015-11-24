@@ -5,7 +5,7 @@
  */
 
 public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
-    private const string ROOT_SCHEMA_NAME = "org.yorba.pantheon-photos";
+    private const string ROOT_SCHEMA_NAME = "org.pantheon.photos";
     private const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
     private const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
     private const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
@@ -263,7 +263,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         if (cleaned_id == null)
             cleaned_id = "default";
 
-        cleaned_id = cleaned_id.replace ("org.yorba.pantheon-photos.", "");
+        cleaned_id = cleaned_id.replace ("org.pantheon.photos.", "");
         cleaned_id = cleaned_id.replace (".", "-");
 
         return cleaned_id;
@@ -275,7 +275,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
 
-        return "org.yorba.pantheon-photos.%s.%s".printf (domain, cleaned_id);
+        return "org.pantheon.photos.%s.%s".printf (domain, cleaned_id);
     }
 
     private static string make_gsettings_key (string gconf_key) {

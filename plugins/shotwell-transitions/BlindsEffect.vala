@@ -13,7 +13,7 @@ private class BlindsEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.yorba.pantheon-photos.transitions.blinds";
+        return "org.pantheon.photos.transitions.blinds";
     }
 
     public override unowned string get_pluggable_name () {
