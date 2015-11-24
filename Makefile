@@ -151,8 +151,8 @@ SYS_INTEGRATION_FILES = \
 	pantheon-photos.desktop.tail \
 	pantheon-photos-viewer.desktop.head \
 	pantheon-photos-viewer.desktop.tail \
-	org.yorba.pantheon-photos.gschema.xml \
-	org.yorba.pantheon-photos-extras.gschema.xml \
+	org.pantheon.photos.gschema.xml \
+	org.pantheon.photos-extras.gschema.xml \
 	pantheon-photos.convert
 
 SCHEMA_FILES := $(shell ls misc/*.gschema.xml)
@@ -506,8 +506,8 @@ install:
 	mkdir -p $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
 	$(INSTALL_DATA) icons/pin-toolbar.svg $(DESTDIR)$(PREFIX)/share/icons/hicolor/24x24/actions/
 	mkdir -p $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
-	$(INSTALL_DATA) misc/org.yorba.pantheon-photos.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
-	$(INSTALL_DATA) misc/org.yorba.pantheon-photos-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
+	$(INSTALL_DATA) misc/org.pantheon.photos.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
+	$(INSTALL_DATA) misc/org.pantheon.photos-extras.gschema.xml $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 ifndef DISABLE_SCHEMAS_COMPILE
 	glib-compile-schemas $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 endif
@@ -593,8 +593,8 @@ ifdef INSTALL_HEADERS
 	rm -f $(foreach dep,$(PLUGIN_DEPS),$(DESTDIR)$(PREFIX)/share/vala/vapi/$(notdir $(dep)))
 	rm -f $(DESTDIR)$(PREFIX)/$(LIB)/pkgconfig/$(PC_FILE)
 endif
-	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.pantheon-photos.gschema.xml
-	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.yorba.pantheon-photos-extras.gschema.xml
+	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.pantheon.photos.gschema.xml
+	rm -f $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas/org.pantheon.photos-extras.gschema.xml
 ifndef DISABLE_SCHEMAS_COMPILE
 	glib-compile-schemas $(DESTDIR)$(PREFIX)/share/glib-2.0/schemas
 endif
