@@ -22,7 +22,7 @@ private class SimplePluginModule : Object, Spit.Module {
 
     // Every module needs to have a unique ID.
     public unowned string get_id () {
-        return "org.yorba.pantheon-photos.samples.simple-plugin";
+        return "org.pantheon.photos.samples.simple-plugin";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {
