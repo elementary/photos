@@ -10,7 +10,7 @@ public class MetadataView : Gtk.ScrolledWindow {
     private Gtk.Grid grid = new Gtk.Grid ();
     private int line_count = 0;
     private BasicProperties colletion_page_properties = new BasicProperties ();
-    private Gtk.Label no_items_label = new Gtk.Label ("No items selected");
+    private Gtk.Label no_items_label = new Gtk.Label (_("No items selected"));
     public const int SIDEBAR_PADDING = 12;
     public MetadataView () {
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
