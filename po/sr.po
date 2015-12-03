@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2014-06-23 22:21+0000\n"
 "Last-Translator: Никола Радовановић <nrad@eunet.rs>\n"
 "Language-Team: Serbian "
@@ -24,8 +24,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-09-08 06:14+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:14+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: sr\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -822,6 +822,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "Слике"
 
@@ -891,12 +892,12 @@ msgid "Imported failed (%d)"
 msgstr "Увоз није успео (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "_Покретни приказ"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "Започиње покретни приказ"
 
@@ -909,7 +910,7 @@ msgid "Export Photos/Videos"
 msgstr "Извези фотографије/видео"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "Извоз фотографија"
 
@@ -942,7 +943,8 @@ msgid "Undoing Flip Vertically"
 msgstr "Поништавам извртање по вертикали"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "Нема фотографија/видеа"
 
@@ -1918,11 +1920,11 @@ msgstr "Увези _на месту"
 msgid "Import to Library"
 msgstr "Увези у збирку слика"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "Уклони из збирке слика"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "Уклањам фотографије из збирке."
 
@@ -2002,7 +2004,7 @@ msgstr "Није успела обрада праћења унапређења: 
 msgid "Adjust the size of the thumbnails"
 msgstr "Мења димезије умањеног приказа"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "У_већај"
@@ -2011,7 +2013,7 @@ msgstr "У_већај"
 msgid "Increase the magnification of the thumbnails"
 msgstr "Увећај приказ умањених сличица"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "У_мањи"
@@ -2024,7 +2026,7 @@ msgstr "Умањи приказ умањених сличица"
 msgid "Sort _Photos"
 msgstr "Поређај _слике"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "_Развиј помоћу"
 
@@ -2142,72 +2144,72 @@ msgstr "Претходна слика"
 msgid "Next photo"
 msgstr "Наредна слика"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Изворна датотека слике %s више не постоји."
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "_Приказ"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "_Алатке"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "_Претходна слика"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "Претходна слика"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "_Следећа слика"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "Следећа слика"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "Увећај приказ слике"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "Умањи приказ сличике"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "Сабиј на _страну"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "Приказује слику тако да се цела види на екрану"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "Увећај на _100%"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Приказује слику у пуној резолуцији"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "Увећај на _200%"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "Приказује слику увећану за дупло"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Нисам успео да извезем %s: %s"
@@ -3861,6 +3863,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "RAW слике"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4258,6 +4276,10 @@ msgstr "Датум"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "Нова _ознака ..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4803,9 +4825,6 @@ msgstr "_Пријава"
 
 #~ msgid "Videos"
 #~ msgstr "Видео снимци"
-
-#~ msgid "RAW Photos"
-#~ msgstr "RAW слике"
 
 #~ msgid "RAW photos"
 #~ msgstr "RAW слике"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2015-11-12 13:44+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean "
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-11-13 05:32+0000\n"
-"X-Generator: Launchpad (build 17845)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:13+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: ko\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -817,6 +817,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "사진"
 
@@ -886,12 +887,12 @@ msgid "Imported failed (%d)"
 msgstr "가져오기 실패(%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "슬라이드 쇼(_L)"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "슬라이드 쇼 시작"
 
@@ -904,7 +905,7 @@ msgid "Export Photos/Videos"
 msgstr "사진/비디오 내보내기"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "사진 내보내기"
 
@@ -937,7 +938,8 @@ msgid "Undoing Flip Vertically"
 msgstr "상하로 뒤집기 취소"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "사진/비디오가 없음"
 
@@ -1761,11 +1763,11 @@ msgstr "복사하지 않고 가져오기(_I)"
 msgid "Import to Library"
 msgstr "라이브러리로 가져오기"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "사진을 라이브러리에서 제거하는 중"
 
@@ -1843,7 +1845,7 @@ msgstr "감시 업데이트를 처리할 수 없습니다: %s"
 msgid "Adjust the size of the thumbnails"
 msgstr "섬네일 크기를 조정합니다"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "확대(_I)"
@@ -1852,7 +1854,7 @@ msgstr "확대(_I)"
 msgid "Increase the magnification of the thumbnails"
 msgstr "섬네일을 확대합니다"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "축소(_O)"
@@ -1865,7 +1867,7 @@ msgstr "섬네일을 축소합니다"
 msgid "Sort _Photos"
 msgstr "사진 정렬(_P)"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "편집 프로그램(_D)"
 
@@ -1983,72 +1985,72 @@ msgstr "이전 사진"
 msgid "Next photo"
 msgstr "다음 사진"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "사진 파일을 찾을 수 없습니다: %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "도구(_O)"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "이전 사진(_P)"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "이전 사진"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "다음 사진(_N)"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "다음 사진"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "사진 확대 배율 늘리기"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "사진 확대 배율 줄이기"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "페이지에 맞추기(_P)"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "화면에 꼭 맞게 사진을 확대합니다"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "원본 크기로 확대(_1)"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "사진을 원본 크기로 확대합니다"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "원본 두 배 크기로 확대(_2)"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "사진을 원본 두 배 크기로 확대합니다"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s(을)를 내보낼 수 없습니다: %s"
@@ -3692,6 +3694,22 @@ msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "사진 삭제하는 중"
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "RAW 사진"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4082,6 +4100,10 @@ msgstr "날짜"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "새 태그(_T)..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4589,9 +4611,6 @@ msgstr "로그인(_L)"
 
 #~ msgid "Videos"
 #~ msgstr "비디오"
-
-#~ msgid "RAW Photos"
-#~ msgstr "RAW 사진"
 
 #~ msgid "RAW photos"
 #~ msgstr "RAW 사진"

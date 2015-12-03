@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2014-07-07 00:32+0000\n"
 "Last-Translator: Jirayu Yingthawornsuk <me@jirayu.in.th>\n"
 "Language-Team: Thai "
@@ -21,8 +21,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-09-08 06:15+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:14+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: th\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -797,6 +797,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "ภาพถ่าย"
 
@@ -866,12 +867,12 @@ msgid "Imported failed (%d)"
 msgstr "(%d) นำเข้าล้มเหลว"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr ""
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "แสดงการนำเสนอภาพนิ่ง"
 
@@ -884,7 +885,7 @@ msgid "Export Photos/Videos"
 msgstr ""
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "ภาพถ่ายการส่งออก"
 
@@ -917,7 +918,8 @@ msgid "Undoing Flip Vertically"
 msgstr "เรียกคืนการพลิกกลับภาพแนวตั้ง"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "ไม่มีรูปภาพ / วิดีโอ"
 
@@ -1765,11 +1767,11 @@ msgstr "_นำเข้าสถานที่"
 msgid "Import to Library"
 msgstr "นำเข้าไปยังไลบรารี"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "ลบออกจากไลบรารี"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "ลบภาพถ่ายจากไลบรารี"
 
@@ -1848,7 +1850,7 @@ msgstr ""
 msgid "Adjust the size of the thumbnails"
 msgstr "เปลี่ยนขนาดของรูปย่อ"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "แสดง_ขยาย"
@@ -1857,7 +1859,7 @@ msgstr "แสดง_ขยาย"
 msgid "Increase the magnification of the thumbnails"
 msgstr "เพิ่มขนาดของรูปย่อ"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "แสดง_ย่อ"
@@ -1870,7 +1872,7 @@ msgstr "ลดขนาดของรูปย่อ"
 msgid "Sort _Photos"
 msgstr "เ_รียงภาพถ่าย"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr ""
 
@@ -1986,72 +1988,72 @@ msgstr "รูปที่แล้ว"
 msgid "Next photo"
 msgstr "รูปถัดไป"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "ไม่พบตำแหน่งของแฟ้มภาพถ่าย: %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "มุ_มมอง"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "ภาพถ่ายที่แ_ล้ว"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "ภาพถ่ายที่แล้ว"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "ภาพถ่าย_ถัดไป"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "ภาพถ่ายถัดไป"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "เพิ่มขนาดแว่นขยายของภาพถ่าย"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "ลดขนาดแว่นขยายของภาพถ่าย"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "พอดีกับ_กระดาษ"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "ปรับมุมมองภาพพอดีหน้าจอ"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "ขยาย _100%"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "ขยาย _200%"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr ""
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "ไม่สามารถส่งออก %s: %s"
@@ -3677,6 +3679,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "ภาพถ่ายดิบ"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4060,6 +4078,10 @@ msgstr ""
 msgid "New _Tag..."
 msgstr ""
 
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
+
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
 msgstr ""
@@ -4409,9 +4431,6 @@ msgstr "เ_ข้าระบบ"
 
 #~ msgid "Videos"
 #~ msgstr "วิดีโอ"
-
-#~ msgid "RAW Photos"
-#~ msgstr "ภาพถ่ายดิบ"
 
 #~ msgid "RAW photos"
 #~ msgstr "ภาพถ่ายดิบ"

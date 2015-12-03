@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2015-12-01 23:27+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2015-12-02 05:43+0000\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:15+0000\n"
 "X-Generator: Launchpad (build 17856)\n"
 "Language: pt_BR\n"
 
@@ -861,6 +861,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "Fotos"
 
@@ -930,12 +931,12 @@ msgid "Imported failed (%d)"
 msgstr "A importação falhou (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "Exibição de s_lides"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "Exibir apresentação de slides"
 
@@ -948,7 +949,7 @@ msgid "Export Photos/Videos"
 msgstr "Exportar fotos/vídeos"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "Exportar fotos"
 
@@ -981,7 +982,8 @@ msgid "Undoing Flip Vertically"
 msgstr "Desfazendo inversão vertical"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "Sem fotos/vídeos"
 
@@ -1910,11 +1912,11 @@ msgstr "_Importar no local"
 msgid "Import to Library"
 msgstr "Importar para a biblioteca"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "Remover da biblioteca"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "Removendo fotos da biblioteca"
 
@@ -1993,7 +1995,7 @@ msgstr "Não foi possível processar as atualizações monitoradas: %s"
 msgid "Adjust the size of the thumbnails"
 msgstr "Ajustar o tamanho das miniaturas"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "_Ampliar"
@@ -2002,7 +2004,7 @@ msgstr "_Ampliar"
 msgid "Increase the magnification of the thumbnails"
 msgstr "Aumentar a ampliação das miniaturas"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "_Reduzir"
@@ -2015,7 +2017,7 @@ msgstr "Diminuir a ampliação das miniaturas"
 msgid "Sort _Photos"
 msgstr "Organizar _fotos"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "_Desenvolvedor"
 
@@ -2133,72 +2135,72 @@ msgstr "Foto anterior"
 msgid "Next photo"
 msgstr "Próxima foto"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Faltando arquivo fonte da foto: %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "_Ver"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "F_erramentas"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "Foto a_nterior"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "Foto anterior"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "Próxi_ma foto"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "Próxima foto"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "Aumentar a ampliação da foto"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "Diminuir a ampliação da foto"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "Adaptar à _Página"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "Ampliar a foto para se adaptar à tela"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "Ampliação _100%"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Ampliar a foto para ampliação de 100%"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "Ampliação _200%"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "Ampliar a foto para ampliação de 200%"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Não foi possível exportar %s: %s"
@@ -3858,6 +3860,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] "Apagando uma foto"
 msgstr[1] "Apagando fotos"
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "Fotos RAW"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4258,6 +4276,10 @@ msgstr "Data"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "Novo Etique_ta..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4789,9 +4811,6 @@ msgstr "A_utenticar"
 
 #~ msgid "Videos"
 #~ msgstr "Vídeos"
-
-#~ msgid "RAW Photos"
-#~ msgstr "Fotos RAW"
 
 #~ msgid "RAW photos"
 #~ msgstr "Fotos RAW"

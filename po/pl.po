@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2015-09-08 15:09+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2015-09-09 05:44+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:14+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "X-Poedit-Country: Poland\n"
 "Language: pl\n"
 "X-Poedit-Language: Polish\n"
@@ -67,6 +67,7 @@ msgstr ""
 "  Piotr Drąg https://launchpad.net/~raven46\n"
 "  Piotr Strębski https://launchpad.net/~strebski\n"
 "  Snip3rPolska https://launchpad.net/~snip3rpolska\n"
+"  Szymon Mazurczak https://launchpad.net/~sz-mazurczak\n"
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:35
@@ -869,6 +870,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "Zdjęcia"
 
@@ -938,12 +940,12 @@ msgid "Imported failed (%d)"
 msgstr "Zaimportowanie się nie powiodło (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "Pokaz s_lajdów"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "Odtwarza pokaz slajdów"
 
@@ -956,7 +958,7 @@ msgid "Export Photos/Videos"
 msgstr "Eksport zdjęć/nagrań wideo"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "Eksport zdjęcia"
 
@@ -989,7 +991,8 @@ msgid "Undoing Flip Vertically"
 msgstr "Cofanie odwrócenia pionowego"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "Brak zdjęć/nagrań wideo"
 
@@ -2019,11 +2022,11 @@ msgstr "_Zaimportowanie"
 msgid "Import to Library"
 msgstr "Zaimportuj do kolekcji"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "Usuń z kolekcji"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "Usuwanie zdjęcia z kolekcji"
 
@@ -2103,7 +2106,7 @@ msgstr "Nie można przetworzyć aktualizacji monitorowania: %s"
 msgid "Adjust the size of the thumbnails"
 msgstr "Dopasowuje rozmiar miniatur"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "Pow_iększ"
@@ -2112,7 +2115,7 @@ msgstr "Pow_iększ"
 msgid "Increase the magnification of the thumbnails"
 msgstr "Zwiększa powiększenie miniatur"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "P_omniejsz"
@@ -2125,7 +2128,7 @@ msgstr "Zmniejsza powiększenie miniatur"
 msgid "Sort _Photos"
 msgstr "_Uporządkuj zdjęcia"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "_Wywoływacz"
 
@@ -2243,72 +2246,72 @@ msgstr "Poprzednie zdjęcie"
 msgid "Next photo"
 msgstr "Następne zdjęcie"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Brak pliku źródłowego zdjęcia: %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "_Widok"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "_Narzędzia"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "_Poprzednie zdjęcie"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "Poprzednie zdjęcie"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "_Następne zdjęcie"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "Następne zdjęcie"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "Zwiększa powiększenie zdjęcia"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "Zmniejsza powiększenie zdjęcia"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "Dopasowanie do _strony"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "Powiększa zdjęcie, aby pasowało do ekranu"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "Powiększenie _100%"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Powiększa zdjęcie do 100%"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "Powiększenie _200%"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "Powiększa zdjęcie do 200%"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Nie można wyeksportować: %s: %s"
@@ -3971,6 +3974,22 @@ msgstr[0] "Usuwanie zdjęcia"
 msgstr[1] "Usuwanie zdjęć"
 msgstr[2] "Usuwanie zdjęć"
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "Zdjęcia RAW"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4372,6 +4391,10 @@ msgstr "Data"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "Nowa _etykieta..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4910,9 +4933,6 @@ msgstr "Za_loguj"
 
 #~ msgid "Videos"
 #~ msgstr "Nagrania wideo"
-
-#~ msgid "RAW Photos"
-#~ msgstr "Zdjęcia RAW"
 
 #~ msgid "RAW photos"
 #~ msgstr "Zdjęcia RAW"

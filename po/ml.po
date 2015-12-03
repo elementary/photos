@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2014-06-24 21:57+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Malayalam "
@@ -20,8 +20,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-08 06:14+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:13+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: ml\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -829,6 +829,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "ചിത്രങ്ങള്‍"
 
@@ -898,12 +899,12 @@ msgid "Imported failed (%d)"
 msgstr "ഇറക്കുമതിചെയ്തത് പരാജയപ്പെട്ടു (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "സ്ലൈ_ഡ്ഷോ"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "ഒരു സ്ലൈഡ്ഷോ പ്രവര്‍ത്തിപ്പിക്കുക"
 
@@ -916,7 +917,7 @@ msgid "Export Photos/Videos"
 msgstr "ഫോട്ടോകള്‍/ചലച്ചിത്രങ്ങള്‍ കയറ്റുമതി ചെയ്യുക"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
 
@@ -949,7 +950,8 @@ msgid "Undoing Flip Vertically"
 msgstr "കൂത്തനെ അകമ്പുറം  മറിച്ചത് നിരാകരിക്കുക"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "ഒരു ഫോട്ടോയും/വീഡിയോയും  ഇല്ല"
 
@@ -1891,11 +1893,11 @@ msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് �
 msgid "Import to Library"
 msgstr "ലൈബ്രറിയിലേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു"
 
@@ -1974,7 +1976,7 @@ msgstr "നിരീക്ഷണ പുതുക്കലുകള്‍ ചെ�
 msgid "Adjust the size of the thumbnails"
 msgstr "നഖചിത്രങ്ങളുടെ വലുപ്പം  ക്രമീകരിക്കുക"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "_വലുതാക്കുക"
@@ -1983,7 +1985,7 @@ msgstr "_വലുതാക്കുക"
 msgid "Increase the magnification of the thumbnails"
 msgstr "നഖചിത്രങ്ങളുടെ വിസ്തരിക്കല്‍ കൂട്ടുക"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "_ചെറുതാക്കുക"
@@ -1996,7 +1998,7 @@ msgstr "നഖചിത്രങ്ങളുടെ വിസ്തരിക്�
 msgid "Sort _Photos"
 msgstr "ഫോട്ടോകള്‍ _അടുക്കുക"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "_ഡെവെലപ്പര്‍"
 
@@ -2115,72 +2117,72 @@ msgstr "പുറകിലത്തെ ഫോട്ടോ"
 msgid "Next photo"
 msgstr "അടുത്ത ഫോട്ടോ"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "ഫോട്ടോയുടെ ശ്രോതസ്സ് കണ്ടെത്താനായില്ല : %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "_കാണുക"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "_പണിയായുധങ്ങള്‍"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "_കഴിഞ്ഞ ഫോട്ടോ"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "‌_മുമ്പുള്ള ഫോട്ടോ"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "_അടുത്ത ഫോട്ടോ"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "അടുത്ത ഫോട്ടോ"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "ഫോട്ടോയുടെ പര്‍വതീകരണം  കൂട്ടുക"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "ഫോട്ടോയുടെ പര്‍വതീകരണം  കുറക്കുക"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "‌_പേജില്‍ കൊള്ളിക്കുക"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "സ്ക്രീനില്‍ പാകത്തിനു കാണിക്കുന്നതിനായി ഫോട്ടോ പര്‍വതീകരിക്കുക"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "_100% വലുതാക്കുക"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "_200% വലുതാക്കുക"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr ""
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s കയറ്റുമതി ചെയ്യാന്‍ കഴിഞ്ഞില്ല : %s"
@@ -3832,6 +3834,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "അസംസ്കൃത ചിത്രങ്ങള്‍"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4232,6 +4250,10 @@ msgstr "തിയ്യതി"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "പുതിയ ടാ_ഗ്..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4772,9 +4794,6 @@ msgstr "_പ്രവേശിക്കുക"
 
 #~ msgid "Videos"
 #~ msgstr "വീഡിയോകള്‍"
-
-#~ msgid "RAW Photos"
-#~ msgstr "അസംസ്കൃത ചിത്രങ്ങള്‍"
 
 #~ msgid "RAW photos"
 #~ msgstr "അസംസ്കൃത ചിത്രങ്ങള്‍"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2015-06-05 09:22+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Greek "
@@ -27,8 +27,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-08 06:13+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:12+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: el\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -855,6 +855,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "Φωτογραφίες"
 
@@ -924,12 +925,12 @@ msgid "Imported failed (%d)"
 msgstr "Αποτυχία εισαγωγής (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "Προβολή _Διαφανειών"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "Αναπαραγωγή προβολής διαφανειών"
 
@@ -942,7 +943,7 @@ msgid "Export Photos/Videos"
 msgstr "Εξαγωγή Φωτογραφιών/Βίντεο"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "Εξαγωγή φωτογραφιών"
 
@@ -975,7 +976,8 @@ msgid "Undoing Flip Vertically"
 msgstr "Αναίρεση κατακόρυφου κατοπτρισμού"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "Καμία φωτογραφία/βίντεο"
 
@@ -1919,11 +1921,11 @@ msgstr "_Εισαγωγή σε φάκελο"
 msgid "Import to Library"
 msgstr "Εισαγωγή στη βιβλιοθήκη"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "Απομάκρυνση από τη Βιβλιοθήκη"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "Απομάκρυνση της φωτογραφίας από τη βιβλιοθήκη"
 
@@ -2002,7 +2004,7 @@ msgstr "Η επεξεργασία της παρακολούθησης των ε�
 msgid "Adjust the size of the thumbnails"
 msgstr "Προσαρμογή μεγέθους μικρογραφιών"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "_Μεγέθυνση"
@@ -2011,7 +2013,7 @@ msgstr "_Μεγέθυνση"
 msgid "Increase the magnification of the thumbnails"
 msgstr "Αύξηση της μεγέθυνσης των μικρογραφιών"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "Σμίκρ_υνση"
@@ -2024,7 +2026,7 @@ msgstr "Μείωση της μεγέθυνσης των μικρογραφιών
 msgid "Sort _Photos"
 msgstr "_Ταξινόμηση φωτογραφιών"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "_Επεξεργασία RAW"
 
@@ -2142,72 +2144,72 @@ msgstr "Προηγούμενη φωτογραφία"
 msgid "Next photo"
 msgstr "Επόμενη φωτογραφία"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Το πηγαίο αρχείο της φωτογραφίας λείπει:%s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "_Προβολή"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "Ε_ργαλεία"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "_Προηγούμενη φωτογραφία"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "Προηγούμενη φωτογραφία"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "_Επόμενη φωτογραφία"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "Επόμενη φωτογραφία"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "Αύξηση της μεγέθυνσης της φωτογραφίας"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "Μείωση της μεγέθυνσης της φωτογραφίας"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "Μέγεθος _οθόνης"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "Μεγέθυνση της εικόνας στο μέγεθος της οθόνης"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "Μεγέθυνση _100%"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Μεγέθυνση της φωτογραφίας κατά 100%"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "Μεγέθυνση _200%"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "Μεγέθυνση της φωτογραφίας κατά 200%"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Αδυναμία εξαγωγής %s: %s"
@@ -3868,6 +3870,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "Εικόνες RAW"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4274,6 +4292,10 @@ msgstr "Ημερομηνία"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "Καινούρια _Καρτέλα..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4803,9 +4825,6 @@ msgstr "_Σύνδεση"
 
 #~ msgid "Videos"
 #~ msgstr "Βίντεο"
-
-#~ msgid "RAW Photos"
-#~ msgstr "Εικόνες RAW"
 
 #~ msgid "RAW photos"
 #~ msgstr "εικόνες RAW"

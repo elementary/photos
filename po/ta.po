@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2015-09-07 11:31-0700\n"
+"POT-Creation-Date: 2015-12-02 10:15-0200\n"
 "PO-Revision-Date: 2014-06-24 21:39+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Tamil "
@@ -22,8 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2015-09-08 06:15+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-12-03 06:14+0000\n"
+"X-Generator: Launchpad (build 17856)\n"
 "Language: ta\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -842,6 +842,7 @@ msgstr ""
 "%s"
 
 #: ../src/Application.vala:35 ../src/Resources.vala:16
+#: ../src/library/PhotosPage.vala:11 ../src/library/PhotosPage.vala:24
 msgid "Photos"
 msgstr "புகைப்படங்கள்"
 
@@ -911,12 +912,12 @@ msgid "Imported failed (%d)"
 msgstr "இறக்குமதி தோல்வி (%d)"
 
 #: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2421 ../src/PhotoPage.vala:2682
+#: ../src/PhotoPage.vala:2427 ../src/PhotoPage.vala:2688
 msgid "S_lideshow"
 msgstr "ஸ்லைடுக் காட்சி (_l)"
 
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2422 ../src/PhotoPage.vala:2683
+#: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
 msgstr "புகைப்பட சறுக்கை ஓட்டு"
 
@@ -929,7 +930,7 @@ msgid "Export Photos/Videos"
 msgstr "புகைப்படங்களை/வீடியோக்களை ஏற்றுமதி செய்"
 
 #: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:58
-#: ../src/PhotoPage.vala:3279
+#: ../src/PhotoPage.vala:3285
 msgid "Export Photo"
 msgstr "புகைப்படங்களை ஏற்றுமதி செய்"
 
@@ -962,7 +963,8 @@ msgid "Undoing Flip Vertically"
 msgstr "செய்த செங்குத்து சுழற்றை தவிர்"
 
 #: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370
+#: ../src/Page.vala:1370 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
 msgid "No photos/videos"
 msgstr "புகைப்படங்கள்/வீடியோக்கள் இல்லை"
 
@@ -1905,11 +1907,11 @@ msgstr "இங்கு இறக்குமதி செய் (_I)"
 msgid "Import to Library"
 msgstr "தரவகத்திற்கு இறக்குமதி செய்"
 
-#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2068 ../src/PhotoPage.vala:3206
 msgid "Remove From Library"
 msgstr "தரவகத்திலிருந்து நீக்கு"
 
-#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3200
+#: ../src/Dialogs.vala:2069 ../src/PhotoPage.vala:3206
 msgid "Removing Photo From Library"
 msgstr "தரவகத்திலிருந்து புகைப்படத்தை நீக்குகிறது"
 
@@ -1988,7 +1990,7 @@ msgstr "கண்காணிப்பு புதுப்பிப்பு�
 msgid "Adjust the size of the thumbnails"
 msgstr "சிறுபடங்களின் அளவை சரிசெய்"
 
-#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2643
+#: ../src/MediaPage.vala:299 ../src/PhotoPage.vala:2649
 #: ../src/direct/DirectPhotoPage.vala:181
 msgid "Zoom _In"
 msgstr "பெரிதாக்கு (_I)"
@@ -1997,7 +1999,7 @@ msgstr "பெரிதாக்கு (_I)"
 msgid "Increase the magnification of the thumbnails"
 msgstr "சிறுபடங்களின் உருப்பெருக்கத்தை அதிகரி"
 
-#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2650
+#: ../src/MediaPage.vala:306 ../src/PhotoPage.vala:2656
 #: ../src/direct/DirectPhotoPage.vala:188
 msgid "Zoom _Out"
 msgstr "சிறிதாக்கு (_O)"
@@ -2010,7 +2012,7 @@ msgstr "சிறுபடங்களின் உருப்பெருக�
 msgid "Sort _Photos"
 msgstr "புகைப்படங்களை வரிசைப்படுத்து (_P)"
 
-#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2687
+#: ../src/MediaPage.vala:345 ../src/PhotoPage.vala:2693
 msgid "_Developer"
 msgstr "உருவக்குநர் (_D)"
 
@@ -2128,72 +2130,72 @@ msgstr "முந்தைய புகைப்படம்"
 msgid "Next photo"
 msgstr "அடுத்த புகைப்படம்"
 
-#: ../src/PhotoPage.vala:1902
+#: ../src/PhotoPage.vala:1908
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "புகைப்படத்தின் மூலக் கோப்பு இல்லை: %s"
 
-#: ../src/PhotoPage.vala:2506 ../src/direct/DirectPhotoPage.vala:171
+#: ../src/PhotoPage.vala:2512 ../src/direct/DirectPhotoPage.vala:171
 msgid "_View"
 msgstr "காண்பி (_V)"
 
-#: ../src/PhotoPage.vala:2510 ../src/direct/DirectPhotoPage.vala:80
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:80
 msgid "T_ools"
 msgstr "கருவிகள் (_o)"
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:86
+#: ../src/PhotoPage.vala:2522 ../src/direct/DirectPhotoPage.vala:86
 msgid "_Previous Photo"
 msgstr "முந்தைய புகைப்படம் (_P)"
 
-#: ../src/PhotoPage.vala:2517 ../src/direct/DirectPhotoPage.vala:87
+#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:87
 msgid "Previous Photo"
 msgstr "முந்தைய புகைப்படம்"
 
-#: ../src/PhotoPage.vala:2523 ../src/direct/DirectPhotoPage.vala:93
+#: ../src/PhotoPage.vala:2529 ../src/direct/DirectPhotoPage.vala:93
 msgid "_Next Photo"
 msgstr "அடுத்த புகைப்படம் (_N)"
 
-#: ../src/PhotoPage.vala:2524 ../src/direct/DirectPhotoPage.vala:94
+#: ../src/PhotoPage.vala:2530 ../src/direct/DirectPhotoPage.vala:94
 msgid "Next Photo"
 msgstr "அடுத்த புகைப்படம்"
 
-#: ../src/PhotoPage.vala:2644 ../src/direct/DirectPhotoPage.vala:182
+#: ../src/PhotoPage.vala:2650 ../src/direct/DirectPhotoPage.vala:182
 msgid "Increase the magnification of the photo"
 msgstr "புகைப்படத்தின் உருப்பெருக்கத்தை அதிகரி"
 
-#: ../src/PhotoPage.vala:2651 ../src/direct/DirectPhotoPage.vala:189
+#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:189
 msgid "Decrease the magnification of the photo"
 msgstr "புகைப்படத்தின் உருப்பெருக்கத்தைக் குறை"
 
-#: ../src/PhotoPage.vala:2657 ../src/direct/DirectPhotoPage.vala:195
+#: ../src/PhotoPage.vala:2663 ../src/direct/DirectPhotoPage.vala:195
 msgid "Fit to _Page"
 msgstr "பக்கத்திற்குப் பொருத்து (_P)"
 
-#: ../src/PhotoPage.vala:2658 ../src/direct/DirectPhotoPage.vala:196
+#: ../src/PhotoPage.vala:2664 ../src/direct/DirectPhotoPage.vala:196
 msgid "Zoom the photo to fit on the screen"
 msgstr "திரையில் பொருந்தும்படி புகைப்படத்தைப் பெரிதாக்கு"
 
-#: ../src/PhotoPage.vala:2665 ../src/direct/DirectPhotoPage.vala:203
+#: ../src/PhotoPage.vala:2671 ../src/direct/DirectPhotoPage.vala:203
 #, no-c-format
 msgid "Zoom _100%"
 msgstr "100% பெரிதாக்கு (_1)"
 
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:205
+#: ../src/PhotoPage.vala:2673 ../src/direct/DirectPhotoPage.vala:205
 #, no-c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "புகைப்படத்தை 100 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
 
-#: ../src/PhotoPage.vala:2674 ../src/direct/DirectPhotoPage.vala:212
+#: ../src/PhotoPage.vala:2680 ../src/direct/DirectPhotoPage.vala:212
 #, no-c-format
 msgid "Zoom _200%"
 msgstr "200% க்குப் பெரிதாக்கு (_2)"
 
-#: ../src/PhotoPage.vala:2676 ../src/direct/DirectPhotoPage.vala:214
+#: ../src/PhotoPage.vala:2682 ../src/direct/DirectPhotoPage.vala:214
 #, no-c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "புகைப்படத்தை 200 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
 
-#: ../src/PhotoPage.vala:3299
+#: ../src/PhotoPage.vala:3305
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ஐ ஏற்றுமதி செய்ய முடியவில்லை: %s"
@@ -3853,6 +3855,22 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../src/library/RawsPage.vala:11
+msgid "RAW Photos"
+msgstr "RAW புகைப்படங்கள்"
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "Add Some Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
+msgid "No Photos were found in your library."
+msgstr ""
+
 #: ../src/main.vala:54
 #, c-format
 msgid ""
@@ -4257,6 +4275,10 @@ msgstr "தேதி"
 #: ../src/sidebar/Tree.vala:203
 msgid "New _Tag..."
 msgstr "புதிய குறிச்சொல் (_T)..."
+
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
 
 #: ../src/slideshow/Slideshow.vala:22
 msgid "Slideshow Transitions"
@@ -4802,9 +4824,6 @@ msgstr "உள்நுழை (_L)"
 
 #~ msgid "Videos"
 #~ msgstr "வீடியோக்கள்"
-
-#~ msgid "RAW Photos"
-#~ msgstr "RAW புகைப்படங்கள்"
 
 #~ msgid "RAW photos"
 #~ msgstr "RAW புகைப்படங்கள்"
