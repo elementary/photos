@@ -1,22 +1,22 @@
 <schemalist>
 
-<schema id="org.yorba.shotwell" path="/org/yorba/shotwell/">
-    <child name="preferences" schema="org.yorba.shotwell.preferences" />
-    <child name="sharing" schema="org.yorba.shotwell.sharing" />
-    <child name="video" schema="org.yorba.shotwell.video" />
-    <child name="printing" schema="org.yorba.shotwell.printing" />
-    <child name="plugins" schema="org.yorba.shotwell.plugins" />
+<schema id="org.pantheon.photos" path="/org/pantheon/photos/">
+    <child name="preferences" schema="org.pantheon.photos.preferences" />
+    <child name="sharing" schema="org.pantheon.photos.sharing" />
+    <child name="video" schema="org.pantheon.photos.video" />
+    <child name="printing" schema="org.pantheon.photos.printing" />
+    <child name="plugins" schema="org.pantheon.photos.plugins" />
 </schema>
 
-<schema id="org.yorba.shotwell.preferences" path="/org/yorba/shotwell/preferences/">
-    <child name="ui" schema="org.yorba.shotwell.preferences.ui" />
-    <child name="slideshow" schema="org.yorba.shotwell.preferences.slideshow" />
-    <child name="window" schema="org.yorba.shotwell.preferences.window" />
-    <child name="files" schema="org.yorba.shotwell.preferences.files" />
-    <child name="editing" schema="org.yorba.shotwell.preferences.editing" />
+<schema id="org.pantheon.photos.preferences" path="/org/pantheon/photos/preferences/">
+    <child name="ui" schema="org.pantheon.photos.preferences.ui" />
+    <child name="slideshow" schema="org.pantheon.photos.preferences.slideshow" />
+    <child name="window" schema="org.pantheon.photos.preferences.window" />
+    <child name="files" schema="org.pantheon.photos.preferences.files" />
+    <child name="editing" schema="org.pantheon.photos.preferences.editing" />
 </schema>
 
-<schema id="org.yorba.shotwell.preferences.ui" path="/org/yorba/shotwell/preferences/ui/">
+<schema id="org.pantheon.photos.preferences.ui" path="/org/pantheon/photos/preferences/ui/">
     <key name="display-basic-properties" type="b">
         <default>true</default>
         <summary>display basic properties</summary>
@@ -156,7 +156,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.preferences.slideshow" path="/org/yorba/shotwell/preferences/slideshow/">
+<schema id="org.pantheon.photos.preferences.slideshow" path="/org/pantheon/photos/preferences/slideshow/">
     <key name="delay" type="d">
         <default>3.0</default>
         <summary>delay</summary>
@@ -182,7 +182,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.preferences.window" path="/org/yorba/shotwell/preferences/window/">
+<schema id="org.pantheon.photos.preferences.window" path="/org/pantheon/photos/preferences/window/">
     <key name="library-maximize" type="b">
         <default>false</default>
         <summary>maximize library window</summary>
@@ -226,7 +226,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.preferences.files" path="/org/yorba/shotwell/preferences/files/">
+<schema id="org.pantheon.photos.preferences.files" path="/org/pantheon/photos/preferences/files/">
     <key name="import-dir" type="s">
         <default>""</default>
         <summary>import directory</summary>
@@ -270,7 +270,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.crop-settings" path="/org/yorba/shotwell/crop-settings/">
+<schema id="org.pantheon.photos.crop-settings" path="/org/pantheon/photos/crop-settings/">
     <key name="last-crop-menu-choice" type="i">
         <default>1</default>
         <summary>Most-recently-used crop aspect ratio menu choice.</summary>
@@ -288,7 +288,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.preferences.editing" path="/org/yorba/shotwell/preferences/editing/">
+<schema id="org.pantheon.photos.preferences.editing" path="/org/pantheon/photos/preferences/editing/">
     <key name="external-photo-editor" type="s">
         <default>""</default>
         <summary>external photo editor</summary>
@@ -302,7 +302,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.sharing" path="/org/yorba/shotwell/sharing/">
+<schema id="org.pantheon.photos.sharing" path="/org/pantheon/photos/sharing/">
     <key name="last-used-service" type="s">
         <default>""</default>
         <summary>last used publishing service</summary>
@@ -315,13 +315,13 @@
         <description>A numeric code representing the last service to which photos were published</description>
     </key>
     
-    <child name="facebook" schema="org.yorba.shotwell.sharing.facebook" />
-    <child name="flickr" schema="org.yorba.shotwell.sharing.flickr" />
-    <child name="picasa" schema="org.yorba.shotwell.sharing.picasa" />
-    <child name="youtube" schema="org.yorba.shotwell.sharing.youtube" />
+    <child name="facebook" schema="org.pantheon.photos.sharing.facebook" />
+    <child name="flickr" schema="org.pantheon.photos.sharing.flickr" />
+    <child name="picasa" schema="org.pantheon.photos.sharing.picasa" />
+    <child name="youtube" schema="org.pantheon.photos.sharing.youtube" />
 </schema>
 
-<schema id="org.yorba.shotwell.sharing.facebook" path="/org/yorba/shotwell/sharing/facebook/">
+<schema id="org.pantheon.photos.sharing.facebook" path="/org/pantheon/photos/sharing/facebook/">
     <key name="access-token" type="s">
         <default>""</default>
         <summary>access token</summary>
@@ -353,7 +353,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.sharing.flickr" path="/org/yorba/shotwell/sharing/flickr/">
+<schema id="org.pantheon.photos.sharing.flickr" path="/org/pantheon/photos/sharing/flickr/">
     <key name="access-phase-token" type="s">
         <default>""</default>
         <summary>OAuth Access Phase Token</summary>
@@ -391,7 +391,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.sharing.picasa" path="/org/yorba/shotwell/sharing/picasa/">
+<schema id="org.pantheon.photos.sharing.picasa" path="/org/pantheon/photos/sharing/picasa/">
     <key name="refresh-token" type="s">
         <default>""</default>
         <summary>refresh token</summary>
@@ -417,7 +417,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.sharing.org-yorba-shotwell-publishing-piwigo" path="/org/yorba/shotwell/sharing/org-yorba-shotwell-publishing-piwigo/">
+<schema id="org.pantheon.photos.sharing.org-pantheon-photos-publishing-piwigo" path="/org/pantheon/photos/sharing/org-pantheon-photos-publishing-piwigo/">
     <key name="url" type="s">
         <default>""</default>
         <summary>Piwigio URL</summary>
@@ -479,7 +479,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.sharing.youtube" path="/org/yorba/shotwell/sharing/youtube/">
+<schema id="org.pantheon.photos.sharing.youtube" path="/org/pantheon/photos/sharing/youtube/">
     <key name="refresh-token" type="s">
         <default>""</default>
         <summary>refresh token</summary>
@@ -487,7 +487,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.dataimports" path="/org/yorba/shotwell/dataimports/">
+<schema id="org.pantheon.photos.dataimports" path="/org/pantheon/photos/dataimports/">
     <key name="last-used-dataimports-service" type="s">
         <default>""</default>
         <summary>last used import service</summary>
@@ -495,7 +495,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.video" path="/org/yorba/shotwell/video/">
+<schema id="org.pantheon.photos.video" path="/org/pantheon/photos/video/">
     <key name="interpreter-state-cookie" type="i">
         <default>-1</default>
         <summary>interpreter state cookie</summary>
@@ -503,7 +503,7 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.printing" path="/org/yorba/shotwell/printing/">
+<schema id="org.pantheon.photos.printing" path="/org/pantheon/photos/printing/">
     <key name="content-layout" type="i">
         <default>3</default>
         <summary>content layout mode</summary>
@@ -565,11 +565,11 @@
     </key>
 </schema>
 
-<schema id="org.yorba.shotwell.plugins" path="/org/yorba/shotwell/plugins/" >
-    <child name="enable-state" schema="org.yorba.shotwell.plugins.enable-state" />
+<schema id="org.pantheon.photos.plugins" path="/org/pantheon/photos/plugins/" >
+    <child name="enable-state" schema="org.pantheon.photos.plugins.enable-state" />
 </schema>
 
-<schema id="org.yorba.shotwell.plugins.enable-state" path="/org/yorba/shotwell/plugins/enable-state/" >
+<schema id="org.pantheon.photos.plugins.enable-state" path="/org/pantheon/photos/plugins/enable-state/" >
     <key name="publishing-facebook" type="b">
         <default>true</default>
         <summary>enable facebook publishing plugin</summary>

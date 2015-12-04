@@ -5,7 +5,7 @@
  */
 
 class AppDirs {
-    private const string DEFAULT_DATA_DIR = "shotwell";
+    private const string DEFAULT_DATA_DIR = "pantheon-photos";
 
     private static File exec_dir;
     private static File data_dir = null;
@@ -181,7 +181,7 @@ class AppDirs {
 
     public static File get_temp_dir () {
         if (tmp_dir == null) {
-            tmp_dir = File.new_for_path (DirUtils.mkdtemp (Environment.get_tmp_dir () + "/shotwell-XXXXXX"));
+            tmp_dir = File.new_for_path (DirUtils.mkdtemp (Environment.get_tmp_dir () + "/pantheon-photos-XXXXXX"));
 
             try {
                 if (!tmp_dir.query_exists (null))
@@ -230,14 +230,14 @@ class AppDirs {
     public static File get_resources_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child ("share").get_child ("shotwell")
+        return (install_dir != null) ? install_dir.get_child ("share").get_child ("pantheon-photos")
                : get_exec_dir ();
     }
 
     public static File get_lib_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("shotwell")
+        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("pantheon-photos")
                : get_exec_dir ();
     }
 
@@ -246,24 +246,24 @@ class AppDirs {
     }
 
     public static File get_user_plugins_dir () {
-        return get_home_dir ().get_child (".gnome2").get_child ("shotwell").get_child ("plugins");
+        return get_home_dir ().get_child (".gnome2").get_child ("pantheon-photos").get_child ("plugins");
     }
 
     public static File? get_log_file () {
-        if (Environment.get_variable ("SHOTWELL_LOG_FILE") != null) {
-            if (Environment.get_variable ("SHOTWELL_LOG_FILE") == ":console:") {
+        if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") != null) {
+            if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") == ":console:") {
                 return null;
             } else {
-                return File.new_for_path (Environment.get_variable ("SHOTWELL_LOG_FILE"));
+                return File.new_for_path (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE"));
             }
         } else {
             return File.new_for_path (Environment.get_user_cache_dir ()).
-                   get_child ("shotwell").get_child ("shotwell.log");
+                   get_child ("pantheon-photos").get_child ("pantheon-photos.log");
         }
     }
 
     public static File get_thumbnailer_bin () {
-        const string filename = "shotwell-video-thumbnailer";
+        const string filename = "pantheon-photos-video-thumbnailer";
         File f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/thumbnailer/" + filename);
         if (!f.query_exists ()) {
             // If we're running installed.
@@ -273,7 +273,7 @@ class AppDirs {
     }
 
     public static File get_settings_migrator_bin () {
-        const string filename = "shotwell-settings-migrator";
+        const string filename = "pantheon-photos-settings-migrator";
         File f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/settings-migrator/" + filename);
         if (!f.query_exists ()) {
             // If we're running installed.

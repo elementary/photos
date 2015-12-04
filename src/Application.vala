@@ -58,7 +58,7 @@ public class Application : Granite.Application {
             exec_name = GETTEXT_PACKAGE;
             application_id = "org.elementaryos.pantheon-photos-direct";
             app_icon = "multimedia-photo-viewer";
-            app_launcher = "shotwell-viewer.desktop";
+            app_launcher = "pantheon-photos-viewer.desktop";
             program_name = _("Photo Viewer");
             Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
@@ -70,7 +70,7 @@ public class Application : Granite.Application {
             exec_name = GETTEXT_PACKAGE;
             application_id = "org.elementaryos.pantheon-photos";
             app_icon = "multimedia-photo-manager";
-            app_launcher = "shotwell.desktop";
+            app_launcher = "pantheon-photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
