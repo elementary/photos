@@ -44,7 +44,7 @@ public class Application : Granite.Application {
         about_authors = Resources.AUTHORS;
         about_documenters = {};
         about_artists = {};
-        about_translators = "Launchpad Translators";
+        about_translators = _("translator-credits");
         about_license = Resources.LICENSE;
     }
 
