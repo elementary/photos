@@ -398,6 +398,8 @@ public class SearchFilterToolbar : Gtk.Revealer {
 
         // #3260 part II Hook up close menu.
         toolbar.popup_context_menu.connect (on_context_menu_requested);
+        
+        grab_focus.connect ( () => { search_entry.grab_focus (); });
     }
 
     ~SearchFilterToolbar () {
