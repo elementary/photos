@@ -8,7 +8,7 @@ public class Library.RawsEntry : Sidebar.SimplePageEntry {
     protected Icon icon = new ThemedIcon (Resources.ICON_RAW_PAGE);
 
     public override string get_sidebar_name () {
-        return _ ("RAW Photos");
+        return _ ("Raw Photos");
     }
 
     public override Icon? get_sidebar_icon () {
