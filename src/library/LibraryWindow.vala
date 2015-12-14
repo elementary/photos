@@ -772,7 +772,8 @@ public class LibraryWindow : AppWindow {
     private void on_find () {
         Gtk.ToggleAction action = (Gtk.ToggleAction) get_current_page ().get_common_action (
                                       "CommonDisplaySearchbar");
-        action.active = true;
+        // Toggle state so repeated ctrl+F hides and unhides the search bar
+        action.active = !action.active;
     }
 
     private void on_media_altered () {
