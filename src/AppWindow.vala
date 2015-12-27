@@ -757,7 +757,7 @@ public abstract class AppWindow : PageWindow {
         AppInfo app_info = AppInfo.get_default_for_type ("inode/directory", true);
         var file_list = new List<File> ();
         file_list.append (file);
-        app_info.launch (file_list, null);
+        app_info.launch (file_list, get_window ().get_screen ().get_display ().get_app_launch_context ());
     }
 
     public void show_uri (string url) throws Error {
