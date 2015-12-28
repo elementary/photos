@@ -1901,9 +1901,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
 
         if (photo_missing && has_photo ()) {
-            set_source_color_from_string (ctx, "#000");
-            ctx.rectangle (0, 0, get_surface_dim ().width, get_surface_dim ().height);
-            ctx.fill ();
+            canvas.get_style_context ().render_background (ctx, 0, 0, ctx_dim.width, ctx_dim.height);
             ctx.paint ();
             draw_message (_ ("Photo source file missing: %s").printf (get_photo ().get_file ().get_path ()));
             return;
