@@ -34,21 +34,21 @@ msgstr ""
 "http://bugzilla.gnome.org/enter_bug.cgi?product=shotwell&keywords=I18N+L10N&c"
 "omponent=general\n"
 "POT-Creation-Date: 2015-12-08 14:26-0200\n"
-"PO-Revision-Date: 2015-12-11 11:30+0000\n"
+"PO-Revision-Date: 2016-01-02 15:37+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2015-12-12 05:46+0000\n"
+"X-Launchpad-Export-Date: 2016-01-03 05:31+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
 "Language: zh_CN\n"
 
 #: ../plugins/common/RESTSupport.vala:424
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:967
 msgid "A temporary file needed for publishing is unavailable"
-msgstr "发布所需的临时文件不存在"
+msgstr "发布所需的临时文件不可用"
 
 #: ../plugins/common/RESTSupport.vala:1138
 msgid ""
@@ -58,7 +58,8 @@ msgid ""
 "To continue publishing to Google services, quit and restart Shotwell, then "
 "try publishing again."
 msgstr ""
-"在本次 Shotwell 会话中您登录 Google 服务然后退出了。\n"
+"在本次 Shotwell 会话中您登录 Google 服务之后已经注销了。\n"
+"\n"
 "要继续发布到 Google，请退出并重新启动 Shotwell，然后再尝试发布。"
 
 #: ../plugins/common/Resources.vala:9
@@ -115,12 +116,12 @@ msgstr "TumblrPublisher: start( ): 无法启动；无法重启该发布器。"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:586
 msgid "Enter the username and password associated with your Tumblr account."
-msgstr "输入与您 Tumblr 账户关联的用户名和密码。"
+msgstr "输入您的 Tumblr 账户。"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:587
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1000
 msgid "Username and/or password invalid. Please try again"
-msgstr "用户名或密码无效。请重试"
+msgstr "用户名或密码无效，请重试。"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:617
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1037
@@ -131,7 +132,7 @@ msgstr "无效的用户名或密码"
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:757
 #, c-format
 msgid "Could not load UI: %s"
-msgstr "无法加载图形界面：%s"
+msgstr "无法加载 UI：%s"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:739
 #, c-format
@@ -139,12 +140,12 @@ msgid ""
 "You are logged into Tumblr as %s.\n"
 "\n"
 msgstr ""
-"您登录的 Tumblr 账户为 %s。\n"
+"您已以 %s 的身份登录至 Tumblr 。\n"
 "\n"
 
 #: ../plugins/shotwell-publishing-extras/YandexPublishing.vala:22
 msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "版权所有 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+msgstr "版权所有 2010 + Evgeniy Polyakov <zbr@ioremap.net>"
 
 #: ../plugins/shotwell-publishing-extras/YandexPublishing.vala:25
 msgid "Visit the Yandex.Fotki web site"
@@ -156,7 +157,7 @@ msgstr "您当前未登陆至 Yandex.Fotki。"
 
 #: ../plugins/shotwell-publishing-extras/shotwell-publishing-extras.vala:18
 msgid "Shotwell Extra Publishing Services"
-msgstr "Shotwell 附加发布服务"
+msgstr "Shotwell 外部发布服务"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:1
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:1
@@ -171,7 +172,7 @@ msgstr "邮箱地址(_E)"
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:3
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:4
 msgid "_Password"
-msgstr "密码(_P)"
+msgstr "密码："
 
 #: ../plugins/shotwell-publishing-extras/tumblr_authentication_pane.glade.h:4
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:6
@@ -184,7 +185,7 @@ msgid ""
 "\n"
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
-msgstr "您正以 (name) 的身份登录 Tumblr。"
+msgstr "您已以 (name) 的身份登录至 Tumblr。"
 
 #: ../plugins/shotwell-publishing-extras/tumblr_publishing_options_pane.glade.h:5
 msgid "Blogs:"
@@ -236,7 +237,7 @@ msgstr "公开"
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:8
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:1181
 msgid "Friends"
-msgstr "朋友"
+msgstr "好友"
 
 #: ../plugins/shotwell-publishing-extras/yandex_publish_model.glade.h:9
 #: ../plugins/shotwell-publishing/YouTubePublishing.vala:497
@@ -266,10 +267,10 @@ msgid ""
 "upload photos and publish to your feed. These permissions are required for "
 "Shotwell Connect to function."
 msgstr ""
-"您尚未登录 Facebook.\n"
+"您尚未登录 Facebook 。\n"
 "\n"
-"如果您没有 Facebook 帐号，可以在登录过程中创建一个。在登录过程中， Shotwell Connect "
-"将请求您上传照片和发布到订阅列表的权限。这些权限对于 Shotwell Connect 的工作是必须的。"
+"如果您没有 Facebook 帐号，可以在登录过程中创建一个。登录时， Shotwell Connect "
+"将请求您上传照片和发布到订阅列表的权限。这些权限对于 “Shotwell 连接” 功能来说不可或缺。"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:65
 msgid ""
@@ -283,11 +284,11 @@ msgstr ""
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:86
 msgid "Standard (720 pixels)"
-msgstr "标准 (720 像素)"
+msgstr "标准（720 像素）"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:89
 msgid "Large (2048 pixels)"
-msgstr "大型 (2048 像素)"
+msgstr "大型（2048 像素）"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:254
 msgid "Testing connection to Facebook..."
@@ -310,12 +311,12 @@ msgid ""
 "You are logged into Facebook as %s.\n"
 "\n"
 msgstr ""
-"您已经作为 %s 登录 Facebook。\n"
+"您已以 %s 的身份登录至 Facebook。\n"
 "\n"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:1020
 msgid "Where would you like to publish the selected photos?"
-msgstr "您想将选中的照片发布到哪里？"
+msgstr "您想将选中的照片发布到何处？"
 
 #: ../plugins/shotwell-publishing/FacebookPublishing.vala:1021
 #: ../plugins/shotwell-publishing/facebook_publishing_options_pane.glade.h:5
@@ -374,7 +375,7 @@ msgid ""
 "You are logged into Flickr as %s.\n"
 "\n"
 msgstr ""
-"您已经作为 %s 登录到 Flickr。\n"
+"您已以 %s 的身份登录至 Flickr。\n"
 "\n"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1155
@@ -388,7 +389,7 @@ msgstr ""
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1157
 msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "您的 Flickr Pro 帐号让您可以无限上传。"
+msgstr "您拥有 Flickr Pro 账户，可以无限上传。"
 
 #: ../plugins/shotwell-publishing/FlickrPublishing.vala:1162
 msgid "Photos _visible to:"
@@ -497,13 +498,13 @@ msgstr "在发布至 Piwigo 时发生了错误，请重试。"
 msgid ""
 "Enter the URL of your Piwigo photo library as well as the username and "
 "password associated with your Piwigo account for that library."
-msgstr "输入您 Piwigo 照片库的 URL 以及对应 Piwigo 照片库相关的用户名和密码。"
+msgstr "输入您 Piwigo 照片库地址以及对应的 Piwigo 用户名和密码。"
 
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:999
 msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
-msgstr "Shotwell 无法连接至您的 Piwigo 照片库。请检查您输入的 URL。"
+msgstr "Shotwell 无法连接至您的 Piwigo 照片库。请检查您输入的地址。"
 
 #: ../plugins/shotwell-publishing/PiwigoPublishing.vala:1032
 msgid "Invalid URL"
@@ -566,8 +567,8 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
-" (文本依赖于 FB 用户名，已在程序中修改 -\n"
-"在此输入此框内的一切均不会显示)"
+" (文本取决于 FB 用户名，程序会自动修改 -\n"
+"在此处输入的所有内容均不会显示)"
 
 #: ../plugins/shotwell-publishing/facebook_publishing_options_pane.glade.h:3
 msgid "Publish to an e_xisting album:"
@@ -655,15 +656,15 @@ msgstr "预置照片尺寸(_S)："
 
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:2
 msgid "_URL of your Piwigo photo library"
-msgstr "您的 Piwigo 照片库 _URL(_U)"
+msgstr "您的 Piwigo 照片库地址："
 
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:3
 msgid "User _name"
-msgstr "用户名(_N)"
+msgstr "用户名："
 
 #: ../plugins/shotwell-publishing/piwigo_authentication_pane.glade.h:5
 msgid "_Remember Password"
-msgstr "记住密码(_R)"
+msgstr "记住密码"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:2
 msgid "An _existing category:"
@@ -911,7 +912,7 @@ msgstr "幻灯片演示(_L)"
 #: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
 #: ../src/PhotoPage.vala:2428 ../src/PhotoPage.vala:2689
 msgid "Play a slideshow"
-msgstr "开始幻灯片播放"
+msgstr "播放幻灯片"
 
 #: ../src/CollectionPage.vala:524
 msgid "Export Photo/Video"
@@ -1044,11 +1045,11 @@ msgstr "降低评分"
 
 #: ../src/Commands.vala:1280
 msgid "Setting RAW developer"
-msgstr "设置RAW开发者"
+msgstr "编辑 RAW 作者"
 
 #: ../src/Commands.vala:1280
 msgid "Restoring previous RAW developer"
-msgstr "恢复原先的RAW开发者"
+msgstr "恢复原 RAW 作者"
 
 #: ../src/Commands.vala:1281
 msgid "Set Developer"
@@ -1424,7 +1425,7 @@ msgid ""
 msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
-msgstr[0] "%d 文件导入失败因为照片库文件夹不可写：\n"
+msgstr[0] "%d 文件导入失败因为照片库目录不可写：\n"
 
 #: ../src/Dialogs.vala:732
 #, c-format
@@ -2241,7 +2242,7 @@ msgstr "向右旋转"
 
 #: ../src/Resources.vala:137
 msgid "Rotate the photos right (press Ctrl to rotate left)"
-msgstr "向右旋转照片(按住Ctrl向左旋转)"
+msgstr "向右旋转照片（按住 Ctrl 向左旋转）"
 
 #: ../src/Resources.vala:139
 msgid "Rotate _Left"
@@ -2265,7 +2266,7 @@ msgstr "水平翻转"
 
 #: ../src/Resources.vala:146
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
-msgstr "水平翻转图像(按住Ctrl垂直翻转)"
+msgstr "水平翻转图像（按住 Ctrl 垂直翻转）"
 
 #: ../src/Resources.vala:148
 msgid "Flip Verti_cally"
@@ -2661,7 +2662,7 @@ msgstr "添加标签"
 
 #: ../src/Resources.vala:294
 msgid "_Preferences"
-msgstr "首选项(_P)"
+msgstr "首选项"
 
 #: ../src/Resources.vala:296
 msgid "Open With E_xternal Editor"
@@ -2669,7 +2670,7 @@ msgstr "用外部编辑器打开(_X)"
 
 #: ../src/Resources.vala:298
 msgid "Open With RA_W Editor"
-msgstr "用RAW编辑器打开(_W)"
+msgstr "用 RAW 编辑器打开"
 
 #: ../src/Resources.vala:300
 msgid "_Open With..."
@@ -2685,15 +2686,15 @@ msgstr "用外部编辑器打开"
 
 #: ../src/Resources.vala:304
 msgid "_Open With RAW Editor..."
-msgstr "用RAW编辑器打开...(_O)"
+msgstr "用 RAW 编辑器打开..."
 
 #: ../src/Resources.vala:305
 msgid "Open With Raw Editor"
-msgstr "用RAW编辑器打开"
+msgstr "用 RAW 编辑器打开"
 
 #: ../src/Resources.vala:306
 msgid "Open photo with external RAW editor"
-msgstr "用外部RAW编辑器打开"
+msgstr "用外部 RAW 编辑器打开"
 
 #: ../src/Resources.vala:308
 msgid "Send _To..."
@@ -3082,7 +3083,7 @@ msgstr "相机"
 
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
-msgstr "RAW+JPEG"
+msgstr "RAW + JPEG"
 
 #: ../src/camera/ImportPage.vala:475
 msgid ""
@@ -3482,7 +3483,7 @@ msgstr "所有事件"
 
 #: ../src/events/EventPage.vala:131
 msgid "No Event"
-msgstr "没有事件"
+msgstr "暂无事件"
 
 #: ../src/events/EventsDirectoryPage.vala:150
 msgid "Display the comment of each event"
@@ -3490,7 +3491,7 @@ msgstr "显示每个事件的备注"
 
 #: ../src/events/EventsDirectoryPage.vala:173
 msgid "No events"
-msgstr "没有事件"
+msgstr "暂无事件"
 
 #: ../src/events/EventsDirectoryPage.vala:177
 msgid "No events found"
@@ -3543,7 +3544,7 @@ msgstr "最近导入"
 
 #: ../src/library/LibraryWindow.vala:313
 msgid "_Import From Folder…"
-msgstr "从文件夹导入...(_I)"
+msgstr "导入文件夹..."
 
 #: ../src/library/LibraryWindow.vala:314
 msgid "Import photos from disk to library"
@@ -3604,7 +3605,7 @@ msgstr "编辑照片信息(_F)"
 
 #: ../src/library/LibraryWindow.vala:660
 msgid "Import From Folder"
-msgstr "从文件夹导入"
+msgstr "导入文件夹"
 
 #: ../src/library/LibraryWindow.vala:662
 msgid "Import"
@@ -3675,7 +3676,7 @@ msgstr "从某个文件夹或外部设备中拷贝照片。"
 
 #: ../src/library/LibraryWindow.vala:1389
 msgid "Change Library Folder"
-msgstr "更改库文件夹"
+msgstr "更改目录"
 
 #: ../src/library/LibraryWindow.vala:1389
 msgid "Choose where to keep your photos."
@@ -3978,7 +3979,7 @@ msgstr "任意照片"
 
 #: ../src/searches/SavedSearchDialog.vala:252
 msgid "a raw photo"
-msgstr "一张RAW照片"
+msgstr "一张 RAW 照片"
 
 #: ../src/searches/SavedSearchDialog.vala:253
 msgid "a video"
@@ -4203,7 +4204,7 @@ msgstr "外部照片编辑器(_X)："
 
 #: ../ui/shotwell.glade.h:13
 msgid "External _RAW editor:"
-msgstr "外部RAW编辑器(_R)："
+msgstr "外部 RAW 编辑器："
 
 #: ../ui/shotwell.glade.h:14
 msgid "Library:"
@@ -4211,11 +4212,11 @@ msgstr "照片库："
 
 #: ../ui/shotwell.glade.h:15
 msgid "_Import photos to:"
-msgstr "导入照片到(_I)："
+msgstr "照片导入位置："
 
 #: ../ui/shotwell.glade.h:16
 msgid "RAW Developer:"
-msgstr "RAW开发者："
+msgstr "RAW 作者："
 
 #: ../ui/shotwell.glade.h:17
 msgid "De_fault:"
@@ -4227,11 +4228,11 @@ msgstr "监视照片库内的新文件："
 
 #: ../ui/shotwell.glade.h:19
 msgid "Write  _metadata to files:"
-msgstr "写入数据到文件中：(_M)"
+msgstr "将数据写入到源文件中："
 
 #: ../ui/shotwell.glade.h:20
 msgid "R_ename imported files to lowercase:"
-msgstr "小写形式重命名导入文件：(_E)"
+msgstr "重命名导入文件为小写："
 
 #: ../ui/shotwell.glade.h:21
 msgid "_Delay:"
