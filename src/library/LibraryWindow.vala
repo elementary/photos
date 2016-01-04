@@ -324,7 +324,7 @@ public class LibraryWindow : AppWindow {
         preferences.label = Resources.PREFERENCES_MENU;
         actions += preferences;
 
-        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, TRANSLATABLE, "Delete All", TRANSLATABLE,
+        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, TRANSLATABLE, null, TRANSLATABLE,
                                   on_empty_trash
                                 };
         empty.label = _ ("_Empty Trash");
@@ -1401,15 +1401,19 @@ public class LibraryWindow : AppWindow {
             }
         }
 
-        right_frame.remove (welcome_page);
-        if (show) {
-            right_frame.remove (right_vbox);
-            right_frame.add (welcome_page);
-        } else {
-            right_frame.add (right_vbox);
+        if (right_frame != null) {
+            if (right_frame.get_child () != null)
+                right_frame.remove (right_frame.get_child ());
+
+            if (show) {
+                right_frame.add (welcome_page);
+            } else {
+                right_frame.add (right_vbox);
+            }
+
+            right_frame.show_all ();
         }
 
-        right_frame.show_all ();
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
     }
 

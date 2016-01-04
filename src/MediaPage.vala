@@ -462,9 +462,6 @@ public abstract class MediaPage : CheckerboardPage {
 
         update_development_menu_item_sensitivity ();
 
-        set_action_sensitive ("PlayVideo", selected_count == 1
-                              && get_view ().get_selected_source_at (0) is Video);
-
         update_flag_action (selected_count);
 
         base.update_actions (selected_count, count);
