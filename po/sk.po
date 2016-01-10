@@ -18,16 +18,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
 "POT-Creation-Date: 2015-12-08 14:26-0200\n"
-"PO-Revision-Date: 2015-09-07 10:15+0000\n"
-"Last-Translator: Adam Lukacovic <lukacovic.adam@gmail.com>\n"
+"PO-Revision-Date: 2016-01-09 20:11+0000\n"
+"Last-Translator: Ľubomír Hlavko <5lubo555@azet.sk>\n"
 "Language-Team: Slovak "
 "(http://www.transifex.com/projects/p/shotwell/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Launchpad-Export-Date: 2015-12-09 05:48+0000\n"
-"X-Generator: Launchpad (build 17862)\n"
+"X-Launchpad-Export-Date: 2016-01-10 05:29+0000\n"
+"X-Generator: Launchpad (build 17881)\n"
 "Language: sk\n"
 
 #: ../plugins/common/RESTSupport.vala:424
@@ -67,7 +67,8 @@ msgstr ""
 "  Marian IVAN https://launchpad.net/~marian-r-ivan\n"
 "  Milan Slovák https://launchpad.net/~milboys\n"
 "  elementary Apps team https://launchpad.net/~elementary-apps\n"
-"  jurosh https://launchpad.net/~jurosh"
+"  jurosh https://launchpad.net/~jurosh\n"
+"  Ľubomír Hlavko https://launchpad.net/~5lubo555"
 
 #: ../plugins/shotwell-publishing-extras/TumblrPublishing.vala:35
 msgid "Copyright 2012 BJA Electronics"
@@ -643,6 +644,8 @@ msgid ""
 "'you are logged in as $name'\n"
 "(populated in the application code)"
 msgstr ""
+"'ste prihlásený ako $name'\n"
+"(vyplnené v kóde aplikácie)"
 
 #: ../plugins/shotwell-publishing/picasa_publishing_options_pane.glade.h:3
 msgid "An _existing album:"
@@ -703,7 +706,7 @@ msgstr "Komentovať album:"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:9
 msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
+msgstr "_Ak je zadaný názov a komentár nie, použiť názov ako komentár"
 
 #: ../plugins/shotwell-publishing/piwigo_publishing_options_pane.glade.h:10
 msgid "_Do no upload tags"
@@ -772,7 +775,7 @@ msgstr "Hlavné prechody prezentácie"
 
 #: ../plugins/shotwell-transitions/shotwell-transitions.vala:75
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
+msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundatio"
 
 #: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
 #, c-format
@@ -1318,8 +1321,9 @@ msgstr[2] "Pokúsilo sa importovať %d súborov."
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Z týchto súborov bolo úspešne importovaných %d."
+msgstr[1] "Z týchto súborov bol úspešne importovaných jeden."
+msgstr[2] "Z týchto súborov boli úspešne importované %d."
 
 #. 
 #. Duplicates
@@ -1362,6 +1366,8 @@ msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Shotwell "
 "Understands:"
 msgstr ""
+"Fotografie/videá neboli importované, pretože boli pre program Shotwell v "
+"neznámom formáte:"
 
 #. 
 #. Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library
@@ -1371,6 +1377,8 @@ msgid ""
 "Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
 "Library:"
 msgstr ""
+"Fotografie/videá neboli importované, pretože program Shotwell ich nedokáže "
+"skopírovať do svojej knižnice:"
 
 #: ../src/Dialogs.vala:619
 #, c-format
@@ -1579,29 +1587,36 @@ msgstr[2] "1 súbor sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Importovanie %d fotografií zlyhalo, pretože boli poškodené:\n"
+msgstr[1] "Importovanie jednej fotografie zlyhalo, pretože bola poškodená:\n"
+msgstr[2] "Importovanie %d fotografií zlyhalo, pretože boli poškodené:\n"
 
 #: ../src/Dialogs.vala:758
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Importovanie %d videí zlyhalo, pretože boli poškodené:\n"
+msgstr[1] "Importovanie jedného videa zlyhalo, pretože bolo poškodené:\n"
+msgstr[2] "Importovanie %d videí zlyhalo, pretože boli poškodené:\n"
 
 #: ../src/Dialogs.vala:761
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] ""
+"Importovanie %d fotografií/videí zlyhalo, pretože boli poškodené:\n"
 msgstr[1] ""
+"Importovanie jednej fotografie/videa zlyhalo, pretože bolo poškodené:\n"
+msgstr[2] ""
+"Importovanie %d fotografií/videí zlyhalo, pretože boli poškodené:\n"
 
 #: ../src/Dialogs.vala:764
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Importovanie %d súborov zlyhalo, pretože boli poškodené:\n"
+msgstr[1] "Importovanie jedného súboru zlyhalo, pretože bol poškodený:\n"
+msgstr[2] "Importovanie %d súborov zlyhalo, pretože boli poškodené:\n"
 
 #. we have no notion of "unsupported" video files right now in Shotwell (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1696,7 +1711,7 @@ msgstr "Import dokončený"
 
 #: ../src/Dialogs.vala:863
 msgid "_Done"
-msgstr ""
+msgstr "_Dokončiť"
 
 #: ../src/Dialogs.vala:1106
 #, c-format
@@ -1737,12 +1752,13 @@ msgstr "Názov:"
 #: ../src/Dialogs.vala:1280
 msgid "_Delete File"
 msgid_plural "_Delete Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Odstrániť súborov"
+msgstr[1] "_Odstrániť súbor"
+msgstr[2] "_Odstrániť súbory"
 
 #: ../src/Dialogs.vala:1284
 msgid "Only _Remove"
-msgstr ""
+msgstr "Len _odstrániť"
 
 #: ../src/Dialogs.vala:1304 ../src/camera/ImportPage.vala:1759
 msgid "_Keep"
@@ -1808,7 +1824,7 @@ msgstr "%d%%"
 #: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1848
 #: ../src/editing_tools/EditingTools.vala:2196
 msgid "_Apply"
-msgstr ""
+msgstr "_Použiť"
 
 #: ../src/Dialogs.vala:1604
 msgid "AM"
@@ -2383,6 +2399,8 @@ msgid ""
 "2009-2014 Yorba Foundation\n"
 "© 2014 Photos Developers"
 msgstr ""
+"2009-2014 Yorba Foundation\n"
+"© 2014 Photos Developers"
 
 #: ../src/Resources.vala:60
 msgid ""
