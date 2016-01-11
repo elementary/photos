@@ -20,17 +20,6 @@ public class FullscreenWindow : PageWindow {
     public FullscreenWindow (Page page) {
         set_current_page (page);
 
-        File ui_file = Resources.get_ui ("fullscreen.ui");
-
-        try {
-            ui.add_ui_from_file (ui_file.get_path ());
-        } catch (Error err) {
-            error ("Error loading UI file %s: %s", ui_file.get_path (), err.message);
-        }
-
-        Gtk.ActionGroup action_group = new Gtk.ActionGroup ("FullscreenActionGroup");
-        action_group.add_actions (create_actions (), this);
-        ui.insert_action_group (action_group, 0);
         ui.ensure_update ();
 
         Gtk.AccelGroup accel_group = ui.get_accel_group ();
@@ -124,25 +113,13 @@ public class FullscreenWindow : PageWindow {
         return result;
     }
 
-    private Gtk.ActionEntry[] create_actions () {
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry leave_fullscreen = { "LeaveFullscreen", Gtk.Stock.LEAVE_FULLSCREEN,
-                                             TRANSLATABLE, "F11", TRANSLATABLE, on_close
-                                           };
-        leave_fullscreen.label = _ ("Leave _Fullscreen");
-        leave_fullscreen.tooltip = _ ("Leave fullscreen");
-        actions += leave_fullscreen;
-
-        return actions;
-    }
-
     public override bool key_press_event (Gdk.EventKey event) {
         // check for an escape/abort
-        if (Gdk.keyval_name (event.keyval) == "Escape") {
-            on_close ();
-
-            return true;
+        switch (Gdk.keyval_name (event.keyval)) {
+            case "F11":
+            case "Escape":
+                on_close ();
+                return true;
         }
 
         // Make sure this event gets propagated to the underlying window...

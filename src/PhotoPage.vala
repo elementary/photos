@@ -1221,10 +1221,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
             }
         }
         if (pixbuf == null) {
+            weak Gtk.IconTheme icon_theme = Gtk.IconTheme.get_for_screen (get_window ().get_screen ());
             // Create empty pixbuf.
-            pixbuf = AppWindow.get_instance ().render_icon (Gtk.Stock.MISSING_IMAGE,
-                     Gtk.IconSize.DIALOG, null);
-            get_canvas_scaling ().perform_on_pixbuf (pixbuf, Gdk.InterpType.NEAREST, true);
+            try {
+                pixbuf = icon_theme.load_icon ("image-missing", Gtk.IconSize.DIALOG, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                get_canvas_scaling ().perform_on_pixbuf (pixbuf, Gdk.InterpType.NEAREST, true);
+            } catch (Error e) {
+                critical (e.message);
+            }
 
         }
         return pixbuf;
