@@ -25,7 +25,8 @@ UNIT_FILES := \
 	ImportQueuePage.vala \
 	LastImportPage.vala \
 	OfflinePage.vala \
-	TrashPage.vala
+	TrashPage.vala \
+	TopDisplay.vala
 
 # Any unit this unit relies upon (and should be initialized before it's initialized) should
 # be listed here using its Vala namespace.
