@@ -127,7 +127,6 @@ RESOURCE_FILES = \
 	direct_context.ui \
 	events_directory.ui \
 	event.ui \
-	fullscreen.ui \
 	import_queue.ui \
 	import.ui \
 	media.ui \
