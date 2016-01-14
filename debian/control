@@ -3,7 +3,8 @@ Section: gnome
 Priority: optional
 Maintainer: elementary OS Team <builds@elementaryos.org>
 Build-Depends: debhelper (>= 9),
-               m4,
+               cmake (>= 2.8),
+               intltool,
                valac (>= 0.18.0),
                libgee-0.8-dev (>= 0.8.0),
                libglib2.0-dev (>= 2.30.0),
@@ -14,7 +15,7 @@ Build-Depends: debhelper (>= 9),
                libgphoto2-dev (>= 2.5.3.1),
                libsoup2.4-dev (>= 2.26.0),
                libxml2 (>= 2.6.32),
-               libwebkitgtk-3.0-dev (>= 1.4.0),
+               libwebkit2gtk-4.0-dev (>= 2.0.0),
                libgudev-1.0-dev (>= 145),
                libraw-dev (>= 0.14),
                libjson-glib-dev,

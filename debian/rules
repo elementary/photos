@@ -14,9 +14,6 @@ VALAFLAGS:=$(foreach w,$(CPPFLAGS) $(CFLAGS) $(LDFLAGS),-X $(w))
 %:
 	dh $@ --dbg-package=pantheon-photos-dbg --with-scour --parallel
 
-override_dh_auto_configure:
-	./configure --prefix=/usr --libexec=/usr/lib/pantheon-photos --disable-schemas-compile  --disable-icon-update --unity-support
-
 override_dh_install:
 	dh_install --fail-missing
 
