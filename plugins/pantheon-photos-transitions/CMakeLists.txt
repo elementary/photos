@@ -28,5 +28,5 @@ include_directories (${CMAKE_SOURCE_DIR}/vapi)
 target_link_libraries(${TARGET_NAME} ${DEPS_LIBRARIES})
 add_dependencies(${TARGET_NAME} ${EXEC_NAME})
 
-install(TARGETS ${TARGET_NAME} DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}/${CMAKE_PROJECT_NAME}/plugins/builtin/)
-install (FILES slideshow-plugin.png DESTINATION ${PKGDATADIR}/plugins/builtin)
+install(TARGETS ${TARGET_NAME} DESTINATION ${BUILTIN_DIR})
+install (FILES slideshow-plugin.png DESTINATION ${BUILTIN_DIR})

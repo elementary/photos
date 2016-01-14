@@ -21,12 +21,12 @@ include_directories (${CMAKE_SOURCE_DIR}/vapi)
 target_link_libraries(${TARGET_NAME} ${DEPS_LIBRARIES})
 add_dependencies(${TARGET_NAME} ${EXEC_NAME})
 
-install(TARGETS ${TARGET_NAME} DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}/${CMAKE_PROJECT_NAME}/plugins/builtin/)
+install(TARGETS ${TARGET_NAME} DESTINATION ${BUILTIN_DIR})
 
 # Install custom icons
 file (GLOB ICON_FILES *.png)
-install (FILES ${ICON_FILES} DESTINATION ${PKGDATADIR}/plugins/builtin)
+install (FILES ${ICON_FILES} DESTINATION ${BUILTIN_DIR})
 
 # Install UI files
 file (GLOB UI_FILES *.glade)
-install (FILES ${UI_FILES} DESTINATION ${PKGDATADIR}/plugins/builtin)
+install (FILES ${UI_FILES} DESTINATION ${BUILTIN_DIR})
