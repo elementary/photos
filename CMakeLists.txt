@@ -81,6 +81,17 @@ set (GLOBAL_VALA_OPTIONS
 
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED ${DEPS_PKG})
+pkg_check_modules (UNITY QUIET unity)
+if (UNITY_FOUND)
+    message("-- Unity support enabled")
+    set (DEPS_CFLAGS ${DEPS_CFLAGS} ${UNITY_CFLAGS})
+    set (DEPS_LIBRARY_DIRS ${DEPS_LIBRARY_DIRS} ${UNITY_LIBRARY_DIRS})
+    set (DEPS_LIBRARIES ${DEPS_LIBRARIES} ${UNITY_LIBRARIES})
+    set (DEPS_PACKAGES ${DEPS_PACKAGES} unity)
+    set (GLOBAL_VALA_OPTIONS ${GLOBAL_VALA_OPTIONS} --define UNITY_SUPPORT)
+else ()
+    message("-- Unity support disabled")
+endif ()
 
 add_definitions (${DEPS_CFLAGS})
 link_directories (${DEPS_LIBRARY_DIRS})
