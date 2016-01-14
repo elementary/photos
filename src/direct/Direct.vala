@@ -21,13 +21,13 @@ public void preconfigure (File initial_file) {
     Direct.initial_file = initial_file;
 }
 
-public void init () throws Error {
+public void app_init () throws Error {
     assert (initial_file != null);
 
     DirectPhoto.init (initial_file);
 }
 
-public void terminate () {
+public void app_terminate () {
     DirectPhoto.terminate ();
 }
 
