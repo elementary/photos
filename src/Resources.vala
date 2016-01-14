@@ -4,14 +4,6 @@
  * See the COPYING file in this distribution.
  */
 
-// defined by ./configure or Makefile and included by gcc -D
-extern const string _PREFIX;
-extern const string _VERSION;
-extern const string GETTEXT_PACKAGE;
-extern const string _LIB;
-extern const string _LIBEXECDIR;
-extern const string? _GIT_VERSION;
-
 namespace Resources {
 public const string APP_TITLE = _("Photos");
 public const string APP_TITLE_VIEWER = _("Photos Viewer");

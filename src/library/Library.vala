@@ -6,12 +6,25 @@
 
 namespace Library {
 
-public void init () throws Error {
+public void app_init () throws Error {
+    Util.init ();
+    Threads.init ();
+    Db.init ();
+    Plugins.init ();
+    Slideshow.init ();
+    Photos.init ();
+    Publishing.init ();
+    Core.init ();
+    Sidebar.init ();
+    Events.init ();
+    Tags.init ();
+    Camera.init ();
+    Searches.init ();
     Library.TrashSidebarEntry.init ();
     Photo.develop_raw_photos_to_files = true;
 }
 
-public void terminate () {
+public void app_terminate () {
     Library.TrashSidebarEntry.terminate ();
 }
 

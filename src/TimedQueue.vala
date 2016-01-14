@@ -50,7 +50,7 @@ public class TimedQueue<G> {
     // finding a workaround, namely using a delegate:
     // https://bugzilla.gnome.org/show_bug.cgi?id=628639
     public TimedQueue (uint hold_msec, DequeuedCallback<G> callback,
-                       owned Gee.EqualDataFunc? equal_func = null, int priority = Priority.DEFAULT) {
+                       owned Gee.EqualDataFunc? equal_func = null, int priority = GLib.Priority.DEFAULT) {
         this.hold_msec = hold_msec;
         this.callback = callback;
 
@@ -216,7 +216,7 @@ public class HashTimedQueue<G> : TimedQueue<G> {
 
     public HashTimedQueue (uint hold_msec, DequeuedCallback<G> callback,
                            owned Gee.HashDataFunc<G>? hash_func = null, owned Gee.EqualDataFunc<G>? equal_func = null,
-                           int priority = Priority.DEFAULT) {
+                           int priority = GLib.Priority.DEFAULT) {
         base (hold_msec, callback, (owned) equal_func, priority);
 
         item_count = new Gee.HashMap<G, int> ((owned) hash_func, (owned) equal_func);

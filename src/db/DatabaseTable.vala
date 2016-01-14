@@ -54,6 +54,7 @@ public abstract class DatabaseTable {
     public static void init (string filename) {
         // Open DB.
         prepare_db (filename);
+        GLib.warning ("NAME: %s", filename);
 
         // Try a query to make sure DB is intact; if not, try to use the backup
         Sqlite.Statement stmt;
