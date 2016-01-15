@@ -8,9 +8,9 @@ vala_precompile (VALA_C ${TARGET_NAME}
     RESTSupport.vala
 CUSTOM_VAPIS
     ${CMAKE_SOURCE_DIR}/vapi/config.vapi
+    ${CMAKE_BINARY_DIR}/src/${CMAKE_PROJECT_NAME}.vapi
 PACKAGES
     ${DEPS_PACKAGES}
-    ${CMAKE_PROJECT_NAME}
 OPTIONS
     ${GLOBAL_VALA_OPTIONS}
 )
