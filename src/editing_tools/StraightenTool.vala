@@ -465,11 +465,9 @@ public class StraightenTool : EditingTool {
         int w = canvas.get_drawing_window ().get_width ();
         int h = canvas.get_drawing_window ().get_height ();
 
-        // fill region behind the rotation surface with neutral color.
+        // fill region behind the rotation surface with neutral color
         canvas.get_default_ctx ().identity_matrix ();
-        canvas.get_default_ctx ().set_source_rgba (0.0, 0.0, 0.0, 1.0);
-        canvas.get_default_ctx ().rectangle (0, 0, w, h);
-        canvas.get_default_ctx ().fill ();
+        canvas.get_style_context ().render_background (canvas.get_default_ctx (), 0, 0, w, h);
 
         // copy the composited result to the main window.
         canvas.get_default_ctx ().translate ((w - view_width) / 2.0, (h - view_height) / 2.0);

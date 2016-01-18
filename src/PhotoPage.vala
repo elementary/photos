@@ -385,6 +385,10 @@ public abstract class EditingHostPage : SinglePhotoPage {
         public override void repaint () {
             host_page.repaint ();
         }
+        
+        public override unowned Gtk.StyleContext get_style_context () {
+            return host_page.canvas.get_style_context ();
+        }
     }
 
     private SourceCollection sources;
