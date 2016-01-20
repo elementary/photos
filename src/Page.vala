@@ -2349,11 +2349,11 @@ public abstract class SinglePhotoPage : Page {
 
     protected virtual void paint (Cairo.Context ctx, Dimensions ctx_dim) {
         if (is_zoom_supported () && (!static_zoom_state.is_default ())) {
-            canvas.get_style_context ().render_background (ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
+            canvas.get_style_context ().render_background (ctx, 0, 0, ctx_dim.width, ctx_dim.height);
             render_zoomed_to_pixmap (static_zoom_state);
         } else if (!transition_clock.paint (ctx, ctx_dim.width, ctx_dim.height)) {
             // transition is not running, so paint the full image over the background
-            canvas.get_style_context ().render_background (ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
+            canvas.get_style_context ().render_background (ctx, 0, 0, ctx_dim.width, ctx_dim.height);
             Gdk.cairo_set_source_pixbuf (ctx, scaled, scaled_pos.x, scaled_pos.y);
             ctx.paint ();
         }
@@ -2453,7 +2453,6 @@ public abstract class SinglePhotoPage : Page {
         zoom_high_quality = !fast;
 
         if (direction != null && !transition_clock.is_in_progress ()) {
-            // FIXME
             Spit.Transitions.Visuals visuals = new Spit.Transitions.Visuals (old_scaled,
                     old_scaled_pos, scaled, scaled_pos, parse_color ("#000"));
 
