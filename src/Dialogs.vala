@@ -1077,7 +1077,7 @@ public class SetBackgroundSlideshowDialog {
     private int delay_value = 0;
 
     public SetBackgroundSlideshowDialog () {
-        Gtk.Builder builder = AppWindow.create_builder ("set_background_dialog.glade", this);
+        Gtk.Builder builder = AppWindow.create_builder ("set_background_dialog.ui", this);
 
         dialog = builder.get_object ("dialog1") as Gtk.Dialog;
         dialog.set_type_hint (Gdk.WindowTypeHint.DIALOG);
@@ -1912,7 +1912,7 @@ public class PreferencesDialog {
         dialog.map_event.connect (map_event_handler);
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
 
-        // Create our stack container and load in each preference container from shotwell.glade
+        // Create our stack container and load in each preference container from shotwell.ui
         Gtk.Stack container = new Gtk.Stack ();
         container.expand = true;
         container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _ ("Library"));
