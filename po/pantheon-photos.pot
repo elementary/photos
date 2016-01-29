@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-28 15:11-0600\n"
+"POT-Creation-Date: 2016-01-29 10:59-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,47 +18,160 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:32
+#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:22
+msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:25
+msgid "Visit the Yandex.Fotki web site"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:643
+msgid "You are not currently logged into Yandex.Fotki."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/Resources.vala:9
+#: ../plugins/pantheon-photos-transitions/Resources.vala:9
+#: ../plugins/pantheon-photos-publishing/Resources.vala:9
+msgid "Visit the Yorba web site"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/Resources.vala:28
+#: ../plugins/pantheon-photos-transitions/Resources.vala:28
+#: ../plugins/pantheon-photos-publishing/Resources.vala:28
+#: ../src/Application.vala:47
+msgid "translator-credits"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/RESTSupport.vala:424
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:967
+#: ../plugins/pantheon-photos-publishing/RESTSupport.vala:424
+msgid "A temporary file needed for publishing is unavailable"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1141
+#: ../plugins/pantheon-photos-publishing/RESTSupport.vala:1141
+msgid ""
+"You have already logged in and out of a Google service during this Shotwell "
+"session.\n"
+"\n"
+"To continue publishing to Google services, quit and restart Shotwell, then "
+"try publishing again."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:16
+msgid "Shotwell Extra Publishing Services"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:35
+msgid "Copyright 2012 BJA Electronics"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:104
+#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1246
+#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1229
+msgid "500 x 375 pixels"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:105
+#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1247
+#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1230
+msgid "1024 x 768 pixels"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:106
+msgid "1280 x 853 pixels"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:310
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
+msgid "'%s' isn't a valid response to an OAuth authentication request"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:558
+msgid ""
+"TumblrPublisher: start( ): can't start; this publisher is not restartable."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:586
+msgid "Enter the username and password associated with your Tumblr account."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:587
+#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1000
+msgid "Username and/or password invalid. Please try again"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:617
+#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1037
+msgid "Invalid User Name or Password"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:636
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:757
+msgid "Could not load UI: %s"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:739
+msgid ""
+"You are logged into Tumblr as %s.\n"
+"\n"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/SlideEffect.vala:20
+msgid "Slide"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/BlindsEffect.vala:20
+msgid "Blinds"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/CrumbleEffect.vala:20
+msgid "Crumble"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
+msgid "Circle"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/CirclesEffect.vala:20
+msgid "Circles"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/SquaresEffect.vala:20
+msgid "Squares"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/ClockEffect.vala:20
+msgid "Clock"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/FadeEffect.vala:20
+msgid "Fade"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/shotwell-transitions.vala:26
+msgid "Core Slideshow Transitions"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/shotwell-transitions.vala:73
+msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/StripesEffect.vala:20
+msgid "Stripes"
+msgstr ""
+
+#: ../plugins/pantheon-photos-transitions/ChessEffect.vala:20
+msgid "Chess"
+msgstr ""
+
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:32
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:32
 #: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:32
 #: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:34
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:32
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:32
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:57
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:362
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:461
-msgid "You are logged into YouTube as %s."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:463
-msgid "Videos will appear in '%s'"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:495
-msgid "Public listed"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:496
-msgid "Public unlisted"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:497
-msgid "Private"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:746
@@ -81,29 +194,19 @@ msgid ""
 "entered"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1000
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:587
-msgid "Username and/or password invalid. Please try again"
-msgstr ""
-
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1032
 msgid "Invalid URL"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1037
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:617
-msgid "Invalid User Name or Password"
-msgstr ""
-
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1127
-#: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:59
 #: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:61
+#: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:59
 msgid "Shotwell Connect"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1234
-#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1207
 #: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1185
+#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1207
 msgid "Everyone"
 msgstr ""
 
@@ -123,18 +226,6 @@ msgstr ""
 msgid "Admins"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1246
-#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1229
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:104
-msgid "500 x 375 pixels"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1247
-#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1230
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:105
-msgid "1024 x 768 pixels"
-msgstr ""
-
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1248
 #: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1231
 msgid "2048 x 1536 pixels"
@@ -151,33 +242,70 @@ msgstr ""
 msgid "Original size"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/RESTSupport.vala:424
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:967
-#: ../plugins/pantheon-photos-publishing-extras/RESTSupport.vala:424
-msgid "A temporary file needed for publishing is unavailable"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/RESTSupport.vala:1141
-#: ../plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1141
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:63
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
-"session.\n"
+"You are not currently logged into Facebook.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"If you don't yet have a Facebook account, you can create one during the "
+"login process. During login, Shotwell Connect may ask you for permission to "
+"upload photos and publish to your feed. These permissions are required for "
+"Shotwell Connect to function."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/Resources.vala:9
-#: ../plugins/pantheon-photos-transitions/Resources.vala:9
-#: ../plugins/pantheon-photos-publishing-extras/Resources.vala:9
-msgid "Visit the Yorba web site"
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:65
+msgid ""
+"You have already logged in and out of Facebook during this Shotwell "
+"session.\n"
+"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"publishing again."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/Resources.vala:28
-#: ../plugins/pantheon-photos-transitions/Resources.vala:28
-#: ../plugins/pantheon-photos-publishing-extras/Resources.vala:28
-#: ../src/Application.vala:47
-msgid "translator-credits"
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:86
+msgid "Standard (720 pixels)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:89
+msgid "Large (2048 pixels)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:254
+msgid "Testing connection to Facebook..."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:347
+#: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:379
+msgid "Creating album..."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:374
+msgid ""
+"A file required for publishing is unavailable. Publishing to Facebook can't "
+"continue."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1022
+msgid ""
+"You are logged into Facebook as %s.\n"
+"\n"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1023
+msgid "Where would you like to publish the selected photos?"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1024
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:108
+msgid "Upload _size:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1183
+#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1211
+msgid "Just me"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1184
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:162
+msgid "Friends"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:58
@@ -194,11 +322,6 @@ msgid ""
 "continue."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:379
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:347
-msgid "Creating album..."
-msgstr ""
-
 #: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:659
 msgid "You are logged into Picasa Web Albums as %s."
 msgstr ""
@@ -208,6 +331,7 @@ msgid "Videos will appear in:"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:669
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:24
 msgid "Photos will appear in:"
 msgstr ""
 
@@ -302,413 +426,73 @@ msgstr ""
 msgid "Friends only"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:1211
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1183
-msgid "Just me"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:63
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:57
 msgid ""
-"You are not currently logged into Facebook.\n"
+"You are not currently logged into YouTube.\n"
 "\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"You must have already signed up for a Google account and set it up for use "
+"with YouTube to continue. You can set up most accounts by using your browser "
+"to log into the YouTube site at least once."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:65
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:362
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
-"publishing again."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:86
-msgid "Standard (720 pixels)"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:89
-msgid "Large (2048 pixels)"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:254
-msgid "Testing connection to Facebook..."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:374
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
+"A file required for publishing is unavailable. Publishing to Youtube can't "
 "continue."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1022
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:461
+msgid "You are logged into YouTube as %s."
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1023
-msgid "Where would you like to publish the selected photos?"
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:463
+msgid "Videos will appear in '%s'"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1024
-msgid "Upload _size:"
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:495
+msgid "Public listed"
 msgstr ""
 
-#: ../plugins/pantheon-photos-publishing/FacebookPublishing.vala:1184
-msgid "Friends"
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:496
+msgid "Public unlisted"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:497
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:165
+msgid "Private"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/shotwell-publishing.vala:24
 msgid "Core Publishing Services"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
-msgid "Circle"
+#: ../src/Exporter.vala:232
+msgid "Unable to generate a temporary file for %s: %s"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/SquaresEffect.vala:20
-msgid "Squares"
+#: ../src/Exporter.vala:299
+msgid "Exporting"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/ChessEffect.vala:20
-msgid "Chess"
+#: ../src/Exporter.vala:317
+msgid "File %s already exists.  Replace?"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/BlindsEffect.vala:20
-msgid "Blinds"
+#: ../src/Exporter.vala:319
+msgid "_Skip"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/SlideEffect.vala:20
-msgid "Slide"
+#: ../src/Exporter.vala:319
+msgid "_Replace"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/CirclesEffect.vala:20
-msgid "Circles"
+#: ../src/Exporter.vala:319
+msgid "Replace _All"
 msgstr ""
 
-#: ../plugins/pantheon-photos-transitions/CrumbleEffect.vala:20
-msgid "Crumble"
+#: ../src/Exporter.vala:319
+msgid "Export"
 msgstr ""
-
-#: ../plugins/pantheon-photos-transitions/FadeEffect.vala:20
-msgid "Fade"
-msgstr ""
-
-#: ../plugins/pantheon-photos-transitions/shotwell-transitions.vala:26
-msgid "Core Slideshow Transitions"
-msgstr ""
-
-#: ../plugins/pantheon-photos-transitions/shotwell-transitions.vala:73
-msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
-
-#: ../plugins/pantheon-photos-transitions/ClockEffect.vala:20
-msgid "Clock"
-msgstr ""
-
-#: ../plugins/pantheon-photos-transitions/StripesEffect.vala:20
-msgid "Stripes"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:35
-msgid "Copyright 2012 BJA Electronics"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:106
-msgid "1280 x 853 pixels"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:310
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:558
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:586
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:636
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:757
-msgid "Could not load UI: %s"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:739
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:16
-msgid "Shotwell Extra Publishing Services"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:22
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:25
-msgid "Visit the Yandex.Fotki web site"
-msgstr ""
-
-#: ../plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:643
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr ""
-
-#: ../src/Printing.vala:255
-msgid "Fill the entire page"
-msgstr ""
-
-#: ../src/Printing.vala:256
-msgid "2 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:257
-msgid "4 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:258
-msgid "6 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:259
-msgid "8 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:260
-msgid "16 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:261
-msgid "32 images per page"
-msgstr ""
-
-#: ../src/Printing.vala:348
-msgid "in."
-msgstr ""
-
-#: ../src/Printing.vala:349
-msgid "cm"
-msgstr ""
-
-#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:744
-msgid "Wallet (2 x 3 in.)"
-msgstr ""
-
-#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:745
-msgid "Notecard (3 x 5 in.)"
-msgstr ""
-
-#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:746
-msgid "4 x 6 in."
-msgstr ""
-
-#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:747
-msgid "5 x 7 in."
-msgstr ""
-
-#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:748
-msgid "8 x 10 in."
-msgstr ""
-
-#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:750
-msgid "11 x 14 in."
-msgstr ""
-
-#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:752
-msgid "16 x 20 in."
-msgstr ""
-
-#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:754
-msgid "Metric Wallet (9 x 13 cm)"
-msgstr ""
-
-#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:755
-msgid "Postcard (10 x 15 cm)"
-msgstr ""
-
-#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:756
-msgid "13 x 18 cm"
-msgstr ""
-
-#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:757
-msgid "18 x 24 cm"
-msgstr ""
-
-#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:759
-msgid "20 x 30 cm"
-msgstr ""
-
-#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:760
-msgid "24 x 40 cm"
-msgstr ""
-
-#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:761
-msgid "30 x 40 cm"
-msgstr ""
-
-#: ../src/Printing.vala:875
-msgid "Image Settings"
-msgstr ""
-
-#: ../src/Printing.vala:888
-msgid "Printing..."
-msgstr ""
-
-#: ../src/Printing.vala:908 ../src/Printing.vala:1111
-msgid ""
-"Unable to print photo:\n"
-"\n"
-"%s"
-msgstr ""
-
-#: ../src/camera/Branch.vala:87
-msgid "Cameras"
-msgstr ""
-
-#: ../src/camera/Branch.vala:101 ../src/camera/ImportPage.vala:727
-#: ../src/camera/ImportPage.vala:743 ../src/photos/RawSupport.vala:300
-#: ../src/MediaPage.vala:359
-msgid "Camera"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:312
-#: ../src/sidebar/metadata/BasicProperties.vala:85
-msgid "RAW+JPEG"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:475
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:793
-msgid "Hide photos already imported"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:794
-msgid "Only display photos that have not been imported"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:862
-msgid "Starting import, please wait..."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:890 ../src/MediaPage.vala:371
-msgid "_Titles"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:891 ../src/MediaPage.vala:372
-msgid "Display the title of each photo"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:903
-msgid "Import _Selected"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:904
-msgid "Import the selected photos into your library"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:910
-msgid "Import _All"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:911
-msgid "Import all the photos into your library"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1032
-msgid ""
-"Shotwell needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1038
-msgid "_Unmount"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1043
-msgid "Please unmount the camera."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1048
-msgid ""
-"The camera is locked by another application.  Shotwell can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1058
-msgid "Please close any other application using the camera."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1063
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1080
-msgid "Unmounting..."
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1186
-msgid "Fetching photo information"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1541
-msgid "Fetching preview for %s"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1657
-msgid "Unable to lock camera: %s"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1742
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/camera/ImportPage.vala:1745
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/camera/ImportPage.vala:1748
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/camera/ImportPage.vala:1751
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/camera/ImportPage.vala:1759 ../src/Dialogs.vala:1304
-msgid "_Keep"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1778
-msgid "Removing photos/videos from camera"
-msgstr ""
-
-#: ../src/camera/ImportPage.vala:1782
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/MediaMonitor.vala:400
 msgid "Unable to process monitoring updates: %s"
@@ -875,8 +659,7 @@ msgid "and"
 msgstr ""
 
 #: ../src/searches/SavedSearchDialog.vala:593 ../src/SlideshowPage.vala:47
-#: ../src/library/LibraryWindow.vala:656
-#: ../src/direct/DirectPhotoPage.vala:494
+#: ../src/direct/DirectPhotoPage.vala:494 ../src/library/LibraryWindow.vala:656
 msgid "Cancel"
 msgstr ""
 
@@ -913,234 +696,183 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
-#: ../src/PhotoPage.vala:2431 ../src/PhotoPage.vala:2692
-msgid "S_lideshow"
+#: ../src/Commands.vala:733
+msgid "Reverting"
 msgstr ""
 
-#: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
-#: ../src/PhotoPage.vala:2432 ../src/PhotoPage.vala:2693
-msgid "Play a slideshow"
+#: ../src/Commands.vala:733
+msgid "Undoing Revert"
 msgstr ""
 
-#: ../src/CollectionPage.vala:524
-msgid "Export Photo/Video"
+#: ../src/Commands.vala:777
+msgid "Enhancing"
 msgstr ""
 
-#: ../src/CollectionPage.vala:524
-msgid "Export Photos/Videos"
+#: ../src/Commands.vala:777
+msgid "Undoing Enhance"
 msgstr ""
 
-#: ../src/CollectionPage.vala:526 ../src/PhotoPage.vala:3289
-#: ../src/Dialogs.vala:58
-msgid "Export Photo"
+#: ../src/Commands.vala:813
+msgid "UnEnhancing"
 msgstr ""
 
-#: ../src/CollectionPage.vala:526 ../src/Dialogs.vala:87
-msgid "Export Photos"
+#: ../src/Commands.vala:813
+msgid "Undoing UnEnhance"
 msgstr ""
 
-#: ../src/CollectionPage.vala:619 ../src/CollectionPage.vala:635
-msgid "Rotating"
+#: ../src/Commands.vala:881
+msgid "Applying Color Transformations"
 msgstr ""
 
-#: ../src/CollectionPage.vala:619 ../src/CollectionPage.vala:635
-msgid "Undoing Rotate"
+#: ../src/Commands.vala:881
+msgid "Undoing Color Transformations"
 msgstr ""
 
-#: ../src/CollectionPage.vala:644
-msgid "Flipping Horizontally"
+#: ../src/Commands.vala:1031
+msgid "Creating New Event"
 msgstr ""
 
-#: ../src/CollectionPage.vala:645
-msgid "Undoing Flip Horizontally"
+#: ../src/Commands.vala:1032
+msgid "Removing Event"
 msgstr ""
 
-#: ../src/CollectionPage.vala:654
-msgid "Flipping Vertically"
+#: ../src/Commands.vala:1041
+msgid "Moving Photos to New Event"
 msgstr ""
 
-#: ../src/CollectionPage.vala:655
-msgid "Undoing Flip Vertically"
+#: ../src/Commands.vala:1042
+msgid "Setting Photos to Previous Event"
 msgstr ""
 
-#: ../src/CollectionPage.vala:837 ../src/CollectionPage.vala:838
-#: ../src/Page.vala:1370 ../src/library/PhotosPage.vala:51
-#: ../src/library/RawsPage.vala:51
-msgid "No photos/videos"
+#: ../src/Commands.vala:1099
+msgid "Merging"
 msgstr ""
 
-#: ../src/BatchImport.vala:26
-msgid "Success"
+#: ../src/Commands.vala:1100
+msgid "Unmerging"
 msgstr ""
 
-#: ../src/BatchImport.vala:29
-msgid "File error"
+#: ../src/Commands.vala:1109
+msgid "Duplicating photos"
 msgstr ""
 
-#: ../src/BatchImport.vala:32
-msgid "Unable to decode file"
+#: ../src/Commands.vala:1109
+msgid "Removing duplicated photos"
 msgstr ""
 
-#: ../src/BatchImport.vala:35
-msgid "Database error"
+#: ../src/Commands.vala:1132
+msgid "Unable to duplicate one photo due to a file error"
+msgid_plural "Unable to duplicate %d photos due to file errors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Commands.vala:1219
+msgid "Restoring previous rating"
 msgstr ""
 
-#: ../src/BatchImport.vala:38
-msgid "User aborted import"
+#: ../src/Commands.vala:1229 ../src/Commands.vala:1230
+msgid "Increasing ratings"
 msgstr ""
 
-#: ../src/BatchImport.vala:41
-msgid "Not a file"
+#: ../src/Commands.vala:1229 ../src/Commands.vala:1230
+msgid "Decreasing ratings"
 msgstr ""
 
-#: ../src/BatchImport.vala:44
-msgid "File already exists in database"
+#: ../src/Commands.vala:1280
+msgid "Setting RAW developer"
 msgstr ""
 
-#: ../src/BatchImport.vala:47
-msgid "Unsupported file format"
+#: ../src/Commands.vala:1280
+msgid "Restoring previous RAW developer"
 msgstr ""
 
-#: ../src/BatchImport.vala:50
-msgid "Not an image file"
+#: ../src/Commands.vala:1281
+msgid "Set Developer"
 msgstr ""
 
-#: ../src/BatchImport.vala:53
-msgid "Disk failure"
+#: ../src/Commands.vala:1371
+msgid "Original photo could not be adjusted."
 msgstr ""
 
-#: ../src/BatchImport.vala:56
-msgid "Disk full"
+#: ../src/Commands.vala:1392
+msgid "Adjusting Date and Time"
 msgstr ""
 
-#: ../src/BatchImport.vala:59
-msgid "Camera error"
+#: ../src/Commands.vala:1392
+msgid "Undoing Date and Time Adjustment"
 msgstr ""
 
-#: ../src/BatchImport.vala:62
-msgid "File write error"
+#: ../src/Commands.vala:1423
+msgid "One original photo could not be adjusted."
+msgid_plural "The following original photos could not be adjusted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Commands.vala:1425 ../src/Commands.vala:1449
+msgid "Time Adjustment Error"
 msgstr ""
 
-#: ../src/BatchImport.vala:65
-msgid "Corrupt image file"
+#: ../src/Commands.vala:1447
+msgid "Time adjustments could not be undone on the following photo file."
+msgid_plural ""
+"Time adjustments could not be undone on the following photo files."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/Commands.vala:1661 ../src/Commands.vala:1684
+msgid "Create Tag"
 msgstr ""
 
-#: ../src/BatchImport.vala:68
-msgid "Imported failed (%d)"
+#: ../src/Commands.vala:1719
+msgid "Move Tag \"%s\""
 msgstr ""
 
-#: ../src/PhotoPage.vala:438 ../src/Resources.vala:122
-#: ../src/Resources.vala:127
-msgid "Rotate"
+#: ../src/Commands.vala:2371
+msgid "Move Photos to Trash"
 msgstr ""
 
-#: ../src/PhotoPage.vala:552
-msgid "Previous photo"
+#: ../src/Commands.vala:2371
+msgid "Restore Photos from Trash"
 msgstr ""
 
-#: ../src/PhotoPage.vala:557
-msgid "Next photo"
+#: ../src/Commands.vala:2372
+msgid "Move the photos to the Shotwell trash"
 msgstr ""
 
-#: ../src/PhotoPage.vala:1912
-msgid "Photo source file missing: %s"
+#: ../src/Commands.vala:2372
+msgid "Restore the photos back to the Shotwell library"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:171
-msgid "_View"
+#: ../src/Commands.vala:2391
+msgid "Moving Photos to Trash"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2520 ../src/direct/DirectPhotoPage.vala:80
-msgid "T_ools"
+#: ../src/Commands.vala:2391
+msgid "Restoring Photos From Trash"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2526 ../src/direct/DirectPhotoPage.vala:86
-msgid "_Previous Photo"
+#: ../src/Commands.vala:2477
+msgid "Flag selected photos"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2527 ../src/direct/DirectPhotoPage.vala:87
-msgid "Previous Photo"
+#: ../src/Commands.vala:2478
+msgid "Unflag selected photos"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2533 ../src/direct/DirectPhotoPage.vala:93
-msgid "_Next Photo"
+#: ../src/Commands.vala:2479
+msgid "Flagging selected photos"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2534 ../src/direct/DirectPhotoPage.vala:94
-msgid "Next Photo"
+#: ../src/Commands.vala:2480
+msgid "Unflagging selected photos"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2653 ../src/MediaPage.vala:299
-#: ../src/direct/DirectPhotoPage.vala:181
-msgid "Zoom _In"
+#: ../src/Commands.vala:2487 ../src/Resources.vala:303
+msgid "Flag"
 msgstr ""
 
-#: ../src/PhotoPage.vala:2654 ../src/direct/DirectPhotoPage.vala:182
-msgid "Increase the magnification of the photo"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2660 ../src/MediaPage.vala:306
-#: ../src/direct/DirectPhotoPage.vala:188
-msgid "Zoom _Out"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2661 ../src/direct/DirectPhotoPage.vala:189
-msgid "Decrease the magnification of the photo"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:195
-msgid "Fit to _Page"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2668 ../src/direct/DirectPhotoPage.vala:196
-msgid "Zoom the photo to fit on the screen"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2675 ../src/direct/DirectPhotoPage.vala:203
-#, no-c-format
-msgid "Zoom _100%"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2677 ../src/direct/DirectPhotoPage.vala:205
-#, no-c-format
-msgid "Zoom the photo to 100% magnification"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2684 ../src/direct/DirectPhotoPage.vala:212
-#, no-c-format
-msgid "Zoom _200%"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2686 ../src/direct/DirectPhotoPage.vala:214
-#, no-c-format
-msgid "Zoom the photo to 200% magnification"
-msgstr ""
-
-#: ../src/PhotoPage.vala:2697 ../src/MediaPage.vala:345
-msgid "_Developer"
-msgstr ""
-
-#: ../src/PhotoPage.vala:3210 ../src/Dialogs.vala:2068
-msgid "Remove From Library"
-msgstr ""
-
-#: ../src/PhotoPage.vala:3210 ../src/Dialogs.vala:2069
-msgid "Removing Photo From Library"
-msgstr ""
-
-#: ../src/PhotoPage.vala:3309
-msgid "Unable to export %s: %s"
-msgstr ""
-
-#: ../src/Application.vala:35 ../src/Resources.vala:8
-#: ../src/library/TopDisplay.vala:41 ../src/library/PhotosPage.vala:11
-#: ../src/library/PhotosPage.vala:24
-msgid "Photos"
-msgstr ""
-
-#: ../src/Application.vala:62 ../src/Resources.vala:11
-msgid "Photo Viewer"
+#: ../src/Commands.vala:2487 ../src/Resources.vala:305
+msgid "Unflag"
 msgstr ""
 
 #: ../src/SlideshowPage.vala:48
@@ -1196,175 +928,38 @@ msgstr ""
 msgid "Continue the slideshow"
 msgstr ""
 
-#: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
-msgid "Unable to create cache directory %s: %s"
+#: ../src/Photo.vala:3737
+msgid "modified"
 msgstr ""
 
-#: ../src/AppDirs.vala:58 ../src/AppDirs.vala:88
-msgid "Unable to create data directory %s: %s"
+#: ../src/tags/Branch.vala:127
+msgid "Tags"
 msgstr ""
 
-#: ../src/AppDirs.vala:152
-msgid "Pictures"
+#: ../src/SearchFilter.vala:341
+msgid "Close"
 msgstr ""
 
-#: ../src/AppDirs.vala:190
-msgid "Unable to create temporary directory %s: %s"
+#: ../src/SearchFilter.vala:390
+msgid "Search Photos"
 msgstr ""
 
-#: ../src/AppDirs.vala:207 ../src/AppDirs.vala:223
-msgid "Unable to create data subdirectory %s: %s"
+#: ../src/Tag.vala:817
+msgid "untitled"
 msgstr ""
 
-#: ../src/sidebar/Tree.vala:203
-msgid "New _Tag..."
+#: ../src/Application.vala:35 ../src/Resources.vala:8
+#: ../src/library/TopDisplay.vala:41 ../src/library/PhotosPage.vala:11
+#: ../src/library/PhotosPage.vala:24
+msgid "Photos"
 msgstr ""
 
-#: ../src/sidebar/metadata/Properties.vala:91
-msgid "Today"
+#: ../src/Application.vala:62 ../src/Resources.vala:11
+msgid "Photo Viewer"
 msgstr ""
 
-#: ../src/sidebar/metadata/Properties.vala:93
-msgid "Yesterday"
-msgstr ""
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:121
-msgid "Tags, separated by commas"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:198
-msgid "Items:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:201
-msgid "%d Event"
-msgid_plural "%d Events"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:208
-#: ../src/events/EventDirectoryItem.vala:87
-msgid "%d Photo"
-msgid_plural "%d Photos"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:210
-#: ../src/events/EventDirectoryItem.vala:85
-msgid "%d Video"
-msgid_plural "%d Videos"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:232
-msgid "Date:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
-msgid "From:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
-msgid "To:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/EditingTools.vala:1845
-msgid "Size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
-msgid "Duration:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
-msgid "%.1f seconds"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
-msgid "Developer:"
-msgstr ""
-
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/EditingTools.vala:2210
-msgid "Exposure:"
-msgstr ""
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
-msgid "No items selected"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
-msgid "Location:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
-msgid "Exposure date:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
-msgid "Exposure time:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
-msgid "GPS latitude:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
-msgid "GPS longitude:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
-msgid "Artist:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
-msgid "Copyright:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr ""
-
-#: ../src/Event.vala:737
-msgid "Event %s"
+#: ../src/slideshow/Slideshow.vala:22
+msgid "Slideshow Transitions"
 msgstr ""
 
 #: ../src/slideshow/TransitionEffects.vala:98
@@ -1379,311 +974,17 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: ../src/slideshow/Slideshow.vala:22
-msgid "Slideshow Transitions"
-msgstr ""
-
-#: ../src/photos/PngSupport.vala:30
-msgid "PNG"
-msgstr ""
-
-#: ../src/photos/TiffSupport.vala:86
-msgid "TIFF"
-msgstr ""
-
-#: ../src/photos/RawSupport.vala:134
-msgid "RAW"
-msgstr ""
-
-#: ../src/photos/RawSupport.vala:297 ../src/MediaPage.vala:353
-msgid "Shotwell"
-msgstr ""
-
-#: ../src/photos/BmpSupport.vala:32
-msgid "BMP"
-msgstr ""
-
-#: ../src/photos/JfifSupport.vala:84
-msgid "JPEG"
-msgstr ""
-
-#: ../src/photos/JfifSupport.vala:182
-msgid "Low (%d%%)"
-msgstr ""
-
-#: ../src/photos/JfifSupport.vala:185
-msgid "Medium (%d%%)"
-msgstr ""
-
-#: ../src/photos/JfifSupport.vala:188
-msgid "High (%d%%)"
-msgstr ""
-
-#: ../src/photos/JfifSupport.vala:191
-msgid "Maximum (%d%%)"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:105
-msgid "The selected photos/videos were successfully published."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:107
-msgid "The selected videos were successfully published."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:109
-msgid "The selected photos were successfully published."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:112
-msgid "The selected video was successfully published."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:114
-msgid "The selected photo was successfully published."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:122
-msgid "Fetching account information..."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:128
-msgid "Logging in..."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:183
-msgid "Publish Photos"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:184
-msgid "Publish photos _to:"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:186
-msgid "Publish Videos"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:187
-msgid "Publish videos _to"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:189
-msgid "Publish Photos and Videos"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:190
-msgid "Publish photos and videos _to"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:389
-msgid "Unable to publish"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:390
-msgid ""
-"Shotwell cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:499
-#: ../src/editing_tools/EditingTools.vala:1850 ../src/Dialogs.vala:1936
-msgid "_Close"
-msgstr ""
-
-#: ../src/publishing/PublishingUI.vala:504
-#: ../src/editing_tools/StraightenTool.vala:101
 #: ../src/editing_tools/EditingTools.vala:634
-#: ../src/editing_tools/EditingTools.vala:2198 ../src/AppWindow.vala:600
-#: ../src/AppWindow.vala:620 ../src/AppWindow.vala:642
-#: ../src/AppWindow.vala:660 ../src/AppWindow.vala:677 ../src/Dialogs.vala:20
+#: ../src/editing_tools/EditingTools.vala:2198
+#: ../src/editing_tools/StraightenTool.vala:101 ../src/Dialogs.vala:20
 #: ../src/Dialogs.vala:28 ../src/Dialogs.vala:38 ../src/Dialogs.vala:61
 #: ../src/Dialogs.vala:90 ../src/Dialogs.vala:246 ../src/Dialogs.vala:902
 #: ../src/Dialogs.vala:1171 ../src/Dialogs.vala:1246 ../src/Dialogs.vala:1337
 #: ../src/Dialogs.vala:1360 ../src/Dialogs.vala:1401 ../src/Dialogs.vala:1577
+#: ../src/AppWindow.vala:600 ../src/AppWindow.vala:620
+#: ../src/AppWindow.vala:642 ../src/AppWindow.vala:660
+#: ../src/AppWindow.vala:677 ../src/publishing/PublishingUI.vala:504
 msgid "_Cancel"
-msgstr ""
-
-#: ../src/publishing/PublishingPluginHost.vala:11
-msgid "Preparing for upload"
-msgstr ""
-
-#: ../src/publishing/PublishingPluginHost.vala:12
-msgid "Uploading %d of %d"
-msgstr ""
-
-#: ../src/publishing/PublishingPluginHost.vala:81
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr ""
-
-#: ../src/publishing/PublishingPluginHost.vala:84
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-
-#: ../src/publishing/Publishing.vala:16
-msgid "Publishing"
-msgstr ""
-
-#: ../src/Exporter.vala:232
-msgid "Unable to generate a temporary file for %s: %s"
-msgstr ""
-
-#: ../src/Exporter.vala:299
-msgid "Exporting"
-msgstr ""
-
-#: ../src/Exporter.vala:317
-msgid "File %s already exists.  Replace?"
-msgstr ""
-
-#: ../src/Exporter.vala:319
-msgid "_Skip"
-msgstr ""
-
-#: ../src/Exporter.vala:319
-msgid "_Replace"
-msgstr ""
-
-#: ../src/Exporter.vala:319
-msgid "Replace _All"
-msgstr ""
-
-#: ../src/Exporter.vala:319
-msgid "Export"
-msgstr ""
-
-#: ../src/MediaPage.vala:142
-msgid "Adjust the size of the thumbnails"
-msgstr ""
-
-#: ../src/MediaPage.vala:300
-msgid "Increase the magnification of the thumbnails"
-msgstr ""
-
-#: ../src/MediaPage.vala:307
-msgid "Decrease the magnification of the thumbnails"
-msgstr ""
-
-#: ../src/MediaPage.vala:337
-msgid "Sort _Photos"
-msgstr ""
-
-#: ../src/MediaPage.vala:378 ../src/events/EventsDirectoryPage.vala:149
-msgid "_Comments"
-msgstr ""
-
-#: ../src/MediaPage.vala:379
-msgid "Display the comment of each photo"
-msgstr ""
-
-#: ../src/MediaPage.vala:392 ../src/library/LibraryWindow.vala:373
-msgid "Ta_gs"
-msgstr ""
-
-#: ../src/MediaPage.vala:393
-msgid "Display each photo's tags"
-msgstr ""
-
-#: ../src/MediaPage.vala:410
-msgid "By _Title"
-msgstr ""
-
-#: ../src/MediaPage.vala:411
-msgid "Sort photos by title"
-msgstr ""
-
-#: ../src/MediaPage.vala:417
-msgid "By Exposure _Date"
-msgstr ""
-
-#: ../src/MediaPage.vala:418
-msgid "Sort photos by exposure date"
-msgstr ""
-
-#: ../src/MediaPage.vala:424
-msgid "By _Rating"
-msgstr ""
-
-#: ../src/MediaPage.vala:425
-msgid "Sort photos by rating"
-msgstr ""
-
-#: ../src/MediaPage.vala:436 ../src/library/LibraryWindow.vala:416
-msgid "_Ascending"
-msgstr ""
-
-#: ../src/MediaPage.vala:437 ../src/library/LibraryWindow.vala:417
-msgid "Sort photos in an ascending order"
-msgstr ""
-
-#: ../src/MediaPage.vala:443 ../src/library/LibraryWindow.vala:424
-msgid "D_escending"
-msgstr ""
-
-#: ../src/MediaPage.vala:444 ../src/library/LibraryWindow.vala:425
-msgid "Sort photos in a descending order"
-msgstr ""
-
-#: ../src/MediaPage.vala:641
-msgid ""
-"Shotwell was unable to play the selected video:\n"
-"%s"
-msgstr ""
-
-#: ../src/events/EventPage.vala:117
-msgid "All Events"
-msgstr ""
-
-#: ../src/events/EventPage.vala:131
-msgid "No Event"
-msgstr ""
-
-#: ../src/events/EventDirectoryItem.vala:83
-msgid "%d Photo/Video"
-msgid_plural "%d Photos/Videos"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/events/EventsDirectoryPage.vala:150
-msgid "Display the comment of each event"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:173
-msgid "No events"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:177
-msgid "No events found"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:238
-msgid "Events"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:252
-msgid "Undated"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:253
-msgid "%Y"
-msgstr ""
-
-#: ../src/events/EventsDirectoryPage.vala:254
-msgid "%B"
-msgstr ""
-
-#: ../src/editing_tools/StraightenTool.vala:99
-msgid "Angle:"
-msgstr ""
-
-#: ../src/editing_tools/StraightenTool.vala:100 ../src/Resources.vala:158
-msgid "_Straighten"
-msgstr ""
-
-#: ../src/editing_tools/StraightenTool.vala:102
-#: ../src/editing_tools/EditingTools.vala:2197
-msgid "_Reset"
 msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:649
@@ -1725,16 +1026,72 @@ msgstr ""
 msgid "HD Video (16 : 9)"
 msgstr ""
 
+#: ../src/editing_tools/EditingTools.vala:744 ../src/Printing.vala:817
+msgid "Wallet (2 x 3 in.)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:745 ../src/Printing.vala:820
+msgid "Notecard (3 x 5 in.)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:746 ../src/Printing.vala:823
+msgid "4 x 6 in."
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:747 ../src/Printing.vala:826
+msgid "5 x 7 in."
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:748 ../src/Printing.vala:829
+msgid "8 x 10 in."
+msgstr ""
+
 #: ../src/editing_tools/EditingTools.vala:749
 msgid "Letter (8.5 x 11 in.)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:750 ../src/Printing.vala:832
+msgid "11 x 14 in."
 msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:751
 msgid "Tabloid (11 x 17 in.)"
 msgstr ""
 
+#: ../src/editing_tools/EditingTools.vala:752 ../src/Printing.vala:835
+msgid "16 x 20 in."
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:754 ../src/Printing.vala:841
+msgid "Metric Wallet (9 x 13 cm)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:755 ../src/Printing.vala:844
+msgid "Postcard (10 x 15 cm)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:756 ../src/Printing.vala:847
+msgid "13 x 18 cm"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:757 ../src/Printing.vala:850
+msgid "18 x 24 cm"
+msgstr ""
+
 #: ../src/editing_tools/EditingTools.vala:758
 msgid "A4 (210 x 297 mm)"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:759 ../src/Printing.vala:853
+msgid "20 x 30 cm"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:760 ../src/Printing.vala:856
+msgid "24 x 40 cm"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:761 ../src/Printing.vala:859
+msgid "30 x 40 cm"
 msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:762
@@ -1745,9 +1102,19 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
+#: ../src/editing_tools/EditingTools.vala:1845
+#: ../src/sidebar/metadata/BasicProperties.vala:250
+msgid "Size:"
+msgstr ""
+
 #: ../src/editing_tools/EditingTools.vala:1848
 #: ../src/editing_tools/EditingTools.vala:2196 ../src/Dialogs.vala:1578
 msgid "_Apply"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:1850 ../src/Dialogs.vala:1936
+#: ../src/publishing/PublishingUI.vala:499
+msgid "_Close"
 msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:1860
@@ -1756,6 +1123,18 @@ msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:1862
 msgid "Remove any red-eye effects in the selected region"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:2197
+#: ../src/editing_tools/StraightenTool.vala:102
+msgid "_Reset"
+msgstr ""
+
+#: ../src/editing_tools/EditingTools.vala:2210
+#: ../src/sidebar/metadata/BasicProperties.vala:291
+#: ../src/sidebar/metadata/BasicProperties.vala:295
+#: ../src/sidebar/metadata/BasicProperties.vala:302
+msgid "Exposure:"
 msgstr ""
 
 #: ../src/editing_tools/EditingTools.vala:2217
@@ -1814,32 +1193,33 @@ msgstr ""
 msgid "Contrast Expansion"
 msgstr ""
 
-#: ../src/DirectoryMonitor.vala:889
-msgid "Unable to monitor %s: Not a directory (%s)"
+#: ../src/editing_tools/StraightenTool.vala:99
+msgid "Angle:"
 msgstr ""
 
-#: ../src/tags/Branch.vala:127
-msgid "Tags"
+#: ../src/editing_tools/StraightenTool.vala:100 ../src/Resources.vala:158
+msgid "_Straighten"
 msgstr ""
 
-#: ../src/SearchFilter.vala:341
-msgid "Close"
+#: ../src/AppDirs.vala:48 ../src/AppDirs.vala:99
+msgid "Unable to create cache directory %s: %s"
 msgstr ""
 
-#: ../src/SearchFilter.vala:390
-msgid "Search Photos"
+#: ../src/AppDirs.vala:58 ../src/AppDirs.vala:88
+msgid "Unable to create data directory %s: %s"
 msgstr ""
 
-#: ../src/Dimensions.vala:20
-msgid "Width or height"
+#. /Pictures
+#: ../src/AppDirs.vala:152
+msgid "Pictures"
 msgstr ""
 
-#: ../src/Dimensions.vala:23
-msgid "Width"
+#: ../src/AppDirs.vala:190
+msgid "Unable to create temporary directory %s: %s"
 msgstr ""
 
-#: ../src/Dimensions.vala:26
-msgid "Height"
+#: ../src/AppDirs.vala:207 ../src/AppDirs.vala:223
+msgid "Unable to create data subdirectory %s: %s"
 msgstr ""
 
 #: ../src/Resources.vala:9
@@ -1858,6 +1238,11 @@ msgstr ""
 
 #: ../src/Resources.vala:121
 msgid "Rotate _Right"
+msgstr ""
+
+#: ../src/Resources.vala:122 ../src/Resources.vala:127
+#: ../src/PhotoPage.vala:438
+msgid "Rotate"
 msgstr ""
 
 #: ../src/Resources.vala:123
@@ -2235,6 +1620,7 @@ msgid "Pu_blish..."
 msgstr ""
 
 #: ../src/Resources.vala:262
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:291
 msgid "Publish"
 msgstr ""
 
@@ -2346,16 +1732,8 @@ msgstr ""
 msgid "_Flag"
 msgstr ""
 
-#: ../src/Resources.vala:303 ../src/Commands.vala:2487
-msgid "Flag"
-msgstr ""
-
 #: ../src/Resources.vala:304
 msgid "Un_flag"
-msgstr ""
-
-#: ../src/Resources.vala:305 ../src/Commands.vala:2487
-msgid "Unflag"
 msgstr ""
 
 #: ../src/Resources.vala:307
@@ -2600,47 +1978,367 @@ msgstr ""
 msgid "%d, %Y"
 msgstr ""
 
-#: ../src/Page.vala:1374
-msgid "No photos/videos found"
+#: ../src/PhotoPage.vala:552
+msgid "Previous photo"
 msgstr ""
 
-#: ../src/Page.vala:2695
-msgid "Photos cannot be exported to this directory."
+#: ../src/PhotoPage.vala:557
+msgid "Next photo"
 msgstr ""
 
-#: ../src/VideoSupport.vala:496
-msgid "Export Videos"
+#: ../src/PhotoPage.vala:1912
+msgid "Photo source file missing: %s"
 msgstr ""
 
-#: ../src/Tag.vala:817
-msgid "untitled"
+#: ../src/PhotoPage.vala:2431 ../src/PhotoPage.vala:2692
+#: ../src/CollectionPage.vala:73 ../src/CollectionPage.vala:206
+msgid "S_lideshow"
 msgstr ""
 
-#: ../src/AppWindow.vala:37
-msgid "Pin Toolbar"
+#: ../src/PhotoPage.vala:2432 ../src/PhotoPage.vala:2693
+#: ../src/CollectionPage.vala:74 ../src/CollectionPage.vala:207
+msgid "Play a slideshow"
 msgstr ""
 
-#: ../src/AppWindow.vala:39
-msgid "Pin the toolbar open"
+#: ../src/PhotoPage.vala:2516 ../src/direct/DirectPhotoPage.vala:171
+msgid "_View"
 msgstr ""
 
-#: ../src/AppWindow.vala:44
-msgid "Leave fullscreen"
+#: ../src/PhotoPage.vala:2520 ../src/direct/DirectPhotoPage.vala:80
+msgid "T_ools"
 msgstr ""
 
-#: ../src/AppWindow.vala:490
-msgid "_Quit"
+#: ../src/PhotoPage.vala:2526 ../src/direct/DirectPhotoPage.vala:86
+msgid "_Previous Photo"
 msgstr ""
 
-#: ../src/AppWindow.vala:496
-msgid "Fulls_creen"
+#: ../src/PhotoPage.vala:2527 ../src/direct/DirectPhotoPage.vala:87
+msgid "Previous Photo"
 msgstr ""
 
-#: ../src/AppWindow.vala:687
+#: ../src/PhotoPage.vala:2533 ../src/direct/DirectPhotoPage.vala:93
+msgid "_Next Photo"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2534 ../src/direct/DirectPhotoPage.vala:94
+msgid "Next Photo"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2653 ../src/direct/DirectPhotoPage.vala:181
+#: ../src/MediaPage.vala:299
+msgid "Zoom _In"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2654 ../src/direct/DirectPhotoPage.vala:182
+msgid "Increase the magnification of the photo"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2660 ../src/direct/DirectPhotoPage.vala:188
+#: ../src/MediaPage.vala:306
+msgid "Zoom _Out"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2661 ../src/direct/DirectPhotoPage.vala:189
+msgid "Decrease the magnification of the photo"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2667 ../src/direct/DirectPhotoPage.vala:195
+msgid "Fit to _Page"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2668 ../src/direct/DirectPhotoPage.vala:196
+msgid "Zoom the photo to fit on the screen"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2675 ../src/direct/DirectPhotoPage.vala:203
+#, no-c-format
+msgid "Zoom _100%"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2677 ../src/direct/DirectPhotoPage.vala:205
+#, no-c-format
+msgid "Zoom the photo to 100% magnification"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2684 ../src/direct/DirectPhotoPage.vala:212
+#, no-c-format
+msgid "Zoom _200%"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2686 ../src/direct/DirectPhotoPage.vala:214
+#, no-c-format
+msgid "Zoom the photo to 200% magnification"
+msgstr ""
+
+#: ../src/PhotoPage.vala:2697 ../src/MediaPage.vala:345
+msgid "_Developer"
+msgstr ""
+
+#: ../src/PhotoPage.vala:3210 ../src/Dialogs.vala:2068
+msgid "Remove From Library"
+msgstr ""
+
+#: ../src/PhotoPage.vala:3210 ../src/Dialogs.vala:2069
+msgid "Removing Photo From Library"
+msgstr ""
+
+#: ../src/PhotoPage.vala:3289 ../src/Dialogs.vala:58
+#: ../src/CollectionPage.vala:526
+msgid "Export Photo"
+msgstr ""
+
+#: ../src/PhotoPage.vala:3309
+msgid "Unable to export %s: %s"
+msgstr ""
+
+#: ../src/photos/RawSupport.vala:134
+msgid "RAW"
+msgstr ""
+
+#: ../src/photos/RawSupport.vala:297 ../src/MediaPage.vala:353
+msgid "Shotwell"
+msgstr ""
+
+#: ../src/photos/RawSupport.vala:300 ../src/MediaPage.vala:359
+#: ../src/camera/ImportPage.vala:727 ../src/camera/ImportPage.vala:743
+#: ../src/camera/Branch.vala:101
+msgid "Camera"
+msgstr ""
+
+#: ../src/photos/JfifSupport.vala:84
+msgid "JPEG"
+msgstr ""
+
+#: ../src/photos/JfifSupport.vala:182
+msgid "Low (%d%%)"
+msgstr ""
+
+#: ../src/photos/JfifSupport.vala:185
+msgid "Medium (%d%%)"
+msgstr ""
+
+#: ../src/photos/JfifSupport.vala:188
+msgid "High (%d%%)"
+msgstr ""
+
+#: ../src/photos/JfifSupport.vala:191
+msgid "Maximum (%d%%)"
+msgstr ""
+
+#: ../src/photos/PngSupport.vala:30
+msgid "PNG"
+msgstr ""
+
+#: ../src/photos/TiffSupport.vala:86
+msgid "TIFF"
+msgstr ""
+
+#: ../src/photos/BmpSupport.vala:32
+msgid "BMP"
+msgstr ""
+
+#: ../src/Printing.vala:255
+msgid "Fill the entire page"
+msgstr ""
+
+#: ../src/Printing.vala:256
+msgid "2 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:257
+msgid "4 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:258
+msgid "6 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:259
+msgid "8 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:260
+msgid "16 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:261
+msgid "32 images per page"
+msgstr ""
+
+#: ../src/Printing.vala:348
+msgid "in."
+msgstr ""
+
+#: ../src/Printing.vala:349
+msgid "cm"
+msgstr ""
+
+#: ../src/Printing.vala:875
+msgid "Image Settings"
+msgstr ""
+
+#: ../src/Printing.vala:888
+msgid "Printing..."
+msgstr ""
+
+#: ../src/Printing.vala:908 ../src/Printing.vala:1111
 msgid ""
-"A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
-"continue.\n"
+"Unable to print photo:\n"
 "\n"
+"%s"
+msgstr ""
+
+#: ../src/main.vala:54
+msgid ""
+"Your photo library is not compatible with this version of Shotwell.  It "
+"appears it was created by Shotwell %s (schema %d).  This version is %s "
+"(schema %d).  Please use the latest version of Shotwell."
+msgstr ""
+
+#: ../src/main.vala:59
+msgid ""
+"Shotwell was unable to upgrade your photo library from version %s (schema "
+"%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
+"at %s"
+msgstr ""
+
+#: ../src/main.vala:65
+msgid ""
+"Your photo library is not compatible with this version of Shotwell.  It "
+"appears it was created by Shotwell %s (schema %d).  This version is %s "
+"(schema %d).  Please clear your library by deleting %s and re-import your "
+"photos."
+msgstr ""
+
+#: ../src/main.vala:71
+msgid "Unknown error attempting to verify Shotwell's database: %s"
+msgstr ""
+
+#: ../src/main.vala:104
+msgid "Loading Shotwell"
+msgstr ""
+
+#: ../src/main.vala:286
+msgid "Path to Shotwell's private data"
+msgstr ""
+
+#: ../src/main.vala:286
+msgid "DIRECTORY"
+msgstr ""
+
+#: ../src/main.vala:291
+msgid "Do not monitor library directory at runtime for changes"
+msgstr ""
+
+#: ../src/main.vala:296
+msgid "Don't display startup progress meter"
+msgstr ""
+
+#: ../src/main.vala:301
+msgid "Show the application's version"
+msgstr ""
+
+#: ../src/main.vala:306
+msgid "Show About dialog"
+msgstr ""
+
+#: ../src/main.vala:358
+msgid "[FILE]"
+msgstr ""
+
+#: ../src/main.vala:362
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:47 ../src/library/LibraryWindow.vala:357
+msgid "_File"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:53 ../src/direct/DirectPhotoPage.vala:406
+#: ../src/Dialogs.vala:62 ../src/Dialogs.vala:902 ../src/Dialogs.vala:1172
+#: ../src/Dialogs.vala:1247
+msgid "_Save"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:54
+msgid "Save photo"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:60
+msgid "Save _As..."
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:61
+msgid "Save photo with a different name"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:68
+msgid "Print the photo to a printer connected to your computer"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:72 ../src/library/LibraryWindow.vala:361
+msgid "_Edit"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:76 ../src/library/LibraryWindow.vala:365
+msgid "_Photo"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:175 ../src/library/LibraryWindow.vala:377
+msgid "_Help"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:232
+msgid "%s does not exist."
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:234
+msgid "%s is not a file."
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:236
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:406
+msgid "_Save a Copy"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:409
+msgid "Lose changes to %s?"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:410
+msgid "Close _without Saving"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:444
+msgid "Error while saving to %s: %s"
+msgstr ""
+
+#: ../src/direct/DirectPhotoPage.vala:472
+#: ../src/direct/DirectPhotoPage.vala:493
+msgid "Save As"
+msgstr ""
+
+#: ../src/db/DatabaseTable.vala:37
+msgid "Unable to open/create photo database %s: error code %d"
+msgstr ""
+
+#: ../src/db/DatabaseTable.vala:46
+msgid ""
+"Unable to write to photo database file:\n"
+" %s"
+msgstr ""
+
+#: ../src/db/DatabaseTable.vala:48
+msgid ""
+"Error accessing database file:\n"
+" %s\n"
+"\n"
+"Error was: \n"
 "%s"
 msgstr ""
 
@@ -2672,10 +2370,8 @@ msgstr ""
 msgid "Export Video"
 msgstr ""
 
-#: ../src/Dialogs.vala:62 ../src/Dialogs.vala:902 ../src/Dialogs.vala:1172
-#: ../src/Dialogs.vala:1247 ../src/direct/DirectPhotoPage.vala:53
-#: ../src/direct/DirectPhotoPage.vala:406
-msgid "_Save"
+#: ../src/Dialogs.vala:87 ../src/CollectionPage.vala:526
+msgid "Export Photos"
 msgstr ""
 
 #: ../src/Dialogs.vala:91
@@ -2702,6 +2398,7 @@ msgid ""
 msgstr ""
 
 #: ../src/Dialogs.vala:131
+#: ../plugins/pantheon-photos-publishing/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr ""
 
@@ -3042,6 +2739,10 @@ msgstr[1] ""
 msgid "Only _Remove"
 msgstr ""
 
+#: ../src/Dialogs.vala:1304 ../src/camera/ImportPage.vala:1759
+msgid "_Keep"
+msgstr ""
+
 #: ../src/Dialogs.vala:1327
 msgid "Revert External Edit?"
 msgstr ""
@@ -3220,16 +2921,656 @@ msgid_plural "%d photos/videos cannot be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/library/TopDisplay.vala:130
-msgid "%s (%d%%)"
+#: ../src/sidebar/Tree.vala:203
+msgid "New _Tag..."
 msgstr ""
 
-#: ../src/library/PhotosPage.vala:50 ../src/library/RawsPage.vala:50
+#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+msgid "No items selected"
+msgstr ""
+
+#: ../src/sidebar/metadata/LibraryProperties.vala:121
+msgid "Tags, separated by commas"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+msgid "Location:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:140
+msgid "File size:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:263
+msgid "Developer:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:146
+msgid "Original size:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:149
+msgid "Camera make:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:152
+msgid "Camera model:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:155
+msgid "Flash:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:157
+msgid "Focal length:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+msgid "Exposure date:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+msgid "Exposure time:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:166
+msgid "Exposure bias:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+msgid "GPS latitude:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+msgid "GPS longitude:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+msgid "Artist:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+msgid "Copyright:"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:178
+msgid "Software:"
+msgstr ""
+
+#: ../src/sidebar/metadata/Properties.vala:91
+msgid "Today"
+msgstr ""
+
+#: ../src/sidebar/metadata/Properties.vala:93
+msgid "Yesterday"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/camera/ImportPage.vala:312
+msgid "RAW+JPEG"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:198
+msgid "Items:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:201
+msgid "%d Event"
+msgid_plural "%d Events"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/events/EventDirectoryItem.vala:87
+msgid "%d Photo"
+msgid_plural "%d Photos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/events/EventDirectoryItem.vala:85
+msgid "%d Video"
+msgid_plural "%d Videos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
+msgid "Date:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:236
+msgid "Time:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:239
+#: ../src/sidebar/metadata/BasicProperties.vala:244
+msgid "From:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:240
+#: ../src/sidebar/metadata/BasicProperties.vala:245
+msgid "To:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:259
+msgid "Duration:"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:259
+msgid "%.1f seconds"
+msgstr ""
+
+#: ../src/events/EventDirectoryItem.vala:83
+msgid "%d Photo/Video"
+msgid_plural "%d Photos/Videos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/events/EventPage.vala:117
+msgid "All Events"
+msgstr ""
+
+#: ../src/events/EventPage.vala:131
+msgid "No Event"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:149 ../src/MediaPage.vala:378
+msgid "_Comments"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:150
+msgid "Display the comment of each event"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:173
+msgid "No events"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:177
+msgid "No events found"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:238
+msgid "Events"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:252
+msgid "Undated"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:253
+msgid "%Y"
+msgstr ""
+
+#: ../src/events/EventsDirectoryPage.vala:254
+msgid "%B"
+msgstr ""
+
+#: ../src/AppWindow.vala:37
+msgid "Pin Toolbar"
+msgstr ""
+
+#: ../src/AppWindow.vala:39
+msgid "Pin the toolbar open"
+msgstr ""
+
+#: ../src/AppWindow.vala:44
+msgid "Leave fullscreen"
+msgstr ""
+
+#: ../src/AppWindow.vala:490
+msgid "_Quit"
+msgstr ""
+
+#: ../src/AppWindow.vala:496
+msgid "Fulls_creen"
+msgstr ""
+
+#: ../src/AppWindow.vala:687
+msgid ""
+"A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
+"continue.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../src/publishing/PublishingPluginHost.vala:11
+msgid "Preparing for upload"
+msgstr ""
+
+#: ../src/publishing/PublishingPluginHost.vala:12
+msgid "Uploading %d of %d"
+msgstr ""
+
+#: ../src/publishing/PublishingPluginHost.vala:81
+msgid "Publishing to %s can't continue because an error occurred:"
+msgstr ""
+
+#: ../src/publishing/PublishingPluginHost.vala:84
+msgid "To try publishing to another service, select one from the above menu."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:105
+msgid "The selected photos/videos were successfully published."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:107
+msgid "The selected videos were successfully published."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:109
+msgid "The selected photos were successfully published."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:112
+msgid "The selected video was successfully published."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:114
+msgid "The selected photo was successfully published."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:122
+msgid "Fetching account information..."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:128
+msgid "Logging in..."
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:183
+msgid "Publish Photos"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:184
+msgid "Publish photos _to:"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:186
+msgid "Publish Videos"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:187
+msgid "Publish videos _to"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:189
+msgid "Publish Photos and Videos"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:190
+msgid "Publish photos and videos _to"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:389
+msgid "Unable to publish"
+msgstr ""
+
+#: ../src/publishing/PublishingUI.vala:390
+msgid ""
+"Shotwell cannot publish the selected items because you do not have a "
+"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+"Preferences</b> and enable one or more of the publishing plugins on the "
+"<b>Plugins</b> tab."
+msgstr ""
+
+#: ../src/publishing/Publishing.vala:16
+msgid "Publishing"
+msgstr ""
+
+#: ../src/MediaPage.vala:142
+msgid "Adjust the size of the thumbnails"
+msgstr ""
+
+#: ../src/MediaPage.vala:300
+msgid "Increase the magnification of the thumbnails"
+msgstr ""
+
+#: ../src/MediaPage.vala:307
+msgid "Decrease the magnification of the thumbnails"
+msgstr ""
+
+#: ../src/MediaPage.vala:337
+msgid "Sort _Photos"
+msgstr ""
+
+#: ../src/MediaPage.vala:371 ../src/camera/ImportPage.vala:890
+msgid "_Titles"
+msgstr ""
+
+#: ../src/MediaPage.vala:372 ../src/camera/ImportPage.vala:891
+msgid "Display the title of each photo"
+msgstr ""
+
+#: ../src/MediaPage.vala:379
+msgid "Display the comment of each photo"
+msgstr ""
+
+#: ../src/MediaPage.vala:392 ../src/library/LibraryWindow.vala:373
+msgid "Ta_gs"
+msgstr ""
+
+#: ../src/MediaPage.vala:393
+msgid "Display each photo's tags"
+msgstr ""
+
+#: ../src/MediaPage.vala:410
+msgid "By _Title"
+msgstr ""
+
+#: ../src/MediaPage.vala:411
+msgid "Sort photos by title"
+msgstr ""
+
+#: ../src/MediaPage.vala:417
+msgid "By Exposure _Date"
+msgstr ""
+
+#: ../src/MediaPage.vala:418
+msgid "Sort photos by exposure date"
+msgstr ""
+
+#: ../src/MediaPage.vala:424
+msgid "By _Rating"
+msgstr ""
+
+#: ../src/MediaPage.vala:425
+msgid "Sort photos by rating"
+msgstr ""
+
+#: ../src/MediaPage.vala:436 ../src/library/LibraryWindow.vala:416
+msgid "_Ascending"
+msgstr ""
+
+#: ../src/MediaPage.vala:437 ../src/library/LibraryWindow.vala:417
+msgid "Sort photos in an ascending order"
+msgstr ""
+
+#: ../src/MediaPage.vala:443 ../src/library/LibraryWindow.vala:424
+msgid "D_escending"
+msgstr ""
+
+#: ../src/MediaPage.vala:444 ../src/library/LibraryWindow.vala:425
+msgid "Sort photos in a descending order"
+msgstr ""
+
+#: ../src/MediaPage.vala:641
+msgid ""
+"Shotwell was unable to play the selected video:\n"
+"%s"
+msgstr ""
+
+#: ../src/VideoSupport.vala:496
+msgid "Export Videos"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:475
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:793
+msgid "Hide photos already imported"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:794
+msgid "Only display photos that have not been imported"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:862
+msgid "Starting import, please wait..."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:903
+msgid "Import _Selected"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:904
+msgid "Import the selected photos into your library"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:910
+msgid "Import _All"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:911
+msgid "Import all the photos into your library"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1032
+msgid ""
+"Shotwell needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1038
+msgid "_Unmount"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1043
+msgid "Please unmount the camera."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1048
+msgid ""
+"The camera is locked by another application.  Shotwell can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1058
+msgid "Please close any other application using the camera."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1063
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1080
+msgid "Unmounting..."
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1186
+msgid "Fetching photo information"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1541
+msgid "Fetching preview for %s"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1657
+msgid "Unable to lock camera: %s"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1742
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/camera/ImportPage.vala:1745
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/camera/ImportPage.vala:1748
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/camera/ImportPage.vala:1751
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/camera/ImportPage.vala:1778
+msgid "Removing photos/videos from camera"
+msgstr ""
+
+#: ../src/camera/ImportPage.vala:1782
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/camera/Branch.vala:87
+msgid "Cameras"
+msgstr ""
+
+#: ../src/BatchImport.vala:26
+msgid "Success"
+msgstr ""
+
+#: ../src/BatchImport.vala:29
+msgid "File error"
+msgstr ""
+
+#: ../src/BatchImport.vala:32
+msgid "Unable to decode file"
+msgstr ""
+
+#: ../src/BatchImport.vala:35
+msgid "Database error"
+msgstr ""
+
+#: ../src/BatchImport.vala:38
+msgid "User aborted import"
+msgstr ""
+
+#: ../src/BatchImport.vala:41
+msgid "Not a file"
+msgstr ""
+
+#: ../src/BatchImport.vala:44
+msgid "File already exists in database"
+msgstr ""
+
+#: ../src/BatchImport.vala:47
+msgid "Unsupported file format"
+msgstr ""
+
+#: ../src/BatchImport.vala:50
+msgid "Not an image file"
+msgstr ""
+
+#: ../src/BatchImport.vala:53
+msgid "Disk failure"
+msgstr ""
+
+#: ../src/BatchImport.vala:56
+msgid "Disk full"
+msgstr ""
+
+#: ../src/BatchImport.vala:59
+msgid "Camera error"
+msgstr ""
+
+#: ../src/BatchImport.vala:62
+msgid "File write error"
+msgstr ""
+
+#: ../src/BatchImport.vala:65
+msgid "Corrupt image file"
+msgstr ""
+
+#: ../src/BatchImport.vala:68
+msgid "Imported failed (%d)"
+msgstr ""
+
+#: ../src/Event.vala:737
+msgid "Event %s"
+msgstr ""
+
+#: ../src/Dimensions.vala:20
+msgid "Width or height"
+msgstr ""
+
+#: ../src/Dimensions.vala:23
+msgid "Width"
+msgstr ""
+
+#: ../src/Dimensions.vala:26
+msgid "Height"
+msgstr ""
+
+#: ../src/Page.vala:1370 ../src/CollectionPage.vala:837
+#: ../src/CollectionPage.vala:838 ../src/library/RawsPage.vala:51
+#: ../src/library/PhotosPage.vala:51
+msgid "No photos/videos"
+msgstr ""
+
+#: ../src/Page.vala:1374
+msgid "No photos/videos found"
+msgstr ""
+
+#: ../src/Page.vala:2695
+msgid "Photos cannot be exported to this directory."
+msgstr ""
+
+#: ../src/DirectoryMonitor.vala:889
+msgid "Unable to monitor %s: Not a directory (%s)"
+msgstr ""
+
+#: ../src/CollectionPage.vala:524
+msgid "Export Photo/Video"
+msgstr ""
+
+#: ../src/CollectionPage.vala:524
+msgid "Export Photos/Videos"
+msgstr ""
+
+#: ../src/CollectionPage.vala:619 ../src/CollectionPage.vala:635
+msgid "Rotating"
+msgstr ""
+
+#: ../src/CollectionPage.vala:619 ../src/CollectionPage.vala:635
+msgid "Undoing Rotate"
+msgstr ""
+
+#: ../src/CollectionPage.vala:644
+msgid "Flipping Horizontally"
+msgstr ""
+
+#: ../src/CollectionPage.vala:645
+msgid "Undoing Flip Horizontally"
+msgstr ""
+
+#: ../src/CollectionPage.vala:654
+msgid "Flipping Vertically"
+msgstr ""
+
+#: ../src/CollectionPage.vala:655
+msgid "Undoing Flip Vertically"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:11
+msgid "Raw Photos"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:24
+msgid "Raws"
+msgstr ""
+
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
 msgid "Add Some Photos"
 msgstr ""
 
-#: ../src/library/PhotosPage.vala:50 ../src/library/RawsPage.vala:50
+#: ../src/library/RawsPage.vala:50 ../src/library/PhotosPage.vala:50
 msgid "No Photos were found in your library."
+msgstr ""
+
+#: ../src/library/VideosPage.vala:23 ../src/library/VideosPage.vala:44
+msgid "Videos"
+msgstr ""
+
+#: ../src/library/LastImportPage.vala:8
+msgid "Last Import"
 msgstr ""
 
 #: ../src/library/LibraryWindow.vala:308
@@ -3264,25 +3605,8 @@ msgstr ""
 msgid "Find photos and videos by search criteria"
 msgstr ""
 
-#: ../src/library/LibraryWindow.vala:357 ../src/direct/DirectPhotoPage.vala:47
-msgid "_File"
-msgstr ""
-
-#: ../src/library/LibraryWindow.vala:361 ../src/direct/DirectPhotoPage.vala:72
-msgid "_Edit"
-msgstr ""
-
-#: ../src/library/LibraryWindow.vala:365 ../src/direct/DirectPhotoPage.vala:76
-msgid "_Photo"
-msgstr ""
-
 #: ../src/library/LibraryWindow.vala:369
 msgid "_Photos"
-msgstr ""
-
-#: ../src/library/LibraryWindow.vala:377
-#: ../src/direct/DirectPhotoPage.vala:175
-msgid "_Help"
 msgstr ""
 
 #: ../src/library/LibraryWindow.vala:389
@@ -3337,6 +3661,7 @@ msgstr ""
 msgid "Library Location"
 msgstr ""
 
+#. /file.
 #: ../src/library/LibraryWindow.vala:864
 msgid "Photos cannot be imported from this directory."
 msgstr ""
@@ -3374,28 +3699,8 @@ msgstr ""
 msgid "Choose where to keep your photos."
 msgstr ""
 
-#: ../src/library/LastImportPage.vala:8
-msgid "Last Import"
-msgstr ""
-
-#: ../src/library/ImportQueuePage.vala:8
-msgid "Importing..."
-msgstr ""
-
-#: ../src/library/ImportQueuePage.vala:65
-msgid "_Stop Import"
-msgstr ""
-
-#: ../src/library/ImportQueuePage.vala:66
-msgid "Stop importing photos"
-msgstr ""
-
-#: ../src/library/ImportQueuePage.vala:122
-msgid "Preparing to import..."
-msgstr ""
-
-#: ../src/library/ImportQueuePage.vala:149
-msgid "Imported %s"
+#: ../src/library/TopDisplay.vala:130
+msgid "%s (%d%%)"
 msgstr ""
 
 #: ../src/library/OfflinePage.vala:8
@@ -3404,6 +3709,10 @@ msgstr ""
 
 #: ../src/library/OfflinePage.vala:108
 msgid "Deleting..."
+msgstr ""
+
+#: ../src/library/FlaggedPage.vala:8
+msgid "Flagged"
 msgstr ""
 
 #: ../src/library/TrashPage.vala:8
@@ -3424,327 +3733,24 @@ msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/library/RawsPage.vala:11
-msgid "Raw Photos"
+#: ../src/library/ImportQueuePage.vala:8
+msgid "Importing..."
 msgstr ""
 
-#: ../src/library/RawsPage.vala:24
-msgid "Raws"
+#: ../src/library/ImportQueuePage.vala:65
+msgid "_Stop Import"
 msgstr ""
 
-#: ../src/library/VideosPage.vala:23 ../src/library/VideosPage.vala:44
-msgid "Videos"
+#: ../src/library/ImportQueuePage.vala:66
+msgid "Stop importing photos"
 msgstr ""
 
-#: ../src/library/FlaggedPage.vala:8
-msgid "Flagged"
+#: ../src/library/ImportQueuePage.vala:122
+msgid "Preparing to import..."
 msgstr ""
 
-#: ../src/Commands.vala:733
-msgid "Reverting"
-msgstr ""
-
-#: ../src/Commands.vala:733
-msgid "Undoing Revert"
-msgstr ""
-
-#: ../src/Commands.vala:777
-msgid "Enhancing"
-msgstr ""
-
-#: ../src/Commands.vala:777
-msgid "Undoing Enhance"
-msgstr ""
-
-#: ../src/Commands.vala:813
-msgid "UnEnhancing"
-msgstr ""
-
-#: ../src/Commands.vala:813
-msgid "Undoing UnEnhance"
-msgstr ""
-
-#: ../src/Commands.vala:881
-msgid "Applying Color Transformations"
-msgstr ""
-
-#: ../src/Commands.vala:881
-msgid "Undoing Color Transformations"
-msgstr ""
-
-#: ../src/Commands.vala:1031
-msgid "Creating New Event"
-msgstr ""
-
-#: ../src/Commands.vala:1032
-msgid "Removing Event"
-msgstr ""
-
-#: ../src/Commands.vala:1041
-msgid "Moving Photos to New Event"
-msgstr ""
-
-#: ../src/Commands.vala:1042
-msgid "Setting Photos to Previous Event"
-msgstr ""
-
-#: ../src/Commands.vala:1099
-msgid "Merging"
-msgstr ""
-
-#: ../src/Commands.vala:1100
-msgid "Unmerging"
-msgstr ""
-
-#: ../src/Commands.vala:1109
-msgid "Duplicating photos"
-msgstr ""
-
-#: ../src/Commands.vala:1109
-msgid "Removing duplicated photos"
-msgstr ""
-
-#: ../src/Commands.vala:1132
-msgid "Unable to duplicate one photo due to a file error"
-msgid_plural "Unable to duplicate %d photos due to file errors"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/Commands.vala:1219
-msgid "Restoring previous rating"
-msgstr ""
-
-#: ../src/Commands.vala:1229 ../src/Commands.vala:1230
-msgid "Increasing ratings"
-msgstr ""
-
-#: ../src/Commands.vala:1229 ../src/Commands.vala:1230
-msgid "Decreasing ratings"
-msgstr ""
-
-#: ../src/Commands.vala:1280
-msgid "Setting RAW developer"
-msgstr ""
-
-#: ../src/Commands.vala:1280
-msgid "Restoring previous RAW developer"
-msgstr ""
-
-#: ../src/Commands.vala:1281
-msgid "Set Developer"
-msgstr ""
-
-#: ../src/Commands.vala:1371
-msgid "Original photo could not be adjusted."
-msgstr ""
-
-#: ../src/Commands.vala:1392
-msgid "Adjusting Date and Time"
-msgstr ""
-
-#: ../src/Commands.vala:1392
-msgid "Undoing Date and Time Adjustment"
-msgstr ""
-
-#: ../src/Commands.vala:1423
-msgid "One original photo could not be adjusted."
-msgid_plural "The following original photos could not be adjusted."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/Commands.vala:1425 ../src/Commands.vala:1449
-msgid "Time Adjustment Error"
-msgstr ""
-
-#: ../src/Commands.vala:1447
-msgid "Time adjustments could not be undone on the following photo file."
-msgid_plural ""
-"Time adjustments could not be undone on the following photo files."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/Commands.vala:1661 ../src/Commands.vala:1684
-msgid "Create Tag"
-msgstr ""
-
-#: ../src/Commands.vala:1719
-msgid "Move Tag \"%s\""
-msgstr ""
-
-#: ../src/Commands.vala:2371
-msgid "Move Photos to Trash"
-msgstr ""
-
-#: ../src/Commands.vala:2371
-msgid "Restore Photos from Trash"
-msgstr ""
-
-#: ../src/Commands.vala:2372
-msgid "Move the photos to the Shotwell trash"
-msgstr ""
-
-#: ../src/Commands.vala:2372
-msgid "Restore the photos back to the Shotwell library"
-msgstr ""
-
-#: ../src/Commands.vala:2391
-msgid "Moving Photos to Trash"
-msgstr ""
-
-#: ../src/Commands.vala:2391
-msgid "Restoring Photos From Trash"
-msgstr ""
-
-#: ../src/Commands.vala:2477
-msgid "Flag selected photos"
-msgstr ""
-
-#: ../src/Commands.vala:2478
-msgid "Unflag selected photos"
-msgstr ""
-
-#: ../src/Commands.vala:2479
-msgid "Flagging selected photos"
-msgstr ""
-
-#: ../src/Commands.vala:2480
-msgid "Unflagging selected photos"
-msgstr ""
-
-#: ../src/main.vala:54
-msgid ""
-"Your photo library is not compatible with this version of Shotwell.  It "
-"appears it was created by Shotwell %s (schema %d).  This version is %s "
-"(schema %d).  Please use the latest version of Shotwell."
-msgstr ""
-
-#: ../src/main.vala:59
-msgid ""
-"Shotwell was unable to upgrade your photo library from version %s (schema "
-"%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
-"at %s"
-msgstr ""
-
-#: ../src/main.vala:65
-msgid ""
-"Your photo library is not compatible with this version of Shotwell.  It "
-"appears it was created by Shotwell %s (schema %d).  This version is %s "
-"(schema %d).  Please clear your library by deleting %s and re-import your "
-"photos."
-msgstr ""
-
-#: ../src/main.vala:71
-msgid "Unknown error attempting to verify Shotwell's database: %s"
-msgstr ""
-
-#: ../src/main.vala:104
-msgid "Loading Shotwell"
-msgstr ""
-
-#: ../src/main.vala:286
-msgid "Path to Shotwell's private data"
-msgstr ""
-
-#: ../src/main.vala:286
-msgid "DIRECTORY"
-msgstr ""
-
-#: ../src/main.vala:291
-msgid "Do not monitor library directory at runtime for changes"
-msgstr ""
-
-#: ../src/main.vala:296
-msgid "Don't display startup progress meter"
-msgstr ""
-
-#: ../src/main.vala:301
-msgid "Show the application's version"
-msgstr ""
-
-#: ../src/main.vala:306
-msgid "Show About dialog"
-msgstr ""
-
-#: ../src/main.vala:358
-msgid "[FILE]"
-msgstr ""
-
-#: ../src/main.vala:362
-msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-
-#: ../src/db/DatabaseTable.vala:37
-msgid "Unable to open/create photo database %s: error code %d"
-msgstr ""
-
-#: ../src/db/DatabaseTable.vala:46
-msgid ""
-"Unable to write to photo database file:\n"
-" %s"
-msgstr ""
-
-#: ../src/db/DatabaseTable.vala:48
-msgid ""
-"Error accessing database file:\n"
-" %s\n"
-"\n"
-"Error was: \n"
-"%s"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:54
-msgid "Save photo"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:60
-msgid "Save _As..."
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:61
-msgid "Save photo with a different name"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:68
-msgid "Print the photo to a printer connected to your computer"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:232
-msgid "%s does not exist."
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:234
-msgid "%s is not a file."
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:236
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:406
-msgid "_Save a Copy"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:409
-msgid "Lose changes to %s?"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:410
-msgid "Close _without Saving"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:444
-msgid "Error while saving to %s: %s"
-msgstr ""
-
-#: ../src/direct/DirectPhotoPage.vala:472
-#: ../src/direct/DirectPhotoPage.vala:493
-msgid "Save As"
-msgstr ""
-
-#: ../src/Photo.vala:3737
-msgid "modified"
+#: ../src/library/ImportQueuePage.vala:149
+msgid "Imported %s"
 msgstr ""
 
 #: ../data/ui/set_background_dialog.ui:14
@@ -3808,6 +3814,8 @@ msgid "pixels per inch"
 msgstr ""
 
 #: ../data/ui/shotwell.ui:374 ../data/ui/shotwell.ui:416
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_authentication_pane.ui:27
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:27
 msgid "label"
 msgstr ""
 
@@ -3865,4 +3873,198 @@ msgstr ""
 
 #: ../data/ui/shotwell.ui:1066
 msgid "_Login"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_authentication_pane.ui:49
+msgid "_Email address"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_authentication_pane.ui:59
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:73
+msgid "_Password"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_authentication_pane.ui:107
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:151
+msgid "Login"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_publishing_options_pane.ui:19
+msgid ""
+"You are logged into Tumblr as (name).\n"
+"\n"
+"(this label's string is populated and set inside the code, \n"
+"so changes made here will not display)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_publishing_options_pane.ui:43
+msgid "Blogs:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_publishing_options_pane.ui:60
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:61
+msgid "Photo _size:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_publishing_options_pane.ui:116
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:115
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:137
+#: ../plugins/pantheon-photos-publishing/youtube_publishing_options_pane.ui:99
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:197
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:229
+msgid "_Logout"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/tumblr_publishing_options_pane.ui:134
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:129
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:153
+#: ../plugins/pantheon-photos-publishing/youtube_publishing_options_pane.ui:115
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:212
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:243
+msgid "_Publish"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:24
+msgid "_Albums (or write new):"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:38
+msgid "Access _type:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:81
+msgid "Disable _comments"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:96
+msgid "_Forbid downloading original photo"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing-extras/yandex_publish_model.ui:159
+msgid "Public"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:40
+msgid "An _existing category:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:52
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:94
+msgid "A _new album named:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:121
+msgid "Photos will be _visible by:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:149
+msgid "Photo size:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:176
+msgid "within category:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:210
+msgid "Album comment:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:226
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:102
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:175
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:178
+msgid ""
+"_Remove location, camera, and other identifying information before uploading"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:242
+msgid "_If a title is set and comment unset, use title as comment"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:258
+msgid "_Do no upload tags"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_publishing_options_pane.ui:278
+msgid "Logout"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:19
+msgid ""
+"You are logged into Flickr as (name).\n"
+"\n"
+"(this label's string is populated and set inside the code, \n"
+"so changes made here will not display)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/flickr_publishing_options_pane.ui:44
+msgid "_visibility label (populated in the code)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/youtube_publishing_options_pane.ui:55
+msgid "Video privacy _setting:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:21
+msgid ""
+" (text depends on fb username and is modified in the app - \n"
+"anything put into this field won't display)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:39
+msgid "Publish to an e_xisting album:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:57
+msgid "Create a _new album named:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/facebook_publishing_options_pane.ui:139
+msgid "Videos and new photo albums _visible to:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:49
+msgid "_URL of your Piwigo photo library"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:59
+msgid "User _name"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/piwigo_authentication_pane.ui:130
+msgid "_Remember Password"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/flickr_pin_entry_pane.ui:16
+msgid ""
+"Enter the confirmation number which appears after you log into Flickr in "
+"your Web browser."
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/flickr_pin_entry_pane.ui:37
+msgid "Authorization _Number:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:18
+msgid ""
+"'you are logged in as $name'\n"
+"(populated in the application code)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:75
+msgid "An _existing album:"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:113
+msgid "L_ist album in public gallery"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:134
+msgid ""
+"$mediatype will appear in\n"
+"(populated in code)"
+msgstr ""
+
+#: ../plugins/pantheon-photos-publishing/picasa_publishing_options_pane.ui:150
+msgid "Photo _size preset:"
 msgstr ""
