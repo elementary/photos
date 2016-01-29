@@ -31,5 +31,5 @@ file (GLOB ICON_FILES *.png)
 install (FILES ${ICON_FILES} DESTINATION ${BUILTIN_DIR})
 
 # Install UI files
-file (GLOB UI_FILES *.glade)
+file (GLOB UI_FILES *.ui)
 install (FILES ${UI_FILES} DESTINATION ${BUILTIN_DIR})
