@@ -436,7 +436,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            builder.add_from_file (host.get_module_file ().get_parent ().get_child ("flickr_pin_entry_pane.glade").get_path ());
+            builder.add_from_file (host.get_module_file ().get_parent ().get_child ("flickr_pin_entry_pane.ui").get_path ());
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             host.post_error (
@@ -587,7 +587,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
             // with File objects directly and expects a pathname instead.
             builder.add_from_file (
                 host.get_module_file ().get_parent ().
-                get_child ("flickr_publishing_options_pane.glade").get_path ());
+                get_child ("flickr_publishing_options_pane.ui").get_path ());
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             host.post_error (
@@ -1132,7 +1132,7 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
         assert (builder != null);
         assert (builder.get_objects ().length () > 0);
 
-        // pull in the necessary widgets from the glade file
+        // pull in the necessary widgets from the ui file
         pane_widget = (Gtk.Box) this.builder.get_object ("flickr_pane");
         visibility_label = (Gtk.Label) this.builder.get_object ("visibility_label");
         upload_info_label = (Gtk.Label) this.builder.get_object ("upload_info_label");

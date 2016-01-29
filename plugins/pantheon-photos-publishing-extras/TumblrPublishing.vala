@@ -598,7 +598,7 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
             this.pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             File ui_file = publisher.get_host ().get_module_file ().get_parent ().
-                           get_child ("tumblr_authentication_pane.glade");
+                           get_child ("tumblr_authentication_pane.ui");
 
             try {
                 builder = new Gtk.Builder ();
@@ -718,14 +718,14 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
             this.sizes = sizes;
             this.blogs = blogs;
             File ui_file = publisher.get_host ().get_module_file ().get_parent ().
-                           get_child ("tumblr_publishing_options_pane.glade");
+                           get_child ("tumblr_publishing_options_pane.ui");
 
             try {
                 builder = new Gtk.Builder ();
                 builder.add_from_file (ui_file.get_path ());
                 builder.connect_signals (null);
 
-                // pull in the necessary widgets from the glade file
+                // pull in the necessary widgets from the.ui file
                 pane_widget = (Gtk.Box) this.builder.get_object ("tumblr_pane");
                 upload_info_label = (Gtk.Label) this.builder.get_object ("upload_info_label");
                 logout_button = (Gtk.Button) this.builder.get_object ("logout_button");
