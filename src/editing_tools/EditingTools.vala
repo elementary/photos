@@ -242,10 +242,8 @@ public abstract class PhotoCanvas {
     public void paint_pixbuf (Gdk.Pixbuf pixbuf) {
         default_ctx.save ();
 
-        // paint black background
-        set_source_color_from_string (default_ctx, "#000");
-        default_ctx.rectangle (0, 0, surface_dim.width, surface_dim.height);
-        default_ctx.fill ();
+        // paint background
+        get_style_context ().render_background (default_ctx, 0, 0, surface_dim.width, surface_dim.height);
 
         // paint the actual image
         Gdk.cairo_set_source_pixbuf (default_ctx, pixbuf, scaled_position.x, scaled_position.y);
@@ -258,12 +256,11 @@ public abstract class PhotoCanvas {
     public void paint_pixbuf_area (Gdk.Pixbuf pixbuf, Box source_area) {
         default_ctx.save ();
         if (pixbuf.get_has_alpha ()) {
-            set_source_color_from_string (default_ctx, "#000");
-            default_ctx.rectangle (scaled_position.x + source_area.left,
-                                   scaled_position.y + source_area.top,
-                                   source_area.get_width (), source_area.get_height ());
-            default_ctx.fill ();
-
+            get_style_context ().render_background (default_ctx,
+                                                    scaled_position.x + source_area.left,
+                                                    scaled_position.y + source_area.top,
+                                                    source_area.get_width (),
+                                                    source_area.get_height ());
         }
         Gdk.cairo_set_source_pixbuf (default_ctx, pixbuf, scaled_position.x,
                                      scaled_position.y);
@@ -447,6 +444,13 @@ public abstract class PhotoCanvas {
         ctx.paint ();
         return surface;
     }
+
+    /**
+     * Returns the style context associated to this.
+     *
+     * @return a StyleContext. This memory is owned by this and must not be freed.
+     */
+    public abstract unowned Gtk.StyleContext get_style_context ();
 }
 
 public abstract class EditingTool {
@@ -1313,10 +1317,7 @@ public class CropTool : EditingTool {
         int w = canvas.get_drawing_window ().get_width ();
         int h = canvas.get_drawing_window ().get_height ();
 
-        default_ctx.set_source_rgba (0.0, 0.0, 0.0, 1.0);
-        default_ctx.rectangle (0, 0, w, h);
-        default_ctx.fill ();
-        default_ctx.paint ();
+        canvas.get_style_context ().render_background (default_ctx, 0, 0, w, h);
 
         Cairo.Context ctx = new Cairo.Context (crop_surface);
         ctx.set_operator (Cairo.Operator.SOURCE);

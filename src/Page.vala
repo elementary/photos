@@ -2057,6 +2057,8 @@ public abstract class SinglePhotoPage : Page {
         // should never be shown, but this may change if/when zooming is supported
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
 
+        canvas.get_style_context ().add_class ("checkerboard-layout");
+
         viewport.add (canvas);
 
         add (viewport);
@@ -2133,8 +2135,7 @@ public abstract class SinglePhotoPage : Page {
         assert (is_zoom_supported ());
         Cairo.Context canvas_ctx = Gdk.cairo_create (canvas.get_window ());
 
-        set_source_color_from_string (pixmap_ctx, "#000");
-        pixmap_ctx.paint ();
+        canvas.get_style_context ().render_background (pixmap_ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
 
         bool old_quality_setting = zoom_high_quality;
         zoom_high_quality = false;
@@ -2149,8 +2150,7 @@ public abstract class SinglePhotoPage : Page {
         assert (is_zoom_supported ());
         Cairo.Context canvas_ctx = Gdk.cairo_create (canvas.get_window ());
 
-        set_source_color_from_string (pixmap_ctx, "#000");
-        pixmap_ctx.paint ();
+        canvas.get_style_context ().render_background (pixmap_ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
 
         bool old_quality_setting = zoom_high_quality;
         zoom_high_quality = true;
@@ -2167,8 +2167,7 @@ public abstract class SinglePhotoPage : Page {
 
     protected virtual void cancel_zoom () {
         if (pixmap != null) {
-            set_source_color_from_string (pixmap_ctx, "#000");
-            pixmap_ctx.paint ();
+            canvas.get_style_context ().render_background (pixmap_ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
         }
     }
 
@@ -2319,12 +2318,13 @@ public abstract class SinglePhotoPage : Page {
     }
 
     private bool on_canvas_exposed (Cairo.Context exposed_ctx) {
-        // draw pixmap onto canvas unless it's not been instantiated, in which case draw black
+        // draw pixmap onto canvas unless it's not been instantiated, in which case draw background
         // (so either old image or contents of another page is not left on screen)
-        if (pixmap != null)
+        if (pixmap != null) {
             exposed_ctx.set_source_surface (pixmap, 0, 0);
-        else
-            set_source_color_from_string (exposed_ctx, "#000");
+        } else {
+            canvas.get_style_context ().render_background (exposed_ctx, 0, 0, get_allocated_width (), get_allocated_height ());
+        }
 
         exposed_ctx.rectangle (0, 0, get_allocated_width (), get_allocated_height ());
         exposed_ctx.paint ();
@@ -2340,18 +2340,11 @@ public abstract class SinglePhotoPage : Page {
 
     protected virtual void paint (Cairo.Context ctx, Dimensions ctx_dim) {
         if (is_zoom_supported () && (!static_zoom_state.is_default ())) {
-            set_source_color_from_string (ctx, "#000");
-            ctx.rectangle (0, 0, pixmap_dim.width, pixmap_dim.height);
-            ctx.fill ();
-
+            canvas.get_style_context ().render_background (ctx, 0, 0, ctx_dim.width, ctx_dim.height);
             render_zoomed_to_pixmap (static_zoom_state);
         } else if (!transition_clock.paint (ctx, ctx_dim.width, ctx_dim.height)) {
-            // transition is not running, so paint the full image on a black background
-            set_source_color_from_string (ctx, "#000");
-
-            ctx.rectangle (0, 0, pixmap_dim.width, pixmap_dim.height);
-            ctx.fill ();
-
+            // transition is not running, so paint the full image over the background
+            canvas.get_style_context ().render_background (ctx, 0, 0, ctx_dim.width, ctx_dim.height);
             Gdk.cairo_set_source_pixbuf (ctx, scaled, scaled_pos.x, scaled_pos.y);
             ctx.paint ();
         }
