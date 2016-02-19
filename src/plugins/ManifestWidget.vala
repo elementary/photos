@@ -79,15 +79,29 @@ public class ManifestWidgetMediator {
         about_dialog.license = info.license;
         about_dialog.wrap_license = info.is_license_wordwrapped;
         Gdk.Pixbuf? pix_icon = null;
-        try {
-            Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
-            pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
-        } catch (Error e) {
-            warning (e.message);
+        var scale = about_dialog.get_style_context ().get_scale ();
+        var size = Resources.DEFAULT_ICON_SCALE;
+        var flags = Gtk.IconLookupFlags.GENERIC_FALLBACK;
+        if (info.icon != null) {
+            try {
+                var icon_info = Gtk.IconTheme.get_default ().lookup_by_gicon_for_scale (info.icon, size, scale, flags);
+                if (icon_info != null) {
+                    pix_icon = icon_info.load_icon ();
+                }
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
-        about_dialog.logo = (info.icons != null && info.icons.length > 0) ? info.icons[0] :
-                            pix_icon;
+        if (pix_icon == null) {
+            try {
+                pix_icon = Gtk.IconTheme.get_default ().load_icon_for_scale (Resources.ICON_GENERIC_PLUGIN, size, scale, flags);
+            } catch (Error e) {
+                critical (e.message);
+            }
+        }
+
+        about_dialog.logo = pix_icon;
         about_dialog.program_name = get_pluggable_name (id);
         about_dialog.translator_credits = info.translators;
         about_dialog.version = info.version;
@@ -130,7 +144,7 @@ private class ManifestListView : Gtk.TreeView {
     private Gtk.TreeStore store = new Gtk.TreeStore (Column.N_COLUMNS,
             typeof (bool),      // ENABLED
             typeof (bool),      // CAN_ENABLE
-            typeof (Gdk.Pixbuf), // ICON
+            typeof (GLib.Icon), // ICON
             typeof (string),    // NAME
             typeof (string)     // ID
                                                     );
@@ -157,7 +171,7 @@ private class ManifestListView : Gtk.TreeView {
 
         column.add_attribute (checkbox_renderer, "active", Column.ENABLED);
         column.add_attribute (checkbox_renderer, "visible", Column.CAN_ENABLE);
-        column.add_attribute (icon_renderer, "pixbuf", Column.ICON);
+        column.add_attribute (icon_renderer, "gicon", Column.ICON);
         column.add_attribute (text_renderer, "text", Column.NAME);
 
         append_column (column);
@@ -171,29 +185,14 @@ private class ManifestListView : Gtk.TreeView {
         set_grid_lines (Gtk.TreeViewGridLines.NONE);
         get_selection ().set_mode (Gtk.SelectionMode.BROWSE);
 
-        Gtk.IconTheme icon_theme = Resources.get_icon_theme_engine ();
-
         // create a list of plugins (sorted by name) that are separated by extension points (sorted
         // by name)
         foreach (ExtensionPoint extension_point in get_extension_points (compare_extension_point_names)) {
             Gtk.TreeIter category_iter;
             store.append (out category_iter, null);
 
-            Gdk.Pixbuf? icon = null;
-            if (extension_point.icon_name != null) {
-                Gtk.IconInfo? icon_info = icon_theme.lookup_by_gicon (
-                                              new ThemedIcon (extension_point.icon_name), ICON_SIZE, 0);
-                if (icon_info != null) {
-                    try {
-                        icon = icon_info.load_icon ();
-                    } catch (Error err) {
-                        warning ("Unable to load icon %s: %s", extension_point.icon_name, err.message);
-                    }
-                }
-            }
-
             store.set (category_iter, Column.NAME, extension_point.name, Column.CAN_ENABLE, false,
-                       Column.ICON, icon);
+                       Column.ICON, new ThemedIcon (extension_point.icon_name));
 
             Gee.Collection<Spit.Pluggable> pluggables = get_pluggables_for_type (
                         extension_point.pluggable_type, compare_pluggable_names, true);
@@ -204,21 +203,12 @@ private class ManifestListView : Gtk.TreeView {
 
                 Spit.PluggableInfo info = Spit.PluggableInfo ();
                 pluggable.get_info (ref info);
-                Gdk.Pixbuf? pix_icon = null;
-                try {
-                    pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
-                } catch (Error e) {
-                    warning (e.message);
-                }
-                icon = (info.icons != null && info.icons.length > 0)
-                       ? info.icons[0]
-                       : pix_icon;
 
                 Gtk.TreeIter plugin_iter;
                 store.append (out plugin_iter, category_iter);
 
                 store.set (plugin_iter, Column.ENABLED, enabled, Column.NAME, pluggable.get_pluggable_name (),
-                           Column.ID, pluggable.get_id (), Column.CAN_ENABLE, true, Column.ICON, icon);
+                           Column.ID, pluggable.get_id (), Column.CAN_ENABLE, true, Column.ICON, info.icon);
             }
         }
 
