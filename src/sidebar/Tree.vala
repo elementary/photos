@@ -49,7 +49,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         NAME,
         TOOLTIP,
         WRAPPER,
-        PIXBUF,
+        ICON,
         CLOSED_PIXBUF,
         OPEN_PIXBUF,
         PIXBUF_VISIBLE,
@@ -60,7 +60,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             typeof (string),            // NAME
             typeof (string? ),          // TOOLTIP
             typeof (EntryWrapper),      // WRAPPER
-            typeof (Gdk.Pixbuf? ),      // PIXBUF
+            typeof (GLib.Icon?),      // PIXBUF
             typeof (Gdk.Pixbuf? ),      // CLOSED_PIXBUF
             typeof (Gdk.Pixbuf? ),      // OPEN_PIXBUF
             typeof (bool)               // PIXBUF_VISIBLE
@@ -105,7 +105,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         text_column.set_sizing (Gtk.TreeViewColumnSizing.FIXED);
         Gtk.CellRendererPixbuf icon_renderer = new Gtk.CellRendererPixbuf ();
         text_column.pack_start (icon_renderer, false);
-        text_column.add_attribute (icon_renderer, "pixbuf", Columns.PIXBUF);
+        text_column.add_attribute (icon_renderer, "gicon", Columns.ICON);
         text_column.add_attribute (icon_renderer, "pixbuf_expander_closed", Columns.CLOSED_PIXBUF);
         text_column.add_attribute (icon_renderer, "pixbuf_expander_open", Columns.OPEN_PIXBUF);
         text_column.add_attribute (icon_renderer, "visible", Columns.PIXBUF_VISIBLE);
@@ -721,7 +721,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         EntryWrapper? wrapper = get_wrapper (entry);
         assert (wrapper != null);
 
-        store.set (wrapper.get_iter (), Columns.PIXBUF, fetch_icon_pixbuf (icon));
+        store.set (wrapper.get_iter (), Columns.ICON, icon);
         store.set (wrapper.get_iter (), Columns.PIXBUF_VISIBLE, !is_category_header (wrapper));
     }
 
@@ -759,7 +759,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             if (icon != null)
                 return icon;
 
-            Gtk.IconInfo? info = icon_theme.lookup_by_gicon (gicon, ICON_SIZE, 0);
+            Gtk.IconInfo? info = icon_theme.lookup_by_gicon_for_scale (gicon, ICON_SIZE, get_scale_factor (), Gtk.IconLookupFlags.GENERIC_FALLBACK);
             if (info == null)
                 return null;
 
@@ -798,7 +798,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         if (closed == null)
             closed = icon;
 
-        store.set (iter, Columns.PIXBUF, fetch_icon_pixbuf (icon));
+        store.set (iter, Columns.ICON, icon);
         store.set (iter, Columns.OPEN_PIXBUF, fetch_icon_pixbuf (open));
         store.set (iter, Columns.CLOSED_PIXBUF, fetch_icon_pixbuf (closed));
         store.set (wrapper.get_iter (), Columns.PIXBUF_VISIBLE, !is_category_header (wrapper));

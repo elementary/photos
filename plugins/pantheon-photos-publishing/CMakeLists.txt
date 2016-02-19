@@ -28,7 +28,8 @@ install(TARGETS ${TARGET_NAME} DESTINATION ${BUILTIN_DIR})
 
 # Install custom icons
 file (GLOB ICON_FILES *.png)
-install (FILES ${ICON_FILES} DESTINATION ${BUILTIN_DIR})
+file (GLOB SVG_FILES *.svg)
+install (FILES ${ICON_FILES} ${SVG_FILES} DESTINATION ${BUILTIN_DIR})
 
 # Install UI files
 file (GLOB UI_FILES *.ui)

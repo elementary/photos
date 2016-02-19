@@ -191,12 +191,12 @@ public class PublishingDialog : Gtk.Dialog {
         }
         set_title (title);
 
-        service_selector_box_model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
+        service_selector_box_model = new Gtk.ListStore (2, typeof (GLib.Icon), typeof (string));
         service_selector_box = new Gtk.ComboBox.with_model (service_selector_box_model);
 
         Gtk.CellRendererPixbuf renderer_pix = new Gtk.CellRendererPixbuf ();
         service_selector_box.pack_start (renderer_pix, true);
-        service_selector_box.add_attribute (renderer_pix, "pixbuf", 0);
+        service_selector_box.add_attribute (renderer_pix, "gicon", 0);
 
         Gtk.CellRendererText renderer_text = new Gtk.CellRendererText ();
         service_selector_box.pack_start (renderer_text, true);
@@ -221,23 +221,12 @@ public class PublishingDialog : Gtk.Dialog {
             string curr_service_id = service.get_id ();
 
             service.get_info (ref info);
-            Gdk.Pixbuf? pix_icon = null;
-            try {
-                Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
-                pix_icon = icon_theme.load_icon (Resources.ICON_GENERIC_PLUGIN, Resources.DEFAULT_ICON_SCALE, 0);
-            } catch (Error e) {
-                warning (e.message);
-            }
-            if (null != info.icons && 0 < info.icons.length) {
+            if (info.icon != null) {
                 // check if the icons object is set -- if set use that icon
-                service_selector_box_model.set (iter, 0, info.icons[0], 1,
-                                                service.get_pluggable_name ());
-
-                // in case the icons object is not set on the next iteration
-                info.icons[0] = pix_icon;
+                service_selector_box_model.set (iter, 0, info.icon, 1, service.get_pluggable_name ());
             } else {
                 // if icons object is null or zero length use a generic icon
-                service_selector_box_model.set (iter, 0, pix_icon, 1, service.get_pluggable_name ());
+                service_selector_box_model.set (iter, 0, new ThemedIcon (Resources.ICON_GENERIC_PLUGIN), 1, service.get_pluggable_name ());
             }
 
             if (last_used_service == null) {

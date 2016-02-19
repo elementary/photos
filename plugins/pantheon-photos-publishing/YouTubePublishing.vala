@@ -5,13 +5,11 @@
  */
 
 public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "youtube.png";
-
-    private static Gdk.Pixbuf[] icon_pixbuf_set = null;
+    private const string ICON_FILENAME = "youtube.svg";
+    private GLib.Icon icon;
 
     public YouTubeService (GLib.File resource_directory) {
-        if (icon_pixbuf_set == null)
-            icon_pixbuf_set = Resources.load_icon_set (resource_directory.get_child (ICON_FILENAME));
+        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {
@@ -36,7 +34,7 @@ public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
         info.website_url = Resources.WEBSITE_URL;
         info.is_license_wordwrapped = false;
         info.license = Resources.LICENSE;
-        info.icons = icon_pixbuf_set;
+        info.icon = icon;
     }
 
     public Spit.Publishing.Publisher create_publisher (Spit.Publishing.PluginHost host) {
