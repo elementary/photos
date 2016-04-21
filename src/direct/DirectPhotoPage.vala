@@ -318,8 +318,7 @@ public class DirectPhotoPage : EditingHostPage {
     protected override bool on_double_click (Gdk.EventButton event) {
         if (AppWindow.get_fullscreen () != null) {
             AppWindow.get_instance ().end_fullscreen ();
-        }
-        else {
+        } else {
             File file = get_current_file ();
             AppWindow.get_instance ().go_fullscreen (new DirectFullscreenPhotoPage (file));
         }
