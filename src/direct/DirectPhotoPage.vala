@@ -316,9 +316,13 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     protected override bool on_double_click (Gdk.EventButton event) {
-        AppWindow.get_instance ().end_fullscreen ();
-
-        return base.on_double_click (event);
+        if (AppWindow.get_fullscreen () != null) {
+            AppWindow.get_instance ().end_fullscreen ();
+        } else {
+            File file = get_current_file ();
+            AppWindow.get_instance ().go_fullscreen (new DirectFullscreenPhotoPage (file));
+        }
+        return true;
     }
 
     protected override void update_ui (bool missing) {
