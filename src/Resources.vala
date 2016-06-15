@@ -618,7 +618,7 @@ private Gdk.Pixbuf? get_rating_trinket (Rating rating, int scale) {
 }
 
 private static Gdk.Pixbuf? flag_trinket_cache;
-private static const int flag_padding = 2;
+private const int flag_padding = 2;
 
 public Gdk.Pixbuf? get_flag_trinket () {
     if (flag_trinket_cache != null)
