@@ -26,7 +26,7 @@ void library_exec (string[] mounts) {
         Application.send_to_primary_instance (mounts);
         return;
     }
-    
+
     // preconfigure units
     Db.preconfigure (AppDirs.get_data_subdir ("data").get_child ("photo.db"));
 
@@ -326,8 +326,8 @@ public Granite.Widgets.AboutDialog create_about_dialog (bool is_direct = false) 
     about.authors = Resources.AUTHORS;
     about.documenters = {};
     about.artists = {};
-    about.translator_credits = "Launchpad Translators";
-    about.license = Resources.LICENSE;
+    about.translator_credits = _("translator-credits");
+    about.license = Gtk.License.LGPL_2_1;
     about.help = Resources.HELP_URL;
     about.translate = Resources.TRANSLATE_URL;
     about.bug = Resources.BUG_DB_URL;
