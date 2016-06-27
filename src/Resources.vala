@@ -18,7 +18,7 @@ public const string? GIT_VERSION = null;
 #endif
 
 // TRANSLATORS: Don't forget to add the line break: \n
-public const string COPYRIGHT = _("2009-2014 Yorba Foundation\n© 2014 Photos Developers");
+public const string COPYRIGHT = _("2009-2014 Yorba Foundation\n© 2014-2016 Photos Developers");
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string YORBA_URL = "http://www.yorba.org";
@@ -48,20 +48,6 @@ public const string[] AUTHORS = {
     "Clinton Rogers <clinton@yorba.org>",
     null
 };
-
-public const string LICENSE = _("""Shotwell is free software; you can redistribute it and/or modify it under the
-terms of the GNU Lesser General Public License as published by the Free
-Software Foundation; either version 2.1 of the License, or (at your option)
-any later version.
-
-Shotwell is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
-more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with Shotwell; if not, write to the Free Software Foundation, Inc.,
-51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA""");
 
 public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
@@ -640,7 +626,7 @@ public Gdk.Pixbuf? get_flag_trinket () {
     } catch (Error e) {
         return null;
     }
-    
+
     Gdk.cairo_set_source_pixbuf (cr, flag, flag_padding, flag_padding);
     cr.paint ();
     flag_trinket_cache = surface.load_to_pixbuf ();
