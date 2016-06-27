@@ -45,7 +45,7 @@ public class Application : Granite.Application {
         about_documenters = {};
         about_artists = {};
         about_translators = _("translator-credits");
-        about_license = Resources.LICENSE;
+        about_license_type = Gtk.License.LGPL_2_1;
     }
 
     private Application (bool is_direct) {
