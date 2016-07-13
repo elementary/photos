@@ -215,7 +215,7 @@ public class StraightenTool : EditingTool {
             Box.from_center (new_crop_center,
                              (int) (rotate_scale * crop_width), (int) (rotate_scale * crop_height)),
             Resources.STRAIGHTEN_LABEL, Resources.STRAIGHTEN_TOOLTIP);
-        applied (command, null, image_dims, true);
+        applied (command, canvas.get_scaled_pixbuf (), image_dims, true);
     }
 
     private void high_qual_repaint () {
