@@ -5,7 +5,7 @@
  */
 
 public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "picasa.png";
+    private const string ICON_FILENAME = "google-photos.svg";
     private GLib.Icon icon;
 
     public PicasaService (GLib.File resource_directory) {
@@ -22,7 +22,7 @@ public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_pluggable_name () {
-        return "Picasa Web Albums";
+        return "Google Photos";
     }
 
     public void get_info (ref Spit.PluggableInfo info) {
@@ -53,8 +53,7 @@ public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
 namespace Publishing.Picasa {
 
 internal const string SERVICE_WELCOME_MESSAGE =
-    _ ("You are not currently logged into Picasa Web Albums.\n\nClick Login to log into Picasa Web Albums in your Web browser. You will have to authorize Shotwell Connect to link to your Picasa Web Albums account.");
-internal const string DEFAULT_ALBUM_NAME = _ ("Shotwell Connect");
+    _ ("You are not currently logged into Google Photos.\n\nClick Login to log into Google Photos in your Web browser. You will have to authorize elementary OS to link to your Google Photos account.");
 
 public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
     private bool running;
@@ -78,55 +77,14 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         this.progress_reporter = null;
     }
 
-    private Album[] extract_albums_helper (Xml.Node *document_root)
-    throws Spit.Publishing.PublishingError {
-        Album[] result = new Album[0];
-
-        Xml.Node *doc_node_iter = null;
-        if (document_root->name == "feed")
-            doc_node_iter = document_root->children;
-        else if (document_root->name == "entry")
-            doc_node_iter = document_root;
-        else
-            throw new Spit.Publishing.PublishingError.MALFORMED_RESPONSE ("response root node " +
-            "isn't a <feed> or <entry>");
-
-        for ( ; doc_node_iter != null; doc_node_iter = doc_node_iter->next) {
-            if (doc_node_iter->name != "entry")
-                continue;
-
-            string name_val = null;
-            string url_val = null;
-            Xml.Node *album_node_iter = doc_node_iter->children;
-            for ( ; album_node_iter != null; album_node_iter = album_node_iter->next) {
-                if (album_node_iter->name == "title") {
-                    name_val = album_node_iter->get_content ();
-                } else if (album_node_iter->name == "id") {
-                    // we only want nodes in the default namespace -- the feed that we get back
-                    // from Google also defines <entry> child nodes named <id> in the gphoto and
-                    // media namespaces
-                    if (album_node_iter->ns->prefix != null)
-                        continue;
-                    url_val = album_node_iter->get_content ();
-                }
-            }
-
-            result += new Album (name_val, url_val);
-        }
-
-        return result;
-    }
-
     private void load_parameters_from_configuration_system (PublishingParameters parameters) {
         parameters.set_major_axis_size_selection_id (get_host ().get_config_int ("default-size", 0));
         parameters.set_strip_metadata (get_host ().get_config_bool ("strip-metadata", false));
-        parameters.set_target_album_name (get_host ().get_config_string ("last-album", null));
     }
 
     private void save_parameters_to_configuration_system (PublishingParameters parameters) {
         get_host ().set_config_int ("default-size", parameters.get_major_axis_size_selection_id ());
         get_host ().set_config_bool ("strip_metadata", parameters.get_strip_metadata ());
-        get_host ().set_config_string ("last-album", parameters.get_target_album_name ());
     }
 
     private void on_service_welcome_login () {
@@ -148,37 +106,6 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         do_fetch_account_information ();
     }
 
-    private void on_initial_album_fetch_complete (Publishing.RESTSupport.Transaction txn) {
-        txn.completed.disconnect (on_initial_album_fetch_complete);
-        txn.network_error.disconnect (on_initial_album_fetch_error);
-
-        if (!is_running ())
-            return;
-
-        debug ("EVENT: finished fetching account and album information.");
-
-        do_parse_and_display_account_information ((AlbumDirectoryTransaction) txn);
-    }
-
-    private void on_initial_album_fetch_error (Publishing.RESTSupport.Transaction bad_txn,
-            Spit.Publishing.PublishingError err) {
-        bad_txn.completed.disconnect (on_initial_album_fetch_complete);
-        bad_txn.network_error.disconnect (on_initial_album_fetch_error);
-
-        if (!is_running ())
-            return;
-
-        debug ("EVENT: fetching account and album information failed; response = '%s'.",
-               bad_txn.get_response ());
-
-        if (bad_txn.get_status_code () == 403 || bad_txn.get_status_code () == 404) {
-            do_logout ();
-        } else {
-            // If we get any other kind of error, we can't recover, so just post it to the user
-            get_host ().post_error (err);
-        }
-    }
-
     private void on_publishing_options_logout () {
         if (!is_running ())
             return;
@@ -195,65 +122,7 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         debug ("EVENT: user clicked 'Publish' in the publishing options pane.");
 
         save_parameters_to_configuration_system (publishing_parameters);
-
-        if (publishing_parameters.is_to_new_album ()) {
-            do_create_album ();
-        } else {
-            do_upload ();
-        }
-    }
-
-    private void on_album_creation_complete (Publishing.RESTSupport.Transaction txn) {
-        txn.completed.disconnect (on_album_creation_complete);
-        txn.network_error.disconnect (on_album_creation_error);
-
-        if (!is_running ())
-            return;
-
-        debug ("EVENT: finished creating album on remote server.");
-
-        AlbumCreationTransaction downcast_txn = (AlbumCreationTransaction) txn;
-        Publishing.RESTSupport.XmlDocument response_doc;
-        try {
-            response_doc = Publishing.RESTSupport.XmlDocument.parse_string (
-                               downcast_txn.get_response (), AlbumDirectoryTransaction.validate_xml);
-        } catch (Spit.Publishing.PublishingError err) {
-            get_host ().post_error (err);
-            return;
-        }
-
-        Album[] response_albums;
-        try {
-            response_albums = extract_albums_helper (response_doc.get_root_node ());
-        } catch (Spit.Publishing.PublishingError err) {
-            get_host ().post_error (err);
-            return;
-        }
-
-        if (response_albums.length != 1) {
-            get_host ().post_error (new Spit.Publishing.PublishingError.MALFORMED_RESPONSE ("album " +
-                                   "creation transaction responses must contain one and only one album directory " +
-                                   "entry"));
-            return;
-        }
-
-        publishing_parameters.set_target_album_entry_url (response_albums[0].url);
-
         do_upload ();
-    }
-
-    private void on_album_creation_error (Publishing.RESTSupport.Transaction bad_txn,
-                                          Spit.Publishing.PublishingError err) {
-        bad_txn.completed.disconnect (on_album_creation_complete);
-        bad_txn.network_error.disconnect (on_album_creation_error);
-
-        if (!is_running ())
-            return;
-
-        debug ("EVENT: creating album on remote server failed; response = '%s'.",
-               bad_txn.get_response ());
-
-        get_host ().post_error (err);
     }
 
     private void on_upload_status_updated (int file_number, double completed_fraction) {
@@ -305,40 +174,6 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         get_host ().install_account_fetch_wait_pane ();
         get_host ().set_service_locked (true);
 
-        AlbumDirectoryTransaction directory_trans =
-            new AlbumDirectoryTransaction (get_session ());
-        directory_trans.network_error.connect (on_initial_album_fetch_error);
-        directory_trans.completed.connect (on_initial_album_fetch_complete);
-
-        try {
-            directory_trans.execute ();
-        } catch (Spit.Publishing.PublishingError err) {
-            // don't post the error here -- some errors are recoverable so let's let the error
-            // handler function sort out whether the error is recoverable or not. If the error
-            // isn't recoverable, the error handler will post the error to the host
-            on_initial_album_fetch_error (directory_trans, err);
-        }
-    }
-
-    private void do_parse_and_display_account_information (AlbumDirectoryTransaction transaction) {
-        debug ("ACTION: parsing account and album information from server response XML");
-
-        Publishing.RESTSupport.XmlDocument response_doc;
-        try {
-            response_doc = Publishing.RESTSupport.XmlDocument.parse_string (
-                               transaction.get_response (), AlbumDirectoryTransaction.validate_xml);
-        } catch (Spit.Publishing.PublishingError err) {
-            get_host ().post_error (err);
-            return;
-        }
-
-        try {
-            publishing_parameters.set_albums (extract_albums_helper (response_doc.get_root_node ()));
-        } catch (Spit.Publishing.PublishingError err) {
-            get_host ().post_error (err);
-            return;
-        }
-
         do_show_publishing_options_pane ();
     }
 
@@ -366,27 +201,6 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         get_host ().install_dialog_pane (opts_pane);
 
         get_host ().set_service_locked (false);
-    }
-
-    private void do_create_album () {
-        assert (publishing_parameters.is_to_new_album ());
-
-        debug ("ACTION: creating new album '%s' on remote server.",
-               publishing_parameters.get_target_album_name ());
-
-        get_host ().install_static_message_pane (_ ("Creating album..."));
-
-        get_host ().set_service_locked (true);
-
-        AlbumCreationTransaction creation_trans = new AlbumCreationTransaction (get_session (),
-                publishing_parameters);
-        creation_trans.network_error.connect (on_album_creation_error);
-        creation_trans.completed.connect (on_album_creation_complete);
-        try {
-            creation_trans.execute ();
-        } catch (Spit.Publishing.PublishingError err) {
-            get_host ().post_error (err);
-        }
     }
 
     private void do_upload () {
@@ -459,52 +273,6 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
     }
 }
 
-internal class Album {
-    public string name;
-    public string url;
-
-    public Album (string name, string url) {
-        this.name = name;
-        this.url = url;
-    }
-}
-
-internal class AlbumDirectoryTransaction :
-    Publishing.RESTSupport.GooglePublisher.AuthenticatedTransaction {
-    private const string ENDPOINT_URL = "http://picasaweb.google.com/data/feed/api/user/" +
-                                        "default";
-
-    public AlbumDirectoryTransaction (Publishing.RESTSupport.GoogleSession session) {
-        base (session, ENDPOINT_URL, Publishing.RESTSupport.HttpMethod.GET);
-    }
-
-    public static string? validate_xml (Publishing.RESTSupport.XmlDocument doc) {
-        Xml.Node *document_root = doc.get_root_node ();
-        if ((document_root->name == "feed") || (document_root->name == "entry"))
-            return null;
-        else
-            return "response root node isn't a <feed> or <entry>";
-    }
-}
-
-private class AlbumCreationTransaction :
-    Publishing.RESTSupport.GooglePublisher.AuthenticatedTransaction {
-    private const string ENDPOINT_URL = "http://picasaweb.google.com/data/feed/api/user/" +
-                                        "default";
-    private const string ALBUM_ENTRY_TEMPLATE = "<?xml version='1.0' encoding='utf-8'?><entry xmlns='http://www.w3.org/2005/Atom' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>%s</title><gphoto:access>%s</gphoto:access><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>";
-
-    public AlbumCreationTransaction (Publishing.RESTSupport.GoogleSession session,
-                                     PublishingParameters parameters) {
-        base (session, ENDPOINT_URL, Publishing.RESTSupport.HttpMethod.POST);
-
-        string post_body = ALBUM_ENTRY_TEMPLATE.printf (Publishing.RESTSupport.decimal_entity_encode (
-                               parameters.get_target_album_name ()), parameters.is_new_album_public () ?
-                           "public" : "private");
-
-        set_custom_payload (post_body, "application/atom+xml");
-    }
-}
-
 internal class UploadTransaction :
     Publishing.RESTSupport.GooglePublisher.AuthenticatedTransaction {
     private PublishingParameters parameters;
@@ -516,7 +284,7 @@ internal class UploadTransaction :
 
     public UploadTransaction (Publishing.RESTSupport.GoogleSession session,
                               PublishingParameters parameters, Spit.Publishing.Publishable publishable) {
-        base (session, parameters.get_target_album_feed_url (),
+        base (session, "https://picasaweb.google.com/data/feed/api/user/default/albumid/default",
               Publishing.RESTSupport.HttpMethod.POST);
         assert (session.is_authenticated ());
         this.session = session;
@@ -614,12 +382,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
     private Gtk.Builder builder = null;
     private Gtk.Box pane_widget = null;
     private Gtk.Label login_identity_label = null;
-    private Gtk.Label publish_to_label = null;
-    private Gtk.RadioButton use_existing_radio = null;
-    private Gtk.ComboBoxText existing_albums_combo = null;
-    private Gtk.RadioButton create_new_radio = null;
-    private Gtk.Entry new_album_entry = null;
-    private Gtk.CheckButton public_check = null;
     private Gtk.ComboBoxText size_combo = null;
     private Gtk.CheckButton strip_metadata_check = null;
     private Gtk.Button publish_button = null;
@@ -642,12 +404,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
         // pull in all widgets from builder.
         pane_widget = (Gtk.Box) builder.get_object ("picasa_pane_widget");
         login_identity_label = (Gtk.Label) builder.get_object ("login_identity_label");
-        publish_to_label = (Gtk.Label) builder.get_object ("publish_to_label");
-        use_existing_radio = (Gtk.RadioButton) builder.get_object ("use_existing_radio");
-        existing_albums_combo = (Gtk.ComboBoxText) builder.get_object ("existing_albums_combo");
-        create_new_radio = (Gtk.RadioButton) builder.get_object ("create_new_radio");
-        new_album_entry = (Gtk.Entry) builder.get_object ("new_album_entry");
-        public_check = (Gtk.CheckButton) builder.get_object ("public_check");
         size_combo = (Gtk.ComboBoxText) builder.get_object ("size_combo");
         strip_metadata_check = (Gtk.CheckButton) this.builder.get_object ("strip_metadata_check");
         publish_button = (Gtk.Button) builder.get_object ("publish_button");
@@ -660,11 +416,9 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
 
 
         if ((parameters.get_media_type () & Spit.Publishing.Publisher.MediaType.PHOTO) == 0) {
-            publish_to_label.set_label (_ ("Videos will appear in:"));
             size_combo.set_visible (false);
             size_combo.set_sensitive (false);
         } else {
-            publish_to_label.set_label (_ ("Photos will appear in:"));
             foreach (SizeDescription desc in size_descriptions) {
                 size_combo.append_text (desc.name);
             }
@@ -674,9 +428,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
         }
 
         // connect all signals.
-        use_existing_radio.clicked.connect (on_use_existing_radio_clicked);
-        create_new_radio.clicked.connect (on_create_new_radio_clicked);
-        new_album_entry.changed.connect (on_new_album_entry_changed);
         logout_button.clicked.connect (on_logout_clicked);
         publish_button.clicked.connect (on_publish_clicked);
     }
@@ -691,50 +442,11 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
         parameters.set_major_axis_size_pixels (
             size_descriptions[size_combo_last_active].major_axis_pixels);
         parameters.set_strip_metadata (strip_metadata_check.get_active ());
-
-        Album[] albums = parameters.get_albums ();
-
-        if (create_new_radio.get_active ()) {
-            parameters.set_target_album_name (new_album_entry.get_text ());
-            parameters.set_is_to_new_album (true);
-            parameters.set_is_new_album_public (public_check.get_active ());
-            publish ();
-        } else {
-            parameters.set_target_album_name (albums[existing_albums_combo.get_active ()].name);
-            parameters.set_is_to_new_album (false);
-            parameters.set_target_album_entry_url (albums[existing_albums_combo.get_active ()].url);
-            publish ();
-        }
-    }
-
-    private void on_use_existing_radio_clicked () {
-        existing_albums_combo.set_sensitive (true);
-        new_album_entry.set_sensitive (false);
-        existing_albums_combo.grab_focus ();
-        update_publish_button_sensitivity ();
-        public_check.set_sensitive (false);
-    }
-
-    private void on_create_new_radio_clicked () {
-        new_album_entry.set_sensitive (true);
-        existing_albums_combo.set_sensitive (false);
-        new_album_entry.grab_focus ();
-        update_publish_button_sensitivity ();
-        public_check.set_sensitive (true);
+        publish ();
     }
 
     private void on_logout_clicked () {
         logout ();
-    }
-
-    private void update_publish_button_sensitivity () {
-        string album_name = new_album_entry.get_text ();
-        publish_button.set_sensitive (! (album_name.strip () == "" &&
-                                         create_new_radio.get_active ()));
-    }
-
-    private void on_new_album_entry_changed () {
-        update_publish_button_sensitivity ();
     }
 
     private SizeDescription[] create_size_descriptions () {
@@ -749,42 +461,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
         return result;
     }
 
-    public void installed () {
-        int default_album_id = -1;
-        string last_album = parameters.get_target_album_name ();
-
-        Album[] albums = parameters.get_albums ();
-
-        for (int i = 0; i < albums.length; i++) {
-            existing_albums_combo.append_text (albums[i].name);
-            if (albums[i].name == last_album ||
-                    (albums[i].name == DEFAULT_ALBUM_NAME && default_album_id == -1))
-                default_album_id = i;
-        }
-
-        if (albums.length == 0) {
-            existing_albums_combo.set_sensitive (false);
-            use_existing_radio.set_sensitive (false);
-            create_new_radio.set_active (true);
-            new_album_entry.grab_focus ();
-            new_album_entry.set_text (DEFAULT_ALBUM_NAME);
-        } else {
-            if (default_album_id >= 0) {
-                use_existing_radio.set_active (true);
-                existing_albums_combo.set_active (default_album_id);
-                new_album_entry.set_sensitive (false);
-                public_check.set_sensitive (false);
-            } else {
-                create_new_radio.set_active (true);
-                existing_albums_combo.set_active (0);
-                new_album_entry.set_text (DEFAULT_ALBUM_NAME);
-                new_album_entry.grab_focus ();
-                public_check.set_sensitive (true);
-            }
-        }
-        update_publish_button_sensitivity ();
-    }
-
     public Gtk.Widget get_widget () {
         return pane_widget;
     }
@@ -794,7 +470,7 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
     }
 
     public void on_pane_installed () {
-        installed ();
+        
     }
 
     public void on_pane_uninstalled () {
@@ -804,67 +480,18 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
 internal class PublishingParameters {
     public const int ORIGINAL_SIZE = -1;
 
-    private string? target_album_name;
-    private string? target_album_url;
-    private bool album_public;
     private bool strip_metadata;
     private int major_axis_size_pixels;
     private int major_axis_size_selection_id;
     private string user_name;
-    private Album[] albums;
     private Spit.Publishing.Publisher.MediaType media_type;
-    private bool to_new_album;
 
     public PublishingParameters () {
         this.user_name = "[unknown]";
-        this.target_album_name = null;
         this.major_axis_size_selection_id = 0;
         this.major_axis_size_pixels = ORIGINAL_SIZE;
-        this.target_album_url = null;
-        this.album_public = false;
-        this.albums = null;
         this.strip_metadata = false;
         this.media_type = Spit.Publishing.Publisher.MediaType.PHOTO;
-        this.to_new_album = true;
-    }
-
-    public bool is_to_new_album () {
-        return to_new_album;
-    }
-
-    public void set_is_to_new_album (bool to_new_album) {
-        this.to_new_album = to_new_album;
-    }
-
-    public void set_is_new_album_public (bool album_public) {
-        this.album_public = album_public;
-    }
-
-    public bool is_new_album_public () {
-        return album_public;
-    }
-
-    public string get_target_album_name () {
-        return target_album_name;
-    }
-
-    public void set_target_album_name (string target_album_name) {
-        this.target_album_name = target_album_name;
-    }
-
-    public void set_target_album_entry_url (string target_album_url) {
-        this.target_album_url = target_album_url;
-    }
-
-    public string get_target_album_entry_url () {
-        return target_album_url;
-    }
-
-    public string get_target_album_feed_url () {
-        string entry_url = get_target_album_entry_url ();
-        string feed_url = entry_url.replace ("entry", "feed");
-
-        return feed_url;
     }
 
     public string get_user_name () {
@@ -873,14 +500,6 @@ internal class PublishingParameters {
 
     public void set_user_name (string user_name) {
         this.user_name = user_name;
-    }
-
-    public Album[] get_albums () {
-        return albums;
-    }
-
-    public void set_albums (Album[] albums) {
-        this.albums = albums;
     }
 
     public void set_major_axis_size_pixels (int pixels) {
