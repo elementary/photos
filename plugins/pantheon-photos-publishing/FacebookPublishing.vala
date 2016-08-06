@@ -437,7 +437,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
             access_token = decoded_uri[index:decoded_uri.length];
         if (access_token == null) {
             host.post_error (new Spit.Publishing.PublishingError.MALFORMED_RESPONSE (
-                                 "Server redirect URL contained no access token"));
+                                 _("Server redirect URL contained no access token")));
             return;
         }
 
