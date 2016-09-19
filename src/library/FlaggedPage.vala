@@ -21,8 +21,7 @@ public class FlaggedPage : CollectionPage {
 
     private class FlaggedSearchViewFilter : CollectionPage.CollectionSearchViewFilter {
         public override uint get_criteria () {
-            return SearchFilterCriteria.TEXT | SearchFilterCriteria.MEDIA |
-                   SearchFilterCriteria.RATING;
+            return SearchFilterCriteria.TEXT | SearchFilterCriteria.MEDIA;
         }
     }
 

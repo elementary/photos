@@ -53,7 +53,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.Toolbar toolbar;
     protected bool in_view = false;
     protected Gtk.ToolButton show_sidebar_button;
-    protected PhotoRatingMenuItem rating_menu_item;
 
     private string page_name;
     private ViewCollection view = null;
@@ -141,27 +140,6 @@ public abstract class Page : Gtk.ScrolledWindow {
             contractor_menu_items.append (menu_item);
         }
         menu.show_all ();
-    }
-
-    protected void populate_rating_widget_menu_item (Gtk.Menu menu, string placeholder_ui) {
-        if (rating_menu_item != null) rating_menu_item.destroy ();
-        rating_menu_item = new PhotoRatingMenuItem ();
-        //find where is rating_placeholder in the menu
-        Gtk.Widget holder = ui.get_widget (placeholder_ui);
-        int pos = 0;
-        foreach (Gtk.Widget w in menu.get_children ()) {
-            if (w == holder)
-                break;
-            pos++;
-        }
-
-        menu.append (rating_menu_item);
-        menu.reorder_child (rating_menu_item, pos);
-        rating_menu_item.activate.connect (on_rating_widget_activate);
-        menu.show_all ();
-    }
-
-    protected virtual void on_rating_widget_activate () {
     }
 
     // This is called by the page

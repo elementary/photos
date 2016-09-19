@@ -77,83 +77,6 @@ public abstract class PhotoTransformationState : Object {
     }
 }
 
-public enum Rating {
-    REJECTED = -1,
-    UNRATED = 0,
-    ONE = 1,
-    TWO = 2,
-    THREE = 3,
-    FOUR = 4,
-    FIVE = 5;
-
-    public bool can_increase () {
-        return this < FIVE;
-    }
-
-    public bool can_decrease () {
-        return this > REJECTED;
-    }
-
-    public bool is_valid () {
-        return this >= REJECTED && this <= FIVE;
-    }
-
-    public Rating increase () {
-        return can_increase () ? this + 1 : this;
-    }
-
-    public Rating decrease () {
-        return can_decrease () ? this - 1 : this;
-    }
-
-    public int serialize () {
-        switch (this) {
-        case REJECTED:
-            return -1;
-        case UNRATED:
-            return 0;
-        case ONE:
-            return 1;
-        case TWO:
-            return 2;
-        case THREE:
-            return 3;
-        case FOUR:
-            return 4;
-        case FIVE:
-            return 5;
-        default:
-            return 0;
-        }
-    }
-
-    public static Rating unserialize (int value) {
-        if (value > FIVE)
-            return FIVE;
-        else if (value < REJECTED)
-            return REJECTED;
-
-        switch (value) {
-        case -1:
-            return REJECTED;
-        case 0:
-            return UNRATED;
-        case 1:
-            return ONE;
-        case 2:
-            return TWO;
-        case 3:
-            return THREE;
-        case 4:
-            return FOUR;
-        case 5:
-            return FIVE;
-        default:
-            return UNRATED;
-        }
-    }
-}
-
 // Photo is an abstract class that allows for applying transformations on-the-fly to a
 // particular photo without modifying the backing image file.  The interface allows for
 // transformations to be stored persistently elsewhere or in memory until they're committed en
@@ -1172,7 +1095,6 @@ public abstract class Photo : PhotoSource, Dateable {
         time_t exposure_time = 0;
         string title = "";
         string comment = "";
-        Rating rating = Rating.UNRATED;
 
 #if TRACE_MD5
         debug ("importing MD5 %s: exif=%s preview=%s full=%s", file.get_path (), detected.exif_md5,
@@ -1188,7 +1110,6 @@ public abstract class Photo : PhotoSource, Dateable {
             title = detected.metadata.get_title ();
             comment = detected.metadata.get_comment ();
             params.keywords = detected.metadata.get_keywords ();
-            rating = detected.metadata.get_rating ();
         }
 
         // verify basic mechanics of photo: RGB 8-bit encoding
@@ -1222,7 +1143,6 @@ public abstract class Photo : PhotoSource, Dateable {
         params.row.master.file_format = detected.file_format;
         params.row.title = title;
         params.row.comment = comment;
-        params.row.rating = rating;
 
         if (params.thumbnails != null) {
             PhotoFileReader reader = params.row.master.file_format.create_reader (
@@ -1262,7 +1182,6 @@ public abstract class Photo : PhotoSource, Dateable {
         params.row.master.file_format = PhotoFileFormat.JFIF;
         params.row.title = null;
         params.row.comment = null;
-        params.row.rating = Rating.UNRATED;
 
         PhotoFileInterrogator interrogator = new PhotoFileInterrogator (params.file, params.sniffer_options);
         try {
@@ -1424,9 +1343,6 @@ public abstract class Photo : PhotoSource, Dateable {
 
             if (updated_row.comment != detected.metadata.get_comment ())
                 list += "metadata:comment";
-
-            if (updated_row.rating != detected.metadata.get_rating ())
-                list += "metadata:rating";
         }
 
         updated_row.master = backing;
@@ -1444,7 +1360,7 @@ public abstract class Photo : PhotoSource, Dateable {
 
             updated_row.title = detected.metadata.get_title ();
             updated_row.comment = detected.metadata.get_comment ();
-            updated_row.rating = detected.metadata.get_rating ();
+            updated_row.comment = detected.metadata.get_comment ();
         }
 
         reimport_state = new ReimportMasterStateImpl (updated_row, metadata, list);
@@ -1553,11 +1469,10 @@ public abstract class Photo : PhotoSource, Dateable {
         if (reimport_state.metadata != null) {
             set_title (reimport_state.metadata.get_title ());
             set_comment (reimport_state.metadata.get_comment ());
-            set_rating (reimport_state.metadata.get_rating ());
             apply_user_metadata_for_reimport (reimport_state.metadata);
         }
 
-        string list = "metadata:name,image:orientation,metadata:rating,metadata:exposure-time";
+        string list = "metadata:name,image:orientation,metadata:exposure-time";
         if (!reimport_state.metadata_only)
             list += "image:editable,image:baseline";
 
@@ -1620,7 +1535,7 @@ public abstract class Photo : PhotoSource, Dateable {
             }
         }
 
-        string list = "metadata:name,image:orientation,metadata:rating,metadata:exposure-time";
+        string list = "metadata:name,image:orientation,metadata:exposure-time";
         if (!reimport_state.metadata_only)
             list += "image:editable,image:baseline";
 
@@ -2152,39 +2067,6 @@ public abstract class Photo : PhotoSource, Dateable {
 
         if (committed)
             notify_altered (new Alteration ("metadata", "enhanced"));
-    }
-
-    public override Rating get_rating () {
-        lock (row) {
-            return row.rating;
-        }
-    }
-
-    public override void set_rating (Rating rating) {
-        bool committed = false;
-
-        lock (row) {
-            if (rating != row.rating && rating.is_valid ()) {
-                committed = PhotoTable.get_instance ().set_rating (get_photo_id (), rating);
-                if (committed)
-                    row.rating = rating;
-            }
-        }
-
-        if (committed)
-            notify_altered (new Alteration ("metadata", "rating"));
-    }
-
-    public override void increase_rating () {
-        lock (row) {
-            set_rating (row.rating.increase ());
-        }
-    }
-
-    public override void decrease_rating () {
-        lock (row) {
-            set_rating (row.rating.decrease ());
-        }
     }
 
     protected override void commit_backlinks (SourceCollection? sources, string? backlinks) {
@@ -4975,9 +4857,6 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
         // if marked in a state where they're held in an orphanage, rehydrate their backlinks
         if ((row.flags & (FLAG_TRASH | FLAG_OFFLINE)) != 0)
             rehydrate_backlinks (global, row.backlinks);
-
-        if ((row.flags & (FLAG_HIDDEN | FLAG_FAVORITE)) != 0)
-            upgrade_rating_flags (row.flags);
     }
 
     private LibraryPhoto.from_import_params (PhotoImportParams import_params) {
@@ -4989,9 +4868,6 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
         // if marked in a state where they're held in an orphanage, rehydrate their backlinks
         if ((import_params.row.flags & (FLAG_TRASH | FLAG_OFFLINE)) != 0)
             rehydrate_backlinks (global, import_params.row.backlinks);
-
-        if ((import_params.row.flags & (FLAG_HIDDEN | FLAG_FAVORITE)) != 0)
-            upgrade_rating_flags (import_params.row.flags);
     }
 
     public static void init (ProgressMonitor? monitor = null) {
@@ -5208,18 +5084,6 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
         spin_event_loop ();
     }
 
-    private void upgrade_rating_flags (uint64 flags) {
-        if ((flags & FLAG_HIDDEN) != 0) {
-            set_rating (Rating.REJECTED);
-            remove_flags (FLAG_HIDDEN);
-        }
-
-        if ((flags & FLAG_FAVORITE) != 0) {
-            set_rating (Rating.FIVE);
-            remove_flags (FLAG_FAVORITE);
-        }
-    }
-
     // Blotto even!
     public override bool is_trashed () {
         return is_flag_set (FLAG_TRASH);
@@ -5310,10 +5174,7 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
 
         PhotoMetadata? metadata = get_metadata ();
         if (metadata == null)
-            return tags != null || tags.size > 0 || get_rating () != Rating.UNRATED;
-
-        if (get_rating () != metadata.get_rating ())
-            return true;
+            return tags != null || tags.size > 0;
 
         Gee.Set<string>? keywords = metadata.get_keywords ();
         int tags_count = (tags != null) ? tags.size : 0;
@@ -5342,8 +5203,6 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
             metadata.set_keywords (string_tags);
         } else
             metadata.set_keywords (null);
-
-        metadata.set_rating (get_rating ());
     }
 
     protected override void apply_user_metadata_for_reimport (PhotoMetadata metadata) {

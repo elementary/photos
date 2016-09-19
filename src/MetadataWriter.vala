@@ -94,13 +94,6 @@ public class MetadataWriter : Object {
                 changed = true;
             }
 
-            // rating
-            Rating current_rating = photo.get_rating ();
-            if (current_rating != metadata.get_rating ()) {
-                metadata.set_rating (current_rating);
-                changed = true;
-            }
-
             // exposure date/time
             time_t current_exposure_time = photo.get_exposure_time ();
             time_t metadata_exposure_time = 0;

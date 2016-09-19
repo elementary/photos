@@ -107,8 +107,7 @@ public abstract class MediaPage : CheckerboardPage {
         MIN = 1,
         TITLE = 1,
         EXPOSURE_DATE = 2,
-        RATING = 3,
-        MAX = 3
+        MAX = 2
     }
 
     protected class ZoomSliderAssembly : Gtk.ToolItem {
@@ -242,8 +241,7 @@ public abstract class MediaPage : CheckerboardPage {
         get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
                                  Config.Facade.get_instance ().get_display_photo_tags ());
         get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
-        get_view ().set_property (Thumbnail.PROP_SHOW_RATINGS,
-                                 Config.Facade.get_instance ().get_display_photo_ratings ());
+
         get_view ().thaw_notifications ();
 
         // enable drag-and-drop export of media
@@ -311,28 +309,6 @@ public abstract class MediaPage : CheckerboardPage {
         flag.label = Resources.FLAG_MENU;
         actions += flag;
 
-        Gtk.ActionEntry set_rating = { "Rate", null, TRANSLATABLE, null, null, null };
-        set_rating.label = Resources.RATING_MENU;
-        actions += set_rating;
-
-        Gtk.ActionEntry increase_rating = { "IncreaseRating", null, TRANSLATABLE,
-                                            "greater", TRANSLATABLE, on_increase_rating
-                                          };
-        increase_rating.label = Resources.INCREASE_RATING_MENU;
-        actions += increase_rating;
-
-        Gtk.ActionEntry decrease_rating = { "DecreaseRating", null, TRANSLATABLE,
-                                            "less", TRANSLATABLE, on_decrease_rating
-                                          };
-        decrease_rating.label = Resources.DECREASE_RATING_MENU;
-        actions += decrease_rating;
-
-        Gtk.ActionEntry rate_rejected = { "RateRejected", null, TRANSLATABLE,
-                                          "9", TRANSLATABLE, on_rate_rejected
-                                        };
-        rate_rejected.label = Resources.rating_menu (Rating.REJECTED);
-        actions += rate_rejected;
-
         Gtk.ActionEntry sort_photos = { "SortPhotos", null, TRANSLATABLE, null, null, null };
         sort_photos.label = _ ("Sort _Photos");
         actions += sort_photos;
@@ -379,13 +355,6 @@ public abstract class MediaPage : CheckerboardPage {
         comments.tooltip = _ ("Display the comment of each photo");
         toggle_actions += comments;
 
-        Gtk.ToggleActionEntry ratings = { "ViewRatings", null, TRANSLATABLE, "<Ctrl><Shift>N",
-                                          TRANSLATABLE, on_display_ratings, Config.Facade.get_instance ().get_display_photo_ratings ()
-                                        };
-        ratings.label = Resources.VIEW_RATINGS_MENU;
-        ratings.tooltip = Resources.VIEW_RATINGS_TOOLTIP;
-        toggle_actions += ratings;
-
         Gtk.ToggleActionEntry tags = { "ViewTags", null, TRANSLATABLE, "<Ctrl><Shift>G",
                                        TRANSLATABLE, on_display_tags, Config.Facade.get_instance ().get_display_photo_tags ()
                                      };
@@ -417,13 +386,6 @@ public abstract class MediaPage : CheckerboardPage {
         by_date.label = _ ("By Exposure _Date");
         by_date.tooltip = _ ("Sort photos by exposure date");
         sort_crit_actions += by_date;
-
-        Gtk.RadioActionEntry by_rating = { "SortByRating", null, TRANSLATABLE, null,
-                                           TRANSLATABLE, SortBy.RATING
-                                         };
-        by_rating.label = _ ("By _Rating");
-        by_rating.tooltip = _ ("Sort photos by rating");
-        sort_crit_actions += by_rating;
 
         action_group.add_radio_actions (sort_crit_actions, sort_by, on_sort_changed);
 
@@ -458,7 +420,6 @@ public abstract class MediaPage : CheckerboardPage {
         set_action_sensitive ("MoveToTrash", selected_count > 0);
 
         set_action_sensitive ("Rate", selected_count > 0);
-        update_rating_sensitivities ();
 
         update_development_menu_item_sensitivity ();
 
@@ -475,19 +436,6 @@ public abstract class MediaPage : CheckerboardPage {
                 break;
             }
         }
-    }
-
-    protected void update_rating_sensitivities () {
-        if (rating_menu_item != null) {
-            rating_menu_item.sensitive =  can_rate_selected ();
-            rating_menu_item.rating_value = Resources.int_to_rating (get_selected_rating ());
-        }
-        set_action_sensitive ("IncreaseRating", can_increase_selected_rating ());
-        set_action_sensitive ("DecreaseRating", can_decrease_selected_rating ());
-    }
-
-    protected override void on_rating_widget_activate () {
-        on_set_rating (Resources.int_to_rating(rating_menu_item.rating_value));
     }
 
     private void update_development_menu_item_sensitivity () {
@@ -559,52 +507,6 @@ public abstract class MediaPage : CheckerboardPage {
         return tracker;
     }
 
-    public void set_display_ratings (bool display) {
-        get_view ().freeze_notifications ();
-        get_view ().set_property (Thumbnail.PROP_SHOW_RATINGS, display);
-        get_view ().thaw_notifications ();
-
-        Gtk.ToggleAction? action = get_action ("ViewRatings") as Gtk.ToggleAction;
-        if (action != null)
-            action.set_active (display);
-    }
-
-    private bool can_rate_selected () {
-        return get_view ().get_selected ().size > 0;
-    }
-
-    private Rating get_selected_rating () {
-        bool init = false;
-        Rating last_rating = Rating.UNRATED;
-        foreach (DataView view in get_view ().get_selected ()) {
-            var rating = ((Thumbnail) view).get_media_source ().get_rating ();
-            if (!init)
-                init = true;
-            else if (last_rating != rating)
-                return Rating.UNRATED;
-            last_rating = rating;
-        }
-        return last_rating;
-    }
-
-    private bool can_increase_selected_rating () {
-        foreach (DataView view in get_view ().get_selected ()) {
-            if (((Thumbnail) view).get_media_source ().get_rating ().can_increase ())
-                return true;
-        }
-
-        return false;
-    }
-
-    private bool can_decrease_selected_rating () {
-        foreach (DataView view in get_view ().get_selected ()) {
-            if (((Thumbnail) view).get_media_source ().get_rating ().can_decrease ())
-                return true;
-        }
-
-        return false;
-    }
-
     public ZoomSliderAssembly create_zoom_slider_assembly () {
         return new ZoomSliderAssembly ();
     }
@@ -658,82 +560,6 @@ public abstract class MediaPage : CheckerboardPage {
             activate_action ("DecreaseSize");
             break;
 
-        case "period":
-            activate_action ("IncreaseRating");
-            break;
-
-        case "comma":
-            activate_action ("DecreaseRating");
-            break;
-
-        case "1":
-            on_set_rating (Rating.ONE);
-            break;
-
-        case "2":
-            on_set_rating (Rating.TWO);
-            break;
-
-        case "3":
-            on_set_rating (Rating.THREE);
-            break;
-
-        case "4":
-            on_set_rating (Rating.FOUR);
-            break;
-
-        case "5":
-            on_set_rating (Rating.FIVE);    
-            break;
-
-        case "0":
-            on_set_rating (Rating.UNRATED);
-            break;
-
-        case "9":
-            activate_action ("RateRejected");
-            break;
-
-        case "exclam":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.ONE_OR_HIGHER);
-            break;
-
-        case "at":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.TWO_OR_HIGHER);
-            break;
-
-        case "numbersign":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.THREE_OR_HIGHER);
-            break;
-
-        case "dollar":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.FOUR_OR_HIGHER);
-            break;
-
-        case "percent":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.FIVE_OR_HIGHER);
-            break;
-
-        case "parenright":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.UNRATED_OR_HIGHER);
-            break;
-
-        case "parenleft":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.REJECTED_OR_HIGHER);
-            break;
-
-        case "asterisk":
-            if (get_ctrl_pressed ())
-                get_search_view_filter ().set_rating_filter (RatingFilter.REJECTED_ONLY);
-            break;
-
         case "slash":
             activate_action ("Flag");
             break;
@@ -753,7 +579,6 @@ public abstract class MediaPage : CheckerboardPage {
         get_view ().freeze_notifications ();
         set_display_titles (Config.Facade.get_instance ().get_display_photo_titles ());
         set_display_comments (Config.Facade.get_instance ().get_display_photo_comments ());
-        set_display_ratings (Config.Facade.get_instance ().get_display_photo_ratings ());
         set_display_tags (Config.Facade.get_instance ().get_display_photo_tags ());
         get_view ().thaw_notifications ();
 
@@ -850,40 +675,6 @@ public abstract class MediaPage : CheckerboardPage {
         get_command_manager ().execute (new FlagUnflagCommand (sources, flag));
     }
 
-    protected virtual void on_increase_rating () {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        SetRatingCommand command = new SetRatingCommand.inc_dec (get_view ().get_selected (), true);
-        get_command_manager ().execute (command);
-
-        update_rating_sensitivities ();
-    }
-
-    protected virtual void on_decrease_rating () {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        SetRatingCommand command = new SetRatingCommand.inc_dec (get_view ().get_selected (), false);
-        get_command_manager ().execute (command);
-
-        update_rating_sensitivities ();
-    }
-
-    protected virtual void on_set_rating (Rating rating) {
-        if (get_view ().get_selected_count () == 0)
-            return;
-
-        SetRatingCommand command = new SetRatingCommand (get_view ().get_selected (), rating);
-        get_command_manager ().execute (command);
-
-        update_rating_sensitivities ();
-    }
-
-    protected virtual void on_rate_rejected () {
-        on_set_rating (Rating.REJECTED);
-    }
-
     private void on_remove_from_library () {
         remove_photos_from_library ((Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources ());
     }
@@ -919,14 +710,6 @@ public abstract class MediaPage : CheckerboardPage {
         set_display_comments (display);
 
         Config.Facade.get_instance ().set_display_photo_comments (display);
-    }
-
-    protected virtual void on_display_ratings (Gtk.Action action) {
-        bool display = ((Gtk.ToggleAction) action).get_active ();
-
-        set_display_ratings (display);
-
-        Config.Facade.get_instance ().set_display_photo_ratings (display);
     }
 
     protected virtual void on_display_tags (Gtk.Action action) {
@@ -1053,13 +836,6 @@ public abstract class MediaPage : CheckerboardPage {
             predicate = Thumbnail.exposure_time_comparator_predicate;
             break;
 
-        case SortBy.RATING:
-            if (ascending)
-                comparator = Thumbnail.rating_ascending_comparator;
-            else comparator = Thumbnail.rating_descending_comparator;
-            predicate = Thumbnail.rating_comparator_predicate;
-            break;
-
         default:
             debug ("Unknown sort criteria: %s", get_menu_sort_by ().to_string ());
             comparator = Thumbnail.title_descending_comparator;
@@ -1077,9 +853,6 @@ public abstract class MediaPage : CheckerboardPage {
 
         case SortBy.EXPOSURE_DATE:
             return "/MediaViewMenu/SortPhotos/SortByExposureDate";
-
-        case SortBy.RATING:
-            return "/MediaViewMenu/SortPhotos/SortByRating";
 
         default:
             debug ("Unknown sort criteria: %d", sort_by);

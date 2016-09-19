@@ -172,11 +172,6 @@ public abstract class MediaSource : ThumbnailSource, Indexable {
                                    PrepareInputTextOptions.DEFAULT & ~PrepareInputTextOptions.STRIP_CRLF & ~PrepareInputTextOptions.EMPTY_IS_NULL, -1);
     }
 
-    public abstract Rating get_rating ();
-    public abstract void set_rating (Rating rating);
-    public abstract void increase_rating ();
-    public abstract void decrease_rating ();
-
     public abstract Dimensions get_dimensions (Photo.Exception disallowed_steps = Photo.Exception.NONE);
 
     // A preview pixbuf is one that can be quickly generated and scaled as a preview. For media

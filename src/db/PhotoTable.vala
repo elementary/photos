@@ -82,7 +82,6 @@ public class PhotoRow {
     public string exif_md5;
     public time_t time_created;
     public uint64 flags;
-    public Rating rating;
     public string title;
     public string comment;
     public string? backlinks;
@@ -131,7 +130,7 @@ public class PhotoTable : DatabaseTable {
                                  + "exif_md5 TEXT, "
                                  + "time_created INTEGER, "
                                  + "flags INTEGER DEFAULT 0, "
-                                 + "rating INTEGER DEFAULT 0, "
+                                + "rating INTEGER DEFAULT 0, "
                                  + "file_format INTEGER DEFAULT 0, "
                                  + "title TEXT, "
                                  + "backlinks TEXT, "
@@ -217,8 +216,6 @@ public class PhotoTable : DatabaseTable {
         res = stmt.bind_int (15, photo_row.master.file_format.serialize ());
         assert (res == Sqlite.OK);
         res = stmt.bind_text (16, photo_row.title);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (17, photo_row.rating.serialize ());
         assert (res == Sqlite.OK);
         res = stmt.bind_int64 (18, BackingPhotoID.INVALID);
         assert (res == Sqlite.OK);
@@ -388,7 +385,6 @@ public class PhotoTable : DatabaseTable {
         row.exif_md5 = stmt.column_text (13);
         row.time_created = (time_t) stmt.column_int64 (14);
         row.flags = stmt.column_int64 (15);
-        row.rating = Rating.unserialize (stmt.column_int (16));
         row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (17));
         row.title = stmt.column_text (18);
         row.backlinks = stmt.column_text (19);
@@ -438,7 +434,6 @@ public class PhotoTable : DatabaseTable {
             row.exif_md5 = stmt.column_text (14);
             row.time_created = (time_t) stmt.column_int64 (15);
             row.flags = stmt.column_int64 (16);
-            row.rating = Rating.unserialize (stmt.column_int (17));
             row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (18));
             row.title = stmt.column_text (19);
             row.backlinks = stmt.column_text (20);
@@ -510,8 +505,6 @@ public class PhotoTable : DatabaseTable {
         res = stmt.bind_int64 (15, now_sec ());
         assert (res == Sqlite.OK);
         res = stmt.bind_int64 (16, (int64) original.flags);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (17, original.rating.serialize ());
         assert (res == Sqlite.OK);
         res = stmt.bind_int (18, original.master.file_format.serialize ());
         assert (res == Sqlite.OK);
@@ -620,10 +613,6 @@ public class PhotoTable : DatabaseTable {
 
     public bool replace_flags (PhotoID photo_id, uint64 flags) {
         return update_int64_by_id (photo_id.id, "flags", (int64) flags);
-    }
-
-    public bool set_rating (PhotoID photo_id, Rating rating) {
-        return update_int_by_id (photo_id.id, "rating", rating.serialize ());
     }
 
     public int get_event_photo_count (EventID event_id) {

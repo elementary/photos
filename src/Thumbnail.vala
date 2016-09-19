@@ -209,22 +209,6 @@ public class Thumbnail : MediaSourceItem {
         return (result != 0) ? result : photo_id_descending_comparator (a, b);
     }
 
-    public static int64 rating_ascending_comparator (void *a, void *b) {
-        int64 result = ((Thumbnail *) a)->media.get_rating () - ((Thumbnail *) b)->media.get_rating ();
-
-        return (result != 0) ? result : photo_id_ascending_comparator (a, b);
-    }
-
-    public static int64 rating_descending_comparator (void *a, void *b) {
-        int64 result = rating_ascending_comparator (b, a);
-
-        return (result != 0) ? result : photo_id_descending_comparator (a, b);
-    }
-
-    public static bool rating_comparator_predicate (DataObject object, Alteration alteration) {
-        return alteration.has_detail ("metadata", "rating");
-    }
-
     protected override void thumbnail_altered () {
         original_dim = media.get_dimensions ();
         dim = original_dim.get_scaled (scale, true);
@@ -241,10 +225,6 @@ public class Thumbnail : MediaSourceItem {
         switch (name) {
         case PROP_SIZE:
             resize ((int) val);
-            break;
-
-        case PROP_SHOW_RATINGS:
-            notify_view_altered ();
             break;
         }
 
@@ -388,13 +368,5 @@ public class Thumbnail : MediaSourceItem {
 
         return (flaggable != null && flaggable.is_flagged ())
                ? Resources.get_flag_trinket () : null;
-    }
-
-    protected override Gdk.Pixbuf? get_bottom_left_trinket (int scale) {
-        Rating rating = media.get_rating ();
-        bool show_ratings = (bool) get_collection_property (PROP_SHOW_RATINGS, false);
-
-        return (rating != Rating.UNRATED && show_ratings)
-               ? Resources.get_rating_trinket (rating, scale) : null;
     }
 }

@@ -5,7 +5,6 @@
  */
 
 private class LibraryProperties : Properties {
-    private Rating rating = Rating.UNRATED;
     private MediaSource? media_source;
     private string comment;
     private Gtk.Entry title_entry;
@@ -32,7 +31,6 @@ private class LibraryProperties : Properties {
 
     protected override void clear_properties () {
         base.clear_properties ();
-        rating = Rating.UNRATED;
         comment = "";
         title = "";
         tags = "";
@@ -58,7 +56,6 @@ private class LibraryProperties : Properties {
             tags = get_initial_tag_text (media_source);
             title = media_source.get_name ();
             comment = media_source.get_comment ();
-            rating = media_source.get_rating ();
             if (flaggable != null)
                 is_flagged = flaggable.is_flagged ();
             is_media = true;
@@ -82,10 +79,6 @@ private class LibraryProperties : Properties {
             comment_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ENTRY);
             add_entry_line (_("Comment"), comment_entry);
 
-            var rating_widget = new PhotoRatingWidget (true, 15);
-            rating_widget.rating = Resources.rating_int (rating);
-            rating_widget.rating_changed.connect (rating_widget_changed);
-
             var spacerrate = new Gtk.Grid ();
             spacerrate.set_size_request (50, -1);
             spacerrate.hexpand = true;
@@ -98,19 +91,7 @@ private class LibraryProperties : Properties {
             toolbtn_flag.clicked.connect (flag_btn_clicked);
             update_flag_action ();
 
-            var rate_grid = new Gtk.Grid ();
-            rate_grid.hexpand = true;
-            rate_grid.set_size_request (125, 15);
-
-            rate_grid.attach (rating_widget, 0, 0, 1, 1);
-            rate_grid.attach (spacerrate, 1, 0, 1, 1);
-            rate_grid.attach (toolbtn_flag , 2, 0, 1, 1);
-            attach (rate_grid, 0, (int) line_count, 1, 1);
-            line_count++;
-
-            var spacer = new Gtk.Grid ();
-            spacer.set_size_request (100, 15);
-            attach (spacer, 0, (int) line_count, 1, 1);
+            attach (toolbtn_flag, 0, (int) line_count, 1, 1);
             line_count++;
 
             tags_entry = new Gtk.Entry ();
@@ -119,16 +100,6 @@ private class LibraryProperties : Properties {
             tags_entry.changed.connect (tags_entry_changed);
             tags_entry.activate.connect (tags_entry_activate);
             add_entry_line (_("Tags, separated by commas"), tags_entry);
-        }
-    }
-
-    private void rating_widget_changed (int rating) {
-        save_changes_to_source ();
-        if (media_source != null) {
-            SetRatingSingleCommand command = new SetRatingSingleCommand (
-                media_source, Resources.int_to_rating (rating));
-
-            AppWindow.get_command_manager ().execute (command);
         }
     }
 

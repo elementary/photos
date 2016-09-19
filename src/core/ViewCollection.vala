@@ -727,7 +727,7 @@ public class ViewCollection : DataCollection {
         while ((dv != null) && (index_of (dv) < (num_views - 1))) {
             MediaSource tmp = dv.get_source () as MediaSource;
 
-            if ((tmp != null) && (tmp.get_rating () != Rating.REJECTED)) {
+            if ((tmp != null)) {
                 // ...found a good one; return it.
                 return dv;
             } else {

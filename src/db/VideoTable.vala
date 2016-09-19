@@ -48,7 +48,6 @@ public class VideoRow {
     public EventID event_id;
     public string md5;
     public time_t time_created;
-    public Rating rating;
     public string title;
     public string? backlinks;
     public time_t time_reimported;
@@ -75,7 +74,6 @@ public class VideoTable : DatabaseTable {
                                  + "event_id INTEGER, "
                                  + "md5 TEXT, "
                                  + "time_created INTEGER, "
-                                 + "rating INTEGER DEFAULT 0, "
                                  + "title TEXT, "
                                  + "backlinks TEXT, "
                                  + "time_reimported INTEGER, "
@@ -189,7 +187,7 @@ public class VideoTable : DatabaseTable {
         Sqlite.Statement stmt;
         int res = db.prepare_v2 (
                       "SELECT filename, width, height, clip_duration, is_interpretable, filesize, timestamp, "
-                      + "exposure_time, import_id, event_id, md5, time_created, rating, title, backlinks, "
+                      + "exposure_time, import_id, event_id, md5, time_created, title, backlinks, "
                       + "time_reimported, flags, comment FROM VideoTable WHERE id=?",
                       -1, out stmt);
         assert (res == Sqlite.OK);
@@ -214,12 +212,11 @@ public class VideoTable : DatabaseTable {
         row.event_id.id = stmt.column_int64 (9);
         row.md5 = stmt.column_text (10);
         row.time_created = (time_t) stmt.column_int64 (11);
-        row.rating = Rating.unserialize (stmt.column_int (12));
-        row.title = stmt.column_text (13);
-        row.backlinks = stmt.column_text (14);
-        row.time_reimported = (time_t) stmt.column_int64 (15);
-        row.flags = stmt.column_int64 (16);
-        row.comment = stmt.column_text (17);
+        row.title = stmt.column_text (12);
+        row.backlinks = stmt.column_text (13);
+        row.time_reimported = (time_t) stmt.column_int64 (14);
+        row.flags = stmt.column_int64 (15);
+        row.comment = stmt.column_text (16);
 
         return row;
     }
@@ -228,7 +225,7 @@ public class VideoTable : DatabaseTable {
         Sqlite.Statement stmt;
         int res = db.prepare_v2 (
                       "SELECT id, filename, width, height, clip_duration, is_interpretable, filesize, "
-                      + "timestamp, exposure_time, import_id, event_id, md5, time_created, rating, title, "
+                      + "timestamp, exposure_time, import_id, event_id, md5, time_created, title, "
                       + "backlinks, time_reimported, flags, comment FROM VideoTable",
                       -1, out stmt);
         assert (res == Sqlite.OK);
@@ -250,12 +247,11 @@ public class VideoTable : DatabaseTable {
             row.event_id.id = stmt.column_int64 (10);
             row.md5 = stmt.column_text (11);
             row.time_created = (time_t) stmt.column_int64 (12);
-            row.rating = Rating.unserialize (stmt.column_int (13));
-            row.title = stmt.column_text (14);
-            row.backlinks = stmt.column_text (15);
-            row.time_reimported = (time_t) stmt.column_int64 (16);
-            row.flags = stmt.column_int64 (17);
-            row.comment = stmt.column_text (18);
+            row.title = stmt.column_text (13);
+            row.backlinks = stmt.column_text (14);
+            row.time_reimported = (time_t) stmt.column_int64 (15);
+            row.flags = stmt.column_int64 (16);
+            row.comment = stmt.column_text (17);
 
             all.add (row);
         }
@@ -277,10 +273,6 @@ public class VideoTable : DatabaseTable {
 
     public void set_exposure_time (VideoID video_id, time_t time) throws DatabaseError {
         update_int64_by_id_2 (video_id.id, "exposure_time", (int64) time);
-    }
-
-    public void set_rating (VideoID video_id, Rating rating) throws DatabaseError {
-        update_int64_by_id_2 (video_id.id, "rating", rating.serialize ());
     }
 
     public void set_flags (VideoID video_id, uint64 flags) throws DatabaseError {

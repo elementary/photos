@@ -96,10 +96,6 @@ public class SavedSearchDialog {
                 my_row = new SearchRowModified (this);
                 break;
 
-            case SearchCondition.SearchType.RATING:
-                my_row = new SearchRowRating (this);
-                break;
-
             case SearchCondition.SearchType.DATE:
                 my_row = new SearchRowDate (this);
                 break;
@@ -396,75 +392,6 @@ public class SavedSearchDialog {
             SearchConditionFlagged? f = sc as SearchConditionFlagged;
             assert (f != null);
             flagged_state.set_active (f.state);
-        }
-
-        public override bool is_complete () {
-            return true;
-        }
-
-        private void on_changed () {
-            parent.changed (parent);
-        }
-    }
-
-    private class SearchRowRating : SearchRow {
-        private Gtk.Box box;
-        private Gtk.ComboBoxText rating;
-        private Gtk.ComboBoxText context;
-
-        private SearchRowContainer parent;
-
-        public SearchRowRating (SearchRowContainer parent) {
-            this.parent = parent;
-
-            // Ordering must correspond with Rating
-            rating = new Gtk.ComboBoxText ();
-            rating.append_text (Resources.rating_combo_box (Rating.REJECTED));
-            rating.append_text (Resources.rating_combo_box (Rating.UNRATED));
-            rating.append_text (Resources.rating_combo_box (Rating.ONE));
-            rating.append_text (Resources.rating_combo_box (Rating.TWO));
-            rating.append_text (Resources.rating_combo_box (Rating.THREE));
-            rating.append_text (Resources.rating_combo_box (Rating.FOUR));
-            rating.append_text (Resources.rating_combo_box (Rating.FIVE));
-            rating.set_active (0);
-            rating.changed.connect (on_changed);
-
-            context = new Gtk.ComboBoxText ();
-            context.append_text (_ ("and higher"));
-            context.append_text (_ ("only"));
-            context.append_text (_ ("and lower"));
-            context.set_active (0);
-            context.changed.connect (on_changed);
-
-            box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-            box.pack_start (new Gtk.Label (_ ("is")), false, false, 0);
-            box.pack_start (rating, false, false, 0);
-            box.pack_start (context, false, false, 0);
-            box.show_all ();
-        }
-
-        ~SearchRowRating () {
-            rating.changed.disconnect (on_changed);
-            context.changed.disconnect (on_changed);
-        }
-
-        public override Gtk.Widget get_widget () {
-            return box;
-        }
-
-        public override SearchCondition get_search_condition () {
-            SearchCondition.SearchType search_type = parent.get_search_type ();
-            Rating search_rating = (Rating) rating.get_active () + Rating.REJECTED;
-            SearchConditionRating.Context search_context = (SearchConditionRating.Context) context.get_active ();
-            SearchConditionRating c = new SearchConditionRating (search_type, search_rating, search_context);
-            return c;
-        }
-
-        public override void populate (SearchCondition sc) {
-            SearchConditionRating? r = sc as SearchConditionRating;
-            assert (r != null);
-            context.set_active (r.context);
-            rating.set_active (r.rating - Rating.REJECTED);
         }
 
         public override bool is_complete () {

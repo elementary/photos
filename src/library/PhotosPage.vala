@@ -53,8 +53,7 @@ public class Library.PhotosPage : CollectionPage {
 
     private class PhotosSearchViewFilter : CollectionPage.CollectionSearchViewFilter {
         public override uint get_criteria () {
-            return SearchFilterCriteria.TEXT | SearchFilterCriteria.MEDIA |
-                   SearchFilterCriteria.RATING;
+            return SearchFilterCriteria.TEXT | SearchFilterCriteria.MEDIA;
         }
     }
 
