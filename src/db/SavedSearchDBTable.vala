@@ -127,9 +127,14 @@ public class SavedSearchDBTable : DatabaseTable {
                              + ")", -1, out stmt);
         assert (res == Sqlite.OK);
 
+        res = stmt.step ();
+        if (res != Sqlite.DONE)
+            fatal ("create SavedSearchDBTable_Date", res);
+
         res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Date_Index "
                              + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
+
         assert (res == Sqlite.OK);
         res = stmt.step ();
 
