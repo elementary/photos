@@ -127,6 +127,15 @@ public class SavedSearchDBTable : DatabaseTable {
                              + ")", -1, out stmt);
         assert (res == Sqlite.OK);
 
+        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+                             + "SavedSearchDBTable_Date_Index "
+                             + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
+        assert (res == Sqlite.OK);
+        res = stmt.step ();
+
+        if (res != Sqlite.DONE)
+            fatal ("create SavedSearchDBTable_Date_Index", res);
+
         // Create indexes.
         res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Text_Index "
@@ -157,16 +166,9 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "ON SavedSearchDBTable_Modified(search_id)", -1, out stmt);
         assert (res == Sqlite.OK);
         res = stmt.step ();
+
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Modified_Index", res);
-
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
-                             + "SavedSearchDBTable_Date_Index "
-                             + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
-        res = stmt.step ();
-        if (res != Sqlite.DONE)
-            fatal ("create SavedSearchDBTable_Date_Index", res);
     }
 
     public static SavedSearchDBTable get_instance () {

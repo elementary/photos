@@ -185,22 +185,6 @@ public const string MERGE_MENU = _("_Merge Events");
 public const string MERGE_LABEL = _("Merge");
 public const string MERGE_TOOLTIP = _("Combine events into a single event");
 
-public const string RATE_REJECTED_MENU = _("_Rejected");
-public const string RATE_REJECTED_COMBO_BOX = _("Rejected");
-public const string RATE_REJECTED_LABEL = _("Rate Rejected");
-public const string RATE_REJECTED_PROGRESS = _("Setting as rejected");
-public const string RATE_REJECTED_TOOLTIP = _("Set rating to rejected");
-
-public const string RATE_UNRATED_DISPLAY_LABEL = _("Rejected");
-
-public const string DISPLAY_REJECTED_ONLY_MENU = _("Rejected Only");
-public const string DISPLAY_REJECTED_ONLY_LABEL = _("Rejected Only");
-public const string DISPLAY_REJECTED_ONLY_TOOLTIP = _("Show only rejected photos");
-
-public const string DISPLAY_REJECTED_OR_HIGHER_MENU = _("All + Rejected");
-public const string DISPLAY_REJECTED_OR_HIGHER_LABEL = _("Show all photos, including rejected");
-public const string DISPLAY_REJECTED_OR_HIGHER_TOOLTIP = _("Show all photos, including rejected");
-
 public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("All Photos");
 public const string DISPLAY_UNRATED_OR_HIGHER_LABEL = _("Show all photos");
 public const string DISPLAY_UNRATED_OR_HIGHER_TOOLTIP = _("Show all photos");

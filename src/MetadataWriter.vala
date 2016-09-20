@@ -15,7 +15,7 @@ public class MetadataWriter : Object {
     public const uint COMMIT_DELAY_MSEC = 3000;
     public const uint COMMIT_SPACING_MSEC = 50;
 
-    private const string[] INTERESTED_PHOTO_METADATA_DETAILS = { "name", "comment", "rating", "exposure-time" };
+    private const string[] INTERESTED_PHOTO_METADATA_DETAILS = { "name", "comment", "exposure-time" };
 
     private class CommitJob : BackgroundJob {
         public LibraryPhoto photo;

@@ -130,7 +130,6 @@ public class PhotoTable : DatabaseTable {
                                  + "exif_md5 TEXT, "
                                  + "time_created INTEGER, "
                                  + "flags INTEGER DEFAULT 0, "
-                                + "rating INTEGER DEFAULT 0, "
                                  + "file_format INTEGER DEFAULT 0, "
                                  + "title TEXT, "
                                  + "backlinks TEXT, "
@@ -178,8 +177,8 @@ public class PhotoTable : DatabaseTable {
         int res = db.prepare_v2 (
                       "INSERT INTO PhotoTable (filename, width, height, filesize, timestamp, exposure_time, "
                       + "orientation, original_orientation, import_id, event_id, md5, thumbnail_md5, "
-                      + "exif_md5, time_created, file_format, title, rating, editable_id, developer, comment) "
-                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                      + "exif_md5, time_created, file_format, title, editable_id, developer, comment) "
+                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                       -1, out stmt);
         assert (res == Sqlite.OK);
 
@@ -217,11 +216,11 @@ public class PhotoTable : DatabaseTable {
         assert (res == Sqlite.OK);
         res = stmt.bind_text (16, photo_row.title);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (18, BackingPhotoID.INVALID);
+        res = stmt.bind_int64 (17, BackingPhotoID.INVALID);
         assert (res == Sqlite.OK);
-        res = stmt.bind_text (19, photo_row.developer.to_string ());
+        res = stmt.bind_text (18, photo_row.developer.to_string ());
         assert (res == Sqlite.OK);
-        res = stmt.bind_text (20, photo_row.comment);
+        res = stmt.bind_text (19, photo_row.comment);
         assert (res == Sqlite.OK);
 
         res = stmt.step ();
@@ -355,7 +354,7 @@ public class PhotoTable : DatabaseTable {
         int res = db.prepare_v2 (
                       "SELECT filename, width, height, filesize, timestamp, exposure_time, orientation, "
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
-                      + "exif_md5, time_created, flags, rating, file_format, title, backlinks, "
+                      + "exif_md5, time_created, flags, file_format, title, backlinks, "
                       + "time_reimported, editable_id, metadata_dirty, developer, develop_shotwell_id, "
                       + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms "
                       + "FROM PhotoTable WHERE id=?",
@@ -385,20 +384,20 @@ public class PhotoTable : DatabaseTable {
         row.exif_md5 = stmt.column_text (13);
         row.time_created = (time_t) stmt.column_int64 (14);
         row.flags = stmt.column_int64 (15);
-        row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (17));
-        row.title = stmt.column_text (18);
-        row.backlinks = stmt.column_text (19);
-        row.time_reimported = (time_t) stmt.column_int64 (20);
-        row.editable_id = BackingPhotoID (stmt.column_int64 (21));
-        row.metadata_dirty = stmt.column_int (22) != 0;
-        row.developer = stmt.column_text (23) != null ? RawDeveloper.from_string (stmt.column_text (23)) :
+        row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (16));
+        row.title = stmt.column_text (17);
+        row.backlinks = stmt.column_text (18);
+        row.time_reimported = (time_t) stmt.column_int64 (19);
+        row.editable_id = BackingPhotoID (stmt.column_int64 (20));
+        row.metadata_dirty = stmt.column_int (21) != 0;
+        row.developer = stmt.column_text (22) != null ? RawDeveloper.from_string (stmt.column_text (22)) :
                         RawDeveloper.CAMERA;
-        row.development_ids[RawDeveloper.SHOTWELL] = BackingPhotoID (stmt.column_int64 (24));
-        row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (25));
-        row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (26));
-        row.comment = stmt.column_text (27);
-        row.enhanced = stmt.column_int (28) != 0;
-        row.original_transforms = marshall_all_transformations (stmt.column_text (29));
+        row.development_ids[RawDeveloper.SHOTWELL] = BackingPhotoID (stmt.column_int64 (23));
+        row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (24));
+        row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (25));
+        row.comment = stmt.column_text (26);
+        row.enhanced = stmt.column_int (27) != 0;
+        row.original_transforms = marshall_all_transformations (stmt.column_text (28));
 
         return row;
     }
@@ -408,7 +407,7 @@ public class PhotoTable : DatabaseTable {
         int res = db.prepare_v2 (
                       "SELECT id, filename, width, height, filesize, timestamp, exposure_time, orientation, "
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
-                      + "exif_md5, time_created, flags, rating, file_format, title, backlinks, time_reimported, "
+                      + "exif_md5, time_created, flags, file_format, title, backlinks, time_reimported, "
                       + "editable_id, metadata_dirty, developer, develop_shotwell_id, develop_camera_id, "
                       + "develop_embedded_id, comment, enhanced, original_transforms FROM PhotoTable",
                       -1, out stmt);
@@ -434,20 +433,20 @@ public class PhotoTable : DatabaseTable {
             row.exif_md5 = stmt.column_text (14);
             row.time_created = (time_t) stmt.column_int64 (15);
             row.flags = stmt.column_int64 (16);
-            row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (18));
-            row.title = stmt.column_text (19);
-            row.backlinks = stmt.column_text (20);
-            row.time_reimported = (time_t) stmt.column_int64 (21);
-            row.editable_id = BackingPhotoID (stmt.column_int64 (22));
-            row.metadata_dirty = stmt.column_int (23) != 0;
-            row.developer = stmt.column_text (24) != null ? RawDeveloper.from_string (stmt.column_text (24)) :
+            row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (17));
+            row.title = stmt.column_text (18);
+            row.backlinks = stmt.column_text (19);
+            row.time_reimported = (time_t) stmt.column_int64 (20);
+            row.editable_id = BackingPhotoID (stmt.column_int64 (21));
+            row.metadata_dirty = stmt.column_int (22) != 0;
+            row.developer = stmt.column_text (23) != null ? RawDeveloper.from_string (stmt.column_text (23)) :
                             RawDeveloper.CAMERA;
-            row.development_ids[RawDeveloper.SHOTWELL] = BackingPhotoID (stmt.column_int64 (25));
-            row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (26));
-            row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (27));
-            row.comment = stmt.column_text (28);
-            row.enhanced = stmt.column_int (29) != 0;
-            row.original_transforms = marshall_all_transformations (stmt.column_text (30));
+            row.development_ids[RawDeveloper.SHOTWELL] = BackingPhotoID (stmt.column_int64 (24));
+            row.development_ids[RawDeveloper.CAMERA] = BackingPhotoID (stmt.column_int64 (25));
+            row.development_ids[RawDeveloper.EMBEDDED] = BackingPhotoID (stmt.column_int64 (26));
+            row.comment = stmt.column_text (27);
+            row.enhanced = stmt.column_int (28) != 0;
+            row.original_transforms = marshall_all_transformations (stmt.column_text (29));
             validate_orientation (row);
 
             all.add (row);
@@ -467,10 +466,10 @@ public class PhotoTable : DatabaseTable {
         Sqlite.Statement stmt;
         int res = db.prepare_v2 ("INSERT INTO PhotoTable (filename, width, height, filesize, "
                                  + "timestamp, exposure_time, orientation, original_orientation, import_id, event_id, "
-                                 + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, rating, "
+                                 + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, "
                                  + "file_format, title, editable_id, developer, develop_shotwell_id, develop_camera_id, "
                                  + "develop_embedded_id, comment, enhanced, original_transforms) "
-                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                                  -1, out stmt);
         assert (res == Sqlite.OK);
 
@@ -506,26 +505,26 @@ public class PhotoTable : DatabaseTable {
         assert (res == Sqlite.OK);
         res = stmt.bind_int64 (16, (int64) original.flags);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int (18, original.master.file_format.serialize ());
+        res = stmt.bind_int (17, original.master.file_format.serialize ());
         assert (res == Sqlite.OK);
-        res = stmt.bind_text (19, original.title);
+        res = stmt.bind_text (18, original.title);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (20, editable_id.id);
+        res = stmt.bind_int64 (19, editable_id.id);
         assert (res == Sqlite.OK);
 
-        res = stmt.bind_text (21, original.developer.to_string ());
+        res = stmt.bind_text (20, original.developer.to_string ());
         assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (22, develop_shotwell.id);
+        res = stmt.bind_int64 (21, develop_shotwell.id);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (23, develop_camera_id.id);
+        res = stmt.bind_int64 (22, develop_camera_id.id);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (24, develop_embedded_id.id);
+        res = stmt.bind_int64 (23, develop_embedded_id.id);
         assert (res == Sqlite.OK);
-        res = stmt.bind_text (25, original.comment);
+        res = stmt.bind_text (24, original.comment);
         assert (res == Sqlite.OK);
-        res = stmt.bind_int (26, original.enhanced ? 1 : 0);
+        res = stmt.bind_int (25, original.enhanced ? 1 : 0);
         assert (res == Sqlite.OK);
-        res = stmt.bind_text (27, unmarshall_all_transformations (original.original_transforms));
+        res = stmt.bind_text (26, unmarshall_all_transformations (original.original_transforms));
         assert (res == Sqlite.OK);
 
         res = stmt.step ();
