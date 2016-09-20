@@ -1134,11 +1134,4 @@ public class PhotoMetadata : MediaMetadata {
     public string? get_exposure_bias () {
         return get_string_interpreted ("Exif.Photo.ExposureBiasValue");
     }
-
-    private static string[] RATING_TAGS = {
-        "Xmp.xmp.Rating",
-        "Iptc.Application2.Urgency",
-        "Xmp.photoshop.Urgency",
-        "Exif.Image.Rating"
-    };
 }

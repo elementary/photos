@@ -10,8 +10,6 @@ public class Thumbnail : MediaSourceItem {
     public const string PROP_SHOW_TAGS = CheckerboardItem.PROP_SHOW_SUBTITLES;
     // SIZE (int, scale)
     public const string PROP_SIZE = "thumbnail-size";
-    // SHOW_RATINGS (bool)
-    public const string PROP_SHOW_RATINGS = "show-ratings";
 
     public static int MIN_SCALE {
         get {

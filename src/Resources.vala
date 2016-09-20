@@ -185,7 +185,6 @@ public const string MERGE_MENU = _("_Merge Events");
 public const string MERGE_LABEL = _("Merge");
 public const string MERGE_TOOLTIP = _("Combine events into a single event");
 
-
 public const string RATE_REJECTED_MENU = _("_Rejected");
 public const string RATE_REJECTED_COMBO_BOX = _("Rejected");
 public const string RATE_REJECTED_LABEL = _("Rate Rejected");
