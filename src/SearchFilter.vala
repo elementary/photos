@@ -52,7 +52,6 @@ public abstract class SearchViewFilter : ViewFilter {
     public abstract uint get_criteria ();
 
 
-
     public bool has_search_filter () {
         return !is_string_empty (search_filter);
     }
