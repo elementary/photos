@@ -114,6 +114,9 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     editing_tools/EditingTools.vala
     editing_tools/StraightenTool.vala
+    editing_tools/RedEyeTool.vala
+    editing_tools/CropTool.vala
+    editing_tools/AdjustTool.vala
 
     events/Branch.vala
     events/EventDirectoryItem.vala
