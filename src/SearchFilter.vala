@@ -51,7 +51,6 @@ public abstract class SearchViewFilter : ViewFilter {
     // view filter is installed will NOT update the GUI.
     public abstract uint get_criteria ();
 
-    
 
     public bool has_search_filter () {
         return !is_string_empty (search_filter);
@@ -221,75 +220,20 @@ public class TextAction {
     }
 }
 
-public class SearchFilterToolbar : Gtk.Revealer {
-    public signal void close ();
-
-    // Ticket #3260 - Add a 'close' context menu to
-    // the searchbar.
-    // The close menu. Populated below in the constructor.
-    private Gtk.Menu close_menu = new Gtk.Menu ();
-    private Gtk.MenuItem close_item = new Gtk.MenuItem.with_label (_("Close"));
-
-    private SearchFilterCriteria criteria = SearchFilterCriteria.ALL;
-    private Gtk.SearchEntry search_entry;
+public class SearchFilterEntry : Gtk.SearchEntry {
     private SearchViewFilter? search_filter = null;
-    private Gtk.Toolbar toolbar;
 
-    public SearchFilterToolbar () {
-        toolbar = new Gtk.Toolbar ();
-        toolbar.get_style_context ().add_class ("secondary-toolbar");
-
-        // Ticket #3260 - Add a 'close' context menu to
-        // the searchbar.
-        // Prepare the close menu for use, but don't
-        // display it yet; we'll connect it to secondary
-        // click later on.
-        ((Gtk.MenuItem) close_item).show ();
-        close_item.activate.connect ( () => close ());
-        close_menu.append (close_item);
-
-        // Separator to right-align the text box
-        Gtk.SeparatorToolItem separator_align = new Gtk.SeparatorToolItem ();
-        separator_align.set_expand (true);
-        separator_align.set_draw (false);
-        toolbar.insert (separator_align, -1);
-
-        // Search box.
-        search_entry = new Gtk.SearchEntry ();
-        search_entry.search_changed.connect ( () => on_search_text_changed ());
-        search_entry.placeholder_text = _ ("Search Photos");
-        search_entry.key_press_event.connect (on_escape_key);
-        Gtk.ToolItem search_item = new Gtk.ToolItem ();
-        search_item.add (search_entry);
-        toolbar.insert (search_item, -1);
-
-        add (toolbar);
-        show_all ();
-
-        // #3260 part II Hook up close menu.
-        toolbar.popup_context_menu.connect (on_context_menu_requested);
-        
-        grab_focus.connect ( () => { search_entry.grab_focus (); });
+    public SearchFilterEntry () {
+        placeholder_text = _("Search Photos");
+        search_changed.connect ( () => on_search_text_changed ());
+        key_press_event.connect (on_escape_key);
     }
 
-    ~SearchFilterToolbar () {
-        toolbar.popup_context_menu.disconnect (on_context_menu_requested);
-    }
-
-    // Ticket #3124 - user should be able to clear
-    // the search textbox by typing 'Esc'.
     private bool on_escape_key (Gdk.EventKey e) {
-        if (Gdk.keyval_name (e.keyval) == "Escape")
-            search_entry.text = "";
+        if (Gdk.keyval_name (e.keyval) == "Escape") {
+            text = "";
+        }
 
-        // Continue processing this event, since the
-        // text entry functionality needs to see it too.
-        return false;
-    }
-
-    // Ticket #3260 part IV - display the context menu on secondary click
-    private bool on_context_menu_requested (int x, int y, int button) {
-        close_menu.popup (null, null, null, button, Gtk.get_current_event_time ());
         return false;
     }
 
@@ -313,17 +257,13 @@ public class SearchFilterToolbar : Gtk.Revealer {
     // Forces an update of the search filter.
     public void update () {
         if (null == search_filter) {
-            // Search bar isn't being shown, need to toggle it.
-            LibraryWindow.get_app ().show_search_bar (true);
+            sensitive = false;
+        } else {
+            sensitive = true;
         }
 
         assert (null != search_filter);
-
-        search_filter.set_search_filter (search_entry.text);
-
-        // Ticket #3290, part III - check the current criteria
-        // and show or hide widgets as needed.
-        search_entry.visible = ((criteria & SearchFilterCriteria.TEXT) != 0);
+        search_filter.set_search_filter (text);
 
         // Send update to view collection.
         search_filter.refresh ();
