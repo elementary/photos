@@ -120,12 +120,10 @@ public class LibraryWindow : AppWindow {
     // this is to keep track of cameras which initiate the app
     private static Gee.HashSet<string> initial_camera_uris = new Gee.HashSet<string> ();
 
-    private bool is_search_toolbar_visible = false;
-
     // Want to instantiate this in the constructor rather than here because the search bar has its
     // own UIManager which will suck up the accelerators, and we want them to be associated with
     // AppWindows instead.
-    private SearchFilterToolbar search_toolbar;
+    private SearchFilterEntry search_entry;
 
     private Gtk.Box page_header_box;
     private Gtk.Box top_section = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
@@ -156,19 +154,10 @@ public class LibraryWindow : AppWindow {
                 on_update_properties_now);
 
         // setup search bar and add its accelerators to the window
-        search_toolbar = new SearchFilterToolbar ();
-        search_toolbar.close.connect ( () => {
-            // Try to obtain the action for toggling the searchbar.  If
-            // it's null, then we're probably in direct edit mode, and
-            // shouldn't do anything anyway.
-            Gtk.ToggleAction searchbar_toggle = get_common_action ("CommonDisplaySearchbar") as Gtk.ToggleAction;
-
-            // Could we find the appropriate action?
-            if (searchbar_toggle != null) {
-                // Yes, hide the search bar.
-                searchbar_toggle.set_active (false);
-            }
-        });
+        search_entry = new SearchFilterEntry ();
+        search_entry.activate.connect (() => {get_current_page ().grab_focus (); });
+        
+        header.pack_end (search_entry);
 
         try {
             File ui_file = Resources.get_ui ("top.ui");
@@ -217,11 +206,6 @@ public class LibraryWindow : AppWindow {
 
         // Right side of header bar
         build_settings_header ();
-
-        // Find button
-        Gtk.ToggleToolButton find_button = new Gtk.ToggleToolButton ();
-        find_button.set_related_action (get_common_action ("CommonDisplaySearchbar"));
-        header.pack_end (find_button);
 
         top_display = new TopDisplay ();
         header.set_custom_title (top_display);
@@ -384,10 +368,8 @@ public class LibraryWindow : AppWindow {
         Gtk.ToggleActionEntry[] actions = new Gtk.ToggleActionEntry[0];
 
         Gtk.ToggleActionEntry searchbar = { "CommonDisplaySearchbar", Gtk.Stock.FIND, TRANSLATABLE,
-                                            "F8", TRANSLATABLE, on_display_searchbar, is_search_toolbar_visible
+                                            "<Ctrl>F", TRANSLATABLE, on_focus_search_entry, true
                                           };
-        searchbar.label = _ ("_Search Bar");
-        searchbar.tooltip = _ ("Display the search bar");
         actions += searchbar;
 
         Gtk.ToggleActionEntry sidebar = { "CommonDisplaySidebar", null, TRANSLATABLE,
@@ -490,16 +472,10 @@ public class LibraryWindow : AppWindow {
     public override void show_all () {
         base.show_all ();
 
-        Gtk.ToggleAction? searchbar_action = get_current_page ().get_common_action (
-                "CommonDisplaySearchbar") as Gtk.ToggleAction;
-        assert (searchbar_action != null);
-
         // Make sure rejected pictures are not being displayed on startup
         CheckerboardPage? current_page = get_current_page () as CheckerboardPage;
         if (current_page != null)
             init_view_filter (current_page);
-
-        toggle_search_bar (should_show_search_bar (), current_page);
 
         // Sidebar
         set_sidebar_visible (is_sidebar_visible ());
@@ -792,23 +768,13 @@ public class LibraryWindow : AppWindow {
         PreferencesDialog.show ();
     }
 
-    private void on_display_searchbar (Gtk.Action action) {
-        bool is_shown = ((Gtk.ToggleAction) action).get_active ();
-        Config.Facade.get_instance ().set_display_search_bar (is_shown);
-        show_search_bar (is_shown);
-    }
-
-    public void show_search_bar (bool display) {
-        if (! (get_current_page () is CheckerboardPage))
-            return;
-
-        is_search_toolbar_visible = display;
-        toggle_search_bar (should_show_search_bar (), get_current_page () as CheckerboardPage);
-    }
-
     private void on_display_sidebar (Gtk.Action action) {
         set_sidebar_visible (((Gtk.ToggleAction) action).get_active ());
 
+    }
+
+    private void on_focus_search_entry (Gtk.Action action) {
+        search_entry.grab_focus ();
     }
 
     private void on_display_metadata_sidebar (Gtk.Action action) {
@@ -1073,11 +1039,6 @@ public class LibraryWindow : AppWindow {
 
     // check for settings that should persist between instances
     private void load_configuration () {
-        Gtk.ToggleAction? search_bar_display_action = get_common_action ("CommonDisplaySearchbar")
-                as Gtk.ToggleAction;
-        assert (search_bar_display_action != null);
-        search_bar_display_action.set_active (Config.Facade.get_instance ().get_display_search_bar ());
-
         Gtk.RadioAction? sort_events_action = get_common_action ("CommonSortEventsAscending")
                                               as Gtk.RadioAction;
         assert (sort_events_action != null);
@@ -1153,7 +1114,6 @@ public class LibraryWindow : AppWindow {
         right_client_paned.pack2 (metadata_sidebar, false, false);
 
         right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        right_vbox.pack_start (search_toolbar, false, false, 0);
         right_vbox.pack_start (right_client_paned, true, true, 0);
 
         right_frame.add (right_vbox);
@@ -1233,7 +1193,7 @@ public class LibraryWindow : AppWindow {
             sidebar_tree.disable_editing ();
 
         // Update search filter to new page.
-        toggle_search_bar (should_show_search_bar (), page as CheckerboardPage);
+        search_entry.sensitive = is_search_sensitive ();
 
         // Not all pages have sidebar entries
         Sidebar.Entry? entry = page_map.get (page);
@@ -1269,12 +1229,12 @@ public class LibraryWindow : AppWindow {
     }
 
     private void init_view_filter (CheckerboardPage page) {
-        search_toolbar.set_view_filter (page.get_search_view_filter ());
+        search_entry.set_view_filter (page.get_search_view_filter ());
         page.get_view ().install_view_filter (page.get_search_view_filter ());
     }
 
-    private bool should_show_search_bar () {
-        return (get_current_page () is CheckerboardPage) ? is_search_toolbar_visible : false;
+    private bool is_search_sensitive () { //Search_sensitive? 
+        return get_current_page () is CheckerboardPage;
     }
 
     public void toggle_welcome_page (bool show, string title = "", string subtitle = "", bool show_import = false) {
@@ -1311,20 +1271,6 @@ public class LibraryWindow : AppWindow {
         }
 
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
-    }
-
-    // Turns the search bar on or off.  Note that if show is true, page must not be null.
-    private void toggle_search_bar (bool show, CheckerboardPage? page = null) {
-        search_toolbar.set_reveal_child (show);
-        if (show) {
-            assert (null != page);
-            search_toolbar.set_view_filter (page.get_search_view_filter ());
-            search_toolbar.grab_focus ();
-            page.get_view ().install_view_filter (page.get_search_view_filter ());
-        } else {
-            if (page != null)
-                page.get_view ().install_view_filter (new DisabledViewFilter ());
-        }
     }
 
     private void on_page_created (Sidebar.PageRepresentative entry, Page page) {
