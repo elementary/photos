@@ -225,7 +225,7 @@ public class SearchFilterEntry : Gtk.SearchEntry {
     private SearchViewFilter? search_filter = null;
 
     public SearchFilterEntry () {
-        placeholder_text = _ ("Search Photos");
+        placeholder_text = _("Search Photos");
         search_changed.connect ( () => on_search_text_changed ());
         key_press_event.connect (on_escape_key);
     }

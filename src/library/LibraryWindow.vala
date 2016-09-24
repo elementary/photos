@@ -156,7 +156,7 @@ public class LibraryWindow : AppWindow {
         // setup search bar and add its accelerators to the window
         search_entry = new SearchFilterEntry ();
         search_entry.activate.connect (() => {get_current_page ().grab_focus (); });
-        
+
         header.pack_end (search_entry);
 
         try {
@@ -1233,7 +1233,7 @@ public class LibraryWindow : AppWindow {
         page.get_view ().install_view_filter (page.get_search_view_filter ());
     }
 
-    private bool is_search_sensitive () { //Search_sensitive? 
+    private bool is_search_sensitive () {
         return get_current_page () is CheckerboardPage;
     }
 
