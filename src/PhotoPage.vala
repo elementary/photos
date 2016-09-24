@@ -385,7 +385,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         public override void repaint () {
             host_page.repaint ();
         }
-        
+
         public override unowned Gtk.StyleContext get_style_context () {
             return host_page.canvas.get_style_context ();
         }
@@ -839,7 +839,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             enhance_button.clicked.disconnect (on_enhance);
             enhance_button.active = get_photo ().is_enhanced ();
             enhance_button.clicked.connect (on_enhance);
-        } else 
+        } else
             set_action_sensitive ("Enhance", false);
     }
 
@@ -908,7 +908,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // check if the photo altered while away
         if (has_photo () && pixbuf_dirty)
             replace_photo (get_photo ());
-            
+
         var app = AppWindow.get_instance () as LibraryWindow;
         update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
@@ -2119,7 +2119,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_tool_cancelled () {
         deactivate_tool ();
-           
+
         update_enhance_action ();
         restore_zoom_state ();
         repaint ();
@@ -2161,7 +2161,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private void on_adjust_toggled () {
         on_tool_button_toggled (adjust_button, EditingTools.AdjustTool.factory);
 
-        // with adjust tool open turn enhance into normal non toggle button 
+        // with adjust tool open turn enhance into normal non toggle button
         if (adjust_button.active){
             enhance_button.clicked.disconnect (on_enhance);
             enhance_button.active = false;
@@ -2189,7 +2189,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         EditingTools.AdjustTool adjust_tool = current_tool as EditingTools.AdjustTool;
         if (adjust_tool != null) {
             adjust_tool.enhance ();
-            // with adjust tool open turn enhance into normal non toggle button 
+            // with adjust tool open turn enhance into normal non toggle button
             enhance_button.clicked.disconnect (on_enhance);
             enhance_button.active = false;
             enhance_button.clicked.connect (on_enhance);
@@ -2203,7 +2203,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 get_command_manager ().undo ();
             else {
                 UnEnhanceSingleCommand command = new UnEnhanceSingleCommand (get_photo ());
-                get_command_manager ().execute (command);       
+                get_command_manager ().execute (command);
             }
             get_photo ().set_enhanced (false);
         } else {
@@ -2213,9 +2213,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 get_command_manager ().undo ();
             else {
                 EnhanceSingleCommand command = new EnhanceSingleCommand (get_photo ());
-                get_command_manager ().execute (command);   
-            }    
-            get_photo ().set_enhanced (true);   
+                get_command_manager ().execute (command);
+            }
+            get_photo ().set_enhanced (true);
         }
 
         update_enhance_action ();
@@ -2627,28 +2627,6 @@ public class LibraryPhotoPage : EditingHostPage {
         flag.label = Resources.FLAG_MENU;
         actions += flag;
 
-        Gtk.ActionEntry set_rating = { "Rate", null, TRANSLATABLE, null, null, null };
-        set_rating.label = Resources.RATING_MENU;
-        actions += set_rating;
-
-        Gtk.ActionEntry increase_rating = { "IncreaseRating", null, TRANSLATABLE,
-                                            "greater", TRANSLATABLE, on_increase_rating
-                                          };
-        increase_rating.label = Resources.INCREASE_RATING_MENU;
-        actions += increase_rating;
-
-        Gtk.ActionEntry decrease_rating = { "DecreaseRating", null, TRANSLATABLE,
-                                            "less", TRANSLATABLE, on_decrease_rating
-                                          };
-        decrease_rating.label = Resources.DECREASE_RATING_MENU;
-        actions += decrease_rating;
-
-        Gtk.ActionEntry rate_rejected = { "RateRejected", null, TRANSLATABLE,
-                                          "9", TRANSLATABLE, on_rate_rejected
-                                        };
-        rate_rejected.label = Resources.rating_menu (Rating.REJECTED);
-        actions += rate_rejected;
-
         Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
                                         };
@@ -2713,13 +2691,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override Gtk.ToggleActionEntry[] init_collect_toggle_action_entries () {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
-        Gtk.ToggleActionEntry ratings = { "ViewRatings", null, TRANSLATABLE, "<Ctrl><Shift>N",
-                                          TRANSLATABLE, on_display_ratings, Config.Facade.get_instance ().get_display_photo_ratings ()
-                                        };
-        ratings.label = Resources.VIEW_RATINGS_MENU;
-        ratings.tooltip = Resources.VIEW_RATINGS_TOOLTIP;
-        toggle_actions += ratings;
-
         return toggle_actions;
     }
 
@@ -2758,21 +2729,6 @@ public class LibraryPhotoPage : EditingHostPage {
         base.register_radio_actions (action_group);
     }
 
-    private void on_display_ratings (Gtk.Action action) {
-        bool display = ((Gtk.ToggleAction) action).get_active ();
-
-        set_display_ratings (display);
-
-        Config.Facade.get_instance ().set_display_photo_ratings (display);
-        repaint ();
-    }
-
-    private void set_display_ratings (bool display) {
-        Gtk.ToggleAction? action = get_action ("ViewRatings") as Gtk.ToggleAction;
-        if (action != null)
-            action.set_active (display);
-    }
-
     protected override void update_actions (int selected_count, int count) {
         bool multiple = get_view ().get_count () > 1;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
@@ -2785,7 +2741,6 @@ public class LibraryPhotoPage : EditingHostPage {
                               (get_photo ().has_transformations () || get_photo ().has_editable ()) : false);
 
         if (has_photo () && !get_photo_missing ()) {
-            update_rating_menu_item_sensitivity ();
             update_development_menu_item_sensitivity ();
         }
 
@@ -2855,7 +2810,7 @@ public class LibraryPhotoPage : EditingHostPage {
         } else {
             set_action_sensitive ("Flag", false);
         }
-    }    
+    }
 
     // Displays a photo from a specific CollectionPage.  When the user exits this view,
     // they will be sent back to the return_page. The optional view paramters is for using
@@ -2889,16 +2844,10 @@ public class LibraryPhotoPage : EditingHostPage {
         base.switched_to ();
 
         update_zoom_menu_item_sensitivity ();
-        update_rating_menu_item_sensitivity ();
-
-        set_display_ratings (Config.Facade.get_instance ().get_display_photo_ratings ());
     }
 
     protected override Gdk.Pixbuf? get_bottom_left_trinket (int scale) {
-        if (!has_photo () || !Config.Facade.get_instance ().get_display_photo_ratings ())
-            return null;
-
-        return Resources.get_rating_trinket (((LibraryPhoto) get_photo ()).get_rating (), scale);
+        return null;
     }
 
     protected override Gdk.Pixbuf? get_top_right_trinket (int scale) {
@@ -2976,7 +2925,6 @@ public class LibraryPhotoPage : EditingHostPage {
         set_action_sensitive ("OpenWithRaw", sensitivity);
         set_action_sensitive ("Revert", sensitivity);
 
-        set_action_sensitive ("Rate", sensitivity);
         set_action_sensitive ("Flag", sensitivity);
 
         base.update_ui (missing);
@@ -3012,43 +2960,6 @@ public class LibraryPhotoPage : EditingHostPage {
             activate_action ("MoveToTrash");
             break;
 
-        case "period":
-        case "greater":
-            activate_action ("IncreaseRating");
-            break;
-
-        case "comma":
-        case "less":
-            activate_action ("DecreaseRating");
-            break;
-
-        case "1":
-            on_set_rating (Rating.ONE);
-            break;
-
-        case "2":
-            on_set_rating (Rating.TWO);
-            break;
-
-        case "3":
-            on_set_rating (Rating.THREE);
-            break;
-
-        case "4":
-            on_set_rating (Rating.FOUR);
-            break;
-
-        case "5":
-            on_set_rating (Rating.FIVE);    
-            break;
-
-        case "0":
-            on_set_rating (Rating.UNRATED);
-            break;
-
-        case "9":
-            activate_action ("RateRejected");
-            break;
 
         case "bracketright":
             activate_action ("RotateClockwise");
@@ -3108,8 +3019,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
 
         populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
-        populate_rating_widget_menu_item (menu, "/PhotoContextMenu/RatingWidgetPlaceholder");
-        update_rating_menu_item_sensitivity ();
+
         menu.show_all ();
         return menu;
     }
@@ -3320,54 +3230,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private void on_view_menu () {
         update_zoom_menu_item_sensitivity ();
-    }
-
-    private void on_increase_rating () {
-        if (!has_photo () || get_photo_missing ())
-            return;
-
-        SetRatingSingleCommand command = new SetRatingSingleCommand.inc_dec (get_photo (), true);
-        get_command_manager ().execute (command);
-
-        update_rating_menu_item_sensitivity ();
-    }
-
-    private void on_decrease_rating () {
-        if (!has_photo () || get_photo_missing ())
-            return;
-
-        SetRatingSingleCommand command = new SetRatingSingleCommand.inc_dec (get_photo (), false);
-        get_command_manager ().execute (command);
-
-        update_rating_menu_item_sensitivity ();
-    }
-    
-    protected virtual void on_rate_rejected () {
-        on_set_rating (Rating.REJECTED);
-    }
-
-    private void on_set_rating (Rating rating) {
-        if (!has_photo () || get_photo_missing ())
-            return;
-
-        SetRatingSingleCommand command = new SetRatingSingleCommand (get_photo (), rating);
-        get_command_manager ().execute (command);
-
-        update_rating_menu_item_sensitivity ();
-    }
-
-    protected override void on_rating_widget_activate () {
-        on_set_rating (Resources.int_to_rating(rating_menu_item.rating_value));
-    }
-
-    private void update_rating_menu_item_sensitivity () {
-        set_action_sensitive ("RateRejected", get_photo ().get_rating () != Rating.REJECTED);
-        if (rating_menu_item != null) {
-            rating_menu_item.sensitive =  (get_photo () != null);
-            rating_menu_item.rating_value = get_photo ().get_rating ();
-        }
-        set_action_sensitive ("IncreaseRating", get_photo ().get_rating ().can_increase ());
-        set_action_sensitive ("DecreaseRating", get_photo ().get_rating ().can_decrease ());
     }
 
     private void update_development_menu_item_sensitivity () {

@@ -667,44 +667,6 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         return true;
     }
 
-
-    public override Rating get_rating () {
-        lock (backing_row) {
-            return backing_row.rating;
-        }
-    }
-
-    public override void set_rating (Rating rating) {
-        lock (backing_row) {
-            if ((!rating.is_valid ()) || (rating == backing_row.rating))
-                return;
-
-            try {
-                VideoTable.get_instance ().set_rating (get_video_id (), rating);
-            } catch (DatabaseError e) {
-                AppWindow.database_error (e);
-                return;
-            }
-            // if we didn't short-circuit return in the catch clause above, then the change was
-            // successfully committed to the database, so update it in the in-memory row cache
-            backing_row.rating = rating;
-        }
-
-        notify_altered (new Alteration ("metadata", "rating"));
-    }
-
-    public override void increase_rating () {
-        lock (backing_row) {
-            set_rating (backing_row.rating.increase ());
-        }
-    }
-
-    public override void decrease_rating () {
-        lock (backing_row) {
-            set_rating (backing_row.rating.decrease ());
-        }
-    }
-
     public override bool is_trashed () {
         return is_flag_set (FLAG_TRASH);
     }

@@ -453,16 +453,13 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
 
                 break;
             }
-
-            if (alteration.has_detail ("metadata", "rating"))
-                should_remake_thumb = true;
         }
 
         assert (get_primary_source () is MediaSource);
 
         if (should_remake_thumb) {
             // check whether we actually need to remake this thumbnail...
-            if ((get_primary_source () == null) || (get_primary_source ().get_rating () == Rating.REJECTED)) {
+            if ((get_primary_source () == null)) {
                 // yes, rejected - drop it and get a new one...
                 set_primary_source ((MediaSource) view.get_first_unrejected ().get_source ());
             }

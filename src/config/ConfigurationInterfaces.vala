@@ -132,9 +132,6 @@ public enum ConfigurableProperty {
         case DISPLAY_SEARCH_BAR:
             return "DISPLAY_SEARCH_BAR";
 
-        case DISPLAY_PHOTO_RATINGS:
-            return "DISPLAY_PHOTO_RATINGS";
-
         case DISPLAY_PHOTO_TAGS:
             return "DISPLAY_PHOTO_TAGS";
 
@@ -638,27 +635,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_display_search_bar (bool display) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SEARCH_BAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo ratings
-    //
-    public virtual bool get_display_photo_ratings () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_RATINGS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_display_photo_ratings (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_RATINGS, display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }

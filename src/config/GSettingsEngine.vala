@@ -48,7 +48,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.DISPLAY_SIDEBAR] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_METADATA_SIDEBAR] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_SEARCH_BAR] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DISPLAY_PHOTO_RATINGS] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_PHOTO_TAGS] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_PHOTO_TITLES] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_PHOTO_COMMENTS] = UI_PREFS_SCHEMA_NAME;
@@ -111,7 +110,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.DISPLAY_SIDEBAR] = "display-sidebar";
         key_names[ConfigurableProperty.DISPLAY_METADATA_SIDEBAR] = "display-metadata-sidebar";
         key_names[ConfigurableProperty.DISPLAY_SEARCH_BAR] = "display-search-bar";
-        key_names[ConfigurableProperty.DISPLAY_PHOTO_RATINGS] = "display-photo-ratings";
         key_names[ConfigurableProperty.DISPLAY_PHOTO_TAGS] = "display-photo-tags";
         key_names[ConfigurableProperty.DISPLAY_PHOTO_TITLES] = "display-photo-titles";
         key_names[ConfigurableProperty.DISPLAY_PHOTO_COMMENTS] = "display-photo-comments";

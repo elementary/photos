@@ -1134,46 +1134,4 @@ public class PhotoMetadata : MediaMetadata {
     public string? get_exposure_bias () {
         return get_string_interpreted ("Exif.Photo.ExposureBiasValue");
     }
-
-    private static string[] RATING_TAGS = {
-        "Xmp.xmp.Rating",
-        "Iptc.Application2.Urgency",
-        "Xmp.photoshop.Urgency",
-        "Exif.Image.Rating"
-    };
-
-    public Rating get_rating () {
-        string? rating_string = get_first_string (RATING_TAGS);
-        if (rating_string != null)
-            return Rating.unserialize (int.parse (rating_string));
-
-        rating_string = get_string ("Exif.Image.RatingPercent");
-        if (rating_string == null) {
-            return Rating.UNRATED;
-        }
-
-        int int_percent_rating = int.parse (rating_string);
-        for (int i = 5; i >= 0; --i) {
-            if (int_percent_rating >= Resources.rating_thresholds[i])
-                return Rating.unserialize (i);
-        }
-        return Rating.unserialize (-1);
-    }
-
-    // Among photo managers, Xmp.xmp.Rating tends to be the standard way to represent ratings.
-    // Other photo managers, notably F-Spot, take hints from Urgency fields about what the rating
-    // of an imported photo should be, and we have decided to do as well. Xmp.xmp.Rating is the only
-    // field we've seen photo manages export ratings to, while Urgency fields seem to have a fundamentally
-    // different meaning. See http://trac.yorba.org/wiki/PhotoTags#Rating for more information.
-    public void set_rating (Rating rating) {
-        int int_rating = rating.serialize ();
-        set_string ("Xmp.xmp.Rating", int_rating.to_string ());
-        set_string ("Exif.Image.Rating", int_rating.to_string ());
-
-        if ( 0 <= int_rating )
-            set_string ("Exif.Image.RatingPercent", Resources.rating_thresholds[int_rating].to_string ());
-        else // in this case we _know_ int_rating is -1
-            set_string ("Exif.Image.RatingPercent", int_rating.to_string ());
-    }
 }
-

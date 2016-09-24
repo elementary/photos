@@ -22,7 +22,7 @@ public abstract class CollectionPage : MediaPage {
     protected class CollectionSearchViewFilter : DefaultSearchViewFilter {
         public override uint get_criteria () {
             return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG |
-                   SearchFilterCriteria.MEDIA | SearchFilterCriteria.RATING;
+                   SearchFilterCriteria.MEDIA;
         }
     }
 
@@ -234,8 +234,6 @@ public abstract class CollectionPage : MediaPage {
         }
 
         populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
-        populate_rating_widget_menu_item (menu, "/CollectionContextMenu/RatingWidgetPlaceholder");
-        update_rating_sensitivities ();
         menu.show_all ();
         return menu;
     }

@@ -55,7 +55,6 @@ public abstract class SearchCondition {
         MEDIA_TYPE,
         FLAG_STATE,
         MODIFIED_STATE,
-        RATING,
         COMMENT,
         DATE;
         // Note: when adding new types, be sure to update all functions below.
@@ -63,7 +62,7 @@ public abstract class SearchCondition {
         public static SearchType[] as_array () {
             return {
                 ANY_TEXT, TITLE, TAG, COMMENT, EVENT_NAME, FILE_NAME,
-                MEDIA_TYPE, FLAG_STATE, MODIFIED_STATE, RATING, DATE
+                MEDIA_TYPE, FLAG_STATE, MODIFIED_STATE, DATE
             };
         }
 
@@ -104,9 +103,6 @@ public abstract class SearchCondition {
             case SearchType.MODIFIED_STATE:
                 return "MODIFIED_STATE";
 
-            case SearchType.RATING:
-                return "RATING";
-
             case SearchType.DATE:
                 return "DATE";
 
@@ -143,9 +139,6 @@ public abstract class SearchCondition {
             else if (str == "MODIFIED_STATE")
                 return SearchType.MODIFIED_STATE;
 
-            else if (str == "RATING")
-                return SearchType.RATING;
-
             else if (str == "DATE")
                 return SearchType.DATE;
 
@@ -181,9 +174,6 @@ public abstract class SearchCondition {
 
             case SearchType.MODIFIED_STATE:
                 return _ ("Photo state");
-
-            case SearchType.RATING:
-                return _ ("Rating");
 
             case SearchType.DATE:
                 return _ ("Date");
@@ -629,78 +619,6 @@ public class SearchConditionModified : SearchCondition {
             return context == Context.HAS_NO;
     }
 }
-
-
-// Condition for rating matching.
-public class SearchConditionRating : SearchCondition {
-    public enum Context {
-        AND_HIGHER = 0,
-        ONLY,
-        AND_LOWER;
-
-        public string to_string () {
-            switch (this) {
-            case Context.AND_HIGHER:
-                return "AND_HIGHER";
-
-            case Context.ONLY:
-                return "ONLY";
-
-            case Context.AND_LOWER:
-                return "AND_LOWER";
-
-            default:
-                error ("unrecognized rating search context enumeration value");
-            }
-        }
-
-        public static Context from_string (string str) {
-            if (str == "AND_HIGHER")
-                return Context.AND_HIGHER;
-
-            else if (str == "ONLY")
-                return Context.ONLY;
-
-            else if (str == "AND_LOWER")
-                return Context.AND_LOWER;
-
-            else
-                error ("unrecognized rating search context name: %s", str);
-        }
-    }
-
-    // Rating to check against.
-    public Rating rating {
-        get;
-        private set;
-    }
-
-    // How to match.
-    public Context context {
-        get;
-        private set;
-    }
-
-    public SearchConditionRating (SearchCondition.SearchType search_type, Rating rating, Context context) {
-        this.search_type = search_type;
-        this.rating = rating;
-        this.context = context;
-    }
-
-    // Determines whether the source is included.
-    public override bool predicate (MediaSource source) {
-        Rating source_rating = source.get_rating ();
-        if (context == Context.AND_HIGHER)
-            return source_rating >= rating;
-        else if (context == Context.ONLY)
-            return source_rating == rating;
-        else if (context == Context.AND_LOWER)
-            return source_rating <= rating;
-        else
-            error ("unknown rating search context");
-    }
-}
-
 
 // Condition for date range.
 public class SearchConditionDate : SearchCondition {

@@ -170,7 +170,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     sidebar/Branch.vala
     sidebar/common.vala
     sidebar/Entry.vala
-    sidebar/Rating.vala
     sidebar/Sidebar.vala
     sidebar/Tree.vala
 

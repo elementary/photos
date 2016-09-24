@@ -114,22 +114,6 @@ public class SavedSearchDBTable : DatabaseTable {
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Modified", res);
 
-        // Create rating search table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
-                             + "SavedSearchDBTable_Rating "
-                             + "("
-                             + "id INTEGER PRIMARY KEY, "
-                             + "search_id INTEGER NOT NULL, "
-                             + "search_type TEXT NOT NULL, "
-                             + "rating INTEGER NOT_NULL, "
-                             + "context TEXT NOT NULL"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
-
-        res = stmt.step ();
-        if (res != Sqlite.DONE)
-            fatal ("create SavedSearchDBTable_Rating", res);
-
         // Create date search table.
         res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_Date "
@@ -145,7 +129,17 @@ public class SavedSearchDBTable : DatabaseTable {
 
         res = stmt.step ();
         if (res != Sqlite.DONE)
-            fatal ("create SavedSearchDBTable_Rating", res);
+            fatal ("create SavedSearchDBTable_Date", res);
+
+        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+                             + "SavedSearchDBTable_Date_Index "
+                             + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
+
+        assert (res == Sqlite.OK);
+        res = stmt.step ();
+
+        if (res != Sqlite.DONE)
+            fatal ("create SavedSearchDBTable_Date_Index", res);
 
         // Create indexes.
         res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
@@ -177,24 +171,9 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "ON SavedSearchDBTable_Modified(search_id)", -1, out stmt);
         assert (res == Sqlite.OK);
         res = stmt.step ();
+
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Modified_Index", res);
-
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
-                             + "SavedSearchDBTable_Rating_Index "
-                             + "ON SavedSearchDBTable_Rating(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
-        res = stmt.step ();
-        if (res != Sqlite.DONE)
-            fatal ("create SavedSearchDBTable_Rating_Index", res);
-
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
-                             + "SavedSearchDBTable_Date_Index "
-                             + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
-        res = stmt.step ();
-        if (res != Sqlite.DONE)
-            fatal ("create SavedSearchDBTable_Date_Index", res);
     }
 
     public static SavedSearchDBTable get_instance () {
@@ -323,29 +302,6 @@ public class SavedSearchDBTable : DatabaseTable {
             res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_Modified.add", res);
-        } else if (condition is SearchConditionRating) {
-            SearchConditionRating rating = condition as SearchConditionRating;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_Rating (search_id, search_type, rating, "
-            + "context) VALUES (?, ?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (2, rating.search_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_int (3, rating.rating.serialize ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (4, rating.context.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
-            if (res != Sqlite.DONE)
-                throw_error ("SavedSearchDBTable_Rating.add", res);
         } else if (condition is SearchConditionDate) {
             SearchConditionDate date = condition as SearchConditionDate;
             Sqlite.Statement stmt;
@@ -383,7 +339,6 @@ public class SavedSearchDBTable : DatabaseTable {
         remove_conditions_for_table ("SavedSearchDBTable_MediaType", search_id);
         remove_conditions_for_table ("SavedSearchDBTable_Flagged", search_id);
         remove_conditions_for_table ("SavedSearchDBTable_Modified", search_id);
-        remove_conditions_for_table ("SavedSearchDBTable_Rating", search_id);
         remove_conditions_for_table ("SavedSearchDBTable_Date", search_id);
     }
 
@@ -499,30 +454,6 @@ public class SavedSearchDBTable : DatabaseTable {
                 SearchCondition.SearchType.from_string (stmt.column_text (0)),
                 SearchConditionModified.Context.from_string (stmt.column_text (1)),
                 SearchConditionModified.State.from_string (stmt.column_text (2)));
-
-            list.add (condition);
-        }
-
-        // Get all rating conditions.
-        res = db.prepare_v2 ("SELECT search_type, rating, context FROM SavedSearchDBTable_Rating "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
-
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
-
-        for (;;) {
-            res = stmt.step ();
-            if (res == Sqlite.DONE)
-                break;
-            else if (res != Sqlite.ROW)
-                throw_error ("SavedSearchDBTable_Rating.get_all_rows", res);
-
-            SearchConditionRating condition = new SearchConditionRating (
-                SearchCondition.SearchType.from_string (stmt.column_text (0)),
-                Rating.unserialize (stmt.column_int (1)),
-                SearchConditionRating.Context.from_string (stmt.column_text (2)));
 
             list.add (condition);
         }
