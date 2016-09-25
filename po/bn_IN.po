@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-23 21:13-0700\n"
+"POT-Creation-Date: 2016-09-24 14:59-0700\n"
 "PO-Revision-Date: 2016-04-18 04:05+0000\n"
 "Last-Translator: runa <runabh@gmail.com>\n"
 "Language-Team: Bengali (India) "
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Launchpad-Export-Date: 2016-09-24 07:37+0000\n"
+"X-Launchpad-Export-Date: 2016-09-25 06:45+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 "Language: bn_IN\n"
 
@@ -135,7 +135,7 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr ""
 
 #: ../plugins/pantheon-photos-publishing/PicasaPublishing.vala:459
-#: ../src/editing_tools/EditingTools.vala:743
+#: ../src/editing_tools/CropTool.vala:191
 msgid "Original Size"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgid ""
 msgstr ""
 
 #: ../src/publishing/PublishingUI.vala:488 ../src/Dialogs.vala:1936
-#: ../src/editing_tools/EditingTools.vala:1851
+#: ../src/editing_tools/RedEyeTool.vala:67
 msgid "_Close"
 msgstr "বন্ধ (_C)"
 
@@ -652,9 +652,9 @@ msgstr "বন্ধ (_C)"
 #: ../src/Dialogs.vala:1360 ../src/Dialogs.vala:1401 ../src/Dialogs.vala:1577
 #: ../src/AppWindow.vala:600 ../src/AppWindow.vala:620
 #: ../src/AppWindow.vala:642 ../src/AppWindow.vala:660
-#: ../src/AppWindow.vala:677 ../src/editing_tools/EditingTools.vala:638
-#: ../src/editing_tools/EditingTools.vala:2199
-#: ../src/editing_tools/StraightenTool.vala:101
+#: ../src/AppWindow.vala:677 ../src/editing_tools/StraightenTool.vala:101
+#: ../src/editing_tools/AdjustTool.vala:48
+#: ../src/editing_tools/CropTool.vala:86
 msgid "_Cancel"
 msgstr "বাতিল করুন(_C)"
 
@@ -706,7 +706,7 @@ msgid "To:"
 msgstr "সমাপ্তি:"
 
 #: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/EditingTools.vala:1846
+#: ../src/editing_tools/RedEyeTool.vala:62
 msgid "Size:"
 msgstr "মাপ:"
 
@@ -726,7 +726,7 @@ msgstr "ডিভেলপর:"
 #: ../src/sidebar/metadata/BasicProperties.vala:291
 #: ../src/sidebar/metadata/BasicProperties.vala:295
 #: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/EditingTools.vala:2211
+#: ../src/editing_tools/AdjustTool.vala:60
 msgid "Exposure:"
 msgstr "এক্সপোসার:"
 
@@ -2349,59 +2349,59 @@ msgstr "ইঞ্চি"
 msgid "cm"
 msgstr "সেন্টিমিটার"
 
-#: ../src/Printing.vala:817 ../src/editing_tools/EditingTools.vala:748
+#: ../src/Printing.vala:817 ../src/editing_tools/CropTool.vala:196
 msgid "Wallet (2 x 3 in.)"
 msgstr "ওয়ালেট (২x ৩ ইঞ্চি)"
 
-#: ../src/Printing.vala:820 ../src/editing_tools/EditingTools.vala:749
+#: ../src/Printing.vala:820 ../src/editing_tools/CropTool.vala:197
 msgid "Notecard (3 x 5 in.)"
 msgstr "নোট-কার্ড (৩x ৫ ইঞ্চি)"
 
-#: ../src/Printing.vala:823 ../src/editing_tools/EditingTools.vala:750
+#: ../src/Printing.vala:823 ../src/editing_tools/CropTool.vala:198
 msgid "4 x 6 in."
 msgstr "৪ x ৬ ইঞ্চি"
 
-#: ../src/Printing.vala:826 ../src/editing_tools/EditingTools.vala:751
+#: ../src/Printing.vala:826 ../src/editing_tools/CropTool.vala:199
 msgid "5 x 7 in."
 msgstr "৫ x ৭ ইঞ্চি"
 
-#: ../src/Printing.vala:829 ../src/editing_tools/EditingTools.vala:752
+#: ../src/Printing.vala:829 ../src/editing_tools/CropTool.vala:200
 msgid "8 x 10 in."
 msgstr "৮ x ১০ ইঞ্চি"
 
-#: ../src/Printing.vala:832 ../src/editing_tools/EditingTools.vala:754
+#: ../src/Printing.vala:832 ../src/editing_tools/CropTool.vala:202
 msgid "11 x 14 in."
 msgstr "১১ x ১৪ ইঞ্চি"
 
-#: ../src/Printing.vala:835 ../src/editing_tools/EditingTools.vala:756
+#: ../src/Printing.vala:835 ../src/editing_tools/CropTool.vala:204
 msgid "16 x 20 in."
 msgstr "১৬ x ২০ ইঞ্চি"
 
-#: ../src/Printing.vala:841 ../src/editing_tools/EditingTools.vala:758
+#: ../src/Printing.vala:841 ../src/editing_tools/CropTool.vala:206
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "মেট্রিক ওয়ালেট (৯ x ১৩ সেন্টিমিটার)"
 
-#: ../src/Printing.vala:844 ../src/editing_tools/EditingTools.vala:759
+#: ../src/Printing.vala:844 ../src/editing_tools/CropTool.vala:207
 msgid "Postcard (10 x 15 cm)"
 msgstr "পোস্টকার্ড (১০ x ১৫ সেন্টিমিটার)"
 
-#: ../src/Printing.vala:847 ../src/editing_tools/EditingTools.vala:760
+#: ../src/Printing.vala:847 ../src/editing_tools/CropTool.vala:208
 msgid "13 x 18 cm"
 msgstr "১৩ x ১৮ সেন্টিমিটার"
 
-#: ../src/Printing.vala:850 ../src/editing_tools/EditingTools.vala:761
+#: ../src/Printing.vala:850 ../src/editing_tools/CropTool.vala:209
 msgid "18 x 24 cm"
 msgstr "১৮ x ২৪ সেন্টিমিটার"
 
-#: ../src/Printing.vala:853 ../src/editing_tools/EditingTools.vala:763
+#: ../src/Printing.vala:853 ../src/editing_tools/CropTool.vala:211
 msgid "20 x 30 cm"
 msgstr "২০ x ৩০ সেন্টিমিটার"
 
-#: ../src/Printing.vala:856 ../src/editing_tools/EditingTools.vala:764
+#: ../src/Printing.vala:856 ../src/editing_tools/CropTool.vala:212
 msgid "24 x 40 cm"
 msgstr "২৪ x ৪০ সেন্টিমিটার"
 
-#: ../src/Printing.vala:859 ../src/editing_tools/EditingTools.vala:765
+#: ../src/Printing.vala:859 ../src/editing_tools/CropTool.vala:213
 msgid "30 x 40 cm"
 msgstr "৩০ x ৪০ সেন্টিমিটার"
 
@@ -2877,8 +2877,8 @@ msgstr ""
 msgid "%d%%"
 msgstr "%d%%"
 
-#: ../src/Dialogs.vala:1578 ../src/editing_tools/EditingTools.vala:1849
-#: ../src/editing_tools/EditingTools.vala:2197
+#: ../src/Dialogs.vala:1578 ../src/editing_tools/AdjustTool.vala:46
+#: ../src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
 msgstr ""
 
@@ -3442,136 +3442,136 @@ msgstr "সমস্ত প্রতিস্থাপন করুন (_A)"
 msgid "Export"
 msgstr "এক্সপোর্ট করুন"
 
-#: ../src/editing_tools/EditingTools.vala:653
-msgid "Return to current photo dimensions"
+#: ../src/editing_tools/StraightenTool.vala:99
+msgid "Angle:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:655
-msgid "Set the crop for this photo"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:666
-msgid "Pivot the crop rectangle between portrait and landscape orientations"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:740
-msgid "Unconstrained"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:741
-msgid "Square"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:742
-msgid "Screen"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:744
-#: ../src/editing_tools/EditingTools.vala:747
-#: ../src/editing_tools/EditingTools.vala:757
-#: ../src/editing_tools/EditingTools.vala:767
-msgid "-"
-msgstr "-"
-
-#: ../src/editing_tools/EditingTools.vala:745
-msgid "SD Video (4 : 3)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:746
-msgid "HD Video (16 : 9)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:753
-msgid "Letter (8.5 x 11 in.)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:755
-msgid "Tabloid (11 x 17 in.)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:762
-msgid "A4 (210 x 297 mm)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:766
-msgid "A3 (297 x 420 mm)"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:768
-msgid "Custom"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:1861
-msgid "Close the red-eye tool"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:1863
-msgid "Remove any red-eye effects in the selected region"
-msgstr ""
-
-#: ../src/editing_tools/EditingTools.vala:2198
 #: ../src/editing_tools/StraightenTool.vala:102
+#: ../src/editing_tools/AdjustTool.vala:47
 msgid "_Reset"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2218
+#: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2224
+#: ../src/editing_tools/AdjustTool.vala:73
 msgid "Tint:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2230
+#: ../src/editing_tools/AdjustTool.vala:79
 msgid "Temperature:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2236
+#: ../src/editing_tools/AdjustTool.vala:85
 msgid "Shadows:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2242
+#: ../src/editing_tools/AdjustTool.vala:91
 msgid "Highlights:"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2292
+#: ../src/editing_tools/AdjustTool.vala:141
 msgid "Reset Colors"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2292
+#: ../src/editing_tools/AdjustTool.vala:141
 msgid "Reset all color adjustments to original"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2644
+#: ../src/editing_tools/AdjustTool.vala:493
 msgid "Temperature"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2657
+#: ../src/editing_tools/AdjustTool.vala:506
 msgid "Tint"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2670
+#: ../src/editing_tools/AdjustTool.vala:519
 msgid "Saturation"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2683
+#: ../src/editing_tools/AdjustTool.vala:532
 msgid "Exposure"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2696
+#: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2709
+#: ../src/editing_tools/AdjustTool.vala:558
 msgid "Highlights"
 msgstr ""
 
-#: ../src/editing_tools/EditingTools.vala:2719
+#: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr ""
 
-#: ../src/editing_tools/StraightenTool.vala:99
-msgid "Angle:"
+#: ../src/editing_tools/RedEyeTool.vala:77
+msgid "Close the red-eye tool"
+msgstr ""
+
+#: ../src/editing_tools/RedEyeTool.vala:79
+msgid "Remove any red-eye effects in the selected region"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:101
+msgid "Return to current photo dimensions"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:103
+msgid "Set the crop for this photo"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:114
+msgid "Pivot the crop rectangle between portrait and landscape orientations"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:188
+msgid "Unconstrained"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:189
+msgid "Square"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:190
+msgid "Screen"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:192
+#: ../src/editing_tools/CropTool.vala:195
+#: ../src/editing_tools/CropTool.vala:205
+#: ../src/editing_tools/CropTool.vala:215
+msgid "-"
+msgstr "-"
+
+#: ../src/editing_tools/CropTool.vala:193
+msgid "SD Video (4 : 3)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:194
+msgid "HD Video (16 : 9)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:201
+msgid "Letter (8.5 x 11 in.)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:203
+msgid "Tabloid (11 x 17 in.)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:210
+msgid "A4 (210 x 297 mm)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:214
+msgid "A3 (297 x 420 mm)"
+msgstr ""
+
+#: ../src/editing_tools/CropTool.vala:216
+msgid "Custom"
 msgstr ""
 
 #: ../src/main.vala:54
