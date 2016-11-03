@@ -5,8 +5,6 @@
  */
 
 public class Sidebar.Tree : Gtk.TreeView {
-    public const int ICON_SIZE = 16;
-
     // Only one ExternalDropHandler can be registered with the Tree; it's responsible for completing
     // the "drag-data-received" signal properly.
     public delegate void ExternalDropHandler (Gdk.DragContext context, Sidebar.Entry? entry,
@@ -759,7 +757,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             if (icon != null)
                 return icon;
 
-            Gtk.IconInfo? info = icon_theme.lookup_by_gicon_for_scale (gicon, ICON_SIZE, get_scale_factor (), Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            Gtk.IconInfo? info = icon_theme.lookup_by_gicon (gicon, 16, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             if (info == null)
                 return null;
 
