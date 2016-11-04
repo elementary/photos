@@ -275,7 +275,7 @@ public abstract class GenericPhotoTransformationCommand : SingleDataSourceComman
 public abstract class MultipleDataSourceCommand : PageCommand {
     protected const int MIN_OPS_FOR_PROGRESS_WINDOW = 5;
 
-    public Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
+    protected Gee.ArrayList<DataSource> source_list = new Gee.ArrayList<DataSource> ();
 
     private string progress_text;
     private string undo_progress_text;

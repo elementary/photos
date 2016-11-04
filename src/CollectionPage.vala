@@ -699,7 +699,7 @@ public abstract class CollectionPage : MediaPage {
           we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
-        foreach (DataView view in get_view () .get_selected ()) {
+        foreach (DataView view in get_view ().get_selected ()) {
             Photo photo = view.get_source () as Photo;
             if (photo != null && !photo.is_enhanced ())
                 unenhanced_list.add (view);
@@ -713,7 +713,7 @@ public abstract class CollectionPage : MediaPage {
         if (unenhanced_list.size == 0) {
             // Just undo if last on stack was enhance
             EnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as EnhanceMultipleCommand;
-            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+            if (cmd != null && cmd.get_sources () == get_view ().get_selected_sources ())
                 get_command_manager ().undo ();
             else {
                 UnEnhanceMultipleCommand command = new UnEnhanceMultipleCommand (enhanced_list);
@@ -726,7 +726,7 @@ public abstract class CollectionPage : MediaPage {
         } else {
             // Just undo if last on stack was unenhance
             UnEnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceMultipleCommand;
-            if (cmd != null && cmd.source_list == get_view () .get_selected ())
+            if (cmd != null && cmd.get_sources () == get_view ().get_selected_sources ())
                 get_command_manager ().undo ();
             else {
                 EnhanceMultipleCommand command = new EnhanceMultipleCommand (unenhanced_list);
