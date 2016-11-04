@@ -6,31 +6,40 @@
 
 public class MetadataView : Gtk.ScrolledWindow {
     private List<Properties> properties_collection = new List<Properties> ();
-    private Gtk.Notebook notebook = new Gtk.Notebook ();
-    private Gtk.Grid grid = new Gtk.Grid ();
-    private int line_count = 0;
-    private BasicProperties colletion_page_properties = new BasicProperties ();
+
     private Gtk.Label no_items_label = new Gtk.Label (_("No items selected"));
-    public const int SIDEBAR_PADDING = 12;
+    private Gtk.Notebook notebook;
+    private Gtk.Grid grid;
+
+    private int line_count = 0;
+
+    private BasicProperties colletion_page_properties = new BasicProperties ();
+
     public MetadataView () {
         set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+
+        grid = new Gtk.Grid ();
+        grid.hexpand = true;
+        grid.row_spacing = 12;
+        grid.margin = 12;
+
         properties_collection.append (new LibraryProperties ());
         properties_collection.append (new BasicProperties ());
         properties_collection.append (new ExtendedProperties ());
 
-        foreach (var properties in properties_collection)
+        foreach (var properties in properties_collection) {
             add_expander (properties);
+        }
 
-        grid.set_row_spacing (16);
-        grid.margin = SIDEBAR_PADDING;
-        colletion_page_properties.margin = SIDEBAR_PADDING;
-        add (notebook);
+        colletion_page_properties.margin = 12;
+
+        notebook = new Gtk.Notebook ();
         notebook.append_page (grid);
         notebook.append_page (colletion_page_properties);
         notebook.append_page (no_items_label);
         notebook.set_show_tabs (false);
 
-        grid.hexpand = true;
+        add (notebook);
     }
 
     private void add_expander (Properties properties) {
