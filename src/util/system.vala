@@ -28,5 +28,5 @@ void sys_show_uri (Gdk.Screen screen, string uri) throws Error {
 }
 
 int posix_wexitstatus (int status) {
-    return (((status) & 0xff00) >> 8);
+    return ((status & 0xff00) >> 8);
 }
