@@ -2429,7 +2429,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (toolbar == null) {
             base.get_toolbar ();
 
-            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
             slideshow_button.set_tooltip_text (_("Play a slideshow"));
             slideshow_button.clicked.connect (on_slideshow);
