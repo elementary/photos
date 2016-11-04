@@ -7,16 +7,16 @@
 public class MetadataView : Gtk.ScrolledWindow {
     private List<Properties> properties_collection = new List<Properties> ();
 
-    private Gtk.Label no_items_label = new Gtk.Label (_("No items selected"));
-    private Gtk.Notebook notebook;
     private Gtk.Grid grid;
+    private Gtk.Label no_items_label;
+    private Gtk.Stack stack;
 
     private int line_count = 0;
 
-    private BasicProperties colletion_page_properties = new BasicProperties ();
+    private BasicProperties collection_page_properties;
 
     public MetadataView () {
-        set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+        hscrollbar_policy = Gtk.PolicyType.NEVER;
 
         grid = new Gtk.Grid ();
         grid.hexpand = true;
@@ -31,15 +31,17 @@ public class MetadataView : Gtk.ScrolledWindow {
             add_expander (properties);
         }
 
-        colletion_page_properties.margin = 12;
+        collection_page_properties = new BasicProperties ();
+        collection_page_properties.margin = 12;
 
-        notebook = new Gtk.Notebook ();
-        notebook.append_page (grid);
-        notebook.append_page (colletion_page_properties);
-        notebook.append_page (no_items_label);
-        notebook.set_show_tabs (false);
+        no_items_label = new Gtk.Label (_("No items selected"));
 
-        add (notebook);
+        stack = new Gtk.Stack ();
+        stack.add (grid);
+        stack.add (collection_page_properties);
+        stack.add (no_items_label);
+
+        add (stack);
     }
 
     private void add_expander (Properties properties) {
@@ -58,7 +60,7 @@ public class MetadataView : Gtk.ScrolledWindow {
         bool display_single = false;
 
         if (view == null) {
-            notebook.set_current_page ( notebook.page_num (no_items_label));
+            stack.visible_child = no_items_label;
             save_changes ();
             return;
         }
@@ -73,7 +75,7 @@ public class MetadataView : Gtk.ScrolledWindow {
         }
 
         if (iter == null || count == 0) {
-            notebook.set_current_page (notebook.page_num (no_items_label));
+            stack.visible_child = no_items_label;
             save_changes ();
             return;
         }
@@ -89,17 +91,15 @@ public class MetadataView : Gtk.ScrolledWindow {
             display_single = true;
         }
 
-        int page_num = 0;
         if (display_single) {
             save_changes ();
-            colletion_page_properties.update_properties (page);
-            page_num = notebook.page_num (colletion_page_properties);
+            collection_page_properties.update_properties (page);
+            stack.visible_child = collection_page_properties;
         } else {
             foreach (var properties in properties_collection)
                 properties.update_properties (page);
-            page_num = notebook.page_num (grid);
+            stack.visible_child = grid;
         }
-        notebook.set_current_page (page_num);
     }
 
     public void save_changes () {
