@@ -122,7 +122,3 @@ public class MetadataView : Gtk.ScrolledWindow {
             properties.save_changes_to_source ();
     }
 }
-
-
-
-
