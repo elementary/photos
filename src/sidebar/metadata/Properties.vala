@@ -1,8 +1,23 @@
-/* Copyright 2009-2013 Yorba Foundation
- *
- * This software is licensed under the GNU LGPL (version 2.1 or later).
- * See the COPYING file in this distribution.
- */
+/*
+* Copyright (c) 2009-2013 Yorba Foundation
+*               2016 elementary LLC (http://launchpad.net/pantheon-photos)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2.1 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+* Boston, MA 02111-1307, USA.
+*
+*/
 
 public abstract class Properties : Gtk.Grid {
     protected uint line_count = 0;
@@ -13,54 +28,42 @@ public abstract class Properties : Gtk.Grid {
     }
 
     protected void add_line (string label_text, string info_text, bool multi_line = false) {
-        if (info_text == null || info_text == "")
+        if (info_text == null || info_text == "") {
             return;
-        Gtk.Label label = new Gtk.Label ("");
-        Gtk.Widget info;
-
-        label.set_justify (Gtk.Justification.RIGHT);
-        label.valign = Gtk.Align.START;
-        label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
-        label.set_line_wrap (true);
-        label.set_line_wrap_mode (Pango.WrapMode.WORD_CHAR);
-        label.set_lines (8);
-
-        if (multi_line) {
-            Gtk.ScrolledWindow info_scroll = new Gtk.ScrolledWindow (null, null);
-            Gtk.TextView view = new Gtk.TextView ();
-            // by default TextView widgets have a white background, which
-            // makes sense during editing. In this instance we only *show*
-            // the content and thus want that the parent's background color
-            // is inherited to the TextView
-            Gtk.StyleContext context = info_scroll.get_style_context ();
-            view.override_background_color (Gtk.StateFlags.NORMAL,
-                                            context.get_background_color (Gtk.StateFlags.NORMAL));
-            view.set_wrap_mode (Gtk.WrapMode.WORD);
-            view.set_cursor_visible (false);
-            view.set_editable (false);
-            view.buffer.text = is_string_empty (info_text) ? "" : info_text;
-            info_scroll.add (view);
-            label.set_alignment (1, 0);
-            info = (Gtk.Widget) info_scroll;
-        } else {
-            Gtk.Label info_label = new Gtk.Label ("");
-            info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
-            info_label.set_alignment (0, (float) 5e-1);
-            info_label.set_ellipsize (Pango.EllipsizeMode.END);
-            info_label.set_line_wrap (true);
-            info_label.set_line_wrap_mode (Pango.WrapMode.WORD_CHAR);
-            info_label.set_lines (8);
-            info_label.set_selectable (true);
-            label.set_alignment (1, (float) 5e-1);
-            info = (Gtk.Widget) info_label;
         }
+
+        var label = new Gtk.Label ("");
+        label.lines = 8;
+        label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
+        label.valign = Gtk.Align.START;
+        label.wrap = true;
+        label.wrap_mode = Pango.WrapMode.WORD_CHAR;
+        label.xalign = 1;
 
         attach (label, 0, (int) line_count, 1, 1);
 
         if (multi_line) {
-            attach (info, 1, (int) line_count, 1, 2);
+            var view = new Gtk.TextView ();
+            view.buffer.text = is_string_empty (info_text) ? "" : info_text;
+            view.cursor_visible = false;
+            view.editable = false;
+            view.wrap_mode = Gtk.WrapMode.WORD;
+
+            var info_scroll = new Gtk.ScrolledWindow (null, null);
+            info_scroll.add (view);
+
+            attach (info_scroll, 1, (int) line_count, 1, 2);
         } else {
-            attach (info, 1, (int) line_count, 1, 1);
+            var info_label = new Gtk.Label ("");
+            info_label.ellipsize = Pango.EllipsizeMode.END;
+            info_label.lines = 8;
+            info_label.selectable = true;
+            info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
+            info_label.wrap = true;
+            info_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
+            info_label.xalign = 0;
+
+            attach (info_label, 1, (int) line_count, 1, 1);
         }
 
         line_count++;
