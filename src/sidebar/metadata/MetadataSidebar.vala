@@ -1,36 +1,62 @@
-/* Copyright 2011-2014 Yorba Foundation
- *
- * This software is licensed under the GNU Lesser General Public License
- * (version 2.1 or later).  See the COPYING file in this distribution.
- */
+/*
+* Copyright (c) 2011-2014 Yorba Foundation
+*               2016 elementary LLC (http://launchpad.net/pantheon-photos)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2.1 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+* Boston, MA 02111-1307, USA.
+*
+*/
 
 public class MetadataView : Gtk.ScrolledWindow {
     private List<Properties> properties_collection = new List<Properties> ();
-    private Gtk.Notebook notebook = new Gtk.Notebook ();
-    private Gtk.Grid grid = new Gtk.Grid ();
+
+    private Gtk.Grid grid;
+    private Gtk.Label no_items_label;
+    private Gtk.Stack stack;
+
     private int line_count = 0;
-    private BasicProperties colletion_page_properties = new BasicProperties ();
-    private Gtk.Label no_items_label = new Gtk.Label (_("No items selected"));
-    public const int SIDEBAR_PADDING = 12;
+
+    private BasicProperties collection_page_properties;
+
     public MetadataView () {
-        set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+        hscrollbar_policy = Gtk.PolicyType.NEVER;
+
+        grid = new Gtk.Grid ();
+        grid.hexpand = true;
+        grid.row_spacing = 12;
+        grid.margin = 12;
+
         properties_collection.append (new LibraryProperties ());
         properties_collection.append (new BasicProperties ());
         properties_collection.append (new ExtendedProperties ());
 
-        foreach (var properties in properties_collection)
+        foreach (var properties in properties_collection) {
             add_expander (properties);
+        }
 
-        grid.set_row_spacing (16);
-        grid.margin = SIDEBAR_PADDING;
-        colletion_page_properties.margin = SIDEBAR_PADDING;
-        add (notebook);
-        notebook.append_page (grid);
-        notebook.append_page (colletion_page_properties);
-        notebook.append_page (no_items_label);
-        notebook.set_show_tabs (false);
+        collection_page_properties = new BasicProperties ();
+        collection_page_properties.margin = 12;
 
-        grid.hexpand = true;
+        no_items_label = new Gtk.Label (_("No items selected"));
+
+        stack = new Gtk.Stack ();
+        stack.add (grid);
+        stack.add (collection_page_properties);
+        stack.add (no_items_label);
+
+        add (stack);
     }
 
     private void add_expander (Properties properties) {
@@ -49,7 +75,7 @@ public class MetadataView : Gtk.ScrolledWindow {
         bool display_single = false;
 
         if (view == null) {
-            notebook.set_current_page ( notebook.page_num (no_items_label));
+            stack.visible_child = no_items_label;
             save_changes ();
             return;
         }
@@ -64,7 +90,7 @@ public class MetadataView : Gtk.ScrolledWindow {
         }
 
         if (iter == null || count == 0) {
-            notebook.set_current_page (notebook.page_num (no_items_label));
+            stack.visible_child = no_items_label;
             save_changes ();
             return;
         }
@@ -80,17 +106,15 @@ public class MetadataView : Gtk.ScrolledWindow {
             display_single = true;
         }
 
-        int page_num = 0;
         if (display_single) {
             save_changes ();
-            colletion_page_properties.update_properties (page);
-            page_num = notebook.page_num (colletion_page_properties);
+            collection_page_properties.update_properties (page);
+            stack.visible_child = collection_page_properties;
         } else {
             foreach (var properties in properties_collection)
                 properties.update_properties (page);
-            page_num = notebook.page_num (grid);
+            stack.visible_child = grid;
         }
-        notebook.set_current_page (page_num);
     }
 
     public void save_changes () {
@@ -98,7 +122,3 @@ public class MetadataView : Gtk.ScrolledWindow {
             properties.save_changes_to_source ();
     }
 }
-
-
-
-
