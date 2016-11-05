@@ -27,7 +27,7 @@ public abstract class Properties : Gtk.Grid {
         column_spacing = 6;
     }
 
-    protected void add_line (string label_text, string info_text, bool multi_line = false) {
+    protected void add_line (string label_text, string info_text) {
         if (info_text == null || info_text == "") {
             return;
         }
@@ -40,31 +40,17 @@ public abstract class Properties : Gtk.Grid {
         label.wrap_mode = Pango.WrapMode.WORD_CHAR;
         label.xalign = 1;
 
+        var info_label = new Gtk.Label ("");
+        info_label.ellipsize = Pango.EllipsizeMode.END;
+        info_label.lines = 8;
+        info_label.selectable = true;
+        info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
+        info_label.wrap = true;
+        info_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
+        info_label.xalign = 0;
+
         attach (label, 0, (int) line_count, 1, 1);
-
-        if (multi_line) {
-            var view = new Gtk.TextView ();
-            view.buffer.text = is_string_empty (info_text) ? "" : info_text;
-            view.cursor_visible = false;
-            view.editable = false;
-            view.wrap_mode = Gtk.WrapMode.WORD;
-
-            var info_scroll = new Gtk.ScrolledWindow (null, null);
-            info_scroll.add (view);
-
-            attach (info_scroll, 1, (int) line_count, 1, 2);
-        } else {
-            var info_label = new Gtk.Label ("");
-            info_label.ellipsize = Pango.EllipsizeMode.END;
-            info_label.lines = 8;
-            info_label.selectable = true;
-            info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
-            info_label.wrap = true;
-            info_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-            info_label.xalign = 0;
-
-            attach (info_label, 1, (int) line_count, 1, 1);
-        }
+        attach (info_label, 1, (int) line_count, 1, 1);
 
         line_count++;
     }
@@ -163,10 +149,4 @@ public abstract class Properties : Gtk.Grid {
     }
 
     public abstract string get_header_title ();
-
 }
-
-
-
-
-
