@@ -281,6 +281,7 @@ private class BasicProperties : Properties {
 
         if (aperture != "") {
             var aperture_icon = new Gtk.Image.from_icon_name ("aperture-symbolic", Gtk.IconSize.MENU);
+            aperture_icon.tooltip_text = _("Aperture");
 
             var aperture_label = new Gtk.Label (aperture);
             aperture_label.selectable = true;
@@ -296,6 +297,7 @@ private class BasicProperties : Properties {
 
         if (focal_length != "") {
             var focal_length_icon = new Gtk.Image.from_icon_name ("focal-length-symbolic", Gtk.IconSize.MENU);
+            focal_length_icon.tooltip_text = _("Focal length");
 
             var focal_length_label = new Gtk.Label (focal_length);
             focal_length_label.selectable = true;
@@ -310,6 +312,7 @@ private class BasicProperties : Properties {
 
         if (exposure != "") {
             var exposure_icon = new Gtk.Image.from_icon_name ("exposure-symbolic", Gtk.IconSize.MENU);
+            exposure_icon.tooltip_text = _("Exposure");
 
             var exposure_label = new Gtk.Label (exposure);
             exposure_label.selectable = true;
@@ -324,6 +327,7 @@ private class BasicProperties : Properties {
 
         if (iso != "") {
             var iso_icon = new Gtk.Image.from_icon_name ("iso-symbolic", Gtk.IconSize.MENU);
+            iso_icon.tooltip_text = _("ISO");
 
             var iso_label = new Gtk.Label (iso);
             iso_label.selectable = true;
