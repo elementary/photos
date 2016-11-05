@@ -13,7 +13,6 @@ private class ExtendedProperties : Properties {
     private string camera_make;
     private string camera_model;
     private string flash;
-    private string focal_length;
     private double gps_lat;
     private string gps_lat_ref;
     private double gps_long;
@@ -50,7 +49,6 @@ private class ExtendedProperties : Properties {
         camera_make = "";
         camera_model = "";
         flash = "";
-        focal_length = "";
         gps_lat = -1;
         gps_lat_ref = "";
         gps_long = -1;
@@ -112,7 +110,6 @@ private class ExtendedProperties : Properties {
             camera_make = metadata.get_camera_make ();
             camera_model = metadata.get_camera_model ();
             flash = metadata.get_flash_string ();
-            focal_length = metadata.get_focal_length_string ();
             metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
@@ -153,9 +150,6 @@ private class ExtendedProperties : Properties {
                       camera_model : NO_VALUE);
 
             add_line (_ ("Flash:"), (flash != "" && flash != null) ? flash : NO_VALUE);
-
-            add_line (_ ("Focal length:"), (focal_length != "" && focal_length != null) ?
-                      focal_length : NO_VALUE);
 
             add_line (_ ("Exposure date:"), (exposure_date != "" && exposure_date != null) ?
                       exposure_date : NO_VALUE);

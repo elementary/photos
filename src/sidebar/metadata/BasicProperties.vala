@@ -13,6 +13,7 @@ private class BasicProperties : Properties {
     private int event_count;
     private int video_count;
     private string exposure;
+    private string focal_length;
     private string aperture;
     private string iso;
     private double clip_duration;
@@ -32,6 +33,7 @@ private class BasicProperties : Properties {
         start_time = 0;
         end_time = 0;
         dimensions = Dimensions (0, 0);
+        focal_length = "";
         photo_count = -1;
         event_count = -1;
         video_count = -1;
@@ -74,6 +76,8 @@ private class BasicProperties : Properties {
                 dimensions = (metadata.get_pixel_dimensions () != null) ?
                              metadata.get_orientation ().rotate_dimensions (metadata.get_pixel_dimensions ()) :
                              Dimensions (0, 0);
+
+                focal_length = metadata.get_focal_length_string ();
             }
 
             if (source is PhotoSource)
@@ -264,44 +268,72 @@ private class BasicProperties : Properties {
         }
 
         // RAW+JPEG flag.
-        if (raw_assoc != "")
+        if (raw_assoc != "") {
             add_line ("", raw_assoc);
+        }
 
-        if (exposure != "" || aperture != "" || iso != "") {
-            string line = null;
+        var flowbox = new Gtk.FlowBox ();
+        flowbox.column_spacing = 12;
+        flowbox.row_spacing = 12;
+        flowbox.hexpand = true;
+        flowbox.margin_top = 12;
+        attach (flowbox, 0, 9, 2, 1);
 
-            // attempt to put exposure and aperture on the same line
-            if (exposure != "")
-                line = exposure;
+        if (aperture != "") {
+            var aperture_icon = new Gtk.Image.from_icon_name ("aperture-symbolic", Gtk.IconSize.MENU);
 
-            if (aperture != "") {
-                if (line != null)
-                    line += ", " + aperture;
-                else
-                    line = aperture;
-            }
+            var aperture_label = new Gtk.Label (aperture);
+            aperture_label.selectable = true;
+            aperture_label.use_markup = true;
 
-            // if not both available but ISO is, add it to the first line
-            if ((exposure == "" || aperture == "") && iso != "") {
-                if (line != null)
-                    line += ", " + "ISO " + iso;
-                else
-                    line = "ISO " + iso;
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.add (aperture_icon);
+            grid.add (aperture_label);
 
-                add_line (_ ("Exposure:"), line);
-            } else {
-                // fit both on the top line, emit and move on
-                if (line != null)
-                    add_line (_ ("Exposure:"), line);
+            flowbox.add (grid);
+        }
 
-                // emit ISO on a second unadorned line
-                if (iso != "") {
-                    if (line != null)
-                        add_line ("", "ISO " + iso);
-                    else
-                        add_line (_ ("Exposure:"), "ISO " + iso);
-                }
-            }
+        if (focal_length != "") {
+            var focal_length_icon = new Gtk.Image.from_icon_name ("focal-length-symbolic", Gtk.IconSize.MENU);
+
+            var focal_length_label = new Gtk.Label (focal_length);
+            focal_length_label.selectable = true;
+
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.add (focal_length_icon);
+            grid.add (focal_length_label);
+
+            flowbox.add (grid);
+        }
+
+        if (exposure != "") {
+            var exposure_icon = new Gtk.Image.from_icon_name ("exposure-symbolic", Gtk.IconSize.MENU);
+
+            var exposure_label = new Gtk.Label (exposure);
+            exposure_label.selectable = true;
+
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.add (exposure_icon);
+            grid.add (exposure_label);
+
+            flowbox.add (grid);
+        }
+
+        if (iso != "") {
+            var iso_icon = new Gtk.Image.from_icon_name ("iso-symbolic", Gtk.IconSize.MENU);
+
+            var iso_label = new Gtk.Label (iso);
+            iso_label.selectable = true;
+
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.add (iso_icon);
+            grid.add (iso_label);
+
+            flowbox.add (grid);
         }
     }
 }
