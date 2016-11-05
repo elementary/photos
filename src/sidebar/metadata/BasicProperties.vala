@@ -277,6 +277,7 @@ private class BasicProperties : Properties {
         flowbox.row_spacing = 12;
         flowbox.hexpand = true;
         flowbox.margin_top = 12;
+        flowbox.selection_mode = Gtk.SelectionMode.NONE;
         attach (flowbox, 0, 9, 2, 1);
 
         if (aperture != "") {
@@ -300,18 +301,24 @@ private class BasicProperties : Properties {
         }
     }
 
-    private class ExifItem : Gtk.Grid {
+    private class ExifItem : Gtk.FlowBoxChild {
         public ExifItem (string icon_name, string tooltip_text, string data) {
+            can_focus = false;
+
             var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.MENU);
-            icon.tooltip_text = _(tooltip_text);
 
             var label = new Gtk.Label (data);
             label.selectable = true;
             label.use_markup = true;
 
-            column_spacing = 6;
-            add (icon);
-            add (label);
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.tooltip_text = _(tooltip_text);
+            grid.add (icon);
+            grid.add (label);
+
+            add (grid);
+            show_all ();
         }
     }
 }
