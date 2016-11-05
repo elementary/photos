@@ -280,64 +280,38 @@ private class BasicProperties : Properties {
         attach (flowbox, 0, 9, 2, 1);
 
         if (aperture != "") {
-            var aperture_icon = new Gtk.Image.from_icon_name ("aperture-symbolic", Gtk.IconSize.MENU);
-            aperture_icon.tooltip_text = _("Aperture");
-
-            var aperture_label = new Gtk.Label (aperture);
-            aperture_label.selectable = true;
-            aperture_label.use_markup = true;
-
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 6;
-            grid.add (aperture_icon);
-            grid.add (aperture_label);
-
-            flowbox.add (grid);
+            var aperture_item = new ExifItem ("aperture-symbolic", _("Aperture"), aperture);
+            flowbox.add (aperture_item);
         }
 
         if (focal_length != "") {
-            var focal_length_icon = new Gtk.Image.from_icon_name ("focal-length-symbolic", Gtk.IconSize.MENU);
-            focal_length_icon.tooltip_text = _("Focal length");
-
-            var focal_length_label = new Gtk.Label (focal_length);
-            focal_length_label.selectable = true;
-
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 6;
-            grid.add (focal_length_icon);
-            grid.add (focal_length_label);
-
-            flowbox.add (grid);
+            var focal_length_item = new ExifItem ("focal-length-symbolic", _("Focal length"), focal_length);
+            flowbox.add (focal_length_item);
         }
 
         if (exposure != "") {
-            var exposure_icon = new Gtk.Image.from_icon_name ("exposure-symbolic", Gtk.IconSize.MENU);
-            exposure_icon.tooltip_text = _("Exposure");
-
-            var exposure_label = new Gtk.Label (exposure);
-            exposure_label.selectable = true;
-
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 6;
-            grid.add (exposure_icon);
-            grid.add (exposure_label);
-
-            flowbox.add (grid);
+            var exposure_item = new ExifItem ("exposure-symbolic", _("Exposure"), exposure);
+            flowbox.add (exposure_item);
         }
 
         if (iso != "") {
-            var iso_icon = new Gtk.Image.from_icon_name ("iso-symbolic", Gtk.IconSize.MENU);
-            iso_icon.tooltip_text = _("ISO");
+            var iso_item = new ExifItem ("iso-symbolic", _("ISO"), iso);
+            flowbox.add (iso_item);
+        }
+    }
 
-            var iso_label = new Gtk.Label (iso);
-            iso_label.selectable = true;
+    private class ExifItem : Gtk.Grid {
+        public ExifItem (string icon_name, string tooltip_text, string data) {
+            var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.MENU);
+            icon.tooltip_text = _(tooltip_text);
 
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 6;
-            grid.add (iso_icon);
-            grid.add (iso_label);
+            var label = new Gtk.Label (data);
+            label.selectable = true;
+            label.use_markup = true;
 
-            flowbox.add (grid);
+            column_spacing = 6;
+            add (icon);
+            add (label);
         }
     }
 }
