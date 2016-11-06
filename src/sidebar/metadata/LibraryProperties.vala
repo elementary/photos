@@ -13,7 +13,6 @@ private class LibraryProperties : Properties {
     private string tags;
 
     public LibraryProperties () {
-        set_column_homogeneous (true);
         Tag.global.container_contents_altered.connect (on_tag_contents_altered);
     }
 
@@ -39,9 +38,11 @@ private class LibraryProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        MediaSource source = view.get_source () as MediaSource;
-        if (source != media_source)
+        var source = view.get_source () as MediaSource;
+
+        if (source != media_source) {
             save_changes_to_source ();
+        }
 
         clear_properties ();
         media_source = source;
@@ -56,25 +57,26 @@ private class LibraryProperties : Properties {
 
     protected override void internal_update_properties (Page page) {
         base.internal_update_properties (page);
+        row_spacing = 12;
 
         if (is_media) {
             comment_entry = new PlaceHolderTextView (comment, _("Comment"));
-            comment_entry.set_wrap_mode (Gtk.WrapMode.WORD);
-            comment_entry.set_size_request (-1, 50);
-            // textview in sidebar css class for non entry we make an exception
-            comment_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ENTRY);
-            add_entry_line (_("Comment"), comment_entry);
+            comment_entry.wrap_mode = Gtk.WrapMode.WORD;
+            comment_entry.height_request = 50;
 
-            var spacerrate = new Gtk.Grid ();
-            spacerrate.set_size_request (50, -1);
-            spacerrate.hexpand = true;
+            var frame = new Gtk.Frame (null);
+            frame.hexpand = true;
+            frame.add (comment_entry);
 
             tags_entry = new Gtk.Entry ();
-            if (tags != null)
-                tags_entry.text = tags;
+            tags_entry.placeholder_text = _("Tags, separated by commas");
+            tags_entry.text = tags;
+
+            attach (frame, 0, 0, 1, 1);
+            attach (tags_entry, 0, 1, 1, 1);
+
             tags_entry.changed.connect (tags_entry_changed);
             tags_entry.activate.connect (tags_entry_activate);
-            add_entry_line (_("Tags, separated by commas"), tags_entry);
         }
     }
 
@@ -90,27 +92,17 @@ private class LibraryProperties : Properties {
     public override void save_changes_to_source () {
         if (media_source != null && is_media) {
             comment = comment_entry.get_text ().strip ();
-            if (comment != null && comment != media_source.get_comment ())
+
+            if (comment != null && comment != media_source.get_comment ()) {
                 AppWindow.get_command_manager ().execute (new EditCommentCommand (media_source, comment));
+            }
+
             Gee.ArrayList<Tag>? new_tags = tag_entry_to_array ();
-            if (new_tags != null && tags != get_initial_tag_text (media_source))
+
+            if (new_tags != null && tags != get_initial_tag_text (media_source)) {
                 AppWindow.get_command_manager ().execute (new ModifyTagsCommand (media_source, new_tags));
+            }
         }
-    }
-
-    private void add_entry_line (string label_text, Gtk.Widget entry) {
-        Gtk.Entry text_entry = entry as Gtk.Entry;
-        if (text_entry != null)
-            text_entry.placeholder_text = label_text;
-        entry.tooltip_text = label_text;
-
-        attach (entry, 0, (int) line_count, 1, 1);
-        line_count++;
-
-        var spacer = new Gtk.Grid ();
-        spacer.set_size_request (100, 15);
-        attach (spacer, 0, (int) line_count, 1, 1);
-        line_count++;
     }
 
     private static string? get_initial_tag_text (MediaSource source) {
@@ -126,10 +118,11 @@ private class LibraryProperties : Properties {
 
         string? text = null;
         foreach (string name in tag_basenames) {
-            if (text == null)
+            if (text == null) {
                 text = "";
-            else
+            } else {
                 text += ", ";
+            }
 
             text += name;
         }
