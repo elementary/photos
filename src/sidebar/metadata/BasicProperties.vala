@@ -13,6 +13,7 @@ private class BasicProperties : Properties {
     private int event_count;
     private int video_count;
     private string exposure;
+    private string focal_length;
     private string aperture;
     private string iso;
     private double clip_duration;
@@ -32,6 +33,7 @@ private class BasicProperties : Properties {
         start_time = 0;
         end_time = 0;
         dimensions = Dimensions (0, 0);
+        focal_length = "";
         photo_count = -1;
         event_count = -1;
         video_count = -1;
@@ -74,6 +76,8 @@ private class BasicProperties : Properties {
                 dimensions = (metadata.get_pixel_dimensions () != null) ?
                              metadata.get_orientation ().rotate_dimensions (metadata.get_pixel_dimensions ()) :
                              Dimensions (0, 0);
+
+                focal_length = metadata.get_focal_length_string ();
             }
 
             if (source is PhotoSource)
@@ -264,44 +268,57 @@ private class BasicProperties : Properties {
         }
 
         // RAW+JPEG flag.
-        if (raw_assoc != "")
+        if (raw_assoc != "") {
             add_line ("", raw_assoc);
+        }
 
-        if (exposure != "" || aperture != "" || iso != "") {
-            string line = null;
+        var flowbox = new Gtk.FlowBox ();
+        flowbox.column_spacing = 12;
+        flowbox.row_spacing = 12;
+        flowbox.hexpand = true;
+        flowbox.margin_top = 12;
+        flowbox.selection_mode = Gtk.SelectionMode.NONE;
+        attach (flowbox, 0, 9, 2, 1);
 
-            // attempt to put exposure and aperture on the same line
-            if (exposure != "")
-                line = exposure;
+        if (aperture != "") {
+            var aperture_item = new ExifItem ("aperture-symbolic", _("Aperture"), aperture);
+            flowbox.add (aperture_item);
+        }
 
-            if (aperture != "") {
-                if (line != null)
-                    line += ", " + aperture;
-                else
-                    line = aperture;
-            }
+        if (focal_length != "") {
+            var focal_length_item = new ExifItem ("focal-length-symbolic", _("Focal length"), focal_length);
+            flowbox.add (focal_length_item);
+        }
 
-            // if not both available but ISO is, add it to the first line
-            if ((exposure == "" || aperture == "") && iso != "") {
-                if (line != null)
-                    line += ", " + "ISO " + iso;
-                else
-                    line = "ISO " + iso;
+        if (exposure != "") {
+            var exposure_item = new ExifItem ("exposure-symbolic", _("Exposure"), exposure);
+            flowbox.add (exposure_item);
+        }
 
-                add_line (_ ("Exposure:"), line);
-            } else {
-                // fit both on the top line, emit and move on
-                if (line != null)
-                    add_line (_ ("Exposure:"), line);
+        if (iso != "") {
+            var iso_item = new ExifItem ("iso-symbolic", _("ISO"), iso);
+            flowbox.add (iso_item);
+        }
+    }
 
-                // emit ISO on a second unadorned line
-                if (iso != "") {
-                    if (line != null)
-                        add_line ("", "ISO " + iso);
-                    else
-                        add_line (_ ("Exposure:"), "ISO " + iso);
-                }
-            }
+    private class ExifItem : Gtk.FlowBoxChild {
+        public ExifItem (string icon_name, string tooltip_text, string data) {
+            can_focus = false;
+
+            var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.MENU);
+
+            var label = new Gtk.Label (data);
+            label.selectable = true;
+            label.use_markup = true;
+
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.tooltip_text = _(tooltip_text);
+            grid.add (icon);
+            grid.add (label);
+
+            add (grid);
+            show_all ();
         }
     }
 }
