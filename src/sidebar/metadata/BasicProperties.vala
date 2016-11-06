@@ -5,20 +5,27 @@
  */
 
 private class BasicProperties : Properties {
-    protected string title;
     private time_t start_time = time_t ();
     private time_t end_time = time_t ();
     private Dimensions dimensions;
+    private EditableTitle title_entry;
+    private MediaSource? source;
     private int photo_count;
     private int event_count;
     private int video_count;
+    private string camera_make;
+    private string camera_model;
     private string exposure;
+    private string exposure_bias;
+    private string flash;
     private string focal_length;
+    private string title;
     private string aperture;
     private string iso;
     private double clip_duration;
     private string raw_developer;
     private string raw_assoc;
+    private uint64 filesize;
 
     public BasicProperties () {
     }
@@ -29,15 +36,20 @@ private class BasicProperties : Properties {
 
     protected override void clear_properties () {
         base.clear_properties ();
+        camera_make = "";
+        camera_model = "";
         title = "";
         start_time = 0;
         end_time = 0;
         dimensions = Dimensions (0, 0);
+        flash = "";
+        filesize = 0;
         focal_length = "";
         photo_count = -1;
         event_count = -1;
         video_count = -1;
         exposure = "";
+        exposure_bias = "";
         aperture = "";
         iso = "";
         clip_duration = 0.0;
@@ -48,8 +60,9 @@ private class BasicProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        DataSource source = view.get_source ();
+        source = view.get_source () as MediaSource;
 
+        filesize = source.get_master_filesize ();
         title = source.get_name ();
 
         if (source is PhotoSource || source is PhotoImportSource) {
@@ -61,9 +74,16 @@ private class BasicProperties : Properties {
                                        ((PhotoImportSource) source).get_metadata ();
 
             if (metadata != null) {
+                camera_make = metadata.get_camera_make ();
+                camera_model = metadata.get_camera_model ();
+
                 exposure = metadata.get_exposure_string ();
                 if (exposure == null)
                     exposure = "";
+
+                exposure_bias = metadata.get_exposure_bias ();
+
+                flash = metadata.get_flash_string ();
 
                 aperture = metadata.get_aperture_string (true);
                 if (aperture == null)
@@ -194,9 +214,19 @@ private class BasicProperties : Properties {
     protected override void internal_update_properties (Page page) {
         base.internal_update_properties (page);
 
-        // display the title if a Tag page
-        if (title == "" && page is TagPage)
-            title = ((TagPage) page).get_tag ().get_user_visible_name ();
+        if (title != "") {
+            title_entry = new EditableTitle (null);
+            title_entry.tooltip_text = _("Title");
+
+            if (title != null) {
+                title_entry.text = title;
+            }
+
+            title_entry.changed.connect (title_entry_changed);
+            attach (title_entry, 0, 0, 2, 1);
+
+            line_count++;
+        }
 
         if (photo_count >= 0 || video_count >= 0) {
             string label = _ ("Items:");
@@ -251,12 +281,12 @@ private class BasicProperties : Properties {
         }
 
         if (dimensions.has_area ()) {
-            string label = _ ("Size:");
+            var size_label = new Gtk.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
+            size_label.use_markup = true;
+            size_label.xalign = 0;
+            attach (size_label, 0, (int) line_count, 2, 1);
 
-            if (dimensions.has_area ()) {
-                add_line (label, "%d &#215; %d".printf (dimensions.width, dimensions.height));
-                label = "";
-            }
+            line_count++;
         }
 
         if (clip_duration > 0.0) {
@@ -270,6 +300,22 @@ private class BasicProperties : Properties {
         // RAW+JPEG flag.
         if (raw_assoc != "") {
             add_line ("", raw_assoc);
+        }
+
+        if (camera_make != "" && camera_model != "") {
+            string camera_string;
+
+            if (camera_make in camera_model) {
+                camera_string = camera_model;
+            } else {
+                camera_string = camera_make + " " + camera_model;
+            }
+
+            var camera_label = new Gtk.Label (camera_string);
+            camera_label.margin_top = 12;
+            camera_label.xalign = 0;
+
+            attach (camera_label, 0, 8, 2, 1);
         }
 
         var flowbox = new Gtk.FlowBox ();
@@ -299,6 +345,26 @@ private class BasicProperties : Properties {
             var iso_item = new ExifItem ("iso-symbolic", _("ISO"), iso);
             flowbox.add (iso_item);
         }
+
+        if (exposure_bias != "") {
+            var exposure_bias_item = new ExifItem ("exposure-bias-symbolic", _("Exposure bias"), exposure_bias);
+            flowbox.add (exposure_bias_item);
+        }
+
+        if (flash != "") {
+            var flash_item = new ExifItem ("flash-symbolic", _("Flash"), flash);
+            flowbox.add (flash_item);
+        }
+    }
+
+    public override void save_changes_to_source () {
+        if (source != null && title != null && title != source.get_name ()) {
+            AppWindow.get_command_manager ().execute (new EditTitleCommand (source, title));
+        }
+    }
+
+    private void title_entry_changed () {
+        title = title_entry.text;
     }
 
     private class ExifItem : Gtk.FlowBoxChild {

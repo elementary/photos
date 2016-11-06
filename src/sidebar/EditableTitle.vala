@@ -61,6 +61,7 @@ public class EditableTitle : Gtk.EventBox {
 
         title = new Gtk.Label (title_name);
         title.ellipsize = Pango.EllipsizeMode.END;
+        title.get_style_context ().add_class ("h3");
         title.hexpand = true;
         ((Gtk.Misc) title).xalign = 0;
 
