@@ -43,7 +43,8 @@ public class MetadataView : Gtk.ScrolledWindow {
         properties_collection.append (new ExtendedProperties ());
 
         foreach (var properties in properties_collection) {
-            add_expander (properties);
+            grid.attach (properties, 0, line_count, 1, 1);
+            line_count++;
         }
 
         collection_page_properties = new BasicProperties ();
@@ -57,16 +58,6 @@ public class MetadataView : Gtk.ScrolledWindow {
         stack.add (no_items_label);
 
         add (stack);
-    }
-
-    private void add_expander (Properties properties) {
-        var expander = new Gtk.Expander ("<b>" + properties.get_header_title () + "</b>");
-        expander.use_markup = true;
-        expander.add (properties);
-        expander.set_spacing (10);
-        grid.attach (expander, 0, line_count, 1, 1);
-        line_count++;
-        expander.set_expanded (true);
     }
 
     public void update_properties (Page page) {
@@ -111,8 +102,9 @@ public class MetadataView : Gtk.ScrolledWindow {
             collection_page_properties.update_properties (page);
             stack.visible_child = collection_page_properties;
         } else {
-            foreach (var properties in properties_collection)
+            foreach (var properties in properties_collection) {
                 properties.update_properties (page);
+            }
             stack.visible_child = grid;
         }
     }
