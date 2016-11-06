@@ -8,7 +8,6 @@ private class ExtendedProperties : Properties {
     private const string NO_VALUE = "";
     // Photo stuff
     private string file_path;
-    private uint64 filesize;
     private string camera_make;
     private string camera_model;
     private string flash;
@@ -42,7 +41,6 @@ private class ExtendedProperties : Properties {
         file_path = "";
         development_path = "";
         is_raw = false;
-        filesize = 0;
         camera_make = "";
         camera_model = "";
         flash = "";
@@ -69,7 +67,6 @@ private class ExtendedProperties : Properties {
             MediaSource media = (MediaSource) source;
             file_path = media.get_master_file ().get_path ();
             development_path = media.get_file ().get_path ();
-            filesize = media.get_master_filesize ();
 
             // as of right now, all extended properties other than filesize, filepath & comment aren't
             // applicable to non-photo media types, so if the current media source isn't a photo,
@@ -126,9 +123,6 @@ private class ExtendedProperties : Properties {
             // nothing special to be done for now for Events
         } else {
             add_line (_("Location:"), (file_path != "" && file_path != null) ? file_path.replace ("&", "&amp;") : NO_VALUE);
-
-            add_line (_ ("File size:"), (filesize > 0) ?
-                      format_size ((int64) filesize) : NO_VALUE);
 
             if (is_raw)
                 add_line (_ ("Developer:"), development_path);
