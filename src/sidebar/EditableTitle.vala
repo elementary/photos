@@ -25,14 +25,31 @@ public class EditableTitle : Gtk.EventBox {
     private Gtk.Entry entry;
     private Gtk.Stack stack;
     private Gtk.Grid grid;
-    
+
     public string text {
         get {
             return title.label;
         }
-        
+
         set {
             title.label = value;
+        }
+    }
+
+    private bool editing {
+        set {
+            if (value) {
+                entry.text = title.label;
+                stack.set_visible_child (entry);
+                entry.grab_focus ();
+            } else {
+                if (entry.text.strip () != "" && title.label != entry.text) {
+                    title.label = entry.text;
+                    changed (entry.text);
+                }
+
+                stack.set_visible_child (grid);
+            }
         }
     }
 
@@ -88,30 +105,22 @@ public class EditableTitle : Gtk.EventBox {
         });
 
         button_press_event.connect ((event) => {
-            entry.text = title.label;
-            stack.set_visible_child (entry);
+            editing = true;
             return false;
-        });    
-    
-        edit_button.clicked.connect (() => {
-            entry.text = title.label;
-            stack.set_visible_child (entry);
         });
 
-        entry.activate.connect (() => validate ());
+        edit_button.clicked.connect (() => {
+            editing = true;
+        });
+
+        entry.activate.connect (() => {
+            editing = false;
+        });
+
         entry.icon_release.connect ((p0, p1) => {
             if (p0 == Gtk.EntryIconPosition.SECONDARY) {
-                validate ();
+                editing = false;
             }
         });
-    }
-
-    private void validate () {
-        if (entry.text.strip () != "" && title.label != entry.text) {
-            title.label = entry.text;
-            changed (entry.text);
-        }
-
-        stack.set_visible_child (grid);
     }
 }
