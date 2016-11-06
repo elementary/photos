@@ -75,7 +75,6 @@ public class EditableTitle : Gtk.EventBox {
         grid = new Gtk.Grid ();
         grid.valign = Gtk.Align.CENTER;
         grid.column_spacing = 12;
-        grid.orientation = Gtk.Orientation.HORIZONTAL;
         grid.add (title);
         grid.add (button_revealer);
 

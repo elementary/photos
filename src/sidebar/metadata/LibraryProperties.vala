@@ -129,7 +129,6 @@ private class LibraryProperties : Properties {
 
     private void tags_entry_changed () {
         tags = tags_entry.get_text ();
-        tags = tags_entry.get_text ();
     }
 
     private void tags_entry_activate () {
