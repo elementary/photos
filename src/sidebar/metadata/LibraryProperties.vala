@@ -13,8 +13,6 @@ private class LibraryProperties : Properties {
     private bool is_media;
     private string title;
     private string tags;
-    private bool is_flagged = false;
-    private Gtk.ToggleButton toolbtn_flag = null;
 
     public LibraryProperties () {
         set_column_homogeneous (true);
@@ -56,8 +54,6 @@ private class LibraryProperties : Properties {
             tags = get_initial_tag_text (media_source);
             title = media_source.get_name ();
             comment = media_source.get_comment ();
-            if (flaggable != null)
-                is_flagged = flaggable.is_flagged ();
             is_media = true;
         }
     }
@@ -83,17 +79,6 @@ private class LibraryProperties : Properties {
             spacerrate.set_size_request (50, -1);
             spacerrate.hexpand = true;
 
-            toolbtn_flag = new Gtk.ToggleButton ();
-            toolbtn_flag.image = new Gtk.Image.from_icon_name (Resources.EDIT_FLAG, Gtk.IconSize.MENU);
-            toolbtn_flag.halign = Gtk.Align.END;
-            toolbtn_flag.valign = Gtk.Align.END;
-            toolbtn_flag.set_active (is_flagged);
-            toolbtn_flag.clicked.connect (flag_btn_clicked);
-            update_flag_action ();
-
-            attach (toolbtn_flag, 0, (int) line_count, 1, 1);
-            line_count++;
-
             tags_entry = new Gtk.Entry ();
             if (tags != null)
                 tags_entry.text = tags;
@@ -101,26 +86,6 @@ private class LibraryProperties : Properties {
             tags_entry.activate.connect (tags_entry_activate);
             add_entry_line (_("Tags, separated by commas"), tags_entry);
         }
-    }
-
-    private void flag_btn_clicked () {
-        save_changes_to_source ();
-        Flaggable? flaggable = media_source as Flaggable;
-
-        if (flaggable != null) {
-            if (flaggable.is_flagged ())
-                flaggable.mark_unflagged ();
-            else
-                flaggable.mark_flagged ();
-        }
-        update_flag_action ();
-    }
-
-    private void update_flag_action () {
-        if (toolbtn_flag.active)
-            toolbtn_flag.tooltip_text = Resources.UNFLAG_LABEL;
-        else
-            toolbtn_flag.tooltip_text = Resources.FLAG_LABEL;
     }
 
     private void title_entry_changed () {
