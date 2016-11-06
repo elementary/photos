@@ -38,8 +38,8 @@ public class MetadataView : Gtk.ScrolledWindow {
         grid.row_spacing = 12;
         grid.margin = 12;
 
-        properties_collection.append (new LibraryProperties ());
         properties_collection.append (new BasicProperties ());
+        properties_collection.append (new LibraryProperties ());
         properties_collection.append (new ExtendedProperties ());
 
         foreach (var properties in properties_collection) {

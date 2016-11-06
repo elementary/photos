@@ -175,6 +175,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     sidebar/Entry.vala
     sidebar/Sidebar.vala
     sidebar/Tree.vala
+    sidebar/EditableTitle.vala
 
     sidebar/metadata/BasicProperties.vala
     sidebar/metadata/ExtendedProperties.vala
@@ -217,7 +218,7 @@ OPTIONS
 
 include_directories (${CMAKE_SOURCE_DIR}/vapi)
 add_executable (${EXEC_NAME} ${VALA_C} ${PLUGIN_VALA_C} ${CONFIG_FILE})
-target_link_libraries (${EXEC_NAME} ${DEPS_LIBRARIES}) 
+target_link_libraries (${EXEC_NAME} ${DEPS_LIBRARIES})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
 

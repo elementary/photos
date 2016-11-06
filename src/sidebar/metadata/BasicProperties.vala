@@ -5,15 +5,19 @@
  */
 
 private class BasicProperties : Properties {
-    protected string title;
     private time_t start_time = time_t ();
     private time_t end_time = time_t ();
     private Dimensions dimensions;
+    private EditableTitle title_entry;
+    private MediaSource? source;
     private int photo_count;
     private int event_count;
     private int video_count;
+    private string camera_make;
+    private string camera_model;
     private string exposure;
     private string focal_length;
+    private string title;
     private string aperture;
     private string iso;
     private double clip_duration;
@@ -29,6 +33,8 @@ private class BasicProperties : Properties {
 
     protected override void clear_properties () {
         base.clear_properties ();
+        camera_make = "";
+        camera_model = "";
         title = "";
         start_time = 0;
         end_time = 0;
@@ -48,7 +54,7 @@ private class BasicProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        DataSource source = view.get_source ();
+        source = view.get_source () as MediaSource;
 
         title = source.get_name ();
 
@@ -61,6 +67,9 @@ private class BasicProperties : Properties {
                                        ((PhotoImportSource) source).get_metadata ();
 
             if (metadata != null) {
+                camera_make = metadata.get_camera_make ();
+                camera_model = metadata.get_camera_model ();
+
                 exposure = metadata.get_exposure_string ();
                 if (exposure == null)
                     exposure = "";
@@ -194,9 +203,19 @@ private class BasicProperties : Properties {
     protected override void internal_update_properties (Page page) {
         base.internal_update_properties (page);
 
-        // display the title if a Tag page
-        if (title == "" && page is TagPage)
-            title = ((TagPage) page).get_tag ().get_user_visible_name ();
+        if (title != "") {
+            title_entry = new EditableTitle (null);
+            title_entry.tooltip_text = _("Title");
+
+            if (title != null) {
+                title_entry.text = title;
+            }
+
+            title_entry.changed.connect (title_entry_changed);
+            attach (title_entry, 0, 0, 2, 1);
+
+            line_count++;
+        }
 
         if (photo_count >= 0 || video_count >= 0) {
             string label = _ ("Items:");
@@ -272,6 +291,22 @@ private class BasicProperties : Properties {
             add_line ("", raw_assoc);
         }
 
+        if (camera_make != "" && camera_model != "") {
+            string camera_string;
+
+            if (camera_make in camera_model) {
+                camera_string = camera_model;
+            } else {
+                camera_string = camera_make + " " + camera_model;
+            }
+
+            var camera_label = new Gtk.Label (camera_string);
+            camera_label.margin_top = 12;
+            camera_label.xalign = 0;
+
+            attach (camera_label, 0, 8, 2, 1);
+        }
+
         var flowbox = new Gtk.FlowBox ();
         flowbox.column_spacing = 12;
         flowbox.row_spacing = 12;
@@ -299,6 +334,16 @@ private class BasicProperties : Properties {
             var iso_item = new ExifItem ("iso-symbolic", _("ISO"), iso);
             flowbox.add (iso_item);
         }
+    }
+
+    public override void save_changes_to_source () {
+        if (source != null && title != null && title != source.get_name ()) {
+            AppWindow.get_command_manager ().execute (new EditTitleCommand (source, title));
+        }
+    }
+
+    private void title_entry_changed () {
+        title = title_entry.text;
     }
 
     private class ExifItem : Gtk.FlowBoxChild {
