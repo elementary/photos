@@ -7,7 +7,7 @@
 private class LibraryProperties : Properties {
     private MediaSource? media_source;
     private string comment;
-    private Gtk.Entry title_entry;
+    private EditableTitle title_entry;
     private Gtk.Entry tags_entry;
     private PlaceHolderTextView comment_entry;
     private bool is_media;
@@ -66,9 +66,9 @@ private class LibraryProperties : Properties {
         base.internal_update_properties (page);
 
         if (is_media) {
-            title_entry = new Gtk.Entry ();
+            title_entry = new EditableTitle (null);
             if (title != null)
-                title_entry.set_text (title);
+                title_entry.text = title;
             title_entry.changed.connect (title_entry_changed);
             add_entry_line (_("Title"), title_entry);
 
@@ -124,7 +124,7 @@ private class LibraryProperties : Properties {
     }
 
     private void title_entry_changed () {
-        title = title_entry.get_text ();
+        title = title_entry.text;
     }
 
     private void tags_entry_changed () {
