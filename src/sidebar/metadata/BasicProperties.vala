@@ -254,13 +254,13 @@ private class BasicProperties : Properties {
             string end_time = get_prettyprint_time (Time.local (end_time));
 
             if (start_date == end_date) {
-                // display only one date if start and end are the same
-                add_line (_ ("Date:"), start_date);
-
                 if (start_time == end_time) {
-                    // display only one time if start and end are the same
-                    add_line (_ ("Time:"), start_time);
+                    var datetime_label = new Gtk.Label ("%s at %s".printf (start_date, start_time));
+                    datetime_label.xalign = 0;
+                    attach (datetime_label, 0, (int) line_count, 2, 1);
+                    line_count++;
                 } else {
+                    add_line (_ ("Date:"), start_date);
                     // display time range
                     add_line (_ ("From:"), start_time);
                     add_line (_ ("To:"), end_time);
