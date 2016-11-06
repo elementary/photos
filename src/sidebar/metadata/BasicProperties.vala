@@ -21,6 +21,7 @@ private class BasicProperties : Properties {
     private double clip_duration;
     private string raw_developer;
     private string raw_assoc;
+    private uint64 filesize;
 
     public BasicProperties () {
     }
@@ -35,6 +36,7 @@ private class BasicProperties : Properties {
         start_time = 0;
         end_time = 0;
         dimensions = Dimensions (0, 0);
+        filesize = 0;
         focal_length = "";
         photo_count = -1;
         event_count = -1;
@@ -52,6 +54,7 @@ private class BasicProperties : Properties {
 
         source = view.get_source () as MediaSource;
 
+        filesize = source.get_master_filesize ();
         title = source.get_name ();
 
         if (source is PhotoSource || source is PhotoImportSource) {
@@ -263,12 +266,12 @@ private class BasicProperties : Properties {
         }
 
         if (dimensions.has_area ()) {
-            string label = _ ("Size:");
+            var size_label = new Gtk.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
+            size_label.use_markup = true;
+            size_label.xalign = 0;
+            attach (size_label, 0, (int) line_count, 2, 1);
 
-            if (dimensions.has_area ()) {
-                add_line (label, "%d &#215; %d".printf (dimensions.width, dimensions.height));
-                label = "";
-            }
+            line_count++;
         }
 
         if (clip_duration > 0.0) {

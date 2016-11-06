@@ -8,8 +8,6 @@ private class ExtendedProperties : Properties {
     private const string NO_VALUE = "";
     // Photo stuff
     private string file_path;
-    private uint64 filesize;
-    private Dimensions? original_dim;
     private string camera_make;
     private string camera_model;
     private string flash;
@@ -20,7 +18,6 @@ private class ExtendedProperties : Properties {
     private double gps_alt;
     private string artist;
     private string copyright;
-    private string software;
     private string exposure_bias;
     private string exposure_date;
     private string exposure_time;
@@ -44,8 +41,6 @@ private class ExtendedProperties : Properties {
         file_path = "";
         development_path = "";
         is_raw = false;
-        filesize = 0;
-        original_dim = Dimensions (0, 0);
         camera_make = "";
         camera_model = "";
         flash = "";
@@ -55,7 +50,6 @@ private class ExtendedProperties : Properties {
         gps_long_ref = "";
         artist = "";
         copyright = "";
-        software = "";
         exposure_bias = "";
         exposure_date = "";
         exposure_time = "";
@@ -73,7 +67,6 @@ private class ExtendedProperties : Properties {
             MediaSource media = (MediaSource) source;
             file_path = media.get_master_file ().get_path ();
             development_path = media.get_file ().get_path ();
-            filesize = media.get_master_filesize ();
 
             // as of right now, all extended properties other than filesize, filepath & comment aren't
             // applicable to non-photo media types, so if the current media source isn't a photo,
@@ -106,14 +99,12 @@ private class ExtendedProperties : Properties {
                 metadata.set_exposure_date_time (new MetadataDateTime (photo.get_timestamp ()));
 
             is_raw = (photo.get_master_file_format () == PhotoFileFormat.RAW);
-            original_dim = metadata.get_pixel_dimensions ();
             camera_make = metadata.get_camera_make ();
             camera_model = metadata.get_camera_model ();
             flash = metadata.get_flash_string ();
             metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
-            software = metadata.get_software ();
             exposure_bias = metadata.get_exposure_bias ();
             time_t exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
             exposure_date = get_prettyprint_date (Time.local (exposure_time_obj));
@@ -131,17 +122,10 @@ private class ExtendedProperties : Properties {
         if (page is EventsDirectoryPage) {
             // nothing special to be done for now for Events
         } else {
-            add_line (_ ("Location:"), (file_path != "" && file_path != null) ?
-                      file_path.replace ("&", "&amp;") : NO_VALUE);
-
-            add_line (_ ("File size:"), (filesize > 0) ?
-                      format_size ((int64) filesize) : NO_VALUE);
+            add_line (_("Location:"), (file_path != "" && file_path != null) ? file_path.replace ("&", "&amp;") : NO_VALUE);
 
             if (is_raw)
                 add_line (_ ("Developer:"), development_path);
-
-            add_line (_ ("Original size:"), (original_dim != null && original_dim.has_area ()) ?
-                      "%d &#215; %d".printf (original_dim.width, original_dim.height) : NO_VALUE);
 
             add_line (_ ("Camera make:"), (camera_make != "" && camera_make != null) ?
                       camera_make : NO_VALUE);
@@ -168,8 +152,6 @@ private class ExtendedProperties : Properties {
             add_line (_ ("Artist:"), (artist != "" && artist != null) ? artist : NO_VALUE);
 
             add_line (_ ("Copyright:"), (copyright != "" && copyright != null) ? copyright : NO_VALUE);
-
-            add_line (_ ("Software:"), (software != "" && software != null) ? software : NO_VALUE);
         }
     }
 }
