@@ -8,7 +8,6 @@ private class ExtendedProperties : Properties {
     private const string NO_VALUE = "";
     // Photo stuff
     private string file_path;
-    private string flash;
     private double gps_lat;
     private string gps_lat_ref;
     private double gps_long;
@@ -16,7 +15,6 @@ private class ExtendedProperties : Properties {
     private double gps_alt;
     private string artist;
     private string copyright;
-    private string exposure_bias;
     private string exposure_date;
     private string exposure_time;
     private bool is_raw;
@@ -39,14 +37,12 @@ private class ExtendedProperties : Properties {
         file_path = "";
         development_path = "";
         is_raw = false;
-        flash = "";
         gps_lat = -1;
         gps_lat_ref = "";
         gps_long = -1;
         gps_long_ref = "";
         artist = "";
         copyright = "";
-        exposure_bias = "";
         exposure_date = "";
         exposure_time = "";
         comment = "";
@@ -95,11 +91,9 @@ private class ExtendedProperties : Properties {
                 metadata.set_exposure_date_time (new MetadataDateTime (photo.get_timestamp ()));
 
             is_raw = (photo.get_master_file_format () == PhotoFileFormat.RAW);
-            flash = metadata.get_flash_string ();
             metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
-            exposure_bias = metadata.get_exposure_bias ();
             time_t exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
             exposure_date = get_prettyprint_date (Time.local (exposure_time_obj));
             exposure_time = get_prettyprint_time_with_seconds (Time.local (exposure_time_obj));
@@ -121,15 +115,11 @@ private class ExtendedProperties : Properties {
             if (is_raw)
                 add_line (_ ("Developer:"), development_path);
 
-            add_line (_ ("Flash:"), (flash != "" && flash != null) ? flash : NO_VALUE);
-
             add_line (_ ("Exposure date:"), (exposure_date != "" && exposure_date != null) ?
                       exposure_date : NO_VALUE);
 
             add_line (_ ("Exposure time:"), (exposure_time != "" && exposure_time != null) ?
                       exposure_time : NO_VALUE);
-
-            add_line (_ ("Exposure bias:"), (exposure_bias != "" && exposure_bias != null) ? exposure_bias : NO_VALUE);
 
             add_line (_ ("GPS latitude:"), (gps_lat != -1 && gps_lat_ref != "" &&
                                             gps_lat_ref != null) ? "%f °%s".printf (gps_lat, gps_lat_ref) : NO_VALUE);
