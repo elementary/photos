@@ -7,14 +7,10 @@
 private class LibraryProperties : Properties {
     private MediaSource? media_source;
     private string comment;
-    private EditableTitle title_entry;
     private Gtk.Entry tags_entry;
     private PlaceHolderTextView comment_entry;
     private bool is_media;
-    private string title;
     private string tags;
-    private bool is_flagged = false;
-    private Gtk.ToggleButton toolbtn_flag = null;
 
     public LibraryProperties () {
         set_column_homogeneous (true);
@@ -32,7 +28,6 @@ private class LibraryProperties : Properties {
     protected override void clear_properties () {
         base.clear_properties ();
         comment = "";
-        title = "";
         tags = "";
         is_media = false;
     }
@@ -54,10 +49,7 @@ private class LibraryProperties : Properties {
         Flaggable? flaggable = media_source as Flaggable;
         if (media_source != null && flaggable != null) {
             tags = get_initial_tag_text (media_source);
-            title = media_source.get_name ();
             comment = media_source.get_comment ();
-            if (flaggable != null)
-                is_flagged = flaggable.is_flagged ();
             is_media = true;
         }
     }
@@ -66,12 +58,6 @@ private class LibraryProperties : Properties {
         base.internal_update_properties (page);
 
         if (is_media) {
-            title_entry = new EditableTitle (null);
-            if (title != null)
-                title_entry.text = title;
-            title_entry.changed.connect (title_entry_changed);
-            add_entry_line (_("Title"), title_entry);
-
             comment_entry = new PlaceHolderTextView (comment, _("Comment"));
             comment_entry.set_wrap_mode (Gtk.WrapMode.WORD);
             comment_entry.set_size_request (-1, 50);
@@ -83,17 +69,6 @@ private class LibraryProperties : Properties {
             spacerrate.set_size_request (50, -1);
             spacerrate.hexpand = true;
 
-            toolbtn_flag = new Gtk.ToggleButton ();
-            toolbtn_flag.image = new Gtk.Image.from_icon_name (Resources.EDIT_FLAG, Gtk.IconSize.MENU);
-            toolbtn_flag.halign = Gtk.Align.END;
-            toolbtn_flag.valign = Gtk.Align.END;
-            toolbtn_flag.set_active (is_flagged);
-            toolbtn_flag.clicked.connect (flag_btn_clicked);
-            update_flag_action ();
-
-            attach (toolbtn_flag, 0, (int) line_count, 1, 1);
-            line_count++;
-
             tags_entry = new Gtk.Entry ();
             if (tags != null)
                 tags_entry.text = tags;
@@ -101,30 +76,6 @@ private class LibraryProperties : Properties {
             tags_entry.activate.connect (tags_entry_activate);
             add_entry_line (_("Tags, separated by commas"), tags_entry);
         }
-    }
-
-    private void flag_btn_clicked () {
-        save_changes_to_source ();
-        Flaggable? flaggable = media_source as Flaggable;
-
-        if (flaggable != null) {
-            if (flaggable.is_flagged ())
-                flaggable.mark_unflagged ();
-            else
-                flaggable.mark_flagged ();
-        }
-        update_flag_action ();
-    }
-
-    private void update_flag_action () {
-        if (toolbtn_flag.active)
-            toolbtn_flag.tooltip_text = Resources.UNFLAG_LABEL;
-        else
-            toolbtn_flag.tooltip_text = Resources.FLAG_LABEL;
-    }
-
-    private void title_entry_changed () {
-        title = title_entry.text;
     }
 
     private void tags_entry_changed () {
@@ -139,8 +90,6 @@ private class LibraryProperties : Properties {
     public override void save_changes_to_source () {
         if (media_source != null && is_media) {
             comment = comment_entry.get_text ().strip ();
-            if (title != null && title != media_source.get_name ())
-                AppWindow.get_command_manager ().execute (new EditTitleCommand (media_source, title));
             if (comment != null && comment != media_source.get_comment ())
                 AppWindow.get_command_manager ().execute (new EditCommentCommand (media_source, comment));
             Gee.ArrayList<Tag>? new_tags = tag_entry_to_array ();
