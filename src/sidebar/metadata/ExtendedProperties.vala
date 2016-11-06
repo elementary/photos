@@ -8,8 +8,6 @@ private class ExtendedProperties : Properties {
     private const string NO_VALUE = "";
     // Photo stuff
     private string file_path;
-    private string camera_make;
-    private string camera_model;
     private string flash;
     private double gps_lat;
     private string gps_lat_ref;
@@ -41,8 +39,6 @@ private class ExtendedProperties : Properties {
         file_path = "";
         development_path = "";
         is_raw = false;
-        camera_make = "";
-        camera_model = "";
         flash = "";
         gps_lat = -1;
         gps_lat_ref = "";
@@ -99,8 +95,6 @@ private class ExtendedProperties : Properties {
                 metadata.set_exposure_date_time (new MetadataDateTime (photo.get_timestamp ()));
 
             is_raw = (photo.get_master_file_format () == PhotoFileFormat.RAW);
-            camera_make = metadata.get_camera_make ();
-            camera_model = metadata.get_camera_model ();
             flash = metadata.get_flash_string ();
             metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             artist = metadata.get_artist ();
@@ -126,12 +120,6 @@ private class ExtendedProperties : Properties {
 
             if (is_raw)
                 add_line (_ ("Developer:"), development_path);
-
-            add_line (_ ("Camera make:"), (camera_make != "" && camera_make != null) ?
-                      camera_make : NO_VALUE);
-
-            add_line (_ ("Camera model:"), (camera_model != "" && camera_model != null) ?
-                      camera_model : NO_VALUE);
 
             add_line (_ ("Flash:"), (flash != "" && flash != null) ? flash : NO_VALUE);
 

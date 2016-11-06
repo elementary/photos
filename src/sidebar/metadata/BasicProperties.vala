@@ -13,6 +13,8 @@ private class BasicProperties : Properties {
     private int photo_count;
     private int event_count;
     private int video_count;
+    private string camera_make;
+    private string camera_model;
     private string exposure;
     private string focal_length;
     private string title;
@@ -32,6 +34,8 @@ private class BasicProperties : Properties {
 
     protected override void clear_properties () {
         base.clear_properties ();
+        camera_make = "";
+        camera_model = "";
         title = "";
         start_time = 0;
         end_time = 0;
@@ -66,6 +70,9 @@ private class BasicProperties : Properties {
                                        ((PhotoImportSource) source).get_metadata ();
 
             if (metadata != null) {
+                camera_make = metadata.get_camera_make ();
+                camera_model = metadata.get_camera_model ();
+
                 exposure = metadata.get_exposure_string ();
                 if (exposure == null)
                     exposure = "";
@@ -285,6 +292,22 @@ private class BasicProperties : Properties {
         // RAW+JPEG flag.
         if (raw_assoc != "") {
             add_line ("", raw_assoc);
+        }
+
+        if (camera_make != "" && camera_model != "") {
+            string camera_string;
+
+            if (camera_make in camera_model) {
+                camera_string = camera_model;
+            } else {
+                camera_string = camera_make + " " + camera_model;
+            }
+
+            var camera_label = new Gtk.Label (camera_string);
+            camera_label.margin_top = 12;
+            camera_label.xalign = 0;
+
+            attach (camera_label, 0, 8, 2, 1);
         }
 
         var flowbox = new Gtk.FlowBox ();
