@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-07-03 18:28+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish "
@@ -26,8 +26,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-25 06:31+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:35+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: fi\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -706,171 +706,147 @@ msgstr "_Sulje"
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "Nimi"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "Kohteita:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d tapahtuma"
 msgstr[1] "%d tapahtumaa"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
 msgstr[0] "%d valokuva"
 msgstr[1] "%d valokuvaa"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "%d video"
 msgstr[1] "%d videota"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "Päiväys:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "Aika:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "Alkaa:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "Päättyy:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "Koko:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "Kesto:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f sekuntia"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "Kehitin:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "Valotus:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "Valotus"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "Sijainti:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "Tiedoston koko:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr "Alkuperäinen koko:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "Kameran merkki:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "Kameran malli:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "Salama:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "Polttoväli:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "Kuvauspäivä:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "Valotusaika:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "Valotuksen korjaus:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "GPS:n leveysaste:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "GPS:n pituusaste:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "Tekijä:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "Tekijänoikeus:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "Ohjelmisto:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr "Ei kohteita valittuna"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "Nimi"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr "Kommentti"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr "Tunnisteet pilkuilla eroteltuina"
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "Tänään"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr "Uusi älykäs albumi…"
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "Uusi _tunniste..."
 
@@ -3553,6 +3529,10 @@ msgstr "Kulma:"
 msgid "_Reset"
 msgstr "_Palauta alkuperäiset arvot"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "Valotus:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "Värikylläisyys:"
@@ -3593,10 +3573,6 @@ msgstr "Värisävy"
 msgid "Saturation"
 msgstr "Värikylläisyys"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "Valotus"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "Varjot"
@@ -3608,6 +3584,10 @@ msgstr "Korostukset"
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "Kontrastin laajennus"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "Koko:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -4087,8 +4067,32 @@ msgstr "Blogit:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "Uu_si tallennettu haku..."
 
+#~ msgid "Time:"
+#~ msgstr "Aika:"
+
+#~ msgid "File size:"
+#~ msgstr "Tiedoston koko:"
+
 #~ msgid "Original dimensions:"
 #~ msgstr "Alkuperäiset mitat:"
+
+#~ msgid "Camera make:"
+#~ msgstr "Kameran merkki:"
+
+#~ msgid "Camera model:"
+#~ msgstr "Kameran malli:"
+
+#~ msgid "Flash:"
+#~ msgstr "Salama:"
+
+#~ msgid "Focal length:"
+#~ msgstr "Polttoväli:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "Valotuksen korjaus:"
+
+#~ msgid "Software:"
+#~ msgstr "Ohjelmisto:"
 
 #~ msgid "Comment:"
 #~ msgstr "Kommentti:"
@@ -4512,14 +4516,5 @@ msgstr "Blogit:"
 #~ msgid "Rejected"
 #~ msgstr "Hylätty"
 
-#~ msgid "Videos will appear in:"
-#~ msgstr "Videot ilmestyvät sijaintiin:"
-
-#~ msgid "Restoring previous rating"
-#~ msgstr "Palautetaan edellinen arvostelu"
-
-#~ msgid "All + Rejected"
-#~ msgstr "Kaikki + hylätyt"
-
-#~ msgid "Close"
-#~ msgstr "Sulje"
+#~ msgid "Original size:"
+#~ msgstr "Alkuperäinen koko:"

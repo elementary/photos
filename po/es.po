@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-08-08 19:28+0000\n"
 "Last-Translator: Pompilos <ciordia@avempace.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2016-09-25 06:42+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:41+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: es\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -60,6 +60,7 @@ msgstr ""
 "  Calderov https://launchpad.net/~calderov\n"
 "  Christopher https://launchpad.net/~cdhornb\n"
 "  Daniel Mustieles https://launchpad.net/~daniel-mustieles\n"
+"  Effie https://launchpad.net/~eliana-474\n"
 "  Gisele https://launchpad.net/~arcion\n"
 "  Pompilos https://launchpad.net/~pompilos\n"
 "  Ramón Barrios Lascar https://launchpad.net/~colombianjoker\n"
@@ -713,171 +714,147 @@ msgstr "_Cerrar"
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "Título"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "Elementos:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d evento"
 msgstr[1] "%d eventos"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
 msgstr[0] "%d foto"
 msgstr[1] "%d fotos"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "%d vídeo"
 msgstr[1] "%d vídeos"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "Fecha:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "Hora:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "De:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "A:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "Tamaño:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "Duración:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f segundos"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "Revelador:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "Exposición:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "Exposición"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "Ubicación:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "Tamaño del archivo:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "Cámara:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "Modelo de la cámara:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "Flash:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "Longitud focal:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "Fecha de exposición:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "Tiempo de exposición:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "Exposición:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "Latitud GPS:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "Longitud GPS:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "Artista:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "Copyright:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "Software:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr ""
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "Título"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr "Comentario"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr ""
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "Hoy"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr ""
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "E_tiqueta nueva…"
 
@@ -3573,6 +3550,10 @@ msgstr "Ángulo:"
 msgid "_Reset"
 msgstr "_Restablecer"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "Exposición:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "Saturación:"
@@ -3613,10 +3594,6 @@ msgstr "Matiz"
 msgid "Saturation"
 msgstr "Saturación"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "Exposición"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "Sombras"
@@ -3628,6 +3605,10 @@ msgstr "Resaltadas"
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "Expansión de contraste"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "Tamaño:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -4102,11 +4083,35 @@ msgstr "Blogs:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "_Búsqueda guardada nueva…"
 
+#~ msgid "Time:"
+#~ msgstr "Hora:"
+
+#~ msgid "File size:"
+#~ msgstr "Tamaño del archivo:"
+
 #~ msgid "Current Development:"
 #~ msgstr "Desarrollo actual:"
 
 #~ msgid "Original dimensions:"
 #~ msgstr "Dimensiones originales:"
+
+#~ msgid "Camera make:"
+#~ msgstr "Cámara:"
+
+#~ msgid "Camera model:"
+#~ msgstr "Modelo de la cámara:"
+
+#~ msgid "Flash:"
+#~ msgstr "Flash:"
+
+#~ msgid "Focal length:"
+#~ msgstr "Longitud focal:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "Exposición:"
+
+#~ msgid "Software:"
+#~ msgstr "Software:"
 
 #~ msgid "Comment:"
 #~ msgstr "Comentario:"
@@ -4551,24 +4556,3 @@ msgstr "Blogs:"
 #~ msgid_plural "Remove and _Trash Files"
 #~ msgstr[0] "Quitar y mover a la _papelera"
 #~ msgstr[1] "Quitar y mover a la _papelera"
-
-#~ msgid ""
-#~ "You are not currently logged into Picasa Web Albums.\n"
-#~ "\n"
-#~ "Click Login to log into Picasa Web Albums in your Web browser. You will have "
-#~ "to authorize Shotwell Connect to link to your Picasa Web Albums account."
-#~ msgstr ""
-#~ "Actualmente no ha iniciado sesión en Álbumes web de Picasa.\n"
-#~ "\n"
-#~ "Pulse Iniciar sesión para identificarse en Álbumes web de Picasa en su "
-#~ "navegador web. Tendrá que autorizar a Shotwell Connect para que se enlace a "
-#~ "su cuenta de Álbumes web de Picasa."
-
-#~ msgid "Videos will appear in:"
-#~ msgstr "Los vídeos aparecerán en:"
-
-#~ msgid "Restoring previous rating"
-#~ msgstr "Restaurar valoración anterior"
-
-#~ msgid "Close"
-#~ msgstr "Cerrar"

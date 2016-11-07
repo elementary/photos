@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-09-27 22:07+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean "
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Launchpad-Export-Date: 2016-09-28 06:59+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:38+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: ko\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -686,168 +686,144 @@ msgstr "닫기(_C)"
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "제목"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "항목:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "이벤트 %d개"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
 msgstr[0] "사진 %d장"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "비디오 %d편"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "날짜:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "시간:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "시작:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "끝:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "크기:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "재생 시간:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f 초"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "편집 프로그램:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "노출:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "노출"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "위치:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "파일 크기:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr "원본 크기:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "카메라 제조사:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "카메라 모델:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "플래시:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "초점 거리:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "촬영 날짜:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "촬영 시간:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "노출 보정:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "GPS 위도:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "GPS 경도:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "아티스트:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "저작권:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "소프트웨어:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr "선택된 항목 없음"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "제목"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr "설명"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr "태그는, 콤마로 나눕니다"
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "오늘"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "어제"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr "새 스마트 앨범..."
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "새 태그(_T)..."
 
@@ -3432,6 +3408,10 @@ msgstr "각도:"
 msgid "_Reset"
 msgstr "되돌리기(_R)"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "노출:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "채도:"
@@ -3472,10 +3452,6 @@ msgstr "색조"
 msgid "Saturation"
 msgstr "채도"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "노출"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "그림자"
@@ -3487,6 +3463,10 @@ msgstr "강조"
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "대비 확장"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "크기:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -3959,11 +3939,35 @@ msgstr "블로그:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "새 저장한 검색(_W)..."
 
+#~ msgid "Time:"
+#~ msgstr "시간:"
+
+#~ msgid "File size:"
+#~ msgstr "파일 크기:"
+
 #~ msgid "Current Development:"
 #~ msgstr "현재 편집 프로그램:"
 
 #~ msgid "Original dimensions:"
 #~ msgstr "원래 크기:"
+
+#~ msgid "Camera make:"
+#~ msgstr "카메라 제조사:"
+
+#~ msgid "Camera model:"
+#~ msgstr "카메라 모델:"
+
+#~ msgid "Flash:"
+#~ msgstr "플래시:"
+
+#~ msgid "Focal length:"
+#~ msgstr "초점 거리:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "노출 보정:"
+
+#~ msgid "Software:"
+#~ msgstr "소프트웨어:"
 
 #~ msgid "Comment:"
 #~ msgstr "설명:"
@@ -4370,3 +4374,6 @@ msgstr "블로그:"
 
 #~ msgid "L_ist album in public gallery"
 #~ msgstr "공개 갤러리에 있는 앨범 목록 보이기(_I)"
+
+#~ msgid "Original size:"
+#~ msgstr "원본 크기:"

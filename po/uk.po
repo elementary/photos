@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-10-14 13:54+0000\n"
 "Last-Translator: neiron13 <Unknown>\n"
 "Language-Team: Ukrainian "
@@ -23,8 +23,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-10-15 06:18+0000\n"
-"X-Generator: Launchpad (build 18232)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:43+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: uk\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -725,23 +725,28 @@ msgstr "За_крити"
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "Заголовок"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "Об’єкти"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d подія"
 msgstr[1] "%d події"
 msgstr[2] "%d подія"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
@@ -749,7 +754,7 @@ msgstr[0] "%d фотографія"
 msgstr[1] "%d фотографії"
 msgstr[2] "%d фотографія"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
@@ -757,142 +762,113 @@ msgstr[0] "%d відео"
 msgstr[1] "%d відео"
 msgstr[2] "%d відео"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "Дата:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "Час:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "Від:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "До:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "Розмір:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "Тривалість:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f секунд"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "Обробник:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "Експозиція:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "Експозиція"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "Адреса:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "Розмір файла:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr "Розмір оригіналу:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "Виробник фотоапарата:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "Модель фотоапарата:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "Спалах:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "Фокусна відстань:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "Дата експонування:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "Час експонування:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "Ухил експозиції:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "Широта за GPS:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "Довгота за GPS:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "Фотограф:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "Авторські права:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "Програми:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr "Немає вибраних елементів"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "Заголовок"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr "Коментар"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr "Ключові слова, розділені комами"
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "Сьогодні"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr "Новий Розумний альбом"
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "Створити _мітку…"
 
@@ -3712,6 +3688,10 @@ msgstr "Кут:"
 msgid "_Reset"
 msgstr "Від_новити"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "Експозиція:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "Насиченість:"
@@ -3753,10 +3733,6 @@ msgstr "Затінення"
 msgid "Saturation"
 msgstr "Насиченість"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "Експозиція"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "Тіні"
@@ -3768,6 +3744,10 @@ msgstr "Підсвічування"
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "Розширення контрастності"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "Розмір:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -4255,11 +4235,35 @@ msgstr "Блоги:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "С_творити збережений пошук…"
 
+#~ msgid "Time:"
+#~ msgstr "Час:"
+
+#~ msgid "File size:"
+#~ msgstr "Розмір файла:"
+
 #~ msgid "Current Development:"
 #~ msgstr "Поточний проявник:"
 
 #~ msgid "Original dimensions:"
 #~ msgstr "Початкові розміри:"
+
+#~ msgid "Camera make:"
+#~ msgstr "Виробник фотоапарата:"
+
+#~ msgid "Camera model:"
+#~ msgstr "Модель фотоапарата:"
+
+#~ msgid "Flash:"
+#~ msgstr "Спалах:"
+
+#~ msgid "Focal length:"
+#~ msgstr "Фокусна відстань:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "Ухил експозиції:"
+
+#~ msgid "Software:"
+#~ msgstr "Програми:"
 
 #~ msgid "Comment:"
 #~ msgstr "Коментар:"
@@ -4728,3 +4732,6 @@ msgstr "Блоги:"
 
 #~ msgid "_Remove From Library"
 #~ msgstr "_Вилучити з Бібліотеки"
+
+#~ msgid "Original size:"
+#~ msgstr "Розмір оригіналу:"

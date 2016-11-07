@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-04-19 16:18+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Czech "
@@ -26,8 +26,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2016-09-25 06:29+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:35+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: cs\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -64,10 +64,10 @@ msgstr ""
 "Petr Šimáček <petr.simacek@gmail.com>\n"
 "\n"
 "Launchpad Contributions:\n"
-"  Dominik Šufajzl https://launchpad.net/~dominik-sufajzl\n"
 "  Marek Doležel https://launchpad.net/~marekdolezel\n"
 "  Petr Šimáček https://launchpad.net/~petr-simacek\n"
 "  Tomo Moto https://launchpad.net/~tomasivanek\n"
+"  Wannabe Gangsta https://launchpad.net/~frodobezprstenu\n"
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: ../plugins/pantheon-photos-transitions/shotwell-transitions.vala:26
@@ -711,23 +711,28 @@ msgstr "_Zavřít"
 msgid "_Cancel"
 msgstr "_Storno"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "Název"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "Položky:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d událost"
 msgstr[1] "%d události"
 msgstr[2] "%d událostí"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
@@ -735,7 +740,7 @@ msgstr[0] "%d fotografie"
 msgstr[1] "%d fotografie"
 msgstr[2] "%d fotografií"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
@@ -743,142 +748,113 @@ msgstr[0] "%d video"
 msgstr[1] "%d videa"
 msgstr[2] "%d videí"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "Datum:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "Čas:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "Od:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "Pro:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "Velikost:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "Délka:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f vteřin"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "Vývojář:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "Expozice:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "Expozice"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "Místo:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "Velikost souboru:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "Vytvořeno v:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "Model fotoaparátu:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "Blesk:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "Ohnisko:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "Datum expozice:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "Čas expozice:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "Expozice:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "GPS šířka:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "GPS délka:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "Umělec:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "Copyright:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "Software:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr ""
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "Název"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr "Komentář"
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr ""
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "Dnes"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr "Nové inteligentní album…"
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "Nová _značka..."
 
@@ -3629,6 +3605,10 @@ msgstr "Úhel:"
 msgid "_Reset"
 msgstr "_Obnovit"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "Expozice:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "Sytost:"
@@ -3669,10 +3649,6 @@ msgstr "Odstín"
 msgid "Saturation"
 msgstr "Sytost"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "Expozice"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "Stín"
@@ -3684,6 +3660,10 @@ msgstr ""
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "Zvýšení kontrastu"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "Velikost:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -4162,11 +4142,35 @@ msgstr "Blogy:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "No_vě uložené vyhledávání..."
 
+#~ msgid "Time:"
+#~ msgstr "Čas:"
+
+#~ msgid "File size:"
+#~ msgstr "Velikost souboru:"
+
 #~ msgid "Current Development:"
 #~ msgstr "Aktuální vývoj:"
 
 #~ msgid "Original dimensions:"
 #~ msgstr "Původní velikost:"
+
+#~ msgid "Camera make:"
+#~ msgstr "Vytvořeno v:"
+
+#~ msgid "Camera model:"
+#~ msgstr "Model fotoaparátu:"
+
+#~ msgid "Flash:"
+#~ msgstr "Blesk:"
+
+#~ msgid "Focal length:"
+#~ msgstr "Ohnisko:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "Expozice:"
+
+#~ msgid "Software:"
+#~ msgstr "Software:"
 
 #~ msgid "Comment:"
 #~ msgstr "Komentář"
@@ -4610,31 +4614,3 @@ msgstr "Blogy:"
 
 #~ msgid "L_ist album in public gallery"
 #~ msgstr "Zobrazit _seznam veřejných alb"
-
-#~ msgid ""
-#~ "You are not currently logged into Picasa Web Albums.\n"
-#~ "\n"
-#~ "Click Login to log into Picasa Web Albums in your Web browser. You will have "
-#~ "to authorize Shotwell Connect to link to your Picasa Web Albums account."
-#~ msgstr ""
-#~ "Nejste přihlášeni do Picasa Webových alb.\n"
-#~ "\n"
-#~ "Klikněte na tlačítko Přihlásit do Webových alb Picasa ve webovém prohlížeči. "
-#~ "Budete muset povolit Shotwell Connect kvůli připojení do webových alb "
-#~ "programu Picasa."
-
-#~ msgid "Videos will appear in:"
-#~ msgstr "Videa se objeví v:"
-
-#~ msgid ""
-#~ "$mediatype will appear in\n"
-#~ "(populated in code)"
-#~ msgstr ""
-#~ "$mediatype se zobrazí v\n"
-#~ "(obsažené v kódu aplikace)"
-
-#~ msgid "Restoring previous rating"
-#~ msgstr "Obnovit předchozí ohodnocení"
-
-#~ msgid "Close"
-#~ msgstr "Zavřít"

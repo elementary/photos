@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: shotwell@yorba.org\n"
-"POT-Creation-Date: 2016-09-24 14:59-0700\n"
+"POT-Creation-Date: 2016-11-06 15:56-0800\n"
 "PO-Revision-Date: 2016-04-18 04:21+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Oriya "
@@ -19,8 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Launchpad-Export-Date: 2016-09-25 06:39+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:39+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: or\n"
 
 #: ../plugins/pantheon-photos-transitions/CircleEffect.vala:20
@@ -700,171 +700,147 @@ msgstr "ବନ୍ଦ କରନ୍ତୁ (_C)"
 msgid "_Cancel"
 msgstr "ବାତିଲ କରନ୍ତୁ (_C)"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:85
+#: ../src/sidebar/metadata/BasicProperties.vala:109
 #: ../src/camera/ImportPage.vala:312
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:198
+#: ../src/sidebar/metadata/BasicProperties.vala:219
+#: ../src/searches/SearchBoolean.vala:155
+msgid "Title"
+msgstr "ଶୀର୍ଷକ"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:232
 msgid "Items:"
 msgstr "ବସ୍ତୁଗୁଡ଼ିକ:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:201
+#: ../src/sidebar/metadata/BasicProperties.vala:235
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d ଘଟଣା"
 msgstr[1] "%d ଘଟଣାଗୁଡ଼ିକ"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:208
+#: ../src/sidebar/metadata/BasicProperties.vala:242
 #: ../src/events/EventDirectoryItem.vala:87
 msgid "%d Photo"
 msgid_plural "%d Photos"
 msgstr[0] "%d ଫୋଟୋ"
 msgstr[1] "%d ଫୋଟୋଗୁଡ଼ିକ"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:210
+#: ../src/sidebar/metadata/BasicProperties.vala:244
 #: ../src/events/EventDirectoryItem.vala:85
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "%d ଭିଡ଼ିଓ"
 msgstr[1] "%d ଭିଡ଼ିଓଗୁଡ଼ିକ"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:232
+#: ../src/sidebar/metadata/BasicProperties.vala:271
 msgid "Date:"
 msgstr "ତାରିଖ:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:236
-msgid "Time:"
-msgstr "ସମୟ:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:239
-#: ../src/sidebar/metadata/BasicProperties.vala:244
+#: ../src/sidebar/metadata/BasicProperties.vala:273
+#: ../src/sidebar/metadata/BasicProperties.vala:278
 msgid "From:"
 msgstr "ଠାରୁ:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:240
-#: ../src/sidebar/metadata/BasicProperties.vala:245
+#: ../src/sidebar/metadata/BasicProperties.vala:274
+#: ../src/sidebar/metadata/BasicProperties.vala:279
 msgid "To:"
 msgstr "କୁ:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:250
-#: ../src/editing_tools/RedEyeTool.vala:62
-msgid "Size:"
-msgstr "ଆକାର:"
-
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "Duration:"
 msgstr "ଅବଧି:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:259
+#: ../src/sidebar/metadata/BasicProperties.vala:293
 msgid "%.1f seconds"
 msgstr "%.1f ସେକଣ୍ଡ"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:263
-#: ../src/sidebar/metadata/ExtendedProperties.vala:144
+#: ../src/sidebar/metadata/BasicProperties.vala:297
+#: ../src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "ବିକାଶକାରୀ:"
 
-#: ../src/sidebar/metadata/BasicProperties.vala:291
-#: ../src/sidebar/metadata/BasicProperties.vala:295
-#: ../src/sidebar/metadata/BasicProperties.vala:302
-#: ../src/editing_tools/AdjustTool.vala:60
-msgid "Exposure:"
-msgstr "ଅନାବୃତ୍ତ:"
+#: ../src/sidebar/metadata/BasicProperties.vala:330
+msgid "Aperture"
+msgstr ""
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:137
+#: ../src/sidebar/metadata/BasicProperties.vala:335
+msgid "Focal length"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:340
+#: ../src/editing_tools/AdjustTool.vala:532
+msgid "Exposure"
+msgstr "ଅନାବୃତ୍ତ"
+
+#: ../src/sidebar/metadata/BasicProperties.vala:345
+msgid "ISO"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:350
+msgid "Exposure bias"
+msgstr ""
+
+#: ../src/sidebar/metadata/BasicProperties.vala:355
+msgid "Flash"
+msgstr ""
+
+#: ../src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
 msgstr "ଅବସ୍ଥାନ:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:140
-msgid "File size:"
-msgstr "ଫାଇଲର ଆକାର:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:146
-msgid "Original size:"
-msgstr ""
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:149
-msgid "Camera make:"
-msgstr "କ୍ଯାମେରା ନିର୍ମାତା:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:152
-msgid "Camera model:"
-msgstr "କେମେରା ମୋଡେଲ:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:155
-msgid "Flash:"
-msgstr "ଫ୍ଲାସ:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:157
-msgid "Focal length:"
-msgstr "ବିକରଣ ଲମ୍ବ:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:160
+#: ../src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
 msgstr "ଅନାବୃତ୍ତ ତାରିଖ:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:163
+#: ../src/sidebar/metadata/ExtendedProperties.vala:121
 msgid "Exposure time:"
 msgstr "ଅନାବୃତ୍ତ ସମୟ:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:166
-msgid "Exposure bias:"
-msgstr "ଅନାବୃତ୍ତ ଭାବ:"
-
-#: ../src/sidebar/metadata/ExtendedProperties.vala:168
+#: ../src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "GPS latitude:"
 msgstr "GPS ଅକ୍ଷାଂଶ:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:171
+#: ../src/sidebar/metadata/ExtendedProperties.vala:127
 msgid "GPS longitude:"
 msgstr "GPS ଦ୍ରାଘିମା:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:174
+#: ../src/sidebar/metadata/ExtendedProperties.vala:130
 msgid "Artist:"
 msgstr "କଳାକାର:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:176
+#: ../src/sidebar/metadata/ExtendedProperties.vala:132
 msgid "Copyright:"
 msgstr "ସ୍ବତ୍ତ୍ବାଧୀକାର:"
 
-#: ../src/sidebar/metadata/ExtendedProperties.vala:178
-msgid "Software:"
-msgstr "ସଫ୍ଟୱେର:"
-
-#: ../src/sidebar/metadata/MetadataSidebar.vala:13
+#: ../src/sidebar/metadata/MetadataSidebar.vala:53
 msgid "No items selected"
 msgstr ""
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:73
-#: ../src/searches/SearchBoolean.vala:155
-msgid "Title"
-msgstr "ଶୀର୍ଷକ"
-
-#: ../src/sidebar/metadata/LibraryProperties.vala:75
-#: ../src/sidebar/metadata/LibraryProperties.vala:80
+#: ../src/sidebar/metadata/LibraryProperties.vala:63
 #: ../src/searches/SearchBoolean.vala:161
 msgid "Comment"
 msgstr ""
 
-#: ../src/sidebar/metadata/LibraryProperties.vala:102
+#: ../src/sidebar/metadata/LibraryProperties.vala:72
 msgid "Tags, separated by commas"
 msgstr ""
 
-#: ../src/sidebar/metadata/Properties.vala:91
+#: ../src/sidebar/metadata/Properties.vala:80
 msgid "Today"
 msgstr "ଆଜି"
 
-#: ../src/sidebar/metadata/Properties.vala:93
+#: ../src/sidebar/metadata/Properties.vala:82
 msgid "Yesterday"
 msgstr "ଗତକାଲି"
 
-#: ../src/sidebar/Tree.vala:199 ../src/library/LibraryWindow.vala:335
+#: ../src/sidebar/Tree.vala:197 ../src/library/LibraryWindow.vala:335
 #: ../src/searches/Branch.vala:77
 msgid "New Smart Album…"
 msgstr ""
 
-#: ../src/sidebar/Tree.vala:203
+#: ../src/sidebar/Tree.vala:201
 msgid "New _Tag..."
 msgstr "ନୂତନ ଟ୍ୟାଗ (_T)..."
 
@@ -3552,6 +3528,10 @@ msgstr "କୋଣ:"
 msgid "_Reset"
 msgstr "ପୁଣି ସେଟ କରନ୍ତୁ (_R)"
 
+#: ../src/editing_tools/AdjustTool.vala:60
+msgid "Exposure:"
+msgstr "ଅନାବୃତ୍ତ:"
+
 #: ../src/editing_tools/AdjustTool.vala:67
 msgid "Saturation:"
 msgstr "ପରିପୃକ୍ତତା:"
@@ -3592,10 +3572,6 @@ msgstr "ରଙ୍ଗ"
 msgid "Saturation"
 msgstr "ପରିପୃକ୍ତତା"
 
-#: ../src/editing_tools/AdjustTool.vala:532
-msgid "Exposure"
-msgstr "ଅନାବୃତ୍ତ"
-
 #: ../src/editing_tools/AdjustTool.vala:545
 msgid "Shadows"
 msgstr "ଛାୟା"
@@ -3607,6 +3583,10 @@ msgstr ""
 #: ../src/editing_tools/AdjustTool.vala:568
 msgid "Contrast Expansion"
 msgstr "ବୈଷମ୍ୟତା ବୃଦ୍ଧି"
+
+#: ../src/editing_tools/RedEyeTool.vala:62
+msgid "Size:"
+msgstr "ଆକାର:"
 
 #: ../src/editing_tools/RedEyeTool.vala:77
 msgid "Close the red-eye tool"
@@ -4074,11 +4054,35 @@ msgstr "ବ୍ଲଗଗୁଡ଼ିକ:"
 #~ msgid "Ne_w Saved Search..."
 #~ msgstr "ନୂତନ ସଂରକ୍ଷିତ ସନ୍ଧାନ (_w)..."
 
+#~ msgid "Time:"
+#~ msgstr "ସମୟ:"
+
+#~ msgid "File size:"
+#~ msgstr "ଫାଇଲର ଆକାର:"
+
 #~ msgid "Current Development:"
 #~ msgstr "ପ୍ରଚଳିତ ବିକାଶ:"
 
 #~ msgid "Original dimensions:"
 #~ msgstr "ପ୍ରକୃତ ଆକାର:"
+
+#~ msgid "Camera make:"
+#~ msgstr "କ୍ଯାମେରା ନିର୍ମାତା:"
+
+#~ msgid "Camera model:"
+#~ msgstr "କେମେରା ମୋଡେଲ:"
+
+#~ msgid "Flash:"
+#~ msgstr "ଫ୍ଲାସ:"
+
+#~ msgid "Focal length:"
+#~ msgstr "ବିକରଣ ଲମ୍ବ:"
+
+#~ msgid "Exposure bias:"
+#~ msgstr "ଅନାବୃତ୍ତ ଭାବ:"
+
+#~ msgid "Software:"
+#~ msgstr "ସଫ୍ଟୱେର:"
 
 #~ msgid "Comment:"
 #~ msgstr "ମନ୍ତବ୍ଯ:"
@@ -4507,20 +4511,3 @@ msgstr "ବ୍ଲଗଗୁଡ଼ିକ:"
 
 #~ msgid "External Editors"
 #~ msgstr "ବାହ୍ୟ ସମ୍ପାଦକମାନେ"
-
-#~ msgid ""
-#~ "You are not currently logged into Picasa Web Albums.\n"
-#~ "\n"
-#~ "Click Login to log into Picasa Web Albums in your Web browser. You will have "
-#~ "to authorize Shotwell Connect to link to your Picasa Web Albums account."
-#~ msgstr ""
-#~ "ଆପଣ ବର୍ତ୍ତମାନ ପିକାସା ୱେବ ଆଲବମରେ ଲଗଇନ ହୋଇ ନାହାନ୍ତି।\n"
-#~ "\n"
-#~ "ଆପଣଙ୍କ ୱେବ ବ୍ରାଉଜରରେ ପିକାସା ୱେବ ଆଲବମରେ ଲଗଇନ କରିବା ପାଇଁ କ୍ଲିକ କରନ୍ତୁ। ଆପଣଙ୍କୁ "
-#~ " Shotwell କୁ ଆପଣଙ୍କ ପିକାସା ୱେବ ଆଲବମରେ ସଂଯୋଗ କରିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ହେବ।"
-
-#~ msgid "Videos will appear in:"
-#~ msgstr "ଭିଡ଼ିଓ ଏଥିରେ ଦୃଶ୍ୟମାନ ହେବ:"
-
-#~ msgid "Restoring previous rating"
-#~ msgstr "ପୂର୍ବବର୍ତ୍ତୀ ମାନ୍ୟତାକୁ ପୁନଃସ୍ଥାପନ କରୁଅଛି"
