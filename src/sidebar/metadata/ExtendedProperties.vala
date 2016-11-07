@@ -8,11 +8,6 @@ private class ExtendedProperties : Properties {
     private const string NO_VALUE = "";
     // Photo stuff
     private string file_path;
-    private double gps_lat;
-    private string gps_lat_ref;
-    private double gps_long;
-    private string gps_long_ref;
-    private double gps_alt;
     private string artist;
     private string copyright;
     private string exposure_date;
@@ -37,10 +32,6 @@ private class ExtendedProperties : Properties {
         file_path = "";
         development_path = "";
         is_raw = false;
-        gps_lat = -1;
-        gps_lat_ref = "";
-        gps_long = -1;
-        gps_long_ref = "";
         artist = "";
         copyright = "";
         exposure_date = "";
@@ -91,7 +82,6 @@ private class ExtendedProperties : Properties {
                 metadata.set_exposure_date_time (new MetadataDateTime (photo.get_timestamp ()));
 
             is_raw = (photo.get_master_file_format () == PhotoFileFormat.RAW);
-            metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
             time_t exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
@@ -120,12 +110,6 @@ private class ExtendedProperties : Properties {
 
             add_line (_ ("Exposure time:"), (exposure_time != "" && exposure_time != null) ?
                       exposure_time : NO_VALUE);
-
-            add_line (_ ("GPS latitude:"), (gps_lat != -1 && gps_lat_ref != "" &&
-                                            gps_lat_ref != null) ? "%f °%s".printf (gps_lat, gps_lat_ref) : NO_VALUE);
-
-            add_line (_ ("GPS longitude:"), (gps_long != -1 && gps_long_ref != "" &&
-                                             gps_long_ref != null) ? "%f °%s".printf (gps_long, gps_long_ref) : NO_VALUE);
 
             add_line (_ ("Artist:"), (artist != "" && artist != null) ? artist : NO_VALUE);
 

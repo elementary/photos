@@ -19,6 +19,11 @@ private class BasicProperties : Properties {
     private string exposure_bias;
     private string flash;
     private string focal_length;
+    private double gps_lat;
+    private string gps_lat_ref;
+    private double gps_long;
+    private string gps_long_ref;
+    private double gps_alt;
     private string title;
     private string aperture;
     private string iso;
@@ -45,6 +50,10 @@ private class BasicProperties : Properties {
         flash = "";
         filesize = 0;
         focal_length = "";
+        gps_lat = -1;
+        gps_lat_ref = "";
+        gps_long = -1;
+        gps_long_ref = "";
         photo_count = -1;
         event_count = -1;
         video_count = -1;
@@ -98,6 +107,8 @@ private class BasicProperties : Properties {
                              Dimensions (0, 0);
 
                 focal_length = metadata.get_focal_length_string ();
+
+                metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             }
 
             if (source is PhotoSource)
@@ -280,6 +291,10 @@ private class BasicProperties : Properties {
             }
         }
 
+        if (gps_lat != -1 && gps_long != -1) {
+            create_place_label (gps_lat, gps_long);
+        }
+
         if (dimensions.has_area ()) {
             var size_label = new Gtk.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
             size_label.use_markup = true;
@@ -360,6 +375,26 @@ private class BasicProperties : Properties {
     public override void save_changes_to_source () {
         if (source != null && title != null && title != source.get_name ()) {
             AppWindow.get_command_manager ().execute (new EditTitleCommand (source, title));
+        }
+    }
+
+    private async void create_place_label (double lat, double long) {
+        var location = new Geocode.Location (lat, long);
+        var reverse = new Geocode.Reverse.for_location (location);
+
+        try {
+            Geocode.Place place = yield reverse.resolve_async ();
+
+            var place_label = new Gtk.Label (place.get_town () + ", " + place.get_state ());
+            place_label.xalign = 0;
+
+            attach (place_label, 0, (int) line_count, 2, 1);
+
+            line_count++;            
+
+            show_all ();
+        } catch (Error e) {
+            warning ("Failed to obtain place: %s", e.message);
         }
     }
 

@@ -21,6 +21,7 @@ add_definitions (-w)
 set (DEPS_PKG
     gee-0.8>=0.8.5
     gexiv2>=0.4.90
+    geocode-glib-1.0
     gio-unix-2.0>=2.20
     glib-2.0>=2.30.0
     gmodule-2.0>=2.24.0
@@ -46,6 +47,7 @@ set (DEPS_PACKAGES
     atk
     gdk-3.0
     gee-0.8
+    geocode-glib-1.0
     gexiv2
     gio-unix-2.0
     glib-2.0
