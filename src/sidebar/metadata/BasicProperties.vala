@@ -290,7 +290,11 @@ private class BasicProperties : Properties {
         }
 
         if (clip_duration > 0.0) {
-            add_line (_ ("Duration:"), _ ("%.1f seconds").printf (clip_duration));
+            var duration_label = new Gtk.Label (_("%.1f seconds").printf (clip_duration));
+            duration_label.xalign = 0;
+            attach (duration_label, 0, (int) line_count, 2, 1);
+
+            line_count++;
         }
 
         if (raw_developer != "") {
