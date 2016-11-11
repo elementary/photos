@@ -10,6 +10,7 @@ private class BasicProperties : Properties {
     private Dimensions dimensions;
     private EditableTitle title_entry;
     private MediaSource? source;
+    private Gtk.Label place_label;
     private int photo_count;
     private int event_count;
     private int video_count;
@@ -292,7 +293,16 @@ private class BasicProperties : Properties {
         }
 
         if (gps_lat != -1 && gps_long != -1) {
+            place_label = new Gtk.Label ("");
+            place_label.no_show_all = true;
+            place_label.visible = false;
+            place_label.xalign = 0;
+
             create_place_label (gps_lat, gps_long);
+
+            attach (place_label, 0, (int) line_count, 2, 1);
+
+            line_count++;
         }
 
         if (dimensions.has_area ()) {
@@ -384,15 +394,9 @@ private class BasicProperties : Properties {
 
         try {
             Geocode.Place place = yield reverse.resolve_async ();
-
-            var place_label = new Gtk.Label (place.get_town () + ", " + place.get_state ());
-            place_label.xalign = 0;
-
-            attach (place_label, 0, (int) line_count, 2, 1);
-
-            line_count++;            
-
-            show_all ();
+            place_label.label = place.get_town () + ", " + place.get_state ();
+            place_label.no_show_all = false;
+            place_label.visible = true;
         } catch (Error e) {
             warning ("Failed to obtain place: %s", e.message);
         }
