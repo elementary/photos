@@ -394,9 +394,16 @@ private class BasicProperties : Properties {
 
         try {
             Geocode.Place place = yield reverse.resolve_async ();
-            place_label.label = place.get_town () + ", " + place.get_state ();
-            place_label.no_show_all = false;
-            place_label.visible = true;
+
+            if (place.get_state () != null) {
+                if (place.get_town () != null) {
+                    place_label.label = place.get_town () + ", " + place.get_state ();
+                } else {
+                    place_label.label = place.get_state () + ", " + place.get_country ();
+                }
+                place_label.no_show_all = false;
+                place_label.visible = true;
+            }
         } catch (Error e) {
             warning ("Failed to obtain place: %s", e.message);
         }
