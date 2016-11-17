@@ -22,12 +22,12 @@ public const string COPYRIGHT = _("2009-2014 Yorba Foundation\n© 2014-2016 Phot
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string YORBA_URL = "http://www.yorba.org";
-public const string WIKI_URL = "http://redmine.yorba.org/projects/shotwell/wiki/Shotwell";
-public const string FAQ_URL = "http://redmine.yorba.org/projects/shotwell/wiki/ShotwellFAQ";
+public const string WIKI_URL = "https://wiki.gnome.org/Apps/Shotwell";
+public const string FAQ_URL = "https://wiki.gnome.org/Apps/Shotwell/FAQ";
 public const string PROJECT_URL = "https://launchpad.net/pantheon-photos";
 public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
 public const string TRANSLATE_URL = "https://translations.launchpad.net/pantheon-photos";
-public const string HELP_URL = "http://elementaryos.org/answers/+/shotwell/all/newest";
+public const string HELP_URL = "https://elementaryos.stackexchange.com/questions/tagged/photos";
 public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
 private const string LIB = _LIB;
