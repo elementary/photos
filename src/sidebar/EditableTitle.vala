@@ -117,6 +117,11 @@ public class EditableTitle : Gtk.EventBox {
             editing = false;
         });
 
+        entry.focus_out_event.connect ((event) => {
+            editing = false;
+            return false;
+        });
+
         entry.icon_release.connect ((p0, p1) => {
             if (p0 == Gtk.EntryIconPosition.SECONDARY) {
                 editing = false;
