@@ -398,9 +398,12 @@ private class BasicProperties : Properties {
             if (place.get_state () != null) {
                 if (place.get_town () != null) {
                     place_label.label = place.get_town () + ", " + place.get_state ();
+                } else if (place.get_county () != null) {
+                    place_label.label = place.get_county () + ", " + place.get_state ();
                 } else {
                     place_label.label = place.get_state () + ", " + place.get_country ();
                 }
+
                 place_label.no_show_all = false;
                 place_label.visible = true;
             }
