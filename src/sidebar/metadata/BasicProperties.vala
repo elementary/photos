@@ -388,6 +388,7 @@ private class BasicProperties : Properties {
         }
     }
 
+    // Unit test: https://github.com/Philip-Scott/misc/blob/master/GeolocationTest.vala
     private async void create_place_label (double lat, double long) {
         var location = new Geocode.Location (lat, long);
         var reverse = new Geocode.Reverse.for_location (location);
