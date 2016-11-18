@@ -215,44 +215,31 @@ private class BasicProperties : Properties {
         base.internal_update_properties (page);
 
         if (title != "") {
-            title_entry = new EditableTitle (null);
+            title_entry = new EditableTitle (title);
             title_entry.tooltip_text = _("Title");
-
-            if (title != null) {
-                title_entry.text = title;
-            }
-
             title_entry.changed.connect (title_entry_changed);
-            attach (title_entry, 0, 0, 2, 1);
 
+            attach (title_entry, 0, 0, 2, 1);
             line_count++;
         }
 
         if (photo_count >= 0 || video_count >= 0) {
-            string label = _ ("Items:");
+            var label = new Gtk.Label (_("Items:"));
+            label.xalign = 1;
+
+            attach (label, 0, (int) line_count, 1, 1);
 
             if (event_count >= 0) {
-                string event_num_string = (ngettext ("%d Event", "%d Events", event_count)).printf (
-                                              event_count);
-
-                add_line (label, event_num_string);
-                label = "";
+                attach_item_count_label ((ngettext ("%d Event", "%d Events", event_count)).printf (event_count));
             }
 
-            string photo_num_string = (ngettext ("%d Photo", "%d Photos", photo_count)).printf (
-                                          photo_count);
-            string video_num_string = (ngettext ("%d Video", "%d Videos", video_count)).printf (
-                                          video_count);
-
-            if (photo_count == 0 && video_count > 0) {
-                add_line (label, video_num_string);
-                return;
+            if (photo_count > 0) {
+                attach_item_count_label ((ngettext ("%d Photo", "%d Photos", photo_count)).printf (photo_count));
             }
 
-            add_line (label, photo_num_string);
-
-            if (video_count > 0)
-                add_line ("", video_num_string);
+            if (video_count > 0) {
+                attach_item_count_label ((ngettext ("%d Video", "%d Videos", video_count)).printf (video_count));
+            }
         }
 
         if (start_time != 0) {
@@ -369,6 +356,13 @@ private class BasicProperties : Properties {
 
     private void title_entry_changed () {
         title = title_entry.text;
+    }
+
+    private void attach_item_count_label (string text) {
+        var label = new Gtk.Label (text);
+        label.xalign = 0;
+        attach (label, 1, (int) line_count, 1, 1);
+        line_count++;
     }
 
     private class ExifItem : Gtk.FlowBoxChild {
