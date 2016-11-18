@@ -10,6 +10,7 @@ private class BasicProperties : Properties {
     private Dimensions dimensions;
     private EditableTitle title_entry;
     private MediaSource? source;
+    private Gtk.Label place_label;
     private int photo_count;
     private int event_count;
     private int video_count;
@@ -19,6 +20,11 @@ private class BasicProperties : Properties {
     private string exposure_bias;
     private string flash;
     private string focal_length;
+    private double gps_lat;
+    private string gps_lat_ref;
+    private double gps_long;
+    private string gps_long_ref;
+    private double gps_alt;
     private string title;
     private string aperture;
     private string iso;
@@ -45,6 +51,10 @@ private class BasicProperties : Properties {
         flash = "";
         filesize = 0;
         focal_length = "";
+        gps_lat = -1;
+        gps_lat_ref = "";
+        gps_long = -1;
+        gps_long_ref = "";
         photo_count = -1;
         event_count = -1;
         video_count = -1;
@@ -98,6 +108,8 @@ private class BasicProperties : Properties {
                              Dimensions (0, 0);
 
                 focal_length = metadata.get_focal_length_string ();
+
+                metadata.get_gps (out gps_long, out gps_long_ref, out gps_lat, out gps_lat_ref, out gps_alt);
             }
 
             if (source is PhotoSource)
@@ -280,6 +292,19 @@ private class BasicProperties : Properties {
             }
         }
 
+        if (gps_lat != -1 && gps_long != -1) {
+            place_label = new Gtk.Label ("");
+            place_label.no_show_all = true;
+            place_label.visible = false;
+            place_label.xalign = 0;
+
+            create_place_label (gps_lat, gps_long);
+
+            attach (place_label, 0, (int) line_count, 2, 1);
+
+            line_count++;
+        }
+
         if (dimensions.has_area ()) {
             var size_label = new Gtk.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
             size_label.use_markup = true;
@@ -364,6 +389,31 @@ private class BasicProperties : Properties {
     public override void save_changes_to_source () {
         if (source != null && title != null && title != source.get_name ()) {
             AppWindow.get_command_manager ().execute (new EditTitleCommand (source, title));
+        }
+    }
+
+    // Unit test: https://github.com/Philip-Scott/misc/blob/master/GeolocationTest.vala
+    private async void create_place_label (double lat, double long) {
+        var location = new Geocode.Location (lat, long);
+        var reverse = new Geocode.Reverse.for_location (location);
+
+        try {
+            Geocode.Place place = yield reverse.resolve_async ();
+
+            if (place.get_state () != null) {
+                if (place.get_town () != null) {
+                    place_label.label = place.get_town () + ", " + place.get_state ();
+                } else if (place.get_county () != null) {
+                    place_label.label = place.get_county () + ", " + place.get_state ();
+                } else {
+                    place_label.label = place.get_state () + ", " + place.get_country ();
+                }
+
+                place_label.no_show_all = false;
+                place_label.visible = true;
+            }
+        } catch (Error e) {
+            warning ("Failed to obtain place: %s", e.message);
         }
     }
 
