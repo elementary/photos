@@ -59,7 +59,7 @@ public class ImportQueuePage : SinglePhotoPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry stop = { "Stop", Gtk.Stock.STOP, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry stop = { "Stop", null, TRANSLATABLE, null, TRANSLATABLE,
                                  on_stop
                                };
         stop.label = _ ("_Stop Import");

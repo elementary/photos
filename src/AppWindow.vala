@@ -484,13 +484,13 @@ public abstract class AppWindow : PageWindow {
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
 
-        Gtk.ActionEntry quit = { "CommonQuit", Gtk.Stock.QUIT, TRANSLATABLE, "<Ctrl>Q",
+        Gtk.ActionEntry quit = { "CommonQuit", null, TRANSLATABLE, "<Ctrl>Q",
                                  TRANSLATABLE, on_quit
                                };
         quit.label = _ ("_Quit");
         actions += quit;
 
-        Gtk.ActionEntry fullscreen = { "CommonFullscreen", Gtk.Stock.FULLSCREEN,
+        Gtk.ActionEntry fullscreen = { "CommonFullscreen", null,
                                        TRANSLATABLE, "F11", TRANSLATABLE, on_fullscreen
                                      };
         fullscreen.label = _ ("Fulls_creen");
@@ -508,13 +508,13 @@ public abstract class AppWindow : PageWindow {
         redo.label = Resources.REDO_MENU;
         actions += redo;
 
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", Gtk.Stock.JUMP_TO, TRANSLATABLE,
+        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, TRANSLATABLE,
                                          "<Ctrl><Shift>M", TRANSLATABLE, on_jump_to_file
                                        };
         jump_to_file.label = Resources.JUMP_TO_FILE_MENU;
         actions += jump_to_file;
 
-        Gtk.ActionEntry select_all = { "CommonSelectAll", Gtk.Stock.SELECT_ALL, TRANSLATABLE,
+        Gtk.ActionEntry select_all = { "CommonSelectAll", null, TRANSLATABLE,
                                        "<Ctrl>A", TRANSLATABLE, on_select_all
                                      };
         select_all.label = Resources.SELECT_ALL_MENU;

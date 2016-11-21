@@ -56,7 +56,7 @@ public class OfflinePage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry remove = { "RemoveFromLibrary", Gtk.Stock.REMOVE, TRANSLATABLE, "Delete",
+        Gtk.ActionEntry remove = { "RemoveFromLibrary", null, TRANSLATABLE, "Delete",
                                        TRANSLATABLE, on_remove_from_library
                                      };
         remove.label = Resources.REMOVE_FROM_LIBRARY_MENU;
