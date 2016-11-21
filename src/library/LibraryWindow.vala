@@ -297,7 +297,7 @@ public class LibraryWindow : AppWindow {
         sort.label = _ ("Sort _Events");
         actions += sort;
 
-        Gtk.ActionEntry preferences = { "CommonPreferences", Gtk.Stock.PREFERENCES, TRANSLATABLE,
+        Gtk.ActionEntry preferences = { "CommonPreferences", null, TRANSLATABLE,
                                         null, TRANSLATABLE, on_preferences
                                       };
         preferences.label = Resources.PREFERENCES_MENU;
@@ -316,7 +316,7 @@ public class LibraryWindow : AppWindow {
         jump_to_event.label = _ ("View Eve_nt for Photo");
         actions += jump_to_event;
 
-        Gtk.ActionEntry find = { "CommonFind", Gtk.Stock.FIND, TRANSLATABLE, null, null,
+        Gtk.ActionEntry find = { "CommonFind", null, TRANSLATABLE, null, null,
                                  on_find
                                };
         find.label = _ ("_Find");
@@ -367,7 +367,7 @@ public class LibraryWindow : AppWindow {
     private Gtk.ToggleActionEntry[] create_common_toggle_actions () {
         Gtk.ToggleActionEntry[] actions = new Gtk.ToggleActionEntry[0];
 
-        Gtk.ToggleActionEntry searchbar = { "CommonDisplaySearchbar", Gtk.Stock.FIND, TRANSLATABLE,
+        Gtk.ToggleActionEntry searchbar = { "CommonDisplaySearchbar", null, TRANSLATABLE,
                                             "<Ctrl>F", TRANSLATABLE, on_focus_search_entry, true
                                           };
         actions += searchbar;
@@ -392,7 +392,7 @@ public class LibraryWindow : AppWindow {
         Gtk.RadioActionEntry[] actions = new Gtk.RadioActionEntry[0];
 
         Gtk.RadioActionEntry ascending = { "CommonSortEventsAscending",
-                                           Gtk.Stock.SORT_ASCENDING, TRANSLATABLE, null, TRANSLATABLE,
+                                           null, TRANSLATABLE, null, TRANSLATABLE,
                                            SORT_EVENTS_ORDER_ASCENDING
                                          };
         ascending.label = _ ("_Ascending");
@@ -400,7 +400,7 @@ public class LibraryWindow : AppWindow {
         actions += ascending;
 
         Gtk.RadioActionEntry descending = { "CommonSortEventsDescending",
-                                            Gtk.Stock.SORT_DESCENDING, TRANSLATABLE, null, TRANSLATABLE,
+                                            null, TRANSLATABLE, null, TRANSLATABLE,
                                             SORT_EVENTS_ORDER_DESCENDING
                                           };
         descending.label = _ ("D_escending");

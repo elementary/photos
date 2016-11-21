@@ -2483,13 +2483,13 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry export = { "Export", Gtk.Stock.SAVE_AS, TRANSLATABLE, "<Ctrl><Shift>E",
+        Gtk.ActionEntry export = { "Export", null, TRANSLATABLE, "<Ctrl><Shift>E",
                                    TRANSLATABLE, on_export
                                  };
         export.label = Resources.EXPORT_MENU;
         actions += export;
 
-        Gtk.ActionEntry print = { "Print", Gtk.Stock.PRINT, TRANSLATABLE, "<Ctrl>P",
+        Gtk.ActionEntry print = { "Print", null, TRANSLATABLE, "<Ctrl>P",
                                   TRANSLATABLE, on_print
                                 };
         print.label = Resources.PRINT_MENU;
@@ -2502,7 +2502,7 @@ public class LibraryPhotoPage : EditingHostPage {
         publish.tooltip = Resources.PUBLISH_TOOLTIP;
         actions += publish;
 
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", Gtk.Stock.REMOVE, TRANSLATABLE,
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, TRANSLATABLE,
                                                 "<Shift>Delete", TRANSLATABLE, on_remove_from_library
                                               };
         remove_from_library.label = Resources.REMOVE_FROM_LIBRARY_MENU;
@@ -2522,14 +2522,14 @@ public class LibraryPhotoPage : EditingHostPage {
         tools.label = _ ("T_ools");
         actions += tools;
 
-        Gtk.ActionEntry prev = { "PrevPhoto", Gtk.Stock.GO_BACK, TRANSLATABLE, null,
+        Gtk.ActionEntry prev = { "PrevPhoto", null, TRANSLATABLE, null,
                                  TRANSLATABLE, on_previous_photo
                                };
         prev.label = _ ("_Previous Photo");
         prev.tooltip = _ ("Previous Photo");
         actions += prev;
 
-        Gtk.ActionEntry next = { "NextPhoto", Gtk.Stock.GO_FORWARD, TRANSLATABLE, null,
+        Gtk.ActionEntry next = { "NextPhoto", null, TRANSLATABLE, null,
                                  TRANSLATABLE, on_next_photo
                                };
         next.label = _ ("_Next Photo");
@@ -2590,7 +2590,7 @@ public class LibraryPhotoPage : EditingHostPage {
         crop.tooltip = Resources.CROP_TOOLTIP;
         actions += crop;
 
-        Gtk.ActionEntry straighten = { "Straighten", Gtk.Stock.REFRESH, TRANSLATABLE, "<Ctrl>A",
+        Gtk.ActionEntry straighten = { "Straighten", null, TRANSLATABLE, "<Ctrl>A",
                                        TRANSLATABLE, toggle_straighten
                                      };
         straighten.label = Resources.STRAIGHTEN_MENU;
@@ -2611,7 +2611,7 @@ public class LibraryPhotoPage : EditingHostPage {
         adjust.tooltip = Resources.ADJUST_TOOLTIP;
         actions += adjust;
 
-        Gtk.ActionEntry revert = { "Revert", Gtk.Stock.REVERT_TO_SAVED, TRANSLATABLE,
+        Gtk.ActionEntry revert = { "Revert", null, TRANSLATABLE,
                                    null, TRANSLATABLE, on_revert
                                  };
         revert.label = Resources.REVERT_MENU;
@@ -2627,28 +2627,28 @@ public class LibraryPhotoPage : EditingHostPage {
         flag.label = Resources.FLAG_MENU;
         actions += flag;
 
-        Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
                                         };
         increase_size.label = _ ("Zoom _In");
         increase_size.tooltip = _ ("Increase the magnification of the photo");
         actions += increase_size;
 
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", Gtk.Stock.ZOOM_OUT, TRANSLATABLE,
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>minus", TRANSLATABLE, on_decrease_size
                                         };
         decrease_size.label = _ ("Zoom _Out");
         decrease_size.tooltip = _ ("Decrease the magnification of the photo");
         actions += decrease_size;
 
-        Gtk.ActionEntry best_fit = { "ZoomFit", Gtk.Stock.ZOOM_FIT, TRANSLATABLE,
+        Gtk.ActionEntry best_fit = { "ZoomFit", null, TRANSLATABLE,
                                      "<Ctrl>0", TRANSLATABLE, snap_zoom_to_min
                                    };
         best_fit.label = _ ("Fit to _Page");
         best_fit.tooltip = _ ("Zoom the photo to fit on the screen");
         actions += best_fit;
 
-        Gtk.ActionEntry actual_size = { "Zoom100", Gtk.Stock.ZOOM_100, TRANSLATABLE,
+        Gtk.ActionEntry actual_size = { "Zoom100", null, TRANSLATABLE,
                                         "<Ctrl>1", TRANSLATABLE, snap_zoom_to_isomorphic
                                       };
         /// xgettext:no-c-format

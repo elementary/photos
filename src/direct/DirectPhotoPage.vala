@@ -61,7 +61,7 @@ public class DirectPhotoPage : EditingHostPage {
         save_as.tooltip = _ ("Save photo with a different name");
         actions += save_as;
 
-        Gtk.ActionEntry print = { "Print", Gtk.Stock.PRINT, TRANSLATABLE, "<Ctrl>P",
+        Gtk.ActionEntry print = { "Print", null, TRANSLATABLE, "<Ctrl>P",
                                   TRANSLATABLE, on_print
                                 };
         print.label = Resources.PRINT_MENU;
@@ -72,7 +72,7 @@ public class DirectPhotoPage : EditingHostPage {
         edit.label = _ ("_Edit");
         actions += edit;
 
-        Gtk.ActionEntry photo = { "PhotoMenu", null, "", null, null, null };
+        Gtk.ActionEntry photo = { "PhotoMenu", null, null, null, null, null };
         photo.label = _ ("_Photo");
         actions += photo;
 
@@ -80,14 +80,14 @@ public class DirectPhotoPage : EditingHostPage {
         tools.label = _ ("T_ools");
         actions += tools;
 
-        Gtk.ActionEntry prev = { "PrevPhoto", Gtk.Stock.GO_BACK, TRANSLATABLE, null,
+        Gtk.ActionEntry prev = { "PrevPhoto", null, TRANSLATABLE, null,
                                  TRANSLATABLE, on_previous_photo
                                };
         prev.label = _ ("_Previous Photo");
         prev.tooltip = _ ("Previous Photo");
         actions += prev;
 
-        Gtk.ActionEntry next = { "NextPhoto", Gtk.Stock.GO_FORWARD, TRANSLATABLE, null,
+        Gtk.ActionEntry next = { "NextPhoto", null, TRANSLATABLE, null,
                                  TRANSLATABLE, on_next_photo
                                };
         next.label = _ ("_Next Photo");
@@ -134,7 +134,7 @@ public class DirectPhotoPage : EditingHostPage {
         crop.tooltip = Resources.CROP_TOOLTIP;
         actions += crop;
 
-        Gtk.ActionEntry straighten = { "Straighten", Gtk.Stock.REFRESH, TRANSLATABLE, "<Ctrl>A",
+        Gtk.ActionEntry straighten = { "Straighten", null, TRANSLATABLE, "<Ctrl>A",
                                        TRANSLATABLE, toggle_straighten
                                      };
         straighten.label = Resources.STRAIGHTEN_MENU;
@@ -155,7 +155,7 @@ public class DirectPhotoPage : EditingHostPage {
         adjust.tooltip = Resources.ADJUST_TOOLTIP;
         actions += adjust;
 
-        Gtk.ActionEntry revert = { "Revert", Gtk.Stock.REVERT_TO_SAVED, TRANSLATABLE,
+        Gtk.ActionEntry revert = { "Revert", null, TRANSLATABLE,
                                    null, TRANSLATABLE, on_revert
                                  };
         revert.label = Resources.REVERT_MENU;
@@ -175,28 +175,28 @@ public class DirectPhotoPage : EditingHostPage {
         help.label = _ ("_Help");
         actions += help;
 
-        Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
                                         };
         increase_size.label = _ ("Zoom _In");
         increase_size.tooltip = _ ("Increase the magnification of the photo");
         actions += increase_size;
 
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", Gtk.Stock.ZOOM_OUT, TRANSLATABLE,
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>minus", TRANSLATABLE, on_decrease_size
                                         };
         decrease_size.label = _ ("Zoom _Out");
         decrease_size.tooltip = _ ("Decrease the magnification of the photo");
         actions += decrease_size;
 
-        Gtk.ActionEntry best_fit = { "ZoomFit", Gtk.Stock.ZOOM_FIT, TRANSLATABLE,
+        Gtk.ActionEntry best_fit = { "ZoomFit", null, TRANSLATABLE,
                                      "<Ctrl>0", TRANSLATABLE, snap_zoom_to_min
                                    };
         best_fit.label = _ ("Fit to _Page");
         best_fit.tooltip = _ ("Zoom the photo to fit on the screen");
         actions += best_fit;
 
-        Gtk.ActionEntry actual_size = { "Zoom100", Gtk.Stock.ZOOM_100, TRANSLATABLE,
+        Gtk.ActionEntry actual_size = { "Zoom100", null, TRANSLATABLE,
                                         "<Ctrl>1", TRANSLATABLE, snap_zoom_to_isomorphic
                                       };
         /// xgettext:no-c-format

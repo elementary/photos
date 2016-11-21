@@ -24,7 +24,7 @@ public class MediaSourceItem : CheckerboardItem {
         Dimensions pixbuf_dim = Dimensions.for_pixbuf (pixbuf);
         // sprocket geometry calculation (and possible adjustment) has to occur before we call
         // base.paint_image( ) because the base-class method needs the correct trinket horizontal
-        // offset
+        // offsets
 
         if (!enable_sprockets) {
             set_horizontal_trinket_offset (0);
@@ -267,13 +267,13 @@ public abstract class MediaPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry export = { "Export", Gtk.Stock.SAVE_AS, TRANSLATABLE, "<Ctrl><Shift>E",
+        Gtk.ActionEntry export = { "Export", null, TRANSLATABLE, "<Ctrl><Shift>E",
                                    TRANSLATABLE, on_export
                                  };
         export.label = Resources.EXPORT_MENU;
         actions += export;
 
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", Gtk.Stock.REMOVE, TRANSLATABLE,
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, TRANSLATABLE,
                                                 "<Shift>Delete", TRANSLATABLE, on_remove_from_library
                                               };
         remove_from_library.label = Resources.REMOVE_FROM_LIBRARY_MENU;
@@ -285,20 +285,20 @@ public abstract class MediaPage : CheckerboardPage {
         move_to_trash.label = Resources.MOVE_TO_TRASH_MENU;
         actions += move_to_trash;
 
-        Gtk.ActionEntry new_event = { "NewEvent", Gtk.Stock.NEW, TRANSLATABLE, "<Ctrl>N",
+        Gtk.ActionEntry new_event = { "NewEvent", null, TRANSLATABLE, "<Ctrl>N",
                                       TRANSLATABLE, on_new_event
                                     };
         new_event.label = Resources.NEW_EVENT_MENU;
         actions += new_event;
 
-        Gtk.ActionEntry increase_size = { "IncreaseSize", Gtk.Stock.ZOOM_IN, TRANSLATABLE,
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>plus", TRANSLATABLE, on_increase_size
                                         };
         increase_size.label = _ ("Zoom _In");
         increase_size.tooltip = _ ("Increase the magnification of the thumbnails");
         actions += increase_size;
 
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", Gtk.Stock.ZOOM_OUT, TRANSLATABLE,
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, TRANSLATABLE,
                                           "<Ctrl>minus", TRANSLATABLE, on_decrease_size
                                         };
         decrease_size.label = _ ("Zoom _Out");
@@ -392,14 +392,14 @@ public abstract class MediaPage : CheckerboardPage {
         // Sort order.
         Gtk.RadioActionEntry[] sort_order_actions = new Gtk.RadioActionEntry[0];
 
-        Gtk.RadioActionEntry ascending = { "SortAscending", Gtk.Stock.SORT_ASCENDING,
+        Gtk.RadioActionEntry ascending = { "SortAscending", null,
                                            TRANSLATABLE, null, TRANSLATABLE, SORT_ORDER_ASCENDING
                                          };
         ascending.label = _ ("_Ascending");
         ascending.tooltip = _ ("Sort photos in an ascending order");
         sort_order_actions += ascending;
 
-        Gtk.RadioActionEntry descending = { "SortDescending", Gtk.Stock.SORT_DESCENDING,
+        Gtk.RadioActionEntry descending = { "SortDescending", null,
                                             TRANSLATABLE, null, TRANSLATABLE, SORT_ORDER_DESCENDING
                                           };
         descending.label = _ ("D_escending");

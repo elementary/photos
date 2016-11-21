@@ -289,7 +289,7 @@ class ImportPreview : MediaSourceItem {
         bool using_placeholder = (pixbuf == null);
         if (pixbuf == null) {
             if (placeholder_preview == null) {
-                placeholder_preview = AppWindow.get_instance ().render_icon (Gtk.Stock.MISSING_IMAGE,
+                placeholder_preview = AppWindow.get_instance ().render_icon ("image-missing",
                                       Gtk.IconSize.DIALOG, null);
                 placeholder_preview = scale_pixbuf (placeholder_preview, MAX_SCALE,
                                                     Gdk.InterpType.BILINEAR, true);
@@ -1756,7 +1756,7 @@ public class ImportPage : CheckerboardPage {
                                      photos_string, videos_string, both_string, neither_string);
 
             ImportUI.QuestionParams question = new ImportUI.QuestionParams (
-                question_string, Gtk.Stock.DELETE, _ ("_Keep"));
+                question_string, "edit-delete", _ ("_Keep"));
 
             if (!ImportUI.report_manifest (manifest, false, question))
                 return;
