@@ -227,7 +227,8 @@ public abstract class CollectionPage : MediaPage {
         populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
         open_with_menu_item.show ();
 
-        if (((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () == PhotoFileFormat.RAW) {
+        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWithRaw");
             populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
             open_with_raw_menu_item.show ();
