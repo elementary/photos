@@ -20,10 +20,6 @@ private class LibraryProperties : Properties {
         Tag.global.container_contents_altered.disconnect (on_tag_contents_altered);
     }
 
-    public override string get_header_title () {
-        return Resources.LIBRARY_PROPERTIES_LABEL;
-    }
-
     protected override void clear_properties () {
         base.clear_properties ();
         comment = "";

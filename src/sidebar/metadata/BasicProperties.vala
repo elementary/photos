@@ -36,10 +36,6 @@ private class BasicProperties : Properties {
     public BasicProperties () {
     }
 
-    public override string get_header_title () {
-        return Resources.BASIC_PROPERTIES_LABEL;
-    }
-
     protected override void clear_properties () {
         base.clear_properties ();
         camera_make = "";

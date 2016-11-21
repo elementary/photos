@@ -255,10 +255,6 @@ public const string FLAG_LABEL = _("Flag");
 public const string UNFLAG_MENU = _("Un_flag");
 public const string UNFLAG_LABEL = _("Unflag");
 
-public const string BASIC_PROPERTIES_LABEL = _("Image Details");
-public const string EXTENDED_PROPERTIES_LABEL = _("Extended Details");
-public const string LIBRARY_PROPERTIES_LABEL = _("Library Details");
-
 public string launch_editor_failed (Error err) {
     return _("Unable to launch editor: %s").printf (err.message);
 }

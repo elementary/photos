@@ -22,10 +22,6 @@ private class ExtendedProperties : Properties {
     // common stuff
     private string comment;
 
-    public override string get_header_title () {
-        return Resources.EXTENDED_PROPERTIES_LABEL;
-    }
-
     protected override void clear_properties () {
         base.clear_properties ();
 

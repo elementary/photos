@@ -147,6 +147,4 @@ public abstract class Properties : Gtk.Grid {
 
     public virtual void save_changes_to_source () {
     }
-
-    public abstract string get_header_title ();
 }
