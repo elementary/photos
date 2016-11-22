@@ -758,7 +758,7 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
         }
 
         private void on_page_load () {
-            pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.LEFT_PTR));
+            pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
             string page_title = webview.get_title ();
             if (page_title.index_of ("state=connect") > 0) {
@@ -776,7 +776,7 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
         }
 
         private void on_load_started () {
-            pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.WATCH));
+            pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.WATCH));
         }
 
         public Spit.Publishing.DialogPane.GeometryOptions get_preferred_geometry () {

@@ -136,7 +136,7 @@ internal class WebAuthPane : Spit.Publishing.DialogPane, GLib.Object {
     }
 
     private void on_page_load () {
-        pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.LEFT_PTR));
+        pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
     }
 
     private bool decide_policy (WebKit.PolicyDecision decision, WebKit.PolicyDecisionType type) {
@@ -154,7 +154,7 @@ internal class WebAuthPane : Spit.Publishing.DialogPane, GLib.Object {
             string access_token = info.fetch_all ()[2];
 
             debug ("Load completed: %s", access_token);
-            pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.LEFT_PTR));
+            pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
             if (access_token != null) {
                 login_succeeded (access_token);
                 return false;
@@ -165,7 +165,7 @@ internal class WebAuthPane : Spit.Publishing.DialogPane, GLib.Object {
     }
 
     private void on_load_started () {
-        pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.WATCH));
+        pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.WATCH));
     }
 
     public Gtk.Widget get_widget () {

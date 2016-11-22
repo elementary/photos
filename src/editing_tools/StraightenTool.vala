@@ -356,7 +356,7 @@ public class StraightenTool : EditingTool {
         prepare_image ();
 
         // set crosshair cursor
-        canvas.get_drawing_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.CROSSHAIR));
+        canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.CROSSHAIR));
 
         window = new StraightenToolWindow (canvas.get_container ());
         bind_window_handlers ();
