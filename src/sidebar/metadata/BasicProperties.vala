@@ -10,7 +10,7 @@ private class BasicProperties : Properties {
     private Dimensions dimensions;
     private EditableTitle title_entry;
     private MediaSource? source;
-    private Gtk.Label place_label;
+    private Properties.Label place_label;
     private int photo_count;
     private int event_count;
     private int video_count;
@@ -232,9 +232,7 @@ private class BasicProperties : Properties {
         }
 
         if (photo_count >= 0 || video_count >= 0) {
-            var label = new Gtk.Label (_("Items:"));
-            label.xalign = 1;
-
+            var label = new Properties.Header (_("Items:"));
             attach (label, 0, (int) line_count, 1, 1);
 
             if (event_count >= 0) {
@@ -258,8 +256,7 @@ private class BasicProperties : Properties {
 
             if (start_date == end_date) {
                 if (start_time == end_time) {
-                    var datetime_label = new Gtk.Label ("%s at %s".printf (start_date, start_time));
-                    datetime_label.xalign = 0;
+                    var datetime_label = new Properties.Label ("%s at %s".printf (start_date, start_time));
                     attach (datetime_label, 0, (int) line_count, 2, 1);
                     line_count++;
                 } else {
@@ -276,10 +273,9 @@ private class BasicProperties : Properties {
         }
 
         if (gps_lat != -1 && gps_long != -1) {
-            place_label = new Gtk.Label ("");
+            place_label = new Properties.Label ("");
             place_label.no_show_all = true;
             place_label.visible = false;
-            place_label.xalign = 0;
 
             create_place_label (gps_lat, gps_long);
 
@@ -289,17 +285,14 @@ private class BasicProperties : Properties {
         }
 
         if (dimensions.has_area ()) {
-            var size_label = new Gtk.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
-            size_label.use_markup = true;
-            size_label.xalign = 0;
+            var size_label = new Properties.Label ("%s — %d &#215; %d".printf (format_size ((int64) filesize), dimensions.width, dimensions.height));
             attach (size_label, 0, (int) line_count, 2, 1);
 
             line_count++;
         }
 
         if (clip_duration > 0.0) {
-            var duration_label = new Gtk.Label (ngettext ("%.1f second", "%.1f seconds", (ulong) clip_duration).printf (clip_duration));
-            duration_label.xalign = 0;
+            var duration_label = new Properties.Label (ngettext ("%.1f second", "%.1f seconds", (ulong) clip_duration).printf (clip_duration));
             attach (duration_label, 0, (int) line_count, 2, 1);
 
             line_count++;
@@ -323,9 +316,8 @@ private class BasicProperties : Properties {
                 camera_string = camera_make + " " + camera_model;
             }
 
-            var camera_label = new Gtk.Label (camera_string);
+            var camera_label = new Properties.Label (camera_string);
             camera_label.margin_top = 12;
-            camera_label.xalign = 0;
 
             attach (camera_label, 0, 8, 2, 1);
         }
@@ -405,8 +397,7 @@ private class BasicProperties : Properties {
     }
 
     private void attach_item_count_label (string text) {
-        var label = new Gtk.Label (text);
-        label.xalign = 0;
+        var label = new Properties.Label (text);
         attach (label, 1, (int) line_count, 1, 1);
         line_count++;
     }
@@ -416,10 +407,7 @@ private class BasicProperties : Properties {
             can_focus = false;
 
             var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.MENU);
-
-            var label = new Gtk.Label (data);
-            label.selectable = true;
-            label.use_markup = true;
+            var label = new Properties.Label (data);
 
             var grid = new Gtk.Grid ();
             grid.column_spacing = 6;
