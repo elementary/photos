@@ -69,7 +69,6 @@ set (DEPS_PACKAGES
     # Custom .vapis
     ExtendedPosix
     LConv
-    unique-3.0
 )
 
 set (GLOBAL_VALA_OPTIONS
