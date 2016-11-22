@@ -247,8 +247,8 @@ public class EditingTools.RedeyeTool : EditingTool {
 
         bind_window_handlers ();
 
-        cached_arrow_cursor = new Gdk.Cursor (Gdk.CursorType.LEFT_PTR);
-        cached_grab_cursor = new Gdk.Cursor (Gdk.CursorType.FLEUR);
+        cached_arrow_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR);
+        cached_grab_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.FLEUR);
 
         DataCollection? owner = canvas.get_photo ().get_membership ();
         if (owner != null)

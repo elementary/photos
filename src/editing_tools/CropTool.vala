@@ -665,7 +665,7 @@ public class EditingTools.CropTool : EditingTool {
 
         // make sure the cursor isn't set to a modify indicator
         if (canvas != null)
-            canvas.get_drawing_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.LEFT_PTR));
+            canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
         crop_surface = null;
 
@@ -856,7 +856,7 @@ public class EditingTools.CropTool : EditingTool {
         }
 
         if (cursor_type != current_cursor_type) {
-            Gdk.Cursor cursor = new Gdk.Cursor (cursor_type);
+            Gdk.Cursor cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), cursor_type);
             canvas.get_drawing_window ().set_cursor (cursor);
             current_cursor_type = cursor_type;
         }

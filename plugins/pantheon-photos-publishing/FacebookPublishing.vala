@@ -949,7 +949,7 @@ internal class WebAuthenticationPane : Spit.Publishing.DialogPane, Object {
 
     private void on_page_load (string url) {
         var loaded_url = url;
-        pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.LEFT_PTR));
+        pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
         // strip parameters from the loaded url
         if (loaded_url.contains ("?")) {
@@ -973,7 +973,7 @@ internal class WebAuthenticationPane : Spit.Publishing.DialogPane, Object {
     }
 
     private void on_load_started () {
-        pane_widget.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.WATCH));
+        pane_widget.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.WATCH));
     }
 
     public static bool is_cache_dirty () {

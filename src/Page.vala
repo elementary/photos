@@ -1207,7 +1207,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         last_cursor = cursor_type;
 
         if (!cursor_hidden && event_source != null)
-            event_source.get_window ().set_cursor (new Gdk.Cursor (cursor_type));
+            event_source.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), cursor_type));
     }
 
     private void check_cursor_hiding () {
@@ -1227,7 +1227,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         cursor_hidden = true;
 
         if (event_source != null)
-            event_source.get_window ().set_cursor (new Gdk.Cursor (Gdk.CursorType.BLANK_CURSOR));
+            event_source.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.BLANK_CURSOR));
 
         return false;
     }
