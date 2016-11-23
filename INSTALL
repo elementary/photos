@@ -2,15 +2,17 @@
     Photos Installation
     ---------------------
 
-    To build and install Photos, type the following commands:
+    To create the build environment for Photos, type the following commands:
 
-    $ ./configure --build=build
+    $ mkdir build && cd build
+    $ cmake ..
+    
+    To build Photos, type the following commands from within the build directory:
+    
     $ make
     $ make install
 
-    * By default, Photos will install under /usr/local.  The configure script
-      can customize the prefix directory.  Run ./configure --help for
-      instructions and other installation options.
+    * By default, Photos will install under /usr/local.
   
     * You may need to execute "make install" as root (i.e. sudo make install)
       if installing to system directories.
@@ -18,9 +20,10 @@
     * If you wish to try Photos before installing it, you may execute it
       directly from its build directory.  Note that certain desktop integration
       (such as being listed in an application menu) requires full installation.
-
+    
     Once installed, Photos will be available on your desktop Applications
     menu under Graphics or Photography.
 
 
     Copyright 2009-2013 Yorba Foundation
+    Copyright 2016 elementary LLC.
