@@ -29,7 +29,7 @@ public class Library.RawsPage : CollectionPage {
         }
 
         public override bool include_in_view (DataSource source) {
-            Photo photo = (Photo) source;
+            unowned Photo? photo = source as Photo;
             return photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW;
         }
     }

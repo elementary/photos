@@ -281,7 +281,7 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        unowned Photo? photo = get_view ().get_selected_at (0).get_source () as Photo;
         try {
             AppWindow.get_instance ().set_busy_cursor ();
             photo.open_with_external_editor (app);
