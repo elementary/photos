@@ -32,22 +32,8 @@ public abstract class Properties : Gtk.Grid {
             return;
         }
 
-        var label = new Gtk.Label ("");
-        label.lines = 8;
-        label.set_markup (GLib.Markup.printf_escaped ("%s", label_text));
-        label.valign = Gtk.Align.START;
-        label.wrap = true;
-        label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-        label.xalign = 1;
-
-        var info_label = new Gtk.Label ("");
-        info_label.ellipsize = Pango.EllipsizeMode.END;
-        info_label.lines = 8;
-        info_label.selectable = true;
-        info_label.set_markup (is_string_empty (info_text) ? "" : info_text);
-        info_label.wrap = true;
-        info_label.wrap_mode = Pango.WrapMode.WORD_CHAR;
-        info_label.xalign = 0;
+        var label = new Properties.Header (GLib.Markup.printf_escaped ("%s", label_text));
+        var info_label = new Properties.Label (is_string_empty (info_text) ? "" : info_text);
 
         attach (label, 0, (int) line_count, 1, 1);
         attach (info_label, 1, (int) line_count, 1, 1);
@@ -146,5 +132,29 @@ public abstract class Properties : Gtk.Grid {
     }
 
     public virtual void save_changes_to_source () {
+    }
+
+    public class Header : Gtk.Label {
+        public Header (string text) {
+            label = text;
+            lines = 8;
+            valign = Gtk.Align.START;
+            wrap = true;
+            wrap_mode = Pango.WrapMode.WORD_CHAR;
+            xalign = 1;
+        }
+    }
+
+    public class Label : Gtk.Label {
+        public Label (string text) {
+            ellipsize = Pango.EllipsizeMode.END;
+            label = text;
+            lines = 8;
+            selectable = true;
+            use_markup = true;
+            wrap = true;
+            wrap_mode = Pango.WrapMode.WORD_CHAR;
+            xalign = 0;
+        }
     }
 }
