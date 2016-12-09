@@ -532,7 +532,7 @@ public File get_ui (string filename) {
     return AppDirs.get_resources_dir ().get_child ("ui").get_child (filename);
 }
 
-private const string NONINTERPRETABLE_BADGE_FILE = "noninterpretable-video.png";
+private const string NONINTERPRETABLE_BADGE_FILE = "noninterpretable-video.svg";
 private Gdk.Pixbuf? noninterpretable_badge_pixbuf = null;
 
 public Gdk.Pixbuf? get_noninterpretable_badge_pixbuf () {

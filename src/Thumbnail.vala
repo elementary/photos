@@ -54,9 +54,6 @@ public class Thumbnail : MediaSourceItem {
         Tag.global.container_contents_altered.connect (on_tag_contents_altered);
         Tag.global.items_altered.connect (on_tags_altered);
 
-        assert ((media is LibraryPhoto) || (media is Video));
-        set_enable_sprockets (media is Video);
-
         original_dim = media.get_dimensions ();
         dim = original_dim.get_scaled (scale, true);
 
