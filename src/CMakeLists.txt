@@ -144,6 +144,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     photos/BmpSupport.vala
     photos/GdkSupport.vala
+    photos/GifSupport.vala
     photos/GRaw.vala
     photos/JfifSupport.vala
     photos/PhotoFileAdapter.vala
