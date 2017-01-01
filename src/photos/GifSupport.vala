@@ -48,7 +48,8 @@ class GifFileFormatProperties : PhotoFileFormatProperties {
 }
 
 public class GifSniffer : GdkSniffer {
-    private const uint8[] MAGIC_SEQUENCE = { 71, 73, 70, 56, 55, 97 };
+    private const uint8[] MAGIC_SEQUENCE_GIF87 = { 71, 73, 70, 56, 55, 97 };
+    private const uint8[] MAGIC_SEQUENCE_GIF89 = { 71, 73, 70, 56, 57, 97 };
 
     public GifSniffer (File file, PhotoFileSniffer.Options options) {
         base (file, options);
@@ -57,16 +58,37 @@ public class GifSniffer : GdkSniffer {
     private static bool is_gif_file (File file) throws Error {
         FileInputStream instream = file.read (null);
 
-        uint8[] file_lead_sequence = new uint8[MAGIC_SEQUENCE.length];
+        uint8[] file_lead_sequence = new uint8[MAGIC_SEQUENCE_GIF87.length];
 
         instream.read (file_lead_sequence, null);
 
-        for (int i = 0; i < MAGIC_SEQUENCE.length; i++) {
-            if (file_lead_sequence[i] != MAGIC_SEQUENCE[i])
-                return false;
+        bool is_gif_87 = true;
+
+        for (int i = 0; i < MAGIC_SEQUENCE_GIF87.length; i++) {
+            if (file_lead_sequence[i] != MAGIC_SEQUENCE_GIF87[i]) {
+                is_gif_87 = false;
+            }
         }
 
-        return true;
+        if (is_gif_87) {
+            return true;
+        } else {
+            instream.seek (0, SeekType.SET);
+
+            file_lead_sequence = new uint8[MAGIC_SEQUENCE_GIF89.length];
+
+            instream.read (file_lead_sequence, null);
+
+            bool is_gif_89 = true;
+
+            for (int i = 0; i < MAGIC_SEQUENCE_GIF89.length; i++) {
+                if (file_lead_sequence[i] != MAGIC_SEQUENCE_GIF89[i]) {
+                    is_gif_89 = false;
+                }
+            }
+
+            return is_gif_89;
+        }
     }
 
     public override DetectedPhotoInformation? sniff () throws Error {
@@ -74,8 +96,10 @@ public class GifSniffer : GdkSniffer {
             return null;
 
         DetectedPhotoInformation? detected = base.sniff ();
-        if (detected == null)
+
+        if (detected == null) {
             return null;
+        }
 
         return (detected.file_format == PhotoFileFormat.GIF) ? detected : null;
     }
@@ -114,26 +138,6 @@ public class GifReader : GdkReader {
     }
 }
 
-public class GifWriter : PhotoFileWriter {
-    public GifWriter (string filepath) {
-        base (filepath, PhotoFileFormat.GIF);
-    }
-
-    public override void write (Gdk.Pixbuf pixbuf, Jpeg.Quality quality) throws Error {
-        pixbuf.save (get_filepath (), "gif", "compression", "9", null);
-    }
-}
-
-public class GifMetadataWriter : PhotoFileMetadataWriter {
-    public GifMetadataWriter (string filepath) {
-        base (filepath, PhotoFileFormat.GIF);
-    }
-
-    public override void write_metadata (PhotoMetadata metadata) throws Error {
-        metadata.write_to_file (get_file ());
-    }
-}
-
 public class GifFileFormatDriver : PhotoFileFormatDriver {
     private static GifFileFormatDriver instance = null;
 
@@ -155,19 +159,19 @@ public class GifFileFormatDriver : PhotoFileFormatDriver {
     }
 
     public override bool can_write_image () {
-        return true;
+        return false;
     }
 
     public override bool can_write_metadata () {
-        return true;
+        return false;
     }
 
     public override PhotoFileWriter? create_writer (string filepath) {
-        return new GifWriter (filepath);
+        return null;
     }
 
     public override PhotoFileMetadataWriter? create_metadata_writer (string filepath) {
-        return new GifMetadataWriter (filepath);
+        return null;
     }
 
     public override PhotoFileSniffer create_sniffer (File file, PhotoFileSniffer.Options options) {
