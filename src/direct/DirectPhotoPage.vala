@@ -529,7 +529,7 @@ public class DirectPhotoPage : EditingHostPage {
             break;
 
         case "bracketleft":
-            activate_action ("RotateClockwise");
+            activate_action ("RotateCounterclockwise");
             break;
 
         default:
