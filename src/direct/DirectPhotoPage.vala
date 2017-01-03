@@ -520,24 +520,45 @@ public class DirectPhotoPage : EditingHostPage {
         save_as_dialog.destroy ();
     }
 
+    /** Returns true if the code parameter matches the keycode of the keyval parameter for
+    * any keyboard group or level (in order to allow for non-QWERTY keyboards) **/
+    protected bool match_keycode (int keyval, uint code) {
+        Gdk.KeymapKey [] keys;
+        Gdk.Keymap keymap = Gdk.Keymap.get_default ();
+        if (keymap.get_entries_for_keyval (keyval, out keys)) {
+            foreach (var key in keys) {
+                if (code == key.keycode)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     protected override bool on_app_key_pressed (Gdk.EventKey event) {
-        bool handled = true;
+        uint keycode = event.hardware_keycode;
 
-        switch (Gdk.keyval_name (event.keyval)) {
-        case "bracketright":
-            activate_action ("RotateClockwise");
-            break;
-
-        case "bracketleft":
-            activate_action ("RotateCounterclockwise");
-            break;
-
-        default:
-            handled = false;
-            break;
+        if (match_keycode (Gdk.Key.s, keycode)) {
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                if ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0) {
+                    on_save_as ();
+                } else {
+                    on_save ();
+                }
+                return true;
+            }
         }
 
-        return handled ? true : base.on_app_key_pressed (event);
+        if (match_keycode (Gdk.Key.bracketright, keycode)) {
+            activate_action ("RotateClockwise");
+            return true;
+        }
+
+        if (match_keycode (Gdk.Key.bracketleft, keycode)) {
+            activate_action ("RotateCounterclockwise");
+            return true;
+        }
+
+        return base.on_app_key_pressed (event);
     }
 
     private void on_print () {
