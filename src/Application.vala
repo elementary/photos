@@ -46,6 +46,9 @@ public class Application : Granite.Application {
         about_artists = {};
         about_translators = _("translator-credits");
         about_license_type = Gtk.License.LGPL_2_1;
+
+        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+        default_theme.add_resource_path ("/org/pantheon/photos/icons");
     }
 
     private Application (bool is_direct) {

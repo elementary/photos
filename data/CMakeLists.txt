@@ -9,10 +9,6 @@ install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.desktop DESTINATI
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos-viewer.desktop DESTINATION ${DATADIR}/applications)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.appdata.xml DESTINATION ${DATADIR}/appdata)
 
-# Install custom icons
-file (GLOB ICON_FILES icons/*)
-install (FILES ${ICON_FILES} DESTINATION ${PKGDATADIR}/icons)
-
 # Install UI files
 file (GLOB UI_FILES ui/*)
 install (FILES ${UI_FILES} DESTINATION ${PKGDATADIR}/ui)
