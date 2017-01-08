@@ -217,8 +217,11 @@ OPTIONS
     ${GLOBAL_VALA_OPTIONS}
 )
 
+include (GResource)
+glib_compile_resources (GLIB_RESOURCES_ICONS SOURCE ../data/icons/icons.gresource.xml)
+
 include_directories (${CMAKE_SOURCE_DIR}/vapi)
-add_executable (${EXEC_NAME} ${VALA_C} ${PLUGIN_VALA_C} ${CONFIG_FILE})
+add_executable (${EXEC_NAME} ${VALA_C} ${PLUGIN_VALA_C} ${CONFIG_FILE} ${GLIB_RESOURCES_ICONS})
 target_link_libraries (${EXEC_NAME} ${DEPS_LIBRARIES})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)

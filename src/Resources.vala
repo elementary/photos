@@ -72,7 +72,6 @@ public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
 public const string ICON_GENERIC_PLUGIN = "extension";
 public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
 public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
-public const string ICON_FILTER_UNRATED_OR_BETTER = "shotwell-16.svg";
 public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
 
 public const string ICON_ZOOM_ORIGINAL = "zoom-original-symbolic";
@@ -532,14 +531,12 @@ public File get_ui (string filename) {
     return AppDirs.get_resources_dir ().get_child ("ui").get_child (filename);
 }
 
-private const string NONINTERPRETABLE_BADGE_FILE = "noninterpretable-video.svg";
 private Gdk.Pixbuf? noninterpretable_badge_pixbuf = null;
 
 public Gdk.Pixbuf? get_noninterpretable_badge_pixbuf () {
     if (noninterpretable_badge_pixbuf == null) {
         try {
-            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_file (AppDirs.get_resources_dir ().get_child (
-                        "icons").get_child (NONINTERPRETABLE_BADGE_FILE).get_path ());
+            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_resource ("/org/pantheon/photos/backgrounds/noninterpretable-video.svg");
         } catch (Error err) {
             error ("VideoReader can't load noninterpretable badge image: %s", err.message);
         }
