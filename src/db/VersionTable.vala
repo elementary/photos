@@ -8,16 +8,14 @@ public class VersionTable : DatabaseTable {
     private static VersionTable instance = null;
 
     private VersionTable () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS VersionTable ("
+        var stmt = create_stmt ("CREATE TABLE IF NOT EXISTS VersionTable ("
                                  + "id INTEGER PRIMARY KEY, "
                                  + "schema_version INTEGER, "
                                  + "app_version TEXT, "
                                  + "user_data TEXT NULL"
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                                 + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create version table", res);
 
@@ -32,12 +30,9 @@ public class VersionTable : DatabaseTable {
     }
 
     public int get_version (out string app_version) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT schema_version, app_version FROM VersionTable ORDER BY schema_version DESC LIMIT 1",
-                                 -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT schema_version, app_version FROM VersionTable ORDER BY schema_version DESC LIMIT 1");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.ROW) {
             if (res != Sqlite.DONE)
                 fatal ("get_version", res);
@@ -54,43 +49,31 @@ public class VersionTable : DatabaseTable {
 
     public void set_version (int version, string app_version, string? user_data = null) {
         Sqlite.Statement stmt;
-
         string bitbucket;
         if (get_version (out bitbucket) != -1) {
             // overwrite existing row
-            int res = db.prepare_v2 ("UPDATE VersionTable SET schema_version=?, app_version=?, user_data=?",
-                                     -1, out stmt);
-            assert (res == Sqlite.OK);
+            stmt = create_stmt ("UPDATE VersionTable SET schema_version=?, app_version=?, user_data=?");
         } else {
             // insert new row
-            int res = db.prepare_v2 ("INSERT INTO VersionTable (schema_version, app_version, user_data) VALUES (?,?, ?)",
-                                     -1, out stmt);
-            assert (res == Sqlite.OK);
+            stmt = create_stmt ("INSERT INTO VersionTable (schema_version, app_version, user_data) VALUES (?,?, ?)");
         }
 
-        int res = stmt.bind_int (1, version);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, app_version);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (3, user_data);
-        assert (res == Sqlite.OK);
+        bind_int (stmt, 1, version);
+        bind_text (stmt, 2, app_version);
+        bind_text (stmt, 3, user_data);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("set_version %d %s %s".printf (version, app_version, user_data), res);
     }
 
     public void update_version (int version, string app_version) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE VersionTable SET schema_version=?, app_version=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE VersionTable SET schema_version=?, app_version=?");
 
-        res = stmt.bind_int (1, version);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, app_version);
-        assert (res == Sqlite.OK);
+        bind_int (stmt, 1, version);
+        bind_text (stmt, 2, app_version);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("update_version %d".printf (version), res);
     }

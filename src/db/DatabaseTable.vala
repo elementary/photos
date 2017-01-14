@@ -151,6 +151,42 @@ public abstract class DatabaseTable {
             throw new DatabaseError.ERROR (msg);
         }
     }
+    
+    protected Sqlite.Statement create_stmt (string data) {
+        debug ("Running statement: %s\n", data);
+
+        Sqlite.Statement stmt;
+        int res = db.prepare_v2 (data, -1, out stmt);
+        assert_test (res == Sqlite.OK, data);
+
+        return stmt;
+    }
+
+    protected static void bind_text (Sqlite.Statement stmt, int column, string data) {
+        var res = stmt.bind_text (column, data);
+        assert (res == Sqlite.OK);
+    }
+
+    protected static void bind_int (Sqlite.Statement stmt, int column, int data) {
+        var res = stmt.bind_int (column, data);
+        assert (res == Sqlite.OK);
+    }
+    
+    protected static void bind_int64 (Sqlite.Statement stmt, int column, int64 data) {
+        var res = stmt.bind_int64 (column, data);
+        assert (res == Sqlite.OK);
+    }
+    
+    protected static void bind_double (Sqlite.Statement stmt, int column, double data) {
+        var res = stmt.bind_double (column, data);
+        assert (res == Sqlite.OK);
+    }
+
+    private static void assert_test (bool condition, string data) {
+        if (!condition) {
+            error ("SQL statement failed: %s\n", data);
+        }
+    }
 
     protected bool exists_by_id (int64 id) {
         Sqlite.Statement stmt;

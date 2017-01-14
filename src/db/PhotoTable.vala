@@ -111,54 +111,50 @@ public class PhotoTable : DatabaseTable {
     private static PhotoTable instance = null;
 
     private PhotoTable () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS PhotoTable ("
-                                 + "id INTEGER PRIMARY KEY, "
-                                 + "filename TEXT UNIQUE NOT NULL, "
-                                 + "width INTEGER, "
-                                 + "height INTEGER, "
-                                 + "filesize INTEGER, "
-                                 + "timestamp INTEGER, "
-                                 + "exposure_time INTEGER, "
-                                 + "orientation INTEGER, "
-                                 + "original_orientation INTEGER, "
-                                 + "import_id INTEGER, "
-                                 + "event_id INTEGER, "
-                                 + "transformations TEXT, "
-                                 + "md5 TEXT, "
-                                 + "thumbnail_md5 TEXT, "
-                                 + "exif_md5 TEXT, "
-                                 + "time_created INTEGER, "
-                                 + "flags INTEGER DEFAULT 0, "
-                                 + "file_format INTEGER DEFAULT 0, "
-                                 + "title TEXT, "
-                                 + "backlinks TEXT, "
-                                 + "time_reimported INTEGER, "
-                                 + "editable_id INTEGER DEFAULT -1, "
-                                 + "metadata_dirty INTEGER DEFAULT 0, "
-                                 + "developer TEXT, "
-                                 + "develop_shotwell_id INTEGER DEFAULT -1, "
-                                 + "develop_camera_id INTEGER DEFAULT -1, "
-                                 + "develop_embedded_id INTEGER DEFAULT -1, "
-                                 + "comment TEXT, "
-                                 + "enhanced INTEGER DEFAULT 0, "
-                                 + "original_transforms TEXT "
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "CREATE TABLE IF NOT EXISTS PhotoTable ("
+            + "id INTEGER PRIMARY KEY, "
+            + "filename TEXT UNIQUE NOT NULL, "
+            + "width INTEGER, "
+            + "height INTEGER, "
+            + "filesize INTEGER, "
+            + "timestamp INTEGER, "
+            + "exposure_time INTEGER, "
+            + "orientation INTEGER, "
+            + "original_orientation INTEGER, "
+            + "import_id INTEGER, "
+            + "event_id INTEGER, "
+            + "transformations TEXT, "
+            + "md5 TEXT, "
+            + "thumbnail_md5 TEXT, "
+            + "exif_md5 TEXT, "
+            + "time_created INTEGER, "
+            + "flags INTEGER DEFAULT 0, "
+            + "file_format INTEGER DEFAULT 0, "
+            + "title TEXT, "
+            + "backlinks TEXT, "
+            + "time_reimported INTEGER, "
+            + "editable_id INTEGER DEFAULT -1, "
+            + "metadata_dirty INTEGER DEFAULT 0, "
+            + "developer TEXT, "
+            + "develop_shotwell_id INTEGER DEFAULT -1, "
+            + "develop_camera_id INTEGER DEFAULT -1, "
+            + "develop_embedded_id INTEGER DEFAULT -1, "
+            + "comment TEXT, "
+            + "enhanced INTEGER DEFAULT 0, "
+            + "original_transforms TEXT "
+            + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create photo table", res);
 
         // index on event_id
-        Sqlite.Statement stmt2;
-        int res2 = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS PhotoEventIDIndex ON PhotoTable (event_id)",
-                                  -1, out stmt2);
-        assert (res2 == Sqlite.OK);
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS PhotoEventIDIndex ON PhotoTable (event_id)");
 
-        res2 = stmt2.step ();
-        if (res2 != Sqlite.DONE)
-            fatal ("create photo table", res2);
+        res = stmt.step ();
+        if (res != Sqlite.DONE)
+            fatal ("create photo table", res);
 
         set_table_name ("PhotoTable");
     }
@@ -173,57 +169,35 @@ public class PhotoTable : DatabaseTable {
     // PhotoRow.photo_id, event_id, master.orientation, flags, and time_created are ignored on input.
     // All fields are set on exit with values stored in the database.  editable_id field is ignored.
     public PhotoID add (PhotoRow photo_row) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
-                      "INSERT INTO PhotoTable (filename, width, height, filesize, timestamp, exposure_time, "
-                      + "orientation, original_orientation, import_id, event_id, md5, thumbnail_md5, "
-                      + "exif_md5, time_created, file_format, title, editable_id, developer, comment) "
-                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                      -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "INSERT INTO PhotoTable (filename, width, height, filesize, timestamp, exposure_time, "
+            + "orientation, original_orientation, import_id, event_id, md5, thumbnail_md5, "
+            + "exif_md5, time_created, file_format, title, editable_id, developer, comment) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         ulong time_created = now_sec ();
 
-        res = stmt.bind_text (1, photo_row.master.filepath);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (2, photo_row.master.dim.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (3, photo_row.master.dim.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (4, photo_row.master.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (5, photo_row.master.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (6, photo_row.exposure_time);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (7, photo_row.master.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (8, photo_row.master.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (9, photo_row.import_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (10, EventID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (11, photo_row.md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (12, photo_row.thumbnail_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (13, photo_row.exif_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (14, time_created);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (15, photo_row.master.file_format.serialize ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (16, photo_row.title);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (17, BackingPhotoID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (18, photo_row.developer.to_string ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (19, photo_row.comment);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, photo_row.master.filepath);
+        bind_int (stmt, 2, photo_row.master.dim.width);
+        bind_int (stmt, 3, photo_row.master.dim.height);
+        bind_int64 (stmt, 4, photo_row.master.filesize);
+        bind_int64 (stmt, 5, photo_row.master.timestamp);
+        bind_int64 (stmt, 6, photo_row.exposure_time);
+        bind_int (stmt, 7, photo_row.master.original_orientation);
+        bind_int (stmt, 8, photo_row.master.original_orientation);
+        bind_int64 (stmt, 9, photo_row.import_id.id);
+        bind_int64 (stmt, 10, EventID.INVALID);
+        bind_text (stmt, 11, photo_row.md5);
+        bind_text (stmt, 12, photo_row.thumbnail_md5);
+        bind_text (stmt, 13, photo_row.exif_md5);
+        bind_int64 (stmt, 14, time_created);
+        bind_int (stmt, 15, photo_row.master.file_format.serialize ());
+        bind_text (stmt, 16, photo_row.title);
+        bind_int64 (stmt, 17, BackingPhotoID.INVALID);
+        bind_text (stmt, 18, photo_row.developer.to_string ());
+        bind_text (stmt, 19, photo_row.comment);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             if (res != Sqlite.CONSTRAINT)
                 fatal ("add_photo", res);
@@ -247,46 +221,30 @@ public class PhotoTable : DatabaseTable {
     // updated.  editable_id is ignored.  transformations are untouched; use
     // remove_all_transformations () if necessary.
     public void reimport (PhotoRow row) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
+        var stmt = create_stmt (
             "UPDATE PhotoTable SET width = ?, height = ?, filesize = ?, timestamp = ?, "
             + "exposure_time = ?, orientation = ?, original_orientation = ?, md5 = ?, "
             + "exif_md5 = ?, thumbnail_md5 = ?, file_format = ?, title = ?, time_reimported = ? "
-            + "WHERE id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+            + "WHERE id = ?");
 
         time_t time_reimported = (time_t) now_sec ();
 
-        res = stmt.bind_int (1, row.master.dim.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (2, row.master.dim.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (3, row.master.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (4, row.master.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (5, row.exposure_time);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (6, row.master.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (7, row.master.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (8, row.md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (9, row.exif_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (10, row.thumbnail_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (11, row.master.file_format.serialize ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (12, row.title);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (13, time_reimported);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (14, row.photo_id.id);
-        assert (res == Sqlite.OK);
+        bind_int (stmt, 1, row.master.dim.width);
+        bind_int (stmt, 2, row.master.dim.height);
+        bind_int64 (stmt, 3, row.master.filesize);
+        bind_int64 (stmt, 4, row.master.timestamp);
+        bind_int64 (stmt, 5, row.exposure_time);
+        bind_int (stmt, 6, row.master.original_orientation);
+        bind_int (stmt, 7, row.master.original_orientation);
+        bind_text (stmt, 8, row.md5);
+        bind_text (stmt, 9, row.exif_md5);
+        bind_text (stmt, 10, row.thumbnail_md5);
+        bind_int (stmt, 11, row.master.file_format.serialize ());
+        bind_text (stmt, 12, row.title);
+        bind_int64 (stmt, 13, time_reimported);
+        bind_int64 (stmt, 14, row.photo_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("PhotoTable.reimport_master", res);
 
@@ -296,26 +254,18 @@ public class PhotoTable : DatabaseTable {
 
     public bool master_exif_updated (PhotoID photoID, int64 filesize, long timestamp,
                                      string md5, string? exif_md5, string? thumbnail_md5, PhotoRow row) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
-                      "UPDATE PhotoTable SET filesize = ?, timestamp = ?, md5 = ?, exif_md5 = ?,"
-                      + "thumbnail_md5 =? WHERE id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "UPDATE PhotoTable SET filesize = ?, timestamp = ?, md5 = ?, exif_md5 = ?,"
+            + "thumbnail_md5 =? WHERE id = ?");
 
-        res = stmt.bind_int64 (1, filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (3, md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (4, exif_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (5, thumbnail_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (6, photoID.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, filesize);
+        bind_int64 (stmt, 2, timestamp);
+        bind_text (stmt, 3, md5);
+        bind_text (stmt, 4, exif_md5);
+        bind_text (stmt, 5, thumbnail_md5);
+        bind_int64 (stmt, 6, photoID.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             if (res != Sqlite.CONSTRAINT)
                 fatal ("write_update_photo", res);
@@ -350,19 +300,16 @@ public class PhotoTable : DatabaseTable {
     }
 
     public PhotoRow? get_row (PhotoID photo_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
-                      "SELECT filename, width, height, filesize, timestamp, exposure_time, orientation, "
-                      + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
-                      + "exif_md5, time_created, flags, file_format, title, backlinks, "
-                      + "time_reimported, editable_id, metadata_dirty, developer, develop_shotwell_id, "
-                      + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms "
-                      + "FROM PhotoTable WHERE id=?",
-                      -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "SELECT filename, width, height, filesize, timestamp, exposure_time, orientation, "
+            + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
+            + "exif_md5, time_created, flags, file_format, title, backlinks, "
+            + "time_reimported, editable_id, metadata_dirty, developer, develop_shotwell_id, "
+            + "develop_camera_id, develop_embedded_id, comment, enhanced, original_transforms "
+            + "FROM PhotoTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, photo_id.id);
-        assert (res == Sqlite.OK);
+
+        bind_int64 (stmt, 1, photo_id.id);
 
         if (stmt.step () != Sqlite.ROW)
             return null;
@@ -403,19 +350,16 @@ public class PhotoTable : DatabaseTable {
     }
 
     public Gee.ArrayList < PhotoRow?> get_all () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
+        var stmt = create_stmt (
                       "SELECT id, filename, width, height, filesize, timestamp, exposure_time, orientation, "
                       + "original_orientation, import_id, event_id, transformations, md5, thumbnail_md5, "
                       + "exif_md5, time_created, flags, file_format, title, backlinks, time_reimported, "
                       + "editable_id, metadata_dirty, developer, develop_shotwell_id, develop_camera_id, "
-                      + "develop_embedded_id, comment, enhanced, original_transforms FROM PhotoTable",
-                      -1, out stmt);
-        assert (res == Sqlite.OK);
+                      + "develop_embedded_id, comment, enhanced, original_transforms FROM PhotoTable");
 
         Gee.ArrayList < PhotoRow?> all = new Gee.ArrayList < PhotoRow?> ();
 
-        while ((res = stmt.step ()) == Sqlite.ROW) {
+        while (stmt.step () == Sqlite.ROW) {
             PhotoRow row = new PhotoRow ();
             row.photo_id.id = stmt.column_int64 (0);
             row.master.filepath = stmt.column_text (1);
@@ -463,71 +407,43 @@ public class PhotoTable : DatabaseTable {
         // get a copy of the original row, duplicating most (but not all) of it
         PhotoRow original = get_row (photo_id);
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO PhotoTable (filename, width, height, filesize, "
-                                 + "timestamp, exposure_time, orientation, original_orientation, import_id, event_id, "
-                                 + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, "
-                                 + "file_format, title, editable_id, developer, develop_shotwell_id, develop_camera_id, "
-                                 + "develop_embedded_id, comment, enhanced, original_transforms) "
-                                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                                 -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "INSERT INTO PhotoTable (filename, width, height, filesize, "
+            + "timestamp, exposure_time, orientation, original_orientation, import_id, event_id, "
+            + "transformations, md5, thumbnail_md5, exif_md5, time_created, flags, "
+            + "file_format, title, editable_id, developer, develop_shotwell_id, develop_camera_id, "
+            + "develop_embedded_id, comment, enhanced, original_transforms) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        res = stmt.bind_text (1, new_filename);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (2, original.master.dim.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (3, original.master.dim.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (4, original.master.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (5, original.master.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (6, original.exposure_time);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (7, original.orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (8, original.master.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (9, original.import_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (10, original.event_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (11, unmarshall_all_transformations (original.transformations));
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (12, original.md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (13, original.thumbnail_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (14, original.exif_md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (15, now_sec ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (16, (int64) original.flags);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (17, original.master.file_format.serialize ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (18, original.title);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (19, editable_id.id);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, new_filename);
+        bind_int (stmt, 2, original.master.dim.width);
+        bind_int (stmt, 3, original.master.dim.height);
+        bind_int64 (stmt, 4, original.master.filesize);
+        bind_int64 (stmt, 5, original.master.timestamp);
+        bind_int64 (stmt, 6, original.exposure_time);
+        bind_int (stmt, 7, original.orientation);
+        bind_int (stmt, 8, original.master.original_orientation);
+        bind_int64 (stmt, 9, original.import_id.id);
+        bind_int64 (stmt, 10, original.event_id.id);
+        bind_text (stmt, 11, unmarshall_all_transformations (original.transformations));
+        bind_text (stmt, 12, original.md5);
+        bind_text (stmt, 13, original.thumbnail_md5);
+        bind_text (stmt, 14, original.exif_md5);
+        bind_int64 (stmt, 15, now_sec ());
+        bind_int64 (stmt, 16, (int64) original.flags);
+        bind_int (stmt, 17, original.master.file_format.serialize ());
+        bind_text (stmt, 18, original.title);
+        bind_int64 (stmt, 19, editable_id.id);
 
-        res = stmt.bind_text (20, original.developer.to_string ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (21, develop_shotwell.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (22, develop_camera_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (23, develop_embedded_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (24, original.comment);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (25, original.enhanced ? 1 : 0);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (26, unmarshall_all_transformations (original.original_transforms));
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 20, original.developer.to_string ());
+        bind_int64 (stmt, 21, develop_shotwell.id);
+        bind_int64 (stmt, 22, develop_camera_id.id);
+        bind_int64 (stmt, 23, develop_embedded_id.id);
+        bind_text (stmt, 24, original.comment);
+        bind_int (stmt, 25, original.enhanced ? 1 : 0);
+        bind_text (stmt, 26, unmarshall_all_transformations (original.original_transforms));
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             if (res != Sqlite.CONSTRAINT)
                 fatal ("duplicate", res);
@@ -563,14 +479,11 @@ public class PhotoTable : DatabaseTable {
     }
 
     public bool remove_by_file (File file) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("DELETE FROM PhotoTable WHERE filename=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("DELETE FROM PhotoTable WHERE filename=?");
 
-        res = stmt.bind_text (1, file.get_path ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, file.get_path ());
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             warning ("remove", res);
 
@@ -585,13 +498,11 @@ public class PhotoTable : DatabaseTable {
     }
 
     public Gee.ArrayList < PhotoID?> get_photos () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM PhotoTable", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM PhotoTable");
 
         Gee.ArrayList < PhotoID?> photo_ids = new Gee.ArrayList < PhotoID?> ();
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {
@@ -615,16 +526,13 @@ public class PhotoTable : DatabaseTable {
     }
 
     public int get_event_photo_count (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM PhotoTable WHERE event_id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM PhotoTable WHERE event_id = ?");
 
-        res = stmt.bind_int64 (1, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, event_id.id);
 
         int count = 0;
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {
@@ -640,16 +548,13 @@ public class PhotoTable : DatabaseTable {
     }
 
     public Gee.ArrayList<string> get_event_source_ids (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM PhotoTable WHERE event_id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM PhotoTable WHERE event_id = ?");
 
-        res = stmt.bind_int64 (1, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, event_id.id);
 
         Gee.ArrayList<string> result = new Gee.ArrayList<string> ();
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {
@@ -665,14 +570,11 @@ public class PhotoTable : DatabaseTable {
     }
 
     public bool event_has_photos (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM PhotoTable WHERE event_id = ? LIMIT 1", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM PhotoTable WHERE event_id = ? LIMIT 1");
 
-        res = stmt.bind_int64 (1, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, event_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res == Sqlite.DONE) {
             return false;
         } else if (res != Sqlite.ROW) {
@@ -685,16 +587,12 @@ public class PhotoTable : DatabaseTable {
     }
 
     public bool drop_event (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE PhotoTable SET event_id = ? WHERE event_id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE PhotoTable SET event_id = ? WHERE event_id = ?");
 
-        res = stmt.bind_int64 (1, EventID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, EventID.INVALID);
+        bind_int64 (stmt, 2, event_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             fatal ("drop_event", res);
 
@@ -732,19 +630,13 @@ public class PhotoTable : DatabaseTable {
                                           Gee.HashMap<string, KeyValueMap>? transformations,
                                           Gee.HashMap<string, KeyValueMap>? original_transforms = null,
                                           bool enhanced = false) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE PhotoTable SET orientation = ?, transformations = ? WHERE id = ?",
-                                 -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE PhotoTable SET orientation = ?, transformations = ? WHERE id = ?");
 
-        res = stmt.bind_int (1, orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, unmarshall_all_transformations (transformations));
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (3, photo_id.id);
-        assert (res == Sqlite.OK);
+        bind_int (stmt, 1, orientation);
+        bind_text (stmt, 2, unmarshall_all_transformations (transformations));
+        bind_int64 (stmt, 3, photo_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             fatal ("set_transformation_state", res);
 
@@ -836,7 +728,7 @@ public class PhotoTable : DatabaseTable {
         }
 
         return set_raw_transformations (photo_id, trans);
-    }    
+    }
 
     public bool set_original_transforms (PhotoID photo_id, KeyValueMap? map) {
         if (map == null)
@@ -854,7 +746,7 @@ public class PhotoTable : DatabaseTable {
         size_t length;
         string trans = keyfile.to_data (out length);
 
-        return set_raw_original_transforms (photo_id, trans);      
+        return set_raw_original_transforms (photo_id, trans);
     }
 
     public bool remove_transformation (PhotoID photo_id, string object) {
@@ -929,30 +821,23 @@ public class PhotoTable : DatabaseTable {
             sql += ")";
         }
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (sql, -1, out stmt);
-        assert (res == Sqlite.OK);
-
+        var stmt = create_stmt (sql);
         int col = 1;
 
         if (file != null) {
-            res = stmt.bind_text (col++, file.get_path ());
-            assert (res == Sqlite.OK);
+            bind_text (stmt, col++, file.get_path ());
         }
 
         if (thumbnail_md5 != null) {
-            res = stmt.bind_text (col++, thumbnail_md5);
-            assert (res == Sqlite.OK);
+            bind_text (stmt, col++, thumbnail_md5);
         }
 
         if (md5 != null) {
-            res = stmt.bind_text (col++, md5);
-            assert (res == Sqlite.OK);
+            bind_text (stmt, col++, md5);
         }
 
         if ((thumbnail_md5 != null || md5 != null) && file_format != PhotoFileFormat.UNKNOWN) {
-            res = stmt.bind_int (col++, file_format.serialize ());
-            assert (res == Sqlite.OK);
+            bind_int (stmt, col++, file_format.serialize ());
         }
 
         return stmt;
@@ -1008,7 +893,7 @@ public class PhotoTable : DatabaseTable {
 
     public void set_metadata_dirty (PhotoID photo_id, bool dirty) throws DatabaseError {
         update_int_by_id_2 (photo_id.id, "metadata_dirty", dirty ? 1 : 0);
-    }    
+    }
 
     public bool set_enhanced (PhotoID photo_id, bool enhanced) {
         return update_int_by_id (photo_id.id, "enhanced", enhanced ? 1 : 0);
@@ -1119,23 +1004,21 @@ public class BackingPhotoTable : DatabaseTable {
     private BackingPhotoTable () {
         set_table_name ("BackingPhotoTable");
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
-                                 + "BackingPhotoTable "
-                                 + "("
-                                 + "id INTEGER PRIMARY KEY, "
-                                 + "filepath TEXT UNIQUE NOT NULL, "
-                                 + "timestamp INTEGER, "
-                                 + "filesize INTEGER, "
-                                 + "width INTEGER, "
-                                 + "height INTEGER, "
-                                 + "original_orientation INTEGER, "
-                                 + "file_format INTEGER, "
-                                 + "time_created INTEGER "
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "CREATE TABLE IF NOT EXISTS "
+            + "BackingPhotoTable "
+            + "("
+            + "id INTEGER PRIMARY KEY, "
+            + "filepath TEXT UNIQUE NOT NULL, "
+            + "timestamp INTEGER, "
+            + "filesize INTEGER, "
+            + "width INTEGER, "
+            + "height INTEGER, "
+            + "original_orientation INTEGER, "
+            + "file_format INTEGER, "
+            + "time_created INTEGER)");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create PhotoBackingTable", res);
     }
@@ -1148,34 +1031,24 @@ public class BackingPhotoTable : DatabaseTable {
     }
 
     public void add (BackingPhotoRow state) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO BackingPhotoTable "
-        + "(filepath, timestamp, filesize, width, height, original_orientation, "
-        + "file_format, time_created) "
-        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "INSERT INTO BackingPhotoTable "
+            + "(filepath, timestamp, filesize, width, height, original_orientation, "
+            + "file_format, time_created) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
         time_t time_created = (time_t) now_sec ();
 
-        res = stmt.bind_text (1, state.filepath);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, state.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (3, state.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (4, state.dim.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (5, state.dim.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (6, state.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (7, state.file_format.serialize ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (8, (int64) time_created);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, state.filepath);
+        bind_int64 (stmt, 2, state.timestamp);
+        bind_int64 (stmt, 3, state.filesize);
+        bind_int (stmt, 4, state.dim.width);
+        bind_int (stmt, 5, state.dim.height);
+        bind_int (stmt, 6, state.original_orientation);
+        bind_int (stmt, 7, state.file_format.serialize ());
+        bind_int64 (stmt, 8, (int64) time_created);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("PhotoBackingTable.add", res);
 
@@ -1184,16 +1057,12 @@ public class BackingPhotoTable : DatabaseTable {
     }
 
     public BackingPhotoRow? fetch (BackingPhotoID id) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT filepath, timestamp, filesize, width, height, "
-        + "original_orientation, file_format, time_created FROM BackingPhotoTable WHERE id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT filepath, timestamp, filesize, width, height, "
+        + "original_orientation, file_format, time_created FROM BackingPhotoTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res == Sqlite.DONE)
             return null;
         else if (res != Sqlite.ROW)
@@ -1214,47 +1083,32 @@ public class BackingPhotoTable : DatabaseTable {
 
     // Everything but filepath is updated.
     public void update (BackingPhotoRow row) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE BackingPhotoTable SET timestamp=?, filesize=?, "
-        + "width=?, height=?, original_orientation=?, file_format=? "
-        + "WHERE id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "UPDATE BackingPhotoTable SET timestamp=?, filesize=?, "
+            + "width=?, height=?, original_orientation=?, file_format=? "
+            + "WHERE id=?");
 
-        res = stmt.bind_int64 (1, row.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, row.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (3, row.dim.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (4, row.dim.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (5, row.original_orientation);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (6, row.file_format.serialize ());
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (7, row.id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, row.timestamp);
+        bind_int64 (stmt, 2, row.filesize);
+        bind_int (stmt, 3, row.dim.width);
+        bind_int (stmt, 4, row.dim.height);
+        bind_int (stmt, 5, row.original_orientation);
+        bind_int (stmt, 6, row.file_format.serialize ());
+        bind_int64 (stmt, 7, row.id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("BackingPhotoTable.update", res);
     }
 
     public void update_attributes (BackingPhotoID id, time_t timestamp, int64 filesize) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE BackingPhotoTable SET timestamp=?, filesize=? WHERE id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE BackingPhotoTable SET timestamp=?, filesize=? WHERE id=?");
 
-        res = stmt.bind_int64 (1, timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (3, id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, timestamp);
+        bind_int64 (stmt, 2, filesize);
+        bind_int64 (stmt, 3, id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("BackingPhotoTable.update_attributes", res);
     }

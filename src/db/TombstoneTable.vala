@@ -37,8 +37,7 @@ public class TombstoneTable : DatabaseTable {
     private TombstoneTable () {
         set_table_name ("TombstoneTable");
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        var stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                                  + "TombstoneTable "
                                  + "("
                                  + "id INTEGER PRIMARY KEY, "
@@ -47,10 +46,9 @@ public class TombstoneTable : DatabaseTable {
                                  + "md5 TEXT, "
                                  + "time_created INTEGER, "
                                  + "reason INTEGER DEFAULT 0 "
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                                 + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create TombstoneTable", res);
     }
@@ -64,27 +62,20 @@ public class TombstoneTable : DatabaseTable {
 
     public TombstoneRow add (string filepath, int64 filesize, string? md5, Tombstone.Reason reason)
         throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO TombstoneTable "
+
+        var stmt = create_stmt ("INSERT INTO TombstoneTable "
         + "(filepath, filesize, md5, time_created, reason) "
-        + "VALUES (?, ?, ?, ?, ?)",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        + "VALUES (?, ?, ?, ?, ?)");
 
         time_t time_created = (time_t) now_sec ();
 
-        res = stmt.bind_text (1, filepath);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (3, md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (4, (int64) time_created);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (5, reason.serialize ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, filepath);
+        bind_int64 (stmt,2, filesize);
+        bind_text (stmt, 3, md5);
+        bind_int64 (stmt,4, (int64) time_created);
+        bind_int (stmt,5, reason.serialize ());
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("TombstoneTable.add", res);
 
@@ -104,16 +95,14 @@ public class TombstoneTable : DatabaseTable {
         if (row_count == 0)
             return null;
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id, filepath, filesize, md5, time_created, reason "
-        + "FROM TombstoneTable", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id, filepath, filesize, md5, time_created, reason "
+        + "FROM TombstoneTable");
 
         TombstoneRow[] rows = new TombstoneRow[row_count];
 
         int index = 0;
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)

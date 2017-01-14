@@ -35,18 +35,16 @@ public class TagTable : DatabaseTable {
     private TagTable () {
         set_table_name ("TagTable");
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        var stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                                  + "TagTable "
                                  + "("
                                  + "id INTEGER PRIMARY KEY, "
                                  + "name TEXT UNIQUE NOT NULL, "
                                  + "photo_id_list TEXT, "
                                  + "time_created INTEGER"
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                                 + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create TagTable", res);
     }
@@ -74,19 +72,14 @@ public class TagTable : DatabaseTable {
     }
 
     public TagRow add (string name) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO TagTable (name, time_created) VALUES (?, ?)", -1,
-        out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO TagTable (name, time_created) VALUES (?, ?)");
 
         time_t time_created = (time_t) now_sec ();
 
-        res = stmt.bind_text (1, name);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, time_created);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, name);
+        bind_int64 (stmt, 2, time_created);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("TagTable.add", res);
 
@@ -101,19 +94,13 @@ public class TagTable : DatabaseTable {
 
     // All fields but tag_id are respected in TagRow.
     public TagID create_from_row (TagRow row) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO TagTable (name, photo_id_list, time_created) VALUES (?, ?, ?)",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO TagTable (name, photo_id_list, time_created) VALUES (?, ?, ?)");
 
-        res = stmt.bind_text (1, row.name);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, serialize_source_ids (row.source_id_list));
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (3, row.time_created);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, row.name);
+        bind_text (stmt, 2, serialize_source_ids (row.source_id_list));
+        bind_int64 (stmt, 3, row.time_created);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("TagTable.create_from_row", res);
 
@@ -133,15 +120,11 @@ public class TagTable : DatabaseTable {
     }
 
     public TagRow? get_row (TagID tag_id) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT name, photo_id_list, time_created FROM TagTable WHERE id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT name, photo_id_list, time_created FROM TagTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, tag_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, tag_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res == Sqlite.DONE)
             return null;
         else if (res != Sqlite.ROW)
@@ -157,15 +140,12 @@ public class TagTable : DatabaseTable {
     }
 
     public Gee.List < TagRow?> get_all_rows () throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id, name, photo_id_list, time_created FROM TagTable", -1,
-        out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id, name, photo_id_list, time_created FROM TagTable");
 
         Gee.List < TagRow?> rows = new Gee.ArrayList < TagRow?> ();
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -189,16 +169,12 @@ public class TagTable : DatabaseTable {
     }
 
     public void set_tagged_sources (TagID tag_id, Gee.Collection<string> source_ids) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE TagTable SET photo_id_list=? WHERE id=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE TagTable SET photo_id_list=? WHERE id=?");
 
-        res = stmt.bind_text (1, serialize_source_ids (source_ids));
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, tag_id.id);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, serialize_source_ids (source_ids));
+        bind_int64 (stmt, 2, tag_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("TagTable.set_tagged_photos", res);
     }

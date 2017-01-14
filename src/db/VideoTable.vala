@@ -59,8 +59,7 @@ public class VideoTable : DatabaseTable {
     private static VideoTable instance = null;
 
     private VideoTable () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS VideoTable ("
+        var stmt = create_stmt ("CREATE TABLE IF NOT EXISTS VideoTable ("
                                  + "id INTEGER PRIMARY KEY, "
                                  + "filename TEXT UNIQUE NOT NULL, "
                                  + "width INTEGER, "
@@ -79,22 +78,17 @@ public class VideoTable : DatabaseTable {
                                  + "time_reimported INTEGER, "
                                  + "flags INTEGER DEFAULT 0, "
                                  + "comment TEXT "
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                                 + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("VideoTable constructor", res);
 
         // index on event_id
-        Sqlite.Statement stmt2;
-        int res2 = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS VideoEventIDIndex ON VideoTable (event_id)",
-                                  -1, out stmt2);
-        assert (res2 == Sqlite.OK);
-
-        res2 = stmt2.step ();
-        if (res2 != Sqlite.DONE)
-            fatal ("VideoTable constructor", res2);
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS VideoEventIDIndex ON VideoTable (event_id)");
+        res = stmt.step ();
+        if (res != Sqlite.DONE)
+            fatal ("VideoTable constructor", res);
 
         set_table_name ("VideoTable");
     }
@@ -109,46 +103,29 @@ public class VideoTable : DatabaseTable {
     // VideoRow.video_id, event_id, time_created are ignored on input. All fields are set on exit
     // with values stored in the database.
     public VideoID add (VideoRow video_row) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
+        var stmt = create_stmt (
             "INSERT INTO VideoTable (filename, width, height, clip_duration, is_interpretable, "
             + "filesize, timestamp, exposure_time, import_id, event_id, md5, time_created, title, comment) "
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            -1, out stmt);
-        assert (res == Sqlite.OK);
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         ulong time_created = now_sec ();
 
-        res = stmt.bind_text (1, video_row.filepath);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (2, video_row.width);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (3, video_row.height);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_double (4, video_row.clip_duration);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int (5, (video_row.is_interpretable) ? 1 : 0);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (6, video_row.filesize);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (7, video_row.timestamp);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (8, video_row.exposure_time);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (9, video_row.import_id.id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (10, EventID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (11, video_row.md5);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (12, time_created);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (13, video_row.title);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (14, video_row.comment);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, video_row.filepath);
+        bind_int (stmt, 2, video_row.width);
+        bind_int (stmt, 3, video_row.height);
+        bind_double (stmt, 4, video_row.clip_duration);
+        bind_int (stmt, 5, (video_row.is_interpretable) ? 1 : 0);
+        bind_int64 (stmt, 6, video_row.filesize);
+        bind_int64 (stmt, 7, video_row.timestamp);
+        bind_int64 (stmt, 8, video_row.exposure_time);
+        bind_int64 (stmt, 9, video_row.import_id.id);
+        bind_int64 (stmt, 10, EventID.INVALID);
+        bind_text (stmt, 11, video_row.md5);
+        bind_int64 (stmt, 12, time_created);
+        bind_text (stmt, 13, video_row.title);
+        bind_text (stmt, 14, video_row.comment);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             if (res != Sqlite.CONSTRAINT)
                 throw_error ("VideoTable.add", res);
@@ -164,16 +141,12 @@ public class VideoTable : DatabaseTable {
     }
 
     public bool drop_event (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("UPDATE VideoTable SET event_id = ? WHERE event_id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("UPDATE VideoTable SET event_id = ? WHERE event_id = ?");
 
-        res = stmt.bind_int64 (1, EventID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, EventID.INVALID);
+        bind_int64 (stmt, 2, event_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             fatal ("VideoTable.drop_event", res);
 
@@ -184,16 +157,12 @@ public class VideoTable : DatabaseTable {
     }
 
     public VideoRow? get_row (VideoID video_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
+        var stmt = create_stmt (
                       "SELECT filename, width, height, clip_duration, is_interpretable, filesize, timestamp, "
                       + "exposure_time, import_id, event_id, md5, time_created, title, backlinks, "
-                      + "time_reimported, flags, comment FROM VideoTable WHERE id=?",
-                      -1, out stmt);
-        assert (res == Sqlite.OK);
+                      + "time_reimported, flags, comment FROM VideoTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, video_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, video_id.id);
 
         if (stmt.step () != Sqlite.ROW)
             return null;
@@ -222,17 +191,15 @@ public class VideoTable : DatabaseTable {
     }
 
     public Gee.ArrayList < VideoRow?> get_all () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
+
+        var stmt = create_stmt (
                       "SELECT id, filename, width, height, clip_duration, is_interpretable, filesize, "
                       + "timestamp, exposure_time, import_id, event_id, md5, time_created, title, "
-                      + "backlinks, time_reimported, flags, comment FROM VideoTable",
-                      -1, out stmt);
-        assert (res == Sqlite.OK);
+                      + "backlinks, time_reimported, flags, comment FROM VideoTable");
 
         Gee.ArrayList < VideoRow?> all = new Gee.ArrayList < VideoRow?> ();
 
-        while ((res = stmt.step ()) == Sqlite.ROW) {
+        while (stmt.step () == Sqlite.ROW) {
             VideoRow row = new VideoRow ();
             row.video_id.id = stmt.column_int64 (0);
             row.filepath = stmt.column_text (1);
@@ -292,27 +259,21 @@ public class VideoTable : DatabaseTable {
     }
 
     public void remove_by_file (File file) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("DELETE FROM VideoTable WHERE filename=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("DELETE FROM VideoTable WHERE filename=?");
 
-        res = stmt.bind_text (1, file.get_path ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, file.get_path ());
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("VideoTable.remove_by_file", res);
     }
 
     public void remove (VideoID videoID) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("DELETE FROM VideoTable WHERE id=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("DELETE FROM VideoTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, videoID.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, videoID.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("VideoTable.remove", res);
     }
@@ -322,26 +283,20 @@ public class VideoTable : DatabaseTable {
     }
 
     public VideoID get_id (File file) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT ID FROM VideoTable WHERE filename=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT ID FROM VideoTable WHERE filename=?");
 
-        res = stmt.bind_text (1, file.get_path ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, file.get_path ());
 
-        res = stmt.step ();
-
+        var res = stmt.step ();
         return (res == Sqlite.ROW) ? VideoID (stmt.column_int64 (0)) : VideoID ();
     }
 
     public Gee.ArrayList < VideoID?> get_videos () throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM VideoTable", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM VideoTable");
 
         Gee.ArrayList < VideoID?> video_ids = new Gee.ArrayList < VideoID?> ();
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {
@@ -372,20 +327,17 @@ public class VideoTable : DatabaseTable {
             sql += " md5=?";
         }
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (sql, -1, out stmt);
-        assert (res == Sqlite.OK);
+
+        var stmt = create_stmt (sql);
 
         int col = 1;
 
         if (file != null) {
-            res = stmt.bind_text (col++, file.get_path ());
-            assert (res == Sqlite.OK);
+            bind_text (stmt, col++, file.get_path ());
         }
 
         if (md5 != null) {
-            res = stmt.bind_text (col++, md5);
-            assert (res == Sqlite.OK);
+            bind_text (stmt, col++, md5);
         }
 
         return stmt;
@@ -423,16 +375,13 @@ public class VideoTable : DatabaseTable {
     }
 
     public Gee.ArrayList<string> get_event_source_ids (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id FROM VideoTable WHERE event_id = ?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id FROM VideoTable WHERE event_id = ?");
 
-        res = stmt.bind_int64 (1, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, event_id.id);
 
         Gee.ArrayList<string> result = new Gee.ArrayList<string> ();
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {

@@ -34,18 +34,17 @@ public class EventTable : DatabaseTable {
     private static EventTable instance = null;
 
     private EventTable () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS EventTable ("
-                                 + "id INTEGER PRIMARY KEY, "
-                                 + "name TEXT, "
-                                 + "primary_photo_id INTEGER, "
-                                 + "time_created INTEGER,"
-                                 + "primary_source_id TEXT,"
-                                 + "comment TEXT"
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "CREATE TABLE IF NOT EXISTS EventTable ("
+            + "id INTEGER PRIMARY KEY, "
+            + "name TEXT, "
+            + "primary_photo_id INTEGER, "
+            + "time_created INTEGER,"
+            + "primary_source_id TEXT,"
+            + "comment TEXT"
+            + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create photo table", res);
 
@@ -74,22 +73,15 @@ public class EventTable : DatabaseTable {
     public EventRow create (string? primary_source_id, string? comment) throws DatabaseError {
         assert (primary_source_id != null  &&primary_source_id != "");
 
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
-            "INSERT INTO EventTable (primary_source_id, time_created, comment) VALUES (?, ?, ?)",
-            -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO EventTable (primary_source_id, time_created, comment) VALUES (?, ?, ?)");
 
         time_t time_created = (time_t) now_sec ();
 
-        res = stmt.bind_text (1, primary_source_id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, time_created);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (3, comment);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, primary_source_id);
+        bind_int64 (stmt, 2, time_created);
+        bind_text (stmt, 3, comment);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("EventTable.create", res);
 
@@ -107,23 +99,15 @@ public class EventTable : DatabaseTable {
     // against creating duplicate events or for the validity of other fields in the row (i.e.
     // the primary photo ID).
     public EventID create_from_row (EventRow row) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO EventTable (name, primary_photo_id, primary_source_id, time_created, comment) VALUES (?, ?, ?, ?, ?)",
-                                 -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO EventTable (name, primary_photo_id, primary_source_id, time_created, comment) VALUES (?, ?, ?, ?, ?)");
 
-        res = stmt.bind_text (1, row.name);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (2, PhotoID.INVALID);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (3, row.primary_source_id);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_int64 (4, row.time_created);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (5, row.comment);
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, row.name);
+        bind_int64 (stmt, 2, PhotoID.INVALID);
+        bind_text (stmt, 3, row.primary_source_id);
+        bind_int64 (stmt, 4, row.time_created);
+        bind_text (stmt, 5, row.comment);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE) {
             fatal ("Event create_from_row", res);
 
@@ -134,16 +118,13 @@ public class EventTable : DatabaseTable {
     }
 
     public EventRow? get_row (EventID event_id) {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 (
-                      "SELECT name, primary_photo_id, primary_source_id, time_created, comment FROM EventTable WHERE id=?", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT name, primary_photo_id, primary_source_id, time_created, comment FROM EventTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, event_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, event_id.id);
 
-        if (stmt.step () != Sqlite.ROW)
+        if (stmt.step () != Sqlite.ROW) {
             return null;
+        }
 
         EventRow row = new EventRow ();
         row.event_id = event_id;
@@ -162,14 +143,11 @@ public class EventTable : DatabaseTable {
     }
 
     public Gee.ArrayList < EventRow?> get_events () {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id, name, primary_photo_id, primary_source_id, time_created, comment FROM EventTable",
-                                 -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id, name, primary_photo_id, primary_source_id, time_created, comment FROM EventTable");
 
         Gee.ArrayList < EventRow?> event_rows = new Gee.ArrayList < EventRow?> ();
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE) {
                 break;
             } else if (res != Sqlite.ROW) {
@@ -229,7 +207,4 @@ public class EventTable : DatabaseTable {
     public bool set_comment (EventID event_id, string new_comment) {
         return update_text_by_id (event_id.id, "comment", new_comment != null ? new_comment : "");
     }
-
 }
-
-
