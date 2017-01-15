@@ -433,6 +433,7 @@ public abstract class AppWindow : PageWindow {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;
+        icon_name = "multimedia-photo-manager";
 
         header = new Gtk.HeaderBar ();
         header.set_show_close_button (true);
