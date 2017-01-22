@@ -50,22 +50,21 @@ public class SavedSearchDBTable : DatabaseTable {
         set_table_name ("SavedSearchDBTable");
 
         // Create main search table.
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
-                                 + "SavedSearchDBTable "
-                                 + "("
-                                 + "id INTEGER PRIMARY KEY, "
-                                 + "name TEXT UNIQUE NOT NULL, "
-                                 + "operator TEXT NOT NULL"
-                                 + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt (
+            "CREATE TABLE IF NOT EXISTS "
+            + "SavedSearchDBTable "
+            + "("
+            + "id INTEGER PRIMARY KEY, "
+            + "name TEXT UNIQUE NOT NULL, "
+            + "operator TEXT NOT NULL"
+            + ")");
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable", res);
 
         // Create search text table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_Text "
                              + "("
                              + "id INTEGER PRIMARY KEY, "
@@ -73,15 +72,13 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "search_type TEXT NOT NULL, "
                              + "context TEXT NOT NULL, "
                              + "text TEXT"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
-
+                             + ")");
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Text", res);
 
         // Create search media type table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_MediaType "
                              + "("
                              + "id INTEGER PRIMARY KEY, "
@@ -89,30 +86,28 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "search_type TEXT NOT NULL, "
                              + "context TEXT NOT NULL, "
                              + "type TEXT NOT_NULL"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + ")");
 
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_MediaType", res);
 
         // Create flagged search table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_Flagged "
                              + "("
                              + "id INTEGER PRIMARY KEY, "
                              + "search_id INTEGER NOT NULL, "
                              + "search_type TEXT NOT NULL, "
                              + "flag_state TEXT NOT NULL"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + ")");
 
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Flagged", res);
 
         // Create modified search table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_Modified "
                              + "("
                              + "id INTEGER PRIMARY KEY, "
@@ -120,15 +115,14 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "search_type TEXT NOT NULL, "
                              + "context TEXT NOT NULL, "
                              + "modified_state TEXT NOT NULL"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + ")");
 
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Modified", res);
 
         // Create date search table.
-        res = db.prepare_v2 ("CREATE TABLE IF NOT EXISTS "
+        stmt = create_stmt ("CREATE TABLE IF NOT EXISTS "
                              + "SavedSearchDBTable_Date "
                              + "("
                              + "id INTEGER PRIMARY KEY, "
@@ -137,52 +131,46 @@ public class SavedSearchDBTable : DatabaseTable {
                              + "context TEXT NOT NULL, "
                              + "date_one INTEGER NOT_NULL, "
                              + "date_two INTEGER NOT_NULL"
-                             + ")", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + ")");
 
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Date", res);
 
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Date_Index "
-                             + "ON SavedSearchDBTable_Date(search_id)", -1, out stmt);
+                             + "ON SavedSearchDBTable_Date(search_id)");
 
-        assert (res == Sqlite.OK);
         res = stmt.step ();
 
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Date_Index", res);
 
         // Create indexes.
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Text_Index "
-                             + "ON SavedSearchDBTable_Text(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + "ON SavedSearchDBTable_Text(search_id)");
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Text_Index", res);
 
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_MediaType_Index "
-                             + "ON SavedSearchDBTable_MediaType(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + "ON SavedSearchDBTable_MediaType(search_id)");
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_MediaType_Index", res);
 
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Flagged_Index "
-                             + "ON SavedSearchDBTable_Flagged(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + "ON SavedSearchDBTable_Flagged(search_id)");
         res = stmt.step ();
         if (res != Sqlite.DONE)
             fatal ("create SavedSearchDBTable_Flagged_Index", res);
 
-        res = db.prepare_v2 ("CREATE INDEX IF NOT EXISTS "
+        stmt = create_stmt ("CREATE INDEX IF NOT EXISTS "
                              + "SavedSearchDBTable_Modified_Index "
-                             + "ON SavedSearchDBTable_Modified(search_id)", -1, out stmt);
-        assert (res == Sqlite.OK);
+                             + "ON SavedSearchDBTable_Modified(search_id)");
         res = stmt.step ();
 
         if (res != Sqlite.DONE)
@@ -198,17 +186,12 @@ public class SavedSearchDBTable : DatabaseTable {
 
     public SavedSearchRow add (string name, SearchOperator operator,
                                    Gee.ArrayList<SearchCondition> conditions) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable (name, operator) VALUES (?, ?)", -1,
-        out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO SavedSearchDBTable (name, operator) VALUES (?, ?)");
 
-        res = stmt.bind_text (1, name);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, operator.to_string ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, name);
+        bind_text (stmt, 2, operator.to_string ());
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("SavedSearchDBTable.add", res);
 
@@ -228,117 +211,68 @@ public class SavedSearchDBTable : DatabaseTable {
     private void add_condition (SavedSearchID id, SearchCondition condition) throws DatabaseError {
         if (condition is SearchConditionText) {
             SearchConditionText text = condition as SearchConditionText;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_Text (search_id, search_type, context, "
-            + "text) VALUES (?, ?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
 
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
+            var stmt = create_stmt ("INSERT INTO SavedSearchDBTable_Text (search_id, search_type, context, "
+            + "text) VALUES (?, ?, ?, ?)");
 
-            res = stmt.bind_text (2, text.search_type.to_string ());
-            assert (res == Sqlite.OK);
+            bind_int64 (stmt, 1, id.id);
+            bind_text (stmt, 2, text.search_type.to_string ());
+            bind_text (stmt, 3, text.context.to_string ());
+            bind_text (stmt, 4, text.text);
 
-            res = stmt.bind_text (3, text.context.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (4, text.text);
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_Text.add", res);
         } else if (condition is SearchConditionMediaType) {
             SearchConditionMediaType media_type = condition as SearchConditionMediaType;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_MediaType (search_id, search_type, context, "
-            + "type) VALUES (?, ?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
+            var stmt = create_stmt ("INSERT INTO SavedSearchDBTable_MediaType (search_id, search_type, context, "
+            + "type) VALUES (?, ?, ?, ?)");
 
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
+            bind_int64 (stmt, 1, id.id);
+            bind_text (stmt, 2, media_type.search_type.to_string ());
+            bind_text (stmt, 3, media_type.context.to_string ());
+            bind_text (stmt, 4, media_type.media_type.to_string ());
 
-            res = stmt.bind_text (2, media_type.search_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (3, media_type.context.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (4, media_type.media_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_MediaType.add", res);
         } else if (condition is SearchConditionFlagged) {
             SearchConditionFlagged flag_state = condition as SearchConditionFlagged;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_Flagged (search_id, search_type, "
-            + "flag_state) VALUES (?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
+            var stmt = create_stmt ("INSERT INTO SavedSearchDBTable_Flagged (search_id, search_type, "
+            + "flag_state) VALUES (?, ?, ?)");
 
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
+            bind_int64 (stmt, 1, id.id);
+            bind_text (stmt, 2, flag_state.search_type.to_string ());
+            bind_text (stmt, 3, flag_state.state.to_string ());
 
-            res = stmt.bind_text (2, flag_state.search_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (3, flag_state.state.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_Flagged.add", res);
         } else if (condition is SearchConditionModified) {
             SearchConditionModified modified_state = condition as SearchConditionModified;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_Modified (search_id, search_type, context, "
-            + "modified_state) VALUES (?, ?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
+            var stmt = create_stmt ("INSERT INTO SavedSearchDBTable_Modified (search_id, search_type, context, "
+            + "modified_state) VALUES (?, ?, ?, ?)");
 
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
+            bind_int64 (stmt, 1, id.id);
+            bind_text (stmt, 2, modified_state.search_type.to_string ());
+            bind_text (stmt, 3, modified_state.context.to_string ());
+            bind_text (stmt, 4, modified_state.state.to_string ());
 
-            res = stmt.bind_text (2, modified_state.search_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (3, modified_state.context.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (4, modified_state.state.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_Modified.add", res);
         } else if (condition is SearchConditionDate) {
             SearchConditionDate date = condition as SearchConditionDate;
-            Sqlite.Statement stmt;
-            int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable_Date (search_id, search_type, "
-            + "context, date_one, date_two) VALUES (?, ?, ?, ?, ?)", -1,
-            out stmt);
-            assert (res == Sqlite.OK);
+            var stmt = create_stmt ("INSERT INTO SavedSearchDBTable_Date (search_id, search_type, "
+            + "context, date_one, date_two) VALUES (?, ?, ?, ?, ?)");
 
-            res = stmt.bind_int64 (1, id.id);
-            assert (res == Sqlite.OK);
+            bind_int64 (stmt, 1, id.id);
+            bind_text (stmt, 2, date.search_type.to_string ());
+            bind_text (stmt, 3, date.context.to_string ());
+            bind_int64 (stmt, 4, date.date_one.to_unix ());
+            bind_int64 (stmt, 5, date.date_two.to_unix ());
 
-            res = stmt.bind_text (2, date.search_type.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_text (3, date.context.to_string ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_int64 (4, date.date_one.to_unix ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.bind_int64 (5, date.date_two.to_unix ());
-            assert (res == Sqlite.OK);
-
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res != Sqlite.DONE)
                 throw_error ("SavedSearchDBTable_Date.add", res);
         } else {
@@ -357,14 +291,11 @@ public class SavedSearchDBTable : DatabaseTable {
 
     private void remove_conditions_for_table (string table_name, SavedSearchID search_id)
     throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("DELETE FROM %s WHERE search_id=?".printf (table_name), -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("DELETE FROM %s WHERE search_id=?".printf (table_name));
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("%s.remove".printf (table_name), res);
     }
@@ -373,20 +304,15 @@ public class SavedSearchDBTable : DatabaseTable {
     private Gee.List<SearchCondition> get_conditions_for_id (SavedSearchID search_id)
     throws DatabaseError {
         Gee.List<SearchCondition> list = new Gee.ArrayList<SearchCondition> ();
-        Sqlite.Statement stmt;
-        int res;
 
         // Get all text conditions.
-        res = db.prepare_v2 ("SELECT search_type, context, text FROM SavedSearchDBTable_Text "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT search_type, context, text FROM SavedSearchDBTable_Text "
+        + "WHERE search_id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -401,16 +327,13 @@ public class SavedSearchDBTable : DatabaseTable {
         }
 
         // Get all media type conditions.
-        res = db.prepare_v2 ("SELECT search_type, context, type FROM SavedSearchDBTable_MediaType "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        stmt = create_stmt ("SELECT search_type, context, type FROM SavedSearchDBTable_MediaType "
+        + "WHERE search_id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -425,16 +348,13 @@ public class SavedSearchDBTable : DatabaseTable {
         }
 
         // Get all flagged state conditions.
-        res = db.prepare_v2 ("SELECT search_type, flag_state FROM SavedSearchDBTable_Flagged "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        stmt = create_stmt ("SELECT search_type, flag_state FROM SavedSearchDBTable_Flagged "
+        + "WHERE search_id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -448,16 +368,13 @@ public class SavedSearchDBTable : DatabaseTable {
         }
 
         // Get all modified state conditions.
-        res = db.prepare_v2 ("SELECT search_type, context, modified_state FROM SavedSearchDBTable_Modified "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        stmt = create_stmt ("SELECT search_type, context, modified_state FROM SavedSearchDBTable_Modified "
+        + "WHERE search_id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -472,16 +389,13 @@ public class SavedSearchDBTable : DatabaseTable {
         }
 
         // Get all date conditions.
-        res = db.prepare_v2 ("SELECT search_type, context, date_one, date_two FROM SavedSearchDBTable_Date "
-        + "WHERE search_id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        stmt = create_stmt ("SELECT search_type, context, date_one, date_two FROM SavedSearchDBTable_Date "
+        + "WHERE search_id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
@@ -500,17 +414,12 @@ public class SavedSearchDBTable : DatabaseTable {
 
     // All fields but search_id are respected in SavedSearchRow.
     public SavedSearchID create_from_row (SavedSearchRow row) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("INSERT INTO SavedSearchDBTable (name, operator) VALUES (?, ?)",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("INSERT INTO SavedSearchDBTable (name, operator) VALUES (?, ?)");
 
-        res = stmt.bind_text (1, row.name);
-        assert (res == Sqlite.OK);
-        res = stmt.bind_text (2, row.operator.to_string ());
-        assert (res == Sqlite.OK);
+        bind_text (stmt, 1, row.name);
+        bind_text (stmt, 2, row.operator.to_string ());
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res != Sqlite.DONE)
             throw_error ("SavedSearchDBTable.create_from_row", res);
 
@@ -529,15 +438,11 @@ public class SavedSearchDBTable : DatabaseTable {
     }
 
     public SavedSearchRow? get_row (SavedSearchID search_id) throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT name, operator FROM SavedSearchDBTable WHERE id=?",
-        -1, out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT name, operator FROM SavedSearchDBTable WHERE id=?");
 
-        res = stmt.bind_int64 (1, search_id.id);
-        assert (res == Sqlite.OK);
+        bind_int64 (stmt, 1, search_id.id);
 
-        res = stmt.step ();
+        var res = stmt.step ();
         if (res == Sqlite.DONE)
             return null;
         else if (res != Sqlite.ROW)
@@ -552,15 +457,12 @@ public class SavedSearchDBTable : DatabaseTable {
     }
 
     public Gee.List < SavedSearchRow?> get_all_rows () throws DatabaseError {
-        Sqlite.Statement stmt;
-        int res = db.prepare_v2 ("SELECT id, name, operator FROM SavedSearchDBTable", -1,
-        out stmt);
-        assert (res == Sqlite.OK);
+        var stmt = create_stmt ("SELECT id, name, operator FROM SavedSearchDBTable");
 
         Gee.List < SavedSearchRow?> rows = new Gee.ArrayList < SavedSearchRow?> ();
 
         for (;;) {
-            res = stmt.step ();
+            var res = stmt.step ();
             if (res == Sqlite.DONE)
                 break;
             else if (res != Sqlite.ROW)
