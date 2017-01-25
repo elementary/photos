@@ -5,8 +5,8 @@ add_translations_catalog (${GETTEXT_PACKAGE}
     ../plugins
     ../src
     DESKTOP_FILES
-        ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}-viewer.desktop.in
-        ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in
+        ${CMAKE_BINARY_DIR}/data/org.pantheon.photos-viewer.desktop.in
+        ${CMAKE_BINARY_DIR}/data/org.pantheon.photos.desktop.in
     APPDATA_FILES
-        ../data/${CMAKE_PROJECT_NAME}.appdata.xml.in
+        ../data/org.pantheon.photos.appdata.xml.in
 )
