@@ -7,7 +7,7 @@ configure_file_translation (${CMAKE_CURRENT_SOURCE_DIR}/org.pantheon.photos.appd
 
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.desktop DESTINATION ${DATADIR}/applications)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos-viewer.desktop DESTINATION ${DATADIR}/applications)
-install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.appdata.xml DESTINATION ${DATADIR}/appdata)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.appdata.xml DESTINATION ${DATADIR}/metainfo)
 
 # Install UI files
 file (GLOB UI_FILES ui/*)
