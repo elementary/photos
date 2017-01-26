@@ -86,8 +86,7 @@ public class Searches.Grouping : Sidebar.Grouping, Sidebar.Contextable {
         Gtk.ActionGroup group = new Gtk.ActionGroup ("SidebarDefault");
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
 
-        Gtk.ActionEntry new_search = { "CommonNewSearch", null, TRANSLATABLE, null, null, on_new_search };
-        new_search.label = _ ("New Smart Album…");
+        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), null, null, on_new_search };
         actions += new_search;
 
         group.add_actions (actions, this);

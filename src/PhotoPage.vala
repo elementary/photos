@@ -2496,206 +2496,154 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry export = { "Export", null, TRANSLATABLE, "<Ctrl><Shift>E",
-                                   TRANSLATABLE, on_export
+        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
+                                   Resources.EXPORT_MENU, on_export
                                  };
-        export.label = Resources.EXPORT_MENU;
         actions += export;
 
-        Gtk.ActionEntry print = { "Print", null, TRANSLATABLE, "<Ctrl>P",
-                                  TRANSLATABLE, on_print
+        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
+                                  Resources.PRINT_MENU, on_print
                                 };
-        print.label = Resources.PRINT_MENU;
         actions += print;
 
-        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, TRANSLATABLE, "<Ctrl><Shift>P",
-                                    TRANSLATABLE, on_publish
+        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, Resources.PUBLISH_MENU, "<Ctrl><Shift>P",
+                                    Resources.PUBLISH_TOOLTIP, on_publish
                                   };
-        publish.label = Resources.PUBLISH_MENU;
-        publish.tooltip = Resources.PUBLISH_TOOLTIP;
         actions += publish;
 
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, TRANSLATABLE,
-                                                "<Shift>Delete", TRANSLATABLE, on_remove_from_library
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
+                                                "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
                                               };
-        remove_from_library.label = Resources.REMOVE_FROM_LIBRARY_MENU;
         actions += remove_from_library;
 
-        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", TRANSLATABLE, "Delete",
-                                          TRANSLATABLE, on_move_to_trash
+        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", Resources.MOVE_TO_TRASH_MENU, "Delete",
+                                          Resources.MOVE_TO_TRASH_MENU, on_move_to_trash
                                         };
-        move_to_trash.label = Resources.MOVE_TO_TRASH_MENU;
         actions += move_to_trash;
 
-        Gtk.ActionEntry view = { "ViewMenu", null, TRANSLATABLE, null, null, on_view_menu };
-        view.label = _ ("_View");
+        Gtk.ActionEntry view = { "ViewMenu", null, _("_View"), null, null, on_view_menu };
         actions += view;
 
-        Gtk.ActionEntry tools = { "Tools", null, TRANSLATABLE, null, null, null };
-        tools.label = _ ("T_ools");
+        Gtk.ActionEntry tools = { "Tools", null, _("T_ools"), null, null, null };
         actions += tools;
 
-        Gtk.ActionEntry prev = { "PrevPhoto", null, TRANSLATABLE, null,
-                                 TRANSLATABLE, on_previous_photo
+        Gtk.ActionEntry prev = { "PrevPhoto", null, _("_Previous Photo"), null,
+                                 _("Previous Photo"), on_previous_photo
                                };
-        prev.label = _ ("_Previous Photo");
-        prev.tooltip = _ ("Previous Photo");
         actions += prev;
 
-        Gtk.ActionEntry next = { "NextPhoto", null, TRANSLATABLE, null,
-                                 TRANSLATABLE, on_next_photo
+        Gtk.ActionEntry next = { "NextPhoto", null, _("_Next Photo"), null,
+                                 _("Next Photo"), on_next_photo
                                };
-        next.label = _ ("_Next Photo");
-        next.tooltip = _ ("Next Photo");
         actions += next;
 
-        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE, TRANSLATABLE,
-                                         "<Ctrl>R", TRANSLATABLE, on_rotate_clockwise
+        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE, Resources.ROTATE_CW_MENU,
+                                         "<Ctrl>R", Resources.ROTATE_CW_TOOLTIP, on_rotate_clockwise
                                        };
-        rotate_right.label = Resources.ROTATE_CW_MENU;
-        rotate_right.tooltip = Resources.ROTATE_CW_TOOLTIP;
         actions += rotate_right;
 
         Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        TRANSLATABLE, "<Ctrl><Shift>R", TRANSLATABLE, on_rotate_counterclockwise
+                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
                                       };
-        rotate_left.label = Resources.ROTATE_CCW_MENU;
-        rotate_left.tooltip = Resources.ROTATE_CCW_TOOLTIP;
         actions += rotate_left;
 
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, TRANSLATABLE, null,
-                                  TRANSLATABLE, on_flip_horizontally
+        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
+                                  Resources.HFLIP_MENU, on_flip_horizontally
                                 };
-        hflip.label = Resources.HFLIP_MENU;
         actions += hflip;
 
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, TRANSLATABLE, null,
-                                  TRANSLATABLE, on_flip_vertically
+        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
+                                  Resources.VFLIP_MENU, on_flip_vertically
                                 };
-        vflip.label = Resources.VFLIP_MENU;
         actions += vflip;
 
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
-                                    TRANSLATABLE, on_enhance
+        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
+                                    Resources.ENHANCE_TOOLTIP, on_enhance
                                   };
-        enhance.label = Resources.ENHANCE_MENU;
-        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
         actions += enhance;
 
-        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, TRANSLATABLE,
-                                             "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments
+        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, Resources.COPY_ADJUSTMENTS_MENU,
+                                             "<Ctrl><Shift>C", Resources.COPY_ADJUSTMENTS_TOOLTIP, on_copy_adjustments
                                            };
-        copy_adjustments.label = Resources.COPY_ADJUSTMENTS_MENU;
-        copy_adjustments.tooltip = Resources.COPY_ADJUSTMENTS_TOOLTIP;
         actions += copy_adjustments;
 
-        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, TRANSLATABLE,
-                                              "<Ctrl><Shift>V", TRANSLATABLE, on_paste_adjustments
+        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, Resources.PASTE_ADJUSTMENTS_MENU,
+                                              "<Ctrl><Shift>V", Resources.PASTE_ADJUSTMENTS_TOOLTIP, on_paste_adjustments
                                             };
-        paste_adjustments.label = Resources.PASTE_ADJUSTMENTS_MENU;
-        paste_adjustments.tooltip = Resources.PASTE_ADJUSTMENTS_TOOLTIP;
         actions += paste_adjustments;
 
-        Gtk.ActionEntry crop = { "Crop", Resources.CROP, TRANSLATABLE, "<Ctrl>O",
-                                 TRANSLATABLE, toggle_crop
+        Gtk.ActionEntry crop = { "Crop", Resources.CROP, Resources.CROP_MENU, "<Ctrl>O",
+                                 Resources.CROP_TOOLTIP, toggle_crop
                                };
-        crop.label = Resources.CROP_MENU;
-        crop.tooltip = Resources.CROP_TOOLTIP;
         actions += crop;
 
-        Gtk.ActionEntry straighten = { "Straighten", null, TRANSLATABLE, "<Ctrl>A",
-                                       TRANSLATABLE, toggle_straighten
+        Gtk.ActionEntry straighten = { "Straighten", null, Resources.STRAIGHTEN_MENU, "<Ctrl>A",
+                                       Resources.STRAIGHTEN_TOOLTIP, toggle_straighten
                                      };
-        straighten.label = Resources.STRAIGHTEN_MENU;
-        straighten.tooltip = Resources.STRAIGHTEN_TOOLTIP;
         actions += straighten;
 
-        Gtk.ActionEntry red_eye = { "RedEye", Resources.REDEYE, TRANSLATABLE, "<Ctrl>Y",
-                                    TRANSLATABLE, toggle_redeye
+        Gtk.ActionEntry red_eye = { "RedEye", Resources.REDEYE, Resources.RED_EYE_MENU, "<Ctrl>Y",
+                                    Resources.RED_EYE_TOOLTIP, toggle_redeye
                                   };
-        red_eye.label = Resources.RED_EYE_MENU;
-        red_eye.tooltip = Resources.RED_EYE_TOOLTIP;
         actions += red_eye;
 
-        Gtk.ActionEntry adjust = { "Adjust", Resources.ADJUST, TRANSLATABLE, "<Ctrl>D",
-                                   TRANSLATABLE, toggle_adjust
+        Gtk.ActionEntry adjust = { "Adjust", Resources.ADJUST, Resources.ADJUST_MENU, "<Ctrl>D",
+                                   Resources.ADJUST_TOOLTIP, toggle_adjust
                                  };
-        adjust.label = Resources.ADJUST_MENU;
-        adjust.tooltip = Resources.ADJUST_TOOLTIP;
         actions += adjust;
 
-        Gtk.ActionEntry revert = { "Revert", null, TRANSLATABLE,
-                                   null, TRANSLATABLE, on_revert
+        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU,
+                                   null, Resources.REVERT_MENU, on_revert
                                  };
-        revert.label = Resources.REVERT_MENU;
         actions += revert;
 
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, TRANSLATABLE, null,
-                                             TRANSLATABLE, on_adjust_date_time
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
+                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
                                            };
-        adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
 
-        Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
-        flag.label = Resources.FLAG_MENU;
+        Gtk.ActionEntry flag = { "Flag", null, Resources.FLAG_MENU, "<Ctrl>G", Resources.FLAG_MENU, on_flag_unflag };
         actions += flag;
 
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, TRANSLATABLE,
-                                          "<Ctrl>plus", TRANSLATABLE, on_increase_size
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
+                                          "<Ctrl>plus", _("Increase the magnification of the photo"), on_increase_size
                                         };
-        increase_size.label = _ ("Zoom _In");
-        increase_size.tooltip = _ ("Increase the magnification of the photo");
         actions += increase_size;
 
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, TRANSLATABLE,
-                                          "<Ctrl>minus", TRANSLATABLE, on_decrease_size
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
+                                          "<Ctrl>minus", _("Decrease the magnification of the photo"), on_decrease_size
                                         };
-        decrease_size.label = _ ("Zoom _Out");
-        decrease_size.tooltip = _ ("Decrease the magnification of the photo");
         actions += decrease_size;
 
-        Gtk.ActionEntry best_fit = { "ZoomFit", null, TRANSLATABLE,
-                                     "<Ctrl>0", TRANSLATABLE, snap_zoom_to_min
+        Gtk.ActionEntry best_fit = { "ZoomFit", null, _("Fit to _Page"),
+                                     "<Ctrl>0", _("Zoom the photo to fit on the screen"), snap_zoom_to_min
                                    };
-        best_fit.label = _ ("Fit to _Page");
-        best_fit.tooltip = _ ("Zoom the photo to fit on the screen");
         actions += best_fit;
 
-        Gtk.ActionEntry actual_size = { "Zoom100", null, TRANSLATABLE,
-                                        "<Ctrl>1", TRANSLATABLE, snap_zoom_to_isomorphic
+        /// xgettext:no-c-format
+        Gtk.ActionEntry actual_size = { "Zoom100", null, _("Zoom _100%"),
+                                        "<Ctrl>1", _("Zoom the photo to 100% magnification"), snap_zoom_to_isomorphic
                                       };
-        /// xgettext:no-c-format
-        actual_size.label = _ ("Zoom _100%");
-        /// xgettext:no-c-format
-        actual_size.tooltip = _ ("Zoom the photo to 100% magnification");
         actions += actual_size;
 
-        Gtk.ActionEntry max_size = { "Zoom200", null, TRANSLATABLE,
-                                     "<Ctrl>2", TRANSLATABLE, snap_zoom_to_max
+        /// xgettext:no-c-format
+        Gtk.ActionEntry max_size = { "Zoom200", null, _("Zoom _200%"),
+                                     "<Ctrl>2", _("Zoom the photo to 200% magnification"), snap_zoom_to_max
                                    };
-        /// xgettext:no-c-format
-        max_size.label = _ ("Zoom _200%");
-        /// xgettext:no-c-format
-        max_size.tooltip = _ ("Zoom the photo to 200% magnification");
         actions += max_size;
 
-        Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
+        Gtk.ActionEntry slideshow = { "Slideshow", null, _("S_lideshow"), "F5", _("Play a slideshow"),
                                       on_slideshow
                                     };
-        slideshow.label = _ ("S_lideshow");
-        slideshow.tooltip = _ ("Play a slideshow");
         actions += slideshow;
 
-        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, TRANSLATABLE, null, null, null };
-        raw_developer.label = _ ("_Developer");
+        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, _("_Developer"), null, null, null };
         actions += raw_developer;
 
-        Gtk.ActionEntry open_with = { "OpenWith", null, TRANSLATABLE, null, null, null };
-        open_with.label = Resources.OPEN_WITH_MENU;
+        Gtk.ActionEntry open_with = { "OpenWith", null, Resources.OPEN_WITH_MENU, null, null, null };
         actions += open_with;
 
-        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
-        open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, Resources.OPEN_WITH_RAW_MENU, null, null, null };
         actions += open_with_raw;
 
         return actions;
@@ -2723,18 +2671,16 @@ public class LibraryPhotoPage : EditingHostPage {
 
         Gtk.RadioActionEntry[] developer_actions = new Gtk.RadioActionEntry[0];
 
-        Gtk.RadioActionEntry dev_shotwell = { "RawDeveloperShotwell", null, TRANSLATABLE, null, TRANSLATABLE,
+        string label_shotwell = RawDeveloper.SHOTWELL.get_label ();
+        Gtk.RadioActionEntry dev_shotwell = { "RawDeveloperShotwell", null, label_shotwell, null, label_shotwell,
                                               RawDeveloper.SHOTWELL
                                             };
-        string label_shotwell = RawDeveloper.SHOTWELL.get_label ();
-        dev_shotwell.label = label_shotwell;
         developer_actions += dev_shotwell;
 
-        Gtk.RadioActionEntry dev_camera = { "RawDeveloperCamera", null, TRANSLATABLE, null, TRANSLATABLE,
+        string label_camera = RawDeveloper.CAMERA.get_label ();
+        Gtk.RadioActionEntry dev_camera = { "RawDeveloperCamera", null, label_camera, null, label_camera,
                                             RawDeveloper.CAMERA
                                           };
-        string label_camera = RawDeveloper.CAMERA.get_label ();
-        dev_camera.label = label_camera;
         developer_actions += dev_camera;
 
         action_group.add_radio_actions (developer_actions, RawDeveloper.SHOTWELL, on_raw_developer_changed);

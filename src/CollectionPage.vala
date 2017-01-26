@@ -124,100 +124,75 @@ public abstract class CollectionPage : MediaPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry print = { "Print", null, TRANSLATABLE, "<Ctrl>P",
-                                  TRANSLATABLE, on_print
+        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
+                                  Resources.PRINT_MENU, on_print
                                 };
-        print.label = Resources.PRINT_MENU;
         actions += print;
 
-        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, TRANSLATABLE, "<Ctrl><Shift>P",
-                                    TRANSLATABLE, on_publish
+        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, Resources.PUBLISH_MENU, "<Ctrl><Shift>P",
+                                    Resources.PUBLISH_TOOLTIP, on_publish
                                   };
-        publish.label = Resources.PUBLISH_MENU;
-        publish.tooltip = Resources.PUBLISH_TOOLTIP;
         actions += publish;
 
         Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE,
-                                         TRANSLATABLE, "<Ctrl>R", TRANSLATABLE, on_rotate_clockwise
+                                         Resources.ROTATE_CW_MENU, "<Ctrl>R", Resources.ROTATE_CW_TOOLTIP, on_rotate_clockwise
                                        };
-        rotate_right.label = Resources.ROTATE_CW_MENU;
-        rotate_right.tooltip = Resources.ROTATE_CW_TOOLTIP;
         actions += rotate_right;
 
         Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        TRANSLATABLE, "<Ctrl><Shift>R", TRANSLATABLE, on_rotate_counterclockwise
+                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
                                       };
-        rotate_left.label = Resources.ROTATE_CCW_MENU;
-        rotate_left.tooltip = Resources.ROTATE_CCW_TOOLTIP;
         actions += rotate_left;
 
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, TRANSLATABLE, null,
-                                  TRANSLATABLE, on_flip_horizontally
+        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
+                                  Resources.HFLIP_TOOLTIP, on_flip_horizontally
                                 };
-        hflip.label = Resources.HFLIP_MENU;
-        hflip.tooltip = Resources.HFLIP_TOOLTIP;
         actions += hflip;
 
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, TRANSLATABLE, null,
-                                  TRANSLATABLE, on_flip_vertically
+        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
+                                  Resources.VFLIP_TOOLTIP, on_flip_vertically
                                 };
-        vflip.label = Resources.VFLIP_MENU;
-        vflip.tooltip = Resources.VFLIP_TOOLTIP;
         actions += vflip;
 
-        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, TRANSLATABLE,
-                                             "<Ctrl><Shift>C", TRANSLATABLE, on_copy_adjustments
+        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, Resources.COPY_ADJUSTMENTS_MENU,
+                                             "<Ctrl><Shift>C", Resources.COPY_ADJUSTMENTS_TOOLTIP, on_copy_adjustments
                                            };
-        copy_adjustments.label = Resources.COPY_ADJUSTMENTS_MENU;
-        copy_adjustments.tooltip = Resources.COPY_ADJUSTMENTS_TOOLTIP;
         actions += copy_adjustments;
 
-        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, TRANSLATABLE,
-                                              "<Ctrl><Shift>V", TRANSLATABLE, on_paste_adjustments
+        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, Resources.PASTE_ADJUSTMENTS_MENU,
+                                              "<Ctrl><Shift>V", Resources.PASTE_ADJUSTMENTS_TOOLTIP, on_paste_adjustments
                                             };
-        paste_adjustments.label = Resources.PASTE_ADJUSTMENTS_MENU;
-        paste_adjustments.tooltip = Resources.PASTE_ADJUSTMENTS_TOOLTIP;
         actions += paste_adjustments;
 
-        Gtk.ActionEntry revert = { "Revert", null, TRANSLATABLE, null,
-                                   TRANSLATABLE, on_revert
+        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU, null,
+                                   Resources.REVERT_MENU, on_revert
                                  };
-        revert.label = Resources.REVERT_MENU;
         actions += revert;
 
-        Gtk.ActionEntry duplicate = { "Duplicate", null, TRANSLATABLE, "<Ctrl>D", TRANSLATABLE,
+        Gtk.ActionEntry duplicate = { "Duplicate", null, Resources.DUPLICATE_PHOTO_MENU, "<Ctrl>D", Resources.DUPLICATE_PHOTO_TOOLTIP,
                                       on_duplicate_photo
                                     };
-        duplicate.label = Resources.DUPLICATE_PHOTO_MENU;
-        duplicate.tooltip = Resources.DUPLICATE_PHOTO_TOOLTIP;
         actions += duplicate;
 
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, TRANSLATABLE, null,
-                                             TRANSLATABLE, on_adjust_date_time
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
+                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
                                            };
-        adjust_date_time.label = Resources.ADJUST_DATE_TIME_MENU;
         actions += adjust_date_time;
 
-        Gtk.ActionEntry open_with = { "OpenWith", null, TRANSLATABLE, null, null, null };
-        open_with.label = Resources.OPEN_WITH_MENU;
+        Gtk.ActionEntry open_with = { "OpenWith", null, Resources.OPEN_WITH_MENU, null, null, null };
         actions += open_with;
 
-        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, TRANSLATABLE, null, null, null };
-        open_with_raw.label = Resources.OPEN_WITH_RAW_MENU;
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, Resources.OPEN_WITH_RAW_MENU, null, null, null };
         actions += open_with_raw;
 
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, TRANSLATABLE, "<Ctrl>E",
-                                    TRANSLATABLE, on_enhance
+        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
+                                    Resources.ENHANCE_TOOLTIP, on_enhance
                                   };
-        enhance.label = Resources.ENHANCE_MENU;
-        enhance.tooltip = Resources.ENHANCE_TOOLTIP;
         actions += enhance;
 
-        Gtk.ActionEntry slideshow = { "Slideshow", null, TRANSLATABLE, "F5", TRANSLATABLE,
+        Gtk.ActionEntry slideshow = { "Slideshow", null, _("S_lideshow"), "F5", _("Play a slideshow"),
                                       on_slideshow
                                     };
-        slideshow.label = _ ("S_lideshow");
-        slideshow.tooltip = _ ("Play a slideshow");
         actions += slideshow;
 
         return actions;

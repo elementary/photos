@@ -145,8 +145,7 @@ public class Tags.Grouping : Sidebar.Grouping, Sidebar.InternalDropTargetEntry,
         Gtk.ActionGroup group = new Gtk.ActionGroup ("SidebarDefault");
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
 
-        Gtk.ActionEntry new_tag = { "CommonNewTag", null, TRANSLATABLE, null, null, on_new_tag };
-        new_tag.label = Resources.NEW_CHILD_TAG_SIDEBAR_MENU;
+        Gtk.ActionEntry new_tag = { "CommonNewTag", null, Resources.NEW_CHILD_TAG_SIDEBAR_MENU, null, null, on_new_tag };
         actions += new_tag;
 
         group.add_actions (actions, this);

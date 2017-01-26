@@ -893,11 +893,9 @@ public class ImportPage : CheckerboardPage {
     protected override Gtk.ToggleActionEntry[] init_collect_toggle_action_entries () {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
-        Gtk.ToggleActionEntry titles = { "ViewTitle", null, TRANSLATABLE, "<Ctrl><Shift>T",
-                                         TRANSLATABLE, on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
+        Gtk.ToggleActionEntry titles = { "ViewTitle", null, _("_Titles"), "<Ctrl><Shift>T",
+                                         _("Display the title of each photo"), on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
                                        };
-        titles.label = _ ("_Titles");
-        titles.tooltip = _ ("Display the title of each photo");
         toggle_actions += titles;
 
         return toggle_actions;
@@ -907,17 +905,13 @@ public class ImportPage : CheckerboardPage {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
         Gtk.ActionEntry import_selected = { "ImportSelected", Resources.IMPORT,
-                                            TRANSLATABLE, null, null, on_import_selected
+                                            _("Import _Selected"), null, _("Import the selected photos into your library"), on_import_selected
                                           };
-        import_selected.label = _ ("Import _Selected");
-        import_selected.tooltip = _ ("Import the selected photos into your library");
         actions += import_selected;
 
-        Gtk.ActionEntry import_all = { "ImportAll", Resources.IMPORT_ALL, TRANSLATABLE,
-                                       null, null, on_import_all
+        Gtk.ActionEntry import_all = { "ImportAll", Resources.IMPORT_ALL, _("Import _All"),
+                                       null, _("Import all the photos into your library"), on_import_all
                                      };
-        import_all.label = _ ("Import _All");
-        import_all.tooltip = _ ("Import all the photos into your library");
         actions += import_all;
 
         return actions;

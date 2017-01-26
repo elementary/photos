@@ -300,78 +300,61 @@ public class LibraryWindow : AppWindow {
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
 
         Gtk.ActionEntry import = { "CommonFileImport", Resources.IMPORT,
-                                   TRANSLATABLE, "<Ctrl>I", TRANSLATABLE, on_file_import
+                                   _("_Import From Folder…"), "<Ctrl>I", _("Import photos from disk to library"), on_file_import
                                  };
-        import.label = _ ("_Import From Folder…");
-        import.tooltip = _ ("Import photos from disk to library");
         actions += import;
 
-        Gtk.ActionEntry sort = { "CommonSortEvents", null, TRANSLATABLE, null, null, null };
-        sort.label = _ ("Sort _Events");
+        Gtk.ActionEntry sort = { "CommonSortEvents", null,  _("Sort _Events"), null, null, null };
         actions += sort;
 
-        Gtk.ActionEntry preferences = { "CommonPreferences", null, TRANSLATABLE,
-                                        null, TRANSLATABLE, on_preferences
+        Gtk.ActionEntry preferences = { "CommonPreferences", null, Resources.PREFERENCES_MENU,
+                                        null, Resources.PREFERENCES_MENU, on_preferences
                                       };
-        preferences.label = Resources.PREFERENCES_MENU;
         actions += preferences;
 
-        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, _("_Empty Trash"), null, _("Delete all photos in the trash"),
                                   on_empty_trash
                                 };
-        empty.label = _ ("_Empty Trash");
-        empty.tooltip = _ ("Delete all photos in the trash");
         actions += empty;
 
-        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, TRANSLATABLE, null,
-                                          TRANSLATABLE, on_jump_to_event
+        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null,
+                                          _("View Eve_nt for Photo"), on_jump_to_event
                                         };
-        jump_to_event.label = _ ("View Eve_nt for Photo");
         actions += jump_to_event;
 
-        Gtk.ActionEntry find = { "CommonFind", null, TRANSLATABLE, null, null,
+        Gtk.ActionEntry find = { "CommonFind", null, _("_Find"), null, _("Find photos and videos by search criteria"),
                                  on_find
                                };
-        find.label = _ ("_Find");
-        find.tooltip = _ ("Find photos and videos by search criteria");
         actions += find;
 
         // add the common action for the FilterPhotos submenu (the submenu contains items from
         // SearchFilterActions)
-        Gtk.ActionEntry filter_photos = { "CommonFilterPhotos", null, TRANSLATABLE, null, null, null };
-        filter_photos.label = Resources.FILTER_PHOTOS_MENU;
+        Gtk.ActionEntry filter_photos = { "CommonFilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
         actions += filter_photos;
 
-        Gtk.ActionEntry new_search = { "CommonNewSearch", null, TRANSLATABLE, "<Ctrl>S", null,
+        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), "<Ctrl>S", null,
                                        on_new_search
                                      };
-        new_search.label =  _ ("New Smart Album…");
         actions += new_search;
 
         // top-level menus
 
-        Gtk.ActionEntry file = { "FileMenu", null, TRANSLATABLE, null, null, null };
-        file.label = _ ("_File");
+        Gtk.ActionEntry file = { "FileMenu", null, _("_File"), null, null, null };
         actions += file;
 
-        Gtk.ActionEntry edit = { "EditMenu", null, TRANSLATABLE, null, null, null };
-        edit.label = _ ("_Edit");
+        Gtk.ActionEntry edit = { "EditMenu", null, _("_Edit"), null, null, null };
         actions += edit;
 
-        Gtk.ActionEntry photo = { "PhotoMenu", null, TRANSLATABLE, null, null, null };
-        photo.label = _ ("_Photo");
+        Gtk.ActionEntry photo = { "PhotoMenu", null, _("_Photo"), null, null, null };
         actions += photo;
 
-        Gtk.ActionEntry photos = { "PhotosMenu", null, TRANSLATABLE, null, null, null };
-        photos.label = _ ("_Photos");
+        Gtk.ActionEntry photos = { "PhotosMenu", null, _("_Photos"), null, null, null };
         actions += photos;
 
-        Gtk.ActionEntry tags = { "TagsMenu", null, TRANSLATABLE, null, null, null };
-        tags.label = _ ("Ta_gs");
+        Gtk.ActionEntry tags = { "TagsMenu", null, _("Ta_gs"), null, null, null };
         actions += tags;
 
-        Gtk.ActionEntry help = { "HelpMenu", null, TRANSLATABLE, null, null, null };
-        help.label = _ ("_Help");
+        Gtk.ActionEntry help = { "HelpMenu", null, _("_Help"), null, null, null };
         actions += help;
 
         return actions;
@@ -385,17 +368,14 @@ public class LibraryWindow : AppWindow {
                                           };
         actions += searchbar;
 
-        Gtk.ToggleActionEntry sidebar = { "CommonDisplaySidebar", null, TRANSLATABLE,
-                                          "F9", TRANSLATABLE, on_display_sidebar, is_sidebar_visible ()
+        Gtk.ToggleActionEntry sidebar = { "CommonDisplaySidebar", null, _("S_idebar"),
+                                          "F9", _("Display the sidebar"), on_display_sidebar, is_sidebar_visible ()
                                         };
-        sidebar.label = _ ("S_idebar");
-        sidebar.tooltip = _ ("Display the sidebar");
         actions += sidebar;
 
-        Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, TRANSLATABLE,
-                                               "F10", TRANSLATABLE, on_display_metadata_sidebar, is_metadata_sidebar_visible ()
+        Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, _("Edit Photo In_fo"),
+                                               "F10", _("Edit Photo In_fo"), on_display_metadata_sidebar, is_metadata_sidebar_visible ()
                                              };
-        meta_sidebar.label = _ ("Edit Photo In_fo");
         actions += meta_sidebar;
 
         return actions;
@@ -405,19 +385,15 @@ public class LibraryWindow : AppWindow {
         Gtk.RadioActionEntry[] actions = new Gtk.RadioActionEntry[0];
 
         Gtk.RadioActionEntry ascending = { "CommonSortEventsAscending",
-                                           null, TRANSLATABLE, null, TRANSLATABLE,
+                                           null, _("_Ascending"), null, _("Sort photos in an ascending order"),
                                            SORT_EVENTS_ORDER_ASCENDING
                                          };
-        ascending.label = _ ("_Ascending");
-        ascending.tooltip = _ ("Sort photos in an ascending order");
         actions += ascending;
 
         Gtk.RadioActionEntry descending = { "CommonSortEventsDescending",
-                                            null, TRANSLATABLE, null, TRANSLATABLE,
+                                            null, _("D_escending"), null, _("Sort photos in a descending order"),
                                             SORT_EVENTS_ORDER_DESCENDING
                                           };
-        descending.label = _ ("D_escending");
-        descending.tooltip = _ ("Sort photos in a descending order");
         actions += descending;
 
         group.add_radio_actions (actions, SORT_EVENTS_ORDER_ASCENDING, on_events_sort_changed);

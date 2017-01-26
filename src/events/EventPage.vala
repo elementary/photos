@@ -64,13 +64,11 @@ public class EventPage : CollectionPage {
         Gtk.ActionEntry[] new_actions = base.init_collect_action_entries ();
 
         Gtk.ActionEntry make_primary = { "MakePrimary", null,
-                                         TRANSLATABLE, null, TRANSLATABLE, on_make_primary
+                                         Resources.MAKE_KEY_PHOTO_MENU, null, Resources.MAKE_KEY_PHOTO_MENU, on_make_primary
                                        };
-        make_primary.label = Resources.MAKE_KEY_PHOTO_MENU;
         new_actions += make_primary;
 
-        Gtk.ActionEntry rename = { "Rename", null, TRANSLATABLE, null, TRANSLATABLE, on_rename };
-        rename.label = Resources.RENAME_EVENT_MENU;
+        Gtk.ActionEntry rename = { "Rename", null, Resources.RENAME_EVENT_MENU, null, Resources.RENAME_EVENT_MENU, on_rename };
         new_actions += rename;
 
         return new_actions;
