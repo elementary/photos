@@ -161,33 +161,12 @@ class EventDirectoryItem : CheckerboardItem {
         base.thumbnail_altered ();
     }
 
-    protected override void paint_shadow (Cairo.Context ctx, Dimensions dimensions, Gdk.Point origin,
-                                          int radius, float initial_alpha) {
-        Dimensions altered = Dimensions (dimensions.width - 25, dimensions.height - 25);
-        base.paint_shadow (ctx, altered, origin, 36, initial_alpha);
+    public override void paint (Cairo.Context ctx, Gtk.StyleContext style_context) {
+        style_context.save ();
+        style_context.add_class ("event");
+        base.paint (ctx, style_context);
+        style_context.restore ();
     }
-
-    protected override void paint_border (Cairo.Context ctx, Dimensions object_dimensions,
-                                          Gdk.Point object_origin, int border_width) {
-        Dimensions dimensions = get_border_dimensions (object_dimensions, border_width);
-        Gdk.Point origin = get_border_origin (object_origin, border_width);
-
-        draw_rounded_corners_filled (ctx, dimensions, origin, 6.0);
-    }
-
-    protected override void paint_image (Cairo.Context ctx, Gdk.Pixbuf pixbuf,
-                                         Gdk.Point origin) {
-        Dimensions dimensions = Dimensions.for_pixbuf (pixbuf);
-
-        if (pixbuf.get_has_alpha ())
-            draw_rounded_corners_filled (ctx, dimensions, origin, 6.0);
-
-        // use rounded corners on events
-        context_rounded_corners (ctx, dimensions, origin, 6.0);
-        Gdk.cairo_set_source_pixbuf (ctx, pixbuf, origin.x, origin.y);
-        ctx.paint ();
-    }
-
     private void update_comment (bool init = false) {
         string comment = event.get_comment ();
         if (is_string_empty (comment))

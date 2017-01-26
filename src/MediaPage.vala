@@ -24,10 +24,6 @@ public class MediaSourceItem : CheckerboardItem {
                             string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
         base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
     }
-
-    protected override void paint_image (Cairo.Context ctx, Gdk.Pixbuf pixbuf, Gdk.Point origin) {
-        base.paint_image (ctx, pixbuf, origin);
-    }
 }
 
 public abstract class MediaPage : CheckerboardPage {

@@ -24,6 +24,8 @@ public class Thumbnail : MediaSourceItem {
     // SIZE (int, scale)
     public const string PROP_SIZE = "thumbnail-size";
 
+    public const int FLAG_OFFSET = 1;
+
     public static int MIN_SCALE {
         get {
             return 92;
@@ -371,10 +373,17 @@ public class Thumbnail : MediaSourceItem {
         base.unexposed ();
     }
 
-    protected override Gdk.Pixbuf? get_top_right_trinket (int scale) {
-        Flaggable? flaggable = media as Flaggable;
+    public override void paint (Cairo.Context ctx, Gtk.StyleContext style_context) {
+        base.paint (ctx, style_context);
 
-        return (flaggable != null && flaggable.is_flagged ())
-               ? Resources.get_flag_trinket () : null;
+        if (media != null && media is Flaggable) {
+            if (((Flaggable) media).is_flagged ()) {
+                style_context.save ();
+                style_context.add_class (Granite.StyleClass.OVERLAY_BAR);
+                var flag_icon = Resources.get_flag_trinket ();
+                style_context.render_icon (ctx, flag_icon, allocation.x + allocation.width - (flag_icon.width + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET), allocation.y + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET);
+                style_context.restore ();
+            }
+        }
     }
 }

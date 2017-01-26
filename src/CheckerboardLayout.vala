@@ -18,6 +18,7 @@
 */
 
 private class CheckerboardItemText {
+
     private static int one_line_height = 0;
 
     private string text;
@@ -34,7 +35,6 @@ private class CheckerboardItemText {
         this.text = text;
         this.marked_up = marked_up;
         this.alignment = alignment;
-
         single_line = is_single_line ();
     }
 
@@ -121,12 +121,6 @@ public abstract class CheckerboardItem : ThumbnailView {
     public const int LABEL_PADDING = 4;
     public const int BORDER_WIDTH = 0;
 
-    public const int SHADOW_RADIUS = 4;
-    public const float SHADOW_INITIAL_ALPHA = 0.3f;
-
-    public const int TRINKET_SCALE = 16;
-    public const int TRINKET_PADDING = 1;
-
     public const int BRIGHTEN_SHIFT = 0x18;
     public const int SELECTION_ICON_SIZE = 24;
 
@@ -146,7 +140,6 @@ public abstract class CheckerboardItem : ThumbnailView {
     private Dimensions pixbuf_dim = Dimensions ();
     private int col = -1;
     private int row = -1;
-    private int horizontal_trinket_offset = 0;
 
     public CheckerboardItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title, string? comment,
                              bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
@@ -458,181 +451,61 @@ public abstract class CheckerboardItem : ThumbnailView {
         return selection_button_area;
     }
 
-    protected virtual void paint_shadow (Cairo.Context ctx, Dimensions dimensions, Gdk.Point origin,
-                                         int radius, float initial_alpha) {
-        double rgb_all = 0.0;
-
-        // top right corner
-        paint_shadow_in_corner (ctx, origin.x + dimensions.width, origin.y + radius, rgb_all, radius,
-                                initial_alpha, -0.5 * Math.PI, 0);
-        // bottom right corner
-        paint_shadow_in_corner (ctx, origin.x + dimensions.width, origin.y + dimensions.height, rgb_all,
-                                radius, initial_alpha, 0, 0.5 * Math.PI);
-        // bottom left corner
-        paint_shadow_in_corner (ctx, origin.x + radius, origin.y + dimensions.height, rgb_all, radius,
-                                initial_alpha, 0.5 * Math.PI, Math.PI);
-
-        // left right
-        Cairo.Pattern lr = new Cairo.Pattern.linear (0, origin.y + dimensions.height,
-                0, origin.y + dimensions.height + radius);
-        lr.add_color_stop_rgba (0.0, rgb_all, rgb_all, rgb_all, initial_alpha);
-        lr.add_color_stop_rgba (1.0, rgb_all, rgb_all, rgb_all, 0.0);
-        ctx.set_source (lr);
-        ctx.rectangle (origin.x + radius, origin.y + dimensions.height, dimensions.width - radius, radius);
-        ctx.fill ();
-
-        // top down
-        Cairo.Pattern td = new Cairo.Pattern.linear (origin.x + dimensions.width,
-                0, origin.x + dimensions.width + radius, 0);
-        td.add_color_stop_rgba (0.0, rgb_all, rgb_all, rgb_all, initial_alpha);
-        td.add_color_stop_rgba (1.0, rgb_all, rgb_all, rgb_all, 0.0);
-        ctx.set_source (td);
-        ctx.rectangle (origin.x + dimensions.width, origin.y + radius,
-                       radius, dimensions.height - radius);
-        ctx.fill ();
-    }
-
-    protected void paint_shadow_in_corner (Cairo.Context ctx, int x, int y,
-                                           double rgb_all, float radius, float initial_alpha, double arc1, double arc2) {
-        Cairo.Pattern p = new Cairo.Pattern.radial (x, y, 0, x, y, radius);
-        p.add_color_stop_rgba (0.0, rgb_all, rgb_all, rgb_all, initial_alpha);
-        p.add_color_stop_rgba (1.0, rgb_all, rgb_all, rgb_all, 0);
-        ctx.set_source (p);
-        ctx.move_to (x, y);
-        ctx.arc (x, y, radius, arc1, arc2);
-        ctx.close_path ();
-        ctx.fill ();
-    }
-
-    protected virtual void paint_border (Cairo.Context ctx, Dimensions object_dimensions,
-                                         Gdk.Point object_origin, int border_width) {
-        if (border_width == 1) {
-            ctx.rectangle (object_origin.x - border_width, object_origin.y - border_width,
-                           object_dimensions.width + (border_width * 2),
-                           object_dimensions.height + (border_width * 2));
-            ctx.fill ();
-        } else {
-            Dimensions dimensions = get_border_dimensions (object_dimensions, border_width);
-            Gdk.Point origin = get_border_origin (object_origin, border_width);
-
-            // amount of rounding needed on corners varies by size of object
-            double scale = int.max (object_dimensions.width, object_dimensions.height);
-            draw_rounded_corners_filled (ctx, dimensions, origin, 0.25 * scale);
-        }
-    }
-
-    protected virtual void paint_image (Cairo.Context ctx, Gdk.Pixbuf pixbuf, Gdk.Point origin) {
-        if (pixbuf.get_has_alpha ()) {
-            ctx.rectangle (origin.x, origin.y, pixbuf.get_width (), pixbuf.get_height ());
-            ctx.fill ();
-        }
-        Gdk.cairo_set_source_pixbuf (ctx, pixbuf, origin.x, origin.y);
-        ctx.paint ();
-    }
-
-    private int get_selection_border_width (int scale) {
-        return ((scale <= ((Thumbnail.MIN_SCALE + Thumbnail.MAX_SCALE) / 3)) ? 2 : 3)
-               + BORDER_WIDTH;
-    }
-
-    protected virtual Gdk.Pixbuf? get_top_left_trinket (int scale) {
-        return null;
-    }
-
-    protected virtual Gdk.Pixbuf? get_top_right_trinket (int scale) {
-        return null;
-    }
-
-    protected virtual Gdk.Pixbuf? get_bottom_left_trinket (int scale) {
-        return null;
-    }
-
-    protected virtual Gdk.Pixbuf? get_bottom_right_trinket (int scale) {
-        return null;
-    }
-
-    public void paint (Cairo.Context ctx, Gdk.RGBA selected_color,
-                       Gdk.RGBA text_color, Gdk.RGBA? border_color, int scale_factor) {
-        // calc the top-left point of the pixbuf
+    public virtual void paint (Cairo.Context ctx, Gtk.StyleContext style_context) {
         Gdk.Point pixbuf_origin = Gdk.Point ();
         pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
         pixbuf_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
 
-        ctx.set_line_width (FRAME_WIDTH);
-        ctx.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue,
-                             selected_color.alpha);
-
-        // draw shadow
-        if (border_color != null) {
-            ctx.save ();
-            Dimensions shadow_dim = Dimensions ();
-            shadow_dim.width = pixbuf_dim.width + BORDER_WIDTH;
-            shadow_dim.height = pixbuf_dim.height + BORDER_WIDTH;
-            paint_shadow (ctx, shadow_dim, pixbuf_origin, SHADOW_RADIUS, SHADOW_INITIAL_ALPHA);
-            ctx.restore ();
-        }
-
-        string? selection_icon = null;
-
-        // draw selection border
+        style_context.save ();
+        string selection_icon = null;
         if (is_selected ()) {
-            selection_icon = Resources.ICON_SELECTION_CHECKED;
-
-            // border thickness depends on the size of the thumbnail
-            ctx.save ();
-            paint_border (ctx, pixbuf_dim, pixbuf_origin,
-                          get_selection_border_width (int.max (pixbuf_dim.width, pixbuf_dim.height)));
-            ctx.restore ();
-        }
-
-        // draw border
-        if (border_color != null) {
-            ctx.save ();
-            ctx.set_source_rgba (border_color.red, border_color.green, border_color.blue,
-                                 border_color.alpha);
-            paint_border (ctx, pixbuf_dim, pixbuf_origin, BORDER_WIDTH);
-            ctx.restore ();
+            style_context.set_state (Gtk.StateFlags.CHECKED);
+            selection_icon = Resources.ICON_SELECTION_REMOVE;
+        } else {
+            if (brightened != null) {
+                selection_icon = Resources.ICON_SELECTION_ADD;
+            }
         }
 
         if (display_pixbuf != null) {
+            style_context.render_background (ctx, pixbuf_origin.x, pixbuf_origin.y, display_pixbuf.width, display_pixbuf.height);
+            var radius = style_context.get_property ("border-radius", style_context.get_state ()).get_int ();
             ctx.save ();
-            paint_image (ctx, display_pixbuf, pixbuf_origin);
+            ctx.move_to (pixbuf_origin.x + radius, pixbuf_origin.y);
+            ctx.arc (pixbuf_origin.x + display_pixbuf.width - radius, pixbuf_origin.y + radius, radius, Math.PI * 1.5, Math.PI * 2);
+            ctx.arc (pixbuf_origin.x + display_pixbuf.width - radius, pixbuf_origin.y + display_pixbuf.height - radius, radius, 0, Math.PI * 0.5);
+            ctx.arc (pixbuf_origin.x + radius, pixbuf_origin.y + display_pixbuf.height - radius, radius, Math.PI * 0.5, Math.PI);
+            ctx.arc (pixbuf_origin.x + radius, pixbuf_origin.y + radius, radius, Math.PI, Math.PI * 1.5);
+            ctx.close_path ();
+            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, pixbuf_origin.x, pixbuf_origin.y);
+            ctx.clip ();
+            ctx.paint ();
             ctx.restore ();
+
+            style_context.render_frame (ctx, pixbuf_origin.x, pixbuf_origin.y, display_pixbuf.width, display_pixbuf.height);
         }
 
-        // decide which icon to use for the selection button
-        if (brightened != null && pixbuf != null) {
-            if (is_selected ())
-                selection_icon = Resources.ICON_SELECTION_REMOVE;
-            else
-                selection_icon = Resources.ICON_SELECTION_ADD;
-        }
-
+        // Add the selection helper
         Gdk.Pixbuf? selection_icon_pix = null;
+        var scale_factor = style_context.get_scale ();
         if (selection_icon != null) {
             try {
-                selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon,
-                    SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon, SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             } catch (Error err) {
                 warning ("Could not load %s: %s", selection_icon, err.message);
             }
         }
 
-        // draw selector icon
         if (selection_icon_pix != null) {
-            // calc the top-left point of the selection button
             Gdk.Rectangle selection_icon_area = get_selection_button_area ();
             ctx.save ();
             ctx.scale (1.0 / scale_factor, 1.0 / scale_factor);
-            int icon_x = selection_icon_area.x * scale_factor;
-            int icon_y = selection_icon_area.y * scale_factor;
-            Gdk.cairo_set_source_pixbuf (ctx, selection_icon_pix, icon_x, icon_y);
-            ctx.paint ();
+            style_context.render_icon (ctx, selection_icon_pix, selection_icon_area.x * scale_factor, selection_icon_area.y * scale_factor);
             ctx.restore ();
         }
 
-        ctx.set_source_rgba (text_color.red, text_color.green, text_color.blue, text_color.alpha);
-
+        // Add the title and subtitle
+        style_context.add_class (Gtk.STYLE_CLASS_LABEL);
         // title and subtitles are LABEL_PADDING below bottom of pixbuf
         int text_y = allocation.y + FRAME_WIDTH + pixbuf_dim.height + FRAME_WIDTH + LABEL_PADDING;
         if (title != null && title_visible) {
@@ -643,8 +516,9 @@ public abstract class CheckerboardItem : ThumbnailView {
             title.allocation.width = pixbuf_dim.width;
             title.allocation.height = title.get_height ();
 
-            ctx.move_to (title.allocation.x, title.allocation.y);
-            Pango.cairo_show_layout (ctx, title.get_pango_layout (pixbuf_dim.width));
+            var layout = title.get_pango_layout (pixbuf_dim.width);
+            Pango.cairo_update_layout (ctx, layout);
+            style_context.render_layout (ctx, title.allocation.x, title.allocation.y, layout);
 
             text_y += title.get_height () + LABEL_PADDING;
         }
@@ -655,8 +529,9 @@ public abstract class CheckerboardItem : ThumbnailView {
             comment.allocation.width = pixbuf_dim.width;
             comment.allocation.height = comment.get_height ();
 
-            ctx.move_to (comment.allocation.x, comment.allocation.y);
-            Pango.cairo_show_layout (ctx, comment.get_pango_layout (pixbuf_dim.width));
+            var layout = comment.get_pango_layout (pixbuf_dim.width);
+            Pango.cairo_update_layout (ctx, layout);
+            style_context.render_layout (ctx, comment.allocation.x, comment.allocation.y, layout);
 
             text_y += comment.get_height () + LABEL_PADDING;
         }
@@ -667,64 +542,14 @@ public abstract class CheckerboardItem : ThumbnailView {
             subtitle.allocation.width = pixbuf_dim.width;
             subtitle.allocation.height = subtitle.get_height ();
 
-            ctx.move_to (subtitle.allocation.x, subtitle.allocation.y);
-            Pango.cairo_show_layout (ctx, subtitle.get_pango_layout (pixbuf_dim.width));
+            var layout = subtitle.get_pango_layout (pixbuf_dim.width);
+            Pango.cairo_update_layout (ctx, layout);
+            style_context.render_layout (ctx, subtitle.allocation.x, subtitle.allocation.y, layout);
 
             // increment text_y if more text lines follow
         }
 
-        ctx.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue,
-                             selected_color.alpha);
-
-        // draw trinkets last
-        Gdk.Pixbuf? trinket = get_bottom_left_trinket (TRINKET_SCALE);
-        if (trinket != null) {
-            int x = pixbuf_origin.x + TRINKET_PADDING + get_horizontal_trinket_offset ();
-            int y = pixbuf_origin.y + pixbuf_dim.height - trinket.get_height () -
-                    TRINKET_PADDING;
-            Gdk.cairo_set_source_pixbuf (ctx, trinket, x, y);
-            ctx.rectangle (x, y, trinket.get_width (), trinket.get_height ());
-            ctx.fill ();
-        }
-
-        trinket = get_top_left_trinket (TRINKET_SCALE);
-        if (trinket != null) {
-            int x = pixbuf_origin.x + TRINKET_PADDING + get_horizontal_trinket_offset ();
-            int y = pixbuf_origin.y + TRINKET_PADDING;
-            Gdk.cairo_set_source_pixbuf (ctx, trinket, x, y);
-            ctx.rectangle (x, y, trinket.get_width (), trinket.get_height ());
-            ctx.fill ();
-        }
-
-        trinket = get_top_right_trinket (TRINKET_SCALE);
-        if (trinket != null) {
-            int x = pixbuf_origin.x + pixbuf_dim.width - trinket.width -
-                    get_horizontal_trinket_offset () - TRINKET_PADDING;
-            int y = pixbuf_origin.y + TRINKET_PADDING;
-            Gdk.cairo_set_source_pixbuf (ctx, trinket, x, y);
-            ctx.rectangle (x, y, trinket.get_width (), trinket.get_height ());
-            ctx.fill ();
-        }
-
-        trinket = get_bottom_right_trinket (TRINKET_SCALE);
-        if (trinket != null) {
-            int x = pixbuf_origin.x + pixbuf_dim.width - trinket.width -
-                    get_horizontal_trinket_offset () - TRINKET_PADDING;
-            int y = pixbuf_origin.y + pixbuf_dim.height - trinket.height -
-                    TRINKET_PADDING;
-            Gdk.cairo_set_source_pixbuf (ctx, trinket, x, y);
-            ctx.rectangle (x, y, trinket.get_width (), trinket.get_height ());
-            ctx.fill ();
-        }
-    }
-
-    protected void set_horizontal_trinket_offset (int horizontal_trinket_offset) {
-        assert (horizontal_trinket_offset >= 0);
-        this.horizontal_trinket_offset = horizontal_trinket_offset;
-    }
-
-    protected int get_horizontal_trinket_offset () {
-        return horizontal_trinket_offset;
+        style_context.restore ();
     }
 
     public void set_grid_coordinates (int col, int row) {
@@ -802,6 +627,64 @@ public abstract class CheckerboardItem : ThumbnailView {
 }
 
 public class CheckerboardLayout : Gtk.DrawingArea {
+    private const string CHECKBOARD_CSS = """
+        .checkerboard-layout {
+            background-color: #383e41;
+            background-image:
+                linear-gradient(
+                    45deg,
+                    alpha (
+                        #000,
+                        0.1
+                    ) 25%,
+                    transparent 25%,
+                    transparent 75%,
+                    alpha (
+                        #000,
+                        0.1
+                    ) 75%,
+                    alpha (
+                        #000,
+                        0.1
+                    )
+                ),
+                linear-gradient(
+                    45deg,
+                    alpha (
+                        #000,
+                        0.1
+                    ) 25%,
+                    transparent 25%,
+                    transparent 75%,
+                    alpha (
+                        #000,
+                        0.1
+                    ) 75%,
+                    alpha (
+                        #000,
+                        0.1
+                    )
+                );
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+        .checkboard-layout .item {
+            background-color: #eee;
+        }
+        .checkerboard-layout .label {
+            color: #c0c6c4;
+            text-shadow: 0 1px 2px alpha(#000, 0.5);
+        }
+        .event {
+            border: 3px solid #f4f4f4;
+            border-radius: 6px;
+        }
+        .event:checked {
+            border-color: @selected_bg_color;
+        }
+    """;
+
+
     public const int TOP_PADDING = 16;
     public const int BOTTOM_PADDING = 16;
     public const int ROW_GUTTER_PADDING = 24;
@@ -837,9 +720,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
     private Gtk.Adjustment hadjustment = null;
     private Gtk.Adjustment vadjustment = null;
     private string message = null;
-    private Gdk.RGBA selected_color;
-    private Gdk.RGBA unselected_color;
-    private Gdk.RGBA border_color;
     private Gdk.Rectangle visible_page = Gdk.Rectangle ();
     private int last_width = 0;
     private int columns = 0;
@@ -858,7 +738,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
     public CheckerboardLayout (ViewCollection view) {
         this.view = view;
-        this.get_style_context ().add_class ("checkerboard-layout");
 
         clear_drag_select ();
 
@@ -873,7 +752,15 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         view.items_selected.connect (on_items_selection_changed);
         view.items_unselected.connect (on_items_selection_changed);
 
-        Config.Facade.get_instance ().colors_changed.connect (on_colors_changed);
+        weak Gtk.StyleContext style_context = get_style_context ();
+        style_context.add_class ("checkerboard-layout");
+        var css_provicer = new Gtk.CssProvider ();
+        try {
+            css_provicer.load_from_data (CHECKBOARD_CSS);
+            style_context.add_provider (css_provicer, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {
+            critical (e.message);
+        }
 
         // CheckerboardItems offer tooltips
         has_tooltip = true;
@@ -902,8 +789,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
         if (parent != null)
             parent.size_allocate.disconnect (on_viewport_resized);
-
-        Config.Facade.get_instance ().colors_changed.disconnect (on_colors_changed);
     }
 
     public void set_adjustments (Gtk.Adjustment hadjustment, Gtk.Adjustment vadjustment) {
@@ -1796,19 +1681,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         }
     }
 
-    public override void map () {
-        base.map ();
-
-        set_colors ();
-    }
-
-    private void set_colors (bool in_focus = true) {
-        // set up selected/unselected colors
-        selected_color = Config.Facade.get_instance ().get_selected_color (in_focus);
-        unselected_color =  Config.Facade.get_instance ().get_unselected_color ();
-        border_color =  Config.Facade.get_instance ().get_border_color ();
-    }
-
     public override void size_allocate (Gtk.Allocation allocation) {
         base.size_allocate (allocation);
 
@@ -1833,10 +1705,14 @@ public class CheckerboardLayout : Gtk.DrawingArea {
                 expose_items ("draw");
 
             // have all items in the exposed area paint themselves
+            weak Gtk.StyleContext style_context = get_style_context ();
+            style_context.save ();
+            style_context.add_class ("card");
             foreach (CheckerboardItem item in intersection (visible_page)) {
-                item.paint (ctx, item.is_selected () ? selected_color : unselected_color,
-                            unselected_color, border_color, scale_factor);
+                item.paint (ctx, style_context);
             }
+
+            style_context.restore ();
         } else {
             // draw the message in the center of the window
             Pango.Layout pango_layout = create_pango_layout (message);
@@ -1852,7 +1728,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             int y = allocation.height - text_height;
             y = (y > 0) ? y / 2 : 0;
 
-            ctx.set_source_rgb (unselected_color.red, unselected_color.green, unselected_color.blue);
             ctx.move_to (x, y);
             Pango.cairo_show_layout (ctx, pango_layout);
         }
@@ -1878,25 +1753,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         Gdk.Rectangle visible_page = get_adjustment_page (hadjustment, vadjustment);
         Gdk.Rectangle visible_band = Gdk.Rectangle ();
         visible_page.intersect (selection_band, out visible_band);
-
-        // pixelate selection rectangle interior
-        if (visible_band.width > 1 && visible_band.height > 1) {
-            ctx.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue,
-                                 SELECTION_ALPHA);
-            ctx.rectangle (visible_band.x, visible_band.y, visible_band.width,
-                           visible_band.height);
-            ctx.fill ();
-        }
-
-        // border
-        // See this for an explanation of the adjustments to the band's dimensions
-        // http://cairographics.org/FAQ/#sharp_lines
-        ctx.set_line_width (1.0);
-        ctx.set_line_cap (Cairo.LineCap.SQUARE);
-        ctx.set_source_rgb (selected_color.red, selected_color.green, selected_color.blue);
-        ctx.rectangle ((double) selection_band.x + 0.5, (double) selection_band.y + 0.5,
-                       (double) selection_band.width - 1.0, (double) selection_band.height - 1.0);
-        ctx.stroke ();
     }
 
     public override bool query_tooltip (int x, int y, bool keyboard_mode, Gtk.Tooltip tooltip) {
@@ -1905,19 +1761,13 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         return (item != null) ? item.query_tooltip (x, y, tooltip) : false;
     }
 
-    private void on_colors_changed () {
-        set_colors ();
-    }
-
     public override bool focus_in_event (Gdk.EventFocus event) {
-        set_colors (true);
         items_dirty ("focus_in_event", view.get_selected ());
 
         return base.focus_in_event (event);
     }
 
     public override bool focus_out_event (Gdk.EventFocus event) {
-        set_colors (false);
         items_dirty ("focus_out_event", view.get_selected ());
 
         return base.focus_out_event (event);
