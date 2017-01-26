@@ -498,40 +498,34 @@ public abstract class AppWindow : PageWindow {
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
 
-        Gtk.ActionEntry quit = { "CommonQuit", null, TRANSLATABLE, "<Ctrl>Q",
-                                 TRANSLATABLE, on_quit
+        Gtk.ActionEntry quit = { "CommonQuit", null, _("_Quit"), "<Ctrl>Q",
+                                 _("_Quit"), on_quit
                                };
-        quit.label = _ ("_Quit");
         actions += quit;
 
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null,
-                                       TRANSLATABLE, "F11", TRANSLATABLE, on_fullscreen
+                                       _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen
                                      };
-        fullscreen.label = _ ("Fulls_creen");
         actions += fullscreen;
 
-        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", TRANSLATABLE, "<Ctrl>Z",
-                                 TRANSLATABLE, on_undo
+        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", Resources.UNDO_MENU, "<Ctrl>Z",
+                                 Resources.UNDO_MENU, on_undo
                                };
-        undo.label = Resources.UNDO_MENU;
         actions += undo;
 
-        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", TRANSLATABLE, "<Ctrl><Shift>Z",
-                                 TRANSLATABLE, on_redo
+        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", Resources.REDO_MENU, "<Ctrl><Shift>Z",
+                                 Resources.REDO_MENU, on_redo
                                };
-        redo.label = Resources.REDO_MENU;
         actions += redo;
 
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, TRANSLATABLE,
-                                         "<Ctrl><Shift>M", TRANSLATABLE, on_jump_to_file
+        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU,
+                                         "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file
                                        };
-        jump_to_file.label = Resources.JUMP_TO_FILE_MENU;
         actions += jump_to_file;
 
-        Gtk.ActionEntry select_all = { "CommonSelectAll", null, TRANSLATABLE,
-                                       "<Ctrl>A", TRANSLATABLE, on_select_all
+        Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU,
+                                       "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all
                                      };
-        select_all.label = Resources.SELECT_ALL_MENU;
         actions += select_all;
 
         Gtk.ActionEntry select_none = { "CommonSelectNone", null, null,

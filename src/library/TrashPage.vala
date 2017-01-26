@@ -121,18 +121,14 @@ public class TrashPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry delete_action = { "Delete", null, TRANSLATABLE, "Delete",
-                                          TRANSLATABLE, on_delete
+        Gtk.ActionEntry delete_action = { "Delete", null, Resources.DELETE_PHOTOS_MENU, "Delete",
+                                          Resources.DELETE_FROM_TRASH_TOOLTIP, on_delete
                                         };
-        delete_action.label = Resources.DELETE_PHOTOS_MENU;
-        delete_action.tooltip = Resources.DELETE_FROM_TRASH_TOOLTIP;
         actions += delete_action;
 
-        Gtk.ActionEntry restore = { "Restore", null, TRANSLATABLE, "Restore", TRANSLATABLE,
+        Gtk.ActionEntry restore = { "Restore", null, Resources.RESTORE_PHOTOS_MENU, "Restore", Resources.RESTORE_PHOTOS_TOOLTIP,
                                     on_restore
                                   };
-        restore.label = Resources.RESTORE_PHOTOS_MENU;
-        restore.tooltip = Resources.RESTORE_PHOTOS_TOOLTIP;
         actions += restore;
 
         return actions;

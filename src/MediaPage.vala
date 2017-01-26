@@ -202,72 +202,58 @@ public abstract class MediaPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry export = { "Export", null, TRANSLATABLE, "<Ctrl><Shift>E",
-                                   TRANSLATABLE, on_export
+        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
+                                   Resources.EXPORT_MENU, on_export
                                  };
-        export.label = Resources.EXPORT_MENU;
         actions += export;
 
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, TRANSLATABLE,
-                                                "<Shift>Delete", TRANSLATABLE, on_remove_from_library
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
+                                                "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
                                               };
-        remove_from_library.label = Resources.REMOVE_FROM_LIBRARY_MENU;
         actions += remove_from_library;
 
-        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", TRANSLATABLE, "Delete",
-                                          TRANSLATABLE, on_move_to_trash
+        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", Resources.MOVE_TO_TRASH_MENU, "Delete",
+                                          Resources.MOVE_TO_TRASH_MENU, on_move_to_trash
                                         };
-        move_to_trash.label = Resources.MOVE_TO_TRASH_MENU;
         actions += move_to_trash;
 
-        Gtk.ActionEntry new_event = { "NewEvent", null, TRANSLATABLE, "<Ctrl>N",
-                                      TRANSLATABLE, on_new_event
+        Gtk.ActionEntry new_event = { "NewEvent", null, Resources.NEW_EVENT_MENU, "<Ctrl>N",
+                                      Resources.NEW_EVENT_MENU, on_new_event
                                     };
-        new_event.label = Resources.NEW_EVENT_MENU;
         actions += new_event;
 
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, TRANSLATABLE,
-                                          "<Ctrl>plus", TRANSLATABLE, on_increase_size
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
+                                          "<Ctrl>plus",  _("Increase the magnification of the thumbnails"), on_increase_size
                                         };
-        increase_size.label = _ ("Zoom _In");
-        increase_size.tooltip = _ ("Increase the magnification of the thumbnails");
         actions += increase_size;
 
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, TRANSLATABLE,
-                                          "<Ctrl>minus", TRANSLATABLE, on_decrease_size
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
+                                          "<Ctrl>minus", _("Decrease the magnification of the thumbnails"), on_decrease_size
                                         };
-        decrease_size.label = _ ("Zoom _Out");
-        decrease_size.tooltip = _ ("Decrease the magnification of the thumbnails");
         actions += decrease_size;
 
-        Gtk.ActionEntry flag = { "Flag", null, TRANSLATABLE, "<Ctrl>G", TRANSLATABLE, on_flag_unflag };
-        flag.label = Resources.FLAG_MENU;
+        Gtk.ActionEntry flag = { "Flag", null, Resources.FLAG_MENU, "<Ctrl>G", Resources.FLAG_MENU, on_flag_unflag };
         actions += flag;
 
-        Gtk.ActionEntry sort_photos = { "SortPhotos", null, TRANSLATABLE, null, null, null };
-        sort_photos.label = _ ("Sort _Photos");
+        Gtk.ActionEntry sort_photos = { "SortPhotos", null, _("Sort _Photos"), null, null, null };
         actions += sort_photos;
 
-        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, TRANSLATABLE, null, null, null };
-        filter_photos.label = Resources.FILTER_PHOTOS_MENU;
+        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
         actions += filter_photos;
 
-        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, TRANSLATABLE, null, null, null };
-        raw_developer.label = _ ("_Developer");
+        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, _("_Developer"), null, null, null };
         actions += raw_developer;
 
         // RAW developers.
 
-        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, _("Shotwell"), null, _("Shotwell"),
                                          on_raw_developer_shotwell
                                        };
-        dev_shotwell.label = _ ("Shotwell");
         actions += dev_shotwell;
 
-        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, _("Camera"), null, _("Camera"),
                                        on_raw_developer_camera
                                      };
-        dev_camera.label = _ ("Camera");
         actions += dev_camera;
 
         return actions;
@@ -276,25 +262,19 @@ public abstract class MediaPage : CheckerboardPage {
     protected override Gtk.ToggleActionEntry[] init_collect_toggle_action_entries () {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
-        Gtk.ToggleActionEntry titles = { "ViewTitle", null, TRANSLATABLE, "<Ctrl><Shift>T",
-                                         TRANSLATABLE, on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
+        Gtk.ToggleActionEntry titles = { "ViewTitle", null, _("_Titles"), "<Ctrl><Shift>T",
+                                         _("Display the title of each photo"), on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
                                        };
-        titles.label = _ ("_Titles");
-        titles.tooltip = _ ("Display the title of each photo");
         toggle_actions += titles;
 
-        Gtk.ToggleActionEntry comments = { "ViewComment", null, TRANSLATABLE, "<Ctrl><Shift>C",
-                                           TRANSLATABLE, on_display_comments, Config.Facade.get_instance ().get_display_photo_comments ()
+        Gtk.ToggleActionEntry comments = { "ViewComment", null, _("_Comments"), "<Ctrl><Shift>C",
+                                           _("Display the comment of each photo"), on_display_comments, Config.Facade.get_instance ().get_display_photo_comments ()
                                          };
-        comments.label = _ ("_Comments");
-        comments.tooltip = _ ("Display the comment of each photo");
         toggle_actions += comments;
 
-        Gtk.ToggleActionEntry tags = { "ViewTags", null, TRANSLATABLE, "<Ctrl><Shift>G",
-                                       TRANSLATABLE, on_display_tags, Config.Facade.get_instance ().get_display_photo_tags ()
+        Gtk.ToggleActionEntry tags = { "ViewTags", null, _("Ta_gs"), "<Ctrl><Shift>G",
+                                       _("Display each photo's tags"), on_display_tags, Config.Facade.get_instance ().get_display_photo_tags ()
                                      };
-        tags.label = _ ("Ta_gs");
-        tags.tooltip = _ ("Display each photo's tags");
         toggle_actions += tags;
 
         return toggle_actions;
@@ -308,18 +288,14 @@ public abstract class MediaPage : CheckerboardPage {
         // Sort criteria.
         Gtk.RadioActionEntry[] sort_crit_actions = new Gtk.RadioActionEntry[0];
 
-        Gtk.RadioActionEntry by_title = { "SortByTitle", null, TRANSLATABLE, null, TRANSLATABLE,
+        Gtk.RadioActionEntry by_title = { "SortByTitle", null, _("By _Title"), null, _("Sort photos by title"),
                                           SortBy.TITLE
                                         };
-        by_title.label = _ ("By _Title");
-        by_title.tooltip = _ ("Sort photos by title");
         sort_crit_actions += by_title;
 
-        Gtk.RadioActionEntry by_date = { "SortByExposureDate", null, TRANSLATABLE, null,
-                                         TRANSLATABLE, SortBy.EXPOSURE_DATE
+        Gtk.RadioActionEntry by_date = { "SortByExposureDate", null, _("By Exposure _Date"), null,
+                                         _("Sort photos by exposure date"), SortBy.EXPOSURE_DATE
                                        };
-        by_date.label = _ ("By Exposure _Date");
-        by_date.tooltip = _ ("Sort photos by exposure date");
         sort_crit_actions += by_date;
 
         action_group.add_radio_actions (sort_crit_actions, sort_by, on_sort_changed);
@@ -328,17 +304,13 @@ public abstract class MediaPage : CheckerboardPage {
         Gtk.RadioActionEntry[] sort_order_actions = new Gtk.RadioActionEntry[0];
 
         Gtk.RadioActionEntry ascending = { "SortAscending", null,
-                                           TRANSLATABLE, null, TRANSLATABLE, SORT_ORDER_ASCENDING
+                                           _("_Ascending"), null, _("Sort photos in an ascending order"), SORT_ORDER_ASCENDING
                                          };
-        ascending.label = _ ("_Ascending");
-        ascending.tooltip = _ ("Sort photos in an ascending order");
         sort_order_actions += ascending;
 
         Gtk.RadioActionEntry descending = { "SortDescending", null,
-                                            TRANSLATABLE, null, TRANSLATABLE, SORT_ORDER_DESCENDING
+                                            _("D_escending"), null, _("Sort photos in a descending order"), SORT_ORDER_DESCENDING
                                           };
-        descending.label = _ ("D_escending");
-        descending.tooltip = _ ("Sort photos in a descending order");
         sort_order_actions += descending;
 
         action_group.add_radio_actions (sort_order_actions,

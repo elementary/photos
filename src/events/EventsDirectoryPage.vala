@@ -140,14 +140,12 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry rename = { "Rename", null, TRANSLATABLE, "F2", TRANSLATABLE, on_rename };
-        rename.label = Resources.RENAME_EVENT_MENU;
+        Gtk.ActionEntry rename = { "Rename", null, Resources.RENAME_EVENT_MENU, "F2", Resources.RENAME_EVENT_MENU, on_rename };
         actions += rename;
 
-        Gtk.ActionEntry merge = { "Merge", Resources.MERGE, TRANSLATABLE, null, Resources.MERGE_TOOLTIP,
+        Gtk.ActionEntry merge = { "Merge", Resources.MERGE, Resources.MERGE_MENU, null, Resources.MERGE_TOOLTIP,
                                   on_merge
                                 };
-        merge.label = Resources.MERGE_MENU;
         actions += merge;
 
         return actions;
@@ -156,11 +154,9 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     protected override Gtk.ToggleActionEntry[] init_collect_toggle_action_entries () {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
-        Gtk.ToggleActionEntry comments = { "ViewComment", null, TRANSLATABLE, "<Ctrl><Shift>C",
-                                           TRANSLATABLE, on_display_comments, Config.Facade.get_instance ().get_display_event_comments ()
+        Gtk.ToggleActionEntry comments = { "ViewComment", null, _("_Comments"), "<Ctrl><Shift>C",
+                                           _("Display the comment of each event"), on_display_comments, Config.Facade.get_instance ().get_display_event_comments ()
                                          };
-        comments.label = _ ("_Comments");
-        comments.tooltip = _ ("Display the comment of each event");
         toggle_actions += comments;
 
         return toggle_actions;
