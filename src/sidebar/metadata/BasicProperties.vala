@@ -290,7 +290,7 @@ private class BasicProperties : Properties {
             place_label.no_show_all = true;
             place_label.visible = false;
 
-            create_place_label (gps_lat, gps_long);
+            create_place_label.begin (gps_lat, gps_long);
 
             attach (place_label, 0, (int) line_count, 2, 1);
 

@@ -32,7 +32,7 @@ public abstract class Session {
 
     public Session (string? endpoint_url = null) {
         this.endpoint_url = endpoint_url;
-        soup_session = new Soup.SessionAsync ();
+        soup_session = new Soup.Session ();
     }
 
     protected void notify_wire_message_unqueued (Soup.Message message) {
