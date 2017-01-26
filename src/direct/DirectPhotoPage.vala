@@ -419,7 +419,7 @@ public class DirectPhotoPage : EditingHostPage {
             return true;
         }
 
-        bool is_writeable = get_photo().can_write_file() && get_photo ().get_file_format ().can_write ();
+        bool is_writeable = get_photo ().can_write_file () && get_photo ().get_file_format ().can_write ();
         string save_option = is_writeable ? _ ("_Save") : _ ("_Save a Copy");
 
         Gtk.ResponseType response = AppWindow.affirm_cancel_negate_question (
@@ -538,7 +538,7 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     private void on_save_as () {
-        do_save_as();
+        do_save_as ();
     }
 
     /** Returns true if the code parameter matches the keycode of the keyval parameter for
