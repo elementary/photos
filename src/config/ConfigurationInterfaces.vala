@@ -34,7 +34,6 @@ public enum FuzzyPropertyState {
 
 public enum ConfigurableProperty {
     AUTO_IMPORT_FROM_LIBRARY = 0,
-    BG_COLOR_NAME,
     COMMIT_METADATA_TO_MASTERS,
     DESKTOP_BACKGROUND_FILE,
     DESKTOP_BACKGROUND_MODE,
@@ -102,9 +101,6 @@ public enum ConfigurableProperty {
         switch (this) {
         case AUTO_IMPORT_FROM_LIBRARY:
             return "AUTO_IMPORT_FROM_LIBRARY";
-
-        case BG_COLOR_NAME:
-            return "BG_COLOR_NAME";
 
         case COMMIT_METADATA_TO_MASTERS:
             return "COMMIT_METADATA_TO_MASTERS";
@@ -321,7 +317,6 @@ public abstract class ConfigurationFacade : Object {
     private ConfigurationEngine engine;
 
     public signal void auto_import_from_library_changed ();
-    public signal void bg_color_name_changed ();
     public signal void commit_metadata_to_masters_changed ();
     public signal void events_sort_ascending_changed ();
     public signal void external_app_changed ();
@@ -339,10 +334,6 @@ public abstract class ConfigurationFacade : Object {
         switch (p) {
         case ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY:
             auto_import_from_library_changed ();
-            break;
-
-        case ConfigurableProperty.BG_COLOR_NAME:
-            bg_color_name_changed ();
             break;
 
         case ConfigurableProperty.COMMIT_METADATA_TO_MASTERS:
@@ -398,28 +389,6 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY,
                                              auto_import);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return;
-        }
-    }
-
-    //
-    // bg color name
-    //
-    public virtual string get_bg_color_name () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.BG_COLOR_NAME);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return "";
-        }
-    }
-
-    public virtual void set_bg_color_name (string color_name) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.BG_COLOR_NAME, color_name);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;

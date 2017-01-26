@@ -17,11 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-bool is_color_parsable (string spec) {
-    Gdk.Color color;
-    return Gdk.Color.parse (spec, out color);
-}
-
 Gdk.RGBA parse_color (string spec) {
     return fetch_color (spec);
 }
@@ -63,37 +58,6 @@ Gdk.Pixbuf resize_pixbuf (Gdk.Pixbuf pixbuf, Dimensions resized, Gdk.InterpType 
     resized = resized.with_min (MIN_SCALED_WIDTH, MIN_SCALED_HEIGHT);
 
     return pixbuf.scale_simple (resized.width, resized.height, interp);
-}
-
-private const double DEGREE = Math.PI / 180.0;
-
-void draw_rounded_corners_filled (Cairo.Context ctx, Dimensions dim, Gdk.Point origin,
-                                  double radius_proportion) {
-    context_rounded_corners (ctx, dim, origin, radius_proportion);
-    ctx.paint ();
-}
-
-void context_rounded_corners (Cairo.Context cx, Dimensions dim, Gdk.Point origin,
-                              double radius_proportion) {
-    // establish a reasonable range
-    radius_proportion = radius_proportion.clamp (2.0, 100.0);
-
-    double left = origin.x;
-    double top = origin.y;
-    double right = origin.x + dim.width;
-    double bottom = origin.y + dim.height;
-
-    // the radius of the corners is proportional to the distance of the minor axis
-    double radius = ((double) dim.minor_axis ()) / radius_proportion;
-
-    // create context and clipping region, starting from the top right arc and working around
-    // clockwise
-    cx.move_to (left, top);
-    cx.arc (right - radius, top + radius, radius, -90 * DEGREE, 0 * DEGREE);
-    cx.arc (right - radius, bottom - radius, radius, 0 * DEGREE, 90 * DEGREE);
-    cx.arc (left + radius, bottom - radius, radius, 90 * DEGREE, 180 * DEGREE);
-    cx.arc (left + radius, top + radius, radius, 180 * DEGREE, 270 * DEGREE);
-    cx.clip ();
 }
 
 inline uchar shift_color_byte (int b, int shift) {
