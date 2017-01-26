@@ -35,22 +35,7 @@ public class Facade : ConfigurationFacade {
     public const double SLIDESHOW_TRANSITION_DELAY_MAX = 1.0;
     public const double SLIDESHOW_TRANSITION_DELAY_MIN = 0.1;
     public const double SLIDESHOW_TRANSITION_DELAY_DEFAULT = 0.3;
-    public const int WIDTH_DEFAULT = 1024;
-    public const int HEIGHT_DEFAULT = 768;
-    public const int SIDEBAR_MIN_POSITION = 180;
-    public const int SIDEBAR_MAX_POSITION = 1000;
-    public const string DEFAULT_BG_COLOR = "#444";
     public const int NO_VIDEO_INTERPRETER_STATE = -1;
-
-    private const double BLACK_THRESHOLD = 0.61;
-    private const string DARK_SELECTED_COLOR = "#08c";
-    private const string LIGHT_SELECTED_COLOR = "#08c";
-    private const string DARK_UNSELECTED_COLOR = "#000";
-    private const string LIGHT_UNSELECTED_COLOR = "#FFF";
-    private const string DARK_BORDER_COLOR = "#999";
-    private const string LIGHT_BORDER_COLOR = "#AAA";
-    private const string DARK_UNFOCUSED_SELECTED_COLOR = "#888";
-    private const string LIGHT_UNFOCUSED_SELECTED_COLOR = "#888";
 
     private static Facade instance = null;
 
