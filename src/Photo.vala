@@ -1644,12 +1644,13 @@ public abstract class Photo : PhotoSource, Dateable {
         var file = File.new_for_path (row.master.filepath);
         FileInfo file_info;
         try {
-            file_info = file.query_info ("access::can-write", 0);
+            file_info = file.query_info (GLib.FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE);
         } catch (Error e) {
             warning ("Error while testing if file is writeable: %s\n", e.message);
             return false;
         }
-        return file_info.get_attribute_boolean ("access::can-write");
+
+        return file_info.get_attribute_boolean (GLib.FileAttribute.ACCESS_CAN_WRITE);
     }
 
     private static bool is_extension_found (string basename, string[] extensions) {
