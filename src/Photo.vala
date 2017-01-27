@@ -1200,8 +1200,12 @@ public abstract class Photo : PhotoSource, Dateable {
         try {
             interrogator.interrogate ();
             DetectedPhotoInformation? detected = interrogator.get_detected_photo_information ();
-            if (detected != null)
+            if (detected != null) {
                 params.row.master.file_format = detected.file_format;
+                MetadataDateTime? date_time = detected.metadata.get_exposure_date_time ();
+                if (date_time != null)
+                    params.row.exposure_time = date_time.get_timestamp ();
+            }
         } catch (Error err) {
             debug ("Unable to interrogate photo file %s: %s", file.get_path (), err.message);
         }
