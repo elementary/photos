@@ -1640,6 +1640,19 @@ public abstract class Photo : PhotoSource, Dateable {
                ? true : is_extension_found (file.get_basename (), IMAGE_EXTENSIONS);
     }
 
+    public bool can_write_file () {
+        var file = File.new_for_path (row.master.filepath);
+        FileInfo file_info;
+        try {
+            file_info = file.query_info (GLib.FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE);
+        } catch (Error e) {
+            warning ("Error while testing if file is writeable: %s\n", e.message);
+            return false;
+        }
+
+        return file_info.get_attribute_boolean (GLib.FileAttribute.ACCESS_CAN_WRITE);
+    }
+
     private static bool is_extension_found (string basename, string[] extensions) {
         string name, ext;
         disassemble_filename (basename, out name, out ext);

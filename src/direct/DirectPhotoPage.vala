@@ -373,7 +373,7 @@ public class DirectPhotoPage : EditingHostPage {
             return true;
         }
 
-        bool is_writeable = get_photo ().get_file_format ().can_write ();
+        bool is_writeable = get_photo ().can_write_file () && get_photo ().get_file_format ().can_write ();
         string save_option = is_writeable ? _ ("_Save") : _ ("_Save a Copy");
 
         Gtk.ResponseType response = AppWindow.affirm_cancel_negate_question (
@@ -385,10 +385,10 @@ public class DirectPhotoPage : EditingHostPage {
             photo.remove_all_transformations ();
         else if (response == Gtk.ResponseType.NO) {
             if (is_writeable)
-                save (photo.get_file (), 0, ScaleConstraint.ORIGINAL, Jpeg.Quality.HIGH,
+                return save (photo.get_file (), 0, ScaleConstraint.ORIGINAL, Jpeg.Quality.HIGH,
                       get_photo ().get_file_format ());
             else
-                on_save_as ();
+                return do_save_as ();
         } else if ((response == Gtk.ResponseType.CANCEL) || (response == Gtk.ResponseType.DELETE_EVENT) ||
                    (response == Gtk.ResponseType.CLOSE)) {
             return false;
@@ -405,7 +405,7 @@ public class DirectPhotoPage : EditingHostPage {
         return (old_photo != null) ? check_ok_to_close_photo (old_photo) : true;
     }
 
-    private void save (File dest, int scale, ScaleConstraint constraint, Jpeg.Quality quality,
+    private bool save (File dest, int scale, ScaleConstraint constraint, Jpeg.Quality quality,
                        PhotoFileFormat format, bool copy_unmodified = false, bool save_metadata = true) {
         Scaling scaling = Scaling.for_constraint (constraint, scale, false);
 
@@ -415,7 +415,7 @@ public class DirectPhotoPage : EditingHostPage {
             AppWindow.error_message (_ ("Error while saving to %s: %s").printf (dest.get_path (),
                                      err.message));
 
-            return;
+            return false;
         }
 
         // Fetch the DirectPhoto and reimport.
@@ -427,6 +427,8 @@ public class DirectPhotoPage : EditingHostPage {
 
         DirectPhoto.global.reimport_photo (photo);
         display_mirror_of (view_controller, photo);
+
+        return true;
     }
 
     private void on_save () {
@@ -439,14 +441,14 @@ public class DirectPhotoPage : EditingHostPage {
               get_photo ().get_file_format ());
     }
 
-    private void on_save_as () {
+    private bool do_save_as () {
         ExportDialog export_dialog = new ExportDialog (_ ("Save As"));
 
         int scale;
         ScaleConstraint constraint;
         ExportFormatParameters export_params = ExportFormatParameters.last ();
         if (!export_dialog.execute (out scale, out constraint, ref export_params))
-            return;
+            return false;
 
         string filename = get_photo ().get_export_basename_for_parameters (export_params);
         PhotoFileFormat effective_export_format =
@@ -472,11 +474,12 @@ public class DirectPhotoPage : EditingHostPage {
         save_as_dialog.set_local_only (false);
 
         int response = save_as_dialog.run ();
+        bool save_successful = false;
         if (response == Gtk.ResponseType.OK) {
             // flag to prevent asking user about losing changes to the old file (since they'll be
             // loaded right into the new one)
             drop_if_dirty = true;
-            save (File.new_for_uri (save_as_dialog.get_uri ()), scale, constraint, export_params.quality,
+            save_successful = save (File.new_for_uri (save_as_dialog.get_uri ()), scale, constraint, export_params.quality,
                   effective_export_format, export_params.mode == ExportFormatMode.UNMODIFIED,
                   export_params.export_metadata);
             drop_if_dirty = false;
@@ -485,6 +488,11 @@ public class DirectPhotoPage : EditingHostPage {
         }
 
         save_as_dialog.destroy ();
+        return save_successful;
+    }
+
+    private void on_save_as () {
+        do_save_as ();
     }
 
     /** Returns true if the code parameter matches the keycode of the keyval parameter for
