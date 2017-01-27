@@ -235,7 +235,7 @@ private class BasicProperties : Properties {
     protected override void internal_update_properties (Page page) {
         base.internal_update_properties (page);
 
-        if (title != "") {
+        if (title != null && title != "") {
             title_entry = new EditableTitle (title);
             title_entry.tooltip_text = _("Title");
             title_entry.changed.connect (title_entry_changed);
@@ -311,16 +311,16 @@ private class BasicProperties : Properties {
             line_count++;
         }
 
-        if (raw_developer != "") {
+        if (raw_developer != null && raw_developer != "") {
             add_line (_ ("Developer:"), raw_developer);
         }
 
         // RAW+JPEG flag.
-        if (raw_assoc != "") {
+        if (raw_assoc != null && raw_assoc != "") {
             add_line ("", raw_assoc);
         }
 
-        if (camera_make != "" && camera_model != "") {
+        if (camera_make != null && camera_make != "" && camera_model != null && camera_model != "") {
             string camera_string;
 
             if (camera_make in camera_model) {
@@ -343,32 +343,32 @@ private class BasicProperties : Properties {
         flowbox.selection_mode = Gtk.SelectionMode.NONE;
         attach (flowbox, 0, 9, 2, 1);
 
-        if (aperture != "") {
+        if (aperture != null && aperture != "") {
             var aperture_item = new ExifItem ("aperture-symbolic", _("Aperture"), aperture);
             flowbox.add (aperture_item);
         }
 
-        if (focal_length != "") {
+        if (focal_length != null && focal_length != "") {
             var focal_length_item = new ExifItem ("focal-length-symbolic", _("Focal length"), focal_length);
             flowbox.add (focal_length_item);
         }
 
-        if (exposure != "") {
+        if (exposure != null && exposure != "") {
             var exposure_item = new ExifItem ("exposure-symbolic", _("Exposure"), exposure);
             flowbox.add (exposure_item);
         }
 
-        if (iso != "") {
+        if (iso != null && iso != "") {
             var iso_item = new ExifItem ("iso-symbolic", _("ISO"), iso);
             flowbox.add (iso_item);
         }
 
-        if (exposure_bias != "") {
+        if (exposure_bias != null && exposure_bias != "") {
             var exposure_bias_item = new ExifItem ("exposure-bias-symbolic", _("Exposure bias"), exposure_bias);
             flowbox.add (exposure_bias_item);
         }
 
-        if (flash != "") {
+        if (flash != null && flash != "") {
             var flash_item = new ExifItem ("flash-symbolic", _("Flash"), flash);
             flowbox.add (flash_item);
         }

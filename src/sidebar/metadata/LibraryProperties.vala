@@ -79,7 +79,9 @@ private class LibraryProperties : Properties {
 
             tags_entry = new Gtk.Entry ();
             tags_entry.placeholder_text = _("Tags, separated by commas");
-            tags_entry.text = tags;
+            if (tags != null) {
+                tags_entry.text = tags;
+            }
 
             attach (frame, 0, 0, 1, 1);
             attach (tags_entry, 0, 1, 1, 1);

@@ -49,6 +49,7 @@ public abstract class CollectionPage : MediaPage {
 
         init_item_context_menu ("/CollectionContextMenu");
         init_toolbar ("/CollectionToolbar");
+        enhance_button = new Gtk.ToggleToolButton ();
 
         show_all ();
     }
@@ -57,7 +58,6 @@ public abstract class CollectionPage : MediaPage {
         if (toolbar == null) {
             base.get_toolbar ();
             // enhance tool
-            enhance_button = new Gtk.ToggleToolButton ();
             enhance_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
             enhance_button.set_label (Resources.ENHANCE_LABEL);
             enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
@@ -366,6 +366,7 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
         enhance_button.sensitive = (!selection_has_videos) && has_selected;
+
         update_enhance_toggled ();
     }
 

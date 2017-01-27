@@ -36,7 +36,6 @@ public void preconfigure (File initial_file) {
 
 public void app_init () throws Error {
     Util.init ();
-    Threads.init ();
     Db.init ();
     Plugins.init ();
     Slideshow.init ();

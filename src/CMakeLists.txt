@@ -195,7 +195,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     threads/BackgroundJob.vala
     threads/Semaphore.vala
-    threads/Threads.vala
     threads/Workers.vala
 
     unit/Unit.vala
