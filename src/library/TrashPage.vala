@@ -44,7 +44,6 @@ public class TrashPage : CheckerboardPage {
         init_item_context_menu ("/TrashContextMenu");
         init_page_sidebar_menu ("/TrashPageMenu");
         init_page_context_menu ("/TrashViewMenu");
-        init_toolbar ("/TrashToolbar");
 
         tracker = new MediaViewTracker (get_view ());
 
@@ -57,7 +56,9 @@ public class TrashPage : CheckerboardPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            base.get_toolbar ();
+            toolbar = new Gtk.Toolbar ();
+            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
+            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
             var app = AppWindow.get_instance () as LibraryWindow;
 
             // separator to force slider to right side of toolbar
@@ -72,18 +73,36 @@ public class TrashPage : CheckerboardPage {
 
             toolbar.insert (drawn_separator, -1);
 
-            var restore_button = new Gtk.Button ();
+            var restore_button = new Gtk.Button.with_mnemonic (Resources.RESTORE_PHOTOS_MENU);
+            restore_button.margin_start = restore_button.margin_end = 3;
             restore_button.clicked.connect (on_restore);
-            add_toolbutton_for_action ("Restore", restore_button);
+            restore_button.tooltip_text = Resources.RESTORE_PHOTOS_TOOLTIP;
+            var restore_tool = new Gtk.ToolItem ();
+            restore_tool.add (restore_button);
+            toolbar.insert (restore_tool, -1);
+            var restore_action = get_action ("Restore");
+            restore_action.bind_property ("sensitive", restore_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var delete_button = new Gtk.Button ();
+            var delete_button = new Gtk.Button.with_mnemonic (Resources.DELETE_PHOTOS_MENU);
+            delete_button.margin_start = delete_button.margin_end = 3;
             delete_button.clicked.connect (on_delete);
-            add_toolbutton_for_action ("Delete", delete_button);
+            delete_button.tooltip_text = Resources.DELETE_FROM_TRASH_TOOLTIP;
+            var delete_tool = new Gtk.ToolItem ();
+            delete_tool.add (delete_button);
+            toolbar.insert (delete_tool, -1);
+            var delete_action = get_action ("Delete");
+            delete_action.bind_property ("sensitive", delete_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var empty_trash_btn = new Gtk.Button ();
-            empty_trash_btn.clicked.connect (app.on_empty_trash);
-            add_toolbutton_for_action ("CommonEmptyTrash", empty_trash_btn);
-            empty_trash_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            var empty_trash_button = new Gtk.Button.with_mnemonic (_("_Empty Trash"));
+            empty_trash_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            empty_trash_button.margin_start = empty_trash_button.margin_end = 3;
+            empty_trash_button.clicked.connect (on_empty_trash);
+            empty_trash_button.tooltip_text = _("Delete all photos in the trash");
+            var empty_trash_tool = new Gtk.ToolItem ();
+            empty_trash_tool.add (empty_trash_button);
+            toolbar.insert (empty_trash_tool, -1);
+            var empty_trash_action = get_action ("EmptyTrash");
+            empty_trash_action.bind_property ("sensitive", empty_trash_button, "sensitive", BindingFlags.SYNC_CREATE);
 
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
@@ -92,24 +111,6 @@ public class TrashPage : CheckerboardPage {
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
         return toolbar;
-    }
-
-    // Puts a normal Gtk.Button in a Toolbutton in order to set relief style
-    // to get around the ToolBars style control over it's children
-    private void add_toolbutton_for_action (string action_name, Gtk.Button wrap_btn) {
-        var action = get_action (action_name);
-        var tool_item = action.create_tool_item () as Gtk.ToolItem;
-
-        foreach (var child in tool_item.get_children ())
-            tool_item.remove (child);
-
-        wrap_btn.margin_start = wrap_btn.margin_end = 2;
-        wrap_btn.label = action.get_label ();
-        wrap_btn.use_underline = true;
-        wrap_btn.tooltip_text = action.tooltip;
-        
-        tool_item.add (wrap_btn);
-        toolbar.insert (tool_item, -1);
     }
 
     protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
@@ -131,6 +132,11 @@ public class TrashPage : CheckerboardPage {
                                   };
         actions += restore;
 
+        Gtk.ActionEntry empty = { "EmptyTrash", null, _("_Empty Trash"), null, _("Delete all photos in the trash"),
+                                  on_empty_trash
+                                };
+        actions += empty;
+
         return actions;
     }
 
@@ -145,9 +151,13 @@ public class TrashPage : CheckerboardPage {
         set_action_important ("Delete", true);
         set_action_sensitive ("Restore", has_selected);
         set_action_important ("Restore", true);
-        set_common_action_important ("CommonEmptyTrash", true);
+        set_action_important ("EmptyTrash", true);
 
         base.update_actions (selected_count, count);
+    }
+
+    private bool can_empty_trash () {
+        return (LibraryPhoto.global.get_trashcan_count () > 0) || (Video.global.get_trashcan_count () > 0);
     }
 
     private void on_trashcan_contents_altered (Gee.Collection<MediaSource>? added,
@@ -163,6 +173,8 @@ public class TrashPage : CheckerboardPage {
                 marker.mark (get_view ().get_view_for_source (source));
             get_view ().remove_marked (marker);
         }
+
+        set_action_sensitive ("EmptyTrash", can_empty_trash ());
     }
 
     private void on_restore () {
@@ -184,6 +196,16 @@ public class TrashPage : CheckerboardPage {
     private void on_delete () {
         remove_from_app ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (), _ ("Delete"),
                          ngettext ("Deleting a Photo", "Deleting Photos", get_view().get_selected_count ()), true);
+    }
+
+    public void on_empty_trash () {
+        Gee.ArrayList<MediaSource> to_remove = new Gee.ArrayList<MediaSource> ();
+        to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
+        to_remove.add_all (Video.global.get_trashcan_contents ());
+
+        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash…"), true);
+
+        AppWindow.get_command_manager ().reset ();
     }
 
     public override SearchViewFilter get_search_view_filter () {

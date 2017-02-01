@@ -186,7 +186,6 @@ public class LibraryWindow : AppWindow {
         load_configuration ();
 
         foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ()) {
-            media_sources.trashcan_contents_altered.connect (on_trashcan_contents_altered);
             media_sources.items_altered.connect (on_media_altered);
         }
 
@@ -258,7 +257,6 @@ public class LibraryWindow : AppWindow {
         unsubscribe_from_basic_information (get_current_page ());
 
         foreach (MediaSourceCollection media_sources in MediaCollectionRegistry.get_instance ().get_all ()) {
-            media_sources.trashcan_contents_altered.disconnect (on_trashcan_contents_altered);
             media_sources.items_altered.disconnect (on_media_altered);
         }
 
@@ -311,11 +309,6 @@ public class LibraryWindow : AppWindow {
                                         null, Resources.PREFERENCES_MENU, on_preferences
                                       };
         actions += preferences;
-
-        Gtk.ActionEntry empty = { "CommonEmptyTrash", null, _("_Empty Trash"), null, _("Delete all photos in the trash"),
-                                  on_empty_trash
-                                };
-        actions += empty;
 
         Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null,
                                           _("View Eve_nt for Photo"), on_jump_to_event
@@ -662,7 +655,6 @@ public class LibraryWindow : AppWindow {
         CollectionPage collection;
         Photo start;
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
-        set_common_action_sensitive ("CommonEmptyTrash", can_empty_trash ());
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
         set_common_action_sensitive ("CommonFullscreen", can_fullscreen);
@@ -677,23 +669,6 @@ public class LibraryWindow : AppWindow {
             sidebar_action.active = is_metadata_sidebar_visible ();
             sidebar_action.toggled.connect (on_display_metadata_sidebar);
         }
-    }
-    private void on_trashcan_contents_altered () {
-        set_common_action_sensitive ("CommonEmptyTrash", can_empty_trash ());
-    }
-
-    private bool can_empty_trash () {
-        return (LibraryPhoto.global.get_trashcan_count () > 0) || (Video.global.get_trashcan_count () > 0);
-    }
-
-    public void on_empty_trash () {
-        Gee.ArrayList<MediaSource> to_remove = new Gee.ArrayList<MediaSource> ();
-        to_remove.add_all (LibraryPhoto.global.get_trashcan_contents ());
-        to_remove.add_all (Video.global.get_trashcan_contents ());
-
-        remove_from_app (to_remove, _ ("Empty Trash"),  _ ("Emptying Trash…"), true);
-
-        AppWindow.get_command_manager ().reset ();
     }
 
     private void on_new_search () {
