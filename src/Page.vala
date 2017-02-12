@@ -118,7 +118,7 @@ public abstract class Page : Gtk.ScrolledWindow {
 #endif
     }
 
-    protected void populate_contractor_menu (Gtk.Menu menu, string placeholder_ui) {
+    protected void populate_contractor_menu (Gtk.Menu menu) {
         File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
@@ -131,17 +131,9 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
         // Remove old contracts
         contractor_menu_items.foreach ((item) => {
-            if (item != null) item.destroy ();
+            if (item != null && item is ContractMenuItem) item.destroy ();
         });
 
-        //find where is contractor_placeholder in the menu
-        Gtk.Widget holder = ui.get_widget (placeholder_ui);
-        int pos = 0;
-        foreach (Gtk.Widget w in menu.get_children ()) {
-            if (w == holder)
-                break;
-            pos++;
-        }
         //and replace it with menu_item from contractor
         for (int i = 0; i < contracts.size; i++) {
             var contract = contracts.get (i);
@@ -149,7 +141,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 
             menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
             menu.append (menu_item);
-            menu.reorder_child (menu_item, pos);
             contractor_menu_items.append (menu_item);
         }
         menu.show_all ();
@@ -1251,8 +1242,6 @@ public abstract class CheckerboardPage : Page {
     private const int AUTOSCROLL_TICKS_MSEC = 50;
 
     private CheckerboardLayout layout;
-    private string item_context_menu_path = null;
-    private string page_context_menu_path = null;
     private string page_sidebar_menu_path = null;
     private Gtk.Viewport viewport = new Gtk.Viewport (null, null);
     protected CheckerboardItem anchor = null;
@@ -1313,16 +1302,8 @@ public abstract class CheckerboardPage : Page {
         return get_page_name ();
     }
 
-    public void init_item_context_menu (string path) {
-        item_context_menu_path = path;
-    }
-
     public void init_page_sidebar_menu (string path) {
         page_sidebar_menu_path = path;
-    }
-
-    public void init_page_context_menu (string path) {
-        page_context_menu_path = path;
     }
 
     public Gtk.Menu? get_context_menu () {
@@ -1332,25 +1313,7 @@ public abstract class CheckerboardPage : Page {
     }
 
     public virtual Gtk.Menu? get_item_context_menu () {
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget (item_context_menu_path);
-        assert (menu != null);
-        return menu;
-    }
-
-    public override Gtk.Menu? get_page_context_menu () {
-        if (page_context_menu_path == null)
-            return null;
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget (page_context_menu_path);
-        assert (menu != null);
-        return menu;
-    }
-
-    public override Gtk.Menu? get_page_sidebar_menu () {
-        if (page_sidebar_menu_path == null)
-            return null;
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget (page_sidebar_menu_path);
-        assert (menu != null);
-        return menu;
+        return null;
     }
 
     protected override bool on_context_keypress () {

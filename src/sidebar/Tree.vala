@@ -77,7 +77,6 @@ public class Sidebar.Tree : Gtk.TreeView {
             typeof (bool)               // PIXBUF_VISIBLE
                                                     );
 
-    private Gtk.UIManager ui = new Gtk.UIManager ();
     private Gtk.IconTheme icon_theme;
     private Gtk.CellRendererText text_renderer;
     private unowned ExternalDropHandler drop_handler;
@@ -163,7 +162,6 @@ public class Sidebar.Tree : Gtk.TreeView {
         icon_theme = Resources.get_icon_theme_engine ();
         icon_theme.changed.connect (on_theme_change);
 
-        setup_default_context_menu ();
         get_style_context ().add_class (Granite.StyleClass.SOURCE_LIST);
 
         drag_begin.connect (on_drag_begin);
@@ -200,32 +198,6 @@ public class Sidebar.Tree : Gtk.TreeView {
         }
 
         return false;
-    }
-
-    private void setup_default_context_menu () {
-        Gtk.ActionGroup group = new Gtk.ActionGroup ("SidebarDefault");
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), null, null, on_new_search };
-        actions += new_search;
-
-        Gtk.ActionEntry new_tag = { "CommonNewTag", null, _("New _Tag..."), null, null, on_new_tag };
-        actions += new_tag;
-
-        group.add_actions (actions, this);
-        ui.insert_action_group (group, 0);
-
-        File ui_file = Resources.get_ui ("sidebar_default_context.ui");
-        try {
-            ui.add_ui_from_file (ui_file.get_path ());
-        } catch (Error err) {
-            AppWindow.error_message ("Error loading UI file %s: %s".printf (
-                                         ui_file.get_path (), err.message));
-            Application.get_instance ().panic ();
-        }
-        default_context_menu = (Gtk.Menu) ui.get_widget ("/SidebarDefaultContextMenu");
-
-        ui.ensure_update ();
     }
 
     private bool has_wrapper (Sidebar.Entry entry) {
@@ -901,6 +873,20 @@ public class Sidebar.Tree : Gtk.TreeView {
     }
 
     private bool popup_default_context_menu (Gdk.EventButton event) {
+        if (default_context_menu == null) {
+            default_context_menu = new Gtk.Menu ();
+
+            var new_search_menu_item = new Gtk.MenuItem.with_mnemonic (_("New Smart Album…"));
+            new_search_menu_item.activate.connect (() => on_new_search);
+
+            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (_("New _Tag..."));
+            new_tag_menu_item.activate.connect (() => on_new_tag);
+
+            default_context_menu.add (new_search_menu_item);
+            default_context_menu.add (new_tag_menu_item);
+            default_context_menu.show_all ();
+        }
+
         default_context_menu.popup (null, null, null, event.button, event.time);
         return true;
     }

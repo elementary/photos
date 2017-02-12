@@ -2416,6 +2416,10 @@ public class LibraryPhotoPage : EditingHostPage {
     private CollectionPage? return_page = null;
     private bool return_to_collection_on_release = false;
     private LibraryPhotoPageViewFilter filter = new LibraryPhotoPageViewFilter ();
+    private Gtk.Menu open_menu;
+    private Gtk.Menu open_raw_menu;
+    private Gtk.Menu contractor_menu;
+    private Gtk.Menu item_context_menu;
 
     public LibraryPhotoPage () {
         base (LibraryPhoto.global, "Photo");
@@ -2484,13 +2488,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private void on_photo_relinked (Gee.Collection<DataSource> relinked) {
         filter.refresh ();
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-
-        ui_filenames.add ("photo_context.ui");
-        ui_filenames.add ("photo.ui");
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
@@ -2653,16 +2650,6 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         return toggle_actions;
-    }
-
-    protected override InjectionGroup[] init_collect_injection_groups () {
-        InjectionGroup[] groups = base.init_collect_injection_groups ();
-
-        InjectionGroup print_group = new InjectionGroup ("/PhotoContextMenu/PrintPlaceholder");
-        print_group.add_menu_item ("Print");
-        groups += print_group;
-
-        return groups;
     }
 
     protected override void register_radio_actions (Gtk.ActionGroup action_group) {
@@ -2964,23 +2951,138 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private Gtk.Menu get_context_menu () {
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/PhotoContextMenu");
-        assert (menu != null);
+        if (item_context_menu == null) {
+            item_context_menu = new Gtk.Menu ();
 
-        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWith");
-        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
-        open_with_menu_item.show ();
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
 
-        if (has_photo () && get_photo ().get_master_file_format () == PhotoFileFormat.RAW) {
-            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/PhotoContextMenu/OpenWithRaw");
-            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
-            open_with_raw_menu_item.show ();
+            var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
+            var revert_action = get_action ("Revert");
+            revert_action.bind_property ("sensitive", revert_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            revert_menu_item.activate.connect (() => revert_action.activate ());
+
+            var copy_color_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_ADJUSTMENTS_MENU);
+            var copy_color_action = get_action ("CopyColorAdjustments");
+            copy_color_action.bind_property ("sensitive", copy_color_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            copy_color_menu_item.activate.connect (() => copy_color_action.activate ());
+
+            var paste_color_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PASTE_ADJUSTMENTS_MENU);
+            var paste_color_action = get_action ("PasteColorAdjustments");
+            paste_color_action.bind_property ("sensitive", paste_color_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            paste_color_menu_item.activate.connect (() => paste_color_action.activate ());
+
+            var flag_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.FLAG_MENU);
+            var flag_action = get_action ("Flag");
+            flag_action.bind_property ("sensitive", flag_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            flag_menu_item.activate.connect (() => flag_action.activate ());
+
+            var raw_developer_app_menu_item = new Gtk.MenuItem.with_mnemonic (RawDeveloper.SHOTWELL.get_label ());
+            var raw_developer_app_action = get_action ("RawDeveloperShotwell");
+            raw_developer_app_action.bind_property ("sensitive", raw_developer_app_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            raw_developer_app_menu_item.activate.connect (() => raw_developer_app_action.activate ());
+
+            var raw_developer_camera_menu_item = new Gtk.MenuItem.with_mnemonic (RawDeveloper.CAMERA.get_label ());
+            var raw_developer_camera_action = get_action ("RawDeveloperCamera");
+            raw_developer_camera_action.bind_property ("sensitive", raw_developer_camera_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            raw_developer_camera_menu_item.activate.connect (() => raw_developer_camera_action.activate ());
+
+            var raw_developer_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Developer"));
+            var raw_developer_action = get_action ("RawDeveloper");
+            raw_developer_action.bind_property ("sensitive", raw_developer_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_menu = new Gtk.Menu ();
+            var raw_developer_menu = new Gtk.Menu ();
+            raw_developer_menu.add (raw_developer_app_menu_item);
+            raw_developer_menu.add (raw_developer_camera_menu_item);
+            raw_developer_menu_item.set_submenu (raw_developer_menu);
+
+            var adjust_datetime_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.ADJUST_DATE_TIME_MENU);
+            var adjust_datetime_action = get_action ("AdjustDateTime");
+            adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
+
+            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
+            var open_action = get_action ("OpenWith");
+            open_action.bind_property ("sensitive", open_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_menu = new Gtk.Menu ();
+            open_menu_item.set_submenu (open_menu);
+
+            var open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
+            var open_raw_action = get_action ("OpenWithRaw");
+            open_raw_action.bind_property ("sensitive", open_raw_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_raw_menu = new Gtk.Menu ();
+            open_raw_menu_item.set_submenu (open_raw_menu);
+
+            var jump_event_menu_item = new Gtk.MenuItem.with_mnemonic (_("View Eve_nt for Photo"));
+            var jump_event_action = get_common_action ("CommonJumpToEvent");
+            jump_event_action.bind_property ("sensitive", jump_event_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_event_menu_item.activate.connect (() => jump_event_action.activate ());
+
+            var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
+            var jump_action = get_common_action ("CommonJumpToFile");
+            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_action.activate ());
+
+            var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
+            var print_action = get_action ("Print");
+            print_action.bind_property ("sensitive", print_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            print_menu_item.activate.connect (() => print_action.activate ());
+
+            var export_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.EXPORT_MENU);
+            var export_action = get_action ("Export");
+            export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            export_menu_item.activate.connect (() => export_action.activate ());
+
+            var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
+            contractor_menu = new Gtk.Menu ();
+            contractor_menu_item.set_submenu (contractor_menu);
+
+            var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
+            var remove_action = get_action ("RemoveFromLibrary");
+            remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            remove_menu_item.activate.connect (() => remove_action.activate ());
+
+            var trash_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.MOVE_TO_TRASH_MENU);
+            var trash_action = get_action ("MoveToTrash");
+            trash_action.bind_property ("sensitive", trash_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            trash_menu_item.activate.connect (() => trash_action.activate ());
+
+            contractor_menu.add (print_menu_item);
+            contractor_menu.add (export_menu_item);
+
+            item_context_menu.add (adjust_datetime_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (jump_menu_item);
+            item_context_menu.add (open_menu_item);
+            item_context_menu.add (open_raw_menu_item);
+            item_context_menu.add (contractor_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (copy_color_menu_item);
+            item_context_menu.add (paste_color_menu_item);
+            item_context_menu.add (revert_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (flag_menu_item);
+            item_context_menu.add (raw_developer_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (jump_event_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (metadata_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (remove_menu_item);
+            item_context_menu.add (trash_menu_item);
+            item_context_menu.show_all ();
         }
 
-        populate_contractor_menu (menu, "/PhotoContextMenu/ContractorPlaceholder");
+        populate_external_app_menu (open_menu, false);
 
-        menu.show_all ();
-        return menu;
+        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
+            populate_external_app_menu (open_raw_menu, true);
+        }
+
+        populate_contractor_menu (contractor_menu);
+        return item_context_menu;
     }
 
     protected override bool on_context_buttonpress (Gdk.EventButton event) {

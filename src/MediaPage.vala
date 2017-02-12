@@ -156,12 +156,12 @@ public abstract class MediaPage : CheckerboardPage {
     private ZoomSliderAssembly? connected_slider = null;
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
+    private Gtk.Menu page_context_menu;
 
     public MediaPage (string page_name) {
         base (page_name);
 
         tracker = new MediaViewTracker (get_view ());
-        init_page_context_menu ("/MediaViewMenu");
         get_view ().items_altered.connect (on_media_altered);
 
         get_view ().freeze_notifications ();
@@ -179,6 +179,131 @@ public abstract class MediaPage : CheckerboardPage {
         dnd_handler = new DragAndDropHandler (this);
     }
 
+    public override Gtk.Menu? get_page_context_menu () {
+        if (page_context_menu == null) {
+            page_context_menu = new Gtk.Menu ();
+
+            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
+            var sidebar_action = get_common_action ("CommonDisplaySidebar");
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var title_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Titles"));
+            var title_action = get_action ("ViewTitle");
+            title_action.bind_property ("active", title_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var comment_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Comments"));
+            var comment_action = get_action ("ViewComment");
+            comment_action.bind_property ("active", comment_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var tags_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Ta_gs"));
+            var tags_action = get_action ("ViewTags");
+            tags_action.bind_property ("active", tags_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var sort_photos_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Photos"));
+
+            var by_title_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("By _Title"));
+            var by_title_action = get_action ("SortByTitle");
+            by_title_action.bind_property ("active", by_title_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            by_title_menu_item.activate.connect (() => {
+                if (by_title_menu_item.active) {
+                    by_title_action.activate ();
+                }
+            });
+
+            var by_exposure_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (by_title_menu_item, _("By Exposure _Date"));
+            var by_exposure_action = get_action ("SortByExposureDate");
+            by_exposure_action.bind_property ("active", by_exposure_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            by_exposure_menu_item.activate.connect (() => {
+                if (by_exposure_menu_item.active) {
+                    by_exposure_action.activate ();
+                }
+            });
+
+            var ascending_photos_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
+            var ascending_photos_action = get_action ("SortAscending");
+            ascending_photos_action.bind_property ("active", ascending_photos_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_photos_menu_item.activate.connect (() => {
+                if (ascending_photos_menu_item.active) {
+                    ascending_photos_action.activate ();
+                }
+            });
+
+            var descending_photos_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_photos_menu_item, _("D_escending"));
+            var descending_photos_action = get_action ("SortDescending");
+            descending_photos_action.bind_property ("active", descending_photos_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_photos_menu_item.activate.connect (() => {
+                if (descending_photos_menu_item.active) {
+                    descending_photos_action.activate ();
+                }
+            });
+
+            var sort_photos_menu = new Gtk.Menu ();
+            sort_photos_menu.add (by_title_menu_item);
+            sort_photos_menu.add (by_exposure_menu_item);
+            sort_photos_menu.add (new Gtk.SeparatorMenuItem ());
+            sort_photos_menu.add (ascending_photos_menu_item);
+            sort_photos_menu.add (descending_photos_menu_item);
+            sort_photos_menu_item.set_submenu (sort_photos_menu);
+
+            var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
+
+            var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
+            var ascending_action = get_common_action ("CommonSortEventsAscending");
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_menu_item.activate.connect (() => {
+                if (ascending_menu_item.active) {
+                    ascending_action.activate ();
+                }
+            });
+
+            var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
+            var descending_action = get_common_action ("CommonSortEventsDescending");
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_menu_item.activate.connect (() => {
+                if (descending_menu_item.active) {
+                    descending_action.activate ();
+                }
+            });
+
+            var sort_menu = new Gtk.Menu ();
+            sort_menu.add (ascending_menu_item);
+            sort_menu.add (descending_menu_item);
+            sort_menu_item.set_submenu (sort_menu);
+
+            var fullscreen_menu_item = new Gtk.MenuItem.with_mnemonic (_("Fulls_creen"));
+            var fullscreen_action = get_common_action ("CommonFullscreen");
+            fullscreen_action.bind_property ("sensitive", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
+
+            var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
+            var select_action = get_common_action ("CommonSelectAll");
+            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate ());
+
+            page_context_menu.add (sidebar_menu_item);
+            page_context_menu.add (metadata_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (title_menu_item);
+            page_context_menu.add (comment_menu_item);
+            page_context_menu.add (tags_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (sort_photos_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (sort_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (fullscreen_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (select_menu_item);
+            page_context_menu.show_all ();
+        }
+
+        return page_context_menu;
+    }
+
     private static int compute_zoom_scale_increase (int current_scale) {
         int new_scale = current_scale + MANUAL_STEPPING;
         return new_scale.clamp (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE);
@@ -187,12 +312,6 @@ public abstract class MediaPage : CheckerboardPage {
     private static int compute_zoom_scale_decrease (int current_scale) {
         int new_scale = current_scale - MANUAL_STEPPING;
         return new_scale.clamp (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE);
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-
-        ui_filenames.add ("media.ui");
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
@@ -747,20 +866,6 @@ public abstract class MediaPage : CheckerboardPage {
         }
 
         get_view ().set_comparator (comparator, predicate);
-    }
-
-    protected string get_sortby_path (int sort_by) {
-        switch (sort_by) {
-        case SortBy.TITLE:
-            return "/MediaViewMenu/SortPhotos/SortByTitle";
-
-        case SortBy.EXPOSURE_DATE:
-            return "/MediaViewMenu/SortPhotos/SortByExposureDate";
-
-        default:
-            debug ("Unknown sort criteria: %d", sort_by);
-            return "/MediaViewMenu/SortPhotos/SortByTitle";
-        }
     }
 
     protected void sync_sort () {

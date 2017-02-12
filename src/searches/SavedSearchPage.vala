@@ -35,6 +35,7 @@ public class SavedSearchPage : CollectionPage {
 
     // The search logic and parameters are contained in the SavedSearch.
     private SavedSearch search;
+    private Gtk.Menu page_sidebar_menu;
 
     public SavedSearchPage (SavedSearch search) {
         base (search.get_name ());
@@ -43,8 +44,31 @@ public class SavedSearchPage : CollectionPage {
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
             get_view ().monitor_source_collection (sources, new SavedSearchManager (this, search), null);
+    }
 
-        init_page_sidebar_menu ("/SearchContextMenu");
+    public override Gtk.Menu? get_page_sidebar_menu () {
+        if (page_sidebar_menu == null) {
+            page_sidebar_menu = new Gtk.Menu ();
+
+            var rename_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.RENAME_SEARCH_MENU);
+            var rename_action = get_action ("RenameSearch");
+            rename_menu_item.activate.connect (() => rename_action.activate ());
+
+            var edit_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.EDIT_SEARCH_MENU);
+            var edit_action = get_action ("EditSearch");
+            edit_menu_item.activate.connect (() => edit_action.activate ());
+
+            var delete_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.DELETE_SEARCH_MENU);
+            var delete_action = get_action ("DeleteSearch");
+            delete_menu_item.activate.connect (() => delete_action.activate ());
+
+            page_sidebar_menu.add (rename_menu_item);
+            page_sidebar_menu.add (edit_menu_item);
+            page_sidebar_menu.add (delete_menu_item);
+            page_sidebar_menu.show_all ();
+        }
+
+        return page_sidebar_menu;
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
@@ -53,11 +77,6 @@ public class SavedSearchPage : CollectionPage {
 
     protected override void set_config_photos_sort (bool sort_order, int sort_by) {
         Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-        ui_filenames.add ("savedsearch.ui");
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {

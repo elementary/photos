@@ -42,51 +42,86 @@ public abstract class CollectionPage : MediaPage {
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
     private Gtk.ToggleToolButton enhance_button = null;
+    private Gtk.Menu item_context_menu;
+    private Gtk.Menu open_menu;
+    private Gtk.Menu open_raw_menu;
+    private Gtk.Menu contractor_menu;
+    private Gtk.ToolButton rotate_button;
+    private Gtk.ToolButton flip_button;
+
     public CollectionPage (string page_name) {
         base (page_name);
 
         get_view ().items_altered.connect (on_photos_altered);
-
-        init_item_context_menu ("/CollectionContextMenu");
-        init_toolbar ("/CollectionToolbar");
-        enhance_button = new Gtk.ToggleToolButton ();
 
         show_all ();
     }
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            base.get_toolbar ();
+            toolbar = new Gtk.Toolbar ();
+            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
+            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
+
+            var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
+            slideshow_button.icon_name = "media-playback-start-symbolic";
+            slideshow_button.tooltip_text = _("Play a slideshow");
+            slideshow_button.clicked.connect (on_slideshow);
+            toolbar.insert (slideshow_button, -1);
+
+            rotate_button = new Gtk.ToolButton (null, Resources.ROTATE_CW_MENU);
+            rotate_button.icon_name = Resources.CLOCKWISE;
+            rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
+            rotate_button.clicked.connect (on_rotate_clockwise);
+            var rotate_action = get_action ("RotateClockwise");
+            rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
+            toolbar.insert (rotate_button, -1);
+
+            flip_button = new Gtk.ToolButton (null, Resources.HFLIP_MENU);
+            flip_button.icon_name = Resources.HFLIP;
+            flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
+            flip_button.clicked.connect (on_flip_horizontally);
+            var flip_action = get_action ("FlipHorizontally");
+            flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
+            toolbar.insert (flip_button, -1);
+
+            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
+
+            var publish_button = new Gtk.ToolButton (null, Resources.PUBLISH_MENU);
+            publish_button.icon_name = Resources.PUBLISH;
+            publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
+            publish_button.clicked.connect (on_publish);
+            var publish_action = get_action ("Publish");
+            publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
+            toolbar.insert (publish_button, -1);
+
+            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
+
             // enhance tool
-            enhance_button.icon_widget = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
-            enhance_button.set_label (Resources.ENHANCE_LABEL);
-            enhance_button.set_tooltip_text (Resources.ENHANCE_TOOLTIP);
+            enhance_button = new Gtk.ToggleToolButton ();
+            enhance_button.icon_name = Resources.ENHANCE;
+            enhance_button.label = Resources.ENHANCE_LABEL;
+            enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
             enhance_button.is_important = true;
-            toolbar.insert (enhance_button, 2);
+            toolbar.insert (enhance_button, -1);
 
             // separator to force slider to right side of toolbar
             Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
             separator.set_draw (false);
-            get_toolbar ().insert (separator, -1);
+            toolbar.insert (separator, -1);
 
             Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
             drawn_separator.set_expand (false);
             drawn_separator.set_draw (true);
 
-            get_toolbar ().insert (drawn_separator, -1);
+            toolbar.insert (drawn_separator, -1);
 
             // zoom slider assembly
             MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
             connect_slider (zoom_slider_assembly);
-            get_toolbar ().insert (zoom_slider_assembly, -1);
-
-            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
-            slideshow_button.set_tooltip_text (_("Play a slideshow"));
-            slideshow_button.clicked.connect (on_slideshow);
-            get_toolbar ().insert (slideshow_button, 0);
+            toolbar.insert (zoom_slider_assembly, -1);
 
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
@@ -99,26 +134,151 @@ public abstract class CollectionPage : MediaPage {
         return toolbar;
     }
 
-    private static InjectionGroup create_context_menu_injectables () {
-        InjectionGroup group = new InjectionGroup ("/CollectionContextMenu/EditExtrasPlaceholder");
+    public override Gtk.Menu? get_item_context_menu () {
+        if (item_context_menu == null) {
+            item_context_menu = new Gtk.Menu ();
 
-        group.add_menu_item ("Duplicate");
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
 
-        return group;
-    }
+            var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
+            var revert_action = get_action ("Revert");
+            revert_action.bind_property ("sensitive", revert_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            revert_menu_item.activate.connect (() => revert_action.activate ());
 
-    private static InjectionGroup create_view_menu_fullscreen_injectables () {
-        InjectionGroup group = new InjectionGroup ("/MediaViewMenu/ViewExtrasFullscreenSlideshowPlaceholder");
+            var duplicate_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.DUPLICATE_PHOTO_MENU);
+            var duplicate_action = get_action ("Duplicate");
+            duplicate_action.bind_property ("sensitive", duplicate_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            duplicate_menu_item.activate.connect (() => duplicate_action.activate ());
 
-        group.add_menu_item ("Fullscreen", "CommonFullscreen");
+            var copy_color_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_ADJUSTMENTS_MENU);
+            var copy_color_action = get_action ("CopyColorAdjustments");
+            copy_color_action.bind_property ("sensitive", copy_color_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            copy_color_menu_item.activate.connect (() => copy_color_action.activate ());
 
-        return group;
-    }
+            var paste_color_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PASTE_ADJUSTMENTS_MENU);
+            var paste_color_action = get_action ("PasteColorAdjustments");
+            paste_color_action.bind_property ("sensitive", paste_color_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            paste_color_menu_item.activate.connect (() => paste_color_action.activate ());
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
+            var flag_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.FLAG_MENU);
+            var flag_action = get_action ("Flag");
+            flag_action.bind_property ("sensitive", flag_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            flag_menu_item.activate.connect (() => flag_action.activate ());
 
-        ui_filenames.add ("collection.ui");
+            var raw_developer_app_menu_item = new Gtk.MenuItem.with_mnemonic (RawDeveloper.SHOTWELL.get_label ());
+            var raw_developer_app_action = get_action ("RawDeveloperShotwell");
+            raw_developer_app_action.bind_property ("sensitive", raw_developer_app_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            raw_developer_app_menu_item.activate.connect (() => raw_developer_app_action.activate ());
+
+            var raw_developer_camera_menu_item = new Gtk.MenuItem.with_mnemonic (RawDeveloper.CAMERA.get_label ());
+            var raw_developer_camera_action = get_action ("RawDeveloperCamera");
+            raw_developer_camera_action.bind_property ("sensitive", raw_developer_camera_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            raw_developer_camera_menu_item.activate.connect (() => raw_developer_camera_action.activate ());
+
+            var raw_developer_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Developer"));
+            var raw_developer_action = get_action ("RawDeveloper");
+            raw_developer_action.bind_property ("sensitive", raw_developer_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_menu = new Gtk.Menu ();
+            var raw_developer_menu = new Gtk.Menu ();
+            raw_developer_menu.add (raw_developer_app_menu_item);
+            raw_developer_menu.add (raw_developer_camera_menu_item);
+            raw_developer_menu_item.set_submenu (raw_developer_menu);
+
+            var adjust_datetime_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.ADJUST_DATE_TIME_MENU);
+            var adjust_datetime_action = get_action ("AdjustDateTime");
+            adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
+
+            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
+            var open_action = get_action ("OpenWith");
+            open_action.bind_property ("sensitive", open_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_menu = new Gtk.Menu ();
+            open_menu_item.set_submenu (open_menu);
+
+            var open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
+            var open_raw_action = get_action ("OpenWithRaw");
+            open_raw_action.bind_property ("sensitive", open_raw_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            open_raw_menu = new Gtk.Menu ();
+            open_raw_menu_item.set_submenu (open_raw_menu);
+
+            var new_event_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.NEW_EVENT_MENU);
+            var new_event_action = get_action ("NewEvent");
+            new_event_action.bind_property ("sensitive", new_event_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            new_event_menu_item.activate.connect (() => new_event_action.activate ());
+
+            var jump_event_menu_item = new Gtk.MenuItem.with_mnemonic (_("View Eve_nt for Photo"));
+            var jump_event_action = get_common_action ("CommonJumpToEvent");
+            jump_event_action.bind_property ("sensitive", jump_event_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_event_menu_item.activate.connect (() => jump_event_action.activate ());
+
+            var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
+            var jump_action = get_common_action ("CommonJumpToFile");
+            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_action.activate ());
+
+            var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
+            var print_action = get_action ("Print");
+            print_action.bind_property ("sensitive", print_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            print_menu_item.activate.connect (() => print_action.activate ());
+
+            var export_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.EXPORT_MENU);
+            var export_action = get_action ("Export");
+            export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            export_menu_item.activate.connect (() => export_action.activate ());
+
+            var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
+            contractor_menu = new Gtk.Menu ();
+            contractor_menu_item.set_submenu (contractor_menu);
+
+            var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
+            var remove_action = get_action ("RemoveFromLibrary");
+            remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            remove_menu_item.activate.connect (() => remove_action.activate ());
+
+            var trash_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.MOVE_TO_TRASH_MENU);
+            var trash_action = get_action ("MoveToTrash");
+            trash_action.bind_property ("sensitive", trash_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            trash_menu_item.activate.connect (() => trash_action.activate ());
+
+            contractor_menu.add (print_menu_item);
+            contractor_menu.add (export_menu_item);
+
+            item_context_menu.add (adjust_datetime_menu_item);
+            item_context_menu.add (duplicate_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (jump_menu_item);
+            item_context_menu.add (open_menu_item);
+            item_context_menu.add (open_raw_menu_item);
+            item_context_menu.add (contractor_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (copy_color_menu_item);
+            item_context_menu.add (paste_color_menu_item);
+            item_context_menu.add (revert_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (flag_menu_item);
+            item_context_menu.add (raw_developer_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (new_event_menu_item);
+            item_context_menu.add (jump_event_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (metadata_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (remove_menu_item);
+            item_context_menu.add (trash_menu_item);
+            item_context_menu.show_all ();
+        }
+
+        populate_external_app_menu (open_menu, false);
+
+        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
+            populate_external_app_menu (open_raw_menu, true);
+        }
+
+        populate_contractor_menu (contractor_menu);
+        return item_context_menu;
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
@@ -196,35 +356,6 @@ public abstract class CollectionPage : MediaPage {
         actions += slideshow;
 
         return actions;
-    }
-
-    protected override InjectionGroup[] init_collect_injection_groups () {
-        InjectionGroup[] groups = base.init_collect_injection_groups ();
-
-        groups += create_context_menu_injectables ();
-        groups += create_view_menu_fullscreen_injectables ();
-
-        return groups;
-    }
-
-    public override Gtk.Menu? get_item_context_menu () {
-        Gtk.Menu menu = (Gtk.Menu) ui.get_widget ("/CollectionContextMenu");
-        assert (menu != null);
-
-        Gtk.MenuItem open_with_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWith");
-        populate_external_app_menu ((Gtk.Menu)open_with_menu_item.get_submenu (), false);
-        open_with_menu_item.show ();
-
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
-        if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
-            Gtk.MenuItem open_with_raw_menu_item = (Gtk.MenuItem) ui.get_widget ("/CollectionContextMenu/OpenWithRaw");
-            populate_external_app_menu ((Gtk.Menu)open_with_raw_menu_item.get_submenu (), true);
-            open_with_raw_menu_item.show ();
-        }
-
-        populate_contractor_menu (menu, "/CollectionContextMenu/ContractorPlaceholder");
-        menu.show_all ();
-        return menu;
     }
 
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
@@ -365,9 +496,10 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
         set_action_sensitive ("Publish", has_selected);
-        enhance_button.sensitive = (!selection_has_videos) && has_selected;
-
-        update_enhance_toggled ();
+        if (enhance_button != null) {
+            enhance_button.sensitive = (!selection_has_videos) && has_selected;
+            update_enhance_toggled ();
+        }
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> altered) {
@@ -791,29 +923,31 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
-        Gtk.ToolButton? rotate_button = ui.get_widget ("/CollectionToolbar/ToolRotate")
-                                        as Gtk.ToolButton;
-        if (rotate_button != null)
-            rotate_button.set_related_action (get_action ("RotateCounterclockwise"));
-
-        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
-                                        as Gtk.ToolButton;
-        if (flip_button != null)
-            flip_button.set_related_action (get_action ("FlipVertically"));
+        flip_button.label = Resources.VFLIP_MENU;
+        flip_button.icon_name = Resources.VFLIP;
+        flip_button.tooltip_text = Resources.VFLIP_TOOLTIP;
+        rotate_button.label = Resources.ROTATE_CCW_MENU;
+        rotate_button.icon_name = Resources.COUNTERCLOCKWISE;
+        rotate_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP;
+        flip_button.clicked.disconnect (on_flip_horizontally);
+        flip_button.clicked.connect (on_flip_vertically);
+        rotate_button.clicked.disconnect (on_rotate_clockwise);
+        rotate_button.clicked.connect (on_rotate_counterclockwise);
 
         return base.on_ctrl_pressed (event);
     }
 
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
-        Gtk.ToolButton? rotate_button = ui.get_widget ("/CollectionToolbar/ToolRotate")
-                                        as Gtk.ToolButton;
-        if (rotate_button != null)
-            rotate_button.set_related_action (get_action ("RotateClockwise"));
-            
-        Gtk.ToolButton? flip_button = ui.get_widget ("/CollectionToolbar/ToolFlip")
-                                        as Gtk.ToolButton;
-        if (flip_button != null)
-            flip_button.set_related_action (get_action ("FlipHorizontally"));
+        flip_button.label = Resources.HFLIP_MENU;
+        flip_button.icon_name = Resources.HFLIP;
+        flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
+        rotate_button.label = Resources.ROTATE_CW_MENU;
+        rotate_button.icon_name = Resources.CLOCKWISE;
+        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
+        flip_button.clicked.disconnect (on_flip_vertically);
+        flip_button.clicked.connect (on_flip_horizontally);
+        rotate_button.clicked.disconnect (on_rotate_counterclockwise);
+        rotate_button.clicked.connect (on_rotate_clockwise);
 
         return base.on_ctrl_released (event);
     }

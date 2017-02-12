@@ -721,6 +721,9 @@ public class ImportPage : CheckerboardPage {
     private HideImportedViewFilter hide_imported_filter = new HideImportedViewFilter ();
     private CameraViewTracker tracker;
 
+    private Gtk.Menu page_context_menu;
+    private Gtk.Menu import_context_menu;
+
 #if UNITY_SUPPORT
     UnityProgressBar uniprobar = UnityProgressBar.get_instance ();
 #endif
@@ -783,10 +786,6 @@ public class ImportPage : CheckerboardPage {
         // monitor Photos for removals, as that will change the result of the ViewFilter
         LibraryPhoto.global.contents_altered.connect (on_media_added_removed);
         Video.global.contents_altered.connect (on_media_added_removed);
-
-        init_item_context_menu ("/ImportContextMenu");
-        init_page_sidebar_menu ("/ImportContextMenu");
-        init_page_context_menu ("/ImportViewMenu");
     }
 
     ~ImportPage () {
@@ -859,6 +858,100 @@ public class ImportPage : CheckerboardPage {
         return toolbar;
     }
 
+    public override Gtk.Menu? get_item_context_menu () {
+        if (import_context_menu == null) {
+            create_import_context_menu ();
+        }
+
+        return import_context_menu;
+    }
+
+    public override Gtk.Menu? get_page_context_menu () {
+        if (page_context_menu == null) {
+            page_context_menu = new Gtk.Menu ();
+
+            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
+            var sidebar_action = get_common_action ("CommonDisplaySidebar");
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var viewtitle_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Titles"));
+            var viewtitle_action = get_action ("ViewTitle");
+            viewtitle_action.bind_property ("active", viewtitle_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
+
+            var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
+            var ascending_action = get_common_action ("CommonSortEventsAscending");
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_menu_item.activate.connect (() => {
+                if (ascending_menu_item.active) {
+                    ascending_action.activate ();
+                }
+            });
+
+            var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
+            var descending_action = get_common_action ("CommonSortEventsDescending");
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_menu_item.activate.connect (() => {
+                if (descending_menu_item.active) {
+                    descending_action.activate ();
+                }
+            });
+
+            var sort_menu = new Gtk.Menu ();
+            sort_menu.add (ascending_menu_item);
+            sort_menu.add (descending_menu_item);
+            sort_menu_item.set_submenu (sort_menu);
+
+            var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
+            var select_action = get_common_action ("CommonSelectAll");
+            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate ());
+
+            page_context_menu.add (sidebar_menu_item);
+            page_context_menu.add (metadata_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (viewtitle_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (sort_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (select_menu_item);
+            page_context_menu.show_all ();
+        }
+
+        return page_context_menu;
+    }
+
+    public override Gtk.Menu? get_page_sidebar_menu () {
+        if (import_context_menu == null) {
+            create_import_context_menu ();
+        }
+
+        return import_context_menu;
+    }
+
+    private void create_import_context_menu () {
+        import_context_menu = new Gtk.Menu ();
+
+        var selected_menu_item = new Gtk.MenuItem.with_mnemonic (_("Import _Selected"));
+        var selected_action = get_common_action ("ImportSelected");
+        selected_action.bind_property ("sensitive", selected_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+        selected_menu_item.activate.connect (() => selected_action.activate ());
+
+        var all_menu_item = new Gtk.MenuItem.with_mnemonic (_("Import _All"));
+        var all_action = get_common_action ("ImportAll");
+        all_action.bind_property ("sensitive", all_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+        all_menu_item.activate.connect (() => all_action.activate ());
+
+        import_context_menu.add (selected_menu_item);
+        import_context_menu.add (all_menu_item);
+        import_context_menu.show_all ();
+    }
+
     public override Core.ViewTracker? get_view_tracker () {
         return tracker;
     }
@@ -882,12 +975,6 @@ public class ImportPage : CheckerboardPage {
 
     private int64 import_job_comparator (void *a, void *b) {
         return ((CameraImportJob *) a)->get_exposure_time () - ((CameraImportJob *) b)->get_exposure_time ();
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-
-        ui_filenames.add ("import.ui");
     }
 
     protected override Gtk.ToggleActionEntry[] init_collect_toggle_action_entries () {

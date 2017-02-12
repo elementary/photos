@@ -67,7 +67,7 @@ public class DirectWindow : AppWindow {
     protected override void on_fullscreen () {
         File file = get_direct_page ().get_current_file ();
 
-        go_fullscreen (new DirectFullscreenPhotoPage (file));
+        go_fullscreen (new DirectPhotoPage (file, true));
     }
 
     public override string get_app_role () {

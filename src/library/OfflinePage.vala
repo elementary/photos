@@ -37,13 +37,11 @@ public class OfflinePage : CheckerboardPage {
 
     private OfflineSearchViewFilter search_filter = new OfflineSearchViewFilter ();
     private MediaViewTracker tracker;
+    private Gtk.Menu page_context_menu;
+    private Gtk.Menu page_sidebar_menu;
 
     public OfflinePage () {
         base (NAME);
-
-        init_item_context_menu ("/OfflineContextMenu");
-        init_page_context_menu ("/OfflineViewMenu");
-        init_toolbar ("/OfflineToolbar");
 
         tracker = new MediaViewTracker (get_view ());
 
@@ -60,10 +58,94 @@ public class OfflinePage : CheckerboardPage {
         Video.global.offline_contents_altered.disconnect (on_offline_contents_altered);
     }
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
+    public override Gtk.Toolbar get_toolbar () {
+        if (toolbar == null) {
+            toolbar = new Gtk.Toolbar ();
+            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
+            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
 
-        ui_filenames.add ("offline.ui");
+            var remove_button = new Gtk.Button.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
+            remove_button.margin_start = remove_button.margin_end = 3;
+            remove_button.tooltip_text = Resources.DELETE_FROM_LIBRARY_TOOLTIP;
+            var remove_tool = new Gtk.ToolItem ();
+            remove_tool.add (remove_button);
+            toolbar.insert (remove_tool, -1);
+            var remove_action = get_action ("RemoveFromLibrary");
+            remove_action.bind_property ("sensitive", remove_button, "sensitive", BindingFlags.SYNC_CREATE);
+            remove_button.clicked.connect (() => remove_action.activate ());
+        }
+
+        return toolbar;
+    }
+
+    public override Gtk.Menu? get_page_sidebar_menu () {
+        if (page_sidebar_menu == null) {
+            page_sidebar_menu = new Gtk.Menu ();
+
+            var remove_menu_item = new Gtk.CheckMenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
+            var remove_action = get_action ("RemoveFromLibrary");
+            remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            remove_menu_item.activate.connect (() => remove_action.activate ());
+
+            page_sidebar_menu.add (remove_menu_item);
+            page_sidebar_menu.show_all ();
+        }
+
+        return page_sidebar_menu;
+    }
+
+    public override Gtk.Menu? get_page_context_menu () {
+        if (page_context_menu == null) {
+            page_context_menu = new Gtk.Menu ();
+
+            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
+            var sidebar_action = get_common_action ("CommonDisplaySidebar");
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
+
+            var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
+            var ascending_action = get_common_action ("CommonSortEventsAscending");
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_menu_item.activate.connect (() => {
+                if (ascending_menu_item.active) {
+                    ascending_action.activate ();
+                }
+            });
+
+            var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
+            var descending_action = get_common_action ("CommonSortEventsDescending");
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_menu_item.activate.connect (() => {
+                if (descending_menu_item.active) {
+                    descending_action.activate ();
+                }
+            });
+
+            var sort_menu = new Gtk.Menu ();
+            sort_menu.add (ascending_menu_item);
+            sort_menu.add (descending_menu_item);
+            sort_menu_item.set_submenu (sort_menu);
+
+            var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
+            var select_action = get_common_action ("CommonSelectAll");
+            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate ());
+
+            page_context_menu.add (sidebar_menu_item);
+            page_context_menu.add (metadata_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (sort_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (select_menu_item);
+            page_context_menu.show_all ();
+        }
+
+        return page_context_menu;
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {

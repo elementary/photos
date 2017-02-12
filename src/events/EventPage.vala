@@ -19,14 +19,13 @@
 
 public class EventPage : CollectionPage {
     private Event page_event;
+    private Gtk.Menu page_sidebar_menu;
 
     public EventPage (Event page_event) {
         base (page_event.get_name ());
 
         this.page_event = page_event;
         page_event.mirror_photos (get_view (), create_thumbnail);
-
-        init_page_sidebar_menu ("/EventContextMenu");
 
         Event.global.items_altered.connect (on_events_altered);
     }
@@ -54,10 +53,20 @@ public class EventPage : CollectionPage {
         get_view ().halt_mirroring ();
     }
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
+    public override Gtk.Menu? get_page_sidebar_menu () {
+        if (page_sidebar_menu == null) {
+            page_sidebar_menu = new Gtk.Menu ();
 
-        ui_filenames.add ("event.ui");
+            var rename_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.RENAME_EVENT_MENU);
+            var rename_action = get_action ("Rename");
+            rename_action.bind_property ("sensitive", rename_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            rename_menu_item.activate.connect (() => rename_action.activate ());
+
+            page_sidebar_menu.add (rename_menu_item);
+            page_sidebar_menu.show_all ();
+        }
+
+        return page_sidebar_menu;
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
@@ -85,10 +94,6 @@ public class EventPage : CollectionPage {
         set_action_visible ("CommonJumpToEvent", false);
 
         base.update_actions (selected_count, count);
-
-        // this is always valid; if the user has right-clicked in an empty area,
-        // change the comment on the event itself.
-        set_action_sensitive ("EditEventComment", true);
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
