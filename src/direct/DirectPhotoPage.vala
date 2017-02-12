@@ -22,9 +22,13 @@ public class DirectPhotoPage : EditingHostPage {
     private DirectViewCollection? view_controller = null;
     private File current_save_dir;
     private bool drop_if_dirty = false;
+    private Gtk.Menu contractor_menu;
+    private Gtk.Menu context_menu;
+    private bool fullscreen;
 
-    public DirectPhotoPage (File file) {
+    public DirectPhotoPage (File file, bool fullscreen = false) {
         base (DirectPhoto.global, file.get_basename ());
+        this.fullscreen = fullscreen;
 
         if (!check_editable_file (file)) {
             Application.get_instance ().panic ();
@@ -44,13 +48,6 @@ public class DirectPhotoPage : EditingHostPage {
 
     ~DirectPhotoPage () {
         DirectPhoto.global.items_altered.disconnect (on_photos_altered);
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-
-        ui_filenames.add ("direct_context.ui");
-        ui_filenames.add ("direct.ui");
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
@@ -184,16 +181,6 @@ public class DirectPhotoPage : EditingHostPage {
         return actions;
     }
 
-    protected override InjectionGroup[] init_collect_injection_groups () {
-        InjectionGroup[] groups = base.init_collect_injection_groups ();
-
-        InjectionGroup print_group = new InjectionGroup ("/DirectContextMenu/PrintPlaceholder");
-        print_group.add_menu_item ("Print");
-        groups += print_group;
-
-        return groups;
-    }
-
     private static bool check_editable_file (File file) {
         if (!FileUtils.test (file.get_path (), FileTest.EXISTS))
             AppWindow.error_message (_ ("%s does not exist.").printf (file.get_path ()));
@@ -227,8 +214,48 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     protected override bool on_context_buttonpress (Gdk.EventButton event) {
-        Gtk.Menu context_menu = (Gtk.Menu) ui.get_widget ("/DirectContextMenu");
-        populate_contractor_menu (context_menu, "/DirectContextMenu/ContractorPlaceholder");
+        if (context_menu == null) {
+            context_menu = new Gtk.Menu ();
+
+            var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
+            var revert_action = get_action ("Revert");
+            revert_action.bind_property ("sensitive", revert_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            revert_menu_item.activate.connect (() => revert_action.activate ());
+
+            var adjust_datetime_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.ADJUST_DATE_TIME_MENU);
+            var adjust_datetime_action = get_action ("AdjustDateTime");
+            adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
+
+            context_menu.add (revert_menu_item);
+            context_menu.add (new Gtk.SeparatorMenuItem ());
+            context_menu.add (adjust_datetime_menu_item);
+
+            if (fullscreen == false) {
+                var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
+                var jump_action = get_common_action ("CommonJumpToFile");
+                jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                jump_menu_item.activate.connect (() => jump_action.activate ());
+
+                var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
+                var print_action = get_action ("Print");
+                print_action.bind_property ("sensitive", print_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                print_menu_item.activate.connect (() => print_action.activate ());
+
+                var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
+                contractor_menu = new Gtk.Menu ();
+                contractor_menu.add (print_menu_item);
+                contractor_menu_item.set_submenu (contractor_menu);
+
+                context_menu.add (new Gtk.SeparatorMenuItem ());
+                context_menu.add (jump_menu_item);
+                context_menu.add (contractor_menu_item);
+            }
+
+            context_menu.show_all ();
+        }
+
+        populate_contractor_menu (contractor_menu);
         popup_context_menu (context_menu, event);
 
         return true;
@@ -287,7 +314,7 @@ public class DirectPhotoPage : EditingHostPage {
             AppWindow.get_instance ().end_fullscreen ();
         } else {
             File file = get_current_file ();
-            AppWindow.get_instance ().go_fullscreen (new DirectFullscreenPhotoPage (file));
+            AppWindow.get_instance ().go_fullscreen (new DirectPhotoPage (file, true));
         }
         return true;
     }
@@ -545,17 +572,5 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override DataView create_photo_view (DataSource source) {
         return new DirectView ((DirectPhoto) source);
-    }
-}
-
-public class DirectFullscreenPhotoPage : DirectPhotoPage {
-    public DirectFullscreenPhotoPage (File file) {
-        base (file);
-    }
-
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        // We intentionally avoid calling the base class implementation since we don't want
-        // direct.ui.
-        ui_filenames.add ("direct_context.ui");
     }
 }

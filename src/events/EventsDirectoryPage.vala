@@ -54,6 +54,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     protected ViewManager view_manager;
 
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter ();
+    private Gtk.Menu page_context_menu;
+    private Gtk.Menu item_context_menu;
 
     public EventsDirectoryPage (string page_name, ViewManager view_manager,
                                 Gee.Collection<Event>? initial_events) {
@@ -66,9 +68,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         get_view ().set_property (Event.PROP_SHOW_COMMENTS,
                                   Config.Facade.get_instance ().get_display_event_comments ());
-
-        init_item_context_menu ("/EventsDirectoryContextMenu");
-        init_page_context_menu ("/EventsDirectoryViewMenu");
 
         this.view_manager = view_manager;
 
@@ -109,10 +108,87 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         action.changed.disconnect (on_sort_changed);
     }
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        ui_filenames.add ("events_directory.ui");
+    public override Gtk.Menu? get_item_context_menu () {
+        if (item_context_menu == null) {
+            item_context_menu = new Gtk.Menu ();
 
-        base.init_collect_ui_filenames (ui_filenames);
+            var merge_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.MERGE_MENU);
+            var merge_action = get_action ("Merge");
+            merge_action.bind_property ("sensitive", merge_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            merge_menu_item.activate.connect (() => merge_action.activate ());
+
+            var rename_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.RENAME_EVENT_MENU);
+            var rename_action = get_action ("Rename");
+            rename_action.bind_property ("sensitive", rename_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            rename_menu_item.activate.connect (() => rename_action.activate ());
+
+            item_context_menu.add (merge_menu_item);
+            item_context_menu.add (rename_menu_item);
+            item_context_menu.show_all ();
+        }
+
+        return item_context_menu;
+    }
+
+    public override Gtk.Menu? get_page_context_menu () {
+        if (page_context_menu == null) {
+            page_context_menu = new Gtk.Menu ();
+
+            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
+            var sidebar_action = get_common_action ("CommonDisplaySidebar");
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
+            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+
+            var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
+
+            var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
+            var ascending_action = get_common_action ("CommonSortEventsAscending");
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_menu_item.activate.connect (() => {
+                if (ascending_menu_item.active) {
+                    ascending_action.activate ();
+                }
+            });
+
+            var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
+            var descending_action = get_common_action ("CommonSortEventsDescending");
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_menu_item.activate.connect (() => {
+                if (descending_menu_item.active) {
+                    descending_action.activate ();
+                }
+            });
+
+            var sort_menu = new Gtk.Menu ();
+            sort_menu.add (ascending_menu_item);
+            sort_menu.add (descending_menu_item);
+            sort_menu_item.set_submenu (sort_menu);
+
+            var fullscreen_menu_item = new Gtk.MenuItem.with_mnemonic (_("Fulls_creen"));
+            var fullscreen_action = get_common_action ("CommonFullscreen");
+            fullscreen_action.bind_property ("sensitive", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
+
+            var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
+            var select_action = get_common_action ("CommonSelectAll");
+            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate ());
+
+            page_context_menu.add (sidebar_menu_item);
+            page_context_menu.add (metadata_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (sort_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (fullscreen_menu_item);
+            page_context_menu.add (new Gtk.SeparatorMenuItem ());
+            page_context_menu.add (select_menu_item);
+            page_context_menu.show_all ();
+        }
+
+        return page_context_menu;
     }
 
     protected static bool event_comparator_predicate (DataObject object, Alteration alteration) {

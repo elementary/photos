@@ -19,6 +19,7 @@
 
 public class TagPage : CollectionPage {
     private Tag tag;
+    private Gtk.Menu page_sidebar_menu;
 
     public TagPage (Tag tag) {
         base (tag.get_name ());
@@ -27,8 +28,6 @@ public class TagPage : CollectionPage {
 
         Tag.global.items_altered.connect (on_tags_altered);
         tag.mirror_sources (get_view (), create_thumbnail);
-
-        init_page_sidebar_menu ("/TagsContextMenu");
     }
 
     ~TagPage () {
@@ -36,9 +35,33 @@ public class TagPage : CollectionPage {
         Tag.global.items_altered.disconnect (on_tags_altered);
     }
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        base.init_collect_ui_filenames (ui_filenames);
-        ui_filenames.add ("tags.ui");
+    public override Gtk.Menu? get_page_sidebar_menu () {
+        if (page_sidebar_menu == null) {
+            page_sidebar_menu = new Gtk.Menu ();
+
+            var new_child_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.NEW_CHILD_TAG_SIDEBAR_MENU);
+            var new_child_action = get_action ("NewChildTagSidebar");
+            new_child_action.bind_property ("sensitive", new_child_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            new_child_menu_item.activate.connect (() => new_child_action.activate ());
+
+            var rename_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.RENAME_TAG_SIDEBAR_MENU);
+            var rename_action = get_action ("RenameTagSidebar");
+            rename_action.bind_property ("sensitive", rename_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            rename_menu_item.activate.connect (() => rename_action.activate ());
+
+            var delete_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.DELETE_TAG_SIDEBAR_MENU);
+            var delete_action = get_action ("DeleteTagSidebar");
+            delete_action.bind_property ("sensitive", delete_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            delete_menu_item.activate.connect (() => delete_action.activate ());
+
+            page_sidebar_menu.add (new_child_menu_item);
+            page_sidebar_menu.add (new Gtk.SeparatorToolItem ());
+            page_sidebar_menu.add (rename_menu_item);
+            page_sidebar_menu.add (delete_menu_item);
+            page_sidebar_menu.show_all ();
+        }
+
+        return page_sidebar_menu;
     }
 
     public Tag get_tag () {

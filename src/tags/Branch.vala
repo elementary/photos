@@ -133,35 +133,10 @@ public class Tags.Branch : Sidebar.Branch {
 
 public class Tags.Grouping : Sidebar.Grouping, Sidebar.InternalDropTargetEntry,
     Sidebar.InternalDragSourceEntry, Sidebar.Contextable {
-    private Gtk.UIManager ui = new Gtk.UIManager ();
     private Gtk.Menu? context_menu = null;
 
     public Grouping () {
         base (_ ("Tags"), new ThemedIcon (Resources.ICON_TAGS));
-        setup_context_menu ();
-    }
-
-    private void setup_context_menu () {
-        Gtk.ActionGroup group = new Gtk.ActionGroup ("SidebarDefault");
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry new_tag = { "CommonNewTag", null, Resources.NEW_CHILD_TAG_SIDEBAR_MENU, null, null, on_new_tag };
-        actions += new_tag;
-
-        group.add_actions (actions, this);
-        ui.insert_action_group (group, 0);
-
-        File ui_file = Resources.get_ui ("tag_sidebar_context.ui");
-        try {
-            ui.add_ui_from_file (ui_file.get_path ());
-        } catch (Error err) {
-            AppWindow.error_message ("Error loading UI file %s: %s".printf (
-                                         ui_file.get_path (), err.message));
-            Application.get_instance ().panic ();
-        }
-        context_menu = (Gtk.Menu) ui.get_widget ("/SidebarTagContextMenu");
-
-        ui.ensure_update ();
     }
 
     public bool internal_drop_received (Gee.List<MediaSource> media) {
@@ -191,6 +166,15 @@ public class Tags.Grouping : Sidebar.Grouping, Sidebar.InternalDropTargetEntry,
     }
 
     public Gtk.Menu? get_sidebar_context_menu (Gdk.EventButton? event) {
+        if (context_menu == null) {
+            context_menu = new Gtk.Menu ();
+
+            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.NEW_CHILD_TAG_SIDEBAR_MENU);
+            new_tag_menu_item.activate.connect (() => on_new_tag);
+            context_menu.add (new_tag_menu_item);
+            context_menu.show_all ();
+        }
+
         return context_menu;
     }
 
