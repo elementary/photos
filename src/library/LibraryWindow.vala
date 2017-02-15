@@ -96,12 +96,6 @@ public class LibraryWindow : AppWindow {
             base.switched_to ();
         }
 
-        protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-            // We intentionally don't call the base class here since we don't want the
-            // top-level menu in photo.ui.
-            ui_filenames.add ("photo_context.ui");
-        }
-
     }
 
     private string import_dir = Environment.get_home_dir ();
@@ -408,10 +402,6 @@ public class LibraryWindow : AppWindow {
         groups += common_action_group;
 
         return groups;
-    }
-
-    public override void replace_common_placeholders (Gtk.UIManager ui) {
-        base.replace_common_placeholders (ui);
     }
 
     protected override void switched_pages (Page? old_page, Page? new_page) {

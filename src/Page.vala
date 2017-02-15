@@ -17,52 +17,9 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class InjectionGroup {
-    public class Element {
-        public string name;
-        public string action;
-        public Gtk.UIManagerItemType kind;
-
-        public Element (string name, string? action, Gtk.UIManagerItemType kind) {
-            this.name = name;
-            this.action = action != null ? action : name;
-            this.kind = kind;
-        }
-    }
-
-    private string path;
-    private Gee.ArrayList < Element?> elements = new Gee.ArrayList < Element?> ();
-    private int separator_id = 0;
-
-    public InjectionGroup (string path) {
-        this.path = path;
-    }
-
-    public string get_path () {
-        return path;
-    }
-
-    public Gee.List < Element?> get_elements () {
-        return elements;
-    }
-
-    public void add_menu_item (string name, string? action = null) {
-        elements.add (new Element (name, action, Gtk.UIManagerItemType.MENUITEM));
-    }
-
-    public void add_menu (string name, string? action = null) {
-        elements.add (new Element (name, action, Gtk.UIManagerItemType.MENU));
-    }
-
-    public void add_separator () {
-        elements.add (new Element ("%d-separator".printf (separator_id++), null, Gtk.UIManagerItemType.SEPARATOR));
-    }
-}
-
 public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
-    protected Gtk.UIManager ui;
     protected Gtk.Toolbar toolbar;
     protected bool in_view = false;
     protected Gtk.ToolButton show_sidebar_button;
@@ -70,7 +27,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     private string page_name;
     private ViewCollection view = null;
     private Gtk.Window container = null;
-    private string toolbar_path;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
     private bool dnd_enabled = false;
@@ -94,7 +50,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     private Gtk.ActionGroup[]? common_action_groups = null;
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
-    private uint[] merge_ids = new uint[0];
 
     protected Page (string page_name) {
         this.page_name = page_name;
@@ -199,7 +154,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         assert (this.container == null);
 
         this.container = container;
-        ui = ((PageWindow) container).get_ui_manager ();
     }
 
     public virtual void clear_container () {
@@ -244,14 +198,9 @@ public abstract class Page : Gtk.ScrolledWindow {
         return event_source;
     }
 
-    public virtual unowned Gtk.Widget get_page_ui_widget (string path) {
-        return ui.get_widget (path);
-    }
-
     public virtual Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            toolbar = toolbar_path == null ? new Gtk.Toolbar () :
-                      ui.get_widget (toolbar_path) as Gtk.Toolbar;
+            toolbar = new Gtk.Toolbar ();
             toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
             toolbar.set_style (Gtk.ToolbarStyle.ICONS);
         }
@@ -268,14 +217,11 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     public virtual void switching_from () {
         in_view = false;
-        remove_ui ();
-        if (toolbar_path != null)
-            toolbar = null;
+        toolbar = null;
     }
 
     public virtual void switched_to () {
         in_view = true;
-        add_ui ();
         update_modifiers ();
     }
 
@@ -520,47 +466,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         common_action_groups = AppWindow.get_instance ().get_common_action_groups ();
     }
 
-    private void add_ui () {
-        // Collect all UI filenames and load them into the UI manager
-        Gee.List<string> ui_filenames = new Gee.ArrayList<string> ();
-        init_collect_ui_filenames (ui_filenames);
-        if (ui_filenames.size == 0)
-            message ("No UI file specified for %s", get_page_name ());
-
-        foreach (string ui_filename in ui_filenames)
-            init_load_ui (ui_filename);
-
-        ui.insert_action_group (action_group, 0);
-
-        // Collect injected UI elements and add them to the UI manager
-        InjectionGroup[] injection_groups = init_collect_injection_groups ();
-        foreach (InjectionGroup group in injection_groups) {
-            foreach (InjectionGroup.Element element in group.get_elements ()) {
-                uint merge_id = ui.new_merge_id ();
-                ui.add_ui (merge_id, group.get_path (), element.name, element.action,
-                           element.kind, false);
-                merge_ids += merge_id;
-            }
-        }
-
-        AppWindow.get_instance ().replace_common_placeholders (ui);
-
-        ui.ensure_update ();
-    }
-
-    private void remove_ui () {
-        for (int i = merge_ids.length - 1 ; i >= 0 ; --i)
-            ui.remove_ui (merge_ids[i]);
-        ui.remove_action_group (action_group);
-        merge_ids.resize (0);
-
-        ui.ensure_update ();
-    }
-
-    public void init_toolbar (string path) {
-        toolbar_path = path;
-    }
-
     public virtual Gtk.Box get_header_buttons () {
         header_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         return header_box;
@@ -616,24 +521,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         update_actions (get_view ().get_selected_count (), get_view ().get_count ());
     }
 
-    private void init_load_ui (string ui_filename) {
-        File ui_file = Resources.get_ui (ui_filename);
-
-        try {
-            merge_ids += ui.add_ui_from_file (ui_file.get_path ());
-        } catch (Error err) {
-            AppWindow.error_message ("Error loading UI file %s: %s".printf (
-                                         ui_file.get_path (), err.message));
-            Application.get_instance ().panic ();
-        }
-    }
-
-    // This is called during init_ui () to collect all the UI files to be loaded into the UI
-    // manager.  Because order is important here, call the base method *first*, then add the
-    // classes' filename.
-    protected virtual void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-    }
-
     // This is called during init_ui () to collect all Gtk.ActionEntries for the page.
     protected virtual Gtk.ActionEntry[] init_collect_action_entries () {
         return new Gtk.ActionEntry[0];
@@ -646,12 +533,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     // This is called during init_ui () to collect all Gtk.RadioActionEntries for the page
     protected virtual void register_radio_actions (Gtk.ActionGroup action_group) {
-    }
-
-    // This is called during init_ui () to collect all Page.InjectedUIElements for the page.  They
-    // should be added to the MultiSet using the injection path as the key.
-    protected virtual InjectionGroup[] init_collect_injection_groups () {
-        return new InjectionGroup[0];
     }
 
     // This is called during "map" allowing for Gtk.Actions to be updated at
