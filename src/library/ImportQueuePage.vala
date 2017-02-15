@@ -63,12 +63,6 @@ public class ImportQueuePage : SinglePhotoPage {
 #endif
     }
 
-    protected override void init_collect_ui_filenames (Gee.List<string> ui_filenames) {
-        ui_filenames.add ("import_queue.ui");
-
-        base.init_collect_ui_filenames (ui_filenames);
-    }
-
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 

@@ -310,10 +310,6 @@ public abstract class PageWindow : Gtk.Window {
         set_has_resize_grip (false);
     }
 
-    public Gtk.UIManager get_ui_manager () {
-        return ui;
-    }
-
     public Page? get_current_page () {
         return current_page;
     }
@@ -755,9 +751,6 @@ public abstract class AppWindow : PageWindow {
 
     public Gtk.ActionGroup[] get_common_action_groups () {
         return common_action_groups;
-    }
-
-    public virtual void replace_common_placeholders (Gtk.UIManager ui) {
     }
 
     public void go_fullscreen (Page page) {
