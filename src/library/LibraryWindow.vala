@@ -166,13 +166,6 @@ public class LibraryWindow : AppWindow {
 
         header.pack_end (search_entry);
 
-        try {
-            File ui_file = Resources.get_ui ("top.ui");
-            ui.add_ui_from_file (ui_file.get_path ());
-        } catch (Error e) {
-            error (e.message);
-        }
-
         // create the main layout & start at the Library page
         create_layout (library_branch.photos_entry.get_page ());
 
