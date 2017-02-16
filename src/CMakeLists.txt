@@ -29,7 +29,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     CustomComponents.vala
     Debug.vala
     DesktopIntegration.vala
-    Dialogs.vala
     Dimensions.vala
     DirectoryMonitor.vala
     Event.vala
@@ -73,6 +72,14 @@ vala_precompile (VALA_C ${EXEC_NAME}
     camera/Camera.vala
     camera/GPhoto.vala
     camera/ImportPage.vala
+
+    Dialogs/AdjustDateTimeDialog.vala
+    Dialogs/Dialogs.vala
+    Dialogs/ExportDialog.vala
+    Dialogs/MultiTextEntryDialog.vala
+    Dialogs/PreferencesDialog.vala
+    Dialogs/ProgressDialog.vala
+    Dialogs/TextEntryDialog.vala
 
     config/ConfigurationInterfaces.vala
     config/Config.vala
