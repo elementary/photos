@@ -19,8 +19,6 @@
 */
 
 public class ExportDialog : Gtk.Dialog {
-    public const int DEFAULT_SCALE = 1200;
-
     // "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
     // aren't formats so much as they are operating modes that determine specific formats.
     // Hereafter we'll refer to these as "special formats."
@@ -38,22 +36,40 @@ public class ExportDialog : Gtk.Dialog {
 
     private static ScaleConstraint current_constraint = ScaleConstraint.ORIGINAL;
     private static ExportFormatParameters current_parameters = ExportFormatParameters.current ();
-    private static int current_scale = DEFAULT_SCALE;
+    private static int current_scale = 1200;
 
-    private Gtk.Grid table = new Gtk.Grid ();
     private Gtk.ComboBoxText quality_combo;
     private Gtk.ComboBoxText constraint_combo;
     private Gtk.ComboBoxText format_combo;
     private Gtk.CheckButton export_metadata;
     private Gee.ArrayList<string> format_options = new Gee.ArrayList<string> ();
     private Gtk.Entry pixels_entry;
-    private Gtk.Widget ok_button;
+    private Gtk.Widget export_button;
     private bool in_insert = false;
 
     public ExportDialog (string title) {
-        this.title = title;
-        resizable = false;
-        deletable = false;
+        Object (deletable: false,
+                resizable: false,
+                title: title);
+    }
+
+    construct {
+        var format_label = new Gtk.Label.with_mnemonic (_("_Format:"));
+        format_label.halign = Gtk.Align.END;
+        format_label.use_underline = true;
+        format_label.mnemonic_widget = format_combo;
+
+        format_combo = new Gtk.ComboBoxText ();
+        format_add_option (UNMODIFIED_FORMAT_LABEL);
+        format_add_option (CURRENT_FORMAT_LABEL);
+        foreach (PhotoFileFormat format in PhotoFileFormat.get_writeable ()) {
+            format_add_option (format.get_properties ().get_user_visible_name ());
+        }
+
+        var quality_label = new Gtk.Label.with_mnemonic (_("_Quality:"));
+        quality_label.halign = Gtk.Align.END;
+        quality_label.use_underline = true;
+        quality_label.mnemonic_widget = quality_combo;
 
         quality_combo = new Gtk.ComboBoxText ();
         int ctr = 0;
@@ -64,6 +80,11 @@ public class ExportDialog : Gtk.Dialog {
             ctr++;
         }
 
+        var constraint_label = new Gtk.Label.with_mnemonic (_("_Scaling constraint:"));
+        constraint_label.halign = Gtk.Align.END;
+        constraint_label.use_underline = true;
+        constraint_label.mnemonic_widget = constraint_combo;
+
         constraint_combo = new Gtk.ComboBoxText ();
         ctr = 0;
         foreach (ScaleConstraint constraint in CONSTRAINT_ARRAY) {
@@ -73,70 +94,55 @@ public class ExportDialog : Gtk.Dialog {
             ctr++;
         }
 
-        format_combo = new Gtk.ComboBoxText ();
-        format_add_option (UNMODIFIED_FORMAT_LABEL);
-        format_add_option (CURRENT_FORMAT_LABEL);
-        foreach (PhotoFileFormat format in PhotoFileFormat.get_writeable ()) {
-            format_add_option (format.get_properties ().get_user_visible_name ());
-        }
-
         pixels_entry = new Gtk.Entry ();
-        pixels_entry.set_max_length (6);
-        pixels_entry.set_size_request (60, -1);
-        pixels_entry.set_text ("%d".printf (current_scale));
+        pixels_entry.max_length = 6;
+        pixels_entry.text = "%d".printf (current_scale);
+        pixels_entry.xalign = 1;
 
-        // register after preparation to avoid signals during init
-        constraint_combo.changed.connect (on_constraint_changed);
-        format_combo.changed.connect (on_format_changed);
-        pixels_entry.changed.connect (on_pixels_changed);
-        pixels_entry.insert_text.connect (on_pixels_insert_text);
-        pixels_entry.activate.connect (on_activate);
+        Gtk.Label pixels_label = new Gtk.Label.with_mnemonic (_("_pixels"));
+        pixels_label.mnemonic_widget = pixels_entry;
 
-        // layout controls
-        add_label (_ ("_Format:"), 0, 0, format_combo);
-        add_control (format_combo, 1, 0);
-
-        add_label (_ ("_Quality:"), 0, 1, quality_combo);
-        add_control (quality_combo, 1, 1);
-
-        add_label (_ ("_Scaling constraint:"), 0, 2, constraint_combo);
-        add_control (constraint_combo, 1, 2);
-
-        Gtk.Label pixels_label = new Gtk.Label.with_mnemonic (_ (" _pixels"));
-        pixels_label.set_mnemonic_widget (pixels_entry);
-
-        Gtk.Box pixels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        pixels_box.pack_start (pixels_entry, false, false, 0);
-        pixels_box.pack_end (pixels_label, false, false, 0);
-        add_control (pixels_box, 1, 3);
-
-        export_metadata = new Gtk.CheckButton.with_label (_ ("Export metadata"));
-        add_control (export_metadata, 1, 4);
+        export_metadata = new Gtk.CheckButton.with_label (_("Export metadata"));
         export_metadata.active = true;
 
-        table.set_row_spacing (4);
-        table.set_column_spacing (4);
-        table.set_margin_top (4);
-        table.set_margin_bottom (4);
-        table.set_margin_start (4);
-        table.set_margin_end (4);
+        var grid = new Gtk.Grid ();
+        grid.column_spacing = 12;
+        grid.row_spacing = 6;
+        grid.margin = 12;
+        grid.margin_top = 0;
+        grid.attach (format_label, 0, 0, 1, 1);
+        grid.attach (format_combo, 1, 0, 1, 1);
+        grid.attach (quality_label, 0, 1, 1, 1);
+        grid.attach (quality_combo, 1, 1, 1, 1);
+        grid.attach (constraint_label, 0, 2, 1, 1);
+        grid.attach (constraint_combo, 1, 2, 1, 1);
+        grid.attach (pixels_entry, 1, 3, 1, 1);
+        grid.attach (pixels_label, 2, 3, 1, 1);
+        grid.attach (export_metadata, 1, 4, 1, 1);
 
-        ((Gtk.Box) get_content_area ()).add (table);
+        ((Gtk.Box) get_content_area ()).add (grid);
 
-        // add buttons to action area
-        add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-        ok_button = add_button (_ ("_Export"), Gtk.ResponseType.OK);
+        add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
 
-        ok_button.set_can_default (true);
-        ok_button.has_default = true;
-        set_default (ok_button);
+        export_button = add_button (_("_Export"), Gtk.ResponseType.OK);
+        export_button.can_default = true;
+        export_button.has_default = true;
+        export_button.grab_focus ();
+
+        get_action_area ().margin = 5;
 
         if (current_constraint == ScaleConstraint.ORIGINAL) {
             pixels_entry.sensitive = false;
             quality_combo.sensitive = false;
         }
 
-        ok_button.grab_focus ();
+        constraint_combo.changed.connect (on_constraint_changed);
+        format_combo.changed.connect (on_format_changed);
+        pixels_entry.changed.connect (on_pixels_changed);
+        pixels_entry.insert_text.connect (on_pixels_insert_text);
+        pixels_entry.activate.connect (() => {
+            response (Gtk.ResponseType.OK);
+        });
     }
 
     private void format_add_option (string format_name) {
@@ -240,27 +246,6 @@ public class ExportDialog : Gtk.Dialog {
         return ok;
     }
 
-    private void add_label (string text, int x, int y, Gtk.Widget? widget = null) {
-        Gtk.Alignment left_aligned = new Gtk.Alignment (0.0f, 0.5f, 0, 0);
-
-        Gtk.Label new_label = new Gtk.Label.with_mnemonic (text);
-        new_label.set_use_underline (true);
-
-        if (widget != null)
-            new_label.set_mnemonic_widget (widget);
-
-        left_aligned.add (new_label);
-
-        table.attach (left_aligned, x, y, 1, 1);
-    }
-
-    private void add_control (Gtk.Widget widget, int x, int y) {
-        Gtk.Alignment left_aligned = new Gtk.Alignment (0, 0.5f, 0, 0);
-        left_aligned.add (widget);
-
-        table.attach (left_aligned, x, y, 1, 1);
-    }
-
     private void on_constraint_changed () {
         bool original = CONSTRAINT_ARRAY[constraint_combo.get_active ()] == ScaleConstraint.ORIGINAL;
         bool jpeg = format_combo.get_active_text () ==
@@ -268,7 +253,7 @@ public class ExportDialog : Gtk.Dialog {
         pixels_entry.sensitive = !original;
         quality_combo.sensitive = !original && jpeg;
         if (original)
-            ok_button.sensitive = true;
+            export_button.sensitive = true;
         else
             on_pixels_changed ();
     }
@@ -309,12 +294,8 @@ public class ExportDialog : Gtk.Dialog {
         }
     }
 
-    private void on_activate () {
-        response (Gtk.ResponseType.OK);
-    }
-
     private void on_pixels_changed () {
-        ok_button.sensitive = (pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0);
+        export_button.sensitive = (pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0);
     }
 
     private void on_pixels_insert_text (string text, int length, ref int position) {
