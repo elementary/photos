@@ -631,27 +631,6 @@ public abstract class TextEntryDialogMediator {
     }
 }
 
-public abstract class MultiTextEntryDialogMediator {
-    private MultiTextEntryDialog dialog;
-
-    public MultiTextEntryDialogMediator (string title, string label, string? initial_text = null) {
-        Gtk.Builder builder = AppWindow.create_builder ();
-        dialog = new MultiTextEntryDialog ();
-        dialog.get_content_area ().add ((Gtk.Box) builder.get_object ("dialog-vbox4"));
-        dialog.set_builder (builder);
-        dialog.setup (on_modify_validate, title, label, initial_text);
-    }
-
-    protected virtual bool on_modify_validate (string text) {
-        return true;
-    }
-
-    protected string? _execute () {
-        return dialog.execute ();
-    }
-}
-
-
 // This method takes primary and secondary texts and returns ready-to-use pango markup
 // for a HIG-compliant alert dialog. Please see
 // http://library.gnome.org/devel/hig-book/2.32/windows-alert.html.en for details.
