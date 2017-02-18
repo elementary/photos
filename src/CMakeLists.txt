@@ -76,7 +76,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Dialogs/AdjustDateTimeDialog.vala
     Dialogs/Dialogs.vala
     Dialogs/ExportDialog.vala
-    Dialogs/MultiTextEntryDialog.vala
     Dialogs/PreferencesDialog.vala
     Dialogs/ProgressDialog.vala
     Dialogs/TextEntryDialog.vala
