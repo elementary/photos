@@ -93,7 +93,6 @@ public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
 public const int ICON_ZOOM_SCALE = 16;
 
 public const string ICON_SELECTION_ADD = "selection-add";
-public const string ICON_SELECTION_CHECKED = "selection-checked";
 public const string ICON_SELECTION_REMOVE = "selection-remove";
 
 public const string ICON_CAMERAS = "camera-photo";
@@ -540,10 +539,6 @@ public string get_end_multimonth_span_format_string () {
     return get_long_date_format_string ();
 }
 
-public File get_ui (string filename) {
-    return AppDirs.get_resources_dir ().get_child ("ui").get_child (filename);
-}
-
 private Gdk.Pixbuf? noninterpretable_badge_pixbuf = null;
 
 public Gdk.Pixbuf? get_noninterpretable_badge_pixbuf () {
@@ -616,78 +611,6 @@ public Gdk.Pixbuf? load_icon (string name, int scale = DEFAULT_ICON_SCALE) {
         return null;
 
     return (scale > 0) ? scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
-}
-
-public delegate void AddStockIconModify (Gdk.Pixbuf pixbuf);
-
-// Get the directory where our help files live.  Returns a string
-// describing the help path we want, or, if we're installed system
-// -wide already, returns null.
-public static string? get_help_path () {
-    // Try looking for our 'index.page' in the build directory.
-    //
-    // TODO: Need to look for internationalized help before falling back on help/C
-
-    File help_dir = AppDirs.get_exec_dir ().get_child ("help").get_child ("C");
-    File help_index = help_dir.get_child ("index.page");
-
-    if (help_index.query_exists (null)) {
-        string help_path;
-
-        help_path = help_dir.get_path ();
-
-        if (!help_path.has_suffix ("/"))
-            help_path += "/";
-
-        // Found it.
-        return help_path;
-    }
-
-    // "./help/C/index.page" doesn't exist, so we're installed
-    // system-wide, and the caller should assume the default
-    // help location.
-    return null;
-}
-
-public static void launch_help (Gdk.Screen screen, string? anchor = null) throws Error {
-    string? help_path = get_help_path ();
-
-    if (help_path != null) {
-        // We're running from the build directory; use local help.
-
-        // Allow the caller to request a specific page.
-        if (anchor != null) {
-            help_path += anchor;
-        }
-
-        string[] argv = new string[3];
-        argv[0] = "gnome-help";
-        argv[1] = help_path;
-        argv[2] = null;
-
-        Pid pid;
-        if (Process.spawn_async (AppDirs.get_exec_dir ().get_path (), argv, null,
-                                 SpawnFlags.SEARCH_PATH | SpawnFlags.STDERR_TO_DEV_NULL, null, out pid)) {
-            return;
-        }
-
-        warning ("Unable to launch %s", argv[0]);
-    }
-
-    // launch from system-installed help
-    if (anchor != null) {
-        sys_show_uri (screen, "ghelp:shotwell" + anchor);
-    } else {
-        sys_show_uri (screen, "ghelp:shotwell");
-    }
-}
-
-public string to_css_color (Gdk.RGBA color) {
-    int r = (int) (color.red * 255);
-    int g = (int) (color.green * 255);
-    int b = (int) (color.blue * 255);
-
-    return "rgb(%d, %d, %d)".printf (r, g, b);
 }
 
 public const int ALL_DATA = -1;
