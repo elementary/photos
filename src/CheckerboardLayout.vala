@@ -452,10 +452,6 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public virtual void paint (Cairo.Context ctx, Gtk.StyleContext style_context) {
-        Gdk.Point pixbuf_origin = Gdk.Point ();
-        pixbuf_origin.x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
-        pixbuf_origin.y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
-
         style_context.save ();
         string selection_icon = null;
         if (is_selected ()) {
@@ -468,21 +464,25 @@ public abstract class CheckerboardItem : ThumbnailView {
         }
 
         if (display_pixbuf != null) {
-            style_context.render_background (ctx, pixbuf_origin.x, pixbuf_origin.y, display_pixbuf.width, display_pixbuf.height);
+            var origin_x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
+            var origin_y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
+            var pixbuf_width = display_pixbuf.width;
+            var pixbuf_height = display_pixbuf.height;
+            style_context.render_background (ctx, origin_x, origin_y, pixbuf_width, pixbuf_height);
             var radius = style_context.get_property ("border-radius", style_context.get_state ()).get_int ();
             ctx.save ();
-            ctx.move_to (pixbuf_origin.x + radius, pixbuf_origin.y);
-            ctx.arc (pixbuf_origin.x + display_pixbuf.width - radius, pixbuf_origin.y + radius, radius, Math.PI * 1.5, Math.PI * 2);
-            ctx.arc (pixbuf_origin.x + display_pixbuf.width - radius, pixbuf_origin.y + display_pixbuf.height - radius, radius, 0, Math.PI * 0.5);
-            ctx.arc (pixbuf_origin.x + radius, pixbuf_origin.y + display_pixbuf.height - radius, radius, Math.PI * 0.5, Math.PI);
-            ctx.arc (pixbuf_origin.x + radius, pixbuf_origin.y + radius, radius, Math.PI, Math.PI * 1.5);
+            ctx.move_to (origin_x + radius, origin_y);
+            ctx.arc (origin_x + pixbuf_width - radius, origin_y + radius, radius, Math.PI * 1.5, Math.PI * 2);
+            ctx.arc (origin_x + pixbuf_width - radius, origin_y + pixbuf_height - radius, radius, 0, Math.PI_2);
+            ctx.arc (origin_x + radius, origin_y + pixbuf_height - radius, radius, Math.PI_2, Math.PI);
+            ctx.arc (origin_x + radius, origin_y + radius, radius, Math.PI, Math.PI * 1.5);
             ctx.close_path ();
-            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, pixbuf_origin.x, pixbuf_origin.y);
+            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, origin_x, origin_y);
             ctx.clip ();
             ctx.paint ();
             ctx.restore ();
 
-            style_context.render_frame (ctx, pixbuf_origin.x, pixbuf_origin.y, display_pixbuf.width, display_pixbuf.height);
+            style_context.render_frame (ctx, origin_x, origin_y, pixbuf_width, pixbuf_height);
         }
 
         // Add the selection helper
@@ -509,42 +509,45 @@ public abstract class CheckerboardItem : ThumbnailView {
         // title and subtitles are LABEL_PADDING below bottom of pixbuf
         int text_y = allocation.y + FRAME_WIDTH + pixbuf_dim.height + FRAME_WIDTH + LABEL_PADDING;
         if (title != null && title_visible) {
+            var title_allocation = title.allocation;
             // get the layout sized so its with is no more than the pixbuf's
             // resize the text width to be no more than the pixbuf's
-            title.allocation.x = allocation.x + FRAME_WIDTH;
-            title.allocation.y = text_y;
-            title.allocation.width = pixbuf_dim.width;
-            title.allocation.height = title.get_height ();
+            title_allocation.x = allocation.x + FRAME_WIDTH;
+            title_allocation.y = text_y;
+            title_allocation.width = pixbuf_dim.width;
+            title_allocation.height = title.get_height ();
 
             var layout = title.get_pango_layout (pixbuf_dim.width);
             Pango.cairo_update_layout (ctx, layout);
-            style_context.render_layout (ctx, title.allocation.x, title.allocation.y, layout);
+            style_context.render_layout (ctx, title_allocation.x, title_allocation.y, layout);
 
             text_y += title.get_height () + LABEL_PADDING;
         }
 
         if (comment != null && comment_visible) {
-            comment.allocation.x = allocation.x + FRAME_WIDTH;
-            comment.allocation.y = text_y;
-            comment.allocation.width = pixbuf_dim.width;
-            comment.allocation.height = comment.get_height ();
+            var comment_allocation = comment.allocation;
+            comment_allocation.x = allocation.x + FRAME_WIDTH;
+            comment_allocation.y = text_y;
+            comment_allocation.width = pixbuf_dim.width;
+            comment_allocation.height = comment.get_height ();
 
             var layout = comment.get_pango_layout (pixbuf_dim.width);
             Pango.cairo_update_layout (ctx, layout);
-            style_context.render_layout (ctx, comment.allocation.x, comment.allocation.y, layout);
+            style_context.render_layout (ctx, comment_allocation.x, comment_allocation.y, layout);
 
             text_y += comment.get_height () + LABEL_PADDING;
         }
 
         if (subtitle != null && subtitle_visible) {
-            subtitle.allocation.x = allocation.x + FRAME_WIDTH;
-            subtitle.allocation.y = text_y;
-            subtitle.allocation.width = pixbuf_dim.width;
-            subtitle.allocation.height = subtitle.get_height ();
+            var subtitle_allocation = subtitle.allocation;
+            subtitle_allocation.x = allocation.x + FRAME_WIDTH;
+            subtitle_allocation.y = text_y;
+            subtitle_allocation.width = pixbuf_dim.width;
+            subtitle_allocation.height = subtitle.get_height ();
 
             var layout = subtitle.get_pango_layout (pixbuf_dim.width);
             Pango.cairo_update_layout (ctx, layout);
-            style_context.render_layout (ctx, subtitle.allocation.x, subtitle.allocation.y, layout);
+            style_context.render_layout (ctx, subtitle_allocation.x, subtitle_allocation.y, layout);
 
             // increment text_y if more text lines follow
         }
