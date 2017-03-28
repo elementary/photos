@@ -220,16 +220,9 @@ public class Sidebar.Branch : Object {
     public Branch (Sidebar.Entry root, Options options,
                    CompareFunc<Sidebar.Entry> default_comparator,
                    CompareFunc<Sidebar.Entry>? root_comparator = null) {
+        
         this.default_comparator = default_comparator;
-
-        CompareFunc<Sidebar.Entry>? broken_ternary_workaround;
-
-        if (root_comparator != null)
-            broken_ternary_workaround = root_comparator;
-        else
-            broken_ternary_workaround = default_comparator;
-
-        this.root = new Node (root, null, broken_ternary_workaround);
+        this.root = new Node(root, null, (root_comparator != null) ? root_comparator : default_comparator);
         this.options = options;
 
         map.set (root, this.root);
@@ -276,14 +269,7 @@ public class Sidebar.Branch : Object {
 
         Node parent_node = map.get (parent);
 
-        CompareFunc<Sidebar.Entry>? broken_ternary_workaround;
-
-        if (comparator != null)
-            broken_ternary_workaround = comparator;
-        else
-            broken_ternary_workaround = default_comparator;
-
-        Node entry_node = new Node (entry, parent_node, broken_ternary_workaround);
+        Node entry_node = new Node(entry, parent_node, (comparator != null) ? comparator : default_comparator);
 
         parent_node.add_child (entry_node);
         map.set (entry, entry_node);
