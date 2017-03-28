@@ -66,6 +66,10 @@ public class Sidebar.Branch : Object {
             if (a == b)
                 return 0;
 
+            if (a.parent.comparator == null) {
+                return 0;
+            }
+
             assert (a.parent == b.parent);
 
             return a.parent.comparator (a.entry, b.entry);
@@ -82,7 +86,7 @@ public class Sidebar.Branch : Object {
                 children = new Gee.TreeSet<Node> (comparator_wrapper);
 
             bool added = children.add (child);
-            assert (added);
+            //assert (added);
         }
 
         public void remove_child (Node child) {
