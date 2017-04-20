@@ -16,6 +16,3 @@ VALAFLAGS:=$(foreach w,$(CPPFLAGS) $(CFLAGS) $(LDFLAGS),-X $(w))
 
 override_dh_install:
 	dh_install --fail-missing
-
-override_dh_installchangelogs:
-	dh_installchangelogs NEWS
