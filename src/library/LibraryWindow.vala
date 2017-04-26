@@ -200,11 +200,11 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void build_header_bar () {
-        // Left side of header bar
-        base.build_header_bar ();
-
         // Right side of header bar
         build_settings_header ();
+
+        // Right side of header bar, before settings
+        base.build_header_bar ();
 
         top_display = new TopDisplay ();
         header.set_custom_title (top_display);
@@ -929,7 +929,7 @@ public class LibraryWindow : AppWindow {
             // before switching to it
             spin_event_loop ();
         }
-        
+
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
     }

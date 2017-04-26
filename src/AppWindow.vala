@@ -478,17 +478,17 @@ public abstract class AppWindow : PageWindow {
     protected virtual void set_default_title () {
         title = _ (Resources.APP_TITLE);
     }
-    
-    protected virtual void build_header_bar () {
-        var undo_action = get_common_action ("CommonUndo");
-        var undo_btn = undo_action.create_tool_item ();
-        undo_btn.sensitive = true;
-        header.pack_start (undo_btn);
 
+    protected virtual void build_header_bar () {
         var redo_action = get_common_action ("CommonRedo");
         var redo_btn = redo_action.create_tool_item ();
         redo_btn.sensitive = true;
-        header.pack_start (redo_btn);
+        header.pack_end (redo_btn);
+
+        var undo_action = get_common_action ("CommonUndo");
+        var undo_btn = undo_action.create_tool_item ();
+        undo_btn.sensitive = true;
+        header.pack_end (undo_btn);
     }
 
     private Gtk.ActionEntry[] create_common_actions () {
