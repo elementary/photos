@@ -50,10 +50,10 @@ public class Application : Granite.Application {
 
         program_name = _(build_release_name);
         app_years = "2014";
-        main_url = "https://launchpad.net/pantheon-photos";
-        bug_url = "https://bugs.launchpad.net/pantheon-photos";
-        help_url = "http://yorba.org/shotwell/help/";
-        translate_url = "https://translations.launchpad.net/pantheon-photos";
+        main_url = "https://github.com/elementary/photos";
+        bug_url = "https://github.com/elementary/photos/issues";
+        help_url = "https://elementaryos.stackexchange.com/questions/tagged/photos";
+        translate_url = "https://l10n.elementary.io/projects/photos";
         about_authors = Resources.AUTHORS;
         about_documenters = {};
         about_artists = {};
