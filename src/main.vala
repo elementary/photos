@@ -287,7 +287,6 @@ bool no_startup_progress = false;
 string data_dir = null;
 bool show_version = false;
 bool no_runtime_monitoring = false;
-bool show_about = false;
 
 private OptionEntry[]? entries = null;
 
@@ -315,36 +314,11 @@ public OptionEntry[] get_options () {
                           };
     entries += version;
 
-    OptionEntry about = { "about", 'a', 0, OptionArg.NONE, &show_about,
-                            _ ("Show About dialog"), null
-                          };
-    entries += about;
-
     OptionEntry terminator = { null, 0, 0, 0, null, null, null };
     entries += terminator;
 
     return entries;
 }
-}
-
-public Granite.Widgets.AboutDialog create_about_dialog (bool is_direct = false) {
-    var build_version = Resources.APP_VERSION;
-
-    var about = new Granite.Widgets.AboutDialog ();
-    about.program_name = is_direct ? Resources.APP_TITLE_VIEWER : Resources.APP_TITLE;
-    about.version = build_version;
-    about.logo_icon_name = "multimedia-photo-viewer";
-    about.copyright = Resources.COPYRIGHT;
-    about.website = Resources.PROJECT_URL;
-    about.authors = Resources.AUTHORS;
-    about.documenters = {};
-    about.artists = {};
-    about.translator_credits = _("translator-credits");
-    about.license_type = Gtk.License.LGPL_2_1;
-    about.help = Resources.HELP_URL;
-    about.translate = Resources.TRANSLATE_URL;
-    about.bug = Resources.BUG_DB_URL;
-    return about;
 }
 
 void main (string[] args) {
@@ -385,17 +359,6 @@ void main (string[] args) {
 
         AppDirs.terminate ();
 
-        return;
-    }
-
-    // for now we create new Granite AboutDialog
-    // later it should be parsed in Application.
-    if (CommandlineOptions.show_about) {
-        var about = create_about_dialog ();
-        about.run ();
-        about.destroy ();
-
-        AppDirs.terminate ();
         return;
     }
 
