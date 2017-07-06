@@ -22,8 +22,8 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
-    private Gtk.Window toolbar_window = new Gtk.Window (Gtk.WindowType.POPUP);
-    private Gtk.ToggleToolButton pin_button = new Gtk.ToggleToolButton ();
+    private Gtk.Window toolbar_window;
+    private Gtk.ToggleToolButton pin_button;
     private bool is_toolbar_shown = false;
     private bool waiting_for_invoke = false;
     private time_t left_toolbar_time = 0;
@@ -47,18 +47,18 @@ public class FullscreenWindow : PageWindow {
 
         set_border_width (0);
 
-        pin_button.set_label (_ ("Pin Toolbar"));
-        pin_button.set_icon_widget (new Gtk.Image.from_icon_name ("pin-toolbar", Gtk.IconSize.LARGE_TOOLBAR));
-        pin_button.set_tooltip_text (_ ("Pin the toolbar open"));
+        pin_button = new Gtk.ToggleToolButton ();
+        pin_button.icon_name = "pin-toolbar";
+        pin_button.tooltip_text = _("Pin the toolbar open");
         pin_button.clicked.connect (update_toolbar_dismissal);
 
-        Gtk.Image img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        Gtk.ToolButton close_button = new Gtk.ToolButton (img, null);
-        close_button.set_tooltip_text (_ ("Leave fullscreen"));
+        var img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+
+        var close_button = new Gtk.ToolButton (img, null);
+        close_button.tooltip_text = _("Leave fullscreen");
         close_button.clicked.connect (on_close);
 
-        Gtk.Toolbar toolbar = page.get_toolbar ();
-        toolbar.set_show_arrow (false);
+        var toolbar = page.get_toolbar ();
 
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
@@ -74,6 +74,7 @@ public class FullscreenWindow : PageWindow {
         toolbar.insert (close_button, -1);
 
         // set up toolbar along bottom of screen
+        toolbar_window = new Gtk.Window (Gtk.WindowType.POPUP);
         toolbar_window.set_screen (get_screen ());
         toolbar_window.set_border_width (0);
         toolbar_window.add (toolbar);
@@ -491,42 +492,23 @@ public abstract class AppWindow : PageWindow {
         header.pack_end (undo_btn);
     }
 
+
     private Gtk.ActionEntry[] create_common_actions () {
+        Gtk.ActionEntry quit = { "CommonQuit", null, _("_Quit"), "<Ctrl>Q", _("_Quit"), on_quit };
+        Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
+        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", Resources.UNDO_MENU, "<Ctrl>Z", Resources.UNDO_MENU, on_undo };
+        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", Resources.REDO_MENU, "<Ctrl><Shift>Z", Resources.REDO_MENU, on_redo };
+        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
+        Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
+        Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
+
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry quit = { "CommonQuit", null, _("_Quit"), "<Ctrl>Q",
-                                 _("_Quit"), on_quit
-                               };
         actions += quit;
-
-        Gtk.ActionEntry fullscreen = { "CommonFullscreen", null,
-                                       _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen
-                                     };
         actions += fullscreen;
-
-        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", Resources.UNDO_MENU, "<Ctrl>Z",
-                                 Resources.UNDO_MENU, on_undo
-                               };
         actions += undo;
-
-        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", Resources.REDO_MENU, "<Ctrl><Shift>Z",
-                                 Resources.REDO_MENU, on_redo
-                               };
         actions += redo;
-
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU,
-                                         "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file
-                                       };
         actions += jump_to_file;
-
-        Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU,
-                                       "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all
-                                     };
         actions += select_all;
-
-        Gtk.ActionEntry select_none = { "CommonSelectNone", null, null,
-                                        "<Ctrl><Shift>A", TRANSLATABLE, on_select_none
-                                      };
         actions += select_none;
 
         return actions;
