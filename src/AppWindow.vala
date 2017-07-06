@@ -473,16 +473,6 @@ public abstract class AppWindow : PageWindow {
         ui.ensure_update ();
         add_accel_group (ui.get_accel_group ());
 
-        var redo_action = get_common_action ("CommonRedo");
-        var redo_btn = redo_action.create_tool_item ();
-        redo_btn.sensitive = true;
-        header.pack_end (redo_btn);
-
-        var undo_action = get_common_action ("CommonUndo");
-        var undo_btn = undo_action.create_tool_item ();
-        undo_btn.sensitive = true;
-        header.pack_end (undo_btn);
-
         build_header_bar ();
     }
 
