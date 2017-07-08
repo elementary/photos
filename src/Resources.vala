@@ -81,7 +81,6 @@ public const string EDIT_FLAG= "edit-flag";
 public const string MERGE = "object-merge";
 
 public const string ICON_APP = "multimedia-photo-manager";
-public const string ICON_ABOUT_LOGO = "multimedia-photo-manager";
 public const string ICON_GENERIC_PLUGIN = "extension";
 public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
 public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
