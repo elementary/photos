@@ -683,10 +683,6 @@ public abstract class AppWindow : PageWindow {
 
     public abstract string get_app_role ();
 
-    protected void on_about () {
-        Application.get_instance ().show_about (this);
-    }
-
     protected virtual void on_quit () {
         Application.get_instance ().exit ();
     }

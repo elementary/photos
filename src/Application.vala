@@ -49,17 +49,6 @@ public class Application : Granite.Application {
         build_version = Resources.APP_VERSION;
 
         program_name = _(build_release_name);
-        app_years = "2014";
-        main_url = "https://github.com/elementary/photos";
-        bug_url = "https://github.com/elementary/photos/issues";
-        help_url = "https://elementaryos.stackexchange.com/questions/tagged/photos";
-        translate_url = "https://l10n.elementary.io/projects/photos";
-        about_authors = Resources.AUTHORS;
-        about_documenters = {};
-        about_artists = {};
-        about_translators = _("translator-credits");
-        about_license_type = Gtk.License.LGPL_2_1;
-
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/org/pantheon/photos/icons");
     }
@@ -220,17 +209,6 @@ public class Application : Granite.Application {
         startup.disconnect (on_activated);
 
         running = false;
-    }
-
-    /**
-     * This method shows the about dialog of this app.
-     *
-     * @param parent This widget is the window that is calling the about page being created.
-     */
-    public override void show_about (Gtk.Widget parent) {
-        var dialog = create_about_dialog (app_get_is_direct ());
-        dialog.run ();
-        dialog.destroy ();
     }
 
     public void exit () {
