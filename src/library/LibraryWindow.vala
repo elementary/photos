@@ -200,6 +200,8 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void build_header_bar () {
+        top_display = new TopDisplay ();
+
         var settings_menu = new Gtk.Menu ();
         settings_menu.add (get_common_action ("CommonFileImport").create_menu_item ());
         settings_menu.add (new Gtk.SeparatorMenuItem ());
@@ -211,8 +213,6 @@ public class LibraryWindow : AppWindow {
         settings.tooltip_text = _("Settings");
         settings.popup = settings_menu;
         settings.show_all ();
-
-        top_display = new TopDisplay ();
 
         header.pack_end (settings);
         header.set_custom_title (top_display);
