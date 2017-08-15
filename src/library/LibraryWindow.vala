@@ -200,39 +200,28 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void build_header_bar () {
-        // Right side of header bar
-        build_settings_header ();
-
-        // Right side of header bar, before settings
-        base.build_header_bar ();
-
         top_display = new TopDisplay ();
-        header.set_custom_title (top_display);
-        notify["title"].connect (() => {
-            top_display.set_title (title);
-        });
-    }
 
-    protected void build_settings_header () {
         var settings_menu = new Gtk.Menu ();
-
-        var import_action = get_common_action ("CommonFileImport");
-        settings_menu.add (import_action.create_menu_item ());
-
-        var sep = new Gtk.SeparatorMenuItem ();
-        settings_menu.add (sep);
-
-        var pref_action = get_common_action ("CommonPreferences");
-        settings_menu.add (pref_action.create_menu_item ());
-
+        settings_menu.add (get_common_action ("CommonFileImport").create_menu_item ());
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (get_common_action ("CommonPreferences").create_menu_item ());
         settings_menu.show_all ();
 
         var settings = new Gtk.MenuButton ();
         settings.image = new Gtk.Image.from_icon_name ("document-properties", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.set_tooltip_text (_ ("Settings"));
+        settings.tooltip_text = _("Settings");
         settings.popup = settings_menu;
         settings.show_all ();
+
         header.pack_end (settings);
+        header.set_custom_title (top_display);
+        // Right side of header bar, before settings
+        base.build_header_bar ();
+
+        notify["title"].connect (() => {
+            top_display.set_title (title);
+        });
     }
 
     ~LibraryWindow () {
