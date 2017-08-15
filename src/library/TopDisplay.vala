@@ -36,7 +36,7 @@ public class TopDisplay : Gtk.Stack {
     }
 
     construct {
-        hexpand = true;
+        hexpand = false;
         transition_type = Gtk.StackTransitionType.CROSSFADE;
         get_style_context ().add_class ("seek-bar");
         app_label = new Gtk.Label (_("Photos"));
