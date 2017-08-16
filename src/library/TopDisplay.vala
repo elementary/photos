@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2016 elementary LLC. (http://launchpad.net/pantheon-photos)
+* Copyright (c) 2016-2017 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -18,8 +18,7 @@
 */
 
 public class TopDisplay : Gtk.Stack {
-    private Gtk.Label app_label;
-    private Gtk.Grid top_grid;
+    private Gtk.Label title_label;
     private Gtk.Label background_progress_label;
     private Gtk.ProgressBar background_progress_bar;
     // If there are several events at the same time, show the one with the highest priority.
@@ -31,45 +30,50 @@ public class TopDisplay : Gtk.Stack {
     UnityProgressBar uniprobar;
 #endif
 
+    private bool show_progress {
+        set {
+            if (value) {
+                visible_child_name = "progress";
+            } else {
+                visible_child = title_label;
+            }
+        }
+    }
+
+    public string title {
+        set {
+            title_label.label = value;
+        }
+    }
+
     public TopDisplay () {
-        
+        Object (transition_type: Gtk.StackTransitionType.CROSSFADE);
     }
 
     construct {
         hexpand = false;
-        transition_type = Gtk.StackTransitionType.CROSSFADE;
-        get_style_context ().add_class ("seek-bar");
-        app_label = new Gtk.Label (_("Photos"));
-        app_label.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLE);
-        top_grid = new Gtk.Grid ();
-        top_grid.orientation = Gtk.Orientation.VERTICAL;
-        top_grid.row_spacing = 6;
-        top_grid.hexpand = true;
-        top_grid.halign = Gtk.Align.CENTER;
-        top_grid.set_size_request (200, -1);
+
+        title_label = new Gtk.Label (_("Photos"));
+        title_label.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLE);
+
         background_progress_label = new Gtk.Label (null);
         background_progress_label.hexpand = true;
+
         background_progress_bar = new Gtk.ProgressBar ();
         background_progress_bar.hexpand = true;
-        top_grid.add (background_progress_label);
-        top_grid.add (background_progress_bar);
-        add (app_label);
-        add (top_grid);
+
+        var progress_grid = new Gtk.Grid ();
+        progress_grid.orientation = Gtk.Orientation.VERTICAL;
+        progress_grid.row_spacing = 6;
+        progress_grid.width_request = 200;
+        progress_grid.add (background_progress_label);
+        progress_grid.add (background_progress_bar);
+
+        add (title_label);
+        add_named (progress_grid, "progress");
 #if UNITY_SUPPORT
         uniprobar = UnityProgressBar.get_instance ();
 #endif
-    }
-
-    public void set_title (string title) {
-        app_label.label = title;
-    }
-
-    public void set_show_progress (bool show_progress) {
-        if (show_progress) {
-            set_visible_child (top_grid);
-        } else {
-            set_visible_child (app_label);
-        }
     }
 
     public void start_pulse_background_progress_bar (string label, int priority) {
@@ -82,19 +86,17 @@ public class TopDisplay : Gtk.Stack {
 
         background_progress_label.label = label;
         background_progress_bar.pulse ();
-        set_show_progress (true);
+        show_progress = true;
 
         if (background_progress_pulse_id > 0) {
             Source.remove (background_progress_pulse_id);
         }
 
-        background_progress_pulse_id = Timeout.add (BACKGROUND_PROGRESS_PULSE_MSEC,
-                                       on_pulse_background_progress_bar);
+        background_progress_pulse_id = Timeout.add (BACKGROUND_PROGRESS_PULSE_MSEC, on_pulse_background_progress_bar);
     }
 
     private bool on_pulse_background_progress_bar () {
         background_progress_bar.pulse ();
-
         return true;
     }
 
@@ -111,16 +113,15 @@ public class TopDisplay : Gtk.Stack {
             clear_background_progress_bar (priority);
     }
 
-    public void update_background_progress_bar (string label, int priority, double count,
-            double total) {
-        if (priority < current_priority)
+    public void update_background_progress_bar (string label, int priority, double count, double total) {
+        if (priority < current_priority) {
             return;
+        }
 
         stop_pulse_background_progress_bar (priority, false);
 
         if (count <= 0.0 || total <= 0.0 || count >= total) {
             clear_background_progress_bar (priority);
-
             return;
         }
 
@@ -129,7 +130,7 @@ public class TopDisplay : Gtk.Stack {
         double fraction = count / total;
         background_progress_bar.set_fraction (fraction);
         background_progress_label.label = _ ("%s (%d%%)").printf (label, (int) (fraction * 100.0));
-        set_show_progress (true);
+        show_progress = true;
 
 #if UNITY_SUPPORT
         //UnityProgressBar: try to draw & set progress
@@ -139,8 +140,9 @@ public class TopDisplay : Gtk.Stack {
     }
 
     public void clear_background_progress_bar (int priority) {
-        if (priority < current_priority)
+        if (priority < current_priority) {
             return;
+        }
 
         stop_pulse_background_progress_bar (priority, false);
 
@@ -148,7 +150,7 @@ public class TopDisplay : Gtk.Stack {
 
         background_progress_bar.fraction = 0.0;
         background_progress_label.label = "";
-        set_show_progress (false);
+        show_progress = false;
 
 #if UNITY_SUPPORT
         //UnityProgressBar: reset
