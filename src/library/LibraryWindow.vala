@@ -221,7 +221,7 @@ public class LibraryWindow : AppWindow {
         base.build_header_bar ();
 
         notify["title"].connect (() => {
-            top_display.set_title (title);
+            top_display.title = title;
         });
     }
 
