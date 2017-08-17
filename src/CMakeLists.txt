@@ -46,6 +46,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     MetadataWriter.vala
     Orientation.vala
     Page.vala
+    PageWindow.vala
     PhotoMonitor.vala
     PhotoPage.vala
     Photo.vala
