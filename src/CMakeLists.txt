@@ -21,7 +21,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     AppWindow.vala
     BatchImport.vala
     Box.vala
-    CheckerboardLayout.vala
     CollectionPage.vala
     ColorTransformation.vala
     CommandManager.vala
@@ -73,6 +72,10 @@ vala_precompile (VALA_C ${EXEC_NAME}
     camera/Camera.vala
     camera/GPhoto.vala
     camera/ImportPage.vala
+
+    Checkerboard/CheckerboardItem.vala
+    Checkerboard/CheckerboardItemText.vala
+    Checkerboard/CheckerboardLayout.vala
 
     Dialogs/AdjustDateTimeDialog.vala
     Dialogs/Dialogs.vala
