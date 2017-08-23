@@ -630,64 +630,6 @@ public abstract class CheckerboardItem : ThumbnailView {
 }
 
 public class CheckerboardLayout : Gtk.DrawingArea {
-    private const string CHECKBOARD_CSS = """
-        .checkerboard-layout {
-            background-color: #383e41;
-            background-image:
-                linear-gradient(
-                    45deg,
-                    alpha (
-                        #000,
-                        0.1
-                    ) 25%,
-                    transparent 25%,
-                    transparent 75%,
-                    alpha (
-                        #000,
-                        0.1
-                    ) 75%,
-                    alpha (
-                        #000,
-                        0.1
-                    )
-                ),
-                linear-gradient(
-                    45deg,
-                    alpha (
-                        #000,
-                        0.1
-                    ) 25%,
-                    transparent 25%,
-                    transparent 75%,
-                    alpha (
-                        #000,
-                        0.1
-                    ) 75%,
-                    alpha (
-                        #000,
-                        0.1
-                    )
-                );
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-        }
-        .checkboard-layout .item {
-            background-color: #eee;
-        }
-        .checkerboard-layout .label {
-            color: #c0c6c4;
-            text-shadow: 0 1px 2px alpha(#000, 0.5);
-        }
-        .event {
-            border: 3px solid #f4f4f4;
-            border-radius: 6px;
-        }
-        .event:checked {
-            border-color: @selected_bg_color;
-        }
-    """;
-
-
     public const int TOP_PADDING = 16;
     public const int BOTTOM_PADDING = 16;
     public const int ROW_GUTTER_PADDING = 24;
@@ -757,13 +699,10 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
         weak Gtk.StyleContext style_context = get_style_context ();
         style_context.add_class ("checkerboard-layout");
-        var css_provicer = new Gtk.CssProvider ();
-        try {
-            css_provicer.load_from_data (CHECKBOARD_CSS);
-            style_context.add_provider (css_provicer, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        } catch (Error e) {
-            critical (e.message);
-        }
+
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("io/elementary/photos/application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // CheckerboardItems offer tooltips
         has_tooltip = true;
