@@ -32,6 +32,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     DirectoryMonitor.vala
     Event.vala
     Exporter.vala
+    FullScreenWindow.vala
     International.vala
     LibraryFiles.vala
     LibraryMonitor.vala
@@ -228,9 +229,10 @@ OPTIONS
 
 include (GResource)
 glib_compile_resources (GLIB_RESOURCES_ICONS SOURCE ../data/icons/icons.gresource.xml)
+glib_compile_resources (GLIB_RESOURCE SOURCE ../data/io.elementary.photos.gresource.xml)
 
 include_directories (${CMAKE_SOURCE_DIR}/vapi)
-add_executable (${EXEC_NAME} ${VALA_C} ${PLUGIN_VALA_C} ${CONFIG_FILE} ${GLIB_RESOURCES_ICONS})
+add_executable (${EXEC_NAME} ${VALA_C} ${PLUGIN_VALA_C} ${CONFIG_FILE} ${GLIB_RESOURCES_ICONS} ${GLIB_RESOURCE})
 target_link_libraries (${EXEC_NAME} ${DEPS_LIBRARIES})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
