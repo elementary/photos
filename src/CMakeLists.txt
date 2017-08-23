@@ -33,6 +33,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     DirectoryMonitor.vala
     Event.vala
     Exporter.vala
+    FullScreenWindow.vala
     International.vala
     LibraryFiles.vala
     LibraryMonitor.vala
