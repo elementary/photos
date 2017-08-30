@@ -38,17 +38,56 @@ public abstract class CheckerboardItem : ThumbnailView {
 
     private bool exposure = false;
     private CheckerboardItemText? title = null;
-    private bool title_visible = true;
     private CheckerboardItemText? comment = null;
-    private bool comment_visible = true;
     private CheckerboardItemText? subtitle = null;
-    private bool subtitle_visible = false;
     private Gdk.Pixbuf pixbuf = null;
     private Gdk.Pixbuf display_pixbuf = null;
     private Gdk.Pixbuf brightened = null;
     private Dimensions pixbuf_dim = Dimensions ();
     private int col = -1;
     private int row = -1;
+
+    private bool _comment_visible = true;
+    private bool comment_visible {
+        get {
+            return _comment_visible;
+        }
+        set {
+            if (_comment_visible != value) {
+                _comment_visible = value;
+                recalc_size ("set_comment_visible");
+                notify_view_altered ();
+            }
+        }
+    }
+
+    private bool _subtitle_visible = false;
+    private bool subtitle_visible {
+        get {
+            return _subtitle_visible;
+        }
+        set {
+            if (_subtitle_visible != value) {
+                _subtitle_visible = value;
+                recalc_size ("set_subtitle_visible");
+                notify_view_altered ();
+            }
+        }
+    }
+
+    private bool _title_visible = true;
+    private bool title_visible {
+        get {
+            return _title_visible;
+        }
+        set {
+            if (_title_visible != value) {
+                _title_visible = value;
+                recalc_size ("set_title_visible");
+                notify_view_altered ();
+            }
+        }
+    }
 
     public CheckerboardItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title, string? comment,
                              bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
@@ -61,9 +100,9 @@ public abstract class CheckerboardItem : ThumbnailView {
         // that means that the display will contain "..." if the comment
         // is too long.
         // warning: changes here have to be done in set_comment, too!
-        if (comment != null)
-            this.comment = new CheckerboardItemText (comment.replace ("\n", " "), alignment,
-                    marked_up);
+        if (comment != null) {
+            this.comment = new CheckerboardItemText (comment.replace ("\n", " "), alignment, marked_up);
+        }
 
         // Don't calculate size here, wait for the item to be assigned to a ViewCollection
         // (notify_membership_changed) and calculate when the collection's property settings
@@ -82,10 +121,10 @@ public abstract class CheckerboardItem : ThumbnailView {
         return (comment != null) ? comment.get_text () : "";
     }
 
-    public void set_title (string text, bool marked_up = false,
-                           Pango.Alignment alignment = Pango.Alignment.LEFT) {
-        if (title != null && title.is_set_to (text, marked_up, alignment))
+    public void set_title (string text, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
+        if (title != null && title.is_set_to (text, marked_up, alignment)) {
             return;
+        }
 
         title = new CheckerboardItemText (text, alignment, marked_up);
 
@@ -96,8 +135,9 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public void clear_title () {
-        if (title == null)
+        if (title == null) {
             return;
+        }
 
         title = null;
 
@@ -105,16 +145,6 @@ public abstract class CheckerboardItem : ThumbnailView {
             recalc_size ("clear_title");
             notify_view_altered ();
         }
-    }
-
-    private void set_title_visible (bool visible) {
-        if (title_visible == visible)
-            return;
-
-        title_visible = visible;
-
-        recalc_size ("set_title_visible");
-        notify_view_altered ();
     }
 
     public void set_comment (string text, bool marked_up = false,
@@ -142,25 +172,14 @@ public abstract class CheckerboardItem : ThumbnailView {
         }
     }
 
-    private void set_comment_visible (bool visible) {
-        if (comment_visible == visible)
-            return;
-
-        comment_visible = visible;
-
-        recalc_size ("set_comment_visible");
-        notify_view_altered ();
-    }
-
-
     public string get_subtitle () {
         return (subtitle != null) ? subtitle.get_text () : "";
     }
 
-    public void set_subtitle (string text, bool marked_up = false,
-                              Pango.Alignment alignment = Pango.Alignment.LEFT) {
-        if (subtitle != null && subtitle.is_set_to (text, marked_up, alignment))
+    public void set_subtitle (string text, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
+        if (subtitle != null && subtitle.is_set_to (text, marked_up, alignment)) {
             return;
+        }
 
         subtitle = new CheckerboardItemText (text, alignment, marked_up);
 
@@ -171,8 +190,9 @@ public abstract class CheckerboardItem : ThumbnailView {
     }
 
     public void clear_subtitle () {
-        if (subtitle == null)
+        if (subtitle == null) {
             return;
+        }
 
         subtitle = null;
 
@@ -180,16 +200,6 @@ public abstract class CheckerboardItem : ThumbnailView {
             recalc_size ("clear_subtitle");
             notify_view_altered ();
         }
-    }
-
-    private void set_subtitle_visible (bool visible) {
-        if (subtitle_visible == visible)
-            return;
-
-        subtitle_visible = visible;
-
-        recalc_size ("set_subtitle_visible");
-        notify_view_altered ();
     }
 
     protected override void notify_membership_changed (DataCollection? collection) {
@@ -224,15 +234,15 @@ public abstract class CheckerboardItem : ThumbnailView {
     protected override void notify_collection_property_set (string name, Value? old, Value val) {
         switch (name) {
         case PROP_SHOW_TITLES:
-            set_title_visible ((bool) val);
+            title_visible = (bool) val;
             break;
 
         case PROP_SHOW_COMMENTS:
-            set_comment_visible ((bool) val);
+            comment_visible = (bool) val;
             break;
 
         case PROP_SHOW_SUBTITLES:
-            set_subtitle_visible ((bool) val);
+            subtitle_visible = (bool) val;
             break;
         }
 
@@ -253,14 +263,17 @@ public abstract class CheckerboardItem : ThumbnailView {
     public virtual void unexposed () {
         exposure = false;
 
-        if (title != null)
+        if (title != null) {
             title.clear_pango_layout ();
+        }
 
-        if (comment != null)
+        if (comment != null) {
             comment.clear_pango_layout ();
+        }
 
-        if (subtitle != null)
+        if (subtitle != null) {
             subtitle.clear_pango_layout ();
+        }
     }
 
     public virtual bool is_exposed () {
@@ -293,8 +306,9 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         recalc_size ("clear_image");
 
-        if (had_image)
+        if (had_image) {
             notify_view_altered ();
+        }
     }
 
     public static int get_max_width (int scale) {
@@ -307,12 +321,9 @@ public abstract class CheckerboardItem : ThumbnailView {
         Dimensions old_requisition = requisition;
 
         // only add in the text heights if they're displayed
-        int title_height = (title != null && title_visible)
-                           ? title.get_height () + LABEL_PADDING : 0;
-        int comment_height = (comment != null && comment_visible)
-                             ? comment.get_height () + LABEL_PADDING : 0;
-        int subtitle_height = (subtitle != null && subtitle_visible)
-                              ? subtitle.get_height () + LABEL_PADDING : 0;
+        int title_height = (title != null && title_visible) ? title.get_height () + LABEL_PADDING : 0;
+        int comment_height = (comment != null && comment_visible) ? comment.get_height () + LABEL_PADDING : 0;
+        int subtitle_height = (subtitle != null && subtitle_visible) ? subtitle.get_height () + LABEL_PADDING : 0;
 
         // width is frame width (two sides) + frame padding (two sides) + width of pixbuf
         // (text never wider)
@@ -320,8 +331,7 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // height is frame width (two sides) + frame padding (two sides) + height of pixbuf
         // + height of text + label padding (between pixbuf and text)
-        requisition.height = (FRAME_WIDTH * 2) + (BORDER_WIDTH * 2)
-                             + pixbuf_dim.height + title_height + comment_height + subtitle_height;
+        requisition.height = (FRAME_WIDTH * 2) + (BORDER_WIDTH * 2) + pixbuf_dim.height + title_height + comment_height + subtitle_height;
 
 #if TRACE_REFLOW_ITEMS
         debug ("recalc_size %s: %s title_height=%d comment_height=%d subtitle_height=%d requisition=%s",
