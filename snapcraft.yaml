@@ -1,0 +1,86 @@
+name: pantheon-terminal
+version: '1.0.0'
+summary: Create simple and beautiful presentations on the Linux desktop
+description: |
+  camera is a modern and intuitive desktop presentation app based
+  upon SpiceOfDesign's presentation concept. Built from the ground up
+  for elementary OS, it gives you everything you need to create simple
+  and beautiful presentations.
+
+grade: stable
+confinement: strict
+
+plugs:
+  elementary-platform-loki:
+    interface: content
+    target: $SNAP/gnome-platform
+    default-provider: elementary-platform-loki:elementary-platform-loki
+
+slots:
+  pantheon-terminal:
+    interface: dbus
+    bus: session
+    name: io.elementary.terminal
+
+apps:
+  pantheon-terminal:
+    command: desktop-launch $SNAP/bin/io.elementary.terminal
+    plugs:
+      - x11
+      - unity7
+      - home
+      - gsettings
+      - pulseaudio
+      - opengl
+
+parts:
+  elementary:
+    plugin: nil
+    prepare: |
+      add-apt-repository -y ppa:elementary-os/stable
+      add-apt-repository -y ppa:elementary-os/os-patches
+      echo "Package: *" > /etc/apt/preferences.d/elementary-stable
+      echo "Pin: release o=LP-PPA-elementary-os-stable" >> /etc/apt/preferences.d/elementary-stable
+      echo "Pin-Priority: 1000" >> /etc/apt/preferences.d/elementary-stable
+      echo "Package: *" > /etc/apt/preferences.d/elementary-patches
+      echo "Pin: release o=LP-PPA-elementary-os-os-patches" >> /etc/apt/preferences.d/elementary-patches
+      echo "Pin-Priority: 1000" >> /etc/apt/preferences.d/elementary-patches
+      apt update
+      apt dist-upgrade -y
+  pantheon-terminal:
+    build-attributes: [no-system-libraries]
+    after: [elementary, desktop-gnome-platform]
+    plugin: cmake
+#    meson-parameters: [--prefix=/usr]
+    source: .
+    build-packages:
+      - appstream
+      - valac
+      - desktop-file-utils
+      - libgee-0.8-dev
+      - libglib2.0-dev
+      - libgtk-3-dev
+      - libexif-dev
+      - libsqlite3-dev
+      - libgexiv2-dev
+      - libgeocode-glib-dev
+      - libgphoto2-dev
+      - libsoup2.4-dev
+      - libxml2
+      - libwebkit2gtk-4.0-dev
+      - libgudev-1.0-dev
+      - libraw-dev
+      - libjson-glib-dev
+      - libgranite-dev
+      - libgstreamer1.0-dev
+      - libgstreamer-plugins-base1.0-dev
+      - librest-dev
+      - libaccounts-glib-dev
+      - libsignon-glib-dev
+      - libunity-dev
+      - python-scour
+    stage-packages:
+      - libvte-2.91-0
+#      - libgstreamer-plugins-base1.0-0
+    organize:
+      share/glib-2.0: usr/share/glib-2.0
