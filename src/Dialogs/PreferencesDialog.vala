@@ -52,27 +52,27 @@ public class PreferencesDialog {
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
 
         // Create our stack container and load in each preference container from shotwell.ui
-        Gtk.Stack container = new Gtk.Stack ();
+        var container = new Gtk.Stack ();
         container.expand = true;
-        container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _ ("Library"));
-        container.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _ ("Plugins"));
+        container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _("Library"));
+        container.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
 
-        Gtk.StackSwitcher switcher = new Gtk.StackSwitcher ();
-        switcher.stack = container;
-        switcher.expand = true;
+        var switcher = new Gtk.StackSwitcher ();
         switcher.halign = Gtk.Align.CENTER;
+        switcher.homogeneous = true;
+        switcher.expand = true;
         switcher.margin_bottom = 6;
+        switcher.stack = container;
         
         // Add the switcher, stack container and button container to the window
-        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
-        content.margin_bottom = 6;
-        content.margin_start = 6;
-        content.margin_end = 6;
+        var content = dialog.get_content_area () as Gtk.Box;
+        content.margin = 6;
+        content.margin_top = 0;
         content.add (switcher);
         content.add (container);
 
         // Add close button to window
-        close_button = new Gtk.Button.with_mnemonic (_ ("_Close"));
+        close_button = new Gtk.Button.with_mnemonic (_("_Close"));
         close_button.clicked.connect (on_close);
 
         Gtk.Box button_container = dialog.get_action_area () as Gtk.Box;
