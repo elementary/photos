@@ -468,8 +468,6 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
             }
         }
 
-        assert (get_primary_source () is MediaSource);
-
         if (should_remake_thumb) {
             // check whether we actually need to remake this thumbnail...
             if ((get_primary_source () == null)) {
