@@ -24,6 +24,7 @@ enum ShotwellCommand {
 
 private Timer startup_timer = null;
 private bool was_already_running = false;
+public const string TRANSLATABLE = "translatable";
 
 void library_exec (string[] mounts) {
     was_already_running = Application.app_get_is_remote ();
@@ -402,7 +403,8 @@ void main (string[] args) {
     AppDirs.verify_cache_dir ();
 
     // init internationalization with the default system locale
-    InternationalSupport.init (Resources.APP_GETTEXT_PACKAGE, args);
+    Intl.setlocale (LocaleCategory.ALL, "");
+    Intl.textdomain (GETTEXT_PACKAGE);
 
     startup_timer = new Timer ();
     startup_timer.start ();
