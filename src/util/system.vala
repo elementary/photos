@@ -18,7 +18,7 @@
 */
 
 int number_of_processors () {
-    int n = (int) ExtendedPosix.sysconf (ExtendedPosix.ConfName._SC_NPROCESSORS_ONLN);
+    int n = (int) Posix.sysconf (Linux._SC_NPROCESSORS_ONLN);
     return n <= 0 ? 1 : n;
 }
 
