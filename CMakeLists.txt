@@ -66,8 +66,8 @@ set (DEPS_PACKAGES
     libxml-2.0
     sqlite3
     webkit2gtk-4.0
+    linux
     # Custom .vapis
-    ExtendedPosix
     LConv
 )
 
