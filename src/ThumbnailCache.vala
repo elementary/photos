@@ -328,7 +328,6 @@ public class ThumbnailCache : Object {
         Size max_size = Size.BIG * 2;
         Dimensions dim = max_size.get_scaling ().get_scaled_dimensions (original_dim);
         Gdk.Pixbuf? largest_thumbnail = null;
-
         try {
             largest_thumbnail = reader.scaled_read (original_dim, dim);
         } catch (Error err) {
