@@ -142,6 +142,8 @@ public class ThumbnailCache : Object {
                     return;
 
                 // scale if specified
+                dim.width *= scale_factor;
+                dim.height *= scale_factor;
                 scaled = dim.has_area () ? resize_pixbuf (unscaled, dim, interp) : unscaled;
             } catch (Error err) {
                 // Is the problem that the thumbnail couldn't be read? If so, it's recoverable;
@@ -194,6 +196,19 @@ public class ThumbnailCache : Object {
     private static int cycle_async_resized_thumbnails = 0;
     private static int cycle_overflow_thumbnails = 0;
     private static ulong cycle_dropped_bytes = 0;
+    private static int _scale_factor = 1;
+    public static int scale_factor {
+        get {
+            return _scale_factor;
+        }
+        set {
+            if (_scale_factor != value) {
+                _scale_factor = value;
+                big = new ThumbnailCache (Size.BIG, MAX_BIG_CACHED_BYTES);
+                medium = new ThumbnailCache (Size.MEDIUM, MAX_MEDIUM_CACHED_BYTES);
+            }
+        }
+    }
 
     private File cache_dir;
     private Size size;
@@ -206,7 +221,7 @@ public class ThumbnailCache : Object {
 
     private ThumbnailCache (Size size, ulong max_cached_bytes, Gdk.InterpType interp = DEFAULT_INTERP,
                             Jpeg.Quality quality = DEFAULT_QUALITY) {
-        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d".printf (size.get_scale ()));
+        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d@%dx".printf (size.get_scale (), scale_factor));
         this.size = size;
         this.max_cached_bytes = max_cached_bytes;
         this.interp = interp;
@@ -313,6 +328,7 @@ public class ThumbnailCache : Object {
         Size max_size = Size.BIG * 2;
         Dimensions dim = max_size.get_scaling ().get_scaled_dimensions (original_dim);
         Gdk.Pixbuf? largest_thumbnail = null;
+
         try {
             largest_thumbnail = reader.scaled_read (original_dim, dim);
         } catch (Error err) {

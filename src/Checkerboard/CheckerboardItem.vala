@@ -89,6 +89,21 @@ public abstract class CheckerboardItem : ThumbnailView {
         }
     }
 
+    private int _scale_factor = 1;
+    private int scale_factor {
+        get {
+            return _scale_factor;
+        }
+        set {
+            if (_scale_factor != value) {
+                _scale_factor = value;
+                ThumbnailCache.scale_factor = _scale_factor;
+                recalc_size ("set_scale_factor");
+                notify_view_altered ();
+            }
+        }
+    }
+
     public CheckerboardItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title, string? comment,
                              bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
         base (source);
@@ -292,6 +307,8 @@ public abstract class CheckerboardItem : ThumbnailView {
         this.pixbuf = pixbuf;
         display_pixbuf = pixbuf;
         pixbuf_dim = Dimensions.for_pixbuf (pixbuf);
+        pixbuf_dim.width /= scale_factor;
+        pixbuf_dim.height /= scale_factor;
 
         recalc_size ("set_image");
         notify_view_altered ();
@@ -382,11 +399,13 @@ public abstract class CheckerboardItem : ThumbnailView {
             }
         }
 
+        scale_factor = style_context.get_scale ();
+
         if (display_pixbuf != null) {
             var origin_x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
             var origin_y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
-            var pixbuf_width = display_pixbuf.width;
-            var pixbuf_height = display_pixbuf.height;
+            var pixbuf_width = display_pixbuf.width / scale_factor;
+            var pixbuf_height = display_pixbuf.height / scale_factor;
             style_context.render_background (ctx, origin_x, origin_y, pixbuf_width, pixbuf_height);
             var radius = style_context.get_property ("border-radius", style_context.get_state ()).get_int ();
             ctx.save ();
@@ -396,7 +415,8 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.arc (origin_x + radius, origin_y + pixbuf_height - radius, radius, Math.PI_2, Math.PI);
             ctx.arc (origin_x + radius, origin_y + radius, radius, Math.PI, Math.PI * 1.5);
             ctx.close_path ();
-            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, origin_x, origin_y);
+            ctx.scale (1.0 / scale_factor, 1.0 / scale_factor);
+            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, origin_x * scale_factor, origin_y * scale_factor);
             ctx.clip ();
             ctx.paint ();
             ctx.restore ();
@@ -406,7 +426,7 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // Add the selection helper
         Gdk.Pixbuf? selection_icon_pix = null;
-        var scale_factor = style_context.get_scale ();
+
         if (selection_icon != null) {
             try {
                 selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon, SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
