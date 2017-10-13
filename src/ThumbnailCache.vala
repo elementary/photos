@@ -132,9 +132,6 @@ public class ThumbnailCache : Object {
 
         public override void execute () {
             try {
-                dim.width *= scale_factor;
-                dim.height *= scale_factor;
-
                 // load-and-decode if not already prefetched
                 if (unscaled == null) {
                     unscaled = cache.read_pixbuf (thumbnail_name, source_format);
