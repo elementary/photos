@@ -60,9 +60,9 @@ private class BasicProperties : Properties {
         flash = "";
         filesize = 0;
         focal_length = "";
-        gps_lat = -1;
+        gps_lat = 0.0;
         gps_lat_ref = "";
-        gps_long = -1;
+        gps_long = 0.0;
         gps_long_ref = "";
         photo_count = -1;
         event_count = -1;
@@ -285,7 +285,7 @@ private class BasicProperties : Properties {
             }
         }
 
-        if (gps_lat != -1 && gps_long != -1) {
+        if (gps_lat != 0.0 && gps_long != 0.0) {
             place_label = new Properties.Label ("");
             place_label.no_show_all = true;
             place_label.visible = false;
@@ -401,7 +401,7 @@ private class BasicProperties : Properties {
                 place_label.visible = true;
             }
         } catch (Error e) {
-            warning ("Failed to obtain place: %s", e.message);
+            warning ("Failed to obtain place for %f, %f: %s", lat, long, e.message);
         }
     }
 

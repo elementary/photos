@@ -452,8 +452,6 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
      *  image may have been rejected and should not be the thumbnail anymore.
      */
     private void on_media_altered (Gee.Map<DataObject, Alteration> items) {
-        bool should_remake_thumb = false;
-
         foreach (Alteration alteration in items.values) {
             if (alteration.has_detail ("metadata", "exposure-time")) {
 
@@ -466,18 +464,6 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
 
                 break;
             }
-        }
-
-        assert (get_primary_source () is MediaSource);
-
-        if (should_remake_thumb) {
-            // check whether we actually need to remake this thumbnail...
-            if ((get_primary_source () == null)) {
-                // yes, rejected - drop it and get a new one...
-                set_primary_source ((MediaSource) view.get_first_unrejected ().get_source ());
-            }
-
-            // ...otherwise, if the primary source wasn't rejected, just leave it alone.
         }
     }
 
