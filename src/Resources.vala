@@ -423,7 +423,7 @@ public void terminate () {
  * from one locale, but the timestamp format of another.
  *
  * Stolen wholesale from code written for Geary by Jim Nelson
- * and from Marcel Stimberg's original patch to Shotwell to
+ * and from Marcel Stimberg's original patch to Photos to
  * try to fix this; both are graciously thanked for their help.
  */
 private void fetch_lc_time_format () {
