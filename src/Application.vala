@@ -164,7 +164,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Initializes the Shotwell application object and prepares
+     * @brief Initializes the Photos application object and prepares
      * it for use.
      *
      * @param is_direct Whether the application was invoked in direct

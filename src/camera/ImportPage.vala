@@ -366,7 +366,7 @@ class ImportPreview : MediaSourceItem {
         VideoImportSource video_import_source = get_import_source () as VideoImportSource;
         if (video_import_source != null) {
             // Unlike photos, if a video does have a thumbnail (i.e. gphoto2 can retrieve one from
-            // a sidecar file), it will be unavailable to Shotwell during the import process, so
+            // a sidecar file), it will be unavailable to Photos during the import process, so
             // no comparison is available.  Instead, like RAW files, use name and filesize to
             // do a less-reliable but better-than-nothing comparison
             if (Video.global.has_basename_filesize_duplicate (video_import_source.get_filename (),
@@ -1119,7 +1119,7 @@ public class ImportPage : CheckerboardPage {
 
             if (mount != null) {
                 // it's mounted, offer to unmount for the user
-                string mounted_message = _ ("Shotwell needs to unmount the camera from the filesystem in order to access it.  Continue?");
+                string mounted_message = _ ("Photos needs to unmount the camera from the filesystem in order to access it.  Continue?");
 
                 Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
                         Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION,
@@ -1135,7 +1135,7 @@ public class ImportPage : CheckerboardPage {
                     unmount_camera (mount);
                 }
             } else {
-                string locked_message = _ ("The camera is locked by another application.  Shotwell can only access the camera when it's unlocked.  Please close any other application using the camera and try again.");
+                string locked_message = _ ("The camera is locked by another application.  Photos can only access the camera when it's unlocked.  Please close any other application using the camera and try again.");
 
                 // it's not mounted, so another application must have it locked
                 Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),

@@ -65,24 +65,24 @@ void library_exec (string[] mounts) {
         break;
 
     case Db.VerifyResult.FUTURE_VERSION:
-        errormsg = _ ("Your photo library is not compatible with this version of Shotwell.  It appears it was created by Shotwell %s (schema %d).  This version is %s (schema %d).  Please use the latest version of Shotwell.").printf (
+        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please use the latest version of Photos.").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
         break;
 
     case Db.VerifyResult.UPGRADE_ERROR:
-        errormsg = _ ("Shotwell was unable to upgrade your photo library from version %s (schema %d) to %s (schema %d).  For more information please check the Shotwell Wiki at %s").printf (
+        errormsg = _ ("Photos was unable to upgrade your photo library from version %s (schema %d) to %s (schema %d).  For more information please check the Photos Wiki at %s").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
                        Resources.WIKI_URL);
         break;
 
     case Db.VerifyResult.NO_UPGRADE_AVAILABLE:
-        errormsg = _ ("Your photo library is not compatible with this version of Shotwell.  It appears it was created by Shotwell %s (schema %d).  This version is %s (schema %d).  Please clear your library by deleting %s and re-import your photos.").printf (
+        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please clear your library by deleting %s and re-import your photos.").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
                        AppDirs.get_data_dir ().get_path ());
         break;
 
     default:
-        errormsg = _ ("Unknown error attempting to verify Shotwell's database: %s").printf (
+        errormsg = _ ("Unknown error attempting to verify Photos' database: %s").printf (
                        result.to_string ());
         break;
     }
@@ -115,7 +115,7 @@ void library_exec (string[] mounts) {
                              + VideoTable.get_instance ().get_row_count ()
                              + Upgrades.get_instance ().get_step_count ();
         if (grand_total > 5000) {
-            progress_dialog = new ProgressDialog (null, _ ("Loading Shotwell"));
+            progress_dialog = new ProgressDialog (null, _ ("Loading Photos"));
             progress_dialog.update_display_every (100);
             progress_dialog.set_minimum_on_screen_time_msec (250);
             try {
@@ -296,7 +296,7 @@ public OptionEntry[] get_options () {
         return entries;
 
     OptionEntry datadir = { "datadir", 'd', 0, OptionArg.FILENAME, &data_dir,
-                            _ ("Path to Shotwell's private data"), _ ("DIRECTORY")
+                            _ ("Path to Photos' private data"), _ ("DIRECTORY")
                           };
     entries += datadir;
 
@@ -431,7 +431,7 @@ void main (string[] args) {
     AppDirs.terminate ();
 
     // Back up db on successful run so we have something to roll back to if
-    // it gets corrupted in the next session.  Don't do this if another shotwell
+    // it gets corrupted in the next session.  Don't do this if another Photos
     // is open or if we're in direct mode.
     if (is_string_empty (filename) && !was_already_running) {
         string orig_path = AppDirs.get_data_subdir ("data").get_child ("photo.db").get_path ();

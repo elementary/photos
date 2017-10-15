@@ -753,7 +753,7 @@ public abstract class Photo : PhotoSource, Dateable {
             // will be the same, so the second test is required for correct operation.
             if ((stale_raw_developer != RawDeveloper.CAMERA) &&
                     (stale_raw_developer != row.developer)) {
-                // The 'stale' non-Shotwell development we're using was
+                // The 'stale' non-Photos development we're using was
                 // created by us, not the camera, so discard it...
                 delete_raw_development (stale_raw_developer);
             }

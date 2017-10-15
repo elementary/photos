@@ -245,7 +245,7 @@ public class VideoReader {
         }
         Posix.close (pipefd[1]); // Close the write end of the pipe.
 
-        // Use Shotwell's thumbnailer, redirect output to stdout.
+        // Use Photos' thumbnailer, redirect output to stdout.
         debug ("Launching thumbnailer process: %s", AppDirs.get_thumbnailer_bin ().get_path ());
         string[] argv = {AppDirs.get_thumbnailer_bin ().get_path (), video_file};
         try {
