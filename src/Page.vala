@@ -1069,15 +1069,19 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     public void stop_cursor_hiding () {
-        if (last_timeout_id != 0)
+        if (last_timeout_id != 0) {
             Source.remove (last_timeout_id);
+            last_timeout_id = 0;
+        }
     }
 
     public void suspend_cursor_hiding () {
         cursor_hide_time_cached = cursor_hide_msec;
 
-        if (last_timeout_id != 0)
+        if (last_timeout_id != 0) {
             Source.remove (last_timeout_id);
+            last_timeout_id = 0;
+        }
 
         cursor_hide_msec = 0;
     }
@@ -1114,6 +1118,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (event_source != null)
             event_source.get_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.BLANK_CURSOR));
 
+        last_timeout_id = 0;
         return false;
     }
 }
