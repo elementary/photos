@@ -22,7 +22,7 @@ int number_of_processors () {
     return n <= 0 ? 1 : n;
 }
 
-// Return the directory in which Shotwell is installed, or null if uninstalled.
+// Return the directory in which Photos is installed, or null if uninstalled.
 File? get_sys_install_dir (File exec_dir) {
     // guard against exec_dir being a symlink
     File exec_dir1 = exec_dir;
