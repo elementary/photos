@@ -441,8 +441,6 @@ public abstract class MediaPage : CheckerboardPage {
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
         set_action_sensitive ("MoveToTrash", selected_count > 0);
 
-        set_action_sensitive ("Rate", selected_count > 0);
-
         update_development_menu_item_sensitivity ();
 
         update_flag_action (selected_count);
