@@ -45,6 +45,7 @@ public abstract class CollectionPage : MediaPage {
     private Gtk.Menu item_context_menu;
     private Gtk.Menu open_menu;
     private Gtk.Menu open_raw_menu;
+    private Gtk.MenuItem open_raw_menu_item;
     private Gtk.Menu contractor_menu;
     private Gtk.ToolButton rotate_button;
     private Gtk.ToolButton flip_button;
@@ -197,7 +198,7 @@ public abstract class CollectionPage : MediaPage {
             open_menu = new Gtk.Menu ();
             open_menu_item.set_submenu (open_menu);
 
-            var open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
+            open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
             var open_raw_action = get_action ("OpenWithRaw");
             open_raw_action.bind_property ("sensitive", open_raw_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             open_raw_menu = new Gtk.Menu ();
@@ -276,6 +277,8 @@ public abstract class CollectionPage : MediaPage {
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
+
+        open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
 
         populate_contractor_menu (contractor_menu);
         return item_context_menu;
