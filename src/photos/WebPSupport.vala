@@ -159,7 +159,8 @@ public class WebPReader : PhotoFileReader {
         }
 
         int rowstride = (features.has_alpha ? 4 : 3) * width;
-        var result = new Gdk.Pixbuf.with_unowned_data (webp_data, Gdk.Colorspace.RGB, features.has_alpha, 8, width, height, rowstride);
+        var result = new Gdk.Pixbuf.with_unowned_data (webp_data, Gdk.Colorspace.RGB, features.has_alpha,
+                                                       8, width, height, rowstride);
 
         uint8[] png_data;
         result.save_to_buffer (out png_data, "png");
