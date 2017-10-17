@@ -35,6 +35,7 @@ set (DEPS_PKG
     json-glib-1.0
     libexif>=0.6.16
     libgphoto2>=2.4.2
+    libwebp>=0.4.4
     libraw>=0.13.2
     libsoup-2.4>=2.26.0
     libxml-2.0>=2.6.32
@@ -60,6 +61,7 @@ set (DEPS_PACKAGES
     gudev-1.0
     libexif
     libgphoto2
+    libwebp
     json-glib-1.0
     libraw
     libsoup-2.4
