@@ -27,6 +27,7 @@ You'll need the following dependencies:
 * libsqlite3-dev
 * libunity-dev
 * libwebkit2gtk-4.0-dev
+* libwebp-dev
 * libxml2
 * python-scour
 * valac
