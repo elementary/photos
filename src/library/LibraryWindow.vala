@@ -920,6 +920,7 @@ public class LibraryWindow : AppWindow {
             spin_event_loop ();
         }
 
+        photo_page.get_toolbar ();
         photo_page.display_for_collection (controller, current);
         switch_to_page (photo_page);
     }
@@ -1098,8 +1099,9 @@ public class LibraryWindow : AppWindow {
         Page current_page = get_current_page ();
         if (current_page != null) {
             Gtk.Toolbar toolbar = current_page.get_toolbar ();
-            if (toolbar != null)
-                right_vbox.remove (toolbar);
+            if (toolbar != null) {
+                toolbar.destroy ();
+            }
             if (page_header_box != null)
                 header.remove (page_header_box);
 
