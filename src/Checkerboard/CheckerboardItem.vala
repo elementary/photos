@@ -253,7 +253,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     // CheckerboardItem) which this item should be aligned to.  This allows for
     // bottom-alignment along the bottom edge of the thumbnail.
     public int get_alignment_point () {
-        return FRAME_WIDTH + BORDER_WIDTH + pixbuf_dim.height;
+        return FRAME_WIDTH + BORDER_WIDTH + (pixbuf_dim.height / ThumbnailCache.scale_factor);
     }
 
     public virtual void exposed () {
@@ -327,11 +327,14 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // width is frame width (two sides) + frame padding (two sides) + width of pixbuf
         // (text never wider)
-        requisition.width = (FRAME_WIDTH * 2) + (BORDER_WIDTH * 2) + pixbuf_dim.width;
+        requisition.width = (FRAME_WIDTH * 2) + (BORDER_WIDTH * 2) + (pixbuf_dim.width / ThumbnailCache.scale_factor);
 
         // height is frame width (two sides) + frame padding (two sides) + height of pixbuf
         // + height of text + label padding (between pixbuf and text)
-        requisition.height = (FRAME_WIDTH * 2) + (BORDER_WIDTH * 2) + pixbuf_dim.height + title_height + comment_height + subtitle_height;
+        requisition.height = (FRAME_WIDTH * 2) +
+                             (BORDER_WIDTH * 2) +
+                             (pixbuf_dim.height / ThumbnailCache.scale_factor) +
+                             title_height + comment_height + subtitle_height;
 
 #if TRACE_REFLOW_ITEMS
         debug ("recalc_size %s: %s title_height=%d comment_height=%d subtitle_height=%d requisition=%s",
@@ -382,11 +385,13 @@ public abstract class CheckerboardItem : ThumbnailView {
             }
         }
 
+        var scale_factor = style_context.get_scale ();
+
         if (display_pixbuf != null) {
             var origin_x = allocation.x + FRAME_WIDTH + BORDER_WIDTH;
             var origin_y = allocation.y + FRAME_WIDTH + BORDER_WIDTH;
-            var pixbuf_width = display_pixbuf.width;
-            var pixbuf_height = display_pixbuf.height;
+            var pixbuf_width = display_pixbuf.width / scale_factor;
+            var pixbuf_height = display_pixbuf.height / scale_factor;
             style_context.render_background (ctx, origin_x, origin_y, pixbuf_width, pixbuf_height);
             var radius = style_context.get_property ("border-radius", style_context.get_state ()).get_int ();
             ctx.save ();
@@ -396,7 +401,8 @@ public abstract class CheckerboardItem : ThumbnailView {
             ctx.arc (origin_x + radius, origin_y + pixbuf_height - radius, radius, Math.PI_2, Math.PI);
             ctx.arc (origin_x + radius, origin_y + radius, radius, Math.PI, Math.PI * 1.5);
             ctx.close_path ();
-            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, origin_x, origin_y);
+            ctx.scale (1.0 / scale_factor, 1.0 / scale_factor);
+            Gdk.cairo_set_source_pixbuf (ctx, display_pixbuf, origin_x * scale_factor, origin_y * scale_factor);
             ctx.clip ();
             ctx.paint ();
             ctx.restore ();
@@ -406,7 +412,7 @@ public abstract class CheckerboardItem : ThumbnailView {
 
         // Add the selection helper
         Gdk.Pixbuf? selection_icon_pix = null;
-        var scale_factor = style_context.get_scale ();
+
         if (selection_icon != null) {
             try {
                 selection_icon_pix = Gtk.IconTheme.get_default ().load_icon_for_scale (selection_icon, SELECTION_ICON_SIZE, scale_factor, Gtk.IconLookupFlags.GENERIC_FALLBACK);
@@ -426,17 +432,17 @@ public abstract class CheckerboardItem : ThumbnailView {
         // Add the title and subtitle
         style_context.add_class (Gtk.STYLE_CLASS_LABEL);
         // title and subtitles are LABEL_PADDING below bottom of pixbuf
-        int text_y = allocation.y + FRAME_WIDTH + pixbuf_dim.height + FRAME_WIDTH + LABEL_PADDING;
+        int text_y = allocation.y + FRAME_WIDTH + (pixbuf_dim.height / scale_factor) + FRAME_WIDTH + LABEL_PADDING;
         if (title != null && title_visible) {
             var title_allocation = title.allocation;
             // get the layout sized so its with is no more than the pixbuf's
             // resize the text width to be no more than the pixbuf's
             title_allocation.x = allocation.x + FRAME_WIDTH;
             title_allocation.y = text_y;
-            title_allocation.width = pixbuf_dim.width;
+            title_allocation.width = (pixbuf_dim.width / scale_factor);
             title_allocation.height = title.get_height ();
 
-            var layout = title.get_pango_layout (pixbuf_dim.width);
+            var layout = title.get_pango_layout (pixbuf_dim.width / scale_factor);
             Pango.cairo_update_layout (ctx, layout);
             style_context.render_layout (ctx, title_allocation.x, title_allocation.y, layout);
 
@@ -447,10 +453,10 @@ public abstract class CheckerboardItem : ThumbnailView {
             var comment_allocation = comment.allocation;
             comment_allocation.x = allocation.x + FRAME_WIDTH;
             comment_allocation.y = text_y;
-            comment_allocation.width = pixbuf_dim.width;
+            comment_allocation.width = pixbuf_dim.width / scale_factor;
             comment_allocation.height = comment.get_height ();
 
-            var layout = comment.get_pango_layout (pixbuf_dim.width);
+            var layout = comment.get_pango_layout (pixbuf_dim.width / scale_factor);
             Pango.cairo_update_layout (ctx, layout);
             style_context.render_layout (ctx, comment_allocation.x, comment_allocation.y, layout);
 
@@ -461,10 +467,10 @@ public abstract class CheckerboardItem : ThumbnailView {
             var subtitle_allocation = subtitle.allocation;
             subtitle_allocation.x = allocation.x + FRAME_WIDTH;
             subtitle_allocation.y = text_y;
-            subtitle_allocation.width = pixbuf_dim.width;
+            subtitle_allocation.width = pixbuf_dim.width / scale_factor;
             subtitle_allocation.height = subtitle.get_height ();
 
-            var layout = subtitle.get_pango_layout (pixbuf_dim.width);
+            var layout = subtitle.get_pango_layout (pixbuf_dim.width / scale_factor);
             Pango.cairo_update_layout (ctx, layout);
             style_context.render_layout (ctx, subtitle_allocation.x, subtitle_allocation.y, layout);
 
