@@ -182,8 +182,8 @@ public class ThumbnailCache : Object {
 
     private static Workers fetch_workers = null;
 
-    public const ulong MAX_BIG_CACHED_BYTES = 40 * 1024 * 1024;
-    public const ulong MAX_MEDIUM_CACHED_BYTES = 30 * 1024 * 1024;
+    public const ulong MAX_BIG_CACHED_BYTES = 60 * 1024 * 1024;
+    public const ulong MAX_MEDIUM_CACHED_BYTES = 40 * 1024 * 1024;
 
     private static ThumbnailCache big = null;
     private static ThumbnailCache medium = null;
