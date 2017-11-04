@@ -194,6 +194,19 @@ public class ThumbnailCache : Object {
     private static int cycle_async_resized_thumbnails = 0;
     private static int cycle_overflow_thumbnails = 0;
     private static ulong cycle_dropped_bytes = 0;
+    private static int _scale_factor = 1;
+    public static int scale_factor {
+        get {
+            return _scale_factor;
+        }
+        set {
+            if (_scale_factor != value) {
+                _scale_factor = value;
+                big = new ThumbnailCache (Size.BIG, MAX_BIG_CACHED_BYTES);
+                medium = new ThumbnailCache (Size.MEDIUM, MAX_MEDIUM_CACHED_BYTES);
+            }
+        }
+    }
 
     private File cache_dir;
     private Size size;
@@ -206,7 +219,7 @@ public class ThumbnailCache : Object {
 
     private ThumbnailCache (Size size, ulong max_cached_bytes, Gdk.InterpType interp = DEFAULT_INTERP,
                             Jpeg.Quality quality = DEFAULT_QUALITY) {
-        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d".printf (size.get_scale ()));
+        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d@%dx".printf (size.get_scale (), scale_factor));
         this.size = size;
         this.max_cached_bytes = max_cached_bytes;
         this.interp = interp;
@@ -312,6 +325,8 @@ public class ThumbnailCache : Object {
         // Taking advantage of Size's values matching their pixel size
         Size max_size = Size.BIG * 2;
         Dimensions dim = max_size.get_scaling ().get_scaled_dimensions (original_dim);
+        dim.width *= scale_factor;
+        dim.height *= scale_factor;
         Gdk.Pixbuf? largest_thumbnail = null;
         try {
             largest_thumbnail = reader.scaled_read (original_dim, dim);
@@ -326,6 +341,8 @@ public class ThumbnailCache : Object {
 
         foreach (Size size in ALL_SIZES) {
             dim = size.get_scaling ().get_scaled_dimensions (largest_thumb_dimensions);
+            dim.width *= scale_factor;
+            dim.height *= scale_factor;
             thumbnails.set (size, largest_thumbnail.scale_simple (dim.width, dim.height, Gdk.InterpType.HYPER));
         }
     }
@@ -464,7 +481,7 @@ public class ThumbnailCache : Object {
         }
 
         LibraryPhoto photo = (LibraryPhoto) source;
-        save_thumbnail (file, photo.get_pixbuf (Scaling.for_best_fit (size.get_scale (), true)), source);
+        save_thumbnail (file, photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true)), source);
 
         // See note in _import_with_pixbuf for reason why this is not maintained in in-memory
         // cache
@@ -513,7 +530,7 @@ public class ThumbnailCache : Object {
         remove_from_memory (source.get_source_id ());
 
         // scale to cache's parameters
-        Gdk.Pixbuf scaled = scale_pixbuf (original, size.get_scale (), interp, true);
+        Gdk.Pixbuf scaled = scale_pixbuf (original, size.get_scale () * scale_factor, interp, true);
 
         // save scaled image to disk
         save_thumbnail (file, scaled, source);

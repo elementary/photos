@@ -142,6 +142,8 @@ public class LibraryWindow : AppWindow {
     private Gtk.Box right_vbox;
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
+        ThumbnailCache.scale_factor = get_scale_factor ();
+
         // prep sidebar and add roots
         sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK,
                                          external_drop_handler);
