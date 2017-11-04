@@ -22,6 +22,12 @@ public class Application : Granite.Application {
     private int system_app_run_retval = 0;
     private bool direct;
 
+    public bool debugging_enabled {
+        set {
+            DEBUG = value;
+        }
+    }
+
     public virtual signal void starting () {
     }
 
