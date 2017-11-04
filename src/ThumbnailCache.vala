@@ -40,7 +40,7 @@ public class Thumbnails {
 public class ThumbnailCache : Object {
     public const Gdk.InterpType DEFAULT_INTERP = Gdk.InterpType.HYPER;
     public const Jpeg.Quality DEFAULT_QUALITY = Jpeg.Quality.HIGH;
-    public const int MAX_INMEMORY_DATA_SIZE = 512 * 1024;
+    public const int MAX_INMEMORY_DATA_SIZE = 2048 * 1024;
 
     // Some code relies on Size's pixel values being manipulated and then using Size's methods,
     // so be careful before changing any of these values (and especially careful before arbitrarily
