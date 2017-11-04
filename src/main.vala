@@ -317,8 +317,8 @@ public OptionEntry[] get_options () {
     entries += version;
 
     OptionEntry debug_option = { "debug", 'D', 0, OptionArg.NONE, &debug_enabled,
-                            _ ("Show extra debugging output"), null
-                          };
+                                 _ ("Show extra debugging output"), null
+                               };
     entries += debug_option;
 
     OptionEntry terminator = { null, 0, 0, 0, null, null, null };
