@@ -490,7 +490,7 @@ public class ThumbnailCache : Object {
     private void _import_thumbnail (ThumbnailSource source, Gdk.Pixbuf? scaled, bool force = false)
     throws Error {
         assert (scaled != null);
-        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale ()));
+        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale () * scale_factor));
 
         // if not forcing the cache operation, check if file exists and is represented in the
         // database before continuing
