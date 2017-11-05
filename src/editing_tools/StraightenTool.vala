@@ -370,7 +370,7 @@ public class StraightenTool : EditingTool {
         // set crosshair cursor
         canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.CROSSHAIR));
 
-        window = new StraightenToolWindow (canvas.get_container ());
+        window = new StraightenToolWindow (canvas.container);
         bind_window_handlers ();
 
         // prepare ths slider for display

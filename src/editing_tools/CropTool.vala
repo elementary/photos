@@ -167,6 +167,7 @@ public class EditingTools.CropTool : EditingTool {
     private int custom_height = -1;
     private int custom_init_width = -1;
     private int custom_init_height = -1;
+    private int scale_factor = 1;
     private float pre_aspect_ratio = ANY_ASPECT_RATIO;
 
     private CropTool () {
@@ -500,6 +501,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void activate (PhotoCanvas canvas) {
+        scale_factor = canvas.container.scale_factor;
         bind_canvas_handlers (canvas);
 
         prepare_ctx (canvas.get_default_ctx (), canvas.get_surface_dim ());
@@ -516,7 +518,7 @@ public class EditingTools.CropTool : EditingTool {
         ctx.paint ();
 
         // create the crop tool window, where the user can apply or cancel the crop
-        crop_tool_window = new CropToolWindow (canvas.get_container ());
+        crop_tool_window = new CropToolWindow (canvas.container);
 
         // set up the constraint combo box
         crop_tool_window.constraint_combo.set_model (constraint_list);
@@ -687,15 +689,15 @@ public class EditingTools.CropTool : EditingTool {
     private void prepare_ctx (Cairo.Context ctx, Dimensions dim) {
         wide_black_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_black_ctx, "#000");
-        wide_black_ctx.set_line_width (1 * canvas.container.scale_factor);
+        wide_black_ctx.set_line_width (1 * scale_factor);
 
         wide_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_white_ctx, "#FFF");
-        wide_white_ctx.set_line_width (1 * 2);
+        wide_white_ctx.set_line_width (1 * scale_factor);
 
         thin_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (thin_white_ctx, "#FFF");
-        thin_white_ctx.set_line_width (0.5 * 2);
+        thin_white_ctx.set_line_width (0.5 * scale_factor);
 
         text_ctx = new Cairo.Context (ctx.get_target ());
         text_ctx.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.NORMAL);
@@ -721,8 +723,8 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_click (int x, int y) {
-        x *= 2;
-        y *= 2;
+        x *= scale_factor;
+        y *= scale_factor;
 
         Gdk.Rectangle scaled_pixbuf_pos = canvas.get_scaled_pixbuf_position ();
 
@@ -739,8 +741,8 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_released (int x, int y) {
-        x *= 2;
-        y *= 2;
+        x *= scale_factor;
+        y *= scale_factor;
 
         // nothing to do if released outside of the crop box
         if (in_manipulation == BoxLocation.OUTSIDE)
@@ -758,8 +760,8 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
-        x *= 2;
-        y *= 2;
+        x *= scale_factor;
+        y *= scale_factor;
 
         // only deal with manipulating the crop tool when click-and-dragging one of the edges
         // or the interior
@@ -772,8 +774,8 @@ public class EditingTools.CropTool : EditingTool {
 
     public override void paint (Cairo.Context default_ctx) {
         // fill region behind the crop surface with neutral color
-        int w = canvas.get_drawing_window ().get_width () * 2;
-        int h = canvas.get_drawing_window ().get_height () * 2;
+        int w = canvas.get_drawing_window ().get_width () * scale_factor;
+        int h = canvas.get_drawing_window ().get_height () * scale_factor;
 
         canvas.get_style_context ().render_background (default_ctx, 0, 0, w, h);
 

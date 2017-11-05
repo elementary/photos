@@ -97,7 +97,7 @@ public abstract class EditingToolWindow : Gtk.Window {
 // and primitives for an EditingTool to obtain information about the image, to draw on the host's
 // canvas, and to be signalled when the canvas and its pixbuf changes (is resized).
 public abstract class PhotoCanvas {
-    private Gtk.Window container;
+    public Gtk.Window container { get; private set; }
     private Gdk.Window drawing_window;
     private Photo photo;
     private Cairo.Context default_ctx;
@@ -195,10 +195,6 @@ public abstract class PhotoCanvas {
 
     public Photo get_photo () {
         return photo;
-    }
-
-    public Gtk.Window get_container () {
-        return container;
     }
 
     public Gdk.Window get_drawing_window () {

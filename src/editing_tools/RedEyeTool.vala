@@ -243,7 +243,7 @@ public class EditingTools.RedeyeTool : EditingTool {
         old_scaled_pixbuf_position = canvas.get_scaled_pixbuf_position ();
         current_pixbuf = canvas.get_scaled_pixbuf ();
 
-        redeye_tool_window = new RedeyeToolWindow (canvas.get_container ());
+        redeye_tool_window = new RedeyeToolWindow (canvas.container);
         redeye_tool_window.slider.set_value (user_interaction_instance.radius);
 
         bind_window_handlers ();
