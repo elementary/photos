@@ -721,6 +721,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_click (int x, int y) {
+        x *= 2;
+        y *= 2;
+
         Gdk.Rectangle scaled_pixbuf_pos = canvas.get_scaled_pixbuf_position ();
 
         // scaled_crop is not maintained relative to photo's position on canvas
@@ -736,6 +739,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_released (int x, int y) {
+        x *= 2;
+        y *= 2;
+
         // nothing to do if released outside of the crop box
         if (in_manipulation == BoxLocation.OUTSIDE)
             return;
@@ -752,6 +758,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
+        x *= 2;
+        y *= 2;
+
         // only deal with manipulating the crop tool when click-and-dragging one of the edges
         // or the interior
         if (in_manipulation != BoxLocation.OUTSIDE)
