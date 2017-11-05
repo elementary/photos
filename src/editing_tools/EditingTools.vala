@@ -412,7 +412,7 @@ public abstract class PhotoCanvas {
         int center_x = active_center_x + scaled_position.x;
         int center_y = active_center_y + scaled_position.y;
 
-        ctx.arc (center_x, center_y, radius, 0, 2 * GLib.Math.PI);
+        ctx.arc (center_x * 2, center_y * 2, radius * 2, 0, 2 * GLib.Math.PI);
         ctx.stroke ();
     }
 

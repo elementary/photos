@@ -687,15 +687,15 @@ public class EditingTools.CropTool : EditingTool {
     private void prepare_ctx (Cairo.Context ctx, Dimensions dim) {
         wide_black_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_black_ctx, "#000");
-        wide_black_ctx.set_line_width (1);
+        wide_black_ctx.set_line_width (1 * 2);
 
         wide_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_white_ctx, "#FFF");
-        wide_white_ctx.set_line_width (1);
+        wide_white_ctx.set_line_width (1 * 2);
 
         thin_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (thin_white_ctx, "#FFF");
-        thin_white_ctx.set_line_width (0.5);
+        thin_white_ctx.set_line_width (0.5 * 2);
 
         text_ctx = new Cairo.Context (ctx.get_target ());
         text_ctx.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.NORMAL);
@@ -763,8 +763,8 @@ public class EditingTools.CropTool : EditingTool {
 
     public override void paint (Cairo.Context default_ctx) {
         // fill region behind the crop surface with neutral color
-        int w = canvas.get_drawing_window ().get_width ();
-        int h = canvas.get_drawing_window ().get_height ();
+        int w = canvas.get_drawing_window ().get_width () * 2;
+        int h = canvas.get_drawing_window ().get_height () * 2;
 
         canvas.get_style_context ().render_background (default_ctx, 0, 0, w, h);
 

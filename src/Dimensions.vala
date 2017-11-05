@@ -73,7 +73,7 @@ public struct Dimensions {
         Gtk.Allocation allocation;
         widget.get_allocation (out allocation);
 
-        return Dimensions (allocation.width, allocation.height);
+        return Dimensions (allocation.width * 2, allocation.height * 2);
     }
 
     public static Dimensions for_rectangle (Gdk.Rectangle rect) {
@@ -305,7 +305,7 @@ public struct Scaling {
         // If we get here, and the widget we're being drawn into is 1x1, then, most likely,
         // it's not fully realized yet (since nothing in Shotwell requires this), so just
         // ignore it and return something safe instead.
-        if ((viewport.width <= 1) || (viewport.height <= 1))
+        if ((viewport.width <= 2) || (viewport.height <= 2))
             return for_original ();
 
         return Scaling (ScaleConstraint.DIMENSIONS, NO_SCALE, viewport, scale_up);

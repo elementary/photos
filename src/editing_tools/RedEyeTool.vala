@@ -120,8 +120,8 @@ public class EditingTools.RedeyeTool : EditingTool {
     private RedeyeInstance new_interaction_instance (PhotoCanvas canvas) {
         Gdk.Rectangle photo_bounds = canvas.get_scaled_pixbuf_position ();
         Gdk.Point photo_center = {0};
-        photo_center.x = photo_bounds.x + (photo_bounds.width / 2);
-        photo_center.y = photo_bounds.y + (photo_bounds.height / 2);
+        photo_center.x = photo_bounds.x + (photo_bounds.width / (2 * 2));
+        photo_center.y = photo_bounds.y + (photo_bounds.height / (2 * 2));
 
         RedeyeInstance result = RedeyeInstance ();
         result.center.x = photo_center.x;
@@ -134,11 +134,11 @@ public class EditingTools.RedeyeTool : EditingTool {
     private void prepare_ctx (Cairo.Context ctx, Dimensions dim) {
         wider_gray_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wider_gray_ctx, "#111");
-        wider_gray_ctx.set_line_width (3);
+        wider_gray_ctx.set_line_width (3 * 2);
 
         thin_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (thin_white_ctx, "#FFF");
-        thin_white_ctx.set_line_width (1);
+        thin_white_ctx.set_line_width (1 * 2);
     }
 
     private void draw_redeye_instance (RedeyeInstance inst) {

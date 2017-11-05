@@ -277,7 +277,7 @@ public class StraightenTool : EditingTool {
 
     private void prepare_image () {
         Dimensions canvas_dims = canvas.get_surface_dim ();
-        Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE, TEMP_PIXBUF_SIZE);
+        Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE * 2, TEMP_PIXBUF_SIZE * 2);
         if (viewport == last_viewport)
             return;     // no change
 
@@ -474,8 +474,8 @@ public class StraightenTool : EditingTool {
      *      it's not used.
      */
     public override void paint (Cairo.Context ctx) {
-        int w = canvas.get_drawing_window ().get_width ();
-        int h = canvas.get_drawing_window ().get_height ();
+        int w = canvas.get_drawing_window ().get_width () * 2;
+        int h = canvas.get_drawing_window ().get_height () * 2;
 
         // fill region behind the rotation surface with neutral color
         canvas.get_default_ctx ().identity_matrix ();
