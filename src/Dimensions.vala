@@ -72,8 +72,9 @@ public struct Dimensions {
     public static Dimensions for_widget_allocation (Gtk.Widget widget) {
         Gtk.Allocation allocation;
         widget.get_allocation (out allocation);
+        int scale_factor = widget.scale_factor;
 
-        return Dimensions (allocation.width * 2, allocation.height * 2);
+        return Dimensions (allocation.width * scale_factor, allocation.height * scale_factor);
     }
 
     public static Dimensions for_rectangle (Gdk.Rectangle rect) {
@@ -296,6 +297,7 @@ public struct Scaling {
 
     public static Scaling for_widget (Gtk.Widget widget, bool scale_up) {
         Dimensions viewport = Dimensions.for_widget_allocation (widget);
+        int scale_factor = widget.scale_factor;
 
         // Because it seems that Gtk.Application realizes the main window and its
         // attendant widgets lazily, it's possible to get here with the PhotoPage's
@@ -305,7 +307,7 @@ public struct Scaling {
         // If we get here, and the widget we're being drawn into is 1x1, then, most likely,
         // it's not fully realized yet (since nothing in Shotwell requires this), so just
         // ignore it and return something safe instead.
-        if ((viewport.width <= 2) || (viewport.height <= 2))
+        if ((viewport.width <= 1 * scale_factor) || (viewport.height <= 1 * scale_factor))
             return for_original ();
 
         return Scaling (ScaleConstraint.DIMENSIONS, NO_SCALE, viewport, scale_up);
@@ -330,8 +332,9 @@ public struct Scaling {
 
     private static Dimensions get_screen_dimensions (Gtk.Window window) {
         Gdk.Screen screen = window.get_screen ();
+        int scale_factor = window.scale_factor;
 
-        return Dimensions (screen.get_width () * 2, screen.get_height () * 2);
+        return Dimensions (screen.get_width () * scale_factor, screen.get_height () * scale_factor);
     }
 
     private int scale_to_pixels () {
