@@ -701,6 +701,7 @@ public class EditingTools.CropTool : EditingTool {
 
         text_ctx = new Cairo.Context (ctx.get_target ());
         text_ctx.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.NORMAL);
+        text_ctx.set_font_size (10.0 * scale_factor);
     }
 
     private void on_resized_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
