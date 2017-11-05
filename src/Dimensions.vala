@@ -331,7 +331,7 @@ public struct Scaling {
     private static Dimensions get_screen_dimensions (Gtk.Window window) {
         Gdk.Screen screen = window.get_screen ();
 
-        return Dimensions (screen.get_width (), screen.get_height ());
+        return Dimensions (screen.get_width () * 2, screen.get_height () * 2);
     }
 
     private int scale_to_pixels () {
