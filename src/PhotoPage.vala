@@ -454,7 +454,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
             // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-            var created_toolbar = base.get_toolbar ();
+            toolbar = base.get_toolbar ();
 
             // rotate tool
             rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
@@ -588,8 +588,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar.insert (show_sidebar_button, -1);
             var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
-
-            return created_toolbar;
         }
 
         return toolbar;

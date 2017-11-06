@@ -26,7 +26,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     CommandManager.vala
     Commands.vala
     CustomComponents.vala
-    Debug.vala
     DesktopIntegration.vala
     Dimensions.vala
     DirectoryMonitor.vala
