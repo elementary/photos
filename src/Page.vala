@@ -2138,7 +2138,7 @@ public abstract class SinglePhotoPage : Page {
     }
 
     public bool is_inside_pixbuf (int x, int y) {
-        return coord_in_rectangle (x, y, scaled_pos);
+        return coord_in_rectangle (x * scale_factor, y * scale_factor, scaled_pos);
     }
 
     public void invalidate (Gdk.Rectangle rect) {
