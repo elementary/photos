@@ -396,7 +396,7 @@ public class Thumbnail : MediaSourceItem {
         if (media != null && media is Flaggable) {
             if (((Flaggable) media).is_flagged ()) {
                 style_context.save ();
-                style_context.add_class (Granite.StyleClass.OVERLAY_BAR);
+                style_context.add_class (Granite.STYLE_CLASS_OVERLAY_BAR);
                 var flag_icon = Resources.get_flag_trinket ();
                 style_context.render_icon (ctx, flag_icon, allocation.x + allocation.width - (flag_icon.width + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET), allocation.y + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET);
                 style_context.restore ();
