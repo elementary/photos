@@ -162,7 +162,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         icon_theme = Resources.get_icon_theme_engine ();
         icon_theme.changed.connect (on_theme_change);
 
-        get_style_context ().add_class (Granite.StyleClass.SOURCE_LIST);
+        get_style_context ().add_class (Granite.STYLE_CLASS_SOURCE_LIST);
 
         drag_begin.connect (on_drag_begin);
         drag_end.connect (on_drag_end);
