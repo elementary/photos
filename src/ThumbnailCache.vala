@@ -40,7 +40,7 @@ public class Thumbnails {
 public class ThumbnailCache : Object {
     public const Gdk.InterpType DEFAULT_INTERP = Gdk.InterpType.HYPER;
     public const Jpeg.Quality DEFAULT_QUALITY = Jpeg.Quality.HIGH;
-    public const int MAX_INMEMORY_DATA_SIZE = 512 * 1024;
+    public const int MAX_INMEMORY_DATA_SIZE = 2048 * 1024;
 
     // Some code relies on Size's pixel values being manipulated and then using Size's methods,
     // so be careful before changing any of these values (and especially careful before arbitrarily
@@ -182,8 +182,8 @@ public class ThumbnailCache : Object {
 
     private static Workers fetch_workers = null;
 
-    public const ulong MAX_BIG_CACHED_BYTES = 40 * 1024 * 1024;
-    public const ulong MAX_MEDIUM_CACHED_BYTES = 30 * 1024 * 1024;
+    public const ulong MAX_BIG_CACHED_BYTES = 60 * 1024 * 1024;
+    public const ulong MAX_MEDIUM_CACHED_BYTES = 40 * 1024 * 1024;
 
     private static ThumbnailCache big = null;
     private static ThumbnailCache medium = null;
@@ -490,7 +490,7 @@ public class ThumbnailCache : Object {
     private void _import_thumbnail (ThumbnailSource source, Gdk.Pixbuf? scaled, bool force = false)
     throws Error {
         assert (scaled != null);
-        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale ()));
+        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale () * scale_factor));
 
         // if not forcing the cache operation, check if file exists and is represented in the
         // database before continuing

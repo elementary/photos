@@ -288,6 +288,7 @@ bool no_startup_progress = false;
 string data_dir = null;
 bool show_version = false;
 bool no_runtime_monitoring = false;
+bool debug_enabled = false;
 
 private OptionEntry[]? entries = null;
 
@@ -314,6 +315,11 @@ public OptionEntry[] get_options () {
                             _ ("Show the application's version"), null
                           };
     entries += version;
+
+    OptionEntry debug_option = { "debug", 'D', 0, OptionArg.NONE, &debug_enabled,
+                                 _ ("Show extra debugging output"), null
+                               };
+    entries += debug_option;
 
     OptionEntry terminator = { null, 0, 0, 0, null, null, null };
     entries += terminator;
@@ -383,7 +389,6 @@ void main (string[] args) {
         }
     }
 
-    Debug.init (is_string_empty (filename) ? Debug.LIBRARY_PREFIX : Debug.VIEWER_PREFIX);
     message ("Shotwell %s %s",
              is_string_empty (filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
              Resources.APP_VERSION);
@@ -391,6 +396,7 @@ void main (string[] args) {
     // Have a filename here?  If so, configure ourselves for direct
     // mode, otherwise, default to library mode.
     Application.init (!is_string_empty (filename));
+    Application.get_instance ().debugging_enabled = CommandlineOptions.debug_enabled;
 
     // set custom data directory if it's been supplied
     if (CommandlineOptions.data_dir != null)
@@ -427,7 +433,6 @@ void main (string[] args) {
     // terminate mode-inspecific modules
     Resources.terminate ();
     Application.terminate ();
-    Debug.terminate ();
     AppDirs.terminate ();
 
     // Back up db on successful run so we have something to roll back to if

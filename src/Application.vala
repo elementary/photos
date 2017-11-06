@@ -22,6 +22,12 @@ public class Application : Granite.Application {
     private int system_app_run_retval = 0;
     private bool direct;
 
+    public bool debugging_enabled {
+        set {
+            DEBUG = value;
+        }
+    }
+
     public virtual signal void starting () {
     }
 
@@ -62,7 +68,6 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "org.pantheon.photos-direct";
-            app_icon = "multimedia-photo-viewer";
             app_launcher = "org.pantheon.photos-viewer.desktop";
             program_name = _("Photo Viewer");
             Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
@@ -74,7 +79,6 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "org.pantheon.photos";
-            app_icon = "multimedia-photo-manager";
             app_launcher = "org.pantheon.photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;

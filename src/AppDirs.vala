@@ -262,19 +262,6 @@ class AppDirs {
         return get_home_dir ().get_child (".gnome2").get_child ("pantheon-photos").get_child ("plugins");
     }
 
-    public static File? get_log_file () {
-        if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") != null) {
-            if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") == ":console:") {
-                return null;
-            } else {
-                return File.new_for_path (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE"));
-            }
-        } else {
-            return File.new_for_path (Environment.get_user_cache_dir ()).
-                   get_child ("pantheon-photos").get_child ("pantheon-photos.log");
-        }
-    }
-
     public static File get_thumbnailer_bin () {
         const string filename = "video-thumbnailer";
         File f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/thumbnailer/" + filename);
