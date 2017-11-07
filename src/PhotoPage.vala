@@ -420,6 +420,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToolButton next_button = null;
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
+    private Gtk.EventBox zoom_in_box = null;
+    private Gtk.EventBox zoom_out_box = null;
+    private Gtk.EventBox active_zoom_widget = null;
+    private uint zoom_click_id = 0;
+    private uint zoom_initial_wait_id = 0;
+    private Gtk.Settings settings;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
     private bool photo_missing = false;
     private PixbufCache cache = null;
@@ -436,6 +442,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         base (name, false);
 
         this.sources = sources;
+        settings = get_settings ();
 
         // when photo is altered need to update it here
         sources.items_altered.connect (on_photos_altered);
@@ -535,12 +542,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
             zoom_group.pack_start (zoom_original_box, false, false, 5);
 
             Gtk.Image zoom_out = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
-            Gtk.EventBox zoom_out_box = new Gtk.EventBox ();
+            zoom_out_box = new Gtk.EventBox ();
             zoom_out_box.set_above_child (true);
             zoom_out_box.set_visible_window (false);
             zoom_out_box.add (zoom_out);
 
-            zoom_out_box.button_press_event.connect (on_zoom_out_pressed);
+            zoom_out_box.button_press_event.connect ((event) => on_zoom_button_pressed (event, zoom_out_box));
+            zoom_out_box.button_release_event.connect ((event) => on_zoom_button_released (event, zoom_out_box));
 
             zoom_group.pack_start (zoom_out_box, false, false, 0);
 
@@ -556,12 +564,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
             zoom_group.pack_start (zoom_slider, false, false, 0);
 
             Gtk.Image zoom_in = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU);
-            Gtk.EventBox zoom_in_box = new Gtk.EventBox ();
+            zoom_in_box = new Gtk.EventBox ();
             zoom_in_box.set_above_child (true);
             zoom_in_box.set_visible_window (false);
             zoom_in_box.add (zoom_in);
 
-            zoom_in_box.button_press_event.connect (on_zoom_in_pressed);
+            zoom_in_box.button_press_event.connect ((event) => on_zoom_button_pressed (event, zoom_in_box));
+            zoom_in_box.button_release_event.connect ((event) => on_zoom_button_released (event, zoom_in_box));
 
             zoom_group.pack_start (zoom_in_box, false, false, 0);
 
@@ -654,14 +663,47 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return true;
     }
 
-    private bool on_zoom_out_pressed (Gdk.EventButton event) {
-        snap_zoom_to_min ();
+    private bool zoom_callback () {
+        if (active_zoom_widget == zoom_in_box) {
+            activate_action ("IncreaseSize");
+        } else {
+            activate_action ("DecreaseSize");
+        }
+
         return true;
     }
 
-    private bool on_zoom_in_pressed (Gdk.EventButton event) {
-        snap_zoom_to_max ();
+    private bool on_zoom_button_pressed (Gdk.EventButton event, Gtk.EventBox sender) {
+        clear_zoom_timeouts ();
+
+        active_zoom_widget = sender;
+        zoom_initial_wait_id = Timeout.add (settings.gtk_timeout_initial, () => {
+            zoom_click_id = Timeout.add (settings.gtk_timeout_repeat, zoom_callback);
+            zoom_initial_wait_id = 0;
+            return false;
+        });
+
+        zoom_callback ();
+
         return true;
+    }
+
+    private bool on_zoom_button_released (Gdk.EventButton event, Gtk.EventBox sender) {
+        clear_zoom_timeouts ();
+
+        return true;
+    }
+
+    private void clear_zoom_timeouts () {
+        if (zoom_initial_wait_id != 0) {
+            Source.remove (zoom_initial_wait_id);
+            zoom_initial_wait_id = 0;
+        }
+
+        if (zoom_click_id != 0) {
+            Source.remove (zoom_click_id);
+            zoom_click_id = 0;
+        }
     }
 
     private Gdk.Point get_cursor_wrt_viewport (Gdk.EventScroll event) {
