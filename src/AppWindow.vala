@@ -54,6 +54,10 @@ public abstract class AppWindow : PageWindow {
 
         set_default_title ();
 
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("io/elementary/photos/application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         // restore previous size and maximization state
         if (this is LibraryWindow) {
             Config.Facade.get_instance ().get_library_window_state (out maximized, out dimensions);
