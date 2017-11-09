@@ -34,15 +34,10 @@ public class PreferencesDialog {
     private Gtk.Builder builder;
     private Gtk.FileChooserButton library_dir_button;
     private string? lib_dir = null;
-    private Gtk.Switch lowercase;
-    private Gtk.Button close_button;
     private Plugins.ManifestWidgetMediator plugins_mediator = new Plugins.ManifestWidgetMediator ();
     private Gtk.ComboBoxText default_raw_developer_combo;
 
     private PreferencesDialog () {
-        builder = AppWindow.create_builder ();
-
-        // Preferences dialog window settings
         dialog = new Gtk.Dialog ();
         dialog.width_request = 450;
         dialog.resizable = false;
@@ -51,69 +46,96 @@ public class PreferencesDialog {
         dialog.map_event.connect (map_event_handler);
         dialog.set_parent_window (AppWindow.get_instance ().get_parent_window ());
 
-        // Create our stack container and load in each preference container from shotwell.ui
-        var container = new Gtk.Stack ();
-        container.expand = true;
-        container.add_titled (builder.get_object ("preferences_library") as Gtk.Box, "library", _("Library"));
-        container.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
+        var library_header = new Granite.HeaderLabel (_("Library"));
+
+        var library_dir_label = new Gtk.Label (_("Import photos to:"));
+        library_dir_label.halign = Gtk.Align.END;
+
+        library_dir_button = new Gtk.FileChooserButton ("", Gtk.FileChooserAction.SELECT_FOLDER);
+
+        var auto_import_label = new Gtk.Label (_("Watch library for new files:"));
+        auto_import_label.halign = Gtk.Align.END;
+
+        var auto_import_switch = new Gtk.Switch ();
+        auto_import_switch.halign = Gtk.Align.START;
+
+        var lowercase_label = new Gtk.Label (_("Rename imported files to lowercase:"));
+        lowercase_label.halign = Gtk.Align.END;
+
+        var lowercase_switch = new Gtk.Switch ();
+        lowercase_switch.halign = Gtk.Align.START;
+
+        var commit_metadata_label = new Gtk.Label (_("Write metadata to files:"));
+        commit_metadata_label.halign = Gtk.Align.END;
+
+        var commit_metadata_switch = new Gtk.Switch ();
+        commit_metadata_switch.halign = Gtk.Align.START;
+
+        var raw_header = new Granite.HeaderLabel (_("RAW Developer"));
+
+        var default_raw_developer_label = new Gtk.Label (_("Default:"));
+        default_raw_developer_label.halign = Gtk.Align.END;
+
+        default_raw_developer_combo = new Gtk.ComboBoxText ();
+        default_raw_developer_combo.append_text (RawDeveloper.CAMERA.get_label ());
+        default_raw_developer_combo.append_text (RawDeveloper.SHOTWELL.get_label ());
+        set_raw_developer_combo (Config.Facade.get_instance ().get_default_raw_developer ());
+        default_raw_developer_combo.changed.connect (on_default_raw_developer_changed);
+
+        var library_grid = new Gtk.Grid ();
+        library_grid.column_spacing = 12;
+        library_grid.row_spacing = 6;
+        library_grid.margin = 6;
+        library_grid.attach (library_header, 0, 0, 2, 1);
+        library_grid.attach (library_dir_label, 0, 1, 1, 1);
+        library_grid.attach (library_dir_button, 1, 1, 1, 1);
+        library_grid.attach (auto_import_label, 0, 2, 1, 1);
+        library_grid.attach (auto_import_switch, 1, 2, 1, 1);
+        library_grid.attach (lowercase_label, 0, 3, 1, 1);
+        library_grid.attach (lowercase_switch, 1, 3, 1, 1);
+        library_grid.attach (commit_metadata_label, 0, 4, 1, 1);
+        library_grid.attach (commit_metadata_switch, 1, 4, 1, 1);
+        library_grid.attach (raw_header, 0, 5, 2, 1);
+        library_grid.attach (default_raw_developer_label, 0, 6, 1, 1);
+        library_grid.attach (default_raw_developer_combo, 1, 6, 1, 1);
+
+        builder = AppWindow.create_builder ();
+
+        var stack = new Gtk.Stack ();
+        stack.expand = true;
+        stack.add_titled (library_grid, "library", _("Library"));
+        stack.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
 
         var switcher = new Gtk.StackSwitcher ();
         switcher.halign = Gtk.Align.CENTER;
         switcher.homogeneous = true;
         switcher.expand = true;
         switcher.margin_bottom = 6;
-        switcher.stack = container;
-        
-        // Add the switcher, stack container and button container to the window
+        switcher.stack = stack;
+
         var content = dialog.get_content_area () as Gtk.Box;
         content.margin = 6;
         content.margin_top = 0;
         content.add (switcher);
-        content.add (container);
+        content.add (stack);
 
-        // Add close button to window
-        close_button = new Gtk.Button.with_mnemonic (_("_Close"));
-        close_button.clicked.connect (on_close);
+        var close_button = dialog.add_button (_("_Close"), Gtk.ResponseType.CLOSE);
+        ((Gtk.Button) close_button).clicked.connect (on_close);
 
-        Gtk.Box button_container = dialog.get_action_area () as Gtk.Box;
-        button_container.add (close_button);
-
-        library_dir_button = builder.get_object ("library_dir_button") as Gtk.FileChooserButton;
-
-        close_button = builder.get_object ("close_button") as Gtk.Button;
-
-        lowercase = builder.get_object ("lowercase") as Gtk.Switch;
-        lowercase.notify["active"].connect (on_lowercase_toggled);
-
-        Gtk.Bin plugin_manifest_container = builder.get_object ("plugin-manifest-bin") as Gtk.Bin;
+        var plugin_manifest_container = builder.get_object ("plugin-manifest-bin") as Gtk.Bin;
         plugin_manifest_container.add (plugins_mediator.widget);
 
-        populate_preference_options ();
-
-
-        Gtk.Switch auto_import_button = builder.get_object ("autoimport") as Gtk.Switch;
-        auto_import_button.set_active (Config.Facade.get_instance ().get_auto_import_from_library ());
-
-        Gtk.Switch commit_metadata_button = builder.get_object ("write_metadata") as Gtk.Switch;
-        commit_metadata_button.set_active (Config.Facade.get_instance ().get_commit_metadata_to_masters ());
-
-        default_raw_developer_combo = builder.get_object ("default_raw_developer") as Gtk.ComboBoxText;
-        default_raw_developer_combo.append_text (RawDeveloper.CAMERA.get_label ());
-        default_raw_developer_combo.append_text (RawDeveloper.SHOTWELL.get_label ());
-        set_raw_developer_combo (Config.Facade.get_instance ().get_default_raw_developer ());
-        default_raw_developer_combo.changed.connect (on_default_raw_developer_changed);
-    }
-
-    public void populate_preference_options () {
-
-        lowercase.set_active (Config.Facade.get_instance ().get_use_lowercase_filenames ());
+        var file_settings = new GLib.Settings ("org.pantheon.photos.preferences.files");
+        file_settings.bind ("auto-import", auto_import_switch, "active", SettingsBindFlags.DEFAULT);
+        file_settings.bind ("commit-metadata", commit_metadata_switch, "active", SettingsBindFlags.DEFAULT);
+        file_settings.bind ("use-lowercase-filenames", lowercase_switch, "active", SettingsBindFlags.DEFAULT);
     }
 
     public static void show () {
-        if (preferences_dialog == null)
+        if (preferences_dialog == null) {
             preferences_dialog = new PreferencesDialog ();
+        }
 
-        preferences_dialog.populate_preference_options ();
         preferences_dialog.dialog.show_all ();
         preferences_dialog.library_dir_button.set_current_folder (AppDirs.get_import_dir ().get_path ());
 
@@ -122,21 +144,10 @@ public class PreferencesDialog {
         preferences_dialog.dialog.present ();
     }
 
-    // For items that should only be committed when the dialog is closed, not as soon as the change
-    // is made.
     private void commit_on_close () {
-
-        Gtk.Switch? autoimport = builder.get_object ("autoimport") as Gtk.Switch;
-        if (autoimport != null)
-            Config.Facade.get_instance ().set_auto_import_from_library (autoimport.active);
-
-        Gtk.Switch? commit_metadata = builder.get_object ("write_metadata") as Gtk.Switch;
-        if (commit_metadata != null)
-            Config.Facade.get_instance ().set_commit_metadata_to_masters (commit_metadata.active);
-
-        if (lib_dir != null)
+        if (lib_dir != null) {
             AppDirs.set_import_dir (lib_dir);
-
+        }
     }
 
     private bool on_delete () {
@@ -177,9 +188,5 @@ public class PreferencesDialog {
         // See ticket #3000 for more info.
         library_dir_button.current_folder_changed.connect (on_current_folder_changed);
         return true;
-    }
-
-    private void on_lowercase_toggled () {
-        Config.Facade.get_instance ().set_use_lowercase_filenames (lowercase.get_active ());
     }
 }
