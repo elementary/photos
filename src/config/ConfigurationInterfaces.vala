@@ -45,8 +45,6 @@ public enum ConfigurableProperty {
     DISPLAY_BASIC_PROPERTIES,
     DISPLAY_EVENT_COMMENTS,
     DISPLAY_EXTENDED_PROPERTIES,
-    DISPLAY_SIDEBAR,
-    DISPLAY_METADATA_SIDEBAR,
     DISPLAY_SEARCH_BAR,
     DISPLAY_PHOTO_RATINGS,
     DISPLAY_PHOTO_TAGS,
@@ -84,8 +82,6 @@ public enum ConfigurableProperty {
     PRINTING_TITLES_FONT,
     RAW_DEVELOPER_DEFAULT,
     SHOW_WELCOME_DIALOG,
-    SIDEBAR_POSITION,
-    METADATA_SIDEBAR_POSITION,
     SLIDESHOW_DELAY,
     SLIDESHOW_TRANSITION_DELAY,
     SLIDESHOW_TRANSITION_EFFECT_ID,
@@ -131,12 +127,6 @@ public enum ConfigurableProperty {
 
         case DISPLAY_EXTENDED_PROPERTIES:
             return "DISPLAY_EXTENDED_PROPERTIES";
-
-        case DISPLAY_SIDEBAR:
-            return "DISPLAY_SIDEBAR";
-
-        case DISPLAY_METADATA_SIDEBAR:
-            return "DISPLAY_METADATA_SIDEBAR";
 
         case DISPLAY_SEARCH_BAR:
             return "DISPLAY_SEARCH_BAR";
@@ -248,12 +238,6 @@ public enum ConfigurableProperty {
 
         case SHOW_WELCOME_DIALOG:
             return "SHOW_WELCOME_DIALOG";
-
-        case SIDEBAR_POSITION:
-            return "SIDEBAR_POSITION";
-
-        case METADATA_SIDEBAR_POSITION:
-            return "METADATA_SIDEBAR_POSITION";
 
         case SLIDESHOW_DELAY:
             return "SLIDESHOW_DELAY";
@@ -554,48 +538,6 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES,
                                              display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display sidebar
-    //
-    public virtual bool get_display_sidebar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_SIDEBAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_sidebar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SIDEBAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display sidebar
-    //
-    public virtual bool get_display_metadata_sidebar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_metadata_sidebar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR, display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1332,48 +1274,6 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG,
                                              show);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // sidebar position
-    //
-    public virtual int get_sidebar_position () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.SIDEBAR_POSITION);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return 180;
-        }
-    }
-
-    public virtual void set_sidebar_position (int position) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.SIDEBAR_POSITION, position);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // sidebar position
-    //
-    public virtual int get_metadata_sidebar_position () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return -1;
-        }
-    }
-
-    public virtual void set_metadata_sidebar_position (int position) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION, position);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }

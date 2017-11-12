@@ -18,21 +18,20 @@
 */
 
 public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
-    private const string ROOT_SCHEMA_NAME = "org.pantheon.photos";
-    private const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
-    private const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
-    private const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
-    private const string WINDOW_PREFS_SCHEMA_NAME =  PREFS_SCHEMA_NAME + ".window";
-    private const string FILES_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".files";
-    private const string EDITING_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".editing";
-    private const string VIDEO_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".video";
-    private const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
-    private const string SHARING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".sharing";
-    private const string IMPORTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".dataimports";
-    private const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
-    private const string SYSTEM_DESKTOP_SCHEMA_NAME = "org.gnome.desktop.background";
-    private const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME +
-            ".plugins.enable-state";
+    public const string ROOT_SCHEMA_NAME = "org.pantheon.photos";
+    public const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
+    public const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
+    public const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
+    public const string WINDOW_PREFS_SCHEMA_NAME =  PREFS_SCHEMA_NAME + ".window";
+    public const string FILES_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".files";
+    public const string EDITING_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".editing";
+    public const string VIDEO_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".video";
+    public const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
+    public const string SHARING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".sharing";
+    public const string IMPORTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".dataimports";
+    public const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
+    public const string SYSTEM_DESKTOP_SCHEMA_NAME = "org.gnome.desktop.background";
+    public const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".plugins.enable-state";
 
     private Gee.Set<string> known_schemas;
     private string[] schema_names;
@@ -57,8 +56,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.DIRECT_WINDOW_WIDTH] = WINDOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_BASIC_PROPERTIES] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DISPLAY_SIDEBAR] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DISPLAY_METADATA_SIDEBAR] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_SEARCH_BAR] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_PHOTO_TAGS] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DISPLAY_PHOTO_TITLES] = UI_PREFS_SCHEMA_NAME;
@@ -96,8 +93,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.PRINTING_TITLES_FONT] = PRINTING_SCHEMA_NAME;
         schema_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = FILES_PREFS_SCHEMA_NAME;;
         schema_names[ConfigurableProperty.SHOW_WELCOME_DIALOG] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.SIDEBAR_POSITION] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.METADATA_SIDEBAR_POSITION] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.SLIDESHOW_DELAY] = SLIDESHOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.SLIDESHOW_TRANSITION_DELAY] = SLIDESHOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.SLIDESHOW_TRANSITION_EFFECT_ID] = SLIDESHOW_PREFS_SCHEMA_NAME;
@@ -119,8 +114,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.DIRECT_WINDOW_WIDTH] = "direct-width";
         key_names[ConfigurableProperty.DISPLAY_BASIC_PROPERTIES] = "display-basic-properties";
         key_names[ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES] = "display-extended-properties";
-        key_names[ConfigurableProperty.DISPLAY_SIDEBAR] = "display-sidebar";
-        key_names[ConfigurableProperty.DISPLAY_METADATA_SIDEBAR] = "display-metadata-sidebar";
         key_names[ConfigurableProperty.DISPLAY_SEARCH_BAR] = "display-search-bar";
         key_names[ConfigurableProperty.DISPLAY_PHOTO_TAGS] = "display-photo-tags";
         key_names[ConfigurableProperty.DISPLAY_PHOTO_TITLES] = "display-photo-titles";
@@ -158,8 +151,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.PRINTING_TITLES_FONT] = "titles-font";
         key_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = "raw-developer-default";
         key_names[ConfigurableProperty.SHOW_WELCOME_DIALOG] = "show-welcome-dialog";
-        key_names[ConfigurableProperty.SIDEBAR_POSITION] = "sidebar-position";
-        key_names[ConfigurableProperty.METADATA_SIDEBAR_POSITION] = "metadata-sidebar-position";
         key_names[ConfigurableProperty.SLIDESHOW_DELAY] = "delay";
         key_names[ConfigurableProperty.SLIDESHOW_TRANSITION_DELAY] = "transition-delay";
         key_names[ConfigurableProperty.SLIDESHOW_TRANSITION_EFFECT_ID] = "transition-effect-id";
