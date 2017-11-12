@@ -143,9 +143,11 @@ public class LibraryWindow : AppWindow {
 
     private GLib.Settings ui_settings;
 
-    public LibraryWindow (ProgressMonitor progress_monitor) {
+    construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
+    public LibraryWindow (ProgressMonitor progress_monitor) {
         ThumbnailCache.scale_factor = get_scale_factor ();
 
         // prep sidebar and add roots
