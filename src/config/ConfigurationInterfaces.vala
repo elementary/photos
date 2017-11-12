@@ -42,14 +42,6 @@ public enum ConfigurableProperty {
     DIRECT_WINDOW_HEIGHT,
     DIRECT_WINDOW_MAXIMIZE,
     DIRECT_WINDOW_WIDTH,
-    DISPLAY_BASIC_PROPERTIES,
-    DISPLAY_EVENT_COMMENTS,
-    DISPLAY_EXTENDED_PROPERTIES,
-    DISPLAY_SEARCH_BAR,
-    DISPLAY_PHOTO_RATINGS,
-    DISPLAY_PHOTO_TAGS,
-    DISPLAY_PHOTO_TITLES,
-    DISPLAY_PHOTO_COMMENTS,
     EVENT_PHOTOS_SORT_ASCENDING,
     EVENT_PHOTOS_SORT_BY,
     EVENTS_SORT_ASCENDING,
@@ -121,27 +113,6 @@ public enum ConfigurableProperty {
 
         case DIRECT_WINDOW_WIDTH:
             return "DIRECT_WINDOW_WIDTH";
-
-        case DISPLAY_BASIC_PROPERTIES:
-            return "DISPLAY_BASIC_PROPERTIES";
-
-        case DISPLAY_EXTENDED_PROPERTIES:
-            return "DISPLAY_EXTENDED_PROPERTIES";
-
-        case DISPLAY_SEARCH_BAR:
-            return "DISPLAY_SEARCH_BAR";
-
-        case DISPLAY_PHOTO_TAGS:
-            return "DISPLAY_PHOTO_TAGS";
-
-        case DISPLAY_PHOTO_TITLES:
-            return "DISPLAY_PHOTO_TITLES";
-
-        case DISPLAY_PHOTO_COMMENTS:
-            return "DISPLAY_PHOTO_COMMENTS";
-
-        case DISPLAY_EVENT_COMMENTS:
-            return "DISPLAY_EVENT_COMMENTS";
 
         case EVENT_PHOTOS_SORT_ASCENDING:
             return "EVENT_PHOTOS_SORT_ASCENDING";
@@ -495,154 +466,6 @@ public abstract class ConfigurationFacade : Object {
                                             dimensions.width);
             get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_HEIGHT,
                                             dimensions.height);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display basic properties
-    //
-    public virtual bool get_display_basic_properties () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_BASIC_PROPERTIES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_display_basic_properties (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_BASIC_PROPERTIES, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display extended properties
-    //
-    public virtual bool get_display_extended_properties () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_extended_properties (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES,
-                                             display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display search & filter toolbar
-    //
-    public virtual bool get_display_search_bar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_SEARCH_BAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_search_bar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SEARCH_BAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo tags
-    //
-    public virtual bool get_display_photo_tags () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TAGS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_display_photo_tags (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TAGS, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo titles
-    //
-    public virtual bool get_display_photo_titles () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TITLES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_photo_titles (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TITLES, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo comments
-    //
-    public virtual bool get_display_photo_comments () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_COMMENTS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_photo_comments (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_COMMENTS, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display event comments
-    //
-    public virtual bool get_display_event_comments () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_EVENT_COMMENTS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_event_comments (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EVENT_COMMENTS, display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
