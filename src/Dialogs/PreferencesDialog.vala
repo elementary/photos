@@ -48,10 +48,11 @@ public class PreferencesDialog {
 
         var library_header = new Granite.HeaderLabel (_("Library"));
 
+        library_dir_button = new Gtk.FileChooserButton ("", Gtk.FileChooserAction.SELECT_FOLDER);
+
         var library_dir_label = new Gtk.Label.with_mnemonic (_("_Import photos to:"));
         library_dir_label.halign = Gtk.Align.END;
-
-        library_dir_button = new Gtk.FileChooserButton ("", Gtk.FileChooserAction.SELECT_FOLDER);
+        library_dir_label.mnemonic_widget = library_dir_button;
 
         var auto_import_label = new Gtk.Label (_("Watch library for new files:"));
         auto_import_label.halign = Gtk.Align.END;
@@ -59,28 +60,31 @@ public class PreferencesDialog {
         var auto_import_switch = new Gtk.Switch ();
         auto_import_switch.halign = Gtk.Align.START;
 
-        var lowercase_label = new Gtk.Label.with_mnemonic (_("R_ename imported files to lowercase:"));
-        lowercase_label.halign = Gtk.Align.END;
-
         var lowercase_switch = new Gtk.Switch ();
         lowercase_switch.halign = Gtk.Align.START;
 
-        var commit_metadata_label = new Gtk.Label.with_mnemonic (_("Write  _metadata to files:"));
-        commit_metadata_label.halign = Gtk.Align.END;
+        var lowercase_label = new Gtk.Label.with_mnemonic (_("R_ename imported files to lowercase:"));
+        lowercase_label.halign = Gtk.Align.END;
+        lowercase_label.mnemonic_widget = lowercase_switch;
 
         var commit_metadata_switch = new Gtk.Switch ();
         commit_metadata_switch.halign = Gtk.Align.START;
 
-        var raw_header = new Granite.HeaderLabel (_("RAW Developer"));
+        var commit_metadata_label = new Gtk.Label.with_mnemonic (_("Write  _metadata to files:"));
+        commit_metadata_label.halign = Gtk.Align.END;
+        commit_metadata_label.mnemonic_widget = commit_metadata_switch;
 
-        var default_raw_developer_label = new Gtk.Label.with_mnemonic (_("De_fault:"));
-        default_raw_developer_label.halign = Gtk.Align.END;
+        var raw_header = new Granite.HeaderLabel (_("RAW Developer"));
 
         default_raw_developer_combo = new Gtk.ComboBoxText ();
         default_raw_developer_combo.append_text (RawDeveloper.CAMERA.get_label ());
         default_raw_developer_combo.append_text (RawDeveloper.SHOTWELL.get_label ());
         set_raw_developer_combo (Config.Facade.get_instance ().get_default_raw_developer ());
         default_raw_developer_combo.changed.connect (on_default_raw_developer_changed);
+
+        var default_raw_developer_label = new Gtk.Label.with_mnemonic (_("De_fault:"));
+        default_raw_developer_label.halign = Gtk.Align.END;
+        default_raw_developer_label.mnemonic_widget = default_raw_developer_combo;
 
         var library_grid = new Gtk.Grid ();
         library_grid.column_spacing = 12;
