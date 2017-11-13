@@ -48,7 +48,7 @@ public class PreferencesDialog {
 
         var library_header = new Granite.HeaderLabel (_("Library"));
 
-        var library_dir_label = new Gtk.Label (_("Import photos to:"));
+        var library_dir_label = new Gtk.Label.with_mnemonic (_("_Import photos to:"));
         library_dir_label.halign = Gtk.Align.END;
 
         library_dir_button = new Gtk.FileChooserButton ("", Gtk.FileChooserAction.SELECT_FOLDER);
@@ -59,13 +59,13 @@ public class PreferencesDialog {
         var auto_import_switch = new Gtk.Switch ();
         auto_import_switch.halign = Gtk.Align.START;
 
-        var lowercase_label = new Gtk.Label (_("Rename imported files to lowercase:"));
+        var lowercase_label = new Gtk.Label.with_mnemonic (_("R_ename imported files to lowercase:"));
         lowercase_label.halign = Gtk.Align.END;
 
         var lowercase_switch = new Gtk.Switch ();
         lowercase_switch.halign = Gtk.Align.START;
 
-        var commit_metadata_label = new Gtk.Label (_("Write metadata to files:"));
+        var commit_metadata_label = new Gtk.Label.with_mnemonic (_("Write  _metadata to files:"));
         commit_metadata_label.halign = Gtk.Align.END;
 
         var commit_metadata_switch = new Gtk.Switch ();
@@ -73,7 +73,7 @@ public class PreferencesDialog {
 
         var raw_header = new Granite.HeaderLabel (_("RAW Developer"));
 
-        var default_raw_developer_label = new Gtk.Label (_("Default:"));
+        var default_raw_developer_label = new Gtk.Label.with_mnemonic (_("De_fault:"));
         default_raw_developer_label.halign = Gtk.Align.END;
 
         default_raw_developer_combo = new Gtk.ComboBoxText ();
