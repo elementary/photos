@@ -200,6 +200,11 @@ public abstract class MediaPage : CheckerboardPage {
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
     private Gtk.Menu page_context_menu;
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     public MediaPage (string page_name) {
         base (page_name);
@@ -209,11 +214,11 @@ public abstract class MediaPage : CheckerboardPage {
 
         get_view ().freeze_notifications ();
         get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES,
-                                 Config.Facade.get_instance ().get_display_photo_titles ());
+                                 ui_settings.get_boolean ("display-photo-titles"));
         get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
-                                 Config.Facade.get_instance ().get_display_photo_comments ());
+                                 ui_settings.get_boolean ("display-photo-comments"));
         get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
-                                 Config.Facade.get_instance ().get_display_photo_tags ());
+                                 ui_settings.get_boolean ("display-photo-tags"));
         get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
 
         get_view ().thaw_notifications ();
@@ -421,17 +426,20 @@ public abstract class MediaPage : CheckerboardPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         Gtk.ToggleActionEntry titles = { "ViewTitle", null, _("_Titles"), "<Ctrl><Shift>T",
-                                         _("Display the title of each photo"), on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
+                                         _("Display the title of each photo"), on_display_titles,
+                                         ui_settings.get_boolean ("display-photo-titles")
                                        };
         toggle_actions += titles;
 
         Gtk.ToggleActionEntry comments = { "ViewComment", null, _("_Comments"), "<Ctrl><Shift>C",
-                                           _("Display the comment of each photo"), on_display_comments, Config.Facade.get_instance ().get_display_photo_comments ()
+                                           _("Display the comment of each photo"), on_display_comments,
+                                           ui_settings.get_boolean ("display-photo-comments")
                                          };
         toggle_actions += comments;
 
         Gtk.ToggleActionEntry tags = { "ViewTags", null, _("Ta_gs"), "<Ctrl><Shift>G",
-                                       _("Display each photo's tags"), on_display_tags, Config.Facade.get_instance ().get_display_photo_tags ()
+                                       _("Display each photo's tags"), on_display_tags,
+                                       ui_settings.get_boolean ("display-photo-tags")
                                      };
         toggle_actions += tags;
 
@@ -640,9 +648,9 @@ public abstract class MediaPage : CheckerboardPage {
 
         // set display options to match Configuration toggles (which can change while switched away)
         get_view ().freeze_notifications ();
-        set_display_titles (Config.Facade.get_instance ().get_display_photo_titles ());
-        set_display_comments (Config.Facade.get_instance ().get_display_photo_comments ());
-        set_display_tags (Config.Facade.get_instance ().get_display_photo_tags ());
+        set_display_titles (ui_settings.get_boolean ("display-photo-titles"));
+        set_display_comments (ui_settings.get_boolean ("display-photo-comments"));
+        set_display_tags (ui_settings.get_boolean ("display-photo-tags"));
         get_view ().thaw_notifications ();
 
         sync_sort ();
@@ -764,7 +772,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         set_display_titles (display);
 
-        Config.Facade.get_instance ().set_display_photo_titles (display);
+        ui_settings.set_boolean ("display-photo-titles", display);
     }
 
     protected virtual void on_display_comments (Gtk.Action action) {
@@ -772,7 +780,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         set_display_comments (display);
 
-        Config.Facade.get_instance ().set_display_photo_comments (display);
+        ui_settings.set_boolean ("display-photo-comments", display);
     }
 
     protected virtual void on_display_tags (Gtk.Action action) {
@@ -780,7 +788,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         set_display_tags (display);
 
-        Config.Facade.get_instance ().set_display_photo_tags (display);
+        ui_settings.set_boolean ("display-photo-tags", display);
     }
 
     protected abstract void get_config_photos_sort (out bool sort_order, out int sort_by);

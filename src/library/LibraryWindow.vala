@@ -141,6 +141,12 @@ public class LibraryWindow : AppWindow {
     private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
 
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
+
     public LibraryWindow (ProgressMonitor progress_monitor) {
         ThumbnailCache.scale_factor = get_scale_factor ();
 
@@ -486,8 +492,8 @@ public class LibraryWindow : AppWindow {
     protected override void on_quit () {
         Config.Facade.get_instance ().set_library_window_state (maximized, dimensions);
 
-        Config.Facade.get_instance ().set_sidebar_position (client_paned.position);
-        Config.Facade.get_instance ().set_metadata_sidebar_position (right_client_paned.position);
+        ui_settings.set_int ("sidebar-position", client_paned.position);
+        ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
         base.on_quit ();
     }
@@ -723,20 +729,20 @@ public class LibraryWindow : AppWindow {
 
     private void set_sidebar_visible (bool visible) {
         sidebar_paned.set_visible (visible);
-        Config.Facade.get_instance ().set_display_sidebar (visible);
+        ui_settings.set_boolean ("display-sidebar", visible);
     }
 
     private bool is_sidebar_visible () {
-        return Config.Facade.get_instance ().get_display_sidebar ();
+        return ui_settings.get_boolean ("display-sidebar");
     }
 
     public void set_metadata_sidebar_visible (bool visible) {
         metadata_sidebar.set_visible (visible);
-        Config.Facade.get_instance ().set_display_metadata_sidebar (visible);
+        ui_settings.set_boolean ("display-metadata-sidebar", visible);
     }
 
     public bool is_metadata_sidebar_visible () {
-        return Config.Facade.get_instance ().get_display_metadata_sidebar ();
+        return ui_settings.get_boolean ("display-metadata-sidebar");
     }
 
     public void enqueue_batch_import (BatchImport batch_import, bool allow_user_cancel) {
@@ -1064,9 +1070,9 @@ public class LibraryWindow : AppWindow {
         client_paned.pack1 (sidebar_paned, false, false);
         sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
         client_paned.pack2 (right_frame, true, false);
-        client_paned.set_position (Config.Facade.get_instance ().get_sidebar_position ());
+        client_paned.set_position (ui_settings.get_int ("sidebar-position"));
 
-        int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
+        int metadata_sidebar_pos = ui_settings.get_int ("metadata-sidebar-position");
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
 
