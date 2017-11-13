@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2014-2017 elementary LLC. (http://launchpad.net/pantheon-photos)
+* Copyright (c) 2014-2017 elementary LLC. (https://github.com/elementary/photos)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
