@@ -56,6 +56,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter ();
     private Gtk.Menu page_context_menu;
     private Gtk.Menu item_context_menu;
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     public EventsDirectoryPage (string page_name, ViewManager view_manager,
                                 Gee.Collection<Event>? initial_events) {
@@ -67,7 +72,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
 
         get_view ().set_property (Event.PROP_SHOW_COMMENTS,
-                                  Config.Facade.get_instance ().get_display_event_comments ());
+                                  ui_settings.get_boolean ("display-event-comments"));
 
         this.view_manager = view_manager;
 
@@ -231,7 +236,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         Gtk.ToggleActionEntry comments = { "ViewComment", null, _("_Comments"), "<Ctrl><Shift>C",
-                                           _("Display the comment of each event"), on_display_comments, Config.Facade.get_instance ().get_display_event_comments ()
+                                           _("Display the comment of each event"), on_display_comments,
+                                           ui_settings.get_boolean ("display-event-comments")
                                          };
         toggle_actions += comments;
 
@@ -311,7 +317,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         set_display_comments (display);
 
-        Config.Facade.get_instance ().set_display_event_comments (display);
+        ui_settings.set_boolean ("display-event-comments", display);
     }
 
     public override SearchViewFilter get_search_view_filter () {

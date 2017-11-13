@@ -723,6 +723,7 @@ public class ImportPage : CheckerboardPage {
 
     private Gtk.Menu page_context_menu;
     private Gtk.Menu import_context_menu;
+    private GLib.Settings ui_settings;
 
 #if UNITY_SUPPORT
     UnityProgressBar uniprobar = UnityProgressBar.get_instance ();
@@ -733,6 +734,10 @@ public class ImportPage : CheckerboardPage {
         BUSY,
         LOCKED,
         LIBRARY_ERROR
+    }
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
     }
 
     public ImportPage (GPhoto.Camera camera, string uri, string? display_name = null, GLib.Icon? icon = null) {
@@ -981,7 +986,8 @@ public class ImportPage : CheckerboardPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         Gtk.ToggleActionEntry titles = { "ViewTitle", null, _("_Titles"), "<Ctrl><Shift>T",
-                                         _("Display the title of each photo"), on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
+                                         _("Display the title of each photo"), on_display_titles,
+                                         ui_settings.get_boolean ("display-photo-titles")
                                        };
         toggle_actions += titles;
 
@@ -1071,11 +1077,11 @@ public class ImportPage : CheckerboardPage {
         bool display = ((Gtk.ToggleAction) action).get_active ();
 
         set_display_titles (display);
-        Config.Facade.get_instance ().set_display_photo_titles (display);
+        ui_settings.set_boolean ("display-photo-titles", display);
     }
 
     public override void switched_to () {
-        set_display_titles (Config.Facade.get_instance ().get_display_photo_titles ());
+        set_display_titles (ui_settings.get_boolean ("display-photo-titles"));
 
         base.switched_to ();
     }

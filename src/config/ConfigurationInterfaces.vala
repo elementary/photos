@@ -42,16 +42,6 @@ public enum ConfigurableProperty {
     DIRECT_WINDOW_HEIGHT,
     DIRECT_WINDOW_MAXIMIZE,
     DIRECT_WINDOW_WIDTH,
-    DISPLAY_BASIC_PROPERTIES,
-    DISPLAY_EVENT_COMMENTS,
-    DISPLAY_EXTENDED_PROPERTIES,
-    DISPLAY_SIDEBAR,
-    DISPLAY_METADATA_SIDEBAR,
-    DISPLAY_SEARCH_BAR,
-    DISPLAY_PHOTO_RATINGS,
-    DISPLAY_PHOTO_TAGS,
-    DISPLAY_PHOTO_TITLES,
-    DISPLAY_PHOTO_COMMENTS,
     EVENT_PHOTOS_SORT_ASCENDING,
     EVENT_PHOTOS_SORT_BY,
     EVENTS_SORT_ASCENDING,
@@ -84,8 +74,6 @@ public enum ConfigurableProperty {
     PRINTING_TITLES_FONT,
     RAW_DEVELOPER_DEFAULT,
     SHOW_WELCOME_DIALOG,
-    SIDEBAR_POSITION,
-    METADATA_SIDEBAR_POSITION,
     SLIDESHOW_DELAY,
     SLIDESHOW_TRANSITION_DELAY,
     SLIDESHOW_TRANSITION_EFFECT_ID,
@@ -125,33 +113,6 @@ public enum ConfigurableProperty {
 
         case DIRECT_WINDOW_WIDTH:
             return "DIRECT_WINDOW_WIDTH";
-
-        case DISPLAY_BASIC_PROPERTIES:
-            return "DISPLAY_BASIC_PROPERTIES";
-
-        case DISPLAY_EXTENDED_PROPERTIES:
-            return "DISPLAY_EXTENDED_PROPERTIES";
-
-        case DISPLAY_SIDEBAR:
-            return "DISPLAY_SIDEBAR";
-
-        case DISPLAY_METADATA_SIDEBAR:
-            return "DISPLAY_METADATA_SIDEBAR";
-
-        case DISPLAY_SEARCH_BAR:
-            return "DISPLAY_SEARCH_BAR";
-
-        case DISPLAY_PHOTO_TAGS:
-            return "DISPLAY_PHOTO_TAGS";
-
-        case DISPLAY_PHOTO_TITLES:
-            return "DISPLAY_PHOTO_TITLES";
-
-        case DISPLAY_PHOTO_COMMENTS:
-            return "DISPLAY_PHOTO_COMMENTS";
-
-        case DISPLAY_EVENT_COMMENTS:
-            return "DISPLAY_EVENT_COMMENTS";
 
         case EVENT_PHOTOS_SORT_ASCENDING:
             return "EVENT_PHOTOS_SORT_ASCENDING";
@@ -248,12 +209,6 @@ public enum ConfigurableProperty {
 
         case SHOW_WELCOME_DIALOG:
             return "SHOW_WELCOME_DIALOG";
-
-        case SIDEBAR_POSITION:
-            return "SIDEBAR_POSITION";
-
-        case METADATA_SIDEBAR_POSITION:
-            return "METADATA_SIDEBAR_POSITION";
 
         case SLIDESHOW_DELAY:
             return "SLIDESHOW_DELAY";
@@ -511,196 +466,6 @@ public abstract class ConfigurationFacade : Object {
                                             dimensions.width);
             get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_HEIGHT,
                                             dimensions.height);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display basic properties
-    //
-    public virtual bool get_display_basic_properties () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_BASIC_PROPERTIES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_display_basic_properties (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_BASIC_PROPERTIES, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display extended properties
-    //
-    public virtual bool get_display_extended_properties () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_extended_properties (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EXTENDED_PROPERTIES,
-                                             display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display sidebar
-    //
-    public virtual bool get_display_sidebar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_SIDEBAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_sidebar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SIDEBAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display sidebar
-    //
-    public virtual bool get_display_metadata_sidebar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_metadata_sidebar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_METADATA_SIDEBAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display search & filter toolbar
-    //
-    public virtual bool get_display_search_bar () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_SEARCH_BAR);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_search_bar (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_SEARCH_BAR, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo tags
-    //
-    public virtual bool get_display_photo_tags () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TAGS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_display_photo_tags (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TAGS, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo titles
-    //
-    public virtual bool get_display_photo_titles () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TITLES);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_photo_titles (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_TITLES, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display photo comments
-    //
-    public virtual bool get_display_photo_comments () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_PHOTO_COMMENTS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_photo_comments (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_PHOTO_COMMENTS, display);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // display event comments
-    //
-    public virtual bool get_display_event_comments () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.DISPLAY_EVENT_COMMENTS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_display_event_comments (bool display) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DISPLAY_EVENT_COMMENTS, display);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
@@ -1332,48 +1097,6 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG,
                                              show);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // sidebar position
-    //
-    public virtual int get_sidebar_position () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.SIDEBAR_POSITION);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return 180;
-        }
-    }
-
-    public virtual void set_sidebar_position (int position) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.SIDEBAR_POSITION, position);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // sidebar position
-    //
-    public virtual int get_metadata_sidebar_position () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return -1;
-        }
-    }
-
-    public virtual void set_metadata_sidebar_position (int position) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.METADATA_SIDEBAR_POSITION, position);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
