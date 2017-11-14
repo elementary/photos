@@ -34,7 +34,6 @@ public class Events.Branch : Sidebar.Branch {
         }
         set {
             _sort_ascending = value;
-            warning ("sort_ascending changed");
             reorder_all ();
         }
     }
