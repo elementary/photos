@@ -119,8 +119,10 @@ public abstract class CollectionPage : MediaPage {
 
             toolbar.insert (drawn_separator, -1);
 
-            // zoom slider assembly
-            var zoom_assembly = new ZoomSliderAssembly (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE, 16, 0);
+            var zoom_assembly = new ZoomSliderAssembly (Thumbnail.MIN_SCALE,
+                                                        Thumbnail.MAX_SCALE,
+                                                        MediaPage.MANUAL_STEPPING, 0);
+
             zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
             connect_slider (zoom_assembly);
 

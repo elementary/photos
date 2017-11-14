@@ -29,10 +29,7 @@ public class MediaSourceItem : CheckerboardItem {
 public abstract class MediaPage : CheckerboardPage {
     public const int SORT_ORDER_ASCENDING = 0;
     public const int SORT_ORDER_DESCENDING = 1;
-
-    // steppings should divide evenly into (Thumbnail.MAX_SCALE - Thumbnail.MIN_SCALE)
     public const int MANUAL_STEPPING = 16;
-    public const int SLIDER_STEPPING = 4;
 
     public enum SortBy {
         MIN = 1,
