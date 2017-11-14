@@ -60,6 +60,11 @@ public class ZoomSliderAssembly : Gtk.Grid {
         zoom_out_box.add (zoom_out);
         zoom_out_box.button_press_event.connect (on_zoom_button_pressed);
         zoom_out_box.button_release_event.connect (on_zoom_button_released);
+        zoom_out_box.leave_notify_event.connect (() => {
+            clear_zoom_timeouts ();
+
+            return false;
+        });
 
         add (zoom_out_box);
 
@@ -77,6 +82,11 @@ public class ZoomSliderAssembly : Gtk.Grid {
         zoom_in_box.add (zoom_in);
         zoom_in_box.button_press_event.connect (on_zoom_button_pressed);
         zoom_in_box.button_release_event.connect (on_zoom_button_released);
+        zoom_in_box.leave_notify_event.connect (() => {
+            clear_zoom_timeouts ();
+
+            return false;
+        });
 
         add (zoom_in_box);
     }
