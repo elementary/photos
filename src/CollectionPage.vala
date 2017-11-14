@@ -121,6 +121,7 @@ public abstract class CollectionPage : MediaPage {
 
             // zoom slider assembly
             var zoom_assembly = new ZoomSliderAssembly (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE, 16, 0);
+            zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
             connect_slider (zoom_assembly);
 
             var group_wrapper = new Gtk.ToolItem ();
