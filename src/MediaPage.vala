@@ -200,7 +200,7 @@ public abstract class MediaPage : CheckerboardPage {
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
     private Gtk.Menu page_context_menu;
-    private GLib.Settings ui_settings;
+    protected GLib.Settings ui_settings;
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
@@ -791,9 +791,15 @@ public abstract class MediaPage : CheckerboardPage {
         ui_settings.set_boolean ("display-photo-tags", display);
     }
 
-    protected abstract void get_config_photos_sort (out bool sort_order, out int sort_by);
+    protected virtual void get_config_photos_sort (out bool sort_order, out int sort_by) {
+        sort_order = ui_settings.get_boolean ("library-photos-sort-ascending");
+        sort_by = ui_settings.get_int ("library-photos-sort-by");
+    }
 
-    protected abstract void set_config_photos_sort (bool sort_order, int sort_by);
+    protected virtual void set_config_photos_sort (bool sort_order, int sort_by) {
+        ui_settings.set_boolean ("library-photos-sort-ascending", sort_order);
+        ui_settings.set_int ("library-photos-sort-by", sort_by);
+    }
 
     public virtual void on_sort_changed () {
         int sort_by = get_menu_sort_by ();
