@@ -42,9 +42,6 @@ public enum ConfigurableProperty {
     DIRECT_WINDOW_HEIGHT,
     DIRECT_WINDOW_MAXIMIZE,
     DIRECT_WINDOW_WIDTH,
-    EVENT_PHOTOS_SORT_ASCENDING,
-    EVENT_PHOTOS_SORT_BY,
-    EVENTS_SORT_ASCENDING,
     EXTERNAL_PHOTO_APP,
     EXTERNAL_RAW_APP,
     HIDE_PHOTOS_ALREADY_IMPORTED,
@@ -55,8 +52,6 @@ public enum ConfigurableProperty {
     LAST_CROP_WIDTH,
     LAST_USED_SERVICE,
     LAST_USED_DATAIMPORTS_SERVICE,
-    LIBRARY_PHOTOS_SORT_ASCENDING,
-    LIBRARY_PHOTOS_SORT_BY,
     LIBRARY_WINDOW_HEIGHT,
     LIBRARY_WINDOW_MAXIMIZE,
     LIBRARY_WINDOW_WIDTH,
@@ -114,15 +109,6 @@ public enum ConfigurableProperty {
         case DIRECT_WINDOW_WIDTH:
             return "DIRECT_WINDOW_WIDTH";
 
-        case EVENT_PHOTOS_SORT_ASCENDING:
-            return "EVENT_PHOTOS_SORT_ASCENDING";
-
-        case EVENT_PHOTOS_SORT_BY:
-            return "EVENT_PHOTOS_SORT_BY";
-
-        case EVENTS_SORT_ASCENDING:
-            return "EVENTS_SORT_ASCENDING";
-
         case EXTERNAL_PHOTO_APP:
             return "EXTERNAL_PHOTO_APP";
 
@@ -152,12 +138,6 @@ public enum ConfigurableProperty {
 
         case LAST_USED_DATAIMPORTS_SERVICE:
             return "LAST_USED_DATAIMPORTS_SERVICE";
-
-        case LIBRARY_PHOTOS_SORT_ASCENDING:
-            return "LIBRARY_PHOTOS_SORT_ASCENDING";
-
-        case LIBRARY_PHOTOS_SORT_BY:
-            return "LIBRARY_PHOTOS_SORT_BY";
 
         case LIBRARY_WINDOW_HEIGHT:
             return "LIBRARY_WINDOW_HEIGHT";
@@ -273,7 +253,6 @@ public abstract class ConfigurationFacade : Object {
 
     public signal void auto_import_from_library_changed ();
     public signal void commit_metadata_to_masters_changed ();
-    public signal void events_sort_ascending_changed ();
     public signal void external_app_changed ();
     public signal void import_directory_changed ();
 
@@ -293,10 +272,6 @@ public abstract class ConfigurationFacade : Object {
 
         case ConfigurableProperty.COMMIT_METADATA_TO_MASTERS:
             commit_metadata_to_masters_changed ();
-            break;
-
-        case ConfigurableProperty.EVENTS_SORT_ASCENDING:
-            events_sort_ascending_changed ();
             break;
 
         case ConfigurableProperty.EXTERNAL_PHOTO_APP:
@@ -468,54 +443,6 @@ public abstract class ConfigurationFacade : Object {
                                             dimensions.height);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
-        }
-    }
-
-    //
-    // event photos sort
-    //
-    public virtual void get_event_photos_sort (out bool sort_order, out int sort_by) {
-        sort_order = false;
-        sort_by = 2;
-        try {
-            sort_order = get_engine ().get_bool_property (
-                             ConfigurableProperty.EVENT_PHOTOS_SORT_ASCENDING);
-            sort_by = get_engine ().get_int_property (ConfigurableProperty.EVENT_PHOTOS_SORT_BY);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    public virtual void set_event_photos_sort (bool sort_order, int sort_by) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.EVENT_PHOTOS_SORT_ASCENDING,
-                                             sort_order);
-            get_engine ().set_int_property (ConfigurableProperty.EVENT_PHOTOS_SORT_BY,
-                                            sort_by);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // events sort ascending
-    //
-    public virtual bool get_events_sort_ascending () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.EVENTS_SORT_ASCENDING);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_events_sort_ascending (bool sort) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.EVENTS_SORT_ASCENDING, sort);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return;
         }
     }
 
@@ -759,32 +686,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_last_used_dataimports_service (string service_name) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE, service_name);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // library photos sort
-    //
-    public virtual void get_library_photos_sort (out bool sort_order, out int sort_by) {
-        sort_order = false;
-        sort_by = 2;
-        try {
-            sort_order = get_engine ().get_bool_property (
-                             ConfigurableProperty.LIBRARY_PHOTOS_SORT_ASCENDING);
-            sort_by = get_engine ().get_int_property (ConfigurableProperty.LIBRARY_PHOTOS_SORT_BY);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    public virtual void set_library_photos_sort (bool sort_order, int sort_by) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.LIBRARY_PHOTOS_SORT_ASCENDING,
-                                             sort_order);
-            get_engine ().set_int_property (ConfigurableProperty.LIBRARY_PHOTOS_SORT_BY,
-                                            sort_by);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
