@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2017 elementary  LLC. (https://launchpad.net/pantheon-photos)
+*               2017 elementary  LLC. (https://github.com/elementary/photos)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
