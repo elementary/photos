@@ -66,7 +66,7 @@ public class ZoomSliderAssembly : Gtk.Grid {
         slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, new Gtk.Adjustment (initial_val, min, max, step, step, 0));
         slider.value_changed.connect (on_slider_value_changed);
         slider.draw_value = false;
-        slider.set_size_request (200, -1);
+        slider.set_size_request (150, -1);
 
         add (slider);
 
