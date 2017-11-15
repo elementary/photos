@@ -48,9 +48,7 @@ public class ZoomSliderAssembly : Gtk.Grid {
         orientation = Gtk.Orientation.HORIZONTAL;
         margin_top = 5;
         margin_bottom = 5;
-    }
 
-    public ZoomSliderAssembly (double min, double max, double step, double initial_val) {
         settings = get_settings ();
 
         var zoom_out = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
@@ -68,7 +66,7 @@ public class ZoomSliderAssembly : Gtk.Grid {
 
         add (zoom_out_box);
 
-        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, new Gtk.Adjustment (initial_val, min, max, step, step, 0));
+        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
         slider.value_changed.connect (on_slider_value_changed);
         slider.draw_value = false;
         slider.set_size_request (150, -1);
@@ -89,6 +87,12 @@ public class ZoomSliderAssembly : Gtk.Grid {
         });
 
         add (zoom_in_box);
+    }
+
+    public ZoomSliderAssembly (double min, double max, double step, double initial_val) {
+        slider.set_range (min, max);
+        slider.set_increments (step, step);
+        zoom_value = initial_val;
     }
 
     private void on_slider_value_changed () {
