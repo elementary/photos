@@ -43,7 +43,6 @@ public class ManifestWidgetMediator {
         action_area.add (about_button);
 
         plugin_manifest = new Gtk.Grid ();
-        plugin_manifest.margin = 6;
         plugin_manifest.orientation = Gtk.Orientation.VERTICAL;
         plugin_manifest.row_spacing = 12; 
         plugin_manifest.add (frame); 
@@ -231,7 +230,6 @@ private class ManifestListView : Gtk.TreeView {
         }
 
         expand_all ();
-        show_all ();
     }
 
     public string[] get_selected_ids () {

@@ -88,7 +88,6 @@ public class PreferencesDialog {
         var library_grid = new Gtk.Grid ();
         library_grid.column_spacing = 12;
         library_grid.row_spacing = 6;
-        library_grid.margin = 6;
         library_grid.attach (library_header, 0, 0, 2, 1);
         library_grid.attach (library_dir_label, 0, 1, 1, 1);
         library_grid.attach (library_dir_button, 1, 1, 1, 1);
@@ -104,6 +103,7 @@ public class PreferencesDialog {
 
         var stack = new Gtk.Stack ();
         stack.expand = true;
+        stack.margin = 6;
         stack.add_titled (library_grid, "library", _("Library"));
         stack.add_titled (plugins_mediator.plugin_manifest, "plugins", _("Plugins"));
 
