@@ -54,9 +54,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.DIRECT_WINDOW_HEIGHT] = WINDOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DIRECT_WINDOW_MAXIMIZE] = WINDOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DIRECT_WINDOW_WIDTH] = WINDOW_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.EVENT_PHOTOS_SORT_ASCENDING] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.EVENT_PHOTOS_SORT_BY] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.EVENTS_SORT_ASCENDING] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.EXTERNAL_PHOTO_APP] = EDITING_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.EXTERNAL_RAW_APP] = EDITING_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = UI_PREFS_SCHEMA_NAME;
@@ -67,8 +64,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.LAST_CROP_WIDTH] = CROP_SCHEMA_NAME;
         schema_names[ConfigurableProperty.LAST_USED_SERVICE] = SHARING_SCHEMA_NAME;
         schema_names[ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE] = IMPORTING_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LIBRARY_PHOTOS_SORT_ASCENDING] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LIBRARY_PHOTOS_SORT_BY] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.LIBRARY_WINDOW_HEIGHT] = WINDOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.LIBRARY_WINDOW_MAXIMIZE] = WINDOW_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.LIBRARY_WINDOW_WIDTH] = WINDOW_PREFS_SCHEMA_NAME;
@@ -105,9 +100,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.DIRECT_WINDOW_HEIGHT] = "direct-height";
         key_names[ConfigurableProperty.DIRECT_WINDOW_MAXIMIZE] = "direct-maximize";
         key_names[ConfigurableProperty.DIRECT_WINDOW_WIDTH] = "direct-width";
-        key_names[ConfigurableProperty.EVENT_PHOTOS_SORT_ASCENDING] = "event-photos-sort-ascending";
-        key_names[ConfigurableProperty.EVENT_PHOTOS_SORT_BY] = "event-photos-sort-by";
-        key_names[ConfigurableProperty.EVENTS_SORT_ASCENDING] = "events-sort-ascending";
         key_names[ConfigurableProperty.EXTERNAL_PHOTO_APP] = "external-photo-editor";
         key_names[ConfigurableProperty.EXTERNAL_RAW_APP] = "external-raw-editor";
         key_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = "hide-photos-already-imported";
@@ -118,8 +110,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.LAST_CROP_WIDTH] = "last-crop-width";
         key_names[ConfigurableProperty.LAST_USED_SERVICE] = "last-used-service";
         key_names[ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE] = "last-used-dataimports-service";
-        key_names[ConfigurableProperty.LIBRARY_PHOTOS_SORT_ASCENDING] = "library-photos-sort-ascending";
-        key_names[ConfigurableProperty.LIBRARY_PHOTOS_SORT_BY] = "library-photos-sort-by";
         key_names[ConfigurableProperty.LIBRARY_WINDOW_HEIGHT] = "library-height";
         key_names[ConfigurableProperty.LIBRARY_WINDOW_MAXIMIZE] = "library-maximize";
         key_names[ConfigurableProperty.LIBRARY_WINDOW_WIDTH] = "library-width";

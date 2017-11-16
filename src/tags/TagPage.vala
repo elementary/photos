@@ -69,11 +69,13 @@ public class TagPage : CollectionPage {
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_event_photos_sort (out sort_order, out sort_by);
+        sort_order = ui_settings.get_boolean ("event-photos-sort-ascending");
+        sort_by = ui_settings.get_int ("event-photos-sort-by");
     }
 
     protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_event_photos_sort (sort_order, sort_by);
+        ui_settings.set_boolean ("event-photos-sort-ascending", sort_order);
+        ui_settings.set_int ("event-photos-sort-by", sort_by);
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {

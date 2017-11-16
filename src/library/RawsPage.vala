@@ -73,13 +73,6 @@ public class Library.RawsPage : CollectionPage {
     private ViewManager view_manager;
     private RawsSearchViewFilter search_filter = new RawsSearchViewFilter ();
 
-    protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_library_photos_sort (out sort_order, out sort_by);
-    }
-
-    protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
-    }
     public override SearchViewFilter get_search_view_filter () {
         return search_filter;
     }
