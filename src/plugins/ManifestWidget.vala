@@ -87,10 +87,11 @@ public class ManifestWidget : Gtk.Grid {
             }
         }
 
-        Gtk.AboutDialog about_dialog = new Gtk.AboutDialog ();
+        var about_dialog = new Gtk.AboutDialog ();
         about_dialog.authors = authors;
         about_dialog.comments = info.brief_description;
         about_dialog.copyright = info.copyright;
+        about_dialog.deletable = false;
         about_dialog.license = info.license;
         about_dialog.wrap_license = info.is_license_wordwrapped;
         Gdk.Pixbuf? pix_icon = null;
