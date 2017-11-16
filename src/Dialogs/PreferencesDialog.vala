@@ -33,7 +33,6 @@ public class PreferencesDialog {
     private Gtk.Dialog dialog;
     private Gtk.FileChooserButton library_dir_button;
     private string? lib_dir = null;
-    private Plugins.ManifestWidgetMediator plugins_mediator = new Plugins.ManifestWidgetMediator ();
     private Gtk.ComboBoxText default_raw_developer_combo;
 
     private PreferencesDialog () {
@@ -101,11 +100,13 @@ public class PreferencesDialog {
         library_grid.attach (default_raw_developer_label, 0, 6, 1, 1);
         library_grid.attach (default_raw_developer_combo, 1, 6, 1, 1);
 
+        var manifest_widget = new Plugins.ManifestWidget ();
+
         var stack = new Gtk.Stack ();
         stack.expand = true;
         stack.margin = 6;
         stack.add_titled (library_grid, "library", _("Library"));
-        stack.add_titled (plugins_mediator.plugin_manifest, "plugins", _("Plugins"));
+        stack.add_titled (manifest_widget, "plugins", _("Plugins"));
 
         var switcher = new Gtk.StackSwitcher ();
         switcher.halign = Gtk.Align.CENTER;

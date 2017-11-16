@@ -19,13 +19,11 @@
 
 namespace Plugins {
 
-public class ManifestWidgetMediator {
-    public Gtk.Grid plugin_manifest;
-
+public class ManifestWidget : Gtk.Grid {
     private Gtk.Button about_button;
     private ManifestListView list;
 
-    public ManifestWidgetMediator () {
+    public ManifestWidget () {
         list = new ManifestListView ();
 
         var list_bin = new Gtk.ScrolledWindow (null, null);
@@ -42,21 +40,20 @@ public class ManifestWidgetMediator {
         action_area.layout_style = Gtk.ButtonBoxStyle.END;
         action_area.add (about_button);
 
-        plugin_manifest = new Gtk.Grid ();
-        plugin_manifest.orientation = Gtk.Orientation.VERTICAL;
-        plugin_manifest.row_spacing = 12; 
-        plugin_manifest.add (frame); 
-        plugin_manifest.add (action_area);
+        orientation = Gtk.Orientation.VERTICAL;
+        row_spacing = 12; 
+        add (frame); 
+        add (action_area);
 
         about_button.clicked.connect (on_about);
-        list.get_selection ().changed.connect (on_selection_changed);
+        list.get_selection ().changed.connect (set_about_button_sensitivity);
 
         set_about_button_sensitivity ();
     }
 
-    ~ManifestWidgetMediator () {
+    ~ManifestWidget () {
         about_button.clicked.disconnect (on_about);
-        list.get_selection ().changed.disconnect (on_selection_changed);
+        list.get_selection ().changed.disconnect (set_about_button_sensitivity);
     }
 
     private void on_about () {
@@ -128,10 +125,6 @@ public class ManifestWidgetMediator {
         about_dialog.run ();
 
         about_dialog.destroy ();
-    }
-
-    private void on_selection_changed () {
-        set_about_button_sensitivity ();
     }
 
     private void set_about_button_sensitivity () {
