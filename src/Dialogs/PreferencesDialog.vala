@@ -31,7 +31,6 @@ public class PreferencesDialog {
     private static PreferencesDialog preferences_dialog;
 
     private Gtk.Dialog dialog;
-    private Gtk.Builder builder;
     private Gtk.FileChooserButton library_dir_button;
     private string? lib_dir = null;
     private Plugins.ManifestWidgetMediator plugins_mediator = new Plugins.ManifestWidgetMediator ();
@@ -103,12 +102,10 @@ public class PreferencesDialog {
         library_grid.attach (default_raw_developer_label, 0, 6, 1, 1);
         library_grid.attach (default_raw_developer_combo, 1, 6, 1, 1);
 
-        builder = AppWindow.create_builder ();
-
         var stack = new Gtk.Stack ();
         stack.expand = true;
         stack.add_titled (library_grid, "library", _("Library"));
-        stack.add_titled (builder.get_object ("preferences_plugins") as Gtk.Box, "plugins", _("Plugins"));
+        stack.add_titled (plugins_mediator.plugin_manifest, "plugins", _("Plugins"));
 
         var switcher = new Gtk.StackSwitcher ();
         switcher.halign = Gtk.Align.CENTER;
@@ -125,9 +122,6 @@ public class PreferencesDialog {
 
         var close_button = dialog.add_button (_("_Close"), Gtk.ResponseType.CLOSE);
         ((Gtk.Button) close_button).clicked.connect (on_close);
-
-        var plugin_manifest_container = builder.get_object ("plugin-manifest-bin") as Gtk.Bin;
-        plugin_manifest_container.add (plugins_mediator.widget);
 
         var file_settings = new GLib.Settings ("org.pantheon.photos.preferences.files");
         file_settings.bind ("auto-import", auto_import_switch, "active", SettingsBindFlags.DEFAULT);

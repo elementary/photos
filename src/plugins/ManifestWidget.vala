@@ -20,29 +20,34 @@
 namespace Plugins {
 
 public class ManifestWidgetMediator {
-    public Gtk.Widget widget {
-        get {
-            return builder.get_object ("plugin-manifest") as Gtk.Widget;
-        }
-    }
+    public Gtk.Grid plugin_manifest;
 
-    private Gtk.Button about_button {
-        get {
-            return builder.get_object ("about-plugin-button") as Gtk.Button;
-        }
-    }
-
-    private Gtk.ScrolledWindow list_bin {
-        get {
-            return builder.get_object ("plugin-list-scrolled-window") as Gtk.ScrolledWindow;
-        }
-    }
-
-    private Gtk.Builder builder = AppWindow.create_builder ();
-    private ManifestListView list = new ManifestListView ();
+    private Gtk.Button about_button;
+    private ManifestListView list;
 
     public ManifestWidgetMediator () {
+        list = new ManifestListView ();
+
+        var list_bin = new Gtk.ScrolledWindow (null, null);
+        list_bin.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        list_bin.expand = true;
         list_bin.add_with_viewport (list);
+
+        var frame = new Gtk.Frame (null);
+        frame.add (list_bin);
+
+        about_button = new Gtk.Button.with_label (_("About"));
+
+        var action_area = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+        action_area.layout_style = Gtk.ButtonBoxStyle.END;
+        action_area.add (about_button);
+
+        plugin_manifest = new Gtk.Grid ();
+        plugin_manifest.margin = 6;
+        plugin_manifest.orientation = Gtk.Orientation.VERTICAL;
+        plugin_manifest.row_spacing = 12; 
+        plugin_manifest.add (frame); 
+        plugin_manifest.add (action_area);
 
         about_button.clicked.connect (on_about);
         list.get_selection ().changed.connect (on_selection_changed);
@@ -226,6 +231,7 @@ private class ManifestListView : Gtk.TreeView {
         }
 
         expand_all ();
+        show_all ();
     }
 
     public string[] get_selected_ids () {
