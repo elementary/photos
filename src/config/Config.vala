@@ -29,12 +29,6 @@
 namespace Config {
 
 public class Facade : ConfigurationFacade {
-    public const double SLIDESHOW_DELAY_MAX = 30.0;
-    public const double SLIDESHOW_DELAY_MIN = 1.0;
-    public const double SLIDESHOW_DELAY_DEFAULT = 3.0;
-    public const double SLIDESHOW_TRANSITION_DELAY_MAX = 1.0;
-    public const double SLIDESHOW_TRANSITION_DELAY_MIN = 0.1;
-    public const double SLIDESHOW_TRANSITION_DELAY_DEFAULT = 0.3;
     public const int NO_VIDEO_INTERPRETER_STATE = -1;
 
     private static Facade instance = null;

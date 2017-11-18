@@ -19,6 +19,11 @@
 */
 
 private class SlideshowSettingsDialog : Gtk.Dialog {
+    private const double SLIDESHOW_DELAY_MAX = 30.0;
+    private const double SLIDESHOW_DELAY_MIN = 1.0;
+    private const double SLIDESHOW_TRANSITION_DELAY_MAX = 1.0;
+    private const double SLIDESHOW_TRANSITION_DELAY_MIN = 0.1;
+
     private Gtk.Builder builder = null;
     Gtk.SpinButton delay_entry;
     Gtk.Scale delay_hscale;
@@ -28,13 +33,18 @@ private class SlideshowSettingsDialog : Gtk.Dialog {
     Gtk.Adjustment transition_effect_adjustment;
     Gtk.CheckButton show_title_button;
     Gtk.Box pane;
+    private GLib.Settings slideshow_settings;
+
+    construct {
+        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+    }
 
     public SlideshowSettingsDialog () {
         builder = AppWindow.create_builder ();
         pane = builder.get_object ("slideshow_settings_pane") as Gtk.Box;
         get_content_area ().add (pane);
 
-        double delay = Config.Facade.get_instance ().get_slideshow_delay ();
+        double delay = slideshow_settings.get_double ("delay");
 
         set_modal (true);
         set_transient_for (AppWindow.get_fullscreen ());
@@ -43,7 +53,7 @@ private class SlideshowSettingsDialog : Gtk.Dialog {
                      _("Save Settings"), Gtk.ResponseType.OK);
         set_title (_ ("Settings"));
 
-        Gtk.Adjustment adjustment = new Gtk.Adjustment (delay, Config.Facade.SLIDESHOW_DELAY_MIN, Config.Facade.SLIDESHOW_DELAY_MAX, 0.1, 1, 0);
+        Gtk.Adjustment adjustment = new Gtk.Adjustment (delay, SLIDESHOW_DELAY_MIN, SLIDESHOW_DELAY_MAX, 0.1, 1, 0);
         delay_hscale = builder.get_object ("delay_hscale") as Gtk.Scale;
         delay_hscale.adjustment = adjustment;
 
@@ -56,7 +66,7 @@ private class SlideshowSettingsDialog : Gtk.Dialog {
         transition_effect_selector = builder.get_object ("transition_effect_selector") as Gtk.ComboBoxText;
 
         // get last effect id
-        string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
+        string effect_id = slideshow_settings.get_string ("transition-effect-id");
 
         // null effect first, always, and set active in case no other one is found
         string null_display_name = TransitionEffectsManager.get_instance ().get_effect_name (
@@ -78,10 +88,10 @@ private class SlideshowSettingsDialog : Gtk.Dialog {
         }
         transition_effect_selector.changed.connect (on_transition_changed);
 
-        double transition_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
-        transition_effect_adjustment = new Gtk.Adjustment (transition_delay,
-                Config.Facade.SLIDESHOW_TRANSITION_DELAY_MIN, Config.Facade.SLIDESHOW_TRANSITION_DELAY_MAX,
-                0.1, 1, 0);
+        double transition_delay = slideshow_settings.get_double ("transition-delay");
+        transition_effect_adjustment = new Gtk.Adjustment (transition_delay, SLIDESHOW_TRANSITION_DELAY_MIN, 
+                                                           SLIDESHOW_TRANSITION_DELAY_MAX, 0.1, 1, 0);
+
         transition_effect_hscale = builder.get_object ("transition_effect_hscale") as Gtk.Scale;
         transition_effect_hscale.adjustment = transition_effect_adjustment;
 
@@ -91,7 +101,7 @@ private class SlideshowSettingsDialog : Gtk.Dialog {
         transition_effect_entry.set_numeric (true);
         transition_effect_entry.set_activates_default (true);
 
-        bool show_title = Config.Facade.get_instance ().get_slideshow_show_title ();
+        bool show_title = slideshow_settings.get_boolean ("show-title");
         show_title_button = builder.get_object ("show_title_button") as  Gtk.CheckButton;
         show_title_button.active = show_title;
 
