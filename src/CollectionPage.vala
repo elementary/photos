@@ -119,10 +119,16 @@ public abstract class CollectionPage : MediaPage {
 
             toolbar.insert (drawn_separator, -1);
 
-            // zoom slider assembly
-            MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
-            connect_slider (zoom_slider_assembly);
-            toolbar.insert (zoom_slider_assembly, -1);
+            var zoom_assembly = new ZoomSliderAssembly (Thumbnail.MIN_SCALE,
+                                                        Thumbnail.MAX_SCALE,
+                                                        MediaPage.MANUAL_STEPPING, 0);
+
+            zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
+            connect_slider (zoom_assembly);
+
+            var group_wrapper = new Gtk.ToolItem ();
+            group_wrapper.add (zoom_assembly);
+            toolbar.insert (group_wrapper, -1);
 
             //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();

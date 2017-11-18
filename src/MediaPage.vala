@@ -29,128 +29,13 @@ public class MediaSourceItem : CheckerboardItem {
 public abstract class MediaPage : CheckerboardPage {
     public const int SORT_ORDER_ASCENDING = 0;
     public const int SORT_ORDER_DESCENDING = 1;
-
-    // steppings should divide evenly into (Thumbnail.MAX_SCALE - Thumbnail.MIN_SCALE)
     public const int MANUAL_STEPPING = 16;
-    public const int SLIDER_STEPPING = 4;
 
     public enum SortBy {
         MIN = 1,
         TITLE = 1,
         EXPOSURE_DATE = 2,
         MAX = 2
-    }
-
-    protected class ZoomSliderAssembly : Gtk.ToolItem {
-        private Gtk.Scale slider;
-        private Gtk.Adjustment adjustment;
-
-        public signal void zoom_changed ();
-
-        public ZoomSliderAssembly () {
-            Gtk.Box zoom_group = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-
-            Gtk.Image zoom_out = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
-            Gtk.EventBox zoom_out_box = new Gtk.EventBox ();
-            zoom_out_box.set_above_child (true);
-            zoom_out_box.set_visible_window (false);
-            zoom_out_box.add (zoom_out);
-            zoom_out_box.button_press_event.connect (on_zoom_out_pressed);
-
-            zoom_group.pack_start (zoom_out_box, false, false, 0);
-
-            // virgin ZoomSliderAssemblies are created such that they have whatever value is
-            // persisted in the configuration system for the photo thumbnail scale
-            int persisted_scale = Config.Facade.get_instance ().get_photo_thumbnail_scale ();
-            adjustment = new Gtk.Adjustment (ZoomSliderAssembly.scale_to_slider (persisted_scale), 0,
-                                             ZoomSliderAssembly.scale_to_slider (Thumbnail.MAX_SCALE), 1, 10, 0);
-
-            slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, adjustment);
-            slider.value_changed.connect (on_slider_changed);
-            slider.set_draw_value (false);
-            slider.set_size_request (200, -1);
-            slider.set_tooltip_text (_ ("Adjust the size of the thumbnails"));
-
-            zoom_group.pack_start (slider, false, false, 0);
-
-            Gtk.Image zoom_in = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU);
-            Gtk.EventBox zoom_in_box = new Gtk.EventBox ();
-            zoom_in_box.set_above_child (true);
-            zoom_in_box.set_visible_window (false);
-            zoom_in_box.add (zoom_in);
-            zoom_in_box.button_press_event.connect (on_zoom_in_pressed);
-
-            zoom_group.pack_start (zoom_in_box, false, false, 0);
-
-            add (zoom_group);
-        }
-
-        public static double scale_to_slider (int value) {
-            assert (value >= Thumbnail.MIN_SCALE);
-            assert (value <= Thumbnail.MAX_SCALE);
-
-            return (double) ((value - Thumbnail.MIN_SCALE) / SLIDER_STEPPING);
-        }
-
-        public static int slider_to_scale (double value) {
-            int res = ((int) (value * SLIDER_STEPPING)) + Thumbnail.MIN_SCALE;
-
-            assert (res >= Thumbnail.MIN_SCALE);
-            assert (res <= Thumbnail.MAX_SCALE);
-
-            return res;
-        }
-
-        private bool on_zoom_out_pressed (Gdk.EventButton event) {
-            snap_to_min ();
-            return true;
-        }
-
-        private bool on_zoom_in_pressed (Gdk.EventButton event) {
-            snap_to_max ();
-            return true;
-        }
-
-        private void on_slider_changed () {
-            zoom_changed ();
-        }
-
-        public void snap_to_min () {
-            slider.set_value (scale_to_slider (Thumbnail.MIN_SCALE));
-        }
-
-        public void snap_to_max () {
-            slider.set_value (scale_to_slider (Thumbnail.MAX_SCALE));
-        }
-
-        public void increase_step () {
-            int new_scale = compute_zoom_scale_increase (get_scale ());
-
-            if (get_scale () == new_scale)
-                return;
-
-            slider.set_value (scale_to_slider (new_scale));
-        }
-
-        public void decrease_step () {
-            int new_scale = compute_zoom_scale_decrease (get_scale ());
-
-            if (get_scale () == new_scale)
-                return;
-
-            slider.set_value (scale_to_slider (new_scale));
-        }
-
-        public int get_scale () {
-            return slider_to_scale (slider.get_value ());
-        }
-
-        public void set_scale (int scale) {
-            if (get_scale () == scale)
-                return;
-
-            slider.set_value (scale_to_slider (scale));
-        }
     }
 
     private ZoomSliderAssembly? connected_slider = null;
@@ -535,10 +420,6 @@ public abstract class MediaPage : CheckerboardPage {
         return tracker;
     }
 
-    public ZoomSliderAssembly create_zoom_slider_assembly () {
-        return new ZoomSliderAssembly ();
-    }
-
     protected override bool on_mousewheel_up (Gdk.EventScroll event) {
         if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             increase_zoom_level ();
@@ -621,7 +502,7 @@ public abstract class MediaPage : CheckerboardPage {
 
     protected void connect_slider (ZoomSliderAssembly slider) {
         connected_slider = slider;
-        connected_slider.zoom_changed.connect (on_zoom_changed);
+        connected_slider.value_changed.connect (on_zoom_changed);
         load_persistent_thumbnail_scale ();
     }
 
@@ -629,7 +510,7 @@ public abstract class MediaPage : CheckerboardPage {
         if (connected_slider == null)
             return;
 
-        Config.Facade.get_instance ().set_photo_thumbnail_scale (connected_slider.get_scale ());
+        Config.Facade.get_instance ().set_photo_thumbnail_scale ((int)connected_slider.zoom_value);
     }
 
     private void load_persistent_thumbnail_scale () {
@@ -638,7 +519,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         int persistent_scale = Config.Facade.get_instance ().get_photo_thumbnail_scale ();
 
-        connected_slider.set_scale (persistent_scale);
+        connected_slider.zoom_value = persistent_scale;
         set_thumb_size (persistent_scale);
     }
 
@@ -646,13 +527,13 @@ public abstract class MediaPage : CheckerboardPage {
         if (connected_slider == null)
             return;
 
-        connected_slider.zoom_changed.disconnect (on_zoom_changed);
+        connected_slider.value_changed.disconnect (on_zoom_changed);
         connected_slider = null;
     }
 
     protected virtual void on_zoom_changed () {
         if (connected_slider != null)
-            set_thumb_size (connected_slider.get_scale ());
+            set_thumb_size ((int)connected_slider.zoom_value);
 
         save_persistent_thumbnail_scale ();
     }
