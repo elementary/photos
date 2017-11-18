@@ -39,9 +39,6 @@ public enum ConfigurableProperty {
     DESKTOP_BACKGROUND_MODE,
     DIRECTORY_PATTERN,
     DIRECTORY_PATTERN_CUSTOM,
-    DIRECT_WINDOW_HEIGHT,
-    DIRECT_WINDOW_MAXIMIZE,
-    DIRECT_WINDOW_WIDTH,
     EXTERNAL_PHOTO_APP,
     EXTERNAL_RAW_APP,
     HIDE_PHOTOS_ALREADY_IMPORTED,
@@ -52,9 +49,6 @@ public enum ConfigurableProperty {
     LAST_CROP_WIDTH,
     LAST_USED_SERVICE,
     LAST_USED_DATAIMPORTS_SERVICE,
-    LIBRARY_WINDOW_HEIGHT,
-    LIBRARY_WINDOW_MAXIMIZE,
-    LIBRARY_WINDOW_WIDTH,
     MODIFY_ORIGINALS,
     PHOTO_THUMBNAIL_SCALE,
     PRINTING_CONTENT_HEIGHT,
@@ -96,15 +90,6 @@ public enum ConfigurableProperty {
         case DIRECTORY_PATTERN_CUSTOM:
             return "DIRECTORY_PATTERN_CUSTOM";
 
-        case DIRECT_WINDOW_HEIGHT:
-            return "DIRECT_WINDOW_HEIGHT";
-
-        case DIRECT_WINDOW_MAXIMIZE:
-            return "DIRECT_WINDOW_MAXIMIZE";
-
-        case DIRECT_WINDOW_WIDTH:
-            return "DIRECT_WINDOW_WIDTH";
-
         case EXTERNAL_PHOTO_APP:
             return "EXTERNAL_PHOTO_APP";
 
@@ -134,15 +119,6 @@ public enum ConfigurableProperty {
 
         case LAST_USED_DATAIMPORTS_SERVICE:
             return "LAST_USED_DATAIMPORTS_SERVICE";
-
-        case LIBRARY_WINDOW_HEIGHT:
-            return "LIBRARY_WINDOW_HEIGHT";
-
-        case LIBRARY_WINDOW_MAXIMIZE:
-            return "LIBRARY_WINDOW_MAXIMIZE";
-
-        case LIBRARY_WINDOW_WIDTH:
-            return "LIBRARY_WINDOW_WIDTH";
 
         case MODIFY_ORIGINALS:
             return "MODIFY_ORIGINALS";
@@ -403,34 +379,6 @@ public abstract class ConfigurationFacade : Object {
     }
 
     //
-    // direct window state
-    //
-    public virtual void get_direct_window_state (out bool maximize, out Dimensions dimensions) {
-        maximize = false;
-        dimensions = Dimensions (1024, 768);
-        try {
-            maximize = get_engine ().get_bool_property (ConfigurableProperty.DIRECT_WINDOW_MAXIMIZE);
-            int w = get_engine ().get_int_property (ConfigurableProperty.DIRECT_WINDOW_WIDTH);
-            int h = get_engine ().get_int_property (ConfigurableProperty.DIRECT_WINDOW_HEIGHT);
-            dimensions = Dimensions (w, h);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    public virtual void set_direct_window_state (bool maximize, Dimensions dimensions) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.DIRECT_WINDOW_MAXIMIZE, maximize);
-            get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_WIDTH,
-                                            dimensions.width);
-            get_engine ().set_int_property (ConfigurableProperty.DIRECT_WINDOW_HEIGHT,
-                                            dimensions.height);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
     // external photo app
     //
     public virtual string get_external_photo_app () {
@@ -670,34 +618,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_last_used_dataimports_service (string service_name) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE, service_name);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // library window state
-    //
-    public virtual void get_library_window_state (out bool maximize, out Dimensions dimensions) {
-        maximize = false;
-        dimensions = Dimensions (1024, 768);
-        try {
-            maximize = get_engine ().get_bool_property (ConfigurableProperty.LIBRARY_WINDOW_MAXIMIZE);
-            int w = get_engine ().get_int_property (ConfigurableProperty.LIBRARY_WINDOW_WIDTH);
-            int h = get_engine ().get_int_property (ConfigurableProperty.LIBRARY_WINDOW_HEIGHT);
-            dimensions = Dimensions (w, h);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    public virtual void set_library_window_state (bool maximize, Dimensions dimensions) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.LIBRARY_WINDOW_MAXIMIZE, maximize);
-            get_engine ().set_int_property (ConfigurableProperty.LIBRARY_WINDOW_WIDTH,
-                                            dimensions.width);
-            get_engine ().set_int_property (ConfigurableProperty.LIBRARY_WINDOW_HEIGHT,
-                                            dimensions.height);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
