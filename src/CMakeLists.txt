@@ -81,6 +81,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Dialogs/ExportDialog.vala
     Dialogs/PreferencesDialog.vala
     Dialogs/ProgressDialog.vala
+    Dialogs/SlideshowSettingsDialog.vala
     Dialogs/TextEntryDialog.vala
 
     config/ConfigurationInterfaces.vala
