@@ -69,10 +69,6 @@ public enum ConfigurableProperty {
     PRINTING_TITLES_FONT,
     RAW_DEVELOPER_DEFAULT,
     SHOW_WELCOME_DIALOG,
-    SLIDESHOW_DELAY,
-    SLIDESHOW_TRANSITION_DELAY,
-    SLIDESHOW_TRANSITION_EFFECT_ID,
-    SLIDESHOW_SHOW_TITLE,
     USE_24_HOUR_TIME,
     USE_LOWERCASE_FILENAMES,
     VIDEO_INTERPRETER_STATE_COOKIE,
@@ -189,18 +185,6 @@ public enum ConfigurableProperty {
 
         case SHOW_WELCOME_DIALOG:
             return "SHOW_WELCOME_DIALOG";
-
-        case SLIDESHOW_DELAY:
-            return "SLIDESHOW_DELAY";
-
-        case SLIDESHOW_TRANSITION_DELAY:
-            return "SLIDESHOW_TRANSITION_DELAY";
-
-        case SLIDESHOW_TRANSITION_EFFECT_ID:
-            return "SLIDESHOW_TRANSITION_EFFECT_ID";
-
-        case SLIDESHOW_SHOW_TITLE:
-            return "SLIDESHOW_SHOW_TITLE";
 
         case USE_24_HOUR_TIME:
             return "USE_24_HOUR_TIME";
@@ -998,96 +982,6 @@ public abstract class ConfigurationFacade : Object {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG,
                                              show);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // slideshow delay
-    //
-    public virtual double get_slideshow_delay () {
-        try {
-            return get_engine ().get_double_property (ConfigurableProperty.SLIDESHOW_DELAY);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return 3.0;
-        }
-    }
-
-    public virtual void set_slideshow_delay (double delay) {
-        try {
-            get_engine ().set_double_property (ConfigurableProperty.SLIDESHOW_DELAY, delay);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // slideshow transition delay
-    //
-    public virtual double get_slideshow_transition_delay () {
-        try {
-            return get_engine ().get_double_property (
-                       ConfigurableProperty.SLIDESHOW_TRANSITION_DELAY);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return 0.3;
-        }
-    }
-
-    public virtual void set_slideshow_transition_delay (double delay) {
-        try {
-            get_engine ().set_double_property (ConfigurableProperty.SLIDESHOW_TRANSITION_DELAY,
-                                               delay);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // slideshow transition effect id
-    //
-    public virtual string get_slideshow_transition_effect_id () {
-        try {
-            return get_engine ().get_string_property (
-                       ConfigurableProperty.SLIDESHOW_TRANSITION_EFFECT_ID);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            // in the event we can't get a reasonable value from the configuration engine, use
-            // the null transition effect
-            return TransitionEffectsManager.NULL_EFFECT_ID;
-        }
-    }
-
-    public virtual void set_slideshow_transition_effect_id (string id) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.SLIDESHOW_TRANSITION_EFFECT_ID,
-                                               id);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // Slideshow show title
-    //
-    public virtual bool get_slideshow_show_title () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.SLIDESHOW_SHOW_TITLE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return false;
-        }
-    }
-
-    public virtual void set_slideshow_show_title (bool show_title) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.SLIDESHOW_SHOW_TITLE, show_title);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
