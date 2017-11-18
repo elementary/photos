@@ -31,10 +31,15 @@ class SlideshowPage : SinglePhotoPage {
     private bool playing = true;
     private bool exiting = false;
     private string[] transitions;
+    private GLib.Settings slideshow_settings;
 
     private Screensaver screensaver;
 
     public signal void hide_toolbar ();
+
+    construct {
+        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+    }
 
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {
         base (_ ("Slideshow"), true);
@@ -220,8 +225,7 @@ class SlideshowPage : SinglePhotoPage {
             }
         }
 
-        if (Config.Facade.get_instance ().get_slideshow_transition_effect_id () ==
-                RandomEffectDescriptor.EFFECT_ID) {
+        if (slideshow_settings.get_string ("transition-effect-id") == RandomEffectDescriptor.EFFECT_ID) {
             random_transition_effect ();
         }
 
@@ -247,7 +251,7 @@ class SlideshowPage : SinglePhotoPage {
         if (!playing)
             return true;
 
-        if (timer.elapsed () < Config.Facade.get_instance ().get_slideshow_delay ())
+        if (timer.elapsed () < slideshow_settings.get_double ("delay"))
             return true;
 
         on_next_photo ();
@@ -291,12 +295,10 @@ class SlideshowPage : SinglePhotoPage {
         hide_toolbar ();
 
         if (settings_dialog.run () == Gtk.ResponseType.OK) {
-            // sync with the config setting so it will persist
-            Config.Facade.get_instance ().set_slideshow_delay (settings_dialog.get_delay ());
-
-            Config.Facade.get_instance ().set_slideshow_transition_delay (settings_dialog.get_transition_delay ());
-            Config.Facade.get_instance ().set_slideshow_transition_effect_id (settings_dialog.get_transition_effect_id ());
-            Config.Facade.get_instance ().set_slideshow_show_title (settings_dialog.get_show_title ());
+            slideshow_settings.set_double ("delay", settings_dialog.get_delay ());
+            slideshow_settings.set_double ("transition-delay", settings_dialog.get_transition_delay ());
+            slideshow_settings.set_string ("transition-effect-id", settings_dialog.get_transition_effect_id ());
+            slideshow_settings.set_boolean ("show-title", settings_dialog.get_show_title ());
 
             update_transition_effect ();
         }
@@ -307,14 +309,14 @@ class SlideshowPage : SinglePhotoPage {
     }
 
     private void update_transition_effect () {
-        string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        string effect_id = slideshow_settings.get_string ("transition-effect-id");
+        double effect_delay = slideshow_settings.get_double ("transition-delay");
 
         set_transition (effect_id, (int) (effect_delay * 1000.0));
     }
 
     private void random_transition_effect () {
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        double effect_delay = slideshow_settings.get_double ("transition-delay");
         string effect_id = TransitionEffectsManager.NULL_EFFECT_ID;
         if (0 < transitions.length) {
             int random = Random.int_range (0, transitions.length);
@@ -363,7 +365,7 @@ class SlideshowPage : SinglePhotoPage {
     public override void paint (Cairo.Context ctx, Dimensions ctx_dim) {
         base.paint (ctx, ctx_dim);
 
-        if (Config.Facade.get_instance ().get_slideshow_show_title () && !is_transition_in_progress ())
+        if (slideshow_settings.get_boolean ("show-title") && !is_transition_in_progress ())
             paint_title (ctx, ctx_dim);
     }
 }
