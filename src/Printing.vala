@@ -39,36 +39,34 @@ public class PrintSettings {
     private bool match_aspect_ratio;
     private bool print_titles;
     private string print_titles_font;
+    private GLib.Settings print_settings;
 
     public PrintSettings () {
-        Config.Facade config = Config.Facade.get_instance ();
+        print_settings = new GLib.Settings (GSettingsConfigurationEngine.PRINTING_SCHEMA_NAME);
 
-        MeasurementUnit units = (MeasurementUnit) config.get_printing_content_units ();
-
-        content_width = Measurement (config.get_printing_content_width (), units);
-        content_height = Measurement (config.get_printing_content_height (), units);
-        size_selection = config.get_printing_size_selection ();
-        content_layout = (ContentLayout) config.get_printing_content_layout ();
-        match_aspect_ratio = config.get_printing_match_aspect_ratio ();
-        print_titles = config.get_printing_print_titles ();
-        print_titles_font = config.get_printing_titles_font ();
-        image_per_page_selection = config.get_printing_images_per_page ();
-        content_ppi = config.get_printing_content_ppi ();
+        var units = (MeasurementUnit) print_settings.get_int ("content-units") - 1;
+        content_width = Measurement (print_settings.get_double ("content-width"), units);
+        content_height = Measurement (print_settings.get_double ("content-height"), units);
+        size_selection = print_settings.get_int ("size-selection") - 1;
+        content_layout = (ContentLayout) (print_settings.get_int ("content-layout") - 1);
+        match_aspect_ratio = print_settings.get_boolean ("match-aspect-ratio");
+        print_titles = print_settings.get_boolean ("print-titles");
+        print_titles_font = print_settings.get_string ("titles-font");
+        image_per_page_selection = print_settings.get_int ("images-per-page") - 1;
+        content_ppi = print_settings.get_int ("content-ppi");
     }
 
     public void save () {
-        Config.Facade config = Config.Facade.get_instance ();
-
-        config.set_printing_content_units (content_width.unit);
-        config.set_printing_content_width (content_width.value);
-        config.set_printing_content_height (content_height.value);
-        config.set_printing_size_selection (size_selection);
-        config.set_printing_content_layout (content_layout);
-        config.set_printing_match_aspect_ratio (match_aspect_ratio);
-        config.set_printing_print_titles (print_titles);
-        config.set_printing_titles_font (print_titles_font);
-        config.set_printing_images_per_page (image_per_page_selection);
-        config.set_printing_content_ppi (content_ppi);
+        print_settings.set_int ("content-units", content_width.unit + 1);
+        print_settings.set_double ("content-width", content_width.value);
+        print_settings.set_double ("content-height", content_height.value);
+        print_settings.set_int ("size-selection", size_selection + 1);
+        print_settings.set_int ("content-layout", content_layout + 1);
+        print_settings.set_boolean ("match-aspect-ratio", match_aspect_ratio);
+        print_settings.set_boolean ("print-titles", print_titles);
+        print_settings.set_string ("titles-font", print_titles_font);
+        print_settings.set_int ("images-per-page", image_per_page_selection + 1);
+        print_settings.set_int ("content-ppi", content_ppi);
     }
 
 
