@@ -168,9 +168,12 @@ public class EditingTools.CropTool : EditingTool {
     private int custom_init_width = -1;
     private int custom_init_height = -1;
     private float pre_aspect_ratio = ANY_ASPECT_RATIO;
+    private GLib.Settings crop_settings;
 
     private CropTool () {
         base ("CropTool");
+
+        crop_settings = new GLib.Settings (GSettingsConfigurationEngine.CROP_SCHEMA_NAME);
     }
 
     public static CropTool factory () {
@@ -375,8 +378,8 @@ public class EditingTools.CropTool : EditingTool {
                 // user may have switched away from 'Custom' without
                 // accepting, so set these to default back to saved
                 // values.
-                custom_init_width = Config.Facade.get_instance ().get_last_crop_width ();
-                custom_init_height = Config.Facade.get_instance ().get_last_crop_height ();
+                custom_init_width = crop_settings.get_int ("last-crop-width");
+                custom_init_height = crop_settings.get_int ("last-crop-height");
                 custom_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
             }
         }
@@ -494,7 +497,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private ConstraintDescription? get_last_constraint (out int index) {
-        index = Config.Facade.get_instance ().get_last_crop_menu_choice ();
+        index = crop_settings.get_int ("last-crop-menu-choice");
 
         return (index < constraints.length) ? constraints[index] : null;
     }
@@ -553,8 +556,8 @@ public class EditingTools.CropTool : EditingTool {
 
         // get the custom width and height from the saved config and
         // set up the initial custom values with it.
-        custom_width = Config.Facade.get_instance ().get_last_crop_width ();
-        custom_height = Config.Facade.get_instance ().get_last_crop_height ();
+        custom_width = crop_settings.get_int ("last-crop-width");
+        custom_height = crop_settings.get_int ("last-crop-height");
         custom_init_width = custom_width;
         custom_init_height = custom_height;
         pre_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
@@ -788,10 +791,9 @@ public class EditingTools.CropTool : EditingTool {
         // user's clicked OK, save the combobox choice and width/height.
         // safe to do, even if not in 'custom' mode - the previous values
         // will just get saved again.
-        Config.Facade.get_instance ().set_last_crop_menu_choice (
-            crop_tool_window.constraint_combo.get_active ());
-        Config.Facade.get_instance ().set_last_crop_width (custom_width);
-        Config.Facade.get_instance ().set_last_crop_height (custom_height);
+        crop_settings.set_int ("last-crop-menu-choice", crop_tool_window.constraint_combo.get_active ());
+        crop_settings.set_int ("last-crop-width", custom_width);
+        crop_settings.set_int ("last-crop-height", custom_height);
 
         // scale screen-coordinate crop to photo's coordinate system
         Box crop = scaled_crop.get_scaled_similar (
