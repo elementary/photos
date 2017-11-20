@@ -28,7 +28,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string VIDEO_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".video";
     public const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
     public const string SHARING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".sharing";
-    public const string IMPORTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".dataimports";
     public const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
     public const string SYSTEM_DESKTOP_SCHEMA_NAME = "org.gnome.desktop.background";
     public const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".plugins.enable-state";
@@ -56,11 +55,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.IMPORT_DIR] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.KEEP_RELATIVITY] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LAST_CROP_HEIGHT] = CROP_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LAST_CROP_MENU_CHOICE] = CROP_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LAST_CROP_WIDTH] = CROP_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LAST_USED_SERVICE] = SHARING_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE] = IMPORTING_SCHEMA_NAME;
         schema_names[ConfigurableProperty.MODIFY_ORIGINALS] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.PHOTO_THUMBNAIL_SCALE] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = FILES_PREFS_SCHEMA_NAME;
@@ -82,11 +76,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = "hide-photos-already-imported";
         key_names[ConfigurableProperty.IMPORT_DIR] = "import-dir";
         key_names[ConfigurableProperty.KEEP_RELATIVITY] = "keep-relativity";
-        key_names[ConfigurableProperty.LAST_CROP_HEIGHT] = "last-crop-height";
-        key_names[ConfigurableProperty.LAST_CROP_MENU_CHOICE] = "last-crop-menu-choice";
-        key_names[ConfigurableProperty.LAST_CROP_WIDTH] = "last-crop-width";
-        key_names[ConfigurableProperty.LAST_USED_SERVICE] = "last-used-service";
-        key_names[ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE] = "last-used-dataimports-service";
         key_names[ConfigurableProperty.MODIFY_ORIGINALS] = "modify-originals";
         key_names[ConfigurableProperty.PHOTO_THUMBNAIL_SCALE] = "photo-thumbnail-scale";
         key_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = "raw-developer-default";

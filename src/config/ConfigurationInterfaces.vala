@@ -44,11 +44,6 @@ public enum ConfigurableProperty {
     HIDE_PHOTOS_ALREADY_IMPORTED,
     IMPORT_DIR,
     KEEP_RELATIVITY,
-    LAST_CROP_HEIGHT,
-    LAST_CROP_MENU_CHOICE,
-    LAST_CROP_WIDTH,
-    LAST_USED_SERVICE,
-    LAST_USED_DATAIMPORTS_SERVICE,
     MODIFY_ORIGINALS,
     PHOTO_THUMBNAIL_SCALE,
     RAW_DEVELOPER_DEFAULT,
@@ -94,21 +89,6 @@ public enum ConfigurableProperty {
 
         case KEEP_RELATIVITY:
             return "KEEP_RELATIVITY";
-
-        case LAST_CROP_HEIGHT:
-            return "LAST_CROP_HEIGHT";
-
-        case LAST_CROP_MENU_CHOICE:
-            return "LAST_CROP_MENU_CHOICE";
-
-        case LAST_CROP_WIDTH:
-            return "LAST_CROP_WIDTH";
-
-        case LAST_USED_SERVICE:
-            return "LAST_USED_SERVICE";
-
-        case LAST_USED_DATAIMPORTS_SERVICE:
-            return "LAST_USED_DATAIMPORTS_SERVICE";
 
         case MODIFY_ORIGINALS:
             return "MODIFY_ORIGINALS";
@@ -466,118 +446,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_keep_relativity (bool keep_relativity) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.KEEP_RELATIVITY, keep_relativity);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // last crop height
-    //
-    public virtual int get_last_crop_height () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.LAST_CROP_HEIGHT);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return 1;
-        }
-    }
-
-    public virtual void set_last_crop_height (int choice) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.LAST_CROP_HEIGHT, choice);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // last crop menu choice
-    //
-    public virtual int get_last_crop_menu_choice () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.LAST_CROP_MENU_CHOICE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            // in the event we can't get a reasonable value from the configuration engine, we
-            // return the empty string since it won't match the name of any existing publishing
-            // service -- this will cause the publishing subsystem to select the first service
-            // loaded that supports the user's media type
-            return 0;
-        }
-    }
-
-    public virtual void set_last_crop_menu_choice (int choice) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.LAST_CROP_MENU_CHOICE, choice);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // last crop width
-    //
-    public virtual int get_last_crop_width () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.LAST_CROP_WIDTH);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return 1;
-        }
-    }
-
-    public virtual void set_last_crop_width (int choice) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.LAST_CROP_WIDTH, choice);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // last used service
-    //
-    public virtual string get_last_used_service () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.LAST_USED_SERVICE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            // in the event we can't get a reasonable value from the configuration engine, we
-            // return the empty string since it won't match the name of any existing publishing
-            // service -- this will cause the publishing subsystem to select the first service
-            // loaded that supports the user's media type
-            return "";
-        }
-    }
-
-    public virtual void set_last_used_service (string service_name) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.LAST_USED_SERVICE, service_name);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // last used import service
-    //
-    public virtual string get_last_used_dataimports_service () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            // in the event we can't get a reasonable value from the configuration engine, we
-            // return the empty string since it won't match the name of any existing import
-            // service -- this will cause the import subsystem to select the first service
-            // loaded
-            return "";
-        }
-    }
-
-    public virtual void set_last_used_dataimports_service (string service_name) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.LAST_USED_DATAIMPORTS_SERVICE, service_name);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
