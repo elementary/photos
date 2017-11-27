@@ -52,14 +52,8 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.EXTERNAL_PHOTO_APP] = EDITING_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.EXTERNAL_RAW_APP] = EDITING_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.IMPORT_DIR] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.KEEP_RELATIVITY] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.MODIFY_ORIGINALS] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.PHOTO_THUMBNAIL_SCALE] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.SHOW_WELCOME_DIALOG] = UI_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.USE_24_HOUR_TIME] = UI_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = VIDEO_SCHEMA_NAME;
 
@@ -73,14 +67,8 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         key_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = "directory-pattern-custom";
         key_names[ConfigurableProperty.EXTERNAL_PHOTO_APP] = "external-photo-editor";
         key_names[ConfigurableProperty.EXTERNAL_RAW_APP] = "external-raw-editor";
-        key_names[ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED] = "hide-photos-already-imported";
         key_names[ConfigurableProperty.IMPORT_DIR] = "import-dir";
-        key_names[ConfigurableProperty.KEEP_RELATIVITY] = "keep-relativity";
-        key_names[ConfigurableProperty.MODIFY_ORIGINALS] = "modify-originals";
-        key_names[ConfigurableProperty.PHOTO_THUMBNAIL_SCALE] = "photo-thumbnail-scale";
         key_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = "raw-developer-default";
-        key_names[ConfigurableProperty.SHOW_WELCOME_DIALOG] = "show-welcome-dialog";
-        key_names[ConfigurableProperty.USE_24_HOUR_TIME] = "use-24-hour-time";
         key_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = "use-lowercase-filenames";
         key_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = "interpreter-state-cookie";
     }

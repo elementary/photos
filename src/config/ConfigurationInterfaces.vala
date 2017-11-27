@@ -41,14 +41,8 @@ public enum ConfigurableProperty {
     DIRECTORY_PATTERN_CUSTOM,
     EXTERNAL_PHOTO_APP,
     EXTERNAL_RAW_APP,
-    HIDE_PHOTOS_ALREADY_IMPORTED,
     IMPORT_DIR,
-    KEEP_RELATIVITY,
-    MODIFY_ORIGINALS,
-    PHOTO_THUMBNAIL_SCALE,
     RAW_DEVELOPER_DEFAULT,
-    SHOW_WELCOME_DIALOG,
-    USE_24_HOUR_TIME,
     USE_LOWERCASE_FILENAMES,
     VIDEO_INTERPRETER_STATE_COOKIE,
 
@@ -81,29 +75,11 @@ public enum ConfigurableProperty {
         case EXTERNAL_RAW_APP:
             return "EXTERNAL_RAW_APP";
 
-        case HIDE_PHOTOS_ALREADY_IMPORTED:
-            return "HIDE_PHOTOS_ALREADY_IMPORTED";
-
         case IMPORT_DIR:
             return "IMPORT_DIR";
 
-        case KEEP_RELATIVITY:
-            return "KEEP_RELATIVITY";
-
-        case MODIFY_ORIGINALS:
-            return "MODIFY_ORIGINALS";
-
-        case PHOTO_THUMBNAIL_SCALE:
-            return "PHOTO_THUMBNAIL_SCALE";
-
         case RAW_DEVELOPER_DEFAULT:
             return "RAW_DEVELOPER_DEFAULT";
-
-        case SHOW_WELCOME_DIALOG:
-            return "SHOW_WELCOME_DIALOG";
-
-        case USE_24_HOUR_TIME:
-            return "USE_24_HOUR_TIME";
 
         case USE_LOWERCASE_FILENAMES:
             return "USE_LOWERCASE_FILENAMES";
@@ -389,27 +365,6 @@ public abstract class ConfigurationFacade : Object {
     }
 
     //
-    // hide photos already imported
-    //
-    public virtual bool get_hide_photos_already_imported () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_hide_photos_already_imported (bool hide_imported) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.HIDE_PHOTOS_ALREADY_IMPORTED, hide_imported);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
     // import dir
     //
     public virtual string get_import_dir () {
@@ -425,114 +380,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_import_dir (string import_dir) {
         try {
             get_engine ().set_string_property (ConfigurableProperty.IMPORT_DIR, import_dir);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // keep relativity
-    //
-    public virtual bool get_keep_relativity () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.KEEP_RELATIVITY);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_keep_relativity (bool keep_relativity) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.KEEP_RELATIVITY, keep_relativity);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // modify originals
-    //
-    public virtual bool get_modify_originals () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.MODIFY_ORIGINALS);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            // if we can't get a reasonable value from the configuration engine, don't modify
-            // originals
-            return false;
-        }
-    }
-
-    public virtual void set_modify_originals (bool modify_originals) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.MODIFY_ORIGINALS, modify_originals);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // photo thumbnail scale
-    //
-    public virtual int get_photo_thumbnail_scale () {
-        try {
-            return get_engine ().get_int_property (ConfigurableProperty.PHOTO_THUMBNAIL_SCALE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return Thumbnail.DEFAULT_SCALE;
-        }
-    }
-
-    public virtual void set_photo_thumbnail_scale (int scale) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.PHOTO_THUMBNAIL_SCALE, scale);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // show welcome dialog
-    //
-    public virtual bool get_show_welcome_dialog () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return true;
-        }
-    }
-
-    public virtual void set_show_welcome_dialog (bool show) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.SHOW_WELCOME_DIALOG,
-                                             show);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // use 24 hour time
-    //
-    public virtual bool get_use_24_hour_time () {
-        try {
-            return get_engine ().get_bool_property (ConfigurableProperty.USE_24_HOUR_TIME);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            // if we can't get a reasonable value from the configuration system, then use the
-            // operating system default for the user's country and region.
-            return is_string_empty (Time.local (0).format ("%p"));
-        }
-    }
-
-    public virtual void set_use_24_hour_time (bool use_24_hour_time) {
-        try {
-            get_engine ().set_bool_property (ConfigurableProperty.USE_24_HOUR_TIME, use_24_hour_time);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
