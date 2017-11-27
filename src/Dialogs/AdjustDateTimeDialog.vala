@@ -38,6 +38,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
     Gtk.RadioButton batch_radio_button;
     Gtk.CheckButton modify_originals_check_button;
     Gtk.Label notification;
+    private GLib.Settings ui_settings;
 
     private enum TimeSystem {
         AM,
@@ -46,6 +47,10 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
     }
 
     TimeSystem previous_time_system;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     public AdjustDateTimeDialog (Dateable source, int photo_count, bool display_options = true,
                                  bool contains_video = false, bool only_video = false) {
@@ -66,7 +71,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         calendar.next_year.connect (on_time_changed);
         calendar.prev_year.connect (on_time_changed);
 
-        if (Config.Facade.get_instance ().get_use_24_hour_time ())
+        if (ui_settings.get_boolean ("use-24-hour-time"))
             hour = new Gtk.SpinButton.with_range (0, 23, 1);
         else
             hour = new Gtk.SpinButton.with_range (1, 12, 1);
@@ -101,12 +106,12 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
 
         relativity_radio_button = new Gtk.RadioButton.with_mnemonic (null,
                 _ ("_Shift photos/videos by the same amount"));
-        relativity_radio_button.set_active (Config.Facade.get_instance ().get_keep_relativity ());
+        relativity_radio_button.set_active (ui_settings.get_boolean ("keep-relativity"));
         relativity_radio_button.sensitive = display_options && photo_count > 1;
 
         batch_radio_button = new Gtk.RadioButton.with_mnemonic (relativity_radio_button.get_group (),
                 _ ("Set _all photos/videos to this time"));
-        batch_radio_button.set_active (!Config.Facade.get_instance ().get_keep_relativity ());
+        batch_radio_button.set_active (!ui_settings.get_boolean ("keep-relativity"));
         batch_radio_button.sensitive = display_options && photo_count > 1;
         batch_radio_button.toggled.connect (on_time_changed);
 
@@ -175,14 +180,14 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         }
 
         set_time (Time.local (original_time));
-        set_original_time_label (Config.Facade.get_instance ().get_use_24_hour_time ());
+        set_original_time_label (ui_settings.get_boolean ("use-24-hour-time"));
     }
 
     private void set_time (Time time) {
         calendar.select_month (time.month, time.year + YEAR_OFFSET);
         calendar.select_day (time.day);
 
-        if (Config.Facade.get_instance ().get_use_24_hour_time ()) {
+        if (ui_settings.get_boolean ("use-24-hour-time")) {
             hour.set_value (time.hour);
             system.set_active (TimeSystem.24HR);
         } else {
@@ -243,12 +248,12 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
             keep_relativity = relativity_radio_button.get_active ();
 
             if (relativity_radio_button.sensitive)
-                Config.Facade.get_instance ().set_keep_relativity (keep_relativity);
+                ui_settings.set_boolean ("keep-relativity", keep_relativity);
 
             modify_originals = modify_originals_check_button.get_active ();
 
             if (modify_originals_check_button.sensitive)
-                Config.Facade.get_instance ().set_modify_originals (modify_originals);
+                ui_settings.set_boolean ("modify-originals", modify_originals);
 
             response = true;
         } else {
@@ -308,7 +313,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         if (previous_time_system == system.get_active ())
             return;
 
-        Config.Facade.get_instance ().set_use_24_hour_time (system.get_active () == TimeSystem.24HR);
+        ui_settings.set_boolean ("use-24-hour-time", system.get_active () == TimeSystem.24HR);
 
         if (system.get_active () == TimeSystem.24HR) {
             int time = (hour.get_value () == 12.0) ? 0 : (int) hour.get_value ();
