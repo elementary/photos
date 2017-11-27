@@ -510,14 +510,14 @@ public abstract class MediaPage : CheckerboardPage {
         if (connected_slider == null)
             return;
 
-        Config.Facade.get_instance ().set_photo_thumbnail_scale ((int)connected_slider.zoom_value);
+        ui_settings.set_int ("photo-thumbnail-scale", (int)connected_slider.zoom_value);
     }
 
     private void load_persistent_thumbnail_scale () {
         if (connected_slider == null)
             return;
 
-        int persistent_scale = Config.Facade.get_instance ().get_photo_thumbnail_scale ();
+        int persistent_scale = ui_settings.get_int ("photo-thumbnail-scale");
 
         connected_slider.zoom_value = persistent_scale;
         set_thumb_size (persistent_scale);
@@ -836,7 +836,7 @@ public abstract class MediaPage : CheckerboardPage {
 
     public int get_thumb_size () {
         if (get_checkerboard_layout ().get_scale () <= 0)
-            get_checkerboard_layout ().set_scale (Config.Facade.get_instance ().get_photo_thumbnail_scale ());
+            get_checkerboard_layout ().set_scale (ui_settings.get_int ("photo-thumbnail-scale"));
 
         return get_checkerboard_layout ().get_scale ();
     }
