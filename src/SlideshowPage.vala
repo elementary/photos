@@ -31,123 +31,14 @@ class SlideshowPage : SinglePhotoPage {
     private bool playing = true;
     private bool exiting = false;
     private string[] transitions;
+    private GLib.Settings slideshow_settings;
 
     private Screensaver screensaver;
 
     public signal void hide_toolbar ();
 
-    private class SettingsDialog : Gtk.Dialog {
-        private Gtk.Builder builder = null;
-        Gtk.SpinButton delay_entry;
-        Gtk.Scale delay_hscale;
-        Gtk.ComboBoxText transition_effect_selector;
-        Gtk.Scale transition_effect_hscale;
-        Gtk.SpinButton transition_effect_entry;
-        Gtk.Adjustment transition_effect_adjustment;
-        Gtk.CheckButton show_title_button;
-        Gtk.Box pane;
-
-        public SettingsDialog () {
-            builder = AppWindow.create_builder ();
-            pane = builder.get_object ("slideshow_settings_pane") as Gtk.Box;
-            get_content_area ().add (pane);
-
-            double delay = Config.Facade.get_instance ().get_slideshow_delay ();
-
-            set_modal (true);
-            set_transient_for (AppWindow.get_fullscreen ());
-
-            add_buttons (_("Cancel"), Gtk.ResponseType.CANCEL,
-                         _("Save Settings"), Gtk.ResponseType.OK);
-            set_title (_ ("Settings"));
-
-            Gtk.Adjustment adjustment = new Gtk.Adjustment (delay, Config.Facade.SLIDESHOW_DELAY_MIN, Config.Facade.SLIDESHOW_DELAY_MAX, 0.1, 1, 0);
-            delay_hscale = builder.get_object ("delay_hscale") as Gtk.Scale;
-            delay_hscale.adjustment = adjustment;
-
-            delay_entry = builder.get_object ("delay_entry") as Gtk.SpinButton;
-            delay_entry.adjustment = adjustment;
-            delay_entry.set_value (delay);
-            delay_entry.set_numeric (true);
-            delay_entry.set_activates_default (true);
-
-            transition_effect_selector = builder.get_object ("transition_effect_selector") as Gtk.ComboBoxText;
-
-            // get last effect id
-            string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
-
-            // null effect first, always, and set active in case no other one is found
-            string null_display_name = TransitionEffectsManager.get_instance ().get_effect_name (
-                                           TransitionEffectsManager.NULL_EFFECT_ID);
-            transition_effect_selector.append_text (null_display_name);
-            transition_effect_selector.set_active (0);
-
-            int i = 1;
-            foreach (string display_name in
-                     TransitionEffectsManager.get_instance ().get_effect_names (utf8_ci_compare)) {
-                if (display_name == null_display_name)
-                    continue;
-
-                transition_effect_selector.append_text (display_name);
-                if (effect_id == TransitionEffectsManager.get_instance ().get_id_for_effect_name (display_name))
-                    transition_effect_selector.set_active (i);
-
-                ++i;
-            }
-            transition_effect_selector.changed.connect (on_transition_changed);
-
-            double transition_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
-            transition_effect_adjustment = new Gtk.Adjustment (transition_delay,
-                    Config.Facade.SLIDESHOW_TRANSITION_DELAY_MIN, Config.Facade.SLIDESHOW_TRANSITION_DELAY_MAX,
-                    0.1, 1, 0);
-            transition_effect_hscale = builder.get_object ("transition_effect_hscale") as Gtk.Scale;
-            transition_effect_hscale.adjustment = transition_effect_adjustment;
-
-            transition_effect_entry = builder.get_object ("transition_effect_entry") as Gtk.SpinButton;
-            transition_effect_entry.adjustment = transition_effect_adjustment;
-            transition_effect_entry.set_value (transition_delay);
-            transition_effect_entry.set_numeric (true);
-            transition_effect_entry.set_activates_default (true);
-
-            bool show_title = Config.Facade.get_instance ().get_slideshow_show_title ();
-            show_title_button = builder.get_object ("show_title_button") as  Gtk.CheckButton;
-            show_title_button.active = show_title;
-
-            set_default_response (Gtk.ResponseType.OK);
-
-            on_transition_changed ();
-        }
-
-        private void on_transition_changed () {
-            string selected = transition_effect_selector.get_active_text ();
-            bool sensitive = selected != null
-                             && selected != TransitionEffectsManager.NULL_EFFECT_ID;
-
-            transition_effect_hscale.sensitive = sensitive;
-            transition_effect_entry.sensitive = sensitive;
-        }
-
-        public double get_delay () {
-            return delay_entry.get_value ();
-        }
-
-        public double get_transition_delay () {
-            return transition_effect_entry.get_value ();
-        }
-
-        public string get_transition_effect_id () {
-            string? active = transition_effect_selector.get_active_text ();
-            if (active == null)
-                return TransitionEffectsManager.NULL_EFFECT_ID;
-
-            string? id = TransitionEffectsManager.get_instance ().get_id_for_effect_name (active);
-
-            return (id != null) ? id : TransitionEffectsManager.NULL_EFFECT_ID;
-        }
-
-        public bool get_show_title () {
-            return show_title_button.active;
-        }
+    construct {
+        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
     }
 
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {
@@ -334,8 +225,7 @@ class SlideshowPage : SinglePhotoPage {
             }
         }
 
-        if (Config.Facade.get_instance ().get_slideshow_transition_effect_id () ==
-                RandomEffectDescriptor.EFFECT_ID) {
+        if (slideshow_settings.get_string ("transition-effect-id") == RandomEffectDescriptor.EFFECT_ID) {
             random_transition_effect ();
         }
 
@@ -361,7 +251,7 @@ class SlideshowPage : SinglePhotoPage {
         if (!playing)
             return true;
 
-        if (timer.elapsed () < Config.Facade.get_instance ().get_slideshow_delay ())
+        if (timer.elapsed () < slideshow_settings.get_double ("delay"))
             return true;
 
         on_next_photo ();
@@ -397,7 +287,7 @@ class SlideshowPage : SinglePhotoPage {
     }
 
     private void on_change_settings () {
-        SettingsDialog settings_dialog = new SettingsDialog ();
+        SlideshowSettingsDialog settings_dialog = new SlideshowSettingsDialog ();
         settings_dialog.show_all ();
 
         bool slideshow_playing = playing;
@@ -405,12 +295,10 @@ class SlideshowPage : SinglePhotoPage {
         hide_toolbar ();
 
         if (settings_dialog.run () == Gtk.ResponseType.OK) {
-            // sync with the config setting so it will persist
-            Config.Facade.get_instance ().set_slideshow_delay (settings_dialog.get_delay ());
-
-            Config.Facade.get_instance ().set_slideshow_transition_delay (settings_dialog.get_transition_delay ());
-            Config.Facade.get_instance ().set_slideshow_transition_effect_id (settings_dialog.get_transition_effect_id ());
-            Config.Facade.get_instance ().set_slideshow_show_title (settings_dialog.get_show_title ());
+            slideshow_settings.set_double ("delay", settings_dialog.get_delay ());
+            slideshow_settings.set_double ("transition-delay", settings_dialog.get_transition_delay ());
+            slideshow_settings.set_string ("transition-effect-id", settings_dialog.get_transition_effect_id ());
+            slideshow_settings.set_boolean ("show-title", settings_dialog.get_show_title ());
 
             update_transition_effect ();
         }
@@ -421,14 +309,14 @@ class SlideshowPage : SinglePhotoPage {
     }
 
     private void update_transition_effect () {
-        string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        string effect_id = slideshow_settings.get_string ("transition-effect-id");
+        double effect_delay = slideshow_settings.get_double ("transition-delay");
 
         set_transition (effect_id, (int) (effect_delay * 1000.0));
     }
 
     private void random_transition_effect () {
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        double effect_delay = slideshow_settings.get_double ("transition-delay");
         string effect_id = TransitionEffectsManager.NULL_EFFECT_ID;
         if (0 < transitions.length) {
             int random = Random.int_range (0, transitions.length);
@@ -477,7 +365,7 @@ class SlideshowPage : SinglePhotoPage {
     public override void paint (Cairo.Context ctx, Dimensions ctx_dim) {
         base.paint (ctx, ctx_dim);
 
-        if (Config.Facade.get_instance ().get_slideshow_show_title () && !is_transition_in_progress ())
+        if (slideshow_settings.get_boolean ("show-title") && !is_transition_in_progress ())
             paint_title (ctx, ctx_dim);
     }
 }

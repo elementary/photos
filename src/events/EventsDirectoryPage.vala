@@ -67,7 +67,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         base (page_name);
 
         // set comparator before monitoring source collection, to prevent a re-sort
-        get_view ().set_comparator (get_event_comparator (Config.Facade.get_instance ().get_events_sort_ascending ()),
+        get_view ().set_comparator (get_event_comparator (ui_settings.get_boolean ("events-sort-ascending")),
                                     event_comparator_predicate);
         get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
 

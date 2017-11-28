@@ -84,7 +84,9 @@ public class DirectWindow : AppWindow {
         if (!get_direct_page ().check_quit ())
             return;
 
-        Config.Facade.get_instance ().set_direct_window_state (maximized, dimensions);
+        window_settings.set_boolean ("direct-maximize", is_maximized);
+        window_settings.set_int ("direct-width", dimensions.width);
+        window_settings.set_int ("direct-height", dimensions.height);
 
         base.on_quit ();
     }

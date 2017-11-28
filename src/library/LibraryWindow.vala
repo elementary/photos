@@ -490,8 +490,9 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void on_quit () {
-        Config.Facade.get_instance ().set_library_window_state (maximized, dimensions);
-
+        window_settings.set_boolean ("library-maximize", is_maximized);
+        window_settings.set_int ("library-width", dimensions.width);
+        window_settings.set_int ("library-height", dimensions.height);
         ui_settings.set_int ("sidebar-position", client_paned.position);
         ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
@@ -705,8 +706,7 @@ public class LibraryWindow : AppWindow {
     private void on_events_sort_changed (Gtk.Action action, Gtk.Action c) {
         Gtk.RadioAction current = (Gtk.RadioAction) c;
 
-        Config.Facade.get_instance ().set_events_sort_ascending (
-            current.current_value == SORT_EVENTS_ORDER_ASCENDING);
+        ui_settings.set_boolean ("events-sort-ascending", current.current_value == SORT_EVENTS_ORDER_ASCENDING);
     }
 
     private void on_preferences () {
@@ -992,7 +992,7 @@ public class LibraryWindow : AppWindow {
         // Ticket #3321 - Event sorting order wasn't saving on exit.
         // Instead of calling set_active against one of the toggles, call
         // set_current_value against the entire radio group...
-        int event_sort_val = Config.Facade.get_instance ().get_events_sort_ascending () ? SORT_EVENTS_ORDER_ASCENDING :
+        int event_sort_val = ui_settings.get_boolean ("events-sort-ascending") ? SORT_EVENTS_ORDER_ASCENDING :
                              SORT_EVENTS_ORDER_DESCENDING;
 
         sort_events_action.set_current_value (event_sort_val);
