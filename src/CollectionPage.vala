@@ -49,6 +49,11 @@ public abstract class CollectionPage : MediaPage {
     private Gtk.Menu contractor_menu;
     private Gtk.ToolButton rotate_button;
     private Gtk.ToolButton flip_button;
+    private GLib.Settings editing_settings;
+
+    construct {
+        editing_settings = new GLib.Settings (GSettingsConfigurationEngine.EDITING_PREFS_SCHEMA_NAME);
+    }
 
     public CollectionPage (string page_name) {
         base (page_name);
@@ -590,7 +595,7 @@ public abstract class CollectionPage : MediaPage {
         if (activator == CheckerboardPage.Activator.MOUSE) {
             if (modifiers.super_pressed)
                 //last used
-                on_open_with (Config.Facade.get_instance ().get_external_photo_app ());
+                on_open_with (editing_settings.get_string ("external-photo-editor"));
             else
                 LibraryWindow.get_app ().switch_to_photo_page (this, photo);
         } else if (activator == CheckerboardPage.Activator.KEYBOARD) {

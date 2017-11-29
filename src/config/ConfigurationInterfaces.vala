@@ -39,8 +39,6 @@ public enum ConfigurableProperty {
     DESKTOP_BACKGROUND_MODE,
     DIRECTORY_PATTERN,
     DIRECTORY_PATTERN_CUSTOM,
-    EXTERNAL_PHOTO_APP,
-    EXTERNAL_RAW_APP,
     IMPORT_DIR,
     RAW_DEVELOPER_DEFAULT,
     USE_LOWERCASE_FILENAMES,
@@ -68,12 +66,6 @@ public enum ConfigurableProperty {
 
         case DIRECTORY_PATTERN_CUSTOM:
             return "DIRECTORY_PATTERN_CUSTOM";
-
-        case EXTERNAL_PHOTO_APP:
-            return "EXTERNAL_PHOTO_APP";
-
-        case EXTERNAL_RAW_APP:
-            return "EXTERNAL_RAW_APP";
 
         case IMPORT_DIR:
             return "IMPORT_DIR";
@@ -129,7 +121,6 @@ public abstract class ConfigurationFacade : Object {
 
     public signal void auto_import_from_library_changed ();
     public signal void commit_metadata_to_masters_changed ();
-    public signal void external_app_changed ();
     public signal void import_directory_changed ();
 
     protected ConfigurationFacade (ConfigurationEngine engine) {
@@ -148,11 +139,6 @@ public abstract class ConfigurationFacade : Object {
 
         case ConfigurableProperty.COMMIT_METADATA_TO_MASTERS:
             commit_metadata_to_masters_changed ();
-            break;
-
-        case ConfigurableProperty.EXTERNAL_PHOTO_APP:
-        case ConfigurableProperty.EXTERNAL_RAW_APP:
-            external_app_changed ();
             break;
 
         case ConfigurableProperty.IMPORT_DIR:
@@ -291,52 +277,6 @@ public abstract class ConfigurationFacade : Object {
             get_engine ().set_string_property (ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM, s);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
-        }
-    }
-
-    //
-    // external photo app
-    //
-    public virtual string get_external_photo_app () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.EXTERNAL_PHOTO_APP);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return "";
-        }
-    }
-
-    public virtual void set_external_photo_app (string external_photo_app) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.EXTERNAL_PHOTO_APP,
-                                               external_photo_app);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return;
-        }
-    }
-
-    //
-    // external raw app
-    //
-    public virtual string get_external_raw_app () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.EXTERNAL_RAW_APP);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return "";
-        }
-    }
-
-    public virtual void set_external_raw_app (string external_raw_app) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.EXTERNAL_RAW_APP,
-                                               external_raw_app);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-            return;
         }
     }
 
