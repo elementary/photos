@@ -13,7 +13,6 @@
     <child name="slideshow" schema="org.pantheon.photos.preferences.slideshow" />
     <child name="window" schema="org.pantheon.photos.preferences.window" />
     <child name="files" schema="org.pantheon.photos.preferences.files" />
-    <child name="editing" schema="org.pantheon.photos.preferences.editing" />
 </schema>
 
 <schema id="org.pantheon.photos.preferences.ui" path="/org/pantheon/photos/preferences/ui/">
@@ -249,20 +248,6 @@
         <default>1</default>
         <summary>Most-recently-used crop custom aspect ratio's denominator.</summary>
         <description>A nonzero, positive integer representing the height part of the last custom crop ratio the user entered.</description>
-    </key>
-</schema>
-
-<schema id="org.pantheon.photos.preferences.editing" path="/org/pantheon/photos/preferences/editing/">
-    <key name="external-photo-editor" type="s">
-        <default>""</default>
-        <summary>external photo editor</summary>
-        <description>External application used to edit photos.</description>
-    </key>
-    
-    <key name="external-raw-editor" type="s">
-        <default>""</default>
-        <summary>external raw editor</summary>
-        <description>External application used to edit RAW photos.</description>
     </key>
 </schema>
 

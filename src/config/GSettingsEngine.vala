@@ -24,7 +24,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
     public const string WINDOW_PREFS_SCHEMA_NAME =  PREFS_SCHEMA_NAME + ".window";
     public const string FILES_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".files";
-    public const string EDITING_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".editing";
     public const string VIDEO_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".video";
     public const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
     public const string SHARING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".sharing";

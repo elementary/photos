@@ -256,8 +256,6 @@ public abstract class Photo : PhotoSource, Dateable {
 
     protected bool can_rotate_now = true;
 
-    private GLib.Settings editing_settings;
-
     // The first time we have to run the pipeline on an image, we'll precache
     // a copy of the unscaled, unmodified version; this allows us to operate
     // directly on the image data quickly without re-fetching it at the top
@@ -329,10 +327,6 @@ public abstract class Photo : PhotoSource, Dateable {
     //
     // See BackingFetchMode for more details.
     public virtual signal void source_reimported (PhotoMetadata? metadata) {
-    }
-
-    construct {
-        editing_settings = new GLib.Settings (GSettingsConfigurationEngine.EDITING_PREFS_SCHEMA_NAME);
     }
 
     // The key to this implementation is that multiple instances of Photo with the
@@ -3694,15 +3688,12 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Opens with Ufraw, etc.
     public void open_with_raw_external_editor (string external_editor) throws Error {
-        editing_settings.set_string ("external-raw-editor", external_editor);
         launch_editor (get_master_file (), get_master_file_format (), external_editor);
     }
 
     // Opens with GIMP, etc.
     public void open_with_external_editor (string external_editor) throws Error {
         File modified_file = get_modified_file ();
-
-        editing_settings.set_string ("external-photo-editor", external_editor);
         launch_editor (modified_file, get_file_format (), external_editor);
     }
 
