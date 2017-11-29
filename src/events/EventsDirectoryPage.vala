@@ -268,8 +268,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         return _ ("No events found");
     }
 
-    public override void on_item_activated (CheckerboardItem item, CheckerboardPage.Activator
-                                            activator, CheckerboardPage.KeyboardModifiers modifiers) {
+    public override void on_item_activated (CheckerboardItem item) {
         EventDirectoryItem event = (EventDirectoryItem) item;
         LibraryWindow.get_app ().switch_to_event (event.event);
     }

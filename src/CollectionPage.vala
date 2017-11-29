@@ -568,8 +568,7 @@ public abstract class CollectionPage : MediaPage {
     // Enter = switch to PhotoPage
     // Ctrl + Enter = open in external editor (handled with accelerators)
     // Shift + Ctrl + Enter = open in external RAW editor (handled with accelerators)
-    protected override void on_item_activated (CheckerboardItem item, CheckerboardPage.Activator
-            activator, CheckerboardPage.KeyboardModifiers modifiers) {
+    protected override void on_item_activated (CheckerboardItem item) {
         Thumbnail thumbnail = (Thumbnail) item;
 
         // none of the fancy Super, Ctrl, Shift, etc., keyboard accelerators apply to videos,
@@ -584,19 +583,8 @@ public abstract class CollectionPage : MediaPage {
         if (photo == null)
             return;
 
-        // switch to full-page view or open in external editor
         debug ("activating %s", photo.to_string ());
-
-        if (activator == CheckerboardPage.Activator.MOUSE) {
-            if (modifiers.super_pressed)
-                //last used
-                on_open_with (Config.Facade.get_instance ().get_external_photo_app ());
-            else
-                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
-        } else if (activator == CheckerboardPage.Activator.KEYBOARD) {
-            if (!modifiers.shift_pressed && !modifiers.ctrl_pressed)
-                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
-        }
+        LibraryWindow.get_app ().switch_to_photo_page (this, photo);
     }
 
     protected override bool on_app_key_pressed (Gdk.EventKey event) {

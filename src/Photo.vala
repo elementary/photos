@@ -3688,17 +3688,12 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Opens with Ufraw, etc.
     public void open_with_raw_external_editor (string external_editor) throws Error {
-        //store last used
-        Config.Facade.get_instance ().set_external_raw_app (external_editor);
         launch_editor (get_master_file (), get_master_file_format (), external_editor);
     }
 
     // Opens with GIMP, etc.
     public void open_with_external_editor (string external_editor) throws Error {
         File modified_file = get_modified_file ();
-
-        //store last used
-        Config.Facade.get_instance ().set_external_photo_app (external_editor);
         launch_editor (modified_file, get_file_format (), external_editor);
     }
 
