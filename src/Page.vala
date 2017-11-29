@@ -1138,25 +1138,6 @@ public abstract class CheckerboardPage : Page {
     private CheckerboardItem activated_item = null;
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
-    public enum Activator {
-        KEYBOARD,
-        MOUSE
-    }
-
-    public struct KeyboardModifiers {
-        public KeyboardModifiers (Page page) {
-            ctrl_pressed = page.get_ctrl_pressed ();
-            alt_pressed = page.get_alt_pressed ();
-            shift_pressed = page.get_shift_pressed ();
-            super_pressed = page.get_super_pressed ();
-        }
-
-        public bool ctrl_pressed;
-        public bool alt_pressed;
-        public bool shift_pressed;
-        public bool super_pressed;
-    }
-
     public CheckerboardPage (string page_name) {
         base (page_name);
 
