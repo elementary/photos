@@ -1138,25 +1138,6 @@ public abstract class CheckerboardPage : Page {
     private CheckerboardItem activated_item = null;
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
-    public enum Activator {
-        KEYBOARD,
-        MOUSE
-    }
-
-    public struct KeyboardModifiers {
-        public KeyboardModifiers (Page page) {
-            ctrl_pressed = page.get_ctrl_pressed ();
-            alt_pressed = page.get_alt_pressed ();
-            shift_pressed = page.get_shift_pressed ();
-            super_pressed = page.get_super_pressed ();
-        }
-
-        public bool ctrl_pressed;
-        public bool alt_pressed;
-        public bool shift_pressed;
-        public bool super_pressed;
-    }
-
     public CheckerboardPage (string page_name) {
         base (page_name);
 
@@ -1214,8 +1195,7 @@ public abstract class CheckerboardPage : Page {
         return _ ("No photos/videos found");
     }
 
-    protected virtual void on_item_activated (CheckerboardItem item, Activator activator,
-            KeyboardModifiers modifiers) {
+    protected virtual void on_item_activated (CheckerboardItem item) {
     }
 
     public CheckerboardLayout get_checkerboard_layout () {
@@ -1387,8 +1367,7 @@ public abstract class CheckerboardPage : Page {
         case "Return":
         case "KP_Enter":
             if (get_view ().get_selected_count () == 1)
-                on_item_activated ((CheckerboardItem) get_view ().get_selected_at (0),
-                                   Activator.KEYBOARD, KeyboardModifiers (this));
+                on_item_activated ((CheckerboardItem) get_view ().get_selected_at (0));
             else
                 handled = false;
             break;
@@ -1534,7 +1513,7 @@ public abstract class CheckerboardPage : Page {
 
         // if the item was activated in the double-click, report it now
         if (activated_item != null) {
-            on_item_activated (activated_item, Activator.MOUSE, KeyboardModifiers (this));
+            on_item_activated (activated_item);
             activated_item = null;
 
             return true;
