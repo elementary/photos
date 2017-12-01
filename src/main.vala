@@ -291,7 +291,7 @@ namespace CommandlineOptions {
     bool debug_enabled = false;
 
     public const OptionEntry[] app_options = {
-        { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Shotwell's private data"), N_("DIRECTORY")},
+        { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Photos' private data"), N_("DIRECTORY")},
         { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
         { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
         { "version", 'v', 0, OptionArg.NONE, out show_version, N_("Show the application's version"), null},
