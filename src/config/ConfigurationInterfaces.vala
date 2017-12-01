@@ -35,8 +35,6 @@ public enum FuzzyPropertyState {
 public enum ConfigurableProperty {
     AUTO_IMPORT_FROM_LIBRARY = 0,
     COMMIT_METADATA_TO_MASTERS,
-    DESKTOP_BACKGROUND_FILE,
-    DESKTOP_BACKGROUND_MODE,
     DIRECTORY_PATTERN,
     DIRECTORY_PATTERN_CUSTOM,
     IMPORT_DIR,
@@ -54,12 +52,6 @@ public enum ConfigurableProperty {
 
         case COMMIT_METADATA_TO_MASTERS:
             return "COMMIT_METADATA_TO_MASTERS";
-
-        case DESKTOP_BACKGROUND_FILE:
-            return "DESKTOP_BACKGROUND_FILE";
-
-        case DESKTOP_BACKGROUND_MODE:
-            return "DESKTOP_BACKGROUND_MODE";
 
         case DIRECTORY_PATTERN:
             return "DIRECTORY_PATTERN";
@@ -207,30 +199,6 @@ public abstract class ConfigurationFacade : Object {
         } catch (ConfigurationError err) {
             on_configuration_error (err);
             return;
-        }
-    }
-
-    //
-    // desktop background
-    //
-    public virtual string get_desktop_background () {
-        try {
-            return get_engine ().get_string_property (ConfigurableProperty.DESKTOP_BACKGROUND_FILE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return "";
-        }
-    }
-
-    public virtual void set_desktop_background (string filename) {
-        try {
-            get_engine ().set_string_property (ConfigurableProperty.DESKTOP_BACKGROUND_FILE,
-                                               filename);
-            get_engine ().set_string_property (ConfigurableProperty.DESKTOP_BACKGROUND_MODE,
-                                               "zoom");
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
         }
     }
 
