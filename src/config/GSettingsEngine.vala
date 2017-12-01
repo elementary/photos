@@ -28,7 +28,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
     public const string SHARING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".sharing";
     public const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
-    public const string SYSTEM_DESKTOP_SCHEMA_NAME = "org.gnome.desktop.background";
     public const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".plugins.enable-state";
 
     private Gee.Set<string> known_schemas;
@@ -45,8 +44,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
 
         schema_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DESKTOP_BACKGROUND_FILE] = SYSTEM_DESKTOP_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DESKTOP_BACKGROUND_MODE] = SYSTEM_DESKTOP_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DIRECTORY_PATTERN] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = FILES_PREFS_SCHEMA_NAME;
         schema_names[ConfigurableProperty.IMPORT_DIR] = FILES_PREFS_SCHEMA_NAME;
@@ -58,8 +55,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
 
         key_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = "auto-import";
         key_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = "commit-metadata";
-        key_names[ConfigurableProperty.DESKTOP_BACKGROUND_FILE] = "picture-uri";
-        key_names[ConfigurableProperty.DESKTOP_BACKGROUND_MODE] = "picture-options";
         key_names[ConfigurableProperty.DIRECTORY_PATTERN] = "directory-pattern";
         key_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = "directory-pattern-custom";
         key_names[ConfigurableProperty.IMPORT_DIR] = "import-dir";
@@ -205,26 +200,11 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     }
 
     public string get_string_property (ConfigurableProperty p) throws ConfigurationError {
-        string gs_result = get_gs_string (schema_names[p], key_names[p]);
-
-        // if we're getting the desktop background file, convert the file uri we get back from
-        // GSettings into a file path
-        string result = gs_result;
-        if (p == ConfigurableProperty.DESKTOP_BACKGROUND_FILE) {
-            result = gs_result.substring (7);
-        }
-
-        return result;
+        return get_gs_string (schema_names[p], key_names[p]);
     }
 
     public void set_string_property (ConfigurableProperty p, string val) throws ConfigurationError {
-        // if we're setting the desktop background file, convert the filename into a file URI
-        string converted_val = val;
-        if (p == ConfigurableProperty.DESKTOP_BACKGROUND_FILE) {
-            converted_val = "file://" + val;
-        }
-
-        set_gs_string (schema_names[p], key_names[p], converted_val);
+        set_gs_string (schema_names[p], key_names[p], val);
         property_changed (p);
     }
 
