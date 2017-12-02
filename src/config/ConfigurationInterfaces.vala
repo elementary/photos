@@ -40,8 +40,6 @@ public enum ConfigurableProperty {
     IMPORT_DIR,
     RAW_DEVELOPER_DEFAULT,
     USE_LOWERCASE_FILENAMES,
-    VIDEO_INTERPRETER_STATE_COOKIE,
-
 
     NUM_PROPERTIES;
 
@@ -67,9 +65,6 @@ public enum ConfigurableProperty {
 
         case USE_LOWERCASE_FILENAMES:
             return "USE_LOWERCASE_FILENAMES";
-
-        case VIDEO_INTERPRETER_STATE_COOKIE:
-            return "VIDEO_INTERPRETER_STATE_COOKIE";
 
         default:
             error ("unknown ConfigurableProperty enumeration value");
@@ -309,29 +304,6 @@ public abstract class ConfigurationFacade : Object {
     public virtual void set_use_lowercase_filenames (bool b) {
         try {
             get_engine ().set_bool_property (ConfigurableProperty.USE_LOWERCASE_FILENAMES, b);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-        }
-    }
-
-    //
-    // video interpreter state cookie
-    //
-    public virtual int get_video_interpreter_state_cookie () {
-        try {
-            return get_engine ().get_int_property (
-                       ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE);
-        } catch (ConfigurationError err) {
-            on_configuration_error (err);
-
-            return -1;
-        }
-    }
-
-    public virtual void set_video_interpreter_state_cookie (int state_cookie) {
-        try {
-            get_engine ().set_int_property (ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE,
-                                            state_cookie);
         } catch (ConfigurationError err) {
             on_configuration_error (err);
         }
