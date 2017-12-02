@@ -295,7 +295,7 @@ namespace CommandlineOptions {
         { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
         { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
         { "version", 'v', 0, OptionArg.NONE, out show_version, N_("Show the application's version"), null},
-        { "debug", 'd', 0, OptionArg.NONE, out debug_enabled, N_("Show extra debugging output"), null},
+        { "debug", 'D', 0, OptionArg.NONE, out debug_enabled, N_("Show extra debugging output"), null},
         { null }
     };
 }
