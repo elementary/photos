@@ -324,6 +324,7 @@ public class VideoReader {
 }
 
 public class Video : VideoSource, Flaggable, Monitorable, Dateable {
+    public const int NO_VIDEO_INTERPRETER_STATE = -1;
     public const string TYPENAME = "video";
 
     public const uint64 FLAG_TRASH =    0x0000000000000001;
@@ -362,11 +363,14 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
     private static int current_state;
     private static bool normal_regen_complete;
     private static bool offline_regen_complete;
+    private static GLib.Settings video_settings;
     public static VideoSourceCollection global;
 
     private VideoRow backing_row;
 
     public Video (VideoRow row) {
+        video_settings = new GLib.Settings (GSettingsConfigurationEngine.VIDEO_SCHEMA_NAME);
+
         this.backing_row = row;
 
         // normalize user text
@@ -391,9 +395,9 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         unowned string[] fake_unowned_args = fake_args;
         Gst.init (ref fake_unowned_args);
 
-        int saved_state = Config.Facade.get_instance ().get_video_interpreter_state_cookie ();
+        int saved_state = video_settings.get_int ("interpreter-state-cookie");
         current_state = (int) Gst.Registry.get ().get_feature_list_cookie ();
-        if (saved_state == Config.Facade.NO_VIDEO_INTERPRETER_STATE) {
+        if (saved_state == NO_VIDEO_INTERPRETER_STATE) {
             message ("interpreter state cookie not found; assuming all video thumbnails are out of date");
             interpreter_state_changed = true;
         } else if (saved_state != current_state) {
@@ -460,7 +464,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         if (interpreter_state_changed) {
             message ("saving video interpreter state to configuration system");
 
-            Config.Facade.get_instance ().set_video_interpreter_state_cookie (current_state);
+            video_settings.set_int ("interpreter-state-cookie", current_state);
             interpreter_state_changed = false;
         }
     }

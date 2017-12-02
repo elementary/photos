@@ -29,8 +29,6 @@
 namespace Config {
 
 public class Facade : ConfigurationFacade {
-    public const int NO_VIDEO_INTERPRETER_STATE = -1;
-
     private static Facade instance = null;
 
     private Facade () {
