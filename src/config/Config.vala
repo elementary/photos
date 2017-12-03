@@ -17,15 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-/* This file is the master unit file for the Config unit.  It should be edited to include
- * whatever code is deemed necessary.
- *
- * The init () and terminate () methods are mandatory.
- *
- * If the unit needs to be configured prior to initialization, add the proper parameters to
- * the preconfigure () method, implement it, and ensure in init () that it's been called.
- */
-
 namespace Config {
 
 public class Facade : ConfigurationFacade {
