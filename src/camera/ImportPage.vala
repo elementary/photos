@@ -507,9 +507,12 @@ public class ImportPage : CheckerboardPage {
         private CameraImportJob? associated = null;
         private BackingPhotoRow? associated_file = null;
         private DuplicatedFile? duplicated_file;
+        private GLib.Settings file_settings;
 
         public CameraImportJob (GPhoto.ContextWrapper context, ImportSource import_file,
                                 DuplicatedFile? duplicated_file = null) {
+            file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
+
             this.context = context;
             this.import_file = import_file;
             this.duplicated_file = duplicated_file;
@@ -643,7 +646,9 @@ public class ImportPage : CheckerboardPage {
                 if (associated_file != null) {
                     photo.add_backing_photo_for_development (RawDeveloper.CAMERA, associated_file);
                     ret = true;
-                    photo.set_raw_developer (Config.Facade.get_instance ().get_default_raw_developer ());
+                    photo.set_raw_developer (
+                        RawDeveloper.from_string (file_settings.get_string ("raw-developer-default"))
+                    );
                 }
             }
             return ret;
