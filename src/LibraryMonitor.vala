@@ -239,6 +239,7 @@ public class LibraryMonitor : DirectoryMonitor {
     private int outstanding_verify_jobs = 0;
     private int completed_monitorable_verifies = 0;
     private int total_monitorable_verifies = 0;
+    private GLib.Settings file_settings;
 
     public signal void auto_update_progress (int completed_files, int total_files);
 
@@ -246,18 +247,18 @@ public class LibraryMonitor : DirectoryMonitor {
 
     public signal void auto_import_progress (uint64 completed_bytes, uint64 total_bytes);
 
+    construct {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
+    }
+
     public LibraryMonitor (File root, bool recurse, bool monitoring) {
         base (root, recurse, monitoring);
 
         // synchronize with configuration system
-        auto_import = Config.Facade.get_instance ().get_auto_import_from_library ();
-        Config.Facade.get_instance ().auto_import_from_library_changed.connect (on_config_changed);
+        auto_import = file_settings.get_boolean ("auto-import");
+        file_settings.changed.connect (on_config_changed);
 
         import_queue_timer_id = Timeout.add_seconds (FLUSH_IMPORT_QUEUE_SEC, on_flush_import_queue);
-    }
-
-    ~LibraryMonitor () {
-        Config.Facade.get_instance ().auto_import_from_library_changed.disconnect (on_config_changed);
     }
 
     public override void close () {
@@ -550,8 +551,12 @@ public class LibraryMonitor : DirectoryMonitor {
         execute_next_verify_job ();
     }
 
-    private void on_config_changed () {
-        bool value = Config.Facade.get_instance ().get_auto_import_from_library ();
+    private void on_config_changed (string key) {
+        if (key != "auto-import") {
+            return;
+        }
+
+        bool value = file_settings.get_boolean ("auto-import");
 
         if (auto_import == value)
             return;
