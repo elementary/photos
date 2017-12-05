@@ -39,6 +39,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
     Gtk.CheckButton modify_originals_check_button;
     Gtk.Label notification;
     private GLib.Settings ui_settings;
+    private GLib.Settings file_settings;
 
     private enum TimeSystem {
         AM,
@@ -50,6 +51,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
     }
 
     public AdjustDateTimeDialog (Dateable source, int photo_count, bool display_options = true,
@@ -123,10 +125,9 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
                     _ ("_Modify original file") : _ ("_Modify original files"));
         }
 
-        modify_originals_check_button.set_active (Config.Facade.get_instance ().get_commit_metadata_to_masters () &&
-                display_options);
+        modify_originals_check_button.set_active (file_settings.get_boolean ("commit-metadata") && display_options);
         modify_originals_check_button.sensitive = (!only_video) &&
-                (!Config.Facade.get_instance ().get_commit_metadata_to_masters () && display_options);
+                (!file_settings.get_boolean ("commit-metadata") && display_options);
 
         Gtk.Box time_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
