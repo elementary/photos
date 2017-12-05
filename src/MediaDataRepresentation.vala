@@ -756,6 +756,8 @@ public class MediaCollectionRegistry {
     private Gee.HashMap<string, MediaSourceCollection> by_typename =
         new Gee.HashMap<string, MediaSourceCollection> ();
 
+    private static GLib.Settings file_settings;
+
     private MediaCollectionRegistry () {
         Application.get_instance ().init_done.connect (on_init_done);
     }
@@ -773,15 +775,16 @@ public class MediaCollectionRegistry {
     }
 
     public static void init () {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
         instance = new MediaCollectionRegistry ();
-        Config.Facade.get_instance ().import_directory_changed.connect (on_import_directory_changed);
+        file_settings.changed.connect (on_config_changed);
     }
 
-    public static void terminate () {
-        Config.Facade.get_instance ().import_directory_changed.disconnect (on_import_directory_changed);
-    }
+    private static void on_config_changed (string key) {
+        if (key != "import-dir") {
+            return;
+        }
 
-    private static void on_import_directory_changed () {
         File import_dir = AppDirs.get_import_dir ();
 
         LibraryMonitor? current = LibraryMonitorPool.get_instance ().get_monitor ();

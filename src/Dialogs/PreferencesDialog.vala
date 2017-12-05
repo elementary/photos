@@ -34,8 +34,11 @@ public class PreferencesDialog {
     private Gtk.FileChooserButton library_dir_button;
     private string? lib_dir = null;
     private Gtk.ComboBoxText default_raw_developer_combo;
+    private GLib.Settings file_settings;
 
     private PreferencesDialog () {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
+
         dialog = new Gtk.Dialog ();
         dialog.width_request = 450;
         dialog.resizable = false;
@@ -77,7 +80,7 @@ public class PreferencesDialog {
         default_raw_developer_combo = new Gtk.ComboBoxText ();
         default_raw_developer_combo.append_text (RawDeveloper.CAMERA.get_label ());
         default_raw_developer_combo.append_text (RawDeveloper.SHOTWELL.get_label ());
-        set_raw_developer_combo (Config.Facade.get_instance ().get_default_raw_developer ());
+        set_raw_developer_combo (RawDeveloper.from_string (file_settings.get_string ("raw-developer-default")));
         default_raw_developer_combo.changed.connect (on_default_raw_developer_changed);
 
         var default_raw_developer_label = new Gtk.Label.with_mnemonic (_("De_fault:"));
@@ -173,7 +176,7 @@ public class PreferencesDialog {
     }
 
     private void on_default_raw_developer_changed () {
-        Config.Facade.get_instance ().set_default_raw_developer (raw_developer_from_combo ());
+        file_settings.set_string ("raw-developer-default", raw_developer_from_combo ().to_string ());
     }
 
     private void on_current_folder_changed () {

@@ -369,8 +369,6 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
     private VideoRow backing_row;
 
     public Video (VideoRow row) {
-        video_settings = new GLib.Settings (GSettingsConfigurationEngine.VIDEO_SCHEMA_NAME);
-
         this.backing_row = row;
 
         // normalize user text
@@ -388,6 +386,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         current_state = -1;
         normal_regen_complete = false;
         offline_regen_complete = false;
+        video_settings = new GLib.Settings (GSettingsConfigurationEngine.VIDEO_SCHEMA_NAME);
 
         // initialize GStreamer, but don't pass it our actual command line arguments -- we don't
         // want our end users to be able to parameterize the GStreamer configuration

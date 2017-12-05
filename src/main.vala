@@ -207,7 +207,6 @@ void library_exec (string[] mounts) {
     Tag.terminate ();
     Event.terminate ();
     LibraryPhoto.terminate ();
-    MediaCollectionRegistry.terminate ();
     LibraryMonitorPool.terminate ();
     Tombstone.terminate ();
     ThumbnailCache.terminate ();
