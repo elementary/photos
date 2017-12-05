@@ -153,26 +153,8 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_object.reset (key);
     }
 
-    private static string? clean_plugin_id (string id) {
-        string cleaned = id.replace ("/", "-");
-        cleaned = cleaned.strip ();
-
-        return !is_string_empty (cleaned) ? cleaned : null;
-    }
-
-    private static string get_plugin_enable_disable_name (string id) {
-        string? cleaned_id = clean_plugin_id (id);
-        if (cleaned_id == null)
-            cleaned_id = "default";
-
-        cleaned_id = cleaned_id.replace ("org.pantheon.photos.", "");
-        cleaned_id = cleaned_id.replace (".", "-");
-
-        return cleaned_id;
-    }
-
     private static string make_plugin_schema_name (string domain, string id) {
-        string? cleaned_id = clean_plugin_id (id);
+        string? cleaned_id = Plugins.PluggableRep.clean_plugin_id (id);
         if (cleaned_id == null)
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
@@ -317,27 +299,4 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             critical ("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
-
-    public FuzzyPropertyState is_plugin_enabled (string id) {
-        string enable_disable_name = get_plugin_enable_disable_name (id);
-
-        try {
-            return (get_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name)) ?
-                   FuzzyPropertyState.ENABLED : FuzzyPropertyState.DISABLED;
-        } catch (ConfigurationError err) {
-            critical ("GSettingsConfigurationEngine: error: %s", err.message);
-            return FuzzyPropertyState.UNKNOWN;
-        }
-    }
-
-    public void set_plugin_enabled (string id, bool enabled) {
-        string enable_disable_name = get_plugin_enable_disable_name (id);
-
-        try {
-            set_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name, enabled);
-        } catch (ConfigurationError err) {
-            critical ("GSettingsConfigurationEngine: error: %s", err.message);
-        }
-    }
-
 }
