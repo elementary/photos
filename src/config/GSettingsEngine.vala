@@ -31,36 +31,12 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".plugins.enable-state";
 
     private Gee.Set<string> known_schemas;
-    private string[] schema_names;
-    private string[] key_names;
 
     public GSettingsConfigurationEngine () {
         known_schemas = new Gee.HashSet<string> ();
 
         foreach (string current_schema in Settings.list_schemas ())
             known_schemas.add (current_schema);
-
-        schema_names = new string[ConfigurableProperty.NUM_PROPERTIES];
-
-        schema_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DIRECTORY_PATTERN] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.IMPORT_DIR] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = FILES_PREFS_SCHEMA_NAME;
-        schema_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = VIDEO_SCHEMA_NAME;
-
-        key_names = new string[ConfigurableProperty.NUM_PROPERTIES];
-
-        key_names[ConfigurableProperty.AUTO_IMPORT_FROM_LIBRARY] = "auto-import";
-        key_names[ConfigurableProperty.COMMIT_METADATA_TO_MASTERS] = "commit-metadata";
-        key_names[ConfigurableProperty.DIRECTORY_PATTERN] = "directory-pattern";
-        key_names[ConfigurableProperty.DIRECTORY_PATTERN_CUSTOM] = "directory-pattern-custom";
-        key_names[ConfigurableProperty.IMPORT_DIR] = "import-dir";
-        key_names[ConfigurableProperty.RAW_DEVELOPER_DEFAULT] = "raw-developer-default";
-        key_names[ConfigurableProperty.USE_LOWERCASE_FILENAMES] = "use-lowercase-filenames";
-        key_names[ConfigurableProperty.VIDEO_INTERPRETER_STATE_COOKIE] = "interpreter-state-cookie";
     }
 
     private bool schema_has_key (Settings schema_object, string key) {
@@ -155,26 +131,8 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         schema_object.reset (key);
     }
 
-    private static string? clean_plugin_id (string id) {
-        string cleaned = id.replace ("/", "-");
-        cleaned = cleaned.strip ();
-
-        return !is_string_empty (cleaned) ? cleaned : null;
-    }
-
-    private static string get_plugin_enable_disable_name (string id) {
-        string? cleaned_id = clean_plugin_id (id);
-        if (cleaned_id == null)
-            cleaned_id = "default";
-
-        cleaned_id = cleaned_id.replace ("org.pantheon.photos.", "");
-        cleaned_id = cleaned_id.replace (".", "-");
-
-        return cleaned_id;
-    }
-
     private static string make_plugin_schema_name (string domain, string id) {
-        string? cleaned_id = clean_plugin_id (id);
+        string? cleaned_id = Plugins.PluggableRep.clean_plugin_id (id);
         if (cleaned_id == null)
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
@@ -184,46 +142,6 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
 
     private static string make_gsettings_key (string gconf_key) {
         return gconf_key.replace ("_", "-");
-    }
-
-    public string get_name () {
-        return "GSettings";
-    }
-
-    public int get_int_property (ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_int (schema_names[p], key_names[p]);
-    }
-
-    public void set_int_property (ConfigurableProperty p, int val) throws ConfigurationError {
-        set_gs_int (schema_names[p], key_names[p], val);
-        property_changed (p);
-    }
-
-    public string get_string_property (ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_string (schema_names[p], key_names[p]);
-    }
-
-    public void set_string_property (ConfigurableProperty p, string val) throws ConfigurationError {
-        set_gs_string (schema_names[p], key_names[p], val);
-        property_changed (p);
-    }
-
-    public bool get_bool_property (ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_bool (schema_names[p], key_names[p]);
-    }
-
-    public void set_bool_property (ConfigurableProperty p, bool val) throws ConfigurationError {
-        set_gs_bool (schema_names[p], key_names[p], val);
-        property_changed (p);
-    }
-
-    public double get_double_property (ConfigurableProperty p) throws ConfigurationError {
-        return get_gs_double (schema_names[p], key_names[p]);
-    }
-
-    public void set_double_property (ConfigurableProperty p, double val) throws ConfigurationError {
-        set_gs_double (schema_names[p], key_names[p], val);
-        property_changed (p);
     }
 
     public bool get_plugin_bool (string domain, string id, string key, bool def) {
@@ -319,27 +237,4 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             critical ("GSettingsConfigurationEngine: error: %s", err.message);
         }
     }
-
-    public FuzzyPropertyState is_plugin_enabled (string id) {
-        string enable_disable_name = get_plugin_enable_disable_name (id);
-
-        try {
-            return (get_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name)) ?
-                   FuzzyPropertyState.ENABLED : FuzzyPropertyState.DISABLED;
-        } catch (ConfigurationError err) {
-            critical ("GSettingsConfigurationEngine: error: %s", err.message);
-            return FuzzyPropertyState.UNKNOWN;
-        }
-    }
-
-    public void set_plugin_enabled (string id, bool enabled) {
-        string enable_disable_name = get_plugin_enable_disable_name (id);
-
-        try {
-            set_gs_bool (PLUGINS_ENABLE_DISABLE_SCHEMA_NAME, enable_disable_name, enabled);
-        } catch (ConfigurationError err) {
-            critical ("GSettingsConfigurationEngine: error: %s", err.message);
-        }
-    }
-
 }

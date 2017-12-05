@@ -24,9 +24,11 @@ class AppDirs {
     private static File data_dir = null;
     private static File tmp_dir = null;
     private static File libexec_dir = null;
+    private static GLib.Settings file_settings;
 
     // Because this is called prior to Debug.init (), this function cannot do any logging calls
     public static void init (string arg0) {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
         File exec_file = File.new_for_path (Posix.realpath (Environment.find_program_in_path (arg0)));
         exec_dir = exec_file.get_parent ();
     }
@@ -143,7 +145,7 @@ class AppDirs {
     // The "import directory" is the same as the library directory, and are often used
     // interchangeably throughout the code.
     public static File get_import_dir () {
-        string path = Config.Facade.get_instance ().get_import_dir ();
+        string path = file_settings.get_string ("import-dir");
         if (!is_string_empty (path)) {
             // tilde -> home directory
             path = strip_pretty_path (path);
@@ -165,13 +167,8 @@ class AppDirs {
         return get_home_dir ().get_child (_ ("Pictures"));
     }
 
-    // Library folder + photo folder, based on user's preferred directory pattern.
     public static File get_baked_import_dir (time_t tm) {
-        string? pattern = Config.Facade.get_instance ().get_directory_pattern ();
-        if (is_string_empty (pattern))
-            pattern = Config.Facade.get_instance ().get_directory_pattern_custom ();
-        if (is_string_empty (pattern))
-            pattern = "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d"; // default
+        string? pattern = "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d"; // default
 
         DateTime date = new DateTime.from_unix_local (tm);
         return File.new_for_path (get_import_dir ().get_path () + Path.DIR_SEPARATOR_S + date.format (pattern));
@@ -185,7 +182,7 @@ class AppDirs {
     }
 
     public static void set_import_dir (string path) {
-        Config.Facade.get_instance ().set_import_dir (path);
+        file_settings.set_string ("import-dir", path);
     }
 
     public static File get_exec_dir () {
