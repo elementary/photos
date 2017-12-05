@@ -104,9 +104,11 @@ private class PluggableRep {
     }
 
     private bool enabled = false;
+    private GLib.Settings enabled_plugin_settings;
 
     // Note that creating a PluggableRep does not activate it.
     public PluggableRep (Spit.Pluggable pluggable) {
+        enabled_plugin_settings = new GLib.Settings (GSettingsConfigurationEngine.PLUGINS_ENABLE_DISABLE_SCHEMA_NAME);
         this.pluggable = pluggable;
         id = pluggable.get_id ();
     }
@@ -116,14 +118,30 @@ private class PluggableRep {
         // register themselves)
         is_core = is_core_pluggable (pluggable);
 
-        FuzzyPropertyState saved_state = Config.Facade.get_instance ().is_plugin_enabled (id);
-        enabled = ((is_core && (saved_state != FuzzyPropertyState.DISABLED)) ||
-                   (!is_core && (saved_state == FuzzyPropertyState.ENABLED)));
+        enabled = enabled_plugin_settings.get_boolean (get_plugin_enable_disable_name (id));
 
         // inform the plugin of its activation state
         pluggable.activation (enabled);
 
         activated = true;
+    }
+
+    public static string? clean_plugin_id (string id) {
+        string cleaned = id.replace ("/", "-");
+        cleaned = cleaned.strip ();
+
+        return !is_string_empty (cleaned) ? cleaned : null;
+    }
+
+    public static string get_plugin_enable_disable_name (string id) {
+        string? cleaned_id = clean_plugin_id (id);
+        if (cleaned_id == null)
+            cleaned_id = "default";
+
+        cleaned_id = cleaned_id.replace ("org.pantheon.photos.", "");
+        cleaned_id = cleaned_id.replace (".", "-");
+
+        return cleaned_id;
     }
 
     public bool is_enabled () {
@@ -136,7 +154,7 @@ private class PluggableRep {
             return false;
 
         this.enabled = enabled;
-        Config.Facade.get_instance ().set_plugin_enabled (id, enabled);
+        enabled_plugin_settings.set_boolean (get_plugin_enable_disable_name (id), enabled);
         pluggable.activation (enabled);
 
         return true;

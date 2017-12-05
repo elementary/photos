@@ -26,12 +26,6 @@ public errordomain ConfigurationError {
     ENGINE_ERROR,
 }
 
-public enum FuzzyPropertyState {
-    ENABLED,
-    DISABLED,
-    UNKNOWN
-}
-
 public interface ConfigurationEngine : GLib.Object {
     public abstract bool get_plugin_bool (string domain, string id, string key, bool def);
     public abstract void set_plugin_bool (string domain, string id, string key, bool val);
@@ -42,9 +36,6 @@ public interface ConfigurationEngine : GLib.Object {
     public abstract string? get_plugin_string (string domain, string id, string key, string? def);
     public abstract void set_plugin_string (string domain, string id, string key, string? val);
     public abstract void unset_plugin_key (string domain, string id, string key);
-
-    public abstract FuzzyPropertyState is_plugin_enabled (string id);
-    public abstract void set_plugin_enabled (string id, bool enabled);
 }
 
 public abstract class ConfigurationFacade : Object {
@@ -99,16 +90,5 @@ public abstract class ConfigurationFacade : Object {
 
     public virtual void unset_plugin_key (string domain, string id, string key) {
         get_engine ().unset_plugin_key (domain, id, key);
-    }
-
-    //
-    // enable & disable plugins
-    //
-    public virtual FuzzyPropertyState is_plugin_enabled (string id) {
-        return get_engine ().is_plugin_enabled (id);
-    }
-
-    public virtual void set_plugin_enabled (string id, bool enabled) {
-        get_engine ().set_plugin_enabled (id, enabled);
     }
 }
