@@ -207,7 +207,6 @@ void library_exec (string[] mounts) {
     Tag.terminate ();
     Event.terminate ();
     LibraryPhoto.terminate ();
-    MediaCollectionRegistry.terminate ();
     LibraryMonitorPool.terminate ();
     Tombstone.terminate ();
     ThumbnailCache.terminate ();
@@ -284,48 +283,20 @@ void editing_exec (string filename) {
 }
 
 namespace CommandlineOptions {
-bool no_startup_progress = false;
-string data_dir = null;
-bool show_version = false;
-bool no_runtime_monitoring = false;
-bool debug_enabled = false;
+    string data_dir = null;
+    bool no_runtime_monitoring = false;
+    bool no_startup_progress = false;
+    bool show_version = false;
+    bool debug_enabled = false;
 
-private OptionEntry[]? entries = null;
-
-public OptionEntry[] get_options () {
-    if (entries != null)
-        return entries;
-
-    OptionEntry datadir = { "datadir", 'd', 0, OptionArg.FILENAME, &data_dir,
-                            _ ("Path to Shotwell's private data"), _ ("DIRECTORY")
-                          };
-    entries += datadir;
-
-    OptionEntry no_monitoring = { "no-runtime-monitoring", 0, 0, OptionArg.NONE, &no_runtime_monitoring,
-                                  _ ("Do not monitor library directory at runtime for changes"), null
-                                };
-    entries += no_monitoring;
-
-    OptionEntry no_startup = { "no-startup-progress", 0, 0, OptionArg.NONE, &no_startup_progress,
-                               _ ("Don't display startup progress meter"), null
-                             };
-    entries += no_startup;
-
-    OptionEntry version = { "version", 'V', 0, OptionArg.NONE, &show_version,
-                            _ ("Show the application's version"), null
-                          };
-    entries += version;
-
-    OptionEntry debug_option = { "debug", 'D', 0, OptionArg.NONE, &debug_enabled,
-                                 _ ("Show extra debugging output"), null
-                               };
-    entries += debug_option;
-
-    OptionEntry terminator = { null, 0, 0, 0, null, null, null };
-    entries += terminator;
-
-    return entries;
-}
+    public const OptionEntry[] app_options = {
+        { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Photos' private data"), N_("DIRECTORY")},
+        { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
+        { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
+        { "version", 'v', 0, OptionArg.NONE, out show_version, N_("Show the application's version"), null},
+        { "debug", 'D', 0, OptionArg.NONE, out debug_enabled, N_("Show extra debugging output"), null},
+        { null }
+    };
 }
 
 void main (string[] args) {
@@ -349,7 +320,7 @@ void main (string[] args) {
 
     // init GTK (valac has already called g_threads_init ())
     try {
-        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.get_options (),
+        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.app_options,
                             Resources.APP_GETTEXT_PACKAGE);
     } catch (Error e) {
         print (e.message + "\n");

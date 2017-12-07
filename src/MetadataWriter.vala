@@ -172,10 +172,12 @@ public class MetadataWriter : Object {
     private bool closed = false;
     private int pause_count = 0;
     private Gee.HashSet<LibraryPhoto> importing_photos = new Gee.HashSet<LibraryPhoto> ();
+    private GLib.Settings file_settings;
 
     public signal void progress (uint completed, uint total);
 
     private MetadataWriter () {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
         dirty = new HashTimedQueue<LibraryPhoto> (COMMIT_DELAY_MSEC, on_photo_dequeued);
         dirty.set_dequeue_spacing_msec (COMMIT_SPACING_MSEC);
 
@@ -189,8 +191,8 @@ public class MetadataWriter : Object {
             interested_photo_details.add (detail);
 
         // sync up with the configuration system
-        enabled = Config.Facade.get_instance ().get_commit_metadata_to_masters ();
-        Config.Facade.get_instance ().commit_metadata_to_masters_changed.connect (on_config_changed);
+        enabled = file_settings.get_boolean ("commit-metadata");
+        file_settings.changed.connect (on_config_changed);
 
         // add all current photos to look for ones that are dirty and need updating
         force_rescan ();
@@ -216,8 +218,6 @@ public class MetadataWriter : Object {
     }
 
     ~MetadataWriter () {
-        Config.Facade.get_instance ().commit_metadata_to_masters_changed.disconnect (on_config_changed);
-
         LibraryPhoto.global.media_import_starting.disconnect (on_importing_photos);
         LibraryPhoto.global.media_import_completed.disconnect (on_photos_imported);
         LibraryPhoto.global.contents_altered.disconnect (on_photos_added_removed);
@@ -283,8 +283,12 @@ public class MetadataWriter : Object {
         closed = true;
     }
 
-    private void on_config_changed () {
-        bool value = Config.Facade.get_instance ().get_commit_metadata_to_masters ();
+    private void on_config_changed (string key) {
+        if (key != "commit-metadata") {
+            return;
+        }
+
+        bool value = file_settings.get_boolean ("commit-metadata");
 
         if (enabled == value)
             return;
