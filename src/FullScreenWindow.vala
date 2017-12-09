@@ -61,6 +61,8 @@ public class FullscreenWindow : PageWindow {
 
         toolbar = page.get_toolbar ();
         toolbar.halign = Gtk.Align.CENTER;
+        toolbar.margin = 6;
+        toolbar.get_style_context ().add_class ("overlay-toolbar");
 
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
