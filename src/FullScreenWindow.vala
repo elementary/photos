@@ -22,7 +22,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
-    private Gtk.Window toolbar_window;
+    private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
     private bool is_toolbar_shown = false;
     private bool waiting_for_invoke = false;
@@ -58,7 +58,8 @@ public class FullscreenWindow : PageWindow {
         close_button.tooltip_text = _("Leave fullscreen");
         close_button.clicked.connect (on_close);
 
-        var toolbar = page.get_toolbar ();
+        toolbar = page.get_toolbar ();
+        toolbar.halign = Gtk.Align.CENTER;
 
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
@@ -73,15 +74,11 @@ public class FullscreenWindow : PageWindow {
 
         toolbar.insert (close_button, -1);
 
-        // set up toolbar along bottom of screen
-        toolbar_window = new Gtk.Window (Gtk.WindowType.POPUP);
-        toolbar_window.set_screen (get_screen ());
-        toolbar_window.set_border_width (0);
-        toolbar_window.add (toolbar);
+        var overlay = new Gtk.Overlay ();
+        overlay.add (page);
+        overlay.add_overlay (toolbar);
 
-        toolbar_window.realize.connect (on_toolbar_realized);
-
-        add (page);
+        add (overlay);
 
         // call to set_default_size () saves one repaint caused by changing
         // size from default to full screen. In slideshow mode, this change
@@ -97,6 +94,8 @@ public class FullscreenWindow : PageWindow {
 
         // start off with toolbar invoked, as a clue for the user
         invoke_toolbar ();
+
+        page.grab_focus ();
     }
 
     public void disable_toolbar_dismissal () {
@@ -136,16 +135,11 @@ public class FullscreenWindow : PageWindow {
                 return true;
         }
 
-        // Make sure this event gets propagated to the underlying window...
-        AppWindow.get_instance ().key_press_event (event);
-
-        // ...then let the base class take over
         return (base.key_press_event != null) ? base.key_press_event (event) : false;
     }
 
     private void on_close () {
         hide_toolbar ();
-        toolbar_window = null;
 
         AppWindow.get_instance ().end_fullscreen ();
     }
@@ -198,10 +192,21 @@ public class FullscreenWindow : PageWindow {
         int py;
         devmgr.get_client_pointer ().get_position (null, null, out py);
 
-        int wy;
-        toolbar_window.get_window ().get_geometry (null, out wy, null, null);
+        Gtk.Allocation toolbar_alloc;
+        toolbar.get_allocation (out toolbar_alloc);
 
-        return (py >= wy);
+        var screen_rect = get_monitor_geometry ();
+
+        int threshold = screen_rect.height - 3;
+        if (is_toolbar_shown) {
+            threshold -= toolbar_alloc.height;
+        }
+
+        if (py > threshold) {
+            return true;
+        }
+
+        return false;
     }
 
     private bool on_check_toolbar_invocation () {
@@ -218,26 +223,8 @@ public class FullscreenWindow : PageWindow {
         return false;
     }
 
-    private void on_toolbar_realized () {
-        Gtk.Requisition req;
-        toolbar_window.get_preferred_size (null, out req);
-
-        // place the toolbar in the center of the monitor along the bottom edge
-        Gdk.Rectangle monitor = get_monitor_geometry ();
-        int tx = monitor.x + (monitor.width - req.width) / 2;
-        if (tx < 0)
-            tx = 0;
-
-        int ty = monitor.y + monitor.height - req.height;
-        if (ty < 0)
-            ty = 0;
-
-        toolbar_window.move (tx, ty);
-        toolbar_window.set_opacity (Resources.TRANSIENT_WINDOW_OPACITY);
-    }
-
     private void invoke_toolbar () {
-        toolbar_window.show_all ();
+        toolbar.show_all ();
 
         is_toolbar_shown = true;
 
@@ -246,9 +233,6 @@ public class FullscreenWindow : PageWindow {
 
     private bool on_check_toolbar_dismissal () {
         if (!is_toolbar_shown)
-            return false;
-
-        if (toolbar_window == null)
             return false;
 
         // if dismissal is disabled, keep open but keep checking
@@ -282,7 +266,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     private void hide_toolbar () {
-        toolbar_window.hide ();
+        toolbar.hide ();
         is_toolbar_shown = false;
     }
 }
