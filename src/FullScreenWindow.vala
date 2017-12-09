@@ -197,16 +197,12 @@ public class FullscreenWindow : PageWindow {
 
         var screen_rect = get_monitor_geometry ();
 
-        int threshold = screen_rect.height - 3;
+        int threshold = screen_rect.height;
         if (is_toolbar_shown) {
             threshold -= toolbar_alloc.height;
         }
 
-        if (py > threshold) {
-            return true;
-        }
-
-        return false;
+        return py >= threshold;
     }
 
     private bool on_check_toolbar_invocation () {
