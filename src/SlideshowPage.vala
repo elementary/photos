@@ -25,7 +25,6 @@ class SlideshowPage : SinglePhotoPage {
     private ViewCollection controller;
     private Photo current;
     private Gtk.ToolButton play_pause_button;
-    private Gtk.ToolButton settings_button;
     private PixbufCache cache = null;
     private Timer timer = new Timer ();
     private bool playing = true;
@@ -79,13 +78,6 @@ class SlideshowPage : SinglePhotoPage {
         next_button.clicked.connect (on_next_photo);
 
         toolbar.insert (next_button, -1);
-
-        settings_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), _("Settings"));
-        settings_button.set_tooltip_text (_ ("Change slideshow settings"));
-        settings_button.clicked.connect (on_change_settings);
-        settings_button.is_important = true;
-
-        toolbar.insert (settings_button, -1);
 
         screensaver = new Screensaver ();
     }
@@ -284,28 +276,6 @@ class SlideshowPage : SinglePhotoPage {
             return true;
 
         return (base.key_press_event != null) ? base.key_press_event (event) : true;
-    }
-
-    private void on_change_settings () {
-        SlideshowSettingsDialog settings_dialog = new SlideshowSettingsDialog ();
-        settings_dialog.show_all ();
-
-        bool slideshow_playing = playing;
-        playing = false;
-        hide_toolbar ();
-
-        if (settings_dialog.run () == Gtk.ResponseType.OK) {
-            slideshow_settings.set_double ("delay", settings_dialog.get_delay ());
-            slideshow_settings.set_double ("transition-delay", settings_dialog.get_transition_delay ());
-            slideshow_settings.set_string ("transition-effect-id", settings_dialog.get_transition_effect_id ());
-            slideshow_settings.set_boolean ("show-title", settings_dialog.get_show_title ());
-
-            update_transition_effect ();
-        }
-
-        settings_dialog.destroy ();
-        playing = slideshow_playing;
-        timer.start ();
     }
 
     private void update_transition_effect () {
