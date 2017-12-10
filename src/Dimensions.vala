@@ -353,6 +353,7 @@ public struct Scaling {
         case ScaleConstraint.ORIGINAL:
         case ScaleConstraint.FILL_VIEWPORT:
             return false;
+
         default:
             pixels = scale_to_pixels ();
             assert (pixels > 0);
