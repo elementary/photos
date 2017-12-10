@@ -56,3 +56,17 @@
 .event:checked {
     border-color: @selected_bg_color;
 }
+
+.overlay-toolbar {
+    background: alpha (@base_color, 0.9);
+    border: none;
+    border-radius: 3px;
+    box-shadow:
+        0 0 0 1px alpha (#000, 0.2),
+        0 8px 10px 1px alpha (#000, 0.14),
+        0 3px 14px 2px alpha (#000, 0.12),
+        0 5px 5px -3px alpha (#000, 0.4),
+        inset 1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+        inset -1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+        inset 0 -1px 0 0 alpha (@bg_highlight_color, 0.3);
+}

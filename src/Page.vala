@@ -203,6 +203,8 @@ public abstract class Page : Gtk.ScrolledWindow {
             toolbar = new Gtk.Toolbar ();
             toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
             toolbar.set_style (Gtk.ToolbarStyle.ICONS);
+            toolbar.valign = Gtk.Align.END;
+            toolbar.halign = Gtk.Align.FILL;
         }
         return toolbar;
     }
