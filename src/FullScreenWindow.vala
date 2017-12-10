@@ -22,6 +22,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
+    private Gtk.Revealer revealer;
     private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
     private bool is_toolbar_shown = false;
@@ -60,6 +61,8 @@ public class FullscreenWindow : PageWindow {
 
         toolbar = page.get_toolbar ();
         toolbar.halign = Gtk.Align.CENTER;
+        toolbar.margin = 6;
+        toolbar.get_style_context ().add_class ("overlay-toolbar");
 
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
@@ -74,9 +77,13 @@ public class FullscreenWindow : PageWindow {
 
         toolbar.insert (close_button, -1);
 
+        revealer = new Gtk.Revealer ();
+        revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
+        revealer.add (toolbar);
+
         var overlay = new Gtk.Overlay ();
         overlay.add (page);
-        overlay.add_overlay (toolbar);
+        overlay.add_overlay (revealer);
 
         add (overlay);
 
@@ -220,8 +227,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     private void invoke_toolbar () {
-        toolbar.show_all ();
-
+        revealer.reveal_child = true;
         is_toolbar_shown = true;
 
         Timeout.add (TOOLBAR_CHECK_DISMISSAL_MSEC, on_check_toolbar_dismissal);
@@ -262,7 +268,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     private void hide_toolbar () {
-        toolbar.hide ();
+        revealer.reveal_child = false;
         is_toolbar_shown = false;
     }
 }
