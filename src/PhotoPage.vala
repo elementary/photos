@@ -558,11 +558,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar.insert (next_button, -1);
 
             //  show metadata sidebar button
-            show_sidebar_button = MediaPage.create_sidebar_button ();
-            show_sidebar_button.clicked.connect (on_show_sidebar);
-            toolbar.insert (show_sidebar_button, -1);
             var app = AppWindow.get_instance () as LibraryWindow;
-            update_sidebar_action (!app.is_metadata_sidebar_visible ());
+            if (app != null) {
+                show_sidebar_button = MediaPage.create_sidebar_button ();
+                show_sidebar_button.clicked.connect (on_show_sidebar);
+                toolbar.insert (show_sidebar_button, -1);
+                update_sidebar_action (!app.is_metadata_sidebar_visible ());
+            }
         }
 
         return toolbar;
@@ -577,8 +579,10 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_show_sidebar () {
         var app = AppWindow.get_instance () as LibraryWindow;
-        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        if (app != null) {
+            app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        }
     }
 
     private void on_zoom_slider_value_changed () {
@@ -875,7 +879,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
             replace_photo (get_photo ());
 
         var app = AppWindow.get_instance () as LibraryWindow;
-        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        if (app != null) {
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        }
     }
 
     public override void switching_from () {
