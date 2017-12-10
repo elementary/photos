@@ -56,6 +56,10 @@ public class PixbufCache : Object {
         public BaselineFetchJob (PixbufCache owner, BackgroundJob.JobPriority priority, Photo photo,
                                  Scaling scaling, CompletionCallback callback) {
             base (owner, priority, photo, scaling, callback);
+
+            this.priority = priority;
+            this.photo = photo;
+            this.scaling = scaling;
         }
 
         public override void execute () {
@@ -71,6 +75,10 @@ public class PixbufCache : Object {
         public MasterFetchJob (PixbufCache owner, BackgroundJob.JobPriority priority, Photo photo,
                                Scaling scaling, CompletionCallback callback) {
             base (owner, priority, photo, scaling, callback);
+
+            this.priority = priority;
+            this.photo = photo;
+            this.scaling = scaling;
         }
 
         public override void execute () {
