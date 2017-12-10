@@ -42,6 +42,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         });
 
         var popover = new Gtk.Popover (null);
+        popover.closed.connect (() => AppWindow.get_fullscreen ().enable_toolbar_dismissal ());
         popover.position = Gtk.PositionType.TOP;
         popover.add (effect_list_box);
 
@@ -49,6 +50,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         button.clicked.connect (() => {
             popover.relative_to = button;
             popover.show_all ();
+            AppWindow.get_fullscreen ().disable_toolbar_dismissal ();
         });
 
         add (button);

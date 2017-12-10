@@ -109,6 +109,10 @@ public class FullscreenWindow : PageWindow {
         is_toolbar_dismissal_enabled = false;
     }
 
+    public void enable_toolbar_dismissal () {
+        is_toolbar_dismissal_enabled = true;
+    }
+
     public void update_toolbar_dismissal () {
         is_toolbar_dismissal_enabled = !pin_button.get_active ();
     }

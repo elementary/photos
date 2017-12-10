@@ -79,6 +79,9 @@ class SlideshowPage : SinglePhotoPage {
 
         toolbar.insert (next_button, -1);
 
+        var effect_selector = new TransitionEffectSelector ();
+        toolbar.insert (effect_selector, -1);
+
         screensaver = new Screensaver ();
     }
 
