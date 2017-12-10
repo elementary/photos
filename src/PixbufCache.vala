@@ -39,13 +39,13 @@ public class PixbufCache : Object {
         public Error err = null;
 
         public FetchJob (PixbufCache owner, BackgroundJob.JobPriority priority, Photo photo,
-                         Scaling *fetch_scaling, CompletionCallback callback) {
+                         Scaling fetch_scaling, CompletionCallback callback) {
             debug ("new FetchJob: %d", (int) fetch_scaling.constraint);
             base (owner, callback, new Cancellable (), null, new Semaphore ());
 
             this.priority = priority;
             this.photo = photo;
-            this.scaling = *fetch_scaling;
+            this.scaling = fetch_scaling;
         }
 
         public override BackgroundJob.JobPriority get_priority () {
@@ -56,8 +56,12 @@ public class PixbufCache : Object {
     private class BaselineFetchJob : FetchJob {
         public BaselineFetchJob (PixbufCache owner, BackgroundJob.JobPriority priority, Photo photo,
                                  Scaling scaling, CompletionCallback callback) {
-            debug ("new BaselineFetchJob: %d", (int) scaling.constraint);
-            base (owner, priority, photo, &scaling, callback);
+            debug ("new FetchJob: %d", (int) scaling.constraint);
+            base (owner, priority, photo, scaling, callback);
+
+            this.priority = priority;
+            this.photo = photo;
+            this.scaling = scaling;
         }
 
         public override void execute () {
@@ -72,7 +76,7 @@ public class PixbufCache : Object {
     private class MasterFetchJob : FetchJob {
         public MasterFetchJob (PixbufCache owner, BackgroundJob.JobPriority priority, Photo photo,
                                Scaling scaling, CompletionCallback callback) {
-            base (owner, priority, photo, &scaling, callback);
+            base (owner, priority, photo, scaling, callback);
         }
 
         public override void execute () {
