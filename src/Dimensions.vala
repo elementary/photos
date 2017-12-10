@@ -254,7 +254,8 @@ public struct Dimensions {
             return get_scaled_by_height (scale);
 
         default:
-            error ("Bad constraint: %d", (int) constraint);
+            critical ("Bad constraint: %d; returning original", (int) constraint);
+            return Dimensions (width, height);
         }
     }
 }
@@ -349,15 +350,14 @@ public struct Scaling {
             return false;
 
         switch (constraint) {
-        case ScaleConstraint.ORIGINAL:
-        case ScaleConstraint.FILL_VIEWPORT:
-            return false;
+            case ScaleConstraint.ORIGINAL:
+            case ScaleConstraint.FILL_VIEWPORT:
+                return false;
+            default:
+                pixels = scale_to_pixels ();
+                assert (pixels > 0);
 
-        default:
-            pixels = scale_to_pixels ();
-            assert (pixels > 0);
-
-            return true;
+                return true;
         }
     }
 
