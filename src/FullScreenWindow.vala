@@ -18,7 +18,6 @@
 */
 
 public class FullscreenWindow : PageWindow {
-    public const int TOOLBAR_INVOCATION_MSEC = 250;
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
@@ -26,7 +25,6 @@ public class FullscreenWindow : PageWindow {
     private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
     private bool is_toolbar_shown = false;
-    private bool waiting_for_invoke = false;
     private time_t left_toolbar_time = 0;
     private bool switched_to = false;
     private bool is_toolbar_dismissal_enabled = true;
@@ -180,13 +178,7 @@ public class FullscreenWindow : PageWindow {
 
     public override bool motion_notify_event (Gdk.EventMotion event) {
         if (!is_toolbar_shown) {
-            // if pointer is in toolbar height range without the mouse down (i.e. in the middle of
-            // an edit operation) and it stays there the necessary amount of time, invoke the
-            // toolbar
-            if (!waiting_for_invoke && is_pointer_in_toolbar ()) {
-                Timeout.add (TOOLBAR_INVOCATION_MSEC, on_check_toolbar_invocation);
-                waiting_for_invoke = true;
-            }
+            invoke_toolbar ();
         }
 
         return (base.motion_notify_event != null) ? base.motion_notify_event (event) : false;
@@ -214,20 +206,6 @@ public class FullscreenWindow : PageWindow {
         }
 
         return py >= threshold;
-    }
-
-    private bool on_check_toolbar_invocation () {
-        waiting_for_invoke = false;
-
-        if (is_toolbar_shown)
-            return false;
-
-        if (!is_pointer_in_toolbar ())
-            return false;
-
-        invoke_toolbar ();
-
-        return false;
     }
 
     private void invoke_toolbar () {
@@ -274,5 +252,6 @@ public class FullscreenWindow : PageWindow {
     private void hide_toolbar () {
         revealer.reveal_child = false;
         is_toolbar_shown = false;
+        left_toolbar_time = 0;
     }
 }
