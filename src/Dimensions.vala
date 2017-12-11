@@ -255,7 +255,8 @@ public struct Dimensions {
             return get_scaled_by_height (scale);
 
         default:
-            error ("Bad constraint: %d", (int) constraint);
+            critical ("Bad constraint: %d; returning original", (int) constraint);
+            return Dimensions (width, height);
         }
     }
 }
