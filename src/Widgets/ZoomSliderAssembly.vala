@@ -35,6 +35,12 @@ public class ZoomSliderAssembly : Gtk.Grid {
         }
     }
 
+    public bool inverted {
+        set {
+            slider.inverted = value;
+        }
+    }
+
     public double zoom_value {
         get {
             return slider.get_value ();

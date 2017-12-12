@@ -80,8 +80,25 @@ class SlideshowPage : SinglePhotoPage {
 
         toolbar.insert (next_button, -1);
 
+        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
+
         var effect_selector = new TransitionEffectSelector ();
         toolbar.insert (effect_selector, -1);
+
+        var slider = new ZoomSliderAssembly (0.5, 15.0, 0.5, 3.0);
+        slider.tooltip = _("Transition Speed");
+        slider.inverted = true;
+        slider.zoom_value = slideshow_settings.get_double ("delay");
+        slider.value_changed.connect (() => {
+            slideshow_settings.set_double ("delay", slider.zoom_value);
+        });
+
+        var slider_wrapper = new Gtk.ToolItem ();
+        slider_wrapper.margin_left = 3;
+        slider_wrapper.add (slider);
+        toolbar.insert (slider_wrapper, -1);
+
+        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
         screensaver = new Screensaver ();
     }

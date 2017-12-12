@@ -49,6 +49,8 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         });
 
         var button = new Gtk.Button.with_label (selected_effect);
+        button.tooltip_text = _("Transition Effect");
+
         var popover = new Gtk.Popover (button);
 
         effect_list_box = new Gtk.ListBox ();
