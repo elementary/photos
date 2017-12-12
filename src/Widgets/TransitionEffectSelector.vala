@@ -36,17 +36,32 @@ public class TransitionEffectSelector : Gtk.ToolItem {
             effect_list_store.append (new ListStoreItem (id, name));
         }
 
+        var button = new Gtk.Button.with_label (selected_effect);
+
         effect_list_box = new Gtk.ListBox ();
         effect_list_box.bind_model (effect_list_store, (item) => {
             return new LayoutRow ((item as ListStoreItem).name);
         });
 
-        var popover = new Gtk.Popover (null);
+        effect_list_box.row_activated.connect ((row) => {
+            var item = effect_list_store.get_item (row.get_index ()) as ListStoreItem;
+            if (item != null) {
+                button.label = item.name;
+            }
+        });
+
+        var layout_scrolled = new Gtk.ScrolledWindow (null, null);
+        layout_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        layout_scrolled.expand = true;
+        layout_scrolled.add (effect_list_box);
+
+        var popover = new Gtk.Popover (button);
+        popover.modal = false;
+        popover.height_request = 300;
         popover.closed.connect (() => AppWindow.get_fullscreen ().enable_toolbar_dismissal ());
         popover.position = Gtk.PositionType.TOP;
-        popover.add (effect_list_box);
+        popover.add (layout_scrolled);
 
-        var button = new Gtk.Button.with_label (selected_effect);
         button.clicked.connect (() => {
             popover.relative_to = button;
             popover.show_all ();
