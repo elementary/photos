@@ -76,6 +76,8 @@ public class FullscreenWindow : PageWindow {
         toolbar.insert (close_button, -1);
 
         revealer = new Gtk.Revealer ();
+        revealer.halign = Gtk.Align.CENTER;
+        revealer.valign = Gtk.Align.END;
         revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
         revealer.add (toolbar);
 
