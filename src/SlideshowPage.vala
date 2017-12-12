@@ -38,6 +38,7 @@ class SlideshowPage : SinglePhotoPage {
 
     construct {
         slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+        slideshow_settings.changed.connect (() => update_transition_effect ());
     }
 
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {

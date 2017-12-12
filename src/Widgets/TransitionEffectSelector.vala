@@ -37,6 +37,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         }
 
         var button = new Gtk.Button.with_label (selected_effect);
+        var popover = new Gtk.Popover (button);
 
         effect_list_box = new Gtk.ListBox ();
         effect_list_box.bind_model (effect_list_store, (item) => {
@@ -47,7 +48,10 @@ public class TransitionEffectSelector : Gtk.ToolItem {
             var item = effect_list_store.get_item (row.get_index ()) as ListStoreItem;
             if (item != null) {
                 button.label = item.name;
+                slideshow_settings.set_string ("transition-effect-id", item.id);
             }
+
+            popover.hide ();
         });
 
         var layout_scrolled = new Gtk.ScrolledWindow (null, null);
@@ -55,7 +59,6 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         layout_scrolled.expand = true;
         layout_scrolled.add (effect_list_box);
 
-        var popover = new Gtk.Popover (button);
         popover.modal = false;
         popover.height_request = 300;
         popover.closed.connect (() => AppWindow.get_fullscreen ().enable_toolbar_dismissal ());
