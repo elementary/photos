@@ -94,9 +94,20 @@ class SlideshowPage : SinglePhotoPage {
         });
 
         var slider_wrapper = new Gtk.ToolItem ();
-        slider_wrapper.margin_left = 3;
+        slider_wrapper.margin_left = 6;
         slider_wrapper.add (slider);
         toolbar.insert (slider_wrapper, -1);
+
+        var titles_toggle = new Gtk.ToggleToolButton ();
+        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
+        titles_toggle.tooltip_text = _("Show Photo Titles");
+        titles_toggle.margin_left = 6;
+        titles_toggle.active = slideshow_settings.get_boolean ("show-title");
+        titles_toggle.toggled.connect (() => {
+            slideshow_settings.set_boolean ("show-title", titles_toggle.active);
+        });
+
+        toolbar.insert (titles_toggle, -1);
 
         toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
