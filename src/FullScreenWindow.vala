@@ -60,7 +60,6 @@ public class FullscreenWindow : PageWindow {
         toolbar = page.get_toolbar ();
         toolbar.halign = Gtk.Align.CENTER;
         toolbar.margin = 6;
-        toolbar.margin_top = 300;
         toolbar.get_style_context ().add_class ("overlay-toolbar");
 
         if (page is SlideshowPage) {
