@@ -48,8 +48,20 @@ public class TransitionEffectSelector : Gtk.ToolItem {
             return ((ListStoreItem)a).name.collate (((ListStoreItem)b).name);
         });
 
-        var button = new Gtk.Button.with_label (selected_effect);
-        button.tooltip_text = _("Transition Effect");
+        var effect_label = new Gtk.Label (selected_effect);
+        effect_label.hexpand = true;
+        effect_label.xalign = 0;
+
+        var button_grid = new Gtk.Grid ();
+        button_grid.column_spacing = 6;
+        button_grid.valign = Gtk.Align.CENTER;
+        button_grid.add (effect_label);
+        button_grid.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.MENU));
+
+        var button = new Gtk.Button ();
+        button.width_request = 175;
+        button.tooltip_text = _("Transition effect");
+        button.add (button_grid);
 
         var popover = new Gtk.Popover (button);
 
@@ -61,7 +73,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         effect_list_box.row_activated.connect ((row) => {
             var item = effect_list_store.get_item (row.get_index ()) as ListStoreItem;
             if (item != null) {
-                button.label = item.name;
+                effect_label.label = item.name;
                 slideshow_settings.set_string ("transition-effect-id", item.id);
             }
 
@@ -71,9 +83,11 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         var layout_scrolled = new Gtk.ScrolledWindow (null, null);
         layout_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         layout_scrolled.expand = true;
+        layout_scrolled.margin_top = layout_scrolled.margin_bottom = 3;
         layout_scrolled.add (effect_list_box);
 
         popover.height_request = 300;
+        popover.width_request = 200;
         popover.closed.connect (() => AppWindow.get_fullscreen ().enable_toolbar_dismissal ());
         popover.position = Gtk.PositionType.TOP;
         popover.add (layout_scrolled);
@@ -100,11 +114,9 @@ public class TransitionEffectSelector : Gtk.ToolItem {
     private class LayoutRow : Gtk.ListBoxRow {
         public LayoutRow (string name) {
             var label = new Gtk.Label (name);
-            label.margin = 6;
-            label.margin_end = 12;
-            label.margin_start = 12;
             label.xalign = 0;
             add (label);
+            get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
         }
     }
 }
