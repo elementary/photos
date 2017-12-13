@@ -58,7 +58,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         button_grid.add (effect_label);
         button_grid.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.MENU));
 
-        var button = new Gtk.Button ();
+        var button = new Gtk.ToggleButton ();
         button.width_request = 175;
         button.tooltip_text = _("Transition effect");
         button.add (button_grid);
@@ -88,14 +88,22 @@ public class TransitionEffectSelector : Gtk.ToolItem {
 
         popover.height_request = 300;
         popover.width_request = 200;
-        popover.closed.connect (() => AppWindow.get_fullscreen ().enable_toolbar_dismissal ());
+        popover.closed.connect (() => {
+            AppWindow.get_fullscreen ().enable_toolbar_dismissal ();
+            button.active = false;
+        });
+
         popover.position = Gtk.PositionType.TOP;
         popover.add (layout_scrolled);
 
-        button.clicked.connect (() => {
-            popover.relative_to = button;
-            popover.show_all ();
-            AppWindow.get_fullscreen ().disable_toolbar_dismissal ();
+        button.toggled.connect (() => {
+            if (button.active) {
+                popover.relative_to = button;
+                popover.show_all ();
+                AppWindow.get_fullscreen ().disable_toolbar_dismissal ();
+            } else {
+                popover.hide ();
+            }
         });
 
         add (button);
