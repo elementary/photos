@@ -218,8 +218,8 @@ vala_precompile (VALA_C ${EXEC_NAME}
     util/ui.vala
     util/Util.vala
 
-    Widgets/ZoomSliderAssembly.vala
     Widgets/TransitionEffectSelector.vala
+    Widgets/SliderAssembly.vala
 CUSTOM_VAPIS
     ${CMAKE_SOURCE_DIR}/vapi/config.vapi
     ${CMAKE_BINARY_DIR}/src/${CMAKE_PROJECT_NAME}.vapi
