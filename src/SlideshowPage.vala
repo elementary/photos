@@ -85,29 +85,34 @@ class SlideshowPage : SinglePhotoPage {
         var effect_selector = new TransitionEffectSelector ();
         toolbar.insert (effect_selector, -1);
 
-        var slider = new SliderAssembly (0.5, 15.0, 0.5, 3.0);
-        slider.tooltip = _("Transition Speed");
+        var titles_toggle = new Gtk.ToggleToolButton ();
+        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
+        titles_toggle.tooltip_text = _("Show Photo Titles");
+        titles_toggle.margin_left = 6;
+        titles_toggle.active = slideshow_settings.get_boolean ("show-title");
+        titles_toggle.valign = Gtk.Align.CENTER;
+        titles_toggle.toggled.connect (() => {
+            slideshow_settings.set_boolean ("show-title", titles_toggle.active);
+        });
+
+        toolbar.insert (titles_toggle, -1);
+
+        var slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.5, 15.0, 0.5);
+        slider.tooltip_text = _("Transition Speed");
+        slider.add_mark (0.5, Gtk.PositionType.BOTTOM, _("Faster"));
+        slider.add_mark (15.0, Gtk.PositionType.BOTTOM, _("Slower"));
+        slider.draw_value = false;
+        slider.set_size_request (150, -1);
         slider.inverted = true;
-        slider.slider_value = slideshow_settings.get_double ("delay");
+        slider.set_value (slideshow_settings.get_double ("delay"));
         slider.value_changed.connect (() => {
-            slideshow_settings.set_double ("delay", slider.slider_value);
+            slideshow_settings.set_double ("delay", slider.get_value ());
         });
 
         var slider_wrapper = new Gtk.ToolItem ();
         slider_wrapper.margin_left = 6;
         slider_wrapper.add (slider);
         toolbar.insert (slider_wrapper, -1);
-
-        var titles_toggle = new Gtk.ToggleToolButton ();
-        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
-        titles_toggle.tooltip_text = _("Show Photo Titles");
-        titles_toggle.margin_left = 6;
-        titles_toggle.active = slideshow_settings.get_boolean ("show-title");
-        titles_toggle.toggled.connect (() => {
-            slideshow_settings.set_boolean ("show-title", titles_toggle.active);
-        });
-
-        toolbar.insert (titles_toggle, -1);
 
         toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 

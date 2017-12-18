@@ -27,6 +27,8 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
         effect_manager = TransitionEffectsManager.get_instance ();
 
+        valign = Gtk.Align.CENTER;
+
         var selected_effect = effect_manager.get_effect_name (slideshow_settings.get_string ("transition-effect-id"));
 
         var effect_list_store = new GLib.ListStore (typeof (ListStoreItem));
