@@ -321,19 +321,34 @@ class SlideshowPage : SinglePhotoPage {
 
     private void update_transition_effect () {
         string effect_id = slideshow_settings.get_string ("transition-effect-id");
-        double effect_delay = slideshow_settings.get_double ("transition-delay");
+        double effect_delay = calculate_effect_delay ();
 
         set_transition (effect_id, (int) (effect_delay * 1000.0));
     }
 
     private void random_transition_effect () {
-        double effect_delay = slideshow_settings.get_double ("transition-delay");
+        double effect_delay = calculate_effect_delay ();
         string effect_id = TransitionEffectsManager.NULL_EFFECT_ID;
         if (0 < transitions.length) {
             int random = Random.int_range (0, transitions.length);
             effect_id = transitions[random];
         }
         set_transition (effect_id, (int) (effect_delay * 1000.0));
+    }
+
+    private double calculate_effect_delay () {
+        var photo_delay = slideshow_settings.get_double ("delay");
+        var effect_delay = photo_delay / 7.0;
+
+        if (effect_delay < 0.1) {
+            effect_delay = 0.1;
+        }
+
+        if (effect_delay > 1.0) {
+            effect_delay = 1.0;
+        }
+
+        return effect_delay;
     }
 
     // Paint the title of the photo

@@ -62,7 +62,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
 
         var button = new Gtk.ToggleButton ();
         button.width_request = 175;
-        button.tooltip_text = _("Transition effect");
+        button.tooltip_text = _("Transition Effect");
         button.add (button_grid);
 
         var popover = new Gtk.Popover (button);
