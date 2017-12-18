@@ -81,7 +81,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Dialogs/ExportDialog.vala
     Dialogs/PreferencesDialog.vala
     Dialogs/ProgressDialog.vala
-    Dialogs/SlideshowSettingsDialog.vala
     Dialogs/TextEntryDialog.vala
 
     config/ConfigurationInterfaces.vala
@@ -219,6 +218,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     util/ui.vala
     util/Util.vala
 
+    Widgets/TransitionEffectSelector.vala
     Widgets/SliderAssembly.vala
 CUSTOM_VAPIS
     ${CMAKE_SOURCE_DIR}/vapi/config.vapi
