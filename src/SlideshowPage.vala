@@ -95,6 +95,10 @@ class SlideshowPage : SinglePhotoPage {
             slideshow_settings.set_boolean ("show-title", titles_toggle.active);
         });
 
+        var dropdown_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
+        dropdown_sizegroup.add_widget (effect_selector);
+        dropdown_sizegroup.add_widget (titles_toggle);
+
         toolbar.insert (titles_toggle, -1);
 
         var slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.5, 15.0, 0.5);
