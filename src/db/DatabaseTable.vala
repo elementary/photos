@@ -180,7 +180,11 @@ public abstract class DatabaseTable {
         assert (res == Sqlite.OK);
     }
 
-    protected static void bind_text (Sqlite.Statement stmt, int column, string data) {
+    protected static void bind_text (Sqlite.Statement stmt, int column, string? data) {
+        if (data == null) {
+            bind_null (stmt, column);
+        }
+
         var res = stmt.bind_text (column, data);
         assert (res == Sqlite.OK);
     }
