@@ -21,6 +21,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     AppWindow.vala
     BatchImport.vala
     Box.vala
+    CheckerboardPage.vala
     CollectionPage.vala
     ColorTransformation.vala
     CommandManager.vala
@@ -53,6 +54,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Resources.vala
     Screensaver.vala
     SearchFilter.vala
+    SinglePhotoPage.vala
     SlideshowPage.vala
     SortedList.vala
     Tag.vala
@@ -209,6 +211,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     unit/Unit.vala
 
+    util/DragAndDropHandler.vala
     util/file.vala
     util/image.vala
     util/KeyValueMap.vala
@@ -218,6 +221,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     util/ui.vala
     util/Util.vala
 
+    Widgets/ContractMenuItem.vala
     Widgets/TransitionEffectSelector.vala
     Widgets/SliderAssembly.vala
 CUSTOM_VAPIS
