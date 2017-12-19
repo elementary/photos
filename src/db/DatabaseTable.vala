@@ -175,6 +175,11 @@ public abstract class DatabaseTable {
         return stmt;
     }
 
+    protected static void bind_null (Sqlite.Statement stmt, int column) {
+        var res = stmt.bind_null (column);
+        assert (res == Sqlite.OK);
+    }
+
     protected static void bind_text (Sqlite.Statement stmt, int column, string data) {
         var res = stmt.bind_text (column, data);
         assert (res == Sqlite.OK);
