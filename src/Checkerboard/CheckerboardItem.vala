@@ -43,7 +43,7 @@ public abstract class CheckerboardItem : ThumbnailView {
     private Gdk.Pixbuf pixbuf = null;
     private Gdk.Pixbuf display_pixbuf = null;
     private Gdk.Pixbuf brightened = null;
-    private Dimensions pixbuf_dim = Dimensions ();
+    protected Dimensions pixbuf_dim = Dimensions ();
     private int col = -1;
     private int row = -1;
 
