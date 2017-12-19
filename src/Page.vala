@@ -1963,8 +1963,11 @@ public abstract class SinglePhotoPage : Page {
         render_zoomed_to_pixmap (interactive_zoom_state);
         zoom_high_quality = old_quality_setting;
 
+        canvas_ctx.save ();
+        canvas_ctx.scale (1.0f / scale_factor, 1.0f / scale_factor);
         canvas_ctx.set_source_surface (pixmap, 0, 0);
         canvas_ctx.paint ();
+        canvas_ctx.restore ();
     }
 
     protected virtual bool is_zoom_supported () {
@@ -2098,7 +2101,7 @@ public abstract class SinglePhotoPage : Page {
     }
 
     public bool is_inside_pixbuf (int x, int y) {
-        return coord_in_rectangle (x, y, scaled_pos);
+        return coord_in_rectangle (x * scale_factor, y * scale_factor, scaled_pos);
     }
 
     public void invalidate (Gdk.Rectangle rect) {
@@ -2127,13 +2130,16 @@ public abstract class SinglePhotoPage : Page {
         // draw pixmap onto canvas unless it's not been instantiated, in which case draw background
         // (so either old image or contents of another page is not left on screen)
         if (pixmap != null) {
+            exposed_ctx.save ();
+            exposed_ctx.scale (1.0f / scale_factor, 1.0f / scale_factor);
             exposed_ctx.set_source_surface (pixmap, 0, 0);
         } else {
             canvas.get_style_context ().render_background (exposed_ctx, 0, 0, get_allocated_width (), get_allocated_height ());
         }
 
-        exposed_ctx.rectangle (0, 0, get_allocated_width (), get_allocated_height ());
+        exposed_ctx.rectangle (0, 0, get_allocated_width () * scale_factor, get_allocated_height () * scale_factor);
         exposed_ctx.paint ();
+        exposed_ctx.restore ();
 
         return true;
     }
@@ -2184,8 +2190,8 @@ public abstract class SinglePhotoPage : Page {
         Gtk.Allocation allocation;
         viewport.get_allocation (out allocation);
 
-        int width = allocation.width;
-        int height = allocation.height;
+        int width = allocation.width * scale_factor;
+        int height = allocation.height * scale_factor;
 
         if (width <= 0 || height <= 0)
             return;
