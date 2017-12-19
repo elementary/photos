@@ -1952,24 +1952,6 @@ public abstract class SinglePhotoPage : Page {
         pixmap_ctx.paint ();
     }
 
-    protected void on_interactive_zoom (ZoomState interactive_zoom_state) {
-        assert (is_zoom_supported ());
-        Cairo.Context canvas_ctx = Gdk.cairo_create (canvas.get_window ());
-
-        canvas.get_style_context ().render_background (pixmap_ctx, 0, 0, pixmap_dim.width, pixmap_dim.height);
-
-        bool old_quality_setting = zoom_high_quality;
-        zoom_high_quality = false;
-        render_zoomed_to_pixmap (interactive_zoom_state);
-        zoom_high_quality = old_quality_setting;
-
-        canvas_ctx.save ();
-        canvas_ctx.scale (1.0f / scale_factor, 1.0f / scale_factor);
-        canvas_ctx.set_source_surface (pixmap, 0, 0);
-        canvas_ctx.paint ();
-        canvas_ctx.restore ();
-    }
-
     protected void on_interactive_pan (ZoomState interactive_zoom_state) {
         assert (is_zoom_supported ());
         Cairo.Context canvas_ctx = Gdk.cairo_create (canvas.get_window ());

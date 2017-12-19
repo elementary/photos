@@ -64,7 +64,6 @@ public class TextEntryDialog : Gtk.Dialog {
         }
 
         set_default_response (Gtk.ResponseType.OK);
-        set_has_resize_grip (false);
     }
 
     public string? execute () {

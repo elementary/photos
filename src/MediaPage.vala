@@ -23,6 +23,8 @@ public class MediaSourceItem : CheckerboardItem {
     public MediaSourceItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title,
                             string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
         base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
+
+        pixbuf_dim = initial_pixbuf_dim;
     }
 }
 
@@ -38,7 +40,7 @@ public abstract class MediaPage : CheckerboardPage {
         MAX = 2
     }
 
-    private ZoomSliderAssembly? connected_slider = null;
+    private SliderAssembly? connected_slider = null;
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
     private Gtk.Menu page_context_menu;
@@ -500,7 +502,7 @@ public abstract class MediaPage : CheckerboardPage {
         base.switching_from ();
     }
 
-    protected void connect_slider (ZoomSliderAssembly slider) {
+    protected void connect_slider (SliderAssembly slider) {
         connected_slider = slider;
         connected_slider.value_changed.connect (on_zoom_changed);
         load_persistent_thumbnail_scale ();
@@ -510,7 +512,7 @@ public abstract class MediaPage : CheckerboardPage {
         if (connected_slider == null)
             return;
 
-        ui_settings.set_int ("photo-thumbnail-scale", (int)connected_slider.zoom_value);
+        ui_settings.set_int ("photo-thumbnail-scale", (int)connected_slider.slider_value);
     }
 
     private void load_persistent_thumbnail_scale () {
@@ -519,7 +521,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         int persistent_scale = ui_settings.get_int ("photo-thumbnail-scale");
 
-        connected_slider.zoom_value = persistent_scale;
+        connected_slider.slider_value = persistent_scale;
         set_thumb_size (persistent_scale);
     }
 
@@ -533,7 +535,7 @@ public abstract class MediaPage : CheckerboardPage {
 
     protected virtual void on_zoom_changed () {
         if (connected_slider != null)
-            set_thumb_size ((int)connected_slider.zoom_value);
+            set_thumb_size ((int)connected_slider.slider_value);
 
         save_persistent_thumbnail_scale ();
     }

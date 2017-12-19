@@ -25,7 +25,6 @@ class SlideshowPage : SinglePhotoPage {
     private ViewCollection controller;
     private Photo current;
     private Gtk.ToolButton play_pause_button;
-    private Gtk.ToolButton settings_button;
     private PixbufCache cache = null;
     private Timer timer = new Timer ();
     private bool playing = true;
@@ -39,6 +38,7 @@ class SlideshowPage : SinglePhotoPage {
 
     construct {
         slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+        slideshow_settings.changed.connect (() => update_transition_effect ());
     }
 
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {
@@ -80,12 +80,45 @@ class SlideshowPage : SinglePhotoPage {
 
         toolbar.insert (next_button, -1);
 
-        settings_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), _("Settings"));
-        settings_button.set_tooltip_text (_ ("Change slideshow settings"));
-        settings_button.clicked.connect (on_change_settings);
-        settings_button.is_important = true;
+        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
-        toolbar.insert (settings_button, -1);
+        var effect_selector = new TransitionEffectSelector ();
+        toolbar.insert (effect_selector, -1);
+
+        var titles_toggle = new Gtk.ToggleToolButton ();
+        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
+        titles_toggle.tooltip_text = _("Show Photo Titles");
+        titles_toggle.margin_left = 6;
+        titles_toggle.active = slideshow_settings.get_boolean ("show-title");
+        titles_toggle.valign = Gtk.Align.CENTER;
+        titles_toggle.toggled.connect (() => {
+            slideshow_settings.set_boolean ("show-title", titles_toggle.active);
+        });
+
+        var dropdown_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
+        dropdown_sizegroup.add_widget (effect_selector);
+        dropdown_sizegroup.add_widget (titles_toggle);
+
+        toolbar.insert (titles_toggle, -1);
+
+        var slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.5, 15.0, 0.5);
+        slider.tooltip_text = _("Transition Speed");
+        slider.add_mark (0.5, Gtk.PositionType.BOTTOM, _("Faster"));
+        slider.add_mark (15.0, Gtk.PositionType.BOTTOM, _("Slower"));
+        slider.draw_value = false;
+        slider.set_size_request (150, -1);
+        slider.inverted = true;
+        slider.set_value (slideshow_settings.get_double ("delay"));
+        slider.value_changed.connect (() => {
+            slideshow_settings.set_double ("delay", slider.get_value ());
+        });
+
+        var slider_wrapper = new Gtk.ToolItem ();
+        slider_wrapper.margin_left = 6;
+        slider_wrapper.add (slider);
+        toolbar.insert (slider_wrapper, -1);
+
+        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
         screensaver = new Screensaver ();
     }
@@ -286,43 +319,36 @@ class SlideshowPage : SinglePhotoPage {
         return (base.key_press_event != null) ? base.key_press_event (event) : true;
     }
 
-    private void on_change_settings () {
-        SlideshowSettingsDialog settings_dialog = new SlideshowSettingsDialog ();
-        settings_dialog.show_all ();
-
-        bool slideshow_playing = playing;
-        playing = false;
-        hide_toolbar ();
-
-        if (settings_dialog.run () == Gtk.ResponseType.OK) {
-            slideshow_settings.set_double ("delay", settings_dialog.get_delay ());
-            slideshow_settings.set_double ("transition-delay", settings_dialog.get_transition_delay ());
-            slideshow_settings.set_string ("transition-effect-id", settings_dialog.get_transition_effect_id ());
-            slideshow_settings.set_boolean ("show-title", settings_dialog.get_show_title ());
-
-            update_transition_effect ();
-        }
-
-        settings_dialog.destroy ();
-        playing = slideshow_playing;
-        timer.start ();
-    }
-
     private void update_transition_effect () {
         string effect_id = slideshow_settings.get_string ("transition-effect-id");
-        double effect_delay = slideshow_settings.get_double ("transition-delay");
+        double effect_delay = calculate_effect_delay ();
 
         set_transition (effect_id, (int) (effect_delay * 1000.0));
     }
 
     private void random_transition_effect () {
-        double effect_delay = slideshow_settings.get_double ("transition-delay");
+        double effect_delay = calculate_effect_delay ();
         string effect_id = TransitionEffectsManager.NULL_EFFECT_ID;
         if (0 < transitions.length) {
             int random = Random.int_range (0, transitions.length);
             effect_id = transitions[random];
         }
         set_transition (effect_id, (int) (effect_delay * 1000.0));
+    }
+
+    private double calculate_effect_delay () {
+        var photo_delay = slideshow_settings.get_double ("delay");
+        var effect_delay = photo_delay / 7.0;
+
+        if (effect_delay < 0.1) {
+            effect_delay = 0.1;
+        }
+
+        if (effect_delay > 1.0) {
+            effect_delay = 1.0;
+        }
+
+        return effect_delay;
     }
 
     // Paint the title of the photo
