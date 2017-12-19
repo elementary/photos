@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2017 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
