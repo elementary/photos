@@ -426,7 +426,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private PixbufCache cache = null;
     private PixbufCache master_cache = null;
     private DragAndDropHandler dnd_handler = null;
-    private bool enable_interactive_zoom_refresh = false;
     private Gdk.Point zoom_pan_start_point;
     private bool is_pan_in_progress = false;
     private double saved_slider_val = 0.0;
@@ -588,19 +587,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private void on_zoom_slider_value_changed () {
         ZoomState new_zoom_state = ZoomState.rescale (get_zoom_state (), zoom_slider.slider_value);
 
-        if (enable_interactive_zoom_refresh) {
-            on_interactive_zoom (new_zoom_state);
-
-            if (new_zoom_state.is_default ())
-                set_zoom_state (new_zoom_state);
+        if (new_zoom_state.is_default ()) {
+            cancel_zoom ();
         } else {
-            if (new_zoom_state.is_default ()) {
-                cancel_zoom ();
-            } else {
-                set_zoom_state (new_zoom_state);
-            }
-            repaint ();
+            set_zoom_state (new_zoom_state);
         }
+
+        repaint ();
 
         update_cursor_for_zoom_context ();
     }
