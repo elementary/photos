@@ -91,12 +91,12 @@ public class PhotoRow {
     public Orientation orientation;
     public Gee.HashMap<string, KeyValueMap>? transformations;
     public string md5;
-    public string thumbnail_md5;
-    public string exif_md5;
+    public string? thumbnail_md5;
+    public string? exif_md5;
     public time_t time_created;
     public uint64 flags;
-    public string title;
-    public string comment;
+    public string? title;
+    public string? comment;
     public string? backlinks;
     public time_t time_reimported;
     public BackingPhotoID editable_id;
