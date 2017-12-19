@@ -307,7 +307,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     public override void activate (PhotoCanvas canvas) {
-        adjust_tool_window = new AdjustToolWindow (canvas.get_container ());
+        adjust_tool_window = new AdjustToolWindow (canvas.container);
 
         Photo photo = canvas.get_photo ();
         transformations = photo.get_color_adjustments ();
