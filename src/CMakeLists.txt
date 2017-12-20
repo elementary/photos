@@ -51,7 +51,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     PixbufCache.vala
     Printing.vala
     Resources.vala
-    Screensaver.vala
     SearchFilter.vala
     SlideshowPage.vala
     SortedList.vala
