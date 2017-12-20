@@ -27,7 +27,8 @@ public class FullscreenWindow : PageWindow {
     private bool is_toolbar_shown = false;
     private time_t left_toolbar_time = 0;
     private bool switched_to = false;
-    private bool is_toolbar_dismissal_enabled = true;
+
+    public bool auto_dismiss_toolbar { get; set; default = true; }
 
     public FullscreenWindow (Page page) {
         set_current_page (page);
@@ -105,16 +106,8 @@ public class FullscreenWindow : PageWindow {
         page.grab_focus ();
     }
 
-    public void disable_toolbar_dismissal () {
-        is_toolbar_dismissal_enabled = false;
-    }
-
-    public void enable_toolbar_dismissal () {
-        is_toolbar_dismissal_enabled = true;
-    }
-
     public void update_toolbar_dismissal () {
-        is_toolbar_dismissal_enabled = !pin_button.get_active ();
+        auto_dismiss_toolbar = !pin_button.get_active ();
     }
 
     private Gdk.Rectangle get_monitor_geometry () {
@@ -222,8 +215,9 @@ public class FullscreenWindow : PageWindow {
             return false;
 
         // if dismissal is disabled, keep open but keep checking
-        if ((!is_toolbar_dismissal_enabled))
+        if (!auto_dismiss_toolbar) {
             return true;
+        }
 
         // if the pointer is in toolbar range, keep it alive, but keep checking
         if (is_pointer_in_toolbar ()) {
