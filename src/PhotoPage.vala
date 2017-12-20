@@ -1222,7 +1222,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // swap out new photo and old photo and process change
         Photo old_photo = get_photo ();
         set_photo (new_photo);
-        set_page_name (new_photo.get_name ());
+        page_name = new_photo.get_name ();
 
         // clear out the swap buffer
         swapped = null;
