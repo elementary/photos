@@ -91,7 +91,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
         popover.height_request = 300;
         popover.width_request = 200;
         popover.closed.connect (() => {
-            AppWindow.get_fullscreen ().enable_toolbar_dismissal ();
+            AppWindow.get_fullscreen ().auto_dismiss_toolbar = true;
             button.active = false;
         });
 
@@ -102,7 +102,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
             if (button.active) {
                 popover.relative_to = button;
                 popover.show_all ();
-                AppWindow.get_fullscreen ().disable_toolbar_dismissal ();
+                AppWindow.get_fullscreen ().auto_dismiss_toolbar = false;
             } else {
                 popover.hide ();
             }
