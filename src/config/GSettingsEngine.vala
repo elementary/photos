@@ -137,7 +137,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
 
-        return "io.elementary.photos.%s.%s".printf (domain, cleaned_id);
+        return "org.pantheon.photos.%s.%s".printf (domain, cleaned_id);
     }
 
     private static string make_gsettings_key (string gconf_key) {
