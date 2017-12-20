@@ -52,6 +52,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Printing.vala
     Resources.vala
     SearchFilter.vala
+    SinglePhotoPage.vala
     SlideshowPage.vala
     SortedList.vala
     Tag.vala
@@ -74,6 +75,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Checkerboard/CheckerboardItem.vala
     Checkerboard/CheckerboardItemText.vala
     Checkerboard/CheckerboardLayout.vala
+    Checkerboard/CheckerboardPage.vala
 
     Dialogs/AdjustDateTimeDialog.vala
     Dialogs/Dialogs.vala
@@ -208,6 +210,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     unit/Unit.vala
 
+    util/DragAndDropHandler.vala
     util/file.vala
     util/image.vala
     util/KeyValueMap.vala
@@ -217,6 +220,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     util/ui.vala
     util/Util.vala
 
+    Widgets/ContractMenuItem.vala
     Widgets/TransitionEffectSelector.vala
     Widgets/SliderAssembly.vala
 CUSTOM_VAPIS
