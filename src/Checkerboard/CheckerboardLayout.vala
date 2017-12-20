@@ -1032,6 +1032,14 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
             // have all items in the exposed area paint themselves
             weak Gtk.StyleContext style_context = get_style_context ();
+
+            var back_color = style_context.get_background_color (Gtk.StateFlags.NORMAL);
+            ctx.save ();
+            ctx.set_source_rgba (back_color.red, back_color.green, back_color.blue, back_color.alpha);
+            ctx.rectangle (visible_page.x, visible_page.y, visible_page.width, visible_page.height);
+            ctx.paint ();
+            ctx.restore ();
+
             style_context.save ();
             style_context.add_class ("card");
             foreach (CheckerboardItem item in intersection (visible_page)) {
