@@ -23,7 +23,7 @@ public class YandexService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.yandex-fotki";
+        return "io.elementary.photos.publishing.yandex-fotki";
     }
 
     public unowned string get_pluggable_name () {

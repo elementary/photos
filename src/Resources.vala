@@ -543,7 +543,7 @@ private Gdk.Pixbuf? noninterpretable_badge_pixbuf = null;
 public Gdk.Pixbuf? get_noninterpretable_badge_pixbuf () {
     if (noninterpretable_badge_pixbuf == null) {
         try {
-            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_resource ("/org/pantheon/photos/backgrounds/noninterpretable-video.svg");
+            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_resource ("/io/elementary/photos/backgrounds/noninterpretable-video.svg");
         } catch (Error err) {
             error ("VideoReader can't load noninterpretable badge image: %s", err.message);
         }

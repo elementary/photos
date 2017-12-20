@@ -31,7 +31,7 @@ public class FacebookService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.facebook";
+        return "io.elementary.photos.publishing.facebook";
     }
 
     public unowned string get_pluggable_name () {

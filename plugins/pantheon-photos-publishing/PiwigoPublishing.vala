@@ -31,7 +31,7 @@ public class PiwigoService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.piwigo";
+        return "io.elementary.photos.publishing.piwigo";
     }
 
     public unowned string get_pluggable_name () {
