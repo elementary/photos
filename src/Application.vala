@@ -68,7 +68,7 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos-direct";
-            app_launcher = "io.elementary.photos-viewer.desktop";
+            app_launcher = "org.pantheon.photos-viewer.desktop";
             program_name = _("Photo Viewer");
             Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
@@ -79,7 +79,7 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos";
-            app_launcher = "io.elementary.photos.desktop";
+            app_launcher = "org.pantheon.photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }

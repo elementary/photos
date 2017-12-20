@@ -18,7 +18,7 @@
 */
 
 public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
-    public const string ROOT_SCHEMA_NAME = "io.elementary.photos";
+    public const string ROOT_SCHEMA_NAME = "org.pantheon.photos";
     public const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
     public const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
     public const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
