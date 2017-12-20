@@ -885,9 +885,7 @@ public class PhotoMetadata : MediaMetadata {
     };
 
     private static HierarchicalKeywordField[] HIERARCHICAL_KEYWORD_TAGS = {
-        // Xmp.lr.hierarchicalSubject should be writeable but isn't due to this bug
-        // in libexiv2: http://dev.exiv2.org/issues/784
-        new HierarchicalKeywordField ("Xmp.lr.hierarchicalSubject", "|", false, false),
+        new HierarchicalKeywordField ("Xmp.lr.hierarchicalSubject", "|", false, true),
         new HierarchicalKeywordField ("Xmp.digiKam.TagsList", "/", false, true),
         new HierarchicalKeywordField ("Xmp.MicrosoftPhoto.LastKeywordXMP", "/", false, true)
     };

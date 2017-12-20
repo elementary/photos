@@ -191,6 +191,8 @@ public class StraightenTool : EditingTool {
 
     private double preview_scale;
 
+    private int scale_factor = 1;
+
     private StraightenTool () {
         base ("StraightenTool");
     }
@@ -240,10 +242,16 @@ public class StraightenTool : EditingTool {
     }
 
     public override void on_left_click (int x, int y) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         guide.reset (x, y, photo_angle);
     }
 
     public override void on_left_released (int x, int y) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         guide.update (x, y);
         double? a = guide.get_angle ();
         guide.clear ();
@@ -254,6 +262,9 @@ public class StraightenTool : EditingTool {
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         if (guide.update (x, y))
             canvas.repaint ();
     }
@@ -276,7 +287,7 @@ public class StraightenTool : EditingTool {
 
     private void prepare_image () {
         Dimensions canvas_dims = canvas.get_surface_dim ();
-        Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE, TEMP_PIXBUF_SIZE);
+        Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE * scale_factor, TEMP_PIXBUF_SIZE * scale_factor);
         if (viewport == last_viewport)
             return;     // no change
 
@@ -335,6 +346,8 @@ public class StraightenTool : EditingTool {
      * @param canvas The PhotoCanvas the tool's output should be painted to.
      */
     public override void activate (PhotoCanvas canvas) {
+        scale_factor = canvas.container.scale_factor;
+
         base.activate (canvas);
         this.canvas = canvas;
         bind_canvas_handlers (this.canvas);
@@ -369,7 +382,7 @@ public class StraightenTool : EditingTool {
         // set crosshair cursor
         canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.CROSSHAIR));
 
-        window = new StraightenToolWindow (canvas.get_container ());
+        window = new StraightenToolWindow (canvas.container);
         bind_window_handlers ();
 
         // prepare ths slider for display
@@ -461,7 +474,7 @@ public class StraightenTool : EditingTool {
      */
     private void update_rotated_surface () {
         draw_rotated_source (photo_surf, rotate_ctx, view_width, view_height, photo_angle);
-        rotate_ctx.set_line_width (1.0);
+        rotate_ctx.set_line_width (1.0 * scale_factor);
         draw_superimposed_grid (rotate_ctx, view_width, view_height);
     }
 
@@ -473,8 +486,8 @@ public class StraightenTool : EditingTool {
      *      it's not used.
      */
     public override void paint (Cairo.Context ctx) {
-        int w = canvas.get_drawing_window ().get_width ();
-        int h = canvas.get_drawing_window ().get_height ();
+        int w = canvas.get_drawing_window ().get_width () * scale_factor;
+        int h = canvas.get_drawing_window ().get_height () * scale_factor;
 
         // fill region behind the rotation surface with neutral color
         canvas.get_default_ctx ().identity_matrix ();
