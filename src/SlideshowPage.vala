@@ -31,9 +31,8 @@ class SlideshowPage : SinglePhotoPage {
     private bool playing = true;
     private bool exiting = false;
     private string[] transitions;
+    private uint32 cookie = 0;
     private GLib.Settings slideshow_settings;
-
-    private Screensaver screensaver;
 
     public signal void hide_toolbar ();
 
@@ -112,8 +111,6 @@ class SlideshowPage : SinglePhotoPage {
         toolbar.add (titles_toggle);
         toolbar.add (slider_wrapper);
         toolbar.add (new Gtk.SeparatorToolItem ());
-
-        screensaver = new Screensaver ();
     }
 
     public override void switched_to () {
@@ -131,12 +128,12 @@ class SlideshowPage : SinglePhotoPage {
         Timeout.add (CHECK_ADVANCE_MSEC, auto_advance);
         timer.start ();
 
-        screensaver.inhibit ("Playing slideshow");
+        inhibit_screensaver ();
     }
 
     public override void switching_from () {
         base.switching_from ();
-        screensaver.uninhibit ();
+        uninhibit_screensaver ();
         exiting = true;
     }
 
@@ -384,5 +381,25 @@ class SlideshowPage : SinglePhotoPage {
 
         if (slideshow_settings.get_boolean ("show-title") && !is_transition_in_progress ())
             paint_title (ctx, ctx_dim);
+    }
+
+    private void inhibit_screensaver () {
+        if (cookie != 0) {
+            return;
+        }
+
+        cookie = Application.get_instance ().app_inhibit (
+            Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Slideshow")
+        );
+    }
+
+    private void uninhibit_screensaver () {
+        if (cookie == 0) {
+            return;
+        }
+
+        Application.get_instance ().uninhibit (cookie);
+        cookie = 0;
     }
 }
