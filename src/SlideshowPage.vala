@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2017 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -35,13 +36,8 @@ class SlideshowPage : SinglePhotoPage {
 
     public signal void hide_toolbar ();
 
-    construct {
-        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
-        slideshow_settings.changed.connect (() => update_transition_effect ());
-    }
-
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {
-        base (_ ("Slideshow"), true);
+        base (_("Slideshow"), true);
 
         this.sources = sources;
         this.controller = controller;
@@ -53,36 +49,28 @@ class SlideshowPage : SinglePhotoPage {
         a.remove (RandomEffectDescriptor.EFFECT_ID);
         transitions = a.to_array ();
         current = start;
+    }
+
+    construct {
+        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+        slideshow_settings.changed.connect (() => update_transition_effect ());
 
         update_transition_effect ();
 
-        // Set up toolbar
-        Gtk.Toolbar toolbar = get_toolbar ();
-
-        // add toolbar buttons
-        Gtk.ToolButton previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
-        previous_button.set_tooltip_text (_ ("Go to the previous photo"));
+        var previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
+        previous_button.tooltip_text = _("Go to the previous photo");
         previous_button.clicked.connect (on_previous_photo);
 
-        toolbar.insert (previous_button, -1);
-
         play_pause_button = new Gtk.ToolButton (null, _("Pause"));
-        play_pause_button.set_icon_name ("media-playback-pause-symbolic");
-        play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
+        play_pause_button.icon_name = "media-playback-pause-symbolic";
+        play_pause_button.tooltip_text = _("Pause the slideshow");
         play_pause_button.clicked.connect (on_play_pause);
 
-        toolbar.insert (play_pause_button, -1);
-
-        Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
-        next_button.set_tooltip_text (_ ("Go to the next photo"));
+        var next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
+        next_button.tooltip_text = _("Go to the next photo");
         next_button.clicked.connect (on_next_photo);
 
-        toolbar.insert (next_button, -1);
-
-        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-
         var effect_selector = new TransitionEffectSelector ();
-        toolbar.insert (effect_selector, -1);
 
         var titles_toggle = new Gtk.ToggleToolButton ();
         titles_toggle.icon_name = "preferences-desktop-font-symbolic";
@@ -98,15 +86,13 @@ class SlideshowPage : SinglePhotoPage {
         dropdown_sizegroup.add_widget (effect_selector);
         dropdown_sizegroup.add_widget (titles_toggle);
 
-        toolbar.insert (titles_toggle, -1);
-
         var slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.5, 15.0, 0.5);
+        slider.draw_value = false;
+        slider.inverted = true;
         slider.tooltip_text = _("Transition Speed");
+        slider.width_request = 150;
         slider.add_mark (0.5, Gtk.PositionType.BOTTOM, _("Faster"));
         slider.add_mark (15.0, Gtk.PositionType.BOTTOM, _("Slower"));
-        slider.draw_value = false;
-        slider.set_size_request (150, -1);
-        slider.inverted = true;
         slider.set_value (slideshow_settings.get_double ("delay"));
         slider.value_changed.connect (() => {
             slideshow_settings.set_double ("delay", slider.get_value ());
@@ -115,9 +101,16 @@ class SlideshowPage : SinglePhotoPage {
         var slider_wrapper = new Gtk.ToolItem ();
         slider_wrapper.margin_left = 6;
         slider_wrapper.add (slider);
-        toolbar.insert (slider_wrapper, -1);
 
-        toolbar.insert (new Gtk.SeparatorToolItem (), -1);
+        var toolbar = get_toolbar ();
+        toolbar.add (previous_button);
+        toolbar.add (play_pause_button);
+        toolbar.add (next_button);
+        toolbar.add (new Gtk.SeparatorToolItem ());
+        toolbar.add (effect_selector);
+        toolbar.add (titles_toggle);
+        toolbar.add (slider_wrapper);
+        toolbar.add (new Gtk.SeparatorToolItem ());
     }
 
     public override void switched_to () {
@@ -195,13 +188,11 @@ class SlideshowPage : SinglePhotoPage {
 
     private void on_play_pause () {
         if (playing) {
-            play_pause_button.set_icon_name ("media-playback-start-symbolic");
-            play_pause_button.set_label (_ ("Play"));
-            play_pause_button.set_tooltip_text (_ ("Continue the slideshow"));
+            play_pause_button.icon_name = "media-playback-start-symbolic";
+            play_pause_button.tooltip_text = _("Continue the slideshow");
         } else {
-            play_pause_button.set_icon_name ("media-playback-pause-symbolic");
-            play_pause_button.set_label (_ ("Pause"));
-            play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
+            play_pause_button.icon_name = "media-playback-pause-symbolic";
+            play_pause_button.tooltip_text = _("Pause the slideshow");
         }
 
         playing = !playing;
