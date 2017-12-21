@@ -56,7 +56,7 @@ public class FullscreenWindow : PageWindow {
 
         var close_button = new Gtk.ToolButton (img, null);
         close_button.tooltip_text = _("Leave fullscreen");
-        close_button.clicked.connect (on_close);
+        close_button.clicked.connect (close);
 
         toolbar = page.get_toolbar ();
         toolbar.halign = Gtk.Align.CENTER;
@@ -135,21 +135,16 @@ public class FullscreenWindow : PageWindow {
         switch (Gdk.keyval_name (event.keyval)) {
             case "F11":
             case "Escape":
-                on_close ();
+                close ();
                 return true;
         }
 
         return (base.key_press_event != null) ? base.key_press_event (event) : false;
     }
 
-    private void on_close () {
-        hide_toolbar ();
-
-        AppWindow.get_instance ().end_fullscreen ();
-    }
-
     public new void close () {
-        on_close ();
+        hide_toolbar ();
+        AppWindow.get_instance ().end_fullscreen ();
     }
 
     public override void destroy () {
@@ -165,7 +160,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     public override bool delete_event (Gdk.EventAny event) {
-        on_close ();
+        close ();
         AppWindow.get_instance ().destroy ();
 
         return true;
