@@ -29,11 +29,13 @@ vala_precompile (VALA_C ${EXEC_NAME}
     DesktopIntegration.vala
     Dimensions.vala
     DirectoryMonitor.vala
+    EditingHostPage.vala
     Event.vala
     Exporter.vala
     FullScreenWindow.vala
     LibraryFiles.vala
     LibraryMonitor.vala
+    LibraryPhotoPage.vala
     main.vala
     MediaDataRepresentation.vala
     MediaInterfaces.vala
@@ -46,7 +48,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Page.vala
     PageWindow.vala
     PhotoMonitor.vala
-    PhotoPage.vala
     Photo.vala
     PixbufCache.vala
     Printing.vala
@@ -65,6 +66,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     VideoMetadata.vala
     VideoMonitor.vala
     VideoSupport.vala
+    ZoomBuffer.vala
 
     camera/Branch.vala
     camera/CameraTable.vala
