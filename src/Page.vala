@@ -24,7 +24,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected bool in_view = false;
     protected Gtk.ToolButton show_sidebar_button;
 
-    private string page_name;
     private ViewCollection view = null;
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
@@ -51,8 +50,10 @@ public abstract class Page : Gtk.ScrolledWindow {
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
 
+    public string page_name { get; set; }
+
     protected Page (string page_name) {
-        this.page_name = page_name;
+        Object (page_name: page_name);
 
         view = new ViewCollection ("ViewCollection for Page %s".printf (page_name));
 
@@ -127,15 +128,7 @@ public abstract class Page : Gtk.ScrolledWindow {
 
         base.destroy ();
 
-        debug ("Page %s Destroyed", get_page_name ());
-    }
-
-    public string get_page_name () {
-        return page_name;
-    }
-
-    public virtual void set_page_name (string page_name) {
-        this.page_name = page_name;
+        debug ("Page %s Destroyed", page_name);
     }
 
     public string to_string () {
@@ -249,7 +242,7 @@ public abstract class Page : Gtk.ScrolledWindow {
             action = get_common_action (name, false);
 
         if (action == null)
-            warning ("Page %s: Unable to locate action %s", get_page_name (), name);
+            warning ("Page %s: Unable to locate action %s", page_name, name);
 
         return action;
     }
@@ -312,7 +305,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
 
         if (log_warning)
-            warning ("Page %s: Unable to locate common action %s", get_page_name (), name);
+            warning ("Page %s: Unable to locate common action %s", page_name, name);
 
         return null;
     }
@@ -509,7 +502,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private void on_update_actions () {
         if (update_actions_scheduler == null) {
             update_actions_scheduler = new OneShotScheduler (
-                "Update actions scheduler for %s".printf (get_page_name ()),
+                "Update actions scheduler for %s".printf (page_name),
                 on_update_actions_on_idle);
         }
 

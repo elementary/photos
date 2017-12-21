@@ -58,9 +58,15 @@ public abstract class CheckerboardPage : Page {
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
     }
 
+    construct {
+        notify["page_name"].connect (() => {
+            layout.set_name (page_name);
+        });
+    }
+
     // Returns the name for the back button that goes to this page
     public virtual string get_back_name () {
-        return get_page_name ();
+        return page_name;
     }
 
     public void init_page_sidebar_menu (string path) {
@@ -184,12 +190,6 @@ public abstract class CheckerboardPage : Page {
         layout.unset_message ();
         if (is_in_view ())
             layout.queue_draw ();
-    }
-
-    public override void set_page_name (string name) {
-        base.set_page_name (name);
-
-        layout.set_name (name);
     }
 
     public CheckerboardItem? get_item_at_pixel (double x, double y) {
