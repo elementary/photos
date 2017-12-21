@@ -766,7 +766,7 @@ public class ImportPage : CheckerboardPage {
             }
         }
         camera_label.set_text (camera_name);
-        set_page_name (camera_name);
+        page_name = camera_name;
 
         // Mount.unmounted signal is *only* fired when a VolumeMonitor has been instantiated.
         this.volume_monitor = VolumeMonitor.get ();

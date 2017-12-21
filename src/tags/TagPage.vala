@@ -115,7 +115,7 @@ public class TagPage : CollectionPage {
 
     private void on_tags_altered (Gee.Map<DataObject, Alteration> map) {
         if (map.has_key (tag)) {
-            set_page_name (tag.get_name ());
+            page_name = tag.get_name ();
             update_actions (get_view ().get_selected_count (), get_view ().get_count ());
         }
     }
