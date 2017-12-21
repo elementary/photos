@@ -84,7 +84,7 @@ public class DragAndDropHandler {
     }
 
     private void on_drag_begin (Gdk.DragContext context) {
-        debug ("on_drag_begin (%s)", page.get_page_name ());
+        debug ("on_drag_begin (%s)", page.page_name);
 
         if (page == null || page.get_view ().get_selected_count () == 0 || exporter != null)
             return;
@@ -114,7 +114,7 @@ public class DragAndDropHandler {
 
     private void on_drag_data_get (Gdk.DragContext context, Gtk.SelectionData selection_data,
                                    uint target_type, uint time) {
-        debug ("on_drag_data_get (%s)", page.get_page_name ());
+        debug ("on_drag_data_get (%s)", page.page_name);
 
         if (page == null || page.get_view ().get_selected_count () == 0)
             return;
@@ -133,7 +133,7 @@ public class DragAndDropHandler {
             if (fetched && data != null && data.length > 0)
                 drag_destination = File.new_for_uri (uchar_array_to_string (data)).get_parent ();
 
-            debug ("on_drag_data_get (%s): %s", page.get_page_name (),
+            debug ("on_drag_data_get (%s): %s", page.page_name,
                    (drag_destination != null) ? drag_destination.get_path () : "(no path)");
 
             // Set the property to "S" for Success or "E" for Error
@@ -152,14 +152,14 @@ public class DragAndDropHandler {
             break;
 
         default:
-            warning ("on_drag_data_get (%s): unknown target type %u", page.get_page_name (),
+            warning ("on_drag_data_get (%s): unknown target type %u", page.page_name,
                      target_type);
             break;
         }
     }
 
     private void on_drag_end () {
-        debug ("on_drag_end (%s)", page.get_page_name ());
+        debug ("on_drag_end (%s)", page.page_name);
 
         if (page == null || page.get_view ().get_selected_count () == 0 || drag_destination == null
                 || exporter != null) {
@@ -184,7 +184,7 @@ public class DragAndDropHandler {
     }
 
     private bool on_drag_failed (Gdk.DragContext context, Gtk.DragResult drag_result) {
-        debug ("on_drag_failed (%s): %d", page.get_page_name (), (int) drag_result);
+        debug ("on_drag_failed (%s): %d", page.page_name, (int) drag_result);
 
         if (page == null)
             return false;
