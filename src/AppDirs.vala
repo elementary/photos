@@ -18,7 +18,7 @@
 */
 
 class AppDirs {
-    private const string DEFAULT_DATA_DIR = "pantheon-photos";
+    private const string DEFAULT_DATA_DIR = "io.elementary.photos";
 
     private static File exec_dir;
     private static File data_dir = null;
@@ -191,7 +191,7 @@ class AppDirs {
 
     public static File get_temp_dir () {
         if (tmp_dir == null) {
-            tmp_dir = File.new_for_path (DirUtils.mkdtemp (Environment.get_tmp_dir () + "/pantheon-photos-XXXXXX"));
+            tmp_dir = File.new_for_path (DirUtils.mkdtemp (Environment.get_tmp_dir () + "/io.elementary.photos-XXXXXX"));
 
             try {
                 if (!tmp_dir.query_exists (null))
@@ -240,14 +240,14 @@ class AppDirs {
     public static File get_resources_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child ("share").get_child ("pantheon-photos")
+        return (install_dir != null) ? install_dir.get_child ("share").get_child ("io.elementary.photos")
                : get_exec_dir ();
     }
 
     public static File get_lib_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("pantheon-photos")
+        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("io.elementary.photos")
                : get_exec_dir ();
     }
 
@@ -256,7 +256,7 @@ class AppDirs {
     }
 
     public static File get_user_plugins_dir () {
-        return get_home_dir ().get_child (".gnome2").get_child ("pantheon-photos").get_child ("plugins");
+        return get_home_dir ().get_child (".gnome2").get_child ("io.elementary.photos").get_child ("plugins");
     }
 
     public static File get_thumbnailer_bin () {
