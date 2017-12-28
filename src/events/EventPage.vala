@@ -107,8 +107,9 @@ public class EventPage : CollectionPage {
     }
 
     private void on_events_altered (Gee.Map<DataObject, Alteration> map) {
-        if (map.has_key (page_event))
-            set_page_name (page_event.get_name ());
+        if (map.has_key (page_event)) {
+            page_name = page_event.get_name ();
+        }
     }
 
     private void on_make_primary () {

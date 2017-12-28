@@ -48,7 +48,7 @@ public class FullscreenWindow : PageWindow {
         set_border_width (0);
 
         pin_button = new Gtk.ToggleToolButton ();
-        pin_button.icon_name = "pin-toolbar";
+        pin_button.icon_name = "view-pin-symbolic";
         pin_button.tooltip_text = _("Pin the toolbar open");
         pin_button.clicked.connect (update_toolbar_dismissal);
 
