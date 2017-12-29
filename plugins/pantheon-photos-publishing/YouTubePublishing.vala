@@ -31,7 +31,7 @@ public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.youtube";
+        return "io.elementary.photos.publishing.youtube";
     }
 
     public unowned string get_pluggable_name () {

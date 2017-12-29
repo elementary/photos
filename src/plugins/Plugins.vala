@@ -138,7 +138,7 @@ private class PluggableRep {
         if (cleaned_id == null)
             cleaned_id = "default";
 
-        cleaned_id = cleaned_id.replace ("org.pantheon.photos.", "");
+        cleaned_id = cleaned_id.replace ("io.elementary.photos.", "");
         cleaned_id = cleaned_id.replace (".", "-");
 
         return cleaned_id;

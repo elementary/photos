@@ -20,80 +20,80 @@
         <default>true</default>
         <summary>display sidebar</summary>
         <description>True if the sidebar is to be displayed, false otherwise.</description>
-    </key>    
+    </key>
 
     <key name="display-metadata-sidebar" type="b">
         <default>true</default>
         <summary>display metadata sidebar</summary>
         <description>True if the metadata sidebar is to be displayed, false otherwise.</description>
     </key>
-    
+
     <key name="display-photo-titles" type="b">
         <default>false</default>
         <summary>display photo titles</summary>
         <description>True if photo titles are to be displayed beneath thumbnails in collection views, false otherwise.</description>
     </key>
-    
+
     <key name="display-photo-comments" type="b">
         <default>false</default>
         <summary>display photo comments</summary>
         <description>True if photo comments are to be displayed beneath thumbnails in collection views, false otherwise.</description>
     </key>
-    
+
     <key name="display-event-comments" type="b">
         <default>false</default>
         <summary>display event comments</summary>
         <description>True if event comments are to be displayed beneath thumbnails in event views, false otherwise.</description>
     </key>
-    
+
     <key name="display-photo-tags" type="b">
         <default>true</default>
         <summary>display photo tags</summary>
         <description>True if photo tags are to be listed beneath thumbnails in collection views, false otherwise.</description>
     </key>
-    
+
     <key name="events-sort-ascending" type="b">
         <default>false</default>
         <summary>sort events ascending</summary>
         <description>True if events should be sorted ascending, false if descending.</description>
     </key>
-    
+
     <key name="library-photos-sort-ascending" type="b">
         <default>false</default>
         <summary>sort library photos ascending</summary>
         <description>True if library photos should be sorted ascending, false if descending.</description>
     </key>
-        
+
     <key name="library-photos-sort-by" type="i">
         <default>2</default>
         <summary>sort library photos criteria</summary>
         <description>A numeric code that specifies the sort criteria for photos in library views.</description>
     </key>
-    
+
     <key name="event-photos-sort-ascending" type="b">
         <default>true</default>
         <summary>sort event photos ascending</summary>
         <description>True if event photos should be sorted ascending, false if descending.</description>
     </key>
-    
+
     <key name="event-photos-sort-by" type="i">
         <default>2</default>
         <summary>sort event photos criteria</summary>
         <description>Specifies the sort criteria for event photos.</description>
     </key>
-    
+
     <key name="use-24-hour-time" type="b">
         <default>false</default>
         <summary>use 24 hour time</summary>
         <description>True if should display times with a 24 hour clock, false if times should use AM/PM notation.</description>
     </key>
-    
+
     <key name="keep-relativity" type="b">
         <default>true</default>
         <summary>keep relative time between photos</summary>
         <description>True if when adjusting time/date of photos, relative time should be maintained.  False if all photos should be set to the same time.</description>
     </key>
-    
+
     <key name="modify-originals" type="b">
         <default>false</default>
         <summary>modify original photo files</summary>
@@ -117,7 +117,7 @@
         <summary>photo thumbnail scale</summary>
         <description>The scale of photo thumbnails, ranging from 72 to 360.</description>
     </key>
-    
+
     <key name="hide-photos-already-imported" type="b">
         <default>false</default>
         <summary>Selection state of "hide photos" option</summary>
@@ -137,7 +137,7 @@
         <summary>transition effect id</summary>
         <description>The name of the transition effect that will be used between photos when running a slideshow</description>
     </key>
-    
+
     <key name="show-title" type="b">
         <default>false</default>
         <summary>Show title</summary>
@@ -151,31 +151,31 @@
         <summary>maximize library window</summary>
         <description>True if library application is maximized, false otherwise.</description>
     </key>
-    
+
     <key name="library-width" type="i">
         <default>1000</default>
         <summary>width of library window</summary>
         <description>The last recorded width of the library application window.</description>
     </key>
-    
+
     <key name="library-height" type="i">
         <default>680</default>
         <summary>height of library window</summary>
         <description>The last recorded height of the library application window.</description>
     </key>
-    
+
     <key name="direct-maximize" type="b">
         <default>false</default>
         <summary>maximize direct-edit window</summary>
         <description>True if direct-edit application is maximized, false otherwise.</description>
     </key>
-    
+
     <key name="direct-width" type="i">
         <default>1000</default>
         <summary>width of direct-edit window</summary>
         <description>The last recorded width of the direct-edit application window.</description>
     </key>
-    
+
     <key name="direct-height" type="i">
         <default>680</default>
         <summary>height of direct-edit window</summary>
@@ -189,13 +189,13 @@
         <summary>import directory</summary>
         <description>Directory in which imported photo files are placed.</description>
     </key>
-    
+
     <key name="auto-import" type="b">
         <default>true</default>
         <summary>watch library directory for new files</summary>
         <description>If true, files added to the library directory are automatically imported.</description>
     </key>
-    
+
     <key name="commit-metadata" type="b">
         <default>false</default>
         <summary>write metadata to master files</summary>
@@ -207,7 +207,7 @@
         <summary>use lowercase filenames</summary>
         <description>If true, Shotwell will convert all filenames to lowercase when importing photo files</description>
     </key>
-    
+
     <key name="raw-developer-default" type="s">
         <default>'CAMERA'</default>
         <summary>RAW developer default</summary>
@@ -239,13 +239,13 @@
         <summary>last used publishing service</summary>
         <description>A numeric code representing the last service to which photos were published</description>
     </key>
-    
+
     <key name="default-service" type="i">
         <default>1</default>
         <summary>default publishing service</summary>
         <description>A numeric code representing the last service to which photos were published</description>
     </key>
-    
+
     <child name="facebook" schema="org.pantheon.photos.sharing.facebook" />
     <child name="flickr" schema="org.pantheon.photos.sharing.flickr" />
     <child name="picasa" schema="org.pantheon.photos.sharing.picasa" />
@@ -264,19 +264,19 @@
         <summary>user i.d.</summary>
         <description>Facebook user i.d. for the currently logged in user, if any</description>
     </key>
-    
+
     <key name="user-name" type="s">
         <default>""</default>
         <summary>user name</summary>
         <description>The name of the currently logged in Facebook user, if any</description>
     </key>
-    
+
     <key name="default-size" type="i">
         <default>0</default>
         <summary>default size code</summary>
         <description>A numeric code representing the default size for photos published to Facebook</description>
     </key>
-    
+
     <key name="strip-metadata" type="b">
         <default>false</default>
         <summary>remove sensitive info from uploads</summary>
@@ -302,13 +302,13 @@
         <summary>username</summary>
         <description>The user name of the currently logged in Flickr user, if any</description>
     </key>
-    
+
     <key name="default-size" type="i">
         <default>2</default>
         <summary>default size code</summary>
         <description>A numeric code representing the default size for photos published to Flickr</description>
     </key>
-    
+
     <key name="visibility" type="i">
         <default>1</default>
         <summary>default visibility</summary>
@@ -328,7 +328,7 @@
         <summary>refresh token</summary>
         <description>The OAuth token used to refresh the Picasa Web Albums session for the currently logged in user, if any.</description>
     </key>
-    
+
     <key name="default-size" type="i">
         <default>2</default>
         <summary>default size</summary>
@@ -348,37 +348,37 @@
         <summary>Piwigio URL</summary>
         <description>URL of the Piwigo server.</description>
     </key>
-    
+
     <key name="username" type="s">
         <default>""</default>
         <summary>username</summary>
         <description>Piwigo username, if logged in.</description>
     </key>
-    
+
     <key name="password" type="s">
         <default>""</default>
         <summary>password</summary>
         <description>Piwigo password, if logged in.</description>
     </key>
-    
+
     <key name="remember-password" type="b">
         <default>false</default>
         <summary>remember password</summary>
         <description>If true, remember the Piwigo password.</description>
     </key>
-    
+
     <key name="last-category" type="i">
         <default>-1</default>
         <summary>last category</summary>
         <description>The last selected Piwigo category.</description>
     </key>
-    
+
     <key name="last-permission-level" type="i">
         <default>-1</default>
         <summary>last permission level</summary>
         <description>The last chosen Piwigo permission level.</description>
     </key>
-    
+
     <key name="last-photo-size" type="i">
         <default>-1</default>
         <summary>last photo size</summary>
@@ -426,25 +426,25 @@
         <summary>content layout mode</summary>
         <description>A numeric code that describes how photos are laid out on the page during printing</description>
     </key>
-    
+
     <key name="content-ppi" type="i">
         <default>600</default>
         <summary>content ppi</summary>
         <description>The number of pixels per inch (ppi) sent to the printer during printing</description>
     </key>
-    
+
     <key name="content-width" type="d">
         <default>7.0</default>
         <summary>content width</summary>
         <description>The width of the printed emulsion on the page when printing</description>
     </key>
-    
+
     <key name="content-height" type="d">
         <default>5.0</default>
         <summary>content height</summary>
         <description>The height of the printed emulsion on the page when printing</description>
     </key>
-    
+
     <key name="content-units" type="i">
         <default>1</default>
         <summary>content units</summary>
@@ -462,7 +462,7 @@
         <summary>size selection</summary>
         <description>The index of the current print size in a pre-defined list of standard sizes</description>
     </key>
-    
+
     <key name="match-aspect-ratio" type="b">
         <default>true</default>
         <summary>match aspect ratio</summary>
@@ -474,7 +474,7 @@
         <summary>print titles</summary>
         <description>True if the title of a photo should be printed when the photo is printed, false otherwise.</description>
     </key>
-    
+
     <key name="titles-font" type="s">
         <default>"Sans Bold 12"</default>
         <summary>titles font</summary>
@@ -516,13 +516,13 @@
         <summary>enable piwigo publishing plugin</summary>
         <description>True if the Piwigo publishing plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="publishing-yandex-fotki" type="b">
         <default>false</default>
         <summary>enable yandex publishing plugin</summary>
         <description>True if the Yandex.Fotki publishing plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="publishing-tumblr" type="b">
         <default>false</default>
         <summary>enable tumblr publishing plugin</summary>
@@ -552,25 +552,25 @@
         <summary>enable slideshow slide transition</summary>
         <description>True if the Slide slideshow transition plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="transitions-clock" type="b">
         <default>true</default>
         <summary>enable slideshow clock transition</summary>
         <description>True if the Clock slideshow transition plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="transitions-circle" type="b">
         <default>true</default>
         <summary>enable slideshow circle transition</summary>
         <description>True if the Circle slideshow transition plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="transitions-circles" type="b">
         <default>true</default>
         <summary>enable slideshow circle transition</summary>
         <description>True if the Circles slideshow transition plugin is enabled, false otherwise</description>
     </key>
-    
+
     <key name="transitions-blinds" type="b">
         <default>true</default>
         <summary>enable slideshow slide transition</summary>
