@@ -26,7 +26,7 @@ private class ClockEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.clock";
+        return "io.elementary.photos.transitions.clock";
     }
 
     public override unowned string get_pluggable_name () {

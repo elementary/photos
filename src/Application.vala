@@ -56,7 +56,7 @@ public class Application : Granite.Application {
 
         program_name = _(build_release_name);
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-        default_theme.add_resource_path ("/org/pantheon/photos/icons");
+        default_theme.add_resource_path ("/io/elementary/photos/icons");
     }
 
     private Application (bool is_direct) {
@@ -67,7 +67,7 @@ public class Application : Granite.Application {
             // command lines from remote instances, since we don't care about them.
 
             exec_name = GETTEXT_PACKAGE;
-            application_id = "org.pantheon.photos-direct";
+            application_id = "io.elementary.photos-direct";
             app_launcher = "org.pantheon.photos-viewer.desktop";
             program_name = _("Photo Viewer");
             Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
@@ -78,7 +78,7 @@ public class Application : Granite.Application {
             // storage device and camera mounts).
 
             exec_name = GETTEXT_PACKAGE;
-            application_id = "org.pantheon.photos";
+            application_id = "io.elementary.photos";
             app_launcher = "org.pantheon.photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;

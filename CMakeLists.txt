@@ -1,4 +1,4 @@
-project (pantheon-photos)
+project (io.elementary.photos)
 
 cmake_minimum_required (VERSION 2.8)
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
@@ -110,4 +110,3 @@ add_subdirectory (schemas)
 add_subdirectory (src)
 add_subdirectory (thumbnailer)
 add_subdirectory (plugins)
-
