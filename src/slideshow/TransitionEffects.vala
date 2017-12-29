@@ -286,7 +286,7 @@ public class TransitionClock {
 }
 
 public class NullTransitionDescriptor : Object, Spit.Pluggable, Spit.Transitions.Descriptor {
-    public const string EFFECT_ID = "org.pantheon.photos.transitions.null";
+    public const string EFFECT_ID = "io.elementary.photos.transitions.null";
 
     public int get_pluggable_interface (int min_host_version, int max_host_version) {
         return Spit.Transitions.CURRENT_INTERFACE;
@@ -338,7 +338,7 @@ public class NullEffect : Object, Spit.Transitions.Effect {
     }
 }
 public class RandomEffectDescriptor : Object, Spit.Pluggable, Spit.Transitions.Descriptor {
-    public const string EFFECT_ID = "org.pantheon.photos.transitions.random";
+    public const string EFFECT_ID = "io.elementary.photos.transitions.random";
 
     public int get_pluggable_interface (int min_host_version, int max_host_version) {
         return Spit.Transitions.CURRENT_INTERFACE;

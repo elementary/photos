@@ -31,7 +31,7 @@ public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.picasa";
+        return "io.elementary.photos.publishing.picasa";
     }
 
     public unowned string get_pluggable_name () {

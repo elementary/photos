@@ -33,7 +33,7 @@ public class FlickrService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.flickr";
+        return "io.elementary.photos.publishing.flickr";
     }
 
     public unowned string get_pluggable_name () {

@@ -8,5 +8,5 @@ add_translations_catalog (${GETTEXT_PACKAGE}
         ${CMAKE_BINARY_DIR}/data/org.pantheon.photos-viewer.desktop.in
         ${CMAKE_BINARY_DIR}/data/org.pantheon.photos.desktop.in
     APPDATA_FILES
-        ../data/org.pantheon.photos.appdata.xml.in
+        ../data/io.elementary.photos.appdata.xml.in
 )
