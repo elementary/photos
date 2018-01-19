@@ -190,7 +190,6 @@ private class ManifestListView : Gtk.TreeView {
 
         set_headers_visible (false);
         set_enable_search (false);
-        set_rules_hint (true);
         set_show_expanders (true);
         set_reorderable (false);
         set_enable_tree_lines (false);
