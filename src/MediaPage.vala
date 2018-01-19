@@ -23,8 +23,6 @@ public class MediaSourceItem : CheckerboardItem {
     public MediaSourceItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title,
                             string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
         base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
-
-        pixbuf_dim = initial_pixbuf_dim;
     }
 }
 
