@@ -1767,7 +1767,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         on_tool_button_toggled (adjust_button, EditingTools.AdjustTool.factory);
 
         // with adjust tool open turn enhance into normal non toggle button
-        if (adjust_button.active){
+        if (adjust_button.active) {
             enhance_button.clicked.disconnect (on_enhance);
             enhance_button.active = false;
             enhance_button.clicked.connect (on_enhance);
