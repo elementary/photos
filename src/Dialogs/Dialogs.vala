@@ -926,7 +926,7 @@ public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_
         int num_not_deleted = not_deleted_photos.size + not_deleted_videos.size;
         if (num_not_deleted > 0) {
             // Alert the user that the files were not removed.
-            string delete_failed_message = 
+            string delete_failed_message =
                 ngettext ("The photo or video cannot be deleted.",
                           "%d photos/videos cannot be deleted.",
                           num_not_deleted).printf (num_not_deleted);

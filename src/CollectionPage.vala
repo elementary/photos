@@ -810,10 +810,11 @@ public abstract class CollectionPage : MediaPage {
     }
 
     private void on_enhance () {
-        if (get_view ().get_selected_count () == 0)
+        if (get_view ().get_selected_count () == 0) {
             return;
-            
-        /* If one photo in the selection is unenhanced, set the enhance button to untoggled. 
+        }
+
+        /* If one photo in the selection is unenhanced, set the enhance button to untoggled.
           We also just want to execute the enhance command on the unenhanced photo so that
           we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
@@ -836,11 +837,11 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().undo ();
             else {
                 UnEnhanceMultipleCommand command = new UnEnhanceMultipleCommand (enhanced_list);
-                get_command_manager ().execute (command);     
+                get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
                 Photo photo = view.get_source () as Photo;
-                photo.set_enhanced (false);   
+                photo.set_enhanced (false);
             }
         } else {
             // Just undo if last on stack was unenhance
@@ -850,11 +851,11 @@ public abstract class CollectionPage : MediaPage {
             else {
                 EnhanceMultipleCommand command = new EnhanceMultipleCommand (unenhanced_list);
                 get_command_manager ().execute (command);
-            }    
+            }
             foreach (DataView view in enhanced_list) {
                 Photo photo = view.get_source () as Photo;
-                photo.set_enhanced (true);   
-            }  
+                photo.set_enhanced (true);
+            }
         }
         update_enhance_toggled ();
     }

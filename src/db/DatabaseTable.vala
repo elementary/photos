@@ -164,7 +164,7 @@ public abstract class DatabaseTable {
             throw new DatabaseError.ERROR (msg);
         }
     }
-    
+
     protected Sqlite.Statement create_stmt (string data) {
         debug ("Running statement: %s\n", data);
 
@@ -193,12 +193,12 @@ public abstract class DatabaseTable {
         var res = stmt.bind_int (column, data);
         assert (res == Sqlite.OK);
     }
-    
+
     protected static void bind_int64 (Sqlite.Statement stmt, int column, int64 data) {
         var res = stmt.bind_int64 (column, data);
         assert (res == Sqlite.OK);
     }
-    
+
     protected static void bind_double (Sqlite.Statement stmt, int column, double data) {
         var res = stmt.bind_double (column, data);
         assert (res == Sqlite.OK);

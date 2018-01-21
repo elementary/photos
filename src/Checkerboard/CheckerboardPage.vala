@@ -283,13 +283,13 @@ public abstract class CheckerboardPage : Page {
         // The point does not have to be exactly over button area
         const int x_error_margin = 3;
         const int y_error_margin = 3;
-        
+
         return x >= button_area.x - x_error_margin
             && x <= button_area.x + button_area.width + x_error_margin
             && y >= button_area.y - y_error_margin
             && y <= button_area.y + button_area.height + y_error_margin;
     }
-    
+
     protected override bool on_left_click (Gdk.EventButton event) {
         selection_button_clicked = false;
 
@@ -303,7 +303,7 @@ public abstract class CheckerboardPage : Page {
         // use clicks for multiple selection and activation only; single selects are handled by
         // button release, to allow for multiple items to be selected then dragged
         CheckerboardItem item = get_item_at_pixel (event.x, event.y);
-        
+
         if (item != null) {
             switch (state) {
             case Gdk.ModifierType.CONTROL_MASK:
@@ -345,7 +345,7 @@ public abstract class CheckerboardPage : Page {
             default:
                 // check if user clicked a blank area of the item or the selection button
                 if (is_point_on_item_selection_button (event.x, event.y, item)) {
-                    
+
                     debug ("Selection button clicked");
 
                     // make sure we handle this kind of selection properly on button-release
@@ -501,12 +501,12 @@ public abstract class CheckerboardPage : Page {
                 highlighted = item;
             }
         }
-        
+
         // use "hand" cursor only to indicate that an item is ready for activation
         Gdk.CursorType cursor_type = item != null && !is_point_on_item_selection_button (x, y, item)
             ? Gdk.CursorType.HAND1 : Gdk.CursorType.ARROW;
         set_page_cursor (cursor_type);
-        
+
         return true;
     }
 
