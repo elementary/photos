@@ -220,7 +220,7 @@ public class Sidebar.Branch : Object {
     public Branch (Sidebar.Entry root, Options options,
                    CompareFunc<Sidebar.Entry> default_comparator,
                    CompareFunc<Sidebar.Entry>? root_comparator = null) {
-        
+
         this.default_comparator = default_comparator;
         this.root = new Node(root, null, (root_comparator != null) ? root_comparator : default_comparator);
         this.options = options;
