@@ -42,8 +42,8 @@ public class ManifestWidget : Gtk.Grid {
         action_area.add (about_button);
 
         orientation = Gtk.Orientation.VERTICAL;
-        row_spacing = 12; 
-        add (frame); 
+        row_spacing = 12;
+        add (frame);
         add (action_area);
 
         about_button.clicked.connect (on_about);

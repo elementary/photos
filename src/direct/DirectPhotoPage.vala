@@ -352,7 +352,7 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override void update_actions (int selected_count, int count) {
         bool multiple = get_view ().get_count () > 1;
-        bool revert_possible = has_photo () ? get_photo ().has_transformations () 
+        bool revert_possible = has_photo () ? get_photo ().has_transformations ()
             && !get_photo_missing () : false;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
         bool enhance_possible = has_photo () ? is_enhance_available (get_photo ()) : false;
@@ -370,7 +370,7 @@ public class DirectPhotoPage : EditingHostPage {
 
         if (has_photo ()) {
             set_action_sensitive ("Crop", EditingTools.CropTool.is_available (get_photo (), Scaling.for_original ()));
-            set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (), 
+            set_action_sensitive ("RedEye", EditingTools.RedeyeTool.is_available (get_photo (),
                 Scaling.for_original ()));
         }
 
