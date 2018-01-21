@@ -105,7 +105,7 @@ public class WebPSniffer : PhotoFileSniffer {
         DetectedPhotoInformation detected = new DetectedPhotoInformation ();
 
         uint8[] contents;
-		file.load_contents (null, out contents, null);
+        file.load_contents (null, out contents, null);
 
         WebP.BitstreamFeatures features;
         var status = WebP.get_features (contents, out features);
@@ -142,7 +142,7 @@ public class WebPReader : PhotoFileReader {
         var file = get_file ();
 
         uint8[] contents;
-		file.load_contents (null, out contents, null);
+        file.load_contents (null, out contents, null);
 
         WebP.BitstreamFeatures features;
         var status = WebP.get_features (contents, out features);

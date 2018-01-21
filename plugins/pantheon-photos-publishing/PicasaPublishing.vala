@@ -483,7 +483,7 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
     }
 
     public void on_pane_installed () {
-        
+
     }
 
     public void on_pane_uninstalled () {
