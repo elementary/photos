@@ -390,10 +390,13 @@ public abstract class CollectionPage : MediaPage {
         parent.sensitive = true;
 
         foreach (AppInfo app in external_apps) {
-            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
-            Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
-            item_app.always_show_image = true;
-            item_app.set_image (image);
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU));
+            menuitem_grid.add (new Gtk.Label (app.get_name ()));
+
+            var item_app = new Gtk.MenuItem ();
+            item_app.add (menuitem_grid);
+
             item_app.activate.connect (() => {
                 if (raw)
                     on_open_with_raw (app.get_commandline ());
