@@ -75,7 +75,7 @@ class SlideshowPage : SinglePhotoPage {
         var titles_toggle = new Gtk.ToggleToolButton ();
         titles_toggle.icon_name = "preferences-desktop-font-symbolic";
         titles_toggle.tooltip_text = _("Show Photo Titles");
-        titles_toggle.margin_left = 6;
+        titles_toggle.margin_start = 6;
         titles_toggle.active = slideshow_settings.get_boolean ("show-title");
         titles_toggle.valign = Gtk.Align.CENTER;
         titles_toggle.toggled.connect (() => {
@@ -99,7 +99,7 @@ class SlideshowPage : SinglePhotoPage {
         });
 
         var slider_wrapper = new Gtk.ToolItem ();
-        slider_wrapper.margin_left = 6;
+        slider_wrapper.margin_start = 6;
         slider_wrapper.add (slider);
 
         var toolbar = get_toolbar ();
