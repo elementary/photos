@@ -70,7 +70,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     camera/Branch.vala
     camera/CameraTable.vala
-    camera/Camera.vala
     camera/GPhoto.vala
     camera/ImportPage.vala
 
@@ -92,7 +91,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     core/Alteration.vala
     core/ContainerSourceCollection.vala
-    core/Core.vala
     core/DatabaseSourceCollection.vala
     core/DataCollection.vala
     core/DataObject.vala
@@ -134,7 +132,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     events/EventDirectoryItem.vala
     events/EventPage.vala
     events/EventsDirectoryPage.vala
-    events/Events.vala
 
     library/Branch.vala
     library/FlaggedPage.vala
@@ -163,7 +160,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     photos/PhotoFileFormat.vala
     photos/PhotoFileSniffer.vala
     photos/PhotoMetadata.vala
-    photos/Photos.vala
     photos/PngSupport.vala
     photos/RawSupport.vala
     photos/TiffSupport.vala
@@ -182,12 +178,10 @@ vala_precompile (VALA_C ${EXEC_NAME}
     searches/SavedSearchDialog.vala
     searches/SavedSearchPage.vala
     searches/SearchBoolean.vala
-    searches/Searches.vala
 
     sidebar/Branch.vala
     sidebar/common.vala
     sidebar/Entry.vala
-    sidebar/Sidebar.vala
     sidebar/Tree.vala
     sidebar/EditableTitle.vala
 
@@ -204,13 +198,10 @@ vala_precompile (VALA_C ${EXEC_NAME}
     tags/HierarchicalTagIndex.vala
     tags/HierarchicalTagUtilities.vala
     tags/TagPage.vala
-    tags/Tags.vala
 
     threads/BackgroundJob.vala
     threads/Semaphore.vala
     threads/Workers.vala
-
-    unit/Unit.vala
 
     util/DragAndDropHandler.vala
     util/file.vala
