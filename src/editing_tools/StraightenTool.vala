@@ -206,10 +206,10 @@ public class StraightenTool : EditingTool {
     }
 
     /**
-     * @brief Signal handler for when the 'OK' button has been clicked.  Computes where a previously-
+     * Signal handler for when the 'OK' button has been clicked.  Computes where a previously-
      * set crop region should have rotated to (to match the Photo's straightening angle).
      *
-     * @note After this has been called against a Photo, it will always have a crop region; in the
+     * Note: After this has been called against a Photo, it will always have a crop region; in the
      * case of a previously-uncropped Photo, the crop region will be set to the original dimensions
      * of the photo and centered at the Photo's center.
      */
@@ -339,7 +339,7 @@ public class StraightenTool : EditingTool {
     }
 
     /**
-     * @brief Spawn the tool window, set up the scratch surfaces and prepare the straightening
+     * Spawn the tool window, set up the scratch surfaces and prepare the straightening
      * tool for use.  If a valid pixbuf of the incoming Photo can't be loaded for any
      * reason, the tool will use a 1x1 temporary image instead to avoid crashing.
      *
@@ -455,7 +455,7 @@ public class StraightenTool : EditingTool {
     }
 
     /**
-     * @brief Called by the EditingHostPage when a resize event occurs.
+     * Called by the EditingHostPage when a resize event occurs.
      */
     private void on_resized_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
         prepare_image ();

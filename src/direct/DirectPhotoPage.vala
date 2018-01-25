@@ -520,8 +520,10 @@ public class DirectPhotoPage : EditingHostPage {
         do_save_as ();
     }
 
-    /** Returns true if the code parameter matches the keycode of the keyval parameter for
-    * any keyboard group or level (in order to allow for non-QWERTY keyboards) **/
+    /**
+     * Returns true if the code parameter matches the keycode of the keyval parameter for
+     * any keyboard group or level (in order to allow for non-QWERTY keyboards)
+     */
     protected bool match_keycode (int keyval, uint code) {
         Gdk.KeymapKey [] keys;
         Gdk.Keymap keymap = Gdk.Keymap.get_default ();

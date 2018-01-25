@@ -117,7 +117,7 @@ class AppDirs {
     }
 
     /**
-     * @brief Returns the build directory if not installed yet, or a path
+     * Returns the build directory if not installed yet, or a path
      * to where any helper applets we need will live if installed.
      */
     public static File get_libexec_dir () {
