@@ -28,16 +28,6 @@
 
 namespace EditingTools {
 
-// preconfigure may be deleted if not used.
-public void preconfigure () {
-}
-
-public void init () throws Error {
-}
-
-public void terminate () {
-}
-
 public abstract class EditingToolWindow : Gtk.Window {
 
     private Gtk.Frame outer_frame = new Gtk.Frame (null);

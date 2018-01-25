@@ -192,16 +192,12 @@ public class Tags.SidebarEntry : Sidebar.SimplePageEntry, Sidebar.RenameableEntr
 
     private Tag tag;
 
-    public SidebarEntry (Tag tag) {
-        this.tag = tag;
-    }
-
-    internal static void init () {
+    class construct {
         single_tag_icon = new ThemedIcon (Resources.ICON_ONE_TAG);
     }
 
-    internal static void terminate () {
-        single_tag_icon = null;
+    public SidebarEntry (Tag tag) {
+        this.tag = tag;
     }
 
     public Tag for_tag () {

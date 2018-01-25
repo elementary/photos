@@ -157,7 +157,6 @@ void library_exec (string[] mounts) {
     Tag.init (monitor);
 
     MetadataWriter.init ();
-    DesktopIntegration.init ();
 
     Application.get_instance ().init_done ();
 
@@ -202,7 +201,6 @@ void library_exec (string[] mounts) {
 
     Application.get_instance ().start ();
 
-    DesktopIntegration.terminate ();
     MetadataWriter.terminate ();
     Tag.terminate ();
     Event.terminate ();
@@ -262,9 +260,6 @@ void editing_exec (string filename) {
         return;
     }
 
-    // init modules direct-editing relies on
-    DesktopIntegration.init ();
-
     // TODO: At some point in the future, to support mixed-media in direct-edit mode, we will
     //       refactor DirectPhotoSourceCollection to be a MediaSourceCollection. At that point,
     //       we'll need to register DirectPhoto.global with the MediaCollectionRegistry
@@ -275,8 +270,6 @@ void editing_exec (string filename) {
     debug ("%lf seconds to Gtk.main ()", startup_timer.elapsed ());
 
     Application.get_instance ().start ();
-
-    DesktopIntegration.terminate ();
 
     // terminate units for direct-edit mode
     Direct.app_terminate ();
