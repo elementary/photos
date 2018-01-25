@@ -45,4 +45,4 @@ Run `cmake` to configure the build environment and then `make` to build
 To install, use `make install`, then execute with `pantheon-photos`
 
     sudo make install
-    pantheon-photos
+    io.elementary.photos
