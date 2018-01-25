@@ -1176,12 +1176,9 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
         this.last_title_as_comment = last_title_as_comment;
         this.last_no_upload_tags = last_no_upload_tags;
 
-        File ui_file = publisher.get_host ().get_module_file ().get_parent ().
-                       get_child ("piwigo_publishing_options_pane.ui");
-
         try {
             builder = new Gtk.Builder ();
-            builder.add_from_file (ui_file.get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_publishing_options_pane.ui");
             builder.connect_signals (null);
             Gtk.Alignment align = builder.get_object ("alignment") as Gtk.Alignment;
 
