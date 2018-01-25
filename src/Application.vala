@@ -102,7 +102,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief This is a helper for library mode that should only be
+     * This is a helper for library mode that should only be
      * called if we've gotten a camera mount and are _not_ the primary
      * instance.
      */
@@ -111,7 +111,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief A helper for library mode that tells the primary
+     * A helper for library mode that tells the primary
      * instance to bring its window to the foreground.  This
      * should only be called if we are _not_ the primary instance.
      */
@@ -128,7 +128,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Signal handler for GApplication's 'command-line' signal.
+     * Signal handler for GApplication's 'command-line' signal.
      *
      * The most likely scenario for this to be fired is if the user
      * either tried to run us twice in library mode, or we've just gotten
@@ -145,12 +145,12 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Signal handler for GApplication's 'command-line' signal.
+     * Signal handler for GApplication's 'command-line' signal.
      *
      * Gets fired whenever a remote instance tries to run, usually
      * with an incoming camera connection.
      *
-     * @note This does _not_ get called in direct-edit mode.
+     * Note: This does _not_ get called in direct-edit mode.
      */
     public static int on_command_line (ApplicationCommandLine acl) {
         string[]? argv = acl.get_arguments ();
@@ -168,15 +168,15 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Initializes the Shotwell application object and prepares
+     * Initializes the Shotwell application object and prepares
      * it for use.
+     *
+     * Note: This MUST be called prior to calling get_instance (), as the
+     * application needs to know what mode it was brought up in; failure to
+     * call this first will lead to an assertion.
      *
      * @param is_direct Whether the application was invoked in direct
      * or in library mode; defaults to FALSE, that is, library mode.
-     *
-     * @note This MUST be called prior to calling get_instance (), as the
-     * application needs to know what mode it was brought up in; failure to
-     * call this first will lead to an assertion.
      */
     public static void init (bool is_direct = false) {
         if (instance == null)
@@ -238,10 +238,10 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Allows the caller to ask for some part of the desktop session's functionality to
+     * Allows the caller to ask for some part of the desktop session's functionality to
      * be prevented from running; wrapper for Gtk.Application.inhibit ().
      *
-     * @note The return value is a 'cookie' that needs to be passed to 'uninhibit' to turn
+     * Note: The return value is a 'cookie' that needs to be passed to 'uninhibit' to turn
      * off a requested inhibition and should be saved by the caller.
      */
     public uint app_inhibit (Gtk.ApplicationInhibitFlags what, string? reason = "none given") {
@@ -249,7 +249,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Turns off a previously-requested inhibition. Wrapper for
+     * Turns off a previously-requested inhibition. Wrapper for
      * Gtk.Application.uninhibit ().
      */
     public void app_uninhibit (uint cookie) {

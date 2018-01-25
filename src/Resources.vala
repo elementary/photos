@@ -417,7 +417,7 @@ public void terminate () {
 }
 
 /**
- * @brief Helper for getting a format string that matches the
+ * Helper for getting a format string that matches the
  * user's LC_TIME settings from the system.  This is intended
  * to help support the use case where a user wants the text
  * from one locale, but the timestamp format of another.
@@ -483,7 +483,7 @@ private void fetch_lc_time_format () {
 }
 
 /**
- * @brief Returns a precached format string that matches the
+ * Returns a precached format string that matches the
  * user's LC_TIME settings.
  */
 public string get_hh_mm_format_string () {

@@ -2469,7 +2469,7 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     /**
-     * @brief Returns the width and height of the Photo after various
+     * Returns the width and height of the Photo after various
      * arbitrary stages of the pipeline have been applied in
      * the same order they're applied in get_pixbuf_with_options.
      * With no argument passed, it works exactly like the
@@ -3313,7 +3313,7 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     /**
-     * @brief Populates the cached version of the unmodified image.
+     * Populates the cached version of the unmodified image.
      */
     public void populate_prefetched () throws Error {
         lock (unmodified_precached) {
@@ -3328,7 +3328,7 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     /**
-     * @brief Get a copy of what's in the cache.
+     * Get a copy of what's in the cache.
      *
      * @return A Pixbuf with the image data from unmodified_precached.
      */
@@ -3348,7 +3348,7 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     /**
-     * @brief Discards the cached version of the unmodified image.
+     * Discards the cached version of the unmodified image.
      *
      * @param immed Whether the cached version should be discarded now, or not.
      */
@@ -3373,7 +3373,7 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     /**
-     * @brief Returns a fully transformed and scaled pixbuf.  Transformations may be excluded via
+     * Returns a fully transformed and scaled pixbuf.  Transformations may be excluded via
      * the mask. If the image is smaller than the scaling, it will be returned in its actual size.
      * The caller is responsible for scaling thereafter.
      *

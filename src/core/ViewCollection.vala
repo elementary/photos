@@ -720,14 +720,14 @@ public class ViewCollection : DataCollection {
     }
 
     /**
-     * @brief A helper method for places in the app that need a
-     *  non-rejected media source (namely Events, when looking to
-     *  automatically choose a thumbnail).
+     * A helper method for places in the app that need a
+     * non-rejected media source (namely Events, when looking to
+     * automatically choose a thumbnail).
      *
-     * @note If every view in this collection is rejected, we
-     *  return the first view; this is intentional.  This prevents
-     *  pathological events that have nothing but rejected images
-     *  in them from breaking.
+     * Note: If every view in this collection is rejected, we
+     * return the first view; this is intentional.  This prevents
+     * pathological events that have nothing but rejected images
+     * in them from breaking.
      */
     public virtual DataView? get_first_unrejected () {
         // We have no media, unrejected or otherwise...
