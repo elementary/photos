@@ -19,19 +19,6 @@
 
 namespace DesktopIntegration {
 
-
-private int init_count = 0;
-
-public void init () {
-    if (init_count++ != 0)
-        return;
-}
-
-public void terminate () {
-    if (--init_count == 0)
-        return;
-}
-
 public AppInfo? get_default_app_for_mime_types (string[] mime_types,
         Gee.ArrayList<string> preferred_apps) {
     SortedList<AppInfo> external_apps = get_apps_for_mime_types (mime_types);

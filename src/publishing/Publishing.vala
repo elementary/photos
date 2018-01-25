@@ -30,8 +30,5 @@ public void init () throws Error {
     Resources.PUBLISH, core_ids);
 }
 
-public void terminate () {
-}
-
 }
 

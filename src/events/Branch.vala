@@ -72,13 +72,7 @@ public class Events.Branch : Sidebar.Branch {
         sort_ascending = ui_settings.get_boolean ("events-sort-ascending");
     }
 
-    ~Branch () {
-        Event.global.contents_altered.disconnect (on_events_added_removed);
-        Event.global.items_altered.disconnect (on_events_altered);
-        Event.global.no_event_collection_altered.disconnect (on_no_event_collection_altered);
-    }
-
-    internal static void init () {
+    class construct {
         open_icon = new ThemedIcon (Resources.ICON_FOLDER_OPEN);
         closed_icon = new ThemedIcon (Resources.ICON_FOLDER_CLOSED);
         events_icon = new ThemedIcon (Resources.ICON_EVENTS);
@@ -86,12 +80,10 @@ public class Events.Branch : Sidebar.Branch {
         no_event_icon = new ThemedIcon (Resources.ICON_NO_EVENT);
     }
 
-    internal static void terminate () {
-        open_icon = null;
-        closed_icon = null;
-        events_icon = null;
-        single_event_icon = null;
-        no_event_icon = null;
+    ~Branch () {
+        Event.global.contents_altered.disconnect (on_events_added_removed);
+        Event.global.items_altered.disconnect (on_events_altered);
+        Event.global.no_event_collection_altered.disconnect (on_no_event_collection_altered);
     }
 
     public Events.MasterDirectoryEntry get_master_entry () {

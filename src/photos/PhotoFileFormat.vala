@@ -80,6 +80,12 @@ public enum PhotoFileFormat {
     WEBP,
     UNKNOWN;
 
+    public static void init_supported () {
+        foreach (PhotoFileFormat format in PhotoFileFormat.get_supported ()) {
+            format.init ();
+        }
+    }
+
     // This is currently listed in the order of detection, that is, the file is examined from
     // left to right.  (See PhotoFileInterrogator.)
     public static PhotoFileFormat[] get_supported () {
