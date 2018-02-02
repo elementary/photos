@@ -15,18 +15,13 @@ OPTIONS
     ${GLOBAL_VALA_OPTIONS}
 )
 
-add_library(${TARGET_NAME} MODULE ${VALA_C})
+include (GResource)
+glib_compile_resources(GRESOURCES_PUBLISHING_EXTRAS SOURCE io.elementary.photos.plugins.publishing-extras.gresource.xml)
+
+add_library(${TARGET_NAME} MODULE ${VALA_C} ${GRESOURCES_PUBLISHING_EXTRAS})
 
 include_directories (${CMAKE_SOURCE_DIR}/vapi)
 target_link_libraries(${TARGET_NAME} ${DEPS_LIBRARIES})
 add_dependencies(${TARGET_NAME} ${EXEC_NAME})
 
 install(TARGETS ${TARGET_NAME} DESTINATION ${BUILTIN_DIR})
-
-# Install custom icons
-file (GLOB ICON_FILES *.png)
-install (FILES ${ICON_FILES} DESTINATION ${BUILTIN_DIR})
-
-# Install UI files
-file (GLOB UI_FILES *.glade)
-install (FILES ${UI_FILES} DESTINATION ${BUILTIN_DIR})

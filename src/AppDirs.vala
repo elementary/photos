@@ -18,8 +18,6 @@
 */
 
 class AppDirs {
-    private const string DEFAULT_DATA_DIR = "pantheon-photos";
-
     private static File exec_dir;
     private static File data_dir = null;
     private static File tmp_dir = null;
@@ -44,7 +42,7 @@ class AppDirs {
 
     public static File get_cache_dir () {
         return ((data_dir == null) ?
-                File.new_for_path (Environment.get_user_cache_dir ()).get_child (DEFAULT_DATA_DIR) :
+                File.new_for_path (Environment.get_user_cache_dir ()).get_child (PROJECT_NAME) :
                 data_dir);
     }
 
@@ -139,7 +137,7 @@ class AppDirs {
     }
 
     public static File get_data_dir () {
-        return (data_dir == null) ? File.new_for_path (Environment.get_user_data_dir ()).get_child (DEFAULT_DATA_DIR) : data_dir;
+        return (data_dir == null) ? File.new_for_path (Environment.get_user_data_dir ()).get_child (PROJECT_NAME) : data_dir;
     }
 
     // The "import directory" is the same as the library directory, and are often used
@@ -237,17 +235,10 @@ class AppDirs {
         return subdir;
     }
 
-    public static File get_resources_dir () {
-        File? install_dir = get_install_dir ();
-
-        return (install_dir != null) ? install_dir.get_child ("share").get_child ("pantheon-photos")
-               : get_exec_dir ();
-    }
-
     public static File get_lib_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("pantheon-photos")
+        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child (PROJECT_NAME)
                : get_exec_dir ();
     }
 
@@ -256,7 +247,7 @@ class AppDirs {
     }
 
     public static File get_user_plugins_dir () {
-        return get_home_dir ().get_child (".gnome2").get_child ("pantheon-photos").get_child ("plugins");
+        return File.new_for_path (GLib.Environment.get_user_data_dir ()).get_child (PROJECT_NAME).get_child ("plugins");
     }
 
     public static File get_thumbnailer_bin () {

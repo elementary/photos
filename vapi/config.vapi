@@ -14,4 +14,5 @@ extern const string GETTEXT_PACKAGE;
 extern const string _LIB;
 [CCode (cheader_filename="config.h")]
 extern const string _LIBEXECDIR;
-
+[CCode (cheader_filename="config.h")]
+extern const string PROJECT_NAME;
