@@ -8,7 +8,3 @@ configure_file_translation (${CMAKE_CURRENT_SOURCE_DIR}/io.elementary.photos.app
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos.desktop DESTINATION ${DATADIR}/applications)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/org.pantheon.photos-viewer.desktop DESTINATION ${DATADIR}/applications)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.photos.appdata.xml DESTINATION ${DATADIR}/metainfo)
-
-# Install UI files
-file (GLOB UI_FILES ui/*)
-install (FILES ${UI_FILES} DESTINATION ${PKGDATADIR}/ui)
