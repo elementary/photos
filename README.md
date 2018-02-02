@@ -42,7 +42,7 @@ Run `cmake` to configure the build environment and then `make` to build
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make
     
-To install, use `make install`, then execute with `pantheon-photos`
+To install, use `make install`, then execute with `io.elementary.photos`
 
     sudo make install
     io.elementary.photos
