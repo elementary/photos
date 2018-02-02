@@ -31,8 +31,8 @@ Build-Depends: debhelper (>= 9),
                python-scour,
                desktop-file-utils,
 Standards-Version: 3.9.5
-Homepage: https://launchpad.net/pantheon-photos
-Vcs-Bzr: https://code.launchpad.net/~pantheon-photos/pantheon-photos/trunk
+Homepage: https://github.com/elementary/photos
+Vcs-Git: https://github.com/elementary/photos.git
 XS-Testsuite: autopkgtest
 
 Package: pantheon-photos
@@ -41,7 +41,6 @@ Conflicts: shotwell
 Replaces: shotwell
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         pantheon-photos-common (= ${source:Version}),
          librsvg2-common,
          dbus-x11
 Suggests: account-plugin-facebook, account-plugin-google, account-plugin-flickr
@@ -51,21 +50,6 @@ Description: digital photo organizer
  them in various ways, view them in full-window or fullscreen mode, and
  export them to share with others. It is able to manage a lot of different
  image formats, also including raw CR2 files.
-
-Package: pantheon-photos-common
-Architecture: all
-Depends: ${misc:Depends}
-Recommends: pantheon-photos
-Conflicts: shotwell-common
-Replaces: shotwell-common
-Description: digital photo organizer - common files
- Photos is a digital photo organizer designed for elementary's Pantheon desktop
- environment. It allows you to import photos from disk or camera, organize
- them in various ways, view them in full-window or fullscreen mode, and
- export them to share with others. It is able to manage a lot of different
- image formats, also including raw CR2 files.
- .
- This package provides images and documentation for Photos
 
 Package: pantheon-photos-dbg
 Priority: extra
