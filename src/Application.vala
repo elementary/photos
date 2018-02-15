@@ -70,7 +70,6 @@ public class Application : Granite.Application {
             application_id = "io.elementary.photos-direct";
             app_launcher = "org.pantheon.photos-viewer.desktop";
             program_name = _("Photo Viewer");
-            Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
@@ -97,6 +96,7 @@ public class Application : Granite.Application {
             command_line.connect (on_command_line);
         }
 
+        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
         activate.connect (on_activated);
         startup.connect (on_activated);
     }
