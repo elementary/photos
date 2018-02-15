@@ -96,7 +96,7 @@ public class Application : Granite.Application {
             command_line.connect (on_command_line);
         }
 
-        Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
+        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
         activate.connect (on_activated);
         startup.connect (on_activated);
     }
