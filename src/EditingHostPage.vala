@@ -138,6 +138,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             separator.set_expand (true);
 
             var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
+            zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
             zoom_original.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
             zoom_original.clicked.connect (() => {
