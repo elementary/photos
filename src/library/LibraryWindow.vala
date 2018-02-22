@@ -1363,7 +1363,7 @@ public class LibraryWindow : AppWindow {
         // just holds a single photo (SinglePhotoPage)
         Page? current_page = get_current_page ();
         if (current_page != null) {
-                title = current_page.to_string ();
+                title = current_page.page_name;
         } else {
             // having no page is unlikely, but set the good old default title
             // just in case
