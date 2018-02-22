@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -805,60 +806,47 @@ public class ImportPage : CheckerboardPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            base.get_toolbar ();
-
-            // hide duplicates checkbox
-            hide_imported = new Gtk.CheckButton.with_label (_ ("Hide photos already imported"));
-            hide_imported.set_tooltip_text (_ ("Only display photos that have not been imported"));
-            hide_imported.clicked.connect (on_hide_imported);
-            hide_imported.sensitive = false;
+            hide_imported = new Gtk.CheckButton.with_label (_("Hide photos already imported"));
             hide_imported.active = ui_settings.get_boolean ("hide-photos-already-imported");
-            Gtk.ToolItem hide_item = new Gtk.ToolItem ();
-            hide_item.is_important = true;
+            hide_imported.sensitive = false;
+            hide_imported.tooltip_text = _("Only display photos that have not been imported");
+            hide_imported.clicked.connect (on_hide_imported);
+
+            var hide_item = new Gtk.ToolItem ();
             hide_item.add (hide_imported);
 
-            toolbar.insert (hide_item, -1);
-
-            // separator to force buttons to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            var separator = new Gtk.SeparatorToolItem ();
             separator.set_draw (false);
 
-            toolbar.insert (separator, -1);
-
-            // progress bar in center of toolbar
-            progress_bar.set_orientation (Gtk.Orientation.HORIZONTAL);
+            progress_bar.orientation = Gtk.Orientation.HORIZONTAL;
             progress_bar.visible = false;
-            Gtk.ToolItem progress_item = new Gtk.ToolItem ();
-            progress_item.set_expand (true);
+            progress_bar.show_text = true;
+            progress_bar.no_show_all = true;
+
+            var progress_item = new Gtk.ToolItem ();
+            progress_item.expand = true;
             progress_item.add (progress_bar);
-            progress_bar.set_show_text (true);
 
-            toolbar.insert (progress_item, -1);
-
-            // Separator
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-
-            // Import selected
-            Gtk.ToolItem import_sel_ti = new Gtk.ToolItem ();
-            toolbar.insert (import_sel_ti, -1);
-
-            Gtk.Button import_selected_button = new Gtk.Button.with_label ("Import Selected");
+            var import_selected_button = new Gtk.Button.with_label ("Import Selected");
             import_selected_button.set_related_action (get_action ("ImportSelected"));
+
+            var import_sel_ti = new Gtk.ToolItem ();
             import_sel_ti.add (import_selected_button);
 
-            // Import all
-            Gtk.ToolItem import_all_ti = new Gtk.ToolItem ();
-            import_all_ti.margin_start = 6;
-            toolbar.insert (import_all_ti, -1);
-
-            Gtk.Button import_all_button = new Gtk.Button.with_label ("Import All");
+            var import_all_button = new Gtk.Button.with_label ("Import All");
             import_all_button.set_related_action (get_action ("ImportAll"));
 
+            var import_all_ti = new Gtk.ToolItem ();
+            import_all_ti.margin_start = 6;
             import_all_ti.add (import_all_button);
 
-            // restrain the recalcitrant rascal!  prevents the progress bar from being added to the
-            // show_all queue so we have more control over its visibility
-            progress_bar.set_no_show_all (true);
+            base.get_toolbar ();
+            toolbar.add (hide_item);
+            toolbar.add (separator);
+            toolbar.add (progress_item);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (import_sel_ti);
+            toolbar.add (import_all_ti);
 
             update_toolbar_state ();
 
