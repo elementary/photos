@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2010-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -55,58 +56,57 @@ public class TrashPage : CheckerboardPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            toolbar = new Gtk.Toolbar ();
-            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
             var app = AppWindow.get_instance () as LibraryWindow;
 
-            // separator to force slider to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
             separator.set_draw (false);
-            toolbar.insert (separator, -1);
-
-            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
-            drawn_separator.set_expand (false);
-            drawn_separator.set_draw (true);
-
-            toolbar.insert (drawn_separator, -1);
 
             var restore_button = new Gtk.Button.with_mnemonic (Resources.RESTORE_PHOTOS_MENU);
             restore_button.margin_start = restore_button.margin_end = 3;
             restore_button.clicked.connect (on_restore);
             restore_button.tooltip_text = Resources.RESTORE_PHOTOS_TOOLTIP;
+
             var restore_tool = new Gtk.ToolItem ();
             restore_tool.add (restore_button);
-            toolbar.insert (restore_tool, -1);
+
             var restore_action = get_action ("Restore");
             restore_action.bind_property ("sensitive", restore_button, "sensitive", BindingFlags.SYNC_CREATE);
 
             var delete_button = new Gtk.Button.with_mnemonic (Resources.DELETE_PHOTOS_MENU);
             delete_button.margin_start = delete_button.margin_end = 3;
-            delete_button.clicked.connect (on_delete);
             delete_button.tooltip_text = Resources.DELETE_FROM_TRASH_TOOLTIP;
+            delete_button.clicked.connect (on_delete);
+
             var delete_tool = new Gtk.ToolItem ();
             delete_tool.add (delete_button);
-            toolbar.insert (delete_tool, -1);
+
             var delete_action = get_action ("Delete");
             delete_action.bind_property ("sensitive", delete_button, "sensitive", BindingFlags.SYNC_CREATE);
 
             var empty_trash_button = new Gtk.Button.with_mnemonic (_("_Empty Trash"));
-            empty_trash_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             empty_trash_button.margin_start = empty_trash_button.margin_end = 3;
-            empty_trash_button.clicked.connect (on_empty_trash);
             empty_trash_button.tooltip_text = _("Delete all photos in the trash");
+            empty_trash_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            empty_trash_button.clicked.connect (on_empty_trash);
+
             var empty_trash_tool = new Gtk.ToolItem ();
             empty_trash_tool.add (empty_trash_button);
-            toolbar.insert (empty_trash_tool, -1);
+
             var empty_trash_action = get_action ("EmptyTrash");
             empty_trash_action.bind_property ("sensitive", empty_trash_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
-            toolbar.insert (show_sidebar_button, -1);
+
+            base.get_toolbar ();
+            toolbar.add (separator);
+            toolbar.add (restore_tool);
+            toolbar.add (delete_tool);
+            toolbar.add (empty_trash_tool);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (show_sidebar_button);
+
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
         return toolbar;
