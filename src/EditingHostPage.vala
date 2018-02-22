@@ -86,8 +86,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         sources.items_altered.connect (on_photos_altered);
 
         // monitor when the ViewCollection's contents change
-        get_view ().contents_altered.connect (on_view_contents_ordering_altered);
-        get_view ().ordering_changed.connect (on_view_contents_ordering_altered);
+        view.contents_altered.connect (on_view_contents_ordering_altered);
+        view.ordering_changed.connect (on_view_contents_ordering_altered);
 
         // the viewport can change size independent of the window being resized (when the searchbar
         // disappears, for example)
@@ -196,8 +196,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     ~EditingHostPage () {
         sources.items_altered.disconnect (on_photos_altered);
 
-        get_view ().contents_altered.disconnect (on_view_contents_ordering_altered);
-        get_view ().ordering_changed.disconnect (on_view_contents_ordering_altered);
+        view.contents_altered.disconnect (on_view_contents_ordering_altered);
+        view.ordering_changed.disconnect (on_view_contents_ordering_altered);
     }
 
     private void on_show_sidebar () {
@@ -430,13 +430,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     public Photo? get_photo () {
         // If there is currently no selected photo, return null.
-        if (get_view ().get_selected_count () == 0)
+        if (view.get_selected_count () == 0)
             return null;
 
         // Use the selected photo.  There should only ever be one selected photo,
         // which is the currently displayed photo.
-        assert (get_view ().get_selected_count () == 1);
-        return (Photo) get_view ().get_selected_at (0).get_source ();
+        assert (view.get_selected_count () == 1);
+        return (Photo) view.get_selected_at (0).get_source ();
     }
 
     // Called before the photo changes.
@@ -457,13 +457,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
         zoom_slider.slider_value = 0.0;
         zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
         photo_changing (photo);
-        DataView view = get_view ().get_view_for_source (photo);
-        assert (view != null);
+
+        var data_view = view.get_view_for_source (photo);
+        assert (data_view != null);
 
         // Select photo.
-        get_view ().unselect_all ();
-        Marker marker = get_view ().mark (view);
-        get_view ().select_marked (marker);
+        view.unselect_all ();
+
+        var marker = view.mark (data_view);
+        view.select_marked (marker);
 
         // also select it in the parent view's collection, so when the user returns to that view
         // it's apparent which one was being viewed here
@@ -513,7 +515,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
 
         parent_view = null;
-        get_view ().clear ();
+        view.clear ();
     }
 
     public override void switching_to_fullscreen (FullscreenWindow fsw) {
@@ -526,7 +528,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         Page page = fsw.get_current_page ();
         if (page != null)
-            page.get_view ().items_selected.connect (on_selection_changed);
+            page.view.items_selected.connect (on_selection_changed);
     }
 
     public override void returning_from_fullscreen (FullscreenWindow fsw) {
@@ -536,7 +538,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         Page page = fsw.get_current_page ();
         if (page != null)
-            page.get_view ().items_selected.disconnect (on_selection_changed);
+            page.view.items_selected.disconnect (on_selection_changed);
     }
 
     private void on_selection_changed (Gee.Iterable<DataView> selected) {
@@ -583,7 +585,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         if (has_photo ()) {
             debug ("Refresh pixbuf caches (%s): prefetching neighbors of %s", caller,
                    get_photo ().to_string ());
-            prefetch_neighbors (get_view (), get_photo ());
+            prefetch_neighbors (view, get_photo ());
         } else {
             debug ("Refresh pixbuf caches (%s): (no photo)", caller);
         }
@@ -704,9 +706,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected void display_copy_of (ViewCollection controller, Photo starting_photo) {
         assert (controller.get_view_for_source (starting_photo) != null);
 
-        if (controller != get_view () && controller != parent_view) {
-            get_view ().clear ();
-            get_view ().copy_into (controller, create_photo_view, is_photo);
+        if (controller != view && controller != parent_view) {
+            view.clear ();
+            view.copy_into (controller, create_photo_view, is_photo);
             parent_view = controller;
         }
 
@@ -716,9 +718,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected void display_mirror_of (ViewCollection controller, Photo starting_photo) {
         assert (controller.get_view_for_source (starting_photo) != null);
 
-        if (controller != get_view () && controller != parent_view) {
-            get_view ().clear ();
-            get_view ().mirror (controller, create_photo_view, is_photo);
+        if (controller != view && controller != parent_view) {
+            view.clear ();
+            view.mirror (controller, create_photo_view, is_photo);
             parent_view = controller;
         }
 
@@ -855,7 +857,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         rebuild_caches ("replace_photo");
 
         if (old_photo != null)
-            cancel_prefetch_neighbors (get_view (), old_photo, get_view (), new_photo);
+            cancel_prefetch_neighbors (view, old_photo, view, new_photo);
 
         cancel_zoom ();
 
@@ -986,7 +988,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override void update_actions (int selected_count, int count) {
-        bool multiple_photos = get_view ().get_sources_of_type_count (typeof (Photo)) > 1;
+        bool multiple_photos = view.get_sources_of_type_count (typeof (Photo)) > 1;
 
         prev_button.sensitive = multiple_photos;
         next_button.sensitive = multiple_photos;
@@ -1268,7 +1270,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         if (get_photo ().has_transformations ())
             Idle.add (on_fetch_original);
 
-        update_actions (get_view ().get_selected_count (), get_view ().get_count ());
+        update_actions (view.get_selected_count (), view.get_count ());
     }
 
     private void on_view_contents_ordering_altered () {
@@ -1585,7 +1587,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         if (get_photo ().has_editable ()) {
             if (!revert_editable_dialog (AppWindow.get_instance (),
-                                         (Gee.Collection<Photo>) get_view ().get_sources ())) {
+                                         (Gee.Collection<Photo>) view.get_sources ())) {
                 return;
             }
 
@@ -1609,7 +1611,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         int64 time_shift;
         bool keep_relativity, modify_originals;
         if (dialog.execute (out time_shift, out keep_relativity, out modify_originals)) {
-            get_view ().get_selected ();
+            view.get_selected ();
 
             AdjustDateTimePhotoCommand command = new AdjustDateTimePhotoCommand (get_photo (),
                     time_shift, modify_originals);
@@ -1903,14 +1905,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Photo? current_photo = get_photo ();
         assert (current_photo != null);
 
-        DataView current = get_view ().get_view_for_source (get_photo ());
+        DataView current = view.get_view_for_source (get_photo ());
         if (current == null)
             return;
 
         // search through the collection until the next photo is found or back at the starting point
         DataView? next = current;
         for (;;) {
-            next = get_view ().get_next (next);
+            next = view.get_next (next);
             if (next == null)
                 break;
 
@@ -1936,14 +1938,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Photo? current_photo = get_photo ();
         assert (current_photo != null);
 
-        DataView current = get_view ().get_view_for_source (get_photo ());
+        DataView current = view.get_view_for_source (get_photo ());
         if (current == null)
             return;
 
         // loop until a previous photo is found or back at the starting point
         DataView? previous = current;
         for (;;) {
-            previous = get_view ().get_previous (previous);
+            previous = view.get_previous (previous);
             if (previous == null)
                 break;
 

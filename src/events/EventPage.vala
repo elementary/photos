@@ -25,7 +25,7 @@ public class EventPage : CollectionPage {
         base (page_event.get_name ());
 
         this.page_event = page_event;
-        page_event.mirror_photos (get_view (), create_thumbnail);
+        page_event.mirror_photos (view, create_thumbnail);
 
         Event.global.items_altered.connect (on_events_altered);
     }
@@ -40,7 +40,7 @@ public class EventPage : CollectionPage {
         // either let us re-title multiple images at the same time or
         // spuriously highlight the event name in the sidebar for editing...
         if (Gdk.keyval_name (event.keyval) == "F2") {
-            if (get_view ().get_selected_count () != 1) {
+            if (view.get_selected_count () != 1) {
                 return true;
             }
         }
@@ -50,7 +50,7 @@ public class EventPage : CollectionPage {
 
     ~EventPage () {
         Event.global.items_altered.disconnect (on_events_altered);
-        get_view ().halt_mirroring ();
+        view.halt_mirroring ();
     }
 
     public override Gtk.Menu? get_page_sidebar_menu () {
@@ -113,10 +113,10 @@ public class EventPage : CollectionPage {
     }
 
     private void on_make_primary () {
-        if (get_view ().get_selected_count () != 1)
+        if (view.get_selected_count () != 1)
             return;
 
-        page_event.set_primary_source ((MediaSource) get_view ().get_selected_at (0).get_source ());
+        page_event.set_primary_source ((MediaSource) view.get_selected_at (0).get_source ());
     }
 
     private void on_rename () {
@@ -168,8 +168,8 @@ public class NoEventPage : CollectionPage {
         base (NAME);
 
         ViewManager filter = new NoEventViewManager (this);
-        get_view ().monitor_source_collection (LibraryPhoto.global, filter, no_event_page_alteration);
-        get_view ().monitor_source_collection (Video.global, filter, no_event_page_alteration);
+        view.monitor_source_collection (LibraryPhoto.global, filter, no_event_page_alteration);
+        view.monitor_source_collection (Video.global, filter, no_event_page_alteration);
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {

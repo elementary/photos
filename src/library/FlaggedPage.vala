@@ -48,7 +48,7 @@ public class FlaggedPage : CollectionPage {
         view_manager = new FlaggedViewManager (this);
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, view_manager, prereq);
+            view.monitor_source_collection (sources, view_manager, prereq);
     }
 
     public override SearchViewFilter get_search_view_filter () {

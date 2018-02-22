@@ -61,8 +61,8 @@ public class LastImportPage : CollectionPage {
             MediaCollectionRegistry.get_instance ().get_last_import_id ();
 
         if (current_last_import_id == null) {
-            get_view ().halt_all_monitoring ();
-            get_view ().clear ();
+            view.halt_all_monitoring ();
+            view.clear ();
 
             return;
         }
@@ -72,11 +72,11 @@ public class LastImportPage : CollectionPage {
 
         last_import_id = current_last_import_id;
 
-        get_view ().halt_all_monitoring ();
-        get_view ().clear ();
+        view.halt_all_monitoring ();
+        view.clear ();
 
         foreach (MediaSourceCollection col in MediaCollectionRegistry.get_instance ().get_all ()) {
-            get_view ().monitor_source_collection (col, new LastImportViewManager (this,
+            view.monitor_source_collection (col, new LastImportViewManager (this,
                                                   last_import_id), last_import_alteration);
         }
     }

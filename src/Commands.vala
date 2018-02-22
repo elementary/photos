@@ -81,9 +81,9 @@ public abstract class PageCommand : Command {
         if (photo_page != null) {
             if (library_photo != null && collection_page != null) {
                 bool photo_in_collection = false;
-                int count = collection_page.get_view ().get_count ();
+                int count = collection_page.view.get_count ();
                 for (int i = 0; i < count; i++) {
-                    if ( ((Thumbnail) collection_page.get_view ().get_at (i)).get_media_source () == library_photo) {
+                    if ( ((Thumbnail) collection_page.view.get_at (i)).get_media_source () == library_photo) {
                         photo_in_collection = true;
                         break;
                     }

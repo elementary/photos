@@ -61,7 +61,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
     public void update_properties (Page page) {
         /* figure out if we have a single image selected */
-        ViewCollection view = page.get_view ();
+        ViewCollection view = page.view;
         bool display_single = false;
 
         if (view == null) {

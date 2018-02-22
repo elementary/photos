@@ -79,7 +79,7 @@ public abstract class Properties : Gtk.Grid {
     }
 
     protected virtual void get_properties (Page current_page) {
-        ViewCollection view = current_page.get_view ();
+        var view = current_page.view;
         if (view == null)
             return;
 

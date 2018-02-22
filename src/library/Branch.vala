@@ -167,7 +167,7 @@ public class Library.MainPage : CollectionPage {
         base (NAME);
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, new CollectionViewManager (this), null, null, monitor);
+            view.monitor_source_collection (sources, new CollectionViewManager (this), null, null, monitor);
     }
 
     public override string get_back_name () {
