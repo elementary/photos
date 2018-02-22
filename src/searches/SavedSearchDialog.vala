@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2011-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -572,65 +573,54 @@ public class SavedSearchDialog {
 
     // Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
     private void setup_dialog () {
-        dialog = new Gtk.Dialog ();
-        dialog.title = _ ("Smart Album");
-        dialog.modal = true;
-        dialog.transient_for = AppWindow.get_instance ();
-        dialog.response.connect (on_response);
-        dialog.deletable = false;
-
-        add_criteria = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
-        add_criteria.button_press_event.connect (on_add_criteria);
-
-        Gtk.Label search_label = new Gtk.Label ("Name:");
+        var search_label = new Gtk.Label (_("Name:"));
 
         search_title = new Gtk.Entry ();
         search_title.activates_default = true;
         search_title.hexpand = true;
         search_title.changed.connect (on_title_changed);
 
-        Gtk.Grid search_content_grid = new Gtk.Grid ();
-        search_content_grid.orientation = Gtk.Orientation.HORIZONTAL;
-        search_content_grid.column_spacing = 6;
-        search_content_grid.add (search_label);
-        search_content_grid.add (search_title);
+        var match_label = new Gtk.Label.with_mnemonic (_("_Match"));
 
-        Gtk.Label match_label = new Gtk.Label.with_mnemonic (_ ("_Match"));
-        Gtk.Label match2_label = new Gtk.Label.with_mnemonic (_ ("of the following:"));
+        operator = new Gtk.ComboBoxText ();
+        operator.append_text (_("any"));
+        operator.append_text (_("all"));
+        operator.append_text (_("none"));
+        operator.active = 0;
+
+        var match2_label = new Gtk.Label.with_mnemonic (_("of the following:"));
         match2_label.hexpand = true;
-        ((Gtk.Misc) match2_label).xalign = 0.0f;
+        match2_label.xalign = 0;
+
+        add_criteria = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
+        add_criteria.tooltip_text = _("Add rule");
+        add_criteria.button_press_event.connect (on_add_criteria);
 
         row_box = new Gtk.Grid ();
         row_box.orientation = Gtk.Orientation.VERTICAL;
         row_box.row_spacing = 12;
 
-        operator = new Gtk.ComboBoxText ();
-        operator.append_text (_ ("any"));
-        operator.append_text (_ ("all"));
-        operator.append_text (_ ("none"));
-        operator.active = 0;
-
-        Gtk.Grid match_grid = new Gtk.Grid ();
-        match_grid.orientation = Gtk.Orientation.HORIZONTAL;
-        match_grid.column_spacing = 6;
-        match_grid.add (match_label);
-        match_grid.add (operator);
-        match_grid.add (match2_label);
-        match_grid.add (add_criteria);
-
-        Gtk.Grid search_grid = new Gtk.Grid ();
-        search_grid.orientation = Gtk.Orientation.VERTICAL;
+        var search_grid = new Gtk.Grid ();
         search_grid.margin = 12;
+        search_grid.column_spacing = 6;
         search_grid.row_spacing = 12;
+        search_grid.attach (search_label, 0, 0, 1, 1);
+        search_grid.attach (search_title, 1, 0, 3, 1);
+        search_grid.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, 1, 4, 1);
+        search_grid.attach (match_label, 0, 2, 1, 1);
+        search_grid.attach (operator, 1, 2, 1, 1);
+        search_grid.attach (match2_label, 2, 2, 1, 1);
+        search_grid.attach (add_criteria, 3, 2, 1, 1);
+        search_grid.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, 3, 4, 1);
+        search_grid.attach (row_box, 0, 4, 4, 1);
 
-        search_grid.add (search_content_grid);
-        search_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        search_grid.add (match_grid);
-        search_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        search_grid.add (row_box);
-
-        Gtk.Box content = dialog.get_content_area () as Gtk.Box;
-        content.add (search_grid);
+        dialog = new Gtk.Dialog ();
+        dialog.title = _("Smart Album");
+        dialog.modal = true;
+        dialog.transient_for = AppWindow.get_instance ();
+        dialog.response.connect (on_response);
+        dialog.deletable = false;
+        dialog.get_content_area ().add (search_grid);
     }
 
     // Displays the dialog.
