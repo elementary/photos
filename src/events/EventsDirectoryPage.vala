@@ -60,6 +60,22 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        var merge_button = new Gtk.ToolButton (null, null);
+        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
+        merge_button.related_action = get_action ("Merge");
+        merge_button.tooltip_text = _("Merge events");
+
+        var separator = new Gtk.SeparatorToolItem ();
+        separator.set_expand (true);
+
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+
+        var toolbar = get_toolbar ();
+        toolbar.add (merge_button);
+        toolbar.add (separator);
+        toolbar.add (show_sidebar_button);
     }
 
     public EventsDirectoryPage (string page_name, ViewManager view_manager,
@@ -76,33 +92,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         this.view_manager = view_manager;
 
-        // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-        Gtk.Toolbar toolbar = get_toolbar ();
-
-        // merge tool
-        Gtk.ToolButton merge_button = new Gtk.ToolButton (null, null);
-        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
-
-        merge_button.set_related_action (get_action ("Merge"));
-
-        toolbar.insert (merge_button, -1);
-
-        // separator to force slider to right side of toolbar
-        Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
-        separator.set_expand (true);
-        separator.set_draw (false);
-        get_toolbar ().insert (separator, -1);
-
-        Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
-        drawn_separator.set_expand (false);
-        drawn_separator.set_draw (true);
-
-        get_toolbar ().insert (drawn_separator, -1);
-
-        //  show metadata sidebar button
-        show_sidebar_button = MediaPage.create_sidebar_button ();
-        show_sidebar_button.clicked.connect (on_show_sidebar);
-        toolbar.insert (show_sidebar_button, -1);
         var app = AppWindow.get_instance () as LibraryWindow;
         update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
