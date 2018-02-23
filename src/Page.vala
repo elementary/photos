@@ -131,10 +131,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         debug ("Page %s Destroyed", page_name);
     }
 
-    public string to_string () {
-        return page_name;
-    }
-
     public Gtk.Window? get_container () {
         return container;
     }
