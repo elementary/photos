@@ -26,8 +26,8 @@ public class SavedSearchDialog {
         public signal void changed (SearchRowContainer this_row);
 
         private Gtk.ComboBoxText type_combo;
-        private Gtk.Box box;
-        private Gtk.Alignment align;
+        private Gtk.Grid grid;
+        private Gtk.Grid align;
         private Gtk.Button remove_button;
         private SearchCondition.SearchType[] search_types;
         private Gee.HashMap<SearchCondition.SearchType, int> search_types_index;
@@ -46,7 +46,6 @@ public class SavedSearchDialog {
             my_row.populate (sc);
         }
 
-        // Creates the GUI for this row.
         private void setup_gui () {
             search_types = SearchCondition.SearchType.as_array ();
             search_types_index = new Gee.HashMap<SearchCondition.SearchType, int> ();
@@ -62,16 +61,19 @@ public class SavedSearchDialog {
             type_combo.changed.connect (on_type_changed);
 
             remove_button = new Gtk.Button.from_icon_name ("list-remove-symbolic", Gtk.IconSize.BUTTON);
+            remove_button.halign = Gtk.Align.END;
+            remove_button.hexpand = true;
+            remove_button.tooltip_text = _("Remove rule");
             remove_button.button_press_event.connect (on_removed);
 
-            align = new Gtk.Alignment (0, 0, 0, 0);
+            align = new Gtk.Grid ();
 
-            box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-            box.pack_start (type_combo, false, false, 0);
-            box.pack_start (align, false, false, 0);
-            box.pack_start (new Gtk.Alignment (0, 0, 0, 0), true, true, 0); // Fill space.
-            box.pack_start (remove_button, false, false, 0);
-            box.show_all ();
+            grid = new Gtk.Grid ();
+            grid.column_spacing = 6;
+            grid.add (type_combo);
+            grid.add (align);
+            grid.add (remove_button);
+            grid.show_all ();
         }
 
         private void on_type_changed () {
@@ -135,7 +137,7 @@ public class SavedSearchDialog {
         }
 
         public Gtk.Widget get_widget () {
-            return box;
+            return grid;
         }
 
         public SearchCondition get_search_condition () {
@@ -174,12 +176,12 @@ public class SavedSearchDialog {
 
             // Ordering must correspond with SearchConditionText.Context
             text_context = new Gtk.ComboBoxText ();
-            text_context.append_text (_ ("contains"));
-            text_context.append_text (_ ("is exactly"));
-            text_context.append_text (_ ("starts with"));
-            text_context.append_text (_ ("ends with"));
-            text_context.append_text (_ ("does not contain"));
-            text_context.append_text (_ ("is not set"));
+            text_context.append_text (_("contains"));
+            text_context.append_text (_("is exactly"));
+            text_context.append_text (_("starts with"));
+            text_context.append_text (_("ends with"));
+            text_context.append_text (_("does not contain"));
+            text_context.append_text (_("is not set"));
             text_context.set_active (0);
             text_context.changed.connect (on_changed);
 
@@ -431,11 +433,11 @@ public class SavedSearchDialog {
 
             // Ordering must correspond with Context
             context = new Gtk.ComboBoxText ();
-            context.append_text (_ ("is exactly"));
-            context.append_text (_ ("is after"));
-            context.append_text (_ ("is before"));
-            context.append_text (_ ("is between"));
-            context.append_text (_ ("is not set"));
+            context.append_text (_("is exactly"));
+            context.append_text (_("is after"));
+            context.append_text (_("is before"));
+            context.append_text (_("is between"));
+            context.append_text (_("is not set"));
             context.set_active (0);
             context.changed.connect (on_changed);
 
