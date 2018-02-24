@@ -122,6 +122,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         text_renderer = new Gtk.CellRendererText ();
         text_renderer.editing_canceled.connect (on_editing_canceled);
         text_renderer.editing_started.connect (on_editing_started);
+        text_renderer.ellipsize = Pango.EllipsizeMode.END;
         text_column.pack_start (text_renderer, true);
         text_column.add_attribute (text_renderer, "markup", Columns.NAME);
         append_column (text_column);
