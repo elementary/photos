@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -49,131 +50,41 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry save = { "Save", null, null, "<Ctrl>S", null, on_save };
+        Gtk.ActionEntry save_as = { "SaveAs", null, null, "<Ctrl><Shift>S", null, on_save_as };
+        Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
+        Gtk.ActionEntry rotate_right = { "RotateClockwise", null, null, "<Ctrl>R", null, on_rotate_clockwise };
+        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", null, null, "<Ctrl><Shift>R", null, on_rotate_counterclockwise };
+        Gtk.ActionEntry enhance = { "Enhance", null, null, "<Ctrl>E", null, on_enhance };
+        Gtk.ActionEntry crop = { "Crop", null, null, "<Ctrl>O", null, toggle_crop };
+        Gtk.ActionEntry straighten = { "Straighten", null, null, "<Ctrl>A", null, toggle_straighten };
+        Gtk.ActionEntry red_eye = { "RedEye", null, null, "<Ctrl>Y", null, toggle_redeye };
+        Gtk.ActionEntry adjust = { "Adjust", null, null, "<Ctrl>D", null, toggle_adjust };
+        Gtk.ActionEntry revert = { "Revert", null, null, null, null, on_revert };
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, null, null, null, on_adjust_date_time };
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus", null, on_increase_size };
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, null, "<Ctrl>minus", null, on_decrease_size };
+        Gtk.ActionEntry best_fit = { "ZoomFit", null, null, "<Ctrl>0", null, snap_zoom_to_min };
+        Gtk.ActionEntry actual_size = { "Zoom100", null, null, "<Ctrl>1", null, snap_zoom_to_isomorphic };
+        Gtk.ActionEntry max_size = { "Zoom200", null, null, "<Ctrl>2", null, snap_zoom_to_max };
+
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry file = { "FileMenu", null, _("_File"), null, null, null };
-        actions += file;
-
-        Gtk.ActionEntry save = { "Save", "document-save", _("_Save"), "<Ctrl>S", _("Save photo"),
-                                 on_save
-                               };
         actions += save;
-
-        Gtk.ActionEntry save_as = { "SaveAs", "document-save-as", _("Save _As..."),
-                                    "<Ctrl><Shift>S", _("Save photo with a different name"), on_save_as
-                                  };
         actions += save_as;
-
-        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
-                                  _("Print the photo to a printer connected to your computer"), on_print
-                                };
         actions += print;
-
-        Gtk.ActionEntry edit = { "EditMenu", null, _("_Edit"), null, null, null };
-        actions += edit;
-
-        Gtk.ActionEntry photo = { "PhotoMenu", null, _("_Photo"), null, null, null };
-        actions += photo;
-
-        Gtk.ActionEntry tools = { "Tools", null, _("T_ools"), null, null, null };
-        actions += tools;
-
-        Gtk.ActionEntry prev = { "PrevPhoto", null, _("_Previous Photo"), null,
-                                 _("Previous Photo"), on_previous_photo
-                               };
-        actions += prev;
-
-        Gtk.ActionEntry next = { "NextPhoto", null, _("_Next Photo"), null,
-                                 _("Next Photo"), on_next_photo
-                               };
-        actions += next;
-
-        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE,
-                                         Resources.ROTATE_CW_MENU, "<Ctrl>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_clockwise
-                                       };
         actions += rotate_right;
-
-        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
-                                      };
         actions += rotate_left;
-
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
-                                  Resources.HFLIP_MENU, on_flip_horizontally
-                                };
-        actions += hflip;
-
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
-                                  Resources.VFLIP_MENU, on_flip_vertically
-                                };
-        actions += vflip;
-
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
-                                    Resources.ENHANCE_TOOLTIP, on_enhance
-                                  };
         actions += enhance;
-
-        Gtk.ActionEntry crop = { "Crop", Resources.CROP, Resources.CROP_MENU, "<Ctrl>O",
-                                 Resources.CROP_TOOLTIP, toggle_crop
-                               };
         actions += crop;
-
-        Gtk.ActionEntry straighten = { "Straighten", null, Resources.STRAIGHTEN_MENU, "<Ctrl>A",
-                                       Resources.STRAIGHTEN_TOOLTIP, toggle_straighten
-                                     };
         actions += straighten;
-
-        Gtk.ActionEntry red_eye = { "RedEye", Resources.REDEYE, Resources.RED_EYE_MENU, "<Ctrl>Y",
-                                    Resources.RED_EYE_TOOLTIP, toggle_redeye
-                                  };
         actions += red_eye;
-
-        Gtk.ActionEntry adjust = { "Adjust", Resources.ADJUST, Resources.ADJUST_MENU, "<Ctrl>D",
-                                   Resources.ADJUST_TOOLTIP, toggle_adjust
-                                 };
         actions += adjust;
-
-        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU,
-                                   null, Resources.REVERT_MENU, on_revert
-                                 };
         actions += revert;
-
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
-                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
-                                           };
         actions += adjust_date_time;
-
-        Gtk.ActionEntry view = { "ViewMenu", null, _("_View"), null, null, null };
-        actions += view;
-
-        Gtk.ActionEntry help = { "HelpMenu", null, _("_Help"), null, null, null };
-        actions += help;
-
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
-                                          "<Ctrl>plus", _("Increase the magnification of the photo"), on_increase_size
-                                        };
         actions += increase_size;
-
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
-                                          "<Ctrl>minus", _("Decrease the magnification of the photo"), on_decrease_size
-                                        };
         actions += decrease_size;
-
-        Gtk.ActionEntry best_fit = { "ZoomFit", null, _("Fit to _Page"),
-                                     "<Ctrl>0", _("Zoom the photo to fit on the screen"), snap_zoom_to_min
-                                   };
         actions += best_fit;
-
-        /// xgettext:no-c-format
-        Gtk.ActionEntry actual_size = { "Zoom100", null, _("Zoom _100%"),
-                                        "<Ctrl>1", _("Zoom the photo to 100% magnification"), snap_zoom_to_isomorphic
-                                      };
         actions += actual_size;
-
-        /// xgettext:no-c-format
-        Gtk.ActionEntry max_size = { "Zoom200", null, _("Zoom _200%"),
-                                     "<Ctrl>2", _("Zoom the photo to 200% magnification"), snap_zoom_to_max
-                                   };
         actions += max_size;
 
         return actions;
