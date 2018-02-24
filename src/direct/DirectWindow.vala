@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -39,13 +40,15 @@ public class DirectWindow : AppWindow {
 
         add (layout);
 
-        var save_action = get_direct_page ().get_action ("Save");
-        var save_btn = save_action.create_tool_item ();
-        save_btn.sensitive = true;
+        var save_btn = new Gtk.Button ();
+        save_btn.related_action = get_direct_page ().get_action ("Save");
+        save_btn.image = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
+        save_btn.tooltip_text = _("Save photo");
 
-        var save_as_action = get_direct_page ().get_action ("SaveAs");
-        var save_as_btn = save_as_action.create_tool_item ();
-        save_as_btn.sensitive = true;
+        var save_as_btn = new Gtk.Button ();
+        save_as_btn.related_action = get_direct_page ().get_action ("SaveAs");
+        save_as_btn.image = new Gtk.Image.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
+        save_as_btn.tooltip_text = _("Save photo with a different name");
 
         header.has_subtitle = false;
         header.pack_start (save_btn);
