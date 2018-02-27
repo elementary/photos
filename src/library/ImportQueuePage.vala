@@ -45,21 +45,19 @@ public class ImportQueuePage : SinglePhotoPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            toolbar = base.get_toolbar ();
-
-            Gtk.ToolItem progress_item = new Gtk.ToolItem ();
+            var progress_item = new Gtk.ToolItem ();
             progress_item.set_expand (true);
             progress_item.add (progress_bar);
+
             progress_bar.set_show_text (true);
-            toolbar.insert (progress_item, -1);
 
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
-            separator.set_draw (false);
-            toolbar.insert (separator, -1);
-
-            Gtk.ToolButton stop_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+            var stop_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
             stop_button.set_related_action (get_action ("Stop"));
-            toolbar.insert (stop_button, -1);
+
+            toolbar = base.get_toolbar ();
+            toolbar.add (progress_item);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (stop_button);
         }
 
         return toolbar;

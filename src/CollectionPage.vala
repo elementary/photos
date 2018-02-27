@@ -60,64 +60,43 @@ public abstract class CollectionPage : MediaPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            toolbar = new Gtk.Toolbar ();
-            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
-
             var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
             slideshow_button.icon_name = "media-playback-start-symbolic";
             slideshow_button.tooltip_text = _("Play a slideshow");
             slideshow_button.clicked.connect (on_slideshow);
-            toolbar.insert (slideshow_button, -1);
 
             rotate_button = new Gtk.ToolButton (null, Resources.ROTATE_CW_MENU);
             rotate_button.icon_name = Resources.CLOCKWISE;
             rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
             rotate_button.clicked.connect (on_rotate_clockwise);
+
             var rotate_action = get_action ("RotateClockwise");
             rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (rotate_button, -1);
 
             flip_button = new Gtk.ToolButton (null, Resources.HFLIP_MENU);
             flip_button.icon_name = Resources.HFLIP;
             flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
             flip_button.clicked.connect (on_flip_horizontally);
+
             var flip_action = get_action ("FlipHorizontally");
             flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (flip_button, -1);
-
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
             var publish_button = new Gtk.ToolButton (null, Resources.PUBLISH_MENU);
             publish_button.icon_name = Resources.PUBLISH;
             publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
             publish_button.clicked.connect (on_publish);
+
             var publish_action = get_action ("Publish");
             publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (publish_button, -1);
 
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-
-            // enhance tool
             enhance_button = new Gtk.ToggleToolButton ();
             enhance_button.icon_name = Resources.ENHANCE;
-            enhance_button.label = Resources.ENHANCE_LABEL;
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
-            enhance_button.is_important = true;
-            toolbar.insert (enhance_button, -1);
 
-            // separator to force slider to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
             separator.set_draw (false);
-            toolbar.insert (separator, -1);
-
-            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
-            drawn_separator.set_expand (false);
-            drawn_separator.set_draw (true);
-
-            toolbar.insert (drawn_separator, -1);
 
             var zoom_assembly = new SliderAssembly (Thumbnail.MIN_SCALE,
                                                     Thumbnail.MAX_SCALE,
@@ -128,12 +107,22 @@ public abstract class CollectionPage : MediaPage {
 
             var group_wrapper = new Gtk.ToolItem ();
             group_wrapper.add (zoom_assembly);
-            toolbar.insert (group_wrapper, -1);
 
-            //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
-            toolbar.insert (show_sidebar_button, -1);
+
+            toolbar = base.get_toolbar ();
+            toolbar.add (slideshow_button);
+            toolbar.add (rotate_button);
+            toolbar.add (flip_button);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (publish_button);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (enhance_button);
+            toolbar.add (separator);
+            toolbar.add (group_wrapper);
+            toolbar.add (show_sidebar_button);
+
             var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
