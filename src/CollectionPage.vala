@@ -176,7 +176,7 @@ public abstract class CollectionPage : MediaPage {
             var raw_developer_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Developer"));
             var raw_developer_action = get_action ("RawDeveloper");
             raw_developer_action.bind_property ("sensitive", raw_developer_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            open_menu = new Gtk.Menu ();
+
             var raw_developer_menu = new Gtk.Menu ();
             raw_developer_menu.add (raw_developer_app_menu_item);
             raw_developer_menu.add (raw_developer_camera_menu_item);
@@ -190,6 +190,7 @@ public abstract class CollectionPage : MediaPage {
             var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
             var open_action = get_action ("OpenWith");
             open_action.bind_property ("sensitive", open_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+
             open_menu = new Gtk.Menu ();
             open_menu_item.set_submenu (open_menu);
 
@@ -208,11 +209,6 @@ public abstract class CollectionPage : MediaPage {
             var jump_event_action = get_common_action ("CommonJumpToEvent");
             jump_event_action.bind_property ("sensitive", jump_event_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             jump_event_menu_item.activate.connect (() => jump_event_action.activate ());
-
-            var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
 
             var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
             var print_action = get_action ("Print");
@@ -244,7 +240,6 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (duplicate_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
-            item_context_menu.add (jump_menu_item);
             item_context_menu.add (open_menu_item);
             item_context_menu.add (open_raw_menu_item);
             item_context_menu.add (contractor_menu_item);
@@ -357,26 +352,39 @@ public abstract class CollectionPage : MediaPage {
     }
 
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
-        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
         SortedList<AppInfo> external_apps;
         string[] mime_types;
 
-        // get list of all applications for the given mime types
-        if (raw)
-            mime_types = PhotoFileFormat.RAW.get_mime_types ();
-        else
-            mime_types = PhotoFileFormat.get_editable_mime_types ();
-        assert (mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
-
-        if (external_apps.size == 0) {
-            parent.sensitive = false;
-            return;
+        foreach (Gtk.Widget item in menu.get_children ()) {
+            menu.remove (item);
         }
 
-        foreach (Gtk.Widget item in menu.get_children ())
-            menu.remove (item);
-        parent.sensitive = true;
+        // get list of all applications for the given mime types
+        if (raw) {
+            mime_types = PhotoFileFormat.RAW.get_mime_types ();
+        } else {
+            mime_types = PhotoFileFormat.get_editable_mime_types ();
+
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (new Gtk.Image.from_icon_name ("system-file-manager", Gtk.IconSize.MENU));
+            menuitem_grid.add (new Gtk.Label (_("File Manager")));
+
+            var jump_menu_item = new Gtk.MenuItem ();
+            jump_menu_item.add (menuitem_grid);
+
+            var jump_action = get_common_action ("CommonJumpToFile");
+            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_action.activate ());
+
+            menu.add (jump_menu_item);
+        }
+
+        assert (mime_types.length != 0);
+        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);       
+
+        if (external_apps.size > 0) {
+            menu.add (new Gtk.SeparatorMenuItem ());
+        }
 
         foreach (AppInfo app in external_apps) {
             var menuitem_grid = new Gtk.Grid ();
