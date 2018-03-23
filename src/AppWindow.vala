@@ -421,12 +421,6 @@ public abstract class AppWindow : PageWindow {
             action.sensitive = sensitive;
     }
 
-    public void set_common_action_important (string name, bool important) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
     public void set_common_action_visible (string name, bool visible) {
         Gtk.Action? action = get_common_action (name);
         if (action != null)
