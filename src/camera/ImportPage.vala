@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -507,9 +508,12 @@ public class ImportPage : CheckerboardPage {
         private CameraImportJob? associated = null;
         private BackingPhotoRow? associated_file = null;
         private DuplicatedFile? duplicated_file;
+        private GLib.Settings file_settings;
 
         public CameraImportJob (GPhoto.ContextWrapper context, ImportSource import_file,
                                 DuplicatedFile? duplicated_file = null) {
+            file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
+
             this.context = context;
             this.import_file = import_file;
             this.duplicated_file = duplicated_file;
@@ -643,7 +647,9 @@ public class ImportPage : CheckerboardPage {
                 if (associated_file != null) {
                     photo.add_backing_photo_for_development (RawDeveloper.CAMERA, associated_file);
                     ret = true;
-                    photo.set_raw_developer (Config.Facade.get_instance ().get_default_raw_developer ());
+                    photo.set_raw_developer (
+                        RawDeveloper.from_string (file_settings.get_string ("raw-developer-default"))
+                    );
                 }
             }
             return ret;
@@ -723,6 +729,7 @@ public class ImportPage : CheckerboardPage {
 
     private Gtk.Menu page_context_menu;
     private Gtk.Menu import_context_menu;
+    private GLib.Settings ui_settings;
 
 #if UNITY_SUPPORT
     UnityProgressBar uniprobar = UnityProgressBar.get_instance ();
@@ -733,6 +740,10 @@ public class ImportPage : CheckerboardPage {
         BUSY,
         LOCKED,
         LIBRARY_ERROR
+    }
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
     }
 
     public ImportPage (GPhoto.Camera camera, string uri, string? display_name = null, GLib.Icon? icon = null) {
@@ -756,7 +767,7 @@ public class ImportPage : CheckerboardPage {
             }
         }
         camera_label.set_text (camera_name);
-        set_page_name (camera_name);
+        page_name = camera_name;
 
         // Mount.unmounted signal is *only* fired when a VolumeMonitor has been instantiated.
         this.volume_monitor = VolumeMonitor.get ();
@@ -795,60 +806,47 @@ public class ImportPage : CheckerboardPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            base.get_toolbar ();
-
-            // hide duplicates checkbox
-            hide_imported = new Gtk.CheckButton.with_label (_ ("Hide photos already imported"));
-            hide_imported.set_tooltip_text (_ ("Only display photos that have not been imported"));
-            hide_imported.clicked.connect (on_hide_imported);
+            hide_imported = new Gtk.CheckButton.with_label (_("Hide photos already imported"));
+            hide_imported.active = ui_settings.get_boolean ("hide-photos-already-imported");
             hide_imported.sensitive = false;
-            hide_imported.active = Config.Facade.get_instance ().get_hide_photos_already_imported ();
-            Gtk.ToolItem hide_item = new Gtk.ToolItem ();
-            hide_item.is_important = true;
+            hide_imported.tooltip_text = _("Only display photos that have not been imported");
+            hide_imported.clicked.connect (on_hide_imported);
+
+            var hide_item = new Gtk.ToolItem ();
             hide_item.add (hide_imported);
 
-            toolbar.insert (hide_item, -1);
-
-            // separator to force buttons to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            var separator = new Gtk.SeparatorToolItem ();
             separator.set_draw (false);
 
-            toolbar.insert (separator, -1);
-
-            // progress bar in center of toolbar
-            progress_bar.set_orientation (Gtk.Orientation.HORIZONTAL);
+            progress_bar.orientation = Gtk.Orientation.HORIZONTAL;
             progress_bar.visible = false;
-            Gtk.ToolItem progress_item = new Gtk.ToolItem ();
-            progress_item.set_expand (true);
+            progress_bar.show_text = true;
+            progress_bar.no_show_all = true;
+
+            var progress_item = new Gtk.ToolItem ();
+            progress_item.expand = true;
             progress_item.add (progress_bar);
-            progress_bar.set_show_text (true);
 
-            toolbar.insert (progress_item, -1);
-
-            // Separator
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-
-            // Import selected
-            Gtk.ToolItem import_sel_ti = new Gtk.ToolItem ();
-            toolbar.insert (import_sel_ti, -1);
-
-            Gtk.Button import_selected_button = new Gtk.Button.with_label ("Import Selected");
+            var import_selected_button = new Gtk.Button.with_label ("Import Selected");
             import_selected_button.set_related_action (get_action ("ImportSelected"));
+
+            var import_sel_ti = new Gtk.ToolItem ();
             import_sel_ti.add (import_selected_button);
 
-            // Import all
-            Gtk.ToolItem import_all_ti = new Gtk.ToolItem ();
-            import_all_ti.margin_start = 6;
-            toolbar.insert (import_all_ti, -1);
-
-            Gtk.Button import_all_button = new Gtk.Button.with_label ("Import All");
+            var import_all_button = new Gtk.Button.with_label ("Import All");
             import_all_button.set_related_action (get_action ("ImportAll"));
 
+            var import_all_ti = new Gtk.ToolItem ();
+            import_all_ti.margin_start = 6;
             import_all_ti.add (import_all_button);
 
-            // restrain the recalcitrant rascal!  prevents the progress bar from being added to the
-            // show_all queue so we have more control over its visibility
-            progress_bar.set_no_show_all (true);
+            base.get_toolbar ();
+            toolbar.add (hide_item);
+            toolbar.add (separator);
+            toolbar.add (progress_item);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (import_sel_ti);
+            toolbar.add (import_all_ti);
 
             update_toolbar_state ();
 
@@ -981,7 +979,8 @@ public class ImportPage : CheckerboardPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         Gtk.ToggleActionEntry titles = { "ViewTitle", null, _("_Titles"), "<Ctrl><Shift>T",
-                                         _("Display the title of each photo"), on_display_titles, Config.Facade.get_instance ().get_display_photo_titles ()
+                                         _("Display the title of each photo"), on_display_titles,
+                                         ui_settings.get_boolean ("display-photo-titles")
                                        };
         toggle_actions += titles;
 
@@ -1071,11 +1070,11 @@ public class ImportPage : CheckerboardPage {
         bool display = ((Gtk.ToggleAction) action).get_active ();
 
         set_display_titles (display);
-        Config.Facade.get_instance ().set_display_photo_titles (display);
+        ui_settings.set_boolean ("display-photo-titles", display);
     }
 
     public override void switched_to () {
-        set_display_titles (Config.Facade.get_instance ().get_display_photo_titles ());
+        set_display_titles (ui_settings.get_boolean ("display-photo-titles"));
 
         base.switched_to ();
     }
@@ -1730,7 +1729,7 @@ public class ImportPage : CheckerboardPage {
         else
             get_view ().remove_view_filter (hide_imported_filter);
 
-        Config.Facade.get_instance ().set_hide_photos_already_imported (hide_imported.get_active ());
+        ui_settings.set_boolean ("hide-photos-already-imported", hide_imported.get_active ());
     }
 
     private void on_import_selected () {

@@ -164,7 +164,7 @@ public abstract class DatabaseTable {
             throw new DatabaseError.ERROR (msg);
         }
     }
-    
+
     protected Sqlite.Statement create_stmt (string data) {
         debug ("Running statement: %s\n", data);
 
@@ -175,7 +175,16 @@ public abstract class DatabaseTable {
         return stmt;
     }
 
-    protected static void bind_text (Sqlite.Statement stmt, int column, string data) {
+    protected static void bind_null (Sqlite.Statement stmt, int column) {
+        var res = stmt.bind_null (column);
+        assert (res == Sqlite.OK);
+    }
+
+    protected static void bind_text (Sqlite.Statement stmt, int column, string? data) {
+        if (data == null) {
+            bind_null (stmt, column);
+        }
+
         var res = stmt.bind_text (column, data);
         assert (res == Sqlite.OK);
     }
@@ -184,12 +193,12 @@ public abstract class DatabaseTable {
         var res = stmt.bind_int (column, data);
         assert (res == Sqlite.OK);
     }
-    
+
     protected static void bind_int64 (Sqlite.Statement stmt, int column, int64 data) {
         var res = stmt.bind_int64 (column, data);
         assert (res == Sqlite.OK);
     }
-    
+
     protected static void bind_double (Sqlite.Statement stmt, int column, double data) {
         var res = stmt.bind_double (column, data);
         assert (res == Sqlite.OK);

@@ -97,16 +97,19 @@ public class EventPage : CollectionPage {
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_event_photos_sort (out sort_order, out sort_by);
+        sort_order = ui_settings.get_boolean ("event-photos-sort-ascending");
+        sort_by = ui_settings.get_int ("event-photos-sort-by");
     }
 
     protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_event_photos_sort (sort_order, sort_by);
+        ui_settings.set_boolean ("event-photos-sort-ascending", sort_order);
+        ui_settings.set_int ("event-photos-sort-by", sort_by);
     }
 
     private void on_events_altered (Gee.Map<DataObject, Alteration> map) {
-        if (map.has_key (page_event))
-            set_page_name (page_event.get_name ());
+        if (map.has_key (page_event)) {
+            page_name = page_event.get_name ();
+        }
     }
 
     private void on_make_primary () {
@@ -170,11 +173,13 @@ public class NoEventPage : CollectionPage {
     }
 
     protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_event_photos_sort (out sort_order, out sort_by);
+        sort_order = ui_settings.get_boolean ("event-photos-sort-ascending");
+        sort_by = ui_settings.get_int ("event-photos-sort-by");
     }
 
     protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_event_photos_sort (sort_order, sort_by);
+        ui_settings.set_boolean ("event-photos-sort-ascending", sort_order);
+        ui_settings.set_int ("event-photos-sort-by", sort_by);
     }
 }
 

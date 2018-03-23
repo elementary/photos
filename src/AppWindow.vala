@@ -34,13 +34,18 @@ public abstract class AppWindow : PageWindow {
     // the AppWindow maintains its own UI manager because the first UIManager an action group is
     // added to is the one that claims its accelerators
     protected Gtk.ActionGroup[] common_action_groups;
-    protected bool maximized = false;
     protected Dimensions dimensions;
     protected int pos_x = 0;
     protected int pos_y = 0;
     protected Gtk.HeaderBar header;
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("AppWindowGlobalActionGroup");
+
+    protected GLib.Settings window_settings;
+
+    construct {
+        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
+    }
 
     public AppWindow () {
         // although there are multiple AppWindow types, only one may exist per-process
@@ -54,12 +59,22 @@ public abstract class AppWindow : PageWindow {
 
         set_default_title ();
 
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("io/elementary/photos/application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        var maximized = false;
+
         // restore previous size and maximization state
         if (this is LibraryWindow) {
-            Config.Facade.get_instance ().get_library_window_state (out maximized, out dimensions);
+            maximized = window_settings.get_boolean ("library-maximize");
+            dimensions.width = window_settings.get_int ("library-width");
+            dimensions.height = window_settings.get_int ("library-height");
         } else {
             assert (this is DirectWindow);
-            Config.Facade.get_instance ().get_direct_window_state (out maximized, out dimensions);
+            maximized = window_settings.get_boolean ("direct-maximize");
+            dimensions.width = window_settings.get_int ("direct-width");
+            dimensions.height = window_settings.get_int ("direct-height");
         }
 
         set_default_size (dimensions.width, dimensions.height);
@@ -144,16 +159,14 @@ public abstract class AppWindow : PageWindow {
         return fullscreen_window;
     }
 
-    public static Gtk.Builder create_builder (string glade_filename = "shotwell.ui", void *user = null) {
+    public static Gtk.Builder create_builder () {
         Gtk.Builder builder = new Gtk.Builder ();
         try {
-            builder.add_from_file (AppDirs.get_resources_dir ().get_child ("ui").get_child (
-                                       glade_filename).get_path ());
+            builder.add_from_resource ("/io/elementary/photos/shotwell.ui");
+            builder.connect_signals (null);
         } catch (GLib.Error error) {
             warning ("Unable to create Gtk.Builder: %s\n", error.message);
         }
-
-        builder.connect_signals (user);
 
         return builder;
     }
@@ -403,12 +416,6 @@ public abstract class AppWindow : PageWindow {
             action.sensitive = sensitive;
     }
 
-    public void set_common_action_important (string name, bool important) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
     public void set_common_action_visible (string name, bool visible) {
         Gtk.Action? action = get_common_action (name);
         if (action != null)
@@ -521,9 +528,7 @@ public abstract class AppWindow : PageWindow {
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
-        maximized = (get_window ().get_state () == Gdk.WindowState.MAXIMIZED);
-
-        if (!maximized)
+        if (!is_maximized)
             get_size (out dimensions.width, out dimensions.height);
 
         return base.configure_event (event);

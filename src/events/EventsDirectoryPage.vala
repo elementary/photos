@@ -56,48 +56,42 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter ();
     private Gtk.Menu page_context_menu;
     private Gtk.Menu item_context_menu;
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        var merge_button = new Gtk.ToolButton (null, null);
+        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
+        merge_button.related_action = get_action ("Merge");
+        merge_button.tooltip_text = _("Merge events");
+
+        var separator = new Gtk.SeparatorToolItem ();
+        separator.set_expand (true);
+
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+
+        var toolbar = get_toolbar ();
+        toolbar.add (merge_button);
+        toolbar.add (separator);
+        toolbar.add (show_sidebar_button);
+    }
 
     public EventsDirectoryPage (string page_name, ViewManager view_manager,
                                 Gee.Collection<Event>? initial_events) {
         base (page_name);
 
         // set comparator before monitoring source collection, to prevent a re-sort
-        get_view ().set_comparator (get_event_comparator (Config.Facade.get_instance ().get_events_sort_ascending ()),
+        get_view ().set_comparator (get_event_comparator (ui_settings.get_boolean ("events-sort-ascending")),
                                     event_comparator_predicate);
         get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
 
         get_view ().set_property (Event.PROP_SHOW_COMMENTS,
-                                  Config.Facade.get_instance ().get_display_event_comments ());
+                                  ui_settings.get_boolean ("display-event-comments"));
 
         this.view_manager = view_manager;
 
-        // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-        Gtk.Toolbar toolbar = get_toolbar ();
-
-        // merge tool
-        Gtk.ToolButton merge_button = new Gtk.ToolButton (null, null);
-        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
-
-        merge_button.set_related_action (get_action ("Merge"));
-
-        toolbar.insert (merge_button, -1);
-
-        // separator to force slider to right side of toolbar
-        Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
-        separator.set_expand (true);
-        separator.set_draw (false);
-        get_toolbar ().insert (separator, -1);
-
-        Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
-        drawn_separator.set_expand (false);
-        drawn_separator.set_draw (true);
-
-        get_toolbar ().insert (drawn_separator, -1);
-
-        //  show metadata sidebar button
-        show_sidebar_button = MediaPage.create_sidebar_button ();
-        show_sidebar_button.clicked.connect (on_show_sidebar);
-        toolbar.insert (show_sidebar_button, -1);
         var app = AppWindow.get_instance () as LibraryWindow;
         update_sidebar_action (!app.is_metadata_sidebar_visible ());
     }
@@ -231,7 +225,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         Gtk.ToggleActionEntry[] toggle_actions = base.init_collect_toggle_action_entries ();
 
         Gtk.ToggleActionEntry comments = { "ViewComment", null, _("_Comments"), "<Ctrl><Shift>C",
-                                           _("Display the comment of each event"), on_display_comments, Config.Facade.get_instance ().get_display_event_comments ()
+                                           _("Display the comment of each event"), on_display_comments,
+                                           ui_settings.get_boolean ("display-event-comments")
                                          };
         toggle_actions += comments;
 
@@ -262,8 +257,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         return _ ("No events found");
     }
 
-    public override void on_item_activated (CheckerboardItem item, CheckerboardPage.Activator
-                                            activator, CheckerboardPage.KeyboardModifiers modifiers) {
+    public override void on_item_activated (CheckerboardItem item) {
         EventDirectoryItem event = (EventDirectoryItem) item;
         LibraryWindow.get_app ().switch_to_event (event.event);
     }
@@ -311,7 +305,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
         set_display_comments (display);
 
-        Config.Facade.get_instance ().set_display_event_comments (display);
+        ui_settings.set_boolean ("display-event-comments", display);
     }
 
     public override SearchViewFilter get_search_view_filter () {

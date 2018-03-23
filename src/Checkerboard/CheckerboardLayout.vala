@@ -86,11 +86,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         view.items_unselected.connect (on_items_selection_changed);
 
         weak Gtk.StyleContext style_context = get_style_context ();
-        style_context.add_class ("checkerboard-layout");
-
-        var css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("io/elementary/photos/application.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        style_context.add_class ("solid-checkerboard-layout");
 
         // CheckerboardItems offer tooltips
         has_tooltip = true;
@@ -1036,6 +1032,8 @@ public class CheckerboardLayout : Gtk.DrawingArea {
 
             // have all items in the exposed area paint themselves
             weak Gtk.StyleContext style_context = get_style_context ();
+            style_context.render_background (ctx, visible_page.x, visible_page.y, visible_page.width, visible_page.height);
+
             style_context.save ();
             style_context.add_class ("card");
             foreach (CheckerboardItem item in intersection (visible_page)) {

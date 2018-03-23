@@ -28,16 +28,6 @@
 
 namespace EditingTools {
 
-// preconfigure may be deleted if not used.
-public void preconfigure () {
-}
-
-public void init () throws Error {
-}
-
-public void terminate () {
-}
-
 public abstract class EditingToolWindow : Gtk.Window {
 
     private Gtk.Frame outer_frame = new Gtk.Frame (null);
@@ -97,7 +87,7 @@ public abstract class EditingToolWindow : Gtk.Window {
 // and primitives for an EditingTool to obtain information about the image, to draw on the host's
 // canvas, and to be signalled when the canvas and its pixbuf changes (is resized).
 public abstract class PhotoCanvas {
-    private Gtk.Window container;
+    public Gtk.Window container { get; private set; }
     private Gdk.Window drawing_window;
     private Photo photo;
     private Cairo.Context default_ctx;
@@ -195,10 +185,6 @@ public abstract class PhotoCanvas {
 
     public Photo get_photo () {
         return photo;
-    }
-
-    public Gtk.Window get_container () {
-        return container;
     }
 
     public Gdk.Window get_drawing_window () {
@@ -412,7 +398,8 @@ public abstract class PhotoCanvas {
         int center_x = active_center_x + scaled_position.x;
         int center_y = active_center_y + scaled_position.y;
 
-        ctx.arc (center_x, center_y, radius, 0, 2 * GLib.Math.PI);
+        int scale_factor = container.scale_factor;
+        ctx.arc (center_x * scale_factor, center_y * scale_factor, radius * scale_factor, 0, 2 * GLib.Math.PI);
         ctx.stroke ();
     }
 

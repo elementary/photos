@@ -100,9 +100,9 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir ();
 
-    private Gtk.Paned sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-    private Gtk.Paned client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-    private Gtk.Paned right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+    private Gtk.Paned sidebar_paned;
+    private Gtk.Paned client_paned;
+    private Gtk.Paned right_client_paned;
     private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
@@ -133,13 +133,17 @@ public class LibraryWindow : AppWindow {
     private SearchFilterEntry search_entry;
 
     private Gtk.Box page_header_box;
-    private Gtk.Box top_section = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
     private TopDisplay top_display;
 
     private Gtk.Notebook notebook = new Gtk.Notebook ();
-    private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
+
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
         ThumbnailCache.scale_factor = get_scale_factor ();
@@ -484,10 +488,11 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void on_quit () {
-        Config.Facade.get_instance ().set_library_window_state (maximized, dimensions);
-
-        Config.Facade.get_instance ().set_sidebar_position (client_paned.position);
-        Config.Facade.get_instance ().set_metadata_sidebar_position (right_client_paned.position);
+        window_settings.set_boolean ("library-maximize", is_maximized);
+        window_settings.set_int ("library-width", dimensions.width);
+        window_settings.set_int ("library-height", dimensions.height);
+        ui_settings.set_int ("sidebar-position", client_paned.position);
+        ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
         base.on_quit ();
     }
@@ -699,8 +704,7 @@ public class LibraryWindow : AppWindow {
     private void on_events_sort_changed (Gtk.Action action, Gtk.Action c) {
         Gtk.RadioAction current = (Gtk.RadioAction) c;
 
-        Config.Facade.get_instance ().set_events_sort_ascending (
-            current.current_value == SORT_EVENTS_ORDER_ASCENDING);
+        ui_settings.set_boolean ("events-sort-ascending", current.current_value == SORT_EVENTS_ORDER_ASCENDING);
     }
 
     private void on_preferences () {
@@ -723,20 +727,20 @@ public class LibraryWindow : AppWindow {
 
     private void set_sidebar_visible (bool visible) {
         sidebar_paned.set_visible (visible);
-        Config.Facade.get_instance ().set_display_sidebar (visible);
+        ui_settings.set_boolean ("display-sidebar", visible);
     }
 
     private bool is_sidebar_visible () {
-        return Config.Facade.get_instance ().get_display_sidebar ();
+        return ui_settings.get_boolean ("display-sidebar");
     }
 
     public void set_metadata_sidebar_visible (bool visible) {
         metadata_sidebar.set_visible (visible);
-        Config.Facade.get_instance ().set_display_metadata_sidebar (visible);
+        ui_settings.set_boolean ("display-metadata-sidebar", visible);
     }
 
     public bool is_metadata_sidebar_visible () {
-        return Config.Facade.get_instance ().get_display_metadata_sidebar ();
+        return ui_settings.get_boolean ("display-metadata-sidebar");
     }
 
     public void enqueue_batch_import (BatchImport batch_import, bool allow_user_cancel) {
@@ -986,7 +990,7 @@ public class LibraryWindow : AppWindow {
         // Ticket #3321 - Event sorting order wasn't saving on exit.
         // Instead of calling set_active against one of the toggles, call
         // set_current_value against the entire radio group...
-        int event_sort_val = Config.Facade.get_instance ().get_events_sort_ascending () ? SORT_EVENTS_ORDER_ASCENDING :
+        int event_sort_val = ui_settings.get_boolean ("events-sort-ascending") ? SORT_EVENTS_ORDER_ASCENDING :
                              SORT_EVENTS_ORDER_DESCENDING;
 
         sort_events_action.set_current_value (event_sort_val);
@@ -1029,53 +1033,49 @@ public class LibraryWindow : AppWindow {
     }
 
     private void create_layout (Page start_page) {
+        // put the sidebar in a scrolling window
+        var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
+        scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        scrolled_sidebar.add (sidebar_tree);
+
+        sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+        sidebar_paned.pack1 (scrolled_sidebar, true, false);
+
         // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
         notebook.set_show_tabs (false);
         notebook.set_show_border (false);
+        // TODO: Calc according to layout's size, to give sidebar a maximum width
+        notebook.width_request = PAGE_MIN_WIDTH;
 
-        // put the sidebar in a scrolling window
-        Gtk.ScrolledWindow scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
-        scrolled_sidebar.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scrolled_sidebar.add (sidebar_tree);
-        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        get_style_context ().add_class ("sidebar-pane-separator");
+        metadata_sidebar.width_request = METADATA_SIDEBAR_MIN_WIDTH;
 
-        // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
-        // top two
-        top_section.pack_start (scrolled_sidebar, true, true, 0);
-        sidebar_paned.pack1 (top_section, true, false);
-
-        // layout the selection tree to the left of the collection/toolbar box with an adjustable
-        // gutter between them, framed for presentation
-        right_frame = new Gtk.Frame (null);
-        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
+        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        right_client_paned.width_request = METADATA_SIDEBAR_MIN_WIDTH;
         right_client_paned.pack1 (notebook, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
 
         right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         right_vbox.pack_start (right_client_paned, true, true, 0);
 
+        // layout the selection tree to the left of the collection/toolbar box with an adjustable
+        // gutter between them, framed for presentation
+        right_frame = new Gtk.Frame (null);
+        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
         right_frame.add (right_vbox);
 
-        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
-        right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
-
-        client_paned.pack1 (sidebar_paned, false, false);
         sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
-        client_paned.pack2 (right_frame, true, false);
-        client_paned.set_position (Config.Facade.get_instance ().get_sidebar_position ());
 
-        int metadata_sidebar_pos = Config.Facade.get_instance ().get_metadata_sidebar_position ();
+        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        client_paned.pack1 (sidebar_paned, false, false);
+        client_paned.pack2 (right_frame, true, false);
+        client_paned.set_position (ui_settings.get_int ("sidebar-position"));
+
+        int metadata_sidebar_pos = ui_settings.get_int ("metadata-sidebar-position");
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
 
-        // TODO: Calc according to layout's size, to give sidebar a maximum width
-        notebook.set_size_request (PAGE_MIN_WIDTH, -1);
-
-        layout.pack_end (client_paned, true, true, 0);
-
-        add (layout);
+        add (client_paned);
 
         switch_to_page (start_page);
         start_page.grab_focus ();
@@ -1160,7 +1160,7 @@ public class LibraryWindow : AppWindow {
 
         page.switched_to ();
 
-        Gtk.Toolbar toolbar = page.get_toolbar ();
+        var toolbar = page.get_toolbar ();
         if (toolbar != null) {
             right_vbox.add (toolbar);
             toolbar.show_all ();
@@ -1357,7 +1357,7 @@ public class LibraryWindow : AppWindow {
         // just holds a single photo (SinglePhotoPage)
         Page? current_page = get_current_page ();
         if (current_page != null) {
-                title = current_page.to_string ();
+                title = current_page.page_name;
         } else {
             // having no page is unlikely, but set the good old default title
             // just in case

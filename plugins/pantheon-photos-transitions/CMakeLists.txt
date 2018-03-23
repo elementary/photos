@@ -22,11 +22,13 @@ OPTIONS
     ${GLOBAL_VALA_OPTIONS}
 )
 
-add_library(${TARGET_NAME} MODULE ${VALA_C})
+include (GResource)
+glib_compile_resources(GRESOURCES_TRANSITIONS SOURCE io.elementary.photos.plugins.transitions.gresource.xml)
+
+add_library(${TARGET_NAME} MODULE ${VALA_C} ${GRESOURCES_TRANSITIONS})
 
 include_directories (${CMAKE_SOURCE_DIR}/vapi)
 target_link_libraries(${TARGET_NAME} ${DEPS_LIBRARIES})
 add_dependencies(${TARGET_NAME} ${EXEC_NAME})
 
 install(TARGETS ${TARGET_NAME} DESTINATION ${BUILTIN_DIR})
-install (FILES slideshow-plugin.png DESTINATION ${BUILTIN_DIR})

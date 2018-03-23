@@ -21,16 +21,13 @@ namespace Publishing {
 
 public void init () throws Error {
     string[] core_ids = new string[0];
-    core_ids += "org.pantheon.photos.publishing.facebook";
-    core_ids += "org.pantheon.photos.publishing.picasa";
-    core_ids += "org.pantheon.photos.publishing.flickr";
-    core_ids += "org.pantheon.photos.publishing.youtube";
+    core_ids += "io.elementary.photos.publishing.facebook";
+    core_ids += "io.elementary.photos.publishing.picasa";
+    core_ids += "io.elementary.photos.publishing.flickr";
+    core_ids += "io.elementary.photos.publishing.youtube";
 
     Plugins.register_extension_point (typeof (Spit.Publishing.Service), _ ("Publishing"),
     Resources.PUBLISH, core_ids);
-}
-
-public void terminate () {
 }
 
 }

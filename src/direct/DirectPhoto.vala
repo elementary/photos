@@ -32,14 +32,14 @@ public class DirectPhoto : Photo {
     }
 
     /**
-     * @brief Because all transformations are discarded on reimport by design, including
+     * Because all transformations are discarded on reimport by design, including
      * Orientation, a JFIF file that is only rotated or flipped, then saved, has the orientation
      * change the user made before saving removed (recall that fetch () remembers which images it
      * has seen before and will only add a file to the file map once; every time it sees it
      * again after this is considered a reimport). This will set the orientation to the
      * specified value, fixing up both the row and the backing row.
      *
-     * @warning Only reimported JFIF files should need this; non-lossy image types have their
+     * Warning: Only reimported JFIF files should need this; non-lossy image types have their
      * actual pixels physically rotated in the file when they're exported.
      *
      * @param dest The orientation to set the photo to; usually, this should be a value

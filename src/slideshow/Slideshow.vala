@@ -21,16 +21,16 @@ namespace Slideshow {
 
 public void init () throws Error {
     string[] core_ids = new string[0];
-    core_ids += "org.pantheon.photos.transitions.crumble";
-    core_ids += "org.pantheon.photos.transitions.fade";
-    core_ids += "org.pantheon.photos.transitions.slide";
-    core_ids += "org.pantheon.photos.transitions.blinds";
-    core_ids += "org.pantheon.photos.transitions.circle";
-    core_ids += "org.pantheon.photos.transitions.circles";
-    core_ids += "org.pantheon.photos.transitions.clock";
-    core_ids += "org.pantheon.photos.transitions.stripes";
-    core_ids += "org.pantheon.photos.transitions.squares";
-    core_ids += "org.pantheon.photos.transitions.chess";
+    core_ids += "io.elementary.photos.transitions.crumble";
+    core_ids += "io.elementary.photos.transitions.fade";
+    core_ids += "io.elementary.photos.transitions.slide";
+    core_ids += "io.elementary.photos.transitions.blinds";
+    core_ids += "io.elementary.photos.transitions.circle";
+    core_ids += "io.elementary.photos.transitions.circles";
+    core_ids += "io.elementary.photos.transitions.clock";
+    core_ids += "io.elementary.photos.transitions.stripes";
+    core_ids += "io.elementary.photos.transitions.squares";
+    core_ids += "io.elementary.photos.transitions.chess";
 
     Plugins.register_extension_point (typeof (Spit.Transitions.Descriptor), _ ("Slideshow Transitions"),
     Resources.ICON_SLIDESHOW_EXTENSION_POINT, core_ids);
@@ -42,4 +42,3 @@ public void terminate () {
 }
 
 }
-

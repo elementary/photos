@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2017 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -25,133 +26,18 @@ class SlideshowPage : SinglePhotoPage {
     private ViewCollection controller;
     private Photo current;
     private Gtk.ToolButton play_pause_button;
-    private Gtk.ToolButton settings_button;
     private PixbufCache cache = null;
     private Timer timer = new Timer ();
     private bool playing = true;
     private bool exiting = false;
     private string[] transitions;
-
-    private Screensaver screensaver;
+    private uint32 cookie = 0;
+    private GLib.Settings slideshow_settings;
 
     public signal void hide_toolbar ();
 
-    private class SettingsDialog : Gtk.Dialog {
-        private Gtk.Builder builder = null;
-        Gtk.SpinButton delay_entry;
-        Gtk.Scale delay_hscale;
-        Gtk.ComboBoxText transition_effect_selector;
-        Gtk.Scale transition_effect_hscale;
-        Gtk.SpinButton transition_effect_entry;
-        Gtk.Adjustment transition_effect_adjustment;
-        Gtk.CheckButton show_title_button;
-        Gtk.Box pane;
-
-        public SettingsDialog () {
-            builder = AppWindow.create_builder ();
-            pane = builder.get_object ("slideshow_settings_pane") as Gtk.Box;
-            get_content_area ().add (pane);
-
-            double delay = Config.Facade.get_instance ().get_slideshow_delay ();
-
-            set_modal (true);
-            set_transient_for (AppWindow.get_fullscreen ());
-
-            add_buttons (_("Cancel"), Gtk.ResponseType.CANCEL,
-                         _("Save Settings"), Gtk.ResponseType.OK);
-            set_title (_ ("Settings"));
-
-            Gtk.Adjustment adjustment = new Gtk.Adjustment (delay, Config.Facade.SLIDESHOW_DELAY_MIN, Config.Facade.SLIDESHOW_DELAY_MAX, 0.1, 1, 0);
-            delay_hscale = builder.get_object ("delay_hscale") as Gtk.Scale;
-            delay_hscale.adjustment = adjustment;
-
-            delay_entry = builder.get_object ("delay_entry") as Gtk.SpinButton;
-            delay_entry.adjustment = adjustment;
-            delay_entry.set_value (delay);
-            delay_entry.set_numeric (true);
-            delay_entry.set_activates_default (true);
-
-            transition_effect_selector = builder.get_object ("transition_effect_selector") as Gtk.ComboBoxText;
-
-            // get last effect id
-            string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
-
-            // null effect first, always, and set active in case no other one is found
-            string null_display_name = TransitionEffectsManager.get_instance ().get_effect_name (
-                                           TransitionEffectsManager.NULL_EFFECT_ID);
-            transition_effect_selector.append_text (null_display_name);
-            transition_effect_selector.set_active (0);
-
-            int i = 1;
-            foreach (string display_name in
-                     TransitionEffectsManager.get_instance ().get_effect_names (utf8_ci_compare)) {
-                if (display_name == null_display_name)
-                    continue;
-
-                transition_effect_selector.append_text (display_name);
-                if (effect_id == TransitionEffectsManager.get_instance ().get_id_for_effect_name (display_name))
-                    transition_effect_selector.set_active (i);
-
-                ++i;
-            }
-            transition_effect_selector.changed.connect (on_transition_changed);
-
-            double transition_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
-            transition_effect_adjustment = new Gtk.Adjustment (transition_delay,
-                    Config.Facade.SLIDESHOW_TRANSITION_DELAY_MIN, Config.Facade.SLIDESHOW_TRANSITION_DELAY_MAX,
-                    0.1, 1, 0);
-            transition_effect_hscale = builder.get_object ("transition_effect_hscale") as Gtk.Scale;
-            transition_effect_hscale.adjustment = transition_effect_adjustment;
-
-            transition_effect_entry = builder.get_object ("transition_effect_entry") as Gtk.SpinButton;
-            transition_effect_entry.adjustment = transition_effect_adjustment;
-            transition_effect_entry.set_value (transition_delay);
-            transition_effect_entry.set_numeric (true);
-            transition_effect_entry.set_activates_default (true);
-
-            bool show_title = Config.Facade.get_instance ().get_slideshow_show_title ();
-            show_title_button = builder.get_object ("show_title_button") as  Gtk.CheckButton;
-            show_title_button.active = show_title;
-
-            set_default_response (Gtk.ResponseType.OK);
-
-            on_transition_changed ();
-        }
-
-        private void on_transition_changed () {
-            string selected = transition_effect_selector.get_active_text ();
-            bool sensitive = selected != null
-                             && selected != TransitionEffectsManager.NULL_EFFECT_ID;
-
-            transition_effect_hscale.sensitive = sensitive;
-            transition_effect_entry.sensitive = sensitive;
-        }
-
-        public double get_delay () {
-            return delay_entry.get_value ();
-        }
-
-        public double get_transition_delay () {
-            return transition_effect_entry.get_value ();
-        }
-
-        public string get_transition_effect_id () {
-            string? active = transition_effect_selector.get_active_text ();
-            if (active == null)
-                return TransitionEffectsManager.NULL_EFFECT_ID;
-
-            string? id = TransitionEffectsManager.get_instance ().get_id_for_effect_name (active);
-
-            return (id != null) ? id : TransitionEffectsManager.NULL_EFFECT_ID;
-        }
-
-        public bool get_show_title () {
-            return show_title_button.active;
-        }
-    }
-
     public SlideshowPage (SourceCollection sources, ViewCollection controller, Photo start) {
-        base (_ ("Slideshow"), true);
+        base (_("Slideshow"), true);
 
         this.sources = sources;
         this.controller = controller;
@@ -163,40 +49,68 @@ class SlideshowPage : SinglePhotoPage {
         a.remove (RandomEffectDescriptor.EFFECT_ID);
         transitions = a.to_array ();
         current = start;
+    }
+
+    construct {
+        slideshow_settings = new GLib.Settings (GSettingsConfigurationEngine.SLIDESHOW_PREFS_SCHEMA_NAME);
+        slideshow_settings.changed.connect (() => update_transition_effect ());
 
         update_transition_effect ();
 
-        // Set up toolbar
-        Gtk.Toolbar toolbar = get_toolbar ();
-
-        // add toolbar buttons
-        Gtk.ToolButton previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
-        previous_button.set_tooltip_text (_ ("Go to the previous photo"));
+        var previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
+        previous_button.tooltip_text = _("Go to the previous photo");
         previous_button.clicked.connect (on_previous_photo);
 
-        toolbar.insert (previous_button, -1);
-
         play_pause_button = new Gtk.ToolButton (null, _("Pause"));
-        play_pause_button.set_icon_name ("media-playback-pause-symbolic");
-        play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
+        play_pause_button.icon_name = "media-playback-pause-symbolic";
+        play_pause_button.tooltip_text = _("Pause the slideshow");
         play_pause_button.clicked.connect (on_play_pause);
 
-        toolbar.insert (play_pause_button, -1);
-
-        Gtk.ToolButton next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
-        next_button.set_tooltip_text (_ ("Go to the next photo"));
+        var next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
+        next_button.tooltip_text = _("Go to the next photo");
         next_button.clicked.connect (on_next_photo);
 
-        toolbar.insert (next_button, -1);
+        var effect_selector = new TransitionEffectSelector ();
 
-        settings_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR), _("Settings"));
-        settings_button.set_tooltip_text (_ ("Change slideshow settings"));
-        settings_button.clicked.connect (on_change_settings);
-        settings_button.is_important = true;
+        var titles_toggle = new Gtk.ToggleToolButton ();
+        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
+        titles_toggle.tooltip_text = _("Show Photo Titles");
+        titles_toggle.margin_start = 6;
+        titles_toggle.active = slideshow_settings.get_boolean ("show-title");
+        titles_toggle.valign = Gtk.Align.CENTER;
+        titles_toggle.toggled.connect (() => {
+            slideshow_settings.set_boolean ("show-title", titles_toggle.active);
+        });
 
-        toolbar.insert (settings_button, -1);
+        var dropdown_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
+        dropdown_sizegroup.add_widget (effect_selector);
+        dropdown_sizegroup.add_widget (titles_toggle);
 
-        screensaver = new Screensaver ();
+        var slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.5, 15.0, 0.5);
+        slider.draw_value = false;
+        slider.inverted = true;
+        slider.tooltip_text = _("Transition Speed");
+        slider.width_request = 150;
+        slider.add_mark (0.5, Gtk.PositionType.BOTTOM, _("Faster"));
+        slider.add_mark (15.0, Gtk.PositionType.BOTTOM, _("Slower"));
+        slider.set_value (slideshow_settings.get_double ("delay"));
+        slider.value_changed.connect (() => {
+            slideshow_settings.set_double ("delay", slider.get_value ());
+        });
+
+        var slider_wrapper = new Gtk.ToolItem ();
+        slider_wrapper.margin_start = 6;
+        slider_wrapper.add (slider);
+
+        var toolbar = get_toolbar ();
+        toolbar.add (previous_button);
+        toolbar.add (play_pause_button);
+        toolbar.add (next_button);
+        toolbar.add (new Gtk.SeparatorToolItem ());
+        toolbar.add (effect_selector);
+        toolbar.add (titles_toggle);
+        toolbar.add (slider_wrapper);
+        toolbar.add (new Gtk.SeparatorToolItem ());
     }
 
     public override void switched_to () {
@@ -214,12 +128,12 @@ class SlideshowPage : SinglePhotoPage {
         Timeout.add (CHECK_ADVANCE_MSEC, auto_advance);
         timer.start ();
 
-        screensaver.inhibit ("Playing slideshow");
+        inhibit_screensaver ();
     }
 
     public override void switching_from () {
         base.switching_from ();
-        screensaver.uninhibit ();
+        uninhibit_screensaver ();
         exiting = true;
     }
 
@@ -274,13 +188,11 @@ class SlideshowPage : SinglePhotoPage {
 
     private void on_play_pause () {
         if (playing) {
-            play_pause_button.set_icon_name ("media-playback-start-symbolic");
-            play_pause_button.set_label (_ ("Play"));
-            play_pause_button.set_tooltip_text (_ ("Continue the slideshow"));
+            play_pause_button.icon_name = "media-playback-start-symbolic";
+            play_pause_button.tooltip_text = _("Continue the slideshow");
         } else {
-            play_pause_button.set_icon_name ("media-playback-pause-symbolic");
-            play_pause_button.set_label (_ ("Pause"));
-            play_pause_button.set_tooltip_text (_ ("Pause the slideshow"));
+            play_pause_button.icon_name = "media-playback-pause-symbolic";
+            play_pause_button.tooltip_text = _("Pause the slideshow");
         }
 
         playing = !playing;
@@ -334,8 +246,7 @@ class SlideshowPage : SinglePhotoPage {
             }
         }
 
-        if (Config.Facade.get_instance ().get_slideshow_transition_effect_id () ==
-                RandomEffectDescriptor.EFFECT_ID) {
+        if (slideshow_settings.get_string ("transition-effect-id") == RandomEffectDescriptor.EFFECT_ID) {
             random_transition_effect ();
         }
 
@@ -361,7 +272,7 @@ class SlideshowPage : SinglePhotoPage {
         if (!playing)
             return true;
 
-        if (timer.elapsed () < Config.Facade.get_instance ().get_slideshow_delay ())
+        if (timer.elapsed () < slideshow_settings.get_double ("delay"))
             return true;
 
         on_next_photo ();
@@ -396,45 +307,36 @@ class SlideshowPage : SinglePhotoPage {
         return (base.key_press_event != null) ? base.key_press_event (event) : true;
     }
 
-    private void on_change_settings () {
-        SettingsDialog settings_dialog = new SettingsDialog ();
-        settings_dialog.show_all ();
-
-        bool slideshow_playing = playing;
-        playing = false;
-        hide_toolbar ();
-
-        if (settings_dialog.run () == Gtk.ResponseType.OK) {
-            // sync with the config setting so it will persist
-            Config.Facade.get_instance ().set_slideshow_delay (settings_dialog.get_delay ());
-
-            Config.Facade.get_instance ().set_slideshow_transition_delay (settings_dialog.get_transition_delay ());
-            Config.Facade.get_instance ().set_slideshow_transition_effect_id (settings_dialog.get_transition_effect_id ());
-            Config.Facade.get_instance ().set_slideshow_show_title (settings_dialog.get_show_title ());
-
-            update_transition_effect ();
-        }
-
-        settings_dialog.destroy ();
-        playing = slideshow_playing;
-        timer.start ();
-    }
-
     private void update_transition_effect () {
-        string effect_id = Config.Facade.get_instance ().get_slideshow_transition_effect_id ();
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        string effect_id = slideshow_settings.get_string ("transition-effect-id");
+        double effect_delay = calculate_effect_delay ();
 
         set_transition (effect_id, (int) (effect_delay * 1000.0));
     }
 
     private void random_transition_effect () {
-        double effect_delay = Config.Facade.get_instance ().get_slideshow_transition_delay ();
+        double effect_delay = calculate_effect_delay ();
         string effect_id = TransitionEffectsManager.NULL_EFFECT_ID;
         if (0 < transitions.length) {
             int random = Random.int_range (0, transitions.length);
             effect_id = transitions[random];
         }
         set_transition (effect_id, (int) (effect_delay * 1000.0));
+    }
+
+    private double calculate_effect_delay () {
+        var photo_delay = slideshow_settings.get_double ("delay");
+        var effect_delay = photo_delay / 7.0;
+
+        if (effect_delay < 0.1) {
+            effect_delay = 0.1;
+        }
+
+        if (effect_delay > 1.0) {
+            effect_delay = 1.0;
+        }
+
+        return effect_delay;
     }
 
     // Paint the title of the photo
@@ -477,7 +379,27 @@ class SlideshowPage : SinglePhotoPage {
     public override void paint (Cairo.Context ctx, Dimensions ctx_dim) {
         base.paint (ctx, ctx_dim);
 
-        if (Config.Facade.get_instance ().get_slideshow_show_title () && !is_transition_in_progress ())
+        if (slideshow_settings.get_boolean ("show-title") && !is_transition_in_progress ())
             paint_title (ctx, ctx_dim);
+    }
+
+    private void inhibit_screensaver () {
+        if (cookie != 0) {
+            return;
+        }
+
+        cookie = Application.get_instance ().app_inhibit (
+            Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+            _("Slideshow")
+        );
+    }
+
+    private void uninhibit_screensaver () {
+        if (cookie == 0) {
+            return;
+        }
+
+        Application.get_instance ().uninhibit (cookie);
+        cookie = 0;
     }
 }

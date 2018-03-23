@@ -56,7 +56,7 @@ public class Application : Granite.Application {
 
         program_name = _(build_release_name);
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-        default_theme.add_resource_path ("/org/pantheon/photos/icons");
+        default_theme.add_resource_path ("/io/elementary/photos/icons");
     }
 
     private Application (bool is_direct) {
@@ -67,10 +67,9 @@ public class Application : Granite.Application {
             // command lines from remote instances, since we don't care about them.
 
             exec_name = GETTEXT_PACKAGE;
-            application_id = "org.pantheon.photos-direct";
+            application_id = "io.elementary.photos-direct";
             app_launcher = "org.pantheon.photos-viewer.desktop";
             program_name = _("Photo Viewer");
-            Gtk.Settings.get_default().set("gtk-application-prefer-dark-theme", true);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
@@ -78,7 +77,7 @@ public class Application : Granite.Application {
             // storage device and camera mounts).
 
             exec_name = GETTEXT_PACKAGE;
-            application_id = "org.pantheon.photos";
+            application_id = "io.elementary.photos";
             app_launcher = "org.pantheon.photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
@@ -97,12 +96,13 @@ public class Application : Granite.Application {
             command_line.connect (on_command_line);
         }
 
+        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
         activate.connect (on_activated);
         startup.connect (on_activated);
     }
 
     /**
-     * @brief This is a helper for library mode that should only be
+     * This is a helper for library mode that should only be
      * called if we've gotten a camera mount and are _not_ the primary
      * instance.
      */
@@ -111,7 +111,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief A helper for library mode that tells the primary
+     * A helper for library mode that tells the primary
      * instance to bring its window to the foreground.  This
      * should only be called if we are _not_ the primary instance.
      */
@@ -128,7 +128,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Signal handler for GApplication's 'command-line' signal.
+     * Signal handler for GApplication's 'command-line' signal.
      *
      * The most likely scenario for this to be fired is if the user
      * either tried to run us twice in library mode, or we've just gotten
@@ -145,12 +145,12 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Signal handler for GApplication's 'command-line' signal.
+     * Signal handler for GApplication's 'command-line' signal.
      *
      * Gets fired whenever a remote instance tries to run, usually
      * with an incoming camera connection.
      *
-     * @note This does _not_ get called in direct-edit mode.
+     * Note: This does _not_ get called in direct-edit mode.
      */
     public static int on_command_line (ApplicationCommandLine acl) {
         string[]? argv = acl.get_arguments ();
@@ -168,15 +168,15 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Initializes the Photos application object and prepares
+     * Initializes the Photos application object and prepares
      * it for use.
+     *
+     * Note: This MUST be called prior to calling get_instance (), as the
+     * application needs to know what mode it was brought up in; failure to
+     * call this first will lead to an assertion.
      *
      * @param is_direct Whether the application was invoked in direct
      * or in library mode; defaults to FALSE, that is, library mode.
-     *
-     * @note This MUST be called prior to calling get_instance (), as the
-     * application needs to know what mode it was brought up in; failure to
-     * call this first will lead to an assertion.
      */
     public static void init (bool is_direct = false) {
         if (instance == null)
@@ -238,10 +238,10 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Allows the caller to ask for some part of the desktop session's functionality to
+     * Allows the caller to ask for some part of the desktop session's functionality to
      * be prevented from running; wrapper for Gtk.Application.inhibit ().
      *
-     * @note The return value is a 'cookie' that needs to be passed to 'uninhibit' to turn
+     * Note: The return value is a 'cookie' that needs to be passed to 'uninhibit' to turn
      * off a requested inhibition and should be saved by the caller.
      */
     public uint app_inhibit (Gtk.ApplicationInhibitFlags what, string? reason = "none given") {
@@ -249,7 +249,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * @brief Turns off a previously-requested inhibition. Wrapper for
+     * Turns off a previously-requested inhibition. Wrapper for
      * Gtk.Application.uninhibit ().
      */
     public void app_uninhibit (uint cookie) {

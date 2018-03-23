@@ -54,6 +54,7 @@ public class TopDisplay : Gtk.Stack {
         hexpand = false;
 
         title_label = new Gtk.Label (_("Photos"));
+        title_label.set_ellipsize (Pango.EllipsizeMode.MIDDLE);
         title_label.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLE);
 
         background_progress_label = new Gtk.Label (null);

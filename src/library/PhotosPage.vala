@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2014-2017 elementary LLC. (http://launchpad.net/pantheon-photos)
+* Copyright (c) 2014-2017 elementary LLC. (https://github.com/elementary/photos)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -73,13 +73,6 @@ public class Library.PhotosPage : CollectionPage {
     private ViewManager view_manager;
     private PhotosSearchViewFilter search_filter = new PhotosSearchViewFilter ();
 
-    protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_library_photos_sort (out sort_order, out sort_by);
-    }
-
-    protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
-    }
     public override SearchViewFilter get_search_view_filter () {
         return search_filter;
     }

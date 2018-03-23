@@ -167,10 +167,14 @@ public class EditingTools.CropTool : EditingTool {
     private int custom_height = -1;
     private int custom_init_width = -1;
     private int custom_init_height = -1;
+    private int scale_factor = 1;
     private float pre_aspect_ratio = ANY_ASPECT_RATIO;
+    private GLib.Settings crop_settings;
 
     private CropTool () {
         base ("CropTool");
+
+        crop_settings = new GLib.Settings (GSettingsConfigurationEngine.CROP_SCHEMA_NAME);
     }
 
     public static CropTool factory () {
@@ -375,8 +379,8 @@ public class EditingTools.CropTool : EditingTool {
                 // user may have switched away from 'Custom' without
                 // accepting, so set these to default back to saved
                 // values.
-                custom_init_width = Config.Facade.get_instance ().get_last_crop_width ();
-                custom_init_height = Config.Facade.get_instance ().get_last_crop_height ();
+                custom_init_width = crop_settings.get_int ("last-crop-width");
+                custom_init_height = crop_settings.get_int ("last-crop-height");
                 custom_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
             }
         }
@@ -494,12 +498,13 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private ConstraintDescription? get_last_constraint (out int index) {
-        index = Config.Facade.get_instance ().get_last_crop_menu_choice ();
+        index = crop_settings.get_int ("last-crop-menu-choice");
 
         return (index < constraints.length) ? constraints[index] : null;
     }
 
     public override void activate (PhotoCanvas canvas) {
+        scale_factor = canvas.container.scale_factor;
         bind_canvas_handlers (canvas);
 
         prepare_ctx (canvas.get_default_ctx (), canvas.get_surface_dim ());
@@ -516,7 +521,7 @@ public class EditingTools.CropTool : EditingTool {
         ctx.paint ();
 
         // create the crop tool window, where the user can apply or cancel the crop
-        crop_tool_window = new CropToolWindow (canvas.get_container ());
+        crop_tool_window = new CropToolWindow (canvas.container);
 
         // set up the constraint combo box
         crop_tool_window.constraint_combo.set_model (constraint_list);
@@ -553,8 +558,8 @@ public class EditingTools.CropTool : EditingTool {
 
         // get the custom width and height from the saved config and
         // set up the initial custom values with it.
-        custom_width = Config.Facade.get_instance ().get_last_crop_width ();
-        custom_height = Config.Facade.get_instance ().get_last_crop_height ();
+        custom_width = crop_settings.get_int ("last-crop-width");
+        custom_height = crop_settings.get_int ("last-crop-height");
         custom_init_width = custom_width;
         custom_init_height = custom_height;
         pre_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
@@ -687,18 +692,19 @@ public class EditingTools.CropTool : EditingTool {
     private void prepare_ctx (Cairo.Context ctx, Dimensions dim) {
         wide_black_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_black_ctx, "#000");
-        wide_black_ctx.set_line_width (1);
+        wide_black_ctx.set_line_width (1 * scale_factor);
 
         wide_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (wide_white_ctx, "#FFF");
-        wide_white_ctx.set_line_width (1);
+        wide_white_ctx.set_line_width (1 * scale_factor);
 
         thin_white_ctx = new Cairo.Context (ctx.get_target ());
         set_source_color_from_string (thin_white_ctx, "#FFF");
-        thin_white_ctx.set_line_width (0.5);
+        thin_white_ctx.set_line_width (0.5 * scale_factor);
 
         text_ctx = new Cairo.Context (ctx.get_target ());
         text_ctx.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.NORMAL);
+        text_ctx.set_font_size (10.0 * scale_factor);
     }
 
     private void on_resized_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
@@ -721,6 +727,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_click (int x, int y) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         Gdk.Rectangle scaled_pixbuf_pos = canvas.get_scaled_pixbuf_position ();
 
         // scaled_crop is not maintained relative to photo's position on canvas
@@ -736,6 +745,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_left_released (int x, int y) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         // nothing to do if released outside of the crop box
         if (in_manipulation == BoxLocation.OUTSIDE)
             return;
@@ -752,6 +764,9 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
+        x *= scale_factor;
+        y *= scale_factor;
+
         // only deal with manipulating the crop tool when click-and-dragging one of the edges
         // or the interior
         if (in_manipulation != BoxLocation.OUTSIDE)
@@ -763,8 +778,8 @@ public class EditingTools.CropTool : EditingTool {
 
     public override void paint (Cairo.Context default_ctx) {
         // fill region behind the crop surface with neutral color
-        int w = canvas.get_drawing_window ().get_width ();
-        int h = canvas.get_drawing_window ().get_height ();
+        int w = canvas.get_drawing_window ().get_width () * scale_factor;
+        int h = canvas.get_drawing_window ().get_height () * scale_factor;
 
         canvas.get_style_context ().render_background (default_ctx, 0, 0, w, h);
 
@@ -788,10 +803,9 @@ public class EditingTools.CropTool : EditingTool {
         // user's clicked OK, save the combobox choice and width/height.
         // safe to do, even if not in 'custom' mode - the previous values
         // will just get saved again.
-        Config.Facade.get_instance ().set_last_crop_menu_choice (
-            crop_tool_window.constraint_combo.get_active ());
-        Config.Facade.get_instance ().set_last_crop_width (custom_width);
-        Config.Facade.get_instance ().set_last_crop_height (custom_height);
+        crop_settings.set_int ("last-crop-menu-choice", crop_tool_window.constraint_combo.get_active ());
+        crop_settings.set_int ("last-crop-width", custom_width);
+        crop_settings.set_int ("last-crop-height", custom_height);
 
         // scale screen-coordinate crop to photo's coordinate system
         Box crop = scaled_crop.get_scaled_similar (

@@ -1,3 +1,7 @@
+.solid-checkerboard-layout {
+    background-color: #383e41;
+}
+
 .checkerboard-layout {
     background-color: #383e41;
     background-image:
@@ -39,11 +43,11 @@
     background-position: 0 0, 12px 12px;
 }
 
-.checkboard-layout .item {
+.solid-checkboard-layout .item {
     background-color: #eee;
 }
 
-.checkerboard-layout .label {
+.solid-checkerboard-layout .label {
     color: #c0c6c4;
     text-shadow: 0 1px 2px alpha(#000, 0.5);
 }
@@ -55,4 +59,19 @@
 
 .event:checked {
     border-color: @selected_bg_color;
+}
+
+.overlay-toolbar {
+    background: alpha (@base_color, 0.9);
+    border: none;
+    border-radius: 3px;
+    box-shadow:
+        0 0 0 1px alpha (#000, 0.2),
+        inset 1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+        inset -1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+        inset 0 -1px 0 0 alpha (@bg_highlight_color, 0.3);
+}
+
+.overlay-toolbar .mark {
+    color: @text_color;
 }

@@ -166,6 +166,11 @@ public class PublishingDialog : Gtk.Dialog {
     private Spit.Publishing.Publishable[] publishables;
     private Spit.Publishing.ConcretePublishingHost host;
     private Spit.PluggableInfo info;
+    private GLib.Settings sharing_settings;
+
+    construct {
+        sharing_settings = new GLib.Settings (GSettingsConfigurationEngine.SHARING_SCHEMA_NAME);
+    }
 
     protected PublishingDialog (Gee.Collection<MediaSource> to_publish) {
         assert (to_publish.size > 0);
@@ -222,7 +227,7 @@ public class PublishingDialog : Gtk.Dialog {
         service_selector_box_label.set_alignment (0.0f, 0.5f);
 
         // get the name of the service the user last used
-        string? last_used_service = Config.Facade.get_instance ().get_last_used_service ();
+        string? last_used_service = sharing_settings.get_string ("last-used-service");
 
         Spit.Publishing.Service[] loaded_services = load_services (has_photos, has_videos);
 
@@ -449,7 +454,7 @@ public class PublishingDialog : Gtk.Dialog {
         }
         assert (selected_service != null);
 
-        Config.Facade.get_instance ().set_last_used_service (selected_service.get_id ());
+        sharing_settings.set_string ("last-used-service", selected_service.get_id ());
 
         host = new Spit.Publishing.ConcretePublishingHost (selected_service, this, publishables);
         host.start_publishing ();

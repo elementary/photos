@@ -18,11 +18,10 @@
 */
 
 public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "youtube.svg";
     private GLib.Icon icon;
 
     public YouTubeService (GLib.File resource_directory) {
-        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
+        icon = new ThemedIcon ("youtube");
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {
@@ -31,7 +30,7 @@ public class YouTubeService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.youtube";
+        return "io.elementary.photos.publishing.youtube";
     }
 
     public unowned string get_pluggable_name () {
@@ -364,8 +363,7 @@ public class YouTubePublisher : Publishing.RESTSupport.GooglePublisher {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            builder.add_from_file (
-                get_host ().get_module_file ().get_parent ().get_child ("youtube_publishing_options_pane.ui").get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/youtube_publishing_options_pane.ui");
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             get_host ().post_error (

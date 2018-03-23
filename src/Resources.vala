@@ -37,9 +37,9 @@ public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 public const string YORBA_URL = "http://www.yorba.org";
 public const string WIKI_URL = "https://wiki.gnome.org/Apps/Shotwell";
 public const string FAQ_URL = "https://wiki.gnome.org/Apps/Shotwell/FAQ";
-public const string PROJECT_URL = "https://launchpad.net/pantheon-photos";
-public const string BUG_DB_URL = "https://bugs.launchpad.net/pantheon-photos";
-public const string TRANSLATE_URL = "https://translations.launchpad.net/pantheon-photos";
+public const string PROJECT_URL = "https://github.com/elementary/photos";
+public const string BUG_DB_URL = "https://github.com/photos/issues";
+public const string TRANSLATE_URL = "https://l10n.elementary.io/projects/photos";
 public const string HELP_URL = "https://elementaryos.stackexchange.com/questions/tagged/photos";
 public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
@@ -366,9 +366,8 @@ public Gdk.Pixbuf? get_flag_trinket () {
     cr.paint ();
 
     Gdk.Pixbuf flag;
-    Gtk.IconTheme icon_theme = get_icon_theme_engine ();
     try {
-        flag = icon_theme.load_icon (ICON_FLAGGED_PAGE, size, Gtk.IconLookupFlags.FORCE_SIZE);
+        flag = Gtk.IconTheme.get_default ().load_icon (ICON_FLAGGED_PAGE, size, Gtk.IconLookupFlags.FORCE_SIZE);
     } catch (Error e) {
         return null;
     }
@@ -400,9 +399,6 @@ public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
 public const string SELECT_ALL_MENU = _("Select _All");
 public const string SELECT_ALL_TOOLTIP = _("Select all items");
 
-private Gee.HashMap<string, Gdk.Pixbuf> icon_cache = null;
-Gee.HashMap<string, Gdk.Pixbuf> scaled_icon_cache = null;
-
 private string HH_MM_FORMAT_STRING = null;
 private string HH_MM_SS_FORMAT_STRING = null;
 private string LONG_DATE_FORMAT_STRING = null;
@@ -410,14 +406,8 @@ private string START_MULTIDAY_DATE_FORMAT_STRING = null;
 private string END_MULTIDAY_DATE_FORMAT_STRING = null;
 private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
 
-public void init () {
-}
-
-public void terminate () {
-}
-
 /**
- * @brief Helper for getting a format string that matches the
+ * Helper for getting a format string that matches the
  * user's LC_TIME settings from the system.  This is intended
  * to help support the use case where a user wants the text
  * from one locale, but the timestamp format of another.
@@ -483,7 +473,7 @@ private void fetch_lc_time_format () {
 }
 
 /**
- * @brief Returns a precached format string that matches the
+ * Returns a precached format string that matches the
  * user's LC_TIME settings.
  */
 public string get_hh_mm_format_string () {
@@ -543,73 +533,13 @@ private Gdk.Pixbuf? noninterpretable_badge_pixbuf = null;
 public Gdk.Pixbuf? get_noninterpretable_badge_pixbuf () {
     if (noninterpretable_badge_pixbuf == null) {
         try {
-            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_resource ("/org/pantheon/photos/backgrounds/noninterpretable-video.svg");
+            noninterpretable_badge_pixbuf = new Gdk.Pixbuf.from_resource ("/io/elementary/photos/backgrounds/noninterpretable-video.svg");
         } catch (Error err) {
             error ("VideoReader can't load noninterpretable badge image: %s", err.message);
         }
     }
 
     return noninterpretable_badge_pixbuf;
-}
-
-public Gtk.IconTheme get_icon_theme_engine () {
-    Gtk.IconTheme icon_theme = Gtk.IconTheme.get_default ();
-    icon_theme.append_search_path (AppDirs.get_resources_dir ().get_child ("icons").get_path ());
-
-    return icon_theme;
-}
-
-// This method returns a reference to a cached pixbuf that may be shared throughout the system.
-// If the pixbuf is to be modified, make a copy of it.
-public Gdk.Pixbuf? get_icon (string name, int scale = DEFAULT_ICON_SCALE) {
-    if (scaled_icon_cache != null) {
-        string scaled_name = "%s-%d".printf (name, scale);
-        if (scaled_icon_cache.has_key (scaled_name))
-            return scaled_icon_cache.get (scaled_name);
-    }
-
-    // stash icons not available through the UI Manager (i.e. used directly as pixbufs)
-    // in the local cache
-    if (icon_cache == null)
-        icon_cache = new Gee.HashMap<string, Gdk.Pixbuf> ();
-
-    // fetch from cache and if not present, from disk
-    Gdk.Pixbuf? pixbuf = icon_cache.get (name);
-    if (pixbuf == null) {
-        pixbuf = load_icon (name, 0);
-        if (pixbuf == null)
-            return null;
-
-        icon_cache.set (name, pixbuf);
-    }
-
-    if (scale <= 0)
-        return pixbuf;
-
-    Gdk.Pixbuf scaled_pixbuf = scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false);
-
-    if (scaled_icon_cache == null)
-        scaled_icon_cache = new Gee.HashMap<string, Gdk.Pixbuf> ();
-
-    scaled_icon_cache.set ("%s-%d".printf (name, scale), scaled_pixbuf);
-
-    return scaled_pixbuf;
-}
-
-public Gdk.Pixbuf? load_icon (string name, int scale = DEFAULT_ICON_SCALE) {
-    File icons_dir = AppDirs.get_resources_dir ().get_child ("icons");
-
-    Gdk.Pixbuf pixbuf = null;
-    try {
-        pixbuf = new Gdk.Pixbuf.from_file (icons_dir.get_child (name).get_path ());
-    } catch (Error err) {
-        critical ("Unable to load icon %s: %s", name, err.message);
-    }
-
-    if (pixbuf == null)
-        return null;
-
-    return (scale > 0) ? scale_pixbuf (pixbuf, scale, Gdk.InterpType.BILINEAR, false) : pixbuf;
 }
 
 public const int ALL_DATA = -1;

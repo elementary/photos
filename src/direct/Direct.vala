@@ -35,14 +35,11 @@ public void preconfigure (File initial_file) {
 }
 
 public void app_init () throws Error {
-    Util.init ();
     Db.init ();
     Plugins.init ();
     Slideshow.init ();
-    Photos.init ();
+    PhotoFileFormat.init_supported ();
     Publishing.init ();
-    Core.init ();
-    Tags.init ();
     assert (initial_file != null);
 
     DirectPhoto.init (initial_file);

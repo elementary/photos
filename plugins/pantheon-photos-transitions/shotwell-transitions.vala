@@ -21,6 +21,7 @@ private class ShotwellTransitions : Object, Spit.Module {
     private Spit.Pluggable[] pluggables = new Spit.Pluggable[0];
 
     public ShotwellTransitions (GLib.File module_file) {
+        Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/photos/plugins/transitions/icons");
         GLib.File resource_directory = module_file.get_parent ();
 
         pluggables += new FadeEffectDescriptor (resource_directory);
@@ -44,7 +45,7 @@ private class ShotwellTransitions : Object, Spit.Module {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.transitions";
+        return "io.elementary.photos.transitions";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {
@@ -63,11 +64,10 @@ public Spit.Module? spit_entry_point (Spit.EntryPointParams *params) {
 
 // Base class for all transition descriptors in this module
 public abstract class ShotwellTransitionDescriptor : Object, Spit.Pluggable, Spit.Transitions.Descriptor {
-    private const string ICON_FILENAME = "slideshow-plugin.png";
     private GLib.Icon icon;
 
     public ShotwellTransitionDescriptor (GLib.File resource_directory) {
-        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
+        icon = new ThemedIcon ("slideshow-plugin");
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {

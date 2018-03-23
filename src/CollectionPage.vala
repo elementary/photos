@@ -60,74 +60,69 @@ public abstract class CollectionPage : MediaPage {
 
     public override Gtk.Toolbar get_toolbar () {
         if (toolbar == null) {
-            toolbar = new Gtk.Toolbar ();
-            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
-
             var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
             slideshow_button.icon_name = "media-playback-start-symbolic";
             slideshow_button.tooltip_text = _("Play a slideshow");
             slideshow_button.clicked.connect (on_slideshow);
-            toolbar.insert (slideshow_button, -1);
 
             rotate_button = new Gtk.ToolButton (null, Resources.ROTATE_CW_MENU);
             rotate_button.icon_name = Resources.CLOCKWISE;
             rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
             rotate_button.clicked.connect (on_rotate_clockwise);
+
             var rotate_action = get_action ("RotateClockwise");
             rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (rotate_button, -1);
 
             flip_button = new Gtk.ToolButton (null, Resources.HFLIP_MENU);
             flip_button.icon_name = Resources.HFLIP;
             flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
             flip_button.clicked.connect (on_flip_horizontally);
+
             var flip_action = get_action ("FlipHorizontally");
             flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (flip_button, -1);
-
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
 
             var publish_button = new Gtk.ToolButton (null, Resources.PUBLISH_MENU);
             publish_button.icon_name = Resources.PUBLISH;
             publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
             publish_button.clicked.connect (on_publish);
+
             var publish_action = get_action ("Publish");
             publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
-            toolbar.insert (publish_button, -1);
 
-            toolbar.insert (new Gtk.SeparatorToolItem (), -1);
-
-            // enhance tool
             enhance_button = new Gtk.ToggleToolButton ();
             enhance_button.icon_name = Resources.ENHANCE;
-            enhance_button.label = Resources.ENHANCE_LABEL;
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
-            enhance_button.is_important = true;
-            toolbar.insert (enhance_button, -1);
 
-            // separator to force slider to right side of toolbar
-            Gtk.SeparatorToolItem separator = new Gtk.SeparatorToolItem ();
+            var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
             separator.set_draw (false);
-            toolbar.insert (separator, -1);
 
-            Gtk.SeparatorToolItem drawn_separator = new Gtk.SeparatorToolItem ();
-            drawn_separator.set_expand (false);
-            drawn_separator.set_draw (true);
+            var zoom_assembly = new SliderAssembly (Thumbnail.MIN_SCALE,
+                                                    Thumbnail.MAX_SCALE,
+                                                    MediaPage.MANUAL_STEPPING, 0);
 
-            toolbar.insert (drawn_separator, -1);
+            zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
+            connect_slider (zoom_assembly);
 
-            // zoom slider assembly
-            MediaPage.ZoomSliderAssembly zoom_slider_assembly = create_zoom_slider_assembly ();
-            connect_slider (zoom_slider_assembly);
-            toolbar.insert (zoom_slider_assembly, -1);
+            var group_wrapper = new Gtk.ToolItem ();
+            group_wrapper.add (zoom_assembly);
 
-            //  show metadata sidebar button
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
-            toolbar.insert (show_sidebar_button, -1);
+
+            toolbar = base.get_toolbar ();
+            toolbar.add (slideshow_button);
+            toolbar.add (rotate_button);
+            toolbar.add (flip_button);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (publish_button);
+            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (enhance_button);
+            toolbar.add (separator);
+            toolbar.add (group_wrapper);
+            toolbar.add (show_sidebar_button);
+
             var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
@@ -384,10 +379,13 @@ public abstract class CollectionPage : MediaPage {
         parent.sensitive = true;
 
         foreach (AppInfo app in external_apps) {
-            Gtk.ImageMenuItem item_app = new Gtk.ImageMenuItem.with_label (app.get_name ());
-            Gtk.Image image = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
-            item_app.always_show_image = true;
-            item_app.set_image (image);
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU));
+            menuitem_grid.add (new Gtk.Label (app.get_name ()));
+
+            var item_app = new Gtk.MenuItem ();
+            item_app.add (menuitem_grid);
+
             item_app.activate.connect (() => {
                 if (raw)
                     on_open_with_raw (app.get_commandline ());
@@ -562,8 +560,7 @@ public abstract class CollectionPage : MediaPage {
     // Enter = switch to PhotoPage
     // Ctrl + Enter = open in external editor (handled with accelerators)
     // Shift + Ctrl + Enter = open in external RAW editor (handled with accelerators)
-    protected override void on_item_activated (CheckerboardItem item, CheckerboardPage.Activator
-            activator, CheckerboardPage.KeyboardModifiers modifiers) {
+    protected override void on_item_activated (CheckerboardItem item) {
         Thumbnail thumbnail = (Thumbnail) item;
 
         // none of the fancy Super, Ctrl, Shift, etc., keyboard accelerators apply to videos,
@@ -578,19 +575,8 @@ public abstract class CollectionPage : MediaPage {
         if (photo == null)
             return;
 
-        // switch to full-page view or open in external editor
         debug ("activating %s", photo.to_string ());
-
-        if (activator == CheckerboardPage.Activator.MOUSE) {
-            if (modifiers.super_pressed)
-                //last used
-                on_open_with (Config.Facade.get_instance ().get_external_photo_app ());
-            else
-                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
-        } else if (activator == CheckerboardPage.Activator.KEYBOARD) {
-            if (!modifiers.shift_pressed && !modifiers.ctrl_pressed)
-                LibraryWindow.get_app ().switch_to_photo_page (this, photo);
-        }
+        LibraryWindow.get_app ().switch_to_photo_page (this, photo);
     }
 
     protected override bool on_app_key_pressed (Gdk.EventKey event) {
@@ -816,10 +802,11 @@ public abstract class CollectionPage : MediaPage {
     }
 
     private void on_enhance () {
-        if (get_view ().get_selected_count () == 0)
+        if (get_view ().get_selected_count () == 0) {
             return;
-            
-        /* If one photo in the selection is unenhanced, set the enhance button to untoggled. 
+        }
+
+        /* If one photo in the selection is unenhanced, set the enhance button to untoggled.
           We also just want to execute the enhance command on the unenhanced photo so that
           we can unenhance properly those that were previously enhanced. We also need to sort out non photos */
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
@@ -842,11 +829,11 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().undo ();
             else {
                 UnEnhanceMultipleCommand command = new UnEnhanceMultipleCommand (enhanced_list);
-                get_command_manager ().execute (command);     
+                get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
                 Photo photo = view.get_source () as Photo;
-                photo.set_enhanced (false);   
+                photo.set_enhanced (false);
             }
         } else {
             // Just undo if last on stack was unenhance
@@ -856,11 +843,11 @@ public abstract class CollectionPage : MediaPage {
             else {
                 EnhanceMultipleCommand command = new EnhanceMultipleCommand (unenhanced_list);
                 get_command_manager ().execute (command);
-            }    
+            }
             foreach (DataView view in enhanced_list) {
                 Photo photo = view.get_source () as Photo;
-                photo.set_enhanced (true);   
-            }  
+                photo.set_enhanced (true);
+            }
         }
         update_enhance_toggled ();
     }

@@ -27,12 +27,26 @@ public class Events.Branch : Sidebar.Branch {
     // NOTE: Because the comparators must be static methods (due to CompareFunc's stupid impl.)
     // and there's an assumption that only one Events.Branch is ever created, this is a static
     // member but it's modified by instance methods.
-    private static bool sort_ascending = false;
+    private static bool _sort_ascending = false;
+    private bool sort_ascending {
+        get {
+            return _sort_ascending;
+        }
+        set {
+            _sort_ascending = value;
+            reorder_all ();
+        }
+    }
 
     private Gee.HashMap<Event, Events.EventEntry> entry_map = new Gee.HashMap <
     Event, Events.EventEntry > ();
     private Events.UndatedDirectoryEntry undated_entry = new Events.UndatedDirectoryEntry ();
     private Events.NoEventEntry no_event_entry = new Events.NoEventEntry ();
+    private GLib.Settings ui_settings;
+
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     public Branch () {
         base (new Events.MasterDirectoryEntry (), Sidebar.Branch.Options.STARTUP_EXPAND_TO_FIRST_CHILD,
@@ -49,34 +63,27 @@ public class Events.Branch : Sidebar.Branch {
         Event.global.items_altered.connect (on_events_altered);
         Event.global.no_event_collection_altered.connect (on_no_event_collection_altered);
 
-        // monitor sorting criteria (see note at sort_ascending about this)
-        Config.Facade.get_instance ().events_sort_ascending_changed.connect (on_config_changed);
+        ui_settings.changed.connect ((key) => {
+            if (key == "events-sort-ascending") {
+                sort_ascending = ui_settings.get_boolean ("events-sort-ascending");
+            }
+        });
+
+        sort_ascending = ui_settings.get_boolean ("events-sort-ascending");
+    }
+
+    class construct {
+        open_icon = new ThemedIcon (Resources.ICON_FOLDER_OPEN);
+        closed_icon = new ThemedIcon (Resources.ICON_FOLDER_CLOSED);
+        events_icon = new ThemedIcon (Resources.ICON_EVENTS);
+        single_event_icon = new ThemedIcon (Resources.ICON_ONE_EVENT);
+        no_event_icon = new ThemedIcon (Resources.ICON_NO_EVENT);
     }
 
     ~Branch () {
         Event.global.contents_altered.disconnect (on_events_added_removed);
         Event.global.items_altered.disconnect (on_events_altered);
         Event.global.no_event_collection_altered.disconnect (on_no_event_collection_altered);
-
-        Config.Facade.get_instance ().events_sort_ascending_changed.disconnect (on_config_changed);
-    }
-
-    internal static void init () {
-        open_icon = new ThemedIcon (Resources.ICON_FOLDER_OPEN);
-        closed_icon = new ThemedIcon (Resources.ICON_FOLDER_CLOSED);
-        events_icon = new ThemedIcon (Resources.ICON_EVENTS);
-        single_event_icon = new ThemedIcon (Resources.ICON_ONE_EVENT);
-        no_event_icon = new ThemedIcon (Resources.ICON_NO_EVENT);
-
-        sort_ascending = Config.Facade.get_instance ().get_events_sort_ascending ();
-    }
-
-    internal static void terminate () {
-        open_icon = null;
-        closed_icon = null;
-        events_icon = null;
-        single_event_icon = null;
-        no_event_icon = null;
     }
 
     public Events.MasterDirectoryEntry get_master_entry () {
@@ -104,7 +111,7 @@ public class Events.Branch : Sidebar.Branch {
         else if (b is Events.NoEventEntry)
             return -1;
 
-        if (!sort_ascending) {
+        if (!_sort_ascending) {
             Sidebar.Entry swap = a;
             a = b;
             b = swap;
@@ -121,7 +128,7 @@ public class Events.Branch : Sidebar.Branch {
         if (a == b)
             return 0;
 
-        if (!sort_ascending) {
+        if (!_sort_ascending) {
             Sidebar.Entry swap = a;
             a = b;
             b = swap;
@@ -138,7 +145,7 @@ public class Events.Branch : Sidebar.Branch {
         if (a == b)
             return 0;
 
-        if (!sort_ascending) {
+        if (!_sort_ascending) {
             Sidebar.Entry swap = a;
             a = b;
             b = swap;
@@ -162,7 +169,7 @@ public class Events.Branch : Sidebar.Branch {
         if (a == b)
             return 0;
 
-        if (!sort_ascending) {
+        if (!_sort_ascending) {
             Sidebar.Entry swap = a;
             a = b;
             b = swap;
@@ -180,13 +187,6 @@ public class Events.Branch : Sidebar.Branch {
 
     public Events.EventEntry? get_entry_for_event (Event event) {
         return entry_map.get (event);
-    }
-
-    private void on_config_changed () {
-        bool value = Config.Facade.get_instance ().get_events_sort_ascending ();
-
-        sort_ascending = value;
-        reorder_all ();
     }
 
     private void on_events_added_removed (Gee.Iterable<DataObject>? added,

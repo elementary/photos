@@ -408,13 +408,35 @@ public class ThumbnailCache : Object {
         if (pixbuf != null)
             return pixbuf;
 
-        pixbuf = read_pixbuf (source.get_source_id (), source.get_preferred_thumbnail_format ());
+        try {
+            pixbuf = read_pixbuf (source.get_source_id (), source.get_preferred_thumbnail_format ());
+        } catch (Error err) {
+            if (err is FileError) {
+                try {
+                    Photo photo = source as Photo;
+                    Video video = source as Video;
+
+                    if (photo != null) {
+                        pixbuf = photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true));
+                        replace (source, size, pixbuf);
+                        photo.notify_altered (new Alteration ("image", "thumbnail"));
+                    }
+
+                    if (video != null) {
+                        pixbuf = video.create_thumbnail (size.get_scale () * scale_factor);
+                        replace (source, size, pixbuf);
+                    }
+
+                } catch (Error e) {
+                    throw err;
+                }
+            } else {
+                throw err;
+            }
+        }
 
         cycle_fetched_thumbnails++;
         schedule_debug ();
-
-        // stash in memory for next time
-        store_in_memory (source.get_source_id (), pixbuf);
 
         return pixbuf;
     }

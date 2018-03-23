@@ -18,11 +18,10 @@
 */
 
 public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "google-photos.svg";
     private GLib.Icon icon;
 
     public PicasaService (GLib.File resource_directory) {
-        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
+        icon = new ThemedIcon ("google-photos");
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {
@@ -31,7 +30,7 @@ public class PicasaService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.picasa";
+        return "io.elementary.photos.publishing.picasa";
     }
 
     public unowned string get_pluggable_name () {
@@ -195,11 +194,7 @@ public class PicasaPublisher : Publishing.RESTSupport.GooglePublisher {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            // the trailing get_path () is required, since add_from_file can't cope
-            // with File objects directly and expects a pathname instead.
-            builder.add_from_file (
-                get_host ().get_module_file ().get_parent ().
-                get_child ("picasa_publishing_options_pane.ui").get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/picasa_publishing_options_pane.ui");
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             get_host ().post_error (
@@ -483,7 +478,7 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, GLib.Object {
     }
 
     public void on_pane_installed () {
-        
+
     }
 
     public void on_pane_uninstalled () {

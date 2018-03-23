@@ -17,26 +17,9 @@
 * Boston, MA 02110-1301 USA
 */
 
-/* This file is the master unit file for the Config unit.  It should be edited to include
- * whatever code is deemed necessary.
- *
- * The init () and terminate () methods are mandatory.
- *
- * If the unit needs to be configured prior to initialization, add the proper parameters to
- * the preconfigure () method, implement it, and ensure in init () that it's been called.
- */
-
 namespace Config {
 
 public class Facade : ConfigurationFacade {
-    public const double SLIDESHOW_DELAY_MAX = 30.0;
-    public const double SLIDESHOW_DELAY_MIN = 1.0;
-    public const double SLIDESHOW_DELAY_DEFAULT = 3.0;
-    public const double SLIDESHOW_TRANSITION_DELAY_MAX = 1.0;
-    public const double SLIDESHOW_TRANSITION_DELAY_MIN = 0.1;
-    public const double SLIDESHOW_TRANSITION_DELAY_DEFAULT = 0.3;
-    public const int NO_VIDEO_INTERPRETER_STATE = -1;
-
     private static Facade instance = null;
 
     private Facade () {
@@ -49,16 +32,6 @@ public class Facade : ConfigurationFacade {
 
         return instance;
     }
-}
-
-// preconfigure may be deleted if not used.
-public void preconfigure () {
-}
-
-public void init () throws Error {
-}
-
-public void terminate () {
 }
 
 }

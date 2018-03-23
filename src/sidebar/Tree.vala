@@ -122,6 +122,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         text_renderer = new Gtk.CellRendererText ();
         text_renderer.editing_canceled.connect (on_editing_canceled);
         text_renderer.editing_started.connect (on_editing_started);
+        text_renderer.ellipsize = Pango.EllipsizeMode.END;
         text_column.pack_start (text_renderer, true);
         text_column.add_attribute (text_renderer, "markup", Columns.NAME);
         append_column (text_column);
@@ -159,7 +160,7 @@ public class Sidebar.Tree : Gtk.TreeView {
 
         popup_menu.connect (on_context_menu_keypress);
 
-        icon_theme = Resources.get_icon_theme_engine ();
+        icon_theme = Gtk.IconTheme.get_default ();
         icon_theme.changed.connect (on_theme_change);
 
         get_style_context ().add_class (Granite.STYLE_CLASS_SOURCE_LIST);

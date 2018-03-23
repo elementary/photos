@@ -29,11 +29,13 @@ vala_precompile (VALA_C ${EXEC_NAME}
     DesktopIntegration.vala
     Dimensions.vala
     DirectoryMonitor.vala
+    EditingHostPage.vala
     Event.vala
     Exporter.vala
     FullScreenWindow.vala
     LibraryFiles.vala
     LibraryMonitor.vala
+    LibraryPhotoPage.vala
     main.vala
     MediaDataRepresentation.vala
     MediaInterfaces.vala
@@ -46,13 +48,12 @@ vala_precompile (VALA_C ${EXEC_NAME}
     Page.vala
     PageWindow.vala
     PhotoMonitor.vala
-    PhotoPage.vala
     Photo.vala
     PixbufCache.vala
     Printing.vala
     Resources.vala
-    Screensaver.vala
     SearchFilter.vala
+    SinglePhotoPage.vala
     SlideshowPage.vala
     SortedList.vala
     Tag.vala
@@ -65,16 +66,17 @@ vala_precompile (VALA_C ${EXEC_NAME}
     VideoMetadata.vala
     VideoMonitor.vala
     VideoSupport.vala
+    ZoomBuffer.vala
 
     camera/Branch.vala
     camera/CameraTable.vala
-    camera/Camera.vala
     camera/GPhoto.vala
     camera/ImportPage.vala
 
     Checkerboard/CheckerboardItem.vala
     Checkerboard/CheckerboardItemText.vala
     Checkerboard/CheckerboardLayout.vala
+    Checkerboard/CheckerboardPage.vala
 
     Dialogs/AdjustDateTimeDialog.vala
     Dialogs/Dialogs.vala
@@ -89,7 +91,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
 
     core/Alteration.vala
     core/ContainerSourceCollection.vala
-    core/Core.vala
     core/DatabaseSourceCollection.vala
     core/DataCollection.vala
     core/DataObject.vala
@@ -131,7 +132,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     events/EventDirectoryItem.vala
     events/EventPage.vala
     events/EventsDirectoryPage.vala
-    events/Events.vala
 
     library/Branch.vala
     library/FlaggedPage.vala
@@ -160,7 +160,6 @@ vala_precompile (VALA_C ${EXEC_NAME}
     photos/PhotoFileFormat.vala
     photos/PhotoFileSniffer.vala
     photos/PhotoMetadata.vala
-    photos/Photos.vala
     photos/PngSupport.vala
     photos/RawSupport.vala
     photos/TiffSupport.vala
@@ -179,12 +178,10 @@ vala_precompile (VALA_C ${EXEC_NAME}
     searches/SavedSearchDialog.vala
     searches/SavedSearchPage.vala
     searches/SearchBoolean.vala
-    searches/Searches.vala
 
     sidebar/Branch.vala
     sidebar/common.vala
     sidebar/Entry.vala
-    sidebar/Sidebar.vala
     sidebar/Tree.vala
     sidebar/EditableTitle.vala
 
@@ -201,14 +198,12 @@ vala_precompile (VALA_C ${EXEC_NAME}
     tags/HierarchicalTagIndex.vala
     tags/HierarchicalTagUtilities.vala
     tags/TagPage.vala
-    tags/Tags.vala
 
     threads/BackgroundJob.vala
     threads/Semaphore.vala
     threads/Workers.vala
 
-    unit/Unit.vala
-
+    util/DragAndDropHandler.vala
     util/file.vala
     util/image.vala
     util/KeyValueMap.vala
@@ -217,6 +212,10 @@ vala_precompile (VALA_C ${EXEC_NAME}
     util/system.vala
     util/ui.vala
     util/Util.vala
+
+    Widgets/ContractMenuItem.vala
+    Widgets/TransitionEffectSelector.vala
+    Widgets/SliderAssembly.vala
 CUSTOM_VAPIS
     ${CMAKE_SOURCE_DIR}/vapi/config.vapi
     ${CMAKE_BINARY_DIR}/src/${CMAKE_PROJECT_NAME}.vapi

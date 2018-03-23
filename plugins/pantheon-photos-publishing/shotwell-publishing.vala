@@ -24,6 +24,7 @@ private class ShotwellPublishingCoreServices : Object, Spit.Module {
     // we need to get a module file handle because our pluggables have to load resources from the
     // module file directory
     public ShotwellPublishingCoreServices (GLib.File module_file) {
+        Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/photos/plugins/publishing/icons");
         GLib.File resource_directory = module_file.get_parent ();
 
         pluggables += new FacebookService (resource_directory);
@@ -42,7 +43,7 @@ private class ShotwellPublishingCoreServices : Object, Spit.Module {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.core_services";
+        return "io.elementary.photos.publishing.core_services";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {
