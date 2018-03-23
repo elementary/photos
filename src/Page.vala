@@ -54,7 +54,9 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     protected Page (string page_name) {
         Object (page_name: page_name);
+    }
 
+    construct {
         view = new ViewCollection ("ViewCollection for Page %s".printf (page_name));
 
         last_down = { -1, -1 };
@@ -63,7 +65,27 @@ public abstract class Page : Gtk.ScrolledWindow {
 
         popup_menu.connect (on_context_keypress);
 
-        init_ui ();
+        action_group = new Gtk.ActionGroup ("PageActionGroup");
+
+        // Collect all Gtk.Actions and add them to the Page's Gtk.ActionGroup
+        Gtk.ActionEntry[] action_entries = init_collect_action_entries ();
+        if (action_entries.length > 0) {
+            action_group.add_actions (action_entries, this);
+        }
+
+        // Collect all Gtk.ToggleActionEntries and add them to the Gtk.ActionGroup
+        Gtk.ToggleActionEntry[] toggle_entries = init_collect_toggle_action_entries ();
+        if (toggle_entries.length > 0) {
+            action_group.add_toggle_actions (toggle_entries, this);
+        }
+
+        // Collect all Gtk.RadioActionEntries and add them to the Gtk.ActionGroup
+        // (Would use a similar collection scheme as the other calls, but there is a binding
+        // problem with Gtk.RadioActionCallback that doesn't allow it to be stored in a struct)
+        register_radio_actions (action_group);
+
+        // Get global (common) action groups from the application window
+        common_action_groups = AppWindow.get_instance ().get_common_action_groups ();
 
         realize.connect (attach_view_signals);
     }
@@ -433,28 +455,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     public CommandManager get_command_manager () {
         return AppWindow.get_command_manager ();
-    }
-
-    private void init_ui () {
-        action_group = new Gtk.ActionGroup ("PageActionGroup");
-
-        // Collect all Gtk.Actions and add them to the Page's Gtk.ActionGroup
-        Gtk.ActionEntry[] action_entries = init_collect_action_entries ();
-        if (action_entries.length > 0)
-            action_group.add_actions (action_entries, this);
-
-        // Collect all Gtk.ToggleActionEntries and add them to the Gtk.ActionGroup
-        Gtk.ToggleActionEntry[] toggle_entries = init_collect_toggle_action_entries ();
-        if (toggle_entries.length > 0)
-            action_group.add_toggle_actions (toggle_entries, this);
-
-        // Collect all Gtk.RadioActionEntries and add them to the Gtk.ActionGroup
-        // (Would use a similar collection scheme as the other calls, but there is a binding
-        // problem with Gtk.RadioActionCallback that doesn't allow it to be stored in a struct)
-        register_radio_actions (action_group);
-
-        // Get global (common) action groups from the application window
-        common_action_groups = AppWindow.get_instance ().get_common_action_groups ();
     }
 
     public virtual Gtk.Box get_header_buttons () {
