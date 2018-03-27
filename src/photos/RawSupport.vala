@@ -270,7 +270,7 @@ public class RawReader : PhotoFileReader {
 
 // Development mode of a RAW photo.
 public enum RawDeveloper {
-    SHOTWELL = 0,  // Developed internally by Shotwell
+    SHOTWELL = 0,  // Developed internally by Photos
     CAMERA,        // JPEG from RAW+JPEG pair (if available)
     EMBEDDED;      // Largest-size
 
@@ -307,7 +307,7 @@ public enum RawDeveloper {
     public string get_label () {
         switch (this) {
         case SHOTWELL:
-            return _ ("Shotwell");
+            return _ ("Photos");
         case CAMERA:
         case EMBEDDED:
             return _ ("Camera");

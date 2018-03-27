@@ -306,7 +306,7 @@ public struct Scaling {
         // gdk_pixbuf_scale_simple can't handle.
         //
         // If we get here, and the widget we're being drawn into is 1x1, then, most likely,
-        // it's not fully realized yet (since nothing in Shotwell requires this), so just
+        // it's not fully realized yet (since nothing in Photos requires this), so just
         // ignore it and return something safe instead.
         if ((viewport.width <= 1 * scale_factor) || (viewport.height <= 1 * scale_factor))
             return for_original ();
