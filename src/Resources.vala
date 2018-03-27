@@ -173,12 +173,6 @@ public const string SET_BACKGROUND_MENU = _("Set as _Desktop Background");
 public const string SET_BACKGROUND_TOOLTIP = _("Set selected image to be the new desktop background");
 public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow...");
 
-public const string UNDO_MENU = _("_Undo");
-public const string UNDO_LABEL = _("Undo");
-
-public const string REDO_MENU = _("_Redo");
-public const string REDO_LABEL = _("Redo");
-
 public const string RENAME_EVENT_MENU = _("Re_name Event...");
 public const string RENAME_EVENT_LABEL = _("Rename Event");
 
