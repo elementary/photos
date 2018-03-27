@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-// AppWindow is the parent window for most windows in Shotwell (FullscreenWindow is the exception).
+// AppWindow is the parent window for most windows in Photos (FullscreenWindow is the exception).
 // There are multiple types of AppWindows (LibraryWindow, DirectWindow) for different tasks, but only
 // one AppWindow may exist per process.  Thus, if the user closes an AppWindow, the program exits.
 //
@@ -304,7 +304,7 @@ public abstract class AppWindow : PageWindow {
     }
 
     public static void database_error (DatabaseError err) {
-        panic (_ ("A fatal error occurred when accessing Shotwell's library.  Shotwell cannot continue.\n\n%s").printf (
+        panic (_ ("A fatal error occurred when accessing Photos' library.  Photos cannot continue.\n\n%s").printf (
                    err.message));
     }
 
