@@ -297,7 +297,7 @@ public class PhotoTable : DatabaseTable {
 
     // Force corrupted orientations to a safe value.
     //
-    // In previous versions of Shotwell, this field could be written to
+    // In previous versions of Photos, this field could be written to
     // the DB as a zero due to Vala 0.14 breaking the way it handled
     // objects passed as 'ref' arguments to methods.
     //

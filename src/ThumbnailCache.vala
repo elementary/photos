@@ -460,7 +460,7 @@ public class ThumbnailCache : Object {
         // (and the other should wait until it's done), two (or more) fetches could occur on the
         // same thumbnail file.
         //
-        // Due to the design of Shotwell, with one thumbnail per page, this is seen as an unlikely
+        // Due to the design of Photos, with one thumbnail per page, this is seen as an unlikely
         // situation.  This may change in the future, and the caching situation will need to be
         // handled.
 

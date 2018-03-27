@@ -168,7 +168,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * Initializes the Shotwell application object and prepares
+     * Initializes the Photos application object and prepares
      * it for use.
      *
      * Note: This MUST be called prior to calling get_instance (), as the

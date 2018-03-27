@@ -131,7 +131,7 @@ class AppDirs {
         return libexec_dir;
     }
 
-    // Return the directory in which Shotwell is installed, or null if uninstalled.
+    // Return the directory in which Photos is installed, or null if uninstalled.
     public static File? get_install_dir () {
         return get_sys_install_dir (exec_dir);
     }
