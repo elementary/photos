@@ -45,8 +45,8 @@ public bool confirm_delete_saved_search (SavedSearch search) {
 public bool confirm_warn_developer_changed (int number) {
     Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup (AppWindow.get_instance (),
             Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s",
-            "<span weight=\"bold\" size=\"larger\">%s</span>".printf (ngettext ("Switching developers will undo all changes you have made to this photo in Shotwell",
-                    "Switching developers will undo all changes you have made to these photos in Shotwell", number)));
+            "<span weight=\"bold\" size=\"larger\">%s</span>".printf (ngettext ("Switching developers will undo all changes you have made to this photo in Photos",
+                    "Switching developers will undo all changes you have made to these photos in Photos", number)));
 
     dialog.add_buttons (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
     dialog.add_buttons (_ ("_Switch Developer"), Gtk.ResponseType.YES);
@@ -125,7 +125,7 @@ public void open_external_editor_error_dialog (Error err, Photo photo) {
     if (err is IOError.PERMISSION_DENIED || err is FileError.PERM) {
         // Yes - display an alternate error message here.
         AppWindow.error_message (
-            _ ("Shotwell couldn't create a file for editing this photo because you do not have permission to write to %s.").printf (photo.get_master_file ().get_parent ().get_path ()));
+            _ ("Photos couldn't create a file for editing this photo because you do not have permission to write to %s.").printf (photo.get_master_file ().get_parent ().get_path ()));
     } else {
         // No - something else is wrong, display the error message
         // the system gave us.
@@ -220,7 +220,7 @@ public string get_media_specific_string (Gee.Collection<BatchImportResult> impor
 public string create_result_report_from_manifest (ImportManifest manifest) {
     StringBuilder builder = new StringBuilder ();
 
-    string header = _ ("Import Results Report") + " (Shotwell " + Resources.APP_VERSION + " @ " +
+    string header = _ ("Import Results Report") + " (Photos " + Resources.APP_VERSION + " @ " +
                     TimeVal ().to_iso8601 () + ")\n\n";
     builder.append (header);
 
@@ -280,10 +280,10 @@ public string create_result_report_from_manifest (ImportManifest manifest) {
     }
 
     //
-    // Photos/Videos Not Imported Because They Weren't in a Format Shotwell Understands
+    // Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
     //
     if (manifest.skipped_photos.size > 0) {
-        builder.append (_ ("Photos/Videos Not Imported Because They Weren't in a Format Shotwell Understands:")
+        builder.append (_ ("Photos/Videos Not Imported Because They Weren't in a Format Photos Understands:")
                         + "\n\n");
 
         foreach (BatchImportResult result in manifest.skipped_photos) {
@@ -295,10 +295,10 @@ public string create_result_report_from_manifest (ImportManifest manifest) {
     }
 
     //
-    // Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library
+    // Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
     //
     if (manifest.write_failed.size > 0) {
-        builder.append (_ ("Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library:")
+        builder.append (_ ("Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library:")
                         + "\n\n");
 
         foreach (BatchImportResult result in manifest.write_failed) {
@@ -460,7 +460,7 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
     if (manifest.skipped_photos.size > 0) {
         if (message.length > 0)
             message += "\n";
-        // we have no notion of "unsupported" video files right now in Shotwell (all
+        // we have no notion of "unsupported" video files right now in Photos (all
         // standard container formats are supported, it's just that the streams in them
         // might or might not be interpretable), so this message does not need to be
         // media specific
@@ -477,7 +477,7 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
         if (message.length > 0)
             message += "\n";
 
-        // we have no notion of "non-video" video files right now in Shotwell, so this
+        // we have no notion of "non-video" video files right now in Photos, so this
         // message doesn't need to be media specific
         string skipped_files_message = (ngettext ("1 non-image file skipped.\n",
                                         "%d non-image files skipped.\n", manifest.skipped_files.size)).printf (
@@ -588,7 +588,7 @@ internal void save_import_results (Gtk.Window? chooser_dialog_parent, string res
         (_ ("_Cancel")), Gtk.ResponseType.CANCEL, (_ ("_Save")), Gtk.ResponseType.ACCEPT, null);
     chooser_dialog.set_do_overwrite_confirmation (true);
     chooser_dialog.set_current_folder (Environment.get_home_dir ());
-    chooser_dialog.set_current_name ("Shotwell Import Log.txt");
+    chooser_dialog.set_current_name ("Photos Import Log.txt");
     chooser_dialog.set_local_only (false);
 
     int dialog_result = chooser_dialog.run ();
@@ -873,7 +873,7 @@ public interface WelcomeServiceEntry : GLib.Object {
 // This function is used to determine whether or not files should be copied or linked when imported.
 // Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 public Gtk.ResponseType copy_files_dialog () {
-    string msg = _ ("Shotwell can copy the photos into your library folder or it can import them without copying.");
+    string msg = _ ("Photos can copy the photos into your library folder or it can import them without copying.");
 
     Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
             Gtk.MessageType.QUESTION, Gtk.ButtonsType.CANCEL, "%s", msg);
