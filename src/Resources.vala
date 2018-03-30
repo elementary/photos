@@ -233,8 +233,6 @@ public const string ADD_TAGS_MENU = _("Add _Tags...");
 public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags...");
 public const string ADD_TAGS_TITLE = _("Add Tags");
 
-public const string PREFERENCES_MENU = _("_Preferences");
-
 public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
 
 public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
