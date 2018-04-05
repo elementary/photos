@@ -741,10 +741,6 @@ public class LibraryPhotoPage : EditingHostPage {
         assert (mime_types.length != 0);
         external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
 
-        if (external_apps.size > 0) {
-            menu.add (new Gtk.SeparatorMenuItem ());
-        }
-
         foreach (AppInfo app in external_apps) {
             var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
             menu_item_icon.pixel_size = 16;
