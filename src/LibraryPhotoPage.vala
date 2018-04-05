@@ -615,10 +615,9 @@ public class LibraryPhotoPage : EditingHostPage {
             adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
 
-            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
-            var open_action = get_action ("OpenWith");
-            open_action.bind_property ("sensitive", open_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             open_menu = new Gtk.Menu ();
+
+            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
             open_menu_item.set_submenu (open_menu);
 
             open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
@@ -720,9 +719,14 @@ public class LibraryPhotoPage : EditingHostPage {
         } else {
             mime_types = PhotoFileFormat.get_editable_mime_types ();
 
+            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+
+            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
+            files_item_icon.pixel_size = 16;
+
             var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (new Gtk.Image.from_icon_name ("system-file-manager", Gtk.IconSize.MENU));
-            menuitem_grid.add (new Gtk.Label (_("File Manager")));
+            menuitem_grid.add (files_item_icon);
+            menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
 
             var jump_menu_item = new Gtk.MenuItem ();
             jump_menu_item.add (menuitem_grid);
@@ -742,8 +746,11 @@ public class LibraryPhotoPage : EditingHostPage {
         }
 
         foreach (AppInfo app in external_apps) {
+            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+            menu_item_icon.pixel_size = 16;
+
             var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU));
+            menuitem_grid.add (menu_item_icon);
             menuitem_grid.add (new Gtk.Label (app.get_name ()));
 
             var item_app = new Gtk.MenuItem ();
