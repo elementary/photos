@@ -209,14 +209,22 @@ public class LibraryWindow : AppWindow {
     protected override void build_header_bar () {
         top_display = new TopDisplay ();
 
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+
         var settings_menu = new Gtk.Menu ();
-        settings_menu.add (get_common_action ("CommonFileImport").create_menu_item ());
+        settings_menu.add (import_menu_item);
         settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (get_common_action ("CommonPreferences").create_menu_item ());
+        settings_menu.add (preferences_menu_item);
         settings_menu.show_all ();
 
         var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("document-properties", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
         settings.tooltip_text = _("Settings");
         settings.popup = settings_menu;
         settings.show_all ();
@@ -278,60 +286,25 @@ public class LibraryWindow : AppWindow {
     }
 
     private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry import = { "CommonFileImport", Resources.IMPORT,
-                                   _("_Import From Folder…"), "<Ctrl>I", _("Import photos from disk to library"), on_file_import
-                                 };
-        actions += import;
-
+        Gtk.ActionEntry import = { "CommonFileImport", null, null, "<Ctrl>I", null, on_file_import };
         Gtk.ActionEntry sort = { "CommonSortEvents", null,  _("Sort _Events"), null, null, null };
-        actions += sort;
-
-        Gtk.ActionEntry preferences = { "CommonPreferences", null, Resources.PREFERENCES_MENU,
-                                        null, Resources.PREFERENCES_MENU, on_preferences
-                                      };
-        actions += preferences;
-
-        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null,
-                                          _("View Eve_nt for Photo"), on_jump_to_event
-                                        };
-        actions += jump_to_event;
-
-        Gtk.ActionEntry find = { "CommonFind", null, _("_Find"), null, _("Find photos and videos by search criteria"),
-                                 on_find
-                               };
-        actions += find;
+        Gtk.ActionEntry preferences = { "CommonPreferences", null, null, null, null, on_preferences };
+        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null, null, on_jump_to_event };
+        Gtk.ActionEntry find = { "CommonFind", null, null, null, null, on_find };
 
         // add the common action for the FilterPhotos submenu (the submenu contains items from
         // SearchFilterActions)
         Gtk.ActionEntry filter_photos = { "CommonFilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
+        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), "<Ctrl>S", null, on_new_search };
+
+        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
+        actions += import;
+        actions += sort;
+        actions += preferences;
+        actions += jump_to_event;
+        actions += find;
         actions += filter_photos;
-
-        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), "<Ctrl>S", null,
-                                       on_new_search
-                                     };
         actions += new_search;
-
-        // top-level menus
-
-        Gtk.ActionEntry file = { "FileMenu", null, _("_File"), null, null, null };
-        actions += file;
-
-        Gtk.ActionEntry edit = { "EditMenu", null, _("_Edit"), null, null, null };
-        actions += edit;
-
-        Gtk.ActionEntry photo = { "PhotoMenu", null, _("_Photo"), null, null, null };
-        actions += photo;
-
-        Gtk.ActionEntry photos = { "PhotosMenu", null, _("_Photos"), null, null, null };
-        actions += photos;
-
-        Gtk.ActionEntry tags = { "TagsMenu", null, _("Ta_gs"), null, null, null };
-        actions += tags;
-
-        Gtk.ActionEntry help = { "HelpMenu", null, _("_Help"), null, null, null };
-        actions += help;
 
         return actions;
     }
