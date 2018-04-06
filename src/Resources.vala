@@ -237,8 +237,7 @@ public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
 
 public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
 
-public const string OPEN_WITH_MENU = _("_Open With...");
-public const string OPEN_WITH_LABEL = _("Open With");
+public const string OPEN_WITH_MENU = _("_Open In");
 public const string OPEN_WITH_TOOLTIP = _("Open photo with external editor");
 
 public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor...");
@@ -377,8 +376,7 @@ public const string DELETE_FROM_LIBRARY_TOOLTIP = _("Remove the selected photos 
 public const string RESTORE_PHOTOS_MENU = _("_Restore Selection");
 public const string RESTORE_PHOTOS_TOOLTIP = _("Move the selected photos back into the library");
 
-public const string JUMP_TO_FILE_MENU = _("Show in File Mana_ger");
-public const string JUMP_TO_FILE_TOOLTIP = _("Open the selected photo's directory in the file manager");
+public const string JUMP_TO_FILE_MENU = _("File Mana_ger");
 
 public string jump_to_file_failed (Error err) {
     return _("Unable to open in file manager: %s").printf (err.message);
