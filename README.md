@@ -34,11 +34,11 @@ You'll need the following dependencies:
 * python-scour
 * valac
 
-Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build
+Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
     meson build --prefix=/usr
     cd build
-    ninja test
+    ninja
 
 To install, use `ninja install`, then execute with `io.elementary.photos`
 
