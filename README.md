@@ -1,6 +1,8 @@
 # Photos
 [![Translation status](https://l10n.elementary.io/widgets/photos/-/svg-badge.svg)](https://l10n.elementary.io/projects/photos/?utm_source=widget)
 
+![Photos Screenshot](data/screenshot.png?raw=true)
+
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
