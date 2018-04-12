@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-// AppWindow is the parent window for most windows in Shotwell (FullscreenWindow is the exception).
+// AppWindow is the parent window for most windows in Photos (FullscreenWindow is the exception).
 // There are multiple types of AppWindows (LibraryWindow, DirectWindow) for different tasks, but only
 // one AppWindow may exist per process.  Thus, if the user closes an AppWindow, the program exits.
 //
@@ -40,6 +40,9 @@ public abstract class AppWindow : PageWindow {
     protected Gtk.HeaderBar header;
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("AppWindowGlobalActionGroup");
+
+    private Gtk.Button redo_btn;
+    private Gtk.Button undo_btn;
 
     protected GLib.Settings window_settings;
 
@@ -112,14 +115,16 @@ public abstract class AppWindow : PageWindow {
     }
 
     protected virtual void build_header_bar () {
-        var redo_action = get_common_action ("CommonRedo");
-        var redo_btn = redo_action.create_tool_item ();
-        redo_btn.sensitive = true;
-        header.pack_end (redo_btn);
+        redo_btn = new Gtk.Button ();
+        redo_btn.related_action = get_common_action ("CommonRedo");
+        redo_btn.image = new Gtk.Image.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
 
-        var undo_action = get_common_action ("CommonUndo");
-        var undo_btn = undo_action.create_tool_item ();
-        undo_btn.sensitive = true;
+        undo_btn = new Gtk.Button ();
+        undo_btn.related_action = get_common_action ("CommonUndo");
+        undo_btn.image = new Gtk.Image.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
+
+
+        header.pack_end (redo_btn);
         header.pack_end (undo_btn);
     }
 
@@ -127,8 +132,8 @@ public abstract class AppWindow : PageWindow {
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry quit = { "CommonQuit", null, _("_Quit"), "<Ctrl>Q", _("_Quit"), on_quit };
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry undo = { "CommonUndo", "edit-undo", Resources.UNDO_MENU, "<Ctrl>Z", Resources.UNDO_MENU, on_undo };
-        Gtk.ActionEntry redo = { "CommonRedo", "edit-redo", Resources.REDO_MENU, "<Ctrl><Shift>Z", Resources.REDO_MENU, on_redo };
+        Gtk.ActionEntry undo = { "CommonUndo", null, null, "<Ctrl>Z", null, on_undo };
+        Gtk.ActionEntry redo = { "CommonRedo", null, null, "<Ctrl><Shift>Z", null, on_redo };
         Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
         Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
         Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
@@ -299,7 +304,7 @@ public abstract class AppWindow : PageWindow {
     }
 
     public static void database_error (DatabaseError err) {
-        panic (_ ("A fatal error occurred when accessing Shotwell's library.  Shotwell cannot continue.\n\n%s").printf (
+        panic (_ ("A fatal error occurred when accessing Photos' library.  Photos cannot continue.\n\n%s").printf (
                    err.message));
     }
 
@@ -416,12 +421,6 @@ public abstract class AppWindow : PageWindow {
             action.sensitive = sensitive;
     }
 
-    public void set_common_action_important (string name, bool important) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
     public void set_common_action_visible (string name, bool visible) {
         Gtk.Action? action = get_common_action (name);
         if (action != null)
@@ -486,31 +485,27 @@ public abstract class AppWindow : PageWindow {
         decorate_redo_action ();
     }
 
-    private void decorate_command_manager_action (string name, string prefix,
-            string default_explanation, CommandDescription? desc) {
+    private void decorate_command_manager_action (string name, Gtk.Button button, string default_explanation, CommandDescription? desc) {
         Gtk.Action? action = get_common_action (name);
-        if (action == null)
+        if (action == null) {
             return;
+        }
 
         if (desc != null) {
-            action.label = "%s %s".printf (prefix, desc.get_name ());
-            action.tooltip = action.label;
+            button.tooltip_text = "%s %s".printf (default_explanation, desc.get_name ());
             action.sensitive = true;
         } else {
-            action.label = prefix;
-            action.tooltip = default_explanation;
+            button.tooltip_text = default_explanation;
             action.sensitive = false;
         }
     }
 
     public void decorate_undo_action () {
-        decorate_command_manager_action ("CommonUndo", Resources.UNDO_LABEL, "",
-                                         get_command_manager ().get_undo_description ());
+        decorate_command_manager_action ("CommonUndo", undo_btn, _("Undo"), get_command_manager ().get_undo_description ());
     }
 
     public void decorate_redo_action () {
-        decorate_command_manager_action ("CommonRedo", Resources.REDO_LABEL, "",
-                                         get_command_manager ().get_redo_description ());
+        decorate_command_manager_action ("CommonRedo", redo_btn, _("Redo"), get_command_manager ().get_redo_description ());
     }
 
     private void on_undo () {

@@ -2278,7 +2278,7 @@ public class TrashUntrashPhotosCommand : PageCommand {
     public TrashUntrashPhotosCommand (Gee.Collection<MediaSource> sources, bool to_trash) {
         base (
             to_trash ? _ ("Move Photos to Trash") : _ ("Restore Photos from Trash"),
-            to_trash ? _ ("Move the photos to the Shotwell trash") : _ ("Restore the photos back to the Shotwell library"));
+            to_trash ? _ ("Move the photos to the Photos trash") : _ ("Restore the photos back to the Photos library"));
 
         this.sources = sources;
         this.to_trash = to_trash;

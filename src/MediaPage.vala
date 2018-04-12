@@ -358,7 +358,7 @@ public abstract class MediaPage : CheckerboardPage {
         }
 
         // Collect some stats about what's selected.
-        bool avail_shotwell = false; // True if Shotwell developer is available.
+        bool avail_shotwell = false; // True if Photos developer is available.
         bool avail_camera = false;   // True if camera developer is available.
         bool is_raw = false;    // True if any RAW photos are selected
         foreach (DataView view in view.get_selected ()) {
@@ -449,7 +449,7 @@ public abstract class MediaPage : CheckerboardPage {
         try {
             AppInfo.launch_default_for_uri (video.get_file ().get_uri (), null);
         } catch (Error e) {
-            AppWindow.error_message (_ ("Shotwell was unable to play the selected video:\n%s").printf (
+            AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
                                          e.message));
         }
     }

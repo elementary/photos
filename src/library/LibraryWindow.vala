@@ -99,9 +99,9 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir ();
 
-    private Gtk.Paned sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-    private Gtk.Paned client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-    private Gtk.Paned right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+    private Gtk.Paned sidebar_paned;
+    private Gtk.Paned client_paned;
+    private Gtk.Paned right_client_paned;
     private MetadataView metadata_sidebar = new MetadataView ();
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
@@ -132,12 +132,10 @@ public class LibraryWindow : AppWindow {
     private SearchFilterEntry search_entry;
 
     private Gtk.Box page_header_box;
-    private Gtk.Box top_section = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
     private TopDisplay top_display;
 
     private Gtk.Notebook notebook = new Gtk.Notebook ();
-    private Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
     private Gtk.Box right_vbox;
 
     private GLib.Settings ui_settings;
@@ -210,14 +208,22 @@ public class LibraryWindow : AppWindow {
     protected override void build_header_bar () {
         top_display = new TopDisplay ();
 
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+
         var settings_menu = new Gtk.Menu ();
-        settings_menu.add (get_common_action ("CommonFileImport").create_menu_item ());
+        settings_menu.add (import_menu_item);
         settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (get_common_action ("CommonPreferences").create_menu_item ());
+        settings_menu.add (preferences_menu_item);
         settings_menu.show_all ();
 
         var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("document-properties", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
         settings.tooltip_text = _("Settings");
         settings.popup = settings_menu;
         settings.show_all ();
@@ -279,60 +285,25 @@ public class LibraryWindow : AppWindow {
     }
 
     private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-
-        Gtk.ActionEntry import = { "CommonFileImport", Resources.IMPORT,
-                                   _("_Import From Folder…"), "<Ctrl>I", _("Import photos from disk to library"), on_file_import
-                                 };
-        actions += import;
-
+        Gtk.ActionEntry import = { "CommonFileImport", null, null, "<Ctrl>I", null, on_file_import };
         Gtk.ActionEntry sort = { "CommonSortEvents", null,  _("Sort _Events"), null, null, null };
-        actions += sort;
-
-        Gtk.ActionEntry preferences = { "CommonPreferences", null, Resources.PREFERENCES_MENU,
-                                        null, Resources.PREFERENCES_MENU, on_preferences
-                                      };
-        actions += preferences;
-
-        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null,
-                                          _("View Eve_nt for Photo"), on_jump_to_event
-                                        };
-        actions += jump_to_event;
-
-        Gtk.ActionEntry find = { "CommonFind", null, _("_Find"), null, _("Find photos and videos by search criteria"),
-                                 on_find
-                               };
-        actions += find;
+        Gtk.ActionEntry preferences = { "CommonPreferences", null, null, null, null, on_preferences };
+        Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null, null, on_jump_to_event };
+        Gtk.ActionEntry find = { "CommonFind", null, null, null, null, on_find };
 
         // add the common action for the FilterPhotos submenu (the submenu contains items from
         // SearchFilterActions)
         Gtk.ActionEntry filter_photos = { "CommonFilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
+        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), "<Ctrl>S", null, on_new_search };
+
+        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
+        actions += import;
+        actions += sort;
+        actions += preferences;
+        actions += jump_to_event;
+        actions += find;
         actions += filter_photos;
-
-        Gtk.ActionEntry new_search = { "CommonNewSearch", null, _("New Smart Album…"), "<Ctrl>S", null,
-                                       on_new_search
-                                     };
         actions += new_search;
-
-        // top-level menus
-
-        Gtk.ActionEntry file = { "FileMenu", null, _("_File"), null, null, null };
-        actions += file;
-
-        Gtk.ActionEntry edit = { "EditMenu", null, _("_Edit"), null, null, null };
-        actions += edit;
-
-        Gtk.ActionEntry photo = { "PhotoMenu", null, _("_Photo"), null, null, null };
-        actions += photo;
-
-        Gtk.ActionEntry photos = { "PhotosMenu", null, _("_Photos"), null, null, null };
-        actions += photos;
-
-        Gtk.ActionEntry tags = { "TagsMenu", null, _("Ta_gs"), null, null, null };
-        actions += tags;
-
-        Gtk.ActionEntry help = { "HelpMenu", null, _("_Help"), null, null, null };
-        actions += help;
 
         return actions;
     }
@@ -755,7 +726,7 @@ public class LibraryWindow : AppWindow {
     private void dispatch_import_jobs (GLib.SList<string> uris, string job_name, bool copy_to_library) {
         if (AppDirs.get_import_dir ().get_path () == Environment.get_home_dir () && notify_library_is_home_dir) {
             Gtk.ResponseType response = AppWindow.cancel_affirm_question (
-                                            _ ("Shotwell is configured to import photos to your home directory.\n" +
+                                            _ ("Photos is configured to import photos to your home directory.\n" +
                                                "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
                                                "Do you want to continue importing photos?").printf ("▸"),
                                             _ ("_Import"), _ ("Library Location"), AppWindow.get_instance ());
@@ -1034,40 +1005,41 @@ public class LibraryWindow : AppWindow {
     }
 
     private void create_layout (Page start_page) {
+        // put the sidebar in a scrolling window
+        var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
+        scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        scrolled_sidebar.add (sidebar_tree);
+
+        sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+        sidebar_paned.pack1 (scrolled_sidebar, true, false);
+
         // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
         notebook.set_show_tabs (false);
         notebook.set_show_border (false);
+        // TODO: Calc according to layout's size, to give sidebar a maximum width
+        notebook.width_request = PAGE_MIN_WIDTH;
 
-        // put the sidebar in a scrolling window
-        Gtk.ScrolledWindow scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
-        scrolled_sidebar.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scrolled_sidebar.add (sidebar_tree);
-        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        get_style_context ().add_class ("sidebar-pane-separator");
+        metadata_sidebar.width_request = METADATA_SIDEBAR_MIN_WIDTH;
 
-        // "attach" the progress bar to the sidebar tree, so the movable ridge is to resize the
-        // top two
-        top_section.pack_start (scrolled_sidebar, true, true, 0);
-        sidebar_paned.pack1 (top_section, true, false);
-
-        // layout the selection tree to the left of the collection/toolbar box with an adjustable
-        // gutter between them, framed for presentation
-        right_frame = new Gtk.Frame (null);
-        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
-
+        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        right_client_paned.width_request = METADATA_SIDEBAR_MIN_WIDTH;
         right_client_paned.pack1 (notebook, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
 
         right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         right_vbox.pack_start (right_client_paned, true, true, 0);
 
+        // layout the selection tree to the left of the collection/toolbar box with an adjustable
+        // gutter between them, framed for presentation
+        right_frame = new Gtk.Frame (null);
+        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
         right_frame.add (right_vbox);
 
-        metadata_sidebar.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
-        right_client_paned.set_size_request (METADATA_SIDEBAR_MIN_WIDTH, -1);
-
-        client_paned.pack1 (sidebar_paned, false, false);
         sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
+
+        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        client_paned.pack1 (sidebar_paned, false, false);
         client_paned.pack2 (right_frame, true, false);
         client_paned.set_position (ui_settings.get_int ("sidebar-position"));
 
@@ -1075,12 +1047,7 @@ public class LibraryWindow : AppWindow {
         if (metadata_sidebar_pos > 0)
             right_client_paned.set_position (metadata_sidebar_pos);
 
-        // TODO: Calc according to layout's size, to give sidebar a maximum width
-        notebook.set_size_request (PAGE_MIN_WIDTH, -1);
-
-        layout.pack_end (client_paned, true, true, 0);
-
-        add (layout);
+        add (client_paned);
 
         switch_to_page (start_page);
         start_page.grab_focus ();
@@ -1165,7 +1132,7 @@ public class LibraryWindow : AppWindow {
 
         page.switched_to ();
 
-        Gtk.Toolbar toolbar = page.get_toolbar ();
+        var toolbar = page.get_toolbar ();
         if (toolbar != null) {
             right_vbox.add (toolbar);
             toolbar.show_all ();

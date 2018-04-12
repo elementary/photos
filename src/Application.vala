@@ -68,7 +68,7 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos-direct";
-            app_launcher = "org.pantheon.photos-viewer.desktop";
+            app_launcher = "io.elementary.photos-viewer.desktop";
             program_name = _("Photo Viewer");
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
@@ -78,7 +78,7 @@ public class Application : Granite.Application {
 
             exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos";
-            app_launcher = "org.pantheon.photos.desktop";
+            app_launcher = "io.elementary.photos.desktop";
             program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
@@ -168,7 +168,7 @@ public class Application : Granite.Application {
     }
 
     /**
-     * Initializes the Shotwell application object and prepares
+     * Initializes the Photos application object and prepares
      * it for use.
      *
      * Note: This MUST be called prior to calling get_instance (), as the

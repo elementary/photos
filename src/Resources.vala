@@ -173,12 +173,6 @@ public const string SET_BACKGROUND_MENU = _("Set as _Desktop Background");
 public const string SET_BACKGROUND_TOOLTIP = _("Set selected image to be the new desktop background");
 public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow...");
 
-public const string UNDO_MENU = _("_Undo");
-public const string UNDO_LABEL = _("Undo");
-
-public const string REDO_MENU = _("_Redo");
-public const string REDO_LABEL = _("Redo");
-
 public const string RENAME_EVENT_MENU = _("Re_name Event...");
 public const string RENAME_EVENT_LABEL = _("Rename Event");
 
@@ -239,14 +233,11 @@ public const string ADD_TAGS_MENU = _("Add _Tags...");
 public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags...");
 public const string ADD_TAGS_TITLE = _("Add Tags");
 
-public const string PREFERENCES_MENU = _("_Preferences");
-
 public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
 
 public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
 
-public const string OPEN_WITH_MENU = _("_Open With...");
-public const string OPEN_WITH_LABEL = _("Open With");
+public const string OPEN_WITH_MENU = _("_Open In");
 public const string OPEN_WITH_TOOLTIP = _("Open photo with external editor");
 
 public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor...");
@@ -385,8 +376,7 @@ public const string DELETE_FROM_LIBRARY_TOOLTIP = _("Remove the selected photos 
 public const string RESTORE_PHOTOS_MENU = _("_Restore Selection");
 public const string RESTORE_PHOTOS_TOOLTIP = _("Move the selected photos back into the library");
 
-public const string JUMP_TO_FILE_MENU = _("Show in File Mana_ger");
-public const string JUMP_TO_FILE_TOOLTIP = _("Open the selected photo's directory in the file manager");
+public const string JUMP_TO_FILE_MENU = _("File Mana_ger");
 
 public string jump_to_file_failed (Error err) {
     return _("Unable to open in file manager: %s").printf (err.message);
@@ -413,7 +403,7 @@ private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
  * from one locale, but the timestamp format of another.
  *
  * Stolen wholesale from code written for Geary by Jim Nelson
- * and from Marcel Stimberg's original patch to Shotwell to
+ * and from Marcel Stimberg's original patch to Photos to
  * try to fix this; both are graciously thanked for their help.
  */
 private void fetch_lc_time_format () {

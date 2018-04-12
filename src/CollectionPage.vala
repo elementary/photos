@@ -176,7 +176,7 @@ public abstract class CollectionPage : MediaPage {
             var raw_developer_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Developer"));
             var raw_developer_action = get_action ("RawDeveloper");
             raw_developer_action.bind_property ("sensitive", raw_developer_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            open_menu = new Gtk.Menu ();
+
             var raw_developer_menu = new Gtk.Menu ();
             raw_developer_menu.add (raw_developer_app_menu_item);
             raw_developer_menu.add (raw_developer_camera_menu_item);
@@ -187,10 +187,9 @@ public abstract class CollectionPage : MediaPage {
             adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
 
-            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
-            var open_action = get_action ("OpenWith");
-            open_action.bind_property ("sensitive", open_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             open_menu = new Gtk.Menu ();
+
+            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
             open_menu_item.set_submenu (open_menu);
 
             open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
@@ -208,11 +207,6 @@ public abstract class CollectionPage : MediaPage {
             var jump_event_action = get_common_action ("CommonJumpToEvent");
             jump_event_action.bind_property ("sensitive", jump_event_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             jump_event_menu_item.activate.connect (() => jump_event_action.activate ());
-
-            var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
 
             var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
             var print_action = get_action ("Print");
@@ -244,7 +238,6 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (duplicate_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
-            item_context_menu.add (jump_menu_item);
             item_context_menu.add (open_menu_item);
             item_context_menu.add (open_raw_menu_item);
             item_context_menu.add (contractor_menu_item);
@@ -357,30 +350,47 @@ public abstract class CollectionPage : MediaPage {
     }
 
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
-        Gtk.MenuItem parent = menu.get_attach_widget () as Gtk.MenuItem;
         SortedList<AppInfo> external_apps;
         string[] mime_types;
 
+        foreach (Gtk.Widget item in menu.get_children ()) {
+            menu.remove (item);
+        }
+
         // get list of all applications for the given mime types
-        if (raw)
+        if (raw) {
             mime_types = PhotoFileFormat.RAW.get_mime_types ();
-        else
+        } else {
             mime_types = PhotoFileFormat.get_editable_mime_types ();
+
+            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+
+            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
+            files_item_icon.pixel_size = 16;
+
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (files_item_icon);
+            menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
+
+            var jump_menu_item = new Gtk.MenuItem ();
+            jump_menu_item.add (menuitem_grid);
+
+            var jump_action = get_common_action ("CommonJumpToFile");
+            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_action.activate ());
+
+            menu.add (jump_menu_item);
+        }
+
         assert (mime_types.length != 0);
         external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
 
-        if (external_apps.size == 0) {
-            parent.sensitive = false;
-            return;
-        }
-
-        foreach (Gtk.Widget item in menu.get_children ())
-            menu.remove (item);
-        parent.sensitive = true;
-
         foreach (AppInfo app in external_apps) {
+            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+            menu_item_icon.pixel_size = 16;
+
             var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU));
+            menuitem_grid.add (menu_item_icon);
             menuitem_grid.add (new Gtk.Label (app.get_name ()));
 
             var item_app = new Gtk.MenuItem ();
@@ -516,7 +526,7 @@ public abstract class CollectionPage : MediaPage {
             if (photo == null)
                 continue;
 
-            // since the photo can be altered externally to Shotwell now, need to make the revert
+            // since the photo can be altered externally to Photos now, need to make the revert
             // command available appropriately, even if the selection doesn't change
             set_action_sensitive ("Revert", can_revert_selected ());
             set_action_sensitive ("CopyColorAdjustments", photo.has_color_adjustments ());
@@ -637,7 +647,7 @@ public abstract class CollectionPage : MediaPage {
 
         // Setting up the parameters object requires a bit of thinking about what the user wants.
         // If the selection contains only photos, then we do what we've done in previous versions
-        // of Shotwell -- we use whatever settings the user selected on his last export operation
+        // of Photos -- we use whatever settings the user selected on his last export operation
         // (the thinking here being that if you've been exporting small PNGs for your blog
         // for the last n export operations, then it's likely that for your (n + 1)-th export
         // operation you'll also be exporting a small PNG for your blog). However, if the selection
