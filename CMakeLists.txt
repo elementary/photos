@@ -42,6 +42,7 @@ set (DEPS_PKG
     rest-0.7>=0.7
     sqlite3>=3.5.9
     webkit2gtk-4.0>=2.0.0
+    librsvg-2.0
 )
 
 set (DEPS_PACKAGES
@@ -69,6 +70,7 @@ set (DEPS_PACKAGES
     sqlite3
     webkit2gtk-4.0
     linux
+    librsvg-2.0
     # Custom .vapis
     LConv
 )

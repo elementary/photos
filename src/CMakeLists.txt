@@ -164,6 +164,7 @@ vala_precompile (VALA_C ${EXEC_NAME}
     photos/RawSupport.vala
     photos/TiffSupport.vala
     photos/WebPSupport.vala
+    photos/SvgSupport.vala
 
     plugins/Plugins.vala
     plugins/StandardHostInterface.vala
