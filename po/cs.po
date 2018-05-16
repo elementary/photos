@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-30 06:52-0600\n"
-"PO-Revision-Date: 2018-04-27 00:02+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
+"PO-Revision-Date: 2018-05-16 13:20+0000\n"
+"Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
 "Language-Team: Czech "
 "<https://weblate.elementary.io/projects/photos/photos/cs/>\n"
 "Language: cs\n"
@@ -1182,9 +1182,9 @@ msgstr "Nové inteligentní album…"
 #: ../src/Dialogs.vala:29
 msgid "This will remove the tag \"%s\" from one photo.  Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
-msgstr[0] "Tím odstraníte nálepku \"%s\" %d fotografie. Pokračovat?"
-msgstr[1] "Tím odstraníte nálepku \"%s\" %d fotografií. Pokračovat?"
-msgstr[2] "Tím odstraníte nálepku \"%s\" %d fotografií. Pokračovat?"
+msgstr[0] "Tím odstraníte nálepku \"%s\" z jedné fotografie. Pokračovat?"
+msgstr[1] "Tím odstraníte nálepku \"%s\" z %d fotografií. Pokračovat?"
+msgstr[2] "Tím odstraníte nálepku \"%s\" z %d fotografií. Pokračovat?"
 
 #: ../src/Dialogs.vala:33 ../src/Dialogs.vala:41 ../src/Dialogs.vala:1318
 #: ../src/Resources.vala:294 ../src/Resources.vala:342
@@ -1383,26 +1383,23 @@ msgstr[2] "%d duplicitních fotografií nebylo naimportováno:\n"
 #: ../src/Dialogs.vala:682
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
-msgstr[0] "%d duplicitních videí nebylo naimportováno:\n"
-msgstr[1] "%d duplicitních videí nebylo naimportováno:\n"
-msgstr[2] "%d duplicitní videa nebyla naimportována:\n"
+msgstr[0] "Jedno duplicitní video nebylo naimportováno:\n"
+msgstr[1] "%d duplicitní videa nebyla naimportována:\n"
+msgstr[2] "%d duplicitních videí nebylo naimportováno:\n"
 
 #: ../src/Dialogs.vala:685
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
-msgstr[0] "%d duplicitní videí/fotografií nebyla naimportováno:\n"
-msgstr[1] "%d duplicitní videí/fotografií nebyla naimportováno:\n"
-msgstr[2] "%d duplicitní videa/fotografie nebyla naimportována:\n"
+msgstr[0] "Jedno duplicitní video/fotografie nebylo naimportováno:\n"
+msgstr[1] "%d duplicitní videa/fotografie nebyla naimportována:\n"
+msgstr[2] "%d duplicitních videí/fotografií nebylo naimportováno:\n"
 
 #: ../src/Dialogs.vala:699
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
-msgstr[0] ""
-"import 1 fotografie se nepodařil kvůli chybě souboru, nebo hardware:\n"
-msgstr[1] ""
-"import %d fotografií se nepodařil kvůli chybě souboru, nebo hardware:\n"
-msgstr[2] ""
-"import %d fotografií se nepodařil kvůli chybě souboru, nebo hardware:\n"
+msgstr[0] "Import 1 fotografie se nepodařil kvůli chybě souboru nebo hardwaru:\n"
+msgstr[1] "Import %d fotografií se nepodařil kvůli chybě souboru, nebo hardwaru:\n"
+msgstr[2] "Import %d fotografií se nepodařil kvůli chybě souboru, nebo hardwaru:\n"
 
 #: ../src/Dialogs.vala:702
 msgid "1 video failed to import due to a file or hardware error:\n"
@@ -1501,9 +1498,9 @@ msgstr[2] ""
 #: ../src/Dialogs.vala:745
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
-msgstr[0] "import 1 fotografie se nezdařil kvůli chybě fotoaparátu:\n"
-msgstr[1] "import %d fotografií se nezdařil kvůli chybě fotoaparátu:\n"
-msgstr[2] "import %d fotografií se nezdařil kvůli chybě fotoaparátu:\n"
+msgstr[0] "Import 1 fotografie se nezdařil kvůli chybě fotoaparátu:\n"
+msgstr[1] "Import %d fotografií se nezdařil kvůli chybě fotoaparátu:\n"
+msgstr[2] "Import %d fotografií se nezdařil kvůli chybě fotoaparátu:\n"
 
 #: ../src/Dialogs.vala:748
 msgid "1 video failed to import due to a camera error:\n"
@@ -1522,7 +1519,7 @@ msgstr[2] "%d videa/fotografie nebyly naimportovány kvůli chybě kamery:\n"
 #: ../src/Dialogs.vala:754
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
-msgstr[0] "Přidání 1 souboru se nepodařilo kvůli chybě fotoaparátu:\n"
+msgstr[0] "Přidání jednoho souboru se nepodařilo kvůli chybě fotoaparátu:\n"
 msgstr[1] "Přidání %d souborů se nepodařilo kvůli chybě fotoaparátu:\n"
 msgstr[2] "Přidání %d souborů se nepodařilo kvůli chybě fotoaparátu:\n"
 
@@ -2874,6 +2871,11 @@ msgid ""
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
+"Shotwell má aktuálně nastaven import fotografií do vašeho domovského "
+"adresáře.\n"
+"Doporučujeme nastavit jiný adresář v <span weight=\"bold\">Nastavení</span>."
+"\n"
+"Chcete pokračovat s importem fotografií?"
 
 #: ../src/library/LibraryWindow.vala:806
 msgid "_Import"
@@ -2958,7 +2960,7 @@ msgstr "Raw fotky"
 
 #: ../src/library/RawsPage.vala:37
 msgid "Raws"
-msgstr ""
+msgstr "Raw soubory"
 
 #: ../src/library/RawsPage.vala:63 ../src/library/PhotosPage.vala:63
 msgid "Add Some Photos"
@@ -2998,11 +3000,11 @@ msgstr "Vrácení vylepšení"
 
 #: ../src/Commands.vala:826
 msgid "UnEnhancing"
-msgstr ""
+msgstr "OdZlepšování"
 
 #: ../src/Commands.vala:826
 msgid "Undoing UnEnhance"
-msgstr ""
+msgstr "Vrácení OdZlepšování"
 
 #: ../src/Commands.vala:894
 msgid "Applying Color Transformations"
