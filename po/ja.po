@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-30 06:52-0600\n"
-"PO-Revision-Date: 2018-05-12 12:08+0000\n"
+"PO-Revision-Date: 2018-05-24 00:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://weblate.elementary.io/projects/photos/photos/ja/>\n"
@@ -51,7 +51,7 @@ msgid ""
 "To continue publishing to Google services, quit and restart this software, "
 "then try publishing again."
 msgstr ""
-"このセッション中に既に Google サービスへログインとログアウトをしています。\n"
+"このセッション中にすでに Google サービスへログインとログアウトをしています。\n"
 "\n"
 "Googleサービスへの公開を続けるには、このソフトウェアを終了して再起動してから、もう一度公開してみてください。"
 
@@ -147,7 +147,7 @@ msgid ""
 "To continue publishing to Flickr, quit and restart Shotwell, then try "
 "publishing again."
 msgstr ""
-"この Shotwell のセッション中に既に Flickr へログインとログアウトをしています。\n"
+"この Shotwell のセッション中にすでに Flickr へログインとログアウトをしています。\n"
 "Flickr への公開を続けるには、Shotwell を終了して再起動してから、もう一度公開してみてください。"
 
 #: ../plugins/pantheon-photos-publishing/FlickrPublishing.vala:386
@@ -992,7 +992,7 @@ msgstr "保存せずに閉じる (_W)"
 
 #: ../src/direct/DirectPhotoPage.vala:415
 msgid "Error while saving to %s: %s"
-msgstr "%s に保存する際にエラーが発生しました: %s"
+msgstr "%s への保存中にエラーが発生しました: %s"
 
 #: ../src/direct/DirectPhotoPage.vala:445
 #: ../src/direct/DirectPhotoPage.vala:466
@@ -1243,7 +1243,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"エクスポートを続けますか?"
+"エクスポートを続行しますか？"
 
 #: ../src/Dialogs.vala:144
 #: ../plugins/pantheon-photos-publishing/flickr_pin_entry_pane.ui:83
@@ -1578,7 +1578,7 @@ msgstr "外部での編集を元に戻しますか？"
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files.  Continue?"
-msgstr[0] "この操作は %d 個の外部ファイルに対して行なったすべての変更点を破棄します。続けますか？"
+msgstr[0] "この操作は %d 個の外部ファイルに対して行なったすべての変更点を破棄します。続行しますか？"
 
 #: ../src/Dialogs.vala:1346
 msgid "Re_vert External Edit"
@@ -1591,7 +1591,7 @@ msgstr "外部での編集を元に戻す (_V)"
 #: ../src/Dialogs.vala:1367
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
-msgstr[0] "この操作はライブラリから %d 個の写真を削除します。続けますか?"
+msgstr[0] "この操作はライブラリから %d 個の写真を削除します。続行しますか？"
 
 #: ../src/Dialogs.vala:1374
 msgid "_Remove"
@@ -2408,8 +2408,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Shotwell のライブラリにアクセスする際に致命的なエラーが発生しました。"
-"Shotwell を続行できません。\n"
+"Shotwell のライブラリへのアクセス中に致命的なエラーが発生しました。Shotwell を続行できません。\n"
 "\n"
 "%s"
 
@@ -2734,9 +2733,8 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 "Shotwell はホームディレクトリに写真をインポートする設定になっています。\n"
-"<span weight=\"bold\">編集 %s 設定</span>でこの設定を変更することをお勧めしま"
-"す。\n"
-"写真のインポートを続けますか?"
+"<span weight=\"bold\">編集 %s 設定</span>でこの設定を変更することをお勧めします。\n"
+"写真のインポートを続行してもよろしいですか？"
 
 #: ../src/library/LibraryWindow.vala:806
 msgid "_Import"
@@ -3013,7 +3011,7 @@ msgstr "カメラをアンマウントできません。ファイルマネージ
 
 #: ../src/camera/ImportPage.vala:802
 msgid "Hide photos already imported"
-msgstr "既にインポートされた写真を隠す"
+msgstr "すでにインポートされた写真を隠す"
 
 #: ../src/camera/ImportPage.vala:803
 msgid "Only display photos that have not been imported"
@@ -3051,9 +3049,7 @@ msgstr "すべての写真をライブラリにインポート"
 msgid ""
 "Shotwell needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
-msgstr ""
-"Shotwell がこのカメラにアクセスするため、ファイルシステムからカメラをアンマウ"
-"ントする必要があります。続けますか?"
+msgstr "Shotwell がこのカメラにアクセスするため、ファイルシステムからカメラをアンマウントする必要があります。続行しますか？"
 
 #: ../src/camera/ImportPage.vala:1041
 msgid "_Unmount"
@@ -3455,7 +3451,7 @@ msgstr ""
 
 #: ../src/main.vala:84
 msgid "Unknown error attempting to verify Shotwell's database: %s"
-msgstr "Shotwell のデータベースを検査する際に不明なエラーが発生しました: %s"
+msgstr "Shotwell のデータベースの検査中に不明なエラーが発生しました: %s"
 
 #: ../src/main.vala:117
 msgid "Loading Shotwell"
