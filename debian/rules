@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --buildsystem=meson
 
 override_dh_strip:
 	dh_strip --dbgsym-migration='pantheon-photos-dbg (<< 0.2.5)'
