@@ -2,7 +2,7 @@ Source: pantheon-photos
 Section: gnome
 Priority: optional
 Maintainer: elementary OS Team <builds@elementaryos.org>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 10.5.1),
                cmake (>= 2.8),
                intltool,
                valac (>= 0.18.0),
@@ -30,7 +30,7 @@ Build-Depends: debhelper (>= 9),
                libunity-dev,
                python-scour,
                desktop-file-utils,
-Standards-Version: 3.9.5
+Standards-Version: 4.1.1
 Homepage: https://launchpad.net/pantheon-photos
 Vcs-Bzr: https://code.launchpad.net/~pantheon-photos/pantheon-photos/trunk
 XS-Testsuite: autopkgtest
@@ -66,19 +66,3 @@ Description: digital photo organizer - common files
  image formats, also including raw CR2 files.
  .
  This package provides images and documentation for Photos
-
-Package: pantheon-photos-dbg
-Priority: extra
-Section: debug
-Architecture: linux-any
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         pantheon-photos (= ${binary:Version})
-Description: digital photo organizer - debugging symbols
- Photos is a digital photo organizer designed for elementary's Pantheon desktop
- environment. It allows you to import photos from disk or camera, organize
- them in various ways, view them in full-window or fullscreen mode, and
- export them to share with others. It is able to manage a lot of different
- image formats, also including raw CR2 files.
- .
- This package contains the debugging symbols for Photos.
