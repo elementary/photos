@@ -1,4 +1,4 @@
-Source: io.elementary.photos
+Source: pantheon-photos
 Section: gnome
 Priority: optional
 Maintainer: elementary OS Team <builds@elementaryos.org>
@@ -35,10 +35,8 @@ Standards-Version: 4.1.1
 Homepage: https://github.com/elementary/photos
 XS-Testsuite: autopkgtest
 
-Package: io.elementary.photos
+Package: pantheon-photos
 Architecture: any
-Conflicts: pantheon-photos, shotwell
-Replaces: pantheon-photos, shotwell
 Depends: dbus-x11,
          librsvg2-common,
          ${misc:Depends},
