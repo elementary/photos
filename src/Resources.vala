@@ -171,9 +171,9 @@ public const string REVERT_EDITABLE_TOOLTIP = _("Revert to the master photo");
 
 public const string SET_BACKGROUND_MENU = _("Set as _Desktop Background");
 public const string SET_BACKGROUND_TOOLTIP = _("Set selected image to be the new desktop background");
-public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow...");
+public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow…");
 
-public const string RENAME_EVENT_MENU = _("Re_name Event...");
+public const string RENAME_EVENT_MENU = _("Re_name Event…");
 public const string RENAME_EVENT_LABEL = _("Rename Event");
 
 public const string MAKE_KEY_PHOTO_MENU = _("Make _Key Photo for Event");
@@ -201,7 +201,7 @@ public const string DUPLICATE_PHOTO_MENU = _("_Duplicate");
 public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
 public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo");
 
-public const string EXPORT_MENU = _("_Export...");
+public const string EXPORT_MENU = _("_Export…");
 
 public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
 public const string TOGGLE_METAPANE_LABEL = _("Show info panel");
@@ -211,26 +211,26 @@ public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
 public const string UNTOGGLE_METAPANE_LABEL = _("Hide info panel");
 public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
-public const string PRINT_MENU = _("_Print...");
+public const string PRINT_MENU = _("_Print…");
 
-public const string PUBLISH_MENU = _("Pu_blish...");
+public const string PUBLISH_MENU = _("Pu_blish…");
 public const string PUBLISH_LABEL = _("Publish");
 public const string PUBLISH_TOOLTIP = _("Publish to various websites");
 
-public const string EDIT_TITLE_MENU = _("Edit _Title...");
+public const string EDIT_TITLE_MENU = _("Edit _Title…");
 public const string EDIT_TITLE_LABEL = _("Edit Title");
 
-public const string EDIT_COMMENT_MENU = _("Edit _Comment...");
+public const string EDIT_COMMENT_MENU = _("Edit _Comment…");
 public const string EDIT_COMMENT_LABEL = _("Edit Comment");
 
-public const string EDIT_EVENT_COMMENT_MENU = _("Edit Event _Comment...");
+public const string EDIT_EVENT_COMMENT_MENU = _("Edit Event _Comment…");
 public const string EDIT_EVENT_COMMENT_LABEL = _("Edit Event Comment");
 
-public const string ADJUST_DATE_TIME_MENU = _("_Adjust Date and Time...");
+public const string ADJUST_DATE_TIME_MENU = _("_Adjust Date and Time…");
 public const string ADJUST_DATE_TIME_LABEL = _("Adjust Date and Time");
 
-public const string ADD_TAGS_MENU = _("Add _Tags...");
-public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags...");
+public const string ADD_TAGS_MENU = _("Add _Tags…");
+public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags…");
 public const string ADD_TAGS_TITLE = _("Add Tags");
 
 public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
@@ -240,14 +240,14 @@ public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
 public const string OPEN_WITH_MENU = _("_Open In");
 public const string OPEN_WITH_TOOLTIP = _("Open photo with external editor");
 
-public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor...");
+public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor…");
 public const string OPEN_WITH_RAW_LABEL = _("Open With Raw Editor");
 public const string OPEN_WITH_RAW_TOOLTIP = _("Open photo with external RAW editor");
 
-public const string SEND_TO_MENU = _("Send _To...");
-public const string SEND_TO_CONTEXT_MENU = _("Send T_o...");
+public const string SEND_TO_MENU = _("Send _To…");
+public const string SEND_TO_CONTEXT_MENU = _("Send T_o…");
 
-public const string FIND_MENU = _("_Find...");
+public const string FIND_MENU = _("_Find…");
 public const string FIND_LABEL = _("Find");
 public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
 
@@ -285,16 +285,16 @@ public const string DELETE_TAG_SIDEBAR_MENU = _("_Delete");
 public const string NEW_CHILD_TAG_SIDEBAR_MENU = _("_New");
 
 public string rename_tag_menu (string name) {
-    return _("Re_name Tag \"%s\"...").printf (name);
+    return _("Re_name Tag \"%s\"…").printf (name);
 }
 
 public string rename_tag_label (string old_name, string new_name) {
     return _("Rename Tag \"%s\" to \"%s\"").printf (old_name, new_name);
 }
 
-public const string RENAME_TAG_SIDEBAR_MENU = _("_Rename...");
+public const string RENAME_TAG_SIDEBAR_MENU = _("_Rename…");
 
-public const string MODIFY_TAGS_MENU = _("Modif_y Tags...");
+public const string MODIFY_TAGS_MENU = _("Modif_y Tags…");
 public const string MODIFY_TAGS_LABEL = _("Modify Tags");
 
 public string tag_photos_label (string name, int count) {
@@ -329,8 +329,8 @@ public const string DEFAULT_SAVED_SEARCH_NAME = _("Smart Album");
 public const string DELETE_SAVED_SEARCH_DIALOG_TITLE = _("Delete Album");
 
 public const string DELETE_SEARCH_MENU = _("_Delete");
-public const string EDIT_SEARCH_MENU = _("_Edit...");
-public const string RENAME_SEARCH_MENU = _("Re_name...");
+public const string EDIT_SEARCH_MENU = _("_Edit…");
+public const string RENAME_SEARCH_MENU = _("Re_name…");
 
 public string rename_search_label (string old_name, string new_name) {
     return _("Rename Search \"%s\" to \"%s\"").printf (old_name, new_name);

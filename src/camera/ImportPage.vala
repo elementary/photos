@@ -1845,7 +1845,7 @@ public class ImportPage : CheckerboardPage {
                                      photos_string, videos_string, both_string, neither_string);
 
             ImportUI.QuestionParams question = new ImportUI.QuestionParams (
-                question_string, "edit-delete", _ ("_Keep"));
+                question_string, _("Delete"), _("_Keep"));
 
             if (!ImportUI.report_manifest (manifest, false, question))
                 return;
