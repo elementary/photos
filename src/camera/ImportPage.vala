@@ -830,7 +830,7 @@ public class ImportPage : CheckerboardPage {
             update_toolbar_state ();
 
             show_all ();
-    }
+        }
 
         return toolbar;
     }
