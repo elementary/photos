@@ -803,7 +803,7 @@ public class ImportPage : CheckerboardPage {
             progress_bar.no_show_all = true;
 
             var progress_item = new Gtk.ToolItem ();
-            progress_item.expand = true;
+            progress_item.set_expand(true);
             progress_item.add (progress_bar);
 
             var import_selected_button = new Gtk.Button.with_label ("Import Selected");
@@ -830,7 +830,7 @@ public class ImportPage : CheckerboardPage {
             update_toolbar_state ();
 
             show_all ();
-        }
+    }
 
         return toolbar;
     }
