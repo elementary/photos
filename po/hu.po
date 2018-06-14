@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-30 06:52-0600\n"
-"PO-Revision-Date: 2018-05-29 00:12+0000\n"
+"PO-Revision-Date: 2018-06-14 09:09+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/photos/photos/hu/>\n"
@@ -93,9 +93,9 @@ msgid ""
 msgstr ""
 "Nincs bejelentkezve a YouTube-ra.\n"
 "\n"
-"A folytatáshoz rendelkeznie kell egy Google fiókkal, és be kell azt "
-"állítania a YouTube-bal való használathoz. A legtöbb fiókot a böngészőből is "
-"beállíthatja, ha bejelentkezik a YouTube oldalon legalább egyszer."
+"A folytatáshoz rendelkeznie kell egy Google fiókkal, és be kell állítania a "
+"YouTube használatához. A legtöbb fiókot a böngészőből is beállíthatja, ha "
+"bejelentkezik a YouTube fiókba legalább egyszer."
 
 #: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:373
 msgid ""
@@ -111,7 +111,7 @@ msgstr "Bejelentkezett a YouTube-ra %s néven."
 
 #: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:474
 msgid "Videos will appear in '%s'"
-msgstr "A videók itt jelennek meg: „%s”"
+msgstr "A videók itt jelennek meg: '%s'"
 
 #: ../plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
 msgid "Public listed"
@@ -380,7 +380,7 @@ msgstr "Barátok"
 
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:757
 msgid "Creating album %s..."
-msgstr "%s album létrehozása…"
+msgstr "A(z) %s album létrehozása…"
 
 #: ../plugins/pantheon-photos-publishing/PiwigoPublishing.vala:928
 msgid "An error message occurred when publishing to Piwigo. Please try again."
@@ -505,7 +505,7 @@ msgstr "1280 x 853 pixel"
 #: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:321
 #: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:331
 msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "„%s” nem érvényes válasz OAuth hitelesítési kérésre"
+msgstr "A(z) '%s' nem érvényes válasz egy OAuth hitelesítési kérésre"
 
 #: ../plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:569
 msgid ""
@@ -661,11 +661,11 @@ msgstr "Fényképek exportálása"
 
 #: ../src/PhotoPage.vala:3180
 msgid "Unable to export %s: %s"
-msgstr "%s exportálása sikertelen: %s"
+msgstr "A(z) %s exportálása sikertelen: %s"
 
 #: ../src/Exporter.vala:244
 msgid "Unable to generate a temporary file for %s: %s"
-msgstr "Nem generálható ideiglenes fájl ehhez: %s: %s"
+msgstr "Nem állítható elő ideiglenes fájl ehhez: %s: %s"
 
 #: ../src/Exporter.vala:311
 msgid "Exporting"
@@ -673,7 +673,7 @@ msgstr "Exportálás"
 
 #: ../src/Exporter.vala:329
 msgid "File %s already exists.  Replace?"
-msgstr "A fájl (%s) már létezik. Lecseréli?"
+msgstr "A(z) %s fájl már létezik. Lecseréli?"
 
 #: ../src/Exporter.vala:331
 msgid "_Skip"
@@ -720,7 +720,7 @@ msgstr "Ki_egyenesítés"
 #: ../src/AppWindow.vala:650 ../src/AppWindow.vala:668
 #: ../src/AppWindow.vala:685 ../src/publishing/PublishingUI.vala:506
 msgid "_Cancel"
-msgstr "Mé_gse"
+msgstr "_Mégse"
 
 #: ../src/editing_tools/StraightenTool.vala:114
 #: ../src/editing_tools/AdjustTool.vala:48
@@ -973,14 +973,14 @@ msgstr "%s nem létezik."
 
 #: ../src/direct/DirectPhotoPage.vala:201
 msgid "%s is not a file."
-msgstr "%s nem fájl."
+msgstr "A(z) %s nem egy fájl."
 
 #: ../src/direct/DirectPhotoPage.vala:203
 msgid ""
 "%s does not support the file format of\n"
 "%s."
 msgstr ""
-"%s nem támogatja a következő fájlformátumát:\n"
+"A(z) %s nem támogatja a fájlformátumát ennek:\n"
 "%s."
 
 #: ../src/direct/DirectPhotoPage.vala:377
@@ -1198,7 +1198,7 @@ msgstr "_Törlés"
 
 #: ../src/Dialogs.vala:38
 msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr "El fogja távolítani a(z) %s okosalbumot. Folytatja?"
+msgstr "Ez eltávolítja a(z) \"%s\" okosalbumot. Folytatja?"
 
 #: ../src/Dialogs.vala:48
 msgid ""
@@ -1364,13 +1364,12 @@ msgid ""
 "couldn't copy %s\n"
 "\tto %s"
 msgstr ""
-"%s nem másolható\n"
+"A(z) %s nem másolható\n"
 "\tide: %s"
 
 #: ../src/Dialogs.vala:644
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
-msgstr ""
-"A fényképek/videók importálása sikertelen volt, mert néhány fájl sérült:"
+msgstr "A fényképek/videók importálása nem sikerült, mert a fájlok sérültek:"
 
 #: ../src/Dialogs.vala:659
 msgid "Photos/Videos Not Imported for Other Reasons:"
@@ -1379,20 +1378,20 @@ msgstr "Más okból nem importált fotók/videók:"
 #: ../src/Dialogs.vala:679
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
-msgstr[0] "Egy duplikált fénykép nem lett importálva:\n"
-msgstr[1] "%d duplikált fénykép nem lett importálva:\n"
+msgstr[0] "Egy duplikált fénykép importálása nem sikerült.\n"
+msgstr[1] "%d duplikált fénykép importálása nem sikerült.\n"
 
 #: ../src/Dialogs.vala:682
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
-msgstr[0] "Egy duplikált videó nem lett importálva:\n"
-msgstr[1] "%d duplikált videó nem lett importálva:\n"
+msgstr[0] "Egy duplikált videó importálása nem sikerült.\n"
+msgstr[1] "%d duplikált videó importálása nem sikerült.\n"
 
 #: ../src/Dialogs.vala:685
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
-msgstr[0] "Egy duplikált fénykép/videó nem lett importálva:\n"
-msgstr[1] "%d duplikált fénykép/videó nem lett importálva:\n"
+msgstr[0] "Egy duplikált fénykép/videó importálása nem sikerült.\n"
+msgstr[1] "%d duplikált fénykép/videó importálása nem sikerült.\n"
 
 #: ../src/Dialogs.vala:699
 msgid "1 photo failed to import due to a file or hardware error:\n"
@@ -1725,7 +1724,7 @@ msgstr "%Y. %m. %d., %k.%M.%S"
 
 #: ../src/Dialogs.vala:1737
 msgid "%m/%d/%Y, %I:%M:%S %p"
-msgstr "%Y. %m. %d., %l.%M.%S %p"
+msgstr "%Y. %m %d., %k:%M:%S"
 
 #: ../src/Dialogs.vala:1826
 msgid ""
@@ -2272,19 +2271,19 @@ msgstr "A szerkesztő nem indítható el: %s"
 
 #: ../src/Resources.vala:276
 msgid "Add Tag \"%s\""
-msgstr "„%s” címke hozzáadása"
+msgstr "A(z) \"%s\" címke hozzáadása"
 
 #: ../src/Resources.vala:278
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "„%s” és „%s” címke hozzáadása"
+msgstr "A(z) \"%s\" és \"%s\" címke hozzáadása"
 
 #: ../src/Resources.vala:286
 msgid "_Delete Tag \"%s\""
-msgstr "„%s” címke _törlése"
+msgstr "A(z) \"%s\" címke _törlése"
 
 #: ../src/Resources.vala:290
 msgid "Delete Tag \"%s\""
-msgstr "„%s” címke törlése"
+msgstr "A(z) \"%s\" címke törlése"
 
 #: ../src/Resources.vala:293
 msgid "Delete Tag"
@@ -2296,11 +2295,11 @@ msgstr "Ú_j"
 
 #: ../src/Resources.vala:299
 msgid "Re_name Tag \"%s\"..."
-msgstr "„%s” címke át_nevezése…"
+msgstr "A(z) \"%s\" címke át_nevezése..."
 
 #: ../src/Resources.vala:303
 msgid "Rename Tag \"%s\" to \"%s\""
-msgstr "„%s” címke átnevezése erre: „%s”"
+msgstr "A(z) \"%s\" címke átnevezése erre: \"%s\""
 
 #: ../src/Resources.vala:306
 msgid "_Rename..."
@@ -2332,19 +2331,19 @@ msgstr "Kiválasztott fényképek címkézése ezzel: „%s”"
 
 #: ../src/Resources.vala:321
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "„%s” címke _eltávolítása a fényképről"
+msgstr "A(z) \"%s\" címke _eltávolítása a fényképről"
 
 #: ../src/Resources.vala:322
 msgid "Remove Tag \"%s\" From _Photos"
-msgstr "„%s” címke _eltávolítása a fényképekről"
+msgstr "A(z) \"%s\" címke _eltávolítása a fényképekről"
 
 #: ../src/Resources.vala:326
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "„%s” címke eltávolítása a fényképről"
+msgstr "A(z) \"%s\" címke eltávolítása a fényképről"
 
 #: ../src/Resources.vala:327
 msgid "Remove Tag \"%s\" From Photos"
-msgstr "„%s” címke eltávolítása a fényképekről"
+msgstr "A(z) \"%s\" címke eltávolítása a fényképekről"
 
 #: ../src/Resources.vala:331
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
@@ -2566,7 +2565,7 @@ msgstr "Fájlhiba"
 
 #: ../src/BatchImport.vala:45
 msgid "Unable to decode file"
-msgstr "Nem dekódolható a fájl"
+msgstr "A fájl nem visszafejthető"
 
 #: ../src/BatchImport.vala:48
 msgid "Database error"
@@ -2815,8 +2814,8 @@ msgid ""
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"A Shotwell az importált fényképeket az Ön saját könyvtárába helyezi el.\n"
-"Javasoljuk, hogy ezt módosítsa a <span weight=\"bold\">%s beállításainak "
+"A Shotwell az importált fényképeket az ön saját könyvtárába helyezi el.\n"
+"Javasoljuk, hogy ezt módosítsa <span weight=\"bold\">A(z) %s beállításainak "
 "szerkesztése</span> alatt.\n"
 "Szeretné folytatni a fényképek importálását?"
 
@@ -2934,19 +2933,19 @@ msgstr "Visszaállítás visszavonása"
 
 #: ../src/Commands.vala:790
 msgid "Enhancing"
-msgstr ""
+msgstr "A feljavítás megtörtént"
 
 #: ../src/Commands.vala:790
 msgid "Undoing Enhance"
-msgstr ""
+msgstr "A feljavítás visszavonásra kerül"
 
 #: ../src/Commands.vala:826
 msgid "UnEnhancing"
-msgstr ""
+msgstr "A feljavítás visszavonása"
 
 #: ../src/Commands.vala:826
 msgid "Undoing UnEnhance"
-msgstr ""
+msgstr "A feljavítás helyreállítása"
 
 #: ../src/Commands.vala:894
 msgid "Applying Color Transformations"
@@ -3041,7 +3040,7 @@ msgstr "Címke létrehozása"
 
 #: ../src/Commands.vala:1630
 msgid "Move Tag \"%s\""
-msgstr "„%s” címke mozgatása"
+msgstr "A(z) \"%s\" címke mozgatása"
 
 #: ../src/Commands.vala:2282
 msgid "Move Photos to Trash"
@@ -3183,7 +3182,7 @@ msgstr "Fénykép-információk lekérése"
 
 #: ../src/camera/ImportPage.vala:1544
 msgid "Fetching preview for %s"
-msgstr "%s előnézetének lekérése"
+msgstr "A(z) %s előnézetének lekérése"
 
 #: ../src/camera/ImportPage.vala:1660
 msgid "Unable to lock camera: %s"
@@ -3388,7 +3387,9 @@ msgstr ""
 
 #: ../src/db/DatabaseTable.vala:50
 msgid "Unable to open/create photo database %s: error code %d"
-msgstr "A fénykép-adatbázis (%s) nem nyitható meg/hozható létre: hibakód: %d"
+msgstr ""
+"A(z) %s fénykép-adatbázis nem nyitható meg vagy nem hozható létre: hibakód: "
+"%d"
 
 #: ../src/db/DatabaseTable.vala:59
 msgid ""
@@ -3528,8 +3529,8 @@ msgid ""
 "(schema %d).  Please use the latest version of Shotwell."
 msgstr ""
 "A fényképgyűjteménye nem kompatibilis ezzel a Shotwell verzióval. Úgy tűnik, "
-"a Shotwell %s verzióval (%d. séma) készült, míg a jelenlegi verzió: %s (%d. "
-"séma). Próbálja meg a Shotwell legfrissebb verzióját használni."
+"a Shotwell a(z) %s verzióval (%d. séma) készült, míg a jelenlegi verzió: %s "
+"(%d. séma). Próbálja meg a Shotwell legfrissebb verzióját használni."
 
 #: ../src/main.vala:72
 msgid ""
@@ -3537,9 +3538,9 @@ msgid ""
 "%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
 "at %s"
 msgstr ""
-"A Shotwell nem volt képes frissíteni az Ön fényképgyűjteményét %s verzióról "
-"(%d. séma) %s verzióra (%d. séma). További információkért nézze meg a "
-"Shotwell wikit itt: %s"
+"A Shotwell nem volt képes frissíteni az ön fényképgyűjteményét a(z) %s "
+"verzióról (%d. séma) %s verzióra (%d. séma). További információkért nézze "
+"meg a Shotwell wikit itt: %s"
 
 #: ../src/main.vala:78
 msgid ""
@@ -3549,8 +3550,8 @@ msgid ""
 "photos."
 msgstr ""
 "A fényképgyűjteménye nem kompatibilis ezzel a Shotwell verzióval. Úgy tűnik, "
-"a Shotwell %s verzióval (%d. séma) készült, míg a jelenlegi verzió: %s (%d. "
-"séma). Ürítse ki a gyűjteményt a(z) %s törlésével, és importálja újra a "
+"a Shotwell a(z) %s verzióval (%d. séma) készült, míg a jelenlegi verzió: %s "
+"(%d. séma). Ürítse ki a gyűjteményt a(z) %s törlésével, és importálja újra a "
 "fényképeit."
 
 #: ../src/main.vala:84
@@ -3592,8 +3593,8 @@ msgstr "[FÁJL]"
 #: ../src/main.vala:375
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"A parancssori paraméterek teljes listája a „%s --help” paranccsal íratható "
-"ki.\n"
+"A parancssori paraméterek teljes listája a(z) „%s --help” paranccsal "
+"íratható ki.\n"
 
 #: ../src/publishing/Publishing.vala:29
 msgid "Publishing"
