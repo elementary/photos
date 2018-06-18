@@ -1,21 +1,21 @@
 <schemalist>
 
-<schema id="org.pantheon.photos" path="/org/pantheon/photos/">
-    <child name="preferences" schema="org.pantheon.photos.preferences" />
-    <child name="sharing" schema="org.pantheon.photos.sharing" />
-    <child name="video" schema="org.pantheon.photos.video" />
-    <child name="printing" schema="org.pantheon.photos.printing" />
-    <child name="plugins" schema="org.pantheon.photos.plugins" />
+<schema id="io.elementary.photos" path="/io/elementary/photos/">
+    <child name="preferences" schema="io.elementary.photos.preferences" />
+    <child name="sharing" schema="io.elementary.photos.sharing" />
+    <child name="video" schema="io.elementary.photos.video" />
+    <child name="printing" schema="io.elementary.photos.printing" />
+    <child name="plugins" schema="io.elementary.photos.plugins" />
 </schema>
 
-<schema id="org.pantheon.photos.preferences" path="/org/pantheon/photos/preferences/">
-    <child name="ui" schema="org.pantheon.photos.preferences.ui" />
-    <child name="slideshow" schema="org.pantheon.photos.preferences.slideshow" />
-    <child name="window" schema="org.pantheon.photos.preferences.window" />
-    <child name="files" schema="org.pantheon.photos.preferences.files" />
+<schema id="io.elementary.photos.preferences" path="/io/elementary/photos/preferences/">
+    <child name="ui" schema="io.elementary.photos.preferences.ui" />
+    <child name="slideshow" schema="io.elementary.photos.preferences.slideshow" />
+    <child name="window" schema="io.elementary.photos.preferences.window" />
+    <child name="files" schema="io.elementary.photos.preferences.files" />
 </schema>
 
-<schema id="org.pantheon.photos.preferences.ui" path="/org/pantheon/photos/preferences/ui/">
+<schema id="io.elementary.photos.preferences.ui" path="/io/elementary/photos/preferences/ui/">
     <key name="display-sidebar" type="b">
         <default>true</default>
         <summary>display sidebar</summary>
@@ -125,7 +125,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.preferences.slideshow" path="/org/pantheon/photos/preferences/slideshow/">
+<schema id="io.elementary.photos.preferences.slideshow" path="/io/elementary/photos/preferences/slideshow/">
     <key name="delay" type="d">
         <default>3.0</default>
         <summary>delay</summary>
@@ -145,7 +145,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.preferences.window" path="/org/pantheon/photos/preferences/window/">
+<schema id="io.elementary.photos.preferences.window" path="/io/elementary/photos/preferences/window/">
     <key name="library-maximize" type="b">
         <default>false</default>
         <summary>maximize library window</summary>
@@ -183,7 +183,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.preferences.files" path="/org/pantheon/photos/preferences/files/">
+<schema id="io.elementary.photos.preferences.files" path="/io/elementary/photos/preferences/files/">
     <key name="import-dir" type="s">
         <default>""</default>
         <summary>import directory</summary>
@@ -215,7 +215,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.crop-settings" path="/org/pantheon/photos/crop-settings/">
+<schema id="io.elementary.photos.crop-settings" path="/io/elementary/photos/crop-settings/">
     <key name="last-crop-menu-choice" type="i">
         <default>1</default>
         <summary>Most-recently-used crop aspect ratio menu choice.</summary>
@@ -233,7 +233,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.sharing" path="/org/pantheon/photos/sharing/">
+<schema id="io.elementary.photos.sharing" path="/io/elementary/photos/sharing/">
     <key name="last-used-service" type="s">
         <default>""</default>
         <summary>last used publishing service</summary>
@@ -246,13 +246,13 @@
         <description>A numeric code representing the last service to which photos were published</description>
     </key>
 
-    <child name="facebook" schema="org.pantheon.photos.sharing.facebook" />
-    <child name="flickr" schema="org.pantheon.photos.sharing.flickr" />
-    <child name="picasa" schema="org.pantheon.photos.sharing.picasa" />
-    <child name="youtube" schema="org.pantheon.photos.sharing.youtube" />
+    <child name="facebook" schema="io.elementary.photos.sharing.facebook" />
+    <child name="flickr" schema="io.elementary.photos.sharing.flickr" />
+    <child name="picasa" schema="io.elementary.photos.sharing.picasa" />
+    <child name="youtube" schema="io.elementary.photos.sharing.youtube" />
 </schema>
 
-<schema id="org.pantheon.photos.sharing.facebook" path="/org/pantheon/photos/sharing/facebook/">
+<schema id="io.elementary.photos.sharing.facebook" path="/io/elementary/photos/sharing/facebook/">
     <key name="access-token" type="s">
         <default>""</default>
         <summary>access token</summary>
@@ -284,7 +284,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.sharing.flickr" path="/org/pantheon/photos/sharing/flickr/">
+<schema id="io.elementary.photos.sharing.flickr" path="/io/elementary/photos/sharing/flickr/">
     <key name="access-phase-token" type="s">
         <default>""</default>
         <summary>OAuth Access Phase Token</summary>
@@ -322,7 +322,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.sharing.picasa" path="/org/pantheon/photos/sharing/picasa/">
+<schema id="io.elementary.photos.sharing.picasa" path="/io/elementary/photos/sharing/picasa/">
     <key name="refresh-token" type="s">
         <default>""</default>
         <summary>refresh token</summary>
@@ -342,7 +342,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.sharing.org-pantheon-photos-publishing-piwigo" path="/org/pantheon/photos/sharing/org-pantheon-photos-publishing-piwigo/">
+<schema id="io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo" path="/io/elementary/photos/sharing/org-pantheon-photos-publishing-piwigo/">
     <key name="url" type="s">
         <default>""</default>
         <summary>Piwigio URL</summary>
@@ -404,7 +404,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.sharing.youtube" path="/org/pantheon/photos/sharing/youtube/">
+<schema id="io.elementary.photos.sharing.youtube" path="/io/elementary/photos/sharing/youtube/">
     <key name="refresh-token" type="s">
         <default>""</default>
         <summary>refresh token</summary>
@@ -412,7 +412,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.video" path="/org/pantheon/photos/video/">
+<schema id="io.elementary.photos.video" path="/io/elementary/photos/video/">
     <key name="interpreter-state-cookie" type="i">
         <default>-1</default>
         <summary>interpreter state cookie</summary>
@@ -420,7 +420,7 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.printing" path="/org/pantheon/photos/printing/">
+<schema id="io.elementary.photos.printing" path="/io/elementary/photos/printing/">
     <key name="content-layout" type="i">
         <default>3</default>
         <summary>content layout mode</summary>
@@ -482,11 +482,11 @@
     </key>
 </schema>
 
-<schema id="org.pantheon.photos.plugins" path="/org/pantheon/photos/plugins/" >
-    <child name="enable-state" schema="org.pantheon.photos.plugins.enable-state" />
+<schema id="io.elementary.photos.plugins" path="/io/elementary/photos/plugins/" >
+    <child name="enable-state" schema="io.elementary.photos.plugins.enable-state" />
 </schema>
 
-<schema id="org.pantheon.photos.plugins.enable-state" path="/org/pantheon/photos/plugins/enable-state/" >
+<schema id="io.elementary.photos.plugins.enable-state" path="/io/elementary/photos/plugins/enable-state/" >
     <key name="publishing-facebook" type="b">
         <default>true</default>
         <summary>enable facebook publishing plugin</summary>
