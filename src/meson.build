@@ -219,7 +219,7 @@ photos_files = files(
     'Widgets/ContractMenuItem.vala'
 )
 
-executable(
+photos_exe = executable(
     meson.project_name(),
     photos_files,
     library_files,
@@ -228,15 +228,13 @@ executable(
     global_gresource,
     dependencies: dependencies,
     include_directories: vapi_include,
+    export_dynamic: true,
     install: true
 )
 
 # We declare a dependency to be used by plugins
-elementary_photos_dep = declare_dependency(
-    sources: [
-        library_files,
-        config_header
-    ],
+photos_dep = declare_dependency(
     dependencies: dependencies,
-    include_directories: [vapi_include, include_directories('.')]
+    include_directories: [vapi_include, include_directories('.')],
+    link_with: photos_exe
 )

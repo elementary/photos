@@ -13,7 +13,7 @@ shared_module(
     'ChessEffect.vala',
     'BlindsEffect.vala',
     transitions_gresource,
-    dependencies: elementary_photos_dep,
+    dependencies: photos_dep,
     install: true,
     install_dir: pluginsdir
 )
