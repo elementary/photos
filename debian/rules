@@ -1,18 +1,7 @@
 #!/usr/bin/make -f
 
-# Enable additional explot mitigation
-# (PIE and *full* RELRO at the time of this writing)
-export DEB_BUILD_MAINT_OPTIONS=hardening=+all
-
-CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
-CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
-CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
-LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
-
-VALAFLAGS:=$(foreach w,$(CPPFLAGS) $(CFLAGS) $(LDFLAGS),-X $(w))
-
 %:
-	dh $@ --with-scour --parallel
+	dh $@ --buildsystem=meson
 
 override_dh_strip:
 	dh_strip --dbgsym-migration='pantheon-photos-dbg (<< 0.2.5)'
