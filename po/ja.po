@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-06-18 00:05+0000\n"
+"PO-Revision-Date: 2018-06-24 04:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/photos/"
 "photos/ja/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -91,15 +91,14 @@ msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Shotwell のライブラリへのアクセス中に致命的なエラーが発生しました。Shotwell "
-"を続行できません。\n"
+"\"フォト\" のライブラリへのアクセス中に致命的なエラーが発生しました。\"フォト\" を続行できません。\n"
 "\n"
 "%s"
 
@@ -207,7 +206,7 @@ msgstr "写真のイベントを表示(_N)"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "その他の操作"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -383,14 +382,12 @@ msgid "Restore Photos from Trash"
 msgstr "ゴミ箱から写真を元に戻す"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "写真を Shotwell のゴミ箱に移動します"
+msgstr "写真を \"フォト\" のゴミ箱に移動します"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "写真を Shotwell ライブラリに戻します"
+msgstr "写真を \"フォト\" のライブラリに戻します"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -452,9 +449,8 @@ msgid "Rotate"
 msgstr "回転"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "100% ズーム(_1)"
+msgstr ""
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -566,7 +562,7 @@ msgid "Zoom _100%"
 msgstr "100% ズーム(_1)"
 
 #: src/LibraryPhotoPage.vala:235
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "写真の倍率を 100% にします"
 
@@ -576,7 +572,7 @@ msgid "Zoom _200%"
 msgstr "200% ズーム(_2)"
 
 #: src/LibraryPhotoPage.vala:241
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "写真の倍率を 200% にします"
 
@@ -594,52 +590,46 @@ msgid "Unable to export %s: %s"
 msgstr "%s をエクスポートできません: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"写真ライブラリはこのバージョンの Shotwell と互換性がありません。ライブラリは "
-"Shotwell %s (スキーマ %d) で作成されたもののようです。このバージョンは %s (ス"
-"キーマ %d) です。最新バージョンの Shotwell を利用してください。"
+"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ライブラリは \"フォト\" %s (スキーマ %d) "
+"で作成されたもののようです。このバージョンは %s (スキーマ %d) です。最新バージョンの \"フォト\" を使用してください。"
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ "
-"%d) にアップグレードすることができません。詳しい情報は、次の Shotwell Wiki を"
-"確認してください。%s"
+"\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ %d) "
+"にアップグレードすることができませんでした。詳しい情報は、次の \"フォト\" Wiki を確認してください。%s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"あなたの写真ライブラリは、このバージョンの Shotwell と互換性がありません。ラ"
-"イブラリは Shotwell %s (スキーマ %d )で作成されたもののようです。このバージョ"
-"ンは %s (スキーマ % d)です。%s を削除してライブラリを消去した上で、写真を再イ"
-"ンポートしてください。"
+"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ライブラリは \"フォト\" %s (スキーマ %d) "
+"で作成されたもののようです。このバージョンは %s (スキーマ %d) です。%s を削除してライブラリを消去した上で、写真を再インポートしてください。"
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Shotwell のデータベースの検査中に不明なエラーが発生しました: %s"
+msgstr "\"フォト\" のデータベースの検査中に不明なエラーが発生しました: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Shotwell を読み込んでいます"
+msgstr "\"フォト\" を読み込んでいます"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Shotwell プライベートデータのパス"
+msgstr "\"フォト\" のプライベートデータのパス"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -659,7 +649,7 @@ msgstr "アプリケーションのバージョンを表示"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "追加のデバッグ出力を表示"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -776,12 +766,12 @@ msgid "Sort photos in a descending order"
 msgstr "写真を降順で並び替えます"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell は選択された動画を再生できませんでした:\n"
+"\"フォト\" は選択された動画を再生できませんでした:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1084,14 +1074,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "選択した画像をデスクトップの背景として設定します"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "デスクトップスライドショーとして設定"
+msgstr "デスクトップスライドショーとして設定(_D)…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "イベント名の変更"
+msgstr "イベント名の変更(_N)…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1166,9 +1154,8 @@ msgid "Make a duplicate of the photo"
 msgstr "写真の複製を作成する"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "エクスポート(_E)"
+msgstr "エクスポート(_E)…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1187,69 +1174,61 @@ msgid "Hide info panel"
 msgstr "情報パネルを隠します"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "印刷(_P)..."
+msgstr "印刷(_P)…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "公開先"
+msgstr "公開(_B)…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
 msgid "Publish"
-msgstr "公開先"
+msgstr "公開"
 
 #: src/Resources.vala:218
 msgid "Publish to various websites"
 msgstr "色々なウェブサイトに公開します"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "タイトルの編集"
+msgstr "タイトルの編集(_T)…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "タイトルの編集"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "コメントの編集"
+msgstr "コメントの編集(_C)…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "コメントの編集"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "イベントコメントの編集"
+msgstr "イベントコメントの編集(_C)…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "イベントコメントの編集"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "日付と時刻の調整"
+msgstr "日付と時刻の調整(_A)…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "日付と時刻の調整"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "タグの追加"
+msgstr "タグの追加(_T)…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "タグの追加"
+msgstr "タグの追加(_A)…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1265,16 +1244,15 @@ msgstr "RAW エディターで開く(_W)"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "指定した方法で開く(_O)"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "写真を外部エディターで開く"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "RAW エディターで開く(_W)"
+msgstr "RAW エディターで開く(_O)…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1285,19 +1263,16 @@ msgid "Open photo with external RAW editor"
 msgstr "写真を外部 RAW エディターで開く"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "送る(_T)..."
+msgstr "送る(_T)…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "送る(_O)..."
+msgstr "送る(_O)…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "検索(_F)"
+msgstr "検索(_F)…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1354,9 +1329,9 @@ msgid "_New"
 msgstr "新規(_N)"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "タグ名 \"%s\" の変更(_N)..."
+msgstr "タグ名 \"%s\" を変更(_N)…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1364,14 +1339,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "タグ名 \"%s\" を \"%s\" に変更します"
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "名前を変更(_R)..."
+msgstr "名前を変更(_R)…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "タグの変更"
+msgstr "タグの変更(_Y)…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1436,14 +1409,12 @@ msgid "Delete Album"
 msgstr "アルバムを削除"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "編集(_E)"
+msgstr "編集(_E)…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "名前を変更(_N)..."
+msgstr "名前を変更(_N)…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1476,9 +1447,8 @@ msgid "Move the selected photos back into the library"
 msgstr "選択された写真をライブラリに戻します"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "ファイルマネージャーで開く(_G)"
+msgstr "ファイルマネージャー(_G)"
 
 #: src/Resources.vala:382
 #, c-format
@@ -1554,23 +1524,20 @@ msgid "Go to the next photo"
 msgstr "次の写真に進む"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "タイトルを表示(_I)"
+msgstr "写真のタイトルを表示"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "トランジション効果(_T):"
+msgstr "トランジションの時間"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "速い"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "以下"
+msgstr "遅い"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1632,13 +1599,10 @@ msgid "Import all the photos into your library"
 msgstr "すべての写真をライブラリにインポートします"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
-msgstr ""
-"Shotwell がこのカメラにアクセスするため、ファイルシステムからカメラをアンマウ"
-"ントする必要があります。続行しますか？"
+msgstr "\"フォト\" がこのカメラにアクセスするにはファイルシステムからカメラをアンマウントする必要があります。続行しますか？"
 
 #: src/camera/ImportPage.vala:1106
 msgid "_Unmount"
@@ -1649,15 +1613,13 @@ msgid "Please unmount the camera."
 msgstr "カメラをアンマウントしてください。"
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"カメラが他のアプリケーションによってロックされています。Shotwell はカメラが"
-"ロックされていない時のみアクセスできます。カメラを使用している他のすべてのア"
-"プリケーションを閉じてもう一度お試しください。"
+"カメラが他のアプリケーションによってロックされています。\"フォト\" "
+"はカメラがロックされていない時のみアクセスできます。カメラを使用している他のすべてのアプリケーションを閉じてもう一度お試しください。"
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1828,10 +1790,10 @@ msgid_plural "seconds"
 msgstr[0] "秒"
 
 #: src/Dialogs/Dialogs.vala:29
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo.  Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
-msgstr[0] "この操作はタグ \"$s\" を $d 件の写真から削除します。続行しますか？"
+msgstr[0] "この操作はタグ \"%s\" を %d 件の写真から削除します。続行しますか？"
 
 #: src/Dialogs/Dialogs.vala:38
 #, c-format
@@ -1839,15 +1801,13 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "この操作はスマートアルバム %s を削除します。続行しますか？"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
 msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
-msgstr[0] ""
-"管理者を切り替えると、Shotwell 内の写真に加えたすべての変更は元に戻ります"
+msgstr[0] "現像を切り替えると、\"フォト\" 内の写真に加えたすべての変更は元に戻ります"
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1867,13 +1827,11 @@ msgid "_Select"
 msgstr "選択(_S)"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
-msgstr ""
-"%s への書き込み権限がないため、Shotwell はこの写真を編集する際のファイルを作"
-"成することができませんでした。"
+msgstr "%s への書き込み権限がないため、\"フォト\" はこの写真を編集する際のファイルを作成することができませんでした。"
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -1929,7 +1887,7 @@ msgstr[0] "以下の %d 個のファイルのインポートが成功しまし�
 
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
-msgstr "重複した写真と動画はインポートされませんでした:"
+msgstr "重複した写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:246
 msgid "duplicates existing media item"
@@ -1937,7 +1895,7 @@ msgstr "重複する既存のメディアアイテム"
 
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
-msgstr "カメラ側のエラーにより写真と動画はインポートされませんでした:"
+msgstr "カメラ側のエラーにより写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:260 src/Dialogs/Dialogs.vala:275
 #: src/Dialogs/Dialogs.vala:290 src/Dialogs/Dialogs.vala:306
@@ -1947,26 +1905,19 @@ msgstr "エラーメッセージ:"
 
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
-msgstr ""
-"ファイルが認識できなかったため、写真もしくは動画をインポートできませんでした:"
+msgstr "写真または動画として認識されなかったため、ファイルはインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
-msgstr ""
-"Shotwell が認識できる形式ではなかったため、写真と動画をインポートできませんで"
-"した:"
+msgstr "\"フォト\" が認識できる形式ではなかったため、写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
-msgstr ""
-"Shotwell がライブラリにコピーできないため、写真と動画をインポートできませんで"
-"した:"
+msgstr "\"フォト\" がライブラリにコピーできなかったため、写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:305
 #, c-format
@@ -1974,16 +1925,16 @@ msgid ""
 "couldn't copy %s\n"
 "\tto %s"
 msgstr ""
-"%s をコピーできません。\n"
-"\tコピー先 %s"
+"%s を %s にコピー\n"
+"\tできませんでした。"
 
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
-msgstr "ファイルが壊れているため、写真と動画をインポートできませんでした:"
+msgstr "ファイルが壊れているため、写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
-msgstr "他の理由により写真と動画はインポートされませんでした:"
+msgstr "他の理由により写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:352
 #, c-format
@@ -2001,7 +1952,7 @@ msgstr[0] "%d 個の重複した動画はインポートされませんでした
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
-msgstr[0] "%d 個の重複した写真/動画はインポートされませんでした:\n"
+msgstr[0] "%d 個の重複した写真または動画はインポートされませんでした:\n"
 
 #: src/Dialogs/Dialogs.vala:372
 #, c-format
@@ -2268,13 +2219,10 @@ msgstr[0] ""
 "その他 %d 個"
 
 #: src/Dialogs/Dialogs.vala:876
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
-msgstr ""
-"Shotwell はライブラリフォルダーに写真をコピーしたり、写真をコピーせずにイン"
-"ポートしたりすることができます。"
+msgstr "\"フォト\" はライブラリフォルダーに写真をコピーしたり、写真をコピーせずにインポートしたりすることができます。"
 
 #: src/Dialogs/Dialogs.vala:881
 msgid "Co_py Photos"
@@ -2319,9 +2267,8 @@ msgid "_Scaling constraint:"
 msgstr "サイズ変更の基準(_S):"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " ピクセル(_P)"
+msgstr "ピクセル(_P)"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2634,9 +2581,8 @@ msgid "No Event"
 msgstr "イベントなし"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "イベントをマージ(_M)"
+msgstr "イベントをマージ"
 
 #: src/events/EventsDirectoryPage.vala:228
 msgid "Display the comment of each event"
@@ -2725,16 +2671,15 @@ msgid "Import"
 msgstr "インポート"
 
 #: src/library/LibraryWindow.vala:730
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell はホームディレクトリに写真をインポートする設定になっています。\n"
-"<span weight=\"bold\">編集 %s 設定</span>でこの設定を変更することをお勧めしま"
-"す。\n"
+"\"フォト\" はホームディレクトリに写真をインポートする設定になっています。\n"
+"<span weight=\"bold\">%s 設定を編集</span>でこの設定を変更することをお勧めします。\n"
 "写真のインポートを続行してもよろしいですか？"
 
 #: src/library/LibraryWindow.vala:733
@@ -2890,11 +2835,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "情報"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2971,16 +2916,15 @@ msgid "Unable to publish"
 msgstr "公開できません"
 
 #: src/publishing/PublishingUI.vala:397
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"一致する公開プラグインが有効になっていないため、Shotwell は選択されたアイテム"
-"を公開できません。これを直すには、<b> 設定 %s 編集</b> を選択して、<b>プラグ"
-"イン</b> タブにあるいずれかの公開プラグインを有効にしてください。"
+"一致する公開プラグインが有効になっていないため、\"フォト\" は選択されたアイテムを公開できません。これを直すには、<b> %s 設定を編集</b> "
+"を選択して、<b>プラグイン</b> タブにあるいずれかの公開プラグインを有効にしてください。"
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2991,9 +2935,8 @@ msgid "Smart Albums"
 msgstr "スマートアルバム"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "削除(_R)"
+msgstr "ルールを削除"
 
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
@@ -3112,7 +3055,7 @@ msgstr "のものにマッチ:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "ルールを追加"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3276,9 +3219,8 @@ msgid "Photos cannot be exported to this directory."
 msgstr "写真をこのディレクトリにエクスポートできません。"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "トランジション効果(_T):"
+msgstr "トランジション効果"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
