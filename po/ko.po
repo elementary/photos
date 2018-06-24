@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-01-18 00:02+0000\n"
+"PO-Revision-Date: 2018-06-25 14:14+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/photos/photos/"
 "ko/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:08+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -84,15 +84,14 @@ msgid "_Cancel"
 msgstr "취소(_C)"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"샷웰 라이브러리에 접근하던 중 치명적인 오류가 발생했습니다.샷웰을 계속 실행"
-"할 수 없습니다.\n"
+"사진 라이브러리에 접근하는 동안 오류가 생겼습니다.  사진을 계속 실행할 수 없습니다.\n"
 "\n"
 "%s"
 
@@ -200,7 +199,7 @@ msgstr "사진 이벤트 보기(_N)"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "다른 작업"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -317,7 +316,7 @@ msgstr "복제한 사진 삭제"
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
-msgstr[0] "파일 오류로 사진 %d매를 복제할 수 없습니다"
+msgstr[0] "파일 오류로 사진 %d장을 복제할 수 없습니다"
 
 #: src/Commands.vala:1191
 msgid "Setting RAW developer"
@@ -369,21 +368,19 @@ msgstr "태그 \"%s\" 이동"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
-msgstr "사진 휴지통으로 보내기"
+msgstr "사진을 휴지통으로 보내기"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
 msgstr "휴지통에 있는 사진 되살리기"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "사진을 샷웰 휴지통으로 옮깁니다"
+msgstr "사진을 사진 휴지통으로 옮깁니다"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "휴지통에 있는 사진을 샷웰 라이브러리로 다시 가져옵니다"
+msgstr "휴지통에 있는 사진을 사진 라이브러리로 다시 가져옵니다"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -445,9 +442,8 @@ msgid "Rotate"
 msgstr "회전"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "원본 크기로 확대(_1)"
+msgstr "1:1 확대"
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -587,51 +583,46 @@ msgid "Unable to export %s: %s"
 msgstr "%s(을)를 내보낼 수 없습니다: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"사진 라이브러리가 이 버전의 샷웰과는 호환되지 않습니다. 이 라이브러리는 샷웰 "
-"%s (schema %d)(으)로 만들어진 것으로 보이지만 이 프로그램의 버전은 %s "
-"(schema %d)입니다. 최신 버전의 샷웰을 사용하십시오."
+"사진 라이브러리가 이 버전의 사진과 호환되지 않습니다. 이 라이브러리는 사진 %s (schema %d)(으)로 만들어진 것으로 보이지만 "
+"이 프로그램의 버전은 %s (schema %d)입니다. 최신 버전의 사진을 사용하십시오."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"샷웰이 사진 라이브러리를 버전 %s (schema %d)에서 %s (schema %d)(으)로 업그레"
-"이드 할 수 없습니다. 더 많은 정보는 %s에 있는 샷웰 위키에서 찾을 수 있습니다"
+"사진이 사진 라이브러리를 버전 %s (schema %d)에서 %s (schema %d)(으)로 업그레이드 할 수 없습니다. 더 많은 "
+"정보는 %s에 있는 사진 위키에서 찾을 수 있습니다"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"사진 라이브러리가 이 버전의 샷웰과는 호환되지 않습니다. 이 라이브러리는 샷웰 "
-"%s (schema %d)(으)로 만들어진 것으로 보이지만 이 프로그램의 버전은 %s "
-"(schema %d)입니다. %s(을)를 지우셔서 라이브러리를 지우신 후 사진을 다시 가져"
-"오십시오."
+"사진 라이브러리가 이 버전의 사진과는 호환되지 않습니다. 이 라이브러리는 사진 %s (schema %d)(으)로 만들어진 것으로 보이지만 "
+"이 프로그램의 버전은 %s (schema %d)입니다. %s(을)를 지우셔서 라이브러리를 지우신 후 사진을 다시 가져오십시오."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "샷웰 데이터베이스 확인 시도 중 알 수 없는 오류가 발생했습니다: %s"
+msgstr "사진의 데이터베이스 확인 시도 중 알 수 없는 오류가 생겼습니다: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "샷웰 불러오는 중"
+msgstr "사진 불러오는 중"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "샷웰 개인 정보 저장 경로"
+msgstr "사진의 개인 정보 저장 경로"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -651,7 +642,7 @@ msgstr "프로그램 버전 보이기"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "추가 디버깅 출력 보이기"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -767,12 +758,12 @@ msgid "Sort photos in a descending order"
 msgstr "사진을 내림차순으로 정렬합니다"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"샷웰이 선택한 비디오를 재생할 수 없습니다:\n"
+"사진이 선택한 비디오를 재생할 수 없습니다:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1075,14 +1066,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "선택한 그림을 새 데스크톱 배경으로 설정합니다"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "데스크톱 슬라이드 쇼로 설정"
+msgstr "데스크톱 슬라이드 쇼로 설정(_D)…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "이벤트 이름 바꾸기"
+msgstr "이벤트 이름 바꾸기(_N)…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1157,9 +1146,8 @@ msgid "Make a duplicate of the photo"
 msgstr "이 사진을 복제합니다"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "내보내기(_E)"
+msgstr "내보내기(_E)…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1178,14 +1166,12 @@ msgid "Hide info panel"
 msgstr "정보 패널 감추기"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "인쇄(_P)..."
+msgstr "인쇄(_P)…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "사진 업로드"
+msgstr "소셜미디어에 올리기(_B)…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1197,50 +1183,44 @@ msgid "Publish to various websites"
 msgstr "웹에 올리기"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "제목 편집"
+msgstr "제목 편집(_T)…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "제목 편집"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "설명 편집"
+msgstr "설명 편집(_C)…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "설명 편집"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "이벤트 설명 편집"
+msgstr "이벤트 설명 편집(_C)…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "이벤트 설명 편집"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "시간과 날짜 조정"
+msgstr "날짜와 시간 조정(_A)…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "시간과 날짜 조정"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "태그 추가"
+msgstr "태그 추가(_T)…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "태그 추가"
+msgstr "태그 추가(_A)…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1256,16 +1236,15 @@ msgstr "RAW 편집기로 열기(_W)"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "열기(_O)"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "외부 편집기로 사진 열기"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "RAW 편집기로 열기(_W)"
+msgstr "RAW 편집기로 열기(_O)…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1276,19 +1255,16 @@ msgid "Open photo with external RAW editor"
 msgstr "외부 RAW 편집기로 사진 열기"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "보내기(_T)..."
+msgstr "보내기(_T)…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "보내기(_O)..."
+msgstr "보내기(_O)…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "찾기(_F)"
+msgstr "찾아보기(_F)…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1345,9 +1321,9 @@ msgid "_New"
 msgstr "새 항목(_N)"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "태그 \"%s\" 이름 바꾸기(_N)..."
+msgstr "태그 \"%s\" 이름 바꾸기(_N)…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1355,14 +1331,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "태그 이름을 \"%s\"에서 \"%s\"(으)로 바꿉니다"
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "이름 바꾸기(_R)..."
+msgstr "이름 바꾸기(_R)…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "태그 수정"
+msgstr "태그 수정(_Y)…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1427,14 +1401,12 @@ msgid "Delete Album"
 msgstr "앨범 제거"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "편집(_E)"
+msgstr "편집(_E)…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "이름 바꾸기(_N)..."
+msgstr "이름 바꾸기(_N)…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1467,9 +1439,8 @@ msgid "Move the selected photos back into the library"
 msgstr "선택한 사진을 라이브러리 안으로 이동합니다"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "파일 관리자로 보기(_G)"
+msgstr "파일 관리자(_G)"
 
 #: src/Resources.vala:382
 #, c-format
@@ -1545,23 +1516,20 @@ msgid "Go to the next photo"
 msgstr "다음 사진으로 이동합니다"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "제목 표시(_I)"
+msgstr "사진 제목 표시"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "전환 효과(_T):"
+msgstr "전환 속도"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "빠르게"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "이하인 것"
+msgstr "느리게"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1623,13 +1591,10 @@ msgid "Import all the photos into your library"
 msgstr "모든 사진을 라이브러리로 가져옵니다"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
-msgstr ""
-"샷웰이 카메라에 접근하려면 파일 시스템에서 카메라를 마운트 해제해야 합니다. "
-"계속하시겠습니까?"
+msgstr "카메라에 접근하려면 파일 시스템에서 카메라를 마운트 해제해야 합니다.  계속하시겠습니까?"
 
 #: src/camera/ImportPage.vala:1106
 msgid "_Unmount"
@@ -1640,15 +1605,13 @@ msgid "Please unmount the camera."
 msgstr "카메라를 마운트 해제해 주십시오."
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"다른 프로그램이 카메라를 사용하고 있습니다. 다른 프로그램이 사용 중이면 샷웰"
-"이 카메라에 접근할 수 없습니다. 카메라를 사용 중인 다른 프로그램을 닫으신 후 "
-"다시 시도하십시오."
+"다른 프로그램이 카메라를 사용하고 있습니다. 다른 프로그램이 사용 중이면 사진이 카메라에 접근할 수 없습니다. 카메라를 사용 중인 다른 "
+"프로그램을 닫으신 후 다시해보세요."
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1830,15 +1793,13 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "이 스마트 앨범을 제거합니다 \"%s\". 계속할까요?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
 msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
-msgstr[0] ""
-"디벨로퍼를 바꾸면 샷웰에서 지금 바꾼 모든 사진의 모든 내용을 취소하게 됩니다"
+msgstr[0] "디벨로퍼를 바꾸면 지금 까지 바꾼 사진의 모든 내용을 취소하게 됩니다"
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1858,13 +1819,11 @@ msgid "_Select"
 msgstr "선택(_S)"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
-msgstr ""
-"%s에 쓸 수 있는 권한이 없기 때문에 이 사진을 편집할 때 사용하는 파일을 만들 "
-"수 없습니다."
+msgstr "%s에 쓸 수 있는 권한이 없기 때문에 이 사진을 편집할 때 사용하는 파일을 만들 수 없습니다."
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -1941,20 +1900,16 @@ msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr "파일을 사진이나 비디오로 인식할 수 없어 가지고 오지 않았습니다:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
-msgstr "샷웰이 파일 형식을 인식할 수 없어 가지고 오지 않았습니다:"
+msgstr "사진/비디오의 파일 형식을 인식할 수 없어 가지고 오지 않았습니다:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
-msgstr ""
-"샷웰이 파일을 라이브러리로 복사할 수 없어 사진이나 비디오로 인식할 수 없어 가"
-"지고 오지 않았습니다:"
+msgstr "사진/비디오의 파일을 라이브러리로 복사할 수 없어 가지고 오지 않았습니다:"
 
 #: src/Dialogs/Dialogs.vala:305
 #, c-format
@@ -2244,13 +2199,10 @@ msgstr[0] ""
 "그리고 다른 %d개."
 
 #: src/Dialogs/Dialogs.vala:876
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
-msgstr ""
-"샷웰은 사진을 라이브러리 폴더로 복사할 수 있고 사진을 복사하지 않고 가져올 수"
-"도 있습니다."
+msgstr "사진은 사진을 라이브러리 폴더로 복사할 수도 있고 사진을 복사하지 않고 가져올 수도 있습니다."
 
 #: src/Dialogs/Dialogs.vala:881
 msgid "Co_py Photos"
@@ -2295,9 +2247,8 @@ msgid "_Scaling constraint:"
 msgstr "크기 조정 제한(_S):"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " 픽셀(_P)"
+msgstr "픽셀(_P)"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2610,9 +2561,8 @@ msgid "No Event"
 msgstr "이벤트 없음"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "이벤트 합치기(_M)"
+msgstr "이벤트 합치기"
 
 #: src/events/EventsDirectoryPage.vala:228
 msgid "Display the comment of each event"
@@ -2701,16 +2651,15 @@ msgid "Import"
 msgstr "불러오기"
 
 #: src/library/LibraryWindow.vala:730
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"샷웰을 사진을 사용자의 홈 디렉터리로 가져오도록 설정했습니다.\n"
-"<span weight=\"bold\">편집 %s 기본 설정</span> 항목에서 이 설정을 바꾸는 것"
-"을 추천합니다.\n"
+"사진을 사용자의 홈 디렉터리로 가져오도록 설정했습니다.\n"
+"설정은 <span weight=\"bold\">편집 %s 기본 설정</span> 항목에서 바꾸시기를 권해드립니다.\n"
 "계속 사진을 가지고 오시겠습니까?"
 
 #: src/library/LibraryWindow.vala:733
@@ -2866,11 +2815,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "소개"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2947,16 +2896,15 @@ msgid "Unable to publish"
 msgstr "사진을 올릴 수 없음"
 
 #: src/publishing/PublishingUI.vala:397
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"알맞은 업로드 플러그인을 사용하고 있지 않아 선택한 항목을 업로드할 수 없습니"
-"다.이 문제를 해결하려면 <b>편접 %s 기본 설정</b>을 선택한 뒤 <b>플러그인</b> "
-"탭에서사용할 플러그인을 선택해주십시오."
+"알맞은 업로드 플러그인을 사용하고 있지 않아 선택한 항목을 업로드할 수 없습니다. 이 문제를 해결하려면 <b>편집 %s 기본 설정</b>"
+"을 선택한 뒤 <b>플러그인</b> 탭에서 사용하실 플러그인을 선택해주십시오."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2967,9 +2915,8 @@ msgid "Smart Albums"
 msgstr "스마트 앨범"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "제거(_R)"
+msgstr "규칙 제거"
 
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
@@ -3088,7 +3035,7 @@ msgstr "조건:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "규칙 추가"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3252,9 +3199,8 @@ msgid "Photos cannot be exported to this directory."
 msgstr "사진을 이 디렉터리로 내보낼 수 없습니다."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "전환 효과(_T):"
+msgstr "전환 효과"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
