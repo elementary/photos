@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-02-22 00:08+0000\n"
+"PO-Revision-Date: 2018-06-25 22:59+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/photos/photos/"
 "ca/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 05:58+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -87,15 +87,15 @@ msgid "_Cancel"
 msgstr "_Cancel·la"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"S'ha produït un error fatal en accedir a la biblioteca del Shotwell. El "
-"Shotwell no pot continuar.\n"
+"S'ha produït un error fatal en accedir a la biblioteca de fotografies.  El "
+"programa de fotografies no pot continuar.\n"
 "\n"
 "%s"
 
@@ -203,7 +203,7 @@ msgstr "Visualitza l'_esdeveniment de la fotografia"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Altres accions"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -387,14 +387,12 @@ msgid "Restore Photos from Trash"
 msgstr "Restaura les fotografies de la paperera"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Mou les fotografies a la paperera del Shotwell"
+msgstr "Mou les fotografies a la paperera de les fotografies"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Restaura les fotografies cap a la biblioteca del Shotwell"
+msgstr "Restaura les fotografies cap a la biblioteca de fotografies"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -456,9 +454,8 @@ msgid "Rotate"
 msgstr "Gira"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Ampliació _100%"
+msgstr "Ampliació 1:1"
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -570,9 +567,9 @@ msgid "Zoom _100%"
 msgstr "Ampliació _100%"
 
 #: src/LibraryPhotoPage.vala:235
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 100% magnification"
-msgstr "Amplia la fotografia al 100%"
+msgstr "Amplia la fotografia al 100 %"
 
 #: src/LibraryPhotoPage.vala:240
 #, no-c-format
@@ -580,9 +577,9 @@ msgid "Zoom _200%"
 msgstr "Ampliació _200%"
 
 #: src/LibraryPhotoPage.vala:241
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 200% magnification"
-msgstr "Amplia la fotografia al 200%"
+msgstr "Amplia la fotografia al 200 %"
 
 #: src/LibraryPhotoPage.vala:811 src/Dialogs/Dialogs.vala:893
 msgid "Remove From Library"
@@ -598,54 +595,53 @@ msgid "Unable to export %s: %s"
 msgstr "No s'ha pogut exportar %s: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
 "La biblioteca de fotografies no és compatible amb aquesta versió del "
-"Shotwell. Sembla que es va crear amb el Shotwell %s (esquema %d). Aquesta "
-"versió és la %s (esquema %d). Utilitzeu l'última versió del Shotwell."
+"Fotografies. Sembla que es va crear amb el Fotografies %s (esquema %d). "
+"Aquesta versió és la %s (esquema %d). Si us plau, useu l'última versió del "
+"Fotografies."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"El Shotwell no ha pogut actualitzar la biblioteca de fotografies de la "
+"El Fotografies no ha pogut actualitzar la biblioteca de fotografies de la "
 "versió %s (esquema %d) a la %s (esquema %d). Per obtenir-ne més informació "
-"comproveu el Wiki del Shotwell a %s."
+"comproveu el Wiki del Fotografies a %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
 "La biblioteca de fotografies no és compatible amb aquesta versió del "
-"Shotwell. Sembla que es va crear amb el Shotwell %s (esquema %d). Aquesta "
-"versió és la %s (esquema %d). Netegeu la biblioteca mitjançant la supressió "
-"de %s i torneu a importar les fotografies."
+"Fotografies. Sembla que es va crear amb el Fotografies %s (esquema %d). "
+"Aquesta versió és la %s (esquema %d). Netegeu la biblioteca mitjançant la "
+"supressió de %s i torneu a importar les fotografies."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
 msgstr ""
 "S'ha produït un error desconegut en intentar verificar la base de dades del "
-"Shotwell: %s"
+"Fotografies: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "S'està carregant el Shotwell"
+msgstr "Carregant Fotografies"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Camí a les dades privades del Shotwell"
+msgstr "Camí a les dades privades del Fotografies"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -666,7 +662,7 @@ msgstr "Mostra la versió de l'aplicació"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Mostra una sortida extra de depuració"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -783,12 +779,12 @@ msgid "Sort photos in a descending order"
 msgstr "Ordena les fotografies en ordre descendent"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"El Shotwell no ha pogut reproduir el vídeo seleccionat:\n"
+"Fotografies no ha pogut reproduir el vídeo seleccionat:\n"
 "%s"
 
 #: src/Photo.vala:3787
