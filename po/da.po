@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-06-26 06:19+0000\n"
+"PO-Revision-Date: 2018-06-26 13:55+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/photos/photos/"
 "da/>\n"
@@ -897,7 +897,7 @@ msgstr "Billedfremviser"
 
 #: src/Resources.vala:23
 msgid "Photo Manager"
-msgstr "Billedhåndtering"
+msgstr "Foto Manager"
 
 #: src/Resources.vala:34
 msgid ""
@@ -1622,12 +1622,11 @@ msgid "Import all the photos into your library"
 msgstr "Importere alle billeder ind i dit bibliotek"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell har brug for at afmontere kameraet fra filsystemet for at få adgang "
+"Fotos har brug for at afmontere kameraet fra filsystemet for at få adgang "
 "til det. Fortsæt?"
 
 #: src/camera/ImportPage.vala:1106
@@ -1639,15 +1638,14 @@ msgid "Please unmount the camera."
 msgstr "Afmonter venligst kameraet."
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Kameraet er låst af et andet program. Shotwell kan kun tilgå kameraet når "
-"det er ulåst. Luk venligst alle andre programmer som bruger kameraet og "
-"forsøg igen."
+"Kameraet er låst af et andet program. Fotos kan kun tilgå kameraet når det "
+"er ulåst. Luk venligst alle andre programmer som bruger kameraet og forsøg "
+"igen."
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1839,7 +1837,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Dette vil fjerne smartalbummet \"%s\".  Fortsæt?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1848,10 +1845,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Skift af udviklere vil slette alle ændringer, du har lavet på dette billede "
-"i Shotwell"
+"i Fotos"
 msgstr[1] ""
 "Skift af udviklere vil slette alle ændringer, du har lavet på disse billeder "
-"i Shotwell"
+"i Fotos"
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1871,13 +1868,13 @@ msgid "_Select"
 msgstr "_Vælg"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell kunne ikke oprette en fil for redigering af dette foto, fordi du "
-"ikke har skriverettigheder for %s."
+"Fotos kunne ikke oprette en fil for redigering af dette foto, fordi du ikke "
+"har skriverettigheder for %s."
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -1958,21 +1955,19 @@ msgstr ""
 "videoer:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
 "Billeder/videoer blev ikke importeret, fordi de ikke var i et format som "
-"Shotwell forstår:"
+"Fotos forstår:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Billeder/videoer blev ikke importeret, fordi Shotwell ikke kunne kopiere dem "
+"Billeder/videoer blev ikke importeret, fordi Fotos ikke kunne kopiere dem "
 "til dets bibliotek:"
 
 #: src/Dialogs/Dialogs.vala:305
@@ -2305,12 +2300,11 @@ msgstr[1] ""
 "Og %d andre."
 
 #: src/Dialogs/Dialogs.vala:876
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell kan kopiere billederne ind i din biblioteksmappe eller det kan "
+"Fotos kan kopiere billederne ind i din biblioteksmappe eller det kan "
 "importere dem uden at kopiere."
 
 #: src/Dialogs/Dialogs.vala:881
@@ -2764,17 +2758,17 @@ msgid "Import"
 msgstr "Importér"
 
 #: src/library/LibraryWindow.vala:730
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell er konfigureret til at importere billeder til din hjemmemappe.\n"
-"Vi anbefaler at ændre dette i <span weight=\"bold\">Redigér %sindstillinger</"
-"span>.\n"
-"Vil du fortsætte importeren af billeder?"
+"Fotos er konfigureret til at importere billeder til din hjemmemappe.\n"
+"Vi anbefaler at ændre dette i <span weight=\"bold\">Redigér "
+"%sindstillinger</span>.\n"
+"Vil du fortsætte med at importere billeder?"
 
 #: src/library/LibraryWindow.vala:733
 msgid "_Import"
@@ -3013,17 +3007,17 @@ msgid "Unable to publish"
 msgstr "Kunne ikke udgive"
 
 #: src/publishing/PublishingUI.vala:397
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell kan ikke udgive de valgte elementer, da du ikke har aktiveret "
-"plugin som er kompatible. For at rette dette, så vælg <b>Redigér "
-"indstillinger for %s</b> og aktivér én eller flere af udgivelsepluginene i "
-"fanebladet <b>Plugins</b>."
+"Fotos kan ikke udgive de valgte elementer, da du ikke har aktiveret plugin "
+"som er kompatible. For at rette dette, så vælg <b>Redigér indstillinger for "
+"%s</b> og aktivér én eller flere af udgivelsepluginene i fanebladet "
+"<b>Plugins</b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
