@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-05-24 00:10+0000\n"
+"PO-Revision-Date: 2018-06-29 20:46+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/photos/photos/"
 "cs/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-27 05:50+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -87,14 +87,14 @@ msgid "_Cancel"
 msgstr "_Storno"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Při přístupu ke knihovně programu došlo k fatální chybě. Program nemůže "
+"Při přístupu ke knihovně Fotek došlo k fatální chybě. Program nemůže "
 "pokračovat.\n"
 "\n"
 "%s"
@@ -203,7 +203,7 @@ msgstr "Zobrazit u_dálosti pro fotografii"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Další akce"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -385,14 +385,12 @@ msgid "Restore Photos from Trash"
 msgstr "Vyjmout fotografie z koše"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Přesune fotografie do koše programu Shotwell"
+msgstr "Přesunout fotky do koše programu Fotky"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Vrátí fotografie zpět do knihovny programu Shotwell"
+msgstr "Vrátit fotky zpět do knihovny programu Fotky"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -454,9 +452,8 @@ msgid "Rotate"
 msgstr "Otočit"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Zvětšení _100%"
+msgstr "Zvětšení 1:1"
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -596,50 +593,48 @@ msgid "Unable to export %s: %s"
 msgstr "Nepodařil se export %s: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Vaše knihovna fotografií není kompatibilní s touto verzí programu Shotwell. "
-"Knihovna je vytvořena ve verzi %s (schéma %d). Spuštěná verze je %s (schéma "
-"%d). Používejte, prosím, poslední verzi programu."
+"Vaše knihovna fotek není kompatibilní s touto verzí programu Fotky. Vypadá "
+"to, že byla vytvořena ve Fotky %s (schéma %d). Tato verze je %s (schéma %d). "
+"Použijte prosím poslední verzi Fotek."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Programu Shotwell se nepodařilo aktualizovat knihovnu z verze %s (schéma %d) "
-"na verzi %s (schéma %d). Více informací naleznete na stránkách %s (anglicky)"
+"Programu Fotky se nepodařilo aktualizovat vaši knihovnu z verze %s (schéma "
+"%d) na verzi %s (schéma %d). Více informací najdete na Wiki Fotek na %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Vaše knihovna fotografií není kompatibilní s touto verzí programu Shotwell. "
-"Knihovna je vytvořena ve verzi %s (schéma %d). Spuštěná verze je %s (schéma "
-"%d). Smažte %s a znovu naimportujte fotografie."
+"Vaše knihovna fotek není kompatibilní s touto verzí programu Fotky. Vypadá "
+"to, že byla vytvořena ve Fotky %s (schéma %d). Tato verze je %s (schéma %d). "
+"Vyčistěte prosím svou knihovnu smazáním %s a znovu naimportujte fotografie."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Neznámá chyba při přístupu k databázi programu Shotwell: %s"
+msgstr "Neznámá chyba při pokusu o ověření databáze programu Fotky: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Načítá se"
+msgstr "Načítám Fotky"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Cesta k soukromým datům Shotwellu"
+msgstr "Cesta k soukromým datům Fotek"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -659,7 +654,7 @@ msgstr "Zobrazit verzi programu"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Zobrazit extra debugovací výstup"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -774,12 +769,12 @@ msgid "Sort photos in a descending order"
 msgstr "Seřadí fotografie sestupně"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Nepodařilo se přehrát vybrané video:\n"
+"Fotky nemohli přehrát vybrané video:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1082,14 +1077,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "Použije vybranou fotografii jako obrázek pozadí pracovní plochy"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Dát na pozadí jako sekvenci obrázků"
+msgstr "Nastavit jako _Sekvenci pozadí plochy…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Přejmenovat událost"
+msgstr "Pře_jmenovat událost"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1164,9 +1157,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Vytvořit kopii fotografie"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "_Exportovat"
+msgstr "_Exportovat…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1185,14 +1177,12 @@ msgid "Hide info panel"
 msgstr "Skrýt informační panel"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "_Tisk..."
+msgstr "Vy_tisknout…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Publikovat"
+msgstr "Pu_blikovat…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1204,50 +1194,44 @@ msgid "Publish to various websites"
 msgstr "Publikovat na různých internetových stránkách"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Upravit název"
+msgstr "Upravit _název…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "Upravit název"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Upravit komentář"
+msgstr "Upravit _komentář…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "Upravit komentář"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Upravit komentář události"
+msgstr "Upravit _komentář události…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "Upravit komentář události"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Nastavit datum a čas"
+msgstr "_Přizpůsobit datum a čas…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "Nastavit datum a čas"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Přidat nálepky"
+msgstr "Přidat _označení…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Přidat nálepky"
+msgstr "_Přidat označení…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1263,16 +1247,15 @@ msgstr "Otevřít editor RA_W"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "_Otevřít v"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "Otevřít fotku externím editorem"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Otevřít editor RA_W"
+msgstr "_Otevřít s RAW editorem…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1283,19 +1266,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Otevřít fotografii s externím RAW editorem"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "Posla_t..."
+msgstr "Posla_t…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "Odesla_t..."
+msgstr "Posla_t…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "Na_jít"
+msgstr "_Najít…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1352,9 +1332,9 @@ msgid "_New"
 msgstr "_Nový"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Pře_jmenovat nálepku \"%s\"..."
+msgstr "Pře_jmenovat označení \"%s\"…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1362,14 +1342,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Přejmenovat nálepku \"%s\" na \"%s\""
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Přejmenovat..."
+msgstr "_Přejmenovat…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Změnit nálepky"
+msgstr "Změnit označení…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1435,14 +1413,12 @@ msgid "Delete Album"
 msgstr "Smazat album"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "Ú_pravy"
+msgstr "_Upravit…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "Přejmenovat..."
+msgstr "Pře_jmenovat…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1475,9 +1451,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Přesune vybrané fotografie zpět do knihovny"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Otevřít ve správci souborů"
+msgstr "Správce _souborů"
 
 #: src/Resources.vala:382
 #, c-format
@@ -1553,23 +1528,20 @@ msgid "Go to the next photo"
 msgstr "Jít na další fotografii"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Zobrazit n_ázev"
+msgstr "Zobrazit názvy fotek"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Efekt _přechodu:"
+msgstr "Rychlost přechodů"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "Rychleji"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "a méně"
+msgstr "Pomaleji"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1631,13 +1603,12 @@ msgid "Import all the photos into your library"
 msgstr "Importuje všechny fotografie do knihovny"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell kvůli přístupu potřebuje odpojit fotoaparát ze souborového systému. "
-"Pokračovat?"
+"Fotky potřebují odpojit fotoaparát ze souborového systému, aby k němu měli "
+"přístup. Pokračovat?"
 
 #: src/camera/ImportPage.vala:1106
 msgid "_Unmount"
@@ -1648,14 +1619,14 @@ msgid "Please unmount the camera."
 msgstr "Odpojte fotoaparát."
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Fotoaparát je používán jinou aplikací. Ukončete všechny aplikace, které ho "
-"používají, a zkuste to znovu."
+"Fotoaparát je uzamčen jinou aplikací. Fotky mohou přistupovat k fotoaparátu "
+"jen, když je odemčen. Prosím ukončete všechny aplikace, které ho používají, "
+"a zkuste to znovu."
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1860,7 +1831,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Toto odstraní chytré album \"%s\". Pokračovat?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1869,13 +1839,13 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Přepínání vývojářů vrátí zpět všechny změny, které jste provedli na této "
-"fotce v Shotwellu"
+"fotce v programu Fotky."
 msgstr[1] ""
 "Přepínání vývojářů vrátí zpět všechny změny, které jste provedli na těchto "
-"fotkách v Shotwellu"
+"fotkách v programu Fotky."
 msgstr[2] ""
 "Přepínání vývojářů vrátí zpět všechny změny, které jste provedli na těchto "
-"fotkách v Shotwellu"
+"fotkách v programu Fotky."
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1895,12 +1865,13 @@ msgid "_Select"
 msgstr "_Vybrat"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell nemůže vytvořit editační soubor, protože nemůže zapisovat do %s."
+"Fotky nemohou vytvořit soubor pro editaci této fotky, protože nemáte práva k "
+"zápisu do %s."
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -1981,22 +1952,20 @@ msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr "Soubory nebyly importovány, protože nejde o fotky nebo videa:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Fotky/videa nelze importovat, protože nejde o formát, který Shotwell dokáže "
+"Fotky/videa nelze importovat, protože nejde o formát, který Fotky dokážou "
 "rozeznat:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Fotky/videa nelze importovat, protože Shotwell je nedokáže překopírovat do "
-"své databáze:"
+"Fotky/videa nelze importovat, protože Fotky je nedokážou překopírovat do své "
+"databáze:"
 
 #: src/Dialogs/Dialogs.vala:305
 #, c-format
@@ -2384,13 +2353,12 @@ msgstr[2] ""
 "A %d dalších."
 
 #: src/Dialogs/Dialogs.vala:876
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell může zkopírovat fotografie do knihovny, nebo je může importovat bez "
-"kopírování."
+"Fotky mohou zkopírovat fotografie do knihovny, nebo je mohou naimportovat "
+"bez kopírování."
 
 #: src/Dialogs/Dialogs.vala:881
 msgid "Co_py Photos"
@@ -2437,9 +2405,8 @@ msgid "_Scaling constraint:"
 msgstr "Omezení _zvětšování:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pixely"
+msgstr "_pixely"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2756,9 +2723,8 @@ msgid "No Event"
 msgstr "Žádná událost"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "S_pojit události"
+msgstr "Sloučit události"
 
 #: src/events/EventsDirectoryPage.vala:228
 msgid "Display the comment of each event"
@@ -2847,18 +2813,17 @@ msgid "Import"
 msgstr "Importovat"
 
 #: src/library/LibraryWindow.vala:730
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell má aktuálně nastaven import fotografií do vašeho domovského "
-"adresáře.\n"
-"Doporučujeme nastavit jiný adresář v <span weight=\"bold\">Nastavení</"
-"span>.\n"
-"Chcete pokračovat s importem fotografií?"
+"Fotky mají aktuálně nastaven import fotek do vašeho domovského adresáře.\n"
+"Doporučujeme nastavit jiný adresář v <span weight=\"bold\">Upravit nastavení "
+"%s</span>.\n"
+"Chcete pokračovat s importem fotek?"
 
 #: src/library/LibraryWindow.vala:733
 msgid "_Import"
@@ -3015,11 +2980,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "O aplikaci"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -3096,17 +3061,17 @@ msgid "Unable to publish"
 msgstr "Nepodařilo se publikovat"
 
 #: src/publishing/PublishingUI.vala:397
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell nemůže publikovat vybrané položky, protože nemáte povolen "
-"kompatibilní publikační plugin. Chcete-li tento problém odstranit, "
-"zvolte<b>Upravit %s předvolby</b> a pak kartu <b> Pluginy </ b>pro výběr "
-"jedenoho, nebo více  publikačních pluginů."
+"Fotky nemohou publikovat vybrané položky, protože nemáte povolen "
+"kompatibilní publikační plugin. Chcete-li tento problém odstranit, zvolte <b>"
+"Upravit nastavení %s</b> a povolte jeden, nebo více publikačních pluginů v "
+"kartě <b>Pluginy</b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -3117,9 +3082,8 @@ msgid "Smart Albums"
 msgstr "Chytrá alba"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "O_dstranit"
+msgstr "_Odstranit pravidlo"
 
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
@@ -3238,7 +3202,7 @@ msgstr "z následujících:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "Přidat pravidlo"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3406,9 +3370,8 @@ msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemohou být exportovány do této složky."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "Efekt _přechodu:"
+msgstr "Efekt přechodu"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
