@@ -14,17 +14,18 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2017-04-18 21:28+0000\n"
+"PO-Revision-Date: 2018-06-30 10:48+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://l10n.elementary.io/projects/photos/photos/"
-"lt/>\n"
+"Language-Team: Lithuanian <https://weblate.elementary.io/projects/photos/"
+"photos/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:08+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -84,15 +85,15 @@ msgid "_Cancel"
 msgstr "_Atsisakyti"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Gaunant prieigą prie Shotwell bibliotekos įvyko lemtingoji klaida. Shotwell "
-"nebegali tęsti darbo.\n"
+"Gaunant prieigą prie Nuotraukų bibliotekos įvyko lemtingoji klaida.  "
+"Nuotraukos nebegali tęsti darbo.\n"
 "\n"
 "%s"
 
@@ -200,7 +201,7 @@ msgstr "Rodyti šios nuotraukos į_vykį"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Kiti veiksmai"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -382,14 +383,12 @@ msgid "Restore Photos from Trash"
 msgstr "Atkurti nuotraukas iš šiukšlinės"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Perkelti nuotraukas į Shotwell šiukšlinę"
+msgstr "Perkelti nuotraukas į Nuotraukų šiukšlinę"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Atkurti nuotraukas atgal į Shotwell biblioteką"
+msgstr "Atkurti nuotraukas atgal į Nuotraukų biblioteką"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -451,9 +450,8 @@ msgid "Rotate"
 msgstr "Pasukti"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Mastelis _100%"
+msgstr "Mastelis 1:1"
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -565,7 +563,7 @@ msgid "Zoom _100%"
 msgstr "Mastelis _100%"
 
 #: src/LibraryPhotoPage.vala:235
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Keisti nuotraukos mastelį į 100% padidinimo"
 
@@ -575,7 +573,7 @@ msgid "Zoom _200%"
 msgstr "Mastelis_200%"
 
 #: src/LibraryPhotoPage.vala:241
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 200% magnification"
 msgstr "Keisti nuotraukos mastelį į 200% padidinimo"
 
@@ -593,52 +591,50 @@ msgid "Unable to export %s: %s"
 msgstr "Nepavyko eksportuoti %s: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Jūsų nuotraukų biblioteka nesuderinama su šia Shotwell versija. Atrodo, kad "
-"ji buvo sukurta su Shotwell %s (schema %d). Ši versija yra %s (schema %d). "
-"Prašome naudoti naujausią Shotwell versiją."
+"Jūsų nuotraukų biblioteka nesuderinama su šia Nuotraukų versija.  Atrodo, "
+"kad ji buvo sukurta, naudojant Nuotraukas %s (schema %d).  Ši versija yra %s "
+"(schema %d). Prašome naudoti naujausią Nuotraukų versiją."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell nepavyko naujinti jūsų nuotraukų bibliotekos iš versijos %s (schema "
-"%d) į %s (schema %d). Daugiau informacijos ieškokite Shotwell vikyje, adresu "
-"%s"
+"Nuotraukoms nepavyko naujinti jūsų nuotraukų bibliotekos iš versijos %s ("
+"schema %d) į %s (schema %d).  Daugiau informacijos ieškokite Nuotraukų "
+"vikyje, adresu %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Jūsų nuotraukų biblioteka yra nesuderinama su šia Shotwell versija. Atrodo, "
-"kad ji buvo sukurta su Shotwell %s (schema %d). Ši versija yra %s (schema "
-"%d). Prašome išvalyti savo biblioteką ištrinant %s ir importuoti nuotraukas "
-"iš naujo."
+"Jūsų nuotraukų biblioteka yra nesuderinama su šia Nuotraukų versija.  "
+"Atrodo, kad ji buvo sukurta, naudojant Nuotraukas %s (schema %d).  Ši "
+"versija yra %s (schema %d). Prašome išvalyti savo biblioteką, ištrinant %s "
+"ir importuoti nuotraukas iš naujo."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Nežinoma klaida bandant patikrinti Shotwell duomenų bazę: %s"
+msgstr "Nežinoma klaida bandant patikrinti Nuotraukų duomenų bazę: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Įkeliama Shotwell"
+msgstr "Įkeliamos Nuotraukos"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Kelias į programos Shotwell privačius duomenis"
+msgstr "Kelias į programos Nuotraukos privačius duomenis"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -658,7 +654,7 @@ msgstr "Rodyti programos versiją"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Rodyti papildomą derinimo išvestį"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -775,12 +771,12 @@ msgid "Sort photos in a descending order"
 msgstr "Rikiuoti nuotraukas mažėjimo tvarka"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"„Shotwell“ negali atkurti pasirinkto vaizdo įrašo:\n"
+"Nuotraukos negali atkurti pasirinkto vaizdo įrašo:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1086,14 +1082,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "Nustatyti pasirinktą paveikslą naujuoju darbalaukio fonu"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Nustatyti kaip darbalaukio skaidrių rodymą"
+msgstr "Nustatyti kaip _darbalaukio skaidrių rodymą…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Pervadinti įvykį"
+msgstr "Pervadi_nti įvykį…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1168,9 +1162,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Sukurti nuotraukos kopiją"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "_Eksportuoti"
+msgstr "_Eksportuoti…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1189,14 +1182,12 @@ msgid "Hide info panel"
 msgstr "Slėpti informacinį skydelį"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "S_pausdinti..."
+msgstr "S_pausdinti…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Publikuoti"
+msgstr "Pu_blikuoti…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1208,50 +1199,44 @@ msgid "Publish to various websites"
 msgstr "Publikuoti į įvairias svetaines"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Taisyti pavadinimą"
+msgstr "_Taisyti pavadinimą…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "Taisyti pavadinimą"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Taisyti komentarą"
+msgstr "Taisyti _komentarą…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "Taisyti komentarą"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Taisyti įvykio komentarą"
+msgstr "Taisyti įvykio _komentarą…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "Taisyti įvykio komentarą"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Taisyti datą ir laiką"
+msgstr "Taisyti d_atą ir laiką…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "Taisyti datą ir laiką"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Pridėti žymes"
+msgstr "Pridė_ti žymes…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Pridėti žymes"
+msgstr "P_ridėti žymes…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1267,16 +1252,15 @@ msgstr "Atverti RA_W redaktoriuje"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "_Kur atverti"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "Atverti nuotrauką, naudojant išorinį redaktorių"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Atverti RA_W redaktoriuje"
+msgstr "A_tverti naudojant RAW redaktorių…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1287,19 +1271,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Atverti naudojant išorinį neapdorotų nuotraukų redaktorių"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "_Siųsti į..."
+msgstr "Siųs_ti į…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "Siųst_i į..."
+msgstr "Siųst_i į…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "_Rasti"
+msgstr "_Rasti…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1356,9 +1337,9 @@ msgid "_New"
 msgstr "_Nauja"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Per_vadinti žymę „%s“..."
+msgstr "Per_vadinti žymę „%s“…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1366,14 +1347,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Pervadinti žymę „%s“ į „%s“"
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "Pe_rvadinti..."
+msgstr "Pe_rvadinti…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Modifikuoti žymes"
+msgstr "Modi_fikuoti žymes…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1438,14 +1417,12 @@ msgid "Delete Album"
 msgstr "Ištrinti albumą"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Taisa"
+msgstr "_Taisa…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "Pervadi_nti..."
+msgstr "Pervadi_nti…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1478,9 +1455,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Perkelti pasirinktas nuotraukas atgal į biblioteką"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Rodyti failų _tvarkytuvėje"
+msgstr "Failų _tvarkytuvė"
 
 #: src/Resources.vala:382
 #, c-format
@@ -1556,23 +1532,20 @@ msgid "Go to the next photo"
 msgstr "Pereiti prie kitos nuotraukos"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Rodyti _pavadinimą"
+msgstr "Rodyti nuotraukų pavadinimus"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "_Perėjimo efektas:"
+msgstr "Perėjimo greitis"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "Greičiau"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "ir žemesnis"
+msgstr "Lėčiau"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1633,13 +1606,12 @@ msgid "Import all the photos into your library"
 msgstr "Importuoti visas nuotraukas į jūsų biblioteką"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Norint suteikti Shotwell prieigą prie fotoaparato, reikia atjungti "
-"fotoaparatą nuo failų sistemos. Tęsti?"
+"Norint suteikti Nuotraukoms prieigą prie fotoaparato, reikia atjungti "
+"fotoaparatą nuo failų sistemos.  Tęsti?"
 
 #: src/camera/ImportPage.vala:1106
 msgid "_Unmount"
@@ -1650,15 +1622,14 @@ msgid "Please unmount the camera."
 msgstr "Prašome atjungti fotoaparatą."
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Kita programa užblokavo fotoaparatą. Shotwell gali gauti prieigą prie "
-"fotoaparato tik tada, kai jis neužblokuotas. Užverkite visas kitas "
-"programas, naudojančias fotoaparatą, ir bandykite dar kartą."
+"Kita programa užrakino fotoaparatą.  Nuotrakos gali gauti prieigą prie "
+"fotoaparato tik tada, kai jis neužblokuotas.  Užverkite visas kitas "
+"programas, naudojančias fotoaparatą ir bandykite dar kartą."
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1863,7 +1834,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Tai pašalins išmanųjį albumą \"%s\".  Tęsti?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1871,13 +1841,13 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Ryškalo pakeitimas atšauks visus programoje Shotwell šiai nuotraukai "
+"Ryškalo pakeitimas atšauks visus programoje Nuotraukos šiai nuotraukai "
 "atliktus pakeitimus"
 msgstr[1] ""
-"Ryškalo pakeitimas atšauks visus programoje Shotwell šioms nuotraukoms "
+"Ryškalo pakeitimas atšauks visus programoje Nuotraukos šioms nuotraukoms "
 "atliktus pakeitimus"
 msgstr[2] ""
-"Ryškalo pakeitimas atšauks visus programoje Shotwell šioms nuotraukoms "
+"Ryškalo pakeitimas atšauks visus programoje Nuotraukos šioms nuotraukoms "
 "atliktus pakeitimus"
 
 #: src/Dialogs/Dialogs.vala:52
@@ -1898,12 +1868,12 @@ msgid "_Select"
 msgstr "_Pasirinkti"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell nepavyko sukurti šios nuotraukos redagavimui skirto failo, kadangi "
+"Nuotraukoms nepavyko sukurti šios nuotraukos redagavimui skirto failo, nes "
 "jūs neturite leidimų rašyti į %s."
 
 #: src/Dialogs/Dialogs.vala:137
@@ -1987,22 +1957,20 @@ msgstr ""
 "įrašai:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
 "Nuotraukos/vaizdo įrašai nebuvo importuoti, nes jie nėra tokio formato, kurį "
-"Shotwell supranta:"
+"programa Nuotraukos supranta:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Nuotraukos/vaizdo įrašai nebuvo importuoti, nes Shotwell nepavyko juos "
-"nukopijuoti į savo biblioteką:"
+"Nuotraukos/vaizdo įrašai nebuvo importuoti, nes programai Nuotraukos "
+"nepavyko juos nukopijuoti į savo biblioteką:"
 
 #: src/Dialogs/Dialogs.vala:305
 #, c-format
@@ -2412,13 +2380,12 @@ msgstr[2] ""
 "Ir %d kitų."
 
 #: src/Dialogs/Dialogs.vala:876
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell gali nukopijuoti nuotraukas į jūsų nuotraukų bibliotekos aplanką "
-"arba gali jas importuoti nekopijuojant."
+"Programa Nuotraukos gali nukopijuoti nuotraukas į jūsų nuotraukų bibliotekos "
+"aplanką arba gali jas importuoti nekopijuojant."
 
 #: src/Dialogs/Dialogs.vala:881
 msgid "Co_py Photos"
@@ -2465,9 +2432,8 @@ msgid "_Scaling constraint:"
 msgstr "_Mastelio keitimo apribojimas:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pikselių"
+msgstr "_pikselių"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2784,9 +2750,8 @@ msgid "No Event"
 msgstr "Jokio įvykio"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Sujungti įvykius"
+msgstr "Sujungti įvykius"
 
 #: src/events/EventsDirectoryPage.vala:228
 msgid "Display the comment of each event"
@@ -2875,17 +2840,17 @@ msgid "Import"
 msgstr "Importuoti"
 
 #: src/library/LibraryWindow.vala:730
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell yra sukonfigūruota taip, kad importuotų nuotraukas į jūsų namų "
-"katalogą.\n"
-"Rekomenduojame tai pakeisti <span weight=\"bold\">pataisius %s nuostatas</"
-"span>.\n"
+"Programa Nuotraukos yra sukonfigūruota taip, kad importuotų nuotraukas į "
+"jūsų namų katalogą.\n"
+"Rekomenduojame tai pakeisti <span weight=\"bold\">pataisius %s "
+"nuostatas</span>.\n"
 "Ar norite tęsti nuotraukų importavimą?"
 
 #: src/library/LibraryWindow.vala:733
@@ -3043,11 +3008,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -3126,17 +3091,17 @@ msgid "Unable to publish"
 msgstr "Nepavyksta publikuoti"
 
 #: src/publishing/PublishingUI.vala:397
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell negali publikuoti pasirinktų elementų, kadangi jūs neturite įjungto "
-"suderinamo įskiepio. Tam, kad tai ištaisytumėte, <b>Įskiepių</b> kortelėje "
-"pasirinkite <b>Taisyti %s nuostatas</b> ir įjunkite vieną ar daugiau "
-"publikavimo įskiepių."
+"Nuotraukos negali publikuoti pasirinktų elementų, nes jūs neturite įjungto "
+"suderinamo publikavimo įskiepio. Tam, kad tai ištaisytumėte, pasirinkite <b>"
+"Taisyti %s nuostatas</b> ir <b>Įskiepių</b> kortelėje įjunkite vieną ar "
+"daugiau publikavimo įskiepių."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -3147,9 +3112,8 @@ msgid "Smart Albums"
 msgstr "Išmanieji albumai"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "Ša_linti"
+msgstr "Šalinti taisyklę"
 
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
@@ -3268,7 +3232,7 @@ msgstr "šiuos kriterijus:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "Pridėti taisyklę"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3436,9 +3400,8 @@ msgid "Photos cannot be exported to this directory."
 msgstr "Nuotraukos negali būti eksportuotos į šį aplanką."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Perėjimo efektas:"
+msgstr "Perėjimo efektas"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
