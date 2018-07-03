@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2018-01-18 00:02+0000\n"
+"PO-Revision-Date: 2018-07-03 00:06+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/photos/photos/"
 "fi/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-17 06:02+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -203,7 +203,7 @@ msgstr "Näytä kuvan _tapahtuma"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Muut toiminnot"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -382,14 +382,12 @@ msgid "Restore Photos from Trash"
 msgstr "Palauta kuvat roskakorista"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Siirrä kuvat Shotwellin roskakoriin"
+msgstr "Siirrä kuvat kuvasovelluksen roskakoriin"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Palauta kuvat takaisin Shotwellin kirjastoon"
+msgstr "Palauta kuvat takaisin kuvasovelluksen kirjastoon"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -451,9 +449,8 @@ msgid "Rotate"
 msgstr "Kierrä"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Zoomaus _100%"
+msgstr "Zoomaus 1:1"
 
 #: src/EditingHostPage.vala:160
 msgid "Previous photo"
@@ -593,15 +590,15 @@ msgid "Unable to export %s: %s"
 msgstr "Tiedostoa %s ei voitu viedä: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Kuvakirjasto ei ole yhteensopiva tämän Shotwell-version kanssa. Kirjasto "
-"luotiin ilmeisesti Shotwellin versiolla %s (skeema %d). Tämä versio on %s "
-"(skeema %d). Käytä Shotwellin uusinta versiota."
+"Kuvakirjasto ei ole yhteensopiva tämän kuvasovelluksen version kanssa. "
+"Kirjasto luotiin ilmeisesti kuvasovelluksen versiolla %s (skeema %d). Tämä "
+"versio on %s (skeema %d). Käytä kuvasovelluksen uusinta versiota."
 
 #: src/main.vala:73
 #, fuzzy, c-format
@@ -625,14 +622,13 @@ msgstr ""
 "uudelleen."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Tuntematon virhe varmistettaessa Shotwellin tietokantaa: %s"
+msgstr "Tuntematon virhe varmistettaessa kuvasovelluksen tietokantaa: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Ladataan Shotwelliä"
+msgstr "Ladataan kuvasovellusta"
 
 #: src/main.vala:280
 msgid "Path to Photos' private data"
@@ -774,12 +770,12 @@ msgid "Sort photos in a descending order"
 msgstr "Järjestä kuvat laskevaan järjestykseen"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell ei voinut soittaa valittua videota:\n"
+"Kuvasovellus ei voinut toistaa valittua videota:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1082,14 +1078,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "Aseta valittu kuva uudeksi työpöydän taustakuvaksi"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Aseta työpöydän diaesitykseksi"
+msgstr "Aseta ty_öpöydän diaesitykseksi…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Nimeä tapahtuma uudelleen"
+msgstr "Nimeä tapahtuma uudelleen…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1164,9 +1158,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Tee tästä valokuvasta kopio"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "_Vie"
+msgstr "_Vie…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1185,14 +1178,12 @@ msgid "Hide info panel"
 msgstr "Piilota tietopaneeli"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "_Tulosta..."
+msgstr "_Tulosta…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Julkaise"
+msgstr "J_ulkaise…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1204,50 +1195,44 @@ msgid "Publish to various websites"
 msgstr "Julkaise eri verkkosivuille"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Muokkaa nimeä"
+msgstr "Muokkaa nime_ä…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "Muokkaa nimeä"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Muokkaa kommenttia"
+msgstr "_Muokkaa kommenttia…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "Muokkaa kommenttia"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Muokkaa tapahtuman kommenttia"
+msgstr "Muokkaa ta_pahtuman kommenttia…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "Muokkaa tapahtuman kommenttia"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Muuta päiväystä ja kellonaikaa..."
+msgstr "Muuta päi_väystä ja kellonaikaa…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "Muuta päiväystä ja kellonaikaa..."
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Lisää tunnisteita"
+msgstr "Lisää tu_nnisteita…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Lisää tunnisteita"
+msgstr "Li_sää tunnisteita…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1263,16 +1248,15 @@ msgstr "Avaa _RAW-muokkaimessa"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "_Avaa sovelluksella"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "Avaa kuva ulkoisella muokkaimella"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Avaa _RAW-muokkaimessa"
+msgstr "Avaa _RAW-muokkaimessa…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1283,19 +1267,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Avaa kuva erillisellä RAW-muokkaimella"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "Lähetä _kohteeseen..."
+msgstr "Lähetä _kohteeseen…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "L_ähetä..."
+msgstr "L_ähetä…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "_Etsi"
+msgstr "_Etsi…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1353,9 +1334,9 @@ msgid "_New"
 msgstr "_Uusi"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "_Nimeä tunniste ”%s” uudelleen..."
+msgstr "_Nimeä tunniste ”%s” uudelleen…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1363,14 +1344,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Nimeä tunniste ”%s” uudelleen nimelle ”%s”"
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "Ni_meä uudelleen..."
+msgstr "Ni_meä uudelleen…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Muokkaa tunnisteita"
+msgstr "Muo_kkaa tunnisteita…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1439,14 +1418,12 @@ msgid "Delete Album"
 msgstr "Poista albumi"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Muokkaa"
+msgstr "_Muokkaa…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "_Nimeä uudelleen..."
+msgstr "_Nimeä uudelleen…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1479,9 +1456,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Siirrä valitut kuvat takaisin kirjastoon"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Avaa _tiedostonhallintaohjelmalla"
+msgstr "Tie_dostonhallinta"
 
 #: src/Resources.vala:382
 #, c-format
@@ -1562,18 +1538,16 @@ msgid "Show Photo Titles"
 msgstr "N_äytä nimi"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "_Siirtymän tehoste:"
+msgstr "Siirtymän nopeus"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "Nopeampi"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "ja alempi"
+msgstr "Hitaampi"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1635,13 +1609,12 @@ msgid "Import all the photos into your library"
 msgstr "Tuo kaikki kuvat kirjastoon"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwellin on irrotettava kamera tiedostojärjestelmästä, jotta sitä voidaan "
-"käyttää. Jatketaanko?"
+"Kuvasovelluksen on irrotettava kamera tiedostojärjestelmästä, jotta sitä "
+"voidaan käyttää. Jatketaanko?"
 
 #: src/camera/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2692,9 +2665,8 @@ msgid "No Event"
 msgstr "Ei tapahtumaa"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Yhdistä tapahtumat"
+msgstr "Yhdistä tapahtumat"
 
 #: src/events/EventsDirectoryPage.vala:228
 msgid "Display the comment of each event"
@@ -2945,11 +2917,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Tietoja"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -3045,9 +3017,8 @@ msgid "Smart Albums"
 msgstr "Älykkäät albumit"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Poista"
+msgstr "Poista sääntö"
 
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
@@ -3166,7 +3137,7 @@ msgstr "seuraavista:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "Lisää sääntö"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3332,9 +3303,8 @@ msgid "Photos cannot be exported to this directory."
 msgstr "Tähän hakemistoon ei voi viedä kuvia."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Siirtymän tehoste:"
+msgstr "Siirtymän tehoste"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
