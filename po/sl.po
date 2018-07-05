@@ -16,17 +16,17 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 08:42-0700\n"
-"PO-Revision-Date: 2017-07-01 13:28+0000\n"
+"PO-Revision-Date: 2018-07-06 00:08+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/photos/photos/"
-"sl/>\n"
+"Language-Team: Slovenian <https://weblate.elementary.io/projects/photos/"
+"photos/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.14\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:11+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -86,15 +86,15 @@ msgid "_Cancel"
 msgstr "_Prekliči"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Med dostopanjem do knjižnice Shotwell je prišlo do napake. Shotwell ne more "
-"nadaljevati.\n"
+"Med dostopanjem do knjižnice slik je prišlo do napake.  Aplikacija ne more "
+"nadaljevati z delom.\n"
 "\n"
 "%s"
 
@@ -202,7 +202,7 @@ msgstr "Oglej si dogo_dek za fotografijo"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Druge možnosti"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -391,14 +391,12 @@ msgid "Restore Photos from Trash"
 msgstr "Obnovi fotografije iz smeti"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Premakni fotografije v smeti Shotwell"
+msgstr "Premakni fotografije v smeti"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Obnovi fotografije nazaj v knjižnico Shotwell"
+msgstr "Obnovi fotografije v knjižnico"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -460,7 +458,6 @@ msgid "Rotate"
 msgstr "Zavrti"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
 msgstr "Povečava _100%"
 
@@ -574,7 +571,7 @@ msgid "Zoom _100%"
 msgstr "Povečava _100%"
 
 #: src/LibraryPhotoPage.vala:235
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 100% magnification"
 msgstr "Približa fotografijo na 100% velikost"
 
@@ -584,9 +581,9 @@ msgid "Zoom _200%"
 msgstr "Povečava _200%"
 
 #: src/LibraryPhotoPage.vala:241
-#, fuzzy, c-format
+#, c-format
 msgid "Zoom the photo to 200% magnification"
-msgstr "Približa fotogravijo na 200% velikost"
+msgstr "Približa fotografijo na 200% velikost"
 
 #: src/LibraryPhotoPage.vala:811 src/Dialogs/Dialogs.vala:893
 msgid "Remove From Library"
@@ -602,54 +599,50 @@ msgid "Unable to export %s: %s"
 msgstr "%s ni mogoče izvoziti: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Vaša knjižnica fotografij ni združljiva s to različico programa Shotwell.  "
+"Vaša knjižnica fotografij ni združljiva s to različico programa Fotogracije. "
 "Videti je, da je bila ustvarjena z različico %s (shema %d), uporabljate pa "
-"različico %s (shema %d). Uporabite zadnjo različico Shotwell."
+"različico %s (shema %d). Prosimo posodobite aplikacijo Fotografije."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"S programom Shotwell ni bilo mogoče nadgraditi vaše knjižnice fotografij iz "
-"različice %s (shema %d) na %s (shema %d). Za več podrobnosti preverite wiki "
-"Shotwell na %s"
+"Ni bilo mogoče nadgraditi vaše knjižnice fotografij iz različice %s (shema "
+"%d) na %s (shema %d). Za več podrobnosti preverite wiki Fotografij na %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Vaša knjižnica fotografij ni združljiva s to različico programa Shotwell. "
-"Videti je, da je bila ustvarjena z različico %s (shema %d), uporabljate pa "
-"različico %s (shema %d). Počistite svojo knjižnico z izbrisom %s in ponovnim "
-"uvozom svojih fotografij."
+"Vaša knjižnica fotografij ni združljiva s to različico aplikacije "
+"Fotografije. Videti je, da je bila ustvarjena z različico %s (shema %d), "
+"uporabljate pa različico %s (shema %d). Počistite svojo knjižnico z izbrisom "
+"%s in ponovnim uvozom svojih fotografij."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
 msgstr ""
-"Med poskusom preverjanja podatkovne zbirke Shotwell je prišlo do neznane "
-"napake: %s"
+"Med poskusom preverjanja podatkovne baze je prišlo do neznane napake: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Nalaganje programa"
+msgstr "Nalaganje fotografij"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Pot do Shotwell-ovih zasebnih podatkov"
+msgstr "Pot do mape z zasebnimi podatki aplikacije"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -669,7 +662,7 @@ msgstr "Prikaži različico aplikacije"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Prikaži dodatna sporočila za razhroščevanje"
 
 #: src/main.vala:310
 msgid "[FILE]"
@@ -784,12 +777,12 @@ msgid "Sort photos in a descending order"
 msgstr "Razvrsti fotografije v padajočem vrstnem redu"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell ni mogel predvajati izbranega videoposnetka:\n"
+"Ni bilo mogoče predvajati izbranega videoposnetka:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1092,14 +1085,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "Nastavi izbrano sliko za novo ozadje namizja"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Nastavi kot diapredstavitev namizja"
+msgstr "Nastavi kot diaprojekcijo na namizju…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Preimenuj dogodek"
+msgstr "Preimenuj dogodek…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1174,9 +1165,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Ustvari dvojnik fotografije"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "_Izvozi"
+msgstr "_Izvozi…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1195,14 +1185,12 @@ msgid "Hide info panel"
 msgstr "Skrij informacije"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "Na_tisni ..."
+msgstr "Na_tisni…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Objavi"
+msgstr "Objavi…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1214,50 +1202,44 @@ msgid "Publish to various websites"
 msgstr "Objavi na različnih spletnih straneh"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Uredi naslov"
+msgstr "Uredi naslov…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "Uredi naslov"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Uredi komentar"
+msgstr "Uredi komentar…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "Uredi komentar"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Uredi opombo dogodka"
+msgstr "Uredi opombo dogodka…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "Uredi opombo dogodka"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Prilagodi datum in čas"
+msgstr "Prilagodi datum in čas…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "Prilagodi datum in čas"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Dodajanje oznak"
+msgstr "Dodaj oznake…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Dodajanje oznak"
+msgstr "Dodaj oznake…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1273,16 +1255,15 @@ msgstr "Odpri z urejevalnikom R_AW"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "_Odpri v"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "Odpri sliko z zunanjim urejevalnikom"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Odpri z urejevalnikom R_AW"
+msgstr "Odpri z urejevalnikom R_AW…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1293,19 +1274,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Odpri sliko z zunanjim RAW urejevalnikom"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "Pošlji _na ..."
+msgstr "Pošlji _na…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "_Pošlji..."
+msgstr "_Pošlji…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "_Poišči"
+msgstr "_Poišči…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1363,9 +1341,9 @@ msgid "_New"
 msgstr "_Novo"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Preime_nuj oznako \"%s\" ..."
+msgstr "Preime_nuj oznako \"%s\"…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1373,14 +1351,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Preimenuj oznako \"%s\" v \"%s\""
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "P_reimenuj ..."
+msgstr "P_reimenuj…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Spremeni oznake"
+msgstr "Spremeni oznake…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1445,14 +1421,12 @@ msgid "Delete Album"
 msgstr "Izbriši album"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Uredi"
+msgstr "_Uredi…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "Preime_nuj ..."
+msgstr "Preime_nuj…"
 
 #: src/Resources.vala:336
 #, c-format
@@ -1485,7 +1459,6 @@ msgid "Move the selected photos back into the library"
 msgstr "Premakne izbrane fotografije nazaj v knjižnico"
 
 #: src/Resources.vala:379
-#, fuzzy
 msgid "File Mana_ger"
 msgstr "Pokaži v upravljalniku da_totek"
 
@@ -1563,23 +1536,20 @@ msgid "Go to the next photo"
 msgstr "Skoči na naslednjo fotografijo"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Pokaži _naslov"
+msgstr "Pokaži _naslove"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Učinek _prehoda:"
+msgstr "Hitrost _prehoda"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "Hitreje"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "in nižja"
+msgstr "Počasneje"
 
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
@@ -1641,7 +1611,6 @@ msgid "Import all the photos into your library"
 msgstr "Uvozi vse fotografije v vašo knjižnico"
 
 #: src/camera/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
@@ -1658,15 +1627,14 @@ msgid "Please unmount the camera."
 msgstr "Odklopite fotoaparat."
 
 #: src/camera/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Fotoaparat je zaklenil drug program. Shotwell lahko do fotoaparata dostopa "
+"Fotoaparat je zaklenil drug program. Aplikacija lahko do fotoaparata dostopa "
 "le, ko je odklenjen. Zaprite druge programe, ki uporabljajo fotoaparat in "
-"poskusite ponovno."
+"poskusite znova."
 
 #: src/camera/ImportPage.vala:1126
 msgid "Please close any other application using the camera."
@@ -1868,17 +1836,14 @@ msgstr[2] "sekunda"
 msgstr[3] "sekundi"
 
 #: src/Dialogs/Dialogs.vala:29
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo.  Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
-msgstr[0] ""
-"Odstranjena bo oznaka \"%s\" iz fotografije. Ali želite nadaljevati?"
+msgstr[0] "Odstranjena bo oznaka \"%s\" iz fotografije. Ali želite nadaljevati?"
 msgstr[1] ""
 "Odstranjena bo oznaka \"%s\" iz dveh fotografij. Ali želite nadaljevati?"
-msgstr[2] ""
-"Odstranjena bo oznaka \"%s\" iz %d fotografij. Ali želite nadaljevati?"
-msgstr[3] ""
-"Odstranjena bo oznaka \"%s\" iz %d fotografij. Ali želite nadaljevati?"
+msgstr[2] "Odstranjena bo oznaka \"%s\" iz %d fotografij. Ali želite nadaljevati?"
+msgstr[3] "Odstranjena bo oznaka \"%s\" iz %d fotografij. Ali želite nadaljevati?"
 
 #: src/Dialogs/Dialogs.vala:38
 #, c-format
@@ -1886,7 +1851,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "To bo odstranilo pametni album \"%s\". Nadaljujem?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1894,17 +1858,17 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih na teh slikah "
-"naredili v Shotwellu"
+"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih naredili na "
+"tej sliki"
 msgstr[1] ""
-"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih na tej sliki "
-"naredili v Shotwellu"
+"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih naredili na "
+"teh slikah"
 msgstr[2] ""
-"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih na teh slikah "
-"naredili v Shotwellu"
+"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih naredili na "
+"teh slikah"
 msgstr[3] ""
-"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih na teh slikah "
-"naredili v Shotwellu"
+"Zamenjava razvijalca bo razveljavila vse spremebe, ki ste jih naredili na "
+"teh slikah"
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1924,13 +1888,13 @@ msgid "_Select"
 msgstr "_Izberi"
 
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell ne more ustvariti datoteke za urejanje te fotografije, ker nimate "
-"dovoljenj za pisanje v %s."
+"Aplikacija Fotografije ne more ustvariti datoteke za urejanje te "
+"fotografije, ker nimate dovoljenj za pisanje v %s."
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -2015,22 +1979,20 @@ msgstr ""
 "videoposnetki:"
 
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
 "Fotografije/videoposnetki niso bili uvoženi, ker niso bili v zapisu, ki ga "
-"Shotwell razume:"
+"ta aplikacija razume:"
 
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Fotografije/videoposnetki niso bili uvoženi, ker jih Shotwell ni mogel "
-"kopirati v svojo knjižnico:"
+"Fotografije/videoposnetki niso bili uvoženi, ker jih ni bilo mogoče "
+"skopirati v knjižnico:"
 
 #: src/Dialogs/Dialogs.vala:305
 #, c-format
@@ -2090,12 +2052,12 @@ msgstr[3] ""
 "Uvoz %d fotografij je spodletel zaradi napake datoteke ali strojne opreme:\n"
 
 #: src/Dialogs/Dialogs.vala:375
-#, fuzzy, c-format
+#, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
 msgstr[0] ""
-"Uvoz videoposnetka je spodletel zaradi napake v datoteke ali strojni "
-"opremi:\n"
+"Uvoz videoposnetka je spodletel zaradi napake v datoteke ali strojni opremi:"
+"\n"
 msgstr[1] ""
 "Uvoz dveh videoposnetkov je spodletel zaradi napake v datotekah ali strojni "
 "opremi:\n"
@@ -2107,7 +2069,7 @@ msgstr[3] ""
 "opremi:\n"
 
 #: src/Dialogs/Dialogs.vala:378
-#, fuzzy, c-format
+#, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
 "%d photos/videos failed to import due to a file or hardware error:\n"
