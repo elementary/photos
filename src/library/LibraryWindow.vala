@@ -169,7 +169,6 @@ public class LibraryWindow : AppWindow {
         // setup search bar and add its accelerators to the window
         search_entry = new SearchFilterEntry ();
         search_entry.valign = Gtk.Align.CENTER;
-        search_entry.activate.connect (() => {get_current_page ().grab_focus (); });
 
         header.pack_end (search_entry);
 
@@ -1185,10 +1184,6 @@ public class LibraryWindow : AppWindow {
         }
 
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
-
-        if (get_current_page () != null) {
-            get_current_page ().grab_focus ();
-        }
     }
 
     private void on_page_created (Sidebar.PageRepresentative entry, Page page) {
