@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 00:00+0100\n"
+"POT-Creation-Date: 2018-07-27 00:02+0100\n"
 "PO-Revision-Date: 2018-07-20 00:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/photos/"
@@ -44,6 +44,7 @@ msgstr "キャッシュディレクトリ %s を作成できません: %s"
 msgid "Unable to create data directory %s: %s"
 msgstr "データディレクトリ %s を作成できません: %s"
 
+#. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
 msgstr "画像"
@@ -440,11 +441,13 @@ msgstr "幅"
 msgid "Height"
 msgstr "高さ"
 
+#. verify this is a directory
 #: src/DirectoryMonitor.vala:902
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "%s をモニタできません: ディレクトリではありません (%s)"
 
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #: src/EditingHostPage.vala:103 src/Resources.vala:118 src/Resources.vala:123
 msgid "Rotate"
 msgstr "回転"
@@ -466,6 +469,7 @@ msgstr "次の写真"
 msgid "Photo source file missing: %s"
 msgstr "元の写真ファイルが見つかりません: %s"
 
+#. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
 msgid "Event %s"
@@ -657,6 +661,7 @@ msgstr "アプリケーションのバージョンを表示"
 msgid "Show extra debugging output"
 msgstr "追加のデバッグ出力を表示"
 
+#. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
 msgid "[FILE]"
 msgstr "[FILE]"
@@ -697,6 +702,7 @@ msgstr "タグ(_G)"
 msgid "Sort _Photos"
 msgstr "写真を並べ替え(_P)"
 
+#. Sort criteria.
 #: src/MediaPage.vala:98 src/MediaPage.vala:299
 msgid "By _Title"
 msgstr "タイトルで並べ替え(_T)"
@@ -733,6 +739,7 @@ msgstr "サムネイルの倍率を上げます"
 msgid "Decrease the magnification of the thumbnails"
 msgstr "サムネイルの倍率を下げます"
 
+#. RAW developers.
 #: src/MediaPage.vala:254
 msgid "Shotwell"
 msgstr "Shotwell"
@@ -903,6 +910,7 @@ msgstr "フォトビューワー"
 msgid "Photo Manager"
 msgstr "フォトマネージャー"
 
+#. TRANSLATORS: Don't forget to add the line break: \n
 #: src/Resources.vala:34
 msgid ""
 "2009-2014 Yorba Foundation\n"
@@ -1477,22 +1485,40 @@ msgstr "すべて選択(_A)"
 msgid "Select all items"
 msgstr "すべてのアイテムを選択します"
 
+#. ...precache the timestamp string...
+#. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:429
 msgid "%-I:%M %p"
 msgstr "%p %-I:%M"
 
+#. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:434
 msgid "%-I:%M:%S %p"
 msgstr "%p %-I:%M:%S"
 
+#. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:438
 msgid "%a %b %d, %Y"
 msgstr "%Y年%m月%d日 (%a)"
 
+#. / Locale-specific starting date format for multi-date strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
+#. / Locale-specific calendar date format for multi-month strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:443 src/Resources.vala:453
 msgid "%a %b %d"
 msgstr "%m月%d日 (%a)"
 
+#. / Locale-specific ending date format for multi-date strings,
+#. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:448
 msgid "%d, %Y"
 msgstr "%d, %Y"
@@ -1545,6 +1571,7 @@ msgstr "速い"
 msgid "Slower"
 msgstr "遅い"
 
+#. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
 msgstr "元の写真すべてが見つかりません。"
@@ -1557,6 +1584,7 @@ msgstr "スライドショーの続行"
 msgid "untitled"
 msgstr "名称未設定"
 
+#. multiple videos
 #: src/VideoSupport.vala:512
 msgid "Export Videos"
 msgstr "動画のエクスポート"
@@ -1592,6 +1620,10 @@ msgstr "選択されたものをインポート(_S)"
 msgid "Import _All"
 msgstr "すべてインポート(_A)"
 
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:941
 msgid "Starting import, please wait..."
 msgstr "インポートを開始しますのでお待ちください..."
@@ -1604,6 +1636,7 @@ msgstr "選択した写真をライブラリにインポートします"
 msgid "Import all the photos into your library"
 msgstr "すべての写真をライブラリにインポートします"
 
+#. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1100
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
@@ -1836,6 +1869,11 @@ msgstr "保存(_S)"
 msgid "_Select"
 msgstr "選択(_S)"
 
+#. Ticket #3023
+#. Attempt to replace the system error with something friendlier
+#. if we can't copy an image over for editing in an external tool.
+#. Did we fail because we can't write to this directory?
+#. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
 #, c-format
 msgid ""
@@ -1897,6 +1935,9 @@ msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
 msgstr[0] "以下の %d 個のファイルのインポートが成功しました。"
 
+#.
+#. Duplicates
+#.
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "重複した写真または動画はインポートされませんでした:"
@@ -1905,6 +1946,9 @@ msgstr "重複した写真または動画はインポートされませんでし
 msgid "duplicates existing media item"
 msgstr "重複する既存のメディアアイテム"
 
+#.
+#. Files Not Imported Due to Camera Errors
+#.
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "カメラ側のエラーにより写真または動画はインポートされませんでした:"
@@ -1915,12 +1959,18 @@ msgstr "カメラ側のエラーにより写真または動画はインポート
 msgid "error message:"
 msgstr "エラーメッセージ:"
 
+#.
+#. Files Not Imported Because They Weren't Recognized as Photos or Videos
+#.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "写真または動画として認識されなかったため、ファイルはインポートされませんでし"
 "た:"
 
+#.
+#. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
+#.
 #: src/Dialogs/Dialogs.vala:286
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1929,6 +1979,9 @@ msgstr ""
 "\"フォト\" が認識できる形式ではなかったため、写真または動画はインポートされま"
 "せんでした:"
 
+#.
+#. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
+#.
 #: src/Dialogs/Dialogs.vala:301
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1946,10 +1999,16 @@ msgstr ""
 "%s を %s にコピー\n"
 "\tできませんでした。"
 
+#.
+#. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
+#.
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "ファイルが壊れているため、写真または動画はインポートされませんでした:"
 
+#.
+#. Photos/Videos Not Imported for Other Reasons
+#.
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "他の理由により写真または動画はインポートされませんでした:"
@@ -2099,12 +2158,18 @@ msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
 msgstr[0] "破損しているため、%d 個のファイルはインポートできませんでした:\n"
 
+#. we have no notion of "unsupported" video files right now in Photos (all
+#. standard container formats are supported, it's just that the streams in them
+#. might or might not be interpretable), so this message does not need to be
+#. media specific
 #: src/Dialogs/Dialogs.vala:467
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
 msgstr[0] "%d 個のサポートされていない写真をスキップしました:\n"
 
+#. we have no notion of "non-video" video files right now in Photos, so this
+#. message doesn't need to be media specific
 #: src/Dialogs/Dialogs.vala:482
 #, c-format
 msgid "1 non-image file skipped.\n"
@@ -2153,6 +2218,8 @@ msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
 msgstr[0] "%d 個の写真と動画のインポートが成功しました。\n"
 
+#. if no media items were imported at all (i.e. an empty directory attempted), need to at least
+#. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:538
 msgid "No photos or videos imported.\n"
 msgstr "インポートした写真または動画はありません。\n"
@@ -2165,6 +2232,7 @@ msgstr "インポート完了"
 msgid "_Done"
 msgstr "完了(_D)"
 
+#. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
 #: src/Dialogs/Dialogs.vala:740 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "名前:"
@@ -2236,6 +2304,8 @@ msgstr[0] ""
 "\n"
 "その他 %d 個"
 
+#. This function is used to determine whether or not files should be copied or linked when imported.
+#. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:876
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -2260,12 +2330,16 @@ msgstr "ライブラリにインポート"
 msgid "Removing Photos From Library"
 msgstr "ライブラリから写真を削除しています"
 
+#. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:930
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
 msgstr[0] "%d 個の写真と動画を削除できません。"
 
+#. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
+#. aren't formats so much as they are operating modes that determine specific formats.
+#. Hereafter we'll refer to these as "special formats."
 #: src/Dialogs/ExportDialog.vala:26
 msgid "Unmodified"
 msgstr "変更なし"
@@ -2411,11 +2485,13 @@ msgstr "%s への保存中にエラーが発生しました: %s"
 msgid "Save As"
 msgstr "別名で保存"
 
+#. Add buttons for new search.
 #: src/direct/DirectPhotoPage.vala:403 src/library/LibraryWindow.vala:567
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "キャンセル"
 
+#. Add close button.
 #: src/direct/DirectPhotoPage.vala:404 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr "保存"
@@ -2674,6 +2750,8 @@ msgstr "設定(_P)"
 msgid "Settings"
 msgstr "設定"
 
+#. add the common action for the FilterPhotos submenu (the submenu contains items from
+#. SearchFilterActions)
 #: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:880
 msgid "New Smart Album…"
@@ -2712,6 +2790,7 @@ msgstr "インポート(_I)"
 msgid "Library Location"
 msgstr "ライブラリの場所"
 
+#. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:746
 msgid "Photos cannot be imported from this directory."
 msgstr "このディレクトリから写真のインポートができませんでした。"
@@ -2933,6 +3012,8 @@ msgstr "写真と動画の公開"
 msgid "Publish photos and videos _to"
 msgstr "写真と動画の公開先(_T)"
 
+#. There are no enabled publishing services that accept this media type,
+#. warn the user.
 #: src/publishing/PublishingUI.vala:396
 msgid "Unable to publish"
 msgstr "公開できません"
@@ -2961,10 +3042,12 @@ msgstr "スマートアルバム"
 msgid "Remove rule"
 msgstr "ルールを削除"
 
+#. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
 msgstr "が次を含む"
 
+#. Ordering must correspond with Context
 #: src/searches/SavedSearchDialog.vala:181
 #: src/searches/SavedSearchDialog.vala:437
 msgid "is exactly"
@@ -2987,6 +3070,7 @@ msgstr "が次を含まない"
 msgid "is not set"
 msgstr "がセットされていない"
 
+#. Ordering must correspond with SearchConditionMediaType.Context
 #: src/searches/SavedSearchDialog.vala:256
 #: src/searches/SavedSearchDialog.vala:387
 msgid "is"
@@ -2996,6 +3080,7 @@ msgstr "が次である"
 msgid "is not"
 msgstr "が次でない"
 
+#. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/searches/SavedSearchDialog.vala:263
 msgid "any photo"
 msgstr "いずれかの写真"
@@ -3028,6 +3113,7 @@ msgstr "内部機能で画像補正がある"
 msgid "external modifications"
 msgstr "外部エディターで画像補正がある"
 
+#. Ordering must correspond with SearchConditionFlagged.State
 #: src/searches/SavedSearchDialog.vala:381
 msgid "flagged"
 msgstr "フラグ付き"
@@ -3140,6 +3226,8 @@ msgstr[0] "%d 個のイベント"
 msgid "Date:"
 msgstr "日付:"
 
+#. display time range
+#. display date range
 #: src/sidebar/metadata/BasicProperties.vala:278
 #: src/sidebar/metadata/BasicProperties.vala:283
 msgid "From:"
@@ -3181,6 +3269,7 @@ msgstr "露出補正"
 msgid "Flash"
 msgstr "フラッシュ"
 
+#. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:112
 msgid "Location:"
 msgstr "場所:"
@@ -3453,6 +3542,7 @@ msgstr ""
 "公開に必要なファイルが利用できません。Picasa への公開を続行することができませ"
 "ん。"
 
+#. populate any widgets whose contents are programmatically-generated.
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
 #, c-format
 msgid "You are logged into Picasa Web Albums as %s."

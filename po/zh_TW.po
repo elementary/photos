@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 00:00+0100\n"
+"POT-Creation-Date: 2018-07-27 00:02+0100\n"
 "PO-Revision-Date: 2018-02-13 09:43+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -37,6 +37,7 @@ msgstr "無法建立快取目錄 %s：%s"
 msgid "Unable to create data directory %s: %s"
 msgstr "無法建立資料目錄 %s：%s"
 
+#. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
 msgstr "圖片"
@@ -434,11 +435,13 @@ msgstr "寬度"
 msgid "Height"
 msgstr "高度"
 
+#. verify this is a directory
 #: src/DirectoryMonitor.vala:902
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "無法監視 %s：非目錄 (%s)"
 
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #: src/EditingHostPage.vala:103 src/Resources.vala:118 src/Resources.vala:123
 msgid "Rotate"
 msgstr "旋轉"
@@ -461,6 +464,7 @@ msgstr "下一張相片"
 msgid "Photo source file missing: %s"
 msgstr "相片來源檔案遺失：%s"
 
+#. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
 msgid "Event %s"
@@ -650,6 +654,7 @@ msgstr "顯示應用程式的版本"
 msgid "Show extra debugging output"
 msgstr ""
 
+#. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
 msgid "[FILE]"
 msgstr "[檔案]"
@@ -688,6 +693,7 @@ msgstr "標籤(_G)"
 msgid "Sort _Photos"
 msgstr "排序相片(_P)"
 
+#. Sort criteria.
 #: src/MediaPage.vala:98 src/MediaPage.vala:299
 msgid "By _Title"
 msgstr "依標題(_T)"
@@ -724,6 +730,7 @@ msgstr "放大縮圖"
 msgid "Decrease the magnification of the thumbnails"
 msgstr "縮小縮圖"
 
+#. RAW developers.
 #: src/MediaPage.vala:254
 msgid "Shotwell"
 msgstr "Shotwell"
@@ -894,6 +901,7 @@ msgstr "相片檢視器"
 msgid "Photo Manager"
 msgstr "相片管理員"
 
+#. TRANSLATORS: Don't forget to add the line break: \n
 #: src/Resources.vala:34
 msgid ""
 "2009-2014 Yorba Foundation\n"
@@ -1488,22 +1496,40 @@ msgstr "全選(_A)"
 msgid "Select all items"
 msgstr "選取全部項目"
 
+#. ...precache the timestamp string...
+#. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:429
 msgid "%-I:%M %p"
 msgstr "%p%-I:%M"
 
+#. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:434
 msgid "%-I:%M:%S %p"
 msgstr "%p%-I:%M:%S"
 
+#. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:438
 msgid "%a %b %d, %Y"
 msgstr "%Y年%b%d日(%a)"
 
+#. / Locale-specific starting date format for multi-date strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
+#. / Locale-specific calendar date format for multi-month strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:443 src/Resources.vala:453
 msgid "%a %b %d"
 msgstr "%Y年%b%d日(%a)"
 
+#. / Locale-specific ending date format for multi-date strings,
+#. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:448
 msgid "%d, %Y"
 msgstr "%d日"
@@ -1559,6 +1585,7 @@ msgstr ""
 msgid "Slower"
 msgstr "與更低"
 
+#. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
 msgstr "遺失全部相片來源檔。"
@@ -1571,6 +1598,7 @@ msgstr "繼續投影秀"
 msgid "untitled"
 msgstr "無標題"
 
+#. multiple videos
 #: src/VideoSupport.vala:512
 msgid "Export Videos"
 msgstr "匯出視訊"
@@ -1604,6 +1632,10 @@ msgstr "匯入所選(_S)"
 msgid "Import _All"
 msgstr "匯入全部(_A)"
 
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:941
 msgid "Starting import, please wait..."
 msgstr "正開始匯入，請稍候..."
@@ -1616,6 +1648,7 @@ msgstr "將所選的相片匯入您的珍藏館"
 msgid "Import all the photos into your library"
 msgstr "將全部的相片匯入您的珍藏館"
 
+#. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1100
 #, fuzzy
 msgid ""
@@ -1847,6 +1880,11 @@ msgstr "儲存(_S)"
 msgid "_Select"
 msgstr "選取(_S)"
 
+#. Ticket #3023
+#. Attempt to replace the system error with something friendlier
+#. if we can't copy an image over for editing in an external tool.
+#. Did we fail because we can't write to this directory?
+#. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
 #, fuzzy, c-format
 msgid ""
@@ -1906,6 +1944,9 @@ msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
 msgstr[0] "其中有 %d 份檔案已成功匯入。"
 
+#.
+#. Duplicates
+#.
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "重複的相片/視訊並未匯入："
@@ -1914,6 +1955,9 @@ msgstr "重複的相片/視訊並未匯入："
 msgid "duplicates existing media item"
 msgstr "媒體項目與既有媒體重複"
 
+#.
+#. Files Not Imported Due to Camera Errors
+#.
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "相片/視訊因相機錯誤而未匯入："
@@ -1924,10 +1968,16 @@ msgstr "相片/視訊因相機錯誤而未匯入："
 msgid "error message:"
 msgstr "錯誤訊息："
 
+#.
+#. Files Not Imported Because They Weren't Recognized as Photos or Videos
+#.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr "檔案因無法辨識出是相片或視訊而未匯入："
 
+#.
+#. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
+#.
 #: src/Dialogs/Dialogs.vala:286
 #, fuzzy
 msgid ""
@@ -1935,6 +1985,9 @@ msgid ""
 "Understands:"
 msgstr "相片/視訊因格式並非 Shotwell 所能認識而未匯入："
 
+#.
+#. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
+#.
 #: src/Dialogs/Dialogs.vala:301
 #, fuzzy
 msgid ""
@@ -1951,10 +2004,16 @@ msgstr ""
 "無法將 %2$s\n"
 "\t複製到 %1$s"
 
+#.
+#. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
+#.
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "相片/視訊因檔案損毀而未匯入："
 
+#.
+#. Photos/Videos Not Imported for Other Reasons
+#.
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "相片/視訊因其他原因而未匯入："
@@ -2087,12 +2146,18 @@ msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
 msgstr[0] "%d 份檔案因損毀而未能匯入：\n"
 
+#. we have no notion of "unsupported" video files right now in Photos (all
+#. standard container formats are supported, it's just that the streams in them
+#. might or might not be interpretable), so this message does not need to be
+#. media specific
 #: src/Dialogs/Dialogs.vala:467
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
 msgstr[0] "已略過 %d 張未支援相片：\n"
 
+#. we have no notion of "non-video" video files right now in Photos, so this
+#. message doesn't need to be media specific
 #: src/Dialogs/Dialogs.vala:482
 #, c-format
 msgid "1 non-image file skipped.\n"
@@ -2141,6 +2206,8 @@ msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
 msgstr[0] "已成功匯入 %d 份相片/視訊。\n"
 
+#. if no media items were imported at all (i.e. an empty directory attempted), need to at least
+#. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:538
 msgid "No photos or videos imported.\n"
 msgstr "沒有匯入相片或視訊。\n"
@@ -2153,6 +2220,7 @@ msgstr "完成匯入"
 msgid "_Done"
 msgstr "完成(_D)"
 
+#. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
 #: src/Dialogs/Dialogs.vala:740 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "名稱："
@@ -2222,6 +2290,8 @@ msgstr[0] ""
 "\n"
 "與其它 %d 項。"
 
+#. This function is used to determine whether or not files should be copied or linked when imported.
+#. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:876
 #, fuzzy
 msgid ""
@@ -2245,12 +2315,16 @@ msgstr "匯入至珍藏館"
 msgid "Removing Photos From Library"
 msgstr "正在從珍藏館移除相片"
 
+#. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:930
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
 msgstr[0] "%d 份相片/視訊無法刪除。"
 
+#. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
+#. aren't formats so much as they are operating modes that determine specific formats.
+#. Hereafter we'll refer to these as "special formats."
 #: src/Dialogs/ExportDialog.vala:26
 msgid "Unmodified"
 msgstr "未修改"
@@ -2397,11 +2471,13 @@ msgstr "當儲存至 %s 時發生錯誤：%s"
 msgid "Save As"
 msgstr "另存新檔"
 
+#. Add buttons for new search.
 #: src/direct/DirectPhotoPage.vala:403 src/library/LibraryWindow.vala:567
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "取消"
 
+#. Add close button.
 #: src/direct/DirectPhotoPage.vala:404 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr "儲存"
@@ -2661,6 +2737,8 @@ msgstr "偏好設定(_P)"
 msgid "Settings"
 msgstr "設定值"
 
+#. add the common action for the FilterPhotos submenu (the submenu contains items from
+#. SearchFilterActions)
 #: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:880
 msgid "New Smart Album…"
@@ -2698,6 +2776,7 @@ msgstr "匯入(_I)"
 msgid "Library Location"
 msgstr "珍藏館位置"
 
+#. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:746
 msgid "Photos cannot be imported from this directory."
 msgstr "相片無法從此目錄匯入。"
@@ -2919,6 +2998,8 @@ msgstr "發布相片與視訊"
 msgid "Publish photos and videos _to"
 msgstr "將相片與視訊發布至(_T)"
 
+#. There are no enabled publishing services that accept this media type,
+#. warn the user.
 #: src/publishing/PublishingUI.vala:396
 msgid "Unable to publish"
 msgstr "無法發布"
@@ -2947,10 +3028,12 @@ msgstr "智慧相簿"
 msgid "Remove rule"
 msgstr "移除(_R)"
 
+#. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
 msgstr "包含"
 
+#. Ordering must correspond with Context
 #: src/searches/SavedSearchDialog.vala:181
 #: src/searches/SavedSearchDialog.vala:437
 msgid "is exactly"
@@ -2973,6 +3056,7 @@ msgstr "不包含"
 msgid "is not set"
 msgstr "未設定"
 
+#. Ordering must correspond with SearchConditionMediaType.Context
 #: src/searches/SavedSearchDialog.vala:256
 #: src/searches/SavedSearchDialog.vala:387
 msgid "is"
@@ -2982,6 +3066,7 @@ msgstr "是"
 msgid "is not"
 msgstr "不是"
 
+#. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/searches/SavedSearchDialog.vala:263
 msgid "any photo"
 msgstr "任意相片"
@@ -3014,6 +3099,7 @@ msgstr "內部修改"
 msgid "external modifications"
 msgstr "外部修改"
 
+#. Ordering must correspond with SearchConditionFlagged.State
 #: src/searches/SavedSearchDialog.vala:381
 msgid "flagged"
 msgstr "已加上旗幟"
@@ -3126,6 +3212,8 @@ msgstr[0] "%d 個事件"
 msgid "Date:"
 msgstr "日期："
 
+#. display time range
+#. display date range
 #: src/sidebar/metadata/BasicProperties.vala:278
 #: src/sidebar/metadata/BasicProperties.vala:283
 msgid "From:"
@@ -3167,6 +3255,7 @@ msgstr "曝光補償"
 msgid "Flash"
 msgstr "閃光燈"
 
+#. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:112
 msgid "Location:"
 msgstr "位置："
@@ -3423,6 +3512,7 @@ msgid ""
 "continue."
 msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Picasa。"
 
+#. populate any widgets whose contents are programmatically-generated.
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
 #, c-format
 msgid "You are logged into Picasa Web Albums as %s."

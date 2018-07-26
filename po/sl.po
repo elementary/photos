@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 00:00+0100\n"
+"POT-Creation-Date: 2018-07-27 00:02+0100\n"
 "PO-Revision-Date: 2018-07-10 00:03+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/photos/"
@@ -39,6 +39,7 @@ msgstr "Predpomnilniške mape %s ni mogoče kreirati: %s"
 msgid "Unable to create data directory %s: %s"
 msgstr "Ni mogoče ustvariti mape podatkov %s: %s"
 
+#. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
 msgstr "Slike"
@@ -448,11 +449,13 @@ msgstr "Širina"
 msgid "Height"
 msgstr "Višina"
 
+#. verify this is a directory
 #: src/DirectoryMonitor.vala:902
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Ni mogoče opazovati %s: Ni mapa (%s)"
 
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #: src/EditingHostPage.vala:103 src/Resources.vala:118 src/Resources.vala:123
 msgid "Rotate"
 msgstr "Zavrti"
@@ -474,6 +477,7 @@ msgstr "Naslednja fotografija"
 msgid "Photo source file missing: %s"
 msgstr "Izvirna datoteka fotografije manjka: %s"
 
+#. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
 msgid "Event %s"
@@ -664,6 +668,7 @@ msgstr "Prikaži različico aplikacije"
 msgid "Show extra debugging output"
 msgstr "Prikaži dodatna sporočila za razhroščevanje"
 
+#. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
 msgid "[FILE]"
 msgstr "[DATOTEKA]"
@@ -702,6 +707,7 @@ msgstr "Ozna_ke"
 msgid "Sort _Photos"
 msgstr "Razvrsti _fotografije"
 
+#. Sort criteria.
 #: src/MediaPage.vala:98 src/MediaPage.vala:299
 msgid "By _Title"
 msgstr "Po _naslovu"
@@ -738,6 +744,7 @@ msgstr "Poveča povečavo sličic"
 msgid "Decrease the magnification of the thumbnails"
 msgstr "Zmanjša povečavo sličic"
 
+#. RAW developers.
 #: src/MediaPage.vala:254
 msgid "Shotwell"
 msgstr "Shotwell"
@@ -908,6 +915,7 @@ msgstr "Pregledovalnik slik"
 msgid "Photo Manager"
 msgstr "Upravljalnik fotografij"
 
+#. TRANSLATORS: Don't forget to add the line break: \n
 #: src/Resources.vala:34
 msgid ""
 "2009-2014 Yorba Foundation\n"
@@ -1483,22 +1491,40 @@ msgstr "Izberi _vse"
 msgid "Select all items"
 msgstr "Izberi vse predmete"
 
+#. ...precache the timestamp string...
+#. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:429
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
+#. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:434
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
+#. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:438
 msgid "%a %b %d, %Y"
 msgstr "%a, %d.%m.%Y"
 
+#. / Locale-specific starting date format for multi-date strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
+#. / Locale-specific calendar date format for multi-month strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:443 src/Resources.vala:453
 msgid "%a %b %d"
 msgstr "%d.%m."
 
+#. / Locale-specific ending date format for multi-date strings,
+#. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:448
 msgid "%d, %Y"
 msgstr "%d.%m. %Y"
@@ -1551,6 +1577,7 @@ msgstr "Hitreje"
 msgid "Slower"
 msgstr "Počasneje"
 
+#. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
 msgstr "Manjkajo vse izvorne datoteke fotografije."
@@ -1563,6 +1590,7 @@ msgstr "Nadaljuj z diapredstavitvijo"
 msgid "untitled"
 msgstr "neimenovano"
 
+#. multiple videos
 #: src/VideoSupport.vala:512
 msgid "Export Videos"
 msgstr "Izvozi videoposnetke"
@@ -1598,6 +1626,10 @@ msgstr "Uvozi _izbrane"
 msgid "Import _All"
 msgstr "Uvozi _vse"
 
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:941
 msgid "Starting import, please wait..."
 msgstr "Začenjanje uvoza, prosimo počakajte ..."
@@ -1610,6 +1642,7 @@ msgstr "Uvozi izbrane fotografije iz vaše knjižnice"
 msgid "Import all the photos into your library"
 msgstr "Uvozi vse fotografije v vašo knjižnico"
 
+#. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1100
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
@@ -1890,6 +1923,11 @@ msgstr "_Shrani"
 msgid "_Select"
 msgstr "_Izberi"
 
+#. Ticket #3023
+#. Attempt to replace the system error with something friendlier
+#. if we can't copy an image over for editing in an external tool.
+#. Did we fail because we can't write to this directory?
+#. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
 #, c-format
 msgid ""
@@ -1957,6 +1995,9 @@ msgstr[1] "Od teh je bila %d datoteka uspešno uvožena."
 msgstr[2] "Od teh sta bili %d datoteki uspešno uvoženi."
 msgstr[3] "Od teh so bile %d datoteke uspešno uvožene."
 
+#.
+#. Duplicates
+#.
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Podvojene slike/videoposnetki niso uvoženi:"
@@ -1965,6 +2006,9 @@ msgstr "Podvojene slike/videoposnetki niso uvoženi:"
 msgid "duplicates existing media item"
 msgstr "podvoji obstoječi predmet predstavnosti"
 
+#.
+#. Files Not Imported Due to Camera Errors
+#.
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Uvoz fotografij/videoposnetkov je spodletel zaradi napak fotoaparata:"
@@ -1975,12 +2019,18 @@ msgstr "Uvoz fotografij/videoposnetkov je spodletel zaradi napak fotoaparata:"
 msgid "error message:"
 msgstr "sporočilo napake:"
 
+#.
+#. Files Not Imported Because They Weren't Recognized as Photos or Videos
+#.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Datoteke niso bile uvožene, ker niso bile prepoznane kot fotografije ali "
 "videoposnetki:"
 
+#.
+#. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
+#.
 #: src/Dialogs/Dialogs.vala:286
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1989,6 +2039,9 @@ msgstr ""
 "Fotografije/videoposnetki niso bili uvoženi, ker niso bili v zapisu, ki ga "
 "ta aplikacija razume:"
 
+#.
+#. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
+#.
 #: src/Dialogs/Dialogs.vala:301
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -2006,10 +2059,16 @@ msgstr ""
 "%s ni mogoče kopirati\n"
 "\tv %s"
 
+#.
+#. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
+#.
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Fotografije/posnetki niso uvoženi, ker so datoteke okvarjene:"
 
+#.
+#. Photos/Videos Not Imported for Other Reasons
+#.
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Neuvožene fotografije/filmi iz drugih razlogov:"
@@ -2259,6 +2318,10 @@ msgstr[1] "%d datoteke ni mogoče uvoziti, ker je okvarjena:\n"
 msgstr[2] "%d datotek ni mogoče uvoziti, ker sta okvarjeni:\n"
 msgstr[3] "%d datotek ni mogoče uvoziti, ker so okvarjene:\n"
 
+#. we have no notion of "unsupported" video files right now in Photos (all
+#. standard container formats are supported, it's just that the streams in them
+#. might or might not be interpretable), so this message does not need to be
+#. media specific
 #: src/Dialogs/Dialogs.vala:467
 #, c-format
 msgid "1 unsupported photo skipped:\n"
@@ -2268,6 +2331,8 @@ msgstr[1] "%d nepodprtih fotografij je bilo izpuščenih:\n"
 msgstr[2] "%d nepodprta fotografija je izpuščena:\n"
 msgstr[3] "%d nepodprti fotografiji sta izpuščeni:\n"
 
+#. we have no notion of "non-video" video files right now in Photos, so this
+#. message doesn't need to be media specific
 #: src/Dialogs/Dialogs.vala:482
 #, c-format
 msgid "1 non-image file skipped.\n"
@@ -2344,6 +2409,8 @@ msgstr[1] "%d fotografij/videoposnetkov je bilo uspešno uvoženih.\n"
 msgstr[2] "%d fotografija/videoposnetek je bil uspešno uvožen.\n"
 msgstr[3] "%d fotografiji/videoposnetka sta uspešno uvožena.\n"
 
+#. if no media items were imported at all (i.e. an empty directory attempted), need to at least
+#. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:538
 msgid "No photos or videos imported.\n"
 msgstr "Fotografije ali videoposnetki niso bili uvoženi.\n"
@@ -2356,6 +2423,7 @@ msgstr "Uvoz je končan"
 msgid "_Done"
 msgstr "_Končano"
 
+#. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
 #: src/Dialogs/Dialogs.vala:740 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "Ime:"
@@ -2458,6 +2526,8 @@ msgstr[3] ""
 "\n"
 "In %d drugi."
 
+#. This function is used to determine whether or not files should be copied or linked when imported.
+#. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:876
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -2482,6 +2552,7 @@ msgstr "Uvozi v knjižnico"
 msgid "Removing Photos From Library"
 msgstr "Odstranjevanje fotografij iz knjižnice"
 
+#. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:930
 #, c-format
 msgid "The photo or video cannot be deleted."
@@ -2491,6 +2562,9 @@ msgstr[1] "%d fotografij/videoposnetkov ni mogoče izbrisati."
 msgstr[2] "%d fotografije/videoposnetka ni mogoče izbrisati."
 msgstr[3] "%d fotografij/videoposnetkov ni mogoče izbrisati."
 
+#. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
+#. aren't formats so much as they are operating modes that determine specific formats.
+#. Hereafter we'll refer to these as "special formats."
 #: src/Dialogs/ExportDialog.vala:26
 msgid "Unmodified"
 msgstr "Nespremenjeno"
@@ -2637,11 +2711,13 @@ msgstr "Napaka med shranjevanjem v: %s: %s"
 msgid "Save As"
 msgstr "Shrani kot"
 
+#. Add buttons for new search.
 #: src/direct/DirectPhotoPage.vala:403 src/library/LibraryWindow.vala:567
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Prekliči"
 
+#. Add close button.
 #: src/direct/DirectPhotoPage.vala:404 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr "Shrani"
@@ -2911,6 +2987,8 @@ msgstr "_Možnosti"
 msgid "Settings"
 msgstr "Nastavitve"
 
+#. add the common action for the FilterPhotos submenu (the submenu contains items from
+#. SearchFilterActions)
 #: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:880
 msgid "New Smart Album…"
@@ -2949,6 +3027,7 @@ msgstr "_Uvozi"
 msgid "Library Location"
 msgstr "Mesto knjižnice"
 
+#. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:746
 msgid "Photos cannot be imported from this directory."
 msgstr "Iz te mape ni mogoče uvoziti fotografij."
@@ -3174,6 +3253,8 @@ msgstr "Objavi fotografije in videoposnetke"
 msgid "Publish photos and videos _to"
 msgstr "Objavi fotografije in videoposnetke _na"
 
+#. There are no enabled publishing services that accept this media type,
+#. warn the user.
 #: src/publishing/PublishingUI.vala:396
 msgid "Unable to publish"
 msgstr "Ni mogoče objaviti"
@@ -3203,10 +3284,12 @@ msgstr "Pametni albumi"
 msgid "Remove rule"
 msgstr "_Odstrani pravilo"
 
+#. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
 msgstr "vsebuje"
 
+#. Ordering must correspond with Context
 #: src/searches/SavedSearchDialog.vala:181
 #: src/searches/SavedSearchDialog.vala:437
 msgid "is exactly"
@@ -3229,6 +3312,7 @@ msgstr "ne vsebuje"
 msgid "is not set"
 msgstr "ni določeno"
 
+#. Ordering must correspond with SearchConditionMediaType.Context
 #: src/searches/SavedSearchDialog.vala:256
 #: src/searches/SavedSearchDialog.vala:387
 msgid "is"
@@ -3238,6 +3322,7 @@ msgstr "je"
 msgid "is not"
 msgstr "ni"
 
+#. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/searches/SavedSearchDialog.vala:263
 msgid "any photo"
 msgstr "katerakoli fotografija"
@@ -3270,6 +3355,7 @@ msgstr "notranjih sprememb"
 msgid "external modifications"
 msgstr "zunanjih sprememb"
 
+#. Ordering must correspond with SearchConditionFlagged.State
 #: src/searches/SavedSearchDialog.vala:381
 msgid "flagged"
 msgstr "označeno"
@@ -3385,6 +3471,8 @@ msgstr[3] "%d dogodka"
 msgid "Date:"
 msgstr "Datum:"
 
+#. display time range
+#. display date range
 #: src/sidebar/metadata/BasicProperties.vala:278
 #: src/sidebar/metadata/BasicProperties.vala:283
 msgid "From:"
@@ -3429,6 +3517,7 @@ msgstr "Pomik osvetlitve"
 msgid "Flash"
 msgstr "Bliskavica"
 
+#. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:112
 msgid "Location:"
 msgstr "Mesto:"
@@ -3694,6 +3783,7 @@ msgstr ""
 "Datoteka potrebna za objavo ni na voljo. Objave na Picasa ni mogoče "
 "nadaljevati."
 
+#. populate any widgets whose contents are programmatically-generated.
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
 #, c-format
 msgid "You are logged into Picasa Web Albums as %s."
