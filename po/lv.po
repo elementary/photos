@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 00:00+0100\n"
+"POT-Creation-Date: 2018-07-27 00:02+0100\n"
 "PO-Revision-Date: 2016-04-18 04:17+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/shotwell/"
@@ -36,6 +36,7 @@ msgstr "Nevar izveidot keša direktoriju %s — %s"
 msgid "Unable to create data directory %s: %s"
 msgstr "Nevar izveidot datu direktoriju %s — %s"
 
+#. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
 msgstr "Attēli"
@@ -440,11 +441,13 @@ msgstr "Platums"
 msgid "Height"
 msgstr "Augstums"
 
+#. verify this is a directory
 #: src/DirectoryMonitor.vala:902
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Nevar pārraudzīt %s — nav direktorija (%s)"
 
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #: src/EditingHostPage.vala:103 src/Resources.vala:118 src/Resources.vala:123
 msgid "Rotate"
 msgstr "Pagriezt"
@@ -467,6 +470,7 @@ msgstr "Nākamā fotogrāfija"
 msgid "Photo source file missing: %s"
 msgstr "Pazudusi fotogrāfijas avota datne — %s"
 
+#. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
 msgid "Event %s"
@@ -656,6 +660,7 @@ msgstr ""
 msgid "Show extra debugging output"
 msgstr ""
 
+#. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
 msgid "[FILE]"
 msgstr "[DATNE]"
@@ -696,6 +701,7 @@ msgstr "_Birkas"
 msgid "Sort _Photos"
 msgstr "Kārtot _fotogrāfijas"
 
+#. Sort criteria.
 #: src/MediaPage.vala:98 src/MediaPage.vala:299
 msgid "By _Title"
 msgstr "Pēc _nosaukuma"
@@ -732,6 +738,7 @@ msgstr "Palielināt sīktēlu palielinājumu"
 msgid "Decrease the magnification of the thumbnails"
 msgstr "Samazināt sīktēlu palielinājumu"
 
+#. RAW developers.
 #: src/MediaPage.vala:254
 msgid "Shotwell"
 msgstr "Shotwell"
@@ -902,6 +909,7 @@ msgstr ""
 msgid "Photo Manager"
 msgstr "Fotogrāfiju pārvaldnieks"
 
+#. TRANSLATORS: Don't forget to add the line break: \n
 #: src/Resources.vala:34
 msgid ""
 "2009-2014 Yorba Foundation\n"
@@ -1491,22 +1499,40 @@ msgstr "Izvēlēties vis_as"
 msgid "Select all items"
 msgstr "Izvēlēties visus vienumus"
 
+#. ...precache the timestamp string...
+#. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:429
 msgid "%-I:%M %p"
 msgstr ""
 
+#. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:434
 msgid "%-I:%M:%S %p"
 msgstr ""
 
+#. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:438
 msgid "%a %b %d, %Y"
 msgstr "%a %d %b, %Y"
 
+#. / Locale-specific starting date format for multi-date strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
+#. / Locale-specific calendar date format for multi-month strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:443 src/Resources.vala:453
 msgid "%a %b %d"
 msgstr "%a %d %b"
 
+#. / Locale-specific ending date format for multi-date strings,
+#. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:448
 msgid "%d, %Y"
 msgstr "%d, %Y"
@@ -1562,6 +1588,7 @@ msgstr ""
 msgid "Slower"
 msgstr "un mazāk"
 
+#. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
 msgstr "Trūkst visas fotogrāfiju avotu datnes."
@@ -1574,6 +1601,7 @@ msgstr "Turpināt slaidrādi"
 msgid "untitled"
 msgstr "nenosaukts"
 
+#. multiple videos
 #: src/VideoSupport.vala:512
 msgid "Export Videos"
 msgstr "Eksportēt video"
@@ -1608,6 +1636,10 @@ msgstr "Importēt izvēlētā_s"
 msgid "Import _All"
 msgstr "Importēt vis_as"
 
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:941
 msgid "Starting import, please wait..."
 msgstr "Sāk importēšanu. Lūdzu, uzgaidiet..."
@@ -1620,6 +1652,7 @@ msgstr "Importēt izvēlētās fotogrāfijās savā bibliotēkā"
 msgid "Import all the photos into your library"
 msgstr "Importēt visas fotogrāfijas savā bibliotēkā"
 
+#. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1100
 #, fuzzy
 msgid ""
@@ -1881,6 +1914,11 @@ msgstr "_Saglabāt"
 msgid "_Select"
 msgstr ""
 
+#. Ticket #3023
+#. Attempt to replace the system error with something friendlier
+#. if we can't copy an image over for editing in an external tool.
+#. Did we fail because we can't write to this directory?
+#. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
 #, fuzzy, c-format
 msgid ""
@@ -1944,6 +1982,9 @@ msgid_plural "Of these, %d files were successfully imported."
 msgstr[0] ""
 msgstr[1] ""
 
+#.
+#. Duplicates
+#.
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr ""
@@ -1952,6 +1993,9 @@ msgstr ""
 msgid "duplicates existing media item"
 msgstr ""
 
+#.
+#. Files Not Imported Due to Camera Errors
+#.
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr ""
@@ -1962,16 +2006,25 @@ msgstr ""
 msgid "error message:"
 msgstr ""
 
+#.
+#. Files Not Imported Because They Weren't Recognized as Photos or Videos
+#.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 
+#.
+#. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
+#.
 #: src/Dialogs/Dialogs.vala:286
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
 
+#.
+#. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
+#.
 #: src/Dialogs/Dialogs.vala:301
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1985,10 +2038,16 @@ msgid ""
 "\tto %s"
 msgstr ""
 
+#.
+#. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
+#.
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr ""
 
+#.
+#. Photos/Videos Not Imported for Other Reasons
+#.
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr ""
@@ -2174,6 +2233,10 @@ msgid_plural "%d files failed to import because it was corrupt:\n"
 msgstr[0] ""
 msgstr[1] ""
 
+#. we have no notion of "unsupported" video files right now in Photos (all
+#. standard container formats are supported, it's just that the streams in them
+#. might or might not be interpretable), so this message does not need to be
+#. media specific
 #: src/Dialogs/Dialogs.vala:467
 #, c-format
 msgid "1 unsupported photo skipped:\n"
@@ -2182,6 +2245,8 @@ msgstr[0] "Izlaista %d neatbalstīta fotogrāfija:\n"
 msgstr[1] "Izlaistas %d neatbalstītas fotogrāfijas:\n"
 msgstr[2] "Izlaistas %d neatbalstītas fotogrāfijas:\n"
 
+#. we have no notion of "non-video" video files right now in Photos, so this
+#. message doesn't need to be media specific
 #: src/Dialogs/Dialogs.vala:482
 #, c-format
 msgid "1 non-image file skipped.\n"
@@ -2246,6 +2311,8 @@ msgstr[0] "%d fotogrāfija/video veiksmīgi importēts.\n"
 msgstr[1] "%d fotogrāfijas/video veiksmīgi importēti.\n"
 msgstr[2] "%d fotogrāfijas/video veiksmīgi importēti.\n"
 
+#. if no media items were imported at all (i.e. an empty directory attempted), need to at least
+#. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:538
 msgid "No photos or videos imported.\n"
 msgstr "Neviena fotogrāfija netika importēta.\n"
@@ -2258,6 +2325,7 @@ msgstr "Importēšana pabeigta"
 msgid "_Done"
 msgstr ""
 
+#. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
 #: src/Dialogs/Dialogs.vala:740 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "Nosaukums:"
@@ -2346,6 +2414,8 @@ msgstr[2] ""
 "\n"
 "Un %d citu."
 
+#. This function is used to determine whether or not files should be copied or linked when imported.
+#. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:876
 #, fuzzy
 msgid ""
@@ -2371,6 +2441,7 @@ msgstr "Importēt bibliotēkā"
 msgid "Removing Photos From Library"
 msgstr "Izņem fotogrāfijas no bibliotēkas"
 
+#. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:930
 #, c-format
 msgid "The photo or video cannot be deleted."
@@ -2379,6 +2450,9 @@ msgstr[0] "Šo %d fotogrāfiju vai video nevar izdzēst."
 msgstr[1] "Šīs %d fotogrāfijas vai video nevar izdzēst."
 msgstr[2] "Šīs %d fotogrāfijas vai video nevar izdzēst."
 
+#. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
+#. aren't formats so much as they are operating modes that determine specific formats.
+#. Hereafter we'll refer to these as "special formats."
 #: src/Dialogs/ExportDialog.vala:26
 msgid "Unmodified"
 msgstr "Nemainīts"
@@ -2523,11 +2597,13 @@ msgstr "Kļūda, saglabājot kā %s — %s"
 msgid "Save As"
 msgstr "Saglabāt kā"
 
+#. Add buttons for new search.
 #: src/direct/DirectPhotoPage.vala:403 src/library/LibraryWindow.vala:567
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr ""
 
+#. Add close button.
 #: src/direct/DirectPhotoPage.vala:404 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr ""
@@ -2793,6 +2869,8 @@ msgstr "_Iestatījumi"
 msgid "Settings"
 msgstr "Iestatījumi"
 
+#. add the common action for the FilterPhotos submenu (the submenu contains items from
+#. SearchFilterActions)
 #: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:880
 msgid "New Smart Album…"
@@ -2827,6 +2905,7 @@ msgstr "_Importēt"
 msgid "Library Location"
 msgstr "Bibliotēkas atrašanās vieta"
 
+#. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:746
 msgid "Photos cannot be imported from this directory."
 msgstr "No šīs direktorijas fotogrāfijas nevar importēt."
@@ -3051,6 +3130,8 @@ msgstr "Publicēt fotogrāfijas un video"
 msgid "Publish photos and videos _to"
 msgstr "Publicēt fo_togrāfijas un video uz"
 
+#. There are no enabled publishing services that accept this media type,
+#. warn the user.
 #: src/publishing/PublishingUI.vala:396
 msgid "Unable to publish"
 msgstr "Nevar publicēt"
@@ -3081,10 +3162,12 @@ msgstr ""
 msgid "Remove rule"
 msgstr "_Izņemt"
 
+#. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
 msgstr "satur"
 
+#. Ordering must correspond with Context
 #: src/searches/SavedSearchDialog.vala:181
 #: src/searches/SavedSearchDialog.vala:437
 msgid "is exactly"
@@ -3107,6 +3190,7 @@ msgstr "nesatur"
 msgid "is not set"
 msgstr "nav iestatīts"
 
+#. Ordering must correspond with SearchConditionMediaType.Context
 #: src/searches/SavedSearchDialog.vala:256
 #: src/searches/SavedSearchDialog.vala:387
 msgid "is"
@@ -3116,6 +3200,7 @@ msgstr "ir"
 msgid "is not"
 msgstr "nav"
 
+#. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/searches/SavedSearchDialog.vala:263
 msgid "any photo"
 msgstr "jebkura fotogrāfija"
@@ -3148,6 +3233,7 @@ msgstr ""
 msgid "external modifications"
 msgstr ""
 
+#. Ordering must correspond with SearchConditionFlagged.State
 #: src/searches/SavedSearchDialog.vala:381
 msgid "flagged"
 msgstr "atzīmēts"
@@ -3262,6 +3348,8 @@ msgstr[2] "%d notikumu"
 msgid "Date:"
 msgstr "Datums:"
 
+#. display time range
+#. display date range
 #: src/sidebar/metadata/BasicProperties.vala:278
 #: src/sidebar/metadata/BasicProperties.vala:283
 msgid "From:"
@@ -3304,6 +3392,7 @@ msgstr ""
 msgid "Flash"
 msgstr ""
 
+#. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:112
 msgid "Location:"
 msgstr "Atrašanās vieta:"
@@ -3561,6 +3650,7 @@ msgid ""
 msgstr ""
 "Nav pieejama publicēšanai vajadzīgā datne. Nevar turpināt publicēt uz Picasa."
 
+#. populate any widgets whose contents are programmatically-generated.
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
 #, c-format
 msgid "You are logged into Picasa Web Albums as %s."

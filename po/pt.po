@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 00:00+0100\n"
+"POT-Creation-Date: 2018-07-27 00:02+0100\n"
 "PO-Revision-Date: 2018-07-20 11:49+0000\n"
 "Last-Translator: Christophe Silva <Christophesilva80@gmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/photos/"
@@ -41,6 +41,7 @@ msgstr "Não foi possível criar o diretório de cache %s: %s"
 msgid "Unable to create data directory %s: %s"
 msgstr "Não foi possível criar o diretório de dados %s: %s"
 
+#. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
 msgstr "Imagens"
@@ -440,11 +441,13 @@ msgstr "Largura"
 msgid "Height"
 msgstr "Altura"
 
+#. verify this is a directory
 #: src/DirectoryMonitor.vala:902
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Não foi possível monitorizar %s: não é um diretório (%s)"
 
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 #: src/EditingHostPage.vala:103 src/Resources.vala:118 src/Resources.vala:123
 msgid "Rotate"
 msgstr "Rodar"
@@ -466,6 +469,7 @@ msgstr "Foto seguinte"
 msgid "Photo source file missing: %s"
 msgstr "Falta o ficheiro fonte da foto: %s"
 
+#. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
 msgid "Event %s"
@@ -655,6 +659,7 @@ msgstr "Mostrar versão da aplicação"
 msgid "Show extra debugging output"
 msgstr "Mostrar mais informação de depuração"
 
+#. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
 msgid "[FILE]"
 msgstr "[FICHEIRO]"
@@ -695,6 +700,7 @@ msgstr "Eti_quetas"
 msgid "Sort _Photos"
 msgstr "_Organizar fotos"
 
+#. Sort criteria.
 #: src/MediaPage.vala:98 src/MediaPage.vala:299
 msgid "By _Title"
 msgstr "Por _título"
@@ -731,6 +737,7 @@ msgstr "Aumentar tamanho das miniaturas"
 msgid "Decrease the magnification of the thumbnails"
 msgstr "Diminuir tamanho das miniaturas"
 
+#. RAW developers.
 #: src/MediaPage.vala:254
 msgid "Shotwell"
 msgstr "Shotwell"
@@ -901,6 +908,7 @@ msgstr "Visualizador de Fotos"
 msgid "Photo Manager"
 msgstr "Gestor de Fotos"
 
+#. TRANSLATORS: Don't forget to add the line break: \n
 #: src/Resources.vala:34
 msgid ""
 "2009-2014 Yorba Foundation\n"
@@ -1477,22 +1485,40 @@ msgstr "_Selecionar tudo"
 msgid "Select all items"
 msgstr "Selecionar todos os itens"
 
+#. ...precache the timestamp string...
+#. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:429
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
+#. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
+#. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:434
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
+#. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:438
 msgid "%a %b %d, %Y"
 msgstr "%A, %d de %B de %Y"
 
+#. / Locale-specific starting date format for multi-date strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
+#. / Locale-specific calendar date format for multi-month strings,
+#. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:443 src/Resources.vala:453
 msgid "%a %b %d"
 msgstr "%A, %b. %d"
 
+#. / Locale-specific ending date format for multi-date strings,
+#. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
+#. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:448
 msgid "%d, %Y"
 msgstr "%d, %Y"
@@ -1545,6 +1571,7 @@ msgstr "Mais rápido"
 msgid "Slower"
 msgstr "Mais lento"
 
+#. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
 msgid "All photo source files are missing."
 msgstr "Faltam os ficheiros fonte de todas as fotos."
@@ -1557,6 +1584,7 @@ msgstr "Continuar apresentação"
 msgid "untitled"
 msgstr "sem título"
 
+#. multiple videos
 #: src/VideoSupport.vala:512
 msgid "Export Videos"
 msgstr "Exportar vídeos"
@@ -1592,6 +1620,10 @@ msgstr "Importar _seleção"
 msgid "Import _All"
 msgstr "Importar _todas"
 
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:941
 msgid "Starting import, please wait..."
 msgstr "A iniciar importação, aguarde..."
@@ -1604,6 +1636,7 @@ msgstr "Importar fotos selecionadas para a galeria"
 msgid "Import all the photos into your library"
 msgstr "Importar todas as fotos para a galeria"
 
+#. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1100
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
@@ -1851,6 +1884,11 @@ msgstr "_Gravar"
 msgid "_Select"
 msgstr "_Selecionar"
 
+#. Ticket #3023
+#. Attempt to replace the system error with something friendlier
+#. if we can't copy an image over for editing in an external tool.
+#. Did we fail because we can't write to this directory?
+#. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
 #, c-format
 msgid ""
@@ -1914,6 +1952,9 @@ msgid_plural "Of these, %d files were successfully imported."
 msgstr[0] "Destes, %d ficheiro foi importado com sucesso."
 msgstr[1] "Destes, %d ficheiros foram importados com sucesso."
 
+#.
+#. Duplicates
+#.
 #: src/Dialogs/Dialogs.vala:242
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Fotos/vídeos não importados por serem duplicados:"
@@ -1922,6 +1963,9 @@ msgstr "Fotos/vídeos não importados por serem duplicados:"
 msgid "duplicates existing media item"
 msgstr "ficheiros duplicados"
 
+#.
+#. Files Not Imported Due to Camera Errors
+#.
 #: src/Dialogs/Dialogs.vala:257
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Fotos/vídeos não importados devido a erros da câmara:"
@@ -1932,11 +1976,17 @@ msgstr "Fotos/vídeos não importados devido a erros da câmara:"
 msgid "error message:"
 msgstr "mensagem de erro:"
 
+#.
+#. Files Not Imported Because They Weren't Recognized as Photos or Videos
+#.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Ficheiros não importados por não serem reconhecidos como fotos ou vídeos:"
 
+#.
+#. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
+#.
 #: src/Dialogs/Dialogs.vala:286
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1944,6 +1994,9 @@ msgid ""
 msgstr ""
 "Ficheiros não importados por não serem formatos reconhecidos pelo Shotwell:"
 
+#.
+#. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
+#.
 #: src/Dialogs/Dialogs.vala:301
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1959,10 +2012,16 @@ msgstr ""
 "incapaz de copiar %s\n"
 "\tpara %s"
 
+#.
+#. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
+#.
 #: src/Dialogs/Dialogs.vala:317
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Fotos/vídeos não importados porque os ficheiros estão danificados:"
 
+#.
+#. Photos/Videos Not Imported for Other Reasons
+#.
 #: src/Dialogs/Dialogs.vala:332
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Fotos/vídeos não importados por outras razões:"
@@ -2138,6 +2197,10 @@ msgid_plural "%d files failed to import because it was corrupt:\n"
 msgstr[0] "1 ficheiro não foi importado por estar danificado:\n"
 msgstr[1] "%d ficheiros não foram importados por estarem danificados:\n"
 
+#. we have no notion of "unsupported" video files right now in Photos (all
+#. standard container formats are supported, it's just that the streams in them
+#. might or might not be interpretable), so this message does not need to be
+#. media specific
 #: src/Dialogs/Dialogs.vala:467
 #, c-format
 msgid "1 unsupported photo skipped:\n"
@@ -2145,6 +2208,8 @@ msgid_plural "%d unsupported photos skipped:\n"
 msgstr[0] "1 foto não suportada foi ignorada:\n"
 msgstr[1] "%d fotos não suportadas foram ignoradas:\n"
 
+#. we have no notion of "non-video" video files right now in Photos, so this
+#. message doesn't need to be media specific
 #: src/Dialogs/Dialogs.vala:482
 #, c-format
 msgid "1 non-image file skipped.\n"
@@ -2201,6 +2266,8 @@ msgid_plural "%d photos/videos successfully imported.\n"
 msgstr[0] "Foi importado com sucesso 1 foto/vídeo\n"
 msgstr[1] "Foram importada(o)s com sucesso %d fotos/vídeos\n"
 
+#. if no media items were imported at all (i.e. an empty directory attempted), need to at least
+#. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:538
 msgid "No photos or videos imported.\n"
 msgstr "Nenhum(a) vídeo ou foto importado(a)\n"
@@ -2213,6 +2280,7 @@ msgstr "Importação terminada"
 msgid "_Done"
 msgstr "_Terminado"
 
+#. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
 #: src/Dialogs/Dialogs.vala:740 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "Nome:"
@@ -2291,6 +2359,8 @@ msgstr[1] ""
 "\n"
 "E mais %d."
 
+#. This function is used to determine whether or not files should be copied or linked when imported.
+#. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:876
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -2315,6 +2385,7 @@ msgstr "Importar para a galeria"
 msgid "Removing Photos From Library"
 msgstr "A remover fotos da galeria"
 
+#. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:930
 #, c-format
 msgid "The photo or video cannot be deleted."
@@ -2322,6 +2393,9 @@ msgid_plural "%d photos/videos cannot be deleted."
 msgstr[0] "A foto/vídeo não pode ser eliminada(o)."
 msgstr[1] "%d fotos/vídeos não podem ser eliminada(o)s."
 
+#. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
+#. aren't formats so much as they are operating modes that determine specific formats.
+#. Hereafter we'll refer to these as "special formats."
 #: src/Dialogs/ExportDialog.vala:26
 msgid "Unmodified"
 msgstr "Não modificada"
@@ -2467,11 +2541,13 @@ msgstr "Erro ao gravar em %s: %s"
 msgid "Save As"
 msgstr "Gravar como"
 
+#. Add buttons for new search.
 #: src/direct/DirectPhotoPage.vala:403 src/library/LibraryWindow.vala:567
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Cancelar"
 
+#. Add close button.
 #: src/direct/DirectPhotoPage.vala:404 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr "Guardar"
@@ -2733,6 +2809,8 @@ msgstr "_Preferências"
 msgid "Settings"
 msgstr "Definições"
 
+#. add the common action for the FilterPhotos submenu (the submenu contains items from
+#. SearchFilterActions)
 #: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:880
 msgid "New Smart Album…"
@@ -2771,6 +2849,7 @@ msgstr "_Importar"
 msgid "Library Location"
 msgstr "Localização da galeria"
 
+#. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:746
 msgid "Photos cannot be imported from this directory."
 msgstr "As fotos nesta diretoria não podem ser importadas."
@@ -2993,6 +3072,8 @@ msgstr "Publicar fotos e vídeos"
 msgid "Publish photos and videos _to"
 msgstr "Publicar fotos e vídeos _no"
 
+#. There are no enabled publishing services that accept this media type,
+#. warn the user.
 #: src/publishing/PublishingUI.vala:396
 msgid "Unable to publish"
 msgstr "Não foi possível publicar"
@@ -3022,10 +3103,12 @@ msgstr "Albuns Inteligentes"
 msgid "Remove rule"
 msgstr "Remover regra"
 
+#. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
 msgid "contains"
 msgstr "contém"
 
+#. Ordering must correspond with Context
 #: src/searches/SavedSearchDialog.vala:181
 #: src/searches/SavedSearchDialog.vala:437
 msgid "is exactly"
@@ -3048,6 +3131,7 @@ msgstr "não contém"
 msgid "is not set"
 msgstr "não definida"
 
+#. Ordering must correspond with SearchConditionMediaType.Context
 #: src/searches/SavedSearchDialog.vala:256
 #: src/searches/SavedSearchDialog.vala:387
 msgid "is"
@@ -3057,6 +3141,7 @@ msgstr "é"
 msgid "is not"
 msgstr "não é"
 
+#. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/searches/SavedSearchDialog.vala:263
 msgid "any photo"
 msgstr "qualquer foto"
@@ -3089,6 +3174,7 @@ msgstr "modificações internas"
 msgid "external modifications"
 msgstr "modificações externas"
 
+#. Ordering must correspond with SearchConditionFlagged.State
 #: src/searches/SavedSearchDialog.vala:381
 msgid "flagged"
 msgstr "marcado"
@@ -3202,6 +3288,8 @@ msgstr[1] "%d eventos"
 msgid "Date:"
 msgstr "Data:"
 
+#. display time range
+#. display date range
 #: src/sidebar/metadata/BasicProperties.vala:278
 #: src/sidebar/metadata/BasicProperties.vala:283
 msgid "From:"
@@ -3244,6 +3332,7 @@ msgstr "Desvio da exposição"
 msgid "Flash"
 msgstr "Flash"
 
+#. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:112
 msgid "Location:"
 msgstr "Localização:"
@@ -3514,6 +3603,7 @@ msgstr ""
 "O ficheiro necessário para a publicação não está disponível. A publicação no "
 "Picasa não é possível."
 
+#. populate any widgets whose contents are programmatically-generated.
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
 #, c-format
 msgid "You are logged into Picasa Web Albums as %s."
