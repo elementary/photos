@@ -938,7 +938,7 @@ public class ImportPage : CheckerboardPage {
     // TODO: replace this with approved text for "talking to camera,
     // please wait" once new strings are being accepted.
     protected override string get_view_empty_message () {
-        return _ ("Starting import, please wait...");
+        return _ ("Starting import, please wait…");
     }
 
     private static int64 preview_comparator (void *a, void *b) {
@@ -1084,7 +1084,7 @@ public class ImportPage : CheckerboardPage {
             }
 
             // if locked because it's mounted, offer to unmount
-            debug ("Checking if %s is mounted ...", uri);
+            debug ("Checking if %s is mounted…", uri);
 
             File uri = File.new_for_uri (uri);
 
@@ -1113,7 +1113,7 @@ public class ImportPage : CheckerboardPage {
                     unmount_camera (mount);
                 }
             } else {
-                string locked_message = _ ("The camera is locked by another application.  Photos can only access the camera when it's unlocked.  Please close any other application using the camera and try again.");
+                string locked_message = _ ("Photos can only access the camera when it is not locked by another application. Please close all ither applications using the camera and try again.");
 
                 // it's not mounted, so another application must have it locked
                 Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
@@ -1145,14 +1145,14 @@ public class ImportPage : CheckerboardPage {
         progress_bar.visible = true;
         progress_bar.set_fraction (0.0);
         progress_bar.set_ellipsize (Pango.EllipsizeMode.NONE);
-        progress_bar.set_text (_ ("Unmounting..."));
+        progress_bar.set_text (_ ("Unmounting…"));
 
         // unmount_with_operation () can/will complete with the volume still mounted (probably meaning
         // it's been *scheduled* for unmounting).  However, this signal is fired when the mount
         // really is unmounted -- *if* a VolumeMonitor has been instantiated.
         mount.unmounted.connect (on_unmounted);
 
-        debug ("Unmounting camera ...");
+        debug ("Unmounting camera…");
         mount.unmount_with_operation.begin (MountUnmountFlags.NONE,
                                             new Gtk.MountOperation (AppWindow.get_instance ()), null, on_unmount_finished);
 
@@ -1801,7 +1801,7 @@ public class ImportPage : CheckerboardPage {
         // TODO: Need to keep the ImportPage around until the BatchImport is completed, but the
         // page controller (i.e. LibraryWindow) needs to know (a) if ImportPage is busy before
         // removing and (b) if it is, to be notified when it ain't.  Until that's in place, need
-        // to hold the ref so the page isn't destroyed ... this switcheroo keeps the ref alive
+        // to hold the ref so the page isn't destroyed … this switcheroo keeps the ref alive
         // until this function returns (at any time)
         ImportPage? local_ref = this.local_ref;
         this.local_ref = null;
@@ -1833,7 +1833,7 @@ public class ImportPage : CheckerboardPage {
             return;
         }
 
-        // delete the photos from the camera and the SourceCollection... for now, this is an
+        // delete the photos from the camera and the SourceCollection… for now, this is an
         // all-or-nothing deal
         Marker marker = import_sources.start_marking ();
         foreach (BatchImportResult batch_result in manifest.success) {
