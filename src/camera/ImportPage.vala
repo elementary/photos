@@ -1113,7 +1113,7 @@ public class ImportPage : CheckerboardPage {
                     unmount_camera (mount);
                 }
             } else {
-                string locked_message = _ ("Photos can only access the camera when it is not locked by another application. Please close all ither applications using the camera and try again.");
+                string locked_message = _ ("Photos can only access the camera when it is not locked by another application. Please close all other applications using the camera and try again.");
 
                 // it's not mounted, so another application must have it locked
                 Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
