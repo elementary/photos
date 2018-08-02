@@ -158,11 +158,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
             prev_button.tooltip_text = _("Previous photo");
-            prev_button.clicked.connect (on_previous_photo);
+            prev_button.action_name = "app.action_previous_photo";
 
             next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
             next_button.tooltip_text = _("Next photo");
-            next_button.clicked.connect (on_next_photo);
+            next_button.action_name = "app.action_next_photo";
 
             toolbar = base.get_toolbar ();
             toolbar.add (prev_button);

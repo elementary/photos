@@ -47,7 +47,6 @@ public abstract class SinglePhotoPage : Page {
     private bool zoom_high_quality = true;
     private ZoomState saved_zoom_state;
     private bool has_saved_zoom_state = false;
-    private uint32 last_nav_key = 0;
 
     public SinglePhotoPage (string page_name, bool scale_up_to_viewport) {
         base (page_name);
@@ -79,6 +78,25 @@ public abstract class SinglePhotoPage : Page {
         canvas.draw.connect (on_canvas_exposed);
 
         set_event_source (canvas);
+    }
+
+    construct {
+        var action_next_photo = new SimpleAction ("action_next_photo", null);
+        var action_previous_photo = new SimpleAction ("action_previous_photo", null);
+
+        Application.get_instance ().add_action (action_next_photo);
+        Application.get_instance ().add_action (action_previous_photo);
+
+        Application.get_instance ().set_accels_for_action ("app.action_next_photo", {"Right", "KP_Right", "space"});
+        Application.get_instance ().set_accels_for_action ("app.action_previous_photo", {"Left", "KP_Left"});
+
+        action_next_photo.activate.connect (() => {
+            on_next_photo ();
+        });
+
+        action_previous_photo.activate.connect (() => {
+            on_previous_photo ();
+        });
     }
 
     public bool is_transition_in_progress () {
@@ -481,41 +499,5 @@ public abstract class SinglePhotoPage : Page {
     }
 
     protected virtual void on_next_photo () {
-    }
-
-    public override bool key_press_event (Gdk.EventKey event) {
-        // if the user holds the arrow keys down, we will receive a steady stream of key press
-        // events for an operation that isn't designed for a rapid succession of output ...
-        // we staunch the supply of new photos to under a quarter second (#533)
-        bool nav_ok = (event.time - last_nav_key) > KEY_REPEAT_INTERVAL_MSEC;
-
-        bool handled = true;
-        switch (Gdk.keyval_name (event.keyval)) {
-        case "Left":
-        case "KP_Left":
-            if (nav_ok) {
-                on_previous_photo ();
-                last_nav_key = event.time;
-            }
-            break;
-
-        case "Right":
-        case "KP_Right":
-        case "space":
-            if (nav_ok) {
-                on_next_photo ();
-                last_nav_key = event.time;
-            }
-            break;
-
-        default:
-            handled = false;
-            break;
-        }
-
-        if (handled)
-            return true;
-
-        return (base.key_press_event != null) ? base.key_press_event (event) : true;
     }
 }
