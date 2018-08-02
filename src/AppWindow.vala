@@ -46,7 +46,20 @@ public abstract class AppWindow : PageWindow {
 
     protected GLib.Settings window_settings;
 
+    public const string ACTION_PREFIX = "win.";
+    public const string ACTION_QUIT = "action_quit";
+
+    private const ActionEntry[] action_entries = {
+        { ACTION_QUIT, on_quit }
+    };
+
     construct {
+        var actions = new SimpleActionGroup ();
+        actions.add_action_entries (action_entries, this);
+        insert_action_group ("win", actions);
+
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+
         window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
     }
 
@@ -128,9 +141,7 @@ public abstract class AppWindow : PageWindow {
         header.pack_end (undo_btn);
     }
 
-
     private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry quit = { "CommonQuit", null, _("_Quit"), "<Ctrl>Q", _("_Quit"), on_quit };
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
         Gtk.ActionEntry undo = { "CommonUndo", null, null, "<Ctrl>Z", null, on_undo };
         Gtk.ActionEntry redo = { "CommonRedo", null, null, "<Ctrl><Shift>Z", null, on_redo };
@@ -139,7 +150,6 @@ public abstract class AppWindow : PageWindow {
         Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
 
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-        actions += quit;
         actions += fullscreen;
         actions += undo;
         actions += redo;
