@@ -60,7 +60,7 @@ public abstract class AppWindow : PageWindow {
         header.set_show_close_button (true);
         this.set_titlebar (header);
 
-        set_default_title ();
+        title = _(Resources.APP_TITLE);
 
         var css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("io/elementary/photos/application.css");
@@ -108,10 +108,6 @@ public abstract class AppWindow : PageWindow {
         add_accel_group (ui.get_accel_group ());
 
         build_header_bar ();
-    }
-
-    protected virtual void set_default_title () {
-        title = _ (Resources.APP_TITLE);
     }
 
     protected virtual void build_header_bar () {
