@@ -169,6 +169,7 @@ public class LibraryWindow : AppWindow {
         // setup search bar and add its accelerators to the window
         search_entry = new SearchFilterEntry ();
         search_entry.valign = Gtk.Align.CENTER;
+        search_entry.activate.connect (() => {get_current_page ().grab_focus (); });
 
         header.pack_end (search_entry);
 
