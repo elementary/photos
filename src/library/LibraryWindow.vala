@@ -1184,10 +1184,6 @@ public class LibraryWindow : AppWindow {
         }
 
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
-
-        if (get_current_page () != null) {
-            get_current_page ().grab_focus ();
-        }
     }
 
     private void on_page_created (Sidebar.PageRepresentative entry, Page page) {

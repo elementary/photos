@@ -432,7 +432,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
     }
 
     private void do_authenticate_session (string good_login_uri) {
-        debug ("ACTION: preparing to extract session information encoded in uri = '%s'",
+        debug ("ACTION: Preparing to extract session information encoded in URI = '%s'",
                good_login_uri);
 
         // the raw uri is percent-encoded, so decode it

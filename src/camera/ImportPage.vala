@@ -29,54 +29,33 @@ private class ImportSourceCollection : SourceCollection {
 }
 
 abstract class ImportSource : ThumbnailSource, Indexable {
-    private string camera_name;
-    private GPhoto.Camera camera;
-    private int fsid;
-    private string folder;
-    private string filename;
-    private ulong file_size;
+    public GPhoto.Camera camera { get; construct; }
+    public int fsid { get; construct; }
+    public string camera_name { get; construct; }
+    public string filename { get; construct; }
+    public string folder { get; construct; }
+    public ulong file_size { get; construct; }
+
     private time_t modification_time;
     private Gdk.Pixbuf? preview = null;
     private string? indexable_keywords = null;
 
     public ImportSource (string camera_name, GPhoto.Camera camera, int fsid, string folder,
                          string filename, ulong file_size, time_t modification_time) {
-        this.camera_name = camera_name;
-        this.camera = camera;
-        this.fsid = fsid;
-        this.folder = folder;
-        this.filename = filename;
-        this.file_size = file_size;
+        Object (
+            camera: camera,
+            camera_name: camera_name,
+            filename: filename,
+            file_size: file_size,
+            folder: folder,
+            fsid: fsid
+        );
         this.modification_time = modification_time;
         indexable_keywords = prepare_indexable_string (filename);
     }
 
     protected void set_preview (Gdk.Pixbuf? preview) {
         this.preview = preview;
-    }
-
-    public string get_camera_name () {
-        return camera_name;
-    }
-
-    public GPhoto.Camera get_camera () {
-        return camera;
-    }
-
-    public int get_fsid () {
-        return fsid;
-    }
-
-    public string get_folder () {
-        return folder;
-    }
-
-    public string get_filename () {
-        return filename;
-    }
-
-    public ulong get_filesize () {
-        return file_size;
     }
 
     public time_t get_modification_time () {
@@ -92,11 +71,11 @@ abstract class ImportSource : ThumbnailSource, Indexable {
     }
 
     public string? get_fulldir () {
-        return ImportPage.get_fulldir (get_camera (), get_camera_name (), get_fsid (), get_folder ());
+        return ImportPage.get_fulldir (camera, camera_name, fsid, folder);
     }
 
     public override string to_string () {
-        return "%s %s/%s".printf (get_camera_name (), get_folder (), get_filename ());
+        return "%s %s/%s".printf (camera_name, folder, filename);
     }
 
     public override bool internal_delete_backing () throws Error {
@@ -109,7 +88,7 @@ abstract class ImportSource : ThumbnailSource, Indexable {
             return base.internal_delete_backing ();
         }
 
-        GPhoto.Result result = get_camera ().delete_file (fulldir, get_filename (),
+        GPhoto.Result result = camera.delete_file (fulldir, filename,
         ImportPage.spin_idle_context.context);
         if (result != GPhoto.Result.OK)
             warning ("Error deleting %s from %s: %s", to_string (), camera_name, result.to_full_string ());
@@ -155,7 +134,7 @@ class VideoImportSource : ImportSource {
     }
 
     public override string get_name () {
-        return get_filename ();
+        return filename;
     }
 
     public void update (Gdk.Pixbuf? preview) {
@@ -181,7 +160,7 @@ class PhotoImportSource : ImportSource {
     public override string get_name () {
         string? title = get_title ();
 
-        return !is_string_empty (title) ? title : get_filename ();
+        return !is_string_empty (title) ? title : filename;
     }
 
     public override string get_typename () {
@@ -346,15 +325,15 @@ class ImportPreview : MediaSourceItem {
             // to avoid downloading huge RAW files during an "import all" only to determine they're
             // duplicates, use the image's basename and filesize to do duplicate detection
             if (file_format == PhotoFileFormat.RAW) {
-                uint64 filesize = get_import_source ().get_filesize ();
+                uint64 filesize = get_import_source ().file_size;
                 // unlikely to be a problem, but what the hay
                 if (filesize <= int64.MAX) {
                     if (LibraryPhoto.global.has_basename_filesize_duplicate (
-                                get_import_source ().get_filename (), (int64) filesize)) {
+                                get_import_source ().filename, (int64) filesize)) {
 
                         duplicated_file = DuplicatedFile.create_from_photo_id (
                                               LibraryPhoto.global.get_basename_filesize_duplicate (
-                                                  get_import_source ().get_filename (), (int64) filesize));
+                                                  get_import_source ().filename, (int64) filesize));
 
                         return true;
                     }
@@ -370,13 +349,13 @@ class ImportPreview : MediaSourceItem {
             // a sidecar file), it will be unavailable to Photos during the import process, so
             // no comparison is available.  Instead, like RAW files, use name and filesize to
             // do a less-reliable but better-than-nothing comparison
-            if (Video.global.has_basename_filesize_duplicate (video_import_source.get_filename (),
-                    video_import_source.get_filesize ())) {
+            if (Video.global.has_basename_filesize_duplicate (video_import_source.filename,
+                    video_import_source.file_size)) {
 
                 duplicated_file = DuplicatedFile.create_from_video_id (
                                       Video.global.get_basename_filesize_duplicate (
-                                          video_import_source.get_filename (),
-                                          video_import_source.get_filesize ()));
+                                          video_import_source.filename,
+                                          video_import_source.file_size));
 
                 return true;
             }
@@ -519,12 +498,12 @@ public class ImportPage : CheckerboardPage {
             this.duplicated_file = duplicated_file;
 
             // stash everything called in prepare (), as it may/will be called from a separate thread
-            camera = import_file.get_camera ();
+            camera = import_file.camera;
             fulldir = import_file.get_fulldir ();
             // this should've been caught long ago when the files were first enumerated
             assert (fulldir != null);
-            filename = import_file.get_filename ();
-            filesize = import_file.get_filesize ();
+            filename = import_file.filename;
+            filesize = import_file.file_size;
             metadata = (import_file is PhotoImportSource) ?
                        (import_file as PhotoImportSource).get_metadata () : null;
             exposure_time = import_file.get_exposure_time ();
@@ -547,7 +526,7 @@ public class ImportPage : CheckerboardPage {
         }
 
         public override string get_source_identifier () {
-            return import_file.get_filename ();
+            return import_file.filename;
         }
 
         public override string get_basename () {
@@ -587,12 +566,12 @@ public class ImportPage : CheckerboardPage {
                 dest_file = LibraryFiles.generate_unique_file (filename, metadata, exposure_time,
                 out collision);
             } catch (Error err) {
-                warning ("Unable to generate local file for %s: %s", import_file.get_filename (),
+                warning ("Unable to generate local file for %s: %s", import_file.filename,
                 err.message);
             }
 
             if (dest_file == null) {
-                message ("Unable to generate local file for %s", import_file.get_filename ());
+                message ("Unable to generate local file for %s", import_file.filename);
 
                 return false;
             }
@@ -824,7 +803,7 @@ public class ImportPage : CheckerboardPage {
             progress_bar.no_show_all = true;
 
             var progress_item = new Gtk.ToolItem ();
-            progress_item.expand = true;
+            progress_item.set_expand (true);
             progress_item.add (progress_bar);
 
             var import_selected_button = new Gtk.Button.with_label ("Import Selected");
@@ -1578,26 +1557,26 @@ public class ImportPage : CheckerboardPage {
             if (current != null && current.get_file_format () == PhotoFileFormat.RAW) {
                 string current_name;
                 string ext;
-                disassemble_filename (current.get_filename (), out current_name, out ext);
+                disassemble_filename (current.filename, out current_name, out ext);
 
                 // Try to find a matching pair.
                 PhotoImportSource? associated = null;
                 if (next != null && next.get_file_format () == PhotoFileFormat.JFIF) {
                     string next_name;
-                    disassemble_filename (next.get_filename (), out next_name, out ext);
+                    disassemble_filename (next.filename, out next_name, out ext);
                     if (next_name == current_name)
                         associated = next;
                 }
                 if (prev != null && prev.get_file_format () == PhotoFileFormat.JFIF) {
                     string prev_name;
-                    disassemble_filename (prev.get_filename (), out prev_name, out ext);
+                    disassemble_filename (prev.filename, out prev_name, out ext);
                     if (prev_name == current_name)
                         associated = prev;
                 }
 
                 // Associate!
                 if (associated != null) {
-                    debug ("Found RAW+JPEG pair: %s and %s", current.get_filename (), associated.get_filename ());
+                    debug ("Found RAW+JPEG pair: %s and %s", current.filename, associated.filename);
                     current.set_associated (associated);
                     if (!import_list.remove (associated)) {
                         debug ("Unable to associate files");
@@ -1611,7 +1590,7 @@ public class ImportPage : CheckerboardPage {
     private void load_previews_and_metadata (Gee.List<ImportSource> import_list) {
         int loaded_photos = 0;
         foreach (ImportSource import_source in import_list) {
-            string filename = import_source.get_filename ();
+            string filename = import_source.filename;
             string? fulldir = import_source.get_fulldir ();
             if (fulldir == null) {
                 warning ("Skipping loading preview of %s: invalid folder name", import_source.to_string ());
@@ -1667,7 +1646,7 @@ public class ImportPage : CheckerboardPage {
                 string preview_filename = filename;
                 if (associated != null) {
                     preview_fulldir = associated.get_fulldir ();
-                    preview_filename = associated.get_filename ();
+                    preview_filename = associated.filename;
                 }
                 preview = GPhoto.load_preview (spin_idle_context.context, camera, preview_fulldir,
                                                preview_filename, out preview_raw, out preview_raw_length);
@@ -1701,11 +1680,11 @@ public class ImportPage : CheckerboardPage {
             if (associated != null) {
                 try {
                     PhotoMetadata? associated_metadata = GPhoto.load_metadata (spin_idle_context.context,
-                                                         camera, associated.get_fulldir (), associated.get_filename ());
+                                                         camera, associated.get_fulldir (), associated.filename);
                     associated.update (preview, preview_md5, associated_metadata, null);
                 } catch (Error err) {
                     warning ("Unable to fetch metadata for %s/%s: %s",  associated.get_fulldir (),
-                             associated.get_filename (), err.message);
+                             associated.filename, err.message);
                 }
             }
 
@@ -1762,7 +1741,7 @@ public class ImportPage : CheckerboardPage {
 
             if (preview.is_already_imported ()) {
                 message ("Skipping import of %s: checksum detected in library",
-                         import_file.get_filename ());
+                         import_file.filename);
 
                 already_imported.add (new CameraImportJob (null_context, import_file,
                                       preview.get_duplicated_file ()));
@@ -1845,7 +1824,7 @@ public class ImportPage : CheckerboardPage {
                                      photos_string, videos_string, both_string, neither_string);
 
             ImportUI.QuestionParams question = new ImportUI.QuestionParams (
-                question_string, "edit-delete", _ ("_Keep"));
+                question_string, _("Delete"), _("_Keep"));
 
             if (!ImportUI.report_manifest (manifest, false, question))
                 return;

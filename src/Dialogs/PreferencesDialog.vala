@@ -127,7 +127,7 @@ public class PreferencesDialog {
         var close_button = dialog.add_button (_("_Close"), Gtk.ResponseType.CLOSE);
         ((Gtk.Button) close_button).clicked.connect (on_close);
 
-        var file_settings = new GLib.Settings ("org.pantheon.photos.preferences.files");
+        var file_settings = new GLib.Settings ("io.elementary.photos.preferences.files");
         file_settings.bind ("auto-import", auto_import_switch, "active", SettingsBindFlags.DEFAULT);
         file_settings.bind ("commit-metadata", commit_metadata_switch, "active", SettingsBindFlags.DEFAULT);
         file_settings.bind ("use-lowercase-filenames", lowercase_switch, "active", SettingsBindFlags.DEFAULT);

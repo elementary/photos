@@ -60,7 +60,6 @@ private class ModuleRep {
 
     private ModuleRep (File file) {
         this.file = file;
-
         module = Module.open (file.get_path (), ModuleFlags.BIND_LAZY);
     }
 

@@ -18,7 +18,7 @@
 */
 
 public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
-    public const string ROOT_SCHEMA_NAME = "org.pantheon.photos";
+    public const string ROOT_SCHEMA_NAME = "io.elementary.photos";
     public const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
     public const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
     public const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
@@ -137,7 +137,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
             cleaned_id = "default";
         cleaned_id = cleaned_id.replace (".", "-");
 
-        return "org.pantheon.photos.%s.%s".printf (domain, cleaned_id);
+        return "io.elementary.photos.%s.%s".printf (domain, cleaned_id);
     }
 
     private static string make_gsettings_key (string gconf_key) {

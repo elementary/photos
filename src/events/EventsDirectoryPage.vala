@@ -330,7 +330,7 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
 
     public const string UNDATED_PAGE_NAME = _ ("Undated");
     public const string YEAR_FORMAT = _ ("%Y");
-    public const string MONTH_FORMAT = _ ("%B");
+    public const string MONTH_FORMAT = _ ("%OB");
 
     private class SubEventDirectoryManager : EventsDirectoryPage.EventDirectoryManager {
         private int month = 0;
