@@ -1186,7 +1186,7 @@ public class LibraryWindow : AppWindow {
 
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
 
-        if (get_current_page () != null) {
+        if (get_current_page () != null && !search_entry.has_focus) {
             get_current_page ().grab_focus ();
         }
     }
