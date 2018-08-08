@@ -331,7 +331,7 @@ public struct Scaling {
         return Scaling (constraint, scale, Dimensions (), scale_up);
     }
 
-    private static Dimensions get_screen_dimensions (Gtk.Window window) {
+    public static Dimensions get_screen_dimensions (Gtk.Window window) {
         var display = window.get_window ().get_display ();
         var monitor = display.get_monitor_at_window (window.get_window ());
         var geometry = monitor.get_geometry ();

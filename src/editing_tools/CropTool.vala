@@ -247,9 +247,9 @@ public class EditingTools.CropTool : EditingTool {
             result.basis_width = canvas.get_scaled_pixbuf_position ().width;
             result.basis_height = canvas.get_scaled_pixbuf_position ().height;
         } else if (result.aspect_ratio == SCREEN_ASPECT_RATIO) {
-            Gdk.Screen screen = Gdk.Screen.get_default ();
-            result.basis_width = screen.get_width ();
-            result.basis_height = screen.get_height ();
+            var dimensions = Scaling.get_screen_dimensions (AppWindow.get_instance ());
+            result.basis_width = dimensions.width;
+            result.basis_height = dimensions.height;
         }
 
         return result;
@@ -357,8 +357,8 @@ public class EditingTools.CropTool : EditingTool {
             result = ((float) canvas.get_scaled_pixbuf_position ().width) /
                      ((float) canvas.get_scaled_pixbuf_position ().height);
         } else if (result == SCREEN_ASPECT_RATIO) {
-            Gdk.Screen screen = Gdk.Screen.get_default ();
-            result = ((float) screen.get_width ()) / ((float) screen.get_height ());
+            var dimensions = Scaling.get_screen_dimensions(AppWindow.get_instance());
+            result = ((float) dimensions.width) / ((float) dimensions.height);
         } else if (result == CUSTOM_ASPECT_RATIO) {
             result = custom_aspect_ratio;
         }
