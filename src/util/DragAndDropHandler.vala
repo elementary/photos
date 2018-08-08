@@ -95,7 +95,7 @@ public class DragAndDropHandler {
         ThumbnailSource thumb = (ThumbnailSource) page.get_view ().get_selected_at (0).get_source ();
 
         try {
-            Gdk.Pixbuf icon = thumb.get_thumbnail (AppWindow.DND_ICON_SCALE);
+            Gdk.Pixbuf icon = thumb.get_thumbnail (128);
             Gtk.drag_source_set_icon_pixbuf (event_source, icon);
         } catch (Error err) {
             warning ("Unable to fetch icon for drag-and-drop from %s: %s", thumb.to_string (),
