@@ -30,33 +30,17 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string CROP_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".crop-settings";
     public const string PLUGINS_ENABLE_DISABLE_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".plugins.enable-state";
 
-    private Gee.Set<string> known_schemas;
-
-    public GSettingsConfigurationEngine () {
-        known_schemas = new Gee.HashSet<string> ();
-
-        foreach (string current_schema in Settings.list_schemas ())
-            known_schemas.add (current_schema);
-    }
-
-    private bool schema_has_key (Settings schema_object, string key) {
-        foreach (string current_key in schema_object.list_keys ()) {
-            if (current_key == key)
-                return true;
+    private void check_key_valid (string schema, string key) throws ConfigurationError {
+        var schema_source = SettingsSchemaSource.get_default ();
+        var settings_scheme = schema_source.lookup (schema, true);
+        if (settings_scheme == null) {
+            throw new ConfigurationError.ENGINE_ERROR("schema '%s' is not installed".printf(schema));
         }
 
-        return false;
-    }
-
-    private void check_key_valid (string schema, string key) throws ConfigurationError {
-        if (!known_schemas.contains (schema))
-            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' is not installed".printf (schema));
-
-        Settings schema_object = new Settings (schema);
-
-        if (!schema_has_key (schema_object, key))
+        if (!settings_scheme.has_key (key)) {
             throw new ConfigurationError.ENGINE_ERROR ("schema '%s' does not define key '%s'".printf (
                 schema, key));
+        }
     }
 
     private bool get_gs_bool (string schema, string key) throws ConfigurationError {
