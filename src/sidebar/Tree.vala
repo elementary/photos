@@ -865,10 +865,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         if (context_menu == null)
             return false;
 
-        if (event != null)
-            context_menu.popup (null, null, null, event.button, event.time);
-        else
-            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
+        context_menu.popup_at_pointer (event);
 
         return true;
     }
@@ -888,7 +885,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             default_context_menu.show_all ();
         }
 
-        default_context_menu.popup (null, null, null, event.button, event.time);
+        default_context_menu.popup_at_pointer (event);
         return true;
     }
 
