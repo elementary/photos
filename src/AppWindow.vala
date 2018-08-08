@@ -24,8 +24,6 @@
 // AppWindow also offers support for going into fullscreen mode.  It handles the interface
 // notifications Page is expecting when switching back and forth.
 public abstract class AppWindow : PageWindow {
-    public const int DND_ICON_SCALE = 128;
-
     protected static AppWindow instance = null;
 
     private static FullscreenWindow fullscreen_window = null;
