@@ -278,10 +278,12 @@ class ImportPreview : MediaSourceItem {
         bool using_placeholder = (pixbuf == null);
         if (pixbuf == null) {
             if (placeholder_preview == null) {
-                placeholder_preview = AppWindow.get_instance ().render_icon ("image-missing",
-                                      Gtk.IconSize.DIALOG, null);
-                placeholder_preview = scale_pixbuf (placeholder_preview, MAX_SCALE,
-                                                    Gdk.InterpType.BILINEAR, true);
+                try {
+                    placeholder_preview = Gtk.IconTheme.get_default ().load_icon ("image-missing", Gtk.IconSize.DIALOG, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                    placeholder_preview = scale_pixbuf (placeholder_preview, MAX_SCALE, Gdk.InterpType.BILINEAR, true);
+                } catch (Error e) {
+                    critical ("Unable to load image-missing icon: %s", e.message);
+                }
             }
 
             pixbuf = placeholder_preview;
