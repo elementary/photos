@@ -159,8 +159,7 @@ public class PublishingDialog : Gtk.Dialog {
 
     private Gtk.ListStore service_selector_box_model;
     private Gtk.ComboBox service_selector_box;
-    private Gtk.Label service_selector_box_label;
-    private Gtk.Box central_area_layouter;
+    private Gtk.Grid central_area_layouter;
     private Gtk.Button close_cancel_button;
     private Spit.Publishing.DialogPane active_pane;
     private Spit.Publishing.Publishable[] publishables;
@@ -175,6 +174,7 @@ public class PublishingDialog : Gtk.Dialog {
     protected PublishingDialog (Gee.Collection<MediaSource> to_publish) {
         assert (to_publish.size > 0);
 
+        deletable = false;
         resizable = false;
         delete_event.connect (on_window_close);
 
@@ -211,20 +211,21 @@ public class PublishingDialog : Gtk.Dialog {
 
         service_selector_box_model = new Gtk.ListStore (2, typeof (GLib.Icon), typeof (string));
         service_selector_box = new Gtk.ComboBox.with_model (service_selector_box_model);
+        service_selector_box.hexpand = true;
+        service_selector_box.halign = Gtk.Align.END;
 
-        Gtk.CellRendererPixbuf renderer_pix = new Gtk.CellRendererPixbuf ();
+        var renderer_pix = new Gtk.CellRendererPixbuf ();
         service_selector_box.pack_start (renderer_pix, true);
         service_selector_box.add_attribute (renderer_pix, "gicon", 0);
 
-        Gtk.CellRendererText renderer_text = new Gtk.CellRendererText ();
+        var renderer_text = new Gtk.CellRendererText ();
         service_selector_box.pack_start (renderer_text, true);
         service_selector_box.add_attribute (renderer_text, "text", 1);
 
         service_selector_box.set_active (0);
 
-        service_selector_box_label = new Gtk.Label.with_mnemonic (label);
+        var service_selector_box_label = new Gtk.Label.with_mnemonic (label);
         service_selector_box_label.set_mnemonic_widget (service_selector_box);
-        service_selector_box_label.set_alignment (0.0f, 0.5f);
 
         // get the name of the service the user last used
         string? last_used_service = sharing_settings.get_string ("last-used-service");
@@ -257,30 +258,27 @@ public class PublishingDialog : Gtk.Dialog {
 
         service_selector_box.changed.connect (on_service_changed);
 
-        /* the wrapper is not an extraneous widget -- it's necessary to prevent the service
-           selection box from growing and shrinking whenever its parent's size changes.
-           When wrapped inside a Gtk.Alignment, the Alignment grows and shrinks instead of
-           the service selection box. */
-        Gtk.Alignment service_selector_box_wrapper = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
-        service_selector_box_wrapper.add (service_selector_box);
-
-        Gtk.Box service_selector_layouter = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        service_selector_layouter.set_border_width (12);
+        var service_selector_layouter = new Gtk.Grid ();
+        service_selector_layouter.column_spacing = 12;
+        service_selector_layouter.margin = 12;
+        service_selector_layouter.margin_top = 0;
         service_selector_layouter.add (service_selector_box_label);
-        service_selector_layouter.pack_start (service_selector_box_wrapper, true, true, 0);
+        service_selector_layouter.add (service_selector_box);
+
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        separator.hexpand = true;
 
         /* 'service area' is the selector assembly plus the horizontal rule dividing it from the
            rest of the dialog */
-        Gtk.Box service_area_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var service_area_layouter = new Gtk.Grid ();
+        service_area_layouter.orientation = Gtk.Orientation.VERTICAL;
         service_area_layouter.add (service_selector_layouter);
-        service_area_layouter.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        service_area_layouter.add (separator);
 
-        Gtk.Alignment service_area_wrapper = new Gtk.Alignment (0.0f, 0.0f, 1.0f, 0.0f);
-        service_area_wrapper.add (service_area_layouter);
+        central_area_layouter = new Gtk.Grid ();
+        central_area_layouter.orientation = Gtk.Orientation.VERTICAL;
 
-        central_area_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-        get_content_area ().pack_start (service_area_wrapper, false, false, 0);
+        get_content_area ().pack_start (service_area_layouter, false, false, 0);
         get_content_area ().pack_start (central_area_layouter, true, true, 0);
 
         close_cancel_button = new Gtk.Button.with_mnemonic ("_Cancel");
@@ -471,22 +469,16 @@ public class PublishingDialog : Gtk.Dialog {
 
     private void set_large_window_mode () {
         set_size_request (LARGE_WINDOW_WIDTH, LARGE_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (LARGE_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                LARGE_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
     private void set_colossal_window_mode () {
         set_size_request (COLOSSAL_WINDOW_WIDTH, COLOSSAL_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (COLOSSAL_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                COLOSSAL_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
     private void set_standard_window_mode () {
         set_size_request (STANDARD_WINDOW_WIDTH, STANDARD_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (STANDARD_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                STANDARD_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
@@ -529,7 +521,7 @@ public class PublishingDialog : Gtk.Dialog {
             central_area_layouter.remove (active_pane.get_widget ());
         }
 
-        central_area_layouter.pack_start (pane.get_widget (), true, true, 0);
+        central_area_layouter.add (pane.get_widget ());
         show_all ();
 
         Spit.Publishing.DialogPane.GeometryOptions geometry_options =
