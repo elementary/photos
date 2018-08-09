@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2010-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2010-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -721,7 +722,7 @@ public class CustomPrintTab : Gtk.Fixed {
     }
 
     private void set_print_titles_font (string fontname) {
-        title_print_font.set_font_name (fontname);
+        title_print_font.font = fontname;
     }
 
 
@@ -734,7 +735,7 @@ public class CustomPrintTab : Gtk.Fixed {
     }
 
     private string get_print_titles_font () {
-        return title_print_font.get_font_name ();
+        return title_print_font.font;
     }
 
     public PrintJob get_source_job () {
