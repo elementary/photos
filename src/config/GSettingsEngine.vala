@@ -34,7 +34,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         var schema_source = SettingsSchemaSource.get_default ();
         var settings_scheme = schema_source.lookup (schema, true);
         if (settings_scheme == null) {
-            throw new ConfigurationError.ENGINE_ERROR("schema '%s' is not installed".printf(schema));
+            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' is not installed".printf(schema));
         }
 
         if (!settings_scheme.has_key (key)) {
