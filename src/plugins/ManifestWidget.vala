@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2011-2013 Yorba Foundation
-*               2017 elementary LLC. (https://elementary.io)
+*               2017-2018 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -30,7 +30,7 @@ public class ManifestWidget : Gtk.Grid {
         var list_bin = new Gtk.ScrolledWindow (null, null);
         list_bin.hscrollbar_policy = Gtk.PolicyType.NEVER;
         list_bin.expand = true;
-        list_bin.add_with_viewport (list);
+        list_bin.add (list);
 
         var frame = new Gtk.Frame (null);
         frame.add (list_bin);
