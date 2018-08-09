@@ -144,8 +144,8 @@ public class SliderAssembly : Gtk.Grid {
         clear_timeouts ();
 
         active_box = (Gtk.EventBox)sender;
-        initial_wait_id = Timeout.add (settings.gtk_timeout_initial, () => {
-            click_id = Timeout.add (settings.gtk_timeout_repeat, step_callback);
+        initial_wait_id = Timeout.add (200, () => {
+            click_id = Timeout.add (20, step_callback);
             initial_wait_id = 0;
             return false;
         });
