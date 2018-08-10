@@ -236,8 +236,8 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("Print", sensitivity);
         set_action_sensitive ("CommonJumpToFile", sensitivity);
 
-        set_action_sensitive ("CommonUndo", sensitivity);
-        set_action_sensitive ("CommonRedo", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_UNDO)).set_enabled (sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_REDO)).set_enabled (sensitivity);
 
         set_action_sensitive ("IncreaseSize", sensitivity);
         set_action_sensitive ("DecreaseSize", sensitivity);
