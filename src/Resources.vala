@@ -18,7 +18,8 @@
 */
 
 namespace Resources {
-public const string APP_TITLE = _("Photos");
+// TRANSLATORS: This is the application name, not a category or mimetype name
+public const string APP_TITLE = N_("Photos");
 public const string APP_TITLE_VIEWER = _("Photos Viewer");
 public const string APP_LIBRARY_ROLE = _("Photo Manager");
 public const string APP_DIRECT_ROLE = _("Photo Viewer");
