@@ -1334,7 +1334,7 @@ public class LibraryWindow : AppWindow {
         } else {
             // having no page is unlikely, but set the good old default title
             // just in case
-            set_default_title ();
+            title = _(Resources.APP_TITLE);
         }
     }
 }
