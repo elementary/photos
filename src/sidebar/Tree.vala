@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2011-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2011-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -135,7 +136,6 @@ public class Sidebar.Tree : Gtk.TreeView {
 
         set_headers_visible (false);
         set_enable_search (false);
-        set_rules_hint (false);
         set_show_expanders (true);
         set_reorderable (false);
         set_enable_tree_lines (false);
