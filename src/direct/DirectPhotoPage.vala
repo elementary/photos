@@ -142,9 +142,7 @@ public class DirectPhotoPage : EditingHostPage {
 
             if (fullscreen == false) {
                 var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-                var jump_action = get_common_action ("CommonJumpToFile");
-                jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-                jump_menu_item.activate.connect (() => jump_action.activate ());
+                jump_menu_item.action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_JUMP_TO_FILE;
 
                 var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
                 var print_action = get_action ("Print");
@@ -234,7 +232,7 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("SaveAs", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
-        set_action_sensitive ("CommonJumpToFile", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
         set_action_sensitive ("CommonUndo", sensitivity);
         set_action_sensitive ("CommonRedo", sensitivity);

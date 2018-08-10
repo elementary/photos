@@ -45,15 +45,18 @@ public abstract class AppWindow : PageWindow {
     protected GLib.Settings window_settings;
 
     public const string ACTION_PREFIX = "win.";
+    public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
 
     private const ActionEntry[] action_entries = {
+        { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit }
     };
 
     construct {
         add_action_entries (action_entries, this);
 
+        Application.get_instance ().set_accels_for_action (ACTION_JUMP_TO_FILE + ACTION_QUIT, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
 
         window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
@@ -137,7 +140,6 @@ public abstract class AppWindow : PageWindow {
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
         Gtk.ActionEntry undo = { "CommonUndo", null, null, "<Ctrl>Z", null, on_undo };
         Gtk.ActionEntry redo = { "CommonRedo", null, null, "<Ctrl><Shift>Z", null, on_redo };
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
         Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
         Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
 
@@ -145,7 +147,6 @@ public abstract class AppWindow : PageWindow {
         actions += fullscreen;
         actions += undo;
         actions += redo;
-        actions += jump_to_file;
         actions += select_all;
         actions += select_none;
 
@@ -466,7 +467,7 @@ public abstract class AppWindow : PageWindow {
     protected virtual void update_common_actions (Page page, int selected_count, int count) {
         if (page is CheckerboardPage)
             set_common_action_sensitive ("CommonSelectAll", count > 0);
-        set_common_action_sensitive ("CommonJumpToFile", selected_count == 1);
+        ((SimpleAction) lookup_action (ACTION_JUMP_TO_FILE)).set_enabled (selected_count == 1);
 
         decorate_undo_action ();
         decorate_redo_action ();
