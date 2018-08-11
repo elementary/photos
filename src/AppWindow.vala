@@ -52,9 +52,7 @@ public abstract class AppWindow : PageWindow {
     };
 
     construct {
-        var actions = new SimpleActionGroup ();
-        actions.add_action_entries (action_entries, this);
-        insert_action_group ("win", actions);
+        add_action_entries (action_entries, this);
 
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
 
