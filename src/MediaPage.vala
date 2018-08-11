@@ -44,8 +44,18 @@ public abstract class MediaPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     protected GLib.Settings ui_settings;
 
+    public const string ACTION_EXPORT = "action_export";
+
+    private const ActionEntry[] action_entries = {
+        { ACTION_EXPORT, on_export }
+    };
+
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        AppWindow.get_instance ().add_action_entries (action_entries, this);
+
+        Application.get_instance ().set_accels_for_action (AppWindow.ACTION_PREFIX + ACTION_EXPORT, {"<Ctrl><Shift>E"});
     }
 
     public MediaPage (string page_name) {
@@ -207,11 +217,6 @@ public abstract class MediaPage : CheckerboardPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
 
-        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
-                                   Resources.EXPORT_MENU, on_export
-                                 };
-        actions += export;
-
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
                                                 "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
                                               };
@@ -328,7 +333,7 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected override void update_actions (int selected_count, int count) {
-        set_action_sensitive ("Export", selected_count > 0);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (ACTION_EXPORT)).set_enabled (selected_count > 0);
         set_action_sensitive ("IncreaseSize", get_thumb_size () < Thumbnail.MAX_SCALE);
         set_action_sensitive ("DecreaseSize", get_thumb_size () > Thumbnail.MIN_SCALE);
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
