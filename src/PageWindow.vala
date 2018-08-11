@@ -24,7 +24,7 @@
 // subclass.  A subclass should set current_page to the user-visible Page for it to receive
 // various notifications.  It is the responsibility of the subclass to notify Pages when they're
 // switched to and from, and other aspects of the Page interface.
-public abstract class PageWindow : Gtk.Window {
+public abstract class PageWindow : Gtk.ApplicationWindow {
     protected Gtk.UIManager ui = new Gtk.UIManager ();
 
     private Page current_page = null;
