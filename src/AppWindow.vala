@@ -467,8 +467,7 @@ public abstract class AppWindow : PageWindow {
             set_common_action_sensitive ("CommonSelectAll", count > 0);
         set_common_action_sensitive ("CommonJumpToFile", selected_count == 1);
 
-        decorate_command_manager_action (ACTION_UNDO, undo_btn, _("Undo"), get_command_manager ().get_undo_description ());
-        decorate_command_manager_action (ACTION_REDO, redo_btn, _("Redo"), get_command_manager ().get_redo_description ());
+        on_command_manager_altered ();
     }
 
     private void on_update_common_actions () {
