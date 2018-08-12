@@ -46,15 +46,18 @@ public abstract class AppWindow : PageWindow {
 
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_QUIT = "action_quit";
+    public const string ACTION_SELECT_NONE = "action_select_none";
 
     private const ActionEntry[] action_entries = {
-        { ACTION_QUIT, on_quit }
+        { ACTION_QUIT, on_quit },
+        { ACTION_SELECT_NONE, on_select_none }
     };
 
     construct {
         add_action_entries (action_entries, this);
 
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
 
         window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
     }
@@ -139,7 +142,6 @@ public abstract class AppWindow : PageWindow {
         Gtk.ActionEntry redo = { "CommonRedo", null, null, "<Ctrl><Shift>Z", null, on_redo };
         Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
         Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
-        Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
 
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
         actions += fullscreen;
@@ -147,7 +149,6 @@ public abstract class AppWindow : PageWindow {
         actions += redo;
         actions += jump_to_file;
         actions += select_all;
-        actions += select_none;
 
         return actions;
     }
@@ -457,7 +458,7 @@ public abstract class AppWindow : PageWindow {
         bool is_checkerboard = new_page is CheckerboardPage;
 
         set_common_action_sensitive ("CommonSelectAll", is_checkerboard);
-        set_common_action_sensitive ("CommonSelectNone", is_checkerboard);
+        ((SimpleAction) lookup_action (ACTION_SELECT_NONE)).set_enabled (is_checkerboard);
     }
 
     // This is a counterpart to Page.update_actions (), but for common Gtk.Actions
