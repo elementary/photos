@@ -62,7 +62,7 @@ public abstract class AppWindow : PageWindow {
     construct {
         add_action_entries (action_entries, this);
 
-        Application.get_instance ().set_accels_for_action (ACTION_JUMP_TO_FILE + ACTION_QUIT, {"<Ctrl><Shift>M"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
