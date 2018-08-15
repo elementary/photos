@@ -1025,7 +1025,11 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (context_menu == null || !on_context_invoked ())
             return false;
 
-        context_menu.popup_at_pointer (event);
+        if (event == null) {
+            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
+        } else {
+            context_menu.popup (null, null, null, event.button, event.time);
+        }
 
         return true;
     }
