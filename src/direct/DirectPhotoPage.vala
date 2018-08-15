@@ -142,7 +142,10 @@ public class DirectPhotoPage : EditingHostPage {
 
             if (fullscreen == false) {
                 var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-                jump_menu_item.action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_JUMP_TO_FILE;
+
+                var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+                jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
                 var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
                 var print_action = get_action ("Print");
