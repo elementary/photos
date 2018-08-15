@@ -180,15 +180,15 @@ public class FullscreenWindow : PageWindow {
     }
 
     private bool is_pointer_in_toolbar () {
-        Gdk.DeviceManager? devmgr = get_display ().get_device_manager ();
-        if (devmgr == null) {
-            debug ("No device manager for display");
+        var seat = get_display ().get_default_seat ();
+        if (seat == null) {
+            debug ("No seat for display");
 
             return false;
         }
 
         int py;
-        devmgr.get_client_pointer ().get_position (null, null, out py);
+        seat.get_pointer ().get_position (null, null, out py);
 
         Gtk.Allocation toolbar_alloc;
         toolbar.get_allocation (out toolbar_alloc);
