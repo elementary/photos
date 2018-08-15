@@ -47,10 +47,16 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
+    public const string ACTION_REDO = "action_redo";
+    public const string ACTION_SELECT_NONE = "action_select_none";
+    public const string ACTION_UNDO = "action_undo";
 
     private const ActionEntry[] action_entries = {
         { ACTION_JUMP_TO_FILE, on_jump_to_file },
-        { ACTION_QUIT, on_quit }
+        { ACTION_QUIT, on_quit },
+        { ACTION_REDO, on_redo },
+        { ACTION_SELECT_NONE, on_select_none },
+        { ACTION_UNDO, on_undo }
     };
 
     construct {
@@ -58,6 +64,9 @@ public abstract class AppWindow : PageWindow {
 
         Application.get_instance ().set_accels_for_action (ACTION_JUMP_TO_FILE + ACTION_QUIT, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
 
         window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
     }
@@ -123,14 +132,11 @@ public abstract class AppWindow : PageWindow {
     }
 
     protected virtual void build_header_bar () {
-        redo_btn = new Gtk.Button ();
-        redo_btn.related_action = get_common_action ("CommonRedo");
-        redo_btn.image = new Gtk.Image.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
+        redo_btn = new Gtk.Button.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
+        redo_btn.action_name = ACTION_PREFIX + ACTION_REDO;
 
-        undo_btn = new Gtk.Button ();
-        undo_btn.related_action = get_common_action ("CommonUndo");
-        undo_btn.image = new Gtk.Image.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
-
+        undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
+        undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
 
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
@@ -138,17 +144,11 @@ public abstract class AppWindow : PageWindow {
 
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry undo = { "CommonUndo", null, null, "<Ctrl>Z", null, on_undo };
-        Gtk.ActionEntry redo = { "CommonRedo", null, null, "<Ctrl><Shift>Z", null, on_redo };
         Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
-        Gtk.ActionEntry select_none = { "CommonSelectNone", null, null, "<Ctrl><Shift>A", TRANSLATABLE, on_select_none };
 
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
         actions += fullscreen;
-        actions += undo;
-        actions += redo;
         actions += select_all;
-        actions += select_none;
 
         return actions;
     }
@@ -458,7 +458,7 @@ public abstract class AppWindow : PageWindow {
         bool is_checkerboard = new_page is CheckerboardPage;
 
         set_common_action_sensitive ("CommonSelectAll", is_checkerboard);
-        set_common_action_sensitive ("CommonSelectNone", is_checkerboard);
+        ((SimpleAction) lookup_action (ACTION_SELECT_NONE)).set_enabled (is_checkerboard);
     }
 
     // This is a counterpart to Page.update_actions (), but for common Gtk.Actions
@@ -469,8 +469,7 @@ public abstract class AppWindow : PageWindow {
             set_common_action_sensitive ("CommonSelectAll", count > 0);
         ((SimpleAction) lookup_action (ACTION_JUMP_TO_FILE)).set_enabled (selected_count == 1);
 
-        decorate_undo_action ();
-        decorate_redo_action ();
+        on_command_manager_altered ();
     }
 
     private void on_update_common_actions () {
@@ -484,31 +483,23 @@ public abstract class AppWindow : PageWindow {
     }
 
     private void on_command_manager_altered () {
-        decorate_undo_action ();
-        decorate_redo_action ();
+        decorate_command_manager_action (ACTION_UNDO, undo_btn, _("Undo"), get_command_manager ().get_undo_description ());
+        decorate_command_manager_action (ACTION_REDO, redo_btn, _("Redo"), get_command_manager ().get_redo_description ());
     }
 
     private void decorate_command_manager_action (string name, Gtk.Button button, string default_explanation, CommandDescription? desc) {
-        Gtk.Action? action = get_common_action (name);
+        var action = ((SimpleAction) lookup_action (name));
         if (action == null) {
             return;
         }
 
         if (desc != null) {
             button.tooltip_text = "%s %s".printf (default_explanation, desc.get_name ());
-            action.sensitive = true;
+            action.set_enabled (true);
         } else {
             button.tooltip_text = default_explanation;
-            action.sensitive = false;
+            action.set_enabled (false);
         }
-    }
-
-    public void decorate_undo_action () {
-        decorate_command_manager_action ("CommonUndo", undo_btn, _("Undo"), get_command_manager ().get_undo_description ());
-    }
-
-    public void decorate_redo_action () {
-        decorate_command_manager_action ("CommonRedo", redo_btn, _("Redo"), get_command_manager ().get_redo_description ());
     }
 
     private void on_undo () {
