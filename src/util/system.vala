@@ -36,10 +36,6 @@ File? get_sys_install_dir (File exec_dir) {
     return exec_dir1.has_prefix (prefix_dir) ? prefix_dir : null;
 }
 
-void sys_show_uri (Gdk.Screen screen, string uri) throws Error {
-    Gtk.show_uri (screen, uri, Gdk.CURRENT_TIME);
-}
-
 int posix_wexitstatus (int status) {
     return ((status & 0xff00) >> 8);
 }
