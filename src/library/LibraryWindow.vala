@@ -82,7 +82,6 @@ public class LibraryWindow : AppWindow {
     private class FullscreenPhotoPage : LibraryPhotoPage {
         private CollectionPage collection;
         private Photo start;
-        private ViewCollection? view;
 
         public FullscreenPhotoPage (CollectionPage collection, Photo start, ViewCollection? view) {
             this.collection = collection;
@@ -371,13 +370,13 @@ public class LibraryWindow : AppWindow {
 
         // monitor when the ViewFilter is changed in any page
         if (old_page != null) {
-            old_page.get_view ().view_filter_installed.disconnect (on_view_filter_installed);
-            old_page.get_view ().view_filter_removed.disconnect (on_view_filter_removed);
+            old_page.view.view_filter_installed.disconnect (on_view_filter_installed);
+            old_page.view.view_filter_removed.disconnect (on_view_filter_removed);
         }
 
         if (new_page != null) {
-            new_page.get_view ().view_filter_installed.connect (on_view_filter_installed);
-            new_page.get_view ().view_filter_removed.connect (on_view_filter_removed);
+            new_page.view.view_filter_installed.connect (on_view_filter_installed);
+            new_page.view.view_filter_removed.connect (on_view_filter_removed);
         }
     }
 
@@ -392,7 +391,7 @@ public class LibraryWindow : AppWindow {
     private void on_view_filter_refreshed () {
         // if view filter is reset to show all items, do nothing (leave searchbar in current
         // state)
-        if (!get_current_page ().get_view ().are_items_filtered_out ())
+        if (!get_current_page ().view.are_items_filtered_out ())
             return;
 
         // always show the searchbar when items are filtered
@@ -471,7 +470,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private Photo? get_start_fullscreen_photo (CollectionPage page) {
-        ViewCollection view = page.get_view ();
+        ViewCollection view = page.view;
 
         // if a selection is present, use the first selected LibraryPhoto, otherwise do
         // nothing; if no selection present, use the first LibraryPhoto
@@ -503,7 +502,7 @@ public class LibraryWindow : AppWindow {
         }
 
         if (page is EventsDirectoryPage) {
-            ViewCollection view = page.get_view ();
+            ViewCollection view = page.view;
             if (view.get_count () == 0)
                 return false;
 
@@ -538,7 +537,7 @@ public class LibraryWindow : AppWindow {
 
             collection = controller;
             start = photo_page.get_photo ();
-            view_collection = photo_page.get_view ();
+            view_collection = photo_page.view;
 
             return true;
         }
@@ -629,7 +628,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private bool can_jump_to_event () {
-        ViewCollection view = get_current_page ().get_view ();
+        ViewCollection view = get_current_page ().view;
         if (view.get_selected_count () == 1) {
             DataSource selected_source = view.get_selected_source_at (0);
             if (selected_source is Event)
@@ -644,7 +643,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void on_jump_to_event () {
-        ViewCollection view = get_current_page ().get_view ();
+        ViewCollection view = get_current_page ().view;
 
         if (view.get_selected_count () != 1)
             return;
@@ -889,7 +888,7 @@ public class LibraryWindow : AppWindow {
     }
 
     public void switch_to_photo_page (CollectionPage controller, Photo current) {
-        assert (controller.get_view ().get_view_for_source (current) != null);
+        assert (controller.view.get_view_for_source (current) != null);
         if (photo_page == null) {
             photo_page = new LibraryPhotoPage ();
             add_to_notebook (photo_page);
@@ -1144,7 +1143,7 @@ public class LibraryWindow : AppWindow {
 
     private void init_view_filter (CheckerboardPage page) {
         search_entry.set_view_filter (page.get_search_view_filter ());
-        page.get_view ().install_view_filter (page.get_search_view_filter ());
+        page.view.install_view_filter (page.get_search_view_filter ());
     }
 
     private bool is_search_sensitive () {
@@ -1247,7 +1246,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void subscribe_for_basic_information (Page page) {
-        ViewCollection view = page.get_view ();
+        ViewCollection view = page.view;
 
         view.items_state_changed.connect (on_update_properties);
         view.items_altered.connect (on_update_properties);
@@ -1256,7 +1255,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void unsubscribe_from_basic_information (Page page) {
-        ViewCollection view = page.get_view ();
+        ViewCollection view = page.view;
 
         view.items_state_changed.disconnect (on_update_properties);
         view.items_altered.disconnect (on_update_properties);

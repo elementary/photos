@@ -42,7 +42,7 @@ public class DirectPhotoPage : EditingHostPage {
         current_save_dir = file.get_parent ();
         DirectPhoto.global.items_altered.connect (on_photos_altered);
 
-        get_view ().selection_group_altered.connect (on_selection_group_altered);
+        view.selection_group_altered.connect (on_selection_group_altered);
     }
 
     ~DirectPhotoPage () {
@@ -262,7 +262,7 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     protected override void update_actions (int selected_count, int count) {
-        bool multiple = get_view ().get_count () > 1;
+        bool multiple = view.get_count () > 1;
         bool revert_possible = has_photo () ? get_photo ().has_transformations ()
             && !get_photo_missing () : false;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
@@ -475,9 +475,9 @@ public class DirectPhotoPage : EditingHostPage {
     }
 
     private void on_print () {
-        if (get_view ().get_selected_count () > 0) {
+        if (view.get_selected_count () > 0) {
             PrintManager.get_instance ().spool_photo (
-                (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
+                (Gee.Collection<Photo>) view.get_selected_sources_of_type (typeof (Photo)));
         }
     }
 

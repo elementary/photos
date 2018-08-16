@@ -43,7 +43,7 @@ public class OfflinePage : CheckerboardPage {
     public OfflinePage () {
         base (NAME);
 
-        tracker = new MediaViewTracker (get_view ());
+        tracker = new MediaViewTracker (view);
 
         // monitor offline and initialize view with all items in it
         LibraryPhoto.global.offline_contents_altered.connect (on_offline_contents_altered);
@@ -174,20 +174,20 @@ public class OfflinePage : CheckerboardPage {
             Gee.Collection<MediaSource>? removed) {
         if (added != null) {
             foreach (MediaSource source in added)
-                get_view ().add (new OfflineView (source));
+                view.add (new OfflineView (source));
         }
 
         if (removed != null) {
-            Marker marker = get_view ().start_marking ();
+            Marker marker = view.start_marking ();
             foreach (MediaSource source in removed)
-                marker.mark (get_view ().get_view_for_source (source));
-            get_view ().remove_marked (marker);
+                marker.mark (view.get_view_for_source (source));
+            view.remove_marked (marker);
         }
     }
 
     private void on_remove_from_library () {
         Gee.Collection<MediaSource> sources =
-            (Gee.Collection<MediaSource>) get_view ().get_selected_sources ();
+            (Gee.Collection<MediaSource>) view.get_selected_sources ();
         if (sources.size == 0)
             return;
 

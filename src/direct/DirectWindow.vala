@@ -24,8 +24,8 @@ public class DirectWindow : AppWindow {
     public DirectWindow (File file) {
         direct_photo_page = new DirectPhotoPage (file);
         direct_photo_page.expand = true;
-        direct_photo_page.get_view ().items_altered.connect (on_photo_changed);
-        direct_photo_page.get_view ().items_state_changed.connect (on_photo_changed);
+        direct_photo_page.view.items_altered.connect (on_photo_changed);
+        direct_photo_page.view.items_state_changed.connect (on_photo_changed);
 
         set_current_page (direct_photo_page);
 

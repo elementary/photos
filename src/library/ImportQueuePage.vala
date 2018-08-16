@@ -146,9 +146,9 @@ public class ImportQueuePage : SinglePhotoPage {
         set_pixbuf (pixbuf, Dimensions.for_pixbuf (pixbuf));
 
         // set the singleton collection to this item
-        get_view ().clear ();
-        (source is LibraryPhoto) ? get_view ().add (new PhotoView (source as LibraryPhoto)) :
-        get_view ().add (new VideoView (source as Video));
+        view.clear ();
+        (source is LibraryPhoto) ? view.add (new PhotoView (source as LibraryPhoto)) :
+        view.add (new VideoView (source as Video));
 
         progress_bar.set_ellipsize (Pango.EllipsizeMode.MIDDLE);
         progress_bar.set_text (_ ("Imported %s").printf (source.get_name ()));

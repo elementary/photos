@@ -732,7 +732,7 @@ public class ImportPage : CheckerboardPage {
         this.import_sources = new ImportSourceCollection ("ImportSources for %s".printf (uri));
         this.icon = icon;
 
-        tracker = new CameraViewTracker (get_view ());
+        tracker = new CameraViewTracker (view);
 
         // Get camera name.
         if (null != display_name) {
@@ -760,18 +760,18 @@ public class ImportPage : CheckerboardPage {
             spin_idle_context = new GPhoto.SpinIdleWrapper ();
 
         // monitor source collection to add/remove views
-        get_view ().monitor_source_collection (import_sources, new ImportViewManager (this), null);
+        view.monitor_source_collection (import_sources, new ImportViewManager (this), null);
 
         // sort by exposure time
-        get_view ().set_comparator (preview_comparator, preview_comparator_predicate);
+        view.set_comparator (preview_comparator, preview_comparator_predicate);
 
         // monitor selection for UI
-        get_view ().items_state_changed.connect (on_view_changed);
-        get_view ().contents_altered.connect (on_view_changed);
-        get_view ().items_visibility_changed.connect (on_view_changed);
+        view.items_state_changed.connect (on_view_changed);
+        view.contents_altered.connect (on_view_changed);
+        view.items_visibility_changed.connect (on_view_changed);
 
         // Show subtitles.
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_SUBTITLES, true);
+        view.set_property (CheckerboardItem.PROP_SHOW_SUBTITLES, true);
 
         // monitor Photos for removals, as that will change the result of the ViewFilter
         LibraryPhoto.global.contents_altered.connect (on_media_added_removed);
@@ -1029,14 +1029,14 @@ public class ImportPage : CheckerboardPage {
 
     private void update_toolbar_state () {
         if (hide_imported != null)
-            hide_imported.sensitive = !busy && refreshed && (get_view ().get_unfiltered_count () > 0);
+            hide_imported.sensitive = !busy && refreshed && (view.get_unfiltered_count () > 0);
     }
 
     private void on_view_changed () {
-        set_action_sensitive ("ImportSelected", !busy && refreshed && get_view ().get_selected_count () > 0);
-        set_action_sensitive ("ImportAll", !busy && refreshed && get_view ().get_count () > 0);
+        set_action_sensitive ("ImportSelected", !busy && refreshed && view.get_selected_count () > 0);
+        set_action_sensitive ("ImportAll", !busy && refreshed && view.get_count () > 0);
         AppWindow.get_instance ().set_common_action_sensitive ("CommonSelectAll",
-                !busy && (get_view ().get_count () > 0));
+                !busy && (view.get_count () > 0));
 
         update_toolbar_state ();
     }
@@ -1704,19 +1704,19 @@ public class ImportPage : CheckerboardPage {
 
     private void on_hide_imported () {
         if (hide_imported.get_active ())
-            get_view ().install_view_filter (hide_imported_filter);
+            view.install_view_filter (hide_imported_filter);
         else
-            get_view ().remove_view_filter (hide_imported_filter);
+            view.remove_view_filter (hide_imported_filter);
 
         ui_settings.set_boolean ("hide-photos-already-imported", hide_imported.get_active ());
     }
 
     private void on_import_selected () {
-        import (get_view ().get_selected ());
+        import (view.get_selected ());
     }
 
     private void on_import_all () {
-        import (get_view ().get_all ());
+        import (view.get_all ());
     }
 
     private void import (Gee.Iterable<DataObject> items) {

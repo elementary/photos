@@ -38,14 +38,14 @@ public class LibraryPhotoPage : EditingHostPage {
         base (LibraryPhoto.global, "Photo");
 
         // monitor view to update UI elements
-        get_view ().items_altered.connect (on_photos_altered);
+        view.items_altered.connect (on_photos_altered);
 
         // watch for photos being destroyed or altered, either here or in other pages
         LibraryPhoto.global.item_destroyed.connect (on_photo_destroyed);
         LibraryPhoto.global.items_altered.connect (on_metadata_altered);
 
         // Filter out trashed files.
-        get_view ().install_view_filter (filter);
+        view.install_view_filter (filter);
         LibraryPhoto.global.items_unlinking.connect (on_photo_unlinking);
         LibraryPhoto.global.items_relinked.connect (on_photo_relinked);
     }
@@ -289,7 +289,7 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     protected override void update_actions (int selected_count, int count) {
-        bool multiple = get_view ().get_count () > 1;
+        bool multiple = view.get_count () > 1;
         bool rotate_possible = has_photo () ? is_rotate_available (get_photo ()) : false;
         bool is_raw = has_photo () && get_photo ().get_master_file_format () == PhotoFileFormat.RAW;
 
@@ -339,17 +339,17 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     protected virtual void developer_changed (RawDeveloper rd) {
-        if (get_view ().get_selected_count () != 1)
+        if (view.get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected ().get (0).get_source () as Photo;
+        Photo? photo = view.get_selected ().get (0).get_source () as Photo;
         if (photo == null || rd.is_equivalent (photo.get_raw_developer ()))
             return;
 
         // Check if any photo has edits
         // Display warning only when edits could be destroyed
         if (!photo.has_transformations () || Dialogs.confirm_warn_developer_changed (1)) {
-            SetRawDeveloperCommand command = new SetRawDeveloperCommand (get_view ().get_selected (),
+            SetRawDeveloperCommand command = new SetRawDeveloperCommand (view.get_selected (),
                     rd);
             get_command_manager ().execute (command);
 
@@ -380,7 +380,7 @@ public class LibraryPhotoPage : EditingHostPage {
         this.return_page = return_page;
         return_page.destroy.connect (on_page_destroyed);
 
-        display_copy_of (view != null ? view : return_page.get_view (), photo);
+        display_copy_of (view != null ? view : return_page.view, photo);
     }
 
     public void on_page_destroyed () {
@@ -421,7 +421,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (photo == null)
             return;
 
-        AppWindow.get_instance ().go_fullscreen (new SlideshowPage (LibraryPhoto.global, get_view (),
+        AppWindow.get_instance ().go_fullscreen (new SlideshowPage (LibraryPhoto.global, view,
                                                 photo));
     }
 
@@ -682,7 +682,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         populate_external_app_menu (open_menu, false);
 
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        Photo? photo = (view.get_selected_at (0).get_source () as Photo);
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
@@ -877,9 +877,9 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private void on_print () {
-        if (get_view ().get_selected_count () > 0) {
+        if (view.get_selected_count () > 0) {
             PrintManager.get_instance ().spool_photo (
-                (Gee.Collection<Photo>) get_view ().get_selected_sources_of_type (typeof (Photo)));
+                (Gee.Collection<Photo>) view.get_selected_sources_of_type (typeof (Photo)));
         }
     }
 
@@ -912,9 +912,9 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private void on_publish () {
-        if (get_view ().get_count () > 0)
+        if (view.get_count () > 0)
             PublishingUI.PublishingDialog.go (
-                (Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
+                (Gee.Collection<MediaSource>) view.get_selected_sources ());
     }
 
     private void on_view_menu () {

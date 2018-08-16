@@ -83,11 +83,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         base (page_name);
 
         // set comparator before monitoring source collection, to prevent a re-sort
-        get_view ().set_comparator (get_event_comparator (ui_settings.get_boolean ("events-sort-ascending")),
+        view.set_comparator (get_event_comparator (ui_settings.get_boolean ("events-sort-ascending")),
                                     event_comparator_predicate);
-        get_view ().monitor_source_collection (Event.global, view_manager, null, initial_events);
+        view.monitor_source_collection (Event.global, view_manager, null, initial_events);
 
-        get_view ().set_property (Event.PROP_SHOW_COMMENTS,
+        view.set_property (Event.PROP_SHOW_COMMENTS,
                                   ui_settings.get_boolean ("display-event-comments"));
 
         this.view_manager = view_manager;
@@ -265,7 +265,7 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     private void on_sort_changed (Gtk.Action action, Gtk.Action c) {
         Gtk.RadioAction current = (Gtk.RadioAction) c;
 
-        get_view ().set_comparator (
+        view.set_comparator (
             get_event_comparator (current.current_value == LibraryWindow.SORT_EVENTS_ORDER_ASCENDING),
             event_comparator_predicate);
     }
@@ -278,10 +278,10 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
     private void on_rename () {
         // only rename one at a time
-        if (get_view ().get_selected_count () != 1)
+        if (view.get_selected_count () != 1)
             return;
 
-        EventDirectoryItem item = (EventDirectoryItem) get_view ().get_selected_at (0);
+        EventDirectoryItem item = (EventDirectoryItem) view.get_selected_at (0);
 
         EventRenameDialog rename_dialog = new EventRenameDialog (item.event.get_raw_name ());
         string? new_name = rename_dialog.execute ();
@@ -293,10 +293,10 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     }
 
     private void on_merge () {
-        if (get_view ().get_selected_count () <= 1)
+        if (view.get_selected_count () <= 1)
             return;
 
-        MergeEventsCommand command = new MergeEventsCommand (get_view ().get_selected ());
+        MergeEventsCommand command = new MergeEventsCommand (view.get_selected ());
         get_command_manager ().execute (command);
     }
 

@@ -24,7 +24,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected bool in_view = false;
     protected Gtk.ToolButton show_sidebar_button;
 
-    private ViewCollection view = null;
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
@@ -51,6 +50,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.Box header_box;
 
     public string page_name { get; set; }
+    public ViewCollection? view { get; set; default = null; }
 
     protected Page (string page_name) {
         Object (page_name: page_name);
@@ -100,7 +100,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
-            var selected = get_view ().get_selected_sources ();
+            var selected = view.get_selected_sources ();
             foreach (var item in selected)
                 files += (((Photo)item).get_file ());
             contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
@@ -117,7 +117,7 @@ public abstract class Page : Gtk.ScrolledWindow {
             var contract = contracts.get (i);
             Gtk.MenuItem menu_item;
 
-            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
+            menu_item = new ContractMenuItem (contract, view.get_selected_sources ());
             menu.append (menu_item);
             contractor_menu_items.append (menu_item);
         }
@@ -151,10 +151,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         base.destroy ();
 
         debug ("Page %s Destroyed", page_name);
-    }
-
-    public ViewCollection get_view () {
-        return view;
     }
 
     public Gtk.Window? get_container () {
@@ -468,16 +464,16 @@ public abstract class Page : Gtk.ScrolledWindow {
             return;
 
         // initialize the Gtk.Actions according to current state
-        int selected_count = get_view ().get_selected_count ();
-        int count = get_view ().get_count ();
+        int selected_count = view.get_selected_count ();
+        int count = view.get_count ();
         init_actions (selected_count, count);
         update_actions (selected_count, count);
 
         // monitor state changes to update actions
-        get_view ().items_state_changed.connect (on_update_actions);
-        get_view ().selection_group_altered.connect (on_update_actions);
-        get_view ().items_visibility_changed.connect (on_update_actions);
-        get_view ().contents_altered.connect (on_update_actions);
+        view.items_state_changed.connect (on_update_actions);
+        view.selection_group_altered.connect (on_update_actions);
+        view.items_visibility_changed.connect (on_update_actions);
+        view.contents_altered.connect (on_update_actions);
 
         are_actions_attached = true;
     }
@@ -487,10 +483,10 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (!are_actions_attached)
             return;
 
-        get_view ().items_state_changed.disconnect (on_update_actions);
-        get_view ().selection_group_altered.disconnect (on_update_actions);
-        get_view ().items_visibility_changed.disconnect (on_update_actions);
-        get_view ().contents_altered.disconnect (on_update_actions);
+        view.items_state_changed.disconnect (on_update_actions);
+        view.selection_group_altered.disconnect (on_update_actions);
+        view.items_visibility_changed.disconnect (on_update_actions);
+        view.contents_altered.disconnect (on_update_actions);
 
         are_actions_attached = false;
     }
@@ -509,7 +505,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (is_destroyed)
             return;
 
-        update_actions (get_view ().get_selected_count (), get_view ().get_count ());
+        update_actions (view.get_selected_count (), view.get_count ());
     }
 
     // This is called during init_ui () to collect all Gtk.ActionEntries for the page.

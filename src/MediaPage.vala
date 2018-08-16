@@ -51,19 +51,19 @@ public abstract class MediaPage : CheckerboardPage {
     public MediaPage (string page_name) {
         base (page_name);
 
-        tracker = new MediaViewTracker (get_view ());
-        get_view ().items_altered.connect (on_media_altered);
+        tracker = new MediaViewTracker (view);
+        view.items_altered.connect (on_media_altered);
 
-        get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES,
+        view.freeze_notifications ();
+        view.set_property (CheckerboardItem.PROP_SHOW_TITLES,
                                  ui_settings.get_boolean ("display-photo-titles"));
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
+        view.set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
                                  ui_settings.get_boolean ("display-photo-comments"));
-        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
+        view.set_property (Thumbnail.PROP_SHOW_TAGS,
                                  ui_settings.get_boolean ("display-photo-tags"));
-        get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
+        view.set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
 
-        get_view ().thaw_notifications ();
+        view.thaw_notifications ();
 
         // enable drag-and-drop export of media
         dnd_handler = new DragAndDropHandler (this);
@@ -344,7 +344,7 @@ public abstract class MediaPage : CheckerboardPage {
     private void on_media_altered (Gee.Map<DataObject, Alteration> altered) {
         foreach (DataObject object in altered.keys) {
             if (altered.get (object).has_detail ("metadata", "flagged")) {
-                update_flag_action (get_view ().get_selected_count ());
+                update_flag_action (view.get_selected_count ());
 
                 break;
             }
@@ -352,7 +352,7 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     private void update_development_menu_item_sensitivity () {
-        if (get_view ().get_selected ().size == 0) {
+        if (view.get_selected ().size == 0) {
             set_action_sensitive ("RawDeveloper", false);
             return;
         }
@@ -361,7 +361,7 @@ public abstract class MediaPage : CheckerboardPage {
         bool avail_shotwell = false; // True if Photos developer is available.
         bool avail_camera = false;   // True if camera developer is available.
         bool is_raw = false;    // True if any RAW photos are selected
-        foreach (DataView view in get_view ().get_selected ()) {
+        foreach (DataView view in view.get_selected ()) {
             Photo? photo = ((Thumbnail) view).get_media_source () as Photo;
             if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
                 is_raw = true;
@@ -396,7 +396,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         if (selected_count > 0) {
             bool all_flagged = true;
-            foreach (DataSource source in get_view ().get_selected_sources ()) {
+            foreach (DataSource source in view.get_selected_sources ()) {
                 Flaggable? flaggable = source as Flaggable;
                 if (flaggable != null && !flaggable.is_flagged ()) {
                     all_flagged = false;
@@ -439,10 +439,10 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected void on_play_video () {
-        if (get_view ().get_selected_count () != 1)
+        if (view.get_selected_count () != 1)
             return;
 
-        Video? video = get_view ().get_selected_at (0).get_source () as Video;
+        Video? video = view.get_selected_at (0).get_source () as Video;
         if (video == null)
             return;
 
@@ -485,11 +485,11 @@ public abstract class MediaPage : CheckerboardPage {
         base.switched_to ();
 
         // set display options to match Configuration toggles (which can change while switched away)
-        get_view ().freeze_notifications ();
+        view.freeze_notifications ();
         set_display_titles (ui_settings.get_boolean ("display-photo-titles"));
         set_display_comments (ui_settings.get_boolean ("display-photo-comments"));
         set_display_tags (ui_settings.get_boolean ("display-photo-tags"));
-        get_view ().thaw_notifications ();
+        view.thaw_notifications ();
 
         sync_sort ();
     }
@@ -549,9 +549,9 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     private void set_display_tags (bool display) {
-        get_view ().freeze_notifications ();
-        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS, display);
-        get_view ().thaw_notifications ();
+        view.freeze_notifications ();
+        view.set_property (Thumbnail.PROP_SHOW_TAGS, display);
+        view.thaw_notifications ();
 
         Gtk.ToggleAction? action = get_action ("ViewTags") as Gtk.ToggleAction;
         if (action != null)
@@ -559,16 +559,16 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     private void on_new_event () {
-        if (get_view ().get_selected_count () > 0)
-            get_command_manager ().execute (new NewEventCommand (get_view ().get_selected ()));
+        if (view.get_selected_count () > 0)
+            get_command_manager ().execute (new NewEventCommand (view.get_selected ()));
     }
 
     private void on_flag_unflag () {
-        if (get_view ().get_selected_count () == 0)
+        if (view.get_selected_count () == 0)
             return;
 
         Gee.Collection<MediaSource> sources =
-            (Gee.Collection<MediaSource>) get_view ().get_selected_sources_of_type (typeof (MediaSource));
+            (Gee.Collection<MediaSource>) view.get_selected_sources_of_type (typeof (MediaSource));
 
         // If all are flagged, then unflag, otherwise flag
         bool flag = false;
@@ -585,22 +585,22 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     private void on_remove_from_library () {
-        remove_photos_from_library ((Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources ());
+        remove_photos_from_library ((Gee.Collection<LibraryPhoto>) view.get_selected_sources ());
     }
 
     protected virtual void on_move_to_trash () {
         CheckerboardItem? restore_point = null;
 
         if (cursor != null) {
-            restore_point = get_view ().get_next (cursor) as CheckerboardItem;
+            restore_point = view.get_next (cursor) as CheckerboardItem;
         }
 
-        if (get_view ().get_selected_count () > 0) {
+        if (view.get_selected_count () > 0) {
             get_command_manager ().execute (new TrashUntrashPhotosCommand (
-                                               (Gee.Collection<MediaSource>) get_view ().get_selected_sources (), true));
+                                               (Gee.Collection<MediaSource>) view.get_selected_sources (), true));
         }
 
-        if ((restore_point != null) && (get_view ().contains (restore_point))) {
+        if ((restore_point != null) && (view.contains (restore_point))) {
             set_cursor (restore_point);
         }
     }
@@ -656,7 +656,7 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected virtual void developer_changed (RawDeveloper rd) {
-        if (get_view ().get_selected_count () == 0)
+        if (view.get_selected_count () == 0)
             return;
 
         // Check if any photo has edits
@@ -666,7 +666,7 @@ public abstract class MediaPage : CheckerboardPage {
 
         // Make a list of all photos that need their developer changed.
         Gee.ArrayList<DataView> to_set = new Gee.ArrayList<DataView> ();
-        foreach (DataView view in get_view ().get_selected ()) {
+        foreach (DataView view in view.get_selected ()) {
             Photo? p = view.get_source () as Photo;
             if (p != null && (!rd.is_equivalent (p.get_raw_developer ()))) {
                 to_set.add (view);
@@ -758,7 +758,7 @@ public abstract class MediaPage : CheckerboardPage {
             break;
         }
 
-        get_view ().set_comparator (comparator, predicate);
+        view.set_comparator (comparator, predicate);
     }
 
     protected void sync_sort () {
@@ -826,9 +826,9 @@ public abstract class MediaPage : CheckerboardPage {
         get_checkerboard_layout ().set_scale (new_scale);
 
         // when doing mass operations on LayoutItems, freeze individual notifications
-        get_view ().freeze_notifications ();
-        get_view ().set_property (Thumbnail.PROP_SIZE, new_scale);
-        get_view ().thaw_notifications ();
+        view.freeze_notifications ();
+        view.set_property (Thumbnail.PROP_SIZE, new_scale);
+        view.thaw_notifications ();
 
         set_action_sensitive ("IncreaseSize", new_scale < Thumbnail.MAX_SCALE);
         set_action_sensitive ("DecreaseSize", new_scale > Thumbnail.MIN_SCALE);

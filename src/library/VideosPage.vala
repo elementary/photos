@@ -72,7 +72,7 @@ public class Library.VideosPage : CollectionPage {
         view_manager = new VideosViewManager (this);
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, view_manager, null, null, monitor);
+            view.monitor_source_collection (sources, view_manager, null, null, monitor);
     }
 
     private class VideosSearchViewFilter : CollectionPage.CollectionSearchViewFilter {

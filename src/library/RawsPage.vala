@@ -53,7 +53,7 @@ public class Library.RawsPage : CollectionPage {
         view_manager = new RawsViewManager (this);
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, view_manager, null, null, monitor);
+            view.monitor_source_collection (sources, view_manager, null, null, monitor);
     }
 
     protected override string get_view_empty_message () {

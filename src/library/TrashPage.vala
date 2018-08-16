@@ -45,7 +45,7 @@ public class TrashPage : CheckerboardPage {
     public TrashPage () {
         base (NAME);
 
-        tracker = new MediaViewTracker (get_view ());
+        tracker = new MediaViewTracker (view);
 
         // monitor trashcans and initialize view with all items in them
         LibraryPhoto.global.trashcan_contents_altered.connect (on_trashcan_contents_altered);
@@ -261,25 +261,25 @@ public class TrashPage : CheckerboardPage {
             Gee.Collection<MediaSource>? removed) {
         if (added != null) {
             foreach (MediaSource source in added)
-                get_view ().add (new TrashView (source));
+                view.add (new TrashView (source));
         }
 
         if (removed != null) {
-            Marker marker = get_view ().start_marking ();
+            Marker marker = view.start_marking ();
             foreach (MediaSource source in removed)
-                marker.mark (get_view ().get_view_for_source (source));
-            get_view ().remove_marked (marker);
+                marker.mark (view.get_view_for_source (source));
+            view.remove_marked (marker);
         }
 
         set_action_sensitive ("EmptyTrash", can_empty_trash ());
     }
 
     private void on_restore () {
-        if (get_view ().get_selected_count () == 0)
+        if (view.get_selected_count () == 0)
             return;
 
         get_command_manager ().execute (new TrashUntrashPhotosCommand (
-                                            (Gee.Collection<LibraryPhoto>) get_view ().get_selected_sources (), false));
+                                            (Gee.Collection<LibraryPhoto>) view.get_selected_sources (), false));
     }
 
     protected override string get_view_empty_message () {
@@ -291,8 +291,8 @@ public class TrashPage : CheckerboardPage {
     }
 
     private void on_delete () {
-        remove_from_app ((Gee.Collection<MediaSource>) get_view ().get_selected_sources (), _ ("Delete"),
-                         ngettext ("Deleting a Photo", "Deleting Photos", get_view().get_selected_count ()), true);
+        remove_from_app ((Gee.Collection<MediaSource>) view.get_selected_sources (), _ ("Delete"),
+                         ngettext ("Deleting a Photo", "Deleting Photos", view.get_selected_count ()), true);
     }
 
     public void on_empty_trash () {

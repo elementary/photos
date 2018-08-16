@@ -35,7 +35,7 @@ public abstract class CheckerboardPage : Page {
     public CheckerboardPage (string page_name) {
         base (page_name);
 
-        layout = new CheckerboardLayout (get_view ());
+        layout = new CheckerboardLayout (view);
         layout.set_name (page_name);
 
         set_event_source (layout);
@@ -49,10 +49,10 @@ public abstract class CheckerboardPage : Page {
         add (viewport);
 
         // need to monitor items going hidden when dealing with anchor/cursor/highlighted items
-        get_view ().items_hidden.connect (on_items_hidden);
-        get_view ().contents_altered.connect (on_contents_altered);
-        get_view ().items_state_changed.connect (on_items_state_changed);
-        get_view ().items_visibility_changed.connect (on_items_visibility_changed);
+        view.items_hidden.connect (on_items_hidden);
+        view.contents_altered.connect (on_contents_altered);
+        view.items_state_changed.connect (on_items_state_changed);
+        view.items_visibility_changed.connect (on_items_visibility_changed);
 
         // scrollbar policy
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
@@ -75,7 +75,7 @@ public abstract class CheckerboardPage : Page {
 
     public Gtk.Menu? get_context_menu () {
         // show page context menu if nothing is selected
-        return (get_view ().get_selected_count () != 0) ? get_item_context_menu () :
+        return (view.get_selected_count () != 0) ? get_item_context_menu () :
                get_page_context_menu ();
     }
 
@@ -114,7 +114,7 @@ public abstract class CheckerboardPage : Page {
         get_search_view_filter ().refresh.disconnect (on_view_filter_refresh);
 
         // unselect everything so selection won't persist after page loses focus
-        get_view ().unselect_all ();
+        view.unselect_all ();
         base.switching_from ();
     }
 
@@ -123,8 +123,8 @@ public abstract class CheckerboardPage : Page {
         get_search_view_filter ().refresh.connect (on_view_filter_refresh);
         on_view_filter_refresh ();
 
-        if (get_view ().get_selected_count () > 0) {
-            CheckerboardItem? item = (CheckerboardItem? ) get_view ().get_selected_at (0);
+        if (view.get_selected_count () > 0) {
+            CheckerboardItem? item = (CheckerboardItem? ) view.get_selected_at (0);
 
             // if item is in any way out of view, scroll to it
             Gtk.Adjustment vadj = get_vadjustment ();
@@ -171,9 +171,9 @@ public abstract class CheckerboardPage : Page {
         if (window != null)
             window.toggle_welcome_page (false);
 
-        if (get_view ().are_items_filtered_out () && get_view ().get_count () == 0) {
+        if (view.are_items_filtered_out () && view.get_count () == 0) {
             set_page_message (get_filter_no_match_message ());
-        } else if (get_view ().get_count () == 0) {
+        } else if (view.get_count () == 0) {
             set_page_message (get_view_empty_message ());
         } else {
             unset_page_message ();
@@ -244,7 +244,7 @@ public abstract class CheckerboardPage : Page {
 
         case "Home":
         case "KP_Home":
-            CheckerboardItem? first = (CheckerboardItem? ) get_view ().get_first ();
+            CheckerboardItem? first = (CheckerboardItem? ) view.get_first ();
             if (first != null)
                 cursor_to_item (first);
             select_anchor_to_cursor (state);
@@ -252,7 +252,7 @@ public abstract class CheckerboardPage : Page {
 
         case "End":
         case "KP_End":
-            CheckerboardItem? last = (CheckerboardItem? ) get_view ().get_last ();
+            CheckerboardItem? last = (CheckerboardItem? ) view.get_last ();
             if (last != null)
                 cursor_to_item (last);
             select_anchor_to_cursor (state);
@@ -260,8 +260,8 @@ public abstract class CheckerboardPage : Page {
 
         case "Return":
         case "KP_Enter":
-            if (get_view ().get_selected_count () == 1)
-                on_item_activated ((CheckerboardItem) get_view ().get_selected_at (0));
+            if (view.get_selected_count () == 1)
+                on_item_activated ((CheckerboardItem) view.get_selected_at (0));
             else
                 handled = false;
             break;
@@ -309,8 +309,8 @@ public abstract class CheckerboardPage : Page {
             case Gdk.ModifierType.CONTROL_MASK:
                 // with only Ctrl pressed, multiple selections are possible ... chosen item
                 // is toggled
-                Marker marker = get_view ().mark (item);
-                get_view ().toggle_marked (marker);
+                Marker marker = view.mark (item);
+                view.toggle_marked (marker);
 
                 if (item.is_selected ()) {
                     anchor = item;
@@ -319,7 +319,7 @@ public abstract class CheckerboardPage : Page {
                 break;
 
             case Gdk.ModifierType.SHIFT_MASK:
-                get_view ().unselect_all ();
+                view.unselect_all ();
 
                 if (anchor == null)
                     anchor = item;
@@ -353,8 +353,8 @@ public abstract class CheckerboardPage : Page {
 
                     // when selection button is clicked, multiple selections are possible ...
                     // chosen item is toggled
-                    Marker marker = get_view ().mark (item);
-                    get_view ().toggle_marked (marker);
+                    Marker marker = view.mark (item);
+                    view.toggle_marked (marker);
 
                     if (item.is_selected ()) {
                         anchor = item;
@@ -372,11 +372,11 @@ public abstract class CheckerboardPage : Page {
             // user clicked on "dead" area; only unselect if control is not pressed
             // do we want similar behavior for shift as well?
             if (state != Gdk.ModifierType.CONTROL_MASK)
-                get_view ().unselect_all ();
+                view.unselect_all ();
 
             // grab previously marked items
             previously_selected = new Gee.ArrayList<CheckerboardItem> ();
-            foreach (DataView view in get_view ().get_selected ())
+            foreach (DataView view in view.get_selected ())
                 previously_selected.add ((CheckerboardItem) view);
 
             layout.set_drag_select_origin ((int) event.x, (int) event.y);
@@ -387,7 +387,7 @@ public abstract class CheckerboardPage : Page {
         // need to determine if the signal should be passed to the DnD handlers
         // Return true to block the DnD handler, false otherwise
 
-        return get_view ().get_selected_count () == 0;
+        return view.get_selected_count () == 0;
     }
 
     protected override bool on_left_released (Gdk.EventButton event) {
@@ -427,14 +427,14 @@ public abstract class CheckerboardPage : Page {
         if (cursor != item) {
             // user released mouse button after moving it off the initial item, or moved from dead
             // space onto one.  either way, unselect everything
-            get_view ().unselect_all ();
+            view.unselect_all ();
         } else {
             // the idea is, if a user single-clicks on an item with no modifiers, then all other items
             // should be deselected, however, if they single-click in order to drag one or more items,
             // they should remain selected, hence performing this here rather than on_left_click
             // (item may not be selected if an unimplemented modifier key was used)
             if (item.is_selected ())
-                get_view ().unselect_all_but (item);
+                view.unselect_all_but (item);
         }
 
         return true;
@@ -452,8 +452,8 @@ public abstract class CheckerboardPage : Page {
             switch (event.state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) {
             case Gdk.ModifierType.CONTROL_MASK:
                 // chosen item is toggled
-                Marker marker = get_view ().mark (item);
-                get_view ().toggle_marked (marker);
+                Marker marker = view.mark (item);
+                view.toggle_marked (marker);
                 break;
 
             case Gdk.ModifierType.SHIFT_MASK:
@@ -468,16 +468,16 @@ public abstract class CheckerboardPage : Page {
                 // if the item is already selected, proceed; if item is not selected, a bare right
                 // click unselects everything else but it
                 if (!item.is_selected ()) {
-                    Marker all = get_view ().start_marking ();
-                    all.mark_many (get_view ().get_selected ());
+                    Marker all = view.start_marking ();
+                    all.mark_many (view.get_selected ());
 
-                    get_view ().unselect_and_select_marked (all, get_view ().mark (item));
+                    view.unselect_and_select_marked (all, view.mark (item));
                 }
                 break;
             }
         } else {
             // clicked in "dead" space, unselect everything
-            get_view ().unselect_all ();
+            view.unselect_all ();
         }
 
         Gtk.Menu context_menu = get_context_menu ();
@@ -543,11 +543,11 @@ public abstract class CheckerboardPage : Page {
         if (intersection == null)
             return;
 
-        Marker to_unselect = get_view ().start_marking ();
-        Marker to_select = get_view ().start_marking ();
+        Marker to_unselect = view.start_marking ();
+        Marker to_select = view.start_marking ();
 
         // mark all selected items to be unselected
-        to_unselect.mark_many (get_view ().get_selected ());
+        to_unselect.mark_many (view.get_selected ());
 
         // except for the items that were selected before the drag began
         assert (previously_selected != null);
@@ -567,8 +567,8 @@ public abstract class CheckerboardPage : Page {
                 cursor = item;
         }
 
-        get_view ().select_marked (to_select);
-        get_view ().unselect_marked (to_unselect);
+        view.select_marked (to_select);
+        view.unselect_marked (to_unselect);
     }
 
     private bool selection_autoscroll () {
@@ -621,14 +621,14 @@ public abstract class CheckerboardPage : Page {
     }
 
     public void cursor_to_item (CheckerboardItem item) {
-        assert (get_view ().contains (item));
+        assert (view.contains (item));
 
         cursor = item;
 
-        get_view ().unselect_all ();
+        view.unselect_all ();
 
-        Marker marker = get_view ().mark (item);
-        get_view ().select_marked (marker);
+        Marker marker = view.mark (item);
+        view.select_marked (marker);
 
         // if item is in any way out of view, scroll to it
         Gtk.Adjustment vadj = get_vadjustment ();
@@ -651,11 +651,11 @@ public abstract class CheckerboardPage : Page {
 
     public void move_cursor (CompassPoint point) {
         // if no items, nothing to do
-        if (get_view ().get_count () == 0)
+        if (view.get_count () == 0)
             return;
 
         // if nothing is selected, simply select the first and exit
-        if (get_view ().get_selected_count () == 0 || cursor == null) {
+        if (view.get_selected_count () == 0 || cursor == null) {
             CheckerboardItem item = layout.get_item_at_coordinate (0, 0);
             cursor_to_item (item);
             anchor = item;
@@ -670,20 +670,20 @@ public abstract class CheckerboardPage : Page {
     }
 
     public void set_cursor (CheckerboardItem item) {
-        Marker marker = get_view ().mark (item);
-        get_view ().select_marked (marker);
+        Marker marker = view.mark (item);
+        view.select_marked (marker);
 
         cursor = item;
         anchor = item;
     }
 
     public void select_between_items (CheckerboardItem item_start, CheckerboardItem item_end) {
-        Marker marker = get_view ().start_marking ();
+        Marker marker = view.start_marking ();
 
         bool passed_start = false;
         bool passed_end = false;
 
-        foreach (DataObject object in get_view ().get_all ()) {
+        foreach (DataObject object in view.get_all ()) {
             CheckerboardItem item = (CheckerboardItem) object;
 
             if (item_start == item)
@@ -699,7 +699,7 @@ public abstract class CheckerboardPage : Page {
                 break;
         }
 
-        get_view ().select_marked (marker);
+        view.select_marked (marker);
     }
 
     public void select_anchor_to_cursor (uint state) {
@@ -707,7 +707,7 @@ public abstract class CheckerboardPage : Page {
             return;
 
         if (state == Gdk.ModifierType.SHIFT_MASK) {
-            get_view ().unselect_all ();
+            view.unselect_all ();
             select_between_items (anchor, cursor);
         } else {
             anchor = cursor;
@@ -715,14 +715,14 @@ public abstract class CheckerboardPage : Page {
     }
 
     protected virtual void set_display_titles (bool display) {
-        get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES, display);
-        get_view ().thaw_notifications ();
+        view.freeze_notifications ();
+        view.set_property (CheckerboardItem.PROP_SHOW_TITLES, display);
+        view.thaw_notifications ();
     }
 
     protected virtual void set_display_comments (bool display) {
-        get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS, display);
-        get_view ().thaw_notifications ();
+        view.freeze_notifications ();
+        view.set_property (CheckerboardItem.PROP_SHOW_COMMENTS, display);
+        view.thaw_notifications ();
     }
 }

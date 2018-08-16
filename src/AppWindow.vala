@@ -324,10 +324,10 @@ public abstract class AppWindow : PageWindow {
     }
 
     protected void on_jump_to_file () {
-        if (get_current_page ().get_view ().get_selected_count () != 1)
+        if (get_current_page ().view.get_selected_count () != 1)
             return;
 
-        MediaSource? media = get_current_page ().get_view ().get_selected_at (0).get_source ()
+        MediaSource? media = get_current_page ().view.get_selected_at (0).get_source ()
                              as MediaSource;
         if (media == null)
             return;
@@ -433,18 +433,18 @@ public abstract class AppWindow : PageWindow {
         update_common_action_availability (old_page, new_page);
 
         if (old_page != null) {
-            old_page.get_view ().contents_altered.disconnect (on_update_common_actions);
-            old_page.get_view ().selection_group_altered.disconnect (on_update_common_actions);
-            old_page.get_view ().items_state_changed.disconnect (on_update_common_actions);
+            old_page.view.contents_altered.disconnect (on_update_common_actions);
+            old_page.view.selection_group_altered.disconnect (on_update_common_actions);
+            old_page.view.items_state_changed.disconnect (on_update_common_actions);
         }
 
         if (new_page != null) {
-            new_page.get_view ().contents_altered.connect (on_update_common_actions);
-            new_page.get_view ().selection_group_altered.connect (on_update_common_actions);
-            new_page.get_view ().items_state_changed.connect (on_update_common_actions);
+            new_page.view.contents_altered.connect (on_update_common_actions);
+            new_page.view.selection_group_altered.connect (on_update_common_actions);
+            new_page.view.items_state_changed.connect (on_update_common_actions);
 
-            update_common_actions (new_page, new_page.get_view ().get_selected_count (),
-                                   new_page.get_view ().get_count ());
+            update_common_actions (new_page, new_page.view.get_selected_count (),
+                                   new_page.view.get_count ());
         }
 
         base.switched_pages (old_page, new_page);
@@ -474,7 +474,7 @@ public abstract class AppWindow : PageWindow {
     private void on_update_common_actions () {
         Page? page = get_current_page ();
         if (page != null)
-            update_common_actions (page, page.get_view ().get_selected_count (), page.get_view ().get_count ());
+            update_common_actions (page, page.view.get_selected_count (), page.view.get_count ());
     }
 
     public static CommandManager get_command_manager () {
@@ -512,13 +512,13 @@ public abstract class AppWindow : PageWindow {
     private void on_select_all () {
         Page? page = get_current_page () as CheckerboardPage;
         if (page != null)
-            page.get_view ().select_all ();
+            page.view.select_all ();
     }
 
     private void on_select_none () {
         Page? page = get_current_page () as CheckerboardPage;
         if (page != null)
-            page.get_view ().unselect_all ();
+            page.view.unselect_all ();
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {

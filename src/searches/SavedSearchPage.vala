@@ -43,7 +43,7 @@ public class SavedSearchPage : CollectionPage {
 
 
         foreach (MediaSourceCollection sources in MediaCollectionRegistry.get_instance ().get_all ())
-            get_view ().monitor_source_collection (sources, new SavedSearchManager (this, search), null);
+            view.monitor_source_collection (sources, new SavedSearchManager (this, search), null);
     }
 
     public override Gtk.Menu? get_page_sidebar_menu () {

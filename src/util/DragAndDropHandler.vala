@@ -86,13 +86,13 @@ public class DragAndDropHandler {
     private void on_drag_begin (Gdk.DragContext context) {
         debug ("on_drag_begin (%s)", page.page_name);
 
-        if (page == null || page.get_view ().get_selected_count () == 0 || exporter != null)
+        if (page == null || page.view.get_selected_count () == 0 || exporter != null)
             return;
 
         drag_destination = null;
 
         // use the first media item as the icon
-        ThumbnailSource thumb = (ThumbnailSource) page.get_view ().get_selected_at (0).get_source ();
+        ThumbnailSource thumb = (ThumbnailSource) page.view.get_selected_at (0).get_source ();
 
         try {
             Gdk.Pixbuf icon = thumb.get_thumbnail (128);
@@ -116,7 +116,7 @@ public class DragAndDropHandler {
                                    uint target_type, uint time) {
         debug ("on_drag_data_get (%s)", page.page_name);
 
-        if (page == null || page.get_view ().get_selected_count () == 0)
+        if (page == null || page.view.get_selected_count () == 0)
             return;
 
         switch (target_type) {
@@ -143,7 +143,7 @@ public class DragAndDropHandler {
 
         case TargetType.MEDIA_LIST:
             Gee.Collection<MediaSource> sources =
-                (Gee.Collection<MediaSource>) page.get_view ().get_selected_sources ();
+                (Gee.Collection<MediaSource>) page.view.get_selected_sources ();
 
             // convert the selected media sources to Gdk.Atom-encoded sourceID strings for
             // internal drag-and-drop
@@ -161,7 +161,7 @@ public class DragAndDropHandler {
     private void on_drag_end () {
         debug ("on_drag_end (%s)", page.page_name);
 
-        if (page == null || page.get_view ().get_selected_count () == 0 || drag_destination == null
+        if (page == null || page.view.get_selected_count () == 0 || drag_destination == null
                 || exporter != null) {
             return;
         }
@@ -173,7 +173,7 @@ public class DragAndDropHandler {
         // all transformations applied, at the image's original size).
         if (drag_destination.get_path () != null) {
             exporter = new ExporterUI (new Exporter (
-                                           (Gee.Collection<Photo>) page.get_view ().get_selected_sources (),
+                                           (Gee.Collection<Photo>) page.view.get_selected_sources (),
                                            drag_destination, Scaling.for_original (), ExportFormatParameters.current ()));
             exporter.export (on_export_completed);
         } else {

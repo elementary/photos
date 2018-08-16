@@ -27,11 +27,11 @@ public class TagPage : CollectionPage {
         this.tag = tag;
 
         Tag.global.items_altered.connect (on_tags_altered);
-        tag.mirror_sources (get_view (), create_thumbnail);
+        tag.mirror_sources (view, create_thumbnail);
     }
 
     ~TagPage () {
-        get_view ().halt_mirroring ();
+        view.halt_mirroring ();
         Tag.global.items_altered.disconnect (on_tags_altered);
     }
 
@@ -116,7 +116,7 @@ public class TagPage : CollectionPage {
     private void on_tags_altered (Gee.Map<DataObject, Alteration> map) {
         if (map.has_key (tag)) {
             page_name = tag.get_name ();
-            update_actions (get_view ().get_selected_count (), get_view ().get_count ());
+            update_actions (view.get_selected_count (), view.get_count ());
         }
     }
 
@@ -157,10 +157,10 @@ public class TagPage : CollectionPage {
     }
 
     private void on_remove_tag_from_photos () {
-        if (get_view ().get_selected_count () > 0) {
+        if (view.get_selected_count () > 0) {
             get_command_manager ().execute (new TagUntagPhotosCommand (tag,
-                                           (Gee.Collection<MediaSource>) get_view ().get_selected_sources (),
-                                           get_view ().get_selected_count (), false));
+                                           (Gee.Collection<MediaSource>) view.get_selected_sources (),
+                                           view.get_selected_count (), false));
         }
     }
 }
