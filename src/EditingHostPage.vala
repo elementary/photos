@@ -1870,10 +1870,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 Gtk.Allocation toolbar_alloc;
                 get_toolbar ().get_allocation (out toolbar_alloc);
 
-                Gdk.Screen screen = get_container ().get_screen ();
-                x = screen.get_width ();
-                y = screen.get_height () - toolbar_alloc.height -
-                    tool_alloc.height - TOOL_WINDOW_SEPARATOR;
+                var dimensions = Scaling.get_screen_dimensions (get_container ());
+                x = dimensions.width;
+                y = dimensions.height - toolbar_alloc.height - tool_alloc.height - TOOL_WINDOW_SEPARATOR;
 
                 // put larger adjust tool off to the side
                 if (current_tool is EditingTools.AdjustTool) {
@@ -1885,9 +1884,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
 
         // however, clamp the window so it's never off-screen initially
-        Gdk.Screen screen = get_container ().get_screen ();
-        x = x.clamp (0, screen.get_width () - tool_alloc.width);
-        y = y.clamp (0, screen.get_height () - tool_alloc.height);
+        var dimensions = Scaling.get_screen_dimensions (get_container ());
+        x = x.clamp (0, dimensions.width - tool_alloc.width);
+        y = y.clamp (0, dimensions.height - tool_alloc.height);
 
         tool_window.move (x, y);
         tool_window.show ();
