@@ -27,11 +27,11 @@ public class MediaSourceItem : CheckerboardItem {
 }
 
 public abstract class MediaPage : CheckerboardPage {
-    public const int SORT_ORDER_ASCENDING = 0;
-    public const int SORT_ORDER_DESCENDING = 1;
+    private const int SORT_ORDER_ASCENDING = 0;
+    private const int SORT_ORDER_DESCENDING = 1;
     public const int MANUAL_STEPPING = 16;
 
-    public enum SortBy {
+    private enum SortBy {
         MIN = 1,
         TITLE = 1,
         EXPOSURE_DATE = 2,
@@ -648,11 +648,11 @@ public abstract class MediaPage : CheckerboardPage {
         set_config_photos_sort (sort_order, sort_by);
     }
 
-    public void on_raw_developer_shotwell (Gtk.Action action) {
+    private void on_raw_developer_shotwell (Gtk.Action action) {
         developer_changed (RawDeveloper.SHOTWELL);
     }
 
-    public void on_raw_developer_camera (Gtk.Action action) {
+    private void on_raw_developer_camera (Gtk.Action action) {
         developer_changed (RawDeveloper.CAMERA);
     }
 
@@ -793,7 +793,7 @@ public abstract class MediaPage : CheckerboardPage {
         base.destroy ();
     }
 
-    public void increase_zoom_level () {
+    private void increase_zoom_level () {
         if (connected_slider != null) {
             connected_slider.increase_step ();
         } else {
@@ -803,7 +803,7 @@ public abstract class MediaPage : CheckerboardPage {
         }
     }
 
-    public void decrease_zoom_level () {
+    private void decrease_zoom_level () {
         if (connected_slider != null) {
             connected_slider.decrease_step ();
         } else {
@@ -819,7 +819,7 @@ public abstract class MediaPage : CheckerboardPage {
 
     // this is a view-level operation on this page only; it does not affect the persistent global
     // thumbnail scale
-    public void set_thumb_size (int new_scale) {
+    private void set_thumb_size (int new_scale) {
         if (get_thumb_size () == new_scale || !is_in_view ())
             return;
 
@@ -835,7 +835,7 @@ public abstract class MediaPage : CheckerboardPage {
         set_action_sensitive ("DecreaseSize", new_scale > Thumbnail.MIN_SCALE);
     }
 
-    public int get_thumb_size () {
+    private int get_thumb_size () {
         if (get_checkerboard_layout ().get_scale () <= 0)
             get_checkerboard_layout ().set_scale (ui_settings.get_int ("photo-thumbnail-scale"));
 
