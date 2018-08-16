@@ -45,12 +45,14 @@ public abstract class AppWindow : PageWindow {
     protected GLib.Settings window_settings;
 
     public const string ACTION_PREFIX = "win.";
+    public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
     public const string ACTION_REDO = "action_redo";
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
 
     private const ActionEntry[] action_entries = {
+        { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit },
         { ACTION_REDO, on_redo },
         { ACTION_SELECT_NONE, on_select_none },
@@ -60,6 +62,7 @@ public abstract class AppWindow : PageWindow {
     construct {
         add_action_entries (action_entries, this);
 
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
@@ -141,22 +144,16 @@ public abstract class AppWindow : PageWindow {
 
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
         Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
 
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
         actions += fullscreen;
-        actions += jump_to_file;
         actions += select_all;
 
         return actions;
     }
 
     protected abstract void on_fullscreen ();
-
-    public static bool has_instance () {
-        return instance != null;
-    }
 
     public static AppWindow get_instance () {
         return instance;
@@ -213,25 +210,6 @@ public abstract class AppWindow : PageWindow {
         return response;
     }
 
-    public static Gtk.ResponseType negate_affirm_cancel_question (string message, string negative,
-            string affirmative, string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
-                            _ ("_Cancel"), Gtk.ResponseType.CANCEL);
-
-        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
     public static Gtk.ResponseType affirm_cancel_negate_question (string message,
             string affirmative, string negative,
             string? title = null, Gtk.Window? parent = null) {
@@ -245,24 +223,6 @@ public abstract class AppWindow : PageWindow {
         // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
         dialog.set_markup (build_alert_body_text (title, message));
         dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType affirm_cancel_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (affirmative, Gtk.ResponseType.YES, _ ("_Cancel"),
-                            Gtk.ResponseType.CANCEL);
 
         int response = dialog.run ();
 
@@ -343,15 +303,11 @@ public abstract class AppWindow : PageWindow {
         on_quit ();
     }
 
-    public void show_file_uri (File file) throws Error {
+    private void show_file_uri (File file) throws Error {
         AppInfo app_info = AppInfo.get_default_for_type ("inode/directory", true);
         var file_list = new List<File> ();
         file_list.append (file);
         app_info.launch (file_list, get_window ().get_screen ().get_display ().get_app_launch_context ());
-    }
-
-    public void show_uri (string url) throws Error {
-        sys_show_uri (get_window ().get_screen (), url);
     }
 
     protected virtual Gtk.ActionGroup[] create_common_action_groups () {
@@ -466,7 +422,7 @@ public abstract class AppWindow : PageWindow {
     protected virtual void update_common_actions (Page page, int selected_count, int count) {
         if (page is CheckerboardPage)
             set_common_action_sensitive ("CommonSelectAll", count > 0);
-        set_common_action_sensitive ("CommonJumpToFile", selected_count == 1);
+        ((SimpleAction) lookup_action (ACTION_JUMP_TO_FILE)).set_enabled (selected_count == 1);
 
         on_command_manager_altered ();
     }

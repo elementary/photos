@@ -127,9 +127,10 @@ public class TrashPage : CheckerboardPage {
             restore_menu_item.activate.connect (() => restore_action.activate ());
 
             var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
+
+            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             var empty_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Empty Trash"));
             var empty_trash_action = get_action ("EmptyTrash");
