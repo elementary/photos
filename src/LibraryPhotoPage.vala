@@ -459,7 +459,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
-        set_action_sensitive ("CommonJumpToFile", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_UNDO)).set_enabled (sensitivity);
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_REDO)).set_enabled (sensitivity);
@@ -731,9 +731,9 @@ public class LibraryPhotoPage : EditingHostPage {
             var jump_menu_item = new Gtk.MenuItem ();
             jump_menu_item.add (menuitem_grid);
 
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
+            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             menu.add (jump_menu_item);
         }
