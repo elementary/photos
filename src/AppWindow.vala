@@ -155,10 +155,6 @@ public abstract class AppWindow : PageWindow {
 
     protected abstract void on_fullscreen ();
 
-    public static bool has_instance () {
-        return instance != null;
-    }
-
     public static AppWindow get_instance () {
         return instance;
     }
@@ -214,25 +210,6 @@ public abstract class AppWindow : PageWindow {
         return response;
     }
 
-    public static Gtk.ResponseType negate_affirm_cancel_question (string message, string negative,
-            string affirmative, string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
-                            _ ("_Cancel"), Gtk.ResponseType.CANCEL);
-
-        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
     public static Gtk.ResponseType affirm_cancel_negate_question (string message,
             string affirmative, string negative,
             string? title = null, Gtk.Window? parent = null) {
@@ -246,24 +223,6 @@ public abstract class AppWindow : PageWindow {
         // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
         dialog.set_markup (build_alert_body_text (title, message));
         dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType affirm_cancel_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (affirmative, Gtk.ResponseType.YES, _ ("_Cancel"),
-                            Gtk.ResponseType.CANCEL);
 
         int response = dialog.run ();
 
@@ -344,15 +303,11 @@ public abstract class AppWindow : PageWindow {
         on_quit ();
     }
 
-    public void show_file_uri (File file) throws Error {
+    private void show_file_uri (File file) throws Error {
         AppInfo app_info = AppInfo.get_default_for_type ("inode/directory", true);
         var file_list = new List<File> ();
         file_list.append (file);
         app_info.launch (file_list, get_window ().get_screen ().get_display ().get_app_launch_context ());
-    }
-
-    public void show_uri (string url) throws Error {
-        sys_show_uri (get_window ().get_screen (), url);
     }
 
     protected virtual Gtk.ActionGroup[] create_common_action_groups () {
