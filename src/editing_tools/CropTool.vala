@@ -357,7 +357,7 @@ public class EditingTools.CropTool : EditingTool {
             result = ((float) canvas.get_scaled_pixbuf_position ().width) /
                      ((float) canvas.get_scaled_pixbuf_position ().height);
         } else if (result == SCREEN_ASPECT_RATIO) {
-            var dimensions = Scaling.get_screen_dimensions(AppWindow.get_instance());
+            var dimensions = Scaling.get_screen_dimensions (AppWindow.get_instance ());
             result = ((float) dimensions.width) / ((float) dimensions.height);
         } else if (result == CUSTOM_ASPECT_RATIO) {
             result = custom_aspect_ratio;
