@@ -885,9 +885,10 @@ public class ImportPage : CheckerboardPage {
             sort_menu_item.set_submenu (sort_menu);
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
-            var select_action = get_common_action ("CommonSelectAll");
-            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            select_menu_item.activate.connect (() => select_action.activate ());
+
+            var select_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL);
+            select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate (null));
 
             page_context_menu.add (sidebar_menu_item);
             page_context_menu.add (metadata_menu_item);
@@ -1033,10 +1034,11 @@ public class ImportPage : CheckerboardPage {
     }
 
     private void on_view_changed () {
+        bool has_files = !busy && (get_view ().get_count () > 0);
+
         set_action_sensitive ("ImportSelected", !busy && refreshed && get_view ().get_selected_count () > 0);
-        set_action_sensitive ("ImportAll", !busy && refreshed && get_view ().get_count () > 0);
-        AppWindow.get_instance ().set_common_action_sensitive ("CommonSelectAll",
-                !busy && (get_view ().get_count () > 0));
+        set_action_sensitive ("ImportAll", refreshed && has_files);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL)).set_enabled (has_files);
 
         update_toolbar_state ();
     }
