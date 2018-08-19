@@ -42,8 +42,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 00:02+0100\n"
-"PO-Revision-Date: 2017-09-06 15:00+0000\n"
-"Last-Translator: Lloyd Carr <l.carr@gmx.de>\n"
+"PO-Revision-Date: 2018-08-19 00:09+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/photos/photos/"
 "de/>\n"
 "Language: de\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-07 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -112,15 +112,15 @@ msgid "_Cancel"
 msgstr "_Abbrechen"
 
 #: src/AppWindow.vala:307
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Ein schwerwiegender Fehler ist beim Zugriff auf die Sammlung aufgetreten. "
-"Fotos kann nicht fortgesetzt werden.\n"
+"Beim Zugriff auf die Fotosammlung ist ein schwerwiegender Fehler "
+"aufgetreten. Die Anwendung kann nicht fortgesetzt werden.\n"
 "\n"
 "%s"
 
@@ -228,7 +228,7 @@ msgstr "Ereig_nis zum Foto anzeigen"
 #: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
 #: src/direct/DirectPhotoPage.vala:154
 msgid "Other Actions"
-msgstr ""
+msgstr "Weitere Aktionen"
 
 #: src/CollectionPage.vala:643
 msgid "Export Photo/Video"
@@ -411,14 +411,12 @@ msgid "Restore Photos from Trash"
 msgstr "Fotos aus dem Papierkorb wiederherstellen"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
 msgstr "Fotos in den Papierkorb verschieben"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Fotos in der Sammlung wiederherstellen"
+msgstr "Wiederherstellen der Fotos in die Fotosammlung"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -482,7 +480,6 @@ msgid "Rotate"
 msgstr "Drehen"
 
 #: src/EditingHostPage.vala:141
-#, fuzzy
 msgid "Zoom 1:1"
 msgstr "_100 % Vergrößerung"
 
@@ -625,28 +622,27 @@ msgid "Unable to export %s: %s"
 msgstr "%s kann nicht exportiert werden: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Die Datenbank für die Fotosammlung ist nicht mit dieser Version von Fotos "
-"kompatibel. Es sieht so aus, als wäre sie von Shotwell %s (Schema %d) "
-"erzeugt worden. Dies ist Version %s (Schema %d). Bitte verwenden Sie die "
-"neueste Version."
+"Ihre Fotosammlung ist nicht mit dieser Anwendungsversion kompatibel.  Es "
+"scheint, dass es von Fotos %s erstellt wurde (Schema %d).  Diese Version ist "
+"%s (Schema %d).  Bitte verwenden Sie die neueste Anwendungsversion."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Fotos konnte Ihre Fotosammlung nicht von Version %s (Schema %d) zu %s "
-"(Schema %d) aktualisieren. Weitere Informationen finden Sie im Wiki unter %s"
+"Fotos konnte Ihre Fotosammlung nicht von Version %s (Schema %d) zu %s ("
+"Schema %d) aktualisieren. Weitere Informationen finden Sie im Wiki unter %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
@@ -658,12 +654,11 @@ msgstr ""
 "durch Löschen von %s und erneutem Import Ihrer Fotos."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
 msgstr "Unbekannter Fehler bei der Überprüfung der Datenbank: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
 msgstr "Fotos wird geladen"
 
@@ -690,7 +685,7 @@ msgstr "Versionsnummer anzeigen"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Zeige mehr Debuggergebnisse an"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -810,7 +805,7 @@ msgid "Sort photos in a descending order"
 msgstr "Fotos in absteigender Reihenfolge sortieren"
 
 #: src/MediaPage.vala:452
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
@@ -1123,14 +1118,12 @@ msgid "Set selected image to be the new desktop background"
 msgstr "Das ausgewählte Bild als neues Hintergrundbild festlegen"
 
 #: src/Resources.vala:174
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Als Schreibtischdiaschau festlegen"
+msgstr "Als Schreibtischdiaschau festlegen…"
 
 #: src/Resources.vala:176
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Ereignis umbenennen"
+msgstr "Ereignis umbenennen…"
 
 #: src/Resources.vala:177 src/Dialogs/Dialogs.vala:740
 msgid "Rename Event"
@@ -1205,9 +1198,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Duplikat dieses Fotos erstellen"
 
 #: src/Resources.vala:204
-#, fuzzy
 msgid "_Export…"
-msgstr "_Exportieren"
+msgstr "_Exportieren…"
 
 #: src/Resources.vala:206
 msgid "_Show info panel"
@@ -1226,14 +1218,12 @@ msgid "Hide info panel"
 msgstr "Informationsbereich ausblenden"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Print…"
-msgstr "_Drucken …"
+msgstr "_Drucken…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Veröffentlichen"
+msgstr "Veröffentlichen…"
 
 #: src/Resources.vala:217
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1245,50 +1235,44 @@ msgid "Publish to various websites"
 msgstr "Das ausgewählte Foto auf verschiedenen Internetseiten veröffentlichen"
 
 #: src/Resources.vala:220
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Titel bearbeiten"
+msgstr "Titel bearbeiten…"
 
 #: src/Resources.vala:221
 msgid "Edit Title"
 msgstr "Titel bearbeiten"
 
 #: src/Resources.vala:223
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Notiz bearbeiten"
+msgstr "Kommentar bearbeiten…"
 
 #: src/Resources.vala:224
 msgid "Edit Comment"
 msgstr "Notiz bearbeiten"
 
 #: src/Resources.vala:226
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Ereignisnotiz bearbeiten"
+msgstr "Ereigniskommentar bearbeiten…"
 
 #: src/Resources.vala:227
 msgid "Edit Event Comment"
 msgstr "Ereignisnotiz bearbeiten"
 
 #: src/Resources.vala:229
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Datum und Uhrzeit ändern"
+msgstr "Datum und Uhrzeit ändern…"
 
 #: src/Resources.vala:230
 msgid "Adjust Date and Time"
 msgstr "Datum und Uhrzeit ändern"
 
 #: src/Resources.vala:232
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Schlagworte hinzufügen"
+msgstr "Schlagworte hinzufügen…"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Schlagworte hinzufügen"
+msgstr "Schlagworte hinzufügen…"
 
 #: src/Resources.vala:234 src/Resources.vala:271
 msgid "Add Tags"
@@ -1304,16 +1288,15 @@ msgstr "Mit RA_W-Bearbeitung öffnen"
 
 #: src/Resources.vala:240
 msgid "_Open In"
-msgstr ""
+msgstr "Öffnen in"
 
 #: src/Resources.vala:241
 msgid "Open photo with external editor"
 msgstr "Foto mit externer Bildbearbeitung öffnen"
 
 #: src/Resources.vala:243
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Mit RA_W-Bearbeitung öffnen"
+msgstr "Mit RAW-Editor öffnen…"
 
 #: src/Resources.vala:244
 msgid "Open With Raw Editor"
@@ -1324,19 +1307,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Foto mit externer RAW-Bearbeitung öffnen"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Send _To…"
-msgstr "_Senden an …"
+msgstr "Senden an…"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send T_o…"
-msgstr "Senden _an …"
+msgstr "Senden an…"
 
 #: src/Resources.vala:250
-#, fuzzy
 msgid "_Find…"
-msgstr "_Suchen"
+msgstr "Suchen…"
 
 #: src/Resources.vala:251
 msgid "Find"
@@ -1395,9 +1375,9 @@ msgid "_New"
 msgstr "_Neu"
 
 #: src/Resources.vala:288
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Schlagwort »%s« _umbenennen …"
+msgstr "Schlagwort \"%s\" umbenennen…"
 
 #: src/Resources.vala:292
 #, c-format
@@ -1405,14 +1385,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Schlagwort »%s« zu »%s« umbenennen"
 
 #: src/Resources.vala:295
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Umbenennen …"
+msgstr "Umbenennen…"
 
 #: src/Resources.vala:297
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Schlagworte ändern"
+msgstr "Schlagworte ändern…"
 
 #: src/Resources.vala:298
 msgid "Modify Tags"
@@ -1481,14 +1459,12 @@ msgid "Delete Album"
 msgstr "Album löschen"
 
 #: src/Resources.vala:332
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Bearbeiten"
+msgstr "Bearbeiten…"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "Re_name…"
-msgstr "_Umbenennen …"
+msgstr "Umbenennen…"
 
 #: src/Resources.vala:336
 #, c-format
