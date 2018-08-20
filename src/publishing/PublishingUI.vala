@@ -281,10 +281,9 @@ public class PublishingDialog : Gtk.Dialog {
         get_content_area ().pack_start (service_area_layouter, false, false, 0);
         get_content_area ().pack_start (central_area_layouter, true, true, 0);
 
-        close_cancel_button = new Gtk.Button.with_mnemonic ("_Cancel");
+        close_cancel_button = (Gtk.Button) add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
         close_cancel_button.set_can_default (true);
         close_cancel_button.clicked.connect (on_close_cancel_clicked);
-        ((Gtk.Container) get_action_area ()).add (close_cancel_button);
 
         set_standard_window_mode ();
 
