@@ -29,8 +29,14 @@ public class TextEntryDialog : Gtk.Dialog {
     private unowned OnModifyValidateType on_modify_validate;
     private Gtk.Entry entry;
 
-    public TextEntryDialog (OnModifyValidateType? modify_validate, string title, string label,
-string? initial_text, Gee.Collection<string>? completion_list, string? completion_delimiter) {
+    public TextEntryDialog (
+        OnModifyValidateType? modify_validate,
+        string title,
+        string label,
+        string? initial_text,
+        Gee.Collection<string>? completion_list,
+        string? completion_delimiter
+    ) {
         Object (
             completion_delimiter: completion_delimiter,
             completion_list: completion_list,
@@ -49,7 +55,7 @@ string? initial_text, Gee.Collection<string>? completion_list, string? completio
 
         entry = new Gtk.Entry ();
         entry.hexpand = true;
-        entry.text = initial_text != null ? initial_text : "";
+        entry.text = initial_text ?? "";
         entry.grab_focus ();
 
         if (completion_list != null) { // Textfield with autocompletion
