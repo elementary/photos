@@ -167,9 +167,10 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
-            var select_action = get_common_action ("CommonSelectAll");
-            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            select_menu_item.activate.connect (() => select_action.activate ());
+
+            var select_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL);
+            select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate (null));
 
             page_context_menu.add (sidebar_menu_item);
             page_context_menu.add (metadata_menu_item);
