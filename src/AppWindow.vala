@@ -48,6 +48,7 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
     public const string ACTION_REDO = "action_redo";
+    public const string ACTION_SELECT_ALL = "action_select_all";
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
 
@@ -55,6 +56,7 @@ public abstract class AppWindow : PageWindow {
         { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit },
         { ACTION_REDO, on_redo },
+        { ACTION_SELECT_ALL, on_select_all },
         { ACTION_SELECT_NONE, on_select_none },
         { ACTION_UNDO, on_undo }
     };
@@ -65,6 +67,7 @@ public abstract class AppWindow : PageWindow {
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
 
@@ -144,12 +147,8 @@ public abstract class AppWindow : PageWindow {
 
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
-
         Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
         actions += fullscreen;
-        actions += select_all;
-
         return actions;
     }
 
@@ -412,7 +411,7 @@ public abstract class AppWindow : PageWindow {
     protected virtual void update_common_action_availability (Page? old_page, Page? new_page) {
         bool is_checkerboard = new_page is CheckerboardPage;
 
-        set_common_action_sensitive ("CommonSelectAll", is_checkerboard);
+        ((SimpleAction) lookup_action (ACTION_SELECT_ALL)).set_enabled (is_checkerboard);
         ((SimpleAction) lookup_action (ACTION_SELECT_NONE)).set_enabled (is_checkerboard);
     }
 
@@ -420,8 +419,10 @@ public abstract class AppWindow : PageWindow {
     // NOTE: Although CommonFullscreen is declared here, it's implementation is up to the subclasses,
     // therefore they need to update its action.
     protected virtual void update_common_actions (Page page, int selected_count, int count) {
-        if (page is CheckerboardPage)
-            set_common_action_sensitive ("CommonSelectAll", count > 0);
+        if (page is CheckerboardPage) {
+            ((SimpleAction) lookup_action (ACTION_SELECT_ALL)).set_enabled (count > 0);
+        }
+
         ((SimpleAction) lookup_action (ACTION_JUMP_TO_FILE)).set_enabled (selected_count == 1);
 
         on_command_manager_altered ();
