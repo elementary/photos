@@ -32,7 +32,6 @@ public abstract class AppWindow : PageWindow {
     // the AppWindow maintains its own UI manager because the first UIManager an action group is
     // added to is the one that claims its accelerators
     protected Gtk.ActionGroup[] common_action_groups;
-    protected Dimensions dimensions;
     protected int pos_x = 0;
     protected int pos_y = 0;
     protected Gtk.HeaderBar header;
@@ -89,25 +88,6 @@ public abstract class AppWindow : PageWindow {
         var css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("io/elementary/photos/application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        var maximized = false;
-
-        // restore previous size and maximization state
-        if (this is LibraryWindow) {
-            maximized = window_settings.get_boolean ("library-maximize");
-            dimensions.width = window_settings.get_int ("library-width");
-            dimensions.height = window_settings.get_int ("library-height");
-        } else {
-            assert (this is DirectWindow);
-            maximized = window_settings.get_boolean ("direct-maximize");
-            dimensions.width = window_settings.get_int ("direct-width");
-            dimensions.height = window_settings.get_int ("direct-height");
-        }
-
-        set_default_size (dimensions.width, dimensions.height);
-
-        if (maximized)
-            maximize ();
 
         assert (command_manager == null);
         command_manager = new CommandManager ();
@@ -476,12 +456,5 @@ public abstract class AppWindow : PageWindow {
         Page? page = get_current_page () as CheckerboardPage;
         if (page != null)
             page.get_view ().unselect_all ();
-    }
-
-    public override bool configure_event (Gdk.EventConfigure event) {
-        if (!is_maximized)
-            get_size (out dimensions.width, out dimensions.height);
-
-        return base.configure_event (event);
     }
 }

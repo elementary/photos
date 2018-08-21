@@ -143,6 +143,15 @@ public class LibraryWindow : AppWindow {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        set_default_size (
+            window_settings.get_int ("library-width"),
+            window_settings.get_int ("library-height")
+        );
+
+        if (window_settings.get_boolean ("library-maximize")) {
+            maximize ();
+        }
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
@@ -462,8 +471,6 @@ public class LibraryWindow : AppWindow {
 
     protected override void on_quit () {
         window_settings.set_boolean ("library-maximize", is_maximized);
-        window_settings.set_int ("library-width", dimensions.width);
-        window_settings.set_int ("library-height", dimensions.height);
         ui_settings.set_int ("sidebar-position", client_paned.position);
         ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
@@ -1336,5 +1343,17 @@ public class LibraryWindow : AppWindow {
             // just in case
             title = _(Resources.APP_TITLE);
         }
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        if (is_maximized == false) {
+            int window_width, window_height;
+            get_size (out window_width, out window_height);
+
+            window_settings.set_int ("library-width", window_width);
+            window_settings.set_int ("library-height", window_height);
+        }
+
+        return base.configure_event (event);
     }
 }
