@@ -470,7 +470,6 @@ public class LibraryWindow : AppWindow {
     }
 
     protected override void on_quit () {
-        window_settings.set_boolean ("library-maximize", is_maximized);
         ui_settings.set_int ("sidebar-position", client_paned.position);
         ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
@@ -1346,7 +1345,9 @@ public class LibraryWindow : AppWindow {
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
-        if (is_maximized == false) {
+        window_settings.set_boolean ("library-maximize", is_maximized);
+
+        if (!is_maximized) {
             int window_width, window_height;
             get_size (out window_width, out window_height);
 
