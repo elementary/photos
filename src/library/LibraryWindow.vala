@@ -616,7 +616,8 @@ public class LibraryWindow : AppWindow {
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
-        set_common_action_sensitive ("CommonFullscreen", can_fullscreen);
+
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN)).set_enabled (can_fullscreen);
 
         base.update_common_actions (page, selected_count, count);
     }

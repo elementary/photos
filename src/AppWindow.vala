@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -36,14 +37,13 @@ public abstract class AppWindow : PageWindow {
     protected int pos_y = 0;
     protected Gtk.HeaderBar header;
 
-    private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("AppWindowGlobalActionGroup");
-
     private Gtk.Button redo_btn;
     private Gtk.Button undo_btn;
 
     protected GLib.Settings window_settings;
 
     public const string ACTION_PREFIX = "win.";
+    public const string ACTION_FULLSCREEN = "action_fullscreen";
     public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
     public const string ACTION_REDO = "action_redo";
@@ -52,6 +52,7 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_UNDO = "action_undo";
 
     private const ActionEntry[] action_entries = {
+        { ACTION_FULLSCREEN, on_fullscreen },
         { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit },
         { ACTION_REDO, on_redo },
@@ -63,6 +64,7 @@ public abstract class AppWindow : PageWindow {
     construct {
         add_action_entries (action_entries, this);
 
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
         Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
@@ -123,13 +125,6 @@ public abstract class AppWindow : PageWindow {
 
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
-    }
-
-    private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-        actions += fullscreen;
-        return actions;
     }
 
     protected abstract void on_fullscreen ();
@@ -291,10 +286,6 @@ public abstract class AppWindow : PageWindow {
 
     protected virtual Gtk.ActionGroup[] create_common_action_groups () {
         Gtk.ActionGroup[] groups = new Gtk.ActionGroup[0];
-
-        common_action_group.add_actions (create_common_actions (), this);
-        groups += common_action_group;
-
         return groups;
     }
 
@@ -395,8 +386,8 @@ public abstract class AppWindow : PageWindow {
         ((SimpleAction) lookup_action (ACTION_SELECT_NONE)).set_enabled (is_checkerboard);
     }
 
-    // This is a counterpart to Page.update_actions (), but for common Gtk.Actions
-    // NOTE: Although CommonFullscreen is declared here, it's implementation is up to the subclasses,
+    // This is a counterpart to Page.update_actions (), but for common GLib.Actions
+    // NOTE: Although ACTION_FULLSCREEN is declared here, it's implementation is up to the subclasses,
     // therefore they need to update its action.
     protected virtual void update_common_actions (Page page, int selected_count, int count) {
         if (page is CheckerboardPage) {

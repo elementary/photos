@@ -165,9 +165,10 @@ public abstract class MediaPage : CheckerboardPage {
             sort_menu_item.set_submenu (sort_menu);
 
             var fullscreen_menu_item = new Gtk.MenuItem.with_mnemonic (_("Fulls_creen"));
-            var fullscreen_action = get_common_action ("CommonFullscreen");
-            fullscreen_action.bind_property ("sensitive", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
+
+            var fullscreen_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN);
+            fullscreen_action.bind_property ("enabled", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate (null));
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
 
