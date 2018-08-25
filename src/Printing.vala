@@ -281,7 +281,6 @@ public class CustomPrintTab : Gtk.Fixed {
     private const int INCHES_COMBO_CHOICE = 0;
     private const int CENTIMETERS_COMBO_CHOICE = 1;
 
-    private Gtk.Box custom_image_settings_pane = null;
     private Gtk.RadioButton standard_size_radio = null;
     private Gtk.RadioButton custom_size_radio = null;
     private Gtk.RadioButton image_per_page_radio = null;
@@ -302,75 +301,124 @@ public class CustomPrintTab : Gtk.Fixed {
 
     public CustomPrintTab (PrintJob source_job) {
         this.source_job = source_job;
-        Gtk.Builder builder = AppWindow.create_builder ();
 
-        // an enclosing box for every widget on this tab...
-        custom_image_settings_pane = builder.get_object ("box_ImgSettingsPane") as Gtk.Box;
+        var printed_size_label = new Gtk.Label (_("Printed Image Size"));
+        printed_size_label.xalign = 0;
+        printed_size_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        standard_size_radio = builder.get_object ("radio_UseStandardSize") as Gtk.RadioButton;
-        standard_size_radio.clicked.connect (on_radio_group_click);
+        standard_size_radio = new Gtk.RadioButton.with_mnemonic (null, _("Use a _standard size:"));
+        standard_size_radio.margin_start = 12;
 
-        custom_size_radio = builder.get_object ("radio_UseCustomSize") as Gtk.RadioButton;
-        custom_size_radio.clicked.connect (on_radio_group_click);
+        custom_size_radio = new Gtk.RadioButton.with_mnemonic_from_widget (standard_size_radio, _("Use a c_ustom size:"));
+        custom_size_radio.margin_start = 12;
 
-        image_per_page_radio = builder.get_object ("radio_Autosize") as Gtk.RadioButton;
-        image_per_page_radio.clicked.connect (on_radio_group_click);
+        image_per_page_radio = new Gtk.RadioButton.with_mnemonic_from_widget (standard_size_radio, _("_Autosize:"));
+        image_per_page_radio.margin_start = 12;
 
-        image_per_page_combo = builder.get_object ("combo_Autosize") as Gtk.ComboBox;
-        Gtk.CellRendererText image_per_page_combo_text_renderer =
-            new Gtk.CellRendererText ();
-        image_per_page_combo.pack_start (image_per_page_combo_text_renderer, true);
-        image_per_page_combo.add_attribute (image_per_page_combo_text_renderer,
-                                            "text", 0);
-        Gtk.ListStore image_per_page_combo_store = new Gtk.ListStore (2, typeof (string),
-                typeof (string));
+        var image_per_page_combo_store = new Gtk.ListStore (2, typeof (string), typeof (string));
         foreach (PrintLayout layout in PrintLayout.get_all ()) {
             Gtk.TreeIter iter;
             image_per_page_combo_store.append (out iter);
             image_per_page_combo_store.set_value (iter, 0, layout.to_string ());
         }
-        image_per_page_combo.set_model (image_per_page_combo_store);
+
+        var image_per_page_combo_text_renderer = new Gtk.CellRendererText ();
+
+        image_per_page_combo = new Gtk.ComboBox.with_model (image_per_page_combo_store);
+        image_per_page_combo.pack_start (image_per_page_combo_text_renderer, true);
+        image_per_page_combo.add_attribute (image_per_page_combo_text_renderer, "text", 0);
 
         StandardPrintSize[] standard_sizes = PrintManager.get_instance ().get_standard_sizes ();
-        standard_sizes_combo = builder.get_object ("combo_StdSizes") as Gtk.ComboBox;
-        Gtk.CellRendererText standard_sizes_combo_text_renderer =
-            new Gtk.CellRendererText ();
-        standard_sizes_combo.pack_start (standard_sizes_combo_text_renderer, true);
-        standard_sizes_combo.add_attribute (standard_sizes_combo_text_renderer,
-                                            "text", 0);
-        standard_sizes_combo.set_row_separator_func (standard_sizes_combo_separator_func);
-        Gtk.ListStore standard_sizes_combo_store = new Gtk.ListStore (1, typeof (string),
-                typeof (string));
+
+        var standard_sizes_combo_store = new Gtk.ListStore (1, typeof (string), typeof (string));
         foreach (StandardPrintSize size in standard_sizes) {
             Gtk.TreeIter iter;
             standard_sizes_combo_store.append (out iter);
             standard_sizes_combo_store.set_value (iter, 0, size.name);
         }
-        standard_sizes_combo.set_model (standard_sizes_combo_store);
 
-        custom_width_entry = builder.get_object ("entry_CustomWidth") as Gtk.Entry;
+        var standard_sizes_combo_text_renderer = new Gtk.CellRendererText ();
+
+        standard_sizes_combo = new Gtk.ComboBox.with_model (standard_sizes_combo_store);
+        standard_sizes_combo.pack_start (standard_sizes_combo_text_renderer, true);
+        standard_sizes_combo.add_attribute (standard_sizes_combo_text_renderer, "text", 0);
+        standard_sizes_combo.set_row_separator_func (standard_sizes_combo_separator_func);
+
+        custom_width_entry = new Gtk.Entry ();
+        var mult_label = new Gtk.Label ("×");
+        custom_height_entry = new Gtk.Entry ();
+
+        units_combo = new Gtk.ComboBoxText ();
+        units_combo.append_text (_("in."));
+        units_combo.append_text (_("cm"));
+        units_combo.set_active (0);
+
+        var custom_grid = new Gtk.Grid ();
+        custom_grid.column_spacing = 3;
+        custom_grid.add (custom_width_entry);
+        custom_grid.add (mult_label);
+        custom_grid.add (custom_height_entry);
+        custom_grid.add (units_combo);
+
+        aspect_ratio_check = new Gtk.CheckButton.with_mnemonic (_("_Match photo aspect ratio"));
+
+        var titles_label = new Gtk.Label (_("Titles"));
+        titles_label.xalign = 0;
+        titles_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+
+        title_print_check = new Gtk.CheckButton.with_mnemonic (_("Print image _title"));
+        title_print_check.margin_start = 12;
+
+        title_print_font = new Gtk.FontButton ();
+        title_print_font.use_font = true;
+
+        var resolution_label = new Gtk.Label (_("Pixel Resolution"));
+        resolution_label.xalign = 0;
+        resolution_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+
+        ppi_entry = new Gtk.Entry ();
+
+        var ppi_label = new Gtk.Label (_("_Output photo at:"));
+        ppi_label.margin_start = 12;
+        ppi_label.mnemonic_widget = ppi_entry;
+        ppi_label.use_underline = true;
+        ppi_label.xalign = 1;
+
+        var unit_label = new Gtk.Label (_("pixels per inch"));
+        unit_label.xalign = 0;
+
+        var grid = new Gtk.Grid ();
+        grid.column_spacing = 12;
+        grid.row_spacing = 12;
+        grid.margin = 12;
+        grid.attach (printed_size_label, 0, 0, 3, 1);
+        grid.attach (standard_size_radio, 0, 1);
+        grid.attach (standard_sizes_combo, 1, 1, 2, 1);
+        grid.attach (custom_size_radio, 0, 2);
+        grid.attach (custom_grid, 1, 2, 2, 1);
+        grid.attach (aspect_ratio_check, 1, 3, 2, 1);
+        grid.attach (image_per_page_radio, 0, 4);
+        grid.attach (image_per_page_combo, 1, 4, 2, 1);
+        grid.attach (titles_label, 0, 5, 3, 1);
+        grid.attach (title_print_check, 0, 6);
+        grid.attach (title_print_font, 1, 6, 2, 1);
+        grid.attach (resolution_label, 0, 7, 3, 1);
+        grid.attach (ppi_label, 0, 8);
+        grid.attach (ppi_entry, 1, 8);
+        grid.attach (unit_label, 2, 8);
+
+        add (grid);
+
+        standard_size_radio.clicked.connect (on_radio_group_click);
+        custom_size_radio.clicked.connect (on_radio_group_click);
+        image_per_page_radio.clicked.connect (on_radio_group_click);
         custom_width_entry.insert_text.connect (on_entry_insert_text);
         custom_width_entry.focus_out_event.connect (on_width_entry_focus_out);
-
-        custom_height_entry = builder.get_object ("entry_CustomHeight") as Gtk.Entry;
         custom_height_entry.insert_text.connect (on_entry_insert_text);
         custom_height_entry.focus_out_event.connect (on_height_entry_focus_out);
-
-        units_combo = builder.get_object ("combo_Units") as Gtk.ComboBoxText;
-        units_combo.append_text (_ ("in."));
-        units_combo.append_text (_ ("cm"));
-        units_combo.set_active (0);
         units_combo.changed.connect (on_units_combo_changed);
-
-        aspect_ratio_check = builder.get_object ("check_MatchAspectRatio") as Gtk.CheckButton;
-        title_print_check = builder.get_object ("check_PrintImageTitle") as Gtk.CheckButton;
-        title_print_font = builder.get_object ("fntbn_TitleFont") as Gtk.FontButton;
-
-        ppi_entry = builder.get_object ("entry_PixelsPerInch") as Gtk.Entry;
         ppi_entry.insert_text.connect (on_ppi_entry_insert_text);
         ppi_entry.focus_out_event.connect (on_ppi_entry_focus_out);
-
-        this.add (custom_image_settings_pane);
 
         sync_state_from_job (source_job);
 
