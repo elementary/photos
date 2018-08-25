@@ -21,11 +21,6 @@ namespace PublishingUI {
 
 public class ConcreteDialogPane : Spit.Publishing.DialogPane, GLib.Object {
     protected Gtk.Box pane_widget = null;
-    protected Gtk.Builder builder = null;
-
-    public ConcreteDialogPane () {
-        builder = AppWindow.create_builder ();
-    }
 
     public Gtk.Widget get_widget () {
         return pane_widget;
