@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2017 elementary  LLC. (https://github.com/elementary/photos)
+*               2017-2018 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -18,8 +18,8 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class ProgressDialog : Gtk.Window {
-    private Gtk.ProgressBar progress_bar = new Gtk.ProgressBar ();
+public class ProgressDialog : Gtk.Dialog {
+    private Gtk.ProgressBar progress_bar;
     private Gtk.Button cancel_button = null;
     private Cancellable cancellable;
     private uint64 last_count = uint64.MAX;
@@ -33,44 +33,37 @@ public class ProgressDialog : Gtk.Window {
     public ProgressDialog (Gtk.Window? owner, string text, Cancellable? cancellable = null) {
         this.cancellable = cancellable;
 
-        set_title (text);
-        set_resizable (false);
-        set_deletable (false);
-        if (owner != null)
+        deletable = false;
+        resizable = false;
+        modal = true;
+
+        if (owner != null) {
             set_transient_for (owner);
-        set_modal (true);
-        set_type_hint (Gdk.WindowTypeHint.DIALOG);
+        }
 
-        progress_bar.set_size_request (300, -1);
-        progress_bar.set_show_text (true);
+        progress_bar = new Gtk.ProgressBar ();
+        progress_bar.width_request = 300;
+        progress_bar.show_text = true;
 
-        Gtk.Box vbox_bar = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        vbox_bar.pack_start (progress_bar, true, false, 0);
+        var primary_text_label = new Gtk.Label (text);
+        primary_text_label.xalign = 0;
+        primary_text_label.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+
+        var grid = new Gtk.Grid ();
+        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.row_spacing = 12;
+        grid.margin = 12;
+        grid.margin_top = 0;
+        grid.add (primary_text_label);
+        grid.add (progress_bar);
+
+        get_content_area ().add (grid);
 
         if (cancellable != null) {
-            cancel_button = new Gtk.Button.with_mnemonic (_ ("_Cancel"));
+            cancel_button = (Gtk.Button) add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
             cancel_button.clicked.connect (on_cancel);
             delete_event.connect (on_window_closed);
         }
-
-        Gtk.Box hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        hbox.pack_start (vbox_bar, true, false, 0);
-        if (cancel_button != null)
-            hbox.pack_end (cancel_button, false, false, 0);
-
-        Gtk.Label primary_text_label = new Gtk.Label ("");
-        primary_text_label.set_markup ("<span weight=\"bold\">%s</span>".printf (text));
-        primary_text_label.set_alignment (0, 0.5f);
-
-        Gtk.Box vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 12);
-        vbox.pack_start (primary_text_label, false, false, 0);
-        vbox.pack_start (hbox, true, false, 0);
-
-        Gtk.Alignment alignment = new Gtk.Alignment (0.5f, 0.5f, 1.0f, 1.0f);
-        alignment.set_padding (12, 12, 12, 12);
-        alignment.add (vbox);
-
-        add (alignment);
 
         time_started = now_ms ();
     }
