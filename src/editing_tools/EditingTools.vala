@@ -40,6 +40,7 @@ public abstract class EditingToolWindow : Gtk.Dialog {
         can_focus = true;
         deletable = false;
         focus_on_map = true;
+        resizable = false;
 
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
 
