@@ -75,6 +75,8 @@ public class EditingTools.AdjustTool : EditingTool {
                 1.0
             );
             tint_slider.draw_value = false;
+            tint_slider.has_origin = false;
+            tint_slider.get_style_context ().add_class ("tint");
 
             var temperature_label = new Gtk.Label (_("Temperature:"));
             temperature_label.halign = Gtk.Align.END;
@@ -86,6 +88,8 @@ public class EditingTools.AdjustTool : EditingTool {
                 1.0
             );
             temperature_slider.draw_value = false;
+            temperature_slider.has_origin = false;
+            temperature_slider.get_style_context ().add_class ("temperature");
 
             var shadows_label = new Gtk.Label (_("Shadows:"));
             shadows_label.halign = Gtk.Align.END;
