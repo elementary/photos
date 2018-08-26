@@ -92,25 +92,6 @@ public abstract class AppWindow : PageWindow {
         css_provider.load_from_resource ("io/elementary/photos/application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        var maximized = false;
-
-        // restore previous size and maximization state
-        if (this is LibraryWindow) {
-            maximized = window_settings.get_boolean ("library-maximize");
-            dimensions.width = window_settings.get_int ("library-width");
-            dimensions.height = window_settings.get_int ("library-height");
-        } else {
-            assert (this is DirectWindow);
-            maximized = window_settings.get_boolean ("direct-maximize");
-            dimensions.width = window_settings.get_int ("direct-width");
-            dimensions.height = window_settings.get_int ("direct-height");
-        }
-
-        set_default_size (dimensions.width, dimensions.height);
-
-        if (maximized)
-            maximize ();
-
         assert (command_manager == null);
         command_manager = new CommandManager ();
         command_manager.altered.connect (on_command_manager_altered);

@@ -143,6 +143,15 @@ public class LibraryWindow : AppWindow {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        set_default_size (
+            window_settings.get_int ("library-width"),
+            window_settings.get_int ("library-height")
+        );
+
+        if (window_settings.get_boolean ("library-maximize")) {
+            maximize ();
+        }
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
