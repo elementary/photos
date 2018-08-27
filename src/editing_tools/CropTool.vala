@@ -125,12 +125,12 @@ public class EditingTools.CropTool : EditingTool {
             response_layout.add (ok_button);
 
             layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
-            layout.margin = 12;
+            layout.margin_start = layout.margin_end = 12;
             layout.add (constraint_combo);
             layout.add (pivot_reticle_button);
             layout.add (response_layout);
 
-            add (layout);
+            get_content_area ().add (layout);
         }
 
         private static bool constraint_combo_separator_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
