@@ -104,156 +104,69 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
-        Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
-                                   Resources.EXPORT_MENU, on_export
-                                 };
-        actions += export;
-
-        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
-                                  Resources.PRINT_MENU, on_print
-                                };
-        actions += print;
-
-        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, Resources.PUBLISH_MENU, "<Ctrl><Shift>P",
-                                    Resources.PUBLISH_TOOLTIP, on_publish
-                                  };
-        actions += publish;
-
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
-                                                "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
-                                              };
-        actions += remove_from_library;
-
-        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", Resources.MOVE_TO_TRASH_MENU, "Delete",
-                                          Resources.MOVE_TO_TRASH_MENU, on_move_to_trash
-                                        };
-        actions += move_to_trash;
-
-        Gtk.ActionEntry view = { "ViewMenu", null, _("_View"), null, null, on_view_menu };
-        actions += view;
-
-        Gtk.ActionEntry tools = { "Tools", null, _("T_ools"), null, null, null };
-        actions += tools;
-
-        Gtk.ActionEntry prev = { "PrevPhoto", null, _("_Previous Photo"), null,
-                                 _("Previous Photo"), on_previous_photo
-                               };
-        actions += prev;
-
-        Gtk.ActionEntry next = { "NextPhoto", null, _("_Next Photo"), null,
-                                 _("Next Photo"), on_next_photo
-                               };
-        actions += next;
-
-        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE, Resources.ROTATE_CW_MENU,
-                                         "<Ctrl>R", Resources.ROTATE_CW_TOOLTIP, on_rotate_clockwise
-                                       };
-        actions += rotate_right;
-
-        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
-                                      };
-        actions += rotate_left;
-
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
-                                  Resources.HFLIP_MENU, on_flip_horizontally
-                                };
-        actions += hflip;
-
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
-                                  Resources.VFLIP_MENU, on_flip_vertically
-                                };
-        actions += vflip;
-
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
-                                    Resources.ENHANCE_TOOLTIP, on_enhance
-                                  };
-        actions += enhance;
-
-        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, Resources.COPY_ADJUSTMENTS_MENU,
-                                             "<Ctrl><Shift>C", Resources.COPY_ADJUSTMENTS_TOOLTIP, on_copy_adjustments
-                                           };
-        actions += copy_adjustments;
-
-        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, Resources.PASTE_ADJUSTMENTS_MENU,
-                                              "<Ctrl><Shift>V", Resources.PASTE_ADJUSTMENTS_TOOLTIP, on_paste_adjustments
-                                            };
-        actions += paste_adjustments;
-
-        Gtk.ActionEntry crop = { "Crop", Resources.CROP, Resources.CROP_MENU, "<Ctrl>O",
-                                 Resources.CROP_TOOLTIP, toggle_crop
-                               };
-        actions += crop;
-
-        Gtk.ActionEntry straighten = { "Straighten", null, Resources.STRAIGHTEN_MENU, "<Ctrl>A",
-                                       Resources.STRAIGHTEN_TOOLTIP, toggle_straighten
-                                     };
-        actions += straighten;
-
-        Gtk.ActionEntry red_eye = { "RedEye", Resources.REDEYE, Resources.RED_EYE_MENU, "<Ctrl>Y",
-                                    Resources.RED_EYE_TOOLTIP, toggle_redeye
-                                  };
-        actions += red_eye;
-
-        Gtk.ActionEntry adjust = { "Adjust", Resources.ADJUST, Resources.ADJUST_MENU, "<Ctrl>D",
-                                   Resources.ADJUST_TOOLTIP, toggle_adjust
-                                 };
-        actions += adjust;
-
-        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU,
-                                   null, Resources.REVERT_MENU, on_revert
-                                 };
-        actions += revert;
-
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
-                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
-                                           };
-        actions += adjust_date_time;
-
-        Gtk.ActionEntry flag = { "Flag", null, Resources.FLAG_MENU, "<Ctrl>G", Resources.FLAG_MENU, on_flag_unflag };
-        actions += flag;
-
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
-                                          "<Ctrl>plus", _("Increase the magnification of the photo"), on_increase_size
-                                        };
-        actions += increase_size;
-
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
-                                          "<Ctrl>minus", _("Decrease the magnification of the photo"), on_decrease_size
-                                        };
-        actions += decrease_size;
-
-        Gtk.ActionEntry best_fit = { "ZoomFit", null, _("Fit to _Page"),
-                                     "<Ctrl>0", _("Zoom the photo to fit on the screen"), snap_zoom_to_min
-                                   };
-        actions += best_fit;
-
+        Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
+        Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
+        Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
+        Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
+        Gtk.ActionEntry prev = { "PrevPhoto", null, null, null, null, on_previous_photo };
+        Gtk.ActionEntry next = { "NextPhoto", null, null, null, null, on_next_photo };
+        Gtk.ActionEntry rotate_right = { "RotateClockwise", null, null, "<Ctrl>R", null, on_rotate_clockwise };
+        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", null, null, "<Ctrl><Shift>R", null, on_rotate_counterclockwise };
+        Gtk.ActionEntry hflip = { "FlipHorizontally", null, null, null, null, on_flip_horizontally };
+        Gtk.ActionEntry vflip = { "FlipVertically", null, null, null, null, on_flip_vertically };
+        Gtk.ActionEntry enhance = { "Enhance", null, null, "<Ctrl>E", null, on_enhance };
+        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, null, "<Ctrl><Shift>C", null, on_copy_adjustments };
+        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, null, "<Ctrl><Shift>V", null, on_paste_adjustments };
+        Gtk.ActionEntry crop = { "Crop", null, null, "<Ctrl>O", null, toggle_crop };
+        Gtk.ActionEntry straighten = { "Straighten", null, null, "<Ctrl>A", null, toggle_straighten };
+        Gtk.ActionEntry red_eye = { "RedEye", null, null, "<Ctrl>Y", null, toggle_redeye };
+        Gtk.ActionEntry adjust = { "Adjust", null, null, "<Ctrl>D", null, toggle_adjust };
+        Gtk.ActionEntry revert = { "Revert", null, null, null, null, on_revert };
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, null, null, null, on_adjust_date_time };
+        Gtk.ActionEntry flag = { "Flag", null, null, "<Ctrl>G", null, on_flag_unflag };
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus", null, on_increase_size };
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, null, "<Ctrl>minus", null, on_decrease_size };
+        Gtk.ActionEntry best_fit = { "ZoomFit", null, null, "<Ctrl>0", null, snap_zoom_to_min };
         /// xgettext:no-c-format
-        Gtk.ActionEntry actual_size = { "Zoom100", null, _("Zoom _100%"),
-                                        "<Ctrl>1", _("Zoom the photo to 100% magnification"), snap_zoom_to_isomorphic
-                                      };
-        actions += actual_size;
-
+        Gtk.ActionEntry actual_size = { "Zoom100", null, null, "<Ctrl>1", null, snap_zoom_to_isomorphic };
         /// xgettext:no-c-format
-        Gtk.ActionEntry max_size = { "Zoom200", null, _("Zoom _200%"),
-                                     "<Ctrl>2", _("Zoom the photo to 200% magnification"), snap_zoom_to_max
-                                   };
-        actions += max_size;
-
-        Gtk.ActionEntry slideshow = { "Slideshow", null, _("S_lideshow"), "F5", _("Play a slideshow"),
-                                      on_slideshow
-                                    };
-        actions += slideshow;
-
-        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, _("_Developer"), null, null, null };
-        actions += raw_developer;
-
+        Gtk.ActionEntry max_size = { "Zoom200", null, null, "<Ctrl>2", null, snap_zoom_to_max };
+        Gtk.ActionEntry slideshow = { "Slideshow", null, null, "F5", null, on_slideshow };
+        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, null, null, null, null };
         Gtk.ActionEntry open_with = { "OpenWith", null, null, null, null, null };
-        actions += open_with;
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
 
-        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, Resources.OPEN_WITH_RAW_MENU, null, null, null };
+        Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
+        actions += export;
+        actions += print;
+        actions += publish;
+        actions += remove_from_library;
+        actions += move_to_trash;
+        actions += prev;
+        actions += next;
+        actions += rotate_right;
+        actions += rotate_left;
+        actions += hflip;
+        actions += vflip;
+        actions += enhance;
+        actions += copy_adjustments;
+        actions += paste_adjustments;
+        actions += crop;
+        actions += straighten;
+        actions += red_eye;
+        actions += adjust;
+        actions += revert;
+        actions += adjust_date_time;
+        actions += flag;
+        actions += increase_size;
+        actions += decrease_size;
+        actions += best_fit;
+        actions += actual_size;
+        actions += max_size;
+        actions += slideshow;
+        actions += raw_developer;
+        actions += open_with;
         actions += open_with_raw;
 
         return actions;
@@ -915,10 +828,6 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_count () > 0)
             PublishingUI.PublishingDialog.go (
                 (Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
-    }
-
-    private void on_view_menu () {
-        update_zoom_menu_item_sensitivity ();
     }
 
     private void update_development_menu_item_sensitivity () {
