@@ -207,60 +207,31 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
+        Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
+        Gtk.ActionEntry new_event = { "NewEvent", null, null, "<Ctrl>N", null, on_new_event };
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus",  null, on_increase_size };
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, null, "<Ctrl>minus", null, on_decrease_size };
+        Gtk.ActionEntry flag = { "Flag", null, null, "<Ctrl>G", null, on_flag_unflag };
+        Gtk.ActionEntry sort_photos = { "SortPhotos", null, null, null, null, null };
+        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, null, null, null, null };
+        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, null, null, null, null };
+        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, null, null, null, on_raw_developer_shotwell };
+        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, null, null, null, on_raw_developer_camera };
+
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
-                                   Resources.EXPORT_MENU, on_export
-                                 };
         actions += export;
-
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
-                                                "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
-                                              };
         actions += remove_from_library;
-
-        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", Resources.MOVE_TO_TRASH_MENU, "Delete",
-                                          Resources.MOVE_TO_TRASH_MENU, on_move_to_trash
-                                        };
         actions += move_to_trash;
-
-        Gtk.ActionEntry new_event = { "NewEvent", null, Resources.NEW_EVENT_MENU, "<Ctrl>N",
-                                      Resources.NEW_EVENT_MENU, on_new_event
-                                    };
         actions += new_event;
-
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
-                                          "<Ctrl>plus",  _("Increase the magnification of the thumbnails"), on_increase_size
-                                        };
         actions += increase_size;
-
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
-                                          "<Ctrl>minus", _("Decrease the magnification of the thumbnails"), on_decrease_size
-                                        };
         actions += decrease_size;
-
-        Gtk.ActionEntry flag = { "Flag", null, Resources.FLAG_MENU, "<Ctrl>G", Resources.FLAG_MENU, on_flag_unflag };
         actions += flag;
-
-        Gtk.ActionEntry sort_photos = { "SortPhotos", null, _("Sort _Photos"), null, null, null };
         actions += sort_photos;
-
-        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
         actions += filter_photos;
-
-        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, _("_Developer"), null, null, null };
         actions += raw_developer;
-
-        // RAW developers.
-
-        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, _("Shotwell"), null, _("Shotwell"),
-                                         on_raw_developer_shotwell
-                                       };
         actions += dev_shotwell;
-
-        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, _("Camera"), null, _("Camera"),
-                                       on_raw_developer_camera
-                                     };
         actions += dev_camera;
 
         return actions;
