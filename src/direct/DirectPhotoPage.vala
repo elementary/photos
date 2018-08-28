@@ -142,9 +142,10 @@ public class DirectPhotoPage : EditingHostPage {
 
             if (fullscreen == false) {
                 var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-                var jump_action = get_common_action ("CommonJumpToFile");
-                jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-                jump_menu_item.activate.connect (() => jump_action.activate ());
+
+                var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+                jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
                 var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
                 var print_action = get_action ("Print");
@@ -234,7 +235,7 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("SaveAs", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
-        set_action_sensitive ("CommonJumpToFile", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_UNDO)).set_enabled (sensitivity);
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_REDO)).set_enabled (sensitivity);
@@ -435,7 +436,11 @@ public class DirectPhotoPage : EditingHostPage {
      * Returns true if the code parameter matches the keycode of the keyval parameter for
      * any keyboard group or level (in order to allow for non-QWERTY keyboards)
      */
+#if VALA_0_42
+    protected bool match_keycode (uint keyval, uint code) {
+#else
     protected bool match_keycode (int keyval, uint code) {
+#endif
         Gdk.KeymapKey [] keys;
         Gdk.Keymap keymap = Gdk.Keymap.get_default ();
         if (keymap.get_entries_for_keyval (keyval, out keys)) {
