@@ -138,7 +138,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             separator.set_expand (true);
 
             var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
-            zoom_fit.tooltip_text = _("Fit to Page");
+            zoom_fit.tooltip_text = _("Zoom to fit page");
             zoom_fit.valign = Gtk.Align.CENTER;
             zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
