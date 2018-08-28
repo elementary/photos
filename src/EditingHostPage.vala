@@ -137,6 +137,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
 
+            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+            zoom_fit.tooltip_text = _("Fit to Page");
+            zoom_fit.valign = Gtk.Align.CENTER;
+            zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+            var zoom_fit_action = get_action ("ZoomFit");
+            zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
+            zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
+
             var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
             zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
@@ -150,6 +159,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             var zoom_group = new Gtk.Grid ();
             zoom_group.column_spacing = 6;
+            zoom_group.add (zoom_fit);
             zoom_group.add (zoom_original);
             zoom_group.add (zoom_slider);
 
