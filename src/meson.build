@@ -216,7 +216,8 @@ photos_files = files(
 
     'Widgets/TransitionEffectSelector.vala',
     'Widgets/SliderAssembly.vala',
-    'Widgets/ContractMenuItem.vala'
+    'Widgets/ContractMenuItem.vala',
+    'Widgets/CustomPrintTab.vala'
 )
 
 photos_exe = executable(
