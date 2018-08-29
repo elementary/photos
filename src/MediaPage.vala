@@ -44,23 +44,20 @@ public abstract class MediaPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     protected GLib.Settings ui_settings;
 
-    construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    public MediaPage (string page_name) {
+        Object (page_name: page_name);
     }
 
-    public MediaPage (string page_name) {
-        base (page_name);
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
 
         get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES,
-                                 ui_settings.get_boolean ("display-photo-titles"));
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
-                                 ui_settings.get_boolean ("display-photo-comments"));
-        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
-                                 ui_settings.get_boolean ("display-photo-tags"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES, ui_settings.get_boolean ("display-photo-titles"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS, ui_settings.get_boolean ("display-photo-comments"));
+        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS, ui_settings.get_boolean ("display-photo-tags"));
         get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
 
         get_view ().thaw_notifications ();
