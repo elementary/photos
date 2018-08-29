@@ -50,7 +50,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
 
-    public string page_name { get; set; }
+    public string page_name { get; construct set; }
 
     protected Page (string page_name) {
         Object (page_name: page_name);
