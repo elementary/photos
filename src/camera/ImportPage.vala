@@ -254,7 +254,7 @@ class PhotoImportSource : ImportSource {
     }
 }
 
-class ImportPreview : MediaSourceItem {
+class ImportPreview : CheckerboardItem {
     public const int MAX_SCALE = 128;
 
     private static Gdk.Pixbuf placeholder_preview = null;
