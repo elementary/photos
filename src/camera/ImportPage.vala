@@ -374,7 +374,7 @@ class ImportPreview : MediaSourceItem {
     }
 
     public ImportSource get_import_source () {
-        return (ImportSource) get_source ();
+        return (ImportSource) source;
     }
 }
 
@@ -413,7 +413,7 @@ public class CameraAccumulator : Object, Core.TrackerAccumulator {
     }
 
     public bool include (DataObject object) {
-        ImportSource source = (ImportSource) ((DataView) object).get_source ();
+        ImportSource source = (ImportSource) ((DataView) object).source;
 
         total++;
 
@@ -430,7 +430,7 @@ public class CameraAccumulator : Object, Core.TrackerAccumulator {
     }
 
     public bool uninclude (DataObject object) {
-        ImportSource source = (ImportSource) ((DataView) object).get_source ();
+        ImportSource source = (ImportSource) ((DataView) object).source;
 
         total++;
 
@@ -1739,7 +1739,7 @@ public class ImportPage : CheckerboardPage {
 
         foreach (DataObject object in items) {
             ImportPreview preview = (ImportPreview) object;
-            ImportSource import_file = (ImportSource) preview.get_source ();
+            ImportSource import_file = (ImportSource) preview.source;
 
             if (preview.is_already_imported ()) {
                 message ("Skipping import of %s: checksum detected in library",
