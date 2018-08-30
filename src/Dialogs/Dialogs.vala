@@ -21,7 +21,7 @@
 // place: http://trac.yorba.org/ticket/3452
 namespace Dialogs {
 
-public static bool negate_affirm_question (string message, string title) {
+private static bool negate_affirm_question (string message, string title) {
     var dialog = new Granite.MessageDialog.with_image_from_icon_name (
         title,
         message,
