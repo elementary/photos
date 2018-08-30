@@ -143,6 +143,8 @@ public class LibraryWindow : AppWindow {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        build_header_bar ();
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
@@ -206,7 +208,7 @@ public class LibraryWindow : AppWindow {
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
     }
 
-    protected override void build_header_bar () {
+    private void build_header_bar () {
         top_display = new TopDisplay ();
 
         var import_menu_item = new Gtk.MenuItem ();
@@ -231,8 +233,6 @@ public class LibraryWindow : AppWindow {
 
         header.pack_end (settings);
         header.set_custom_title (top_display);
-        // Right side of header bar, before settings
-        base.build_header_bar ();
 
         notify["title"].connect (() => {
             top_display.title = title;

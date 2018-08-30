@@ -62,35 +62,10 @@ public abstract class AppWindow : PageWindow {
         { ACTION_UNDO, on_undo }
     };
 
-    construct {
-        add_action_entries (action_entries, this);
-
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
-
-        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
-    }
-
     public AppWindow () {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;
-        icon_name = "multimedia-photo-manager";
-
-        header = new Gtk.HeaderBar ();
-        header.set_show_close_button (true);
-        this.set_titlebar (header);
-
-        title = _(Resources.APP_TITLE);
-
-        var css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("io/elementary/photos/application.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var maximized = false;
 
@@ -111,10 +86,6 @@ public abstract class AppWindow : PageWindow {
         if (maximized)
             maximize ();
 
-        assert (command_manager == null);
-        command_manager = new CommandManager ();
-        command_manager.altered.connect (on_command_manager_altered);
-
         // Because the first UIManager to associated with an ActionGroup claims the accelerators,
         // need to create the AppWindow's ActionGroup early on and add it to an application-wide
         // UIManager.  In order to activate those accelerators, we need to create a dummy UI string
@@ -132,19 +103,43 @@ public abstract class AppWindow : PageWindow {
 
         ui.ensure_update ();
         add_accel_group (ui.get_accel_group ());
-
-        build_header_bar ();
     }
 
-    protected virtual void build_header_bar () {
+    construct {
+        assert (command_manager == null);
+        command_manager = new CommandManager ();
+        command_manager.altered.connect (on_command_manager_altered);
+
         redo_btn = new Gtk.Button.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
         redo_btn.action_name = ACTION_PREFIX + ACTION_REDO;
 
         undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
         undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
 
+        header = new Gtk.HeaderBar ();
+        header.show_close_button = true;
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
+
+        icon_name = "multimedia-photo-manager";
+        title = _(Resources.APP_TITLE);
+
+        add_action_entries (action_entries, this);
+        set_titlebar (header);
+
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
+        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
+
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("io/elementary/photos/application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
     }
 
     protected abstract void on_fullscreen ();
