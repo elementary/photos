@@ -309,6 +309,20 @@ public abstract class CollectionPage : MediaPage {
         return actions;
     }
 
+    public void set_action_details (string name, string? label, string? tooltip, bool sensitive) {
+        Gtk.Action? action = get_action (name);
+        if (action == null)
+            return;
+
+        if (label != null)
+            action.label = label;
+
+        if (tooltip != null)
+            action.tooltip = tooltip;
+
+        action.sensitive = sensitive;
+    }
+
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
         SortedList<AppInfo> external_apps;
         string[] mime_types;
@@ -414,15 +428,6 @@ public abstract class CollectionPage : MediaPage {
 
     protected override void init_actions (int selected_count, int count) {
         base.init_actions (selected_count, count);
-
-        set_action_short_label ("RotateClockwise", Resources.ROTATE_CW_LABEL);
-        set_action_short_label ("RotateCounterclockwise", Resources.ROTATE_CCW_LABEL);
-        set_action_short_label ("Publish", Resources.PUBLISH_LABEL);
-
-        set_action_important ("RotateClockwise", true);
-        set_action_important ("RotateCounterclockwise", true);
-        set_action_important ("Enhance", true);
-        set_action_important ("Publish", true);
     }
 
     protected override void update_actions (int selected_count, int count) {
