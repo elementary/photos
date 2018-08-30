@@ -304,8 +304,8 @@ public class ViewCollection : DataCollection {
         Gee.ArrayList<DataObject> copy_view = new Gee.ArrayList<DataObject> ();
         foreach (DataObject object in to_copy.get_all ()) {
             DataView view = (DataView) object;
-            if (should_copy (view.get_source ())) {
-                copy_view.add (copying_ctor (view.get_source ()));
+            if (should_copy (view.source)) {
+                copy_view.add (copying_ctor (view.source));
             }
         }
         add_many (copy_view);
@@ -513,7 +513,7 @@ public class ViewCollection : DataCollection {
     private void on_mirror_contents_added (Gee.Iterable<DataObject> added) {
         Gee.ArrayList<DataView> to_add = new Gee.ArrayList<DataView> ();
         foreach (DataObject object in added) {
-            DataSource source = ((DataView) object).get_source ();
+            var source = ((DataView) object).source;
 
             if (should_mirror == null || should_mirror (source))
                 to_add.add (mirroring_ctor (source));
@@ -528,7 +528,7 @@ public class ViewCollection : DataCollection {
         foreach (DataObject object in removed) {
             DataView view = (DataView) object;
 
-            DataView? our_view = get_view_for_source (view.get_source ());
+            DataView? our_view = get_view_for_source (view.source);
             assert (our_view != null);
 
             marker.mark (our_view);
@@ -544,7 +544,7 @@ public class ViewCollection : DataCollection {
 
         foreach (DataObject object in added) {
             DataView view = (DataView) object;
-            source_map.set (view.get_source (), view);
+            source_map.set (view.source, view);
 
             if (view.is_selected () && view.is_visible ()) {
                 if (added_selected == null)
@@ -585,8 +585,8 @@ public class ViewCollection : DataCollection {
             // in question already having been removed from the source map, but the
             // double removal is unimportant to direct mode, so if this happens, the
             // remove is skipped the second time (to prevent crashing).
-            if (source_map.has_key (view.get_source ())) {
-                bool is_removed = source_map.unset (view.get_source ());
+            if (source_map.has_key (view.source)) {
+                bool is_removed = source_map.unset (view.source);
                 assert (is_removed);
 
                 if (view.is_selected ()) {
@@ -739,7 +739,7 @@ public class ViewCollection : DataCollection {
         int num_views = get_count ();
 
         while ((dv != null) && (index_of (dv) < (num_views - 1))) {
-            MediaSource tmp = dv.get_source () as MediaSource;
+            MediaSource tmp = dv.source as MediaSource;
 
             if ((tmp != null)) {
                 // ...found a good one; return it.
@@ -799,8 +799,8 @@ public class ViewCollection : DataCollection {
 
         DataView? next_view = get_next (home_view);
         while (next_view != home_view) {
-            if ((type_selector == null) || (next_view.get_source ().get_typename () == type_selector)) {
-                next = next_view.get_source ();
+            if ((type_selector == null) || (next_view.source.get_typename () == type_selector)) {
+                next = next_view.source;
                 break;
             }
             next_view = get_next (next_view);
@@ -808,8 +808,8 @@ public class ViewCollection : DataCollection {
 
         DataView? prev_view = get_previous (home_view);
         while (prev_view != home_view) {
-            if ((type_selector == null) || (prev_view.get_source ().get_typename () == type_selector)) {
-                prev = prev_view.get_source ();
+            if ((type_selector == null) || (prev_view.source.get_typename () == type_selector)) {
+                prev = prev_view.source;
                 break;
             }
             prev_view = get_previous (prev_view);
@@ -1153,7 +1153,7 @@ public class ViewCollection : DataCollection {
 
         int count = 0;
         foreach (DataObject object in get_all ()) {
-            if (((DataView) object).get_source ().get_type ().is_a (t))
+            if (((DataView) object).source.get_type ().is_a (t))
                 count++;
         }
 
@@ -1165,7 +1165,7 @@ public class ViewCollection : DataCollection {
 
         Gee.List<DataSource>? sources = null;
         foreach (DataObject object in get_all ()) {
-            DataSource source = ((DataView) object).get_source ();
+            DataSource source = ((DataView) object).source;
             if (source.get_type ().is_a (t)) {
                 if (sources == null)
                     sources = new Gee.ArrayList<DataSource> ();
@@ -1182,7 +1182,7 @@ public class ViewCollection : DataCollection {
 
         int count = selected.get_count ();
         for (int ctr = 0; ctr < count; ctr++)
-            sources.add (((DataView) selected.get_at (ctr)).get_source ());
+            sources.add (((DataView) selected.get_at (ctr)).source);
 
         return sources;
     }
@@ -1190,13 +1190,13 @@ public class ViewCollection : DataCollection {
     public DataSource? get_selected_source_at (int index) {
         DataObject? object = selected.get_at (index);
 
-        return (object != null) ? ((DataView) object).get_source () : null;
+        return (object != null) ? ((DataView) object).source : null;
     }
 
     public Gee.List<DataSource>? get_selected_sources_of_type (Type t) {
         Gee.List<DataSource>? sources = null;
         foreach (DataView view in get_selected ()) {
-            DataSource source = view.get_source ();
+            DataSource source = view.source;
             if (source.get_type ().is_a (t)) {
                 if (sources == null)
                     sources = new Gee.ArrayList<DataSource> ();
