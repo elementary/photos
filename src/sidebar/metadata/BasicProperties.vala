@@ -79,7 +79,7 @@ private class BasicProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        source = view.get_source () as MediaSource;
+        source = view.source as MediaSource;
 
         filesize = source.get_master_filesize ();
         title = source.get_name ();
@@ -164,7 +164,7 @@ private class BasicProperties : Properties {
         photo_count = 0;
         video_count = 0;
         foreach (DataView view in iter) {
-            DataSource source = view.get_source ();
+            DataSource source = view.source;
 
             if (source is PhotoSource || source is PhotoImportSource) {
                 time_t exposure_time = (source is PhotoSource) ?

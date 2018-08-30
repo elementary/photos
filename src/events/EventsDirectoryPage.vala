@@ -30,11 +30,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         }
 
         public override bool predicate (DataView view) {
-            assert (view.get_source () is Event);
+            assert (view.source is Event);
             if (is_string_empty (get_search_filter ()))
                 return true;
 
-            Event source = (Event) view.get_source ();
+            Event source = (Event) view.source;
             unowned string? event_keywords = source.get_indexable_keywords ();
             if (is_string_empty (event_keywords))
                 return false;
@@ -245,7 +245,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
     protected override void update_actions (int selected_count, int count) {
         set_action_sensitive ("Merge", selected_count > 1);
-        set_action_important ("Merge", true);
         set_action_sensitive ("Rename", selected_count == 1);
 
         base.update_actions (selected_count, count);

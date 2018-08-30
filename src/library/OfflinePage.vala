@@ -166,7 +166,6 @@ public class OfflinePage : CheckerboardPage {
 
     protected override void update_actions (int selected_count, int count) {
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
-        set_action_important ("RemoveFromLibrary", true);
 
         base.update_actions (selected_count, count);
     }

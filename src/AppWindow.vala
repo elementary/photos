@@ -250,8 +250,7 @@ public abstract class AppWindow : PageWindow {
         if (get_current_page ().get_view ().get_selected_count () != 1)
             return;
 
-        MediaSource? media = get_current_page ().get_view ().get_selected_at (0).get_source ()
-                             as MediaSource;
+        MediaSource? media = get_current_page ().get_view ().get_selected_at (0).source as MediaSource;
         if (media == null)
             return;
 

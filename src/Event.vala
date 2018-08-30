@@ -225,7 +225,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         // source in the event
         primary_source = MediaCollectionRegistry.get_instance ().fetch_media (event_row.primary_source_id);
         if (primary_source == null && view.get_count () > 0) {
-            primary_source = (MediaSource) ((DataView) view.get_first_unrejected ()).get_source ();
+            primary_source = (MediaSource) ((DataView) view.get_first_unrejected ()).source;
             event_table.set_primary_source_id (event_id, primary_source.get_source_id ());
         }
 
@@ -316,8 +316,8 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
     }
 
     private static int64 view_comparator (void *a, void *b) {
-        return ((MediaSource) ((ThumbnailView *) a)->get_source ()).get_exposure_time ()
-               - ((MediaSource) ((ThumbnailView *) b)->get_source ()).get_exposure_time () ;
+        return ((MediaSource) ((ThumbnailView *) a)->source).get_exposure_time ()
+               - ((MediaSource) ((ThumbnailView *) b)->source).get_exposure_time () ;
     }
 
     private static bool view_comparator_predicate (DataObject object, Alteration alteration) {
@@ -382,7 +382,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
     private Gee.ArrayList<MediaSource> views_to_media (Gee.Iterable<DataObject> views) {
         Gee.ArrayList<MediaSource> media = new Gee.ArrayList<MediaSource> ();
         foreach (DataObject object in views)
-            media.add ((MediaSource) ((DataView) object).get_source ());
+            media.add ((MediaSource) ((DataView) object).source);
 
         return media;
     }
@@ -406,7 +406,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         foreach (MediaSource current_source in media) {
             if (current_source == primary_source) {
                 if (get_media_count () > 0)
-                    set_primary_source ((MediaSource) view.get_first_unrejected ().get_source ());
+                    set_primary_source ((MediaSource) view.get_first_unrejected ().source);
                 else
                     release_primary_source ();
 
@@ -437,7 +437,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
 
         // If the primary source was lost in the unlink, reestablish it now.
         if (primary_source == null)
-            set_primary_source ((MediaSource) view.get_first_unrejected ().get_source ());
+            set_primary_source ((MediaSource) view.get_first_unrejected ().source);
 
         base.notify_relinking (sources);
     }
@@ -582,7 +582,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
             return false;
 
         // media sources are stored in ViewCollection from earliest to latest
-        MediaSource earliest_media = (MediaSource) ((DataView) view.get_at (0)).get_source ();
+        MediaSource earliest_media = (MediaSource) ((DataView) view.get_at (0)).source;
         Time earliest_tm = Time.local (earliest_media.get_exposure_time ());
 
         // use earliest to generate the boundary hour for that day
@@ -623,7 +623,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
 
         int count = events_so_far.get_count ();
         for (int ctr = 0; ctr < count; ctr++) {
-            Event event = (Event) ((EventView) events_so_far.get_at (ctr)).get_source ();
+            Event event = (Event) ((EventView) events_so_far.get_at (ctr)).source;
 
             if ((event_name != null && event.has_name () && event_name == event.get_name ())
                     || event.is_in_starting_day (exposure_time)) {
@@ -799,7 +799,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         // first item.  However, we keep looking if it has no start time.
         int count = view.get_count ();
         for (int i = 0; i < count; i++) {
-            time_t time = ((MediaSource) (((DataView) view.get_at (i)).get_source ())).get_exposure_time ();
+            time_t time = ((MediaSource) (((DataView) view.get_at (i)).source)).get_exposure_time ();
             if (time != 0)
                 return time;
         }
@@ -815,7 +815,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         if (count == 0)
             return 0;
 
-        return  ((MediaSource) (((DataView) view.get_at (count - 1)).get_source ())).get_exposure_time ();
+        return  ((MediaSource) (((DataView) view.get_at (count - 1)).source)).get_exposure_time ();
     }
 
     public override uint64 get_total_filesize () {

@@ -37,7 +37,7 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
     public int flagged = 0;
 
     public bool include (DataObject object) {
-        DataSource source = ((DataView) object).get_source ();
+        DataSource source = ((DataView) object).source;
 
         total++;
 
@@ -64,7 +64,7 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
     }
 
     public bool uninclude (DataObject object) {
-        DataSource source = ((DataView) object).get_source ();
+        DataSource source = ((DataView) object).source;
 
         if (total < 1) {
             warning ("Tried to remove DataObject %s from empty %s (%s)".printf (object.to_string (),
@@ -106,7 +106,7 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
         if (!alteration.has_detail ("metadata", "flagged"))
             return false;
 
-        Flaggable? flaggable = ((DataView) object).get_source () as Flaggable;
+        Flaggable? flaggable = ((DataView) object).source as Flaggable;
         if (flaggable == null)
             return false;
 
