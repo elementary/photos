@@ -436,7 +436,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // Use the selected photo.  There should only ever be one selected photo,
         // which is the currently displayed photo.
         assert (get_view ().get_selected_count () == 1);
-        return (Photo) get_view ().get_selected_at (0).get_source ();
+        return (Photo) get_view ().get_selected_at (0).source;
     }
 
     // Called before the photo changes.
@@ -541,7 +541,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_selection_changed (Gee.Iterable<DataView> selected) {
         foreach (DataView view in selected) {
-            replace_photo ((Photo) view.get_source ());
+            replace_photo ((Photo) view.source);
             break;
         }
     }
@@ -1913,7 +1913,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (next == null)
                 break;
 
-            Photo? next_photo = next.get_source () as Photo;
+            Photo? next_photo = next.source as Photo;
             if (next_photo == null)
                 continue;
 
@@ -1946,7 +1946,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (previous == null)
                 break;
 
-            Photo? previous_photo = previous.get_source () as Photo;
+            Photo? previous_photo = previous.source as Photo;
             if (previous_photo == null)
                 continue;
 
