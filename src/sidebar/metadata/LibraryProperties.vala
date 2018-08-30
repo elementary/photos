@@ -47,7 +47,7 @@ private class LibraryProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        var source = view.get_source () as MediaSource;
+        var source = view.source as MediaSource;
 
         if (source != media_source) {
             save_changes_to_source ();

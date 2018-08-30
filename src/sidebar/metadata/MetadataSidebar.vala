@@ -87,7 +87,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         if (count == 1) {
             foreach (DataView item in iter) {
-                var source = item.get_source () as MediaSource;
+                var source = item.source as MediaSource;
                 if (source == null)
                     display_single = true;
                 break;

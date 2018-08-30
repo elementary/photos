@@ -271,12 +271,6 @@ public abstract class Page : Gtk.ScrolledWindow {
             action.sensitive = sensitive;
     }
 
-    public void set_action_important (string name, bool important) {
-        Gtk.Action? action = get_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
     public void set_action_visible (string name, bool visible) {
         Gtk.Action? action = get_action (name);
         if (action == null)
@@ -284,26 +278,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 
         action.visible = visible;
         action.sensitive = visible;
-    }
-
-    public void set_action_short_label (string name, string short_label) {
-        Gtk.Action? action = get_action (name);
-        if (action != null)
-            action.short_label = short_label;
-    }
-
-    public void set_action_details (string name, string? label, string? tooltip, bool sensitive) {
-        Gtk.Action? action = get_action (name);
-        if (action == null)
-            return;
-
-        if (label != null)
-            action.label = label;
-
-        if (tooltip != null)
-            action.tooltip = tooltip;
-
-        action.sensitive = sensitive;
     }
 
     public void activate_action (string name) {
@@ -342,30 +316,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
         var app = AppWindow.get_instance () as LibraryWindow;
         app.update_common_toggle_actions ();
-    }
-
-    public void set_common_action_sensitive (string name, bool sensitive) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.sensitive = sensitive;
-    }
-
-    public void set_common_action_label (string name, string label) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.set_label (label);
-    }
-
-    public void set_common_action_important (string name, bool important) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
-    public void activate_common_action (string name) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.activate ();
     }
 
     public bool get_ctrl_pressed () {

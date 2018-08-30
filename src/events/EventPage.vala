@@ -116,7 +116,7 @@ public class EventPage : CollectionPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        page_event.set_primary_source ((MediaSource) get_view ().get_selected_at (0).get_source ());
+        page_event.set_primary_source ((MediaSource) get_view ().get_selected_at (0).source);
     }
 
     private void on_rename () {
