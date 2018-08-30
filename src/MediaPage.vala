@@ -441,7 +441,7 @@ public abstract class MediaPage : CheckerboardPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Video? video = get_view ().get_selected_at (0).get_source () as Video;
+        Video? video = get_view ().get_selected_at (0).source as Video;
         if (video == null)
             return;
 
@@ -666,7 +666,7 @@ public abstract class MediaPage : CheckerboardPage {
         // Make a list of all photos that need their developer changed.
         Gee.ArrayList<DataView> to_set = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo? p = view.get_source () as Photo;
+            Photo? p = view.source as Photo;
             if (p != null && (!rd.is_equivalent (p.get_raw_developer ()))) {
                 to_set.add (view);
 

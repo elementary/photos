@@ -1121,7 +1121,7 @@ public class Tag : DataSource, ContainerSource, Proxyable, Indexable {
         if (added != null) {
             added_sources = new Gee.ArrayList<MediaSource> ();
             foreach (DataView view in added) {
-                MediaSource source = (MediaSource) view.get_source ();
+                MediaSource source = (MediaSource) view.source;
 
                 // possible a source is added twice if the same tag is in source ... add ()
                 // returns true only if the set has altered
@@ -1139,7 +1139,7 @@ public class Tag : DataSource, ContainerSource, Proxyable, Indexable {
         if (removed != null) {
             removed_sources = new Gee.ArrayList<MediaSource> ();
             foreach (DataView view in removed) {
-                MediaSource source = (MediaSource) view.get_source ();
+                MediaSource source = (MediaSource) view.source;
 
                 bool is_removed = row.source_id_list.remove (source.get_source_id ());
                 assert (is_removed);
