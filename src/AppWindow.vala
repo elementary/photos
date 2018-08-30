@@ -176,22 +176,6 @@ public abstract class AppWindow : PageWindow {
         dialog.destroy ();
     }
 
-    public static bool negate_affirm_question (string message, string negative, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES);
-        dialog.set_urgency_hint (true);
-
-        bool response = (dialog.run () == Gtk.ResponseType.YES);
-
-        dialog.destroy ();
-
-        return response;
-    }
-
     public static Gtk.ResponseType affirm_cancel_negate_question (string message,
             string affirmative, string negative,
             string? title = null, Gtk.Window? parent = null) {
