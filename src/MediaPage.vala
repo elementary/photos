@@ -17,15 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class MediaSourceItem : CheckerboardItem {
-    // preserve the same constructor arguments and semantics as CheckerboardItem so that we're
-    // a drop-in replacement
-    public MediaSourceItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title,
-                            string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
-        base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
-    }
-}
-
 public abstract class MediaPage : CheckerboardPage {
     private const int SORT_ORDER_ASCENDING = 0;
     private const int SORT_ORDER_DESCENDING = 1;
