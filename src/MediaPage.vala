@@ -17,15 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class MediaSourceItem : CheckerboardItem {
-    // preserve the same constructor arguments and semantics as CheckerboardItem so that we're
-    // a drop-in replacement
-    public MediaSourceItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title,
-                            string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
-        base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
-    }
-}
-
 public abstract class MediaPage : CheckerboardPage {
     private const int SORT_ORDER_ASCENDING = 0;
     private const int SORT_ORDER_DESCENDING = 1;
@@ -50,27 +41,24 @@ public abstract class MediaPage : CheckerboardPage {
         { ACTION_EXPORT, on_export }
     };
 
+    public MediaPage (string page_name) {
+        Object (page_name: page_name);
+    }
+
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
         AppWindow.get_instance ().add_action_entries (action_entries, this);
 
         Application.get_instance ().set_accels_for_action (AppWindow.ACTION_PREFIX + ACTION_EXPORT, {"<Ctrl><Shift>E"});
-    }
-
-    public MediaPage (string page_name) {
-        base (page_name);
 
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
 
         get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES,
-                                 ui_settings.get_boolean ("display-photo-titles"));
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
-                                 ui_settings.get_boolean ("display-photo-comments"));
-        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
-                                 ui_settings.get_boolean ("display-photo-tags"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES, ui_settings.get_boolean ("display-photo-titles"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS, ui_settings.get_boolean ("display-photo-comments"));
+        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS, ui_settings.get_boolean ("display-photo-tags"));
         get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
 
         get_view ().thaw_notifications ();
@@ -449,7 +437,7 @@ public abstract class MediaPage : CheckerboardPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Video? video = get_view ().get_selected_at (0).get_source () as Video;
+        Video? video = get_view ().get_selected_at (0).source as Video;
         if (video == null)
             return;
 
@@ -674,7 +662,7 @@ public abstract class MediaPage : CheckerboardPage {
         // Make a list of all photos that need their developer changed.
         Gee.ArrayList<DataView> to_set = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo? p = view.get_source () as Photo;
+            Photo? p = view.source as Photo;
             if (p != null && (!rd.is_equivalent (p.get_raw_developer ()))) {
                 to_set.add (view);
 
