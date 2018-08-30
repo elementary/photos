@@ -18,7 +18,8 @@
 */
 
 public class DataView : DataObject {
-    private DataSource source;
+    public DataSource source { get; construct; }
+
     private bool selected = false;
     private bool visible = true;
 
@@ -43,8 +44,10 @@ public class DataView : DataObject {
     }
 
     public DataView (DataSource source) {
-        this.source = source;
+        Object (source: source);
+    }
 
+    construct {
         // subscribe to the DataSource, which sets up signal reflection and gives the DataView
         // first notification of destruction.
         source.internal_subscribe (this);
@@ -63,10 +66,6 @@ public class DataView : DataObject {
 
     public override string to_string () {
         return "DataView %s [DataSource %s]".printf (get_name (), source.to_string ());
-    }
-
-    public DataSource get_source () {
-        return source;
     }
 
     public bool is_selected () {

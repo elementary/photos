@@ -51,7 +51,7 @@ private class ExtendedProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        DataSource source = view.get_source ();
+        var source = view.source;
         if (source == null)
             return;
 

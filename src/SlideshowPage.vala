@@ -153,7 +153,7 @@ class SlideshowPage : SinglePhotoPage {
                 view = (direction == Direction.FORWARD)
                        ? controller.get_next (view)
                        : controller.get_previous (view);
-                next = (Photo) view.get_source ();
+                next = (Photo) view.source;
 
                 // An entire slideshow set might be missing, so check for a loop.
                 if ((next == start && next != current) || next == current) {
@@ -209,8 +209,8 @@ class SlideshowPage : SinglePhotoPage {
         DataView? prev_view = start_view;
 
         while (prev_view != null) {
-            if (prev_view.get_source () is Photo) {
-                prev_photo = (Photo) prev_view.get_source ();
+            if (prev_view.source is Photo) {
+                prev_photo = (Photo) prev_view.source;
                 break;
             }
 
@@ -233,8 +233,8 @@ class SlideshowPage : SinglePhotoPage {
         DataView? next_view = start_view;
 
         while (next_view != null) {
-            if (next_view.get_source () is Photo) {
-                next_photo = (Photo) next_view.get_source ();
+            if (next_view.source is Photo) {
+                next_photo = (Photo) next_view.source;
                 break;
             }
 

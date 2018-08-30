@@ -30,11 +30,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         }
 
         public override bool predicate (DataView view) {
-            assert (view.get_source () is Event);
+            assert (view.source is Event);
             if (is_string_empty (get_search_filter ()))
                 return true;
 
-            Event source = (Event) view.get_source ();
+            Event source = (Event) view.source;
             unowned string? event_keywords = source.get_indexable_keywords ();
             if (is_string_empty (event_keywords))
                 return false;
