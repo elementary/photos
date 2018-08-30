@@ -507,7 +507,7 @@ public class LibraryWindow : AppWindow {
             if (view.get_count () == 0)
                 return false;
 
-            Event? event = (Event? ) ((DataView) view.get_at (0)).get_source ();
+            Event? event = (Event? ) ((DataView) view.get_at (0)).source;
             if (event == null)
                 return false;
 

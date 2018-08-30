@@ -21,7 +21,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private class LibraryPhotoPageViewFilter : ViewFilter {
         public override bool predicate (DataView view) {
-            return ! ((MediaSource) view.get_source ()).is_trashed ();
+            return ! ((MediaSource) view.source).is_trashed ();
         }
     }
 
@@ -92,7 +92,7 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     public bool not_trashed_view_filter (DataView view) {
-        return ! ((MediaSource) view.get_source ()).is_trashed ();
+        return ! ((MediaSource) view.source).is_trashed ();
     }
 
     private void on_photo_unlinking (Gee.Collection<DataSource> unlinking) {
@@ -255,7 +255,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected ().get (0).get_source () as Photo;
+        Photo? photo = get_view ().get_selected ().get (0).source as Photo;
         if (photo == null || rd.is_equivalent (photo.get_raw_developer ()))
             return;
 
@@ -595,7 +595,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         populate_external_app_menu (open_menu, false);
 
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
