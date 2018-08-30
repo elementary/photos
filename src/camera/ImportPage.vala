@@ -998,9 +998,6 @@ public class ImportPage : CheckerboardPage {
     protected override void init_actions (int selected_count, int count) {
         on_view_changed ();
 
-        set_action_important ("ImportSelected", true);
-        set_action_important ("ImportAll", true);
-
         base.init_actions (selected_count, count);
     }
 
