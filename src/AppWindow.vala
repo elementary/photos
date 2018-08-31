@@ -157,18 +157,14 @@ public abstract class AppWindow : PageWindow {
         return fullscreen_window;
     }
 
-    public static void error_message (string message, Gtk.Window? parent = null) {
-        error_message_with_title (_ (Resources.APP_TITLE), message, parent);
-    }
-
-    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null) {
+    public static void error_message (string title, string? message = null, Gtk.Window? parent = null) {
         var dialog = new Granite.MessageDialog.with_image_from_icon_name (
             title,
             message,
             "dialog-error",
             Gtk.ButtonsType.CLOSE
         );
-        dialog.transient_for = (parent != null) ? parent : get_instance ();
+        dialog.transient_for = parent ?? get_instance ();
         dialog.run ();
         dialog.destroy ();
     }
@@ -198,7 +194,7 @@ public abstract class AppWindow : PageWindow {
 
     public static void panic (string msg) {
         critical (msg);
-        error_message (msg);
+        error_message (msg, null);
 
         Application.get_instance ().panic ();
     }
@@ -220,7 +216,7 @@ public abstract class AppWindow : PageWindow {
         try {
             AppWindow.get_instance ().show_file_uri (media.get_master_file ());
         } catch (Error err) {
-            AppWindow.error_message (Resources.jump_to_file_failed (err));
+            error_message (Resources.jump_to_file_failed (err));
         }
     }
 
