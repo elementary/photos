@@ -191,22 +191,6 @@ public abstract class AppWindow : PageWindow {
         return (Gtk.ResponseType) response;
     }
 
-    public static Gtk.ResponseType negate_affirm_all_cancel_question (string message,
-            string negative, string affirmative, string affirmative_all, string? title = null,
-            Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
-                            affirmative_all, Gtk.ResponseType.APPLY,  _ ("_Cancel"), Gtk.ResponseType.CANCEL);
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
     public static void database_error (DatabaseError err) {
         panic (_ ("A fatal error occurred when accessing Photos' library.  Photos cannot continue.\n\n%s").printf (
                    err.message));
