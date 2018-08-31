@@ -90,6 +90,7 @@ photos_files = files(
     'config/Config.vala',
     'config/GSettingsEngine.vala',
 
+    'core/AbstractViewManager.vala',
     'core/Alteration.vala',
     'core/ContainerSourceCollection.vala',
     'core/DatabaseSourceCollection.vala',
