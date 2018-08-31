@@ -156,56 +156,16 @@ public abstract class AppWindow : PageWindow {
         error_message_with_title (_ (Resources.APP_TITLE), message, parent);
     }
 
-    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null, bool should_escape = true) {
-        // Per the Gnome HIG (http://library.gnome.org/devel/hig-book/2.32/windows-alert.html.en),
-        // alert-style dialogs mustn't have titles; we use the title as the primary text, and the
-        // existing message as the secondary text.
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", build_alert_body_text (title, message, should_escape));
-
-        // Occasionally, with_markup doesn't actually do anything, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message, should_escape));
-
-        dialog.use_markup = true;
+    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title,
+            message,
+            "dialog-error",
+            Gtk.ButtonsType.CLOSE
+        );
+        dialog.transient_for = (parent != null) ? parent : get_instance ();
         dialog.run ();
         dialog.destroy ();
-    }
-
-    public static bool negate_affirm_question (string message, string negative, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES);
-        dialog.set_urgency_hint (true);
-
-        bool response = (dialog.run () == Gtk.ResponseType.YES);
-
-        dialog.destroy ();
-
-        return response;
-    }
-
-    public static Gtk.ResponseType affirm_cancel_negate_question (string message,
-            string affirmative, string negative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.add_buttons (affirmative, Gtk.ResponseType.YES,
-                            _ ("_Cancel"), Gtk.ResponseType.CANCEL,
-                            negative, Gtk.ResponseType.NO);
-
-        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
     }
 
     public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative,
