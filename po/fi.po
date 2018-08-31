@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-29 09:43-0700\n"
-"PO-Revision-Date: 2018-08-15 14:29+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-08-31 12:46+0000\n"
+"Last-Translator: Robin Lahtinen <robin.lahtinen@gmail.com>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/photos/photos/"
 "fi/>\n"
 "Language: fi\n"
@@ -80,15 +80,15 @@ msgid "_Cancel"
 msgstr "_Peru"
 
 #: src/AppWindow.vala:251
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Tapahtui vakava virhe yritettäessä käyttää Shotwellin kirjastoa. Shotwell ei "
-"voi jatkaa.\n"
+"Tapahtui vakava virhe yritettäessä käyttää Kuvat-sovelluksen kirjastoa. "
+"Kuvat-sovellus ei voi jatkaa.\n"
 "\n"
 "%s"
 
@@ -263,11 +263,11 @@ msgstr "Kumotaan parannus"
 
 #: src/Commands.vala:826
 msgid "UnEnhancing"
-msgstr ""
+msgstr "Ei tehostettu"
 
 #: src/Commands.vala:826
 msgid "Undoing UnEnhance"
-msgstr ""
+msgstr "Kumotaan Ei tehostettu"
 
 #: src/Commands.vala:894
 msgid "Applying Color Transformations"
@@ -597,24 +597,24 @@ msgstr ""
 "versio on %s (skeema %d). Käytä kuvasovelluksen uusinta versiota."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell ei pystynyt päivittämään kuvakirjastoa versiosta %s (skeema %d) "
-"versioon %s (skeema %d). Lisätietoja on Shotwellin wikissä: %s"
+"Kuvat-sovellus ei pystynyt päivittämään kuvakirjastoa versiosta %s (skeema "
+"%d) versioon %s (skeema %d). Lisätietoja on Kuvat-sovelluksen wikissä: %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Kuvakirjasto ei ole yhteensopiva tämän Shotwell-version kanssa. Kirjasto "
-"luotiin ilmeisesti Shotwellin versiolla %s (skeema %d). Tämä versio on %s "
-"(skeema %d). Tyhjennä kirjasto poistamalla hakemisto %s ja tuo kuvat "
+"Kuvakirjasto ei ole yhteensopiva tämän Kuvat-version kanssa. Kirjasto "
+"luotiin ilmeisesti Kuvat-sovelluksen versiolla %s (skeema %d). Tämä versio "
+"on %s (skeema %d). Tyhjennä kirjasto poistamalla hakemisto %s ja tuo kuvat "
 "uudelleen."
 
 #: src/main.vala:85
@@ -628,11 +628,11 @@ msgstr "Ladataan kuvasovellusta"
 
 #: src/main.vala:280
 msgid "Path to Photos' private data"
-msgstr ""
+msgstr "Sijainti Kuvat' yksityistietoihin"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
-msgstr ""
+msgstr "HAKEMISTO"
 
 #: src/main.vala:281
 msgid "Do not monitor library directory at runtime for changes"
@@ -650,7 +650,7 @@ msgstr "Näytä sovelluksen versio"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Näytä lisävirheenkorjaustulokset"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -835,11 +835,11 @@ msgstr "8 x 10 tuumaa"
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
 msgid "11 x 14 in."
-msgstr "11 x 14 tuumaa"
+msgstr "11 x 14 tuumaa."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
 msgid "16 x 20 in."
-msgstr "16 x 20 tuumaa"
+msgstr "16 x 20 tuumaa."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
 msgid "Metric Wallet (9 x 13 cm)"
@@ -1220,7 +1220,7 @@ msgstr "Muuta päi_väystä ja kellonaikaa…"
 
 #: src/Resources.vala:231
 msgid "Adjust Date and Time"
-msgstr "Muuta päiväystä ja kellonaikaa..."
+msgstr "Säädä päiväystä ja kellonaikaa"
 
 #: src/Resources.vala:233
 msgid "Add _Tags…"
@@ -1547,9 +1547,8 @@ msgid "Go to the next photo"
 msgstr "Siirry seuraavaan kuvaan"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "N_äytä nimi"
+msgstr "Näytä kuvien nimet"
 
 #: src/SlideshowPage.vala:92
 msgid "Transition Speed"
@@ -1646,14 +1645,13 @@ msgid "Please unmount the camera."
 msgstr "Irrota kamera."
 
 #: src/camera/ImportPage.vala:1118
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Toinen ohjelma on lukinnut kameran. Shotwell voi käyttää kameraa vain, jos "
-"sitä ei ole lukittu. Sulje muut kameraa käyttävät ohjelmat ja yritä "
+"Toinen ohjelma on lukinnut kameran. Kuvat-sovellus voi käyttää kameraa vain, "
+"jos sitä ei ole lukittu. Sulje muut kameraa käyttävät ohjelmat ja yritä "
 "uudelleen."
 
 #: src/camera/ImportPage.vala:1128
@@ -1731,7 +1729,7 @@ msgstr "Poistetaan kuvia ja videoita kamerasta"
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] "%d kuvaa tai videota ei voida poistaa kamerasta virheiden vuoksi."
+msgstr[0] "Yhtä kuvaa tai videota ei voida poistaa kamerasta virheiden vuoksi."
 msgstr[1] "%d kuvaa tai videota ei voida poistaa kamerasta virheiden vuoksi."
 
 #: src/Checkerboard/CheckerboardPage.vala:95
@@ -1846,7 +1844,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Tämä toiminto poistaa älykkään albumin \"%s\".  Jatketaanko?"
 
 #: src/Dialogs/Dialogs.vala:48
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1854,11 +1851,11 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Kehittäjien vaihtaminen kumoaa kaikki Shotwellissa valokuvaan tehdyt "
+"Kehittäjien vaihtaminen kumoaa kaikki Kuvat-sovelluksessa valokuvaan tehdyt "
 "muutokset"
 msgstr[1] ""
-"Kehittäjien vaihtaminen kumoaa kaikki Shotwellissa näihin valokuviin tehdyt "
-"muutokset"
+"Kehittäjien vaihtaminen kumoaa kaikki Kuvat-sovelluksessa näihin valokuviin "
+"tehdyt muutokset"
 
 #: src/Dialogs/Dialogs.vala:52
 msgid "_Switch Developer"
@@ -1883,13 +1880,13 @@ msgstr "_Valitse"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:128
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Tiedostoa ei voi luoda kuvan käsittelyä varten, koska sinulla ei ole "
-"oikeutta tallettaa kohteeseen %s."
+"Tiedostoa ei voi luoda kuvankäsittelyä varten, koska sinulla ei ole oikeutta "
+"tallettaa kohteeseen %s."
 
 #: src/Dialogs/Dialogs.vala:137
 msgid ""
@@ -1954,7 +1951,7 @@ msgstr "Kuvien/videoiden tuomatta jätetyt kaksoiskappaleet:"
 
 #: src/Dialogs/Dialogs.vala:246
 msgid "duplicates existing media item"
-msgstr ""
+msgstr "kopioi nykyisen mediatiedoston"
 
 #.
 #. Files Not Imported Due to Camera Errors
@@ -1981,24 +1978,22 @@ msgstr ""
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:286
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Tuomatta jääneet kuvat ja videot, koska ne eivät ole Shotwellin "
-"hallitsemassa tiedostomuodossa:"
+"Kuvia ja videoita ei ole tuotu, koska ne eivät ole Kuvat-sovelluksen "
+"ymmärtämässä tiedostomuodossa:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:301
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Tuomatta jätetyt kuvat/videot, koska Shotwell ei voinut kopioida niitä "
+"Kuvia ja videoita ei tuotu, koska Kuvat-sovellus ei voinut kopioida niitä "
 "kirjastoonsa:"
 
 #: src/Dialogs/Dialogs.vala:305
@@ -2007,6 +2002,8 @@ msgid ""
 "couldn't copy %s\n"
 "\tto %s"
 msgstr ""
+"ei voitu kopioida %s\n"
+"\tkohteeseen %s"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -2356,12 +2353,12 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:872
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell voi kopioida kuvat kirjastokansioon tai tuoda ne ilman kopiointia."
+"Kuvat-sovellus voi kopioida kuvat kirjastokansioon tai tuoda ne ilman "
+"kopiointia."
 
 #: src/Dialogs/Dialogs.vala:877
 msgid "Co_py Photos"
@@ -2756,9 +2753,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/events/EventsDirectoryPage.vala:335
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/library/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2828,6 +2824,10 @@ msgid ""
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
+"Kuvat-sovellus on säädetty tuomaan kuvat kotihakemistoosi.\n"
+"Suosittelemme vaihtamaan tämän kohdassa <span weight=\"bold\">Muokkaa %s "
+"asetuksia</span>.\n"
+"Haluatko jatkaa kuvien tuontia?"
 
 #: src/library/LibraryWindow.vala:734
 msgid "_Import"
@@ -3080,6 +3080,10 @@ msgid ""
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
+"Kuvat-sovellus ei voi julkaista valittuja kohteita, koska sinulla ei ole "
+"yhteensopivia julkaisu-lisäosia päällä. Korjataksesi tämän, valitse <b>"
+"Muokkaa %s asetuksia</b> ja ota käyttöön yksi tai useampi julkaisu-lisäosa "
+"<b>Lisäosat</b> kohdassa."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -3388,9 +3392,8 @@ msgid "Transition Effect"
 msgstr "Siirtymän tehoste"
 
 #: src/Widgets/CustomPrintTab.vala:46
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Tulostetun kuvan koko</b>"
+msgstr "Tulostetun kuvan koko"
 
 #: src/Widgets/CustomPrintTab.vala:50
 msgid "Use a _standard size:"
@@ -3417,18 +3420,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Vastaa kuvan kuvasuhdetta"
 
 #: src/Widgets/CustomPrintTab.vala:106
-#, fuzzy
 msgid "Titles"
-msgstr "_Nimet"
+msgstr "Nimet"
 
 #: src/Widgets/CustomPrintTab.vala:110
 msgid "Print image _title"
 msgstr "Tulosta kuvan _nimi"
 
 #: src/Widgets/CustomPrintTab.vala:116
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Pikselitarkkuus</b>"
+msgstr "Pikselitarkkuus"
 
 #: src/Widgets/CustomPrintTab.vala:122
 msgid "_Output photo at:"
@@ -3627,6 +3628,11 @@ msgid ""
 "Click Login to log into Google Photos in your Web browser. You will have to "
 "authorize elementary OS to link to your Google Photos account."
 msgstr ""
+"Et ole tällä hetkellä kirjautunut Google Photos -palveluun.\n"
+"\n"
+"Paina Kirjaudu kirjautuaksesi Google Photos -palveluun selaimessasi. Sinun "
+"pitää valtuuttaa elementary OS yhdistääksesi Google Photos -palvelun "
+"käyttäjä."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
 msgid ""
@@ -3801,7 +3807,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
 msgid "Server redirect URL contained no access token"
-msgstr ""
+msgstr "Palvelimen uudelleenohjausosoite sisälsi merkinnän, joka estää pääsyn"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 #, c-format
@@ -3951,7 +3957,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
 msgid "_visibility label (populated in the code)"
-msgstr ""
+msgstr "_näkyvyys merkki (ilmoitettu koodissa)"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
@@ -3974,6 +3980,8 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
+" (teksti riippuu fb käyttäjänimestä ja on muokattu sovelluksessa - \n"
+"tähän kenttään kirjoitus ei näy)"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
 msgid "Publish to an e_xisting album:"
