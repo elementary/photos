@@ -727,11 +727,14 @@ public class LibraryWindow : AppWindow {
 
     private void dispatch_import_jobs (GLib.SList<string> uris, string job_name, bool copy_to_library) {
         if (AppDirs.get_import_dir ().get_path () == Environment.get_home_dir () && notify_library_is_home_dir) {
-            Gtk.ResponseType response = AppWindow.cancel_affirm_question (
-                                            _ ("Photos is configured to import photos to your home directory.\n" +
-                                               "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
-                                               "Do you want to continue importing photos?").printf ("▸"),
-                                            _ ("_Import"), _ ("Library Location"), AppWindow.get_instance ());
+            var response = AppWindow.cancel_affirm_question (
+                _("Photos is configured to import photos to your home directory.\n" +
+                    "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
+                    "Do you want to continue importing photos?"
+                ).printf ("▸"),
+                _("_Import"),
+                _("Library Location")
+            );
 
             if (response == Gtk.ResponseType.CANCEL)
                 return;

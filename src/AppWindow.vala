@@ -168,24 +168,21 @@ public abstract class AppWindow : PageWindow {
             "dialog-error",
             Gtk.ButtonsType.CLOSE
         );
-        dialog.transient_for = (parent != null) ? parent : get_instance ();
+        dialog.transient_for = parent ?? get_instance ();
         dialog.run ();
         dialog.destroy ();
     }
 
-    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                            affirmative, Gtk.ResponseType.YES);
-
+    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative, string? title = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title ?? _(Resources.APP_TITLE),
+            message,
+            "dialog-question",
+            Gtk.ButtonsType.CANCEL
+        );
+        dialog.transient_for = get_instance ();
+        dialog.add_button (affirmative, Gtk.ResponseType.YES);
         int response = dialog.run ();
-
         dialog.destroy ();
 
         return (Gtk.ResponseType) response;
