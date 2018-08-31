@@ -169,9 +169,7 @@ public class LibraryWindow : AppWindow {
         header.pack_end (settings);
         header.set_custom_title (top_display);
 
-        notify["title"].connect (() => {
-            top_display.title = title;
-        });
+        bind_property ("title", top_display, "title");
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {

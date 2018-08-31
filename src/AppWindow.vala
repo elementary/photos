@@ -127,13 +127,14 @@ public abstract class AppWindow : PageWindow {
         add_action_entries (action_entries, this);
         set_titlebar (header);
 
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
+        var application_instance = Application.get_instance ();
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
 
         var css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("io/elementary/photos/application.css");
