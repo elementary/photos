@@ -326,9 +326,24 @@ public class ExporterUI {
 
     private Exporter.Overwrite on_export_overwrite (Exporter exporter, File file) {
         progress_dialog.set_modal (false);
-        string question = _ ("File %s already exists.  Replace?").printf (file.get_basename ());
-        Gtk.ResponseType response = AppWindow.negate_affirm_all_cancel_question (question,
-                                    _ ("_Skip"), _ ("_Replace"), _ ("Replace _All"), _ ("Export"));
+
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Export"),
+            _("File %s already exists.  Replace?").printf (file.get_basename ()),
+            "dialog-question",
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = AppWindow.get_instance ();
+        dialog.add_buttons (
+            _("_Skip"), Gtk.ResponseType.NO,
+            _("Replace _All"), Gtk.ResponseType.APPLY,
+            _("_Cancel"), Gtk.ResponseType.CANCEL
+        );
+        var replace_button = (Gtk.Button) dialog.add_button (_("_Replace"), Gtk.ResponseType.YES);
+        replace_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        int response = dialog.run ();
+        dialog.destroy ();
 
         progress_dialog.set_modal (true);
 
