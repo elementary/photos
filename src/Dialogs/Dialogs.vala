@@ -21,6 +21,27 @@
 // place: http://trac.yorba.org/ticket/3452
 namespace Dialogs {
 
+private static bool negate_affirm_question (string message, string title) {
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        title,
+        message,
+        "dialog-question",
+        Gtk.ButtonsType.NONE
+    );
+    dialog.transient_for = AppWindow.get_instance ();
+    dialog.set_urgency_hint (true);
+    dialog.add_button (_("_Cancel"), Gtk.ResponseType.NO);
+
+    var delete_button = (Gtk.Button) dialog.add_button (_("_Delete"), Gtk.ResponseType.YES);
+    delete_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    bool response = (dialog.run () == Gtk.ResponseType.YES);
+
+    dialog.destroy ();
+
+    return response;
+}
+
 public bool confirm_delete_tag (Tag tag) {
     int count = tag.get_sources_count ();
     if (count == 0)
@@ -30,16 +51,14 @@ public bool confirm_delete_tag (Tag tag) {
                      "This will remove the tag \"%s\" from %d photos.  Continue?",
                      count).printf (tag.get_user_visible_name (), count);
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_TAG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_TAG_TITLE);
 }
 
 public bool confirm_delete_saved_search (SavedSearch search) {
     string msg = _ ("This will remove the smart album \"%s\".  Continue?")
                  .printf (search.get_name ());
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
 }
 
 public bool confirm_warn_developer_changed (int number) {
