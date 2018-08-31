@@ -23,6 +23,7 @@ photos_files = files(
     'BatchImport.vala',
     'Box.vala',
     'CollectionPage.vala',
+    'CollectionViewManager.vala',
     'ColorTransformation.vala',
     'CommandManager.vala',
     'Commands.vala',
