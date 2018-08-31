@@ -313,10 +313,22 @@ public class DirectPhotoPage : EditingHostPage {
         bool is_writeable = get_photo ().can_write_file () && get_photo ().get_file_format ().can_write ();
         string save_option = is_writeable ? _ ("_Save") : _ ("_Save a Copy");
 
-        Gtk.ResponseType response = AppWindow.affirm_cancel_negate_question (
-                                        _("Lose changes to %s?").printf (photo.get_basename ()),
-                                        _("Close _without Saving"),
-                                        save_option);
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Lose changes to %s?").printf (photo.get_basename ()),
+            "",
+            "dialog-question",
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = AppWindow.get_instance ();
+
+        var no_save_button = (Gtk.Button) dialog.add_button (_("Close _without Saving"), Gtk.ResponseType.YES);
+        no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL, save_option, Gtk.ResponseType.NO);
+
+        int response = dialog.run ();
+
+        dialog.destroy ();
 
         if (response == Gtk.ResponseType.YES)
             photo.remove_all_transformations ();
