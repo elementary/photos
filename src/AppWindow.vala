@@ -161,17 +161,14 @@ public abstract class AppWindow : PageWindow {
         error_message_with_title (_ (Resources.APP_TITLE), message, parent);
     }
 
-    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null, bool should_escape = true) {
-        // Per the Gnome HIG (http://library.gnome.org/devel/hig-book/2.32/windows-alert.html.en),
-        // alert-style dialogs mustn't have titles; we use the title as the primary text, and the
-        // existing message as the secondary text.
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", build_alert_body_text (title, message, should_escape));
-
-        // Occasionally, with_markup doesn't actually do anything, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message, should_escape));
-
-        dialog.use_markup = true;
+    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title,
+            message,
+            "dialog-error",
+            Gtk.ButtonsType.CLOSE
+        );
+        dialog.transient_for = (parent != null) ? parent : get_instance ();
         dialog.run ();
         dialog.destroy ();
     }
