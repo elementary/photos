@@ -17,18 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class CollectionViewManager : ViewManager {
-    private CollectionPage page;
-
-    public CollectionViewManager (CollectionPage page) {
-        this.page = page;
-    }
-
-    public override DataView create_view (DataSource source) {
-        return page.create_thumbnail (source);
-    }
-}
-
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
 

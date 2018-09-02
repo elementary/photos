@@ -1262,21 +1262,6 @@ public class ViewCollection : DataCollection {
     }
 }
 
-// A ViewManager allows an interface for ViewCollection to monitor a SourceCollection and
-// (selectively) add DataViews automatically.
-public abstract class ViewManager {
-    // This predicate function can be used to filter which DataView objects should be included
-    // in the collection as new source objects appear in the SourceCollection.  May be called more
-    // than once for any DataSource object.
-    public virtual bool include_in_view (DataSource source) {
-        return true;
-    }
-
-    // If include_in_view returns true, this method will be called to instantiate a DataView object
-    // for the ViewCollection.
-    public abstract DataView create_view (DataSource source);
-}
-
 // CreateView is a construction delegate used when mirroring or copying a ViewCollection
 // in another ViewCollection.
 public delegate DataView CreateView (DataSource source);
