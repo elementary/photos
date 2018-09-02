@@ -152,6 +152,33 @@ public class LibraryWindow : AppWindow {
         if (window_settings.get_boolean ("library-maximize")) {
             maximize ();
         }
+        
+        top_display = new TopDisplay ();
+
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+
+        var settings_menu = new Gtk.Menu ();
+        settings_menu.add (import_menu_item);
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (preferences_menu_item);
+        settings_menu.show_all ();
+
+        var settings = new Gtk.MenuButton ();
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.tooltip_text = _("Settings");
+        settings.popup = settings_menu;
+        settings.show_all ();
+
+        header.pack_end (settings);
+        header.set_custom_title (top_display);
+
+        bind_property ("title", top_display, "title");
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
@@ -213,39 +240,6 @@ public class LibraryWindow : AppWindow {
         LibraryMonitorPool.get_instance ().monitor_destroyed.connect (on_library_monitor_destroyed);
 
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
-    }
-
-    protected override void build_header_bar () {
-        top_display = new TopDisplay ();
-
-        var import_menu_item = new Gtk.MenuItem ();
-        import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.label = _("_Import From Folder…");
-
-        var preferences_menu_item = new Gtk.MenuItem ();
-        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("_Preferences");
-
-        var settings_menu = new Gtk.Menu ();
-        settings_menu.add (import_menu_item);
-        settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (preferences_menu_item);
-        settings_menu.show_all ();
-
-        var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.tooltip_text = _("Settings");
-        settings.popup = settings_menu;
-        settings.show_all ();
-
-        header.pack_end (settings);
-        header.set_custom_title (top_display);
-        // Right side of header bar, before settings
-        base.build_header_bar ();
-
-        notify["title"].connect (() => {
-            top_display.title = title;
-        });
     }
 
     ~LibraryWindow () {
@@ -736,11 +730,14 @@ public class LibraryWindow : AppWindow {
 
     private void dispatch_import_jobs (GLib.SList<string> uris, string job_name, bool copy_to_library) {
         if (AppDirs.get_import_dir ().get_path () == Environment.get_home_dir () && notify_library_is_home_dir) {
-            Gtk.ResponseType response = AppWindow.cancel_affirm_question (
-                                            _ ("Photos is configured to import photos to your home directory.\n" +
-                                               "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
-                                               "Do you want to continue importing photos?").printf ("▸"),
-                                            _ ("_Import"), _ ("Library Location"), AppWindow.get_instance ());
+            var response = AppWindow.cancel_affirm_question (
+                _("Photos is configured to import photos to your home directory.\n" +
+                    "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
+                    "Do you want to continue importing photos?"
+                ).printf ("▸"),
+                _("_Import"),
+                _("Library Location")
+            );
 
             if (response == Gtk.ResponseType.CANCEL)
                 return;

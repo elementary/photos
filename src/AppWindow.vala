@@ -62,39 +62,10 @@ public abstract class AppWindow : PageWindow {
         { ACTION_UNDO, on_undo }
     };
 
-    construct {
-        add_action_entries (action_entries, this);
-
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
-
-        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
-    }
-
     public AppWindow () {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;
-        icon_name = "multimedia-photo-manager";
-
-        header = new Gtk.HeaderBar ();
-        header.set_show_close_button (true);
-        this.set_titlebar (header);
-
-        title = _(Resources.APP_TITLE);
-
-        var css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("io/elementary/photos/application.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        assert (command_manager == null);
-        command_manager = new CommandManager ();
-        command_manager.altered.connect (on_command_manager_altered);
 
         // Because the first UIManager to associated with an ActionGroup claims the accelerators,
         // need to create the AppWindow's ActionGroup early on and add it to an application-wide
@@ -113,19 +84,44 @@ public abstract class AppWindow : PageWindow {
 
         ui.ensure_update ();
         add_accel_group (ui.get_accel_group ());
-
-        build_header_bar ();
     }
 
-    protected virtual void build_header_bar () {
+    construct {
+        assert (command_manager == null);
+        command_manager = new CommandManager ();
+        command_manager.altered.connect (on_command_manager_altered);
+
         redo_btn = new Gtk.Button.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
         redo_btn.action_name = ACTION_PREFIX + ACTION_REDO;
 
         undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
         undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
 
+        header = new Gtk.HeaderBar ();
+        header.show_close_button = true;
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
+
+        icon_name = "multimedia-photo-manager";
+        title = _(Resources.APP_TITLE);
+
+        add_action_entries (action_entries, this);
+        set_titlebar (header);
+
+        var application_instance = Application.get_instance ();
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
+
+        var css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("io/elementary/photos/application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
     }
 
     protected abstract void on_fullscreen ();
@@ -138,35 +134,28 @@ public abstract class AppWindow : PageWindow {
         return fullscreen_window;
     }
 
-    public static void error_message (string message, Gtk.Window? parent = null) {
-        error_message_with_title (_ (Resources.APP_TITLE), message, parent);
-    }
-
-    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null) {
+    public static void error_message (string title, string? message = null, Gtk.Window? parent = null) {
         var dialog = new Granite.MessageDialog.with_image_from_icon_name (
             title,
             message,
             "dialog-error",
             Gtk.ButtonsType.CLOSE
         );
-        dialog.transient_for = (parent != null) ? parent : get_instance ();
+        dialog.transient_for = parent ?? get_instance ();
         dialog.run ();
         dialog.destroy ();
     }
 
-    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                            affirmative, Gtk.ResponseType.YES);
-
+    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative, string? title = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title ?? _(Resources.APP_TITLE),
+            message,
+            "dialog-question",
+            Gtk.ButtonsType.CANCEL
+        );
+        dialog.transient_for = get_instance ();
+        dialog.add_button (affirmative, Gtk.ResponseType.YES);
         int response = dialog.run ();
-
         dialog.destroy ();
 
         return (Gtk.ResponseType) response;
@@ -179,7 +168,7 @@ public abstract class AppWindow : PageWindow {
 
     public static void panic (string msg) {
         critical (msg);
-        error_message (msg);
+        error_message (msg, null);
 
         Application.get_instance ().panic ();
     }
@@ -201,7 +190,7 @@ public abstract class AppWindow : PageWindow {
         try {
             AppWindow.get_instance ().show_file_uri (media.get_master_file ());
         } catch (Error err) {
-            AppWindow.error_message (Resources.jump_to_file_failed (err));
+            error_message (Resources.jump_to_file_failed (err));
         }
     }
 
