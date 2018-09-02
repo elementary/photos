@@ -143,6 +143,33 @@ public class LibraryWindow : AppWindow {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        top_display = new TopDisplay ();
+
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+
+        var settings_menu = new Gtk.Menu ();
+        settings_menu.add (import_menu_item);
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (preferences_menu_item);
+        settings_menu.show_all ();
+
+        var settings = new Gtk.MenuButton ();
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.tooltip_text = _("Settings");
+        settings.popup = settings_menu;
+        settings.show_all ();
+
+        header.pack_end (settings);
+        header.set_custom_title (top_display);
+
+        bind_property ("title", top_display, "title");
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
@@ -204,39 +231,6 @@ public class LibraryWindow : AppWindow {
         LibraryMonitorPool.get_instance ().monitor_destroyed.connect (on_library_monitor_destroyed);
 
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
-    }
-
-    protected override void build_header_bar () {
-        top_display = new TopDisplay ();
-
-        var import_menu_item = new Gtk.MenuItem ();
-        import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.label = _("_Import From Folder…");
-
-        var preferences_menu_item = new Gtk.MenuItem ();
-        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("_Preferences");
-
-        var settings_menu = new Gtk.Menu ();
-        settings_menu.add (import_menu_item);
-        settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (preferences_menu_item);
-        settings_menu.show_all ();
-
-        var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.tooltip_text = _("Settings");
-        settings.popup = settings_menu;
-        settings.show_all ();
-
-        header.pack_end (settings);
-        header.set_custom_title (top_display);
-        // Right side of header bar, before settings
-        base.build_header_bar ();
-
-        notify["title"].connect (() => {
-            top_display.title = title;
-        });
     }
 
     ~LibraryWindow () {
