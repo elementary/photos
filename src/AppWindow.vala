@@ -34,8 +34,8 @@ public abstract class AppWindow : PageWindow {
     // added to is the one that claims its accelerators
     protected Gtk.ActionGroup[] common_action_groups;
     protected Dimensions dimensions;
-    protected int pos_x = 0;
-    protected int pos_y = 0;
+    private int pos_x = 0;
+    private int pos_y = 0;
     protected Gtk.HeaderBar header;
 
     private Gtk.Button redo_btn;
@@ -179,7 +179,7 @@ public abstract class AppWindow : PageWindow {
         Application.get_instance ().exit ();
     }
 
-    protected void on_jump_to_file () {
+    private void on_jump_to_file () {
         if (get_current_page ().get_view ().get_selected_count () != 1)
             return;
 
