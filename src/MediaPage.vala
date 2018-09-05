@@ -803,11 +803,9 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     public static Gtk.ToolButton create_sidebar_button () {
-        var show_sidebar_button = new Gtk.ToolButton (null,null);
-        show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
-        show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-        show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
-        show_sidebar_button.is_important = true;
+        var show_sidebar_button = new Gtk.ToolButton (null, null);
+        show_sidebar_button.icon_name = Resources.SHOW_PANE;
+        show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         return show_sidebar_button;
     }
 }
