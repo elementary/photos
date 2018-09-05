@@ -261,77 +261,37 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
+        Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
+        Gtk.ActionEntry rotate_right = { "RotateClockwise", null, null, "<Ctrl>R", null, on_rotate_clockwise };
+        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", null, null, "<Ctrl><Shift>R", null, on_rotate_counterclockwise };
+        Gtk.ActionEntry hflip = { "FlipHorizontally", null, null, null, null, on_flip_horizontally };
+        Gtk.ActionEntry vflip = { "FlipVertically", null, null, null, null, on_flip_vertically };
+        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, null, "<Ctrl><Shift>C", null, on_copy_adjustments };
+        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, null, "<Ctrl><Shift>V", null, on_paste_adjustments };
+        Gtk.ActionEntry revert = { "Revert", null, null, null, null, on_revert };
+        Gtk.ActionEntry duplicate = { "Duplicate", null, null, "<Ctrl>D", null, on_duplicate_photo };
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, null, null, null, on_adjust_date_time };
+        Gtk.ActionEntry open_with = { "OpenWith", null, null, null, null, null };
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
+        Gtk.ActionEntry enhance = { "Enhance", null, null, "<Ctrl>E", null, on_enhance };
+        Gtk.ActionEntry slideshow = { "Slideshow", null, null, "F5", null, on_slideshow };
+
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
-                                  Resources.PRINT_MENU, on_print
-                                };
         actions += print;
-
-        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, Resources.PUBLISH_MENU, "<Ctrl><Shift>P",
-                                    Resources.PUBLISH_TOOLTIP, on_publish
-                                  };
         actions += publish;
-
-        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE,
-                                         Resources.ROTATE_CW_MENU, "<Ctrl>R", Resources.ROTATE_CW_TOOLTIP, on_rotate_clockwise
-                                       };
         actions += rotate_right;
-
-        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
-                                      };
         actions += rotate_left;
-
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
-                                  Resources.HFLIP_TOOLTIP, on_flip_horizontally
-                                };
         actions += hflip;
-
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
-                                  Resources.VFLIP_TOOLTIP, on_flip_vertically
-                                };
         actions += vflip;
-
-        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, Resources.COPY_ADJUSTMENTS_MENU,
-                                             "<Ctrl><Shift>C", Resources.COPY_ADJUSTMENTS_TOOLTIP, on_copy_adjustments
-                                           };
         actions += copy_adjustments;
-
-        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, Resources.PASTE_ADJUSTMENTS_MENU,
-                                              "<Ctrl><Shift>V", Resources.PASTE_ADJUSTMENTS_TOOLTIP, on_paste_adjustments
-                                            };
         actions += paste_adjustments;
-
-        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU, null,
-                                   Resources.REVERT_MENU, on_revert
-                                 };
         actions += revert;
-
-        Gtk.ActionEntry duplicate = { "Duplicate", null, Resources.DUPLICATE_PHOTO_MENU, "<Ctrl>D", Resources.DUPLICATE_PHOTO_TOOLTIP,
-                                      on_duplicate_photo
-                                    };
         actions += duplicate;
-
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
-                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
-                                           };
         actions += adjust_date_time;
-
-        Gtk.ActionEntry open_with = { "OpenWith", null, Resources.OPEN_WITH_MENU, null, null, null };
         actions += open_with;
-
-        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, Resources.OPEN_WITH_RAW_MENU, null, null, null };
         actions += open_with_raw;
-
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
-                                    Resources.ENHANCE_TOOLTIP, on_enhance
-                                  };
         actions += enhance;
-
-        Gtk.ActionEntry slideshow = { "Slideshow", null, _("S_lideshow"), "F5", _("Play a slideshow"),
-                                      on_slideshow
-                                    };
         actions += slideshow;
 
         return actions;
