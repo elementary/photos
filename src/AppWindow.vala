@@ -33,7 +33,6 @@ public abstract class AppWindow : PageWindow {
     // the AppWindow maintains its own UI manager because the first UIManager an action group is
     // added to is the one that claims its accelerators
     protected Gtk.ActionGroup[] common_action_groups;
-    protected Dimensions dimensions;
     private int pos_x = 0;
     private int pos_y = 0;
     protected Gtk.HeaderBar header;
@@ -368,12 +367,5 @@ public abstract class AppWindow : PageWindow {
         Page? page = get_current_page () as CheckerboardPage;
         if (page != null)
             page.get_view ().unselect_all ();
-    }
-
-    public override bool configure_event (Gdk.EventConfigure event) {
-        if (!is_maximized)
-            get_size (out dimensions.width, out dimensions.height);
-
-        return base.configure_event (event);
     }
 }

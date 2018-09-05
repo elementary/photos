@@ -99,10 +99,6 @@ public class DirectWindow : AppWindow {
         if (!get_direct_page ().check_quit ())
             return;
 
-        window_settings.set_boolean ("direct-maximize", is_maximized);
-        window_settings.set_int ("direct-width", dimensions.width);
-        window_settings.set_int ("direct-height", dimensions.height);
-
         base.on_quit ();
     }
 
@@ -123,5 +119,19 @@ public class DirectWindow : AppWindow {
 
         // ...then let the base class take over
         return (base.key_press_event != null) ? base.key_press_event (event) : false;
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        window_settings.set_boolean ("direct-maximize", is_maximized);
+
+        if (!is_maximized) {
+            int window_width, window_height;
+            get_size (out window_width, out window_height);
+
+            window_settings.set_int ("direct-height", window_height);
+            window_settings.set_int ("direct-width", window_width);
+        }
+
+        return base.configure_event (event);
     }
 }
