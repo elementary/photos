@@ -1142,7 +1142,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // save the position of the tool
         EditingTools.EditingToolWindow? tool_window = tool.get_tool_window ();
-        if (tool_window != null && tool_window.has_user_moved ()) {
+        if (tool_window != null && tool_window.user_moved) {
             int last_location_x, last_location_y;
             tool_window.get_position (out last_location_x, out last_location_y);
             last_locations[tool.name + "_x"] = last_location_x;
@@ -1351,7 +1351,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // if editing tool window is present and the user hasn't touched it, it moves with the window
         if (current_tool != null) {
             EditingTools.EditingToolWindow tool_window = current_tool.get_tool_window ();
-            if (tool_window != null && !tool_window.has_user_moved ())
+            if (tool_window != null && !tool_window.user_moved)
                 place_tool_window ();
         }
     }
