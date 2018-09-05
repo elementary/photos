@@ -302,11 +302,6 @@ public string tag_photos_label (string name, int count) {
     return ((count == 1) ? _("Tag Photo as \"%s\"") : _("Tag Photos as \"%s\"")).printf (name);
 }
 
-public string tag_photos_tooltip (string name, int count) {
-    return ((count == 1) ? _("Tag the selected photo as \"%s\"") :
-            _("Tag the selected photos as \"%s\"")).printf (name);
-}
-
 public string untag_photos_menu (string name, int count) {
     return ((count == 1) ? _("Remove Tag \"%s\" From _Photo") :
             _("Remove Tag \"%s\" From _Photos")).printf (name);
