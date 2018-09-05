@@ -67,25 +67,6 @@ public abstract class AppWindow : PageWindow {
         assert (instance == null);
         instance = this;
 
-        var maximized = false;
-
-        // restore previous size and maximization state
-        if (this is LibraryWindow) {
-            maximized = window_settings.get_boolean ("library-maximize");
-            dimensions.width = window_settings.get_int ("library-width");
-            dimensions.height = window_settings.get_int ("library-height");
-        } else {
-            assert (this is DirectWindow);
-            maximized = window_settings.get_boolean ("direct-maximize");
-            dimensions.width = window_settings.get_int ("direct-width");
-            dimensions.height = window_settings.get_int ("direct-height");
-        }
-
-        set_default_size (dimensions.width, dimensions.height);
-
-        if (maximized)
-            maximize ();
-
         // Because the first UIManager to associated with an ActionGroup claims the accelerators,
         // need to create the AppWindow's ActionGroup early on and add it to an application-wide
         // UIManager.  In order to activate those accelerators, we need to create a dummy UI string
