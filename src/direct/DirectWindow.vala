@@ -55,6 +55,17 @@ public class DirectWindow : AppWindow {
         header.pack_start (save_as_btn);
     }
 
+    construct {
+        set_default_size (
+            window_settings.get_int ("direct-width"),
+            window_settings.get_int ("direct-height")
+        );
+
+        if (window_settings.get_boolean ("direct-maximize")) {
+            maximize ();
+        }
+    }
+
     public static DirectWindow get_app () {
         return (DirectWindow) instance;
     }
