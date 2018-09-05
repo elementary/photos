@@ -144,6 +144,15 @@ public class LibraryWindow : AppWindow {
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
+        set_default_size (
+            window_settings.get_int ("library-width"),
+            window_settings.get_int ("library-height")
+        );
+
+        if (window_settings.get_boolean ("library-maximize")) {
+            maximize ();
+        }
+        
         top_display = new TopDisplay ();
 
         var import_menu_item = new Gtk.MenuItem ();
