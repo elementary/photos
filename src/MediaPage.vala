@@ -205,7 +205,6 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
-        Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
         Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
         Gtk.ActionEntry new_event = { "NewEvent", null, null, "<Ctrl>N", null, on_new_event };
@@ -219,7 +218,6 @@ public abstract class MediaPage : CheckerboardPage {
         Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, null, null, null, on_raw_developer_camera };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-        actions += export;
         actions += remove_from_library;
         actions += move_to_trash;
         actions += new_event;
