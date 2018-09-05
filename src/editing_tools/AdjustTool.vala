@@ -75,6 +75,8 @@ public class EditingTools.AdjustTool : EditingTool {
                 1.0
             );
             tint_slider.draw_value = false;
+            tint_slider.has_origin = false;
+            tint_slider.get_style_context ().add_class ("tint");
 
             var temperature_label = new Gtk.Label (_("Temperature:"));
             temperature_label.halign = Gtk.Align.END;
@@ -86,6 +88,8 @@ public class EditingTools.AdjustTool : EditingTool {
                 1.0
             );
             temperature_slider.draw_value = false;
+            temperature_slider.has_origin = false;
+            temperature_slider.get_style_context ().add_class ("temperature");
 
             var shadows_label = new Gtk.Label (_("Shadows:"));
             shadows_label.halign = Gtk.Align.END;
@@ -122,7 +126,7 @@ public class EditingTools.AdjustTool : EditingTool {
             var grid = new Gtk.Grid ();
             grid.column_spacing = 12;
             grid.row_spacing = 12;
-            grid.margin = 12;
+            grid.margin_start = grid.margin_end = 12;
             grid.attach (histogram_manipulator, 0, 0, 2, 1);
             grid.attach (exposure_label, 0, 1, 1, 1);
             grid.attach (exposure_slider, 1, 1, 1, 1);
@@ -138,7 +142,7 @@ public class EditingTools.AdjustTool : EditingTool {
             grid.attach (highlights_slider, 1, 6, 1, 1);
             grid.attach (button_box, 0, 7, 2, 1);
 
-            add (grid);
+            get_content_area ().add (grid);
         }
     }
 

@@ -17,18 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class CollectionViewManager : ViewManager {
-    private CollectionPage page;
-
-    public CollectionViewManager (CollectionPage page) {
-        this.page = page;
-    }
-
-    public override DataView create_view (DataSource source) {
-        return page.create_thumbnail (source);
-    }
-}
-
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
 
@@ -261,7 +249,7 @@ public abstract class CollectionPage : MediaPage {
 
         populate_external_app_menu (open_menu, false);
 
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
@@ -273,80 +261,54 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
+        Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
+        Gtk.ActionEntry rotate_right = { "RotateClockwise", null, null, "<Ctrl>R", null, on_rotate_clockwise };
+        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", null, null, "<Ctrl><Shift>R", null, on_rotate_counterclockwise };
+        Gtk.ActionEntry hflip = { "FlipHorizontally", null, null, null, null, on_flip_horizontally };
+        Gtk.ActionEntry vflip = { "FlipVertically", null, null, null, null, on_flip_vertically };
+        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, null, "<Ctrl><Shift>C", null, on_copy_adjustments };
+        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, null, "<Ctrl><Shift>V", null, on_paste_adjustments };
+        Gtk.ActionEntry revert = { "Revert", null, null, null, null, on_revert };
+        Gtk.ActionEntry duplicate = { "Duplicate", null, null, "<Ctrl>D", null, on_duplicate_photo };
+        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, null, null, null, on_adjust_date_time };
+        Gtk.ActionEntry open_with = { "OpenWith", null, null, null, null, null };
+        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
+        Gtk.ActionEntry enhance = { "Enhance", null, null, "<Ctrl>E", null, on_enhance };
+        Gtk.ActionEntry slideshow = { "Slideshow", null, null, "F5", null, on_slideshow };
+
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry print = { "Print", null, Resources.PRINT_MENU, "<Ctrl>P",
-                                  Resources.PRINT_MENU, on_print
-                                };
         actions += print;
-
-        Gtk.ActionEntry publish = { "Publish", Resources.PUBLISH, Resources.PUBLISH_MENU, "<Ctrl><Shift>P",
-                                    Resources.PUBLISH_TOOLTIP, on_publish
-                                  };
         actions += publish;
-
-        Gtk.ActionEntry rotate_right = { "RotateClockwise", Resources.CLOCKWISE,
-                                         Resources.ROTATE_CW_MENU, "<Ctrl>R", Resources.ROTATE_CW_TOOLTIP, on_rotate_clockwise
-                                       };
         actions += rotate_right;
-
-        Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", Resources.COUNTERCLOCKWISE,
-                                        Resources.ROTATE_CCW_MENU, "<Ctrl><Shift>R", Resources.ROTATE_CCW_TOOLTIP, on_rotate_counterclockwise
-                                      };
         actions += rotate_left;
-
-        Gtk.ActionEntry hflip = { "FlipHorizontally", Resources.HFLIP, Resources.HFLIP_MENU, null,
-                                  Resources.HFLIP_TOOLTIP, on_flip_horizontally
-                                };
         actions += hflip;
-
-        Gtk.ActionEntry vflip = { "FlipVertically", Resources.VFLIP, Resources.VFLIP_MENU, null,
-                                  Resources.VFLIP_TOOLTIP, on_flip_vertically
-                                };
         actions += vflip;
-
-        Gtk.ActionEntry copy_adjustments = { "CopyColorAdjustments", null, Resources.COPY_ADJUSTMENTS_MENU,
-                                             "<Ctrl><Shift>C", Resources.COPY_ADJUSTMENTS_TOOLTIP, on_copy_adjustments
-                                           };
         actions += copy_adjustments;
-
-        Gtk.ActionEntry paste_adjustments = { "PasteColorAdjustments", null, Resources.PASTE_ADJUSTMENTS_MENU,
-                                              "<Ctrl><Shift>V", Resources.PASTE_ADJUSTMENTS_TOOLTIP, on_paste_adjustments
-                                            };
         actions += paste_adjustments;
-
-        Gtk.ActionEntry revert = { "Revert", null, Resources.REVERT_MENU, null,
-                                   Resources.REVERT_MENU, on_revert
-                                 };
         actions += revert;
-
-        Gtk.ActionEntry duplicate = { "Duplicate", null, Resources.DUPLICATE_PHOTO_MENU, "<Ctrl>D", Resources.DUPLICATE_PHOTO_TOOLTIP,
-                                      on_duplicate_photo
-                                    };
         actions += duplicate;
-
-        Gtk.ActionEntry adjust_date_time = { "AdjustDateTime", null, Resources.ADJUST_DATE_TIME_MENU, null,
-                                             Resources.ADJUST_DATE_TIME_MENU, on_adjust_date_time
-                                           };
         actions += adjust_date_time;
-
-        Gtk.ActionEntry open_with = { "OpenWith", null, Resources.OPEN_WITH_MENU, null, null, null };
         actions += open_with;
-
-        Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, Resources.OPEN_WITH_RAW_MENU, null, null, null };
         actions += open_with_raw;
-
-        Gtk.ActionEntry enhance = { "Enhance", Resources.ENHANCE, Resources.ENHANCE_MENU, "<Ctrl>E",
-                                    Resources.ENHANCE_TOOLTIP, on_enhance
-                                  };
         actions += enhance;
-
-        Gtk.ActionEntry slideshow = { "Slideshow", null, _("S_lideshow"), "F5", _("Play a slideshow"),
-                                      on_slideshow
-                                    };
         actions += slideshow;
 
         return actions;
+    }
+
+    public void set_action_details (string name, string? label, string? tooltip, bool sensitive) {
+        Gtk.Action? action = get_action (name);
+        if (action == null)
+            return;
+
+        if (label != null)
+            action.label = label;
+
+        if (tooltip != null)
+            action.tooltip = tooltip;
+
+        action.sensitive = sensitive;
     }
 
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
@@ -411,7 +373,7 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected_at (0).get_source () as Photo;
+        Photo? photo = get_view ().get_selected_at (0).source as Photo;
         try {
             AppWindow.get_instance ().set_busy_cursor ();
             photo.open_with_external_editor (app);
@@ -426,7 +388,7 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        Photo photo = (Photo) get_view ().get_selected_at (0).source;
         if (photo.get_master_file_format () != PhotoFileFormat.RAW)
             return;
 
@@ -454,15 +416,6 @@ public abstract class CollectionPage : MediaPage {
 
     protected override void init_actions (int selected_count, int count) {
         base.init_actions (selected_count, count);
-
-        set_action_short_label ("RotateClockwise", Resources.ROTATE_CW_LABEL);
-        set_action_short_label ("RotateCounterclockwise", Resources.ROTATE_CCW_LABEL);
-        set_action_short_label ("Publish", Resources.PUBLISH_LABEL);
-
-        set_action_important ("RotateClockwise", true);
-        set_action_important ("RotateCounterclockwise", true);
-        set_action_important ("Enhance", true);
-        set_action_important ("Publish", true);
     }
 
     protected override void update_actions (int selected_count, int count) {
@@ -473,7 +426,7 @@ public abstract class CollectionPage : MediaPage {
 
         bool primary_is_video = false;
         if (has_selected)
-            if (get_view ().get_selected_at (0).get_source () is Video)
+            if (get_view ().get_selected_at (0).source is Video)
                 primary_is_video = true;
 
         bool selection_has_videos = selection_has_video ();
@@ -486,12 +439,12 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("OpenWith", one_selected);
         set_action_visible ("OpenWithRaw",
                             one_selected && (!primary_is_video)
-                            && ((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () ==
+                            && ((Photo) get_view ().get_selected_at (0).source).get_master_file_format () ==
                             PhotoFileFormat.RAW);
         set_action_sensitive ("Revert", (!selection_has_videos) && can_revert_selected ());
         set_action_sensitive ("Enhance", (!selection_has_videos) && has_selected);
         set_action_sensitive ("CopyColorAdjustments", (!selection_has_videos) && one_selected &&
-                              ((Photo) get_view ().get_selected_at (0).get_source ()).has_color_adjustments ());
+                              ((Photo) get_view ().get_selected_at (0).source).has_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", (!selection_has_videos) && has_selected &&
                               PixelTransformationBundle.has_copied_color_adjustments ());
         set_action_sensitive ("RotateClockwise", (!selection_has_videos) && has_selected);
@@ -522,7 +475,7 @@ public abstract class CollectionPage : MediaPage {
             if (!view.is_selected () || !altered.get (view).has_subject ("image"))
                 continue;
 
-            LibraryPhoto? photo = view.get_source () as LibraryPhoto;
+            LibraryPhoto? photo = view.source as LibraryPhoto;
             if (photo == null)
                 continue;
 
@@ -538,7 +491,7 @@ public abstract class CollectionPage : MediaPage {
     private void update_enhance_toggled () {
         bool toggled = false;
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.get_source () as Photo;
+            Photo photo = view.source as Photo;
             if (photo != null && !photo.is_enhanced ()) {
                 toggled = false;
                 break;
@@ -796,7 +749,7 @@ public abstract class CollectionPage : MediaPage {
     public void on_copy_adjustments () {
         if (get_view ().get_selected_count () != 1)
             return;
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        Photo photo = (Photo) get_view ().get_selected_at (0).source;
         PixelTransformationBundle.set_copied_color_adjustments (photo.get_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", true);
     }
@@ -822,7 +775,7 @@ public abstract class CollectionPage : MediaPage {
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.get_source () as Photo;
+            Photo photo = view.source as Photo;
             if (photo != null && !photo.is_enhanced ())
                 unenhanced_list.add (view);
             else if (photo != null)
@@ -842,7 +795,7 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.get_source () as Photo;
+                Photo photo = view.source as Photo;
                 photo.set_enhanced (false);
             }
         } else {
@@ -855,7 +808,7 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.get_source () as Photo;
+                Photo photo = view.source as Photo;
                 photo.set_enhanced (true);
             }
         }
@@ -879,13 +832,13 @@ public abstract class CollectionPage : MediaPage {
         bool only_videos_selected = true;
 
         foreach (DataView dv in get_view ().get_selected ()) {
-            if (dv.get_source () is Video)
+            if (dv.source is Video)
                 selected_has_videos = true;
             else
                 only_videos_selected = false;
         }
 
-        Dateable photo_source = (Dateable) get_view ().get_selected_at (0).get_source ();
+        Dateable photo_source = (Dateable) get_view ().get_selected_at (0).source;
 
         AdjustDateTimeDialog dialog = new AdjustDateTimeDialog (photo_source,
                 get_view ().get_selected_count (), true, selected_has_videos, only_videos_selected);

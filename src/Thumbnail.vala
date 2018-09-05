@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Thumbnail : MediaSourceItem {
+public class Thumbnail : CheckerboardItem {
     // Collection properties Thumbnail responds to
     // SHOW_TAGS (bool)
     public const string PROP_SHOW_TAGS = CheckerboardItem.PROP_SHOW_SUBTITLES;

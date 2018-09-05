@@ -21,11 +21,6 @@ namespace PublishingUI {
 
 public class ConcreteDialogPane : Spit.Publishing.DialogPane, GLib.Object {
     protected Gtk.Box pane_widget = null;
-    protected Gtk.Builder builder = null;
-
-    public ConcreteDialogPane () {
-        builder = AppWindow.create_builder ();
-    }
 
     public Gtk.Widget get_widget () {
         return pane_widget;
@@ -43,38 +38,48 @@ public class ConcreteDialogPane : Spit.Publishing.DialogPane, GLib.Object {
 }
 
 public class StaticMessagePane : ConcreteDialogPane {
-    private Gtk.Label msg_label = null;
-
-    public StaticMessagePane (string message_string, bool enable_markup = false) {
+    public StaticMessagePane (string message_string) {
         base ();
-        msg_label = builder.get_object ("static_msg_label") as Gtk.Label;
-        pane_widget = builder.get_object ("static_msg_pane_widget") as Gtk.Box;
 
-        if (enable_markup) {
-            msg_label.set_markup (message_string);
-            msg_label.set_line_wrap (true);
-            msg_label.set_use_markup (true);
-        } else {
-            msg_label.set_label (message_string);
-        }
+        var msg_label = new Gtk.Label (message_string);
+        msg_label.max_width_chars = 70;
+        msg_label.margin_start = msg_label.margin_end = 16;
+        msg_label.margin_top = 97;
+        msg_label.margin_bottom = 24;
+        msg_label.use_markup = true;
+        msg_label.wrap = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (msg_label);
     }
 }
 
 public class LoginWelcomePane : ConcreteDialogPane {
-    private Gtk.Button login_button = null;
-    private Gtk.Label not_logged_in_label = null;
-
     public signal void login_requested ();
 
     public LoginWelcomePane (string service_welcome_message) {
         base ();
-        pane_widget = builder.get_object ("welcome_pane_widget") as Gtk.Box;
-        login_button = builder.get_object ("login_button") as Gtk.Button;
-        not_logged_in_label = builder.get_object ("not_logged_in_label") as Gtk.Label;
+
+        var not_logged_in_label = new Gtk.Label (service_welcome_message);
+        not_logged_in_label.margin_top = 97;
+        not_logged_in_label.margin_bottom = 24;
+        not_logged_in_label.margin_start = not_logged_in_label.margin_end = 16;
+        not_logged_in_label.max_width_chars = 70;
+        not_logged_in_label.use_markup = true;
+        not_logged_in_label.wrap = true;
+
+        var login_button = new Gtk.Button.with_mnemonic (_("_Login"));
+        login_button.margin_start = 256;
+        login_button.margin_end = 240;
+        login_button.margin_top = 80;
+        login_button.margin_bottom = 16;
+        login_button.receives_default = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (not_logged_in_label);
+        pane_widget.add (login_button);
 
         login_button.clicked.connect (on_login_clicked);
-        not_logged_in_label.set_use_markup (true);
-        not_logged_in_label.set_markup (service_welcome_message);
     }
 
     private void on_login_clicked () {
@@ -83,12 +88,19 @@ public class LoginWelcomePane : ConcreteDialogPane {
 }
 
 public class ProgressPane : ConcreteDialogPane {
-    private Gtk.ProgressBar progress_bar = null;
+    private Gtk.ProgressBar progress_bar;
 
     public ProgressPane () {
         base ();
-        pane_widget = (Gtk.Box) builder.get_object ("progress_pane_widget");
-        progress_bar = (Gtk.ProgressBar) builder.get_object ("publishing_progress_bar");
+
+        progress_bar = new Gtk.ProgressBar ();
+        progress_bar.height_request = 64;
+        progress_bar.margin_start = progress_bar.margin_end = 32;
+        progress_bar.margin_top = 108;
+        progress_bar.show_text = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (progress_bar);
     }
 
     public void set_text (string text) {
@@ -390,9 +402,10 @@ public class PublishingDialog : Gtk.Dialog {
         if (avail_services.length == 0) {
             // There are no enabled publishing services that accept this media type,
             // warn the user.
-            AppWindow.error_message_with_title (_ ("Unable to publish"),
-                                                _ ("Photos cannot publish the selected items because you do not have a compatible publishing plugin enabled. To correct this, choose <b>Edit %s Preferences</b> and enable one or more of the publishing plugins on the <b>Plugins</b> tab.").printf ("▸"),
-                                                null, false);
+            AppWindow.error_message (
+                _("Unable to publish"),
+                _("Photos cannot publish the selected items because you do not have a compatible publishing plugin enabled. To correct this, choose <b>Edit %s Preferences</b> and enable one or more of the publishing plugins on the <b>Plugins</b> tab.").printf ("▸")
+            );
 
             return;
         }

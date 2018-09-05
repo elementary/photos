@@ -137,6 +137,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
 
+            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+            zoom_fit.tooltip_text = _("Zoom to fit page");
+            zoom_fit.valign = Gtk.Align.CENTER;
+            zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+            var zoom_fit_action = get_action ("ZoomFit");
+            zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
+            zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
+
             var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
             zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
@@ -150,6 +159,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             var zoom_group = new Gtk.Grid ();
             zoom_group.column_spacing = 6;
+            zoom_group.add (zoom_fit);
             zoom_group.add (zoom_original);
             zoom_group.add (zoom_slider);
 
@@ -436,7 +446,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // Use the selected photo.  There should only ever be one selected photo,
         // which is the currently displayed photo.
         assert (get_view ().get_selected_count () == 1);
-        return (Photo) get_view ().get_selected_at (0).get_source ();
+        return (Photo) get_view ().get_selected_at (0).source;
     }
 
     // Called before the photo changes.
@@ -541,7 +551,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_selection_changed (Gee.Iterable<DataView> selected) {
         foreach (DataView view in selected) {
-            replace_photo ((Photo) view.get_source ());
+            replace_photo ((Photo) view.source);
             break;
         }
     }
@@ -1913,7 +1923,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (next == null)
                 break;
 
-            Photo? next_photo = next.get_source () as Photo;
+            Photo? next_photo = next.source as Photo;
             if (next_photo == null)
                 continue;
 
@@ -1946,7 +1956,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (previous == null)
                 break;
 
-            Photo? previous_photo = previous.get_source () as Photo;
+            Photo? previous_photo = previous.source as Photo;
             if (previous_photo == null)
                 continue;
 
