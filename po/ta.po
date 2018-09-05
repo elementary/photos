@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 09:43-0700\n"
+"POT-Creation-Date: 2018-09-05 09:55-0700\n"
 "PO-Revision-Date: 2018-06-04 01:40+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Tamil <https://weblate.elementary.io/projects/photos/photos/"
@@ -60,20 +60,7 @@ msgstr "புகைப்படங்கள்"
 msgid "Photo Viewer"
 msgstr "புகைப்பட நோக்கி"
 
-#: src/AppWindow.vala:202 src/AppWindow.vala:224 src/AppWindow.vala:241
-#: src/Dialogs/AdjustDateTimeDialog.vala:57 src/Dialogs/Dialogs.vala:33
-#: src/Dialogs/Dialogs.vala:41 src/Dialogs/Dialogs.vala:51
-#: src/Dialogs/Dialogs.vala:74 src/Dialogs/Dialogs.vala:103
-#: src/Dialogs/Dialogs.vala:588 src/Dialogs/Dialogs.vala:805
-#: src/Dialogs/Dialogs.vala:828 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
-#: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:514
-msgid "_Cancel"
-msgstr "_விடு"
-
-#: src/AppWindow.vala:251
+#: src/AppWindow.vala:165
 #, fuzzy, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -85,11 +72,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:421
+#: src/AppWindow.vala:334
 msgid "Undo"
 msgstr "செயல்தவிர்"
 
-#: src/AppWindow.vala:422
+#: src/AppWindow.vala:335
 msgid "Redo"
 msgstr "மீண்டும் செய்"
 
@@ -154,85 +141,82 @@ msgstr "சிதைந்த படக் கோப்பு"
 msgid "Imported failed (%d)"
 msgstr "இறக்குமதி தோல்வி (%d)"
 
-#: src/CollectionPage.vala:63 src/CollectionPage.vala:344
-#: src/LibraryPhotoPage.vala:63 src/LibraryPhotoPage.vala:245
+#: src/CollectionPage.vala:51 src/LibraryPhotoPage.vala:63
 msgid "S_lideshow"
 msgstr "ஸ்லைடுக் காட்சி (_l)"
 
-#: src/CollectionPage.vala:65 src/CollectionPage.vala:344
-#: src/LibraryPhotoPage.vala:64 src/LibraryPhotoPage.vala:245
+#: src/CollectionPage.vala:53 src/LibraryPhotoPage.vala:64
 msgid "Play a slideshow"
 msgstr "புகைப்பட சறுக்கை ஓட்டு"
 
-#: src/CollectionPage.vala:105
+#: src/CollectionPage.vala:93
 msgid "Adjust the size of the thumbnails"
 msgstr "சிறுபடங்களின் அளவை சரிசெய்"
 
-#: src/CollectionPage.vala:137 src/LibraryPhotoPage.vala:570
-#: src/MediaPage.vala:77 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:325
-#: src/library/LibraryWindow.vala:326 src/library/OfflinePage.vala:105
+#: src/CollectionPage.vala:125 src/LibraryPhotoPage.vala:483
+#: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
+#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr ""
 
-#: src/CollectionPage.vala:176 src/LibraryPhotoPage.vala:250
-#: src/LibraryPhotoPage.vala:604 src/MediaPage.vala:248
+#: src/CollectionPage.vala:164 src/LibraryPhotoPage.vala:517
 msgid "_Developer"
 msgstr "உருவக்குநர் (_D)"
 
-#: src/CollectionPage.vala:206 src/LibraryPhotoPage.vala:629
-#: src/library/LibraryWindow.vala:292
+#: src/CollectionPage.vala:194 src/LibraryPhotoPage.vala:542
+#: src/library/LibraryWindow.vala:295
 msgid "View Eve_nt for Photo"
 msgstr "புகைப்படத்திற்கான நிகழ்வைக் காண்பி (_n)"
 
-#: src/CollectionPage.vala:221 src/LibraryPhotoPage.vala:644
+#: src/CollectionPage.vala:209 src/LibraryPhotoPage.vala:557
 #: src/direct/DirectPhotoPage.vala:155
 msgid "Other Actions"
 msgstr ""
 
-#: src/CollectionPage.vala:643
+#: src/CollectionPage.vala:596
 msgid "Export Photo/Video"
 msgstr "புகைப்படங்களை/ஒளிதோற்றங்களை ஏற்றுமதி செய்"
 
-#: src/CollectionPage.vala:643
+#: src/CollectionPage.vala:596
 msgid "Export Photos/Videos"
 msgstr "புகைப்படங்களை/வீடியோக்களை ஏற்றுமதி செய்"
 
-#: src/CollectionPage.vala:645 src/LibraryPhotoPage.vala:890
-#: src/Dialogs/Dialogs.vala:71
+#: src/CollectionPage.vala:598 src/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:90
 msgid "Export Photo"
 msgstr "புகைப்படங்களை ஏற்றுமதி செய்"
 
-#: src/CollectionPage.vala:645 src/Dialogs/Dialogs.vala:100
+#: src/CollectionPage.vala:598 src/Dialogs/Dialogs.vala:119
 msgid "Export Photos"
 msgstr "புகைப்படங்களை ஏற்றுமதி செய்"
 
-#: src/CollectionPage.vala:738 src/CollectionPage.vala:754
+#: src/CollectionPage.vala:691 src/CollectionPage.vala:707
 msgid "Rotating"
 msgstr "சுழற்றல் செய்கை"
 
-#: src/CollectionPage.vala:738 src/CollectionPage.vala:754
+#: src/CollectionPage.vala:691 src/CollectionPage.vala:707
 msgid "Undoing Rotate"
 msgstr "செய்த சுழற்றை தவிர்"
 
-#: src/CollectionPage.vala:763
+#: src/CollectionPage.vala:716
 msgid "Flipping Horizontally"
 msgstr "கிடை சுழற்றல் செய்கை"
 
-#: src/CollectionPage.vala:764
+#: src/CollectionPage.vala:717
 msgid "Undoing Flip Horizontally"
 msgstr "செய்த கிடை சுழற்றை தவிர்"
 
-#: src/CollectionPage.vala:773
+#: src/CollectionPage.vala:726
 msgid "Flipping Vertically"
 msgstr "செங்குத்து சுழற்றல் செய்கை"
 
-#: src/CollectionPage.vala:774
+#: src/CollectionPage.vala:727
 msgid "Undoing Flip Vertically"
 msgstr "செய்த செங்குத்து சுழற்றை தவிர்"
 
-#: src/CollectionPage.vala:959 src/CollectionPage.vala:960
+#: src/CollectionPage.vala:912 src/CollectionPage.vala:913
 #: src/Checkerboard/CheckerboardPage.vala:91 src/library/PhotosPage.vala:64
 #: src/library/RawsPage.vala:64
 msgid "No photos/videos"
@@ -441,19 +425,23 @@ msgid "Rotate"
 msgstr "சுழற்று"
 
 #: src/EditingHostPage.vala:141
+msgid "Zoom to fit page"
+msgstr ""
+
+#: src/EditingHostPage.vala:150
 #, fuzzy
 msgid "Zoom 1:1"
 msgstr "100% பெரிதாக்கு (_1)"
 
-#: src/EditingHostPage.vala:160
+#: src/EditingHostPage.vala:170
 msgid "Previous photo"
 msgstr "முந்தைய புகைப்படம்"
 
-#: src/EditingHostPage.vala:164
+#: src/EditingHostPage.vala:174
 msgid "Next photo"
 msgstr "அடுத்த புகைப்படம்"
 
-#: src/EditingHostPage.vala:1495
+#: src/EditingHostPage.vala:1505
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "புகைப்படத்தின் மூலக் கோப்பு இல்லை: %s"
@@ -473,26 +461,39 @@ msgstr "%s க்கு தற்காலிகக் கோப்பை உர
 msgid "Exporting"
 msgstr "ஏற்றுமதிசெய்கிறது"
 
-#: src/Exporter.vala:329
+#: src/Exporter.vala:331
+msgid "Export"
+msgstr "ஏற்றுமதிசெய்"
+
+#: src/Exporter.vala:332
 #, c-format
 msgid "File %s already exists.  Replace?"
 msgstr "%s என ஏற்கனவே ஒரு கோப்பு உள்ளது. இடமாற்றவா?"
 
-#: src/Exporter.vala:331
+#: src/Exporter.vala:338
 msgid "_Skip"
 msgstr "தவிர் (_S)"
 
-#: src/Exporter.vala:331
-msgid "_Replace"
-msgstr "இடமாற்று (_R)"
-
-#: src/Exporter.vala:331
+#: src/Exporter.vala:339
 msgid "Replace _All"
 msgstr "அனைத்தையும் இடமாற் (_A)"
 
-#: src/Exporter.vala:331
-msgid "Export"
-msgstr "ஏற்றுமதிசெய்"
+#: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
+#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:70
+#: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
+#: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:824
+#: src/Dialogs/Dialogs.vala:847 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/direct/DirectPhotoPage.vala:327
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
+#: src/publishing/PublishingUI.vala:515
+msgid "_Cancel"
+msgstr "_விடு"
+
+#: src/Exporter.vala:342
+msgid "_Replace"
+msgstr "இடமாற்று (_R)"
 
 #: src/FullScreenWindow.vala:52
 msgid "Pin the toolbar open"
@@ -502,83 +503,15 @@ msgstr "கருவிப் பட்டையை திறந்தபடி�
 msgid "Leave fullscreen"
 msgstr "முழு திரை நிலையை விலகு"
 
-#: src/LibraryPhotoPage.vala:134
-msgid "_View"
-msgstr "காண்பி (_V)"
-
-#: src/LibraryPhotoPage.vala:137
-msgid "T_ools"
-msgstr "கருவிகள் (_o)"
-
-#: src/LibraryPhotoPage.vala:140
-msgid "_Previous Photo"
-msgstr "முந்தைய புகைப்படம் (_P)"
-
-#: src/LibraryPhotoPage.vala:141
-msgid "Previous Photo"
-msgstr "முந்தைய புகைப்படம்"
-
-#: src/LibraryPhotoPage.vala:145
-msgid "_Next Photo"
-msgstr "அடுத்த புகைப்படம் (_N)"
-
-#: src/LibraryPhotoPage.vala:146
-msgid "Next Photo"
-msgstr "அடுத்த புகைப்படம்"
-
-#: src/LibraryPhotoPage.vala:218 src/MediaPage.vala:229
-msgid "Zoom _In"
-msgstr "பெரிதாக்கு (_I)"
-
-#: src/LibraryPhotoPage.vala:219
-msgid "Increase the magnification of the photo"
-msgstr "புகைப்படத்தின் உருப்பெருக்கத்தை அதிகரி"
-
-#: src/LibraryPhotoPage.vala:223 src/MediaPage.vala:234
-msgid "Zoom _Out"
-msgstr "சிறிதாக்கு (_O)"
-
-#: src/LibraryPhotoPage.vala:224
-msgid "Decrease the magnification of the photo"
-msgstr "புகைப்படத்தின் உருப்பெருக்கத்தைக் குறை"
-
-#: src/LibraryPhotoPage.vala:228
-msgid "Fit to _Page"
-msgstr "பக்கத்திற்குப் பொருத்து (_P)"
-
-#: src/LibraryPhotoPage.vala:229
-msgid "Zoom the photo to fit on the screen"
-msgstr "திரையில் பொருந்தும்படி புகைப்படத்தைப் பெரிதாக்கு"
-
-#: src/LibraryPhotoPage.vala:234
-#, no-c-format
-msgid "Zoom _100%"
-msgstr "100% பெரிதாக்கு (_1)"
-
-#: src/LibraryPhotoPage.vala:235
-#, c-format
-msgid "Zoom the photo to 100% magnification"
-msgstr "புகைப்படத்தை 100 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
-
-#: src/LibraryPhotoPage.vala:240
-#, no-c-format
-msgid "Zoom _200%"
-msgstr "200% க்குப் பெரிதாக்கு (_2)"
-
-#: src/LibraryPhotoPage.vala:241
-#, c-format
-msgid "Zoom the photo to 200% magnification"
-msgstr "புகைப்படத்தை 200 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
-
-#: src/LibraryPhotoPage.vala:811 src/Dialogs/Dialogs.vala:889
+#: src/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:908
 msgid "Remove From Library"
 msgstr "தரவகத்திலிருந்து நீக்கு"
 
-#: src/LibraryPhotoPage.vala:811 src/Dialogs/Dialogs.vala:890
+#: src/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:909
 msgid "Removing Photo From Library"
 msgstr "தரவகத்திலிருந்து புகைப்படத்தை நீக்குகிறது"
 
-#: src/LibraryPhotoPage.vala:910
+#: src/LibraryPhotoPage.vala:823
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ஐ ஏற்றுமதி செய்ய முடியவில்லை: %s"
@@ -669,111 +602,92 @@ msgstr ""
 msgid "Unable to process monitoring updates: %s"
 msgstr "கண்காணிப்பு புதுப்பிப்புகளைச் செயலாக்க முடியவில்லை: %s"
 
-#: src/MediaPage.vala:73 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:320
+#: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "பக்கப்பட்டி (_i)"
 
-#: src/MediaPage.vala:81 src/MediaPage.vala:269 src/camera/ImportPage.vala:858
+#: src/MediaPage.vala:72 src/MediaPage.vala:231 src/camera/ImportPage.vala:858
 #: src/camera/ImportPage.vala:961
 msgid "_Titles"
 msgstr "தலைப்புகள் (_T)"
 
-#: src/MediaPage.vala:85 src/MediaPage.vala:275
+#: src/MediaPage.vala:76 src/MediaPage.vala:237
 #: src/events/EventsDirectoryPage.vala:229
 msgid "_Comments"
 msgstr "கருத்துகள் (_C)"
 
-#: src/MediaPage.vala:89 src/MediaPage.vala:281
+#: src/MediaPage.vala:80 src/MediaPage.vala:243
 msgid "Ta_gs"
 msgstr "_மேற்கோள்கள்"
 
-#: src/MediaPage.vala:93 src/MediaPage.vala:242
+#: src/MediaPage.vala:84
 msgid "Sort _Photos"
 msgstr "புகைப்படங்களை வரிசைப்படுத்து (_P)"
 
 #. Sort criteria.
-#: src/MediaPage.vala:95 src/MediaPage.vala:298
+#: src/MediaPage.vala:86 src/MediaPage.vala:260
 msgid "By _Title"
 msgstr "தலைப்பின்படி(_T)"
 
-#: src/MediaPage.vala:104 src/MediaPage.vala:303
+#: src/MediaPage.vala:95 src/MediaPage.vala:265
 msgid "By Exposure _Date"
 msgstr "எக்ஸ்போசர் தேதியின் படி (_D)"
 
-#: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:314
+#: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:337 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "ஏறுவரிசையில் (_A)"
 
-#: src/MediaPage.vala:122 src/MediaPage.vala:150 src/MediaPage.vala:319
+#: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:343 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "இறங்குவரிசை (_e)"
 
-#: src/MediaPage.vala:139 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:290
+#: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "நிகழ்வுகளை வரிசைப்படுத்து (_E)"
 
-#: src/MediaPage.vala:164 src/events/EventsDirectoryPage.vala:164
+#: src/MediaPage.vala:155 src/events/EventsDirectoryPage.vala:164
 msgid "Fulls_creen"
 msgstr "முழு _திரை"
 
-#: src/MediaPage.vala:230
-msgid "Increase the magnification of the thumbnails"
-msgstr "சிறுபடங்களின் உருப்பெருக்கத்தை அதிகரி"
-
-#: src/MediaPage.vala:235
-msgid "Decrease the magnification of the thumbnails"
-msgstr "சிறுபடங்களின் உருப்பெருக்கத்தைக் குறை"
-
-#. RAW developers.
-#: src/MediaPage.vala:253
-msgid "Shotwell"
-msgstr "ஷாட்வெல்"
-
-#: src/MediaPage.vala:258 src/camera/Branch.vala:110
-#: src/camera/ImportPage.vala:729 src/camera/ImportPage.vala:745
-#: src/photos/RawSupport.vala:313
-msgid "Camera"
-msgstr "கேமரா"
-
-#: src/MediaPage.vala:270 src/camera/ImportPage.vala:962
+#: src/MediaPage.vala:232 src/camera/ImportPage.vala:962
 msgid "Display the title of each photo"
 msgstr "ஒவ்வொரு புகைப்படத்திற்கும் தலைப்பைக் காட்டு"
 
-#: src/MediaPage.vala:276
+#: src/MediaPage.vala:238
 msgid "Display the comment of each photo"
 msgstr "ஒவ்வொரு புகைப்படத்திற்கும் கருத்தைக் காட்டு"
 
-#: src/MediaPage.vala:282
+#: src/MediaPage.vala:244
 msgid "Display each photo's tags"
 msgstr "ஒவ்வொரு புகைப்பட மேற்கோள்களை காட்டு"
 
-#: src/MediaPage.vala:298
+#: src/MediaPage.vala:260
 msgid "Sort photos by title"
 msgstr "புகைப்படங்களை தலைப்பின்படி வரிசைப்படுத்து"
 
-#: src/MediaPage.vala:304
+#: src/MediaPage.vala:266
 msgid "Sort photos by exposure date"
 msgstr "புகைப்படங்களை எக்ஸ்போசர் தேதியின்படி வரிசைப்படுத்து"
 
-#: src/MediaPage.vala:314 src/library/LibraryWindow.vala:337
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
 msgid "Sort photos in an ascending order"
 msgstr "புகைப்படங்களை ஏறுவரிசையில் வரிசைப்படுத்து"
 
-#: src/MediaPage.vala:319 src/library/LibraryWindow.vala:343
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
 msgid "Sort photos in a descending order"
 msgstr "புகைப்படங்களை இறங்கு வரிசையில் வரிசைப்படுத்து"
 
-#: src/MediaPage.vala:451
+#: src/MediaPage.vala:413
 #, fuzzy, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -1082,7 +996,7 @@ msgstr "டெஸ்க்டாப் ஸ்லைடு காட்சிய�
 msgid "Re_name Event…"
 msgstr "நிகழ்வுக்கு மறுபெயரிடு"
 
-#: src/Resources.vala:178 src/Dialogs/Dialogs.vala:736
+#: src/Resources.vala:178 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
 msgstr "நிகழ்வுக்கு மறுபெயரிடு"
 
@@ -1336,8 +1250,8 @@ msgstr "\"%s\" குறிச்சொல்லை நீக்கு"
 msgid "Delete Tag"
 msgstr "குறிச்சொல்லை நீக்கு"
 
-#: src/Resources.vala:284 src/Resources.vala:332 src/Dialogs/Dialogs.vala:33
-#: src/Dialogs/Dialogs.vala:41 src/Dialogs/Dialogs.vala:773
+#: src/Resources.vala:284 src/Resources.vala:332 src/Dialogs/Dialogs.vala:35
+#: src/Dialogs/Dialogs.vala:792
 msgid "_Delete"
 msgstr "நீக்கு (_D)"
 
@@ -1607,6 +1521,11 @@ msgstr "வீடியோக்களை ஏற்றுமதி செய்"
 msgid "Cameras"
 msgstr "கேமராக்கள்"
 
+#: src/camera/Branch.vala:110 src/camera/ImportPage.vala:729
+#: src/camera/ImportPage.vala:745 src/photos/RawSupport.vala:313
+msgid "Camera"
+msgstr "கேமரா"
+
 #: src/camera/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
@@ -1651,7 +1570,7 @@ msgid "Import all the photos into your library"
 msgstr "எல்லா புகைப்படங்களையும் உங்கள் தரவகத்திற்கு இறக்குமதி செய்யவும்"
 
 #. it's mounted, offer to unmount for the user
-#: src/camera/ImportPage.vala:1102
+#: src/camera/ImportPage.vala:1099
 #, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
@@ -1660,15 +1579,15 @@ msgstr ""
 "ஷாட்வெல் கேமராவை அணுக அதை கோப்பு முறைமையில் இருந்து அன்மவுன்ட் செய்ய வேண்டியுள்ளது. "
 "தொடர வேண்டுமா?"
 
-#: src/camera/ImportPage.vala:1108
+#: src/camera/ImportPage.vala:1105
 msgid "_Unmount"
 msgstr "அன்மவுன்ட் (_U)"
 
-#: src/camera/ImportPage.vala:1113
+#: src/camera/ImportPage.vala:1110
 msgid "Please unmount the camera."
 msgstr "கேமராவை அன்மவுன்ட் செய்."
 
-#: src/camera/ImportPage.vala:1118
+#: src/camera/ImportPage.vala:1115
 #, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
@@ -1679,11 +1598,11 @@ msgstr ""
 "ஷாட்வெல்லால் கேமராவை அணுக முடியும்.  வேறு ஏதேனும் பயன்பாடு கேமராவைப் பயன்படுத்திக் "
 "கொண்டிருந்தால் அதை மூடிவிட்டு மீண்டும் முயற்சிக்கவும்."
 
-#: src/camera/ImportPage.vala:1128
+#: src/camera/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
 msgstr "வேறு ஏதேனும் பயன்பாடு கேமராவைப் பயன்படுத்திக் கொண்டிருந்தால் அதை மூடவும்."
 
-#: src/camera/ImportPage.vala:1133
+#: src/camera/ImportPage.vala:1130
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -1692,65 +1611,65 @@ msgstr ""
 "கேமராவிலிருந்து மாதிரிக்காட்சிகளைப் பெற முடியவில்லை:\n"
 "%s"
 
-#: src/camera/ImportPage.vala:1150
+#: src/camera/ImportPage.vala:1147
 msgid "Unmounting..."
 msgstr "அன்மவுன்ட் செய்கிறது..."
 
-#: src/camera/ImportPage.vala:1256
+#: src/camera/ImportPage.vala:1253
 msgid "Fetching photo information"
 msgstr "புகைப்படத் தகவலைப் பெறுகிறது"
 
-#: src/camera/ImportPage.vala:1611
+#: src/camera/ImportPage.vala:1608
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "%s க்கான மாதிரிக்காட்சியைப் பெறுகிறது"
 
-#: src/camera/ImportPage.vala:1727
+#: src/camera/ImportPage.vala:1724
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "கேமராவைப் பூட்ட முடியவில்லை: %s"
 
-#: src/camera/ImportPage.vala:1812
+#: src/camera/ImportPage.vala:1809
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "இந்தப் புகைப்படத்தை கேமராவிலிருந்து நீக்கவா?"
 msgstr[1] "இந்த %d புகைப்படங்களை கேமராவிலிருந்து நீக்கவா?"
 
-#: src/camera/ImportPage.vala:1815
+#: src/camera/ImportPage.vala:1812
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "இந்த வீடியோவை கேமராவிலிருந்து நீக்கவா?"
 msgstr[1] "இந்த %d வீடியோக்களை கேமராவிலிருந்து நீக்கவா?"
 
-#: src/camera/ImportPage.vala:1818
+#: src/camera/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "இந்த புகைப்படத்தை/வீடியோவை கேமராவிலிருந்து நீக்கவா?"
 msgstr[1] "இந்த %d புகைப்படங்களை/வீடியோக்களை கேமராவிலிருந்து நீக்கவா?"
 
-#: src/camera/ImportPage.vala:1821
+#: src/camera/ImportPage.vala:1818
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "இந்தக் கோப்புகளை கேமராவிலிருந்து நீக்கவா?"
 msgstr[1] "இந்த %d கோப்புகளை கேமராவிலிருந்து நீக்கவா?"
 
-#: src/camera/ImportPage.vala:1829 src/library/TrashPage.vala:296
+#: src/camera/ImportPage.vala:1826 src/library/TrashPage.vala:293
 msgid "Delete"
 msgstr "நீக்கு"
 
-#: src/camera/ImportPage.vala:1829 src/Dialogs/Dialogs.vala:772
+#: src/camera/ImportPage.vala:1826 src/Dialogs/Dialogs.vala:791
 msgid "_Keep"
 msgstr "வைத்திரு (_K)"
 
-#: src/camera/ImportPage.vala:1848
+#: src/camera/ImportPage.vala:1845
 msgid "Removing photos/videos from camera"
 msgstr "புகைப்படங்களை/வீடியோக்களை கேமராவிலிருந்து நீக்குகிறது"
 
-#: src/camera/ImportPage.vala:1852
+#: src/camera/ImportPage.vala:1849
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -1858,7 +1777,7 @@ msgid_plural "seconds"
 msgstr[0] "வினாடி"
 msgstr[1] "வினாடிகள்"
 
-#: src/Dialogs/Dialogs.vala:29
+#: src/Dialogs/Dialogs.vala:50
 #, c-format
 msgid "This will remove the tag \"%s\" from one photo.  Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
@@ -1866,12 +1785,12 @@ msgstr[0] "இதனால் ஒரு புகைப்படத்தில�
 msgstr[1] ""
 "இதனால் %2$d புகைப்படங்களிலிருந்து \"%1$s\" குறி நீக்கப்படும்.  தொடர வேண்டுமா?"
 
-#: src/Dialogs/Dialogs.vala:38
+#: src/Dialogs/Dialogs.vala:58
 #, fuzzy, c-format
 msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "இத்துடி தொகுப்பை நீக்கலாமா ? "
 
-#: src/Dialogs/Dialogs.vala:48
+#: src/Dialogs/Dialogs.vala:67
 #, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
@@ -1886,20 +1805,20 @@ msgstr[1] ""
 "டெவலப்பர்களை மாற்றினால் Shotwell இல் நீங்கள் இந்தப் புகைப்படங்களில் செய்த மாற்றங்கள் அனைத்தும் "
 "செயல்தவிர்க்கப்படும்"
 
-#: src/Dialogs/Dialogs.vala:52
+#: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
 msgstr "டெவலப்பரை மாற்று (_S)"
 
-#: src/Dialogs/Dialogs.vala:71
+#: src/Dialogs/Dialogs.vala:90
 msgid "Export Video"
 msgstr "வீடியோவை ஏற்றுமதி செய்"
 
-#: src/Dialogs/Dialogs.vala:75 src/Dialogs/Dialogs.vala:588
+#: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/direct/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "சேமி (_S)"
 
-#: src/Dialogs/Dialogs.vala:104
+#: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
 msgstr "_தேர்ந்தெடு"
 
@@ -1908,7 +1827,7 @@ msgstr "_தேர்ந்தெடு"
 #. if we can't copy an image over for editing in an external tool.
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:128
+#: src/Dialogs/Dialogs.vala:147
 #, fuzzy, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
@@ -1917,7 +1836,7 @@ msgstr ""
 "உங்களுக்கு %s இல் எழுதும் அனுமதி இல்லாததால் ஷாட்வெல்லால் இந்தப் புகைப்படத்தைத் திருத்த ஒரு "
 "கோப்பை உருவாக்க முடியவில்லை."
 
-#: src/Dialogs/Dialogs.vala:137
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1925,7 +1844,7 @@ msgstr ""
 "கோப்புப் பிழை காரணமாக இந்தப் புகைப்படத்தை ஏற்றுமதி செய்ய முடியவில்லை.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:143
+#: src/Dialogs/Dialogs.vala:162
 msgid ""
 "\n"
 "\n"
@@ -1935,36 +1854,36 @@ msgstr ""
 "\n"
 "ஏற்றுமதியைத் தொடர விரும்புகிறீர்களா?"
 
-#: src/Dialogs/Dialogs.vala:144
+#: src/Dialogs/Dialogs.vala:163
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "தொடரு (_t)"
 
-#: src/Dialogs/Dialogs.vala:154
+#: src/Dialogs/Dialogs.vala:173
 msgid "Save Details..."
 msgstr "விவரங்களைச் சேமி..."
 
-#: src/Dialogs/Dialogs.vala:155
+#: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
 msgstr "விவரங்களைச் சேமி"
 
-#: src/Dialogs/Dialogs.vala:170
+#: src/Dialogs/Dialogs.vala:189
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(இன்னும் %d)\n"
 
-#: src/Dialogs/Dialogs.vala:223
+#: src/Dialogs/Dialogs.vala:242
 msgid "Import Results Report"
 msgstr "முடிவுகள் அறிக்கையை இறக்குமதி செய்"
 
-#: src/Dialogs/Dialogs.vala:227
+#: src/Dialogs/Dialogs.vala:246
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "%d கோப்பை இறக்குமதி செய்ய முயற்சித்தது."
 msgstr[1] "%d கோப்புகளை இறக்குமதி செய்ய முயற்சித்தது."
 
-#: src/Dialogs/Dialogs.vala:230
+#: src/Dialogs/Dialogs.vala:249
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1974,31 +1893,31 @@ msgstr[1] "இவற்றில், %d கோப்புகளை வெற்
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:242
+#: src/Dialogs/Dialogs.vala:261
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "நகல் பிரதியாக இருந்த புகைப்படங்கள்/வீடியோக்கள் இறக்குமதி செய்யப்படவில்லை:"
 
-#: src/Dialogs/Dialogs.vala:246
+#: src/Dialogs/Dialogs.vala:265
 msgid "duplicates existing media item"
 msgstr "முன்பே உள்ள மீடியா உருப்படியை நகல் பிரதியெடுக்கும்"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:257
+#: src/Dialogs/Dialogs.vala:276
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "கேமரா பிழைகளின் காரணமாக இறக்குமதி செய்யப்படாத புகைப்படங்கள்/வீடியோக்கள்:"
 
-#: src/Dialogs/Dialogs.vala:260 src/Dialogs/Dialogs.vala:275
-#: src/Dialogs/Dialogs.vala:290 src/Dialogs/Dialogs.vala:306
-#: src/Dialogs/Dialogs.vala:321 src/Dialogs/Dialogs.vala:335
+#: src/Dialogs/Dialogs.vala:279 src/Dialogs/Dialogs.vala:294
+#: src/Dialogs/Dialogs.vala:309 src/Dialogs/Dialogs.vala:325
+#: src/Dialogs/Dialogs.vala:340 src/Dialogs/Dialogs.vala:354
 msgid "error message:"
 msgstr "பிழை செய்தி:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:290
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "புகைப்படங்கள் அல்லது வீடியோக்களாக அடையாளம் காணப்படாததால் இறக்குமதி செய்யப்படாத கோப்புகள்:"
@@ -2006,7 +1925,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:305
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -2018,7 +1937,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:301
+#: src/Dialogs/Dialogs.vala:320
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -2027,7 +1946,7 @@ msgstr ""
 "Shotwell இன் தரவகத்திற்கு நகலெடுக்க முடியாததால் இறக்குமதி செய்யப்படாத புகைப்படங்கள்/"
 "வீடியோக்கள்:"
 
-#: src/Dialogs/Dialogs.vala:305
+#: src/Dialogs/Dialogs.vala:324
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -2039,39 +1958,39 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:317
+#: src/Dialogs/Dialogs.vala:336
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "கோப்புகள் சிதைந்துள்ளதால் புகைப்படங்கள்/வீடியோக்கள் இறக்குமதி செய்யப்படவில்லை:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:332
+#: src/Dialogs/Dialogs.vala:351
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "மற்ற காரணங்களுக்காக இறக்குமதி செய்யப்படாத புகைப்படங்கள்/வீடியோக்கள்:"
 
-#: src/Dialogs/Dialogs.vala:352
+#: src/Dialogs/Dialogs.vala:371
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "1 நகல் பிரதி புகைப்படம் இறக்குமதி செய்யப்படவில்லை:\n"
 msgstr[1] "%d நகல் பிரதி புகைப்படங்கள் இறக்குமதி செய்யப்படவில்லை:\n"
 
-#: src/Dialogs/Dialogs.vala:355
+#: src/Dialogs/Dialogs.vala:374
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "1 நகல் பிரதி வீடியோ இறக்குமதி செய்யப்படவில்லை:\n"
 msgstr[1] "%d நகல் பிரதி வீடியோக்கள் இறக்குமதி செய்யப்படவில்லை:\n"
 
-#: src/Dialogs/Dialogs.vala:358
+#: src/Dialogs/Dialogs.vala:377
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "1 நகல் பிரதி புகைப்படம்/வீடியோ இறக்குமதி செய்யப்படவில்லை:\n"
 msgstr[1] "%d நகல் பிரதி புகைப்படங்கள்/வீடியோக்கள் இறக்குமதி செய்யப்படவில்லை:\n"
 
-#: src/Dialogs/Dialogs.vala:372
+#: src/Dialogs/Dialogs.vala:391
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
@@ -2080,7 +1999,7 @@ msgstr[0] ""
 msgstr[1] ""
 "கோப்பு அல்லது வன்பொருள் பிழை காரணமாக %d புகைப்படங்களின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:375
+#: src/Dialogs/Dialogs.vala:394
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -2089,7 +2008,7 @@ msgstr[0] ""
 msgstr[1] ""
 "கோப்பு அல்லது வன்பொருள் பிழை காரணமாக %d வீடியோக்களின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:378
+#: src/Dialogs/Dialogs.vala:397
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -2101,7 +2020,7 @@ msgstr[1] ""
 "கோப்பு அல்லது வன்பொருள் பிழை காரணமாக  %d புகைப்படங்கள்/வீடியோக்களின் இறக்குமதி "
 "தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:400
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
@@ -2109,7 +2028,7 @@ msgstr[0] "கோப்பு அல்லது வன்பொருள் ப
 msgstr[1] ""
 "கோப்பு அல்லது வன்பொருள் பிழை காரணமாக %d கோப்புகளின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:395
+#: src/Dialogs/Dialogs.vala:414
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -2123,7 +2042,7 @@ msgstr[1] ""
 "புகைப்படத் தரவகக் கோப்புறையில் எழுத முடியாத நிலை காரணமாக %d புகைப்படங்களின் இறக்குமதி "
 "தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:398
+#: src/Dialogs/Dialogs.vala:417
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -2137,7 +2056,7 @@ msgstr[1] ""
 "புகைப்படத் தரவகக் கோப்புறையில் எழுத முடியாத நிலை காரணமாக %d வீடியோக்களின் இறக்குமதி "
 "தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:420
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -2152,7 +2071,7 @@ msgstr[1] ""
 "புகைப்படத் தரவகக் கோப்புறையில் எழுத முடியாத நிலை காரணமாக %d புகைப்படங்கள்/வீடியோக்களின் "
 "இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:423
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -2166,21 +2085,21 @@ msgstr[1] ""
 "புகைப்படத் தரவகக் கோப்புறையில் எழுத முடியாத நிலை காரணமாக %d கோப்புகளின் இறக்குமதி "
 "தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:418
+#: src/Dialogs/Dialogs.vala:437
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "கேமரா பிழை காரணமாக 1 புகைப்படத்தின் இறக்குமதி தோல்வியடைந்தது:\n"
 msgstr[1] "கேமரா பிழை காரணமாக %d புகைப்படங்களின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:421
+#: src/Dialogs/Dialogs.vala:440
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "கேமரா பிழை காரணமாக 1 வீடியோவின் இறக்குமதி தோல்வியடைந்தது:\n"
 msgstr[1] "கேமரா பிழை காரணமாக %d வீடியோக்களின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:443
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
@@ -2188,28 +2107,28 @@ msgstr[0] "கேமரா பிழை காரணமாக 1 புகைப�
 msgstr[1] ""
 "கேமரா பிழை காரணமாக %d புகைப்படங்கள்/வீடியோக்களின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:446
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "கேமரா பிழை காரணமாக 1 கோப்பின் இறக்குமதி தோல்வியடைந்தது:\n"
 msgstr[1] "கேமரா பிழை காரணமாக %d கோப்புகளின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:441
+#: src/Dialogs/Dialogs.vala:460
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "1 புகைப்படம் சிதைந்திருந்ததால், அதன் இறக்குமதி தோல்வியடைந்தது:\n"
 msgstr[1] "%d புகைப்படங்கள் சிதைந்திருந்ததால், அவற்றின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:444
+#: src/Dialogs/Dialogs.vala:463
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "1 வீடியோ சிதைந்திருந்ததால், அதன் இறக்குமதி தோல்வியடைந்தது:\n"
 msgstr[1] "%d வீடியோக்கள் சிதைந்திருந்ததால், அவற்றின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:466
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
@@ -2217,7 +2136,7 @@ msgstr[0] "1 புகைப்படம்/வீடியோ சிதைந�
 msgstr[1] ""
 "%d புகைப்படங்கள்/வீடியோக்கள் சிதைந்திருந்ததால், அவற்றின் இறக்குமதி தோல்வியடைந்தது:\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:469
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -2228,7 +2147,7 @@ msgstr[1] "%d கோப்புகள் சிதைந்திருந்�
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:467
+#: src/Dialogs/Dialogs.vala:486
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -2237,56 +2156,56 @@ msgstr[1] "ஆதரிக்கப்படாத %d புகைப்பட�
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:482
+#: src/Dialogs/Dialogs.vala:501
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "படமல்லாத 1 கோப்பு தவிர்க்கப்பட்டது.\n"
 msgstr[1] "படமல்லாத %d கோப்புகள் தவிர்க்கப்பட்டன.\n"
 
-#: src/Dialogs/Dialogs.vala:493
+#: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "பயனர் ரத்து செய்ததால் 1 புகைப்படம் தவிர்க்கப்பட்டது:\n"
 msgstr[1] "பயனர் ரத்து செய்ததால்  %d புகைப்படங்கள் தவிர்க்கப்பட்டன:\n"
 
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "பயனர் ரத்துசெய்ததால் 1 வீடியோ தவிர்க்கப்பட்டது:\n"
 msgstr[1] "பயனர் ரத்துசெய்ததால் %d வீடியோக்கள் தவிர்க்கப்பட்டன:\n"
 
-#: src/Dialogs/Dialogs.vala:499
+#: src/Dialogs/Dialogs.vala:518
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "பயனர் ரத்து செய்ததால் 1 புகைப்படம்/வீடியோ தவிர்க்கப்பட்டது:\n"
 msgstr[1] "பயனர் ரத்து செய்ததால் %d புகைப்படங்கள்/வீடியோக்கள் தவிர்க்கப்பட்டன:\n"
 
-#: src/Dialogs/Dialogs.vala:502
+#: src/Dialogs/Dialogs.vala:521
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "பயனர் ரத்து செய்ததால் 1 கோப்பு தவிர்க்கப்பட்டது:\n"
 msgstr[1] "பயனர் ரத்து செய்ததால்  %d கோப்பு தவிர்க்கப்பட்டது:\n"
 
-#: src/Dialogs/Dialogs.vala:516
+#: src/Dialogs/Dialogs.vala:535
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 புகைப்படம் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டது.\n"
 msgstr[1] "%d புகைப்படங்கள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டன.\n"
 
-#: src/Dialogs/Dialogs.vala:519
+#: src/Dialogs/Dialogs.vala:538
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "1 வீடியோ வெற்றிகரமாக இறக்குமதி செய்யப்பட்டது.\n"
 msgstr[1] "%d வீடியோக்கள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டன.\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:541
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -2295,42 +2214,42 @@ msgstr[1] "%d புகைப்படங்கள்/வீடியோக்�
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:538
+#: src/Dialogs/Dialogs.vala:557
 msgid "No photos or videos imported.\n"
 msgstr "புகைப்படங்கள் அல்லது வீடியோக்கள் இறக்குமதி செய்யப்படவில்லை.\n"
 
-#: src/Dialogs/Dialogs.vala:545 src/Dialogs/Dialogs.vala:564
+#: src/Dialogs/Dialogs.vala:564 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "இறக்குமதி முடிந்தது"
 
-#: src/Dialogs/Dialogs.vala:549
+#: src/Dialogs/Dialogs.vala:568
 msgid "_Done"
 msgstr "முடிவுற்றது"
 
 #. Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
-#: src/Dialogs/Dialogs.vala:736 src/searches/SavedSearchDialog.vala:578
+#: src/Dialogs/Dialogs.vala:755 src/searches/SavedSearchDialog.vala:578
 msgid "Name:"
 msgstr "பெயர்:"
 
-#: src/Dialogs/Dialogs.vala:748
+#: src/Dialogs/Dialogs.vala:767
 msgid "_Delete File"
 msgid_plural "_Delete Files"
 msgstr[0] "கோப்பை அழி"
 msgstr[1] "கோப்புகளை அழி"
 
-#: src/Dialogs/Dialogs.vala:752
+#: src/Dialogs/Dialogs.vala:771
 msgid "Only _Remove"
 msgstr "அகற்று"
 
-#: src/Dialogs/Dialogs.vala:795
+#: src/Dialogs/Dialogs.vala:814
 msgid "Revert External Edit?"
 msgstr "வெளியே செய்த மாற்றங்களை ரத்து செய்து மீட்டமைக்கவா?"
 
-#: src/Dialogs/Dialogs.vala:795
+#: src/Dialogs/Dialogs.vala:814
 msgid "Revert External Edits?"
 msgstr "வெளியே செய்த மாற்றங்களை ரத்து செய்து மீட்டமைக்கவா?"
 
-#: src/Dialogs/Dialogs.vala:797
+#: src/Dialogs/Dialogs.vala:816
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -2340,34 +2259,34 @@ msgstr[0] ""
 msgstr[1] ""
 "இதனால் வெளியே உள்ள %d கோப்ப்புகளில் செய்த மாற்றங்கள் அனைத்தும் கைவிடப்படும். தொடர வேண்டுமா?"
 
-#: src/Dialogs/Dialogs.vala:801
+#: src/Dialogs/Dialogs.vala:820
 msgid "Re_vert External Edit"
 msgstr "வெளியே செய்த மாற்றங்களை ரத்து செய்து மீட்டமை (_v)"
 
-#: src/Dialogs/Dialogs.vala:801
+#: src/Dialogs/Dialogs.vala:820
 msgid "Re_vert External Edits"
 msgstr "வெளியே செய்த மாற்றங்களை ரத்து செய்து மீட்டமைக்கவா (_v)"
 
-#: src/Dialogs/Dialogs.vala:822
+#: src/Dialogs/Dialogs.vala:841
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "இதனால் புகைப்படம் தரவகத்திலிருந்து நீக்கப்படும். தொடர வேண்டுமா?"
 msgstr[1] "இதனால் %d புகைப்படங்கள் தரவகத்திலிருந்து நீக்கப்படும். தொடர வேண்டுமா?"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:848
 msgid "_Remove"
 msgstr "நீக்கு (_R)"
 
-#: src/Dialogs/Dialogs.vala:830
+#: src/Dialogs/Dialogs.vala:849
 msgid "Remove Photo From Library"
 msgstr "புகைப்படத்தை தரவகத்திலிருந்து நீக்கு"
 
-#: src/Dialogs/Dialogs.vala:830
+#: src/Dialogs/Dialogs.vala:849
 msgid "Remove Photos From Library"
 msgstr "புகைப்படங்களை தரவகத்திலிருந்து நீக்கு"
 
-#: src/Dialogs/Dialogs.vala:850
+#: src/Dialogs/Dialogs.vala:869
 #, c-format
 msgid ""
 "\n"
@@ -2388,7 +2307,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:891
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -2397,24 +2316,24 @@ msgstr ""
 "ஷாட்வெல் புகைப்படங்களை உங்கள் தரவகத்திற்கு நகலெடுக்க முடியும் அல்லது நகலெடுக்காமலும் "
 "இறக்குமதி செய்ய முடியும்."
 
-#: src/Dialogs/Dialogs.vala:877
+#: src/Dialogs/Dialogs.vala:896
 msgid "Co_py Photos"
 msgstr "புகைப்படங்களை நகலெடு (_p)"
 
-#: src/Dialogs/Dialogs.vala:878
+#: src/Dialogs/Dialogs.vala:897
 msgid "_Import in Place"
 msgstr "இங்கு இறக்குமதி செய் (_I)"
 
-#: src/Dialogs/Dialogs.vala:879
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "தரவகத்திற்கு இறக்குமதி செய்"
 
-#: src/Dialogs/Dialogs.vala:890
+#: src/Dialogs/Dialogs.vala:909
 msgid "Removing Photos From Library"
 msgstr "தரவகத்திலிருந்து புகைப்படங்களை நீக்குகிறது"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:926
+#: src/Dialogs/Dialogs.vala:945
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2491,7 +2410,7 @@ msgid "Plugins"
 msgstr "செருகு நிரல்கள்"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:68
-#: src/publishing/PublishingUI.vala:509
+#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "மூடு (_C)"
 
@@ -2557,27 +2476,27 @@ msgstr "ஒரு நகலைச் சேமி (_S)"
 msgid "Lose changes to %s?"
 msgstr "%s இல் செய்த மாற்றங்களை கைவிடவா?"
 
-#: src/direct/DirectPhotoPage.vala:318
+#: src/direct/DirectPhotoPage.vala:324
 msgid "Close _without Saving"
 msgstr "சேமிக்காமல் மூடு (_w)"
 
-#: src/direct/DirectPhotoPage.vala:352
+#: src/direct/DirectPhotoPage.vala:364
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s இல் சேமிக்கும் போது ஒரு பிழை: %s"
 
-#: src/direct/DirectPhotoPage.vala:382 src/direct/DirectPhotoPage.vala:403
+#: src/direct/DirectPhotoPage.vala:394 src/direct/DirectPhotoPage.vala:415
 msgid "Save As"
 msgstr "இப்படி சேமி"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:404 src/library/LibraryWindow.vala:567
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:570
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "களை"
 
 #. Add close button.
-#: src/direct/DirectPhotoPage.vala:405 src/searches/SavedSearchDialog.vala:552
+#: src/direct/DirectPhotoPage.vala:417 src/searches/SavedSearchDialog.vala:552
 msgid "Save"
 msgstr "சேமி"
 
@@ -2773,27 +2692,27 @@ msgstr "நிகழ்வுகளை ஒன்றாக்கு (_M)"
 msgid "Display the comment of each event"
 msgstr "ஒவ்வொரு நிகழ்வுக்கும் கருத்தைக் காட்டு"
 
-#: src/events/EventsDirectoryPage.vala:255
+#: src/events/EventsDirectoryPage.vala:254
 msgid "No events"
 msgstr "நிகழ்வுகள் இல்லை"
 
-#: src/events/EventsDirectoryPage.vala:259
+#: src/events/EventsDirectoryPage.vala:258
 msgid "No events found"
 msgstr "நிகழ்வுகள் இல்லை"
 
-#: src/events/EventsDirectoryPage.vala:319
+#: src/events/EventsDirectoryPage.vala:318
 msgid "Events"
 msgstr "நிகழ்வுகள்"
 
-#: src/events/EventsDirectoryPage.vala:333
+#: src/events/EventsDirectoryPage.vala:332
 msgid "Undated"
 msgstr "புதுப்பிக்கப்பட்டது"
 
-#: src/events/EventsDirectoryPage.vala:334
+#: src/events/EventsDirectoryPage.vala:333
 msgid "%Y"
 msgstr "%Y"
 
-#: src/events/EventsDirectoryPage.vala:335
+#: src/events/EventsDirectoryPage.vala:334
 #, fuzzy
 msgid "%OB"
 msgstr "%B"
@@ -2827,38 +2746,38 @@ msgstr "%s ஐ இறக்குமதி செய்தது"
 msgid "Last Import"
 msgstr "கடைசி இறக்குமதி"
 
-#: src/library/LibraryWindow.vala:214
+#: src/library/LibraryWindow.vala:160
 msgid "_Import From Folder…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:218
+#: src/library/LibraryWindow.vala:164
 msgid "_Preferences"
 msgstr "விருப்பத்தேர்வுகள் (_P)"
 
-#: src/library/LibraryWindow.vala:228
+#: src/library/LibraryWindow.vala:174
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:298 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "புது துடி தொகுப்பு…"
 
-#: src/library/LibraryWindow.vala:321
+#: src/library/LibraryWindow.vala:324
 msgid "Display the sidebar"
 msgstr "பக்கப்பட்டியைக் காண்பி"
 
-#: src/library/LibraryWindow.vala:566
+#: src/library/LibraryWindow.vala:569
 msgid "Import From Folder"
 msgstr "கோப்புறையிலிருந்து இறக்குமதி செய்"
 
-#: src/library/LibraryWindow.vala:568
+#: src/library/LibraryWindow.vala:571
 msgid "Import"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:731
+#: src/library/LibraryWindow.vala:734
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2867,48 +2786,48 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:734
+#: src/library/LibraryWindow.vala:738
 msgid "_Import"
 msgstr "இறக்குமதி (_I)"
 
-#: src/library/LibraryWindow.vala:734
+#: src/library/LibraryWindow.vala:739
 msgid "Library Location"
 msgstr "தரவகத்தின் இருப்பிடம்"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:747
+#: src/library/LibraryWindow.vala:753
 msgid "Photos cannot be imported from this directory."
 msgstr "புகைப்படங்களை இந்த கோப்பகத்திற்கு இறக்குமதி செய்ய முடியாது."
 
-#: src/library/LibraryWindow.vala:974 src/library/LibraryWindow.vala:985
+#: src/library/LibraryWindow.vala:980 src/library/LibraryWindow.vala:991
 msgid "Updating library…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:991
+#: src/library/LibraryWindow.vala:997
 msgid "Preparing to auto-import photos…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:996
+#: src/library/LibraryWindow.vala:1002
 msgid "Auto-importing photos…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1004
+#: src/library/LibraryWindow.vala:1010
 msgid "Writing metadata to files…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1160
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1160
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1161
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1161
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr ""
 
@@ -2916,7 +2835,7 @@ msgstr ""
 msgid "Missing Files"
 msgstr "இல்லாத கோப்புகள்"
 
-#: src/library/OfflinePage.vala:202
+#: src/library/OfflinePage.vala:201
 msgid "Deleting..."
 msgstr "நீக்குகிறது..."
 
@@ -2954,21 +2873,21 @@ msgstr ""
 msgid "Delete all photos in the trash"
 msgstr "குப்பைத்தொட்டியில் உள்ள அனைத்து புகைப்படங்களையும் நீக்கு"
 
-#: src/library/TrashPage.vala:291 src/library/TrashPage.vala:292
+#: src/library/TrashPage.vala:288 src/library/TrashPage.vala:289
 msgid "Trash is empty"
 msgstr "குப்பைத்தொட்டி காலியாக உள்ளது"
 
-#: src/library/TrashPage.vala:297
+#: src/library/TrashPage.vala:294
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "இப்படத்தை நீக்க"
 msgstr[1] "படங்க்ளை நீக்க"
 
-#: src/library/TrashPage.vala:305
+#: src/library/TrashPage.vala:302
 msgid "Empty Trash"
 msgstr "குப்பைத்தொட்டியைக் காலி செய்"
 
-#: src/library/TrashPage.vala:305
+#: src/library/TrashPage.vala:302
 msgid "Emptying Trash…"
 msgstr ""
 
@@ -3106,11 +3025,11 @@ msgstr "புகைப்படங்களையும் வீடியோ�
 
 #. There are no enabled publishing services that accept this media type,
 #. warn the user.
-#: src/publishing/PublishingUI.vala:405
+#: src/publishing/PublishingUI.vala:406
 msgid "Unable to publish"
 msgstr "வெளியிட முடியவில்லை"
 
-#: src/publishing/PublishingUI.vala:406
+#: src/publishing/PublishingUI.vala:407
 #, fuzzy, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
@@ -3431,45 +3350,45 @@ msgstr "இந்தக் கோப்பகத்திற்கு புக�
 msgid "Transition Effect"
 msgstr "மாற்ற விளைவுகள் (_T):"
 
-#: src/Widgets/CustomPrintTab.vala:46
+#: src/Widgets/CustomPrintTab.vala:45
 #, fuzzy
 msgid "Printed Image Size"
 msgstr "<b>அச்சிடப்பட்ட படத்தின் அளவு</b>"
 
-#: src/Widgets/CustomPrintTab.vala:50
+#: src/Widgets/CustomPrintTab.vala:49
 msgid "Use a _standard size:"
 msgstr "ஒரு தரநிலையான அளவைப் பயன்படுத்தவும் (_s):"
 
-#: src/Widgets/CustomPrintTab.vala:53
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a c_ustom size:"
 msgstr "ஒரு தனிப்பயன் அளவைப் பயன்படுத்தவும் (_u):"
 
-#: src/Widgets/CustomPrintTab.vala:56
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "_Autosize:"
 msgstr "தானாக அமைக்கப்படும் அளவு (_A):"
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:92
 msgid "in."
 msgstr "அங்."
 
-#: src/Widgets/CustomPrintTab.vala:94
+#: src/Widgets/CustomPrintTab.vala:93
 msgid "cm"
 msgstr "செமீ"
 
-#: src/Widgets/CustomPrintTab.vala:104
+#: src/Widgets/CustomPrintTab.vala:103
 msgid "_Match photo aspect ratio"
 msgstr "புகைப்பட காட்சிப் பாங்கு விகிதத்தைப் பொருந்தச்செய் (_M)"
 
-#: src/Widgets/CustomPrintTab.vala:106
+#: src/Widgets/CustomPrintTab.vala:105
 #, fuzzy
 msgid "Titles"
 msgstr "தலைப்புகள் (_T)"
 
-#: src/Widgets/CustomPrintTab.vala:110
+#: src/Widgets/CustomPrintTab.vala:109
 msgid "Print image _title"
 msgstr "படத்தின் தலைப்பை அச்சிடு (_t)"
 
-#: src/Widgets/CustomPrintTab.vala:116
+#: src/Widgets/CustomPrintTab.vala:115
 #, fuzzy
 msgid "Pixel Resolution"
 msgstr "<b>பிக்சல் தெளிவுத்திறன்</b>"
@@ -4188,6 +4107,63 @@ msgstr "சதுரங்கம்"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ப்ளைன்ட்ஸ்"
+
+#~ msgid "_View"
+#~ msgstr "காண்பி (_V)"
+
+#~ msgid "T_ools"
+#~ msgstr "கருவிகள் (_o)"
+
+#~ msgid "_Previous Photo"
+#~ msgstr "முந்தைய புகைப்படம் (_P)"
+
+#~ msgid "Previous Photo"
+#~ msgstr "முந்தைய புகைப்படம்"
+
+#~ msgid "_Next Photo"
+#~ msgstr "அடுத்த புகைப்படம் (_N)"
+
+#~ msgid "Next Photo"
+#~ msgstr "அடுத்த புகைப்படம்"
+
+#~ msgid "Zoom _In"
+#~ msgstr "பெரிதாக்கு (_I)"
+
+#~ msgid "Increase the magnification of the photo"
+#~ msgstr "புகைப்படத்தின் உருப்பெருக்கத்தை அதிகரி"
+
+#~ msgid "Zoom _Out"
+#~ msgstr "சிறிதாக்கு (_O)"
+
+#~ msgid "Decrease the magnification of the photo"
+#~ msgstr "புகைப்படத்தின் உருப்பெருக்கத்தைக் குறை"
+
+#~ msgid "Fit to _Page"
+#~ msgstr "பக்கத்திற்குப் பொருத்து (_P)"
+
+#~ msgid "Zoom the photo to fit on the screen"
+#~ msgstr "திரையில் பொருந்தும்படி புகைப்படத்தைப் பெரிதாக்கு"
+
+#~ msgid "Zoom _100%"
+#~ msgstr "100% பெரிதாக்கு (_1)"
+
+#~ msgid "Zoom the photo to 100% magnification"
+#~ msgstr "புகைப்படத்தை 100 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
+
+#~ msgid "Zoom _200%"
+#~ msgstr "200% க்குப் பெரிதாக்கு (_2)"
+
+#~ msgid "Zoom the photo to 200% magnification"
+#~ msgstr "புகைப்படத்தை 200 சதவீத உருப்பெருக்கத்திற்குப் பெரிதாக்கு"
+
+#~ msgid "Increase the magnification of the thumbnails"
+#~ msgstr "சிறுபடங்களின் உருப்பெருக்கத்தை அதிகரி"
+
+#~ msgid "Decrease the magnification of the thumbnails"
+#~ msgstr "சிறுபடங்களின் உருப்பெருக்கத்தைக் குறை"
+
+#~ msgid "Shotwell"
+#~ msgstr "ஷாட்வெல்"
 
 #~ msgid "_Quit"
 #~ msgstr "_விலகு"
