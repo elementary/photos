@@ -157,7 +157,7 @@ class SlideshowPage : SinglePhotoPage {
 
                 // An entire slideshow set might be missing, so check for a loop.
                 if ((next == start && next != current) || next == current) {
-                    AppWindow.error_message (_ ("All photo source files are missing."), get_container ());
+                    AppWindow.error_message (_("All photo source files are missing."), null, get_container ());
                     AppWindow.get_instance ().end_fullscreen ();
 
                     next = null;
