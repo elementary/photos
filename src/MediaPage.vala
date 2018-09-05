@@ -17,21 +17,12 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class MediaSourceItem : CheckerboardItem {
-    // preserve the same constructor arguments and semantics as CheckerboardItem so that we're
-    // a drop-in replacement
-    public MediaSourceItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title,
-                            string? comment, bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
-        base (source, initial_pixbuf_dim, title, comment, marked_up, alignment);
-    }
-}
-
 public abstract class MediaPage : CheckerboardPage {
-    public const int SORT_ORDER_ASCENDING = 0;
-    public const int SORT_ORDER_DESCENDING = 1;
+    private const int SORT_ORDER_ASCENDING = 0;
+    private const int SORT_ORDER_DESCENDING = 1;
     public const int MANUAL_STEPPING = 16;
 
-    public enum SortBy {
+    private enum SortBy {
         MIN = 1,
         TITLE = 1,
         EXPOSURE_DATE = 2,
@@ -44,23 +35,20 @@ public abstract class MediaPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     protected GLib.Settings ui_settings;
 
-    construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    public MediaPage (string page_name) {
+        Object (page_name: page_name);
     }
 
-    public MediaPage (string page_name) {
-        base (page_name);
+    construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
 
         get_view ().freeze_notifications ();
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES,
-                                 ui_settings.get_boolean ("display-photo-titles"));
-        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS,
-                                 ui_settings.get_boolean ("display-photo-comments"));
-        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS,
-                                 ui_settings.get_boolean ("display-photo-tags"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_TITLES, ui_settings.get_boolean ("display-photo-titles"));
+        get_view ().set_property (CheckerboardItem.PROP_SHOW_COMMENTS, ui_settings.get_boolean ("display-photo-comments"));
+        get_view ().set_property (Thumbnail.PROP_SHOW_TAGS, ui_settings.get_boolean ("display-photo-tags"));
         get_view ().set_property (Thumbnail.PROP_SIZE, get_thumb_size ());
 
         get_view ().thaw_notifications ();
@@ -165,14 +153,16 @@ public abstract class MediaPage : CheckerboardPage {
             sort_menu_item.set_submenu (sort_menu);
 
             var fullscreen_menu_item = new Gtk.MenuItem.with_mnemonic (_("Fulls_creen"));
-            var fullscreen_action = get_common_action ("CommonFullscreen");
-            fullscreen_action.bind_property ("sensitive", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
+
+            var fullscreen_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN);
+            fullscreen_action.bind_property ("enabled", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate (null));
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
-            var select_action = get_common_action ("CommonSelectAll");
-            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            select_menu_item.activate.connect (() => select_action.activate ());
+
+            var select_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL);
+            select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate (null));
 
             page_context_menu.add (sidebar_menu_item);
             page_context_menu.add (metadata_menu_item);
@@ -205,60 +195,31 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
+        Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
+        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
+        Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
+        Gtk.ActionEntry new_event = { "NewEvent", null, null, "<Ctrl>N", null, on_new_event };
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus",  null, on_increase_size };
+        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, null, "<Ctrl>minus", null, on_decrease_size };
+        Gtk.ActionEntry flag = { "Flag", null, null, "<Ctrl>G", null, on_flag_unflag };
+        Gtk.ActionEntry sort_photos = { "SortPhotos", null, null, null, null, null };
+        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, null, null, null, null };
+        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, null, null, null, null };
+        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, null, null, null, on_raw_developer_shotwell };
+        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, null, null, null, on_raw_developer_camera };
+
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-
-        Gtk.ActionEntry export = { "Export", null, Resources.EXPORT_MENU, "<Ctrl><Shift>E",
-                                   Resources.EXPORT_MENU, on_export
-                                 };
         actions += export;
-
-        Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, Resources.REMOVE_FROM_LIBRARY_MENU,
-                                                "<Shift>Delete", Resources.REMOVE_FROM_LIBRARY_MENU, on_remove_from_library
-                                              };
         actions += remove_from_library;
-
-        Gtk.ActionEntry move_to_trash = { "MoveToTrash", "user-trash-full", Resources.MOVE_TO_TRASH_MENU, "Delete",
-                                          Resources.MOVE_TO_TRASH_MENU, on_move_to_trash
-                                        };
         actions += move_to_trash;
-
-        Gtk.ActionEntry new_event = { "NewEvent", null, Resources.NEW_EVENT_MENU, "<Ctrl>N",
-                                      Resources.NEW_EVENT_MENU, on_new_event
-                                    };
         actions += new_event;
-
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, _("Zoom _In"),
-                                          "<Ctrl>plus",  _("Increase the magnification of the thumbnails"), on_increase_size
-                                        };
         actions += increase_size;
-
-        Gtk.ActionEntry decrease_size = { "DecreaseSize", null, _("Zoom _Out"),
-                                          "<Ctrl>minus", _("Decrease the magnification of the thumbnails"), on_decrease_size
-                                        };
         actions += decrease_size;
-
-        Gtk.ActionEntry flag = { "Flag", null, Resources.FLAG_MENU, "<Ctrl>G", Resources.FLAG_MENU, on_flag_unflag };
         actions += flag;
-
-        Gtk.ActionEntry sort_photos = { "SortPhotos", null, _("Sort _Photos"), null, null, null };
         actions += sort_photos;
-
-        Gtk.ActionEntry filter_photos = { "FilterPhotos", null, Resources.FILTER_PHOTOS_MENU, null, null, null };
         actions += filter_photos;
-
-        Gtk.ActionEntry raw_developer = { "RawDeveloper", null, _("_Developer"), null, null, null };
         actions += raw_developer;
-
-        // RAW developers.
-
-        Gtk.ActionEntry dev_shotwell = { "RawDeveloperShotwell", null, _("Shotwell"), null, _("Shotwell"),
-                                         on_raw_developer_shotwell
-                                       };
         actions += dev_shotwell;
-
-        Gtk.ActionEntry dev_camera = { "RawDeveloperCamera", null, _("Camera"), null, _("Camera"),
-                                       on_raw_developer_camera
-                                     };
         actions += dev_camera;
 
         return actions;
@@ -442,7 +403,7 @@ public abstract class MediaPage : CheckerboardPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Video? video = get_view ().get_selected_at (0).get_source () as Video;
+        Video? video = get_view ().get_selected_at (0).source as Video;
         if (video == null)
             return;
 
@@ -647,11 +608,11 @@ public abstract class MediaPage : CheckerboardPage {
         set_config_photos_sort (sort_order, sort_by);
     }
 
-    public void on_raw_developer_shotwell (Gtk.Action action) {
+    private void on_raw_developer_shotwell (Gtk.Action action) {
         developer_changed (RawDeveloper.SHOTWELL);
     }
 
-    public void on_raw_developer_camera (Gtk.Action action) {
+    private void on_raw_developer_camera (Gtk.Action action) {
         developer_changed (RawDeveloper.CAMERA);
     }
 
@@ -667,7 +628,7 @@ public abstract class MediaPage : CheckerboardPage {
         // Make a list of all photos that need their developer changed.
         Gee.ArrayList<DataView> to_set = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo? p = view.get_source () as Photo;
+            Photo? p = view.source as Photo;
             if (p != null && (!rd.is_equivalent (p.get_raw_developer ()))) {
                 to_set.add (view);
 
@@ -792,7 +753,7 @@ public abstract class MediaPage : CheckerboardPage {
         base.destroy ();
     }
 
-    public void increase_zoom_level () {
+    private void increase_zoom_level () {
         if (connected_slider != null) {
             connected_slider.increase_step ();
         } else {
@@ -802,7 +763,7 @@ public abstract class MediaPage : CheckerboardPage {
         }
     }
 
-    public void decrease_zoom_level () {
+    private void decrease_zoom_level () {
         if (connected_slider != null) {
             connected_slider.decrease_step ();
         } else {
@@ -818,7 +779,7 @@ public abstract class MediaPage : CheckerboardPage {
 
     // this is a view-level operation on this page only; it does not affect the persistent global
     // thumbnail scale
-    public void set_thumb_size (int new_scale) {
+    private void set_thumb_size (int new_scale) {
         if (get_thumb_size () == new_scale || !is_in_view ())
             return;
 
@@ -834,7 +795,7 @@ public abstract class MediaPage : CheckerboardPage {
         set_action_sensitive ("DecreaseSize", new_scale > Thumbnail.MIN_SCALE);
     }
 
-    public int get_thumb_size () {
+    private int get_thumb_size () {
         if (get_checkerboard_layout ().get_scale () <= 0)
             get_checkerboard_layout ().set_scale (ui_settings.get_int ("photo-thumbnail-scale"));
 

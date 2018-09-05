@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2011-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2011-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -135,7 +136,6 @@ public class Sidebar.Tree : Gtk.TreeView {
 
         set_headers_visible (false);
         set_enable_search (false);
-        set_rules_hint (false);
         set_show_expanders (true);
         set_reorderable (false);
         set_enable_tree_lines (false);
@@ -817,8 +817,8 @@ public class Sidebar.Tree : Gtk.TreeView {
     private Gtk.TreePath? get_path_from_event (Gdk.EventButton event) {
         int x, y;
         Gdk.ModifierType mask;
-        event.window.get_device_position (Gdk.Display.get_default ().get_device_manager ().
-                                          get_client_pointer (), out x, out y, out mask);
+        var seat = event.get_seat ();
+        event.window.get_device_position (seat.get_pointer (), out x, out y, out mask);
 
         int cell_x, cell_y;
         Gtk.TreePath path;
@@ -865,10 +865,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         if (context_menu == null)
             return false;
 
-        if (event != null)
-            context_menu.popup (null, null, null, event.button, event.time);
-        else
-            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
+        context_menu.popup_at_pointer (event);
 
         return true;
     }
@@ -888,7 +885,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             default_context_menu.show_all ();
         }
 
-        default_context_menu.popup (null, null, null, event.button, event.time);
+        default_context_menu.popup_at_pointer (event);
         return true;
     }
 

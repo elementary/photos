@@ -17,18 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class CollectionViewManager : ViewManager {
-    private CollectionPage page;
-
-    public CollectionViewManager (CollectionPage page) {
-        this.page = page;
-    }
-
-    public override DataView create_view (DataSource source) {
-        return page.create_thumbnail (source);
-    }
-}
-
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
 
@@ -261,7 +249,7 @@ public abstract class CollectionPage : MediaPage {
 
         populate_external_app_menu (open_menu, false);
 
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
@@ -349,6 +337,20 @@ public abstract class CollectionPage : MediaPage {
         return actions;
     }
 
+    public void set_action_details (string name, string? label, string? tooltip, bool sensitive) {
+        Gtk.Action? action = get_action (name);
+        if (action == null)
+            return;
+
+        if (label != null)
+            action.label = label;
+
+        if (tooltip != null)
+            action.tooltip = tooltip;
+
+        action.sensitive = sensitive;
+    }
+
     private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
         SortedList<AppInfo> external_apps;
         string[] mime_types;
@@ -375,9 +377,9 @@ public abstract class CollectionPage : MediaPage {
             var jump_menu_item = new Gtk.MenuItem ();
             jump_menu_item.add (menuitem_grid);
 
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
+            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             menu.add (jump_menu_item);
         }
@@ -411,7 +413,7 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected_at (0).get_source () as Photo;
+        Photo? photo = get_view ().get_selected_at (0).source as Photo;
         try {
             AppWindow.get_instance ().set_busy_cursor ();
             photo.open_with_external_editor (app);
@@ -426,7 +428,7 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        Photo photo = (Photo) get_view ().get_selected_at (0).source;
         if (photo.get_master_file_format () != PhotoFileFormat.RAW)
             return;
 
@@ -454,15 +456,6 @@ public abstract class CollectionPage : MediaPage {
 
     protected override void init_actions (int selected_count, int count) {
         base.init_actions (selected_count, count);
-
-        set_action_short_label ("RotateClockwise", Resources.ROTATE_CW_LABEL);
-        set_action_short_label ("RotateCounterclockwise", Resources.ROTATE_CCW_LABEL);
-        set_action_short_label ("Publish", Resources.PUBLISH_LABEL);
-
-        set_action_important ("RotateClockwise", true);
-        set_action_important ("RotateCounterclockwise", true);
-        set_action_important ("Enhance", true);
-        set_action_important ("Publish", true);
     }
 
     protected override void update_actions (int selected_count, int count) {
@@ -473,7 +466,7 @@ public abstract class CollectionPage : MediaPage {
 
         bool primary_is_video = false;
         if (has_selected)
-            if (get_view ().get_selected_at (0).get_source () is Video)
+            if (get_view ().get_selected_at (0).source is Video)
                 primary_is_video = true;
 
         bool selection_has_videos = selection_has_video ();
@@ -486,12 +479,12 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("OpenWith", one_selected);
         set_action_visible ("OpenWithRaw",
                             one_selected && (!primary_is_video)
-                            && ((Photo) get_view ().get_selected_at (0).get_source ()).get_master_file_format () ==
+                            && ((Photo) get_view ().get_selected_at (0).source).get_master_file_format () ==
                             PhotoFileFormat.RAW);
         set_action_sensitive ("Revert", (!selection_has_videos) && can_revert_selected ());
         set_action_sensitive ("Enhance", (!selection_has_videos) && has_selected);
         set_action_sensitive ("CopyColorAdjustments", (!selection_has_videos) && one_selected &&
-                              ((Photo) get_view ().get_selected_at (0).get_source ()).has_color_adjustments ());
+                              ((Photo) get_view ().get_selected_at (0).source).has_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", (!selection_has_videos) && has_selected &&
                               PixelTransformationBundle.has_copied_color_adjustments ());
         set_action_sensitive ("RotateClockwise", (!selection_has_videos) && has_selected);
@@ -522,7 +515,7 @@ public abstract class CollectionPage : MediaPage {
             if (!view.is_selected () || !altered.get (view).has_subject ("image"))
                 continue;
 
-            LibraryPhoto? photo = view.get_source () as LibraryPhoto;
+            LibraryPhoto? photo = view.source as LibraryPhoto;
             if (photo == null)
                 continue;
 
@@ -538,7 +531,7 @@ public abstract class CollectionPage : MediaPage {
     private void update_enhance_toggled () {
         bool toggled = false;
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.get_source () as Photo;
+            Photo photo = view.source as Photo;
             if (photo != null && !photo.is_enhanced ()) {
                 toggled = false;
                 break;
@@ -796,7 +789,7 @@ public abstract class CollectionPage : MediaPage {
     public void on_copy_adjustments () {
         if (get_view ().get_selected_count () != 1)
             return;
-        Photo photo = (Photo) get_view ().get_selected_at (0).get_source ();
+        Photo photo = (Photo) get_view ().get_selected_at (0).source;
         PixelTransformationBundle.set_copied_color_adjustments (photo.get_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", true);
     }
@@ -822,7 +815,7 @@ public abstract class CollectionPage : MediaPage {
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.get_source () as Photo;
+            Photo photo = view.source as Photo;
             if (photo != null && !photo.is_enhanced ())
                 unenhanced_list.add (view);
             else if (photo != null)
@@ -842,7 +835,7 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.get_source () as Photo;
+                Photo photo = view.source as Photo;
                 photo.set_enhanced (false);
             }
         } else {
@@ -855,7 +848,7 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.get_source () as Photo;
+                Photo photo = view.source as Photo;
                 photo.set_enhanced (true);
             }
         }
@@ -879,13 +872,13 @@ public abstract class CollectionPage : MediaPage {
         bool only_videos_selected = true;
 
         foreach (DataView dv in get_view ().get_selected ()) {
-            if (dv.get_source () is Video)
+            if (dv.source is Video)
                 selected_has_videos = true;
             else
                 only_videos_selected = false;
         }
 
-        Dateable photo_source = (Dateable) get_view ().get_selected_at (0).get_source ();
+        Dateable photo_source = (Dateable) get_view ().get_selected_at (0).source;
 
         AdjustDateTimeDialog dialog = new AdjustDateTimeDialog (photo_source,
                 get_view ().get_selected_count (), true, selected_has_videos, only_videos_selected);

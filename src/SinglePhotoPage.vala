@@ -31,7 +31,6 @@ public abstract class SinglePhotoPage : Page {
     protected Gtk.DrawingArea canvas = new Gtk.DrawingArea ();
     protected Gtk.Viewport viewport = new Gtk.Viewport (null, null);
 
-    private bool scale_up_to_viewport;
     private TransitionClock transition_clock;
     private int transition_duration_msec = 0;
     private Cairo.Surface pixmap = null;
@@ -49,11 +48,16 @@ public abstract class SinglePhotoPage : Page {
     private bool has_saved_zoom_state = false;
     private uint32 last_nav_key = 0;
 
+    public bool scale_up_to_viewport { get; construct; }
+
     public SinglePhotoPage (string page_name, bool scale_up_to_viewport) {
-        base (page_name);
+        Object (
+            page_name: page_name,
+            scale_up_to_viewport: scale_up_to_viewport
+        );
+    }
 
-        this.scale_up_to_viewport = scale_up_to_viewport;
-
+    construct {
         transition_clock = TransitionEffectsManager.get_instance ().create_null_transition_clock ();
 
         // With the current code automatically resizing the image to the viewport, scrollbars
@@ -265,7 +269,7 @@ public abstract class SinglePhotoPage : Page {
     }
 
     public Scaling get_canvas_scaling () {
-        return (get_container () is FullscreenWindow) ? Scaling.for_screen (get_container (), scale_up_to_viewport)
+        return (get_container () is FullscreenWindow) ? Scaling.for_screen (AppWindow.get_instance (), scale_up_to_viewport)
                : Scaling.for_widget (viewport, scale_up_to_viewport);
     }
 

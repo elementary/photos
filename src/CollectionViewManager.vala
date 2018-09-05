@@ -17,25 +17,14 @@
 * Boston, MA 02110-1301 USA
 */
 
-int number_of_processors () {
-    int n = (int) Posix.sysconf (Linux._SC_NPROCESSORS_ONLN);
-    return n <= 0 ? 1 : n;
-}
+public class CollectionViewManager : ViewManager {
+    private CollectionPage page;
 
-// Return the directory in which Photos is installed, or null if uninstalled.
-File? get_sys_install_dir (File exec_dir) {
-    // guard against exec_dir being a symlink
-    File exec_dir1 = exec_dir;
-    try {
-        exec_dir1 = File.new_for_path (
-                        FileUtils.read_link ("/" + FileUtils.read_link (exec_dir.get_path ())));
-    } catch (FileError e) {
-        // exec_dir is not a symlink
+    public CollectionViewManager (CollectionPage page) {
+        this.page = page;
     }
-    File prefix_dir = File.new_for_path (Resources.PREFIX);
-    return exec_dir1.has_prefix (prefix_dir) ? prefix_dir : null;
-}
 
-int posix_wexitstatus (int status) {
-    return ((status & 0xff00) >> 8);
+    public override DataView create_view (DataSource source) {
+        return page.create_thumbnail (source);
+    }
 }

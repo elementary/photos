@@ -143,6 +143,33 @@ public class LibraryWindow : AppWindow {
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
+        top_display = new TopDisplay ();
+
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+
+        var settings_menu = new Gtk.Menu ();
+        settings_menu.add (import_menu_item);
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (preferences_menu_item);
+        settings_menu.show_all ();
+
+        var settings = new Gtk.MenuButton ();
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.tooltip_text = _("Settings");
+        settings.popup = settings_menu;
+        settings.show_all ();
+
+        header.pack_end (settings);
+        header.set_custom_title (top_display);
+
+        bind_property ("title", top_display, "title");
     }
 
     public LibraryWindow (ProgressMonitor progress_monitor) {
@@ -204,39 +231,6 @@ public class LibraryWindow : AppWindow {
         LibraryMonitorPool.get_instance ().monitor_destroyed.connect (on_library_monitor_destroyed);
 
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
-    }
-
-    protected override void build_header_bar () {
-        top_display = new TopDisplay ();
-
-        var import_menu_item = new Gtk.MenuItem ();
-        import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.label = _("_Import From Folder…");
-
-        var preferences_menu_item = new Gtk.MenuItem ();
-        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("_Preferences");
-
-        var settings_menu = new Gtk.Menu ();
-        settings_menu.add (import_menu_item);
-        settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (preferences_menu_item);
-        settings_menu.show_all ();
-
-        var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.tooltip_text = _("Settings");
-        settings.popup = settings_menu;
-        settings.show_all ();
-
-        header.pack_end (settings);
-        header.set_custom_title (top_display);
-        // Right side of header bar, before settings
-        base.build_header_bar ();
-
-        notify["title"].connect (() => {
-            top_display.title = title;
-        });
     }
 
     ~LibraryWindow () {
@@ -507,7 +501,7 @@ public class LibraryWindow : AppWindow {
             if (view.get_count () == 0)
                 return false;
 
-            Event? event = (Event? ) ((DataView) view.get_at (0)).get_source ();
+            Event? event = (Event? ) ((DataView) view.get_at (0)).source;
             if (event == null)
                 return false;
 
@@ -610,7 +604,8 @@ public class LibraryWindow : AppWindow {
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
-        set_common_action_sensitive ("CommonFullscreen", can_fullscreen);
+
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN)).set_enabled (can_fullscreen);
 
         base.update_common_actions (page, selected_count, count);
     }
@@ -726,11 +721,14 @@ public class LibraryWindow : AppWindow {
 
     private void dispatch_import_jobs (GLib.SList<string> uris, string job_name, bool copy_to_library) {
         if (AppDirs.get_import_dir ().get_path () == Environment.get_home_dir () && notify_library_is_home_dir) {
-            Gtk.ResponseType response = AppWindow.cancel_affirm_question (
-                                            _ ("Photos is configured to import photos to your home directory.\n" +
-                                               "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
-                                               "Do you want to continue importing photos?").printf ("▸"),
-                                            _ ("_Import"), _ ("Library Location"), AppWindow.get_instance ());
+            var response = AppWindow.cancel_affirm_question (
+                _("Photos is configured to import photos to your home directory.\n" +
+                    "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
+                    "Do you want to continue importing photos?"
+                ).printf ("▸"),
+                _("_Import"),
+                _("Library Location")
+            );
 
             if (response == Gtk.ResponseType.CANCEL)
                 return;
@@ -761,8 +759,8 @@ public class LibraryWindow : AppWindow {
     private Gdk.DragAction get_drag_action () {
         Gdk.ModifierType mask;
 
-        get_window ().get_device_position (Gdk.Display.get_default ().get_device_manager ()
-                                           .get_client_pointer (), null, null, out mask);
+        var seat = Gdk.Display.get_default ().get_default_seat ();
+        get_window ().get_device_position (seat.get_pointer (), null, null, out mask);
 
         bool ctrl = (mask & Gdk.ModifierType.CONTROL_MASK) != 0;
         bool alt = (mask & Gdk.ModifierType.MOD1_MASK) != 0;
@@ -1185,6 +1183,10 @@ public class LibraryWindow : AppWindow {
         }
 
         set_metadata_sidebar_visible (is_metadata_sidebar_visible ());
+
+        if (get_current_page () != null && !search_entry.has_focus) {
+            get_current_page ().grab_focus ();
+        }
     }
 
     private void on_page_created (Sidebar.PageRepresentative entry, Page page) {
@@ -1330,7 +1332,7 @@ public class LibraryWindow : AppWindow {
         } else {
             // having no page is unlikely, but set the good old default title
             // just in case
-            set_default_title ();
+            title = _(Resources.APP_TITLE);
         }
     }
 }

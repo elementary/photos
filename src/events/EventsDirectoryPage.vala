@@ -30,11 +30,11 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         }
 
         public override bool predicate (DataView view) {
-            assert (view.get_source () is Event);
+            assert (view.source is Event);
             if (is_string_empty (get_search_filter ()))
                 return true;
 
-            Event source = (Event) view.get_source ();
+            Event source = (Event) view.source;
             unowned string? event_keywords = source.get_indexable_keywords ();
             if (is_string_empty (event_keywords))
                 return false;
@@ -162,14 +162,16 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             sort_menu_item.set_submenu (sort_menu);
 
             var fullscreen_menu_item = new Gtk.MenuItem.with_mnemonic (_("Fulls_creen"));
-            var fullscreen_action = get_common_action ("CommonFullscreen");
-            fullscreen_action.bind_property ("sensitive", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate ());
+
+            var fullscreen_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN);
+            fullscreen_action.bind_property ("enabled", fullscreen_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            fullscreen_menu_item.activate.connect (() => fullscreen_action.activate (null));
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
-            var select_action = get_common_action ("CommonSelectAll");
-            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            select_menu_item.activate.connect (() => select_action.activate ());
+
+            var select_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL);
+            select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate (null));
 
             page_context_menu.add (sidebar_menu_item);
             page_context_menu.add (metadata_menu_item);
@@ -243,7 +245,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
 
     protected override void update_actions (int selected_count, int count) {
         set_action_sensitive ("Merge", selected_count > 1);
-        set_action_important ("Merge", true);
         set_action_sensitive ("Rename", selected_count == 1);
 
         base.update_actions (selected_count, count);

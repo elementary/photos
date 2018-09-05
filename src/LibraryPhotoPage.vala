@@ -21,7 +21,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private class LibraryPhotoPageViewFilter : ViewFilter {
         public override bool predicate (DataView view) {
-            return ! ((MediaSource) view.get_source ()).is_trashed ();
+            return ! ((MediaSource) view.source).is_trashed ();
         }
     }
 
@@ -92,7 +92,7 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     public bool not_trashed_view_filter (DataView view) {
-        return ! ((MediaSource) view.get_source ()).is_trashed ();
+        return ! ((MediaSource) view.source).is_trashed ();
     }
 
     private void on_photo_unlinking (Gee.Collection<DataSource> unlinking) {
@@ -342,7 +342,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected ().get (0).get_source () as Photo;
+        Photo? photo = get_view ().get_selected ().get (0).source as Photo;
         if (photo == null || rd.is_equivalent (photo.get_raw_developer ()))
             return;
 
@@ -459,10 +459,10 @@ public class LibraryPhotoPage : EditingHostPage {
 
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
-        set_action_sensitive ("CommonJumpToFile", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
-        set_action_sensitive ("CommonUndo", sensitivity);
-        set_action_sensitive ("CommonRedo", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_UNDO)).set_enabled (sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_REDO)).set_enabled (sensitivity);
 
         set_action_sensitive ("IncreaseSize", sensitivity);
         set_action_sensitive ("DecreaseSize", sensitivity);
@@ -682,7 +682,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         populate_external_app_menu (open_menu, false);
 
-        Photo? photo = (get_view ().get_selected_at (0).get_source () as Photo);
+        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
         if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
             populate_external_app_menu (open_raw_menu, true);
         }
@@ -731,9 +731,9 @@ public class LibraryPhotoPage : EditingHostPage {
             var jump_menu_item = new Gtk.MenuItem ();
             jump_menu_item.add (menuitem_grid);
 
-            var jump_action = get_common_action ("CommonJumpToFile");
-            jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_action.activate ());
+            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             menu.add (jump_menu_item);
         }

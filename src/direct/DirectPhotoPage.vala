@@ -142,9 +142,10 @@ public class DirectPhotoPage : EditingHostPage {
 
             if (fullscreen == false) {
                 var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
-                var jump_action = get_common_action ("CommonJumpToFile");
-                jump_action.bind_property ("sensitive", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-                jump_menu_item.activate.connect (() => jump_action.activate ());
+
+                var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+                jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
                 var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
                 var print_action = get_action ("Print");
@@ -234,10 +235,10 @@ public class DirectPhotoPage : EditingHostPage {
         set_action_sensitive ("SaveAs", sensitivity);
         set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
-        set_action_sensitive ("CommonJumpToFile", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
-        set_action_sensitive ("CommonUndo", sensitivity);
-        set_action_sensitive ("CommonRedo", sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_UNDO)).set_enabled (sensitivity);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_REDO)).set_enabled (sensitivity);
 
         set_action_sensitive ("IncreaseSize", sensitivity);
         set_action_sensitive ("DecreaseSize", sensitivity);
@@ -312,10 +313,22 @@ public class DirectPhotoPage : EditingHostPage {
         bool is_writeable = get_photo ().can_write_file () && get_photo ().get_file_format ().can_write ();
         string save_option = is_writeable ? _ ("_Save") : _ ("_Save a Copy");
 
-        Gtk.ResponseType response = AppWindow.affirm_cancel_negate_question (
-                                        _("Lose changes to %s?").printf (photo.get_basename ()),
-                                        _("Close _without Saving"),
-                                        save_option);
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Lose changes to %s?").printf (photo.get_basename ()),
+            "",
+            "dialog-question",
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = AppWindow.get_instance ();
+
+        var no_save_button = (Gtk.Button) dialog.add_button (_("Close _without Saving"), Gtk.ResponseType.YES);
+        no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL, save_option, Gtk.ResponseType.NO);
+
+        int response = dialog.run ();
+
+        dialog.destroy ();
 
         if (response == Gtk.ResponseType.YES)
             photo.remove_all_transformations ();
@@ -435,7 +448,11 @@ public class DirectPhotoPage : EditingHostPage {
      * Returns true if the code parameter matches the keycode of the keyval parameter for
      * any keyboard group or level (in order to allow for non-QWERTY keyboards)
      */
+#if VALA_0_42
+    protected bool match_keycode (uint keyval, uint code) {
+#else
     protected bool match_keycode (int keyval, uint code) {
+#endif
         Gdk.KeymapKey [] keys;
         Gdk.Keymap keymap = Gdk.Keymap.get_default ();
         if (keymap.get_entries_for_keyval (keyval, out keys)) {

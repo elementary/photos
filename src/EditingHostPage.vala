@@ -436,7 +436,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // Use the selected photo.  There should only ever be one selected photo,
         // which is the currently displayed photo.
         assert (get_view ().get_selected_count () == 1);
-        return (Photo) get_view ().get_selected_at (0).get_source ();
+        return (Photo) get_view ().get_selected_at (0).source;
     }
 
     // Called before the photo changes.
@@ -541,7 +541,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_selection_changed (Gee.Iterable<DataView> selected) {
         foreach (DataView view in selected) {
-            replace_photo ((Photo) view.get_source ());
+            replace_photo ((Photo) view.source);
             break;
         }
     }
@@ -1870,10 +1870,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 Gtk.Allocation toolbar_alloc;
                 get_toolbar ().get_allocation (out toolbar_alloc);
 
-                Gdk.Screen screen = get_container ().get_screen ();
-                x = screen.get_width ();
-                y = screen.get_height () - toolbar_alloc.height -
-                    tool_alloc.height - TOOL_WINDOW_SEPARATOR;
+                var dimensions = Scaling.get_screen_dimensions (get_container ());
+                x = dimensions.width;
+                y = dimensions.height - toolbar_alloc.height - tool_alloc.height - TOOL_WINDOW_SEPARATOR;
 
                 // put larger adjust tool off to the side
                 if (current_tool is EditingTools.AdjustTool) {
@@ -1885,9 +1884,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
 
         // however, clamp the window so it's never off-screen initially
-        Gdk.Screen screen = get_container ().get_screen ();
-        x = x.clamp (0, screen.get_width () - tool_alloc.width);
-        y = y.clamp (0, screen.get_height () - tool_alloc.height);
+        var dimensions = Scaling.get_screen_dimensions (get_container ());
+        x = x.clamp (0, dimensions.width - tool_alloc.width);
+        y = y.clamp (0, dimensions.height - tool_alloc.height);
 
         tool_window.move (x, y);
         tool_window.show ();
@@ -1914,7 +1913,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (next == null)
                 break;
 
-            Photo? next_photo = next.get_source () as Photo;
+            Photo? next_photo = next.source as Photo;
             if (next_photo == null)
                 continue;
 
@@ -1947,7 +1946,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (previous == null)
                 break;
 
-            Photo? previous_photo = previous.get_source () as Photo;
+            Photo? previous_photo = previous.source as Photo;
             if (previous_photo == null)
                 continue;
 

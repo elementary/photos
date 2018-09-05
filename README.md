@@ -1,4 +1,5 @@
 # Photos
+[![Packaging status](https://repology.org/badge/tiny-repos/pantheon-photos.svg)](https://repology.org/metapackage/pantheon-photos)
 [![Translation status](https://l10n.elementary.io/widgets/photos/-/svg-badge.svg)](https://l10n.elementary.io/projects/photos/?utm_source=widget)
 
 ![Photos Screenshot](data/screenshot.png?raw=true)
@@ -32,7 +33,7 @@ You'll need the following dependencies:
 * libxml2
 * meson
 * python-scour
-* valac
+* valac >= 0.40
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
