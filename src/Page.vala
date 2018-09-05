@@ -303,13 +303,11 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (show_sidebar_button == null)
             return;
         if (!show) {
-            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
-            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.HIDE_PANE;
+            show_sidebar_button.tooltip_text = Resources.UNTOGGLE_METAPANE_TOOLTIP;
         } else {
-            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
-            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.SHOW_PANE;
+            show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         }
         var app = AppWindow.get_instance () as LibraryWindow;
         app.update_common_toggle_actions ();
