@@ -27,7 +27,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
-    private bool in_view = false;
     private ulong last_configure_ms = 0;
     private bool report_move_finished = false;
     private bool report_resize_finished = false;
@@ -49,6 +48,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
 
+    public bool in_view { get; private set; default = false; }
     public string page_name { get; construct set; }
 
     public Page (string page_name) {
@@ -236,10 +236,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     public virtual void ready () {
-    }
-
-    public bool is_in_view () {
-        return in_view;
     }
 
     public virtual void switching_to_fullscreen (FullscreenWindow fsw) {

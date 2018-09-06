@@ -182,13 +182,13 @@ public abstract class CheckerboardPage : Page {
 
     public void set_page_message (string message) {
         layout.set_message (message);
-        if (is_in_view ())
+        if (in_view)
             layout.queue_draw ();
     }
 
     public void unset_page_message () {
         layout.unset_message ();
-        if (is_in_view ())
+        if (in_view)
             layout.queue_draw ();
     }
 

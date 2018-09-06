@@ -780,7 +780,7 @@ public abstract class MediaPage : CheckerboardPage {
     // this is a view-level operation on this page only; it does not affect the persistent global
     // thumbnail scale
     private void set_thumb_size (int new_scale) {
-        if (get_thumb_size () == new_scale || !is_in_view ())
+        if (get_thumb_size () == new_scale || !in_view)
             return;
 
         new_scale = new_scale.clamp (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE);
