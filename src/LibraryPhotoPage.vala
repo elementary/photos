@@ -104,7 +104,6 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
-        Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
         Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
         Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
@@ -138,7 +137,6 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
-        actions += export;
         actions += print;
         actions += publish;
         actions += remove_from_library;
@@ -550,9 +548,9 @@ public class LibraryPhotoPage : EditingHostPage {
             print_menu_item.activate.connect (() => print_action.activate ());
 
             var export_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.EXPORT_MENU);
-            var export_action = get_action ("Export");
+            var export_action = get_page_action (ACTION_EXPORT);
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            export_menu_item.activate.connect (() => export_action.activate ());
+            export_menu_item.activate.connect (() => export_action.activate (null));
 
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
             contractor_menu = new Gtk.Menu ();
@@ -796,7 +794,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
     }
 
-    private void on_export () {
+    protected override void on_export () {
         if (!has_photo ())
             return;
 

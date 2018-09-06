@@ -71,11 +71,13 @@ public abstract class PageWindow : Gtk.ApplicationWindow {
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
-        if (get_focus () is Gtk.Entry && get_focus ().key_press_event (event))
+        if (get_focus () is Gtk.Entry && get_focus ().key_press_event (event)) {
             return true;
+        }
 
-        if (current_page != null && current_page.notify_app_key_pressed (event))
+        if (current_page != null && current_page.notify_app_key_pressed (event)) {
             return true;
+        }
 
         return (base.key_press_event != null) ? base.key_press_event (event) : false;
     }

@@ -35,22 +35,12 @@ public abstract class MediaPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     protected GLib.Settings ui_settings;
 
-    public const string ACTION_EXPORT = "action_export";
-
-    private const ActionEntry[] action_entries = {
-        { ACTION_EXPORT, on_export }
-    };
-
     public MediaPage (string page_name) {
         Object (page_name: page_name);
     }
 
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-
-        AppWindow.get_instance ().add_action_entries (action_entries, this);
-
-        Application.get_instance ().set_accels_for_action (AppWindow.ACTION_PREFIX + ACTION_EXPORT, {"<Ctrl><Shift>E"});
 
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
@@ -297,7 +287,7 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected override void update_actions (int selected_count, int count) {
-        ((SimpleAction) AppWindow.get_instance ().lookup_action (ACTION_EXPORT)).set_enabled (selected_count > 0);
+        get_page_action (ACTION_EXPORT).set_enabled (selected_count > 0); /* Assumed non-null */
         set_action_sensitive ("IncreaseSize", get_thumb_size () < Thumbnail.MAX_SCALE);
         set_action_sensitive ("DecreaseSize", get_thumb_size () > Thumbnail.MIN_SCALE);
         set_action_sensitive ("RemoveFromLibrary", selected_count > 0);
@@ -506,8 +496,6 @@ public abstract class MediaPage : CheckerboardPage {
 
         save_persistent_thumbnail_scale ();
     }
-
-    protected abstract void on_export ();
 
     protected virtual void on_increase_size () {
         increase_zoom_level ();

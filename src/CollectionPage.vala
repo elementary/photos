@@ -202,7 +202,7 @@ public abstract class CollectionPage : MediaPage {
             print_menu_item.activate.connect (() => print_action.activate ());
 
             var export_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.EXPORT_MENU);
-            var export_action = AppWindow.get_instance ().lookup_action (ACTION_EXPORT);
+            var export_action = get_page_action (ACTION_EXPORT);
             export_action.bind_property ("enabled", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate (null));
 

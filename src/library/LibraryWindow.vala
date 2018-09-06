@@ -152,7 +152,7 @@ public class LibraryWindow : AppWindow {
         if (window_settings.get_boolean ("library-maximize")) {
             maximize ();
         }
-        
+
         top_display = new TopDisplay ();
 
         var import_menu_item = new Gtk.MenuItem ();

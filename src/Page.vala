@@ -51,6 +51,13 @@ public abstract class Page : Gtk.ScrolledWindow {
 
     public string page_name { get; construct set; }
 
+    protected virtual void on_export () {}
+    public const string ACTION_EXPORT = "action_export";
+    public SimpleActionGroup page_actions;
+    private const ActionEntry[] action_entries = {
+        { ACTION_EXPORT, on_export }
+    };
+
     public Page (string page_name) {
         Object (page_name: page_name);
     }
@@ -63,6 +70,9 @@ public abstract class Page : Gtk.ScrolledWindow {
         set_can_focus (true);
 
         popup_menu.connect (on_context_keypress);
+
+        page_actions = new SimpleActionGroup ();
+        page_actions.add_action_entries (action_entries, this);
 
         action_group = new Gtk.ActionGroup ("PageActionGroup");
 
@@ -246,6 +256,15 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     public virtual void returning_from_fullscreen (FullscreenWindow fsw) {
+    }
+
+    public SimpleAction? get_page_action (string name) {
+        var action = (SimpleAction?)(page_actions.lookup_action (name));
+        if (action == null) {
+            warning ("Page %s: Unable to locate simple action %s", page_name, name);
+        }
+
+        return action;
     }
 
     public Gtk.Action? get_action (string name) {
@@ -652,6 +671,17 @@ public abstract class Page : Gtk.ScrolledWindow {
             super_pressed = true;
 
             return on_super_pressed (event);
+
+        case "e": /* Capslock may be on */
+        case "E":
+            if (shift_currently_pressed && ctrl_currently_pressed &&
+                !(alt_currently_pressed || super_currently_pressed)) {
+
+                on_export ();
+                return true;
+            }
+
+            return false;
         }
 
         return on_app_key_pressed (event);
