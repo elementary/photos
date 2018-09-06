@@ -25,16 +25,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-05 09:55-0700\n"
-"PO-Revision-Date: 2017-07-10 13:27+0000\n"
-"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian <https://l10n.elementary.io/projects/photos/photos/it/"
-">\n"
+"PO-Revision-Date: 2018-09-06 15:30+0000\n"
+"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
+"Language-Team: Italian <https://weblate.elementary.io/projects/photos/photos/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -74,15 +74,15 @@ msgid "Photo Viewer"
 msgstr "Visualizzatore di foto"
 
 #: src/AppWindow.vala:165
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Si è verificato un errore critico durante l'accesso alla libreria di "
-"Shotwell. Impossibile continuare.\n"
+"Si è verificato un errore fatale durante l'accesso alla libreria di Foto. "
+"Impossibile continuare.\n"
 "\n"
 "%s"
 
@@ -187,7 +187,7 @@ msgstr "Visualizza eve_nto per la foto"
 #: src/CollectionPage.vala:209 src/LibraryPhotoPage.vala:557
 #: src/direct/DirectPhotoPage.vala:155
 msgid "Other Actions"
-msgstr ""
+msgstr "Altre azioni"
 
 #: src/CollectionPage.vala:596
 msgid "Export Photo/Video"
@@ -368,14 +368,12 @@ msgid "Restore Photos from Trash"
 msgstr "Ripristina le foto dal cestino"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Sposta le foto nel cestino di Shotwell"
+msgstr "Sposta le foto nel cestino di Foto"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Ripristina le foto nella libreria di Shotwell"
+msgstr "Ripristina le foto nella libreria di Foto"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -440,12 +438,11 @@ msgstr "Ruota"
 
 #: src/EditingHostPage.vala:141
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Zoom alla pagina completa"
 
 #: src/EditingHostPage.vala:150
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Zoom _100%"
+msgstr "Zoom 1:1"
 
 #: src/EditingHostPage.vala:170
 msgid "Previous photo"
@@ -531,53 +528,50 @@ msgid "Unable to export %s: %s"
 msgstr "Impossibile esportare %s: %s"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"La libreria delle foto non è compatibile con questa versione di Shotwell. "
-"Sembra sia stata creata dalla versione %s di Shotwell (schema %d). Questa è "
-"la versione %s (schema %d). Usare l'ultima versione di Shotwell."
+"La raccolta fotografica non è compatibile con questa versione di Foto. "
+"Sembra sia stata creata dalla versione %s di Foto (schema %d). Questa è la "
+"versione %s (schema %d). Usare l'ultima versione di Foto."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
 "Impossibile aggiornare la libreria delle foto dalla versione %s (schema %d) "
-"alla %s (schema %d). Per maggiori informazioni controllare il wiki di "
-"Shotwell all'indirizzo %s"
+"alla %s (schema %d). Per maggiori informazioni controllare la Wiki di Foto "
+"all'indirizzo %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"La libreria delle foto non è compatibile con questa versione di Shotwell. "
-"Sembra sia stata creata dalla versione %s (schema %d) di Shotwell. Questa è "
-"la versione %s (schema %d). Pulire la libreria eliminando %s e reimportare "
-"le foto."
+"La raccolta fotografica non è compatibile con questa versione di Foto. "
+"Sembra sia stata creata dalla versione %s (schema %d) di Foto. Questa è la "
+"versione %s (schema %d). Pulire la libreria eliminando %s e reimportare le "
+"foto."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr ""
-"Errore sconosciuto nel tentativo di verificare il database di Shotwell: %s"
+msgstr "Errore sconosciuto nel tentativo di verificare il database di Foto: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Caricamento Shotwell"
+msgstr "Caricamento di Foto"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Percorso ai dati privati di Shotwell"
+msgstr "Percorso ai dati privati di Foto"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -598,7 +592,7 @@ msgstr "Mostra la versione dell'applicazione"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Mostra informazioni di debug aggiuntive"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -703,12 +697,12 @@ msgid "Sort photos in a descending order"
 msgstr "Ordina le foto in ordine decrescente"
 
 #: src/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Impossibile riprodurre il video selezionato:\n"
+"Foto non è riuscito a riprodurre il video selezionato:\n"
 "%s"
 
 #: src/Photo.vala:3787
@@ -1008,14 +1002,12 @@ msgstr ""
 "Imposta l'immagine selezionata per essere il nuovo sfondo della scrivania"
 
 #: src/Resources.vala:175
-#, fuzzy
 msgid "Set as _Desktop Slideshow…"
-msgstr "Imposta come sfondo a diapositive"
+msgstr "Imposta la presentazione di diapositive come sfondo del _Desktop…"
 
 #: src/Resources.vala:177
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Rinomina evento"
+msgstr "_Rinomina evento…"
 
 #: src/Resources.vala:178 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -1090,9 +1082,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Crea un duplicato della foto"
 
 #: src/Resources.vala:205
-#, fuzzy
 msgid "_Export…"
-msgstr "_Esporta"
+msgstr "_Esporta…"
 
 #: src/Resources.vala:207
 msgid "_Show info panel"
@@ -1111,14 +1102,12 @@ msgid "Hide info panel"
 msgstr "Nascondi pannello informazioni"
 
 #: src/Resources.vala:215
-#, fuzzy
 msgid "_Print…"
-msgstr "S_tampa..."
+msgstr "S_tampa…"
 
 #: src/Resources.vala:217
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Pubblica"
+msgstr "Pubblica…"
 
 #: src/Resources.vala:218
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
@@ -1130,50 +1119,44 @@ msgid "Publish to various websites"
 msgstr "Pubblica in vari siti web"
 
 #: src/Resources.vala:221
-#, fuzzy
 msgid "Edit _Title…"
-msgstr "Modifica titolo"
+msgstr "Modifica _titolo…"
 
 #: src/Resources.vala:222
 msgid "Edit Title"
 msgstr "Modifica titolo"
 
 #: src/Resources.vala:224
-#, fuzzy
 msgid "Edit _Comment…"
-msgstr "Modifica il commento"
+msgstr "Modifica il commento…"
 
 #: src/Resources.vala:225
 msgid "Edit Comment"
 msgstr "Modifica il commento"
 
 #: src/Resources.vala:227
-#, fuzzy
 msgid "Edit Event _Comment…"
-msgstr "Modifica il Commento dell'Evento"
+msgstr "Modifica il commento dell'evento…"
 
 #: src/Resources.vala:228
 msgid "Edit Event Comment"
 msgstr "Modifica il Commento dell'Evento"
 
 #: src/Resources.vala:230
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Regola data e ora"
+msgstr "Imposta data e ora…"
 
 #: src/Resources.vala:231
 msgid "Adjust Date and Time"
 msgstr "Regola data e ora"
 
 #: src/Resources.vala:233
-#, fuzzy
 msgid "Add _Tags…"
-msgstr "Aggiunge etichette"
+msgstr "Aggiungi etichette…"
 
 #: src/Resources.vala:234
-#, fuzzy
 msgid "_Add Tags…"
-msgstr "Aggiunge etichette"
+msgstr "Aggiungi etichette…"
 
 #: src/Resources.vala:235 src/Resources.vala:272
 msgid "Add Tags"
@@ -1189,16 +1172,15 @@ msgstr "Apri con editor RA_W"
 
 #: src/Resources.vala:241
 msgid "_Open In"
-msgstr ""
+msgstr "_Apri con"
 
 #: src/Resources.vala:242
 msgid "Open photo with external editor"
 msgstr "Apri foto con un editor esterno"
 
 #: src/Resources.vala:244
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Apri con editor RA_W"
+msgstr "Apri con editor RA_W…"
 
 #: src/Resources.vala:245
 msgid "Open With Raw Editor"
@@ -1209,19 +1191,16 @@ msgid "Open photo with external RAW editor"
 msgstr "Apri foto con l'editor RAW esterno"
 
 #: src/Resources.vala:248
-#, fuzzy
 msgid "Send _To…"
-msgstr "Invi_a a..."
+msgstr "Invi_a a…"
 
 #: src/Resources.vala:249
-#, fuzzy
 msgid "Send T_o…"
-msgstr "In_via a..."
+msgstr "In_via a…"
 
 #: src/Resources.vala:251
-#, fuzzy
 msgid "_Find…"
-msgstr "Tr_ova"
+msgstr "Tr_ova…"
 
 #: src/Resources.vala:252
 msgid "Find"
@@ -1280,9 +1259,9 @@ msgid "_New"
 msgstr "_Nuovo"
 
 #: src/Resources.vala:289
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Ri_nomina etichetta «%s»..."
+msgstr "Ri_nomina etichetta \"%s\"…"
 
 #: src/Resources.vala:293
 #, c-format
@@ -1290,14 +1269,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Rinomina etichetta «%s» in «%s»"
 
 #: src/Resources.vala:296
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Rinomina..."
+msgstr "_Rinomina…"
 
 #: src/Resources.vala:298
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Modifica etichette"
+msgstr "Modifica etichette…"
 
 #: src/Resources.vala:299
 msgid "Modify Tags"
@@ -1362,14 +1339,12 @@ msgid "Delete Album"
 msgstr "Elimina album"
 
 #: src/Resources.vala:333
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Modifica"
+msgstr "_Modifica…"
 
 #: src/Resources.vala:334
-#, fuzzy
 msgid "Re_name…"
-msgstr "Ri_nomina..."
+msgstr "Ri_nomina…"
 
 #: src/Resources.vala:337
 #, c-format
@@ -1402,9 +1377,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Ripristina le foto selezionate nella libreria"
 
 #: src/Resources.vala:380
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Mostra nel file mana_ger"
+msgstr "File Mana_ger"
 
 #: src/Resources.vala:383
 #, c-format
@@ -1498,23 +1472,20 @@ msgid "Go to the next photo"
 msgstr "Va alla foto successiva"
 
 #: src/SlideshowPage.vala:77
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Mostra _titolo"
+msgstr "Mostra _titoli"
 
 #: src/SlideshowPage.vala:92
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Effetto _transizione:"
+msgstr "Effetto di _transizione"
 
 #: src/SlideshowPage.vala:94
 msgid "Faster"
-msgstr ""
+msgstr "Più veloce"
 
 #: src/SlideshowPage.vala:95
-#, fuzzy
 msgid "Slower"
-msgstr "e inferiore"
+msgstr "Più lento"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/SlideshowPage.vala:160
@@ -1588,11 +1559,12 @@ msgstr "Importa tutte le foto nella libreria"
 
 #. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
-msgstr "Per poter accedere alla fotocamera è necessario smontarla. Continuare?"
+msgstr ""
+"Per poter accedere alla fotocamera, Foto deve prima smontarla dal "
+"filesystem. Continuare?"
 
 #: src/camera/ImportPage.vala:1105
 msgid "_Unmount"
@@ -1603,15 +1575,14 @@ msgid "Please unmount the camera."
 msgstr "Smontare la fotocamera."
 
 #: src/camera/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"La fotocamera è bloccata da un'altra applicazione: sarà possibile accedervi "
-"solo quando sarà sbloccata. Chiudere tutte le altre applicazioni che usano "
-"la fotocamera e riprovare."
+"La fotocamera è bloccata da un'altra applicazione. Foto può accedere alla "
+"fotocamera solo quando è sbloccata. Chiudere tutte le altre applicazioni che "
+"usano la fotocamera e riprovare."
 
 #: src/camera/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
@@ -1805,7 +1776,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Questo rimuoverà l'album intelligente \"% s\". Continuare?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1813,10 +1783,10 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Il passaggio a un altro developer annulla tutte le modifiche fatte a questa "
+"Passare ad un altro sviluppatore annullerà tutte le modifiche fatte a questa "
 "foto"
 msgstr[1] ""
-"Il passaggio a un altro developer annulla tutte le modifiche fatte a queste "
+"Passare ad un altro sviluppatore annullerà tutte le modifiche fatte a queste "
 "foto"
 
 #: src/Dialogs/Dialogs.vala:71
@@ -1842,13 +1812,13 @@ msgstr "_Seleziona"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Non è stato possibile creare un file necessario alla modifica di questa foto "
-"poiché non si hanno permessi sufficienti per scrivere su %s."
+"Foto non ha potuto un file necessario alla modifica di questa fotografia "
+"poiché non hai permessi sufficienti per scrivere su %s."
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1940,24 +1910,22 @@ msgstr "File non importati perché non riconosciuti come foto o video:"
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Foto/Video non importati perché non in un formato supportato da Shotwell:"
+"Foto/Video non importati perché non sono in un formato compatibile con Foto:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Foto/Video non importati perché Shotwell non è stato in grado di copiarli "
-"nella libreria:"
+"Foto/Video non importati perché Foto non è stato in grado di copiarli nella "
+"libreria:"
 
 #: src/Dialogs/Dialogs.vala:324
 #, c-format
@@ -2330,12 +2298,11 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:891
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"È possibile copiare le foto nella propria libreria o importarle senza "
+"Foto può copiare le fotografie nella tua libreria o importarle senza "
 "copiarle."
 
 #: src/Dialogs/Dialogs.vala:896
@@ -2386,9 +2353,8 @@ msgid "_Scaling constraint:"
 msgstr "Vincolo di _ridimensionamento:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pixel"
+msgstr "_pixel"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2706,9 +2672,8 @@ msgid "No Event"
 msgstr "Nessun evento"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Unisci eventi"
+msgstr "Unisci eventi"
 
 #: src/events/EventsDirectoryPage.vala:230
 msgid "Display the comment of each event"
@@ -2735,9 +2700,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/events/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/library/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2800,17 +2764,17 @@ msgid "Import"
 msgstr "Importa"
 
 #: src/library/LibraryWindow.vala:734
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell è configurato per importare le foto dalla propria directory home.\n"
-"Si consiglia di modificare ciò in <span weight=\"bold\">Modifica %s "
-"preferenze</span>.\n"
-"Continuare l'importazione delle foto?"
+"Foto è configurato per importare le fotografie dalla propria cartella home.\n"
+"Si consiglia di modificare questa opzione in <span weight=\"bold\">Modifica %"
+"s preferenze</span>.\n"
+"Continuare l'importazione delle fotografie?"
 
 #: src/library/LibraryWindow.vala:738
 msgid "_Import"
@@ -2967,11 +2931,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Informazioni su"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -3040,7 +3004,7 @@ msgstr "Pubblica video"
 
 #: src/publishing/PublishingUI.vala:217
 msgid "Publish videos _to"
-msgstr "Pubblica i video _su:"
+msgstr "Pubblica i video _su"
 
 #: src/publishing/PublishingUI.vala:219
 msgid "Publish Photos and Videos"
@@ -3048,7 +3012,7 @@ msgstr "Pubblica foto e video"
 
 #: src/publishing/PublishingUI.vala:220
 msgid "Publish photos and videos _to"
-msgstr "Pubblica le foto e i video _su:"
+msgstr "Pubblica le foto e i video _su"
 
 #. There are no enabled publishing services that accept this media type,
 #. warn the user.
@@ -3057,16 +3021,16 @@ msgid "Unable to publish"
 msgstr "Impossibile pubblicare"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Non è possibile pubblicare gli oggetti selezionati perché non risulta "
+"Foto non può pubblicare gli elementi selezionati perché non risulta "
 "abilitato un plugin di pubblicazione compatibile. Per rimediare a questa "
-"situazione, scegliere <b>Modifica %s Preferenze</b> e abilitare uno o più "
+"situazione, scegliere <b>Modifica %s preferenze</b> e abilitare uno o più "
 "plugin di pubblicazione nella scheda <b>Plugin</b>."
 
 #: src/publishing/Publishing.vala:29
@@ -3078,9 +3042,8 @@ msgid "Smart Albums"
 msgstr "Album Intelligenti"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Rimuovi"
+msgstr "Elimina regola"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
@@ -3204,7 +3167,7 @@ msgstr "dei seguenti:"
 
 #: src/searches/SavedSearchDialog.vala:598
 msgid "Add rule"
-msgstr ""
+msgstr "Aggiungi una regola"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -3373,14 +3336,12 @@ msgid "Photos cannot be exported to this directory."
 msgstr "Impossibile esportare le foto in questa directory."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "Effetto _transizione:"
+msgstr "Effetto di _transizione"
 
 #: src/Widgets/CustomPrintTab.vala:45
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Dimensione di stampa</b>"
+msgstr "Dimensione di stampa dell'immagine"
 
 #: src/Widgets/CustomPrintTab.vala:49
 msgid "Use a _standard size:"
@@ -3407,18 +3368,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Mantenere proporzioni foto"
 
 #: src/Widgets/CustomPrintTab.vala:105
-#, fuzzy
 msgid "Titles"
-msgstr "_Titoli"
+msgstr "Titoli"
 
 #: src/Widgets/CustomPrintTab.vala:109
 msgid "Print image _title"
 msgstr "Stampa i _titoli delle immagini"
 
 #: src/Widgets/CustomPrintTab.vala:115
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Risoluzione pixel</b>"
+msgstr "Risoluzione in pixel"
 
 #: src/Widgets/CustomPrintTab.vala:122
 msgid "_Output photo at:"
@@ -3552,12 +3511,13 @@ msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Impossibile contattare la propria libreria Piwigo. Verifica l'URL inserito."
+"Foto non può contattare la tua raccolta fotografica di Piwigo. Per favore "
+"verifica l'URL inserito"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
 msgid "Username and/or password invalid. Please try again"
-msgstr "Il nome utente o la password non sono validi. Prova di nuovo."
+msgstr "Il nome utente e/o la password non sono validi. Prova di nuovo"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1039
 msgid "Invalid URL"
@@ -3571,7 +3531,7 @@ msgstr "Nome utente o password non validi"
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
 msgid "Shotwell Connect"
-msgstr "Shotwell Connect"
+msgstr "Foto Connect"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
@@ -3668,8 +3628,8 @@ msgid ""
 msgstr ""
 "Non si è attualmente connessi a Flickr.\n"
 "\n"
-"Fai click su Accedi per accedere a Flickr in un browser web. Dovrai "
-"autorizzare Shotwell Connect a collegarsi al tuo account Flickr."
+"Fai click su Accedi per collegarsi a Flickr nel tuo browser Web. Dovrai "
+"autorizzare Foto Connect a collegarsi al tuo account Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3678,8 +3638,8 @@ msgid ""
 "publishing again."
 msgstr ""
 "Si è già effettuato l'accesso e in seguito la disconnessione da Flickr "
-"durante questa sessione di Shotwell.\n"
-"Per continuare la pubblicazione su Flickr, chiudi e riavvia Shotwell, quindi "
+"durante questa sessione di Foto.\n"
+"Per continuare la pubblicazione su Flickr, chiudi e riavvia Foto, quindi "
 "prova di nuovo a pubblicare."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
@@ -3763,10 +3723,10 @@ msgid ""
 msgstr ""
 "Non si è attualmente connessi a Facebook.\n"
 "\n"
-"Se non possiedi un account di Facebook, ne puoi creare uno durante il la "
-"fase di accesso. Durante l'accesso, Shotwell Connect potrebbe chiederti il "
-"permesso di caricare foto e di pubblicarle sul tuo profilo personale. Questi "
-"permessi sono necessari per il corretto funzionamento di Shotwell Connect."
+"Se non possiedi un account di Facebook, ne puoi creare uno durante la fase "
+"di accesso. Durante l'accesso, Foto Connect potrebbe chiederti il permesso "
+"di caricare foto e di pubblicarle sul tuo profilo personale. Questi permessi "
+"sono necessari per il corretto funzionamento di Foto Connect."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
 msgid ""
@@ -3776,9 +3736,9 @@ msgid ""
 "publishing again."
 msgstr ""
 "Si è già effettuato l'accesso e in seguito la disconnessione da Facebook "
-"durante questa sessione di Shotwell.\n"
-"Per continuare la pubblicazione su Facebook, chiudi e riavvia Shotwell, "
-"quindi provare di nuovo a pubblicare."
+"durante questa sessione di Foto.\n"
+"Per continuare la pubblicazione su Facebook, chiudi e riavvia Foto, quindi "
+"prova di nuovo a pubblicare."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -4053,7 +4013,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
 msgid "Shotwell Extra Publishing Services"
-msgstr "Servizi di pubblicazione aggiuntivi"
+msgstr "Servizi di pubblicazione aggiuntivi di Foto"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
 msgid ""
@@ -4064,10 +4024,10 @@ msgid ""
 "try publishing again."
 msgstr ""
 "Si è gia effettuato l'accesso e in seguito la disconnessione da un servizio "
-"di Google durante questa sessione di Shotwell.\n"
+"di Google durante questa sessione di Foto.\n"
 "\n"
-"Per continuare la pubblicazione nei servizi di Google, chiudi e riavvia "
-"Shotwell, quindi riprova a pubblicare."
+"Per continuare la pubblicazione sui servizi di Google, chiudi e riavvia "
+"Foto, quindi riprova a pubblicare."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
