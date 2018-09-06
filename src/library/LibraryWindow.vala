@@ -467,8 +467,6 @@ public class LibraryWindow : AppWindow {
         window_settings.set_boolean ("library-maximize", is_maximized);
         window_settings.set_int ("library-width", dimensions.width);
         window_settings.set_int ("library-height", dimensions.height);
-        ui_settings.set_int ("sidebar-position", client_paned.position);
-        ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
         base.on_quit ();
     }
@@ -1049,16 +1047,14 @@ public class LibraryWindow : AppWindow {
         client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         client_paned.pack1 (sidebar_paned, false, false);
         client_paned.pack2 (right_frame, true, false);
-        client_paned.set_position (ui_settings.get_int ("sidebar-position"));
-
-        int metadata_sidebar_pos = ui_settings.get_int ("metadata-sidebar-position");
-        if (metadata_sidebar_pos > 0)
-            right_client_paned.set_position (metadata_sidebar_pos);
 
         add (client_paned);
 
         switch_to_page (start_page);
         start_page.grab_focus ();
+
+        ui_settings.bind ("sidebar-position", client_paned, "position", DEFAULT);
+        ui_settings.bind ("metadata-sidebar-position", right_client_paned, "position", DEFAULT);
     }
 
     public override void set_current_page (Page page) {
