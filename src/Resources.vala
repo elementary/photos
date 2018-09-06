@@ -205,11 +205,9 @@ public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo")
 public const string EXPORT_MENU = _("_Export…");
 
 public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
-public const string TOGGLE_METAPANE_LABEL = _("Show info panel");
 public const string TOGGLE_METAPANE_TOOLTIP = _("Show info panel");
 
 public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
-public const string UNTOGGLE_METAPANE_LABEL = _("Hide info panel");
 public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
 public const string PRINT_MENU = _("_Print…");
