@@ -140,7 +140,7 @@ public class ImportQueuePage : SinglePhotoPage {
 
     private void on_imported (ThumbnailSource source, Gdk.Pixbuf pixbuf, int to_follow) {
         // only interested in updating the display for the last of the bunch
-        if (to_follow > 0 || !is_in_view ())
+        if (to_follow > 0 || !in_view)
             return;
 
         set_pixbuf (pixbuf, Dimensions.for_pixbuf (pixbuf));

@@ -362,7 +362,7 @@ public abstract class SinglePhotoPage : Page {
 
     private void internal_repaint (bool fast, Direction? direction) {
         // if not in view, assume a full repaint needed in future but do nothing more
-        if (!is_in_view ()) {
+        if (!in_view) {
             pixmap = null;
             scaled = null;
 
