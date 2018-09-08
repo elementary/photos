@@ -18,10 +18,6 @@
 */
 
 public abstract class SinglePhotoPage : Page {
-    public const Gdk.InterpType FAST_INTERP = Gdk.InterpType.NEAREST;
-    public const Gdk.InterpType QUALITY_INTERP = Gdk.InterpType.BILINEAR;
-    public const int KEY_REPEAT_INTERVAL_MSEC = 200;
-
     public enum UpdateReason {
         NEW_PIXBUF,
         QUALITY_IMPROVEMENT,
@@ -420,17 +416,18 @@ public abstract class SinglePhotoPage : Page {
             scaled_pos.height = scaled_dim.height;
         }
 
-        Gdk.InterpType interp = (fast) ? FAST_INTERP : QUALITY_INTERP;
+        var interp = (fast) ? Gdk.InterpType.NEAREST : Gdk.InterpType.BILINEAR;
 
         // rescale if canvas rescaled or better quality is requested
         if (scaled == null) {
             scaled = resize_pixbuf (unscaled, Dimensions.for_rectangle (scaled_pos), interp);
 
             UpdateReason reason = UpdateReason.RESIZED_CANVAS;
-            if (new_pixbuf)
+            if (new_pixbuf) {
                 reason = UpdateReason.NEW_PIXBUF;
-            else if (!new_pixmap && interp == QUALITY_INTERP)
+            } else if (!new_pixmap && interp == Gdk.InterpType.BILINEAR) {
                 reason = UpdateReason.QUALITY_IMPROVEMENT;
+            }
 
             static_zoom_state = ZoomState (max_dim, pixmap_dim,
                                            static_zoom_state.get_interpolation_factor (),
@@ -491,7 +488,7 @@ public abstract class SinglePhotoPage : Page {
         // if the user holds the arrow keys down, we will receive a steady stream of key press
         // events for an operation that isn't designed for a rapid succession of output ...
         // we staunch the supply of new photos to under a quarter second (#533)
-        bool nav_ok = (event.time - last_nav_key) > KEY_REPEAT_INTERVAL_MSEC;
+        bool nav_ok = (event.time - last_nav_key) > 200;
 
         bool handled = true;
         switch (Gdk.keyval_name (event.keyval)) {
