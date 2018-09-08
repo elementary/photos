@@ -85,7 +85,7 @@ public abstract class SinglePhotoPage : Page {
         return transition_clock.is_in_progress ();
     }
 
-    public void cancel_transition () {
+    private void cancel_transition () {
         if (transition_clock.is_in_progress ())
             transition_clock.cancel ();
     }
@@ -247,10 +247,6 @@ public abstract class SinglePhotoPage : Page {
         invalidate_all ();
     }
 
-    public Cairo.Surface? get_surface () {
-        return pixmap;
-    }
-
     public Dimensions get_surface_dim () {
         return pixmap_dim;
     }
@@ -286,12 +282,7 @@ public abstract class SinglePhotoPage : Page {
         return coord_in_rectangle (x * scale_factor, y * scale_factor, scaled_pos);
     }
 
-    public void invalidate (Gdk.Rectangle rect) {
-        if (canvas.get_window () != null)
-            canvas.get_window ().invalidate_rect (rect, false);
-    }
-
-    public void invalidate_all () {
+    private void invalidate_all () {
         if (canvas.get_window () != null)
             canvas.get_window ().invalidate_rect (null, false);
     }
