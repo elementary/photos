@@ -48,7 +48,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    private SourceCollection sources;
     private ViewCollection? parent_view = null;
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
@@ -76,10 +75,17 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int> ();
 
-    public EditingHostPage (SourceCollection sources, string name) {
-        base (name, false);
+    public SourceCollection sources { get; construct; }
 
-        this.sources = sources;
+    public EditingHostPage (SourceCollection sources, string page_name) {
+        Object (
+            page_name: page_name,
+            scale_up_to_viewport: false,
+            sources: sources
+        );
+    }
+
+    construct {
         settings = get_settings ();
 
         // when photo is altered need to update it here
