@@ -39,8 +39,10 @@ public abstract class CollectionPage : MediaPage {
     private Gtk.ToolButton flip_button;
 
     public CollectionPage (string page_name) {
-        base (page_name);
+        Object (page_name: page_name);
+    }
 
+    construct {
         get_view ().items_altered.connect (on_photos_altered);
 
         show_all ();
