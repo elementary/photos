@@ -419,10 +419,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             dnd_handler = new DragAndDropHandler (this);
     }
 
-    public ViewCollection? get_parent_view () {
-        return parent_view;
-    }
-
     protected void update_enhance_action () {
         if (has_photo ()) {
             Gtk.Action? action = get_action ("Enhance");
@@ -1973,10 +1969,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             break;
         }
-    }
-
-    public bool has_current_tool () {
-        return (current_tool != null);
     }
 
     protected void unset_view_collection () {
