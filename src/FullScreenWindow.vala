@@ -29,8 +29,13 @@ public class FullscreenWindow : PageWindow {
     private bool switched_to = false;
 
     public bool auto_dismiss_toolbar { get; set; default = true; }
+    public Page page { get; construct; }
 
     public FullscreenWindow (Page page) {
+        Object (page: page);
+    }
+
+    construct {
         set_current_page (page);
 
         ui.ensure_update ();
