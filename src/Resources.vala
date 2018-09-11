@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -20,7 +21,6 @@
 namespace Resources {
 // TRANSLATORS: This is the application name, not a category or mimetype name
 public const string APP_TITLE = N_("Photos");
-public const string APP_TITLE_VIEWER = _("Photos Viewer");
 public const string APP_LIBRARY_ROLE = _("Photo Manager");
 public const string APP_DIRECT_ROLE = _("Photo Viewer");
 public const string APP_VERSION = _VERSION;
@@ -31,46 +31,21 @@ public const string? GIT_VERSION = _GIT_VERSION;
 public const string? GIT_VERSION = null;
 #endif
 
-// TRANSLATORS: Don't forget to add the line break: \n
-public const string COPYRIGHT = _("2009-2014 Yorba Foundation\n© 2014-2016 Photos Developers");
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
-public const string YORBA_URL = "http://www.yorba.org";
 public const string WIKI_URL = "https://wiki.gnome.org/Apps/Shotwell";
-public const string FAQ_URL = "https://wiki.gnome.org/Apps/Shotwell/FAQ";
-public const string PROJECT_URL = "https://github.com/elementary/photos";
-public const string BUG_DB_URL = "https://github.com/photos/issues";
-public const string TRANSLATE_URL = "https://l10n.elementary.io/projects/photos";
-public const string HELP_URL = "https://elementaryos.stackexchange.com/questions/tagged/photos";
-public const string DIR_PATTERN_URI_SYSWIDE = "ghelp:shotwell?other-files";
 
 private const string LIB = _LIB;
 private const string LIBEXECDIR = _LIBEXECDIR;
 
-
 public const string PREFIX = _PREFIX;
 
-public const double TRANSIENT_WINDOW_OPACITY = 0.90;
-
 public const int DEFAULT_ICON_SCALE = 24;
-
-public const string[] AUTHORS = {
-    "Jim Nelson <jim@yorba.org>",
-    "Lucas Beeler <lucas@yorba.org>",
-    "Allison Barlow <allison@yorba.org>",
-    "Eric Gregory <eric@yorba.org>",
-    "Clinton Rogers <clinton@yorba.org>",
-    null
-};
 
 public const string CLOCKWISE = "object-rotate-right";
 public const string COUNTERCLOCKWISE = "object-rotate-left";
 public const string HFLIP = "object-flip-horizontal";
 public const string VFLIP = "object-flip-vertical";
-public const string CROP = "image-crop";
-public const string STRAIGHTEN = "object-straighten";
-public const string REDEYE = "image-red-eye";
-public const string ADJUST = "image-adjust";
 public const string IMPORT = "shotwell-import";
 public const string IMPORT_ALL = "shotwell-import-all";
 public const string ENHANCE = "image-auto-adjust";
@@ -78,19 +53,13 @@ public const string HIDE_PANE = "pane-hide-symbolic";
 public const string SHOW_PANE = "pane-show-symbolic";
 public const string CROP_PIVOT_RETICLE = "object-rotate-right";
 public const string PUBLISH = "applications-internet";
-public const string EDIT_FLAG= "edit-flag";
 public const string MERGE = "object-merge";
 
-public const string ICON_APP = "multimedia-photo-manager";
 public const string ICON_GENERIC_PLUGIN = "extension";
 public const string ICON_SLIDESHOW_EXTENSION_POINT = "media-playback-start";
-public const int ICON_FILTER_REJECTED_OR_BETTER_FIXED_SIZE = 32;
-public const int ICON_FILTER_UNRATED_OR_BETTER_FIXED_SIZE = 16;
 
-public const string ICON_ZOOM_ORIGINAL = "zoom-original-symbolic";
 public const string ICON_ZOOM_IN = "zoom-in-symbolic";
 public const string ICON_ZOOM_OUT = "zoom-out-symbolic";
-public const int ICON_ZOOM_SCALE = 16;
 
 public const string ICON_SELECTION_ADD = "selection-add";
 public const string ICON_SELECTION_REMOVE = "selection-remove";
@@ -103,12 +72,10 @@ public const string ICON_ONE_TAG = "folder-tag";
 public const string ICON_TAGS = "folder-tag";
 public const string ICON_FOLDER_CLOSED = "folder";
 public const string ICON_FOLDER_OPEN = "folder-open";
-public const string ICON_FOLDER_DOCUMENTS = "folder-documents";
 public const string ICON_IMPORTING = "go-down";
 public const string ICON_LAST_IMPORT = "document-open-recent";
 public const string ICON_MISSING_FILES = "process-stop";
 public const string ICON_PHOTOS_PAGE = "folder-pictures";
-public const string ICON_SINGLE_PHOTO = "image-x-generic";
 public const string ICON_TRASH_EMPTY = "user-trash";
 public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "folder-videos";
@@ -116,12 +83,10 @@ public const string ICON_RAW_PAGE = "accessories-camera";
 public const string ICON_FLAGGED_PAGE = "edit-flag";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
-public const string ROTATE_CW_LABEL = _("Rotate");
 public const string ROTATE_CW_FULL_LABEL = _("Rotate Right");
 public const string ROTATE_CW_TOOLTIP = _("Rotate the photos right (press Ctrl to rotate left)");
 
 public const string ROTATE_CCW_MENU = _("Rotate _Left");
-public const string ROTATE_CCW_LABEL = _("Rotate");
 public const string ROTATE_CCW_FULL_LABEL = _("Rotate Left");
 public const string ROTATE_CCW_TOOLTIP = _("Rotate the photos left");
 
@@ -141,38 +106,25 @@ public const string UNENHANCE_MENU = _("Revert _Enhancement");
 public const string UNENHANCE_LABEL = _("Revert Enhancement");
 
 public const string COPY_ADJUSTMENTS_MENU = _("_Copy Color Adjustments");
-public const string COPY_ADJUSTMENTS_LABEL = _("Copy Color Adjustments");
-public const string COPY_ADJUSTMENTS_TOOLTIP = _("Copy the color adjustments applied to the photo");
 
 public const string PASTE_ADJUSTMENTS_MENU = _("_Paste Color Adjustments");
 public const string PASTE_ADJUSTMENTS_LABEL = _("Paste Color Adjustments");
 public const string PASTE_ADJUSTMENTS_TOOLTIP = _("Apply copied color adjustments to the selected photos");
 
-public const string CROP_MENU = _("_Crop");
 public const string CROP_LABEL = _("Crop");
 public const string CROP_TOOLTIP = _("Crop the photo's size");
 
-public const string STRAIGHTEN_MENU = _("_Straighten");
 public const string STRAIGHTEN_LABEL = _("Straighten");
 public const string STRAIGHTEN_TOOLTIP = _("Straighten the photo");
 
-public const string RED_EYE_MENU = _("_Red-eye");
 public const string RED_EYE_LABEL = _("Red-eye");
 public const string RED_EYE_TOOLTIP = _("Reduce or eliminate any red-eye effects in the photo");
 
-public const string ADJUST_MENU = _("_Adjust");
 public const string ADJUST_LABEL = _("Adjust");
 public const string ADJUST_TOOLTIP = _("Adjust the photo's color and tone");
 
 public const string REVERT_MENU = _("Re_vert to Original");
 public const string REVERT_LABEL = _("Revert to Original");
-
-public const string REVERT_EDITABLE_MENU = _("Revert External E_dits");
-public const string REVERT_EDITABLE_TOOLTIP = _("Revert to the master photo");
-
-public const string SET_BACKGROUND_MENU = _("Set as _Desktop Background");
-public const string SET_BACKGROUND_TOOLTIP = _("Set selected image to be the new desktop background");
-public const string SET_BACKGROUND_SLIDESHOW_MENU = _("Set as _Desktop Slideshow…");
 
 public const string RENAME_EVENT_MENU = _("Re_name Event…");
 public const string RENAME_EVENT_LABEL = _("Rename Event");
@@ -190,13 +142,7 @@ public const string MERGE_MENU = _("_Merge Events");
 public const string MERGE_LABEL = _("Merge");
 public const string MERGE_TOOLTIP = _("Combine events into a single event");
 
-public const string DISPLAY_UNRATED_OR_HIGHER_MENU = _("All Photos");
-public const string DISPLAY_UNRATED_OR_HIGHER_LABEL = _("Show all photos");
-public const string DISPLAY_UNRATED_OR_HIGHER_TOOLTIP = _("Show all photos");
-
 public const string FILTER_PHOTOS_MENU = _("_Filter Photos");
-public const string FILTER_PHOTOS_LABEL = _("Filter Photos");
-public const string FILTER_PHOTOS_TOOLTIP = _("Limit the number of photos displayed based on a filter");
 
 public const string DUPLICATE_PHOTO_MENU = _("_Duplicate");
 public const string DUPLICATE_PHOTO_LABEL = _("Duplicate");
@@ -204,56 +150,30 @@ public const string DUPLICATE_PHOTO_TOOLTIP = _("Make a duplicate of the photo")
 
 public const string EXPORT_MENU = _("_Export…");
 
-public const string TOGGLE_METAPANE_MENU = _("_Show info panel");
 public const string TOGGLE_METAPANE_TOOLTIP = _("Show info panel");
 
-public const string UNTOGGLE_METAPANE_MENU = _("_Hide info panel");
 public const string UNTOGGLE_METAPANE_TOOLTIP = _("Hide info panel");
 
 public const string PRINT_MENU = _("_Print…");
 
 public const string PUBLISH_MENU = _("Pu_blish…");
-public const string PUBLISH_LABEL = _("Publish");
 public const string PUBLISH_TOOLTIP = _("Publish to various websites");
 
-public const string EDIT_TITLE_MENU = _("Edit _Title…");
 public const string EDIT_TITLE_LABEL = _("Edit Title");
 
-public const string EDIT_COMMENT_MENU = _("Edit _Comment…");
 public const string EDIT_COMMENT_LABEL = _("Edit Comment");
-
-public const string EDIT_EVENT_COMMENT_MENU = _("Edit Event _Comment…");
-public const string EDIT_EVENT_COMMENT_LABEL = _("Edit Event Comment");
 
 public const string ADJUST_DATE_TIME_MENU = _("_Adjust Date and Time…");
 public const string ADJUST_DATE_TIME_LABEL = _("Adjust Date and Time");
 
-public const string ADD_TAGS_MENU = _("Add _Tags…");
-public const string ADD_TAGS_CONTEXT_MENU = _("_Add Tags…");
-public const string ADD_TAGS_TITLE = _("Add Tags");
-
-public const string EXTERNAL_EDIT_MENU = _("Open With E_xternal Editor");
-
-public const string EXTERNAL_EDIT_RAW_MENU = _("Open With RA_W Editor");
-
 public const string OPEN_WITH_MENU = _("_Open In");
-public const string OPEN_WITH_TOOLTIP = _("Open photo with external editor");
 
 public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor…");
-public const string OPEN_WITH_RAW_LABEL = _("Open With Raw Editor");
-public const string OPEN_WITH_RAW_TOOLTIP = _("Open photo with external RAW editor");
 
-public const string SEND_TO_MENU = _("Send _To…");
-public const string SEND_TO_CONTEXT_MENU = _("Send T_o…");
-
-public const string FIND_MENU = _("_Find…");
 public const string FIND_LABEL = _("Find");
-public const string FIND_TOOLTIP = _("Find an image by typing text that appears in its name or tags");
 
 public const string FLAG_MENU = _("_Flag");
-public const string FLAG_LABEL = _("Flag");
 public const string UNFLAG_MENU = _("Un_flag");
-public const string UNFLAG_LABEL = _("Unflag");
 
 public string launch_editor_failed (Error err) {
     return _("Unable to launch editor: %s").printf (err.message);
