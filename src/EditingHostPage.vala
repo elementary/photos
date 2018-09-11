@@ -63,7 +63,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToolButton next_button = null;
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
-    private Gtk.Settings settings;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
     private bool photo_missing = false;
     private PixbufCache cache = null;
@@ -86,8 +85,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     construct {
-        settings = get_settings ();
-
         // when photo is altered need to update it here
         sources.items_altered.connect (on_photos_altered);
 
