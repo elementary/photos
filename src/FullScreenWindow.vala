@@ -50,7 +50,7 @@ public class FullscreenWindow : PageWindow {
         pin_button = new Gtk.ToggleToolButton ();
         pin_button.icon_name = "view-pin-symbolic";
         pin_button.tooltip_text = _("Pin the toolbar open");
-        pin_button.clicked.connect (update_toolbar_dismissal);
+        pin_button.bind_property ("active", this, "auto-dismiss-toolbar", GLib.BindingFlags.INVERT_BOOLEAN);
 
         var img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
 
@@ -104,10 +104,6 @@ public class FullscreenWindow : PageWindow {
         invoke_toolbar ();
 
         page.grab_focus ();
-    }
-
-    public void update_toolbar_dismissal () {
-        auto_dismiss_toolbar = !pin_button.get_active ();
     }
 
     private Gdk.Rectangle get_monitor_geometry () {
