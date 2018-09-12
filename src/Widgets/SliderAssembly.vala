@@ -25,7 +25,6 @@ public class SliderAssembly : Gtk.Grid {
     private Gtk.EventBox active_box;
     private uint click_id = 0;
     private uint initial_wait_id = 0;
-    private Gtk.Settings settings;
 
     public signal void value_changed ();
 
@@ -57,8 +56,6 @@ public class SliderAssembly : Gtk.Grid {
         orientation = Gtk.Orientation.HORIZONTAL;
         margin_top = 5;
         margin_bottom = 5;
-
-        settings = get_settings ();
 
         var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
         decrease_box = new Gtk.EventBox ();
