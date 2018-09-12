@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 09:55-0700\n"
+"POT-Creation-Date: 2018-09-11 13:04-0600\n"
 "PO-Revision-Date: 2018-09-05 18:23+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
@@ -53,17 +53,6 @@ msgstr "Kan ikke midlertidig katalog %s: %s"
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kan ikke lage data for underkatalog %s: %s"
-
-#. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Application.vala:54 src/Resources.vala:22 src/library/PhotosPage.vala:24
-#: src/library/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
-msgid "Photos"
-msgstr "Bilder"
-
-#: src/Application.vala:72 src/Resources.vala:25
-msgid "Photo Viewer"
-msgstr "Fotofremviser"
 
 #: src/AppWindow.vala:165
 #, c-format
@@ -147,19 +136,19 @@ msgstr "Skadd bildefil"
 msgid "Imported failed (%d)"
 msgstr "Import feilet (%d)"
 
-#: src/CollectionPage.vala:51 src/LibraryPhotoPage.vala:63
+#: src/CollectionPage.vala:53 src/LibraryPhotoPage.vala:63
 msgid "S_lideshow"
 msgstr "L_ysbildefremvisning"
 
-#: src/CollectionPage.vala:53 src/LibraryPhotoPage.vala:64
+#: src/CollectionPage.vala:55 src/LibraryPhotoPage.vala:64
 msgid "Play a slideshow"
 msgstr "vis et diasshow"
 
-#: src/CollectionPage.vala:93
+#: src/CollectionPage.vala:95
 msgid "Adjust the size of the thumbnails"
 msgstr "Juster størrelsen på miniatyrbildene"
 
-#: src/CollectionPage.vala:125 src/LibraryPhotoPage.vala:483
+#: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
 #: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
 #: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
@@ -167,62 +156,62 @@ msgstr "Juster størrelsen på miniatyrbildene"
 msgid "Edit Photo In_fo"
 msgstr "Rediger foto in_fo"
 
-#: src/CollectionPage.vala:164 src/LibraryPhotoPage.vala:517
+#: src/CollectionPage.vala:166 src/LibraryPhotoPage.vala:517
 msgid "_Developer"
 msgstr "_Fremkaller"
 
-#: src/CollectionPage.vala:194 src/LibraryPhotoPage.vala:542
+#: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
 #: src/library/LibraryWindow.vala:295
 msgid "View Eve_nt for Photo"
 msgstr "Se hen_delsen bildet tilhører"
 
-#: src/CollectionPage.vala:209 src/LibraryPhotoPage.vala:557
+#: src/CollectionPage.vala:211 src/LibraryPhotoPage.vala:557
 #: src/direct/DirectPhotoPage.vala:155
 msgid "Other Actions"
 msgstr "Andre handlinger"
 
-#: src/CollectionPage.vala:596
+#: src/CollectionPage.vala:598
 msgid "Export Photo/Video"
 msgstr "Eksporter bilder / videoer"
 
-#: src/CollectionPage.vala:596
+#: src/CollectionPage.vala:598
 msgid "Export Photos/Videos"
 msgstr "Eksporterer bilder/videoer"
 
-#: src/CollectionPage.vala:598 src/LibraryPhotoPage.vala:803
+#: src/CollectionPage.vala:600 src/LibraryPhotoPage.vala:803
 #: src/Dialogs/Dialogs.vala:90
 msgid "Export Photo"
 msgstr "Eksporter bilder"
 
-#: src/CollectionPage.vala:598 src/Dialogs/Dialogs.vala:119
+#: src/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
 msgid "Export Photos"
 msgstr "Eksporter bilder"
 
-#: src/CollectionPage.vala:691 src/CollectionPage.vala:707
+#: src/CollectionPage.vala:693 src/CollectionPage.vala:709
 msgid "Rotating"
 msgstr "Rotering"
 
-#: src/CollectionPage.vala:691 src/CollectionPage.vala:707
+#: src/CollectionPage.vala:693 src/CollectionPage.vala:709
 msgid "Undoing Rotate"
 msgstr "angre rotering"
 
-#: src/CollectionPage.vala:716
+#: src/CollectionPage.vala:718
 msgid "Flipping Horizontally"
 msgstr "Flipper horisontalt"
 
-#: src/CollectionPage.vala:717
+#: src/CollectionPage.vala:719
 msgid "Undoing Flip Horizontally"
 msgstr "Angre horisontal flipp"
 
-#: src/CollectionPage.vala:726
+#: src/CollectionPage.vala:728
 msgid "Flipping Vertically"
 msgstr "Flipper vertikalt"
 
-#: src/CollectionPage.vala:727
+#: src/CollectionPage.vala:729
 msgid "Undoing Flip Vertically"
 msgstr "Angre vertikal flipp"
 
-#: src/CollectionPage.vala:912 src/CollectionPage.vala:913
+#: src/CollectionPage.vala:914 src/CollectionPage.vala:915
 #: src/Checkerboard/CheckerboardPage.vala:91 src/library/PhotosPage.vala:64
 #: src/library/RawsPage.vala:64
 msgid "No photos/videos"
@@ -389,11 +378,11 @@ msgstr "Flagger valgte bilder"
 msgid "Unflagging selected photos"
 msgstr "Fjerner flagg fra valgte bilder"
 
-#: src/Commands.vala:2396 src/Resources.vala:256
+#: src/Commands.vala:2396
 msgid "Flag"
 msgstr "Flagg"
 
-#: src/Commands.vala:2396 src/Resources.vala:258
+#: src/Commands.vala:2396
 msgid "Unflag"
 msgstr "Fjern flagg"
 
@@ -422,27 +411,27 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Kan ikke overvåke %s: Dette er ingen mappe (%s)"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:103 src/Resources.vala:119 src/Resources.vala:124
+#: src/EditingHostPage.vala:109
 msgid "Rotate"
 msgstr "Roter"
 
-#: src/EditingHostPage.vala:141
+#: src/EditingHostPage.vala:147
 msgid "Zoom to fit page"
 msgstr "Tilpass side"
 
-#: src/EditingHostPage.vala:150
+#: src/EditingHostPage.vala:156
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
-#: src/EditingHostPage.vala:170
+#: src/EditingHostPage.vala:176
 msgid "Previous photo"
 msgstr "Forrige bilde"
 
-#: src/EditingHostPage.vala:174
+#: src/EditingHostPage.vala:180
 msgid "Next photo"
 msgstr "Neste bilde"
 
-#: src/EditingHostPage.vala:1505
+#: src/EditingHostPage.vala:1511
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Kildefil for bilde mangler: %s"
@@ -800,80 +789,78 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/Resources.vala:23
-msgid "Photos Viewer"
-msgstr "Bildefremivser"
+#. TRANSLATORS: This is the application name, not a category or mimetype name
+#: src/Resources.vala:23 src/library/PhotosPage.vala:24
+#: src/library/PhotosPage.vala:37 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310
+msgid "Photos"
+msgstr "Bilder"
 
 #: src/Resources.vala:24
 msgid "Photo Manager"
 msgstr "Fotobehandler"
 
-#. TRANSLATORS: Don't forget to add the line break: \n
-#: src/Resources.vala:35
-msgid ""
-"2009-2014 Yorba Foundation\n"
-"© 2014-2016 Photos Developers"
-msgstr ""
-"2009-2014 Yorba Foundation\n"
-"© 2014-2016 Photos Developers"
+#: src/Resources.vala:25
+msgid "Photo Viewer"
+msgstr "Fotofremviser"
 
-#: src/Resources.vala:118
+#: src/Resources.vala:85
 msgid "Rotate _Right"
 msgstr "Roter _høyre"
 
-#: src/Resources.vala:120
+#: src/Resources.vala:86
 msgid "Rotate Right"
 msgstr "Roter høyre"
 
-#: src/Resources.vala:121
+#: src/Resources.vala:87
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "Roter bildene mot høyre (trykk Ctrl for å rotere mot venstre)"
 
-#: src/Resources.vala:123
+#: src/Resources.vala:89
 msgid "Rotate _Left"
 msgstr "Roter _venstre"
 
-#: src/Resources.vala:125
+#: src/Resources.vala:90
 msgid "Rotate Left"
 msgstr "Roter venstre"
 
-#: src/Resources.vala:126
+#: src/Resources.vala:91
 msgid "Rotate the photos left"
 msgstr "Roter bildet mot venstre"
 
-#: src/Resources.vala:128
+#: src/Resources.vala:93
 msgid "Flip Hori_zontally"
 msgstr "Flipp Hori_sontalt"
 
-#: src/Resources.vala:129
+#: src/Resources.vala:94
 msgid "Flip Horizontally"
 msgstr "Vend horisontalt"
 
-#: src/Resources.vala:130
+#: src/Resources.vala:95
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr "Vend bildet horisontalt (trykk Ctrl for å vende vertikalt)"
 
-#: src/Resources.vala:132
+#: src/Resources.vala:97
 msgid "Flip Verti_cally"
 msgstr "Vend verti_kalt"
 
-#: src/Resources.vala:133
+#: src/Resources.vala:98
 msgid "Flip Vertically"
 msgstr "Vend vertikalt"
 
-#: src/Resources.vala:134
+#: src/Resources.vala:99
 msgid "Flip the image vertically"
 msgstr "Vend bildet vertikalt"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:101
 msgid "_Enhance"
 msgstr "_Forbedre"
 
-#: src/Resources.vala:137
+#: src/Resources.vala:102
 msgid "Enhance"
 msgstr "Forbedre"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:103
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
@@ -881,505 +868,362 @@ msgstr ""
 "Forbedre bildets utseende automatisk \n"
 "(Overskriver tidligere fargejusteringer)"
 
-#: src/Resources.vala:140
+#: src/Resources.vala:105
 msgid "Revert _Enhancement"
 msgstr "Tilbakestill _forbedring"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:106
 msgid "Revert Enhancement"
 msgstr "Tilbakestill forbedring"
 
-#: src/Resources.vala:143
+#: src/Resources.vala:108
 msgid "_Copy Color Adjustments"
 msgstr "_Kopier fargejusteringer"
 
-#: src/Resources.vala:144
-msgid "Copy Color Adjustments"
-msgstr "Kopier fargejusteringer"
-
-#: src/Resources.vala:145
-msgid "Copy the color adjustments applied to the photo"
-msgstr "Kopier fargejusteringene brukt på bildet"
-
-#: src/Resources.vala:147
+#: src/Resources.vala:110
 msgid "_Paste Color Adjustments"
 msgstr "_Lim inn fargejusteringer"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:111
 msgid "Paste Color Adjustments"
 msgstr "Lim inn fargejusteringer"
 
-#: src/Resources.vala:149
+#: src/Resources.vala:112
 msgid "Apply copied color adjustments to the selected photos"
 msgstr "Bruk de kopierte fargejusteringene på de valgte bildene"
 
-#: src/Resources.vala:151
-msgid "_Crop"
-msgstr "_Beskjær"
-
-#: src/Resources.vala:152
+#: src/Resources.vala:114
 msgid "Crop"
 msgstr "Beskjær"
 
-#: src/Resources.vala:153
+#: src/Resources.vala:115
 msgid "Crop the photo's size"
 msgstr "Beskjær bildets størrelse"
 
-#: src/Resources.vala:155 src/editing_tools/StraightenTool.vala:112
-msgid "_Straighten"
-msgstr "_Oppretting"
-
-#: src/Resources.vala:156
+#: src/Resources.vala:117
 msgid "Straighten"
 msgstr "Oppretting"
 
-#: src/Resources.vala:157
+#: src/Resources.vala:118
 msgid "Straighten the photo"
 msgstr "Rett opp bildet"
 
-#: src/Resources.vala:159
-msgid "_Red-eye"
-msgstr "_Rødeøyne"
-
-#: src/Resources.vala:160
+#: src/Resources.vala:120
 msgid "Red-eye"
 msgstr "Rødøye"
 
-#: src/Resources.vala:161
+#: src/Resources.vala:121
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "Reduser eller fjern eventuelle rødeøyer i bildet"
 
-#: src/Resources.vala:163
-msgid "_Adjust"
-msgstr "_Juster"
-
-#: src/Resources.vala:164
+#: src/Resources.vala:123
 msgid "Adjust"
 msgstr "Juster"
 
-#: src/Resources.vala:165
+#: src/Resources.vala:124
 msgid "Adjust the photo's color and tone"
 msgstr "Juster bildets farge og tonegjengivelse"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:126
 msgid "Re_vert to Original"
 msgstr "omgj_ør til orginal"
 
-#: src/Resources.vala:168
+#: src/Resources.vala:127
 msgid "Revert to Original"
 msgstr "Omgjør til orginal"
 
-#: src/Resources.vala:170
-msgid "Revert External E_dits"
-msgstr "Omgjør eksterne re_digeringer"
-
-#: src/Resources.vala:171
-msgid "Revert to the master photo"
-msgstr "gå tilbake til orginalbildet"
-
-#: src/Resources.vala:173
-msgid "Set as _Desktop Background"
-msgstr "Angi som _skrivebordsbakgrunn"
-
-#: src/Resources.vala:174
-msgid "Set selected image to be the new desktop background"
-msgstr "Angi valgte bilde til å bli din nye skrivebordsbakgrunn"
-
-#: src/Resources.vala:175
-msgid "Set as _Desktop Slideshow…"
-msgstr "Angi som lysbildefremvisning på skrivebordet…"
-
-#: src/Resources.vala:177
+#: src/Resources.vala:129
 msgid "Re_name Event…"
 msgstr "Gi nytt navn til en hendelse…"
 
-#: src/Resources.vala:178 src/Dialogs/Dialogs.vala:755
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
 msgstr "gi nytt navn til en hendelse"
 
-#: src/Resources.vala:180
+#: src/Resources.vala:132
 msgid "Make _Key Photo for Event"
 msgstr "Lag nøkkelfoto for hendelsen"
 
-#: src/Resources.vala:181
+#: src/Resources.vala:133
 msgid "Make Key Photo for Event"
 msgstr "Lag et nøkkelbilde for hendelsen"
 
-#: src/Resources.vala:183
+#: src/Resources.vala:135
 msgid "_New Event"
 msgstr "_Ny hendelse"
 
-#: src/Resources.vala:184
+#: src/Resources.vala:136
 msgid "New Event"
 msgstr "Ny hendelse"
 
-#: src/Resources.vala:186
+#: src/Resources.vala:138
 msgid "Move Photos"
 msgstr "Flytt bildene"
 
-#: src/Resources.vala:187
+#: src/Resources.vala:139
 msgid "Move photos to an event"
 msgstr "flytt bildene til en hendelse"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:141
 msgid "_Merge Events"
 msgstr "_Flett hendelser"
 
-#: src/Resources.vala:190
+#: src/Resources.vala:142
 msgid "Merge"
 msgstr "Flett"
 
-#: src/Resources.vala:191
+#: src/Resources.vala:143
 msgid "Combine events into a single event"
 msgstr "Slå sammen flere hendelser til en enkelt hendelse"
 
-#: src/Resources.vala:193 src/library/Branch.vala:174
-msgid "All Photos"
-msgstr "Alle Bilder"
-
-#: src/Resources.vala:194 src/Resources.vala:195
-msgid "Show all photos"
-msgstr "Vis alle bilder"
-
-#: src/Resources.vala:197
+#: src/Resources.vala:145
 msgid "_Filter Photos"
 msgstr "_Filtrer bilder"
 
-#: src/Resources.vala:198
-msgid "Filter Photos"
-msgstr "Filtrer bilder"
-
-#: src/Resources.vala:199
-msgid "Limit the number of photos displayed based on a filter"
-msgstr "Begrens antall bilder vist basert på et filter"
-
-#: src/Resources.vala:201
+#: src/Resources.vala:147
 msgid "_Duplicate"
 msgstr "_Dupliker"
 
-#: src/Resources.vala:202
+#: src/Resources.vala:148
 msgid "Duplicate"
 msgstr "Dupliker"
 
-#: src/Resources.vala:203
+#: src/Resources.vala:149
 msgid "Make a duplicate of the photo"
 msgstr "Lag et duplikat av bildet"
 
-#: src/Resources.vala:205
+#: src/Resources.vala:151
 msgid "_Export…"
 msgstr "_Eksporter…"
 
-#: src/Resources.vala:207
-msgid "_Show info panel"
-msgstr "_Vis informasjonspanel"
-
-#: src/Resources.vala:208 src/Resources.vala:209
+#: src/Resources.vala:153
 msgid "Show info panel"
 msgstr "Vis informasjonspanel"
 
-#: src/Resources.vala:211
-msgid "_Hide info panel"
-msgstr "_Gjem informasjonspanel"
-
-#: src/Resources.vala:212 src/Resources.vala:213
+#: src/Resources.vala:155
 msgid "Hide info panel"
 msgstr "Gjem informasjonspanel"
 
-#: src/Resources.vala:215
+#: src/Resources.vala:157
 msgid "_Print…"
 msgstr "_Utskrift…"
 
-#: src/Resources.vala:217
+#: src/Resources.vala:159
 msgid "Pu_blish…"
 msgstr "Publiser…"
 
-#: src/Resources.vala:218
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
-msgid "Publish"
-msgstr "Publiser"
-
-#: src/Resources.vala:219
+#: src/Resources.vala:160
 msgid "Publish to various websites"
 msgstr "Publiser til diverse nettsteder"
 
-#: src/Resources.vala:221
-msgid "Edit _Title…"
-msgstr "Endre_tittel…"
-
-#: src/Resources.vala:222
+#: src/Resources.vala:162
 msgid "Edit Title"
 msgstr "Endre tittel"
 
-#: src/Resources.vala:224
-msgid "Edit _Comment…"
-msgstr "Endre _kommentar…"
-
-#: src/Resources.vala:225
+#: src/Resources.vala:164
 msgid "Edit Comment"
 msgstr "Endre kommentar"
 
-#: src/Resources.vala:227
-msgid "Edit Event _Comment…"
-msgstr "Endre hendelseskommentar…"
-
-#: src/Resources.vala:228
-msgid "Edit Event Comment"
-msgstr "Endre hendelseskommentar"
-
-#: src/Resources.vala:230
+#: src/Resources.vala:166
 msgid "_Adjust Date and Time…"
 msgstr "_Endre dato og tid…"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:167
 msgid "Adjust Date and Time"
 msgstr "Juster dato og tid"
 
-#: src/Resources.vala:233
-msgid "Add _Tags…"
-msgstr "Legg til _tagger…"
-
-#: src/Resources.vala:234
-msgid "_Add Tags…"
-msgstr "_Legg til tagger…"
-
-#: src/Resources.vala:235 src/Resources.vala:272
-msgid "Add Tags"
-msgstr "Legg til tagger"
-
-#: src/Resources.vala:237
-msgid "Open With E_xternal Editor"
-msgstr "Åpne i en e_kstern bildebehandler"
-
-#: src/Resources.vala:239
-msgid "Open With RA_W Editor"
-msgstr "Åpne med en RA_W behandler"
-
-#: src/Resources.vala:241
+#: src/Resources.vala:169
 msgid "_Open In"
 msgstr "_Åpne i"
 
-#: src/Resources.vala:242
-msgid "Open photo with external editor"
-msgstr "Åpne bilde med ekstern redigerer"
-
-#: src/Resources.vala:244
+#: src/Resources.vala:171
 msgid "_Open With RAW Editor…"
 msgstr "_Åpne med RAW-redigerer…"
 
-#: src/Resources.vala:245
-msgid "Open With Raw Editor"
-msgstr "Åpne med RAW redigerer"
-
-#: src/Resources.vala:246
-msgid "Open photo with external RAW editor"
-msgstr "Åpne med ekstern RAW redigerer"
-
-#: src/Resources.vala:248
-msgid "Send _To…"
-msgstr "Send _til…"
-
-#: src/Resources.vala:249
-msgid "Send T_o…"
-msgstr "Send T_il…"
-
-#: src/Resources.vala:251
-msgid "_Find…"
-msgstr "_Finn…"
-
-#: src/Resources.vala:252
+#: src/Resources.vala:173
 msgid "Find"
 msgstr "Finn"
 
-#: src/Resources.vala:253
-msgid "Find an image by typing text that appears in its name or tags"
-msgstr "Finn et bilde ved å skrive tekst som finnes i navn eller nøkkelord"
-
-#: src/Resources.vala:255
+#: src/Resources.vala:175
 msgid "_Flag"
 msgstr "_Flagg"
 
-#: src/Resources.vala:257
+#: src/Resources.vala:176
 msgid "Un_flag"
 msgstr "av_flagg"
 
-#: src/Resources.vala:261
+#: src/Resources.vala:179
 #, c-format
 msgid "Unable to launch editor: %s"
 msgstr "Klarer ikke å starte bildebehandleren: %s"
 
-#: src/Resources.vala:266
+#: src/Resources.vala:184
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "Legg til tagg \"%s\""
 
-#: src/Resources.vala:268
+#: src/Resources.vala:186
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "Legg til taggene \"%s\" og \"%s\""
 
-#: src/Resources.vala:276
+#: src/Resources.vala:190
+msgid "Add Tags"
+msgstr "Legg til tagger"
+
+#: src/Resources.vala:194
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "_Slett tagg \"%s\""
 
-#: src/Resources.vala:280
+#: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "Slett tag \"%s\""
 
-#: src/Resources.vala:283
+#: src/Resources.vala:201
 msgid "Delete Tag"
 msgstr "Slett tagg"
 
-#: src/Resources.vala:284 src/Resources.vala:332 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
 #: src/Dialogs/Dialogs.vala:792
 msgid "_Delete"
 msgstr "_Slett"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:204
 msgid "_New"
 msgstr "_Ny"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:207
 #, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "_Gi taggen \"%s\" nytt navn…"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:211
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Omdøp taggen \"%s\" til \"%s\""
 
-#: src/Resources.vala:296
+#: src/Resources.vala:214
 msgid "_Rename…"
 msgstr "_Gi nytt navn…"
 
-#: src/Resources.vala:298
+#: src/Resources.vala:216
 msgid "Modif_y Tags…"
 msgstr "_Endre tagger…"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:217
 msgid "Modify Tags"
 msgstr "Endre tagger"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:220
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgstr "Tagg bildene som \"%s\""
 
-#: src/Resources.vala:302
+#: src/Resources.vala:220
 #, c-format
 msgid "Tag Photos as \"%s\""
 msgstr "Tagg bildet som \"%s\""
 
-#: src/Resources.vala:306
-#, c-format
-msgid "Tag the selected photo as \"%s\""
-msgstr "Tagg de valgte bildene som \"%s\""
-
-#: src/Resources.vala:307
-#, c-format
-msgid "Tag the selected photos as \"%s\""
-msgstr "Tagg de utvalgte bildene som \"%s\""
-
-#: src/Resources.vala:311
+#: src/Resources.vala:224
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgstr "Fjern taggen \"%s\" fra _bildene"
 
-#: src/Resources.vala:312
+#: src/Resources.vala:225
 #, c-format
 msgid "Remove Tag \"%s\" From _Photos"
 msgstr "Fjern taggen \"%s\" fra _bildene"
 
-#: src/Resources.vala:316
+#: src/Resources.vala:229
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgstr "Fjern taggen \"%s\" fra bildene"
 
-#: src/Resources.vala:317
+#: src/Resources.vala:230
 #, c-format
 msgid "Remove Tag \"%s\" From Photos"
 msgstr "Fjern taggen \"%s\" fra bildene"
 
-#: src/Resources.vala:321
+#: src/Resources.vala:234
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Kan ikke omdøpe taggen til \"%s\" fordi den allerede finnes."
 
-#: src/Resources.vala:325
+#: src/Resources.vala:238
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "Kan ikke endre søket til \"%s\" da søket allerede finnes."
 
-#: src/Resources.vala:328 src/searches/SavedSearchDialog.vala:620
+#: src/Resources.vala:241 src/searches/SavedSearchDialog.vala:620
 msgid "Smart Album"
 msgstr "Smart album"
 
-#: src/Resources.vala:330
+#: src/Resources.vala:243
 msgid "Delete Album"
 msgstr "Slett album"
 
-#: src/Resources.vala:333
+#: src/Resources.vala:246
 msgid "_Edit…"
 msgstr "_Rediger…"
 
-#: src/Resources.vala:334
+#: src/Resources.vala:247
 msgid "Re_name…"
 msgstr "_Gi nytt navn…"
 
-#: src/Resources.vala:337
+#: src/Resources.vala:250
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Endre navn på søk fra \"%s\" til \"%s\""
 
-#: src/Resources.vala:341
+#: src/Resources.vala:254
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Slett søk \"%s\""
 
-#: src/Resources.vala:373
+#: src/Resources.vala:286
 msgid "_Delete Selection"
 msgstr "_Slett utvalg"
 
-#: src/Resources.vala:374
+#: src/Resources.vala:287
 msgid "Remove the selected photos from the trash"
 msgstr "Fjern de valgte bildene fra søppelkassen"
 
-#: src/Resources.vala:375
+#: src/Resources.vala:288
 msgid "Remove the selected photos from the library"
 msgstr "Fjern de utvalgte bildene fra bildebiblioteket"
 
-#: src/Resources.vala:377
+#: src/Resources.vala:290
 msgid "_Restore Selection"
 msgstr "_Gjenopprett utvalg"
 
-#: src/Resources.vala:378
+#: src/Resources.vala:291
 msgid "Move the selected photos back into the library"
 msgstr "Flytt de valgte bildene tilbake til biblioteket"
 
-#: src/Resources.vala:380
+#: src/Resources.vala:293
 msgid "File Mana_ger"
 msgstr "Fil_behandler"
 
-#: src/Resources.vala:383
+#: src/Resources.vala:296
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Kan ikke åpnes i filbehandleren: %s"
 
-#: src/Resources.vala:386
+#: src/Resources.vala:299
 msgid "R_emove From Library"
 msgstr "Fj_ern fra bildebiblioteket"
 
-#: src/Resources.vala:388
+#: src/Resources.vala:301
 msgid "_Move to Trash"
 msgstr "Flytt til søppelkassen"
 
-#: src/Resources.vala:390
+#: src/Resources.vala:303
 msgid "Select _All"
 msgstr "Velg _alle"
 
-#: src/Resources.vala:391
+#: src/Resources.vala:304
 msgid "Select all items"
 msgstr "Velg alle"
 
@@ -1387,20 +1231,20 @@ msgstr "Velg alle"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:430
+#: src/Resources.vala:343
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:435
+#: src/Resources.vala:348
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:439
+#: src/Resources.vala:352
 msgid "%a %b %d, %Y"
 msgstr "%a %d. %b. %Y"
 
@@ -1410,14 +1254,14 @@ msgstr "%a %d. %b. %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:444 src/Resources.vala:454
+#: src/Resources.vala:357 src/Resources.vala:367
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:449
+#: src/Resources.vala:362
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1425,56 +1269,56 @@ msgstr "%d, %Y"
 msgid "Search Photos"
 msgstr "Søk i bilder"
 
-#: src/SlideshowPage.vala:40 src/SlideshowPage.vala:393
+#: src/SlideshowPage.vala:43 src/SlideshowPage.vala:397
 msgid "Slideshow"
 msgstr "blidefremvising"
 
-#: src/SlideshowPage.vala:60
+#: src/SlideshowPage.vala:64
 msgid "Back"
 msgstr "Tilbake"
 
-#: src/SlideshowPage.vala:61
+#: src/SlideshowPage.vala:65
 msgid "Go to the previous photo"
 msgstr "Gå tilbake til forrige bilde"
 
-#: src/SlideshowPage.vala:64
+#: src/SlideshowPage.vala:68
 msgid "Pause"
 msgstr "Pause"
 
-#: src/SlideshowPage.vala:66 src/SlideshowPage.vala:195
+#: src/SlideshowPage.vala:70 src/SlideshowPage.vala:199
 msgid "Pause the slideshow"
 msgstr "Pause bildefremvisningen"
 
-#: src/SlideshowPage.vala:69
+#: src/SlideshowPage.vala:73
 msgid "Next"
 msgstr "Neste"
 
-#: src/SlideshowPage.vala:70
+#: src/SlideshowPage.vala:74
 msgid "Go to the next photo"
 msgstr "Gå til det neste bilde"
 
-#: src/SlideshowPage.vala:77
+#: src/SlideshowPage.vala:81
 msgid "Show Photo Titles"
 msgstr "Vis bildetitler"
 
-#: src/SlideshowPage.vala:92
+#: src/SlideshowPage.vala:96
 msgid "Transition Speed"
 msgstr "Overgangshastighet"
 
-#: src/SlideshowPage.vala:94
+#: src/SlideshowPage.vala:98
 msgid "Faster"
 msgstr "Raskere"
 
-#: src/SlideshowPage.vala:95
+#: src/SlideshowPage.vala:99
 msgid "Slower"
 msgstr "Tregere"
 
 #. An entire slideshow set might be missing, so check for a loop.
-#: src/SlideshowPage.vala:160
+#: src/SlideshowPage.vala:164
 msgid "All photo source files are missing."
 msgstr "Alle bildekildefiler mangler."
 
-#: src/SlideshowPage.vala:192
+#: src/SlideshowPage.vala:196
 msgid "Continue the slideshow"
 msgstr "Fortsett bildefremvisningen"
 
@@ -2442,7 +2286,7 @@ msgid "Save As"
 msgstr "Lagre som"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:570
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Avbryt"
@@ -2463,6 +2307,10 @@ msgstr "Lagre bilde med et annet navn"
 #: src/editing_tools/StraightenTool.vala:111
 msgid "Angle:"
 msgstr "Vinkel:"
+
+#: src/editing_tools/StraightenTool.vala:112
+msgid "_Straighten"
+msgstr "_Oppretting"
 
 #: src/editing_tools/StraightenTool.vala:114
 #: src/editing_tools/AdjustTool.vala:117
@@ -2667,6 +2515,10 @@ msgstr "%Y"
 msgid "%OB"
 msgstr "%OB"
 
+#: src/library/Branch.vala:174
+msgid "All Photos"
+msgstr "Alle Bilder"
+
 #: src/library/FlaggedPage.vala:21
 msgid "Flagged"
 msgstr "Flagget"
@@ -2719,15 +2571,15 @@ msgstr "Nytt smart album…"
 msgid "Display the sidebar"
 msgstr "Vis sidestolpen"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:567
 msgid "Import From Folder"
 msgstr "Importer fra mappe"
 
-#: src/library/LibraryWindow.vala:571
+#: src/library/LibraryWindow.vala:569
 msgid "Import"
 msgstr "Importer"
 
-#: src/library/LibraryWindow.vala:734
+#: src/library/LibraryWindow.vala:732
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2740,48 +2592,48 @@ msgstr ""
 "innstillinger</span>.\n"
 "Vil du fortsette importering av bilder?"
 
-#: src/library/LibraryWindow.vala:738
+#: src/library/LibraryWindow.vala:736
 msgid "_Import"
 msgstr "_Importer"
 
-#: src/library/LibraryWindow.vala:739
+#: src/library/LibraryWindow.vala:737
 msgid "Library Location"
 msgstr "Bildebibliotekets plassering"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:753
+#: src/library/LibraryWindow.vala:751
 msgid "Photos cannot be imported from this directory."
 msgstr "Ingen bilder kan importeres fra denne mappen."
 
-#: src/library/LibraryWindow.vala:980 src/library/LibraryWindow.vala:991
+#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
 msgid "Updating library…"
 msgstr "Oppdaterer bibliotek…"
 
-#: src/library/LibraryWindow.vala:997
+#: src/library/LibraryWindow.vala:995
 msgid "Preparing to auto-import photos…"
 msgstr "Forbereder å auto-importere bilder…"
 
-#: src/library/LibraryWindow.vala:1002
+#: src/library/LibraryWindow.vala:1000
 msgid "Auto-importing photos…"
 msgstr "Auto-importerer bilder…"
 
-#: src/library/LibraryWindow.vala:1010
+#: src/library/LibraryWindow.vala:1008
 msgid "Writing metadata to files…"
 msgstr "Skriver metadata til filer…"
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1162
 msgid "Import Photos"
 msgstr "Importer bilder"
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1162
 msgid "Copy photos from a folder or external device."
 msgstr "Kopier bilder fra en mappe eller ekstern enhet."
 
-#: src/library/LibraryWindow.vala:1167
+#: src/library/LibraryWindow.vala:1163
 msgid "Change Library Folder"
 msgstr "Endre biblioteksmappe"
 
-#: src/library/LibraryWindow.vala:1167
+#: src/library/LibraryWindow.vala:1163
 msgid "Choose where to keep your photos."
 msgstr "Velg plassering for dine bilder."
 
@@ -3819,6 +3671,10 @@ msgstr "_Ikke last opp tagger"
 msgid "Logout"
 msgstr "Logg ut"
 
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
+msgid "Publish"
+msgstr "Publiser"
+
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:27
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
 msgid "label"
@@ -4069,6 +3925,112 @@ msgstr "Sjakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Gardiner"
+
+#~ msgid "Photos Viewer"
+#~ msgstr "Bildefremivser"
+
+#~ msgid ""
+#~ "2009-2014 Yorba Foundation\n"
+#~ "© 2014-2016 Photos Developers"
+#~ msgstr ""
+#~ "2009-2014 Yorba Foundation\n"
+#~ "© 2014-2016 Photos Developers"
+
+#~ msgid "Copy Color Adjustments"
+#~ msgstr "Kopier fargejusteringer"
+
+#~ msgid "Copy the color adjustments applied to the photo"
+#~ msgstr "Kopier fargejusteringene brukt på bildet"
+
+#~ msgid "_Crop"
+#~ msgstr "_Beskjær"
+
+#~ msgid "_Red-eye"
+#~ msgstr "_Rødeøyne"
+
+#~ msgid "_Adjust"
+#~ msgstr "_Juster"
+
+#~ msgid "Revert External E_dits"
+#~ msgstr "Omgjør eksterne re_digeringer"
+
+#~ msgid "Revert to the master photo"
+#~ msgstr "gå tilbake til orginalbildet"
+
+#~ msgid "Set as _Desktop Background"
+#~ msgstr "Angi som _skrivebordsbakgrunn"
+
+#~ msgid "Set selected image to be the new desktop background"
+#~ msgstr "Angi valgte bilde til å bli din nye skrivebordsbakgrunn"
+
+#~ msgid "Set as _Desktop Slideshow…"
+#~ msgstr "Angi som lysbildefremvisning på skrivebordet…"
+
+#~ msgid "Show all photos"
+#~ msgstr "Vis alle bilder"
+
+#~ msgid "Filter Photos"
+#~ msgstr "Filtrer bilder"
+
+#~ msgid "Limit the number of photos displayed based on a filter"
+#~ msgstr "Begrens antall bilder vist basert på et filter"
+
+#~ msgid "_Show info panel"
+#~ msgstr "_Vis informasjonspanel"
+
+#~ msgid "_Hide info panel"
+#~ msgstr "_Gjem informasjonspanel"
+
+#~ msgid "Edit _Title…"
+#~ msgstr "Endre_tittel…"
+
+#~ msgid "Edit _Comment…"
+#~ msgstr "Endre _kommentar…"
+
+#~ msgid "Edit Event _Comment…"
+#~ msgstr "Endre hendelseskommentar…"
+
+#~ msgid "Edit Event Comment"
+#~ msgstr "Endre hendelseskommentar"
+
+#~ msgid "Add _Tags…"
+#~ msgstr "Legg til _tagger…"
+
+#~ msgid "_Add Tags…"
+#~ msgstr "_Legg til tagger…"
+
+#~ msgid "Open With E_xternal Editor"
+#~ msgstr "Åpne i en e_kstern bildebehandler"
+
+#~ msgid "Open With RA_W Editor"
+#~ msgstr "Åpne med en RA_W behandler"
+
+#~ msgid "Open photo with external editor"
+#~ msgstr "Åpne bilde med ekstern redigerer"
+
+#~ msgid "Open With Raw Editor"
+#~ msgstr "Åpne med RAW redigerer"
+
+#~ msgid "Open photo with external RAW editor"
+#~ msgstr "Åpne med ekstern RAW redigerer"
+
+#~ msgid "Send _To…"
+#~ msgstr "Send _til…"
+
+#~ msgid "Send T_o…"
+#~ msgstr "Send T_il…"
+
+#~ msgid "_Find…"
+#~ msgstr "_Finn…"
+
+#~ msgid "Find an image by typing text that appears in its name or tags"
+#~ msgstr "Finn et bilde ved å skrive tekst som finnes i navn eller nøkkelord"
+
+#~ msgid "Tag the selected photo as \"%s\""
+#~ msgstr "Tagg de valgte bildene som \"%s\""
+
+#~ msgid "Tag the selected photos as \"%s\""
+#~ msgstr "Tagg de utvalgte bildene som \"%s\""
 
 #~ msgid "_View"
 #~ msgstr "_Vis"
