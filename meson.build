@@ -116,6 +116,8 @@ publishing_extras_gresource = gnome.compile_resources(
     source_dir: 'plugins/pantheon-photos-publishing-extras'
 )
 
+meson.add_install_script('meson/post_install.py', join_paths(get_option('prefix'), get_option('datadir')))
+
 subdir('data')
 subdir('src')
 subdir('thumbnailer')
