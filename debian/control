@@ -1,7 +1,7 @@
 Source: pantheon-photos
 Section: gnome
 Priority: optional
-Maintainer: elementary OS Team <builds@elementaryos.org>
+Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                desktop-file-utils,
                gettext,
@@ -33,15 +33,10 @@ Build-Depends: debhelper (>= 10.5.1),
                valac (>= 0.18.0)
 Standards-Version: 4.1.1
 Homepage: https://github.com/elementary/photos
-XS-Testsuite: autopkgtest
 
 Package: pantheon-photos
 Architecture: any
-Depends: dbus-x11,
-         librsvg2-common,
-         ${misc:Depends},
-         ${shlibs:Depends}
-Suggests: account-plugin-facebook, account-plugin-flickr, account-plugin-google
+Depends: dbus-x11, librsvg2-common, ${misc:Depends}, ${shlibs:Depends}
 Description: digital photo organizer
  Photos is a digital photo organizer designed for the Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
