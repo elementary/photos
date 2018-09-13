@@ -37,6 +37,8 @@ Homepage: https://github.com/elementary/photos
 Package: pantheon-photos
 Architecture: any
 Depends: dbus-x11, librsvg2-common, ${misc:Depends}, ${shlibs:Depends}
+Conflicts: pantheon-photos-common
+Replaces: pantheon-photos-common
 Description: digital photo organizer
  Photos is a digital photo organizer designed for the Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
