@@ -157,9 +157,12 @@ public class LibraryWindow : AppWindow {
 
         var import_menu_item = new Gtk.MenuItem ();
         import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+        import_menu_item.use_underline = true;
 
         var preferences_menu_item = new Gtk.MenuItem ();
         preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("Preferences");
 
         var settings_menu = new Gtk.Menu ();
         settings_menu.add (import_menu_item);
@@ -287,9 +290,9 @@ public class LibraryWindow : AppWindow {
     }
 
     private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry import = { "CommonFileImport", null, _("Import From Folder…"), "<Ctrl>I", null, on_file_import };
+        Gtk.ActionEntry import = { "CommonFileImport", null, null, "<Ctrl>I", null, on_file_import };
         Gtk.ActionEntry sort = { "CommonSortEvents", null,  _("Sort _Events"), null, null, null };
-        Gtk.ActionEntry preferences = { "CommonPreferences", null, _("Preferences"), null, null, on_preferences };
+        Gtk.ActionEntry preferences = { "CommonPreferences", null, null, null, null, on_preferences };
         Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null, null, on_jump_to_event };
         Gtk.ActionEntry find = { "CommonFind", null, null, null, null, on_find };
 
