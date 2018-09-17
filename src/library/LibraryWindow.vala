@@ -185,7 +185,7 @@ public class LibraryWindow : AppWindow {
         header.set_custom_title (top_display);
 
         sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
-        sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
+        sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
 
         // put the sidebar in a scrolling window
         var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
