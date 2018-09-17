@@ -162,7 +162,8 @@ public class LibraryWindow : AppWindow {
 
         var preferences_menu_item = new Gtk.MenuItem ();
         preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("Preferences");
+        preferences_menu_item.label = _("_Preferences");
+        preferences_menu_item.use_underline = true;
 
         var settings_menu = new Gtk.Menu ();
         settings_menu.add (import_menu_item);
