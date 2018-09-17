@@ -38,8 +38,8 @@ public abstract class AppWindow : PageWindow {
     private int pos_y = 0;
     protected Gtk.HeaderBar header;
 
-    private Gtk.Button redo_btn;
-    private Gtk.Button undo_btn;
+    protected Gtk.Button redo_btn;
+    protected Gtk.Button undo_btn;
 
     protected GLib.Settings window_settings;
 
@@ -99,8 +99,6 @@ public abstract class AppWindow : PageWindow {
 
         header = new Gtk.HeaderBar ();
         header.show_close_button = true;
-        header.pack_end (redo_btn);
-        header.pack_end (undo_btn);
 
         icon_name = "multimedia-photo-manager";
         title = _(Resources.APP_TITLE);
