@@ -834,21 +834,34 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
 }
 
 public bool remove_offline_dialog (Gtk.Window owner, int count) {
-    if (count == 0)
+    if (count == 0) {
         return false;
+    }
 
-    string msg = ngettext (
-                     "This will remove the photo from the library.  Continue?",
-                     "This will remove %d photos from the library.  Continue?",
-                     count).printf (count);
+    string primary_text = ngettext (
+        _("Remove Photo From Library"),
+        _("Remove Photos From Library"),
+        count
+    );
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
-    dialog.title = (count == 1) ? _ ("Remove Photo From Library") : _ ("Remove Photos From Library");
+    string secondary_text = ngettext (
+        "This will remove the photo from the library.  Continue?",
+        "This will remove %d photos from the library.  Continue?",
+         count
+    ).printf (count);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = owner;
+
+    var remove_button = (Gtk.Button) dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
+    remove_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
