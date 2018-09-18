@@ -753,7 +753,7 @@ public class PiwigoPublisher : Spit.Publishing.Publisher, GLib.Object {
         assert (category.is_local ());
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Creating album %s...").printf (category.name));
+        host.install_static_message_pane (_ ("Creating album %s…").printf (category.name));
 
         CategoriesAddTransaction creation_trans = new CategoriesAddTransaction (
             session, category.name.strip (), int.parse (category.uppercats), category.comment);

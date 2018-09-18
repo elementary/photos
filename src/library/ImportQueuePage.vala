@@ -18,7 +18,7 @@
 */
 
 public class ImportQueuePage : SinglePhotoPage {
-    public const string NAME = _ ("Importing...");
+    public const string NAME = _ ("Importing…");
 
     private Gee.ArrayList<BatchImport> queue = new Gee.ArrayList<BatchImport> ();
     private Gee.HashSet<BatchImport> cancel_unallowed = new Gee.HashSet<BatchImport> ();
@@ -124,7 +124,7 @@ public class ImportQueuePage : SinglePhotoPage {
     }
 
     private void on_preparing () {
-        progress_bar.set_text (_ ("Preparing to import..."));
+        progress_bar.set_text (_ ("Preparing to import…"));
         progress_bar.pulse ();
     }
 
