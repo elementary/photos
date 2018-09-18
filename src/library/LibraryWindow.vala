@@ -181,6 +181,8 @@ public class LibraryWindow : AppWindow {
 
         header.pack_end (search_entry);
         header.pack_end (settings);
+        header.pack_end (redo_btn);
+        header.pack_end (undo_btn);
         header.set_custom_title (top_display);
 
         sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
