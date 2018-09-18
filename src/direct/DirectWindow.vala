@@ -53,6 +53,8 @@ public class DirectWindow : AppWindow {
         header.has_subtitle = false;
         header.pack_start (save_btn);
         header.pack_start (save_as_btn);
+        header.pack_end (redo_btn);
+        header.pack_end (undo_btn);
     }
 
     construct {
