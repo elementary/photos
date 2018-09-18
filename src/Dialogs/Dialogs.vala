@@ -760,47 +760,6 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (only remove photos) and
-// Gtk.ResponseType.CANCEL.
-public Gtk.ResponseType remove_from_library_dialog (Gtk.Window owner, string title,
-        string user_message, int count) {
-    string delete_action = ngettext ("_Delete File", "_Delete Files", count);
-
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.CANCEL, "%s", user_message);
-    dialog.add_button (_ ("Only _Remove"), Gtk.ResponseType.NO);
-    dialog.add_button (delete_action, Gtk.ResponseType.YES);
-
-    // This dialog was previously created outright; we now 'hijack'
-    // dialog's old title and use it as the primary text, along with
-    // using the message as the secondary text.
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (keep photos)
-public Gtk.ResponseType remove_from_filesystem_dialog (Gtk.Window owner, string title,
-        string user_message) {
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", user_message);
-    dialog.add_button (_ ("_Keep"), Gtk.ResponseType.NO);
-    dialog.add_button (_ ("_Delete"), Gtk.ResponseType.YES);
-    dialog.set_default_response ( Gtk.ResponseType.NO);
-
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
 public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
@@ -880,8 +839,6 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
 }
 
 public interface WelcomeServiceEntry : GLib.Object {
-    public abstract string get_service_name ();
-
     public abstract void execute ();
 }
 
