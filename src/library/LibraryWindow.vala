@@ -178,6 +178,8 @@ public class LibraryWindow : AppWindow {
         settings.show_all ();
 
         header.pack_end (settings);
+        header.pack_end (redo_btn);
+        header.pack_end (undo_btn);
         header.set_custom_title (top_display);
 
         bind_property ("title", top_display, "title");
