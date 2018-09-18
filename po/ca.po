@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 13:04-0600\n"
+"POT-Creation-Date: 2018-09-18 10:22-0700\n"
 "PO-Revision-Date: 2018-09-17 16:37+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/photos/photos/"
@@ -55,7 +55,7 @@ msgstr "No s'ha pogut crear el directori temporal %s: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "No s'ha pogut crear el subdirectori de dades %s: %s"
 
-#: src/AppWindow.vala:165
+#: src/AppWindow.vala:163
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -68,11 +68,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:334
+#: src/AppWindow.vala:332
 msgid "Undo"
 msgstr "Desfés"
 
-#: src/AppWindow.vala:335
+#: src/AppWindow.vala:333
 msgid "Redo"
 msgstr "Refés"
 
@@ -151,8 +151,8 @@ msgstr "Ajusta la mida de les miniatures"
 
 #: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
-#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:332
+#: src/library/LibraryWindow.vala:333 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Edita la in_formació de la fotografia"
@@ -162,7 +162,7 @@ msgid "_Developer"
 msgstr "_Desenvolupador"
 
 #: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:295
+#: src/library/LibraryWindow.vala:299
 msgid "View Eve_nt for Photo"
 msgstr "Visualitza l'_esdeveniment de la fotografia"
 
@@ -417,27 +417,27 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "No s'ha pogut fer un seguiment de %s: no és un directori (%s)"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:109
+#: src/EditingHostPage.vala:106
 msgid "Rotate"
 msgstr "Gira"
 
-#: src/EditingHostPage.vala:147
+#: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
 msgstr "Ajusta a la pàgina"
 
-#: src/EditingHostPage.vala:156
+#: src/EditingHostPage.vala:153
 msgid "Zoom 1:1"
 msgstr "Ampliació 1:1"
 
-#: src/EditingHostPage.vala:176
+#: src/EditingHostPage.vala:173
 msgid "Previous photo"
 msgstr "Fotografia anterior"
 
-#: src/EditingHostPage.vala:180
+#: src/EditingHostPage.vala:177
 msgid "Next photo"
 msgstr "Fotografia següent"
 
-#: src/EditingHostPage.vala:1511
+#: src/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Manca el fitxer font de la fotografia: %s"
@@ -600,7 +600,7 @@ msgid "Unable to process monitoring updates: %s"
 msgstr "No s'han pogut processar les actualitzacions de seguiment: %s"
 
 #: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:327
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "Ba_rra lateral"
@@ -634,20 +634,20 @@ msgstr "Per _data d'exposició"
 
 #: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:344 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Ascendent"
 
 #: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:350 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "D_escendent"
 
 #: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:297
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "Ordena els es_deveniments"
@@ -676,11 +676,11 @@ msgstr "Ordena les fotografies per títol"
 msgid "Sort photos by exposure date"
 msgstr "Ordena les fotografies per data d'exposició"
 
-#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:344
 msgid "Sort photos in an ascending order"
 msgstr "Ordena les fotografies en ordre ascendent"
 
-#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:350
 msgid "Sort photos in a descending order"
 msgstr "Ordena les fotografies en ordre descendent"
 
@@ -786,8 +786,9 @@ msgid "Image Settings"
 msgstr "Paràmetres de la imatge"
 
 #: src/Printing.vala:418
-msgid "Printing..."
-msgstr "S'està imprimint..."
+#, fuzzy
+msgid "Printing…"
+msgstr "Im_primeix…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1388,7 +1389,8 @@ msgstr "Importa-les _totes"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:942
-msgid "Starting import, please wait..."
+#, fuzzy
+msgid "Starting import, please wait…"
 msgstr "S'està iniciant la importació, espereu..."
 
 #: src/camera/ImportPage.vala:974
@@ -1440,7 +1442,8 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-msgid "Unmounting..."
+#, fuzzy
+msgid "Unmounting…"
 msgstr "S'està desmuntant..."
 
 #: src/camera/ImportPage.vala:1253
@@ -1686,8 +1689,9 @@ msgid "Con_tinue"
 msgstr "Con_tinua"
 
 #: src/Dialogs/Dialogs.vala:173
-msgid "Save Details..."
-msgstr "Desa'n els detalls..."
+#, fuzzy
+msgid "Save Details…"
+msgstr "Desa'n els detalls"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -2331,7 +2335,7 @@ msgid "Save As"
 msgstr "Anomena i desa"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:572
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -2570,8 +2574,9 @@ msgid "Flagged"
 msgstr "Senyalat"
 
 #: src/library/ImportQueuePage.vala:21
-msgid "Importing..."
-msgstr "S'està important..."
+#, fuzzy
+msgid "Importing…"
+msgstr "S'està important"
 
 #: src/library/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2582,7 +2587,8 @@ msgid "Stop importing photos"
 msgstr "Atura la importació de fotografies"
 
 #: src/library/ImportQueuePage.vala:127
-msgid "Preparing to import..."
+#, fuzzy
+msgid "Preparing to import…"
 msgstr "S'està preparant per importar..."
 
 #: src/library/ImportQueuePage.vala:154
@@ -2598,34 +2604,34 @@ msgstr "Darrera importació"
 msgid "_Import From Folder…"
 msgstr "_Importa des de la carpeta…"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:165
 msgid "_Preferences"
 msgstr "Preferè_ncies"
 
-#: src/library/LibraryWindow.vala:174
+#: src/library/LibraryWindow.vala:176
 msgid "Settings"
 msgstr "Paràmetres"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:305 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Àlbum intel·ligent nou…"
 
-#: src/library/LibraryWindow.vala:324
+#: src/library/LibraryWindow.vala:328
 msgid "Display the sidebar"
 msgstr "Mostra la barra lateral"
 
-#: src/library/LibraryWindow.vala:567
+#: src/library/LibraryWindow.vala:571
 msgid "Import From Folder"
 msgstr "Importa des d'una carpeta"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:573
 msgid "Import"
 msgstr "Importa"
 
-#: src/library/LibraryWindow.vala:732
+#: src/library/LibraryWindow.vala:736
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2639,48 +2645,48 @@ msgstr ""
 "%s</span>.\n"
 "Voleu continuar la importació de les fotografies?"
 
-#: src/library/LibraryWindow.vala:736
+#: src/library/LibraryWindow.vala:740
 msgid "_Import"
 msgstr "_Importa"
 
-#: src/library/LibraryWindow.vala:737
+#: src/library/LibraryWindow.vala:741
 msgid "Library Location"
 msgstr "Ubicació de la biblioteca"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:751
+#: src/library/LibraryWindow.vala:755
 msgid "Photos cannot be imported from this directory."
 msgstr "No es poden importar fotografies des d'aquest directori."
 
-#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
+#: src/library/LibraryWindow.vala:982 src/library/LibraryWindow.vala:993
 msgid "Updating library…"
 msgstr "S'està actualitzant la biblioteca…"
 
-#: src/library/LibraryWindow.vala:995
+#: src/library/LibraryWindow.vala:999
 msgid "Preparing to auto-import photos…"
 msgstr "Preparant per importar fotografies automàticament…"
 
-#: src/library/LibraryWindow.vala:1000
+#: src/library/LibraryWindow.vala:1004
 msgid "Auto-importing photos…"
 msgstr "S'estan important fotografies automàticament…"
 
-#: src/library/LibraryWindow.vala:1008
+#: src/library/LibraryWindow.vala:1012
 msgid "Writing metadata to files…"
 msgstr "S'estan escrivint les metadades als fitxers…"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr "Importa les fotografies"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr "Copia fotografies des d'una carpeta o dispositiu externs."
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr "Canvia la carpeta de la biblioteca"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr "Trieu on desar les fotografies."
 
@@ -2689,7 +2695,8 @@ msgid "Missing Files"
 msgstr "Manquen fitxers"
 
 #: src/library/OfflinePage.vala:201
-msgid "Deleting..."
+#, fuzzy
+msgid "Deleting…"
 msgstr "S'està suprimint..."
 
 #: src/library/PhotosPage.vala:63 src/library/RawsPage.vala:63
@@ -2845,11 +2852,13 @@ msgid "The selected photo was successfully published."
 msgstr "S'ha publicat correctament la fotografia seleccionada."
 
 #: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information..."
+#, fuzzy
+msgid "Fetching account information…"
 msgstr "S'està recollint la informació del compte..."
 
 #: src/publishing/PublishingUI.vala:153
-msgid "Logging in..."
+#, fuzzy
+msgid "Logging in…"
 msgstr "S'està entrant..."
 
 #: src/publishing/PublishingUI.vala:213
@@ -3074,7 +3083,8 @@ msgid "Date"
 msgstr "Data"
 
 #: src/sidebar/Tree.vala:880
-msgid "New _Tag..."
+#, fuzzy
+msgid "New _Tag…"
 msgstr "_Etiqueta nova..."
 
 #: src/sidebar/metadata/BasicProperties.vala:248
@@ -3343,8 +3353,8 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s..."
+#, fuzzy, c-format
+msgid "Creating album %s…"
 msgstr "Creant àlbum %s..."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
@@ -3498,7 +3508,8 @@ msgstr ""
 "intentar-ho."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login..."
+#, fuzzy
+msgid "Preparing for login…"
 msgstr "S'està preparant per connectar..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
@@ -3511,7 +3522,8 @@ msgstr ""
 "publicació al Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization..."
+#, fuzzy
+msgid "Verifying authorization…"
 msgstr "S'està verificant l'autorització..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
@@ -3603,11 +3615,13 @@ msgid "Large (2048 pixels)"
 msgstr "Gran (2048 píxels)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook..."
+#, fuzzy
+msgid "Testing connection to Facebook…"
 msgstr "S'està comprovant la connexió amb el Facebook..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album..."
+#, fuzzy
+msgid "Creating album…"
 msgstr "S'està creant l'àlbum..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
@@ -3974,6 +3988,15 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Printing..."
+#~ msgstr "S'està imprimint..."
+
+#~ msgid "Save Details..."
+#~ msgstr "Desa'n els detalls..."
+
+#~ msgid "Importing..."
+#~ msgstr "S'està important..."
 
 #~ msgid "Photos Viewer"
 #~ msgstr "Visualitzador de fotografies"
@@ -4734,9 +4757,6 @@ msgstr "Persianes"
 
 #~ msgid "_Background:"
 #~ msgstr "_Fons:"
-
-#~ msgid "Importing"
-#~ msgstr "S'està important"
 
 #~ msgid "_Directory structure:"
 #~ msgstr "_Estructura dels directoris:"
