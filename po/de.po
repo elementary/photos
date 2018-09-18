@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 13:04-0600\n"
+"POT-Creation-Date: 2018-09-18 10:22-0700\n"
 "PO-Revision-Date: 2018-08-19 00:09+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/photos/photos/"
@@ -79,7 +79,7 @@ msgstr "Fehler beim Erstellen des Ordners %s für temporäre Dateien: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Fehler beim Erstellen des Unterordners %s für Daten: %s"
 
-#: src/AppWindow.vala:165
+#: src/AppWindow.vala:163
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -92,11 +92,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:334
+#: src/AppWindow.vala:332
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: src/AppWindow.vala:335
+#: src/AppWindow.vala:333
 msgid "Redo"
 msgstr "Wiederholen"
 
@@ -175,8 +175,8 @@ msgstr "Größe der Vorschaubilder ändern"
 
 #: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
-#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:332
+#: src/library/LibraryWindow.vala:333 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Fotoinformationen bearbeiten"
@@ -186,7 +186,7 @@ msgid "_Developer"
 msgstr "_Entwickler"
 
 #: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:295
+#: src/library/LibraryWindow.vala:299
 msgid "View Eve_nt for Photo"
 msgstr "Ereig_nis zum Foto anzeigen"
 
@@ -440,27 +440,27 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Kann %s nicht überwachen: Ist kein Ordner (%s)"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:109
+#: src/EditingHostPage.vala:106
 msgid "Rotate"
 msgstr "Drehen"
 
-#: src/EditingHostPage.vala:147
+#: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
 msgstr ""
 
-#: src/EditingHostPage.vala:156
+#: src/EditingHostPage.vala:153
 msgid "Zoom 1:1"
 msgstr "_100 % Vergrößerung"
 
-#: src/EditingHostPage.vala:176
+#: src/EditingHostPage.vala:173
 msgid "Previous photo"
 msgstr "Voriges Foto"
 
-#: src/EditingHostPage.vala:180
+#: src/EditingHostPage.vala:177
 msgid "Next photo"
 msgstr "Nächstes Foto"
 
-#: src/EditingHostPage.vala:1511
+#: src/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Foto-Quelldatei fehlt: %s"
@@ -619,7 +619,7 @@ msgid "Unable to process monitoring updates: %s"
 msgstr "Überwachungsaktualisierungen können nicht verarbeitet werden: %s"
 
 #: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:327
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "S_eitenleiste"
@@ -653,20 +653,20 @@ msgstr "Nach Aufnahme_datum"
 
 #: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:344 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Aufsteigend"
 
 #: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:350 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "A_bsteigend"
 
 #: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:297
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "_Ereignisse sortieren"
@@ -695,11 +695,11 @@ msgstr "Fotos nach Titel sortieren"
 msgid "Sort photos by exposure date"
 msgstr "Fotos nach Aufnahmedatum sortieren"
 
-#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:344
 msgid "Sort photos in an ascending order"
 msgstr "Fotos in aufsteigender Reihenfolge sortieren"
 
-#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:350
 msgid "Sort photos in a descending order"
 msgstr "Fotos in absteigender Reihenfolge sortieren"
 
@@ -805,8 +805,9 @@ msgid "Image Settings"
 msgstr "Bildeinstellungen"
 
 #: src/Printing.vala:418
-msgid "Printing..."
-msgstr "Druckvorgang läuft …"
+#, fuzzy
+msgid "Printing…"
+msgstr "_Drucken…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1412,7 +1413,8 @@ msgstr "_Alle importieren"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:942
-msgid "Starting import, please wait..."
+#, fuzzy
+msgid "Starting import, please wait…"
 msgstr "Import beginnt, bitte warten …"
 
 #: src/camera/ImportPage.vala:974
@@ -1467,7 +1469,8 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-msgid "Unmounting..."
+#, fuzzy
+msgid "Unmounting…"
 msgstr "Aushängen läuft …"
 
 #: src/camera/ImportPage.vala:1253
@@ -1714,8 +1717,9 @@ msgid "Con_tinue"
 msgstr "For_tsetzen"
 
 #: src/Dialogs/Dialogs.vala:173
-msgid "Save Details..."
-msgstr "Details speichern …"
+#, fuzzy
+msgid "Save Details…"
+msgstr "Details speichern"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -2372,7 +2376,7 @@ msgid "Save As"
 msgstr "Speichern unter"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:572
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -2612,8 +2616,9 @@ msgid "Flagged"
 msgstr "Markiert"
 
 #: src/library/ImportQueuePage.vala:21
-msgid "Importing..."
-msgstr "Import läuft …"
+#, fuzzy
+msgid "Importing…"
+msgstr "Import läuft"
 
 #: src/library/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2624,7 +2629,8 @@ msgid "Stop importing photos"
 msgstr "Fotoimport abbrechen"
 
 #: src/library/ImportQueuePage.vala:127
-msgid "Preparing to import..."
+#, fuzzy
+msgid "Preparing to import…"
 msgstr "Import wird vorbereitet …"
 
 #: src/library/ImportQueuePage.vala:154
@@ -2640,34 +2646,34 @@ msgstr "Letzter Import"
 msgid "_Import From Folder…"
 msgstr "Aus Ordner _importieren …"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:165
 msgid "_Preferences"
 msgstr "_Einstellungen"
 
-#: src/library/LibraryWindow.vala:174
+#: src/library/LibraryWindow.vala:176
 msgid "Settings"
 msgstr "Einstellungen"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:305 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Neues intelligentes Album …"
 
-#: src/library/LibraryWindow.vala:324
+#: src/library/LibraryWindow.vala:328
 msgid "Display the sidebar"
 msgstr "Seitenleiste anzeigen"
 
-#: src/library/LibraryWindow.vala:567
+#: src/library/LibraryWindow.vala:571
 msgid "Import From Folder"
 msgstr "Aus Ordner importieren"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:573
 msgid "Import"
 msgstr "Importieren"
 
-#: src/library/LibraryWindow.vala:732
+#: src/library/LibraryWindow.vala:736
 #, fuzzy, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2681,48 +2687,48 @@ msgstr ""
 "Einstellungen</span> zu ändern.\n"
 "Möchten Sie mit dem Importieren der Fotos fortfahren?"
 
-#: src/library/LibraryWindow.vala:736
+#: src/library/LibraryWindow.vala:740
 msgid "_Import"
 msgstr "_Import"
 
-#: src/library/LibraryWindow.vala:737
+#: src/library/LibraryWindow.vala:741
 msgid "Library Location"
 msgstr "Speicherort der Sammlung"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:751
+#: src/library/LibraryWindow.vala:755
 msgid "Photos cannot be imported from this directory."
 msgstr "Aus diesem Ordner können keine Fotos importiert werden."
 
-#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
+#: src/library/LibraryWindow.vala:982 src/library/LibraryWindow.vala:993
 msgid "Updating library…"
 msgstr "Sammlung aktualisieren …"
 
-#: src/library/LibraryWindow.vala:995
+#: src/library/LibraryWindow.vala:999
 msgid "Preparing to auto-import photos…"
 msgstr "Automatisches importieren von Fotos wird vorbereitet …"
 
-#: src/library/LibraryWindow.vala:1000
+#: src/library/LibraryWindow.vala:1004
 msgid "Auto-importing photos…"
 msgstr "Fotos werden automatisch importiert …"
 
-#: src/library/LibraryWindow.vala:1008
+#: src/library/LibraryWindow.vala:1012
 msgid "Writing metadata to files…"
 msgstr "Metadaten werden in Dateien geschrieben …"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr "Fotos importieren"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr "Fotos aus einem Ordner oder von einem externen Gerät kopieren."
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr "Sammlungsordner ändern"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr "Ort zur Speicherung Ihrer Fotos wählen"
 
@@ -2731,7 +2737,8 @@ msgid "Missing Files"
 msgstr "Fehlende Dateien"
 
 #: src/library/OfflinePage.vala:201
-msgid "Deleting..."
+#, fuzzy
+msgid "Deleting…"
 msgstr "Löschen läuft …"
 
 #: src/library/PhotosPage.vala:63 src/library/RawsPage.vala:63
@@ -2888,11 +2895,13 @@ msgid "The selected photo was successfully published."
 msgstr "Das ausgewählte Foto wurde erfolgreich veröffentlicht."
 
 #: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information..."
+#, fuzzy
+msgid "Fetching account information…"
 msgstr "Kontoinformationen werden abgerufen …"
 
 #: src/publishing/PublishingUI.vala:153
-msgid "Logging in..."
+#, fuzzy
+msgid "Logging in…"
 msgstr "Anmeldung läuft …"
 
 #: src/publishing/PublishingUI.vala:213
@@ -3119,7 +3128,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: src/sidebar/Tree.vala:880
-msgid "New _Tag..."
+#, fuzzy
+msgid "New _Tag…"
 msgstr "Neues _Schlagwort …"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
@@ -3402,8 +3412,8 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s..."
+#, fuzzy, c-format
+msgid "Creating album %s…"
 msgstr "Album %s wird erstellt …"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
@@ -3558,7 +3568,8 @@ msgstr ""
 "starten Sie es nochmals und versuchen es dann erneut."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login..."
+#, fuzzy
+msgid "Preparing for login…"
 msgstr "Anmeldung wird vorbereitet …"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
@@ -3571,7 +3582,8 @@ msgstr ""
 "Veröffentlichung auf Flickr ist nicht möglich."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization..."
+#, fuzzy
+msgid "Verifying authorization…"
 msgstr "Genehmigung wird überprüft …"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
@@ -3664,11 +3676,13 @@ msgid "Large (2048 pixels)"
 msgstr "Groß (2048 Pixel)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook..."
+#, fuzzy
+msgid "Testing connection to Facebook…"
 msgstr "Verbindung zu Facebook wird geprüft …"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album..."
+#, fuzzy
+msgid "Creating album…"
 msgstr "Album wird erstellt …"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
@@ -4032,6 +4046,15 @@ msgstr "Schachbrett"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Verdunkeln"
+
+#~ msgid "Printing..."
+#~ msgstr "Druckvorgang läuft …"
+
+#~ msgid "Save Details..."
+#~ msgstr "Details speichern …"
+
+#~ msgid "Importing..."
+#~ msgstr "Import läuft …"
 
 #~ msgid "Photos Viewer"
 #~ msgstr "Fotobetrachter"
@@ -4838,9 +4861,6 @@ msgstr "Verdunkeln"
 
 #~ msgid "_Import From Folder..."
 #~ msgstr "Aus _Ordner importieren …"
-
-#~ msgid "Importing"
-#~ msgstr "Import läuft"
 
 #~ msgid "External Editors"
 #~ msgstr "Externe Bildbearbeitungsprogramme"

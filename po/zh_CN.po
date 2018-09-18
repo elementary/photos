@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 13:04-0600\n"
+"POT-Creation-Date: 2018-09-18 10:22-0700\n"
 "PO-Revision-Date: 2018-08-13 00:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
@@ -69,7 +69,7 @@ msgstr "无法创建临时文件夹 %s：%s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "无法创建数据子文件夹 %s：%s"
 
-#: src/AppWindow.vala:165
+#: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -80,11 +80,11 @@ msgstr ""
 "访问 Shotwell 媒体库时出现严重错误。Shotwell 无法继续运行。\n"
 "%s"
 
-#: src/AppWindow.vala:334
+#: src/AppWindow.vala:332
 msgid "Undo"
 msgstr "取消"
 
-#: src/AppWindow.vala:335
+#: src/AppWindow.vala:333
 msgid "Redo"
 msgstr "重做"
 
@@ -163,8 +163,8 @@ msgstr "改变缩略图大小"
 
 #: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
-#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:332
+#: src/library/LibraryWindow.vala:333 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "编辑照片信息"
@@ -174,7 +174,7 @@ msgid "_Developer"
 msgstr "开发人员"
 
 #: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:295
+#: src/library/LibraryWindow.vala:299
 msgid "View Eve_nt for Photo"
 msgstr "查看照片所属事件"
 
@@ -423,28 +423,28 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "无法监视 %s：%s 不是目录"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:109
+#: src/EditingHostPage.vala:106
 msgid "Rotate"
 msgstr "旋转"
 
-#: src/EditingHostPage.vala:147
+#: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
 msgstr ""
 
-#: src/EditingHostPage.vala:156
+#: src/EditingHostPage.vala:153
 #, fuzzy
 msgid "Zoom 1:1"
 msgstr "缩放 _100%"
 
-#: src/EditingHostPage.vala:176
+#: src/EditingHostPage.vala:173
 msgid "Previous photo"
 msgstr "上一张照片"
 
-#: src/EditingHostPage.vala:180
+#: src/EditingHostPage.vala:177
 msgid "Next photo"
 msgstr "下一张照片"
 
-#: src/EditingHostPage.vala:1511
+#: src/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "照片源文件丢失：%s"
@@ -599,7 +599,7 @@ msgid "Unable to process monitoring updates: %s"
 msgstr "无法进行监控更新：%s"
 
 #: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:327
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "侧边栏"
@@ -633,20 +633,20 @@ msgstr "按照日期"
 
 #: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:344 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "升序"
 
 #: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:350 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "降序"
 
 #: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:297
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "排列事件"
@@ -675,11 +675,11 @@ msgstr "按照标题排序"
 msgid "Sort photos by exposure date"
 msgstr "按照曝光日期排序"
 
-#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:344
 msgid "Sort photos in an ascending order"
 msgstr "按照升序排列照片"
 
-#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:350
 msgid "Sort photos in a descending order"
 msgstr "按照降序排列照片"
 
@@ -785,8 +785,9 @@ msgid "Image Settings"
 msgstr "图像设置"
 
 #: src/Printing.vala:418
-msgid "Printing..."
-msgstr "打印中..."
+#, fuzzy
+msgid "Printing…"
+msgstr "打印..."
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1393,7 +1394,8 @@ msgstr "全部导入"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:942
-msgid "Starting import, please wait..."
+#, fuzzy
+msgid "Starting import, please wait…"
 msgstr "正在开始导入，请稍候..."
 
 #: src/camera/ImportPage.vala:974
@@ -1444,7 +1446,8 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-msgid "Unmounting..."
+#, fuzzy
+msgid "Unmounting…"
 msgstr "卸载..."
 
 #: src/camera/ImportPage.vala:1253
@@ -1672,7 +1675,8 @@ msgid "Con_tinue"
 msgstr "继续"
 
 #: src/Dialogs/Dialogs.vala:173
-msgid "Save Details..."
+#, fuzzy
+msgid "Save Details…"
 msgstr "保存详细信息..."
 
 #: src/Dialogs/Dialogs.vala:174
@@ -2224,7 +2228,7 @@ msgid "Save As"
 msgstr "另存为"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:572
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "取消"
@@ -2461,8 +2465,9 @@ msgid "Flagged"
 msgstr "已标注"
 
 #: src/library/ImportQueuePage.vala:21
-msgid "Importing..."
-msgstr "导入..."
+#, fuzzy
+msgid "Importing…"
+msgstr "导入中"
 
 #: src/library/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2473,7 +2478,8 @@ msgid "Stop importing photos"
 msgstr "停止导入照片"
 
 #: src/library/ImportQueuePage.vala:127
-msgid "Preparing to import..."
+#, fuzzy
+msgid "Preparing to import…"
 msgstr "准备导入..."
 
 #: src/library/ImportQueuePage.vala:154
@@ -2489,34 +2495,34 @@ msgstr "最近导入"
 msgid "_Import From Folder…"
 msgstr "导入文件夹..."
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:165
 msgid "_Preferences"
 msgstr "首选项"
 
-#: src/library/LibraryWindow.vala:174
+#: src/library/LibraryWindow.vala:176
 msgid "Settings"
 msgstr "设置"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:305 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "新建智能相册..."
 
-#: src/library/LibraryWindow.vala:324
+#: src/library/LibraryWindow.vala:328
 msgid "Display the sidebar"
 msgstr "显示侧边栏"
 
-#: src/library/LibraryWindow.vala:567
+#: src/library/LibraryWindow.vala:571
 msgid "Import From Folder"
 msgstr "导入文件夹"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:573
 msgid "Import"
 msgstr "导入"
 
-#: src/library/LibraryWindow.vala:732
+#: src/library/LibraryWindow.vala:736
 #, fuzzy, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2528,48 +2534,48 @@ msgstr ""
 "我们推荐您在 <span weight=\"bold\">编辑 %s 首选项</span>中更改此设置。\n"
 "您想继续导入照片吗？"
 
-#: src/library/LibraryWindow.vala:736
+#: src/library/LibraryWindow.vala:740
 msgid "_Import"
 msgstr "导入"
 
-#: src/library/LibraryWindow.vala:737
+#: src/library/LibraryWindow.vala:741
 msgid "Library Location"
 msgstr "媒体库位置"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:751
+#: src/library/LibraryWindow.vala:755
 msgid "Photos cannot be imported from this directory."
 msgstr "无法从此文件夹导入照片。"
 
-#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
+#: src/library/LibraryWindow.vala:982 src/library/LibraryWindow.vala:993
 msgid "Updating library…"
 msgstr "正在更新库..."
 
-#: src/library/LibraryWindow.vala:995
+#: src/library/LibraryWindow.vala:999
 msgid "Preparing to auto-import photos…"
 msgstr "正在准备自动导入..."
 
-#: src/library/LibraryWindow.vala:1000
+#: src/library/LibraryWindow.vala:1004
 msgid "Auto-importing photos…"
 msgstr "正在自动导入照片..."
 
-#: src/library/LibraryWindow.vala:1008
+#: src/library/LibraryWindow.vala:1012
 msgid "Writing metadata to files…"
 msgstr "正在向文件写入数据..."
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr "导入照片"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr "从文件夹或外部设备中导入。"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr "更改目录"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr "选择您想要存放照片的位置。"
 
@@ -2578,7 +2584,8 @@ msgid "Missing Files"
 msgstr "缺失的文件"
 
 #: src/library/OfflinePage.vala:201
-msgid "Deleting..."
+#, fuzzy
+msgid "Deleting…"
 msgstr "删除..."
 
 #: src/library/PhotosPage.vala:63 src/library/RawsPage.vala:63
@@ -2731,11 +2738,13 @@ msgid "The selected photo was successfully published."
 msgstr "选中的照片已经成功发布。"
 
 #: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information..."
+#, fuzzy
+msgid "Fetching account information…"
 msgstr "获取帐号信息..."
 
 #: src/publishing/PublishingUI.vala:153
-msgid "Logging in..."
+#, fuzzy
+msgid "Logging in…"
 msgstr "正在登录……"
 
 #: src/publishing/PublishingUI.vala:213
@@ -2959,7 +2968,8 @@ msgid "Date"
 msgstr "日期"
 
 #: src/sidebar/Tree.vala:880
-msgid "New _Tag..."
+#, fuzzy
+msgid "New _Tag…"
 msgstr "新建标签..."
 
 #: src/sidebar/metadata/BasicProperties.vala:248
@@ -3233,8 +3243,8 @@ msgstr ""
 "  鸿盟-行道树 https://launchpad.net/~hongsuda"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s..."
+#, fuzzy, c-format
+msgid "Creating album %s…"
 msgstr "正在创建相册 %s…"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
@@ -3378,7 +3388,8 @@ msgstr ""
 "要继续发布到 Flickr，请退出并重新启动 Shotwell，然后再尝试发布。"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login..."
+#, fuzzy
+msgid "Preparing for login…"
 msgstr "准备登录..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
@@ -3389,7 +3400,8 @@ msgid ""
 msgstr "发布所需的某个文件不可用。无法继续发布至 Flickr。"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization..."
+#, fuzzy
+msgid "Verifying authorization…"
 msgstr "验证授权…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
@@ -3477,11 +3489,13 @@ msgid "Large (2048 pixels)"
 msgstr "较大（2048 像素）"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook..."
+#, fuzzy
+msgid "Testing connection to Facebook…"
 msgstr "正在测试连接 Facebook..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album..."
+#, fuzzy
+msgid "Creating album…"
 msgstr "创建相册..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
@@ -3830,6 +3844,15 @@ msgstr "茄子"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "百叶窗"
+
+#~ msgid "Printing..."
+#~ msgstr "打印中..."
+
+#~ msgid "Save Details..."
+#~ msgstr "保存详细信息..."
+
+#~ msgid "Importing..."
+#~ msgstr "导入..."
 
 #~ msgid "Photos Viewer"
 #~ msgstr "照片查看器"
@@ -4549,9 +4572,6 @@ msgstr "百叶窗"
 
 #~ msgid "_Background:"
 #~ msgstr "背景(_B)："
-
-#~ msgid "Importing"
-#~ msgstr "导入中"
 
 #~ msgid "_Directory structure:"
 #~ msgstr "目录结构(_D)："
