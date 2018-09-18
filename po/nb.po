@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 13:04-0600\n"
+"POT-Creation-Date: 2018-09-18 10:22-0700\n"
 "PO-Revision-Date: 2018-09-05 18:23+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
@@ -54,7 +54,7 @@ msgstr "Kan ikke midlertidig katalog %s: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kan ikke lage data for underkatalog %s: %s"
 
-#: src/AppWindow.vala:165
+#: src/AppWindow.vala:163
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -67,11 +67,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:334
+#: src/AppWindow.vala:332
 msgid "Undo"
 msgstr "Gjenskap"
 
-#: src/AppWindow.vala:335
+#: src/AppWindow.vala:333
 msgid "Redo"
 msgstr "omgjør"
 
@@ -150,8 +150,8 @@ msgstr "Juster størrelsen på miniatyrbildene"
 
 #: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
-#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:332
+#: src/library/LibraryWindow.vala:333 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Rediger foto in_fo"
@@ -161,7 +161,7 @@ msgid "_Developer"
 msgstr "_Fremkaller"
 
 #: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:295
+#: src/library/LibraryWindow.vala:299
 msgid "View Eve_nt for Photo"
 msgstr "Se hen_delsen bildet tilhører"
 
@@ -411,27 +411,27 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Kan ikke overvåke %s: Dette er ingen mappe (%s)"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:109
+#: src/EditingHostPage.vala:106
 msgid "Rotate"
 msgstr "Roter"
 
-#: src/EditingHostPage.vala:147
+#: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
 msgstr "Tilpass side"
 
-#: src/EditingHostPage.vala:156
+#: src/EditingHostPage.vala:153
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
-#: src/EditingHostPage.vala:176
+#: src/EditingHostPage.vala:173
 msgid "Previous photo"
 msgstr "Forrige bilde"
 
-#: src/EditingHostPage.vala:180
+#: src/EditingHostPage.vala:177
 msgid "Next photo"
 msgstr "Neste bilde"
 
-#: src/EditingHostPage.vala:1511
+#: src/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Kildefil for bilde mangler: %s"
@@ -589,7 +589,7 @@ msgid "Unable to process monitoring updates: %s"
 msgstr "Greide ikke å behandle mon.  oppdateringene :%s"
 
 #: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:327
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "S_idestolpe"
@@ -623,20 +623,20 @@ msgstr "_Etter eksponeringsdato"
 
 #: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:344 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Stigende"
 
 #: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:350 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "S_ynkende"
 
 #: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:297
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "Sorter _hendelser"
@@ -665,11 +665,11 @@ msgstr "Sorter bilder etter tittel"
 msgid "Sort photos by exposure date"
 msgstr "Sorter bildene etter eksponeringsdato"
 
-#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:344
 msgid "Sort photos in an ascending order"
 msgstr "Sorter bilder i stigende rekkefølge"
 
-#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:350
 msgid "Sort photos in a descending order"
 msgstr "Sorter bilder i synkende rekkefølge"
 
@@ -775,8 +775,9 @@ msgid "Image Settings"
 msgstr "Bildeinnstillinger"
 
 #: src/Printing.vala:418
-msgid "Printing..."
-msgstr "Skriver ut..."
+#, fuzzy
+msgid "Printing…"
+msgstr "_Utskrift…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1371,7 +1372,8 @@ msgstr "Importer _alle"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:942
-msgid "Starting import, please wait..."
+#, fuzzy
+msgid "Starting import, please wait…"
 msgstr "Importering starter, vennligst vent..."
 
 #: src/camera/ImportPage.vala:974
@@ -1424,7 +1426,8 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-msgid "Unmounting..."
+#, fuzzy
+msgid "Unmounting…"
 msgstr "Avmonterer..."
 
 #: src/camera/ImportPage.vala:1253
@@ -1668,8 +1671,9 @@ msgid "Con_tinue"
 msgstr "For_tsett"
 
 #: src/Dialogs/Dialogs.vala:173
-msgid "Save Details..."
-msgstr "Lagre detaljer..."
+#, fuzzy
+msgid "Save Details…"
+msgstr "Lagre detaljer"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -2286,7 +2290,7 @@ msgid "Save As"
 msgstr "Lagre som"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:572
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Avbryt"
@@ -2524,8 +2528,9 @@ msgid "Flagged"
 msgstr "Flagget"
 
 #: src/library/ImportQueuePage.vala:21
-msgid "Importing..."
-msgstr "Importerer..."
+#, fuzzy
+msgid "Importing…"
+msgstr "Importerer"
 
 #: src/library/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2536,7 +2541,8 @@ msgid "Stop importing photos"
 msgstr "Stopp importering av bilder"
 
 #: src/library/ImportQueuePage.vala:127
-msgid "Preparing to import..."
+#, fuzzy
+msgid "Preparing to import…"
 msgstr "Gjør klart til importering..."
 
 #: src/library/ImportQueuePage.vala:154
@@ -2552,34 +2558,34 @@ msgstr "Siste importering"
 msgid "_Import From Folder…"
 msgstr "_Importer fra mappe…"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:165
 msgid "_Preferences"
 msgstr "_Preferanser"
 
-#: src/library/LibraryWindow.vala:174
+#: src/library/LibraryWindow.vala:176
 msgid "Settings"
 msgstr "Innstillinger"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:305 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Nytt smart album…"
 
-#: src/library/LibraryWindow.vala:324
+#: src/library/LibraryWindow.vala:328
 msgid "Display the sidebar"
 msgstr "Vis sidestolpen"
 
-#: src/library/LibraryWindow.vala:567
+#: src/library/LibraryWindow.vala:571
 msgid "Import From Folder"
 msgstr "Importer fra mappe"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:573
 msgid "Import"
 msgstr "Importer"
 
-#: src/library/LibraryWindow.vala:732
+#: src/library/LibraryWindow.vala:736
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2592,48 +2598,48 @@ msgstr ""
 "innstillinger</span>.\n"
 "Vil du fortsette importering av bilder?"
 
-#: src/library/LibraryWindow.vala:736
+#: src/library/LibraryWindow.vala:740
 msgid "_Import"
 msgstr "_Importer"
 
-#: src/library/LibraryWindow.vala:737
+#: src/library/LibraryWindow.vala:741
 msgid "Library Location"
 msgstr "Bildebibliotekets plassering"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:751
+#: src/library/LibraryWindow.vala:755
 msgid "Photos cannot be imported from this directory."
 msgstr "Ingen bilder kan importeres fra denne mappen."
 
-#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
+#: src/library/LibraryWindow.vala:982 src/library/LibraryWindow.vala:993
 msgid "Updating library…"
 msgstr "Oppdaterer bibliotek…"
 
-#: src/library/LibraryWindow.vala:995
+#: src/library/LibraryWindow.vala:999
 msgid "Preparing to auto-import photos…"
 msgstr "Forbereder å auto-importere bilder…"
 
-#: src/library/LibraryWindow.vala:1000
+#: src/library/LibraryWindow.vala:1004
 msgid "Auto-importing photos…"
 msgstr "Auto-importerer bilder…"
 
-#: src/library/LibraryWindow.vala:1008
+#: src/library/LibraryWindow.vala:1012
 msgid "Writing metadata to files…"
 msgstr "Skriver metadata til filer…"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr "Importer bilder"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr "Kopier bilder fra en mappe eller ekstern enhet."
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr "Endre biblioteksmappe"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr "Velg plassering for dine bilder."
 
@@ -2642,7 +2648,8 @@ msgid "Missing Files"
 msgstr "Manglende filer"
 
 #: src/library/OfflinePage.vala:201
-msgid "Deleting..."
+#, fuzzy
+msgid "Deleting…"
 msgstr "Sletter..."
 
 #: src/library/PhotosPage.vala:63 src/library/RawsPage.vala:63
@@ -2798,11 +2805,13 @@ msgid "The selected photo was successfully published."
 msgstr "Vellykket publisering av det valgte bildet."
 
 #: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information..."
+#, fuzzy
+msgid "Fetching account information…"
 msgstr "Henter kontoinformasjon..."
 
 #: src/publishing/PublishingUI.vala:153
-msgid "Logging in..."
+#, fuzzy
+msgid "Logging in…"
 msgstr "Logger inn..."
 
 #: src/publishing/PublishingUI.vala:213
@@ -3027,7 +3036,8 @@ msgid "Date"
 msgstr "Dato"
 
 #: src/sidebar/Tree.vala:880
-msgid "New _Tag..."
+#, fuzzy
+msgid "New _Tag…"
 msgstr "<ny _Tagg..."
 
 #: src/sidebar/metadata/BasicProperties.vala:248
@@ -3302,8 +3312,8 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s..."
+#, fuzzy, c-format
+msgid "Creating album %s…"
 msgstr "Lager album %s..."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
@@ -3454,7 +3464,8 @@ msgstr ""
 "Deretter kan du forsøke å publisere igjen."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login..."
+#, fuzzy
+msgid "Preparing for login…"
 msgstr "Forbereder pålogging..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
@@ -3467,7 +3478,8 @@ msgstr ""
 "til Flickr kan ikke fortsette."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization..."
+#, fuzzy
+msgid "Verifying authorization…"
 msgstr "Kontrollerer autorisasjon..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
@@ -3558,11 +3570,13 @@ msgid "Large (2048 pixels)"
 msgstr "Stor (2048 piksler)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook..."
+#, fuzzy
+msgid "Testing connection to Facebook…"
 msgstr "Tester forbindelsen til Facebook..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album..."
+#, fuzzy
+msgid "Creating album…"
 msgstr "Oppretter album..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
@@ -3925,6 +3939,15 @@ msgstr "Sjakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Gardiner"
+
+#~ msgid "Printing..."
+#~ msgstr "Skriver ut..."
+
+#~ msgid "Save Details..."
+#~ msgstr "Lagre detaljer..."
+
+#~ msgid "Importing..."
+#~ msgstr "Importerer..."
 
 #~ msgid "Photos Viewer"
 #~ msgstr "Bildefremivser"
@@ -4690,9 +4713,6 @@ msgstr "Gardiner"
 
 #~ msgid "_Background:"
 #~ msgstr "_Bakgrunn:"
-
-#~ msgid "Importing"
-#~ msgstr "Importerer"
 
 #~ msgid "_Directory structure:"
 #~ msgstr "_Mappestruktur"

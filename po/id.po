@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 13:04-0600\n"
+"POT-Creation-Date: 2018-09-18 10:22-0700\n"
 "PO-Revision-Date: 2018-06-14 00:08+0000\n"
 "Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/photos/"
@@ -55,7 +55,7 @@ msgstr "Gagal membuat direktori temporer %s: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Gagal membuat subdirektori data %s: %s"
 
-#: src/AppWindow.vala:165
+#: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
@@ -68,11 +68,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:334
+#: src/AppWindow.vala:332
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: src/AppWindow.vala:335
+#: src/AppWindow.vala:333
 msgid "Redo"
 msgstr "Jadi Lagi"
 
@@ -151,8 +151,8 @@ msgstr "Atur ukuran gambar mini"
 
 #: src/CollectionPage.vala:127 src/LibraryPhotoPage.vala:483
 #: src/MediaPage.vala:68 src/camera/ImportPage.vala:854
-#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:328
-#: src/library/LibraryWindow.vala:329 src/library/OfflinePage.vala:105
+#: src/events/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:332
+#: src/library/LibraryWindow.vala:333 src/library/OfflinePage.vala:105
 #: src/library/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Sunting In_fo Foto"
@@ -162,7 +162,7 @@ msgid "_Developer"
 msgstr "_Pengembang"
 
 #: src/CollectionPage.vala:196 src/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:295
+#: src/library/LibraryWindow.vala:299
 msgid "View Eve_nt for Photo"
 msgstr "Lihat Acara u_ntuk Foto"
 
@@ -411,28 +411,28 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Gagal memantau %s: Bukan direktori (%s)"
 
 #. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/EditingHostPage.vala:109
+#: src/EditingHostPage.vala:106
 msgid "Rotate"
 msgstr "Putar"
 
-#: src/EditingHostPage.vala:147
+#: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
 msgstr ""
 
-#: src/EditingHostPage.vala:156
+#: src/EditingHostPage.vala:153
 #, fuzzy
 msgid "Zoom 1:1"
 msgstr "Zum _100%"
 
-#: src/EditingHostPage.vala:176
+#: src/EditingHostPage.vala:173
 msgid "Previous photo"
 msgstr "Foto sebelumnya"
 
-#: src/EditingHostPage.vala:180
+#: src/EditingHostPage.vala:177
 msgid "Next photo"
 msgstr "Foto selanjutnya"
 
-#: src/EditingHostPage.vala:1511
+#: src/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "File sumber foto hilang: %s"
@@ -592,7 +592,7 @@ msgid "Unable to process monitoring updates: %s"
 msgstr "Tidak dapat memproses pembaruan pemantauan: %s"
 
 #: src/MediaPage.vala:64 src/camera/ImportPage.vala:850
-#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:323
+#: src/events/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:327
 #: src/library/OfflinePage.vala:101 src/library/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "Bilah S_isi"
@@ -626,20 +626,20 @@ msgstr "Ber_dasarkan Tanggal Pengambilan"
 
 #: src/MediaPage.vala:104 src/MediaPage.vala:132 src/MediaPage.vala:276
 #: src/camera/ImportPage.vala:864 src/events/EventsDirectoryPage.vala:141
-#: src/library/LibraryWindow.vala:340 src/library/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:344 src/library/OfflinePage.vala:111
 #: src/library/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "Berurut N_aik"
 
 #: src/MediaPage.vala:113 src/MediaPage.vala:141 src/MediaPage.vala:281
 #: src/camera/ImportPage.vala:873 src/events/EventsDirectoryPage.vala:150
-#: src/library/LibraryWindow.vala:346 src/library/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:350 src/library/OfflinePage.vala:120
 #: src/library/TrashPage.vala:175
 msgid "D_escending"
 msgstr "Berurut T_urun"
 
 #: src/MediaPage.vala:130 src/camera/ImportPage.vala:862
-#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:293
+#: src/events/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:297
 #: src/library/OfflinePage.vala:109 src/library/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "_Acara Dengan Urutan"
@@ -668,11 +668,11 @@ msgstr "Urutkan foto berdasarkan judul"
 msgid "Sort photos by exposure date"
 msgstr "Urutkan foto berdasarkan tanggal pengambilan"
 
-#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:340
+#: src/MediaPage.vala:276 src/library/LibraryWindow.vala:344
 msgid "Sort photos in an ascending order"
 msgstr "Urutkan foto dengan urut naik"
 
-#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:346
+#: src/MediaPage.vala:281 src/library/LibraryWindow.vala:350
 msgid "Sort photos in a descending order"
 msgstr "Urutkan foto dengan urut turun"
 
@@ -778,8 +778,9 @@ msgid "Image Settings"
 msgstr "Pengaturan Gambar"
 
 #: src/Printing.vala:418
-msgid "Printing..."
-msgstr "Mencetak..."
+#, fuzzy
+msgid "Printing…"
+msgstr "_Cetak..."
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1389,7 +1390,8 @@ msgstr "Impor Semu_a"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/camera/ImportPage.vala:942
-msgid "Starting import, please wait..."
+#, fuzzy
+msgid "Starting import, please wait…"
 msgstr "Mulai mengimpor, silakan tunggu..."
 
 #: src/camera/ImportPage.vala:974
@@ -1443,7 +1445,8 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-msgid "Unmounting..."
+#, fuzzy
+msgid "Unmounting…"
 msgstr "Melepaskan kamera..."
 
 #: src/camera/ImportPage.vala:1253
@@ -1676,8 +1679,9 @@ msgid "Con_tinue"
 msgstr "Lanju_tkan"
 
 #: src/Dialogs/Dialogs.vala:173
-msgid "Save Details..."
-msgstr "Simpan Detail..."
+#, fuzzy
+msgid "Save Details…"
+msgstr "Simpan Detail"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -2247,7 +2251,7 @@ msgid "Save As"
 msgstr "Simpan Sebagai"
 
 #. Add buttons for new search.
-#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:568
+#: src/direct/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:572
 #: src/searches/SavedSearchDialog.vala:536
 msgid "Cancel"
 msgstr "Batal"
@@ -2484,7 +2488,8 @@ msgid "Flagged"
 msgstr "Ditandai"
 
 #: src/library/ImportQueuePage.vala:21
-msgid "Importing..."
+#, fuzzy
+msgid "Importing…"
 msgstr "Mengimpor..."
 
 #: src/library/ImportQueuePage.vala:69
@@ -2496,7 +2501,8 @@ msgid "Stop importing photos"
 msgstr "Hentikan proses impor foto"
 
 #: src/library/ImportQueuePage.vala:127
-msgid "Preparing to import..."
+#, fuzzy
+msgid "Preparing to import…"
 msgstr "Menyiapkan impor..."
 
 #: src/library/ImportQueuePage.vala:154
@@ -2512,34 +2518,34 @@ msgstr "Impor terakhir"
 msgid "_Import From Folder…"
 msgstr "_Impor Dari Folder…"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:165
 msgid "_Preferences"
 msgstr "_Preferensi"
 
-#: src/library/LibraryWindow.vala:174
+#: src/library/LibraryWindow.vala:176
 msgid "Settings"
 msgstr "Pengaturan"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:301 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:305 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Album Pintar Baru…"
 
-#: src/library/LibraryWindow.vala:324
+#: src/library/LibraryWindow.vala:328
 msgid "Display the sidebar"
 msgstr "Tampilkan bilah sisi"
 
-#: src/library/LibraryWindow.vala:567
+#: src/library/LibraryWindow.vala:571
 msgid "Import From Folder"
 msgstr "Impor Dari Folder"
 
-#: src/library/LibraryWindow.vala:569
+#: src/library/LibraryWindow.vala:573
 msgid "Import"
 msgstr "Impor"
 
-#: src/library/LibraryWindow.vala:732
+#: src/library/LibraryWindow.vala:736
 #, fuzzy, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2551,48 +2557,48 @@ msgstr ""
 "Sebaiknya ubah ini di <span weight=\"bold\">Sunting %s Preferensi</span>.\n"
 "Apakah Anda ingin terus mengimpor foto?"
 
-#: src/library/LibraryWindow.vala:736
+#: src/library/LibraryWindow.vala:740
 msgid "_Import"
 msgstr "_Impor"
 
-#: src/library/LibraryWindow.vala:737
+#: src/library/LibraryWindow.vala:741
 msgid "Library Location"
 msgstr "Lokasi Album"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:751
+#: src/library/LibraryWindow.vala:755
 msgid "Photos cannot be imported from this directory."
 msgstr "Foto tidak dapat diimpor dari direktori ini."
 
-#: src/library/LibraryWindow.vala:978 src/library/LibraryWindow.vala:989
+#: src/library/LibraryWindow.vala:982 src/library/LibraryWindow.vala:993
 msgid "Updating library…"
 msgstr "Memperbarui album…"
 
-#: src/library/LibraryWindow.vala:995
+#: src/library/LibraryWindow.vala:999
 msgid "Preparing to auto-import photos…"
 msgstr "Bersiap impor foto otomatis…"
 
-#: src/library/LibraryWindow.vala:1000
+#: src/library/LibraryWindow.vala:1004
 msgid "Auto-importing photos…"
 msgstr "Mengimpor foto otomatis…"
 
-#: src/library/LibraryWindow.vala:1008
+#: src/library/LibraryWindow.vala:1012
 msgid "Writing metadata to files…"
 msgstr "Menulis metadata ke berkas…"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Import Photos"
 msgstr "Impor Foto"
 
-#: src/library/LibraryWindow.vala:1162
+#: src/library/LibraryWindow.vala:1166
 msgid "Copy photos from a folder or external device."
 msgstr "Salin foto dari folder atau perangkat eksternal."
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Change Library Folder"
 msgstr "Ubah Folder Album"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1167
 msgid "Choose where to keep your photos."
 msgstr "Pilih tempat menyimpan foto Anda."
 
@@ -2601,7 +2607,8 @@ msgid "Missing Files"
 msgstr "Berkas Hilang"
 
 #: src/library/OfflinePage.vala:201
-msgid "Deleting..."
+#, fuzzy
+msgid "Deleting…"
 msgstr "Menghapus..."
 
 #: src/library/PhotosPage.vala:63 src/library/RawsPage.vala:63
@@ -2755,11 +2762,13 @@ msgid "The selected photo was successfully published."
 msgstr "Foto yang dipilih berhasil diterbitkan."
 
 #: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information..."
+#, fuzzy
+msgid "Fetching account information…"
 msgstr "Mengambil informasi akun..."
 
 #: src/publishing/PublishingUI.vala:153
-msgid "Logging in..."
+#, fuzzy
+msgid "Logging in…"
 msgstr "Masuk..."
 
 #: src/publishing/PublishingUI.vala:213
@@ -2985,7 +2994,8 @@ msgid "Date"
 msgstr "Tanggal"
 
 #: src/sidebar/Tree.vala:880
-msgid "New _Tag..."
+#, fuzzy
+msgid "New _Tag…"
 msgstr "_Tag Baru..."
 
 #: src/sidebar/metadata/BasicProperties.vala:248
@@ -3255,8 +3265,8 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s..."
+#, fuzzy, c-format
+msgid "Creating album %s…"
 msgstr "Membuat album %s…"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
@@ -3409,7 +3419,8 @@ msgstr ""
 "lalu coba terbitkan lagi."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login..."
+#, fuzzy
+msgid "Preparing for login…"
 msgstr "Bersiap untuk masuk..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
@@ -3422,7 +3433,8 @@ msgstr ""
 "tidak bisa dilanjutkan."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization..."
+#, fuzzy
+msgid "Verifying authorization…"
 msgstr "Verifikasi wewenang..."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
@@ -3514,11 +3526,13 @@ msgid "Large (2048 pixels)"
 msgstr "Besar (2048 piksel)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook..."
+#, fuzzy
+msgid "Testing connection to Facebook…"
 msgstr "Coba Menyambungkan ke Facebook..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album..."
+#, fuzzy
+msgid "Creating album…"
 msgstr "Membuat album..."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
@@ -3880,6 +3894,12 @@ msgstr "Catur"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Tirai"
+
+#~ msgid "Printing..."
+#~ msgstr "Mencetak..."
+
+#~ msgid "Save Details..."
+#~ msgstr "Simpan Detail..."
 
 #~ msgid "Photos Viewer"
 #~ msgstr "Penampil Foto"
