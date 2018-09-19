@@ -780,7 +780,7 @@ public abstract class MediaPage : CheckerboardPage {
     // this is a view-level operation on this page only; it does not affect the persistent global
     // thumbnail scale
     private void set_thumb_size (int new_scale) {
-        if (get_thumb_size () == new_scale || !is_in_view ())
+        if (get_thumb_size () == new_scale || !in_view)
             return;
 
         new_scale = new_scale.clamp (Thumbnail.MIN_SCALE, Thumbnail.MAX_SCALE);
@@ -803,11 +803,9 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     public static Gtk.ToolButton create_sidebar_button () {
-        var show_sidebar_button = new Gtk.ToolButton (null,null);
-        show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
-        show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-        show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
-        show_sidebar_button.is_important = true;
+        var show_sidebar_button = new Gtk.ToolButton (null, null);
+        show_sidebar_button.icon_name = Resources.SHOW_PANE;
+        show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         return show_sidebar_button;
     }
 }

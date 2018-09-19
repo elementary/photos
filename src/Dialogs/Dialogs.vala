@@ -170,7 +170,7 @@ public Gtk.ResponseType export_error_dialog (File dest, bool photos_remaining) {
 
 namespace ImportUI {
 private const int REPORT_FAILURE_COUNT = 4;
-internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details...");
+internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details…");
 internal const string SAVE_RESULTS_FILE_CHOOSER_TITLE = _ ("Save Details");
 internal const int SAVE_RESULTS_RESPONSE_ID = 1024;
 
@@ -760,47 +760,6 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (only remove photos) and
-// Gtk.ResponseType.CANCEL.
-public Gtk.ResponseType remove_from_library_dialog (Gtk.Window owner, string title,
-        string user_message, int count) {
-    string delete_action = ngettext ("_Delete File", "_Delete Files", count);
-
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.CANCEL, "%s", user_message);
-    dialog.add_button (_ ("Only _Remove"), Gtk.ResponseType.NO);
-    dialog.add_button (delete_action, Gtk.ResponseType.YES);
-
-    // This dialog was previously created outright; we now 'hijack'
-    // dialog's old title and use it as the primary text, along with
-    // using the message as the secondary text.
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (keep photos)
-public Gtk.ResponseType remove_from_filesystem_dialog (Gtk.Window owner, string title,
-        string user_message) {
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", user_message);
-    dialog.add_button (_ ("_Keep"), Gtk.ResponseType.NO);
-    dialog.add_button (_ ("_Delete"), Gtk.ResponseType.YES);
-    dialog.set_default_response ( Gtk.ResponseType.NO);
-
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
 public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
@@ -834,21 +793,34 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
 }
 
 public bool remove_offline_dialog (Gtk.Window owner, int count) {
-    if (count == 0)
+    if (count == 0) {
         return false;
+    }
 
-    string msg = ngettext (
-                     "This will remove the photo from the library.  Continue?",
-                     "This will remove %d photos from the library.  Continue?",
-                     count).printf (count);
+    string primary_text = ngettext (
+        _("Remove Photo From Library"),
+        _("Remove Photos From Library"),
+        count
+    );
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
-    dialog.title = (count == 1) ? _ ("Remove Photo From Library") : _ ("Remove Photos From Library");
+    string secondary_text = ngettext (
+        "This will remove the photo from the library.  Continue?",
+        "This will remove %d photos from the library.  Continue?",
+         count
+    ).printf (count);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = owner;
+
+    var remove_button = (Gtk.Button) dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
+    remove_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
@@ -880,8 +852,6 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
 }
 
 public interface WelcomeServiceEntry : GLib.Object {
-    public abstract string get_service_name ();
-
     public abstract void execute ();
 }
 

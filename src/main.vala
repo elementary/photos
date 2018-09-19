@@ -54,7 +54,7 @@ void library_exec (string[] mounts) {
     }
 
     // validate the databases prior to using them
-    message ("Verifying database ...");
+    message ("Verifying database …");
     string errormsg = null;
     string app_version;
     int schema_version;
@@ -354,7 +354,6 @@ void main (string[] args) {
     // Have a filename here?  If so, configure ourselves for direct
     // mode, otherwise, default to library mode.
     Application.init (!is_string_empty (filename));
-    Application.get_instance ().debugging_enabled = CommandlineOptions.debug_enabled;
 
     // set custom data directory if it's been supplied
     if (CommandlineOptions.data_dir != null)

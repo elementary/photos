@@ -27,7 +27,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
-    private bool in_view = false;
     private ulong last_configure_ms = 0;
     private bool report_move_finished = false;
     private bool report_resize_finished = false;
@@ -49,6 +48,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
 
+    public bool in_view { get; private set; default = false; }
     public string page_name { get; construct set; }
 
     public Page (string page_name) {
@@ -238,10 +238,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     public virtual void ready () {
     }
 
-    public bool is_in_view () {
-        return in_view;
-    }
-
     public virtual void switching_to_fullscreen (FullscreenWindow fsw) {
     }
 
@@ -303,13 +299,11 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (show_sidebar_button == null)
             return;
         if (!show) {
-            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
-            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.HIDE_PANE;
+            show_sidebar_button.tooltip_text = Resources.UNTOGGLE_METAPANE_TOOLTIP;
         } else {
-            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
-            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.SHOW_PANE;
+            show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         }
         var app = AppWindow.get_instance () as LibraryWindow;
         app.update_common_toggle_actions ();

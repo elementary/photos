@@ -48,7 +48,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    private SourceCollection sources;
     private ViewCollection? parent_view = null;
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
@@ -64,7 +63,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToolButton next_button = null;
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
-    private Gtk.Settings settings;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
     private bool photo_missing = false;
     private PixbufCache cache = null;
@@ -76,12 +74,17 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int> ();
 
-    public EditingHostPage (SourceCollection sources, string name) {
-        base (name, false);
+    public SourceCollection sources { get; construct; }
 
-        this.sources = sources;
-        settings = get_settings ();
+    public EditingHostPage (SourceCollection sources, string page_name) {
+        Object (
+            page_name: page_name,
+            scale_up_to_viewport: false,
+            sources: sources
+        );
+    }
 
+    construct {
         // when photo is altered need to update it here
         sources.items_altered.connect (on_photos_altered);
 
@@ -137,6 +140,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
 
+            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+            zoom_fit.tooltip_text = _("Zoom to fit page");
+            zoom_fit.valign = Gtk.Align.CENTER;
+            zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+            var zoom_fit_action = get_action ("ZoomFit");
+            zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
+            zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
+
             var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
             zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
@@ -150,6 +162,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             var zoom_group = new Gtk.Grid ();
             zoom_group.column_spacing = 6;
+            zoom_group.add (zoom_fit);
             zoom_group.add (zoom_original);
             zoom_group.add (zoom_slider);
 
@@ -401,10 +414,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // DnD not available in fullscreen mode
         if (! (container is FullscreenWindow))
             dnd_handler = new DragAndDropHandler (this);
-    }
-
-    public ViewCollection? get_parent_view () {
-        return parent_view;
     }
 
     protected void update_enhance_action () {
@@ -1132,7 +1141,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // save the position of the tool
         EditingTools.EditingToolWindow? tool_window = tool.get_tool_window ();
-        if (tool_window != null && tool_window.has_user_moved ()) {
+        if (tool_window != null && tool_window.user_moved) {
             int last_location_x, last_location_y;
             tool_window.get_position (out last_location_x, out last_location_y);
             last_locations[tool.name + "_x"] = last_location_x;
@@ -1341,7 +1350,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // if editing tool window is present and the user hasn't touched it, it moves with the window
         if (current_tool != null) {
             EditingTools.EditingToolWindow tool_window = current_tool.get_tool_window ();
-            if (tool_window != null && !tool_window.has_user_moved ())
+            if (tool_window != null && !tool_window.user_moved)
                 place_tool_window ();
         }
     }
@@ -1957,10 +1966,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             break;
         }
-    }
-
-    public bool has_current_tool () {
-        return (current_tool != null);
     }
 
     protected void unset_view_collection () {

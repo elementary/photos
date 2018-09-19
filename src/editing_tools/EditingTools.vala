@@ -29,7 +29,7 @@
 namespace EditingTools {
 
 public abstract class EditingToolWindow : Gtk.Dialog {
-    private bool user_moved = false;
+    public bool user_moved { get; private set; default = false; }
 
     public EditingToolWindow (Gtk.Window container) {
         Object (transient_for: container);
@@ -51,10 +51,6 @@ public abstract class EditingToolWindow : Gtk.Dialog {
 
     ~EditingToolWindow () {
         Log.set_handler ("Gdk", LogLevelFlags.LEVEL_WARNING, Log.default_handler);
-    }
-
-    public bool has_user_moved () {
-        return user_moved;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {

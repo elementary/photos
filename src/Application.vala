@@ -17,16 +17,10 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Application : Granite.Application {
+public class Application : Gtk.Application {
     private static Application instance = null;
     private int system_app_run_retval = 0;
     private bool direct;
-
-    public bool debugging_enabled {
-        set {
-            DEBUG = value;
-        }
-    }
 
     public virtual signal void starting () {
     }
@@ -51,10 +45,6 @@ public class Application : Granite.Application {
     private bool exiting_fired = false;
 
     construct {
-        build_release_name = _("Photos");
-        build_version = Resources.APP_VERSION;
-
-        program_name = _(build_release_name);
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/photos/icons");
     }
@@ -66,20 +56,14 @@ public class Application : Granite.Application {
             // here because this is processed elsewhere, and we don't need to handle
             // command lines from remote instances, since we don't care about them.
 
-            exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos-direct";
-            app_launcher = "io.elementary.photos-viewer.desktop";
-            program_name = _("Photo Viewer");
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.NON_UNIQUE;
         } else {
             // we've been invoked in library mode; set up for uniqueness and handling
             // of incoming command lines from remote instances (needed for getting
             // storage device and camera mounts).
 
-            exec_name = GETTEXT_PACKAGE;
             application_id = "io.elementary.photos";
-            app_launcher = "io.elementary.photos.desktop";
-            program_name = _(build_release_name);
             flags = GLib.ApplicationFlags.HANDLES_OPEN | GLib.ApplicationFlags.HANDLES_COMMAND_LINE;
         }
 
