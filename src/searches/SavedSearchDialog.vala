@@ -19,7 +19,7 @@
 */
 
 // This dialog displays a boolean search configuration.
-public class SavedSearchDialog {
+public class SavedSearchDialog : Object {
 
     // Conatins a search row, with a type selector and remove button.
     private class SearchRowContainer {
@@ -522,8 +522,6 @@ public class SavedSearchDialog {
     private bool valid = false;
 
     public SavedSearchDialog () {
-        setup_dialog ();
-
         // Default name.
         search_title.set_text (SavedSearchTable.get_instance ().generate_unique_name ());
         search_title.select_region (0, -1); // select all
@@ -532,12 +530,10 @@ public class SavedSearchDialog {
         add_text_search ();
         row_list.get (0).allow_removal (false);
 
-        // Add buttons for new search.
-        dialog.add_action_widget (new Gtk.Button.with_label (_ ("Cancel")), Gtk.ResponseType.CANCEL);
-        Gtk.Button ok_button = new Gtk.Button.with_label (_ ("Add"));
+        var ok_button = new Gtk.Button.with_label (_("Add"));
         ok_button.can_default = true;
+
         dialog.add_action_widget (ok_button, Gtk.ResponseType.OK);
-        dialog.set_default_response (Gtk.ResponseType.OK);
 
         dialog.show_all ();
         set_valid (false);
@@ -546,13 +542,12 @@ public class SavedSearchDialog {
     public SavedSearchDialog.edit_existing (SavedSearch saved_search) {
         previous_search = saved_search;
         edit_mode = true;
-        setup_dialog ();
 
         // Add close button.
-        Gtk.Button close_button = new Gtk.Button.with_label (_ ("Save"));
+        var close_button = new Gtk.Button.with_label (_("Save"));
         close_button.can_default = true;
+
         dialog.add_action_widget (close_button, Gtk.ResponseType.OK);
-        dialog.set_default_response (Gtk.ResponseType.OK);
 
         dialog.show_all ();
 
@@ -573,8 +568,7 @@ public class SavedSearchDialog {
         search_title.changed.disconnect (on_title_changed);
     }
 
-    // Builds the dialog UI.  Doesn't add buttons to the dialog or call dialog.show ().
-    private void setup_dialog () {
+    construct {
         var search_label = new Gtk.Label (_("Name:"));
 
         search_title = new Gtk.Entry ();
@@ -623,6 +617,9 @@ public class SavedSearchDialog {
         dialog.response.connect (on_response);
         dialog.deletable = false;
         dialog.get_content_area ().add (search_grid);
+        dialog.set_default_response (Gtk.ResponseType.OK);
+
+        dialog.add_action_widget (new Gtk.Button.with_label (_("Cancel")), Gtk.ResponseType.CANCEL);
     }
 
     // Displays the dialog.
