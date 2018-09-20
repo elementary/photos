@@ -216,7 +216,14 @@ photos_files = files(
     'util/ui.vala',
     'util/Util.vala',
 
+    'Widgets/AbstractSearchRow.vala',
     'Widgets/TransitionEffectSelector.vala',
+    'Widgets/SearchRowContainer.vala',
+    'Widgets/SearchRowDate.vala',
+    'Widgets/SearchRowFlagged.vala',
+    'Widgets/SearchRowMediaType.vala',
+    'Widgets/SearchRowModified.vala',
+    'Widgets/SearchRowText.vala',
     'Widgets/SliderAssembly.vala',
     'Widgets/ContractMenuItem.vala',
     'Widgets/CustomPrintTab.vala'
