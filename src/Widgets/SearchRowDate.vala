@@ -20,16 +20,13 @@
 
 public class SearchRowDate : SearchRow {
     private const string DATE_FORMAT = "%x";
-    private Gtk.Box box;
     private Gtk.ComboBoxText context;
     private Granite.Widgets.DatePicker datepicker_one;
     private Granite.Widgets.DatePicker datepicker_two;
     private Gtk.Label and;
 
-    private SearchRowContainer parent;
-
     public SearchRowDate (SearchRowContainer parent) {
-        this.parent = parent;
+        Object (parent: parent);
 
         // Ordering must correspond with Context
         context = new Gtk.ComboBoxText ();
@@ -44,15 +41,14 @@ public class SearchRowDate : SearchRow {
         datepicker_one = new Granite.Widgets.DatePicker ();
         datepicker_two = new Granite.Widgets.DatePicker ();
 
-        and = new Gtk.Label (_ ("and"));
+        and = new Gtk.Label (_("and"));
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        box.pack_start (context, false, false, 0);
-        box.pack_start (datepicker_one, false, false, 0);
-        box.pack_start ( and , false, false, 0);
-        box.pack_start (datepicker_two, false, false, 0);
+        add (context);
+        add (datepicker_one);
+        add (and);
+        add (datepicker_two);
+        show_all ();
 
-        box.show_all ();
         update_datepickers ();
     }
 
@@ -77,10 +73,6 @@ public class SearchRowDate : SearchRow {
             and.hide ();
             datepicker_two.hide ();
         }
-    }
-
-    public override Gtk.Widget get_widget () {
-        return box;
     }
 
     public override SearchCondition get_search_condition () {

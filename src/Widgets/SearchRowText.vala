@@ -19,14 +19,11 @@
 */
 
 public class SearchRowText : SearchRow {
-    private Gtk.Box box;
     private Gtk.ComboBoxText text_context;
     private Gtk.Entry entry;
 
-    private SearchRowContainer parent;
-
     public SearchRowText (SearchRowContainer parent) {
-        this.parent = parent;
+        Object (parent: parent);
 
         // Ordering must correspond with SearchConditionText.Context
         text_context = new Gtk.ComboBoxText ();
@@ -44,19 +41,14 @@ public class SearchRowText : SearchRow {
         entry.set_activates_default (true);
         entry.changed.connect (on_changed);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        box.pack_start (text_context, false, false, 0);
-        box.pack_start (entry, false, false, 0);
-        box.show_all ();
+        add (text_context);
+        add (entry);
+        show_all ();
     }
 
     ~SearchRowText () {
         text_context.changed.disconnect (on_changed);
         entry.changed.disconnect (on_changed);
-    }
-
-    public override Gtk.Widget get_widget () {
-        return box;
     }
 
     public override SearchCondition get_search_condition () {
