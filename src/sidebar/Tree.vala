@@ -877,7 +877,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             var new_search_menu_item = new Gtk.MenuItem.with_mnemonic (_("New Smart Album…"));
             new_search_menu_item.activate.connect (() => on_new_search);
 
-            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (_("New _Tag..."));
+            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (_("New _Tag…"));
             new_tag_menu_item.activate.connect (() => on_new_tag);
 
             default_context_menu.add (new_search_menu_item);

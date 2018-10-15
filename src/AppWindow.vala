@@ -38,8 +38,8 @@ public abstract class AppWindow : PageWindow {
     private int pos_y = 0;
     protected Gtk.HeaderBar header;
 
-    private Gtk.Button redo_btn;
-    private Gtk.Button undo_btn;
+    protected Gtk.Button redo_btn;
+    protected Gtk.Button undo_btn;
 
     protected GLib.Settings window_settings;
 
@@ -66,24 +66,6 @@ public abstract class AppWindow : PageWindow {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;
-
-        // Because the first UIManager to associated with an ActionGroup claims the accelerators,
-        // need to create the AppWindow's ActionGroup early on and add it to an application-wide
-        // UIManager.  In order to activate those accelerators, we need to create a dummy UI string
-        // that lists all the common actions.  We build it on-the-fly from the actions associated
-        // with each ActionGroup while we're adding the groups to the UIManager.
-        common_action_groups = create_common_action_groups ();
-        foreach (Gtk.ActionGroup group in common_action_groups)
-            ui.insert_action_group (group, 0);
-
-        try {
-            ui.add_ui_from_string (build_dummy_ui_string (common_action_groups), -1);
-        } catch (Error err) {
-            error ("Unable to add AppWindow UI: %s", err.message);
-        }
-
-        ui.ensure_update ();
-        add_accel_group (ui.get_accel_group ());
     }
 
     construct {
@@ -99,8 +81,6 @@ public abstract class AppWindow : PageWindow {
 
         header = new Gtk.HeaderBar ();
         header.show_close_button = true;
-        header.pack_end (redo_btn);
-        header.pack_end (undo_btn);
 
         icon_name = "multimedia-photo-manager";
         title = _(Resources.APP_TITLE);
@@ -122,6 +102,24 @@ public abstract class AppWindow : PageWindow {
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
+
+        // Because the first UIManager to associated with an ActionGroup claims the accelerators,
+        // need to create the AppWindow's ActionGroup early on and add it to an application-wide
+        // UIManager.  In order to activate those accelerators, we need to create a dummy UI string
+        // that lists all the common actions.  We build it on-the-fly from the actions associated
+        // with each ActionGroup while we're adding the groups to the UIManager.
+        common_action_groups = create_common_action_groups ();
+        foreach (Gtk.ActionGroup group in common_action_groups)
+            ui.insert_action_group (group, 0);
+
+        try {
+            ui.add_ui_from_string (build_dummy_ui_string (common_action_groups), -1);
+        } catch (Error err) {
+            error ("Unable to add AppWindow UI: %s", err.message);
+        }
+
+        ui.ensure_update ();
+        add_accel_group (ui.get_accel_group ());
     }
 
     protected abstract void on_fullscreen ();
