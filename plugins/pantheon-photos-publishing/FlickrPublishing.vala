@@ -382,7 +382,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: running authentication request transaction");
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Preparing for login..."));
+        host.install_static_message_pane (_ ("Preparing for login…"));
 
         AuthenticationRequestTransaction txn = new AuthenticationRequestTransaction (session);
         txn.completed.connect (on_auth_request_txn_completed);
@@ -464,7 +464,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: validating authorization PIN %s", pin);
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Verifying authorization..."));
+        host.install_static_message_pane (_ ("Verifying authorization…"));
 
         AccessTokenFetchTransaction txn = new AccessTokenFetchTransaction (session, pin);
         txn.completed.connect (on_access_token_fetch_txn_completed);

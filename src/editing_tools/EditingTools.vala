@@ -28,24 +28,21 @@
 
 namespace EditingTools {
 
-public abstract class EditingToolWindow : Gtk.Window {
-
-    private Gtk.Frame outer_frame = new Gtk.Frame (null);
-    private bool user_moved = false;
+public abstract class EditingToolWindow : Gtk.Dialog {
+    public bool user_moved { get; private set; default = false; }
 
     public EditingToolWindow (Gtk.Window container) {
-        // needed so that windows will appear properly in fullscreen mode
-        type_hint = Gdk.WindowTypeHint.UTILITY;
+        Object (transient_for: container);
+    }
 
-        set_decorated (false);
-        set_transient_for (container);
-
-        base.add (outer_frame);
+    construct {
+        accept_focus = true;
+        can_focus = true;
+        deletable = false;
+        focus_on_map = true;
+        resizable = false;
 
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
-        focus_on_map = true;
-        set_accept_focus (true);
-        set_can_focus (true);
 
         // Needed to prevent the (spurious) 'This event was synthesised outside of GDK'
         // warnings after a keypress.
@@ -54,14 +51,6 @@ public abstract class EditingToolWindow : Gtk.Window {
 
     ~EditingToolWindow () {
         Log.set_handler ("Gdk", LogLevelFlags.LEVEL_WARNING, Log.default_handler);
-    }
-
-    public override void add (Gtk.Widget widget) {
-        outer_frame.add (widget);
-    }
-
-    public bool has_user_moved () {
-        return user_moved;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {

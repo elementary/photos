@@ -33,8 +33,10 @@ public abstract class CheckerboardPage : Page {
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
     public CheckerboardPage (string page_name) {
-        base (page_name);
+        Object (page_name: page_name);
+    }
 
+    construct {
         layout = new CheckerboardLayout (get_view ());
         layout.set_name (page_name);
 
@@ -56,9 +58,7 @@ public abstract class CheckerboardPage : Page {
 
         // scrollbar policy
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
-    }
 
-    construct {
         notify["page_name"].connect (() => {
             layout.set_name (page_name);
         });
@@ -182,13 +182,13 @@ public abstract class CheckerboardPage : Page {
 
     public void set_page_message (string message) {
         layout.set_message (message);
-        if (is_in_view ())
+        if (in_view)
             layout.queue_draw ();
     }
 
     public void unset_page_message () {
         layout.unset_message ();
-        if (is_in_view ())
+        if (in_view)
             layout.queue_draw ();
     }
 

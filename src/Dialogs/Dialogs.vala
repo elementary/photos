@@ -21,6 +21,27 @@
 // place: http://trac.yorba.org/ticket/3452
 namespace Dialogs {
 
+private static bool negate_affirm_question (string message, string title) {
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        title,
+        message,
+        "dialog-question",
+        Gtk.ButtonsType.NONE
+    );
+    dialog.transient_for = AppWindow.get_instance ();
+    dialog.set_urgency_hint (true);
+    dialog.add_button (_("_Cancel"), Gtk.ResponseType.NO);
+
+    var delete_button = (Gtk.Button) dialog.add_button (_("_Delete"), Gtk.ResponseType.YES);
+    delete_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    bool response = (dialog.run () == Gtk.ResponseType.YES);
+
+    dialog.destroy ();
+
+    return response;
+}
+
 public bool confirm_delete_tag (Tag tag) {
     int count = tag.get_sources_count ();
     if (count == 0)
@@ -30,16 +51,14 @@ public bool confirm_delete_tag (Tag tag) {
                      "This will remove the tag \"%s\" from %d photos.  Continue?",
                      count).printf (tag.get_user_visible_name (), count);
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_TAG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_TAG_TITLE);
 }
 
 public bool confirm_delete_saved_search (SavedSearch search) {
     string msg = _ ("This will remove the smart album \"%s\".  Continue?")
                  .printf (search.get_name ());
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
 }
 
 public bool confirm_warn_developer_changed (int number) {
@@ -151,7 +170,7 @@ public Gtk.ResponseType export_error_dialog (File dest, bool photos_remaining) {
 
 namespace ImportUI {
 private const int REPORT_FAILURE_COUNT = 4;
-internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details...");
+internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details…");
 internal const string SAVE_RESULTS_FILE_CHOOSER_TITLE = _ ("Save Details");
 internal const int SAVE_RESULTS_RESPONSE_ID = 1024;
 
@@ -615,11 +634,7 @@ public abstract class TextEntryDialogMediator {
 
     public TextEntryDialogMediator (string title, string label, string? initial_text = null,
                                     Gee.Collection<string>? completion_list = null, string? completion_delimiter = null) {
-        Gtk.Builder builder = AppWindow.create_builder ();
-        dialog = new TextEntryDialog ();
-        dialog.get_content_area ().add ((Gtk.Box) builder.get_object ("dialog-vbox2"));
-        dialog.set_builder (builder);
-        dialog.setup (on_modify_validate, title, label, initial_text, completion_list, completion_delimiter);
+        dialog = new TextEntryDialog (on_modify_validate, title, label, initial_text, completion_list, completion_delimiter);
     }
 
     protected virtual bool on_modify_validate (string text) {
@@ -745,47 +760,6 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (only remove photos) and
-// Gtk.ResponseType.CANCEL.
-public Gtk.ResponseType remove_from_library_dialog (Gtk.Window owner, string title,
-        string user_message, int count) {
-    string delete_action = ngettext ("_Delete File", "_Delete Files", count);
-
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.CANCEL, "%s", user_message);
-    dialog.add_button (_ ("Only _Remove"), Gtk.ResponseType.NO);
-    dialog.add_button (delete_action, Gtk.ResponseType.YES);
-
-    // This dialog was previously created outright; we now 'hijack'
-    // dialog's old title and use it as the primary text, along with
-    // using the message as the secondary text.
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (keep photos)
-public Gtk.ResponseType remove_from_filesystem_dialog (Gtk.Window owner, string title,
-        string user_message) {
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", user_message);
-    dialog.add_button (_ ("_Keep"), Gtk.ResponseType.NO);
-    dialog.add_button (_ ("_Delete"), Gtk.ResponseType.YES);
-    dialog.set_default_response ( Gtk.ResponseType.NO);
-
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
 public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
@@ -819,21 +793,34 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
 }
 
 public bool remove_offline_dialog (Gtk.Window owner, int count) {
-    if (count == 0)
+    if (count == 0) {
         return false;
+    }
 
-    string msg = ngettext (
-                     "This will remove the photo from the library.  Continue?",
-                     "This will remove %d photos from the library.  Continue?",
-                     count).printf (count);
+    string primary_text = ngettext (
+        _("Remove Photo From Library"),
+        _("Remove Photos From Library"),
+        count
+    );
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
-    dialog.title = (count == 1) ? _ ("Remove Photo From Library") : _ ("Remove Photos From Library");
+    string secondary_text = ngettext (
+        "This will remove the photo from the library.  Continue?",
+        "This will remove %d photos from the library.  Continue?",
+         count
+    ).printf (count);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = owner;
+
+    var remove_button = (Gtk.Button) dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
+    remove_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
@@ -865,8 +852,6 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
 }
 
 public interface WelcomeServiceEntry : GLib.Object {
-    public abstract string get_service_name ();
-
     public abstract void execute ();
 }
 
@@ -930,7 +915,7 @@ public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_
                 ngettext ("The photo or video cannot be deleted.",
                           "%d photos/videos cannot be deleted.",
                           num_not_deleted).printf (num_not_deleted);
-            AppWindow.error_message_with_title (dialog_title, delete_failed_message, AppWindow.get_instance ());
+            AppWindow.error_message (dialog_title, delete_failed_message);
         }
     }
 

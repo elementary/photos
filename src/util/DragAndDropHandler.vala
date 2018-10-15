@@ -92,7 +92,7 @@ public class DragAndDropHandler {
         drag_destination = null;
 
         // use the first media item as the icon
-        ThumbnailSource thumb = (ThumbnailSource) page.get_view ().get_selected_at (0).get_source ();
+        ThumbnailSource thumb = (ThumbnailSource) page.get_view ().get_selected_at (0).source;
 
         try {
             Gdk.Pixbuf icon = thumb.get_thumbnail (128);

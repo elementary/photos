@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -103,7 +104,7 @@ public class LibraryWindow : AppWindow {
     private Gtk.Paned sidebar_paned;
     private Gtk.Paned client_paned;
     private Gtk.Paned right_client_paned;
-    private MetadataView metadata_sidebar = new MetadataView ();
+    private MetadataView metadata_sidebar;
 
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
 
@@ -136,21 +137,105 @@ public class LibraryWindow : AppWindow {
 
     private TopDisplay top_display;
 
-    private Gtk.Notebook notebook = new Gtk.Notebook ();
+    private Gtk.Notebook notebook;
     private Gtk.Box right_vbox;
 
     private GLib.Settings ui_settings;
 
     construct {
+        set_default_size (
+            window_settings.get_int ("library-width"),
+            window_settings.get_int ("library-height")
+        );
+
+        if (window_settings.get_boolean ("library-maximize")) {
+            maximize ();
+        }
+
+        top_display = new TopDisplay ();
+
+        var import_menu_item = new Gtk.MenuItem ();
+        import_menu_item.related_action = get_common_action ("CommonFileImport");
+        import_menu_item.label = _("_Import From Folder…");
+        import_menu_item.use_underline = true;
+
+        var preferences_menu_item = new Gtk.MenuItem ();
+        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
+        preferences_menu_item.label = _("_Preferences");
+        preferences_menu_item.use_underline = true;
+
+        var settings_menu = new Gtk.Menu ();
+        settings_menu.add (import_menu_item);
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (preferences_menu_item);
+        settings_menu.show_all ();
+
+        var settings = new Gtk.MenuButton ();
+        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.tooltip_text = _("Settings");
+        settings.popup = settings_menu;
+        settings.show_all ();
+
+        search_entry = new SearchFilterEntry ();
+        search_entry.valign = Gtk.Align.CENTER;
+
+        header.pack_end (settings);
+        header.pack_end (redo_btn);
+        header.pack_end (undo_btn);
+        header.pack_end (search_entry);
+        header.set_custom_title (top_display);
+
+        sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
+        sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
+
+        // put the sidebar in a scrolling window
+        var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
+        scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        scrolled_sidebar.add (sidebar_tree);
+
+        sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+        sidebar_paned.pack1 (scrolled_sidebar, true, false);
+
+        // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
+        notebook = new Gtk.Notebook ();
+        notebook.set_show_tabs (false);
+        notebook.set_show_border (false);
+        // TODO: Calc according to layout's size, to give sidebar a maximum width
+        notebook.width_request = PAGE_MIN_WIDTH;
+
+        metadata_sidebar = new MetadataView ();
+        metadata_sidebar.width_request = METADATA_SIDEBAR_MIN_WIDTH;
+
+        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        right_client_paned.width_request = METADATA_SIDEBAR_MIN_WIDTH;
+        right_client_paned.pack1 (notebook, true, false);
+        right_client_paned.pack2 (metadata_sidebar, false, false);
+
+        right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        right_vbox.pack_start (right_client_paned, true, true, 0);
+
+        // layout the selection tree to the left of the collection/toolbar box with an adjustable
+        // gutter between them, framed for presentation
+        right_frame = new Gtk.Frame (null);
+        right_frame.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        right_frame.add (right_vbox);
+
+        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        client_paned.pack1 (sidebar_paned, false, false);
+        client_paned.pack2 (right_frame, true, false);
+
+        add (client_paned);
+
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-    }
+        ui_settings.bind ("sidebar-position", client_paned, "position", DEFAULT);
+        ui_settings.bind ("metadata-sidebar-position", right_client_paned, "position", DEFAULT);
 
-    public LibraryWindow (ProgressMonitor progress_monitor) {
-        ThumbnailCache.scale_factor = get_scale_factor ();
+        bind_property ("title", top_display, "title");
 
-        // prep sidebar and add roots
-        sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK,
-                                         external_drop_handler);
+        search_entry.activate.connect (() => {
+            get_current_page ().grab_focus ();
+        });
 
         sidebar_tree.page_created.connect (on_page_created);
         sidebar_tree.destroying_page.connect (on_destroying_page);
@@ -162,19 +247,18 @@ public class LibraryWindow : AppWindow {
         sidebar_tree.graft (events_branch, SidebarRootPosition.EVENTS);
         sidebar_tree.graft (camera_branch, SidebarRootPosition.CAMERAS);
         sidebar_tree.graft (saved_search_branch, SidebarRootPosition.SAVED_SEARCH);
+    }
+
+    public LibraryWindow (ProgressMonitor progress_monitor) {
+        ThumbnailCache.scale_factor = get_scale_factor ();
 
         properties_scheduler = new OneShotScheduler ("LibraryWindow properties",
                 on_update_properties_now);
 
-        // setup search bar and add its accelerators to the window
-        search_entry = new SearchFilterEntry ();
-        search_entry.valign = Gtk.Align.CENTER;
-        search_entry.activate.connect (() => {get_current_page ().grab_focus (); });
-
-        header.pack_end (search_entry);
-
         // create the main layout & start at the Library page
-        create_layout (library_branch.photos_entry.get_page ());
+        var start_page = library_branch.photos_entry.get_page ();
+        switch_to_page (start_page);
+        start_page.grab_focus ();
 
         // settings that should persist between sessions
         load_configuration ();
@@ -204,39 +288,6 @@ public class LibraryWindow : AppWindow {
         LibraryMonitorPool.get_instance ().monitor_destroyed.connect (on_library_monitor_destroyed);
 
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
-    }
-
-    protected override void build_header_bar () {
-        top_display = new TopDisplay ();
-
-        var import_menu_item = new Gtk.MenuItem ();
-        import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.label = _("_Import From Folder…");
-
-        var preferences_menu_item = new Gtk.MenuItem ();
-        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("_Preferences");
-
-        var settings_menu = new Gtk.Menu ();
-        settings_menu.add (import_menu_item);
-        settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (preferences_menu_item);
-        settings_menu.show_all ();
-
-        var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.tooltip_text = _("Settings");
-        settings.popup = settings_menu;
-        settings.show_all ();
-
-        header.pack_end (settings);
-        header.set_custom_title (top_display);
-        // Right side of header bar, before settings
-        base.build_header_bar ();
-
-        notify["title"].connect (() => {
-            top_display.title = title;
-        });
     }
 
     ~LibraryWindow () {
@@ -464,8 +515,6 @@ public class LibraryWindow : AppWindow {
         window_settings.set_boolean ("library-maximize", is_maximized);
         window_settings.set_int ("library-width", dimensions.width);
         window_settings.set_int ("library-height", dimensions.height);
-        ui_settings.set_int ("sidebar-position", client_paned.position);
-        ui_settings.set_int ("metadata-sidebar-position", right_client_paned.position);
 
         base.on_quit ();
     }
@@ -507,7 +556,7 @@ public class LibraryWindow : AppWindow {
             if (view.get_count () == 0)
                 return false;
 
-            Event? event = (Event? ) ((DataView) view.get_at (0)).get_source ();
+            Event? event = (Event? ) ((DataView) view.get_at (0)).source;
             if (event == null)
                 return false;
 
@@ -610,7 +659,8 @@ public class LibraryWindow : AppWindow {
         bool can_fullscreen = get_fullscreen_photo (page, out collection, out start);
         set_common_action_visible ("CommonJumpToEvent", true);
         set_common_action_sensitive ("CommonJumpToEvent", can_jump_to_event ());
-        set_common_action_sensitive ("CommonFullscreen", can_fullscreen);
+
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_FULLSCREEN)).set_enabled (can_fullscreen);
 
         base.update_common_actions (page, selected_count, count);
     }
@@ -726,11 +776,14 @@ public class LibraryWindow : AppWindow {
 
     private void dispatch_import_jobs (GLib.SList<string> uris, string job_name, bool copy_to_library) {
         if (AppDirs.get_import_dir ().get_path () == Environment.get_home_dir () && notify_library_is_home_dir) {
-            Gtk.ResponseType response = AppWindow.cancel_affirm_question (
-                                            _ ("Photos is configured to import photos to your home directory.\n" +
-                                               "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
-                                               "Do you want to continue importing photos?").printf ("▸"),
-                                            _ ("_Import"), _ ("Library Location"), AppWindow.get_instance ());
+            var response = AppWindow.cancel_affirm_question (
+                _("Photos is configured to import photos to your home directory.\n" +
+                    "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</span>.\n" +
+                    "Do you want to continue importing photos?"
+                ).printf ("▸"),
+                _("_Import"),
+                _("Library Location")
+            );
 
             if (response == Gtk.ResponseType.CANCEL)
                 return;
@@ -1003,55 +1056,6 @@ public class LibraryWindow : AppWindow {
             top_display.update_background_progress_bar (_ ("Writing metadata to files…"),
                                             METADATA_WRITER_PROGRESS_PRIORITY, completed, total);
         }
-    }
-
-    private void create_layout (Page start_page) {
-        // put the sidebar in a scrolling window
-        var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
-        scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
-        scrolled_sidebar.add (sidebar_tree);
-
-        sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-        sidebar_paned.pack1 (scrolled_sidebar, true, false);
-
-        // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
-        notebook.set_show_tabs (false);
-        notebook.set_show_border (false);
-        // TODO: Calc according to layout's size, to give sidebar a maximum width
-        notebook.width_request = PAGE_MIN_WIDTH;
-
-        metadata_sidebar.width_request = METADATA_SIDEBAR_MIN_WIDTH;
-
-        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        right_client_paned.width_request = METADATA_SIDEBAR_MIN_WIDTH;
-        right_client_paned.pack1 (notebook, true, false);
-        right_client_paned.pack2 (metadata_sidebar, false, false);
-
-        right_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        right_vbox.pack_start (right_client_paned, true, true, 0);
-
-        // layout the selection tree to the left of the collection/toolbar box with an adjustable
-        // gutter between them, framed for presentation
-        right_frame = new Gtk.Frame (null);
-        right_frame.set_shadow_type (Gtk.ShadowType.NONE);
-        right_frame.add (right_vbox);
-
-        sidebar_tree.set_size_request (SIDEBAR_MIN_WIDTH, -1);
-
-        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        client_paned.pack1 (sidebar_paned, false, false);
-        client_paned.pack2 (right_frame, true, false);
-        client_paned.set_position (ui_settings.get_int ("sidebar-position"));
-
-        int metadata_sidebar_pos = ui_settings.get_int ("metadata-sidebar-position");
-        if (metadata_sidebar_pos > 0)
-            right_client_paned.set_position (metadata_sidebar_pos);
-
-        add (client_paned);
-
-        switch_to_page (start_page);
-        start_page.grab_focus ();
     }
 
     public override void set_current_page (Page page) {

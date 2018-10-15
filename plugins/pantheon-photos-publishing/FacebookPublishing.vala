@@ -261,7 +261,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: testing connection to Facebook endpoint.");
         host.set_service_locked (true);
 
-        host.install_static_message_pane (_ ("Testing connection to Facebook..."));
+        host.install_static_message_pane (_ ("Testing connection to Facebook…"));
 
         GraphMessage endpoint_test_message = graph_session.new_endpoint_test ();
         endpoint_test_message.completed.connect (on_endpoint_test_completed);
@@ -354,7 +354,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: creating a new album named \"%s\".\n", publishing_params.new_album_name);
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Creating album..."));
+        host.install_static_message_pane (_ ("Creating album…"));
 
         GraphMessage create_album_message = graph_session.new_create_album (
                                                 publishing_params.new_album_name, publishing_params.privacy_object);

@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -33,79 +34,74 @@ public abstract class AppWindow : PageWindow {
     // added to is the one that claims its accelerators
     protected Gtk.ActionGroup[] common_action_groups;
     protected Dimensions dimensions;
-    protected int pos_x = 0;
-    protected int pos_y = 0;
+    private int pos_x = 0;
+    private int pos_y = 0;
     protected Gtk.HeaderBar header;
 
-    private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("AppWindowGlobalActionGroup");
-
-    private Gtk.Button redo_btn;
-    private Gtk.Button undo_btn;
+    protected Gtk.Button redo_btn;
+    protected Gtk.Button undo_btn;
 
     protected GLib.Settings window_settings;
 
     public const string ACTION_PREFIX = "win.";
+    public const string ACTION_FULLSCREEN = "action_fullscreen";
+    public const string ACTION_JUMP_TO_FILE = "action_jump_to_file";
     public const string ACTION_QUIT = "action_quit";
     public const string ACTION_REDO = "action_redo";
+    public const string ACTION_SELECT_ALL = "action_select_all";
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
 
     private const ActionEntry[] action_entries = {
+        { ACTION_FULLSCREEN, on_fullscreen },
+        { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit },
         { ACTION_REDO, on_redo },
+        { ACTION_SELECT_ALL, on_select_all },
         { ACTION_SELECT_NONE, on_select_none },
         { ACTION_UNDO, on_undo }
     };
-
-    construct {
-        add_action_entries (action_entries, this);
-
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
-        Application.get_instance ().set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
-
-        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
-    }
 
     public AppWindow () {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;
-        icon_name = "multimedia-photo-manager";
+    }
+
+    construct {
+        assert (command_manager == null);
+        command_manager = new CommandManager ();
+        command_manager.altered.connect (on_command_manager_altered);
+
+        redo_btn = new Gtk.Button.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
+        redo_btn.action_name = ACTION_PREFIX + ACTION_REDO;
+
+        undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
+        undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
 
         header = new Gtk.HeaderBar ();
-        header.set_show_close_button (true);
-        this.set_titlebar (header);
+        header.show_close_button = true;
 
+        icon_name = "multimedia-photo-manager";
         title = _(Resources.APP_TITLE);
+
+        add_action_entries (action_entries, this);
+        set_titlebar (header);
+
+        var application_instance = Application.get_instance ();
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_REDO, {"<Ctrl><Shift>Z"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_ALL, {"<Ctrl>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_SELECT_NONE, {"<Ctrl><Shift>A"});
+        application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_UNDO, {"<Ctrl>Z"});
 
         var css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("io/elementary/photos/application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        var maximized = false;
-
-        // restore previous size and maximization state
-        if (this is LibraryWindow) {
-            maximized = window_settings.get_boolean ("library-maximize");
-            dimensions.width = window_settings.get_int ("library-width");
-            dimensions.height = window_settings.get_int ("library-height");
-        } else {
-            assert (this is DirectWindow);
-            maximized = window_settings.get_boolean ("direct-maximize");
-            dimensions.width = window_settings.get_int ("direct-width");
-            dimensions.height = window_settings.get_int ("direct-height");
-        }
-
-        set_default_size (dimensions.width, dimensions.height);
-
-        if (maximized)
-            maximize ();
-
-        assert (command_manager == null);
-        command_manager = new CommandManager ();
-        command_manager.altered.connect (on_command_manager_altered);
+        window_settings = new GLib.Settings (GSettingsConfigurationEngine.WINDOW_PREFS_SCHEMA_NAME);
 
         // Because the first UIManager to associated with an ActionGroup claims the accelerators,
         // need to create the AppWindow's ActionGroup early on and add it to an application-wide
@@ -124,39 +120,9 @@ public abstract class AppWindow : PageWindow {
 
         ui.ensure_update ();
         add_accel_group (ui.get_accel_group ());
-
-        build_header_bar ();
-    }
-
-    protected virtual void build_header_bar () {
-        redo_btn = new Gtk.Button.from_icon_name ("edit-redo", Gtk.IconSize.LARGE_TOOLBAR);
-        redo_btn.action_name = ACTION_PREFIX + ACTION_REDO;
-
-        undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
-        undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
-
-        header.pack_end (redo_btn);
-        header.pack_end (undo_btn);
-    }
-
-    private Gtk.ActionEntry[] create_common_actions () {
-        Gtk.ActionEntry fullscreen = { "CommonFullscreen", null, _("Fulls_creen"), "F11", _("Fulls_creen"), on_fullscreen };
-        Gtk.ActionEntry jump_to_file = { "CommonJumpToFile", null, Resources.JUMP_TO_FILE_MENU, "<Ctrl><Shift>M", Resources.JUMP_TO_FILE_MENU, on_jump_to_file };
-        Gtk.ActionEntry select_all = { "CommonSelectAll", null, Resources.SELECT_ALL_MENU, "<Ctrl>A", Resources.SELECT_ALL_MENU, on_select_all };
-
-        Gtk.ActionEntry[] actions = new Gtk.ActionEntry[0];
-        actions += fullscreen;
-        actions += jump_to_file;
-        actions += select_all;
-
-        return actions;
     }
 
     protected abstract void on_fullscreen ();
-
-    public static bool has_instance () {
-        return instance != null;
-    }
 
     public static AppWindow get_instance () {
         return instance;
@@ -166,140 +132,28 @@ public abstract class AppWindow : PageWindow {
         return fullscreen_window;
     }
 
-    public static Gtk.Builder create_builder () {
-        Gtk.Builder builder = new Gtk.Builder ();
-        try {
-            builder.add_from_resource ("/io/elementary/photos/shotwell.ui");
-            builder.connect_signals (null);
-        } catch (GLib.Error error) {
-            warning ("Unable to create Gtk.Builder: %s\n", error.message);
-        }
-
-        return builder;
-    }
-
-    public static void error_message (string message, Gtk.Window? parent = null) {
-        error_message_with_title (_ (Resources.APP_TITLE), message, parent);
-    }
-
-    public static void error_message_with_title (string title, string message, Gtk.Window? parent = null, bool should_escape = true) {
-        // Per the Gnome HIG (http://library.gnome.org/devel/hig-book/2.32/windows-alert.html.en),
-        // alert-style dialogs mustn't have titles; we use the title as the primary text, and the
-        // existing message as the secondary text.
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", build_alert_body_text (title, message, should_escape));
-
-        // Occasionally, with_markup doesn't actually do anything, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message, should_escape));
-
-        dialog.use_markup = true;
+    public static void error_message (string title, string? message = null, Gtk.Window? parent = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title,
+            message,
+            "dialog-error",
+            Gtk.ButtonsType.CLOSE
+        );
+        dialog.transient_for = parent ?? get_instance ();
         dialog.run ();
         dialog.destroy ();
     }
 
-    public static bool negate_affirm_question (string message, string negative, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES);
-        dialog.set_urgency_hint (true);
-
-        bool response = (dialog.run () == Gtk.ResponseType.YES);
-
-        dialog.destroy ();
-
-        return response;
-    }
-
-    public static Gtk.ResponseType negate_affirm_cancel_question (string message, string negative,
-            string affirmative, string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
-                            _ ("_Cancel"), Gtk.ResponseType.CANCEL);
-
-        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.use_markup = true;
-
+    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative, string? title = null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            title ?? _(Resources.APP_TITLE),
+            message,
+            "dialog-question",
+            Gtk.ButtonsType.CANCEL
+        );
+        dialog.transient_for = get_instance ();
+        dialog.add_button (affirmative, Gtk.ResponseType.YES);
         int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType affirm_cancel_negate_question (string message,
-            string affirmative, string negative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", build_alert_body_text (title, message));
-
-        dialog.add_buttons (affirmative, Gtk.ResponseType.YES,
-                            _ ("_Cancel"), Gtk.ResponseType.CANCEL,
-                            negative, Gtk.ResponseType.NO);
-
-        // Occasionally, with_markup doesn't actually enable markup, but set_markup always works.
-        dialog.set_markup (build_alert_body_text (title, message));
-        dialog.use_markup = true;
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType affirm_cancel_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (affirmative, Gtk.ResponseType.YES, _ ("_Cancel"),
-                            Gtk.ResponseType.CANCEL);
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType cancel_affirm_question (string message, string affirmative,
-            string? title = null, Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        // Occasionally, with_markup doesn't actually enable markup...? Force the issue.
-        dialog.set_markup (message);
-        dialog.use_markup = true;
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                            affirmative, Gtk.ResponseType.YES);
-
-        int response = dialog.run ();
-
-        dialog.destroy ();
-
-        return (Gtk.ResponseType) response;
-    }
-
-    public static Gtk.ResponseType negate_affirm_all_cancel_question (string message,
-            string negative, string affirmative, string affirmative_all, string? title = null,
-            Gtk.Window? parent = null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog ((parent != null) ? parent : get_instance (),
-                Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        dialog.title = (title != null) ? title : _ (Resources.APP_TITLE);
-        dialog.add_buttons (negative, Gtk.ResponseType.NO, affirmative, Gtk.ResponseType.YES,
-                            affirmative_all, Gtk.ResponseType.APPLY,  _ ("_Cancel"), Gtk.ResponseType.CANCEL);
-
-        int response = dialog.run ();
-
         dialog.destroy ();
 
         return (Gtk.ResponseType) response;
@@ -312,7 +166,7 @@ public abstract class AppWindow : PageWindow {
 
     public static void panic (string msg) {
         critical (msg);
-        error_message (msg);
+        error_message (msg, null);
 
         Application.get_instance ().panic ();
     }
@@ -323,19 +177,18 @@ public abstract class AppWindow : PageWindow {
         Application.get_instance ().exit ();
     }
 
-    protected void on_jump_to_file () {
+    private void on_jump_to_file () {
         if (get_current_page ().get_view ().get_selected_count () != 1)
             return;
 
-        MediaSource? media = get_current_page ().get_view ().get_selected_at (0).get_source ()
-                             as MediaSource;
+        MediaSource? media = get_current_page ().get_view ().get_selected_at (0).source as MediaSource;
         if (media == null)
             return;
 
         try {
             AppWindow.get_instance ().show_file_uri (media.get_master_file ());
         } catch (Error err) {
-            AppWindow.error_message (Resources.jump_to_file_failed (err));
+            error_message (Resources.jump_to_file_failed (err));
         }
     }
 
@@ -343,23 +196,15 @@ public abstract class AppWindow : PageWindow {
         on_quit ();
     }
 
-    public void show_file_uri (File file) throws Error {
+    private void show_file_uri (File file) throws Error {
         AppInfo app_info = AppInfo.get_default_for_type ("inode/directory", true);
         var file_list = new List<File> ();
         file_list.append (file);
         app_info.launch (file_list, get_window ().get_screen ().get_display ().get_app_launch_context ());
     }
 
-    public void show_uri (string url) throws Error {
-        sys_show_uri (get_window ().get_screen (), url);
-    }
-
     protected virtual Gtk.ActionGroup[] create_common_action_groups () {
         Gtk.ActionGroup[] groups = new Gtk.ActionGroup[0];
-
-        common_action_group.add_actions (create_common_actions (), this);
-        groups += common_action_group;
-
         return groups;
     }
 
@@ -456,17 +301,19 @@ public abstract class AppWindow : PageWindow {
     protected virtual void update_common_action_availability (Page? old_page, Page? new_page) {
         bool is_checkerboard = new_page is CheckerboardPage;
 
-        set_common_action_sensitive ("CommonSelectAll", is_checkerboard);
+        ((SimpleAction) lookup_action (ACTION_SELECT_ALL)).set_enabled (is_checkerboard);
         ((SimpleAction) lookup_action (ACTION_SELECT_NONE)).set_enabled (is_checkerboard);
     }
 
-    // This is a counterpart to Page.update_actions (), but for common Gtk.Actions
-    // NOTE: Although CommonFullscreen is declared here, it's implementation is up to the subclasses,
+    // This is a counterpart to Page.update_actions (), but for common GLib.Actions
+    // NOTE: Although ACTION_FULLSCREEN is declared here, it's implementation is up to the subclasses,
     // therefore they need to update its action.
     protected virtual void update_common_actions (Page page, int selected_count, int count) {
-        if (page is CheckerboardPage)
-            set_common_action_sensitive ("CommonSelectAll", count > 0);
-        set_common_action_sensitive ("CommonJumpToFile", selected_count == 1);
+        if (page is CheckerboardPage) {
+            ((SimpleAction) lookup_action (ACTION_SELECT_ALL)).set_enabled (count > 0);
+        }
+
+        ((SimpleAction) lookup_action (ACTION_JUMP_TO_FILE)).set_enabled (selected_count == 1);
 
         on_command_manager_altered ();
     }

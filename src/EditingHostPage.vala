@@ -48,7 +48,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    private SourceCollection sources;
     private ViewCollection? parent_view = null;
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
@@ -64,7 +63,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToolButton next_button = null;
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
-    private Gtk.Settings settings;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
     private bool photo_missing = false;
     private PixbufCache cache = null;
@@ -76,12 +74,17 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private ZoomBuffer? zoom_buffer = null;
     private Gee.HashMap<string, int> last_locations = new Gee.HashMap<string, int> ();
 
-    public EditingHostPage (SourceCollection sources, string name) {
-        base (name, false);
+    public SourceCollection sources { get; construct; }
 
-        this.sources = sources;
-        settings = get_settings ();
+    public EditingHostPage (SourceCollection sources, string page_name) {
+        Object (
+            page_name: page_name,
+            scale_up_to_viewport: false,
+            sources: sources
+        );
+    }
 
+    construct {
         // when photo is altered need to update it here
         sources.items_altered.connect (on_photos_altered);
 
@@ -137,6 +140,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
 
+            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+            zoom_fit.tooltip_text = _("Zoom to fit page");
+            zoom_fit.valign = Gtk.Align.CENTER;
+            zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+            var zoom_fit_action = get_action ("ZoomFit");
+            zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
+            zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
+
             var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
             zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
@@ -150,6 +162,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             var zoom_group = new Gtk.Grid ();
             zoom_group.column_spacing = 6;
+            zoom_group.add (zoom_fit);
             zoom_group.add (zoom_original);
             zoom_group.add (zoom_slider);
 
@@ -403,10 +416,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             dnd_handler = new DragAndDropHandler (this);
     }
 
-    public ViewCollection? get_parent_view () {
-        return parent_view;
-    }
-
     protected void update_enhance_action () {
         if (has_photo ()) {
             Gtk.Action? action = get_action ("Enhance");
@@ -436,7 +445,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // Use the selected photo.  There should only ever be one selected photo,
         // which is the currently displayed photo.
         assert (get_view ().get_selected_count () == 1);
-        return (Photo) get_view ().get_selected_at (0).get_source ();
+        return (Photo) get_view ().get_selected_at (0).source;
     }
 
     // Called before the photo changes.
@@ -541,7 +550,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_selection_changed (Gee.Iterable<DataView> selected) {
         foreach (DataView view in selected) {
-            replace_photo ((Photo) view.get_source ());
+            replace_photo ((Photo) view.source);
             break;
         }
     }
@@ -1132,7 +1141,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // save the position of the tool
         EditingTools.EditingToolWindow? tool_window = tool.get_tool_window ();
-        if (tool_window != null && tool_window.has_user_moved ()) {
+        if (tool_window != null && tool_window.user_moved) {
             int last_location_x, last_location_y;
             tool_window.get_position (out last_location_x, out last_location_y);
             last_locations[tool.name + "_x"] = last_location_x;
@@ -1341,7 +1350,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // if editing tool window is present and the user hasn't touched it, it moves with the window
         if (current_tool != null) {
             EditingTools.EditingToolWindow tool_window = current_tool.get_tool_window ();
-            if (tool_window != null && !tool_window.has_user_moved ())
+            if (tool_window != null && !tool_window.user_moved)
                 place_tool_window ();
         }
     }
@@ -1870,10 +1879,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 Gtk.Allocation toolbar_alloc;
                 get_toolbar ().get_allocation (out toolbar_alloc);
 
-                Gdk.Screen screen = get_container ().get_screen ();
-                x = screen.get_width ();
-                y = screen.get_height () - toolbar_alloc.height -
-                    tool_alloc.height - TOOL_WINDOW_SEPARATOR;
+                var dimensions = Scaling.get_screen_dimensions (get_container ());
+                x = dimensions.width;
+                y = dimensions.height - toolbar_alloc.height - tool_alloc.height - TOOL_WINDOW_SEPARATOR;
 
                 // put larger adjust tool off to the side
                 if (current_tool is EditingTools.AdjustTool) {
@@ -1885,9 +1893,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
 
         // however, clamp the window so it's never off-screen initially
-        Gdk.Screen screen = get_container ().get_screen ();
-        x = x.clamp (0, screen.get_width () - tool_alloc.width);
-        y = y.clamp (0, screen.get_height () - tool_alloc.height);
+        var dimensions = Scaling.get_screen_dimensions (get_container ());
+        x = x.clamp (0, dimensions.width - tool_alloc.width);
+        y = y.clamp (0, dimensions.height - tool_alloc.height);
 
         tool_window.move (x, y);
         tool_window.show ();
@@ -1914,7 +1922,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (next == null)
                 break;
 
-            Photo? next_photo = next.get_source () as Photo;
+            Photo? next_photo = next.source as Photo;
             if (next_photo == null)
                 continue;
 
@@ -1947,7 +1955,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (previous == null)
                 break;
 
-            Photo? previous_photo = previous.get_source () as Photo;
+            Photo? previous_photo = previous.source as Photo;
             if (previous_photo == null)
                 continue;
 
@@ -1958,10 +1966,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
             break;
         }
-    }
-
-    public bool has_current_tool () {
-        return (current_tool != null);
     }
 
     protected void unset_view_collection () {

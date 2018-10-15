@@ -254,7 +254,7 @@ class PhotoImportSource : ImportSource {
     }
 }
 
-class ImportPreview : MediaSourceItem {
+class ImportPreview : CheckerboardItem {
     public const int MAX_SCALE = 128;
 
     private static Gdk.Pixbuf placeholder_preview = null;
@@ -376,7 +376,7 @@ class ImportPreview : MediaSourceItem {
     }
 
     public ImportSource get_import_source () {
-        return (ImportSource) get_source ();
+        return (ImportSource) source;
     }
 }
 
@@ -415,7 +415,7 @@ public class CameraAccumulator : Object, Core.TrackerAccumulator {
     }
 
     public bool include (DataObject object) {
-        ImportSource source = (ImportSource) ((DataView) object).get_source ();
+        ImportSource source = (ImportSource) ((DataView) object).source;
 
         total++;
 
@@ -432,7 +432,7 @@ public class CameraAccumulator : Object, Core.TrackerAccumulator {
     }
 
     public bool uninclude (DataObject object) {
-        ImportSource source = (ImportSource) ((DataView) object).get_source ();
+        ImportSource source = (ImportSource) ((DataView) object).source;
 
         total++;
 
@@ -887,9 +887,10 @@ public class ImportPage : CheckerboardPage {
             sort_menu_item.set_submenu (sort_menu);
 
             var select_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.SELECT_ALL_MENU);
-            var select_action = get_common_action ("CommonSelectAll");
-            select_action.bind_property ("sensitive", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            select_menu_item.activate.connect (() => select_action.activate ());
+
+            var select_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL);
+            select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            select_menu_item.activate.connect (() => select_action.activate (null));
 
             page_context_menu.add (sidebar_menu_item);
             page_context_menu.add (metadata_menu_item);
@@ -940,7 +941,7 @@ public class ImportPage : CheckerboardPage {
     // TODO: replace this with approved text for "talking to camera,
     // please wait" once new strings are being accepted.
     protected override string get_view_empty_message () {
-        return _ ("Starting import, please wait...");
+        return _ ("Starting import, please wait…");
     }
 
     private static int64 preview_comparator (void *a, void *b) {
@@ -999,9 +1000,6 @@ public class ImportPage : CheckerboardPage {
     protected override void init_actions (int selected_count, int count) {
         on_view_changed ();
 
-        set_action_important ("ImportSelected", true);
-        set_action_important ("ImportAll", true);
-
         base.init_actions (selected_count, count);
     }
 
@@ -1035,10 +1033,11 @@ public class ImportPage : CheckerboardPage {
     }
 
     private void on_view_changed () {
+        bool has_files = !busy && (get_view ().get_count () > 0);
+
         set_action_sensitive ("ImportSelected", !busy && refreshed && get_view ().get_selected_count () > 0);
-        set_action_sensitive ("ImportAll", !busy && refreshed && get_view ().get_count () > 0);
-        AppWindow.get_instance ().set_common_action_sensitive ("CommonSelectAll",
-                !busy && (get_view ().get_count () > 0));
+        set_action_sensitive ("ImportAll", refreshed && has_files);
+        ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_SELECT_ALL)).set_enabled (has_files);
 
         update_toolbar_state ();
     }
@@ -1086,7 +1085,7 @@ public class ImportPage : CheckerboardPage {
             }
 
             // if locked because it's mounted, offer to unmount
-            debug ("Checking if %s is mounted ...", uri);
+            debug ("Checking if %s is mounted …", uri);
 
             File uri = File.new_for_uri (uri);
 
@@ -1147,14 +1146,14 @@ public class ImportPage : CheckerboardPage {
         progress_bar.visible = true;
         progress_bar.set_fraction (0.0);
         progress_bar.set_ellipsize (Pango.EllipsizeMode.NONE);
-        progress_bar.set_text (_ ("Unmounting..."));
+        progress_bar.set_text (_ ("Unmounting…"));
 
         // unmount_with_operation () can/will complete with the volume still mounted (probably meaning
         // it's been *scheduled* for unmounting).  However, this signal is fired when the mount
         // really is unmounted -- *if* a VolumeMonitor has been instantiated.
         mount.unmounted.connect (on_unmounted);
 
-        debug ("Unmounting camera ...");
+        debug ("Unmounting camera …");
         mount.unmount_with_operation.begin (MountUnmountFlags.NONE,
                                             new Gtk.MountOperation (AppWindow.get_instance ()), null, on_unmount_finished);
 
@@ -1739,7 +1738,7 @@ public class ImportPage : CheckerboardPage {
 
         foreach (DataObject object in items) {
             ImportPreview preview = (ImportPreview) object;
-            ImportSource import_file = (ImportSource) preview.get_source ();
+            ImportSource import_file = (ImportSource) preview.source;
 
             if (preview.is_already_imported ()) {
                 message ("Skipping import of %s: checksum detected in library",

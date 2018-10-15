@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -24,7 +25,6 @@ public class FullscreenWindow : PageWindow {
     private Gtk.Revealer revealer;
     private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
-    private bool is_toolbar_shown = false;
     private time_t left_toolbar_time = 0;
     private bool switched_to = false;
 
@@ -50,7 +50,7 @@ public class FullscreenWindow : PageWindow {
         pin_button = new Gtk.ToggleToolButton ();
         pin_button.icon_name = "view-pin-symbolic";
         pin_button.tooltip_text = _("Pin the toolbar open");
-        pin_button.clicked.connect (update_toolbar_dismissal);
+        pin_button.bind_property ("active", this, "auto-dismiss-toolbar", GLib.BindingFlags.INVERT_BOOLEAN);
 
         var img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
 
@@ -106,17 +106,9 @@ public class FullscreenWindow : PageWindow {
         page.grab_focus ();
     }
 
-    public void update_toolbar_dismissal () {
-        auto_dismiss_toolbar = !pin_button.get_active ();
-    }
-
     private Gdk.Rectangle get_monitor_geometry () {
-        Gdk.Rectangle monitor;
-
-        get_screen ().get_monitor_geometry (
-            get_screen ().get_monitor_at_window (AppWindow.get_instance ().get_window ()), out monitor);
-
-        return monitor;
+        var monitor = get_display ().get_monitor_at_window (AppWindow.get_instance ().get_window ());
+        return monitor.get_geometry ();
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
@@ -172,7 +164,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     public override bool motion_notify_event (Gdk.EventMotion event) {
-        if (!is_toolbar_shown) {
+        if (!revealer.reveal_child) {
             invoke_toolbar ();
         }
 
@@ -196,7 +188,7 @@ public class FullscreenWindow : PageWindow {
         var screen_rect = get_monitor_geometry ();
 
         int threshold = screen_rect.height;
-        if (is_toolbar_shown) {
+        if (revealer.reveal_child) {
             threshold -= toolbar_alloc.height;
         }
 
@@ -205,13 +197,12 @@ public class FullscreenWindow : PageWindow {
 
     private void invoke_toolbar () {
         revealer.reveal_child = true;
-        is_toolbar_shown = true;
 
         Timeout.add (TOOLBAR_CHECK_DISMISSAL_MSEC, on_check_toolbar_dismissal);
     }
 
     private bool on_check_toolbar_dismissal () {
-        if (!is_toolbar_shown)
+        if (!revealer.reveal_child)
             return false;
 
         // if dismissal is disabled, keep open but keep checking
@@ -247,7 +238,6 @@ public class FullscreenWindow : PageWindow {
 
     private void hide_toolbar () {
         revealer.reveal_child = false;
-        is_toolbar_shown = false;
         left_toolbar_time = 0;
     }
 }

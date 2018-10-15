@@ -21,14 +21,12 @@ public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
     protected Gtk.Toolbar toolbar;
-    protected bool in_view = false;
     protected Gtk.ToolButton show_sidebar_button;
 
     private ViewCollection view = null;
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
-    private bool dnd_enabled = false;
     private ulong last_configure_ms = 0;
     private bool report_move_finished = false;
     private bool report_resize_finished = false;
@@ -50,9 +48,10 @@ public abstract class Page : Gtk.ScrolledWindow {
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
 
-    public string page_name { get; set; }
+    public bool in_view { get; private set; default = false; }
+    public string page_name { get; construct set; }
 
-    protected Page (string page_name) {
+    public Page (string page_name) {
         Object (page_name: page_name);
     }
 
@@ -200,8 +199,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         event_source.leave_notify_event.disconnect (on_leave_notify_event);
         event_source.scroll_event.disconnect (on_mousewheel_internal);
 
-        disable_drag_source ();
-
         event_source = null;
     }
 
@@ -241,10 +238,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     public virtual void ready () {
     }
 
-    public bool is_in_view () {
-        return in_view;
-    }
-
     public virtual void switching_to_fullscreen (FullscreenWindow fsw) {
     }
 
@@ -271,12 +264,6 @@ public abstract class Page : Gtk.ScrolledWindow {
             action.sensitive = sensitive;
     }
 
-    public void set_action_important (string name, bool important) {
-        Gtk.Action? action = get_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
     public void set_action_visible (string name, bool visible) {
         Gtk.Action? action = get_action (name);
         if (action == null)
@@ -284,26 +271,6 @@ public abstract class Page : Gtk.ScrolledWindow {
 
         action.visible = visible;
         action.sensitive = visible;
-    }
-
-    public void set_action_short_label (string name, string short_label) {
-        Gtk.Action? action = get_action (name);
-        if (action != null)
-            action.short_label = short_label;
-    }
-
-    public void set_action_details (string name, string? label, string? tooltip, bool sensitive) {
-        Gtk.Action? action = get_action (name);
-        if (action == null)
-            return;
-
-        if (label != null)
-            action.label = label;
-
-        if (tooltip != null)
-            action.tooltip = tooltip;
-
-        action.sensitive = sensitive;
     }
 
     public void activate_action (string name) {
@@ -332,40 +299,14 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (show_sidebar_button == null)
             return;
         if (!show) {
-            show_sidebar_button.set_icon_name (Resources.HIDE_PANE);
-            show_sidebar_button.set_label (Resources.UNTOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.UNTOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.HIDE_PANE;
+            show_sidebar_button.tooltip_text = Resources.UNTOGGLE_METAPANE_TOOLTIP;
         } else {
-            show_sidebar_button.set_icon_name (Resources.SHOW_PANE);
-            show_sidebar_button.set_label (Resources.TOGGLE_METAPANE_LABEL);
-            show_sidebar_button.set_tooltip_text (Resources.TOGGLE_METAPANE_TOOLTIP);
+            show_sidebar_button.icon_name = Resources.SHOW_PANE;
+            show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         }
         var app = AppWindow.get_instance () as LibraryWindow;
         app.update_common_toggle_actions ();
-    }
-
-    public void set_common_action_sensitive (string name, bool sensitive) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.sensitive = sensitive;
-    }
-
-    public void set_common_action_label (string name, string label) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.set_label (label);
-    }
-
-    public void set_common_action_important (string name, bool important) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.is_important = important;
-    }
-
-    public void activate_common_action (string name) {
-        Gtk.Action? action = get_common_action (name);
-        if (action != null)
-            action.activate ();
     }
 
     public bool get_ctrl_pressed () {
@@ -439,18 +380,6 @@ public abstract class Page : Gtk.ScrolledWindow {
         alt_pressed = alt_currently_pressed;
         shift_pressed = shift_currently_pressed;
         super_pressed = super_currently_pressed;
-    }
-
-    public PageWindow? get_page_window () {
-        Gtk.Widget p = parent;
-        while (p != null) {
-            if (p is PageWindow)
-                return (PageWindow) p;
-
-            p = p.parent;
-        }
-
-        return null;
     }
 
     public CommandManager get_command_manager () {
@@ -535,76 +464,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     // and collection content altered events.  This can be used to both initialize Gtk.Actions and
     // update them when selection or visibility has been altered.
     protected virtual void update_actions (int selected_count, int count) {
-    }
-
-    // This method enables drag-and-drop on the event source and routes its events through this
-    // object
-    public void enable_drag_source (Gdk.DragAction actions, Gtk.TargetEntry[] source_target_entries) {
-        if (dnd_enabled)
-            return;
-
-        assert (event_source != null);
-
-        Gtk.drag_source_set (event_source, Gdk.ModifierType.BUTTON1_MASK, source_target_entries, actions);
-
-        // hook up handlers which route the event_source's DnD signals to the Page's (necessary
-        // because Page is a NO_WINDOW widget and cannot support DnD on its own).
-        event_source.drag_begin.connect (on_drag_begin);
-        event_source.drag_data_get.connect (on_drag_data_get);
-        event_source.drag_data_delete.connect (on_drag_data_delete);
-        event_source.drag_end.connect (on_drag_end);
-        event_source.drag_failed.connect (on_drag_failed);
-
-        dnd_enabled = true;
-    }
-
-    public void disable_drag_source () {
-        if (!dnd_enabled)
-            return;
-
-        assert (event_source != null);
-
-        event_source.drag_begin.disconnect (on_drag_begin);
-        event_source.drag_data_get.disconnect (on_drag_data_get);
-        event_source.drag_data_delete.disconnect (on_drag_data_delete);
-        event_source.drag_end.disconnect (on_drag_end);
-        event_source.drag_failed.disconnect (on_drag_failed);
-        Gtk.drag_source_unset (event_source);
-
-        dnd_enabled = false;
-    }
-
-    public bool is_dnd_enabled () {
-        return dnd_enabled;
-    }
-
-    private void on_drag_begin (Gdk.DragContext context) {
-        drag_begin (context);
-    }
-
-    private void on_drag_data_get (Gdk.DragContext context, Gtk.SelectionData selection_data,
-                                   uint info, uint time) {
-        drag_data_get (context, selection_data, info, time);
-    }
-
-    private void on_drag_data_delete (Gdk.DragContext context) {
-        drag_data_delete (context);
-    }
-
-    private void on_drag_end (Gdk.DragContext context) {
-        drag_end (context);
-    }
-
-    // wierdly, Gtk 2.16.1 doesn't supply a drag_failed virtual method in the GtkWidget impl ...
-    // Vala binds to it, but it's not available in gtkwidget.h, and so gcc complains.  Have to
-    // makeshift one for now.
-    // https://bugzilla.gnome.org/show_bug.cgi?id=584247
-    public virtual bool source_drag_failed (Gdk.DragContext context, Gtk.DragResult drag_result) {
-        return false;
-    }
-
-    private bool on_drag_failed (Gdk.DragContext context, Gtk.DragResult drag_result) {
-        return source_drag_failed (context, drag_result);
     }
 
     // Use this function rather than GDK or GTK's get_pointer, especially if called during a
@@ -1034,7 +893,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         return true;
     }
 
-    protected void on_event_source_realize () {
+    private void on_event_source_realize () {
         assert (event_source.get_window () != null); // the realize event means the Widget has a window
 
         if (event_source.get_window ().get_cursor () != null) {
