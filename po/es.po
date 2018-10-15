@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: shotwell master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 10:22-0700\n"
-"PO-Revision-Date: 2018-08-16 16:53+0000\n"
-"Last-Translator: Rafael Bautista Martínez <iuninefrendor@gmail.com>\n"
+"PO-Revision-Date: 2018-10-03 00:10+0000\n"
+"Last-Translator: Pablo Solís La Beira <pabsol1977@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/photos/photos/"
 "es/>\n"
 "Language: es\n"
@@ -410,12 +410,11 @@ msgstr "Girar"
 
 #: src/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Ampliar para ajustar la página"
 
 #: src/EditingHostPage.vala:153
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Ampliar al _100%"
+msgstr "Zoom 1:1"
 
 #: src/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -770,9 +769,8 @@ msgid "Image Settings"
 msgstr "Ajustes de la imagen"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "Imprimir…"
+msgstr "Imprimiendo…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -1384,7 +1382,6 @@ msgstr "Importar todas las fotos a su colección"
 
 #. it's mounted, offer to unmount for the user
 #: src/camera/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
@@ -1401,15 +1398,14 @@ msgid "Please unmount the camera."
 msgstr "Desmonte la cámara."
 
 #: src/camera/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"La cámara está bloqueada por otra aplicación. Shotwell solo puede acceder a "
-"la cámara cuando está desbloqueada. Cierre cualquier otra aplicación que "
-"esté utilizando la cámara e inténtelo de nuevo."
+"Fotos no puede acceder a la cámara porque está siendo usada por otra "
+"aplicación. Cierre cualquier otra aplicación que esté utilizando la cámara e "
+"inténtelo de nuevo."
 
 #: src/camera/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
@@ -1425,7 +1421,6 @@ msgstr ""
 "%s"
 
 #: src/camera/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
 msgstr "Desmontando…"
 
@@ -1603,7 +1598,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Esto eliminará el álbum inteligente «%s». ¿Continuar?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1612,10 +1606,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Cambiar de desarrollador hará que se pierdan todos los cambios que "
-"realizaste sobre tu fotografía en Fotos"
+"realizaste sobre la fotografía en Fotos"
 msgstr[1] ""
 "Cambiar de desarrollador hará que se pierdan todos los cambios que "
-"realizaste sobre tus fotografías en Fotos"
+"realizaste sobre las fotografías en Fotos"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1640,13 +1634,13 @@ msgstr "_Seleccionar"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell no pudo crear un archivo para editar esta foto porque no tiene "
-"permiso para escribir en %s."
+"Fotos no pudo crear un archivo para editar esta foto porque no tiene permiso "
+"para escribir en %s."
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1672,9 +1666,8 @@ msgid "Con_tinue"
 msgstr "Con_tinuar"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Guardar detalles"
+msgstr "Guardar detalles…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1738,24 +1731,23 @@ msgstr "Archivos no importados porque no se reconocieron como fotos o vídeos:"
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Fotos/vídeos no importados porque no estaban en un formato compatible con "
-"Shotwell:"
+"No se ha podido importar los siguientes archivos porque no están en un "
+"formato compatible con Fotos:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Fotos/vídeos no importados porque Shotwell no pudo copiarlos a su colección:"
+"No se ha podido importar los siguientes archivos porque Fotos no pudo "
+"copiarlos a la biblioteca:"
 
 #: src/Dialogs/Dialogs.vala:324
 #, c-format
@@ -2131,12 +2123,11 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:891
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell puede copiar las fotos en su colección o puede importarlas sin "
+"Fotos puede copiar las fotos en la biblioteca o puede importarlas sin "
 "copiarlas."
 
 #: src/Dialogs/Dialogs.vala:896
@@ -2187,9 +2178,8 @@ msgid "_Scaling constraint:"
 msgstr "Re_stricción de escala:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _píxeles"
+msgstr "_píxeles"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2514,9 +2504,8 @@ msgid "No Event"
 msgstr "No hay eventos"
 
 #: src/events/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Combinar eventos"
+msgstr "Combinar eventos"
 
 #: src/events/EventsDirectoryPage.vala:230
 msgid "Display the comment of each event"
@@ -2543,7 +2532,6 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/events/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
 msgstr "%B"
 
@@ -2556,9 +2544,8 @@ msgid "Flagged"
 msgstr "Marcada"
 
 #: src/library/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Importando"
+msgstr "Importando…"
 
 #: src/library/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2569,9 +2556,8 @@ msgid "Stop importing photos"
 msgstr "Detener la importación de fotos"
 
 #: src/library/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "Preparando importación…"
+msgstr "Preparando la importación…"
 
 #: src/library/ImportQueuePage.vala:154
 #, c-format
@@ -2614,14 +2600,14 @@ msgid "Import"
 msgstr "Importar"
 
 #: src/library/LibraryWindow.vala:736
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell está configurado para importar fotos al directorio Home.\n"
+"Fotos está configurado para importar fotos a la Carpeta personal.\n"
 "Se recomienda cambiar esta configuración en <span weight=\"bold\">Editar %s "
 "Preferencias</span>.\n"
 "¿Desea continuar importando fotos?"
@@ -2676,7 +2662,6 @@ msgid "Missing Files"
 msgstr "Archivos eliminados"
 
 #: src/library/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
 msgstr "Eliminando…"
 
@@ -2693,6 +2678,7 @@ msgid "Raw Photos"
 msgstr "Fotos RAW"
 
 #: src/library/RawsPage.vala:37
+#, fuzzy
 msgid "Raws"
 msgstr "Raws"
 
@@ -2832,12 +2818,10 @@ msgid "The selected photo was successfully published."
 msgstr "La foto seleccionada se publicó correctamente."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
 msgstr "Obteniendo información de la cuenta…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
 msgstr "Iniciando sesión…"
 
@@ -2872,15 +2856,15 @@ msgid "Unable to publish"
 msgstr "No se pudo publicar"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell no puede publicar el elemento seleccionado porque no tiene activado "
-"un complemento compatible. Para corregir esto, vaya a <b>Editar %s "
+"Fotos no puede publicar el elemento seleccionado porque no tiene activado un "
+"complemento compatible. Para corregir esto, vaya a <b>Editar %s "
 "Preferencias</b> y active uno o más complementos de publicación en la "
 "pestaña <b>Complementos</b>."
 
@@ -2893,9 +2877,8 @@ msgid "Smart Albums"
 msgstr "Álbumes inteligentes"
 
 #: src/searches/SavedSearchDialog.vala:67
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Quitar"
+msgstr "Quitar"
 
 #. Ordering must correspond with SearchConditionText.Context
 #: src/searches/SavedSearchDialog.vala:180
@@ -3064,9 +3047,8 @@ msgid "Date"
 msgstr "Fecha"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "E_tiqueta nueva…"
+msgstr "Nueva etiqueta…"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3189,14 +3171,12 @@ msgid "Photos cannot be exported to this directory."
 msgstr "No se pueden exportar las fotos a este directorio."
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "Efecto de _transición:"
+msgstr "Efecto de transición"
 
 #: src/Widgets/CustomPrintTab.vala:45
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Tamaño de imagen impresa</b>"
+msgstr "Tamaño de imagen impresa"
 
 #: src/Widgets/CustomPrintTab.vala:49
 msgid "Use a _standard size:"
@@ -3223,18 +3203,16 @@ msgid "_Match photo aspect ratio"
 msgstr "E_mparejar relación de aspecto de la foto"
 
 #: src/Widgets/CustomPrintTab.vala:105
-#, fuzzy
 msgid "Titles"
-msgstr "_Títulos"
+msgstr "Títulos"
 
 #: src/Widgets/CustomPrintTab.vala:109
 msgid "Print image _title"
 msgstr "Imprimir el _título de la imagen"
 
 #: src/Widgets/CustomPrintTab.vala:115
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Resolución de píxeles</b>"
+msgstr "Resolución en píxeles"
 
 #: src/Widgets/CustomPrintTab.vala:122
 msgid "_Output photo at:"
@@ -3355,7 +3333,7 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "Creando álbum %s…"
 
@@ -3509,7 +3487,6 @@ msgstr ""
 "publicar de nuevo."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
 msgstr "Preparándose para iniciar sesión…"
 
@@ -3523,7 +3500,6 @@ msgstr ""
 "Flickr no puede continuar."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
 msgstr "Comprobando autorización…"
 
@@ -3616,12 +3592,10 @@ msgid "Large (2048 pixels)"
 msgstr "Grande (2048 píxeles)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
 msgstr "Comprobando la conexión a Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
 msgstr "Creando álbum…"
 
