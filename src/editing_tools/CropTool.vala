@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2016 elementary LLC.
+*               2016-2018 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -81,27 +81,24 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private class CropToolWindow : EditingToolWindow {
-        private const int CONTROL_SPACING = 8;
-
-        public Gtk.Button ok_button = new Gtk.Button.with_label (Resources.CROP_LABEL);
-        public Gtk.Button cancel_button = new Gtk.Button.with_mnemonic (_ ("_Cancel"));
+        public Gtk.Button ok_button;
+        public Gtk.Button cancel_button;
         public Gtk.ComboBox constraint_combo;
-        public Gtk.Button pivot_reticle_button = new Gtk.Button ();
-        public Gtk.Entry custom_width_entry = new Gtk.Entry ();
-        public Gtk.Entry custom_height_entry = new Gtk.Entry ();
-        public Gtk.Label custom_mulsign_label = new Gtk.Label.with_mnemonic ("x");
+        public Gtk.Button pivot_reticle_button;
+        public Gtk.Entry custom_width_entry;
+        public Gtk.Entry custom_height_entry;
+        public Gtk.Revealer custom_aspect_revealer;
         public Gtk.Entry most_recently_edited = null;
-        public Gtk.Box response_layout = null;
-        public Gtk.Box layout = null;
-        public int normal_width = -1;
-        public int normal_height = -1;
 
         public CropToolWindow (Gtk.Window container) {
-            base (container);
+            Object (transient_for: container);
+        }
 
-            cancel_button.set_tooltip_text (_ ("Return to current photo dimensions"));
+        construct {
+            cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
+            cancel_button.margin_start = 18;
 
-            ok_button.set_tooltip_text (_ ("Set the crop for this photo"));
+            ok_button = new Gtk.Button.with_label (Resources.CROP_LABEL);
 
             constraint_combo = new Gtk.ComboBox ();
             Gtk.CellRendererText combo_text_renderer = new Gtk.CellRendererText ();
@@ -110,25 +107,40 @@ public class EditingTools.CropTool : EditingTool {
             constraint_combo.set_row_separator_func (constraint_combo_separator_func);
             constraint_combo.set_active (0);
 
-            pivot_reticle_button.set_image (new Gtk.Image.from_icon_name (Resources.CROP_PIVOT_RETICLE,
-                                            Gtk.IconSize.SMALL_TOOLBAR));
-            pivot_reticle_button.set_tooltip_text (_ ("Pivot the crop rectangle between portrait and landscape orientations"));
+            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            pivot_reticle_button.tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations");
 
-            custom_width_entry.set_width_chars (4);
-            custom_width_entry.editable = true;
-            custom_height_entry.set_width_chars (4);
-            custom_height_entry.editable = true;
+            custom_width_entry = new Gtk.Entry ();
+            custom_width_entry.vexpand = true;
+            custom_width_entry.width_chars = 4;
+            custom_width_entry.xalign = 0.5f;
 
-            response_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
-            response_layout.homogeneous = true;
-            response_layout.add (cancel_button);
-            response_layout.add (ok_button);
+            custom_height_entry = new Gtk.Entry ();
+            custom_height_entry.width_chars = 4;
+            custom_height_entry.xalign = 0.5f;
 
-            layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
+            var custom_aspect_grid = new Gtk.Grid ();
+            custom_aspect_grid.column_spacing = 3;
+            custom_aspect_grid.add (custom_width_entry);
+            custom_aspect_grid.add (new Gtk.Label (":"));
+            custom_aspect_grid.add (custom_height_entry);
+
+            custom_aspect_revealer = new Gtk.Revealer ();
+            custom_aspect_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+            custom_aspect_revealer.add (custom_aspect_grid);
+
+            var response_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+            response_sizegroup.add_widget (cancel_button);
+            response_sizegroup.add_widget (ok_button);
+
+            var layout = new Gtk.Grid ();
+            layout.column_spacing = 6;
             layout.margin_start = layout.margin_end = 12;
             layout.add (constraint_combo);
+            layout.add (custom_aspect_revealer);
             layout.add (pivot_reticle_button);
-            layout.add (response_layout);
+            layout.add (cancel_button);
+            layout.add (ok_button);
 
             get_content_area ().add (layout);
         }
@@ -406,26 +418,7 @@ public class EditingTools.CropTool : EditingTool {
         if (constraint_mode == ConstraintMode.CUSTOM)
             return;
 
-        if ((crop_tool_window.normal_width == -1) || (crop_tool_window.normal_height == -1))
-            crop_tool_window.get_size (out crop_tool_window.normal_width,
-                                       out crop_tool_window.normal_height);
-
-        int window_x_pos = 0;
-        int window_y_pos = 0;
-        crop_tool_window.get_position (out window_x_pos, out window_y_pos);
-
-        crop_tool_window.hide ();
-
-        crop_tool_window.layout.remove (crop_tool_window.constraint_combo);
-        crop_tool_window.layout.remove (crop_tool_window.pivot_reticle_button);
-        crop_tool_window.layout.remove (crop_tool_window.response_layout);
-
-        crop_tool_window.layout.add (crop_tool_window.constraint_combo);
-        crop_tool_window.layout.add (crop_tool_window.custom_width_entry);
-        crop_tool_window.layout.add (crop_tool_window.custom_mulsign_label);
-        crop_tool_window.layout.add (crop_tool_window.custom_height_entry);
-        crop_tool_window.layout.add (crop_tool_window.pivot_reticle_button);
-        crop_tool_window.layout.add (crop_tool_window.response_layout);
+        crop_tool_window.custom_aspect_revealer.reveal_child = true;
 
         if (reticle_orientation == ReticleOrientation.LANDSCAPE) {
             crop_tool_window.custom_width_entry.set_text ("%d".printf (custom_init_width));
@@ -436,9 +429,6 @@ public class EditingTools.CropTool : EditingTool {
         }
         custom_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
 
-        crop_tool_window.move (window_x_pos, window_y_pos);
-        crop_tool_window.show_all ();
-
         constraint_mode = ConstraintMode.CUSTOM;
     }
 
@@ -446,28 +436,7 @@ public class EditingTools.CropTool : EditingTool {
         if (constraint_mode == ConstraintMode.NORMAL)
             return;
 
-        int window_x_pos = 0;
-        int window_y_pos = 0;
-        crop_tool_window.get_position (out window_x_pos, out window_y_pos);
-
-        crop_tool_window.hide ();
-
-        crop_tool_window.layout.remove (crop_tool_window.constraint_combo);
-        crop_tool_window.layout.remove (crop_tool_window.custom_width_entry);
-        crop_tool_window.layout.remove (crop_tool_window.custom_mulsign_label);
-        crop_tool_window.layout.remove (crop_tool_window.custom_height_entry);
-        crop_tool_window.layout.remove (crop_tool_window.pivot_reticle_button);
-        crop_tool_window.layout.remove (crop_tool_window.response_layout);
-
-        crop_tool_window.layout.add (crop_tool_window.constraint_combo);
-        crop_tool_window.layout.add (crop_tool_window.pivot_reticle_button);
-        crop_tool_window.layout.add (crop_tool_window.response_layout);
-
-        crop_tool_window.resize (crop_tool_window.normal_width,
-                                 crop_tool_window.normal_height);
-
-        crop_tool_window.move (window_x_pos, window_y_pos);
-        crop_tool_window.show_all ();
+        crop_tool_window.custom_aspect_revealer.reveal_child = false;
 
         constraint_mode = ConstraintMode.NORMAL;
     }
