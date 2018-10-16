@@ -24,7 +24,6 @@ You'll need the following dependencies:
 * libjson-glib-dev
 * libraw-dev
 * librest-dev
-* libsignon-glib-dev
 * libsoup2.4-dev
 * libsqlite3-dev
 * libunity-dev
