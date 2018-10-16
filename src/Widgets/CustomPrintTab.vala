@@ -37,11 +37,14 @@ public class CustomPrintTab : Gtk.Fixed {
     private Measurement local_content_width = Measurement (5.0, MeasurementUnit.INCHES);
     private Measurement local_content_height = Measurement (5.0, MeasurementUnit.INCHES);
     private bool is_text_insertion_in_progress = false;
-    private PrintJob source_job;
+
+    public PrintJob source_job { get; construct; }
 
     public CustomPrintTab (PrintJob source_job) {
-        this.source_job = source_job;
+        Object (source_job: source_job);
+    }
 
+    construct {
         var printed_size_label = new Gtk.Label (_("Printed Image Size"));
         printed_size_label.xalign = 0;
         printed_size_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
@@ -508,10 +511,6 @@ public class CustomPrintTab : Gtk.Fixed {
 
     private string get_print_titles_font () {
         return title_print_font.font;
-    }
-
-    public PrintJob get_source_job () {
-        return source_job;
     }
 
     public PrintSettings get_local_settings () {
