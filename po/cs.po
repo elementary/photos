@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 18:49+0100\n"
+"POT-Creation-Date: 2018-10-18 05:28-0500\n"
 "PO-Revision-Date: 2018-10-04 00:03+0000\n"
 "Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/photos/photos/"
@@ -136,87 +136,6 @@ msgstr "Soubor s obrázkem je poškozený"
 #, c-format
 msgid "Imported failed (%d)"
 msgstr "Chyba importu (%d)"
-
-#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
-msgid "S_lideshow"
-msgstr "_Prezentace"
-
-#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
-msgid "Play a slideshow"
-msgstr "Spustí prezentaci"
-
-#: src/Views/CollectionPage.vala:95
-msgid "Adjust the size of the thumbnails"
-msgstr "Nastavit velikost náhledů"
-
-#: src/Views/CollectionPage.vala:127 src/Views/LibraryPhotoPage.vala:483
-#: src/Views/MediaPage.vala:68 src/Views/ImportPage.vala:854
-#: src/Views/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:376
-#: src/library/LibraryWindow.vala:377 src/Views/OfflinePage.vala:105
-#: src/Views/TrashPage.vala:160
-msgid "Edit Photo In_fo"
-msgstr "Upravit in_formace fotky"
-
-#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
-msgid "_Developer"
-msgstr "_Vývojka"
-
-#: src/Views/CollectionPage.vala:196 src/Views/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:343
-msgid "View Eve_nt for Photo"
-msgstr "Zobrazit u_dálosti pro fotografii"
-
-#: src/Views/CollectionPage.vala:211 src/Views/LibraryPhotoPage.vala:557
-#: src/Views/DirectPhotoPage.vala:155
-msgid "Other Actions"
-msgstr "Další akce"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photo/Video"
-msgstr "Exportovat fotografie/videa"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Export fotografií/videí"
-
-#: src/Views/CollectionPage.vala:600 src/Views/LibraryPhotoPage.vala:803
-#: src/Dialogs/Dialogs.vala:90
-msgid "Export Photo"
-msgstr "Exportování fotografií"
-
-#: src/Views/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
-msgid "Export Photos"
-msgstr "Exportovat fotky"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Rotating"
-msgstr "Rotace"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Undoing Rotate"
-msgstr "Zpět rotace"
-
-#: src/Views/CollectionPage.vala:718
-msgid "Flipping Horizontally"
-msgstr "Překlopit horizontálně"
-
-#: src/Views/CollectionPage.vala:719
-msgid "Undoing Flip Horizontally"
-msgstr "Zpět horizontální překlopení"
-
-#: src/Views/CollectionPage.vala:728
-msgid "Flipping Vertically"
-msgstr "Překlopit vertikálně"
-
-#: src/Views/CollectionPage.vala:729
-msgid "Undoing Flip Vertically"
-msgstr "Zpět vertikální překlopení"
-
-#: src/Views/CollectionPage.vala:914 src/Views/CollectionPage.vala:915
-#: src/Views/CheckerboardPage.vala:91 src/Views/PhotosPage.vala:64
-#: src/Views/RawsPage.vala:64
-msgid "No photos/videos"
-msgstr "Žádné video, ani fotografie"
 
 #: src/Commands.vala:746
 msgid "Reverting"
@@ -414,32 +333,6 @@ msgstr "Výška"
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Sledování %s se nepodařilo: není to složka (%s)"
 
-#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/Views/EditingHostPage.vala:106
-msgid "Rotate"
-msgstr "Otočit"
-
-#: src/Views/EditingHostPage.vala:144
-msgid "Zoom to fit page"
-msgstr "Přiblížit k vyplnění stránky"
-
-#: src/Views/EditingHostPage.vala:153
-msgid "Zoom 1:1"
-msgstr "Zvětšení 1:1"
-
-#: src/Views/EditingHostPage.vala:173
-msgid "Previous photo"
-msgstr "Předchozí fotografie"
-
-#: src/Views/EditingHostPage.vala:177
-msgid "Next photo"
-msgstr "Následující fotografie"
-
-#: src/Views/EditingHostPage.vala:1504
-#, c-format
-msgid "Photo source file missing: %s"
-msgstr "Chybí zdrojový soubor fotografie: %s"
-
 #. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
@@ -477,10 +370,10 @@ msgstr "Přepsat _vše"
 #: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
 #: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
 #: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74 src/Views/DirectPhotoPage.vala:327
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/Dialogs/TextEntryDialog.vala:74
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
 msgid "_Cancel"
 msgstr "_Zrušit"
 
@@ -495,19 +388,6 @@ msgstr "Připíchnout otevřený panel"
 #: src/FullScreenWindow.vala:58
 msgid "Leave fullscreen"
 msgstr "Ukončí prohlížení přes celou obrazovku"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:878
-msgid "Remove From Library"
-msgstr "Odstranit z knihovny"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:879
-msgid "Removing Photo From Library"
-msgstr "Probíhá odstraňování fotografií z knihovny"
-
-#: src/Views/LibraryPhotoPage.vala:823
-#, c-format
-msgid "Unable to export %s: %s"
-msgstr "Nepodařil se export %s: %s"
 
 #: src/main.vala:68
 #, c-format
@@ -588,100 +468,6 @@ msgstr "Spuštěním '%s --help' se zobrazí všechny volby příkazového řád
 msgid "Unable to process monitoring updates: %s"
 msgstr "Nepodařilo se monitorovat změny: %s"
 
-#: src/Views/MediaPage.vala:64 src/Views/ImportPage.vala:850
-#: src/Views/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:371
-#: src/Views/OfflinePage.vala:101 src/Views/TrashPage.vala:156
-msgid "S_idebar"
-msgstr "P_ostranní panel"
-
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
-msgid "_Titles"
-msgstr "_Názvy"
-
-#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:237
-#: src/Views/EventsDirectoryPage.vala:229
-msgid "_Comments"
-msgstr "_Komentáře"
-
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
-msgid "Ta_gs"
-msgstr "_Nálepky"
-
-#: src/Views/MediaPage.vala:84
-msgid "Sort _Photos"
-msgstr "Seřadit _fotografie"
-
-#. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
-msgid "By _Title"
-msgstr "Podle _názvu"
-
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
-msgid "By Exposure _Date"
-msgstr "Podle data _vyfocení"
-
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/ImportPage.vala:864
-#: src/Views/EventsDirectoryPage.vala:141 src/library/LibraryWindow.vala:388
-#: src/Views/OfflinePage.vala:111 src/Views/TrashPage.vala:166
-msgid "_Ascending"
-msgstr "_Vzestupně"
-
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/ImportPage.vala:873
-#: src/Views/EventsDirectoryPage.vala:150 src/library/LibraryWindow.vala:394
-#: src/Views/OfflinePage.vala:120 src/Views/TrashPage.vala:175
-msgid "D_escending"
-msgstr "_Sestupně"
-
-#: src/Views/MediaPage.vala:130 src/Views/ImportPage.vala:862
-#: src/Views/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:341
-#: src/Views/OfflinePage.vala:109 src/Views/TrashPage.vala:164
-msgid "Sort _Events"
-msgstr "Seřadit u_dálosti"
-
-#: src/Views/MediaPage.vala:155 src/Views/EventsDirectoryPage.vala:164
-msgid "Fulls_creen"
-msgstr "_Celá obrazovka"
-
-#: src/Views/MediaPage.vala:232 src/Views/ImportPage.vala:962
-msgid "Display the title of each photo"
-msgstr "Zobrazí název fotografie"
-
-#: src/Views/MediaPage.vala:238
-msgid "Display the comment of each photo"
-msgstr "Zobrazit komentáře každé fotografie"
-
-#: src/Views/MediaPage.vala:244
-msgid "Display each photo's tags"
-msgstr "Zobrazí u fotografie nálepky"
-
-#: src/Views/MediaPage.vala:260
-msgid "Sort photos by title"
-msgstr "Seřadí fotografie podle názvu"
-
-#: src/Views/MediaPage.vala:266
-msgid "Sort photos by exposure date"
-msgstr "Seřadí fotografie podle data vyfocení"
-
-#: src/Views/MediaPage.vala:276 src/library/LibraryWindow.vala:388
-msgid "Sort photos in an ascending order"
-msgstr "Seřadí fotografie vzestupně"
-
-#: src/Views/MediaPage.vala:281 src/library/LibraryWindow.vala:394
-msgid "Sort photos in a descending order"
-msgstr "Seřadí fotografie sestupně"
-
-#: src/Views/MediaPage.vala:413
-#, c-format
-msgid ""
-"Photos was unable to play the selected video:\n"
-"%s"
-msgstr ""
-"Fotky nemohli přehrát vybrané video:\n"
-"%s"
-
 #: src/Photo.vala:3787
 msgid "modified"
 msgstr "změněno"
@@ -714,59 +500,59 @@ msgstr "16 obrázků na stránku"
 msgid "32 images per page"
 msgstr "32 obrázků na stránku"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:201
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
 msgid "Wallet (2 x 3 in.)"
 msgstr "Peněženka (2 x 3 palce)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:202
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
 msgid "Notecard (3 x 5 in.)"
 msgstr "Poznámková karta (3x5 palců)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:203
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
 msgstr "4 x 6 palců"
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:204
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
 msgstr "5 x 7 palců"
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:205
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
 msgstr "8 x 10 palců"
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
 msgstr "11 x 14 palců"
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
 msgstr "16 x 20 palců"
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Peněženka metricky (9 x 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:212
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
 msgid "Postcard (10 x 15 cm)"
 msgstr "Pohlednice (10x15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
 msgid "13 x 18 cm"
 msgstr "13x18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
 msgid "18 x 24 cm"
 msgstr "18x24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
 msgid "20 x 30 cm"
 msgstr "20x30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
 msgid "24 x 40 cm"
 msgstr "24x40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:218
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
 msgid "30 x 40 cm"
 msgstr "30x40 cm"
 
@@ -790,9 +576,9 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/Views/PhotosPage.vala:24
-#: src/Views/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
+#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
+#: src/Views/PhotosPage.vala:37
 msgid "Photos"
 msgstr "Fotky"
 
@@ -1269,59 +1055,6 @@ msgstr "%d %Y"
 msgid "Search Photos"
 msgstr "Hledat fotky"
 
-#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
-msgid "Slideshow"
-msgstr "Prezentace"
-
-#: src/Views/SlideshowPage.vala:64
-msgid "Back"
-msgstr "Předchozí"
-
-#: src/Views/SlideshowPage.vala:65
-msgid "Go to the previous photo"
-msgstr "Jít na předchozí fotografii"
-
-#: src/Views/SlideshowPage.vala:68
-msgid "Pause"
-msgstr "Pauza"
-
-#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
-msgid "Pause the slideshow"
-msgstr "Zastavit prezentaci"
-
-#: src/Views/SlideshowPage.vala:73
-msgid "Next"
-msgstr "Další"
-
-#: src/Views/SlideshowPage.vala:74
-msgid "Go to the next photo"
-msgstr "Jít na další fotografii"
-
-#: src/Views/SlideshowPage.vala:81
-msgid "Show Photo Titles"
-msgstr "Zobrazit názvy fotek"
-
-#: src/Views/SlideshowPage.vala:96
-msgid "Transition Speed"
-msgstr "Rychlost přechodů"
-
-#: src/Views/SlideshowPage.vala:98
-msgid "Faster"
-msgstr "Rychleji"
-
-#: src/Views/SlideshowPage.vala:99
-msgid "Slower"
-msgstr "Pomaleji"
-
-#. An entire slideshow set might be missing, so check for a loop.
-#: src/Views/SlideshowPage.vala:164
-msgid "All photo source files are missing."
-msgstr "Chybí všechny zdrojové soubory fotografií."
-
-#: src/Views/SlideshowPage.vala:196
-msgid "Continue the slideshow"
-msgstr "Pokračovat v prezentaci"
-
 #: src/Tag.vala:830
 msgid "untitled"
 msgstr "bez názvu"
@@ -1335,170 +1068,10 @@ msgstr "Export videí"
 msgid "Cameras"
 msgstr "Fotoaparáty"
 
-#: src/camera/Branch.vala:110 src/Views/ImportPage.vala:729
-#: src/Views/ImportPage.vala:745 src/photos/RawSupport.vala:313
+#: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
+#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
 msgid "Camera"
 msgstr "Fotoaparát"
-
-#: src/Views/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
-msgid "RAW+JPEG"
-msgstr "RAW+JPEG"
-
-#: src/Views/ImportPage.vala:464
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr ""
-"Nepodařilo se odpojit fotoaparát. Pokuste se odpojit fotoaparát pomocí "
-"správce souborů."
-
-#: src/Views/ImportPage.vala:788
-msgid "Hide photos already imported"
-msgstr "Schovat již importované fotografie"
-
-#: src/Views/ImportPage.vala:791
-msgid "Only display photos that have not been imported"
-msgstr "Zobrazit jen fotografie, které ještě nebyly importovány"
-
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
-msgid "Import _Selected"
-msgstr "Importovat vy_brané"
-
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
-msgid "Import _All"
-msgstr "Importovat _všechny"
-
-#. Ticket #3304 - Import page shouldn't display confusing message
-#. prior to import.
-#. TODO: replace this with approved text for "talking to camera,
-#. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
-msgid "Starting import, please wait…"
-msgstr "Import začíná, vyčkejte prosím…"
-
-#: src/Views/ImportPage.vala:974
-msgid "Import the selected photos into your library"
-msgstr "Importuje vybrané fotografie do knihovny"
-
-#: src/Views/ImportPage.vala:979
-msgid "Import all the photos into your library"
-msgstr "Importuje všechny fotografie do knihovny"
-
-#. it's mounted, offer to unmount for the user
-#: src/Views/ImportPage.vala:1099
-msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-"Fotky potřebují odpojit fotoaparát ze souborového systému, aby k němu měli "
-"přístup. Pokračovat?"
-
-#: src/Views/ImportPage.vala:1105
-msgid "_Unmount"
-msgstr "_Odpojit"
-
-#: src/Views/ImportPage.vala:1110
-msgid "Please unmount the camera."
-msgstr "Odpojte fotoaparát."
-
-#: src/Views/ImportPage.vala:1115
-msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-"Fotoaparát je uzamčen jinou aplikací. Fotky mohou přistupovat k fotoaparátu "
-"pouze když je odemčen. Prosím ukončete všechny aplikace, které ho používají, "
-"a zkuste to znovu."
-
-#: src/Views/ImportPage.vala:1125
-msgid "Please close any other application using the camera."
-msgstr "Ukončete ostatní aplikace používající fotoaparát."
-
-#: src/Views/ImportPage.vala:1130
-#, c-format
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-"Nepodařilo se načít náhledy z fotoaparátu:\n"
-"%s"
-
-#: src/Views/ImportPage.vala:1147
-msgid "Unmounting…"
-msgstr "Odpojuje se…"
-
-#: src/Views/ImportPage.vala:1253
-msgid "Fetching photo information"
-msgstr "Získávání informací o fotografii"
-
-#: src/Views/ImportPage.vala:1608
-#, c-format
-msgid "Fetching preview for %s"
-msgstr "Získává se náhled %s"
-
-#: src/Views/ImportPage.vala:1724
-#, c-format
-msgid "Unable to lock camera: %s"
-msgstr "Nepodařilo se zamknout fotoaparát: %s"
-
-#: src/Views/ImportPage.vala:1809
-#, c-format
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Smazat tuto %d fotografii z fotoaparátu?"
-msgstr[1] "Smazat tyto %d fotografie z fotoaparátu?"
-msgstr[2] "Smazat těchto %d fotografií z fotoaparátu?"
-
-#: src/Views/ImportPage.vala:1812
-#, c-format
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Smazat toto video z kamery?"
-msgstr[1] "Smazat tato %d videa z kamery?"
-msgstr[2] "Smazat těchto %d videí z kamery?"
-
-#: src/Views/ImportPage.vala:1815
-#, c-format
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Smazat toto video/fotku z kamery?"
-msgstr[1] "Smazat tato %d videa/fotky z kamery?"
-msgstr[2] "Smazat těchto %d videí/fotek z kamery?"
-
-#: src/Views/ImportPage.vala:1818
-#, c-format
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Smazat tento soubor z fotoaparátu?"
-msgstr[1] "Smazat tyto %d soubory z fotoaparátu?"
-msgstr[2] "Smazat těchto %d souborů z fotoaparátu?"
-
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
-msgid "Delete"
-msgstr "S_mazat"
-
-#: src/Views/ImportPage.vala:1826
-msgid "_Keep"
-msgstr "_Zachovat"
-
-#: src/Views/ImportPage.vala:1845
-msgid "Removing photos/videos from camera"
-msgstr "Odstraňují se videa/fotografie z fotoaparátu"
-
-#: src/Views/ImportPage.vala:1849
-#, c-format
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] ""
-"Kvůli chybám se nepodařilo z fotoaparátu smazat %d videí/fotografií."
-msgstr[1] ""
-"Kvůli chybám se nepodařilo z fotoaparátu smazat %d video/fotografie."
-msgstr[2] ""
-"Kvůli chybám se nepodařilo z fotoaparátu smazat %d videa/fotografie."
-
-#: src/Views/CheckerboardPage.vala:95
-msgid "No photos/videos found"
-msgstr "Nebylo nalezeno žádné video, ani fotografie"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
 #: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
@@ -1637,10 +1210,19 @@ msgstr "_Přepnout vývojáře"
 msgid "Export Video"
 msgstr "Exportovat Video"
 
+#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Views/LibraryPhotoPage.vala:803
+msgid "Export Photo"
+msgstr "Exportování fotografií"
+
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Uložit"
+
+#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+msgid "Export Photos"
+msgstr "Exportovat fotky"
 
 #: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
@@ -2179,6 +1761,14 @@ msgstr "_Importovat bez kopírování"
 msgid "Import to Library"
 msgstr "Import do knihovny"
 
+#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+msgid "Remove From Library"
+msgstr "Odstranit z knihovny"
+
+#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+msgid "Removing Photo From Library"
+msgstr "Probíhá odstraňování fotografií z knihovny"
+
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
 msgstr "Odstraňují se fotografie z knihovny"
@@ -2270,6 +1860,44 @@ msgstr "_Zavřít"
 msgid "%d%%"
 msgstr "%d%%"
 
+#: src/Dialogs/SavedSearchDialog.vala:42
+msgid "Add"
+msgstr "Přidat"
+
+#. Add close button.
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+msgid "Save"
+msgstr "Uložit"
+
+#: src/Dialogs/SavedSearchDialog.vala:88
+msgid "_Match"
+msgstr "_Odpovídá"
+
+#: src/Dialogs/SavedSearchDialog.vala:91
+msgid "any"
+msgstr "nějaký"
+
+#: src/Dialogs/SavedSearchDialog.vala:92
+msgid "all"
+msgstr "všechny"
+
+#: src/Dialogs/SavedSearchDialog.vala:93
+msgid "none"
+msgstr "žádný"
+
+#: src/Dialogs/SavedSearchDialog.vala:96
+msgid "of the following:"
+msgstr "z následujících:"
+
+#: src/Dialogs/SavedSearchDialog.vala:101
+msgid "Add rule"
+msgstr "Přidat pravidlo"
+
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
+#: src/Views/DirectPhotoPage.vala:416
+msgid "Cancel"
+msgstr "Zrušit"
+
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
@@ -2298,55 +1926,6 @@ msgstr ""
 "\n"
 "Chyba:\n"
 "%s"
-
-#: src/Views/DirectPhotoPage.vala:95
-#, c-format
-msgid "%s does not exist."
-msgstr "%s neexistuje."
-
-#: src/Views/DirectPhotoPage.vala:97
-#, c-format
-msgid "%s is not a file."
-msgstr "%s není soubor."
-
-#: src/Views/DirectPhotoPage.vala:99
-#, c-format
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr "%s nepodporuje formát %s."
-
-#: src/Views/DirectPhotoPage.vala:314
-msgid "_Save a Copy"
-msgstr "Uložit _kopii"
-
-#: src/Views/DirectPhotoPage.vala:317
-#, c-format
-msgid "Lose changes to %s?"
-msgstr "Zahodit změny v %s?"
-
-#: src/Views/DirectPhotoPage.vala:324
-msgid "Close _without Saving"
-msgstr "Zavřít _bez uložení"
-
-#: src/Views/DirectPhotoPage.vala:364
-#, c-format
-msgid "Error while saving to %s: %s"
-msgstr "Chyba při ukládání %s. %s"
-
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
-msgid "Save As"
-msgstr "Uložit jako"
-
-#: src/Views/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:616
-#: src/Dialogs/SavedSearchDialog.vala:131
-msgid "Cancel"
-msgstr "Zrušit"
-
-#. Add close button.
-#: src/Views/DirectPhotoPage.vala:417 src/Dialogs/SavedSearchDialog.vala:56
-msgid "Save"
-msgstr "Uložit"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
@@ -2381,65 +1960,57 @@ msgstr "Zavřít nástroj pro odstranění červených očí"
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Odstranit červené oči ve vybrané oblasti"
 
-#: src/editing_tools/CropTool.vala:102
-msgid "Return to current photo dimensions"
-msgstr "Vrátit k původním hodnotám"
-
-#: src/editing_tools/CropTool.vala:104
-msgid "Set the crop for this photo"
-msgstr "Nastaví oříznutí fotografie"
-
-#: src/editing_tools/CropTool.vala:115
+#: src/editing_tools/CropTool.vala:111
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Přetáčet ořezový rám mezi orientací na šířku a na délku"
 
-#: src/editing_tools/CropTool.vala:193
+#: src/editing_tools/CropTool.vala:205
 msgid "Unconstrained"
 msgstr "Neomezeně"
 
-#: src/editing_tools/CropTool.vala:194
+#: src/editing_tools/CropTool.vala:206
 msgid "Square"
 msgstr "Čtverec"
 
-#: src/editing_tools/CropTool.vala:195
+#: src/editing_tools/CropTool.vala:207
 msgid "Screen"
 msgstr "Obrazovka"
 
-#: src/editing_tools/CropTool.vala:196
+#: src/editing_tools/CropTool.vala:208
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Původní velikost"
 
-#: src/editing_tools/CropTool.vala:197 src/editing_tools/CropTool.vala:200
-#: src/editing_tools/CropTool.vala:210 src/editing_tools/CropTool.vala:220
+#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:198
+#: src/editing_tools/CropTool.vala:210
 msgid "SD Video (4 : 3)"
 msgstr "SD video (4:3)"
 
-#: src/editing_tools/CropTool.vala:199
+#: src/editing_tools/CropTool.vala:211
 msgid "HD Video (16 : 9)"
 msgstr "HD video (16:9)"
 
-#: src/editing_tools/CropTool.vala:206
+#: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 palců)"
 
-#: src/editing_tools/CropTool.vala:208
+#: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 palců)"
 
-#: src/editing_tools/CropTool.vala:215
+#: src/editing_tools/CropTool.vala:227
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:219
+#: src/editing_tools/CropTool.vala:231
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:221
+#: src/editing_tools/CropTool.vala:233
 msgid "Custom"
 msgstr "Vlastní"
 
@@ -2530,78 +2101,9 @@ msgstr[0] "%d fotka"
 msgstr[1] "%d fotky"
 msgstr[2] "%d fotek"
 
-#: src/Views/EventPage.vala:136
-msgid "All Events"
-msgstr "Všechny události"
-
-#: src/Views/EventPage.vala:150
-msgid "No Event"
-msgstr "Žádná událost"
-
-#: src/Views/EventsDirectoryPage.vala:67
-msgid "Merge events"
-msgstr "Sloučit události"
-
-#: src/Views/EventsDirectoryPage.vala:230
-msgid "Display the comment of each event"
-msgstr "Zobrazit komentář o každé události"
-
-#: src/Views/EventsDirectoryPage.vala:254
-msgid "No events"
-msgstr "Žádné události"
-
-#: src/Views/EventsDirectoryPage.vala:258
-msgid "No events found"
-msgstr "Žádné události nebyly nalezeny"
-
-#: src/Views/EventsDirectoryPage.vala:318
-msgid "Events"
-msgstr "Události"
-
-#: src/Views/EventsDirectoryPage.vala:332
-msgid "Undated"
-msgstr "Bez data"
-
-#: src/Views/EventsDirectoryPage.vala:333
-msgid "%Y"
-msgstr "%Y"
-
-#: src/Views/EventsDirectoryPage.vala:334
-msgid "%OB"
-msgstr "%OB"
-
 #: src/library/Branch.vala:174
 msgid "All Photos"
 msgstr "Všechny fotografie"
-
-#: src/Views/FlaggedPage.vala:21
-msgid "Flagged"
-msgstr "Označeno"
-
-#: src/Views/ImportQueuePage.vala:21
-msgid "Importing…"
-msgstr "Probíhá import…"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "_Stop Import"
-msgstr "Za_stavit import"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "Stop importing photos"
-msgstr "Zastavit import fotografií"
-
-#: src/Views/ImportQueuePage.vala:127
-msgid "Preparing to import…"
-msgstr "Připravuje se import…"
-
-#: src/Views/ImportQueuePage.vala:154
-#, c-format
-msgid "Imported %s"
-msgstr "Importováno %s"
-
-#: src/Views/LastImportPage.vala:21
-msgid "Last Import"
-msgstr "Poslední import"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
@@ -2615,6 +2117,17 @@ msgstr "_Nastavení"
 msgid "Settings"
 msgstr "Nastavení"
 
+#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
+msgid "Sort _Events"
+msgstr "Seřadit u_dálosti"
+
+#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/Views/LibraryPhotoPage.vala:542
+msgid "View Eve_nt for Photo"
+msgstr "Zobrazit u_dálosti pro fotografii"
+
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
@@ -2622,9 +2135,45 @@ msgstr "Nastavení"
 msgid "New Smart Album…"
 msgstr "Nové inteligentní album…"
 
+#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
+msgid "S_idebar"
+msgstr "P_ostranní panel"
+
 #: src/library/LibraryWindow.vala:372
 msgid "Display the sidebar"
 msgstr "Zobrazit postranní panel"
+
+#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
+#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
+#: src/Views/TrashPage.vala:160
+msgid "Edit Photo In_fo"
+msgstr "Upravit in_formace fotky"
+
+#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
+msgid "_Ascending"
+msgstr "_Vzestupně"
+
+#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+msgid "Sort photos in an ascending order"
+msgstr "Seřadí fotografie vzestupně"
+
+#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
+msgid "D_escending"
+msgstr "_Sestupně"
+
+#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+msgid "Sort photos in a descending order"
+msgstr "Seřadí fotografie sestupně"
 
 #: src/library/LibraryWindow.vala:615
 msgid "Import From Folder"
@@ -2692,70 +2241,10 @@ msgstr "Změnit složku knihovny"
 msgid "Choose where to keep your photos."
 msgstr "Vyberte, kde mají být umístěny vaše fotky."
 
-#: src/Views/OfflinePage.vala:21
-msgid "Missing Files"
-msgstr "Chybějící soubory"
-
-#: src/Views/OfflinePage.vala:201
-msgid "Deleting…"
-msgstr "Probíhá mazání…"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "Add Some Photos"
-msgstr "Přidejte nějaké fotky"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "No Photos were found in your library."
-msgstr "Ve vaší knihovně nebyly nalezeny žádné fotky."
-
-#: src/Views/RawsPage.vala:24
-msgid "Raw Photos"
-msgstr "Raw fotky"
-
-#: src/Views/RawsPage.vala:37
-msgid "Raws"
-msgstr "Raw soubory"
-
 #: src/library/TopDisplay.vala:133
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
-
-#: src/Views/TrashPage.vala:22
-msgid "Trash"
-msgstr "Koš"
-
-#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
-#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
-msgid "_Empty Trash"
-msgstr "_Vyprázdnit koš"
-
-#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
-msgid "Delete all photos in the trash"
-msgstr "Vymaže všechny fotografie z koše"
-
-#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
-msgid "Trash is empty"
-msgstr "Koš je prázdný"
-
-#: src/Views/TrashPage.vala:294
-msgid "Deleting a Photo"
-msgid_plural "Deleting Photos"
-msgstr[0] "Odstraňování fotky"
-msgstr[1] "Odstraňování fotek"
-msgstr[2] "Odstraňování fotek"
-
-#: src/Views/TrashPage.vala:302
-msgid "Empty Trash"
-msgstr "Vyprázdnit koš"
-
-#: src/Views/TrashPage.vala:302
-msgid "Emptying Trash…"
-msgstr "Vyprazdňování koše…"
-
-#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
-msgid "Videos"
-msgstr "Videa"
 
 #: src/photos/BmpSupport.vala:45
 msgid "BMP"
@@ -2910,34 +2399,6 @@ msgstr "Zveřejnění"
 msgid "Smart Albums"
 msgstr "Chytrá alba"
 
-#: src/Dialogs/SavedSearchDialog.vala:42
-msgid "Add"
-msgstr "Přidat"
-
-#: src/Dialogs/SavedSearchDialog.vala:88
-msgid "_Match"
-msgstr "_Odpovídá"
-
-#: src/Dialogs/SavedSearchDialog.vala:91
-msgid "any"
-msgstr "nějaký"
-
-#: src/Dialogs/SavedSearchDialog.vala:92
-msgid "all"
-msgstr "všechny"
-
-#: src/Dialogs/SavedSearchDialog.vala:93
-msgid "none"
-msgstr "žádný"
-
-#: src/Dialogs/SavedSearchDialog.vala:96
-msgid "of the following:"
-msgstr "z následujících:"
-
-#: src/Dialogs/SavedSearchDialog.vala:101
-msgid "Add rule"
-msgstr "Přidat pravidlo"
-
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
 msgstr "libovolný text"
@@ -2983,6 +2444,10 @@ msgstr "Datum"
 #: src/sidebar/Tree.vala:880
 msgid "New _Tag…"
 msgstr "Nová _značka…"
+
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+msgid "RAW+JPEG"
+msgstr "RAW+JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3106,6 +2571,533 @@ msgstr "Nálepky"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemohou být exportovány do této složky."
 
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
+#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/RawsPage.vala:64
+msgid "No photos/videos"
+msgstr "Žádné video, ani fotografie"
+
+#: src/Views/CheckerboardPage.vala:95
+msgid "No photos/videos found"
+msgstr "Nebylo nalezeno žádné video, ani fotografie"
+
+#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
+msgid "S_lideshow"
+msgstr "_Prezentace"
+
+#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
+msgid "Play a slideshow"
+msgstr "Spustí prezentaci"
+
+#: src/Views/CollectionPage.vala:95
+msgid "Adjust the size of the thumbnails"
+msgstr "Nastavit velikost náhledů"
+
+#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
+msgid "_Developer"
+msgstr "_Vývojka"
+
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/LibraryPhotoPage.vala:557
+msgid "Other Actions"
+msgstr "Další akce"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photo/Video"
+msgstr "Exportovat fotografie/videa"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photos/Videos"
+msgstr "Export fotografií/videí"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Rotating"
+msgstr "Rotace"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Undoing Rotate"
+msgstr "Zpět rotace"
+
+#: src/Views/CollectionPage.vala:718
+msgid "Flipping Horizontally"
+msgstr "Překlopit horizontálně"
+
+#: src/Views/CollectionPage.vala:719
+msgid "Undoing Flip Horizontally"
+msgstr "Zpět horizontální překlopení"
+
+#: src/Views/CollectionPage.vala:728
+msgid "Flipping Vertically"
+msgstr "Překlopit vertikálně"
+
+#: src/Views/CollectionPage.vala:729
+msgid "Undoing Flip Vertically"
+msgstr "Zpět vertikální překlopení"
+
+#: src/Views/DirectPhotoPage.vala:95
+#, c-format
+msgid "%s does not exist."
+msgstr "%s neexistuje."
+
+#: src/Views/DirectPhotoPage.vala:97
+#, c-format
+msgid "%s is not a file."
+msgstr "%s není soubor."
+
+#: src/Views/DirectPhotoPage.vala:99
+#, c-format
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr "%s nepodporuje formát %s."
+
+#: src/Views/DirectPhotoPage.vala:314
+msgid "_Save a Copy"
+msgstr "Uložit _kopii"
+
+#: src/Views/DirectPhotoPage.vala:317
+#, c-format
+msgid "Lose changes to %s?"
+msgstr "Zahodit změny v %s?"
+
+#: src/Views/DirectPhotoPage.vala:324
+msgid "Close _without Saving"
+msgstr "Zavřít _bez uložení"
+
+#: src/Views/DirectPhotoPage.vala:364
+#, c-format
+msgid "Error while saving to %s: %s"
+msgstr "Chyba při ukládání %s. %s"
+
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+msgid "Save As"
+msgstr "Uložit jako"
+
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+#: src/Views/EditingHostPage.vala:106
+msgid "Rotate"
+msgstr "Otočit"
+
+#: src/Views/EditingHostPage.vala:144
+msgid "Zoom to fit page"
+msgstr "Přiblížit k vyplnění stránky"
+
+#: src/Views/EditingHostPage.vala:153
+msgid "Zoom 1:1"
+msgstr "Zvětšení 1:1"
+
+#: src/Views/EditingHostPage.vala:173
+msgid "Previous photo"
+msgstr "Předchozí fotografie"
+
+#: src/Views/EditingHostPage.vala:177
+msgid "Next photo"
+msgstr "Následující fotografie"
+
+#: src/Views/EditingHostPage.vala:1504
+#, c-format
+msgid "Photo source file missing: %s"
+msgstr "Chybí zdrojový soubor fotografie: %s"
+
+#: src/Views/EventPage.vala:136
+msgid "All Events"
+msgstr "Všechny události"
+
+#: src/Views/EventPage.vala:150
+msgid "No Event"
+msgstr "Žádná událost"
+
+#: src/Views/EventsDirectoryPage.vala:67
+msgid "Merge events"
+msgstr "Sloučit události"
+
+#: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
+msgid "Fulls_creen"
+msgstr "_Celá obrazovka"
+
+#: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
+#: src/Views/MediaPage.vala:237
+msgid "_Comments"
+msgstr "_Komentáře"
+
+#: src/Views/EventsDirectoryPage.vala:230
+msgid "Display the comment of each event"
+msgstr "Zobrazit komentář o každé události"
+
+#: src/Views/EventsDirectoryPage.vala:254
+msgid "No events"
+msgstr "Žádné události"
+
+#: src/Views/EventsDirectoryPage.vala:258
+msgid "No events found"
+msgstr "Žádné události nebyly nalezeny"
+
+#: src/Views/EventsDirectoryPage.vala:318
+msgid "Events"
+msgstr "Události"
+
+#: src/Views/EventsDirectoryPage.vala:332
+msgid "Undated"
+msgstr "Bez data"
+
+#: src/Views/EventsDirectoryPage.vala:333
+msgid "%Y"
+msgstr "%Y"
+
+#: src/Views/EventsDirectoryPage.vala:334
+msgid "%OB"
+msgstr "%OB"
+
+#: src/Views/FlaggedPage.vala:21
+msgid "Flagged"
+msgstr "Označeno"
+
+#: src/Views/ImportPage.vala:464
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr ""
+"Nepodařilo se odpojit fotoaparát. Pokuste se odpojit fotoaparát pomocí "
+"správce souborů."
+
+#: src/Views/ImportPage.vala:788
+msgid "Hide photos already imported"
+msgstr "Schovat již importované fotografie"
+
+#: src/Views/ImportPage.vala:791
+msgid "Only display photos that have not been imported"
+msgstr "Zobrazit jen fotografie, které ještě nebyly importovány"
+
+#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+msgid "_Titles"
+msgstr "_Názvy"
+
+#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+msgid "Import _Selected"
+msgstr "Importovat vy_brané"
+
+#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+msgid "Import _All"
+msgstr "Importovat _všechny"
+
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
+#: src/Views/ImportPage.vala:942
+msgid "Starting import, please wait…"
+msgstr "Import začíná, vyčkejte prosím…"
+
+#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+msgid "Display the title of each photo"
+msgstr "Zobrazí název fotografie"
+
+#: src/Views/ImportPage.vala:974
+msgid "Import the selected photos into your library"
+msgstr "Importuje vybrané fotografie do knihovny"
+
+#: src/Views/ImportPage.vala:979
+msgid "Import all the photos into your library"
+msgstr "Importuje všechny fotografie do knihovny"
+
+#. it's mounted, offer to unmount for the user
+#: src/Views/ImportPage.vala:1099
+msgid ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+"Fotky potřebují odpojit fotoaparát ze souborového systému, aby k němu měli "
+"přístup. Pokračovat?"
+
+#: src/Views/ImportPage.vala:1105
+msgid "_Unmount"
+msgstr "_Odpojit"
+
+#: src/Views/ImportPage.vala:1110
+msgid "Please unmount the camera."
+msgstr "Odpojte fotoaparát."
+
+#: src/Views/ImportPage.vala:1115
+msgid ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+"Fotoaparát je uzamčen jinou aplikací. Fotky mohou přistupovat k fotoaparátu "
+"pouze když je odemčen. Prosím ukončete všechny aplikace, které ho používají, "
+"a zkuste to znovu."
+
+#: src/Views/ImportPage.vala:1125
+msgid "Please close any other application using the camera."
+msgstr "Ukončete ostatní aplikace používající fotoaparát."
+
+#: src/Views/ImportPage.vala:1130
+#, c-format
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+"Nepodařilo se načít náhledy z fotoaparátu:\n"
+"%s"
+
+#: src/Views/ImportPage.vala:1147
+msgid "Unmounting…"
+msgstr "Odpojuje se…"
+
+#: src/Views/ImportPage.vala:1253
+msgid "Fetching photo information"
+msgstr "Získávání informací o fotografii"
+
+#: src/Views/ImportPage.vala:1608
+#, c-format
+msgid "Fetching preview for %s"
+msgstr "Získává se náhled %s"
+
+#: src/Views/ImportPage.vala:1724
+#, c-format
+msgid "Unable to lock camera: %s"
+msgstr "Nepodařilo se zamknout fotoaparát: %s"
+
+#: src/Views/ImportPage.vala:1809
+#, c-format
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] "Smazat tuto %d fotografii z fotoaparátu?"
+msgstr[1] "Smazat tyto %d fotografie z fotoaparátu?"
+msgstr[2] "Smazat těchto %d fotografií z fotoaparátu?"
+
+#: src/Views/ImportPage.vala:1812
+#, c-format
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] "Smazat toto video z kamery?"
+msgstr[1] "Smazat tato %d videa z kamery?"
+msgstr[2] "Smazat těchto %d videí z kamery?"
+
+#: src/Views/ImportPage.vala:1815
+#, c-format
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] "Smazat toto video/fotku z kamery?"
+msgstr[1] "Smazat tato %d videa/fotky z kamery?"
+msgstr[2] "Smazat těchto %d videí/fotek z kamery?"
+
+#: src/Views/ImportPage.vala:1818
+#, c-format
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] "Smazat tento soubor z fotoaparátu?"
+msgstr[1] "Smazat tyto %d soubory z fotoaparátu?"
+msgstr[2] "Smazat těchto %d souborů z fotoaparátu?"
+
+#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+msgid "Delete"
+msgstr "S_mazat"
+
+#: src/Views/ImportPage.vala:1826
+msgid "_Keep"
+msgstr "_Zachovat"
+
+#: src/Views/ImportPage.vala:1845
+msgid "Removing photos/videos from camera"
+msgstr "Odstraňují se videa/fotografie z fotoaparátu"
+
+#: src/Views/ImportPage.vala:1849
+#, c-format
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] ""
+"Kvůli chybám se nepodařilo z fotoaparátu smazat %d videí/fotografií."
+msgstr[1] ""
+"Kvůli chybám se nepodařilo z fotoaparátu smazat %d video/fotografie."
+msgstr[2] ""
+"Kvůli chybám se nepodařilo z fotoaparátu smazat %d videa/fotografie."
+
+#: src/Views/ImportQueuePage.vala:21
+msgid "Importing…"
+msgstr "Probíhá import…"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "_Stop Import"
+msgstr "Za_stavit import"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "Stop importing photos"
+msgstr "Zastavit import fotografií"
+
+#: src/Views/ImportQueuePage.vala:127
+msgid "Preparing to import…"
+msgstr "Připravuje se import…"
+
+#: src/Views/ImportQueuePage.vala:154
+#, c-format
+msgid "Imported %s"
+msgstr "Importováno %s"
+
+#: src/Views/LastImportPage.vala:21
+msgid "Last Import"
+msgstr "Poslední import"
+
+#: src/Views/LibraryPhotoPage.vala:823
+#, c-format
+msgid "Unable to export %s: %s"
+msgstr "Nepodařil se export %s: %s"
+
+#: src/Views/OfflinePage.vala:21
+msgid "Missing Files"
+msgstr "Chybějící soubory"
+
+#: src/Views/OfflinePage.vala:201
+msgid "Deleting…"
+msgstr "Probíhá mazání…"
+
+#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+msgid "Ta_gs"
+msgstr "_Nálepky"
+
+#: src/Views/MediaPage.vala:84
+msgid "Sort _Photos"
+msgstr "Seřadit _fotografie"
+
+#. Sort criteria.
+#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+msgid "By _Title"
+msgstr "Podle _názvu"
+
+#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+msgid "By Exposure _Date"
+msgstr "Podle data _vyfocení"
+
+#: src/Views/MediaPage.vala:238
+msgid "Display the comment of each photo"
+msgstr "Zobrazit komentáře každé fotografie"
+
+#: src/Views/MediaPage.vala:244
+msgid "Display each photo's tags"
+msgstr "Zobrazí u fotografie nálepky"
+
+#: src/Views/MediaPage.vala:260
+msgid "Sort photos by title"
+msgstr "Seřadí fotografie podle názvu"
+
+#: src/Views/MediaPage.vala:266
+msgid "Sort photos by exposure date"
+msgstr "Seřadí fotografie podle data vyfocení"
+
+#: src/Views/MediaPage.vala:413
+#, c-format
+msgid ""
+"Photos was unable to play the selected video:\n"
+"%s"
+msgstr ""
+"Fotky nemohli přehrát vybrané video:\n"
+"%s"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "Add Some Photos"
+msgstr "Přidejte nějaké fotky"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "No Photos were found in your library."
+msgstr "Ve vaší knihovně nebyly nalezeny žádné fotky."
+
+#: src/Views/RawsPage.vala:24
+msgid "Raw Photos"
+msgstr "Raw fotky"
+
+#: src/Views/RawsPage.vala:37
+msgid "Raws"
+msgstr "Raw soubory"
+
+#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
+msgid "Slideshow"
+msgstr "Prezentace"
+
+#: src/Views/SlideshowPage.vala:64
+msgid "Back"
+msgstr "Předchozí"
+
+#: src/Views/SlideshowPage.vala:65
+msgid "Go to the previous photo"
+msgstr "Jít na předchozí fotografii"
+
+#: src/Views/SlideshowPage.vala:68
+msgid "Pause"
+msgstr "Pauza"
+
+#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
+msgid "Pause the slideshow"
+msgstr "Zastavit prezentaci"
+
+#: src/Views/SlideshowPage.vala:73
+msgid "Next"
+msgstr "Další"
+
+#: src/Views/SlideshowPage.vala:74
+msgid "Go to the next photo"
+msgstr "Jít na další fotografii"
+
+#: src/Views/SlideshowPage.vala:81
+msgid "Show Photo Titles"
+msgstr "Zobrazit názvy fotek"
+
+#: src/Views/SlideshowPage.vala:96
+msgid "Transition Speed"
+msgstr "Rychlost přechodů"
+
+#: src/Views/SlideshowPage.vala:98
+msgid "Faster"
+msgstr "Rychleji"
+
+#: src/Views/SlideshowPage.vala:99
+msgid "Slower"
+msgstr "Pomaleji"
+
+#. An entire slideshow set might be missing, so check for a loop.
+#: src/Views/SlideshowPage.vala:164
+msgid "All photo source files are missing."
+msgstr "Chybí všechny zdrojové soubory fotografií."
+
+#: src/Views/SlideshowPage.vala:196
+msgid "Continue the slideshow"
+msgstr "Pokračovat v prezentaci"
+
+#: src/Views/TrashPage.vala:22
+msgid "Trash"
+msgstr "Koš"
+
+#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
+#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
+msgid "_Empty Trash"
+msgstr "_Vyprázdnit koš"
+
+#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
+msgid "Delete all photos in the trash"
+msgstr "Vymaže všechny fotografie z koše"
+
+#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
+msgid "Trash is empty"
+msgstr "Koš je prázdný"
+
+#: src/Views/TrashPage.vala:294
+msgid "Deleting a Photo"
+msgid_plural "Deleting Photos"
+msgstr[0] "Odstraňování fotky"
+msgstr[1] "Odstraňování fotek"
+msgstr[2] "Odstraňování fotek"
+
+#: src/Views/TrashPage.vala:302
+msgid "Empty Trash"
+msgstr "Vyprázdnit koš"
+
+#: src/Views/TrashPage.vala:302
+msgid "Emptying Trash…"
+msgstr "Vyprazdňování koše…"
+
+#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
+msgid "Videos"
+msgstr "Videa"
+
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efekt přechodu"
@@ -3207,51 +3199,51 @@ msgstr "končí"
 msgid "does not contain"
 msgstr "neobsahuje"
 
-#: src/Widgets/CustomPrintTab.vala:45
+#: src/Widgets/CustomPrintTab.vala:48
 msgid "Printed Image Size"
 msgstr "Velikost tištěného obrázku"
 
-#: src/Widgets/CustomPrintTab.vala:49
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
 msgstr "použít _standardní velikost:"
 
-#: src/Widgets/CustomPrintTab.vala:52
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "Use a c_ustom size:"
 msgstr "použít _vlastní velikost:"
 
-#: src/Widgets/CustomPrintTab.vala:55
+#: src/Widgets/CustomPrintTab.vala:58
 msgid "_Autosize:"
 msgstr "_Automatická velikost:"
 
-#: src/Widgets/CustomPrintTab.vala:92
+#: src/Widgets/CustomPrintTab.vala:95
 msgid "in."
 msgstr "palců"
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:96
 msgid "cm"
 msgstr "cm"
 
-#: src/Widgets/CustomPrintTab.vala:103
+#: src/Widgets/CustomPrintTab.vala:106
 msgid "_Match photo aspect ratio"
 msgstr "_Zachovat poměr stran"
 
-#: src/Widgets/CustomPrintTab.vala:105
+#: src/Widgets/CustomPrintTab.vala:108
 msgid "Titles"
 msgstr "Názvy"
 
-#: src/Widgets/CustomPrintTab.vala:109
+#: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Tisknout _název obrázku"
 
-#: src/Widgets/CustomPrintTab.vala:115
+#: src/Widgets/CustomPrintTab.vala:118
 msgid "Pixel Resolution"
 msgstr "Rozlišení v pixelech"
 
-#: src/Widgets/CustomPrintTab.vala:122
+#: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
 msgstr "_Vytisknout fotografii:"
 
-#: src/Widgets/CustomPrintTab.vala:128
+#: src/Widgets/CustomPrintTab.vala:131
 msgid "pixels per inch"
 msgstr "bodů na palec"
 
@@ -3972,6 +3964,12 @@ msgstr "Šachovnice"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Žaluzie"
+
+#~ msgid "Return to current photo dimensions"
+#~ msgstr "Vrátit k původním hodnotám"
+
+#~ msgid "Set the crop for this photo"
+#~ msgstr "Nastaví oříznutí fotografie"
 
 #~ msgid "_Delete File"
 #~ msgid_plural "_Delete Files"

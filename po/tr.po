@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 18:49+0100\n"
+"POT-Creation-Date: 2018-10-18 05:28-0500\n"
 "PO-Revision-Date: 2018-02-07 17:31+0000\n"
 "Last-Translator: Seyit Ali Doğan <seyit822@yandex.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/photos/photos/"
@@ -134,87 +134,6 @@ msgstr "Bozuk resim dosyası"
 #, c-format
 msgid "Imported failed (%d)"
 msgstr "İçe aktarılamadı (%d)"
-
-#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
-msgid "S_lideshow"
-msgstr "S_layt Gösterisi"
-
-#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
-msgid "Play a slideshow"
-msgstr "Bir slayt gösterisi oynat"
-
-#: src/Views/CollectionPage.vala:95
-msgid "Adjust the size of the thumbnails"
-msgstr "Önizleme boyutunu ayarla"
-
-#: src/Views/CollectionPage.vala:127 src/Views/LibraryPhotoPage.vala:483
-#: src/Views/MediaPage.vala:68 src/Views/ImportPage.vala:854
-#: src/Views/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:376
-#: src/library/LibraryWindow.vala:377 src/Views/OfflinePage.vala:105
-#: src/Views/TrashPage.vala:160
-msgid "Edit Photo In_fo"
-msgstr "Fotoğraf Bi_lgisini Düzenle"
-
-#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
-msgid "_Developer"
-msgstr "_Geliştirici"
-
-#: src/Views/CollectionPage.vala:196 src/Views/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:343
-msgid "View Eve_nt for Photo"
-msgstr "Resmin Etkinliğine Bak"
-
-#: src/Views/CollectionPage.vala:211 src/Views/LibraryPhotoPage.vala:557
-#: src/Views/DirectPhotoPage.vala:155
-msgid "Other Actions"
-msgstr ""
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photo/Video"
-msgstr "Resimleri/Videoları Dışa Aktar"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Fotoğrafları/Videoları Dışa Aktar"
-
-#: src/Views/CollectionPage.vala:600 src/Views/LibraryPhotoPage.vala:803
-#: src/Dialogs/Dialogs.vala:90
-msgid "Export Photo"
-msgstr "Fotoğrafları Dışa Aktar"
-
-#: src/Views/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
-msgid "Export Photos"
-msgstr "Fotoğrafları Dışa Aktar"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Rotating"
-msgstr "Döndürülüyor"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Undoing Rotate"
-msgstr "Döndürme İşlemi Geri Alınıyor"
-
-#: src/Views/CollectionPage.vala:718
-msgid "Flipping Horizontally"
-msgstr "Yatay Olarak Çevriliyor"
-
-#: src/Views/CollectionPage.vala:719
-msgid "Undoing Flip Horizontally"
-msgstr "Yatay Olarak Çevirme Geri Alınıyor"
-
-#: src/Views/CollectionPage.vala:728
-msgid "Flipping Vertically"
-msgstr "Dikey Olarak Çevriliyor"
-
-#: src/Views/CollectionPage.vala:729
-msgid "Undoing Flip Vertically"
-msgstr "Dikey Olarak Çevirme Geri Alınıyor"
-
-#: src/Views/CollectionPage.vala:914 src/Views/CollectionPage.vala:915
-#: src/Views/CheckerboardPage.vala:91 src/Views/PhotosPage.vala:64
-#: src/Views/RawsPage.vala:64
-msgid "No photos/videos"
-msgstr "Fotoğraf/Video Yok"
 
 #: src/Commands.vala:746
 msgid "Reverting"
@@ -413,33 +332,6 @@ msgstr "Yükseklik"
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "İzlenemiyor %s: Bir dizin değil (%s)"
 
-#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/Views/EditingHostPage.vala:106
-msgid "Rotate"
-msgstr "Çevir"
-
-#: src/Views/EditingHostPage.vala:144
-msgid "Zoom to fit page"
-msgstr ""
-
-#: src/Views/EditingHostPage.vala:153
-#, fuzzy
-msgid "Zoom 1:1"
-msgstr "Yakınlaştır _100%"
-
-#: src/Views/EditingHostPage.vala:173
-msgid "Previous photo"
-msgstr "Önceki fotoğraf"
-
-#: src/Views/EditingHostPage.vala:177
-msgid "Next photo"
-msgstr "Sonraki fotoğraf"
-
-#: src/Views/EditingHostPage.vala:1504
-#, c-format
-msgid "Photo source file missing: %s"
-msgstr "Fotoğraf kaynağı bulunamadı: %s"
-
 #. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
@@ -477,10 +369,10 @@ msgstr "_Tümünü Değiştir"
 #: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
 #: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
 #: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74 src/Views/DirectPhotoPage.vala:327
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/Dialogs/TextEntryDialog.vala:74
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
 msgid "_Cancel"
 msgstr "İ_ptal"
 
@@ -495,19 +387,6 @@ msgstr "Araç çubuğunu açık olarak sabitle"
 #: src/FullScreenWindow.vala:58
 msgid "Leave fullscreen"
 msgstr "Tam ekrandan çık"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:878
-msgid "Remove From Library"
-msgstr "Kitaplıktan Kaldır"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:879
-msgid "Removing Photo From Library"
-msgstr "Kütüphaneden Fotoğraf Kaldırılıyor"
-
-#: src/Views/LibraryPhotoPage.vala:823
-#, c-format
-msgid "Unable to export %s: %s"
-msgstr "Dışa aktarılamadı %s: %s"
 
 #: src/main.vala:68
 #, fuzzy, c-format
@@ -593,98 +472,6 @@ msgstr ""
 msgid "Unable to process monitoring updates: %s"
 msgstr "İzleme güncellemeleri işlenemedi: %s"
 
-#: src/Views/MediaPage.vala:64 src/Views/ImportPage.vala:850
-#: src/Views/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:371
-#: src/Views/OfflinePage.vala:101 src/Views/TrashPage.vala:156
-msgid "S_idebar"
-msgstr "_Kenar Çubuğu"
-
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
-msgid "_Titles"
-msgstr "_Başlıklar"
-
-#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:237
-#: src/Views/EventsDirectoryPage.vala:229
-msgid "_Comments"
-msgstr "_Yorumlar"
-
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
-msgid "Ta_gs"
-msgstr "E_tiketler"
-
-#: src/Views/MediaPage.vala:84
-msgid "Sort _Photos"
-msgstr "_Fotoğrafları Sırala"
-
-#. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
-msgid "By _Title"
-msgstr "_Başlığa Göre"
-
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
-msgid "By Exposure _Date"
-msgstr "Çekim _Tarihine Göre"
-
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/ImportPage.vala:864
-#: src/Views/EventsDirectoryPage.vala:141 src/library/LibraryWindow.vala:388
-#: src/Views/OfflinePage.vala:111 src/Views/TrashPage.vala:166
-msgid "_Ascending"
-msgstr "_Artan"
-
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/ImportPage.vala:873
-#: src/Views/EventsDirectoryPage.vala:150 src/library/LibraryWindow.vala:394
-#: src/Views/OfflinePage.vala:120 src/Views/TrashPage.vala:175
-msgid "D_escending"
-msgstr "A_zalan"
-
-#: src/Views/MediaPage.vala:130 src/Views/ImportPage.vala:862
-#: src/Views/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:341
-#: src/Views/OfflinePage.vala:109 src/Views/TrashPage.vala:164
-msgid "Sort _Events"
-msgstr "_Olayları Sırala"
-
-#: src/Views/MediaPage.vala:155 src/Views/EventsDirectoryPage.vala:164
-msgid "Fulls_creen"
-msgstr "Tam e_kran"
-
-#: src/Views/MediaPage.vala:232 src/Views/ImportPage.vala:962
-msgid "Display the title of each photo"
-msgstr "Tüm fotoğrafların başlığını görüntüle"
-
-#: src/Views/MediaPage.vala:238
-msgid "Display the comment of each photo"
-msgstr "Her resmin açıklamasını görüntüle"
-
-#: src/Views/MediaPage.vala:244
-msgid "Display each photo's tags"
-msgstr "Tüm fotoğrafların etiketlerini görüntüle"
-
-#: src/Views/MediaPage.vala:260
-msgid "Sort photos by title"
-msgstr "Fotoğrafları başlıklarına göre sırala"
-
-#: src/Views/MediaPage.vala:266
-msgid "Sort photos by exposure date"
-msgstr "Fotoğrafları çekim tarihine göre sırala"
-
-#: src/Views/MediaPage.vala:276 src/library/LibraryWindow.vala:388
-msgid "Sort photos in an ascending order"
-msgstr "Fotoğrafları artan düzene göre sırala"
-
-#: src/Views/MediaPage.vala:281 src/library/LibraryWindow.vala:394
-msgid "Sort photos in a descending order"
-msgstr "Fotoğrafarı azalan düzene göre sırala"
-
-#: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
-msgid ""
-"Photos was unable to play the selected video:\n"
-"%s"
-msgstr "Shotwell seçili videoyu oynatamadı: %s"
-
 #: src/Photo.vala:3787
 msgid "modified"
 msgstr "değiştirilmiş"
@@ -717,59 +504,59 @@ msgstr "Sayfa başına 16 resim"
 msgid "32 images per page"
 msgstr "Sayfa başına 32 resim"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:201
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
 msgid "Wallet (2 x 3 in.)"
 msgstr "Cüzdan (2 x 3 inç)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:202
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
 msgid "Notecard (3 x 5 in.)"
 msgstr "Not kartı (3 x 5 inç)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:203
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
 msgstr "4 x 6 inç"
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:204
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
 msgstr "5 x 7 inç"
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:205
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
 msgstr "8 x 10 inç"
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
 msgstr "11 x 14 inç"
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
 msgstr "16 x 20 inç"
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Metrik Cüzdan (9 x 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:212
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
 msgid "Postcard (10 x 15 cm)"
 msgstr "Kartpostal (10 x 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:218
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -794,9 +581,9 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/Views/PhotosPage.vala:24
-#: src/Views/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
+#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
+#: src/Views/PhotosPage.vala:37
 msgid "Photos"
 msgstr "Fotoğraflar"
 
@@ -1285,62 +1072,6 @@ msgstr "%d, %Y"
 msgid "Search Photos"
 msgstr "Fotoğraf Ara"
 
-#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
-msgid "Slideshow"
-msgstr "Slayt gösterisi"
-
-#: src/Views/SlideshowPage.vala:64
-msgid "Back"
-msgstr "Geri"
-
-#: src/Views/SlideshowPage.vala:65
-msgid "Go to the previous photo"
-msgstr "Önceki fotoğrafa git"
-
-#: src/Views/SlideshowPage.vala:68
-msgid "Pause"
-msgstr "Durdur"
-
-#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
-msgid "Pause the slideshow"
-msgstr "Slayt gösterisini durdur"
-
-#: src/Views/SlideshowPage.vala:73
-msgid "Next"
-msgstr "Sonraki"
-
-#: src/Views/SlideshowPage.vala:74
-msgid "Go to the next photo"
-msgstr "Sonraki fotoğrafa git"
-
-#: src/Views/SlideshowPage.vala:81
-#, fuzzy
-msgid "Show Photo Titles"
-msgstr "Başlığı g_öster"
-
-#: src/Views/SlideshowPage.vala:96
-#, fuzzy
-msgid "Transition Speed"
-msgstr "_Geçiş etkisi:"
-
-#: src/Views/SlideshowPage.vala:98
-msgid "Faster"
-msgstr ""
-
-#: src/Views/SlideshowPage.vala:99
-#, fuzzy
-msgid "Slower"
-msgstr "ve daha alçak"
-
-#. An entire slideshow set might be missing, so check for a loop.
-#: src/Views/SlideshowPage.vala:164
-msgid "All photo source files are missing."
-msgstr "Fotoğraf kaynak dosyaları bulunamıyor."
-
-#: src/Views/SlideshowPage.vala:196
-msgid "Continue the slideshow"
-msgstr "Slayt gösterisine devam et"
-
 #: src/Tag.vala:830
 msgid "untitled"
 msgstr "başlıksız"
@@ -1354,164 +1085,10 @@ msgstr "Videoları Dışa Aktar"
 msgid "Cameras"
 msgstr "Kameralar"
 
-#: src/camera/Branch.vala:110 src/Views/ImportPage.vala:729
-#: src/Views/ImportPage.vala:745 src/photos/RawSupport.vala:313
+#: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
+#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
 msgid "Camera"
 msgstr "Kamera"
-
-#: src/Views/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
-msgid "RAW+JPEG"
-msgstr "Ham fotoğraf + JPEG"
-
-#: src/Views/ImportPage.vala:464
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr "Kamera ayrılamadı. Kamerayı, dosya yöneticisinden ayırmayı deneyin."
-
-#: src/Views/ImportPage.vala:788
-msgid "Hide photos already imported"
-msgstr "İçe aktarılmış fotoğrafları gizle"
-
-#: src/Views/ImportPage.vala:791
-msgid "Only display photos that have not been imported"
-msgstr "Yalnızca içe aktarılmamış fotoğrafları görüntüle"
-
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
-msgid "Import _Selected"
-msgstr "_Seçili Öğeleri İçe Aktar"
-
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
-msgid "Import _All"
-msgstr "_Tümünü İçe Aktar"
-
-#. Ticket #3304 - Import page shouldn't display confusing message
-#. prior to import.
-#. TODO: replace this with approved text for "talking to camera,
-#. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
-#, fuzzy
-msgid "Starting import, please wait…"
-msgstr "İçe aktarım başlıyor, lütfen bekleyin..."
-
-#: src/Views/ImportPage.vala:974
-msgid "Import the selected photos into your library"
-msgstr "Şeçili fotoğrafları kütüphaneye aktar"
-
-#: src/Views/ImportPage.vala:979
-msgid "Import all the photos into your library"
-msgstr "Tüm fotoğrafları kütüphaneye aktar"
-
-#. it's mounted, offer to unmount for the user
-#: src/Views/ImportPage.vala:1099
-#, fuzzy
-msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-"Shotwell, erişim sağlamak için kameranın dosya sisteminden ayrılmasına "
-"ihtiyaç duyuyor. Devam edilsin mi?"
-
-#: src/Views/ImportPage.vala:1105
-msgid "_Unmount"
-msgstr "_Ayır"
-
-#: src/Views/ImportPage.vala:1110
-msgid "Please unmount the camera."
-msgstr "Lütfen kamerayı ayırın."
-
-#: src/Views/ImportPage.vala:1115
-#, fuzzy
-msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-"Kamera, başka bir uygulama tarafından kullanılıyor. Shotwell, kameraya "
-"yalnızca boştayken erişebilir. Lütfen kamerayı kullanan diğer uygulamayı "
-"kapatın ve yeniden deneyin."
-
-#: src/Views/ImportPage.vala:1125
-msgid "Please close any other application using the camera."
-msgstr "Lütfen kamerayı kullanırken diğer programları kapatın."
-
-#: src/Views/ImportPage.vala:1130
-#, c-format
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-"Kameradan önizlemeler alınamadı:\n"
-"%s"
-
-#: src/Views/ImportPage.vala:1147
-#, fuzzy
-msgid "Unmounting…"
-msgstr "Ayrılıyor..."
-
-#: src/Views/ImportPage.vala:1253
-msgid "Fetching photo information"
-msgstr "Fotoğraf bilgisi alınıyor"
-
-#: src/Views/ImportPage.vala:1608
-#, c-format
-msgid "Fetching preview for %s"
-msgstr "%s için önizleme alınıyor"
-
-#: src/Views/ImportPage.vala:1724
-#, c-format
-msgid "Unable to lock camera: %s"
-msgstr "Kamera kilitlenemedi: %s"
-
-#: src/Views/ImportPage.vala:1809
-#, c-format
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Bu %d fotoğraf kameradan silinsin mi?"
-msgstr[1] "Bu %d fotoğraf kameradan silinsin mi?"
-
-#: src/Views/ImportPage.vala:1812
-#, c-format
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Bu %d video kameradan silinsin mi?"
-msgstr[1] "Bu %d video kameradan silinsin mi?"
-
-#: src/Views/ImportPage.vala:1815
-#, c-format
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Bu %d fotoğraf/video kameradan silinsin mi?"
-msgstr[1] "Bu %d fotoğraf/video kameradan silinsin mi?"
-
-#: src/Views/ImportPage.vala:1818
-#, c-format
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Bu %d dosya kameradan silinsin mi?"
-msgstr[1] "Bu %d dosya kameradan silinsin mi?"
-
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
-msgid "Delete"
-msgstr "Sil"
-
-#: src/Views/ImportPage.vala:1826
-msgid "_Keep"
-msgstr "_Koru"
-
-#: src/Views/ImportPage.vala:1845
-msgid "Removing photos/videos from camera"
-msgstr "Fotoğraflar/Videolar kameradan kaldırılıyor"
-
-#: src/Views/ImportPage.vala:1849
-#, c-format
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
-msgstr[1] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
-
-#: src/Views/CheckerboardPage.vala:95
-msgid "No photos/videos found"
-msgstr "Hiç Resim/Video bulunamadı"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
 #: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
@@ -1645,10 +1222,19 @@ msgstr "_Geliştirici Değiştir"
 msgid "Export Video"
 msgstr "Video Ihracatı"
 
+#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Views/LibraryPhotoPage.vala:803
+msgid "Export Photo"
+msgstr "Fotoğrafları Dışa Aktar"
+
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Kaydet"
+
+#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+msgid "Export Photos"
+msgstr "Fotoğrafları Dışa Aktar"
 
 #: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
@@ -2152,6 +1738,14 @@ msgstr "_Yerin içine aktar"
 msgid "Import to Library"
 msgstr "Kitaplığa Aktar"
 
+#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+msgid "Remove From Library"
+msgstr "Kitaplıktan Kaldır"
+
+#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+msgid "Removing Photo From Library"
+msgstr "Kütüphaneden Fotoğraf Kaldırılıyor"
+
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
 msgstr "Kütüphaneden Fotoğraflar Kaldırılıyor"
@@ -2243,6 +1837,44 @@ msgstr "_Kapat"
 msgid "%d%%"
 msgstr "%d%%"
 
+#: src/Dialogs/SavedSearchDialog.vala:42
+msgid "Add"
+msgstr "Ekle"
+
+#. Add close button.
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/Dialogs/SavedSearchDialog.vala:88
+msgid "_Match"
+msgstr "_Eşleşen"
+
+#: src/Dialogs/SavedSearchDialog.vala:91
+msgid "any"
+msgstr "herhangi"
+
+#: src/Dialogs/SavedSearchDialog.vala:92
+msgid "all"
+msgstr "hepsi"
+
+#: src/Dialogs/SavedSearchDialog.vala:93
+msgid "none"
+msgstr "hiçbiri"
+
+#: src/Dialogs/SavedSearchDialog.vala:96
+msgid "of the following:"
+msgstr "aşağıdakilerden:"
+
+#: src/Dialogs/SavedSearchDialog.vala:101
+msgid "Add rule"
+msgstr ""
+
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
+#: src/Views/DirectPhotoPage.vala:416
+msgid "Cancel"
+msgstr "İptal"
+
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
@@ -2271,57 +1903,6 @@ msgstr ""
 "\n"
 "Hata şuydu: \n"
 "%s"
-
-#: src/Views/DirectPhotoPage.vala:95
-#, c-format
-msgid "%s does not exist."
-msgstr "%s bulunamadı."
-
-#: src/Views/DirectPhotoPage.vala:97
-#, c-format
-msgid "%s is not a file."
-msgstr "%s bir dosya değil."
-
-#: src/Views/DirectPhotoPage.vala:99
-#, c-format
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr ""
-"%s şu dosya biçimini desteklemiyor:\n"
-"%s."
-
-#: src/Views/DirectPhotoPage.vala:314
-msgid "_Save a Copy"
-msgstr "Bir Kopya _Kaydet"
-
-#: src/Views/DirectPhotoPage.vala:317
-#, c-format
-msgid "Lose changes to %s?"
-msgstr "%s dosyasındaki değişiklikler kaybedilsin mi?"
-
-#: src/Views/DirectPhotoPage.vala:324
-msgid "Close _without Saving"
-msgstr "_Kaydetmeden Kapat"
-
-#: src/Views/DirectPhotoPage.vala:364
-#, c-format
-msgid "Error while saving to %s: %s"
-msgstr "%s dosyasına kaydedilirken hata: %s"
-
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
-msgid "Save As"
-msgstr "Farklı Kaydet"
-
-#: src/Views/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:616
-#: src/Dialogs/SavedSearchDialog.vala:131
-msgid "Cancel"
-msgstr "İptal"
-
-#. Add close button.
-#: src/Views/DirectPhotoPage.vala:417 src/Dialogs/SavedSearchDialog.vala:56
-msgid "Save"
-msgstr "Kaydet"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
@@ -2356,65 +1937,57 @@ msgstr "Kırmızı-göz aracını kapat"
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Seçili bölgedeki kırmızı-göz etkilerini kaldır"
 
-#: src/editing_tools/CropTool.vala:102
-msgid "Return to current photo dimensions"
-msgstr "Geçerli fotoğraf boyutlarına dön"
-
-#: src/editing_tools/CropTool.vala:104
-msgid "Set the crop for this photo"
-msgstr "Bu fotoğraf için kırpmayı ayarla"
-
-#: src/editing_tools/CropTool.vala:115
+#: src/editing_tools/CropTool.vala:111
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Kırpma dikdörtgenini yatay ve düşey eksenler etrafında döndür"
 
-#: src/editing_tools/CropTool.vala:193
+#: src/editing_tools/CropTool.vala:205
 msgid "Unconstrained"
 msgstr "Sınırlandırılmamış"
 
-#: src/editing_tools/CropTool.vala:194
+#: src/editing_tools/CropTool.vala:206
 msgid "Square"
 msgstr "Kare"
 
-#: src/editing_tools/CropTool.vala:195
+#: src/editing_tools/CropTool.vala:207
 msgid "Screen"
 msgstr "Ekran"
 
-#: src/editing_tools/CropTool.vala:196
+#: src/editing_tools/CropTool.vala:208
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Özgün Boyut"
 
-#: src/editing_tools/CropTool.vala:197 src/editing_tools/CropTool.vala:200
-#: src/editing_tools/CropTool.vala:210 src/editing_tools/CropTool.vala:220
+#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:198
+#: src/editing_tools/CropTool.vala:210
 msgid "SD Video (4 : 3)"
 msgstr "SD Video (4 : 3)"
 
-#: src/editing_tools/CropTool.vala:199
+#: src/editing_tools/CropTool.vala:211
 msgid "HD Video (16 : 9)"
 msgstr "HD Video (16 : 9)"
 
-#: src/editing_tools/CropTool.vala:206
+#: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 in.)"
 
-#: src/editing_tools/CropTool.vala:208
+#: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 in.)"
 
-#: src/editing_tools/CropTool.vala:215
+#: src/editing_tools/CropTool.vala:227
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:219
+#: src/editing_tools/CropTool.vala:231
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:221
+#: src/editing_tools/CropTool.vala:233
 msgid "Custom"
 msgstr "Özel"
 
@@ -2502,82 +2075,9 @@ msgid_plural "%d Photos"
 msgstr[0] "%d Fotoğraf"
 msgstr[1] "%d Fotoğraf"
 
-#: src/Views/EventPage.vala:136
-msgid "All Events"
-msgstr "Tüm Olaylar"
-
-#: src/Views/EventPage.vala:150
-msgid "No Event"
-msgstr "Olay yok"
-
-#: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
-msgid "Merge events"
-msgstr "Olayları _Birleştir"
-
-#: src/Views/EventsDirectoryPage.vala:230
-msgid "Display the comment of each event"
-msgstr "Her olayın yorumunu görüntüle"
-
-#: src/Views/EventsDirectoryPage.vala:254
-msgid "No events"
-msgstr "Olay yok"
-
-#: src/Views/EventsDirectoryPage.vala:258
-msgid "No events found"
-msgstr "Hiçbir olay bulunamadı"
-
-#: src/Views/EventsDirectoryPage.vala:318
-msgid "Events"
-msgstr "Olaylar"
-
-#: src/Views/EventsDirectoryPage.vala:332
-msgid "Undated"
-msgstr "Tarih Belirlenmemiş"
-
-#: src/Views/EventsDirectoryPage.vala:333
-msgid "%Y"
-msgstr "%Y"
-
-#: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
-msgid "%OB"
-msgstr "%B"
-
 #: src/library/Branch.vala:174
 msgid "All Photos"
 msgstr "Tüm Fotoğraflar"
-
-#: src/Views/FlaggedPage.vala:21
-msgid "Flagged"
-msgstr "İşaretli"
-
-#: src/Views/ImportQueuePage.vala:21
-#, fuzzy
-msgid "Importing…"
-msgstr "İçe Aktarılıyor"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "_Stop Import"
-msgstr "İçe Aktarmayı _Durdur"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "Stop importing photos"
-msgstr "Fotoğrafları içe aktarmayı durdur"
-
-#: src/Views/ImportQueuePage.vala:127
-#, fuzzy
-msgid "Preparing to import…"
-msgstr "İçe Aktarmaya Hazırlanıyor..."
-
-#: src/Views/ImportQueuePage.vala:154
-#, c-format
-msgid "Imported %s"
-msgstr "İçe Aktarıldı %s"
-
-#: src/Views/LastImportPage.vala:21
-msgid "Last Import"
-msgstr "Son İçe Aktarılanlar"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
@@ -2591,6 +2091,17 @@ msgstr "_Tercihler"
 msgid "Settings"
 msgstr "Ayarlar"
 
+#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
+msgid "Sort _Events"
+msgstr "_Olayları Sırala"
+
+#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/Views/LibraryPhotoPage.vala:542
+msgid "View Eve_nt for Photo"
+msgstr "Resmin Etkinliğine Bak"
+
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
@@ -2598,9 +2109,45 @@ msgstr "Ayarlar"
 msgid "New Smart Album…"
 msgstr "Yeni Akıllı Albüm…"
 
+#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
+msgid "S_idebar"
+msgstr "_Kenar Çubuğu"
+
 #: src/library/LibraryWindow.vala:372
 msgid "Display the sidebar"
 msgstr "Kenar çubuğunu görüntüle"
+
+#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
+#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
+#: src/Views/TrashPage.vala:160
+msgid "Edit Photo In_fo"
+msgstr "Fotoğraf Bi_lgisini Düzenle"
+
+#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
+msgid "_Ascending"
+msgstr "_Artan"
+
+#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+msgid "Sort photos in an ascending order"
+msgstr "Fotoğrafları artan düzene göre sırala"
+
+#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
+msgid "D_escending"
+msgstr "A_zalan"
+
+#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+msgid "Sort photos in a descending order"
+msgstr "Fotoğrafarı azalan düzene göre sırala"
 
 #: src/library/LibraryWindow.vala:615
 msgid "Import From Folder"
@@ -2668,70 +2215,10 @@ msgstr "Kütüphane Dizinini Değiştir"
 msgid "Choose where to keep your photos."
 msgstr "Fotoğraflarınızı saklamak istediğiniz yeri seçin."
 
-#: src/Views/OfflinePage.vala:21
-msgid "Missing Files"
-msgstr "Eksik Dosyalar"
-
-#: src/Views/OfflinePage.vala:201
-#, fuzzy
-msgid "Deleting…"
-msgstr "Siliniyor..."
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "Add Some Photos"
-msgstr "Birkaç Fotoğraf Ekleyin"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "No Photos were found in your library."
-msgstr "Kütüphanenizde hiç fotoğraf bulunamadı."
-
-#: src/Views/RawsPage.vala:24
-msgid "Raw Photos"
-msgstr "Ham Fotoğraflar"
-
-#: src/Views/RawsPage.vala:37
-msgid "Raws"
-msgstr "Ham Fotoğraflar"
-
 #: src/library/TopDisplay.vala:133
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
-
-#: src/Views/TrashPage.vala:22
-msgid "Trash"
-msgstr "Çöp"
-
-#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
-#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
-msgid "_Empty Trash"
-msgstr "_Çöpü Boşalt"
-
-#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
-msgid "Delete all photos in the trash"
-msgstr "Çöp kutusundaki tüm fotoğrafları sil"
-
-#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
-msgid "Trash is empty"
-msgstr "Çöp boş"
-
-#: src/Views/TrashPage.vala:294
-msgid "Deleting a Photo"
-msgid_plural "Deleting Photos"
-msgstr[0] "Bir Fotoğraf Siliniyor"
-msgstr[1] "Fotoğraflar Siliniyor"
-
-#: src/Views/TrashPage.vala:302
-msgid "Empty Trash"
-msgstr "Çöpü Boşalt"
-
-#: src/Views/TrashPage.vala:302
-msgid "Emptying Trash…"
-msgstr "Çöp Boşaltılıyor..."
-
-#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
-msgid "Videos"
-msgstr "Videolar"
 
 #: src/photos/BmpSupport.vala:45
 msgid "BMP"
@@ -2890,34 +2377,6 @@ msgstr "Paylaşım"
 msgid "Smart Albums"
 msgstr "Akıllı Albümler"
 
-#: src/Dialogs/SavedSearchDialog.vala:42
-msgid "Add"
-msgstr "Ekle"
-
-#: src/Dialogs/SavedSearchDialog.vala:88
-msgid "_Match"
-msgstr "_Eşleşen"
-
-#: src/Dialogs/SavedSearchDialog.vala:91
-msgid "any"
-msgstr "herhangi"
-
-#: src/Dialogs/SavedSearchDialog.vala:92
-msgid "all"
-msgstr "hepsi"
-
-#: src/Dialogs/SavedSearchDialog.vala:93
-msgid "none"
-msgstr "hiçbiri"
-
-#: src/Dialogs/SavedSearchDialog.vala:96
-msgid "of the following:"
-msgstr "aşağıdakilerden:"
-
-#: src/Dialogs/SavedSearchDialog.vala:101
-msgid "Add rule"
-msgstr ""
-
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
 msgstr "Herhangibir metin"
@@ -2964,6 +2423,10 @@ msgstr "Tarih"
 #, fuzzy
 msgid "New _Tag…"
 msgstr "Yeni _Etiket..."
+
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+msgid "RAW+JPEG"
+msgstr "Ham fotoğraf + JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3085,6 +2548,535 @@ msgstr "Etiketler"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotoğraflar, bu dizinden dışa aktarılamadı."
 
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
+#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/RawsPage.vala:64
+msgid "No photos/videos"
+msgstr "Fotoğraf/Video Yok"
+
+#: src/Views/CheckerboardPage.vala:95
+msgid "No photos/videos found"
+msgstr "Hiç Resim/Video bulunamadı"
+
+#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
+msgid "S_lideshow"
+msgstr "S_layt Gösterisi"
+
+#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
+msgid "Play a slideshow"
+msgstr "Bir slayt gösterisi oynat"
+
+#: src/Views/CollectionPage.vala:95
+msgid "Adjust the size of the thumbnails"
+msgstr "Önizleme boyutunu ayarla"
+
+#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
+msgid "_Developer"
+msgstr "_Geliştirici"
+
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/LibraryPhotoPage.vala:557
+msgid "Other Actions"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photo/Video"
+msgstr "Resimleri/Videoları Dışa Aktar"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photos/Videos"
+msgstr "Fotoğrafları/Videoları Dışa Aktar"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Rotating"
+msgstr "Döndürülüyor"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Undoing Rotate"
+msgstr "Döndürme İşlemi Geri Alınıyor"
+
+#: src/Views/CollectionPage.vala:718
+msgid "Flipping Horizontally"
+msgstr "Yatay Olarak Çevriliyor"
+
+#: src/Views/CollectionPage.vala:719
+msgid "Undoing Flip Horizontally"
+msgstr "Yatay Olarak Çevirme Geri Alınıyor"
+
+#: src/Views/CollectionPage.vala:728
+msgid "Flipping Vertically"
+msgstr "Dikey Olarak Çevriliyor"
+
+#: src/Views/CollectionPage.vala:729
+msgid "Undoing Flip Vertically"
+msgstr "Dikey Olarak Çevirme Geri Alınıyor"
+
+#: src/Views/DirectPhotoPage.vala:95
+#, c-format
+msgid "%s does not exist."
+msgstr "%s bulunamadı."
+
+#: src/Views/DirectPhotoPage.vala:97
+#, c-format
+msgid "%s is not a file."
+msgstr "%s bir dosya değil."
+
+#: src/Views/DirectPhotoPage.vala:99
+#, c-format
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr ""
+"%s şu dosya biçimini desteklemiyor:\n"
+"%s."
+
+#: src/Views/DirectPhotoPage.vala:314
+msgid "_Save a Copy"
+msgstr "Bir Kopya _Kaydet"
+
+#: src/Views/DirectPhotoPage.vala:317
+#, c-format
+msgid "Lose changes to %s?"
+msgstr "%s dosyasındaki değişiklikler kaybedilsin mi?"
+
+#: src/Views/DirectPhotoPage.vala:324
+msgid "Close _without Saving"
+msgstr "_Kaydetmeden Kapat"
+
+#: src/Views/DirectPhotoPage.vala:364
+#, c-format
+msgid "Error while saving to %s: %s"
+msgstr "%s dosyasına kaydedilirken hata: %s"
+
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+msgid "Save As"
+msgstr "Farklı Kaydet"
+
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+#: src/Views/EditingHostPage.vala:106
+msgid "Rotate"
+msgstr "Çevir"
+
+#: src/Views/EditingHostPage.vala:144
+msgid "Zoom to fit page"
+msgstr ""
+
+#: src/Views/EditingHostPage.vala:153
+#, fuzzy
+msgid "Zoom 1:1"
+msgstr "Yakınlaştır _100%"
+
+#: src/Views/EditingHostPage.vala:173
+msgid "Previous photo"
+msgstr "Önceki fotoğraf"
+
+#: src/Views/EditingHostPage.vala:177
+msgid "Next photo"
+msgstr "Sonraki fotoğraf"
+
+#: src/Views/EditingHostPage.vala:1504
+#, c-format
+msgid "Photo source file missing: %s"
+msgstr "Fotoğraf kaynağı bulunamadı: %s"
+
+#: src/Views/EventPage.vala:136
+msgid "All Events"
+msgstr "Tüm Olaylar"
+
+#: src/Views/EventPage.vala:150
+msgid "No Event"
+msgstr "Olay yok"
+
+#: src/Views/EventsDirectoryPage.vala:67
+#, fuzzy
+msgid "Merge events"
+msgstr "Olayları _Birleştir"
+
+#: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
+msgid "Fulls_creen"
+msgstr "Tam e_kran"
+
+#: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
+#: src/Views/MediaPage.vala:237
+msgid "_Comments"
+msgstr "_Yorumlar"
+
+#: src/Views/EventsDirectoryPage.vala:230
+msgid "Display the comment of each event"
+msgstr "Her olayın yorumunu görüntüle"
+
+#: src/Views/EventsDirectoryPage.vala:254
+msgid "No events"
+msgstr "Olay yok"
+
+#: src/Views/EventsDirectoryPage.vala:258
+msgid "No events found"
+msgstr "Hiçbir olay bulunamadı"
+
+#: src/Views/EventsDirectoryPage.vala:318
+msgid "Events"
+msgstr "Olaylar"
+
+#: src/Views/EventsDirectoryPage.vala:332
+msgid "Undated"
+msgstr "Tarih Belirlenmemiş"
+
+#: src/Views/EventsDirectoryPage.vala:333
+msgid "%Y"
+msgstr "%Y"
+
+#: src/Views/EventsDirectoryPage.vala:334
+#, fuzzy
+msgid "%OB"
+msgstr "%B"
+
+#: src/Views/FlaggedPage.vala:21
+msgid "Flagged"
+msgstr "İşaretli"
+
+#: src/Views/ImportPage.vala:464
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr "Kamera ayrılamadı. Kamerayı, dosya yöneticisinden ayırmayı deneyin."
+
+#: src/Views/ImportPage.vala:788
+msgid "Hide photos already imported"
+msgstr "İçe aktarılmış fotoğrafları gizle"
+
+#: src/Views/ImportPage.vala:791
+msgid "Only display photos that have not been imported"
+msgstr "Yalnızca içe aktarılmamış fotoğrafları görüntüle"
+
+#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+msgid "_Titles"
+msgstr "_Başlıklar"
+
+#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+msgid "Import _Selected"
+msgstr "_Seçili Öğeleri İçe Aktar"
+
+#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+msgid "Import _All"
+msgstr "_Tümünü İçe Aktar"
+
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
+#: src/Views/ImportPage.vala:942
+#, fuzzy
+msgid "Starting import, please wait…"
+msgstr "İçe aktarım başlıyor, lütfen bekleyin..."
+
+#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+msgid "Display the title of each photo"
+msgstr "Tüm fotoğrafların başlığını görüntüle"
+
+#: src/Views/ImportPage.vala:974
+msgid "Import the selected photos into your library"
+msgstr "Şeçili fotoğrafları kütüphaneye aktar"
+
+#: src/Views/ImportPage.vala:979
+msgid "Import all the photos into your library"
+msgstr "Tüm fotoğrafları kütüphaneye aktar"
+
+#. it's mounted, offer to unmount for the user
+#: src/Views/ImportPage.vala:1099
+#, fuzzy
+msgid ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+"Shotwell, erişim sağlamak için kameranın dosya sisteminden ayrılmasına "
+"ihtiyaç duyuyor. Devam edilsin mi?"
+
+#: src/Views/ImportPage.vala:1105
+msgid "_Unmount"
+msgstr "_Ayır"
+
+#: src/Views/ImportPage.vala:1110
+msgid "Please unmount the camera."
+msgstr "Lütfen kamerayı ayırın."
+
+#: src/Views/ImportPage.vala:1115
+#, fuzzy
+msgid ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+"Kamera, başka bir uygulama tarafından kullanılıyor. Shotwell, kameraya "
+"yalnızca boştayken erişebilir. Lütfen kamerayı kullanan diğer uygulamayı "
+"kapatın ve yeniden deneyin."
+
+#: src/Views/ImportPage.vala:1125
+msgid "Please close any other application using the camera."
+msgstr "Lütfen kamerayı kullanırken diğer programları kapatın."
+
+#: src/Views/ImportPage.vala:1130
+#, c-format
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+"Kameradan önizlemeler alınamadı:\n"
+"%s"
+
+#: src/Views/ImportPage.vala:1147
+#, fuzzy
+msgid "Unmounting…"
+msgstr "Ayrılıyor..."
+
+#: src/Views/ImportPage.vala:1253
+msgid "Fetching photo information"
+msgstr "Fotoğraf bilgisi alınıyor"
+
+#: src/Views/ImportPage.vala:1608
+#, c-format
+msgid "Fetching preview for %s"
+msgstr "%s için önizleme alınıyor"
+
+#: src/Views/ImportPage.vala:1724
+#, c-format
+msgid "Unable to lock camera: %s"
+msgstr "Kamera kilitlenemedi: %s"
+
+#: src/Views/ImportPage.vala:1809
+#, c-format
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] "Bu %d fotoğraf kameradan silinsin mi?"
+msgstr[1] "Bu %d fotoğraf kameradan silinsin mi?"
+
+#: src/Views/ImportPage.vala:1812
+#, c-format
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] "Bu %d video kameradan silinsin mi?"
+msgstr[1] "Bu %d video kameradan silinsin mi?"
+
+#: src/Views/ImportPage.vala:1815
+#, c-format
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] "Bu %d fotoğraf/video kameradan silinsin mi?"
+msgstr[1] "Bu %d fotoğraf/video kameradan silinsin mi?"
+
+#: src/Views/ImportPage.vala:1818
+#, c-format
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] "Bu %d dosya kameradan silinsin mi?"
+msgstr[1] "Bu %d dosya kameradan silinsin mi?"
+
+#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+msgid "Delete"
+msgstr "Sil"
+
+#: src/Views/ImportPage.vala:1826
+msgid "_Keep"
+msgstr "_Koru"
+
+#: src/Views/ImportPage.vala:1845
+msgid "Removing photos/videos from camera"
+msgstr "Fotoğraflar/Videolar kameradan kaldırılıyor"
+
+#: src/Views/ImportPage.vala:1849
+#, c-format
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
+msgstr[1] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
+
+#: src/Views/ImportQueuePage.vala:21
+#, fuzzy
+msgid "Importing…"
+msgstr "İçe Aktarılıyor"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "_Stop Import"
+msgstr "İçe Aktarmayı _Durdur"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "Stop importing photos"
+msgstr "Fotoğrafları içe aktarmayı durdur"
+
+#: src/Views/ImportQueuePage.vala:127
+#, fuzzy
+msgid "Preparing to import…"
+msgstr "İçe Aktarmaya Hazırlanıyor..."
+
+#: src/Views/ImportQueuePage.vala:154
+#, c-format
+msgid "Imported %s"
+msgstr "İçe Aktarıldı %s"
+
+#: src/Views/LastImportPage.vala:21
+msgid "Last Import"
+msgstr "Son İçe Aktarılanlar"
+
+#: src/Views/LibraryPhotoPage.vala:823
+#, c-format
+msgid "Unable to export %s: %s"
+msgstr "Dışa aktarılamadı %s: %s"
+
+#: src/Views/OfflinePage.vala:21
+msgid "Missing Files"
+msgstr "Eksik Dosyalar"
+
+#: src/Views/OfflinePage.vala:201
+#, fuzzy
+msgid "Deleting…"
+msgstr "Siliniyor..."
+
+#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+msgid "Ta_gs"
+msgstr "E_tiketler"
+
+#: src/Views/MediaPage.vala:84
+msgid "Sort _Photos"
+msgstr "_Fotoğrafları Sırala"
+
+#. Sort criteria.
+#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+msgid "By _Title"
+msgstr "_Başlığa Göre"
+
+#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+msgid "By Exposure _Date"
+msgstr "Çekim _Tarihine Göre"
+
+#: src/Views/MediaPage.vala:238
+msgid "Display the comment of each photo"
+msgstr "Her resmin açıklamasını görüntüle"
+
+#: src/Views/MediaPage.vala:244
+msgid "Display each photo's tags"
+msgstr "Tüm fotoğrafların etiketlerini görüntüle"
+
+#: src/Views/MediaPage.vala:260
+msgid "Sort photos by title"
+msgstr "Fotoğrafları başlıklarına göre sırala"
+
+#: src/Views/MediaPage.vala:266
+msgid "Sort photos by exposure date"
+msgstr "Fotoğrafları çekim tarihine göre sırala"
+
+#: src/Views/MediaPage.vala:413
+#, fuzzy, c-format
+msgid ""
+"Photos was unable to play the selected video:\n"
+"%s"
+msgstr "Shotwell seçili videoyu oynatamadı: %s"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "Add Some Photos"
+msgstr "Birkaç Fotoğraf Ekleyin"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "No Photos were found in your library."
+msgstr "Kütüphanenizde hiç fotoğraf bulunamadı."
+
+#: src/Views/RawsPage.vala:24
+msgid "Raw Photos"
+msgstr "Ham Fotoğraflar"
+
+#: src/Views/RawsPage.vala:37
+msgid "Raws"
+msgstr "Ham Fotoğraflar"
+
+#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
+msgid "Slideshow"
+msgstr "Slayt gösterisi"
+
+#: src/Views/SlideshowPage.vala:64
+msgid "Back"
+msgstr "Geri"
+
+#: src/Views/SlideshowPage.vala:65
+msgid "Go to the previous photo"
+msgstr "Önceki fotoğrafa git"
+
+#: src/Views/SlideshowPage.vala:68
+msgid "Pause"
+msgstr "Durdur"
+
+#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
+msgid "Pause the slideshow"
+msgstr "Slayt gösterisini durdur"
+
+#: src/Views/SlideshowPage.vala:73
+msgid "Next"
+msgstr "Sonraki"
+
+#: src/Views/SlideshowPage.vala:74
+msgid "Go to the next photo"
+msgstr "Sonraki fotoğrafa git"
+
+#: src/Views/SlideshowPage.vala:81
+#, fuzzy
+msgid "Show Photo Titles"
+msgstr "Başlığı g_öster"
+
+#: src/Views/SlideshowPage.vala:96
+#, fuzzy
+msgid "Transition Speed"
+msgstr "_Geçiş etkisi:"
+
+#: src/Views/SlideshowPage.vala:98
+msgid "Faster"
+msgstr ""
+
+#: src/Views/SlideshowPage.vala:99
+#, fuzzy
+msgid "Slower"
+msgstr "ve daha alçak"
+
+#. An entire slideshow set might be missing, so check for a loop.
+#: src/Views/SlideshowPage.vala:164
+msgid "All photo source files are missing."
+msgstr "Fotoğraf kaynak dosyaları bulunamıyor."
+
+#: src/Views/SlideshowPage.vala:196
+msgid "Continue the slideshow"
+msgstr "Slayt gösterisine devam et"
+
+#: src/Views/TrashPage.vala:22
+msgid "Trash"
+msgstr "Çöp"
+
+#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
+#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
+msgid "_Empty Trash"
+msgstr "_Çöpü Boşalt"
+
+#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
+msgid "Delete all photos in the trash"
+msgstr "Çöp kutusundaki tüm fotoğrafları sil"
+
+#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
+msgid "Trash is empty"
+msgstr "Çöp boş"
+
+#: src/Views/TrashPage.vala:294
+msgid "Deleting a Photo"
+msgid_plural "Deleting Photos"
+msgstr[0] "Bir Fotoğraf Siliniyor"
+msgstr[1] "Fotoğraflar Siliniyor"
+
+#: src/Views/TrashPage.vala:302
+msgid "Empty Trash"
+msgstr "Çöpü Boşalt"
+
+#: src/Views/TrashPage.vala:302
+msgid "Emptying Trash…"
+msgstr "Çöp Boşaltılıyor..."
+
+#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
+msgid "Videos"
+msgstr "Videolar"
+
 #: src/Widgets/TransitionEffectSelector.vala:65
 #, fuzzy
 msgid "Transition Effect"
@@ -3188,54 +3180,54 @@ msgstr "ile biter"
 msgid "does not contain"
 msgstr "içermez"
 
-#: src/Widgets/CustomPrintTab.vala:45
+#: src/Widgets/CustomPrintTab.vala:48
 #, fuzzy
 msgid "Printed Image Size"
 msgstr "<b>Yazılan Görüntü Boyutu</b>"
 
-#: src/Widgets/CustomPrintTab.vala:49
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
 msgstr "_Standart bir boyut kullan:"
 
-#: src/Widgets/CustomPrintTab.vala:52
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "Use a c_ustom size:"
 msgstr "Ö_zel bir boyut kullan:"
 
-#: src/Widgets/CustomPrintTab.vala:55
+#: src/Widgets/CustomPrintTab.vala:58
 msgid "_Autosize:"
 msgstr "_Otomatik Ölçütlendirme:"
 
-#: src/Widgets/CustomPrintTab.vala:92
+#: src/Widgets/CustomPrintTab.vala:95
 msgid "in."
 msgstr "inç"
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:96
 msgid "cm"
 msgstr "cm"
 
-#: src/Widgets/CustomPrintTab.vala:103
+#: src/Widgets/CustomPrintTab.vala:106
 msgid "_Match photo aspect ratio"
 msgstr "Fotoğraf en-boy oranını _eşleştir"
 
-#: src/Widgets/CustomPrintTab.vala:105
+#: src/Widgets/CustomPrintTab.vala:108
 #, fuzzy
 msgid "Titles"
 msgstr "_Başlıklar"
 
-#: src/Widgets/CustomPrintTab.vala:109
+#: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Resim _başlığını yazdır"
 
-#: src/Widgets/CustomPrintTab.vala:115
+#: src/Widgets/CustomPrintTab.vala:118
 #, fuzzy
 msgid "Pixel Resolution"
 msgstr "<b>Piksel Çözünürlüğü</b>"
 
-#: src/Widgets/CustomPrintTab.vala:122
+#: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
 msgstr "Dosya çıktısı _konumu:"
 
-#: src/Widgets/CustomPrintTab.vala:128
+#: src/Widgets/CustomPrintTab.vala:131
 msgid "pixels per inch"
 msgstr "inç başına benek miktarı"
 
@@ -3972,6 +3964,12 @@ msgstr "Satranç"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Kesitler"
+
+#~ msgid "Return to current photo dimensions"
+#~ msgstr "Geçerli fotoğraf boyutlarına dön"
+
+#~ msgid "Set the crop for this photo"
+#~ msgstr "Bu fotoğraf için kırpmayı ayarla"
 
 #~ msgid "_Delete File"
 #~ msgid_plural "_Delete Files"
