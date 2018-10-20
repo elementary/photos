@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-10-01 00:08+0000\n"
+"PO-Revision-Date: 2018-10-20 21:50+0000\n"
 "Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/photos/"
 "photos/id/>\n"
@@ -404,30 +404,28 @@ msgstr ""
 "(schema %d). Untuk informasi lebih lanjut silakan periksa Wiki Foto di %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Album foto tidak kompatibel dengan versi Shotwell sekarang. Tampaknya album "
-"dibuat dengan Shotwell %s (skema %d). Versi sekarang adalah %s (skema %d). "
-"Harap bersihkan album dengan menghapus %s dan mengimpor ulang foto."
+"Pustaka foto Anda tidak kompatibel dengan versi Foto ini. Tampaknya dibuat "
+"oleh Foto %s (skema %d). Versi ini adalah %s (skema %d). Silakan bersihkan "
+"pustaka Anda dengan cara menghapus %s dan mengimpor ulang foto-foto Anda."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Kesalahan tak dikenal saat mencoba verifikasi database Shotwell: %s"
+msgstr "Galat tidak diketahui mencoba untuk memverifikasi basis data Foto: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Menjalankan Shotwell"
+msgstr "Memuat Foto"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Path ke data privat Shotwell"
+msgstr "Arahkan ke data Foto pribadi"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -447,7 +445,7 @@ msgstr "Tampilkan versi aplikasi"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Tampilkan keluaran ekstra debug"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -559,9 +557,8 @@ msgid "Image Settings"
 msgstr "Pengaturan Gambar"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "_Cetak..."
+msgstr "Mencetak…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -718,9 +715,8 @@ msgid "Revert to Original"
 msgstr "Kembalikan ke Asal"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Ubah Nama Acara"
+msgstr "Beri nama baru Kegiatan…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -779,9 +775,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Gandakan foto-foto ini"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Ekspor"
+msgstr "_Ekspor…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -792,14 +787,12 @@ msgid "Hide info panel"
 msgstr "Sembunyikan panel info"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
-msgstr "_Cetak..."
+msgstr "_Cetak…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Terbitkan"
+msgstr "Terbitkan…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -814,9 +807,8 @@ msgid "Edit Comment"
 msgstr "Sunting Komentar"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Atur Jam dan Tanggal"
+msgstr "_Atur Tanggal dan Waktu…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -824,12 +816,11 @@ msgstr "Atur Jam dan Tanggal"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_Buka Pada"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Buka Dengan Penyunting RA_W"
+msgstr "_Buka Dengan Penyunting RAW…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -885,9 +876,9 @@ msgid "_New"
 msgstr "_Baru"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Ganti _Nama Tanda \"%s\"..."
+msgstr "Beri nama baru Tanda \"%s\"…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -895,14 +886,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Ganti Nama Tanda \"%s\" menjadi \"%s\""
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Ganti Nama..."
+msgstr "_Beri nama baru…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Ubah Tanda"
+msgstr "Modifikasi Tanda…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -958,14 +947,12 @@ msgid "Delete Album"
 msgstr "Hapus Album"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "Su_nting"
+msgstr "_Sunting…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
-msgstr "Ubah _Nama…"
+msgstr "Beri nama baru…"
 
 #: src/Resources.vala:250
 #, c-format
@@ -998,9 +985,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Kembalikan foto-foto terpilih ke album"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Tampilkan di Peramban Berkas"
+msgstr "Peramban Berkas"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1186,7 +1172,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Ini akan menghapus album pintar \"%s\".  Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1194,8 +1179,8 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Mengganti pengembang akan membatalkan perubahan yang kamu buat ke foto ini "
-"di Shotwell"
+"Berganti pengembang akan membatalkan semua perubahan yang Anda buat pada "
+"foto ini di Foto"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1229,13 +1214,13 @@ msgstr "_Pilih"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell tidak dapat membuat berkas penyuntingan foto karena tidak ada izin "
-"menulisi %s."
+"Foto tidak dapat membuat berkas untuk menyunting foto ini karena Anda tidak "
+"memiliki izin untuk  mengubah ke %s."
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1261,9 +1246,8 @@ msgid "Con_tinue"
 msgstr "Lanju_tkan"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Simpan Detail"
+msgstr "Simpan Detail…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1325,24 +1309,21 @@ msgstr "Berkas Yang Tak Diimpor Karena Tak Dikenali Sebagai Foto atau Video:"
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
-msgstr ""
-"Foto/Video Yang Tak Diimpor Karena Bukan Dalam Format Yang Dikenal Shotwell:"
+msgstr "Foto/Video Tidak Terimpor Karena Bukan dalam Format yang Dikenal Foto:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Foto/Video Yang Tak Diimpor Karena Shotwell Tak Bisa Menyalin Mereka Ke "
-"Album:"
+"Foto/Video Tidak Terimpor Karena Foto Tidak Bisa Menyalin Ke dalam "
+"Pustakanya:"
 
 #: src/Dialogs/Dialogs.vala:324
 #, c-format
@@ -1642,12 +1623,11 @@ msgstr[0] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell dapat menyalin \\foto ke folder album ataupun mengimpor tanpa "
+"Foto dapat menyalin foto ke dalam folder pustaka Anda atau mengimpor tanpa "
 "menyalin."
 
 #: src/Dialogs/Dialogs.vala:866
@@ -1705,9 +1685,8 @@ msgid "_Scaling constraint:"
 msgstr "_Batas skala:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _piksel"
+msgstr "_piksel"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -1791,7 +1770,7 @@ msgstr "dari hal-hal berikut:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr ""
+msgstr "Tambah aturan"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
 #: src/Views/DirectPhotoPage.vala:416
@@ -2078,16 +2057,17 @@ msgid "Import"
 msgstr "Impor"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell dikonfigurasi untuk mengimpor foto ke direktori home Anda.\n"
-"Sebaiknya ubah ini di <span weight=\"bold\">Sunting %s Preferensi</span>.\n"
-"Apakah Anda ingin terus mengimpor foto?"
+"Foto dikonfigurasi untuk mengimpor foto ke direktori beranda Anda.\n"
+"Kami merekomendasikan mengubah ini pada <span weight=\"bold\">Sunting %s "
+"Preferensi</span>.\n"
+"Apakah Anda ingin melanjutkan mengimpor foto?"
 
 #: src/library/LibraryWindow.vala:784
 msgid "_Import"
@@ -2185,11 +2165,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Tentang"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2235,14 +2215,12 @@ msgid "The selected photo was successfully published."
 msgstr "Foto yang dipilih berhasil diterbitkan."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
-msgstr "Mengambil informasi akun..."
+msgstr "Mengambil informasi akun…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
-msgstr "Masuk..."
+msgstr "Masuk…"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
@@ -2275,17 +2253,17 @@ msgid "Unable to publish"
 msgstr "Tidak dapat menerbitkan"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell tidak dapat menerbitkan item yang dipilih karena Anda belum "
-"mengaktifkan pengaya penerbitan yang kompatibel. Untuk memperbaiki ini, "
-"pilih <b>Sunting %s Preferensi</b> dan aktifkan satu atau beberapa pengaya "
-"penerbitan pada tab <b>Pengaya</b>."
+"Foto tidak dapat menerbitkan item yang dipilih karena Anda tidak memiliki "
+"pengaya penerbitan yang kompatibel. Untuk memperbaiki ini, pilih <b>Sunting %"
+"s Preferensi</b> dan aktifkan satu atau beberapa pengaya penerbitan pada "
+"<b>Pengaya</b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2338,9 +2316,8 @@ msgid "Date"
 msgstr "Tanggal"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "_Tag Baru..."
+msgstr "_Tanda Baru…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2493,7 +2470,7 @@ msgstr "_Pengembang"
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr ""
+msgstr "Tindakan Lain"
 
 #: src/Views/CollectionPage.vala:598
 msgid "Export Photo/Video"
@@ -2575,7 +2552,7 @@ msgstr "Putar"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Zoom untuk sesuai halaman"
 
 #: src/Views/EditingHostPage.vala:153
 msgid "Zoom 1:1"
@@ -2603,9 +2580,8 @@ msgid "No Event"
 msgstr "Tidak Ada Acara"
 
 #: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Gabungkan Acara"
+msgstr "Gabungkan kegiatan"
 
 #: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
@@ -2641,9 +2617,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2681,9 +2656,8 @@ msgstr "Impor Semu_a"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:942
-#, fuzzy
 msgid "Starting import, please wait…"
-msgstr "Mulai mengimpor, silakan tunggu..."
+msgstr "Memulai impor, silakan tunggu…"
 
 #: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
@@ -2699,13 +2673,11 @@ msgstr "Impor semua foto ke album"
 
 #. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell harus dapat melepaskan kamera dari sistem agar dapat mengaksesnya. "
-"Izinkan?"
+"Foto perlu melepas kamera dari sistemfile agar dapat mengaksesnya. Lanjutkan?"
 
 #: src/Views/ImportPage.vala:1105
 msgid "_Unmount"
@@ -2716,15 +2688,14 @@ msgid "Please unmount the camera."
 msgstr "Silakan lepaskan kamera."
 
 #: src/Views/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Kamera sudah terkunci oleh aplikasi lain. Shotwell hanya dapat mengakses "
-"kamera pada saat tidak terkunci. Silakan matikan aplikasi yang sedang "
-"menggunakan kamera ini dan coba kembali."
+"Kamera terkunci oleh aplikasi lain.  Foto hanya dapat mengakses kamera pada "
+"saat tidak terkunci.  Silakan matikan aplikasi yang sedang menggunakan "
+"kamera dan coba kembali."
 
 #: src/Views/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
@@ -2740,9 +2711,8 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
-msgstr "Melepaskan kamera..."
+msgstr "Melepas…"
 
 #: src/Views/ImportPage.vala:1253
 msgid "Fetching photo information"
@@ -2802,9 +2772,8 @@ msgstr[0] ""
 "Tidak dapat menghapus %d foto/video dari kamera karena adanya kesalahan."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Mengimpor..."
+msgstr "Mengimpor…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2815,9 +2784,8 @@ msgid "Stop importing photos"
 msgstr "Hentikan proses impor foto"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "Menyiapkan impor..."
+msgstr "Bersiap untuk mengimpor…"
 
 #: src/Views/ImportQueuePage.vala:154
 #, c-format
@@ -2838,9 +2806,8 @@ msgid "Missing Files"
 msgstr "Berkas Hilang"
 
 #: src/Views/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
-msgstr "Menghapus..."
+msgstr "Menghapus…"
 
 #: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
 msgid "Ta_gs"
@@ -2876,12 +2843,12 @@ msgid "Sort photos by exposure date"
 msgstr "Urutkan foto berdasarkan tanggal pengambilan"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell gagal memutar video terpilih:\n"
+"Foto tidak dapat memutar video yang dipilih:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
@@ -2929,23 +2896,20 @@ msgid "Go to the next photo"
 msgstr "Maju ke foto berikutnya"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Tampilkan _judul"
+msgstr "Tampilkan Judul Foto"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Efek _Transisi:"
+msgstr "Kecepatan Transisi"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
-msgstr ""
+msgstr "Lebih cepat"
 
 #: src/Views/SlideshowPage.vala:99
-#, fuzzy
 msgid "Slower"
-msgstr "dan lebih rendah"
+msgstr "Lebih lambat"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
@@ -2991,14 +2955,12 @@ msgid "Videos"
 msgstr "Video"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "Efek _Transisi:"
+msgstr "Efek Transisi"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Hapus"
+msgstr "Hapus aturan"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3094,9 +3056,8 @@ msgid "does not contain"
 msgstr "tidak mengandung"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Ukuran Foto Tercetak</b>"
+msgstr "Ukuran Gambar Dicetak"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3123,18 +3084,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Sesuaikan dengan rasio foto"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Judul"
+msgstr "Judul"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Ce_tak judul gambar"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Resolusi Piksel</b>"
+msgstr "Resolusi Piksel"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3237,7 +3196,7 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "Membuat album %s…"
 
@@ -3391,9 +3350,8 @@ msgstr ""
 "lalu coba terbitkan lagi."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "Bersiap untuk masuk..."
+msgstr "Bersiap untuk masuk…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3405,9 +3363,8 @@ msgstr ""
 "tidak bisa dilanjutkan."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
-msgstr "Verifikasi wewenang..."
+msgstr "Memverifikasi otorisasi…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
 #, c-format
@@ -3498,14 +3455,12 @@ msgid "Large (2048 pixels)"
 msgstr "Besar (2048 piksel)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
-msgstr "Coba Menyambungkan ke Facebook..."
+msgstr "Mencoba menghubungkan ke Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "Membuat album..."
+msgstr "Membuat album…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
