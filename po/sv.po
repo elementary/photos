@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-06-13 00:07+0000\n"
-"Last-Translator: Richard Sjöqvist <richard@spiro.se>\n"
+"PO-Revision-Date: 2018-10-21 09:25+0000\n"
+"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/photos/photos/"
 "sv/>\n"
 "Language: sv\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:12+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,15 +55,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kunde inte skapa den underliggande datakatalogen %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Ett allvarligt fel inträffade vid åtkomsten till Shotwells bibliotek.  "
-"Shotwell kan inte fortsätta.\n"
+"Ett allvarligt fel inträffade vid åtkomsten till Bilder-biblioteket. Bilder "
+"kan inte fortsätta.\n"
 "\n"
 "%s"
 
@@ -266,14 +266,12 @@ msgid "Restore Photos from Trash"
 msgstr "Återställ bilder från papperskorgen"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Flytta bilderna till Shotwells papperskorg"
+msgstr "Flytta bilderna till Bilders papperskorg"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Återställ bilder tillbaka till Shotwell-biblioteket"
+msgstr "Återställ bilder tillbaka till Bilder-biblioteket"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -388,52 +386,50 @@ msgid "Leave fullscreen"
 msgstr "Avsluta helskärmsläge"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Ditt bildbibliotek är inte kompatibelt med denna version av Shotwell.  Det "
-"verkar som det skapades med Shotwell %s (schema %d).  Denna version är %s "
-"(schema %d).  Använd den senaste versionen av Shotwell."
+"Ditt bildbibliotek är inte kompatibelt med denna version av Bilder.  Det "
+"verkar som det skapades med Bilder %s (schema %d).  Denna version är %s ("
+"schema %d).  Använd den senaste versionen av Bilder."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell kunde inte uppgradera din bildbibliotek från version %s (schema %d) "
-"till %s (schema %d).  För ytterligare information, läs Shotwells wiki-sida "
-"på %s"
+"Bilder kunde inte uppgradera din bildbibliotek från version %s (schema %d) "
+"till %s (schema %d).  För ytterligare information, läs Bilders wiki-sida på "
+"%s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Ditt bildbibliotek är inte kompatibelt med denna version av Shotwell.  Det "
-"verkar som om det skapades med Shotwell %s (schema %d).  Denna version är %s "
-"(schema %d).  Töm ditt bibliotek genom att ta bort %s och importera dina "
+"Ditt bildbibliotek är inte kompatibelt med denna version av Bilder.  Det "
+"verkar som om det skapades med Bilder %s (schema %d).  Denna version är %s ("
+"schema %d).  Töm ditt bibliotek genom att ta bort %s och importera dina "
 "bilder igen."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Okänt fel vid försök att verifiera Shotwells databas: %s"
+msgstr "Okänt fel vid försök att verifiera Bilders databas: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Läser in Shotwell"
+msgstr "Läser in Bilder"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Sökväg till Shotwells privata data"
+msgstr "Sökväg till Bilders privata data"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -453,7 +449,7 @@ msgstr "Visa programversion"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Visa extra felsökningsutskrift"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -565,9 +561,8 @@ msgid "Image Settings"
 msgstr "Bildinställningar"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "Skriv _ut..."
+msgstr "Skriver ut…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -724,9 +719,8 @@ msgid "Revert to Original"
 msgstr "Återställ till original"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Byt namn på händelse"
+msgstr "Byt namn på händelse…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -785,9 +779,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Gör en kopia av bilden"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Exportera"
+msgstr "_Exportera…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -798,14 +791,12 @@ msgid "Hide info panel"
 msgstr "Dölj informationspanelen"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
-msgstr "Skriv _ut..."
+msgstr "_Skriv ut…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Publicera"
+msgstr "Publicera…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -820,9 +811,8 @@ msgid "Edit Comment"
 msgstr "Redigera kommentar"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Justera datum och tid"
+msgstr "_Justera datum och tid…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -830,12 +820,11 @@ msgstr "Justera datum och tid"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_Öppna i"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Öppna i RA_W-redigerare"
+msgstr "_Öppna i RAW-redigerare…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -891,9 +880,9 @@ msgid "_New"
 msgstr "_Nytt"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "B_yt namn på taggen ”%s”…"
+msgstr "B_yt namn på taggen \"%s\"…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -901,14 +890,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Byt namn på taggen ”%s” till ”%s”"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Byt namn..."
+msgstr "_Byt namn…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Ändra taggar"
+msgstr "_Ändra taggar…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -964,14 +951,12 @@ msgid "Delete Album"
 msgstr "Radera album"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Redigera"
+msgstr "_Redigera…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
-msgstr "Byt _namn..."
+msgstr "Byt _namn…"
 
 #: src/Resources.vala:250
 #, c-format
@@ -1004,9 +989,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Flytta tillbaka markerade bilder till biblioteket"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Öppna med filhanteraren"
+msgstr "Fil_hanterare"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1199,7 +1183,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Detta kommer att ta bort smart albumet \"%s\". Fortsätt?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1208,10 +1191,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Om du ändrar råbildsframkallare kommer alla ändringar du gjort på bilden i "
-"Shotwell att återställas"
+"Bilder att återställas"
 msgstr[1] ""
 "Om du ändrar råbildsframkallare kommer alla ändringar du gjort på bilderna i "
-"Shotwell att återställas"
+"Bilder att återställas"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1245,12 +1228,12 @@ msgstr "_Markera"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell kunde inte skapa en fil för redigering av denna bild därför att du "
+"Bilder kunde inte skapa en fil för redigering av denna bild därför att du "
 "inte har behörighet att skriva till %s."
 
 #: src/Dialogs/Dialogs.vala:156
@@ -1277,9 +1260,8 @@ msgid "Con_tinue"
 msgstr "_Fortsätt"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Spara detaljer"
+msgstr "Spara detaljer…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1345,19 +1327,17 @@ msgstr ""
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
 "Bilderna eller filmerna importerades inte på grund av att de var i ett "
-"format som Shotwell inte stöder:"
+"format som Bilder inte stöder:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
@@ -1724,13 +1704,12 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell kan kopiera bildera till din biblioteksmapp eller importera dem "
-"utan att kopiera dem."
+"Bilder kan kopiera bilderna till din biblioteksmapp eller importera dem utan "
+"att kopiera dem."
 
 #: src/Dialogs/Dialogs.vala:866
 msgid "Co_py Photos"
@@ -1788,9 +1767,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skalningsbegränsning:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pixlar"
+msgstr "_pixlar"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -1874,7 +1852,7 @@ msgstr "följande:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr ""
+msgstr "Lägg till regel"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
 #: src/Views/DirectPhotoPage.vala:416
@@ -2164,17 +2142,17 @@ msgid "Import"
 msgstr "Importera"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell är inställt till att importera foton till din hemmapp.\n"
-"Vi rekommenderar att du ändrar det här i <span weight=\"bold\">Redigera %s-"
-"inställningar</span>.\n"
-"Vill du fortsätta importera foton?"
+"Bilder är inställt på att importera bilder till din hemmapp.\n"
+"Vi rekommenderar att du ändrar det här i <span weight=\"bold\">Redigera "
+"%s-inställningar</span>.\n"
+"Vill du fortsätta importera bilder?"
 
 #: src/library/LibraryWindow.vala:784
 msgid "_Import"
@@ -2272,11 +2250,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2324,14 +2302,12 @@ msgid "The selected photo was successfully published."
 msgstr "Den markerade bilden publicerades."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
-msgstr "Hämtar kontoinformation..."
+msgstr "Hämtar kontoinformation…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
-msgstr "Loggar in..."
+msgstr "Loggar in…"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
@@ -2364,17 +2340,17 @@ msgid "Unable to publish"
 msgstr "Kunde inte publicera"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell kan inte publicera de markerade objekten därför att du inte har "
-"aktiverat en kompatibel insticksmodul för publicering. Välj <b>Redigera %s "
-"Inställningar</b> och aktivera en eller flera av de insticksmoduler för "
-"publicering som finns under fliken <b>Insticksmoduler</b>."
+"Bilder kan inte publicera de markerade objekten därför att du inte har "
+"aktiverat en kompatibel insticksmodul för publicering. Välj <b>Redigera "
+"inställningar för %s</b> och aktivera en eller flera av de insticksmoduler "
+"för publicering som finns under fliken <b>Insticksmoduler</b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2427,9 +2403,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "_Ny tagg…"
+msgstr "Ny _tagg…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2584,7 +2559,7 @@ msgstr "_Utvecklare"
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr ""
+msgstr "Andra åtgärder"
 
 #: src/Views/CollectionPage.vala:598
 msgid "Export Photo/Video"
@@ -2666,12 +2641,11 @@ msgstr "Rotera"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Storlekspassa till sida"
 
 #: src/Views/EditingHostPage.vala:153
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "_Visa 100%"
+msgstr "Visa 100%"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -2695,9 +2669,8 @@ msgid "No Event"
 msgstr "Ingen händelse"
 
 #: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "Sa_mmanfoga händelser"
+msgstr "Sammanfoga händelser"
 
 #: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
@@ -2733,9 +2706,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2774,9 +2746,8 @@ msgstr "Importera _alla"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:942
-#, fuzzy
 msgid "Starting import, please wait…"
-msgstr "Påbörjar importen, var god vänta..."
+msgstr "Påbörjar importen, var god vänta…"
 
 #: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
@@ -2792,12 +2763,11 @@ msgstr "Importera alla bilder till ditt bibliotek"
 
 #. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell behöver avmontera kameran från filsystemet för att kunna komma åt "
+"Bilder behöver avmontera kameran från filsystemet för att kunna komma åt "
 "den. Vill du fortsätta?"
 
 #: src/Views/ImportPage.vala:1105
@@ -2809,13 +2779,12 @@ msgid "Please unmount the camera."
 msgstr "Avmontera kameran."
 
 #: src/Views/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Kameran är låst av ett annat program.  Shotwell kan endast komma åt kameran "
+"Kameran är låst av ett annat program.  Bilder kan endast komma åt kameran "
 "när den är olåst.  Stäng alla andra program som använder kameran och försök "
 "igen."
 
@@ -2833,9 +2802,8 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
-msgstr "Avmonterar..."
+msgstr "Avmonterar…"
 
 #: src/Views/ImportPage.vala:1253
 msgid "Fetching photo information"
@@ -2901,9 +2869,8 @@ msgstr[1] ""
 "Kunde inte radera %d bilder och filmer från kameran på grund av ett fel."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Import"
+msgstr "Importerar…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2914,9 +2881,8 @@ msgid "Stop importing photos"
 msgstr "Stoppa bildimporten"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "Förbereder import..."
+msgstr "Förbereder importering…"
 
 #: src/Views/ImportQueuePage.vala:154
 #, c-format
@@ -2937,9 +2903,8 @@ msgid "Missing Files"
 msgstr "Saknade filer"
 
 #: src/Views/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
-msgstr "Raderar..."
+msgstr "Raderar…"
 
 #: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
 msgid "Ta_gs"
@@ -2975,12 +2940,12 @@ msgid "Sort photos by exposure date"
 msgstr "Sortera bilder efter exponeringsögonblick"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell kunde inte spela upp den markerade filmen:\n"
+"Bilder kunde inte spela upp den markerade filmen:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
@@ -3028,23 +2993,20 @@ msgid "Go to the next photo"
 msgstr "Gå till nästa bild"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "_Visa rubrik"
+msgstr "Visa bildtitlar"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "_Övergångseffekt:"
+msgstr "Övergångshastighet"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
-msgstr ""
+msgstr "Snabbare"
 
 #: src/Views/SlideshowPage.vala:99
-#, fuzzy
 msgid "Slower"
-msgstr "och lägre"
+msgstr "Långsammare"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
@@ -3091,14 +3053,12 @@ msgid "Videos"
 msgstr "Filmer"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Övergångseffekt:"
+msgstr "Övergångseffekt"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Ta bort"
+msgstr "Ta bort regel"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3194,9 +3154,8 @@ msgid "does not contain"
 msgstr "innehåller inte"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Storlek på utskriften</b>"
+msgstr "Utskriftsstorlek"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3223,18 +3182,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Matcha sidförhållande"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Titlar"
+msgstr "Titlar"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Skriv ut bild _titel"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Upplösning</b>"
+msgstr "Pixelupplösning"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3344,9 +3301,9 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
-msgstr "Skapar album %s..."
+msgstr "Skapar album %s…"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
 msgid "An error message occurred when publishing to Piwigo. Please try again."
@@ -3496,9 +3453,8 @@ msgstr ""
 "att publicera igen."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "Förbereder inloggning..."
+msgstr "Förbereder inloggning…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3510,9 +3466,8 @@ msgstr ""
 "Flickr inte fortsätta."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
-msgstr "Verifierar behörighet..."
+msgstr "Verifierar behörighet…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
 #, c-format
@@ -3601,14 +3556,12 @@ msgid "Large (2048 pixels)"
 msgstr "Stor (2048 pixlar)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
-msgstr "Testar anslutningen till Facebook..."
+msgstr "Testar anslutningen till Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "Skapar album..."
+msgstr "Skapar album…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
@@ -3773,7 +3726,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
 msgid "_visibility label (populated in the code)"
-msgstr ""
+msgstr "_synlighetsmärkning (ifyllt i koden)"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
@@ -3797,6 +3750,8 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
+" (texten beror på fb-användarnamn och är modifierad i programmet -\n"
+"det du skriver i det här fältet kommer inte synas)"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
 msgid "Publish to an e_xisting album:"
