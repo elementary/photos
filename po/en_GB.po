@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-04-22 00:04+0000\n"
-"Last-Translator: Kadirov Yurij <admin@sirkadirov.com>\n"
+"PO-Revision-Date: 2018-10-25 08:07+0000\n"
+"Last-Translator: Ciaran Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/photos/photos/en_GB/>\n"
 "Language: en_GB\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:14+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,14 +55,14 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Unable to create data subdirectory %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
+"A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -266,14 +266,12 @@ msgid "Restore Photos from Trash"
 msgstr "Restore Photos from Rubbish Bin"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Move the photos to the Shotwell Rubbish Bin"
+msgstr "Move the photos to the Photos trash"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Restore the photos back to the Shotwell library"
+msgstr "Restore the photos back to the Photos library"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -784,9 +782,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Make a duplicate of the photo"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Export"
+msgstr "_Export…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -797,14 +794,12 @@ msgid "Hide info panel"
 msgstr "Hide info panel"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
 msgstr "_Print…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Publish"
+msgstr "Pu_blish…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -819,9 +814,8 @@ msgid "Edit Comment"
 msgstr "Edit Comment"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Adjust Date and Time"
+msgstr "_Adjust Date and Time…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -829,12 +823,11 @@ msgstr "Adjust Date and Time"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_Open In"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Open With RA_W Editor"
+msgstr "_Open With RAW Editor…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -890,9 +883,9 @@ msgid "_New"
 msgstr "_New"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Re_name Tag '%s'…"
+msgstr "Re_name Tag \"%s\"…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -900,14 +893,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Rename Tag '%s' to '%s'"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
 msgstr "_Rename…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Modify Tags"
+msgstr "Modif_y Tags…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -962,12 +953,10 @@ msgid "Delete Album"
 msgstr "Delete Album"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Edit"
+msgstr "_Edit…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
 msgstr "Re_name…"
 
@@ -1002,9 +991,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Move the selected photos back into the library"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Show in File Mana_ger"
+msgstr "File Mana_ger"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1195,7 +1183,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "This will remove the smart album \"%s\".  Continue?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1204,10 +1191,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Switching developers will undo all changes you have made to this photo in "
-"Shotwell"
+"Photos"
 msgstr[1] ""
 "Switching developers will undo all changes you have made to these photos in "
-"Shotwell"
+"Photos"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1241,13 +1228,13 @@ msgstr "_Select"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell couldn't create a file for editing this photo because you do not "
-"have permission to write to %s."
+"Photos couldn't create a file for editing this photo because you do not have "
+"permission to write to %s."
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1273,9 +1260,8 @@ msgid "Con_tinue"
 msgstr "Con_tinue"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Save Details"
+msgstr "Save Details…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1340,24 +1326,22 @@ msgstr ""
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Photos/Videos Not Imported Because They Weren't in a Format Shotwell "
+"Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
+"Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 
 #: src/Dialogs/Dialogs.vala:324
@@ -1698,12 +1682,11 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell can copy the photos into your library folder or it can import them "
+"Photos can copy the photos into your library folder or it can import them "
 "without copying."
 
 #: src/Dialogs/Dialogs.vala:866
@@ -1762,9 +1745,8 @@ msgid "_Scaling constraint:"
 msgstr "_Scaling constraint:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pixels"
+msgstr "_pixels"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -1848,7 +1830,7 @@ msgstr "of the following:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr ""
+msgstr "Add rule"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
 #: src/Views/DirectPhotoPage.vala:416
@@ -2138,16 +2120,16 @@ msgid "Import"
 msgstr "Import"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell is configured to import photos to your home directory.\n"
-"We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
-"span>.\n"
+"Photos is configured to import photos to your home directory.\n"
+"We recommend changing this in <span weight=\"bold\">Edit %s "
+"Preferences</span>.\n"
 "Do you want to continue importing photos?"
 
 #: src/library/LibraryWindow.vala:784
@@ -2295,12 +2277,10 @@ msgid "The selected photo was successfully published."
 msgstr "The selected photo was successfully published."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
 msgstr "Fetching account information…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
 msgstr "Logging in…"
 
@@ -2335,14 +2315,14 @@ msgid "Unable to publish"
 msgstr "Unable to publish"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell cannot publish the selected items because you do not have a "
+"Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
@@ -2398,7 +2378,6 @@ msgid "Date"
 msgstr "Date"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
 msgstr "New _Tag…"
 
@@ -2666,9 +2645,8 @@ msgid "No Event"
 msgstr "No Event"
 
 #: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "_Merge Events"
+msgstr "Merge events"
 
 #: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
@@ -2704,9 +2682,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2744,7 +2721,6 @@ msgstr "Import _All"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:942
-#, fuzzy
 msgid "Starting import, please wait…"
 msgstr "Starting import, please wait…"
 
@@ -2762,12 +2738,11 @@ msgstr "Import all the photos into your library"
 
 #. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell needs to unmount the camera from the filesystem in order to access "
+"Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 
 #: src/Views/ImportPage.vala:1105
@@ -2779,13 +2754,12 @@ msgid "Please unmount the camera."
 msgstr "Please unmount the camera."
 
 #: src/Views/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"The camera is locked by another application.  Shotwell can only access the "
+"The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 
@@ -2803,7 +2777,6 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
 msgstr "Unmounting…"
 
@@ -2869,9 +2842,8 @@ msgstr[0] "Unable to delete %d photo/video from the camera due to errors."
 msgstr[1] "Unable to delete %d photos/videos from the camera due to errors."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Importing"
+msgstr "Importing…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2882,7 +2854,6 @@ msgid "Stop importing photos"
 msgstr "Stop importing photos"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
 msgstr "Preparing to import…"
 
@@ -2905,7 +2876,6 @@ msgid "Missing Files"
 msgstr "Missing Files"
 
 #: src/Views/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
 msgstr "Deleting…"
 
@@ -2943,12 +2913,12 @@ msgid "Sort photos by exposure date"
 msgstr "Sort photos by exposure date"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell was unable to play the selected video:\n"
+"Photos was unable to play the selected video:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
@@ -2996,23 +2966,20 @@ msgid "Go to the next photo"
 msgstr "Go to the next photo"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Show t_itle"
+msgstr "Show Photo Titles"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "_Transition effect:"
+msgstr "Transition Speed"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
-msgstr ""
+msgstr "Faster"
 
 #: src/Views/SlideshowPage.vala:99
-#, fuzzy
 msgid "Slower"
-msgstr "and"
+msgstr "Slower"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
@@ -3059,14 +3026,12 @@ msgid "Videos"
 msgstr "Videos"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Transition effect:"
+msgstr "Transition Effect"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Remove"
+msgstr "Remove rule"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3162,9 +3127,8 @@ msgid "does not contain"
 msgstr "does not contain"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Printed Image Size</b>"
+msgstr "Printed Image Size"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3191,18 +3155,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Match photo aspect ratio"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Titles"
+msgstr "Titles"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Print image _title"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Pixel Resolution</b>"
+msgstr "Pixel Resolution"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3307,7 +3269,7 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "Creating album %s…"
 
@@ -3459,9 +3421,8 @@ msgstr ""
 "publishing again."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "Preparing for log-in…"
+msgstr "Preparing for login…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3473,7 +3434,6 @@ msgstr ""
 "continue."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
 msgstr "Verifying authorisation…"
 
@@ -3565,14 +3525,12 @@ msgid "Large (2048 pixels)"
 msgstr "Large (2048 pixels)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
 msgstr "Testing connection to Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "Buat album…"
+msgstr "Creating album…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
