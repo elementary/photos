@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-02-07 17:31+0000\n"
-"Last-Translator: Seyit Ali Doğan <seyit822@yandex.com>\n"
+"PO-Revision-Date: 2018-10-26 22:36+0000\n"
+"Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/photos/photos/"
 "tr/>\n"
 "Language: tr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:33+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -54,15 +54,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Altklasör oluşturulamadı  %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Shotwell kütüphanesine erişim sırasında kritik bir hata meydana geldi.  "
-"Shotwell işlemi sürdüremiyor.\n"
+"Fotoğraflar kütüphanesine erişim sırasında kritik bir hata meydana geldi. "
+"Fotoğraflar işlemi sürdüremiyor.\n"
 "\n"
 "%s"
 
@@ -267,14 +267,12 @@ msgid "Restore Photos from Trash"
 msgstr "Çöpteki Fotoğrafları Geri Getir"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Fotoğrafları Shotwell çöp kutusuna taşı"
+msgstr "Fotoğrafları Fotoğraflar çöp kutusuna taşı"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Shotwell kitaplığındaki fotoğrafları geri getir"
+msgstr "Fotoğrafları, Fotoğraflar kütüphanesine geri gönder"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -389,51 +387,50 @@ msgid "Leave fullscreen"
 msgstr "Tam ekrandan çık"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Fotoğraf kütüphaneniz Shotwell'in bu sürümüyle uyumlu değil. Shotwell %s "
-"(schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). Lütfen "
-"Shotwell'in son sürümünü kullanın."
+"Fotoğraf kütüphaneniz Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar %"
+"s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
+"Lütfen Fotoğraflar'ın son sürümünü kullanın."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell fotoğraf kütüphanenizi sürüm %s (schema %d) den %s (schema %d) 'e "
-"güncellemeyi başaramadı. Daha fazla bilgi için lütfen Shotwelll Wiki'yi "
+"Fotoğraflar fotoğraf kütüphanenizi sürüm %s (schema %d) den %s (schema %d) "
+"'e güncellemeyi başaramadı. Daha fazla bilgi için lütfen Fotoğraflar Wiki'yi "
 "buradan %s kontrol edin."
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Fotoğraf kütüphaneniz Shotwell'in bu sürümüyle uyumlu değil. Shotwell %s "
-"(schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). Lütfen "
-"kütüphanenizi %s i silerek temizleyin ve resimlerini tekrar içe aktarın."
+"Fotoğraf kütüphaneniz Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar %"
+"s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
+"Lütfen kütüphanenizi %s i silerek temizleyin ve resimlerini tekrar içe "
+"aktarın."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Shotwell veritabanı doğrulamayı deneyen bilinmeyen hata: %s"
+msgstr "Fotoğraflar'ın veritabanını doğrulamayı denerken bilinmeyen hata: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Shotwell Yükleniyor"
+msgstr "Fotoğraflar Yükleniyor"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Shotwell özel verilerine giden yol"
+msgstr "Fotoğraflar'ın özel verilerine giden yol"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -453,7 +450,7 @@ msgstr "Uygulama sürümünü göster"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Ekstra hata ayıklama çıktıları göster"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -565,9 +562,8 @@ msgid "Image Settings"
 msgstr "Görüntü Ayarları"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "_Baskı..."
+msgstr "Yazdırıyor…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -724,9 +720,8 @@ msgid "Revert to Original"
 msgstr "Özgün Haline Döndür"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Olayı Yeniden Adlandır"
+msgstr "Olayı Yeniden Adlandır…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -785,9 +780,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Fotoğrafın bir kopyasını oluştur"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Dışa Aktar"
+msgstr "_Dışa Aktar…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -798,14 +792,12 @@ msgid "Hide info panel"
 msgstr "Bilgi panelini gizle"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
-msgstr "_Baskı..."
+msgstr "_Yazdır…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Yayımla"
+msgstr "Yayımla…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -820,9 +812,8 @@ msgid "Edit Comment"
 msgstr "Yorumu Düzenle"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Tarih ve Zamanı Ayarla"
+msgstr "Tarih ve Zamanı Ayarla…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -830,12 +821,11 @@ msgstr "Tarih ve Zamanı Ayarla"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_İçinde Aç"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "RA_W Düzenleyicisi İle Aç"
+msgstr "_RAW Düzenleyicisi İle Aç…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -891,9 +881,9 @@ msgid "_New"
 msgstr "_Yeni"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "\"%s\" Etiketini Yeniden _Adlandır..."
+msgstr "\"%s\" Etiketini Yeniden Adlandır…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -901,14 +891,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "\"%s\" Etiketini \"%s\" Olarak Yeniden Adlandır"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
-msgstr "_Yeniden Adlandır..."
+msgstr "_Yeniden Adlandır…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Etiketleri Düzenle"
+msgstr "Etiketleri Düzenle…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -965,14 +953,12 @@ msgid "Delete Album"
 msgstr "Albümü Sil"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Düzenle"
+msgstr "_Düzenle…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
-msgstr "Ye_niden Adlandır..."
+msgstr "Yeniden Adlandır…"
 
 #: src/Resources.vala:250
 #, c-format
@@ -1005,9 +991,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Seçili fotoğrafları kitaplığa geri taşı"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Dosya Yö_neticisinde Göster"
+msgstr "Dosya Yöneticisi"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1200,7 +1185,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "\"%s\" bu akıllı albüm kaldırılacak.  Devam edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1208,11 +1192,11 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Geliştiricileri değiştirmek Shotwell'de bu fotoğraf(lar)a yapmış olduğunuz "
-"tüm değişiklikleri geri alacak"
+"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraf(lar)a yapmış "
+"olduğunuz tüm değişiklikleri geri alacak"
 msgstr[1] ""
-"Geliştiricileri değiştirmek Shotwell'de bu fotoğraf(lar)a yapmış olduğunuz "
-"tüm değişiklikleri geri alacak"
+"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraf(lar)a yapmış "
+"olduğunuz tüm değişiklikleri geri alacak"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1246,12 +1230,12 @@ msgstr "_Seç"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell bu fotoğrafı düzenlemek için bir dosya oluşturamıyor çünkü %s ye "
+"Fotoğraflar bu fotoğrafı düzenlemek için bir dosya oluşturamıyor çünkü %s ye "
 "yazmaya izniniz yok."
 
 #: src/Dialogs/Dialogs.vala:156
@@ -1278,9 +1262,8 @@ msgid "Con_tinue"
 msgstr "Devam _Et"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Detayları Kaydet"
+msgstr "Detayları Kaydet…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1344,25 +1327,23 @@ msgstr "Dosyalar içe aktarılamadı çünkü fotoğraf ya da video olarak tanı
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Resimler/Videolar İçe Aktarılamadı Çünkü Shotwell'in Anlayabildiği Bir "
+"Resimler/Videolar İçe Aktarılamadı Çünkü Fotoğraflar'ın Anlayabildiği Bir "
 "Biçimde Değiller:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Resimler/Videolar İçe Aktarılamadı Çünkü Shotwell Onları Kendi Kütüphanesine "
-"Kopyalayamadı:"
+"Resimler/Videolar İçe Aktarılamadı Çünkü Fotoğraflar Onları Kendi "
+"Kütüphanesine Kopyalayamadı:"
 
 #: src/Dialogs/Dialogs.vala:324
 #, c-format
@@ -1718,12 +1699,11 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell fotoğrafları kütüphane klasörünün içine kopyalayabilir ya da "
+"Fotoğraflar, fotoğrafları kütüphane klasörünün içine kopyalayabilir ya da "
 "kopyalama olmadan içe aktarabilir."
 
 #: src/Dialogs/Dialogs.vala:866
@@ -1782,9 +1762,8 @@ msgid "_Scaling constraint:"
 msgstr "_Baskı ölçeklendiriliyor:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _benek"
+msgstr "_piksel"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -1868,7 +1847,7 @@ msgstr "aşağıdakilerden:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr ""
+msgstr "Kural ekle"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
 #: src/Views/DirectPhotoPage.vala:416
@@ -2158,14 +2137,14 @@ msgid "Import"
 msgstr "İçe aktar"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell fotoğraflarınızı ev dizininize aktarmaya yapılandırılmıştır.\n"
+"Fotoğraflar fotoğraflarınızı ev dizininize aktarmaya ayarlanmıştır.\n"
 "Bunu <span weight=\"bold\">Düzen %s Tercihler</span>den değiştirmenizi "
 "öneriyoruz.\n"
 "Fotoğraflarınızı aktarmaya devam etmek istiyor musunuz?"
@@ -2266,11 +2245,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2317,14 +2296,12 @@ msgid "The selected photo was successfully published."
 msgstr "Seçili fotoğraf başarıyla yayımlandı."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
-msgstr "Hesap bilgileri alınıyor..."
+msgstr "Hesap bilgileri alınıyor…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
-msgstr "Oturum açılıyor..."
+msgstr "Oturum açılıyor…"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
@@ -2357,17 +2334,17 @@ msgid "Unable to publish"
 msgstr "Yayımlanamıyor"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell seçili öğeleri yayımlayamaz çünkü uyumlu bir yayımlama eklentiniz "
-"etkinleştirilmemiş. Bunu düzeltmek için, <b> Düzenle %s Tercihler </b> yi "
-"seçin ve <b> Eklentiler</b> sekmesinden bir veya daha fazla yayımlama "
-"eklentisini etkinleştirin."
+"Fotoğraflar seçili öğeleri yayımlayamaz çünkü uyumlu bir yayımlama "
+"eklentiniz etkinleştirilmemiş. Bunu düzeltmek için, <b> Düzenle %s Tercihler "
+"</b> yi seçin ve <b> Eklentiler</b> sekmesinden bir veya daha fazla "
+"yayımlama eklentisini etkinleştirin."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2420,9 +2397,8 @@ msgid "Date"
 msgstr "Tarih"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "Yeni _Etiket..."
+msgstr "Yeni _Etiket…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2577,7 +2553,7 @@ msgstr "_Geliştirici"
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr ""
+msgstr "Diğer Eylemler"
 
 #: src/Views/CollectionPage.vala:598
 msgid "Export Photo/Video"
@@ -2659,12 +2635,11 @@ msgstr "Çevir"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Sayfaya sığdırmak için yakınlaş"
 
 #: src/Views/EditingHostPage.vala:153
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "Yakınlaştır _100%"
+msgstr "Yakınlaş 1:1"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -2688,9 +2663,8 @@ msgid "No Event"
 msgstr "Olay yok"
 
 #: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
-msgstr "Olayları _Birleştir"
+msgstr "Olayları birleştir"
 
 #: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
@@ -2726,9 +2700,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2765,9 +2738,8 @@ msgstr "_Tümünü İçe Aktar"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:942
-#, fuzzy
 msgid "Starting import, please wait…"
-msgstr "İçe aktarım başlıyor, lütfen bekleyin..."
+msgstr "İçe aktarım başlıyor, lütfen bekleyin…"
 
 #: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
@@ -2783,12 +2755,11 @@ msgstr "Tüm fotoğrafları kütüphaneye aktar"
 
 #. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
 msgstr ""
-"Shotwell, erişim sağlamak için kameranın dosya sisteminden ayrılmasına "
+"Fotoğraflar, erişim sağlamak için kameranın dosya sisteminden ayrılmasına "
 "ihtiyaç duyuyor. Devam edilsin mi?"
 
 #: src/Views/ImportPage.vala:1105
@@ -2800,13 +2771,12 @@ msgid "Please unmount the camera."
 msgstr "Lütfen kamerayı ayırın."
 
 #: src/Views/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
 msgstr ""
-"Kamera, başka bir uygulama tarafından kullanılıyor. Shotwell, kameraya "
+"Kamera, başka bir uygulama tarafından kullanılıyor. Fotoğraflar, kameraya "
 "yalnızca boştayken erişebilir. Lütfen kamerayı kullanan diğer uygulamayı "
 "kapatın ve yeniden deneyin."
 
@@ -2824,9 +2794,8 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
-msgstr "Ayrılıyor..."
+msgstr "Çıkarılıyor…"
 
 #: src/Views/ImportPage.vala:1253
 msgid "Fetching photo information"
@@ -2890,9 +2859,8 @@ msgstr[0] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
 msgstr[1] "%d fotoğraf/video hatalar sebebiyle kameradan silinemiyor."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "İçe Aktarılıyor"
+msgstr "İçe Aktarılıyor…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2903,9 +2871,8 @@ msgid "Stop importing photos"
 msgstr "Fotoğrafları içe aktarmayı durdur"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "İçe Aktarmaya Hazırlanıyor..."
+msgstr "İçe Aktarmaya Hazırlanıyor…"
 
 #: src/Views/ImportQueuePage.vala:154
 #, c-format
@@ -2926,9 +2893,8 @@ msgid "Missing Files"
 msgstr "Eksik Dosyalar"
 
 #: src/Views/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
-msgstr "Siliniyor..."
+msgstr "Siliniyor…"
 
 #: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
 msgid "Ta_gs"
@@ -2964,11 +2930,13 @@ msgid "Sort photos by exposure date"
 msgstr "Fotoğrafları çekim tarihine göre sırala"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
-msgstr "Shotwell seçili videoyu oynatamadı: %s"
+msgstr ""
+"Fotoğraflar seçili videoyu oynatamadı: \n"
+"%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
 msgid "Add Some Photos"
@@ -3015,23 +2983,20 @@ msgid "Go to the next photo"
 msgstr "Sonraki fotoğrafa git"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Başlığı g_öster"
+msgstr "Fotoğraf başlıklarını göster"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "_Geçiş etkisi:"
+msgstr "Geçiş hızı"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
-msgstr ""
+msgstr "Daha hızlı"
 
 #: src/Views/SlideshowPage.vala:99
-#, fuzzy
 msgid "Slower"
-msgstr "ve daha alçak"
+msgstr "Daha yavaş"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
@@ -3078,14 +3043,12 @@ msgid "Videos"
 msgstr "Videolar"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Geçiş etkisi:"
+msgstr "Geçiş efekti"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Kaldır"
+msgstr "Kuralı kaldır"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3181,9 +3144,8 @@ msgid "does not contain"
 msgstr "içermez"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Yazılan Görüntü Boyutu</b>"
+msgstr "Yazdırılan Resim Boyutu"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3210,18 +3172,16 @@ msgid "_Match photo aspect ratio"
 msgstr "Fotoğraf en-boy oranını _eşleştir"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Başlıklar"
+msgstr "Başlıklar"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Resim _başlığını yazdır"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Piksel Çözünürlüğü</b>"
+msgstr "Piksel Çözünürlüğü"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3335,9 +3295,9 @@ msgstr ""
 "  İbrahim Ethem Göl https://launchpad.net/~ethem578"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
-msgstr "%s albümü oluşturuluyor..."
+msgstr "%s albümü oluşturuluyor…"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
 msgid "An error message occurred when publishing to Piwigo. Please try again."
@@ -3488,9 +3448,8 @@ msgstr ""
 "başlatın, daha sonra tekrar yayımlamayı deneyin."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "Giriş için hazırlanıyor..."
+msgstr "Giriş için hazırlanıyor…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3502,9 +3461,8 @@ msgstr ""
 "edemiyor."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
-msgstr "Yetkilendirme doğrulanıyor..."
+msgstr "Yetkilendirme doğrulanıyor…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1159
 #, c-format
@@ -3595,14 +3553,12 @@ msgid "Large (2048 pixels)"
 msgstr "Geniş (2048 piksel)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
-msgstr "Facebook bağlantısı sınanıyor..."
+msgstr "Facebook bağlantısı sınanıyor…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "Albüm oluşturuluyor..."
+msgstr "Albüm oluşturuluyor…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
