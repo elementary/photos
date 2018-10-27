@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 18:49+0100\n"
+"POT-Creation-Date: 2018-10-18 05:41-0500\n"
 "PO-Revision-Date: 2018-07-10 00:03+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/photos/"
@@ -135,87 +135,6 @@ msgstr "Okvarjena slikovna datoteka"
 #, c-format
 msgid "Imported failed (%d)"
 msgstr "Uvoz je spodletel (%d)"
-
-#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
-msgid "S_lideshow"
-msgstr "P_redstavitev"
-
-#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
-msgid "Play a slideshow"
-msgstr "Predvaja diapredstavitev"
-
-#: src/Views/CollectionPage.vala:95
-msgid "Adjust the size of the thumbnails"
-msgstr "Prilagodi velikost sličic"
-
-#: src/Views/CollectionPage.vala:127 src/Views/LibraryPhotoPage.vala:483
-#: src/Views/MediaPage.vala:68 src/Views/ImportPage.vala:854
-#: src/Views/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:376
-#: src/library/LibraryWindow.vala:377 src/Views/OfflinePage.vala:105
-#: src/Views/TrashPage.vala:160
-msgid "Edit Photo In_fo"
-msgstr "Uredi informacije v sliki"
-
-#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
-msgid "_Developer"
-msgstr "_Razvijalec"
-
-#: src/Views/CollectionPage.vala:196 src/Views/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:343
-msgid "View Eve_nt for Photo"
-msgstr "Oglej si dogo_dek za fotografijo"
-
-#: src/Views/CollectionPage.vala:211 src/Views/LibraryPhotoPage.vala:557
-#: src/Views/DirectPhotoPage.vala:155
-msgid "Other Actions"
-msgstr "Druge možnosti"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photo/Video"
-msgstr "Izvozi fotografijo ali videoposnetek"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Izvozi fotografije/videoposnetke"
-
-#: src/Views/CollectionPage.vala:600 src/Views/LibraryPhotoPage.vala:803
-#: src/Dialogs/Dialogs.vala:90
-msgid "Export Photo"
-msgstr "Izvozi fotografijo"
-
-#: src/Views/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
-msgid "Export Photos"
-msgstr "Izvozi fotografije"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Rotating"
-msgstr "Vrtenje"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Undoing Rotate"
-msgstr "Razveljavljanje vrtenja"
-
-#: src/Views/CollectionPage.vala:718
-msgid "Flipping Horizontally"
-msgstr "Zrcaljenje vodoravno"
-
-#: src/Views/CollectionPage.vala:719
-msgid "Undoing Flip Horizontally"
-msgstr "Razveljavljanje vodoravnega zrcaljenja"
-
-#: src/Views/CollectionPage.vala:728
-msgid "Flipping Vertically"
-msgstr "Zrcaljenje navpično"
-
-#: src/Views/CollectionPage.vala:729
-msgid "Undoing Flip Vertically"
-msgstr "Razveljavljanje navpičnega zrcaljenja"
-
-#: src/Views/CollectionPage.vala:914 src/Views/CollectionPage.vala:915
-#: src/Views/CheckerboardPage.vala:91 src/Views/PhotosPage.vala:64
-#: src/Views/RawsPage.vala:64
-msgid "No photos/videos"
-msgstr "Ni fotografij/videov"
 
 #: src/Commands.vala:746
 msgid "Reverting"
@@ -420,32 +339,6 @@ msgstr "Višina"
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Ni mogoče opazovati %s: Ni mapa (%s)"
 
-#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/Views/EditingHostPage.vala:106
-msgid "Rotate"
-msgstr "Zavrti"
-
-#: src/Views/EditingHostPage.vala:144
-msgid "Zoom to fit page"
-msgstr ""
-
-#: src/Views/EditingHostPage.vala:153
-msgid "Zoom 1:1"
-msgstr "Povečava _100%"
-
-#: src/Views/EditingHostPage.vala:173
-msgid "Previous photo"
-msgstr "Predhodna fotografija"
-
-#: src/Views/EditingHostPage.vala:177
-msgid "Next photo"
-msgstr "Naslednja fotografija"
-
-#: src/Views/EditingHostPage.vala:1504
-#, c-format
-msgid "Photo source file missing: %s"
-msgstr "Izvirna datoteka fotografije manjka: %s"
-
 #. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
@@ -483,10 +376,10 @@ msgstr "Zamenjaj _vse"
 #: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
 #: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
 #: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74 src/Views/DirectPhotoPage.vala:327
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/Dialogs/TextEntryDialog.vala:74
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -501,19 +394,6 @@ msgstr "Pripni odprto orodno vrstico"
 #: src/FullScreenWindow.vala:58
 msgid "Leave fullscreen"
 msgstr "Zapusti celozaslonski način"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:878
-msgid "Remove From Library"
-msgstr "Odstrani iz knjižnice"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:879
-msgid "Removing Photo From Library"
-msgstr "Odstranjevanje fotografije iz knjižnice"
-
-#: src/Views/LibraryPhotoPage.vala:823
-#, c-format
-msgid "Unable to export %s: %s"
-msgstr "%s ni mogoče izvoziti: %s"
 
 #: src/main.vala:68
 #, c-format
@@ -596,100 +476,6 @@ msgstr "Za popoln seznam možnosti ukazne vrstice zaženite '%s --help'.\n"
 msgid "Unable to process monitoring updates: %s"
 msgstr "Ni mogoče obdelati posodobitev nadziranja: %s"
 
-#: src/Views/MediaPage.vala:64 src/Views/ImportPage.vala:850
-#: src/Views/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:371
-#: src/Views/OfflinePage.vala:101 src/Views/TrashPage.vala:156
-msgid "S_idebar"
-msgstr "Stranska vrstica"
-
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
-msgid "_Titles"
-msgstr "_Naslovi"
-
-#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:237
-#: src/Views/EventsDirectoryPage.vala:229
-msgid "_Comments"
-msgstr "_Komentarji"
-
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
-msgid "Ta_gs"
-msgstr "Ozna_ke"
-
-#: src/Views/MediaPage.vala:84
-msgid "Sort _Photos"
-msgstr "Razvrsti _fotografije"
-
-#. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
-msgid "By _Title"
-msgstr "Po _naslovu"
-
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
-msgid "By Exposure _Date"
-msgstr "Po _datumu zajema"
-
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/ImportPage.vala:864
-#: src/Views/EventsDirectoryPage.vala:141 src/library/LibraryWindow.vala:388
-#: src/Views/OfflinePage.vala:111 src/Views/TrashPage.vala:166
-msgid "_Ascending"
-msgstr "N_araščajoče"
-
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/ImportPage.vala:873
-#: src/Views/EventsDirectoryPage.vala:150 src/library/LibraryWindow.vala:394
-#: src/Views/OfflinePage.vala:120 src/Views/TrashPage.vala:175
-msgid "D_escending"
-msgstr "_Padajoče"
-
-#: src/Views/MediaPage.vala:130 src/Views/ImportPage.vala:862
-#: src/Views/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:341
-#: src/Views/OfflinePage.vala:109 src/Views/TrashPage.vala:164
-msgid "Sort _Events"
-msgstr "Razvrsti _dogodke"
-
-#: src/Views/MediaPage.vala:155 src/Views/EventsDirectoryPage.vala:164
-msgid "Fulls_creen"
-msgstr "_Celozaslonski način"
-
-#: src/Views/MediaPage.vala:232 src/Views/ImportPage.vala:962
-msgid "Display the title of each photo"
-msgstr "Prikaže naslov vsake fotografije"
-
-#: src/Views/MediaPage.vala:238
-msgid "Display the comment of each photo"
-msgstr "Prikaži komentar vsake fotografije"
-
-#: src/Views/MediaPage.vala:244
-msgid "Display each photo's tags"
-msgstr "Prikaže oznake vsake fotografije"
-
-#: src/Views/MediaPage.vala:260
-msgid "Sort photos by title"
-msgstr "Razvrsti fotografije po naslovu"
-
-#: src/Views/MediaPage.vala:266
-msgid "Sort photos by exposure date"
-msgstr "Razvrsti fotografije po datumu zajema"
-
-#: src/Views/MediaPage.vala:276 src/library/LibraryWindow.vala:388
-msgid "Sort photos in an ascending order"
-msgstr "Razvrsti fotografije v naraščajočem vrstnem redu"
-
-#: src/Views/MediaPage.vala:281 src/library/LibraryWindow.vala:394
-msgid "Sort photos in a descending order"
-msgstr "Razvrsti fotografije v padajočem vrstnem redu"
-
-#: src/Views/MediaPage.vala:413
-#, c-format
-msgid ""
-"Photos was unable to play the selected video:\n"
-"%s"
-msgstr ""
-"Ni bilo mogoče predvajati izbranega videoposnetka:\n"
-"%s"
-
 #: src/Photo.vala:3787
 msgid "modified"
 msgstr "spremenjeno"
@@ -722,59 +508,59 @@ msgstr "16 slik na stran"
 msgid "32 images per page"
 msgstr "32 slik na stran"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:201
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
 msgid "Wallet (2 x 3 in.)"
 msgstr "Denarnica (2 x 3 palce)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:202
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
 msgid "Notecard (3 x 5 in.)"
 msgstr "Beležka (3 x 5 palcev)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:203
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
 msgstr "4 x 6 palcev"
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:204
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
 msgstr "5 x 7 palcev"
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:205
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
 msgstr "8 x 10 palcev"
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
 msgstr "11 x 14 palcev"
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
 msgstr "16 x 20 palcev"
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Metrična denarnica (9 x 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:212
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
 msgid "Postcard (10 x 15 cm)"
 msgstr "Razglednica (10 x 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:218
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -799,9 +585,9 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/Views/PhotosPage.vala:24
-#: src/Views/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
+#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
+#: src/Views/PhotosPage.vala:37
 msgid "Photos"
 msgstr "Fotografije"
 
@@ -1277,59 +1063,6 @@ msgstr "%d.%m. %Y"
 msgid "Search Photos"
 msgstr "Iskanje fotografij"
 
-#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
-msgid "Slideshow"
-msgstr "Diapredstavitev"
-
-#: src/Views/SlideshowPage.vala:64
-msgid "Back"
-msgstr "Nazaj"
-
-#: src/Views/SlideshowPage.vala:65
-msgid "Go to the previous photo"
-msgstr "Skoči na predhodno fotografijo"
-
-#: src/Views/SlideshowPage.vala:68
-msgid "Pause"
-msgstr "Premor"
-
-#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
-msgid "Pause the slideshow"
-msgstr "Naredi premor diapredstavitve"
-
-#: src/Views/SlideshowPage.vala:73
-msgid "Next"
-msgstr "Naslednja"
-
-#: src/Views/SlideshowPage.vala:74
-msgid "Go to the next photo"
-msgstr "Skoči na naslednjo fotografijo"
-
-#: src/Views/SlideshowPage.vala:81
-msgid "Show Photo Titles"
-msgstr "Pokaži _naslove"
-
-#: src/Views/SlideshowPage.vala:96
-msgid "Transition Speed"
-msgstr "Hitrost _prehoda"
-
-#: src/Views/SlideshowPage.vala:98
-msgid "Faster"
-msgstr "Hitreje"
-
-#: src/Views/SlideshowPage.vala:99
-msgid "Slower"
-msgstr "Počasneje"
-
-#. An entire slideshow set might be missing, so check for a loop.
-#: src/Views/SlideshowPage.vala:164
-msgid "All photo source files are missing."
-msgstr "Manjkajo vse izvorne datoteke fotografije."
-
-#: src/Views/SlideshowPage.vala:196
-msgid "Continue the slideshow"
-msgstr "Nadaljuj z diapredstavitvijo"
-
 #: src/Tag.vala:830
 msgid "untitled"
 msgstr "neimenovano"
@@ -1343,178 +1076,10 @@ msgstr "Izvozi videoposnetke"
 msgid "Cameras"
 msgstr "Fotoaparati"
 
-#: src/camera/Branch.vala:110 src/Views/ImportPage.vala:729
-#: src/Views/ImportPage.vala:745 src/photos/RawSupport.vala:313
+#: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
+#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
 msgid "Camera"
 msgstr "Fotoaparat"
-
-#: src/Views/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
-msgid "RAW+JPEG"
-msgstr "RAW+JPEG"
-
-#: src/Views/ImportPage.vala:464
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr ""
-"Fotoaparata ni mogoče odklopiti. Poskusite odklopiti fotoaparat v "
-"upravljalniku datotek."
-
-#: src/Views/ImportPage.vala:788
-msgid "Hide photos already imported"
-msgstr "Skrij že uvožene fotografije"
-
-#: src/Views/ImportPage.vala:791
-msgid "Only display photos that have not been imported"
-msgstr "Pokaži le fotografije, ki niso bile uvožene"
-
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
-msgid "Import _Selected"
-msgstr "Uvozi _izbrane"
-
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
-msgid "Import _All"
-msgstr "Uvozi _vse"
-
-#. Ticket #3304 - Import page shouldn't display confusing message
-#. prior to import.
-#. TODO: replace this with approved text for "talking to camera,
-#. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
-#, fuzzy
-msgid "Starting import, please wait…"
-msgstr "Začenjanje uvoza, prosimo počakajte ..."
-
-#: src/Views/ImportPage.vala:974
-msgid "Import the selected photos into your library"
-msgstr "Uvozi izbrane fotografije iz vaše knjižnice"
-
-#: src/Views/ImportPage.vala:979
-msgid "Import all the photos into your library"
-msgstr "Uvozi vse fotografije v vašo knjižnico"
-
-#. it's mounted, offer to unmount for the user
-#: src/Views/ImportPage.vala:1099
-msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-"Za dostop do fotoaparata je treba napravo najprej odklopiti iz datotečnega "
-"sistema. Ali želite nadaljevati?"
-
-#: src/Views/ImportPage.vala:1105
-msgid "_Unmount"
-msgstr "_Odklopi"
-
-#: src/Views/ImportPage.vala:1110
-msgid "Please unmount the camera."
-msgstr "Odklopite fotoaparat."
-
-#: src/Views/ImportPage.vala:1115
-msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-"Fotoaparat je zaklenil drug program. Aplikacija lahko do fotoaparata dostopa "
-"le, ko je odklenjen. Zaprite druge programe, ki uporabljajo fotoaparat in "
-"poskusite znova."
-
-#: src/Views/ImportPage.vala:1125
-msgid "Please close any other application using the camera."
-msgstr "Zaprite druge programe, ki uporabljajo fotoaparat."
-
-#: src/Views/ImportPage.vala:1130
-#, c-format
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-"Iz fotoaparata ni mogoče pridobiti slik za predogled:\n"
-"%s"
-
-#: src/Views/ImportPage.vala:1147
-#, fuzzy
-msgid "Unmounting…"
-msgstr "Odklapljanje ..."
-
-#: src/Views/ImportPage.vala:1253
-msgid "Fetching photo information"
-msgstr "Pridobivanje podatkov o fotografiji"
-
-#: src/Views/ImportPage.vala:1608
-#, c-format
-msgid "Fetching preview for %s"
-msgstr "Pridobivanje predogleda za %s"
-
-#: src/Views/ImportPage.vala:1724
-#, c-format
-msgid "Unable to lock camera: %s"
-msgstr "Fotoaparata ni mogoče zakleniti: %s"
-
-#: src/Views/ImportPage.vala:1809
-#, c-format
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Ali naj se izbriše %d slike iz fotoaparata?"
-msgstr[1] "Ali naj se izbriše %d slik iz fotoaparata?"
-msgstr[2] "Ali naj se izbriše %d slika iz fotoaparata?"
-msgstr[3] "Ali naj se izbriše %d sliki iz fotoaparata?"
-
-#: src/Views/ImportPage.vala:1812
-#, c-format
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Ali želite izbrisati %d videoposnetke iz fotoaparata?"
-msgstr[1] "Ali želite izbrisati %d videoposnetkov iz fotoaparata?"
-msgstr[2] "Ali želite izbrisati %d videoposnetek iz fotoaparata?"
-msgstr[3] "Ali želite izbrisati %d videoposnetka iz fotoaparata?"
-
-#: src/Views/ImportPage.vala:1815
-#, c-format
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Ali želite izbrisati %d fotografije/videoposnetke iz fotoaparata?"
-msgstr[1] "Ali želite izbrisati %d fotografij/videoposnetkov iz fotoaparata?"
-msgstr[2] "Ali želite izbrisati %d fotografijo/videoposnetek iz fotoaparata?"
-msgstr[3] "Ali želite izbrisati %d fotografiji/videoposnetka iz fotoaparata?"
-
-#: src/Views/ImportPage.vala:1818
-#, c-format
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Ali želite te %d datoteke izbrisati iz fotoaparata?"
-msgstr[1] "Ali želite teh %d datotek izbrisati iz fotoaparata?"
-msgstr[2] "Ali želite izbrisati %d datoteko iz fotoaparata?"
-msgstr[3] "Ali želite te %d datoteki izbrisati iz fotoaparata?"
-
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
-msgid "Delete"
-msgstr "Izbriši"
-
-#: src/Views/ImportPage.vala:1826
-msgid "_Keep"
-msgstr "_Obdrži"
-
-#: src/Views/ImportPage.vala:1845
-msgid "Removing photos/videos from camera"
-msgstr "Odstranjevanje fotografij/videoposnetkov iz fotoaparata"
-
-#: src/Views/ImportPage.vala:1849
-#, c-format
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] ""
-"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
-msgstr[1] ""
-"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
-msgstr[2] ""
-"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografije/videoposnetka."
-msgstr[3] ""
-"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
-
-#: src/Views/CheckerboardPage.vala:95
-msgid "No photos/videos found"
-msgstr "Ni najdenih fotografij/videov"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
 #: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
@@ -1665,10 +1230,19 @@ msgstr "_Zamenjaj razvijalca"
 msgid "Export Video"
 msgstr "Izvozi videoposnetek"
 
+#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Views/LibraryPhotoPage.vala:803
+msgid "Export Photo"
+msgstr "Izvozi fotografijo"
+
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Shrani"
+
+#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+msgid "Export Photos"
+msgstr "Izvozi fotografije"
 
 #: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
@@ -2287,6 +1861,14 @@ msgstr "_Uvozi na mesto"
 msgid "Import to Library"
 msgstr "Uvozi v knjižnico"
 
+#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+msgid "Remove From Library"
+msgstr "Odstrani iz knjižnice"
+
+#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+msgid "Removing Photo From Library"
+msgstr "Odstranjevanje fotografije iz knjižnice"
+
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
 msgstr "Odstranjevanje fotografij iz knjižnice"
@@ -2379,6 +1961,44 @@ msgstr "_Zapri"
 msgid "%d%%"
 msgstr "%d%%"
 
+#: src/Dialogs/SavedSearchDialog.vala:42
+msgid "Add"
+msgstr "Dodaj"
+
+#. Add close button.
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+msgid "Save"
+msgstr "Shrani"
+
+#: src/Dialogs/SavedSearchDialog.vala:88
+msgid "_Match"
+msgstr "_Ujemanje"
+
+#: src/Dialogs/SavedSearchDialog.vala:91
+msgid "any"
+msgstr "katerikoli"
+
+#: src/Dialogs/SavedSearchDialog.vala:92
+msgid "all"
+msgstr "vse"
+
+#: src/Dialogs/SavedSearchDialog.vala:93
+msgid "none"
+msgstr "ničesar"
+
+#: src/Dialogs/SavedSearchDialog.vala:96
+msgid "of the following:"
+msgstr "od naslednjih:"
+
+#: src/Dialogs/SavedSearchDialog.vala:101
+msgid "Add rule"
+msgstr "Dodaj pravilo"
+
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
+#: src/Views/DirectPhotoPage.vala:416
+msgid "Cancel"
+msgstr "Prekliči"
+
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
@@ -2408,57 +2028,6 @@ msgstr ""
 "\n"
 "Napaka je bila: \n"
 "%s"
-
-#: src/Views/DirectPhotoPage.vala:95
-#, c-format
-msgid "%s does not exist."
-msgstr "%s ne obstaja."
-
-#: src/Views/DirectPhotoPage.vala:97
-#, c-format
-msgid "%s is not a file."
-msgstr "%s ni datoteka."
-
-#: src/Views/DirectPhotoPage.vala:99
-#, c-format
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr ""
-"%s ne podpira vrste datoteke\n"
-"%s."
-
-#: src/Views/DirectPhotoPage.vala:314
-msgid "_Save a Copy"
-msgstr "_Shrani kopijo"
-
-#: src/Views/DirectPhotoPage.vala:317
-#, c-format
-msgid "Lose changes to %s?"
-msgstr "Zavrzi spremembe %s?"
-
-#: src/Views/DirectPhotoPage.vala:324
-msgid "Close _without Saving"
-msgstr "Zapri _brez shranjevanja"
-
-#: src/Views/DirectPhotoPage.vala:364
-#, c-format
-msgid "Error while saving to %s: %s"
-msgstr "Napaka med shranjevanjem v: %s: %s"
-
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
-msgid "Save As"
-msgstr "Shrani kot"
-
-#: src/Views/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:616
-#: src/Dialogs/SavedSearchDialog.vala:131
-msgid "Cancel"
-msgstr "Prekliči"
-
-#. Add close button.
-#: src/Views/DirectPhotoPage.vala:417 src/Dialogs/SavedSearchDialog.vala:56
-msgid "Save"
-msgstr "Shrani"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
@@ -2493,67 +2062,59 @@ msgstr "Zapri orodje rdečih oči"
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Odstrani morebitne učinke rdečih oči v izbranemu področju"
 
-#: src/editing_tools/CropTool.vala:102
-msgid "Return to current photo dimensions"
-msgstr "Vrni se na trenutne mere fotografije"
-
-#: src/editing_tools/CropTool.vala:104
-msgid "Set the crop for this photo"
-msgstr "Nastavi obrez za to fotografijo"
-
-#: src/editing_tools/CropTool.vala:115
+#: src/editing_tools/CropTool.vala:111
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr ""
 "Pripni okvir za obrezovanje na sliko med pokončno in ležečo postavitvijo "
 "strani"
 
-#: src/editing_tools/CropTool.vala:193
+#: src/editing_tools/CropTool.vala:205
 msgid "Unconstrained"
 msgstr "Brez omejitev"
 
-#: src/editing_tools/CropTool.vala:194
+#: src/editing_tools/CropTool.vala:206
 msgid "Square"
 msgstr "Kvadrat"
 
-#: src/editing_tools/CropTool.vala:195
+#: src/editing_tools/CropTool.vala:207
 msgid "Screen"
 msgstr "Zaslon"
 
-#: src/editing_tools/CropTool.vala:196
+#: src/editing_tools/CropTool.vala:208
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Izvirna velikost"
 
-#: src/editing_tools/CropTool.vala:197 src/editing_tools/CropTool.vala:200
-#: src/editing_tools/CropTool.vala:210 src/editing_tools/CropTool.vala:220
+#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:198
+#: src/editing_tools/CropTool.vala:210
 msgid "SD Video (4 : 3)"
 msgstr "SD Video (4 : 3)"
 
-#: src/editing_tools/CropTool.vala:199
+#: src/editing_tools/CropTool.vala:211
 msgid "HD Video (16 : 9)"
 msgstr "HD Video (16 : 9)"
 
-#: src/editing_tools/CropTool.vala:206
+#: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Pismo (8.5 x 11 in.)"
 
-#: src/editing_tools/CropTool.vala:208
+#: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 palcev)"
 
-#: src/editing_tools/CropTool.vala:215
+#: src/editing_tools/CropTool.vala:227
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:219
+#: src/editing_tools/CropTool.vala:231
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:221
+#: src/editing_tools/CropTool.vala:233
 msgid "Custom"
 msgstr "Po meri"
 
@@ -2647,81 +2208,9 @@ msgstr[1] "%d fotografij"
 msgstr[2] "%d fotografija"
 msgstr[3] "%d fotografiji"
 
-#: src/Views/EventPage.vala:136
-msgid "All Events"
-msgstr "Vsi dogodki"
-
-#: src/Views/EventPage.vala:150
-msgid "No Event"
-msgstr "Brez dogodka"
-
-#: src/Views/EventsDirectoryPage.vala:67
-msgid "Merge events"
-msgstr "_Združi dogodke"
-
-#: src/Views/EventsDirectoryPage.vala:230
-msgid "Display the comment of each event"
-msgstr "Prikaži komentar vsakega dogodka"
-
-#: src/Views/EventsDirectoryPage.vala:254
-msgid "No events"
-msgstr "Ni dogodkov"
-
-#: src/Views/EventsDirectoryPage.vala:258
-msgid "No events found"
-msgstr "Ni najdenih dogodkov"
-
-#: src/Views/EventsDirectoryPage.vala:318
-msgid "Events"
-msgstr "Dogodki"
-
-#: src/Views/EventsDirectoryPage.vala:332
-msgid "Undated"
-msgstr "Brez datuma"
-
-#: src/Views/EventsDirectoryPage.vala:333
-msgid "%Y"
-msgstr "%Y"
-
-#: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
-msgid "%OB"
-msgstr "%B"
-
 #: src/library/Branch.vala:174
 msgid "All Photos"
 msgstr "Vse slike"
-
-#: src/Views/FlaggedPage.vala:21
-msgid "Flagged"
-msgstr "Z zastavico"
-
-#: src/Views/ImportQueuePage.vala:21
-#, fuzzy
-msgid "Importing…"
-msgstr "Uvažanje"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "_Stop Import"
-msgstr "_Zaustavi uvoz"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "Stop importing photos"
-msgstr "Zaustavi uvažanje fotografij"
-
-#: src/Views/ImportQueuePage.vala:127
-#, fuzzy
-msgid "Preparing to import…"
-msgstr "Pripravljanje na uvoz ..."
-
-#: src/Views/ImportQueuePage.vala:154
-#, c-format
-msgid "Imported %s"
-msgstr "Uvoženo %s"
-
-#: src/Views/LastImportPage.vala:21
-msgid "Last Import"
-msgstr "Zadnji uvoz"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
@@ -2735,6 +2224,17 @@ msgstr "_Možnosti"
 msgid "Settings"
 msgstr "Nastavitve"
 
+#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
+msgid "Sort _Events"
+msgstr "Razvrsti _dogodke"
+
+#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/Views/LibraryPhotoPage.vala:542
+msgid "View Eve_nt for Photo"
+msgstr "Oglej si dogo_dek za fotografijo"
+
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
@@ -2742,9 +2242,45 @@ msgstr "Nastavitve"
 msgid "New Smart Album…"
 msgstr "Nov pametni album…"
 
+#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
+msgid "S_idebar"
+msgstr "Stranska vrstica"
+
 #: src/library/LibraryWindow.vala:372
 msgid "Display the sidebar"
 msgstr "Prikaži stransko vrstico"
+
+#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
+#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
+#: src/Views/TrashPage.vala:160
+msgid "Edit Photo In_fo"
+msgstr "Uredi informacije v sliki"
+
+#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
+msgid "_Ascending"
+msgstr "N_araščajoče"
+
+#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+msgid "Sort photos in an ascending order"
+msgstr "Razvrsti fotografije v naraščajočem vrstnem redu"
+
+#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
+msgid "D_escending"
+msgstr "_Padajoče"
+
+#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+msgid "Sort photos in a descending order"
+msgstr "Razvrsti fotografije v padajočem vrstnem redu"
 
 #: src/library/LibraryWindow.vala:615
 msgid "Import From Folder"
@@ -2812,72 +2348,10 @@ msgstr "Spremeni lokacijo knjižnice"
 msgid "Choose where to keep your photos."
 msgstr "Izberite kje boste hranili vaše slike."
 
-#: src/Views/OfflinePage.vala:21
-msgid "Missing Files"
-msgstr "Manjkajoče datoteke"
-
-#: src/Views/OfflinePage.vala:201
-#, fuzzy
-msgid "Deleting…"
-msgstr "Brisanje ..."
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "Add Some Photos"
-msgstr "Dodajte nekaj slik"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "No Photos were found in your library."
-msgstr "V vaši knjižnici še ni nobene slike."
-
-#: src/Views/RawsPage.vala:24
-msgid "Raw Photos"
-msgstr "Raw fotografije"
-
-#: src/Views/RawsPage.vala:37
-msgid "Raws"
-msgstr "RAW fotografije"
-
 #: src/library/TopDisplay.vala:133
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
-
-#: src/Views/TrashPage.vala:22
-msgid "Trash"
-msgstr "Smeti"
-
-#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
-#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
-msgid "_Empty Trash"
-msgstr "Izprazni _smeti"
-
-#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
-msgid "Delete all photos in the trash"
-msgstr "Izbriše vse fotografije v smeteh"
-
-#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
-msgid "Trash is empty"
-msgstr "Ni smeti"
-
-#: src/Views/TrashPage.vala:294
-msgid "Deleting a Photo"
-msgid_plural "Deleting Photos"
-msgstr[0] "Brisanje fotografij"
-msgstr[1] "Brisanje fotografije"
-msgstr[2] "Brisanje fotografij"
-msgstr[3] "Brisanje fotografij"
-
-#: src/Views/TrashPage.vala:302
-msgid "Empty Trash"
-msgstr "Izprazni smeti"
-
-#: src/Views/TrashPage.vala:302
-msgid "Emptying Trash…"
-msgstr "Praznjenje smeti…"
-
-#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
-msgid "Videos"
-msgstr "Videoposnetki"
 
 #: src/photos/BmpSupport.vala:45
 msgid "BMP"
@@ -3035,34 +2509,6 @@ msgstr "Objavljanje"
 msgid "Smart Albums"
 msgstr "Pametni albumi"
 
-#: src/Dialogs/SavedSearchDialog.vala:42
-msgid "Add"
-msgstr "Dodaj"
-
-#: src/Dialogs/SavedSearchDialog.vala:88
-msgid "_Match"
-msgstr "_Ujemanje"
-
-#: src/Dialogs/SavedSearchDialog.vala:91
-msgid "any"
-msgstr "katerikoli"
-
-#: src/Dialogs/SavedSearchDialog.vala:92
-msgid "all"
-msgstr "vse"
-
-#: src/Dialogs/SavedSearchDialog.vala:93
-msgid "none"
-msgstr "ničesar"
-
-#: src/Dialogs/SavedSearchDialog.vala:96
-msgid "of the following:"
-msgstr "od naslednjih:"
-
-#: src/Dialogs/SavedSearchDialog.vala:101
-msgid "Add rule"
-msgstr "Dodaj pravilo"
-
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
 msgstr "Katerokoli besedilo"
@@ -3109,6 +2555,10 @@ msgstr "Datum"
 #, fuzzy
 msgid "New _Tag…"
 msgstr "Nova _oznaka ..."
+
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+msgid "RAW+JPEG"
+msgstr "RAW+JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3234,6 +2684,548 @@ msgstr "Oznake"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografij ni mogoče izvoziti v to mapo."
 
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
+#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/RawsPage.vala:64
+msgid "No photos/videos"
+msgstr "Ni fotografij/videov"
+
+#: src/Views/CheckerboardPage.vala:95
+msgid "No photos/videos found"
+msgstr "Ni najdenih fotografij/videov"
+
+#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
+msgid "S_lideshow"
+msgstr "P_redstavitev"
+
+#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
+msgid "Play a slideshow"
+msgstr "Predvaja diapredstavitev"
+
+#: src/Views/CollectionPage.vala:95
+msgid "Adjust the size of the thumbnails"
+msgstr "Prilagodi velikost sličic"
+
+#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
+msgid "_Developer"
+msgstr "_Razvijalec"
+
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/LibraryPhotoPage.vala:557
+msgid "Other Actions"
+msgstr "Druge možnosti"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photo/Video"
+msgstr "Izvozi fotografijo ali videoposnetek"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photos/Videos"
+msgstr "Izvozi fotografije/videoposnetke"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Rotating"
+msgstr "Vrtenje"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Undoing Rotate"
+msgstr "Razveljavljanje vrtenja"
+
+#: src/Views/CollectionPage.vala:718
+msgid "Flipping Horizontally"
+msgstr "Zrcaljenje vodoravno"
+
+#: src/Views/CollectionPage.vala:719
+msgid "Undoing Flip Horizontally"
+msgstr "Razveljavljanje vodoravnega zrcaljenja"
+
+#: src/Views/CollectionPage.vala:728
+msgid "Flipping Vertically"
+msgstr "Zrcaljenje navpično"
+
+#: src/Views/CollectionPage.vala:729
+msgid "Undoing Flip Vertically"
+msgstr "Razveljavljanje navpičnega zrcaljenja"
+
+#: src/Views/DirectPhotoPage.vala:95
+#, c-format
+msgid "%s does not exist."
+msgstr "%s ne obstaja."
+
+#: src/Views/DirectPhotoPage.vala:97
+#, c-format
+msgid "%s is not a file."
+msgstr "%s ni datoteka."
+
+#: src/Views/DirectPhotoPage.vala:99
+#, c-format
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr ""
+"%s ne podpira vrste datoteke\n"
+"%s."
+
+#: src/Views/DirectPhotoPage.vala:314
+msgid "_Save a Copy"
+msgstr "_Shrani kopijo"
+
+#: src/Views/DirectPhotoPage.vala:317
+#, c-format
+msgid "Lose changes to %s?"
+msgstr "Zavrzi spremembe %s?"
+
+#: src/Views/DirectPhotoPage.vala:324
+msgid "Close _without Saving"
+msgstr "Zapri _brez shranjevanja"
+
+#: src/Views/DirectPhotoPage.vala:364
+#, c-format
+msgid "Error while saving to %s: %s"
+msgstr "Napaka med shranjevanjem v: %s: %s"
+
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+msgid "Save As"
+msgstr "Shrani kot"
+
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+#: src/Views/EditingHostPage.vala:106
+msgid "Rotate"
+msgstr "Zavrti"
+
+#: src/Views/EditingHostPage.vala:144
+msgid "Zoom to fit page"
+msgstr ""
+
+#: src/Views/EditingHostPage.vala:153
+msgid "Zoom 1:1"
+msgstr "Povečava _100%"
+
+#: src/Views/EditingHostPage.vala:173
+msgid "Previous photo"
+msgstr "Predhodna fotografija"
+
+#: src/Views/EditingHostPage.vala:177
+msgid "Next photo"
+msgstr "Naslednja fotografija"
+
+#: src/Views/EditingHostPage.vala:1504
+#, c-format
+msgid "Photo source file missing: %s"
+msgstr "Izvirna datoteka fotografije manjka: %s"
+
+#: src/Views/EventPage.vala:136
+msgid "All Events"
+msgstr "Vsi dogodki"
+
+#: src/Views/EventPage.vala:150
+msgid "No Event"
+msgstr "Brez dogodka"
+
+#: src/Views/EventsDirectoryPage.vala:67
+msgid "Merge events"
+msgstr "_Združi dogodke"
+
+#: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
+msgid "Fulls_creen"
+msgstr "_Celozaslonski način"
+
+#: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
+#: src/Views/MediaPage.vala:237
+msgid "_Comments"
+msgstr "_Komentarji"
+
+#: src/Views/EventsDirectoryPage.vala:230
+msgid "Display the comment of each event"
+msgstr "Prikaži komentar vsakega dogodka"
+
+#: src/Views/EventsDirectoryPage.vala:254
+msgid "No events"
+msgstr "Ni dogodkov"
+
+#: src/Views/EventsDirectoryPage.vala:258
+msgid "No events found"
+msgstr "Ni najdenih dogodkov"
+
+#: src/Views/EventsDirectoryPage.vala:318
+msgid "Events"
+msgstr "Dogodki"
+
+#: src/Views/EventsDirectoryPage.vala:332
+msgid "Undated"
+msgstr "Brez datuma"
+
+#: src/Views/EventsDirectoryPage.vala:333
+msgid "%Y"
+msgstr "%Y"
+
+#: src/Views/EventsDirectoryPage.vala:334
+#, fuzzy
+msgid "%OB"
+msgstr "%B"
+
+#: src/Views/FlaggedPage.vala:21
+msgid "Flagged"
+msgstr "Z zastavico"
+
+#: src/Views/ImportPage.vala:464
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr ""
+"Fotoaparata ni mogoče odklopiti. Poskusite odklopiti fotoaparat v "
+"upravljalniku datotek."
+
+#: src/Views/ImportPage.vala:788
+msgid "Hide photos already imported"
+msgstr "Skrij že uvožene fotografije"
+
+#: src/Views/ImportPage.vala:791
+msgid "Only display photos that have not been imported"
+msgstr "Pokaži le fotografije, ki niso bile uvožene"
+
+#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+msgid "_Titles"
+msgstr "_Naslovi"
+
+#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+msgid "Import _Selected"
+msgstr "Uvozi _izbrane"
+
+#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+msgid "Import _All"
+msgstr "Uvozi _vse"
+
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
+#: src/Views/ImportPage.vala:942
+#, fuzzy
+msgid "Starting import, please wait…"
+msgstr "Začenjanje uvoza, prosimo počakajte ..."
+
+#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+msgid "Display the title of each photo"
+msgstr "Prikaže naslov vsake fotografije"
+
+#: src/Views/ImportPage.vala:974
+msgid "Import the selected photos into your library"
+msgstr "Uvozi izbrane fotografije iz vaše knjižnice"
+
+#: src/Views/ImportPage.vala:979
+msgid "Import all the photos into your library"
+msgstr "Uvozi vse fotografije v vašo knjižnico"
+
+#. it's mounted, offer to unmount for the user
+#: src/Views/ImportPage.vala:1099
+msgid ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+"Za dostop do fotoaparata je treba napravo najprej odklopiti iz datotečnega "
+"sistema. Ali želite nadaljevati?"
+
+#: src/Views/ImportPage.vala:1105
+msgid "_Unmount"
+msgstr "_Odklopi"
+
+#: src/Views/ImportPage.vala:1110
+msgid "Please unmount the camera."
+msgstr "Odklopite fotoaparat."
+
+#: src/Views/ImportPage.vala:1115
+msgid ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+"Fotoaparat je zaklenil drug program. Aplikacija lahko do fotoaparata dostopa "
+"le, ko je odklenjen. Zaprite druge programe, ki uporabljajo fotoaparat in "
+"poskusite znova."
+
+#: src/Views/ImportPage.vala:1125
+msgid "Please close any other application using the camera."
+msgstr "Zaprite druge programe, ki uporabljajo fotoaparat."
+
+#: src/Views/ImportPage.vala:1130
+#, c-format
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+"Iz fotoaparata ni mogoče pridobiti slik za predogled:\n"
+"%s"
+
+#: src/Views/ImportPage.vala:1147
+#, fuzzy
+msgid "Unmounting…"
+msgstr "Odklapljanje ..."
+
+#: src/Views/ImportPage.vala:1253
+msgid "Fetching photo information"
+msgstr "Pridobivanje podatkov o fotografiji"
+
+#: src/Views/ImportPage.vala:1608
+#, c-format
+msgid "Fetching preview for %s"
+msgstr "Pridobivanje predogleda za %s"
+
+#: src/Views/ImportPage.vala:1724
+#, c-format
+msgid "Unable to lock camera: %s"
+msgstr "Fotoaparata ni mogoče zakleniti: %s"
+
+#: src/Views/ImportPage.vala:1809
+#, c-format
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] "Ali naj se izbriše %d slike iz fotoaparata?"
+msgstr[1] "Ali naj se izbriše %d slik iz fotoaparata?"
+msgstr[2] "Ali naj se izbriše %d slika iz fotoaparata?"
+msgstr[3] "Ali naj se izbriše %d sliki iz fotoaparata?"
+
+#: src/Views/ImportPage.vala:1812
+#, c-format
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] "Ali želite izbrisati %d videoposnetke iz fotoaparata?"
+msgstr[1] "Ali želite izbrisati %d videoposnetkov iz fotoaparata?"
+msgstr[2] "Ali želite izbrisati %d videoposnetek iz fotoaparata?"
+msgstr[3] "Ali želite izbrisati %d videoposnetka iz fotoaparata?"
+
+#: src/Views/ImportPage.vala:1815
+#, c-format
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] "Ali želite izbrisati %d fotografije/videoposnetke iz fotoaparata?"
+msgstr[1] "Ali želite izbrisati %d fotografij/videoposnetkov iz fotoaparata?"
+msgstr[2] "Ali želite izbrisati %d fotografijo/videoposnetek iz fotoaparata?"
+msgstr[3] "Ali želite izbrisati %d fotografiji/videoposnetka iz fotoaparata?"
+
+#: src/Views/ImportPage.vala:1818
+#, c-format
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] "Ali želite te %d datoteke izbrisati iz fotoaparata?"
+msgstr[1] "Ali želite teh %d datotek izbrisati iz fotoaparata?"
+msgstr[2] "Ali želite izbrisati %d datoteko iz fotoaparata?"
+msgstr[3] "Ali želite te %d datoteki izbrisati iz fotoaparata?"
+
+#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+msgid "Delete"
+msgstr "Izbriši"
+
+#: src/Views/ImportPage.vala:1826
+msgid "_Keep"
+msgstr "_Obdrži"
+
+#: src/Views/ImportPage.vala:1845
+msgid "Removing photos/videos from camera"
+msgstr "Odstranjevanje fotografij/videoposnetkov iz fotoaparata"
+
+#: src/Views/ImportPage.vala:1849
+#, c-format
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] ""
+"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
+msgstr[1] ""
+"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
+msgstr[2] ""
+"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografije/videoposnetka."
+msgstr[3] ""
+"Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
+
+#: src/Views/ImportQueuePage.vala:21
+#, fuzzy
+msgid "Importing…"
+msgstr "Uvažanje"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "_Stop Import"
+msgstr "_Zaustavi uvoz"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "Stop importing photos"
+msgstr "Zaustavi uvažanje fotografij"
+
+#: src/Views/ImportQueuePage.vala:127
+#, fuzzy
+msgid "Preparing to import…"
+msgstr "Pripravljanje na uvoz ..."
+
+#: src/Views/ImportQueuePage.vala:154
+#, c-format
+msgid "Imported %s"
+msgstr "Uvoženo %s"
+
+#: src/Views/LastImportPage.vala:21
+msgid "Last Import"
+msgstr "Zadnji uvoz"
+
+#: src/Views/LibraryPhotoPage.vala:823
+#, c-format
+msgid "Unable to export %s: %s"
+msgstr "%s ni mogoče izvoziti: %s"
+
+#: src/Views/OfflinePage.vala:21
+msgid "Missing Files"
+msgstr "Manjkajoče datoteke"
+
+#: src/Views/OfflinePage.vala:201
+#, fuzzy
+msgid "Deleting…"
+msgstr "Brisanje ..."
+
+#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+msgid "Ta_gs"
+msgstr "Ozna_ke"
+
+#: src/Views/MediaPage.vala:84
+msgid "Sort _Photos"
+msgstr "Razvrsti _fotografije"
+
+#. Sort criteria.
+#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+msgid "By _Title"
+msgstr "Po _naslovu"
+
+#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+msgid "By Exposure _Date"
+msgstr "Po _datumu zajema"
+
+#: src/Views/MediaPage.vala:238
+msgid "Display the comment of each photo"
+msgstr "Prikaži komentar vsake fotografije"
+
+#: src/Views/MediaPage.vala:244
+msgid "Display each photo's tags"
+msgstr "Prikaže oznake vsake fotografije"
+
+#: src/Views/MediaPage.vala:260
+msgid "Sort photos by title"
+msgstr "Razvrsti fotografije po naslovu"
+
+#: src/Views/MediaPage.vala:266
+msgid "Sort photos by exposure date"
+msgstr "Razvrsti fotografije po datumu zajema"
+
+#: src/Views/MediaPage.vala:413
+#, c-format
+msgid ""
+"Photos was unable to play the selected video:\n"
+"%s"
+msgstr ""
+"Ni bilo mogoče predvajati izbranega videoposnetka:\n"
+"%s"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "Add Some Photos"
+msgstr "Dodajte nekaj slik"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "No Photos were found in your library."
+msgstr "V vaši knjižnici še ni nobene slike."
+
+#: src/Views/RawsPage.vala:24
+msgid "Raw Photos"
+msgstr "Raw fotografije"
+
+#: src/Views/RawsPage.vala:37
+msgid "Raws"
+msgstr "RAW fotografije"
+
+#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
+msgid "Slideshow"
+msgstr "Diapredstavitev"
+
+#: src/Views/SlideshowPage.vala:64
+msgid "Back"
+msgstr "Nazaj"
+
+#: src/Views/SlideshowPage.vala:65
+msgid "Go to the previous photo"
+msgstr "Skoči na predhodno fotografijo"
+
+#: src/Views/SlideshowPage.vala:68
+msgid "Pause"
+msgstr "Premor"
+
+#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
+msgid "Pause the slideshow"
+msgstr "Naredi premor diapredstavitve"
+
+#: src/Views/SlideshowPage.vala:73
+msgid "Next"
+msgstr "Naslednja"
+
+#: src/Views/SlideshowPage.vala:74
+msgid "Go to the next photo"
+msgstr "Skoči na naslednjo fotografijo"
+
+#: src/Views/SlideshowPage.vala:81
+msgid "Show Photo Titles"
+msgstr "Pokaži _naslove"
+
+#: src/Views/SlideshowPage.vala:96
+msgid "Transition Speed"
+msgstr "Hitrost _prehoda"
+
+#: src/Views/SlideshowPage.vala:98
+msgid "Faster"
+msgstr "Hitreje"
+
+#: src/Views/SlideshowPage.vala:99
+msgid "Slower"
+msgstr "Počasneje"
+
+#. An entire slideshow set might be missing, so check for a loop.
+#: src/Views/SlideshowPage.vala:164
+msgid "All photo source files are missing."
+msgstr "Manjkajo vse izvorne datoteke fotografije."
+
+#: src/Views/SlideshowPage.vala:196
+msgid "Continue the slideshow"
+msgstr "Nadaljuj z diapredstavitvijo"
+
+#: src/Views/TrashPage.vala:22
+msgid "Trash"
+msgstr "Smeti"
+
+#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
+#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
+msgid "_Empty Trash"
+msgstr "Izprazni _smeti"
+
+#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
+msgid "Delete all photos in the trash"
+msgstr "Izbriše vse fotografije v smeteh"
+
+#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
+msgid "Trash is empty"
+msgstr "Ni smeti"
+
+#: src/Views/TrashPage.vala:294
+msgid "Deleting a Photo"
+msgid_plural "Deleting Photos"
+msgstr[0] "Brisanje fotografij"
+msgstr[1] "Brisanje fotografije"
+msgstr[2] "Brisanje fotografij"
+msgstr[3] "Brisanje fotografij"
+
+#: src/Views/TrashPage.vala:302
+msgid "Empty Trash"
+msgstr "Izprazni smeti"
+
+#: src/Views/TrashPage.vala:302
+msgid "Emptying Trash…"
+msgstr "Praznjenje smeti…"
+
+#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
+msgid "Videos"
+msgstr "Videoposnetki"
+
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Učinek prehoda"
@@ -3335,54 +3327,54 @@ msgstr "se konča z"
 msgid "does not contain"
 msgstr "ne vsebuje"
 
-#: src/Widgets/CustomPrintTab.vala:45
+#: src/Widgets/CustomPrintTab.vala:48
 #, fuzzy
 msgid "Printed Image Size"
 msgstr "<b>Natisnjena velikost slike</b>"
 
-#: src/Widgets/CustomPrintTab.vala:49
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
 msgstr "Uporabi _običajno velikost pisave:"
 
-#: src/Widgets/CustomPrintTab.vala:52
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "Use a c_ustom size:"
 msgstr "Uporabi velikost pisave po _meri:"
 
-#: src/Widgets/CustomPrintTab.vala:55
+#: src/Widgets/CustomPrintTab.vala:58
 msgid "_Autosize:"
 msgstr "_Samodejna velikost"
 
-#: src/Widgets/CustomPrintTab.vala:92
+#: src/Widgets/CustomPrintTab.vala:95
 msgid "in."
 msgstr "palcev"
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:96
 msgid "cm"
 msgstr "cm"
 
-#: src/Widgets/CustomPrintTab.vala:103
+#: src/Widgets/CustomPrintTab.vala:106
 msgid "_Match photo aspect ratio"
 msgstr "_Ujemanje razmerja stranic fotografije"
 
-#: src/Widgets/CustomPrintTab.vala:105
+#: src/Widgets/CustomPrintTab.vala:108
 #, fuzzy
 msgid "Titles"
 msgstr "_Naslovi"
 
-#: src/Widgets/CustomPrintTab.vala:109
+#: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Natisni _naslov slike"
 
-#: src/Widgets/CustomPrintTab.vala:115
+#: src/Widgets/CustomPrintTab.vala:118
 #, fuzzy
 msgid "Pixel Resolution"
 msgstr "<b>Ločljivost v pikslih</b>"
 
-#: src/Widgets/CustomPrintTab.vala:122
+#: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
 msgstr "_Izvozi fotografijo na:"
 
-#: src/Widgets/CustomPrintTab.vala:128
+#: src/Widgets/CustomPrintTab.vala:131
 msgid "pixels per inch"
 msgstr "točk na palec"
 
@@ -4104,6 +4096,12 @@ msgstr "Šah"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Roleta"
+
+#~ msgid "Return to current photo dimensions"
+#~ msgstr "Vrni se na trenutne mere fotografije"
+
+#~ msgid "Set the crop for this photo"
+#~ msgstr "Nastavi obrez za to fotografijo"
 
 #~ msgid "_Delete File"
 #~ msgid_plural "_Delete Files"

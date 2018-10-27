@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 18:49+0100\n"
-"PO-Revision-Date: 2018-04-22 00:04+0000\n"
-"Last-Translator: Kadirov Yurij <admin@sirkadirov.com>\n"
+"POT-Creation-Date: 2018-10-18 05:41-0500\n"
+"PO-Revision-Date: 2018-10-26 22:36+0000\n"
+"Last-Translator: Ciaran Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/photos/photos/en_GB/>\n"
 "Language: en_GB\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:14+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,14 +55,14 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Unable to create data subdirectory %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"A fatal error occurred when accessing Shotwell's library.  Shotwell cannot "
+"A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -135,87 +135,6 @@ msgstr "Corrupt image file"
 #, c-format
 msgid "Imported failed (%d)"
 msgstr "Imported failed (%d)"
-
-#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
-msgid "S_lideshow"
-msgstr "S_lideshow"
-
-#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
-msgid "Play a slideshow"
-msgstr "Play a slideshow"
-
-#: src/Views/CollectionPage.vala:95
-msgid "Adjust the size of the thumbnails"
-msgstr "Adjust the size of the thumbnails"
-
-#: src/Views/CollectionPage.vala:127 src/Views/LibraryPhotoPage.vala:483
-#: src/Views/MediaPage.vala:68 src/Views/ImportPage.vala:854
-#: src/Views/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:376
-#: src/library/LibraryWindow.vala:377 src/Views/OfflinePage.vala:105
-#: src/Views/TrashPage.vala:160
-msgid "Edit Photo In_fo"
-msgstr "Edit Photo In_fo"
-
-#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
-msgid "_Developer"
-msgstr "_Developer"
-
-#: src/Views/CollectionPage.vala:196 src/Views/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:343
-msgid "View Eve_nt for Photo"
-msgstr "View Eve_nt for Photo"
-
-#: src/Views/CollectionPage.vala:211 src/Views/LibraryPhotoPage.vala:557
-#: src/Views/DirectPhotoPage.vala:155
-msgid "Other Actions"
-msgstr ""
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photo/Video"
-msgstr "Export Photos/Videos"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Export Photos/Videos"
-
-#: src/Views/CollectionPage.vala:600 src/Views/LibraryPhotoPage.vala:803
-#: src/Dialogs/Dialogs.vala:90
-msgid "Export Photo"
-msgstr "Export Photos"
-
-#: src/Views/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
-msgid "Export Photos"
-msgstr "Export Photos"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Rotating"
-msgstr "Rotating"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Undoing Rotate"
-msgstr "Undoing Rotate"
-
-#: src/Views/CollectionPage.vala:718
-msgid "Flipping Horizontally"
-msgstr "Flipping Horizontally"
-
-#: src/Views/CollectionPage.vala:719
-msgid "Undoing Flip Horizontally"
-msgstr "Undoing Flip Horizontally"
-
-#: src/Views/CollectionPage.vala:728
-msgid "Flipping Vertically"
-msgstr "Flipping Vertically"
-
-#: src/Views/CollectionPage.vala:729
-msgid "Undoing Flip Vertically"
-msgstr "Undoing Flip Vertically"
-
-#: src/Views/CollectionPage.vala:914 src/Views/CollectionPage.vala:915
-#: src/Views/CheckerboardPage.vala:91 src/Views/PhotosPage.vala:64
-#: src/Views/RawsPage.vala:64
-msgid "No photos/videos"
-msgstr "No photos/videos"
 
 #: src/Commands.vala:746
 msgid "Reverting"
@@ -347,14 +266,12 @@ msgid "Restore Photos from Trash"
 msgstr "Restore Photos from Rubbish Bin"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Move the photos to the Shotwell Rubbish Bin"
+msgstr "Move the photos to the Photos trash"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Restore the photos back to the Shotwell library"
+msgstr "Restore the photos back to the Photos library"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -392,7 +309,7 @@ msgstr "Unflag"
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1254
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1239
 msgid "Original size"
-msgstr "Ukuran asli"
+msgstr "Original size"
 
 #: src/Dimensions.vala:33
 msgid "Width or height"
@@ -411,33 +328,6 @@ msgstr "Height"
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Unable to monitor %s: Not a directory (%s)"
-
-#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/Views/EditingHostPage.vala:106
-msgid "Rotate"
-msgstr "Rotate"
-
-#: src/Views/EditingHostPage.vala:144
-msgid "Zoom to fit page"
-msgstr ""
-
-#: src/Views/EditingHostPage.vala:153
-#, fuzzy
-msgid "Zoom 1:1"
-msgstr "Zoom _100%"
-
-#: src/Views/EditingHostPage.vala:173
-msgid "Previous photo"
-msgstr "Previous photo"
-
-#: src/Views/EditingHostPage.vala:177
-msgid "Next photo"
-msgstr "Next photo"
-
-#: src/Views/EditingHostPage.vala:1504
-#, c-format
-msgid "Photo source file missing: %s"
-msgstr "Photo source file missing: %s"
 
 #. if no name, pretty up the start time
 #: src/Event.vala:733
@@ -476,10 +366,10 @@ msgstr "Replace _All"
 #: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
 #: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
 #: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74 src/Views/DirectPhotoPage.vala:327
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/Dialogs/TextEntryDialog.vala:74
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -495,66 +385,49 @@ msgstr "Pin the toolbar open"
 msgid "Leave fullscreen"
 msgstr "Leave fullscreen"
 
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:878
-msgid "Remove From Library"
-msgstr "Remove From Library"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:879
-msgid "Removing Photo From Library"
-msgstr "Removing Photos From Library"
-
-#: src/Views/LibraryPhotoPage.vala:823
-#, c-format
-msgid "Unable to export %s: %s"
-msgstr "Unable to export %s: %s"
-
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Your photo library is not compatible with this version of Shotwell.  It "
-"appears it was created by Shotwell %s (schema %d).  This version is %s "
-"(schema %d).  Please use the latest version of Shotwell."
+"Your photo library is not compatible with this version of Photos.  It "
+"appears it was created by Photos %s (schema %d).  This version is %s (schema "
+"%d).  Please use the latest version of Photos."
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Shotwell was unable to upgrade your photo library from version %s (schema "
-"%d) to %s (schema %d).  For more information please check the Shotwell Wiki "
-"at %s"
+"Photos was unable to upgrade your photo library from version %s (schema %d) "
+"to %s (schema %d).  For more information please check the Photos Wiki at %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Your photo library is not compatible with this version of Shotwell.  It "
-"appears it was created by Shotwell %s (schema %d).  This version is %s "
-"(schema %d).  Please clear your library by deleting %s and re-import your "
-"photos."
+"Your photo library is not compatible with this version of Photos.  It "
+"appears it was created by Photos %s (schema %d).  This version is %s (schema "
+"%d).  Please clear your library by deleting %s and re-importing your photos."
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "Unknown error attempting to verify Shotwell's database: %s"
+msgstr "Unknown error when attempting to verify Photos' database: %s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Loading Shotwell"
+msgstr "Loading Photos"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Path to Shotwell's private data"
+msgstr "Path to Photos' private data"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -574,7 +447,7 @@ msgstr "Show the application's version"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
-msgstr ""
+msgstr "Show extra debugging output"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:310
@@ -591,100 +464,6 @@ msgstr ""
 #, c-format
 msgid "Unable to process monitoring updates: %s"
 msgstr "Unable to process monitoring updates: %s"
-
-#: src/Views/MediaPage.vala:64 src/Views/ImportPage.vala:850
-#: src/Views/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:371
-#: src/Views/OfflinePage.vala:101 src/Views/TrashPage.vala:156
-msgid "S_idebar"
-msgstr "S_idebar"
-
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
-msgid "_Titles"
-msgstr "_Titles"
-
-#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:237
-#: src/Views/EventsDirectoryPage.vala:229
-msgid "_Comments"
-msgstr "_Comments"
-
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
-msgid "Ta_gs"
-msgstr "Ta_gs"
-
-#: src/Views/MediaPage.vala:84
-msgid "Sort _Photos"
-msgstr "Sort _Photos"
-
-#. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
-msgid "By _Title"
-msgstr "By _Title"
-
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
-msgid "By Exposure _Date"
-msgstr "By Exposure _Date"
-
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/ImportPage.vala:864
-#: src/Views/EventsDirectoryPage.vala:141 src/library/LibraryWindow.vala:388
-#: src/Views/OfflinePage.vala:111 src/Views/TrashPage.vala:166
-msgid "_Ascending"
-msgstr "_Ascending"
-
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/ImportPage.vala:873
-#: src/Views/EventsDirectoryPage.vala:150 src/library/LibraryWindow.vala:394
-#: src/Views/OfflinePage.vala:120 src/Views/TrashPage.vala:175
-msgid "D_escending"
-msgstr "D_escending"
-
-#: src/Views/MediaPage.vala:130 src/Views/ImportPage.vala:862
-#: src/Views/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:341
-#: src/Views/OfflinePage.vala:109 src/Views/TrashPage.vala:164
-msgid "Sort _Events"
-msgstr "Sort _Events"
-
-#: src/Views/MediaPage.vala:155 src/Views/EventsDirectoryPage.vala:164
-msgid "Fulls_creen"
-msgstr "Fulls_creen"
-
-#: src/Views/MediaPage.vala:232 src/Views/ImportPage.vala:962
-msgid "Display the title of each photo"
-msgstr "Display the title of each photo"
-
-#: src/Views/MediaPage.vala:238
-msgid "Display the comment of each photo"
-msgstr "Display the comment of each photo"
-
-#: src/Views/MediaPage.vala:244
-msgid "Display each photo's tags"
-msgstr "Display each photo's tags"
-
-#: src/Views/MediaPage.vala:260
-msgid "Sort photos by title"
-msgstr "Sort photos by title"
-
-#: src/Views/MediaPage.vala:266
-msgid "Sort photos by exposure date"
-msgstr "Sort photos by exposure date"
-
-#: src/Views/MediaPage.vala:276 src/library/LibraryWindow.vala:388
-msgid "Sort photos in an ascending order"
-msgstr "Sort photos in an ascending order"
-
-#: src/Views/MediaPage.vala:281 src/library/LibraryWindow.vala:394
-msgid "Sort photos in a descending order"
-msgstr "Sort photos in a descending order"
-
-#: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
-msgid ""
-"Photos was unable to play the selected video:\n"
-"%s"
-msgstr ""
-"Shotwell was unable to play the selected video:\n"
-"%s"
 
 #: src/Photo.vala:3787
 msgid "modified"
@@ -718,59 +497,59 @@ msgstr "16 images per page"
 msgid "32 images per page"
 msgstr "32 images per page"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:201
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
 msgid "Wallet (2 x 3 in.)"
 msgstr "Wallet (2 x 3 in.)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:202
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
 msgid "Notecard (3 x 5 in.)"
 msgstr "Notecard (3 x 5 in.)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:203
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
 msgstr "4 x 6 in."
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:204
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
 msgstr "5 x 7 in."
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:205
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
 msgstr "8 x 10 in."
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
 msgstr "11 x 14 in."
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
 msgstr "16 x 20 in."
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Metric Wallet (9 x 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:212
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
 msgid "Postcard (10 x 15 cm)"
 msgstr "Postcard (10 x 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:218
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -779,9 +558,8 @@ msgid "Image Settings"
 msgstr "Image Settings"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "_Print…"
+msgstr "Printing…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -795,9 +573,9 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/Views/PhotosPage.vala:24
-#: src/Views/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
+#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
+#: src/Views/PhotosPage.vala:37
 msgid "Photos"
 msgstr "Photos"
 
@@ -938,9 +716,8 @@ msgid "Revert to Original"
 msgstr "Revert to Original"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Rename Event"
+msgstr "Re_name Event…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -999,9 +776,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Make a duplicate of the photo"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Export"
+msgstr "_Export…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -1012,14 +788,12 @@ msgid "Hide info panel"
 msgstr "Hide info panel"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
 msgstr "_Print…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Publish"
+msgstr "Pu_blish…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -1034,9 +808,8 @@ msgid "Edit Comment"
 msgstr "Edit Comment"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Adjust Date and Time"
+msgstr "_Adjust Date and Time…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -1044,12 +817,11 @@ msgstr "Adjust Date and Time"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_Open In"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Open With RA_W Editor"
+msgstr "_Open With RAW Editor…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -1105,9 +877,9 @@ msgid "_New"
 msgstr "_New"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Re_name Tag '%s'…"
+msgstr "Re_name Tag \"%s\"…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -1115,14 +887,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Rename Tag '%s' to '%s'"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
 msgstr "_Rename…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Modify Tags"
+msgstr "Modif_y Tags…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -1177,12 +947,10 @@ msgid "Delete Album"
 msgstr "Delete Album"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "_Edit"
+msgstr "_Edit…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
 msgstr "Re_name…"
 
@@ -1217,9 +985,8 @@ msgid "Move the selected photos back into the library"
 msgstr "Move the selected photos back into the library"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Show in File Mana_ger"
+msgstr "File Mana_ger"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1284,62 +1051,6 @@ msgstr "%d %b, %Y"
 msgid "Search Photos"
 msgstr "Search Photos"
 
-#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
-msgid "Slideshow"
-msgstr "Slideshow"
-
-#: src/Views/SlideshowPage.vala:64
-msgid "Back"
-msgstr "Back"
-
-#: src/Views/SlideshowPage.vala:65
-msgid "Go to the previous photo"
-msgstr "Go to the previous photo"
-
-#: src/Views/SlideshowPage.vala:68
-msgid "Pause"
-msgstr "Pause"
-
-#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
-msgid "Pause the slideshow"
-msgstr "Pause the slideshow"
-
-#: src/Views/SlideshowPage.vala:73
-msgid "Next"
-msgstr "Next"
-
-#: src/Views/SlideshowPage.vala:74
-msgid "Go to the next photo"
-msgstr "Go to the next photo"
-
-#: src/Views/SlideshowPage.vala:81
-#, fuzzy
-msgid "Show Photo Titles"
-msgstr "Show t_itle"
-
-#: src/Views/SlideshowPage.vala:96
-#, fuzzy
-msgid "Transition Speed"
-msgstr "_Transition effect:"
-
-#: src/Views/SlideshowPage.vala:98
-msgid "Faster"
-msgstr ""
-
-#: src/Views/SlideshowPage.vala:99
-#, fuzzy
-msgid "Slower"
-msgstr "and"
-
-#. An entire slideshow set might be missing, so check for a loop.
-#: src/Views/SlideshowPage.vala:164
-msgid "All photo source files are missing."
-msgstr "All photo source files are missing."
-
-#: src/Views/SlideshowPage.vala:196
-msgid "Continue the slideshow"
-msgstr "Continue the slideshow"
-
 #: src/Tag.vala:830
 msgid "untitled"
 msgstr "untitled"
@@ -1353,165 +1064,10 @@ msgstr "Export Videos"
 msgid "Cameras"
 msgstr "Cameras"
 
-#: src/camera/Branch.vala:110 src/Views/ImportPage.vala:729
-#: src/Views/ImportPage.vala:745 src/photos/RawSupport.vala:313
+#: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
+#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
 msgid "Camera"
 msgstr "Camera"
-
-#: src/Views/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
-msgid "RAW+JPEG"
-msgstr "RAW+JPEG"
-
-#: src/Views/ImportPage.vala:464
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-
-#: src/Views/ImportPage.vala:788
-msgid "Hide photos already imported"
-msgstr "Hide photos already imported"
-
-#: src/Views/ImportPage.vala:791
-msgid "Only display photos that have not been imported"
-msgstr "Only display photos that have not been imported"
-
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
-msgid "Import _Selected"
-msgstr "Import _Selected"
-
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
-msgid "Import _All"
-msgstr "Import _All"
-
-#. Ticket #3304 - Import page shouldn't display confusing message
-#. prior to import.
-#. TODO: replace this with approved text for "talking to camera,
-#. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
-#, fuzzy
-msgid "Starting import, please wait…"
-msgstr "Starting import, please wait…"
-
-#: src/Views/ImportPage.vala:974
-msgid "Import the selected photos into your library"
-msgstr "Import the selected photos into your library"
-
-#: src/Views/ImportPage.vala:979
-msgid "Import all the photos into your library"
-msgstr "Import all the photos into your library"
-
-#. it's mounted, offer to unmount for the user
-#: src/Views/ImportPage.vala:1099
-#, fuzzy
-msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-"Shotwell needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-
-#: src/Views/ImportPage.vala:1105
-msgid "_Unmount"
-msgstr "_Unmount"
-
-#: src/Views/ImportPage.vala:1110
-msgid "Please unmount the camera."
-msgstr "Please unmount the camera."
-
-#: src/Views/ImportPage.vala:1115
-#, fuzzy
-msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-"The camera is locked by another application.  Shotwell can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-
-#: src/Views/ImportPage.vala:1125
-msgid "Please close any other application using the camera."
-msgstr "Please close any other application using the camera."
-
-#: src/Views/ImportPage.vala:1130
-#, c-format
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-
-#: src/Views/ImportPage.vala:1147
-#, fuzzy
-msgid "Unmounting…"
-msgstr "Unmounting…"
-
-#: src/Views/ImportPage.vala:1253
-msgid "Fetching photo information"
-msgstr "Fetching photo information"
-
-#: src/Views/ImportPage.vala:1608
-#, c-format
-msgid "Fetching preview for %s"
-msgstr "Fetching preview for %s"
-
-#: src/Views/ImportPage.vala:1724
-#, c-format
-msgid "Unable to lock camera: %s"
-msgstr "Unable to lock camera: %s"
-
-#: src/Views/ImportPage.vala:1809
-#, c-format
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Delete this photo from camera?"
-msgstr[1] "Delete these %d photos from camera?"
-
-#: src/Views/ImportPage.vala:1812
-#, c-format
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Delete this video from camera?"
-msgstr[1] "Delete these %d videos from camera?"
-
-#: src/Views/ImportPage.vala:1815
-#, c-format
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Delete this photo/video from camera?"
-msgstr[1] "Delete these %d photos/videos from camera?"
-
-#: src/Views/ImportPage.vala:1818
-#, c-format
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Delete these files from camera?"
-msgstr[1] "Delete these %d files from camera?"
-
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
-msgid "Delete"
-msgstr "Delete"
-
-#: src/Views/ImportPage.vala:1826
-msgid "_Keep"
-msgstr "_Keep"
-
-#: src/Views/ImportPage.vala:1845
-msgid "Removing photos/videos from camera"
-msgstr "Removing photos/videos from camera"
-
-#: src/Views/ImportPage.vala:1849
-#, c-format
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] "Unable to delete %d photo/video from the camera due to errors."
-msgstr[1] "Unable to delete %d photos/videos from the camera due to errors."
-
-#: src/Views/CheckerboardPage.vala:95
-msgid "No photos/videos found"
-msgstr "No photos/videos found"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
 #: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
@@ -1621,7 +1177,6 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "This will remove the smart album \"%s\".  Continue?"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1630,10 +1185,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Switching developers will undo all changes you have made to this photo in "
-"Shotwell"
+"Photos"
 msgstr[1] ""
 "Switching developers will undo all changes you have made to these photos in "
-"Shotwell"
+"Photos"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1643,10 +1198,19 @@ msgstr "_Switch Developer"
 msgid "Export Video"
 msgstr "Export Video"
 
+#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Views/LibraryPhotoPage.vala:803
+msgid "Export Photo"
+msgstr "Export Photos"
+
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Save"
+
+#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+msgid "Export Photos"
+msgstr "Export Photos"
 
 #: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
@@ -1658,13 +1222,13 @@ msgstr "_Select"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell couldn't create a file for editing this photo because you do not "
-"have permission to write to %s."
+"Photos couldn't create a file for editing this photo because you do not have "
+"permission to write to %s."
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1690,9 +1254,8 @@ msgid "Con_tinue"
 msgstr "Con_tinue"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "Save Details"
+msgstr "Save Details…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1757,24 +1320,22 @@ msgstr ""
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Photos/Videos Not Imported Because They Weren't in a Format Shotwell "
+"Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its "
+"Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 
 #: src/Dialogs/Dialogs.vala:324
@@ -2115,12 +1676,11 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell can copy the photos into your library folder or it can import them "
+"Photos can copy the photos into your library folder or it can import them "
 "without copying."
 
 #: src/Dialogs/Dialogs.vala:866
@@ -2134,6 +1694,14 @@ msgstr "_Import in Place"
 #: src/Dialogs/Dialogs.vala:868
 msgid "Import to Library"
 msgstr "Import to Library"
+
+#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+msgid "Remove From Library"
+msgstr "Remove From Library"
+
+#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+msgid "Removing Photo From Library"
+msgstr "Removing Photos From Library"
 
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
@@ -2171,9 +1739,8 @@ msgid "_Scaling constraint:"
 msgstr "_Scaling constraint:"
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " _pixels"
+msgstr "_pixels"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2226,6 +1793,44 @@ msgstr "_Close"
 msgid "%d%%"
 msgstr "%d%%"
 
+#: src/Dialogs/SavedSearchDialog.vala:42
+msgid "Add"
+msgstr "Add"
+
+#. Add close button.
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+msgid "Save"
+msgstr "Save"
+
+#: src/Dialogs/SavedSearchDialog.vala:88
+msgid "_Match"
+msgstr "_Match"
+
+#: src/Dialogs/SavedSearchDialog.vala:91
+msgid "any"
+msgstr "any"
+
+#: src/Dialogs/SavedSearchDialog.vala:92
+msgid "all"
+msgstr "all"
+
+#: src/Dialogs/SavedSearchDialog.vala:93
+msgid "none"
+msgstr "none"
+
+#: src/Dialogs/SavedSearchDialog.vala:96
+msgid "of the following:"
+msgstr "of the following:"
+
+#: src/Dialogs/SavedSearchDialog.vala:101
+msgid "Add rule"
+msgstr "Add rule"
+
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
+#: src/Views/DirectPhotoPage.vala:416
+msgid "Cancel"
+msgstr "Cancel"
+
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
@@ -2254,57 +1859,6 @@ msgstr ""
 "\n"
 "Error was: \n"
 "%s"
-
-#: src/Views/DirectPhotoPage.vala:95
-#, c-format
-msgid "%s does not exist."
-msgstr "%s does not exist."
-
-#: src/Views/DirectPhotoPage.vala:97
-#, c-format
-msgid "%s is not a file."
-msgstr "%s is not a file."
-
-#: src/Views/DirectPhotoPage.vala:99
-#, c-format
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr ""
-"%s does not support the file format of\n"
-"%s."
-
-#: src/Views/DirectPhotoPage.vala:314
-msgid "_Save a Copy"
-msgstr "_Save a Copy"
-
-#: src/Views/DirectPhotoPage.vala:317
-#, c-format
-msgid "Lose changes to %s?"
-msgstr "Lose changes to %s?"
-
-#: src/Views/DirectPhotoPage.vala:324
-msgid "Close _without Saving"
-msgstr "Close _without Saving"
-
-#: src/Views/DirectPhotoPage.vala:364
-#, c-format
-msgid "Error while saving to %s: %s"
-msgstr "Error while saving to %s: %s"
-
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
-msgid "Save As"
-msgstr "Save As"
-
-#: src/Views/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:616
-#: src/Dialogs/SavedSearchDialog.vala:131
-msgid "Cancel"
-msgstr "Cancel"
-
-#. Add close button.
-#: src/Views/DirectPhotoPage.vala:417 src/Dialogs/SavedSearchDialog.vala:56
-msgid "Save"
-msgstr "Save"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
@@ -2339,65 +1893,57 @@ msgstr "Close the red-eye tool"
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Remove any red-eye effects in the selected region"
 
-#: src/editing_tools/CropTool.vala:102
-msgid "Return to current photo dimensions"
-msgstr "Return to current photo dimensions"
-
-#: src/editing_tools/CropTool.vala:104
-msgid "Set the crop for this photo"
-msgstr "Set the crop for this photo"
-
-#: src/editing_tools/CropTool.vala:115
+#: src/editing_tools/CropTool.vala:111
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Pivot the crop rectangle between portrait and landscape orientations"
 
-#: src/editing_tools/CropTool.vala:193
+#: src/editing_tools/CropTool.vala:205
 msgid "Unconstrained"
 msgstr "Unconstrained"
 
-#: src/editing_tools/CropTool.vala:194
+#: src/editing_tools/CropTool.vala:206
 msgid "Square"
 msgstr "Square"
 
-#: src/editing_tools/CropTool.vala:195
+#: src/editing_tools/CropTool.vala:207
 msgid "Screen"
 msgstr "Screen"
 
-#: src/editing_tools/CropTool.vala:196
+#: src/editing_tools/CropTool.vala:208
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
-msgstr "Ukuran Asli"
+msgstr "Original Size"
 
-#: src/editing_tools/CropTool.vala:197 src/editing_tools/CropTool.vala:200
-#: src/editing_tools/CropTool.vala:210 src/editing_tools/CropTool.vala:220
+#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:198
+#: src/editing_tools/CropTool.vala:210
 msgid "SD Video (4 : 3)"
 msgstr "SD Video (4 : 3)"
 
-#: src/editing_tools/CropTool.vala:199
+#: src/editing_tools/CropTool.vala:211
 msgid "HD Video (16 : 9)"
 msgstr "HD Video (16 : 9)"
 
-#: src/editing_tools/CropTool.vala:206
+#: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 in.)"
 
-#: src/editing_tools/CropTool.vala:208
+#: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 in.)"
 
-#: src/editing_tools/CropTool.vala:215
+#: src/editing_tools/CropTool.vala:227
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:219
+#: src/editing_tools/CropTool.vala:231
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:221
+#: src/editing_tools/CropTool.vala:233
 msgid "Custom"
 msgstr "Custom"
 
@@ -2485,82 +2031,9 @@ msgid_plural "%d Photos"
 msgstr[0] "%d Photo"
 msgstr[1] "%d Photos"
 
-#: src/Views/EventPage.vala:136
-msgid "All Events"
-msgstr "All Events"
-
-#: src/Views/EventPage.vala:150
-msgid "No Event"
-msgstr "No Event"
-
-#: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
-msgid "Merge events"
-msgstr "_Merge Events"
-
-#: src/Views/EventsDirectoryPage.vala:230
-msgid "Display the comment of each event"
-msgstr "Display the comment of each event"
-
-#: src/Views/EventsDirectoryPage.vala:254
-msgid "No events"
-msgstr "No events"
-
-#: src/Views/EventsDirectoryPage.vala:258
-msgid "No events found"
-msgstr "No events found"
-
-#: src/Views/EventsDirectoryPage.vala:318
-msgid "Events"
-msgstr "Events"
-
-#: src/Views/EventsDirectoryPage.vala:332
-msgid "Undated"
-msgstr "Undated"
-
-#: src/Views/EventsDirectoryPage.vala:333
-msgid "%Y"
-msgstr "%Y"
-
-#: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
-msgid "%OB"
-msgstr "%B"
-
 #: src/library/Branch.vala:174
 msgid "All Photos"
 msgstr "All Photos"
-
-#: src/Views/FlaggedPage.vala:21
-msgid "Flagged"
-msgstr "Flagged"
-
-#: src/Views/ImportQueuePage.vala:21
-#, fuzzy
-msgid "Importing…"
-msgstr "Importing"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "_Stop Import"
-msgstr "_Stop Import"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "Stop importing photos"
-msgstr "Stop importing photos"
-
-#: src/Views/ImportQueuePage.vala:127
-#, fuzzy
-msgid "Preparing to import…"
-msgstr "Preparing to import…"
-
-#: src/Views/ImportQueuePage.vala:154
-#, c-format
-msgid "Imported %s"
-msgstr "Imported %s"
-
-#: src/Views/LastImportPage.vala:21
-msgid "Last Import"
-msgstr "Last Import"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
@@ -2574,6 +2047,17 @@ msgstr "_Preferences"
 msgid "Settings"
 msgstr "Settings"
 
+#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
+msgid "Sort _Events"
+msgstr "Sort _Events"
+
+#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/Views/LibraryPhotoPage.vala:542
+msgid "View Eve_nt for Photo"
+msgstr "View Eve_nt for Photo"
+
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
@@ -2581,9 +2065,45 @@ msgstr "Settings"
 msgid "New Smart Album…"
 msgstr "New Smart Album…"
 
+#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
+msgid "S_idebar"
+msgstr "S_idebar"
+
 #: src/library/LibraryWindow.vala:372
 msgid "Display the sidebar"
 msgstr "Display the sidebar"
+
+#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
+#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
+#: src/Views/TrashPage.vala:160
+msgid "Edit Photo In_fo"
+msgstr "Edit Photo In_fo"
+
+#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
+msgid "_Ascending"
+msgstr "_Ascending"
+
+#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+msgid "Sort photos in an ascending order"
+msgstr "Sort photos in an ascending order"
+
+#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
+msgid "D_escending"
+msgstr "D_escending"
+
+#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+msgid "Sort photos in a descending order"
+msgstr "Sort photos in a descending order"
 
 #: src/library/LibraryWindow.vala:615
 msgid "Import From Folder"
@@ -2594,16 +2114,16 @@ msgid "Import"
 msgstr "Import"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell is configured to import photos to your home directory.\n"
-"We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
-"span>.\n"
+"Photos is configured to import photos to your home directory.\n"
+"We recommend changing this in <span weight=\"bold\">Edit %s "
+"Preferences</span>.\n"
 "Do you want to continue importing photos?"
 
 #: src/library/LibraryWindow.vala:784
@@ -2651,70 +2171,10 @@ msgstr "Change Library Folder"
 msgid "Choose where to keep your photos."
 msgstr "Choose where to keep your photos."
 
-#: src/Views/OfflinePage.vala:21
-msgid "Missing Files"
-msgstr "Missing Files"
-
-#: src/Views/OfflinePage.vala:201
-#, fuzzy
-msgid "Deleting…"
-msgstr "Deleting…"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "Add Some Photos"
-msgstr "Add Some Photos"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "No Photos were found in your library."
-msgstr "No Photos were found in your library."
-
-#: src/Views/RawsPage.vala:24
-msgid "Raw Photos"
-msgstr "Raw Photos"
-
-#: src/Views/RawsPage.vala:37
-msgid "Raws"
-msgstr "Raws"
-
 #: src/library/TopDisplay.vala:133
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
-
-#: src/Views/TrashPage.vala:22
-msgid "Trash"
-msgstr "Rubbish Bin"
-
-#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
-#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
-msgid "_Empty Trash"
-msgstr "_Empty Rubbish Bin"
-
-#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
-msgid "Delete all photos in the trash"
-msgstr "Delete all photos in the Rubbish Bin"
-
-#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
-msgid "Trash is empty"
-msgstr "The Rubbish Bin is empty"
-
-#: src/Views/TrashPage.vala:294
-msgid "Deleting a Photo"
-msgid_plural "Deleting Photos"
-msgstr[0] "Deleting a Photo"
-msgstr[1] "Deleting Photos"
-
-#: src/Views/TrashPage.vala:302
-msgid "Empty Trash"
-msgstr "Empty the Rubbish Bin"
-
-#: src/Views/TrashPage.vala:302
-msgid "Emptying Trash…"
-msgstr "Emptying Rubbish Bin…"
-
-#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
-msgid "Videos"
-msgstr "Videos"
 
 #: src/photos/BmpSupport.vala:45
 msgid "BMP"
@@ -2762,11 +2222,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "About"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2811,12 +2271,10 @@ msgid "The selected photo was successfully published."
 msgstr "The selected photo was successfully published."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
 msgstr "Fetching account information…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
 msgstr "Logging in…"
 
@@ -2851,14 +2309,14 @@ msgid "Unable to publish"
 msgstr "Unable to publish"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell cannot publish the selected items because you do not have a "
+"Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
@@ -2870,34 +2328,6 @@ msgstr "Publishing"
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
 msgstr "Smart Albums"
-
-#: src/Dialogs/SavedSearchDialog.vala:42
-msgid "Add"
-msgstr "Add"
-
-#: src/Dialogs/SavedSearchDialog.vala:88
-msgid "_Match"
-msgstr "_Match"
-
-#: src/Dialogs/SavedSearchDialog.vala:91
-msgid "any"
-msgstr "any"
-
-#: src/Dialogs/SavedSearchDialog.vala:92
-msgid "all"
-msgstr "all"
-
-#: src/Dialogs/SavedSearchDialog.vala:93
-msgid "none"
-msgstr "none"
-
-#: src/Dialogs/SavedSearchDialog.vala:96
-msgid "of the following:"
-msgstr "of the following:"
-
-#: src/Dialogs/SavedSearchDialog.vala:101
-msgid "Add rule"
-msgstr ""
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
@@ -2942,9 +2372,12 @@ msgid "Date"
 msgstr "Date"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
 msgstr "New _Tag…"
+
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+msgid "RAW+JPEG"
+msgstr "RAW+JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3066,15 +2499,532 @@ msgstr "Tags"
 msgid "Photos cannot be exported to this directory."
 msgstr "Photos cannot be exported to this directory."
 
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
+#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/RawsPage.vala:64
+msgid "No photos/videos"
+msgstr "No photos/videos"
+
+#: src/Views/CheckerboardPage.vala:95
+msgid "No photos/videos found"
+msgstr "No photos/videos found"
+
+#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
+msgid "S_lideshow"
+msgstr "S_lideshow"
+
+#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
+msgid "Play a slideshow"
+msgstr "Play a slideshow"
+
+#: src/Views/CollectionPage.vala:95
+msgid "Adjust the size of the thumbnails"
+msgstr "Adjust the size of the thumbnails"
+
+#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
+msgid "_Developer"
+msgstr "_Developer"
+
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/LibraryPhotoPage.vala:557
+msgid "Other Actions"
+msgstr "Other Actions"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photo/Video"
+msgstr "Export Photos/Videos"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photos/Videos"
+msgstr "Export Photos/Videos"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Rotating"
+msgstr "Rotating"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Undoing Rotate"
+msgstr "Undoing Rotate"
+
+#: src/Views/CollectionPage.vala:718
+msgid "Flipping Horizontally"
+msgstr "Flipping Horizontally"
+
+#: src/Views/CollectionPage.vala:719
+msgid "Undoing Flip Horizontally"
+msgstr "Undoing Flip Horizontally"
+
+#: src/Views/CollectionPage.vala:728
+msgid "Flipping Vertically"
+msgstr "Flipping Vertically"
+
+#: src/Views/CollectionPage.vala:729
+msgid "Undoing Flip Vertically"
+msgstr "Undoing Flip Vertically"
+
+#: src/Views/DirectPhotoPage.vala:95
+#, c-format
+msgid "%s does not exist."
+msgstr "%s does not exist."
+
+#: src/Views/DirectPhotoPage.vala:97
+#, c-format
+msgid "%s is not a file."
+msgstr "%s is not a file."
+
+#: src/Views/DirectPhotoPage.vala:99
+#, c-format
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr ""
+"%s does not support the file format of\n"
+"%s."
+
+#: src/Views/DirectPhotoPage.vala:314
+msgid "_Save a Copy"
+msgstr "_Save a Copy"
+
+#: src/Views/DirectPhotoPage.vala:317
+#, c-format
+msgid "Lose changes to %s?"
+msgstr "Lose changes to %s?"
+
+#: src/Views/DirectPhotoPage.vala:324
+msgid "Close _without Saving"
+msgstr "Close _without Saving"
+
+#: src/Views/DirectPhotoPage.vala:364
+#, c-format
+msgid "Error while saving to %s: %s"
+msgstr "Error while saving to %s: %s"
+
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+msgid "Save As"
+msgstr "Save As"
+
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+#: src/Views/EditingHostPage.vala:106
+msgid "Rotate"
+msgstr "Rotate"
+
+#: src/Views/EditingHostPage.vala:144
+msgid "Zoom to fit page"
+msgstr "Zoom to fit page"
+
+#: src/Views/EditingHostPage.vala:153
+msgid "Zoom 1:1"
+msgstr "Zoom 1:1"
+
+#: src/Views/EditingHostPage.vala:173
+msgid "Previous photo"
+msgstr "Previous photo"
+
+#: src/Views/EditingHostPage.vala:177
+msgid "Next photo"
+msgstr "Next photo"
+
+#: src/Views/EditingHostPage.vala:1504
+#, c-format
+msgid "Photo source file missing: %s"
+msgstr "Photo source file missing: %s"
+
+#: src/Views/EventPage.vala:136
+msgid "All Events"
+msgstr "All Events"
+
+#: src/Views/EventPage.vala:150
+msgid "No Event"
+msgstr "No Event"
+
+#: src/Views/EventsDirectoryPage.vala:67
+msgid "Merge events"
+msgstr "Merge events"
+
+#: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
+msgid "Fulls_creen"
+msgstr "Fulls_creen"
+
+#: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
+#: src/Views/MediaPage.vala:237
+msgid "_Comments"
+msgstr "_Comments"
+
+#: src/Views/EventsDirectoryPage.vala:230
+msgid "Display the comment of each event"
+msgstr "Display the comment of each event"
+
+#: src/Views/EventsDirectoryPage.vala:254
+msgid "No events"
+msgstr "No events"
+
+#: src/Views/EventsDirectoryPage.vala:258
+msgid "No events found"
+msgstr "No events found"
+
+#: src/Views/EventsDirectoryPage.vala:318
+msgid "Events"
+msgstr "Events"
+
+#: src/Views/EventsDirectoryPage.vala:332
+msgid "Undated"
+msgstr "Undated"
+
+#: src/Views/EventsDirectoryPage.vala:333
+msgid "%Y"
+msgstr "%Y"
+
+#: src/Views/EventsDirectoryPage.vala:334
+msgid "%OB"
+msgstr "%OB"
+
+#: src/Views/FlaggedPage.vala:21
+msgid "Flagged"
+msgstr "Flagged"
+
+#: src/Views/ImportPage.vala:464
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+
+#: src/Views/ImportPage.vala:788
+msgid "Hide photos already imported"
+msgstr "Hide photos already imported"
+
+#: src/Views/ImportPage.vala:791
+msgid "Only display photos that have not been imported"
+msgstr "Only display photos that have not been imported"
+
+#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+msgid "_Titles"
+msgstr "_Titles"
+
+#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+msgid "Import _Selected"
+msgstr "Import _Selected"
+
+#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+msgid "Import _All"
+msgstr "Import _All"
+
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
+#: src/Views/ImportPage.vala:942
+msgid "Starting import, please wait…"
+msgstr "Starting import, please wait…"
+
+#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+msgid "Display the title of each photo"
+msgstr "Display the title of each photo"
+
+#: src/Views/ImportPage.vala:974
+msgid "Import the selected photos into your library"
+msgstr "Import the selected photos into your library"
+
+#: src/Views/ImportPage.vala:979
+msgid "Import all the photos into your library"
+msgstr "Import all the photos into your library"
+
+#. it's mounted, offer to unmount for the user
+#: src/Views/ImportPage.vala:1099
+msgid ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+
+#: src/Views/ImportPage.vala:1105
+msgid "_Unmount"
+msgstr "_Unmount"
+
+#: src/Views/ImportPage.vala:1110
+msgid "Please unmount the camera."
+msgstr "Please unmount the camera."
+
+#: src/Views/ImportPage.vala:1115
+msgid ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+
+#: src/Views/ImportPage.vala:1125
+msgid "Please close any other application using the camera."
+msgstr "Please close any other application using the camera."
+
+#: src/Views/ImportPage.vala:1130
+#, c-format
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+
+#: src/Views/ImportPage.vala:1147
+msgid "Unmounting…"
+msgstr "Unmounting…"
+
+#: src/Views/ImportPage.vala:1253
+msgid "Fetching photo information"
+msgstr "Fetching photo information"
+
+#: src/Views/ImportPage.vala:1608
+#, c-format
+msgid "Fetching preview for %s"
+msgstr "Fetching preview for %s"
+
+#: src/Views/ImportPage.vala:1724
+#, c-format
+msgid "Unable to lock camera: %s"
+msgstr "Unable to lock camera: %s"
+
+#: src/Views/ImportPage.vala:1809
+#, c-format
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] "Delete this photo from camera?"
+msgstr[1] "Delete these %d photos from camera?"
+
+#: src/Views/ImportPage.vala:1812
+#, c-format
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] "Delete this video from camera?"
+msgstr[1] "Delete these %d videos from camera?"
+
+#: src/Views/ImportPage.vala:1815
+#, c-format
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] "Delete this photo/video from camera?"
+msgstr[1] "Delete these %d photos/videos from camera?"
+
+#: src/Views/ImportPage.vala:1818
+#, c-format
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] "Delete these files from camera?"
+msgstr[1] "Delete these %d files from camera?"
+
+#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+msgid "Delete"
+msgstr "Delete"
+
+#: src/Views/ImportPage.vala:1826
+msgid "_Keep"
+msgstr "_Keep"
+
+#: src/Views/ImportPage.vala:1845
+msgid "Removing photos/videos from camera"
+msgstr "Removing photos/videos from camera"
+
+#: src/Views/ImportPage.vala:1849
+#, c-format
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] "Unable to delete %d photo/video from the camera due to errors."
+msgstr[1] "Unable to delete %d photos/videos from the camera due to errors."
+
+#: src/Views/ImportQueuePage.vala:21
+msgid "Importing…"
+msgstr "Importing…"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "_Stop Import"
+msgstr "_Stop Import"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "Stop importing photos"
+msgstr "Stop importing photos"
+
+#: src/Views/ImportQueuePage.vala:127
+msgid "Preparing to import…"
+msgstr "Preparing to import…"
+
+#: src/Views/ImportQueuePage.vala:154
+#, c-format
+msgid "Imported %s"
+msgstr "Imported %s"
+
+#: src/Views/LastImportPage.vala:21
+msgid "Last Import"
+msgstr "Last Import"
+
+#: src/Views/LibraryPhotoPage.vala:823
+#, c-format
+msgid "Unable to export %s: %s"
+msgstr "Unable to export %s: %s"
+
+#: src/Views/OfflinePage.vala:21
+msgid "Missing Files"
+msgstr "Missing Files"
+
+#: src/Views/OfflinePage.vala:201
+msgid "Deleting…"
+msgstr "Deleting…"
+
+#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+msgid "Ta_gs"
+msgstr "Ta_gs"
+
+#: src/Views/MediaPage.vala:84
+msgid "Sort _Photos"
+msgstr "Sort _Photos"
+
+#. Sort criteria.
+#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+msgid "By _Title"
+msgstr "By _Title"
+
+#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+msgid "By Exposure _Date"
+msgstr "By Exposure _Date"
+
+#: src/Views/MediaPage.vala:238
+msgid "Display the comment of each photo"
+msgstr "Display the comment of each photo"
+
+#: src/Views/MediaPage.vala:244
+msgid "Display each photo's tags"
+msgstr "Display each photo's tags"
+
+#: src/Views/MediaPage.vala:260
+msgid "Sort photos by title"
+msgstr "Sort photos by title"
+
+#: src/Views/MediaPage.vala:266
+msgid "Sort photos by exposure date"
+msgstr "Sort photos by exposure date"
+
+#: src/Views/MediaPage.vala:413
+#, c-format
+msgid ""
+"Photos was unable to play the selected video:\n"
+"%s"
+msgstr ""
+"Photos was unable to play the selected video:\n"
+"%s"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "Add Some Photos"
+msgstr "Add Some Photos"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "No Photos were found in your library."
+msgstr "No Photos were found in your library."
+
+#: src/Views/RawsPage.vala:24
+msgid "Raw Photos"
+msgstr "Raw Photos"
+
+#: src/Views/RawsPage.vala:37
+msgid "Raws"
+msgstr "Raws"
+
+#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
+msgid "Slideshow"
+msgstr "Slideshow"
+
+#: src/Views/SlideshowPage.vala:64
+msgid "Back"
+msgstr "Back"
+
+#: src/Views/SlideshowPage.vala:65
+msgid "Go to the previous photo"
+msgstr "Go to the previous photo"
+
+#: src/Views/SlideshowPage.vala:68
+msgid "Pause"
+msgstr "Pause"
+
+#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
+msgid "Pause the slideshow"
+msgstr "Pause the slideshow"
+
+#: src/Views/SlideshowPage.vala:73
+msgid "Next"
+msgstr "Next"
+
+#: src/Views/SlideshowPage.vala:74
+msgid "Go to the next photo"
+msgstr "Go to the next photo"
+
+#: src/Views/SlideshowPage.vala:81
+msgid "Show Photo Titles"
+msgstr "Show Photo Titles"
+
+#: src/Views/SlideshowPage.vala:96
+msgid "Transition Speed"
+msgstr "Transition Speed"
+
+#: src/Views/SlideshowPage.vala:98
+msgid "Faster"
+msgstr "Faster"
+
+#: src/Views/SlideshowPage.vala:99
+msgid "Slower"
+msgstr "Slower"
+
+#. An entire slideshow set might be missing, so check for a loop.
+#: src/Views/SlideshowPage.vala:164
+msgid "All photo source files are missing."
+msgstr "All photo source files are missing."
+
+#: src/Views/SlideshowPage.vala:196
+msgid "Continue the slideshow"
+msgstr "Continue the slideshow"
+
+#: src/Views/TrashPage.vala:22
+msgid "Trash"
+msgstr "Rubbish Bin"
+
+#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
+#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
+msgid "_Empty Trash"
+msgstr "_Empty Rubbish Bin"
+
+#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
+msgid "Delete all photos in the trash"
+msgstr "Delete all photos in the Rubbish Bin"
+
+#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
+msgid "Trash is empty"
+msgstr "The Rubbish Bin is empty"
+
+#: src/Views/TrashPage.vala:294
+msgid "Deleting a Photo"
+msgid_plural "Deleting Photos"
+msgstr[0] "Deleting a Photo"
+msgstr[1] "Deleting Photos"
+
+#: src/Views/TrashPage.vala:302
+msgid "Empty Trash"
+msgstr "Empty the Rubbish Bin"
+
+#: src/Views/TrashPage.vala:302
+msgid "Emptying Trash…"
+msgstr "Emptying Rubbish Bin…"
+
+#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
+msgid "Videos"
+msgstr "Videos"
+
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "_Transition effect:"
+msgstr "Transition Effect"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Remove"
+msgstr "Remove rule"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3169,54 +3119,51 @@ msgstr "ends with"
 msgid "does not contain"
 msgstr "does not contain"
 
-#: src/Widgets/CustomPrintTab.vala:45
-#, fuzzy
+#: src/Widgets/CustomPrintTab.vala:48
 msgid "Printed Image Size"
-msgstr "<b>Printed Image Size</b>"
+msgstr "Printed Image Size"
 
-#: src/Widgets/CustomPrintTab.vala:49
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
 msgstr "Use a _standard size:"
 
-#: src/Widgets/CustomPrintTab.vala:52
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "Use a c_ustom size:"
 msgstr "Use a c_ustom size:"
 
-#: src/Widgets/CustomPrintTab.vala:55
+#: src/Widgets/CustomPrintTab.vala:58
 msgid "_Autosize:"
 msgstr "_Autosize:"
 
-#: src/Widgets/CustomPrintTab.vala:92
+#: src/Widgets/CustomPrintTab.vala:95
 msgid "in."
 msgstr "in."
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:96
 msgid "cm"
 msgstr "cm"
 
-#: src/Widgets/CustomPrintTab.vala:103
+#: src/Widgets/CustomPrintTab.vala:106
 msgid "_Match photo aspect ratio"
 msgstr "_Match photo aspect ratio"
 
-#: src/Widgets/CustomPrintTab.vala:105
-#, fuzzy
+#: src/Widgets/CustomPrintTab.vala:108
 msgid "Titles"
-msgstr "_Titles"
+msgstr "Titles"
 
-#: src/Widgets/CustomPrintTab.vala:109
+#: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Print image _title"
 
-#: src/Widgets/CustomPrintTab.vala:115
-#, fuzzy
+#: src/Widgets/CustomPrintTab.vala:118
 msgid "Pixel Resolution"
-msgstr "<b>Pixel Resolution</b>"
+msgstr "Pixel Resolution"
 
-#: src/Widgets/CustomPrintTab.vala:122
+#: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
 msgstr "_Output photo at:"
 
-#: src/Widgets/CustomPrintTab.vala:128
+#: src/Widgets/CustomPrintTab.vala:131
 msgid "pixels per inch"
 msgstr "pixels per inch"
 
@@ -3315,7 +3262,7 @@ msgstr ""
 "  elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "Creating album %s…"
 
@@ -3412,7 +3359,7 @@ msgstr ""
 "You are not currently logged into Google Photos.\n"
 "\n"
 "Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
+"authorise elementary OS to link to your Google Photos account."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
 msgid ""
@@ -3467,9 +3414,8 @@ msgstr ""
 "publishing again."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "Preparing for log-in…"
+msgstr "Preparing for login…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3481,7 +3427,6 @@ msgstr ""
 "continue."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
 msgstr "Verifying authorisation…"
 
@@ -3573,14 +3518,12 @@ msgid "Large (2048 pixels)"
 msgstr "Large (2048 pixels)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
 msgstr "Testing connection to Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "Buat album…"
+msgstr "Creating album…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
@@ -3940,6 +3883,12 @@ msgstr "Chess"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Blinds"
+
+#~ msgid "Return to current photo dimensions"
+#~ msgstr "Return to current photo dimensions"
+
+#~ msgid "Set the crop for this photo"
+#~ msgstr "Set the crop for this photo"
 
 #~ msgid "_Delete File"
 #~ msgid_plural "_Delete Files"

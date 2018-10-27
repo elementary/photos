@@ -751,6 +751,7 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
             webview_frame = new Gtk.ScrolledWindow (null, null);
             webview_frame.set_shadow_type (Gtk.ShadowType.ETCHED_IN);
             webview_frame.set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
+            webview_frame.expand = true;
 
             webview = new WebKit.WebView ();
             webview.get_settings ().enable_plugins = false;
