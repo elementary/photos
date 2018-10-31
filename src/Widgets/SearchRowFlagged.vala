@@ -19,13 +19,10 @@
 */
 
 public class SearchRowFlagged : SearchRow {
-    private Gtk.Box box;
     private Gtk.ComboBoxText flagged_state;
 
-    private SearchRowContainer parent;
-
     public SearchRowFlagged (SearchRowContainer parent) {
-        this.parent = parent;
+        Object (parent: parent);
 
         // Ordering must correspond with SearchConditionFlagged.State
         flagged_state = new Gtk.ComboBoxText ();
@@ -34,18 +31,13 @@ public class SearchRowFlagged : SearchRow {
         flagged_state.set_active (0);
         flagged_state.changed.connect (on_changed);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        box.pack_start (new Gtk.Label (_ ("is")), false, false, 0);
-        box.pack_start (flagged_state, false, false, 0);
-        box.show_all ();
+        add (new Gtk.Label (_("is")));
+        add (flagged_state);
+        show_all ();
     }
 
     ~SearchRowFlagged () {
         flagged_state.changed.disconnect (on_changed);
-    }
-
-    public override Gtk.Widget get_widget () {
-        return box;
     }
 
     public override SearchCondition get_search_condition () {

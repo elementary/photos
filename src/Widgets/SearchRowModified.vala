@@ -19,14 +19,11 @@
 */
 
 public class SearchRowModified : SearchRow {
-    private Gtk.Box box;
     private Gtk.ComboBoxText modified_context;
     private Gtk.ComboBoxText modified_state;
 
-    private SearchRowContainer parent;
-
     public SearchRowModified (SearchRowContainer parent) {
-        this.parent = parent;
+        Object (parent: parent);
 
         modified_context = new Gtk.ComboBoxText ();
         modified_context.append_text (_ ("has"));
@@ -41,19 +38,14 @@ public class SearchRowModified : SearchRow {
         modified_state.set_active (0);
         modified_state.changed.connect (on_changed);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        box.pack_start (modified_context, false, false, 0);
-        box.pack_start (modified_state, false, false, 0);
-        box.show_all ();
+        add (modified_context);
+        add (modified_state);
+        show_all ();
     }
 
     ~SearchRowModified () {
         modified_state.changed.disconnect (on_changed);
         modified_context.changed.disconnect (on_changed);
-    }
-
-    public override Gtk.Widget get_widget () {
-        return box;
     }
 
     public override SearchCondition get_search_condition () {
