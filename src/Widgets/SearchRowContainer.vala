@@ -84,7 +84,7 @@ public class SearchRowContainer : Object {
 
     private void set_type (SearchCondition.SearchType type) {
         if (my_row != null)
-            align.remove (my_row.get_widget ());
+            align.remove (my_row);
 
         switch (type) {
         case SearchCondition.SearchType.ANY_TEXT:
@@ -117,7 +117,7 @@ public class SearchRowContainer : Object {
             break;
         }
 
-        align.add (my_row.get_widget ());
+        align.add (my_row);
     }
 
     public SearchCondition.SearchType get_search_type () {

@@ -18,13 +18,17 @@
 */
 
 public class ContractMenuItem : Gtk.MenuItem {
-    private Granite.Services.Contract contract;
-    private Gee.List<DataSource> sources;
+    public Granite.Services.Contract contract { get; construct; }
+    public Gee.List<DataSource> sources { get; construct; }
 
     public ContractMenuItem (Granite.Services.Contract contract, Gee.List<DataSource> sources) {
-        this.contract = contract;
-        this.sources = sources;
+        Object (
+            contract: contract,
+            sources: sources
+        );
+    }
 
+    construct {
         label = contract.get_display_name ();
         tooltip_text = contract.get_description ();
     }

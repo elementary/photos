@@ -577,7 +577,7 @@ public class PrintManager {
 
     private void on_custom_widget_apply (Gtk.Widget custom_widget) {
         CustomPrintTab tab = (CustomPrintTab) custom_widget;
-        tab.get_source_job ().set_local_settings (tab.get_local_settings ());
+        tab.source_job.set_local_settings (tab.get_local_settings ());
         set_global_settings (tab.get_local_settings ());
     }
 

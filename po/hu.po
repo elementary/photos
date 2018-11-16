@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 18:49+0100\n"
+"POT-Creation-Date: 2018-10-18 05:41-0500\n"
 "PO-Revision-Date: 2018-06-18 23:52+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/photos/"
@@ -135,87 +135,6 @@ msgstr "Sérült képfájl"
 #, c-format
 msgid "Imported failed (%d)"
 msgstr "Az importálás meghiúsult (%d)"
-
-#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
-msgid "S_lideshow"
-msgstr "_Diavetítés"
-
-#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
-msgid "Play a slideshow"
-msgstr "Diavetítés indítása"
-
-#: src/Views/CollectionPage.vala:95
-msgid "Adjust the size of the thumbnails"
-msgstr "A bélyegképek méretének beállítása"
-
-#: src/Views/CollectionPage.vala:127 src/Views/LibraryPhotoPage.vala:483
-#: src/Views/MediaPage.vala:68 src/Views/ImportPage.vala:854
-#: src/Views/EventsDirectoryPage.vala:135 src/library/LibraryWindow.vala:376
-#: src/library/LibraryWindow.vala:377 src/Views/OfflinePage.vala:105
-#: src/Views/TrashPage.vala:160
-msgid "Edit Photo In_fo"
-msgstr "Fénykép in_fó szerkesztése"
-
-#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
-msgid "_Developer"
-msgstr "_Előhívó"
-
-#: src/Views/CollectionPage.vala:196 src/Views/LibraryPhotoPage.vala:542
-#: src/library/LibraryWindow.vala:343
-msgid "View Eve_nt for Photo"
-msgstr "Fénykép _eseményének megjelenítése"
-
-#: src/Views/CollectionPage.vala:211 src/Views/LibraryPhotoPage.vala:557
-#: src/Views/DirectPhotoPage.vala:155
-msgid "Other Actions"
-msgstr ""
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photo/Video"
-msgstr "Fényképek/videók exportálása"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Fényképek/videók exportálása"
-
-#: src/Views/CollectionPage.vala:600 src/Views/LibraryPhotoPage.vala:803
-#: src/Dialogs/Dialogs.vala:90
-msgid "Export Photo"
-msgstr "Fényképek exportálása"
-
-#: src/Views/CollectionPage.vala:600 src/Dialogs/Dialogs.vala:119
-msgid "Export Photos"
-msgstr "Fényképek exportálása"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Rotating"
-msgstr "Forgatás"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
-msgid "Undoing Rotate"
-msgstr "Forgatás visszavonása"
-
-#: src/Views/CollectionPage.vala:718
-msgid "Flipping Horizontally"
-msgstr "Tükrözés vízszintesen"
-
-#: src/Views/CollectionPage.vala:719
-msgid "Undoing Flip Horizontally"
-msgstr "Vízszintes tükrözés visszavonása"
-
-#: src/Views/CollectionPage.vala:728
-msgid "Flipping Vertically"
-msgstr "Tükrözés függőlegesen"
-
-#: src/Views/CollectionPage.vala:729
-msgid "Undoing Flip Vertically"
-msgstr "Függőleges tükrözés visszavonása"
-
-#: src/Views/CollectionPage.vala:914 src/Views/CollectionPage.vala:915
-#: src/Views/CheckerboardPage.vala:91 src/Views/PhotosPage.vala:64
-#: src/Views/RawsPage.vala:64
-msgid "No photos/videos"
-msgstr "Nincsenek fényképek/videók"
 
 #: src/Commands.vala:746
 msgid "Reverting"
@@ -412,33 +331,6 @@ msgstr "Magasság"
 msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "%s nem figyelhető: nem könyvtár (%s)"
 
-#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
-#: src/Views/EditingHostPage.vala:106
-msgid "Rotate"
-msgstr "Forgatás"
-
-#: src/Views/EditingHostPage.vala:144
-msgid "Zoom to fit page"
-msgstr ""
-
-#: src/Views/EditingHostPage.vala:153
-#, fuzzy
-msgid "Zoom 1:1"
-msgstr "_100% nagyítás"
-
-#: src/Views/EditingHostPage.vala:173
-msgid "Previous photo"
-msgstr "Előző fénykép"
-
-#: src/Views/EditingHostPage.vala:177
-msgid "Next photo"
-msgstr "Következő fénykép"
-
-#: src/Views/EditingHostPage.vala:1504
-#, c-format
-msgid "Photo source file missing: %s"
-msgstr "A fénykép forrásfájlja hiányzik: %s"
-
 #. if no name, pretty up the start time
 #: src/Event.vala:733
 #, c-format
@@ -476,10 +368,10 @@ msgstr "Öss_zes cseréje"
 #: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
 #: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
 #: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74 src/Views/DirectPhotoPage.vala:327
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:87
+#: src/Dialogs/TextEntryDialog.vala:74
+#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -494,19 +386,6 @@ msgstr "Eszköztár rögzítése nyitva"
 #: src/FullScreenWindow.vala:58
 msgid "Leave fullscreen"
 msgstr "Teljes képernyő elhagyása"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:878
-msgid "Remove From Library"
-msgstr "Eltávolítás a gyűjteményből"
-
-#: src/Views/LibraryPhotoPage.vala:724 src/Dialogs/Dialogs.vala:879
-msgid "Removing Photo From Library"
-msgstr "Fényképek eltávolítás a gyűjteményből"
-
-#: src/Views/LibraryPhotoPage.vala:823
-#, c-format
-msgid "Unable to export %s: %s"
-msgstr "A(z) %s exportálása sikertelen: %s"
 
 #: src/main.vala:68
 #, fuzzy, c-format
@@ -593,100 +472,6 @@ msgstr ""
 msgid "Unable to process monitoring updates: %s"
 msgstr "A megfigyelés frissítései nem dolgozhatók fel: %s"
 
-#: src/Views/MediaPage.vala:64 src/Views/ImportPage.vala:850
-#: src/Views/EventsDirectoryPage.vala:131 src/library/LibraryWindow.vala:371
-#: src/Views/OfflinePage.vala:101 src/Views/TrashPage.vala:156
-msgid "S_idebar"
-msgstr "_Oldalsáv"
-
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
-msgid "_Titles"
-msgstr "_Címek"
-
-#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:237
-#: src/Views/EventsDirectoryPage.vala:229
-msgid "_Comments"
-msgstr "_Megjegyzések"
-
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
-msgid "Ta_gs"
-msgstr "Cí_mkék"
-
-#: src/Views/MediaPage.vala:84
-msgid "Sort _Photos"
-msgstr "Fényképek _rendezése"
-
-#. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
-msgid "By _Title"
-msgstr "_Cím szerint"
-
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
-msgid "By Exposure _Date"
-msgstr "_Készítés dátuma"
-
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/ImportPage.vala:864
-#: src/Views/EventsDirectoryPage.vala:141 src/library/LibraryWindow.vala:388
-#: src/Views/OfflinePage.vala:111 src/Views/TrashPage.vala:166
-msgid "_Ascending"
-msgstr "_Növekvő"
-
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/ImportPage.vala:873
-#: src/Views/EventsDirectoryPage.vala:150 src/library/LibraryWindow.vala:394
-#: src/Views/OfflinePage.vala:120 src/Views/TrashPage.vala:175
-msgid "D_escending"
-msgstr "_Csökkenő"
-
-#: src/Views/MediaPage.vala:130 src/Views/ImportPage.vala:862
-#: src/Views/EventsDirectoryPage.vala:139 src/library/LibraryWindow.vala:341
-#: src/Views/OfflinePage.vala:109 src/Views/TrashPage.vala:164
-msgid "Sort _Events"
-msgstr "_Események rendezése"
-
-#: src/Views/MediaPage.vala:155 src/Views/EventsDirectoryPage.vala:164
-msgid "Fulls_creen"
-msgstr "Teljes ké_pernyő"
-
-#: src/Views/MediaPage.vala:232 src/Views/ImportPage.vala:962
-msgid "Display the title of each photo"
-msgstr "Fényképek címeinek megjelenítése"
-
-#: src/Views/MediaPage.vala:238
-msgid "Display the comment of each photo"
-msgstr "Az egyes képek megjegyzéseinek megjelenítése"
-
-#: src/Views/MediaPage.vala:244
-msgid "Display each photo's tags"
-msgstr "Fényképek címkéinek megjelenítése"
-
-#: src/Views/MediaPage.vala:260
-msgid "Sort photos by title"
-msgstr "Fényképek rendezése cím szerint"
-
-#: src/Views/MediaPage.vala:266
-msgid "Sort photos by exposure date"
-msgstr "Fényképek rendezése készítésük dátuma szerint"
-
-#: src/Views/MediaPage.vala:276 src/library/LibraryWindow.vala:388
-msgid "Sort photos in an ascending order"
-msgstr "Fényképek növekvő sorrendbe rendezése"
-
-#: src/Views/MediaPage.vala:281 src/library/LibraryWindow.vala:394
-msgid "Sort photos in a descending order"
-msgstr "Fényképek csökkenő sorrendbe rendezése"
-
-#: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
-msgid ""
-"Photos was unable to play the selected video:\n"
-"%s"
-msgstr ""
-"A Shotwell nem tudta lejátszani a kijelölt videót:\n"
-"%s"
-
 #: src/Photo.vala:3787
 msgid "modified"
 msgstr "módosítva"
@@ -719,59 +504,59 @@ msgstr "16 kép oldalanként"
 msgid "32 images per page"
 msgstr "32 kép oldalanként"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:201
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
 msgid "Wallet (2 x 3 in.)"
 msgstr "Tárca (2 x 3 hüvelyk)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:202
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
 msgid "Notecard (3 x 5 in.)"
 msgstr "Jegyzettömb (3 x 5 hüvelyk)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:203
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
 msgstr "4 x 6 hüvelyk"
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:204
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
 msgstr "5 x 7 hüvelyk"
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:205
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
 msgstr "8 x 10 hüvelyk"
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:207
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
 msgstr "11 x 14 hüvelyk"
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:209
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
 msgstr "16 x 20 hüvelyk"
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:211
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Metrikus tárca (9 x 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:212
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
 msgid "Postcard (10 x 15 cm)"
 msgstr "Képeslap (10 x 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:218
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -796,9 +581,9 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/Views/PhotosPage.vala:24
-#: src/Views/PhotosPage.vala:37 src/library/TopDisplay.vala:56
-#: src/photos/RawSupport.vala:310
+#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
+#: src/Views/PhotosPage.vala:37
 msgid "Photos"
 msgstr "Fotók"
 
@@ -1286,62 +1071,6 @@ msgstr "%Y. %d."
 msgid "Search Photos"
 msgstr "Fényképek keresése"
 
-#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
-msgid "Slideshow"
-msgstr "Diavetítés"
-
-#: src/Views/SlideshowPage.vala:64
-msgid "Back"
-msgstr "Vissza"
-
-#: src/Views/SlideshowPage.vala:65
-msgid "Go to the previous photo"
-msgstr "Ugrás az előző fényképre"
-
-#: src/Views/SlideshowPage.vala:68
-msgid "Pause"
-msgstr "Szünet"
-
-#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
-msgid "Pause the slideshow"
-msgstr "Diavetítés szüneteltetése"
-
-#: src/Views/SlideshowPage.vala:73
-msgid "Next"
-msgstr "Következő"
-
-#: src/Views/SlideshowPage.vala:74
-msgid "Go to the next photo"
-msgstr "Ugrás a következő fényképre"
-
-#: src/Views/SlideshowPage.vala:81
-#, fuzzy
-msgid "Show Photo Titles"
-msgstr "_Cím megjelenítése"
-
-#: src/Views/SlideshowPage.vala:96
-#, fuzzy
-msgid "Transition Speed"
-msgstr "Átmenet _effektus:"
-
-#: src/Views/SlideshowPage.vala:98
-msgid "Faster"
-msgstr ""
-
-#: src/Views/SlideshowPage.vala:99
-#, fuzzy
-msgid "Slower"
-msgstr "és kisebb"
-
-#. An entire slideshow set might be missing, so check for a loop.
-#: src/Views/SlideshowPage.vala:164
-msgid "All photo source files are missing."
-msgstr "Az összes fénykép forrásfájlja elveszett."
-
-#: src/Views/SlideshowPage.vala:196
-msgid "Continue the slideshow"
-msgstr "Diavetítés folytatása"
-
 #: src/Tag.vala:830
 msgid "untitled"
 msgstr "névtelen"
@@ -1355,166 +1084,10 @@ msgstr "Videók exportálása"
 msgid "Cameras"
 msgstr "Fényképezőgépek"
 
-#: src/camera/Branch.vala:110 src/Views/ImportPage.vala:729
-#: src/Views/ImportPage.vala:745 src/photos/RawSupport.vala:313
+#: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
+#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
 msgid "Camera"
 msgstr "Fényképezőgép"
-
-#: src/Views/ImportPage.vala:301 src/sidebar/metadata/BasicProperties.vala:130
-msgid "RAW+JPEG"
-msgstr "RAW+JPEG"
-
-#: src/Views/ImportPage.vala:464
-msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr ""
-"A fényképezőgép leválasztása nem sikerült, próbálja meg a fájlkezelőből "
-"leválasztani."
-
-#: src/Views/ImportPage.vala:788
-msgid "Hide photos already imported"
-msgstr "Már importált fényképek elrejtése"
-
-#: src/Views/ImportPage.vala:791
-msgid "Only display photos that have not been imported"
-msgstr "Csak a nem importált fényképek megjelenítése"
-
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
-msgid "Import _Selected"
-msgstr "_Kijelöltek importálása"
-
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
-msgid "Import _All"
-msgstr "Összes im_portálása"
-
-#. Ticket #3304 - Import page shouldn't display confusing message
-#. prior to import.
-#. TODO: replace this with approved text for "talking to camera,
-#. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
-#, fuzzy
-msgid "Starting import, please wait…"
-msgstr "Importálás kezdése, kis türelmet…"
-
-#: src/Views/ImportPage.vala:974
-msgid "Import the selected photos into your library"
-msgstr "Kijelölt fényképek importálása a gyűjteményébe"
-
-#: src/Views/ImportPage.vala:979
-msgid "Import all the photos into your library"
-msgstr "Minden fénykép importálása a gyűjteményébe"
-
-#. it's mounted, offer to unmount for the user
-#: src/Views/ImportPage.vala:1099
-#, fuzzy
-msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
-msgstr ""
-"A Shotwellnek le kell választania a fényképezőgépet a fájlrendszerről az "
-"eléréséhez. Folytatja?"
-
-#: src/Views/ImportPage.vala:1105
-msgid "_Unmount"
-msgstr "_Leválasztás"
-
-#: src/Views/ImportPage.vala:1110
-msgid "Please unmount the camera."
-msgstr "Válassza le a fényképezőgépet."
-
-#: src/Views/ImportPage.vala:1115
-#, fuzzy
-msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
-msgstr ""
-"A fényképezőgépet egy másik alkalmazás zárolta, így a Shotwell nem tudja "
-"használni. Zárja be a fényképezőgépet használó összes alkalmazást, majd "
-"próbálja újra."
-
-#: src/Views/ImportPage.vala:1125
-msgid "Please close any other application using the camera."
-msgstr "Zárja be a fényképezőgépet használó összes alkalmazást."
-
-#: src/Views/ImportPage.vala:1130
-#, c-format
-msgid ""
-"Unable to fetch previews from the camera:\n"
-"%s"
-msgstr ""
-"Nem tölthetők le az előnézetek a fényképezőgépről:\n"
-"%s"
-
-#: src/Views/ImportPage.vala:1147
-#, fuzzy
-msgid "Unmounting…"
-msgstr "Leválasztás…"
-
-#: src/Views/ImportPage.vala:1253
-msgid "Fetching photo information"
-msgstr "Fénykép-információk lekérése"
-
-#: src/Views/ImportPage.vala:1608
-#, c-format
-msgid "Fetching preview for %s"
-msgstr "A(z) %s előnézetének lekérése"
-
-#: src/Views/ImportPage.vala:1724
-#, c-format
-msgid "Unable to lock camera: %s"
-msgstr "A fényképezőgép nem zárolható: %s"
-
-#: src/Views/ImportPage.vala:1809
-#, c-format
-msgid "Delete this photo from camera?"
-msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Törli a fényképet a fényképezőgépről?"
-msgstr[1] "Töröl %d fényképet a fényképezőgépről?"
-
-#: src/Views/ImportPage.vala:1812
-#, c-format
-msgid "Delete this video from camera?"
-msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Törli a videót a fényképezőgépről?"
-msgstr[1] "Töröl %d videót a fényképezőgépről?"
-
-#: src/Views/ImportPage.vala:1815
-#, c-format
-msgid "Delete this photo/video from camera?"
-msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Törli a fényképet/videót a fényképezőgépről?"
-msgstr[1] "Töröl %d fényképet/videót a fényképezőgépről?"
-
-#: src/Views/ImportPage.vala:1818
-#, c-format
-msgid "Delete these files from camera?"
-msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Törli ezt a fájlt a fényképezőgépről?"
-msgstr[1] "Törli ezt a(z) %d fájlt a fényképezőgépről?"
-
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
-msgid "Delete"
-msgstr "Törlés"
-
-#: src/Views/ImportPage.vala:1826
-msgid "_Keep"
-msgstr "_Megtartás"
-
-#: src/Views/ImportPage.vala:1845
-msgid "Removing photos/videos from camera"
-msgstr "Fényképek/videók eltávolítása a fényképezőgépről"
-
-#: src/Views/ImportPage.vala:1849
-#, c-format
-msgid "Unable to delete %d photo/video from the camera due to errors."
-msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőgépről."
-msgstr[1] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőgépről."
-
-#: src/Views/CheckerboardPage.vala:95
-msgid "No photos/videos found"
-msgstr "Nem találhatók fényképek/videók"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
 #: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
@@ -1646,10 +1219,19 @@ msgstr "_Előhívó váltása"
 msgid "Export Video"
 msgstr "Videó exportálása"
 
+#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Views/LibraryPhotoPage.vala:803
+msgid "Export Photo"
+msgstr "Fényképek exportálása"
+
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "M_entés"
+
+#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+msgid "Export Photos"
+msgstr "Fényképek exportálása"
 
 #: src/Dialogs/Dialogs.vala:123
 msgid "_Select"
@@ -2145,6 +1727,14 @@ msgstr "_Importálás"
 msgid "Import to Library"
 msgstr "Importálás a gyűjteménybe"
 
+#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+msgid "Remove From Library"
+msgstr "Eltávolítás a gyűjteményből"
+
+#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+msgid "Removing Photo From Library"
+msgstr "Fényképek eltávolítás a gyűjteményből"
+
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
 msgstr "Fényképek eltávolítása a gyűjteményből"
@@ -2236,6 +1826,44 @@ msgstr "_Bezárás"
 msgid "%d%%"
 msgstr "%d%%"
 
+#: src/Dialogs/SavedSearchDialog.vala:42
+msgid "Add"
+msgstr "Hozzáadás"
+
+#. Add close button.
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+msgid "Save"
+msgstr "Mentés"
+
+#: src/Dialogs/SavedSearchDialog.vala:88
+msgid "_Match"
+msgstr "Illes_zkedjen"
+
+#: src/Dialogs/SavedSearchDialog.vala:91
+msgid "any"
+msgstr "bármely"
+
+#: src/Dialogs/SavedSearchDialog.vala:92
+msgid "all"
+msgstr "összes"
+
+#: src/Dialogs/SavedSearchDialog.vala:93
+msgid "none"
+msgstr "nincs"
+
+#: src/Dialogs/SavedSearchDialog.vala:96
+msgid "of the following:"
+msgstr "a következőkkel:"
+
+#: src/Dialogs/SavedSearchDialog.vala:101
+msgid "Add rule"
+msgstr ""
+
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
+#: src/Views/DirectPhotoPage.vala:416
+msgid "Cancel"
+msgstr "Mégsem"
+
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
@@ -2266,57 +1894,6 @@ msgstr ""
 "\n"
 "A hibaüzenet: \n"
 "%s"
-
-#: src/Views/DirectPhotoPage.vala:95
-#, c-format
-msgid "%s does not exist."
-msgstr "%s nem létezik."
-
-#: src/Views/DirectPhotoPage.vala:97
-#, c-format
-msgid "%s is not a file."
-msgstr "A(z) %s nem egy fájl."
-
-#: src/Views/DirectPhotoPage.vala:99
-#, c-format
-msgid ""
-"%s does not support the file format of\n"
-"%s."
-msgstr ""
-"A(z) %s nem támogatja a fájlformátumát ennek:\n"
-"%s."
-
-#: src/Views/DirectPhotoPage.vala:314
-msgid "_Save a Copy"
-msgstr "_Másolat mentése"
-
-#: src/Views/DirectPhotoPage.vala:317
-#, c-format
-msgid "Lose changes to %s?"
-msgstr "Eldobja a(z) %s változtatásait?"
-
-#: src/Views/DirectPhotoPage.vala:324
-msgid "Close _without Saving"
-msgstr "Bezárás mentés _nélkül"
-
-#: src/Views/DirectPhotoPage.vala:364
-#, c-format
-msgid "Error while saving to %s: %s"
-msgstr "Hiba a(z) %s helyre mentéskor: %s"
-
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
-msgid "Save As"
-msgstr "Mentés másként"
-
-#: src/Views/DirectPhotoPage.vala:416 src/library/LibraryWindow.vala:616
-#: src/Dialogs/SavedSearchDialog.vala:131
-msgid "Cancel"
-msgstr "Mégsem"
-
-#. Add close button.
-#: src/Views/DirectPhotoPage.vala:417 src/Dialogs/SavedSearchDialog.vala:56
-msgid "Save"
-msgstr "Mentés"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
@@ -2351,65 +1928,57 @@ msgstr "Vörösszem-effektus eszköz bezárása"
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Minden vörösszem-effektus eltávolítása a kijelölt területről"
 
-#: src/editing_tools/CropTool.vala:102
-msgid "Return to current photo dimensions"
-msgstr "Aktuális fényképméretek visszaállítása"
-
-#: src/editing_tools/CropTool.vala:104
-msgid "Set the crop for this photo"
-msgstr "Képkivágás beállítása a képhez"
-
-#: src/editing_tools/CropTool.vala:115
+#: src/editing_tools/CropTool.vala:111
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "A kivágási téglalap forgatása az álló és fekvő tájolások között"
 
-#: src/editing_tools/CropTool.vala:193
+#: src/editing_tools/CropTool.vala:205
 msgid "Unconstrained"
 msgstr "Korlátlan"
 
-#: src/editing_tools/CropTool.vala:194
+#: src/editing_tools/CropTool.vala:206
 msgid "Square"
 msgstr "Négyzet"
 
-#: src/editing_tools/CropTool.vala:195
+#: src/editing_tools/CropTool.vala:207
 msgid "Screen"
 msgstr "Képernyő"
 
-#: src/editing_tools/CropTool.vala:196
+#: src/editing_tools/CropTool.vala:208
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Eredeti méret"
 
-#: src/editing_tools/CropTool.vala:197 src/editing_tools/CropTool.vala:200
-#: src/editing_tools/CropTool.vala:210 src/editing_tools/CropTool.vala:220
+#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:198
+#: src/editing_tools/CropTool.vala:210
 msgid "SD Video (4 : 3)"
 msgstr "SD videó (4 : 3)"
 
-#: src/editing_tools/CropTool.vala:199
+#: src/editing_tools/CropTool.vala:211
 msgid "HD Video (16 : 9)"
 msgstr "HD videó (16 : 9)"
 
-#: src/editing_tools/CropTool.vala:206
+#: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Letter (8.5 x 11 hüvelyk)"
 
-#: src/editing_tools/CropTool.vala:208
+#: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tabloid (11 x 17 hüvelyk)"
 
-#: src/editing_tools/CropTool.vala:215
+#: src/editing_tools/CropTool.vala:227
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:219
+#: src/editing_tools/CropTool.vala:231
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:221
+#: src/editing_tools/CropTool.vala:233
 msgid "Custom"
 msgstr "Egyéni"
 
@@ -2497,82 +2066,9 @@ msgid_plural "%d Photos"
 msgstr[0] "%d fénykép"
 msgstr[1] "%d fénykép"
 
-#: src/Views/EventPage.vala:136
-msgid "All Events"
-msgstr "Minden esemény"
-
-#: src/Views/EventPage.vala:150
-msgid "No Event"
-msgstr "Nincs esemény"
-
-#: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
-msgid "Merge events"
-msgstr "_Események egyesítése"
-
-#: src/Views/EventsDirectoryPage.vala:230
-msgid "Display the comment of each event"
-msgstr "Az egyes események megjegyzéseinek megjelenítése"
-
-#: src/Views/EventsDirectoryPage.vala:254
-msgid "No events"
-msgstr "Nincsenek események"
-
-#: src/Views/EventsDirectoryPage.vala:258
-msgid "No events found"
-msgstr "Nem találhatók események"
-
-#: src/Views/EventsDirectoryPage.vala:318
-msgid "Events"
-msgstr "Események"
-
-#: src/Views/EventsDirectoryPage.vala:332
-msgid "Undated"
-msgstr "Keltezetlen"
-
-#: src/Views/EventsDirectoryPage.vala:333
-msgid "%Y"
-msgstr "%Y"
-
-#: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
-msgid "%OB"
-msgstr "%B"
-
 #: src/library/Branch.vala:174
 msgid "All Photos"
 msgstr "Összes fotó"
-
-#: src/Views/FlaggedPage.vala:21
-msgid "Flagged"
-msgstr "Megjelölve"
-
-#: src/Views/ImportQueuePage.vala:21
-#, fuzzy
-msgid "Importing…"
-msgstr "Importálás"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "_Stop Import"
-msgstr "Importálás l_eállítása"
-
-#: src/Views/ImportQueuePage.vala:69
-msgid "Stop importing photos"
-msgstr "Fényképek importálásának leállítása"
-
-#: src/Views/ImportQueuePage.vala:127
-#, fuzzy
-msgid "Preparing to import…"
-msgstr "Importálás előkészítése…"
-
-#: src/Views/ImportQueuePage.vala:154
-#, c-format
-msgid "Imported %s"
-msgstr "%s importálva"
-
-#: src/Views/LastImportPage.vala:21
-msgid "Last Import"
-msgstr "Utolsó importálás"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
@@ -2586,6 +2082,17 @@ msgstr "_Beállítások"
 msgid "Settings"
 msgstr "Beállítások"
 
+#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
+msgid "Sort _Events"
+msgstr "_Események rendezése"
+
+#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/Views/LibraryPhotoPage.vala:542
+msgid "View Eve_nt for Photo"
+msgstr "Fénykép _eseményének megjelenítése"
+
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
@@ -2593,9 +2100,45 @@ msgstr "Beállítások"
 msgid "New Smart Album…"
 msgstr "Új okos album…"
 
+#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
+msgid "S_idebar"
+msgstr "_Oldalsáv"
+
 #: src/library/LibraryWindow.vala:372
 msgid "Display the sidebar"
 msgstr "Az oldalsáv megjelenítése"
+
+#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
+#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
+#: src/Views/TrashPage.vala:160
+msgid "Edit Photo In_fo"
+msgstr "Fénykép in_fó szerkesztése"
+
+#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
+msgid "_Ascending"
+msgstr "_Növekvő"
+
+#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+msgid "Sort photos in an ascending order"
+msgstr "Fényképek növekvő sorrendbe rendezése"
+
+#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
+msgid "D_escending"
+msgstr "_Csökkenő"
+
+#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+msgid "Sort photos in a descending order"
+msgstr "Fényképek csökkenő sorrendbe rendezése"
 
 #: src/library/LibraryWindow.vala:615
 msgid "Import From Folder"
@@ -2663,70 +2206,10 @@ msgstr "Gyűjtemény mappa megváltoztatása"
 msgid "Choose where to keep your photos."
 msgstr "Válassza ki hol tárolja a fotóit."
 
-#: src/Views/OfflinePage.vala:21
-msgid "Missing Files"
-msgstr "Hiányzó fájlok"
-
-#: src/Views/OfflinePage.vala:201
-#, fuzzy
-msgid "Deleting…"
-msgstr "Törlés…"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "Add Some Photos"
-msgstr "Adjon hozzá fotókat"
-
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
-msgid "No Photos were found in your library."
-msgstr "Nincsenek fotók a gyűjteményében."
-
-#: src/Views/RawsPage.vala:24
-msgid "Raw Photos"
-msgstr "Nyers fotók"
-
-#: src/Views/RawsPage.vala:37
-msgid "Raws"
-msgstr "Nyersek"
-
 #: src/library/TopDisplay.vala:133
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
-
-#: src/Views/TrashPage.vala:22
-msgid "Trash"
-msgstr "Kuka"
-
-#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
-#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
-msgid "_Empty Trash"
-msgstr "Kuka _ürítése"
-
-#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
-msgid "Delete all photos in the trash"
-msgstr "Minden fénykép törlése a Kukában"
-
-#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
-msgid "Trash is empty"
-msgstr "A Kuka üres"
-
-#: src/Views/TrashPage.vala:294
-msgid "Deleting a Photo"
-msgid_plural "Deleting Photos"
-msgstr[0] "Fénykép törlése"
-msgstr[1] "Fényképek törlése"
-
-#: src/Views/TrashPage.vala:302
-msgid "Empty Trash"
-msgstr "A kuka üres"
-
-#: src/Views/TrashPage.vala:302
-msgid "Emptying Trash…"
-msgstr "Kuka ürítése…"
-
-#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
-msgid "Videos"
-msgstr "Videók"
 
 #: src/photos/BmpSupport.vala:45
 msgid "BMP"
@@ -2884,34 +2367,6 @@ msgstr "Közzététel"
 msgid "Smart Albums"
 msgstr "Okos albumok"
 
-#: src/Dialogs/SavedSearchDialog.vala:42
-msgid "Add"
-msgstr "Hozzáadás"
-
-#: src/Dialogs/SavedSearchDialog.vala:88
-msgid "_Match"
-msgstr "Illes_zkedjen"
-
-#: src/Dialogs/SavedSearchDialog.vala:91
-msgid "any"
-msgstr "bármely"
-
-#: src/Dialogs/SavedSearchDialog.vala:92
-msgid "all"
-msgstr "összes"
-
-#: src/Dialogs/SavedSearchDialog.vala:93
-msgid "none"
-msgstr "nincs"
-
-#: src/Dialogs/SavedSearchDialog.vala:96
-msgid "of the following:"
-msgstr "a következőkkel:"
-
-#: src/Dialogs/SavedSearchDialog.vala:101
-msgid "Add rule"
-msgstr ""
-
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
 msgstr "Bármilyen szöveg"
@@ -2958,6 +2413,10 @@ msgstr "Dátum"
 #, fuzzy
 msgid "New _Tag…"
 msgstr "Új _címke…"
+
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+msgid "RAW+JPEG"
+msgstr "RAW+JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
@@ -3079,6 +2538,539 @@ msgstr "Címkék"
 msgid "Photos cannot be exported to this directory."
 msgstr "Nem exportálhatók fényképek ebbe a könyvtárba."
 
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
+#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/RawsPage.vala:64
+msgid "No photos/videos"
+msgstr "Nincsenek fényképek/videók"
+
+#: src/Views/CheckerboardPage.vala:95
+msgid "No photos/videos found"
+msgstr "Nem találhatók fényképek/videók"
+
+#: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
+msgid "S_lideshow"
+msgstr "_Diavetítés"
+
+#: src/Views/CollectionPage.vala:55 src/Views/LibraryPhotoPage.vala:64
+msgid "Play a slideshow"
+msgstr "Diavetítés indítása"
+
+#: src/Views/CollectionPage.vala:95
+msgid "Adjust the size of the thumbnails"
+msgstr "A bélyegképek méretének beállítása"
+
+#: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
+msgid "_Developer"
+msgstr "_Előhívó"
+
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/LibraryPhotoPage.vala:557
+msgid "Other Actions"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photo/Video"
+msgstr "Fényképek/videók exportálása"
+
+#: src/Views/CollectionPage.vala:598
+msgid "Export Photos/Videos"
+msgstr "Fényképek/videók exportálása"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Rotating"
+msgstr "Forgatás"
+
+#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+msgid "Undoing Rotate"
+msgstr "Forgatás visszavonása"
+
+#: src/Views/CollectionPage.vala:718
+msgid "Flipping Horizontally"
+msgstr "Tükrözés vízszintesen"
+
+#: src/Views/CollectionPage.vala:719
+msgid "Undoing Flip Horizontally"
+msgstr "Vízszintes tükrözés visszavonása"
+
+#: src/Views/CollectionPage.vala:728
+msgid "Flipping Vertically"
+msgstr "Tükrözés függőlegesen"
+
+#: src/Views/CollectionPage.vala:729
+msgid "Undoing Flip Vertically"
+msgstr "Függőleges tükrözés visszavonása"
+
+#: src/Views/DirectPhotoPage.vala:95
+#, c-format
+msgid "%s does not exist."
+msgstr "%s nem létezik."
+
+#: src/Views/DirectPhotoPage.vala:97
+#, c-format
+msgid "%s is not a file."
+msgstr "A(z) %s nem egy fájl."
+
+#: src/Views/DirectPhotoPage.vala:99
+#, c-format
+msgid ""
+"%s does not support the file format of\n"
+"%s."
+msgstr ""
+"A(z) %s nem támogatja a fájlformátumát ennek:\n"
+"%s."
+
+#: src/Views/DirectPhotoPage.vala:314
+msgid "_Save a Copy"
+msgstr "_Másolat mentése"
+
+#: src/Views/DirectPhotoPage.vala:317
+#, c-format
+msgid "Lose changes to %s?"
+msgstr "Eldobja a(z) %s változtatásait?"
+
+#: src/Views/DirectPhotoPage.vala:324
+msgid "Close _without Saving"
+msgstr "Bezárás mentés _nélkül"
+
+#: src/Views/DirectPhotoPage.vala:364
+#, c-format
+msgid "Error while saving to %s: %s"
+msgstr "Hiba a(z) %s helyre mentéskor: %s"
+
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+msgid "Save As"
+msgstr "Mentés másként"
+
+#. set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+#: src/Views/EditingHostPage.vala:106
+msgid "Rotate"
+msgstr "Forgatás"
+
+#: src/Views/EditingHostPage.vala:144
+msgid "Zoom to fit page"
+msgstr ""
+
+#: src/Views/EditingHostPage.vala:153
+#, fuzzy
+msgid "Zoom 1:1"
+msgstr "_100% nagyítás"
+
+#: src/Views/EditingHostPage.vala:173
+msgid "Previous photo"
+msgstr "Előző fénykép"
+
+#: src/Views/EditingHostPage.vala:177
+msgid "Next photo"
+msgstr "Következő fénykép"
+
+#: src/Views/EditingHostPage.vala:1504
+#, c-format
+msgid "Photo source file missing: %s"
+msgstr "A fénykép forrásfájlja hiányzik: %s"
+
+#: src/Views/EventPage.vala:136
+msgid "All Events"
+msgstr "Minden esemény"
+
+#: src/Views/EventPage.vala:150
+msgid "No Event"
+msgstr "Nincs esemény"
+
+#: src/Views/EventsDirectoryPage.vala:67
+#, fuzzy
+msgid "Merge events"
+msgstr "_Események egyesítése"
+
+#: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
+msgid "Fulls_creen"
+msgstr "Teljes ké_pernyő"
+
+#: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
+#: src/Views/MediaPage.vala:237
+msgid "_Comments"
+msgstr "_Megjegyzések"
+
+#: src/Views/EventsDirectoryPage.vala:230
+msgid "Display the comment of each event"
+msgstr "Az egyes események megjegyzéseinek megjelenítése"
+
+#: src/Views/EventsDirectoryPage.vala:254
+msgid "No events"
+msgstr "Nincsenek események"
+
+#: src/Views/EventsDirectoryPage.vala:258
+msgid "No events found"
+msgstr "Nem találhatók események"
+
+#: src/Views/EventsDirectoryPage.vala:318
+msgid "Events"
+msgstr "Események"
+
+#: src/Views/EventsDirectoryPage.vala:332
+msgid "Undated"
+msgstr "Keltezetlen"
+
+#: src/Views/EventsDirectoryPage.vala:333
+msgid "%Y"
+msgstr "%Y"
+
+#: src/Views/EventsDirectoryPage.vala:334
+#, fuzzy
+msgid "%OB"
+msgstr "%B"
+
+#: src/Views/FlaggedPage.vala:21
+msgid "Flagged"
+msgstr "Megjelölve"
+
+#: src/Views/ImportPage.vala:464
+msgid ""
+"Unable to unmount camera.  Try unmounting the camera from the file manager."
+msgstr ""
+"A fényképezőgép leválasztása nem sikerült, próbálja meg a fájlkezelőből "
+"leválasztani."
+
+#: src/Views/ImportPage.vala:788
+msgid "Hide photos already imported"
+msgstr "Már importált fényképek elrejtése"
+
+#: src/Views/ImportPage.vala:791
+msgid "Only display photos that have not been imported"
+msgstr "Csak a nem importált fényképek megjelenítése"
+
+#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+msgid "_Titles"
+msgstr "_Címek"
+
+#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+msgid "Import _Selected"
+msgstr "_Kijelöltek importálása"
+
+#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+msgid "Import _All"
+msgstr "Összes im_portálása"
+
+#. Ticket #3304 - Import page shouldn't display confusing message
+#. prior to import.
+#. TODO: replace this with approved text for "talking to camera,
+#. please wait" once new strings are being accepted.
+#: src/Views/ImportPage.vala:942
+#, fuzzy
+msgid "Starting import, please wait…"
+msgstr "Importálás kezdése, kis türelmet…"
+
+#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+msgid "Display the title of each photo"
+msgstr "Fényképek címeinek megjelenítése"
+
+#: src/Views/ImportPage.vala:974
+msgid "Import the selected photos into your library"
+msgstr "Kijelölt fényképek importálása a gyűjteményébe"
+
+#: src/Views/ImportPage.vala:979
+msgid "Import all the photos into your library"
+msgstr "Minden fénykép importálása a gyűjteményébe"
+
+#. it's mounted, offer to unmount for the user
+#: src/Views/ImportPage.vala:1099
+#, fuzzy
+msgid ""
+"Photos needs to unmount the camera from the filesystem in order to access "
+"it.  Continue?"
+msgstr ""
+"A Shotwellnek le kell választania a fényképezőgépet a fájlrendszerről az "
+"eléréséhez. Folytatja?"
+
+#: src/Views/ImportPage.vala:1105
+msgid "_Unmount"
+msgstr "_Leválasztás"
+
+#: src/Views/ImportPage.vala:1110
+msgid "Please unmount the camera."
+msgstr "Válassza le a fényképezőgépet."
+
+#: src/Views/ImportPage.vala:1115
+#, fuzzy
+msgid ""
+"The camera is locked by another application.  Photos can only access the "
+"camera when it's unlocked.  Please close any other application using the "
+"camera and try again."
+msgstr ""
+"A fényképezőgépet egy másik alkalmazás zárolta, így a Shotwell nem tudja "
+"használni. Zárja be a fényképezőgépet használó összes alkalmazást, majd "
+"próbálja újra."
+
+#: src/Views/ImportPage.vala:1125
+msgid "Please close any other application using the camera."
+msgstr "Zárja be a fényképezőgépet használó összes alkalmazást."
+
+#: src/Views/ImportPage.vala:1130
+#, c-format
+msgid ""
+"Unable to fetch previews from the camera:\n"
+"%s"
+msgstr ""
+"Nem tölthetők le az előnézetek a fényképezőgépről:\n"
+"%s"
+
+#: src/Views/ImportPage.vala:1147
+#, fuzzy
+msgid "Unmounting…"
+msgstr "Leválasztás…"
+
+#: src/Views/ImportPage.vala:1253
+msgid "Fetching photo information"
+msgstr "Fénykép-információk lekérése"
+
+#: src/Views/ImportPage.vala:1608
+#, c-format
+msgid "Fetching preview for %s"
+msgstr "A(z) %s előnézetének lekérése"
+
+#: src/Views/ImportPage.vala:1724
+#, c-format
+msgid "Unable to lock camera: %s"
+msgstr "A fényképezőgép nem zárolható: %s"
+
+#: src/Views/ImportPage.vala:1809
+#, c-format
+msgid "Delete this photo from camera?"
+msgid_plural "Delete these %d photos from camera?"
+msgstr[0] "Törli a fényképet a fényképezőgépről?"
+msgstr[1] "Töröl %d fényképet a fényképezőgépről?"
+
+#: src/Views/ImportPage.vala:1812
+#, c-format
+msgid "Delete this video from camera?"
+msgid_plural "Delete these %d videos from camera?"
+msgstr[0] "Törli a videót a fényképezőgépről?"
+msgstr[1] "Töröl %d videót a fényképezőgépről?"
+
+#: src/Views/ImportPage.vala:1815
+#, c-format
+msgid "Delete this photo/video from camera?"
+msgid_plural "Delete these %d photos/videos from camera?"
+msgstr[0] "Törli a fényképet/videót a fényképezőgépről?"
+msgstr[1] "Töröl %d fényképet/videót a fényképezőgépről?"
+
+#: src/Views/ImportPage.vala:1818
+#, c-format
+msgid "Delete these files from camera?"
+msgid_plural "Delete these %d files from camera?"
+msgstr[0] "Törli ezt a fájlt a fényképezőgépről?"
+msgstr[1] "Törli ezt a(z) %d fájlt a fényképezőgépről?"
+
+#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+msgid "Delete"
+msgstr "Törlés"
+
+#: src/Views/ImportPage.vala:1826
+msgid "_Keep"
+msgstr "_Megtartás"
+
+#: src/Views/ImportPage.vala:1845
+msgid "Removing photos/videos from camera"
+msgstr "Fényképek/videók eltávolítása a fényképezőgépről"
+
+#: src/Views/ImportPage.vala:1849
+#, c-format
+msgid "Unable to delete %d photo/video from the camera due to errors."
+msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
+msgstr[0] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőgépről."
+msgstr[1] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőgépről."
+
+#: src/Views/ImportQueuePage.vala:21
+#, fuzzy
+msgid "Importing…"
+msgstr "Importálás"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "_Stop Import"
+msgstr "Importálás l_eállítása"
+
+#: src/Views/ImportQueuePage.vala:69
+msgid "Stop importing photos"
+msgstr "Fényképek importálásának leállítása"
+
+#: src/Views/ImportQueuePage.vala:127
+#, fuzzy
+msgid "Preparing to import…"
+msgstr "Importálás előkészítése…"
+
+#: src/Views/ImportQueuePage.vala:154
+#, c-format
+msgid "Imported %s"
+msgstr "%s importálva"
+
+#: src/Views/LastImportPage.vala:21
+msgid "Last Import"
+msgstr "Utolsó importálás"
+
+#: src/Views/LibraryPhotoPage.vala:823
+#, c-format
+msgid "Unable to export %s: %s"
+msgstr "A(z) %s exportálása sikertelen: %s"
+
+#: src/Views/OfflinePage.vala:21
+msgid "Missing Files"
+msgstr "Hiányzó fájlok"
+
+#: src/Views/OfflinePage.vala:201
+#, fuzzy
+msgid "Deleting…"
+msgstr "Törlés…"
+
+#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+msgid "Ta_gs"
+msgstr "Cí_mkék"
+
+#: src/Views/MediaPage.vala:84
+msgid "Sort _Photos"
+msgstr "Fényképek _rendezése"
+
+#. Sort criteria.
+#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+msgid "By _Title"
+msgstr "_Cím szerint"
+
+#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+msgid "By Exposure _Date"
+msgstr "_Készítés dátuma"
+
+#: src/Views/MediaPage.vala:238
+msgid "Display the comment of each photo"
+msgstr "Az egyes képek megjegyzéseinek megjelenítése"
+
+#: src/Views/MediaPage.vala:244
+msgid "Display each photo's tags"
+msgstr "Fényképek címkéinek megjelenítése"
+
+#: src/Views/MediaPage.vala:260
+msgid "Sort photos by title"
+msgstr "Fényképek rendezése cím szerint"
+
+#: src/Views/MediaPage.vala:266
+msgid "Sort photos by exposure date"
+msgstr "Fényképek rendezése készítésük dátuma szerint"
+
+#: src/Views/MediaPage.vala:413
+#, fuzzy, c-format
+msgid ""
+"Photos was unable to play the selected video:\n"
+"%s"
+msgstr ""
+"A Shotwell nem tudta lejátszani a kijelölt videót:\n"
+"%s"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "Add Some Photos"
+msgstr "Adjon hozzá fotókat"
+
+#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+msgid "No Photos were found in your library."
+msgstr "Nincsenek fotók a gyűjteményében."
+
+#: src/Views/RawsPage.vala:24
+msgid "Raw Photos"
+msgstr "Nyers fotók"
+
+#: src/Views/RawsPage.vala:37
+msgid "Raws"
+msgstr "Nyersek"
+
+#: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
+msgid "Slideshow"
+msgstr "Diavetítés"
+
+#: src/Views/SlideshowPage.vala:64
+msgid "Back"
+msgstr "Vissza"
+
+#: src/Views/SlideshowPage.vala:65
+msgid "Go to the previous photo"
+msgstr "Ugrás az előző fényképre"
+
+#: src/Views/SlideshowPage.vala:68
+msgid "Pause"
+msgstr "Szünet"
+
+#: src/Views/SlideshowPage.vala:70 src/Views/SlideshowPage.vala:199
+msgid "Pause the slideshow"
+msgstr "Diavetítés szüneteltetése"
+
+#: src/Views/SlideshowPage.vala:73
+msgid "Next"
+msgstr "Következő"
+
+#: src/Views/SlideshowPage.vala:74
+msgid "Go to the next photo"
+msgstr "Ugrás a következő fényképre"
+
+#: src/Views/SlideshowPage.vala:81
+#, fuzzy
+msgid "Show Photo Titles"
+msgstr "_Cím megjelenítése"
+
+#: src/Views/SlideshowPage.vala:96
+#, fuzzy
+msgid "Transition Speed"
+msgstr "Átmenet _effektus:"
+
+#: src/Views/SlideshowPage.vala:98
+msgid "Faster"
+msgstr ""
+
+#: src/Views/SlideshowPage.vala:99
+#, fuzzy
+msgid "Slower"
+msgstr "és kisebb"
+
+#. An entire slideshow set might be missing, so check for a loop.
+#: src/Views/SlideshowPage.vala:164
+msgid "All photo source files are missing."
+msgstr "Az összes fénykép forrásfájlja elveszett."
+
+#: src/Views/SlideshowPage.vala:196
+msgid "Continue the slideshow"
+msgstr "Diavetítés folytatása"
+
+#: src/Views/TrashPage.vala:22
+msgid "Trash"
+msgstr "Kuka"
+
+#: src/Views/TrashPage.vala:87 src/Views/TrashPage.vala:135
+#: src/Views/TrashPage.vala:210 src/Views/TrashPage.vala:234
+msgid "_Empty Trash"
+msgstr "Kuka _ürítése"
+
+#: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
+msgid "Delete all photos in the trash"
+msgstr "Minden fénykép törlése a Kukában"
+
+#: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
+msgid "Trash is empty"
+msgstr "A Kuka üres"
+
+#: src/Views/TrashPage.vala:294
+msgid "Deleting a Photo"
+msgid_plural "Deleting Photos"
+msgstr[0] "Fénykép törlése"
+msgstr[1] "Fényképek törlése"
+
+#: src/Views/TrashPage.vala:302
+msgid "Empty Trash"
+msgstr "A kuka üres"
+
+#: src/Views/TrashPage.vala:302
+msgid "Emptying Trash…"
+msgstr "Kuka ürítése…"
+
+#: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
+msgid "Videos"
+msgstr "Videók"
+
 #: src/Widgets/TransitionEffectSelector.vala:65
 #, fuzzy
 msgid "Transition Effect"
@@ -3182,54 +3174,54 @@ msgstr "ezzel végződik"
 msgid "does not contain"
 msgstr "nem tartalmazza"
 
-#: src/Widgets/CustomPrintTab.vala:45
+#: src/Widgets/CustomPrintTab.vala:48
 #, fuzzy
 msgid "Printed Image Size"
 msgstr "<b>Nyomtatott képméret</b>"
 
-#: src/Widgets/CustomPrintTab.vala:49
+#: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
 msgstr "_Szabványos méret használata:"
 
-#: src/Widgets/CustomPrintTab.vala:52
+#: src/Widgets/CustomPrintTab.vala:55
 msgid "Use a c_ustom size:"
 msgstr "_Egyéni méret használata:"
 
-#: src/Widgets/CustomPrintTab.vala:55
+#: src/Widgets/CustomPrintTab.vala:58
 msgid "_Autosize:"
 msgstr "_Automatikus méret:"
 
-#: src/Widgets/CustomPrintTab.vala:92
+#: src/Widgets/CustomPrintTab.vala:95
 msgid "in."
 msgstr "hüvelyk"
 
-#: src/Widgets/CustomPrintTab.vala:93
+#: src/Widgets/CustomPrintTab.vala:96
 msgid "cm"
 msgstr "cm"
 
-#: src/Widgets/CustomPrintTab.vala:103
+#: src/Widgets/CustomPrintTab.vala:106
 msgid "_Match photo aspect ratio"
 msgstr "Fénykép _méretarányának megtartása"
 
-#: src/Widgets/CustomPrintTab.vala:105
+#: src/Widgets/CustomPrintTab.vala:108
 #, fuzzy
 msgid "Titles"
 msgstr "_Címek"
 
-#: src/Widgets/CustomPrintTab.vala:109
+#: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Kép _címének nyomtatása"
 
-#: src/Widgets/CustomPrintTab.vala:115
+#: src/Widgets/CustomPrintTab.vala:118
 #, fuzzy
 msgid "Pixel Resolution"
 msgstr "<b>Felbontás képpontban</b>"
 
-#: src/Widgets/CustomPrintTab.vala:122
+#: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
 msgstr "_Kimenő fénykép:"
 
-#: src/Widgets/CustomPrintTab.vala:128
+#: src/Widgets/CustomPrintTab.vala:131
 msgid "pixels per inch"
 msgstr "képpont hüvelykenként"
 
@@ -3964,6 +3956,12 @@ msgstr "Sakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellák"
+
+#~ msgid "Return to current photo dimensions"
+#~ msgstr "Aktuális fényképméretek visszaállítása"
+
+#~ msgid "Set the crop for this photo"
+#~ msgstr "Képkivágás beállítása a képhez"
 
 #~ msgid "_Delete File"
 #~ msgid_plural "_Delete Files"

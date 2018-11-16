@@ -1,4 +1,9 @@
-project('io.elementary.photos', 'vala', 'c', version: '0.2.4', meson_version: '>=0.46.0')
+project(
+    'io.elementary.photos',
+    'vala', 'c',
+    version: '2.6.1',
+    meson_version: '>=0.46.0'
+)
 
 add_project_arguments([
         '-Wno-discarded-qualifiers',

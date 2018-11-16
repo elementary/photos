@@ -19,14 +19,11 @@
 */
 
 public class SearchRowMediaType : SearchRow {
-    private Gtk.Box box;
     private Gtk.ComboBoxText media_context;
     private Gtk.ComboBoxText media_type;
 
-    private SearchRowContainer parent;
-
     public SearchRowMediaType (SearchRowContainer parent) {
-        this.parent = parent;
+        Object (parent: parent);
 
         // Ordering must correspond with SearchConditionMediaType.Context
         media_context = new Gtk.ComboBoxText ();
@@ -43,19 +40,14 @@ public class SearchRowMediaType : SearchRow {
         media_type.set_active (0);
         media_type.changed.connect (on_changed);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        box.pack_start (media_context, false, false, 0);
-        box.pack_start (media_type, false, false, 0);
-        box.show_all ();
+        add (media_context);
+        add (media_type);
+        show_all ();
     }
 
     ~SearchRowMediaType () {
         media_context.changed.disconnect (on_changed);
         media_type.changed.disconnect (on_changed);
-    }
-
-    public override Gtk.Widget get_widget () {
-        return box;
     }
 
     public override SearchCondition get_search_condition () {

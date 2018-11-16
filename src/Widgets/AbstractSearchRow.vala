@@ -19,9 +19,12 @@
 */
 
 // Represents a row-type.
-public abstract class SearchRow {
-    // Returns the GUI widget for this row.
-    public abstract Gtk.Widget get_widget ();
+public abstract class SearchRow : Gtk.Grid {
+    public new SearchRowContainer parent { get; construct; }
+
+    construct {
+        column_spacing = 6;
+    }
 
     // Returns the search condition for this row.
     public abstract SearchCondition get_search_condition ();
