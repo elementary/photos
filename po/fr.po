@@ -31,8 +31,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-11-20 09:07+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"PO-Revision-Date: 2019-01-14 00:09+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/photos/photos/"
 "fr/>\n"
 "Language: fr\n"
@@ -46,7 +46,7 @@ msgstr ""
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Impossible de créer le dossier de cache %s: %s"
+msgstr "Impossible de créer le dossier de cache %s : %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -76,8 +76,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Une erreur fatale est survenue lors de l'accès à la photothèque. Photos ne "
-"peut pas poursuivre.\n"
+"Une erreur fatale est survenue lors de l'accès à la librairie photo. Photos "
+"ne peut pas continuer.\n"
 "\n"
 "%s"
 
@@ -168,11 +168,11 @@ msgstr "Annuler l'amélioration"
 
 #: src/Commands.vala:826
 msgid "UnEnhancing"
-msgstr "Dés-améliorer"
+msgstr "Dénaturer"
 
 #: src/Commands.vala:826
 msgid "Undoing UnEnhance"
-msgstr "Annuler la dés-amélioration"
+msgstr "Annuler la dénaturation"
 
 #: src/Commands.vala:894
 msgid "Applying Color Transformations"
@@ -276,11 +276,11 @@ msgstr "Déplacer l'étiquette « %s »"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
-msgstr "Mettre les photos dans la corbeille"
+msgstr "Déplacer les photos dans la corbeille"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
-msgstr "Restaurer les photos contenues dans la corbeille"
+msgstr "Restaurer les photos depuis la corbeille"
 
 #: src/Commands.vala:2281
 msgid "Move the photos to the Photos trash"
@@ -288,7 +288,7 @@ msgstr "Déplacer les photos dans la corbeille de Photos"
 
 #: src/Commands.vala:2281
 msgid "Restore the photos back to the Photos library"
-msgstr "Réintègre les photos dans la photothèque"
+msgstr "Restaurer les photos dans la librairie photos"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -296,7 +296,7 @@ msgstr "Déplacement des photos dans la corbeille"
 
 #: src/Commands.vala:2300
 msgid "Restoring Photos From Trash"
-msgstr "Restauration des photos de la corbeille"
+msgstr "Restauration des photos depuis la corbeille"
 
 #: src/Commands.vala:2386
 msgid "Flag selected photos"
@@ -304,7 +304,7 @@ msgstr "Marquer les photos sélectionnées"
 
 #: src/Commands.vala:2387
 msgid "Unflag selected photos"
-msgstr "Enlever la marque des photos sélectionnées"
+msgstr "Supprimer le marquage des photos sélectionnées"
 
 #: src/Commands.vala:2388
 msgid "Flagging selected photos"
@@ -312,7 +312,7 @@ msgstr "Marquage des photos sélectionnées"
 
 #: src/Commands.vala:2389
 msgid "Unflagging selected photos"
-msgstr "Supprimer le marquage des photos sélectionnées"
+msgstr "Suppression du marquage des photos sélectionnées"
 
 #: src/Commands.vala:2396
 msgid "Flag"
@@ -320,7 +320,7 @@ msgstr "Marquer"
 
 #: src/Commands.vala:2396
 msgid "Unflag"
-msgstr "Enlever la marque"
+msgstr "Supprimer la marque"
 
 #: src/Dimensions.vala:30
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1254
@@ -368,11 +368,11 @@ msgstr "Exporter"
 #: src/Exporter.vala:332
 #, c-format
 msgid "File %s already exists.  Replace?"
-msgstr "Le fichier %s existe déjà. Faut-il le remplacer ?"
+msgstr "Le fichier %s existe déjà. Remplacer ?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
-msgstr "_Omettre"
+msgstr "_Ignorer"
 
 #: src/Exporter.vala:339
 msgid "Replace _All"
@@ -409,9 +409,9 @@ msgid ""
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"Votre photothèque n'est pas compatible avec cette version de Photos. Il "
-"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la "
-"%s (schéma %d). Veuillez utiliser la dernière version de Photos."
+"Votre librairie photo n'est pas compatible avec cette version de Photos. Il "
+"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la %"
+"s (schéma %d). Veuillez utiliser la dernière version de Photos."
 
 #: src/main.vala:73
 #, c-format
@@ -419,9 +419,9 @@ msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Impossible de mettre à niveau votre photothèque de la version %s (schéma %d) "
-"à la version %s (schéma %d). Pour plus d'informations, veuillez consulter le "
-"wiki de Photos sur %s"
+"Impossible de mettre à niveau votre librairie photos de la version %s ("
+"schéma %d) à la version %s (schéma %d). Pour plus d'informations, veuillez "
+"consulter le wiki de Photos sur %s"
 
 #: src/main.vala:79
 #, c-format
@@ -430,9 +430,9 @@ msgid ""
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"Votre photothèque n'est pas compatible avec cette version de Photos. Il "
-"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la "
-"%s (schéma %d). Veuillez effacer votre photothèque en supprimant %s puis "
+"Votre librairie photos n'est pas compatible avec cette version de Photos. Il "
+"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la %"
+"s (schéma %d). Veuillez effacer votre librairie photos en supprimant %s puis "
 "réimportez vos photos."
 
 #: src/main.vala:85
@@ -457,8 +457,8 @@ msgstr "DOSSIER"
 #: src/main.vala:281
 msgid "Do not monitor library directory at runtime for changes"
 msgstr ""
-"Ne pas surveiller les modifications dans le répertoire de la photothèque au "
-"lancement"
+"Ne pas surveiller les modifications dans le répertoire de la librairie "
+"photos au lancement"
 
 #: src/main.vala:282
 msgid "Don't display startup progress meter"
@@ -466,7 +466,7 @@ msgstr "Ne pas afficher l'indicateur de progression du démarrage"
 
 #: src/main.vala:283
 msgid "Show the application's version"
-msgstr "Affiche la version de l'application"
+msgstr "Afficher la version de l'application"
 
 #: src/main.vala:284
 msgid "Show extra debugging output"
@@ -609,7 +609,7 @@ msgstr "Gestionnaire de photos"
 
 #: src/Resources.vala:25
 msgid "Photo Viewer"
-msgstr "Visionneur de photos"
+msgstr "Visionneuse de photos"
 
 #: src/Resources.vala:85
 msgid "Rotate _Right"
@@ -817,11 +817,11 @@ msgstr "Masquer le panneau d'information"
 
 #: src/Resources.vala:157
 msgid "_Print…"
-msgstr "Impri_mer…"
+msgstr "_Imprimer…"
 
 #: src/Resources.vala:159
 msgid "Pu_blish…"
-msgstr "Publier…"
+msgstr "Pu_blier…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -837,7 +837,7 @@ msgstr "Modifier le Commentaire"
 
 #: src/Resources.vala:166
 msgid "_Adjust Date and Time…"
-msgstr "Ajuster la date et l'heure…"
+msgstr "_Ajuster la date et l'heure…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -920,7 +920,7 @@ msgstr "_Renommer…"
 
 #: src/Resources.vala:216
 msgid "Modif_y Tags…"
-msgstr "Modifier les étiquettes…"
+msgstr "Modif_ier les étiquettes…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -977,7 +977,7 @@ msgstr "Supprimer l'album"
 
 #: src/Resources.vala:246
 msgid "_Edit…"
-msgstr "É_dition…"
+msgstr "_Édition…"
 
 #: src/Resources.vala:247
 msgid "Re_name…"
@@ -1003,7 +1003,7 @@ msgstr "Enlève les photos sélectionnées de la corbeille"
 
 #: src/Resources.vala:288
 msgid "Remove the selected photos from the library"
-msgstr "Enlève les photos sélectionnées de la photothèque"
+msgstr "Enlève les photos sélectionnées de la librairie photo"
 
 #: src/Resources.vala:290
 msgid "_Restore Selection"
@@ -1011,11 +1011,11 @@ msgstr "_Restaurer la sélection"
 
 #: src/Resources.vala:291
 msgid "Move the selected photos back into the library"
-msgstr "Réintègre les photos dans la photothèque"
+msgstr "Réintègre les photos dans la librairie photo"
 
 #: src/Resources.vala:293
 msgid "File Mana_ger"
-msgstr "_Gestionnaire de fichiers"
+msgstr "Gestio_nnaire de fichiers"
 
 #: src/Resources.vala:296
 #, c-format
@@ -1028,7 +1028,7 @@ msgstr "Su_pprimer de la photothèque"
 
 #: src/Resources.vala:301
 msgid "_Move to Trash"
-msgstr "Déplacer dans la cor_beille"
+msgstr "_Déplacer dans la corbeille"
 
 #: src/Resources.vala:303
 msgid "Select _All"
@@ -1105,11 +1105,11 @@ msgstr "_Appliquer"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:96
 msgid "AM"
-msgstr "Matin"
+msgstr "AM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:97
 msgid "PM"
-msgstr "Après-midi"
+msgstr "PM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:98
 msgid "24 Hr"
@@ -1121,15 +1121,15 @@ msgstr "_Décaler les photos/vidéos de la même durée"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:107
 msgid "Set _all photos/videos to this time"
-msgstr "Dé_finir cette date pour toutes les photos/vidéos"
+msgstr "Définir cette date pour _toutes les photos/vidéos"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
 msgid "_Modify original photo file"
-msgstr "Modifier la photo d'origine"
+msgstr "_Modifier la photo d'origine"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
 msgid "_Modify original photo files"
-msgstr "Modifier les photos d'origine"
+msgstr "_Modifier les photos d'origine"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 msgid "_Modify original file"
@@ -1203,7 +1203,7 @@ msgstr[1] "Ceci enlèvera l'étiquette « %s » de %d photos. Poursuivre ?"
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
 msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr "Ceci supprimera l'album intelligent \"%s\". Voulez-vous continuer ?"
+msgstr "Ceci supprimera l'album intelligent « %s ». Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:67
 msgid ""
@@ -1235,7 +1235,7 @@ msgstr "Exporter la photo"
 #: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
-msgstr "Enre_gistrer"
+msgstr "_Enregistrer"
 
 #: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
 msgid "Export Photos"
@@ -1375,7 +1375,9 @@ msgstr ""
 msgid ""
 "couldn't copy %s\n"
 "\tto %s"
-msgstr "ne peut copier %s⏎ »vers %s"
+msgstr ""
+"ne peut copier %s\n"
+"\tvers %s"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1598,8 +1600,8 @@ msgstr[1] ""
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
-msgstr[0] "Une photo non prise en charge a été omise :\n"
-msgstr[1] "%d photos non prises en charge ont été omises :\n"
+msgstr[0] "Une photo non prise en charge a été ignorée :\n"
+msgstr[1] "%d photos non prises en charge ont été ignorées :\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
@@ -1607,40 +1609,36 @@ msgstr[1] "%d photos non prises en charge ont été omises :\n"
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
-msgstr[0] "1 fichier non-image omis.\n"
-msgstr[1] "%d fichiers non-images omis.\n"
+msgstr[0] "1 fichier non-image ignoré.\n"
+msgstr[1] "%d fichiers non-images ignorés.\n"
 
 #: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
-msgstr[0] "L'annulation de l'utilisateur a provoqué l'omission d'une photo :\n"
-msgstr[1] ""
-"L'annulation de l'utilisateur a provoqué l'omission de %d photos :\n"
+msgstr[0] "L'annulation de l'utilisateur a ignoré une photo :\n"
+msgstr[1] "L'annulation de l'utilisateur a ignoré %d photos :\n"
 
 #: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
-msgstr[0] "L'annulation de l'utilisateur a provoqué l'omission d'une vidéo :\n"
-msgstr[1] ""
-"L'annulation de l'utilisateur a provoqué l'omission de %d vidéos :\n"
+msgstr[0] "L'annulation de l'utilisateur a ignoré une vidéo :\n"
+msgstr[1] "L'annulation de l'utilisateur a ignoré %d vidéos :\n"
 
 #: src/Dialogs/Dialogs.vala:518
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
-msgstr[0] ""
-"L'annulation de l'utilisateur a provoqué l'omission d'une photo/vidéo :\n"
-msgstr[1] ""
-"L'annulation de l'utilisateur a provoqué l'omission de %d photos/vidéos :\n"
+msgstr[0] "L'annulation de l'utilisateur a ignoré une photo/vidéo :\n"
+msgstr[1] "L'annulation de l'utilisateur a ignoré %d photos/vidéos :\n"
 
 #: src/Dialogs/Dialogs.vala:521
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
-msgstr[0] "1 fichier omis par annulation de l'utilisateur :\n"
-msgstr[1] "%d fichiers omis par annulation de l'utilisateur :\n"
+msgstr[0] "1 fichier ignoré par annulation de l'utilisateur :\n"
+msgstr[1] "%d fichiers ignorés par annulation de l'utilisateur :\n"
 
 #: src/Dialogs/Dialogs.vala:535
 #, c-format
@@ -1710,18 +1708,18 @@ msgstr "A_nnuler les éditions externes"
 
 #: src/Dialogs/Dialogs.vala:801
 msgid "Remove Photo From Library"
-msgstr "Enlever la photo de la photothèque"
+msgstr "Enlever la photo de la librairie photo"
 
 #: src/Dialogs/Dialogs.vala:802
 msgid "Remove Photos From Library"
-msgstr "Enlever les photos de la photothèque"
+msgstr "Enlever les photos de la librairie photo"
 
 #: src/Dialogs/Dialogs.vala:807
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
-msgstr[0] "Ceci enlèvera la photo de la photothèque. Poursuivre ?"
-msgstr[1] "Ceci enlèvera %d photos de la photothèque. Poursuivre ?"
+msgstr[0] "Ceci enlèvera la photo de la librairie photo. Poursuivre ?"
+msgstr[1] "Ceci enlèvera %d photos de la librairie photo. Poursuivre ?"
 
 #: src/Dialogs/Dialogs.vala:820
 msgid "_Remove"
@@ -1753,8 +1751,8 @@ msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Photos peut copier les photos dans votre photothèque ou les importer sans "
-"les copier."
+"Photos peut copier les photos dans votre librairie photo ou les importer "
+"sans les copier."
 
 #: src/Dialogs/Dialogs.vala:866
 msgid "Co_py Photos"
@@ -1762,23 +1760,23 @@ msgstr "Co_pier les photos"
 
 #: src/Dialogs/Dialogs.vala:867
 msgid "_Import in Place"
-msgstr "Importer _sans copier"
+msgstr "_Importer sans copier"
 
 #: src/Dialogs/Dialogs.vala:868
 msgid "Import to Library"
-msgstr "Importer dans la photothèque"
+msgstr "Importer dans la librairie photo"
 
 #: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
-msgstr "Enlever de la photothèque"
+msgstr "Enlever de la librairie photo"
 
 #: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
-msgstr "Effacement de la photo de la photothèque"
+msgstr "Effacement de la photo de la librairie photo"
 
 #: src/Dialogs/Dialogs.vala:879
 msgid "Removing Photos From Library"
-msgstr "Effacement des photos de la photothèque"
+msgstr "Effacement des photos de la librairie photo"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:915
@@ -1826,7 +1824,7 @@ msgstr "_Exporter"
 #: src/Dialogs/PreferencesDialog.vala:50 src/Dialogs/PreferencesDialog.vala:111
 #: src/library/Branch.vala:71 src/library/Branch.vala:164
 msgid "Library"
-msgstr "Photothèque"
+msgstr "Librairie photo"
 
 #: src/Dialogs/PreferencesDialog.vala:54
 msgid "_Import photos to:"
@@ -1834,7 +1832,7 @@ msgstr "_Importer les photos dans :"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Watch library for new files:"
-msgstr "Surveiller les nouveaux fichiers dans la bibliothèque :"
+msgstr "Surveiller les nouveaux fichiers dans la librairie photo :"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "R_ename imported files to lowercase:"
@@ -1854,7 +1852,7 @@ msgstr "Dé_faut :"
 
 #: src/Dialogs/PreferencesDialog.vala:112
 msgid "Plugins"
-msgstr "Greffons"
+msgstr "Extensions"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:68
 #: src/publishing/PublishingUI.vala:510
@@ -2082,7 +2080,7 @@ msgstr "Tons clairs"
 
 #: src/editing_tools/AdjustTool.vala:603
 msgid "Contrast Expansion"
-msgstr "Expansion du contrate"
+msgstr "Expansion du contraste"
 
 #: src/events/EventDirectoryItem.vala:96
 #, c-format
@@ -2127,12 +2125,12 @@ msgstr "Paramètres"
 #: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
 #: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
 msgid "Sort _Events"
-msgstr "Trier les évèn_ements"
+msgstr "Trier les _évènements"
 
 #: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
 #: src/Views/LibraryPhotoPage.vala:542
 msgid "View Eve_nt for Photo"
-msgstr "Afficher l'é_vénement de la photo"
+msgstr "Afficher l'évé_nement de la photo"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
@@ -2157,14 +2155,14 @@ msgstr "Afficher le panneau latéral"
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
 #: src/Views/TrashPage.vala:160
 msgid "Edit Photo In_fo"
-msgstr "Éditer les _Informations de la Photo"
+msgstr "Éditer les In_formations de la Photo"
 
 #: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
 #: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
 msgid "_Ascending"
-msgstr "Ordre croiss_ant"
+msgstr "Ordre _croissant"
 
 #: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
 msgid "Sort photos in an ascending order"
@@ -2175,7 +2173,7 @@ msgstr "Trie les photos par ordre croissant"
 #: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
 #: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
 msgid "D_escending"
-msgstr "Ordr_e décroissant"
+msgstr "Ordre d_écroissant"
 
 #: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
 msgid "Sort photos in a descending order"
@@ -2209,7 +2207,7 @@ msgstr "_Importer"
 
 #: src/library/LibraryWindow.vala:785
 msgid "Library Location"
-msgstr "Emplacement de la photothèque"
+msgstr "Emplacement de la librairie photo"
 
 #. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:799
@@ -2218,7 +2216,7 @@ msgstr "Les photos ne peuvent pas être importées depuis ce dossier."
 
 #: src/library/LibraryWindow.vala:1026 src/library/LibraryWindow.vala:1037
 msgid "Updating library…"
-msgstr "Mise à jour de la bibliothèque…"
+msgstr "Mise à jour de la librairie photo…"
 
 #: src/library/LibraryWindow.vala:1043
 msgid "Preparing to auto-import photos…"
@@ -2242,7 +2240,7 @@ msgstr "Copier des photos depuis un dossier ou un périphérique externe."
 
 #: src/library/LibraryWindow.vala:1164
 msgid "Change Library Folder"
-msgstr "Changer le dossier de la bibliothèque"
+msgstr "Changer le dossier de la librairie photo"
 
 #: src/library/LibraryWindow.vala:1164
 msgid "Choose where to keep your photos."
@@ -2453,7 +2451,7 @@ msgstr "Date"
 
 #: src/sidebar/Tree.vala:880
 msgid "New _Tag…"
-msgstr "Nouvelle é_tiquette…"
+msgstr "Nouvelle _étiquette…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
