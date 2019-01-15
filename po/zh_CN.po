@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-08-13 00:03+0000\n"
+"PO-Revision-Date: 2019-01-15 13:31+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "photos/photos/zh_Hans/>\n"
@@ -70,14 +70,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "无法创建数据子文件夹 %s：%s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library.  Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"访问 Shotwell 媒体库时出现严重错误。Shotwell 无法继续运行。\n"
+"访问媒体库时出现严重错误。无法继续运行。\n"
+"\n"
 "%s"
 
 #: src/AppWindow.vala:332
@@ -276,14 +277,12 @@ msgid "Restore Photos from Trash"
 msgstr "从回收站还原照片"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "将照片移至 Shotwell 回收站"
+msgstr "将照片移至回收站"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "恢复这些照片到 Shotwell 媒体库"
+msgstr "恢复到媒体库"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -398,48 +397,44 @@ msgid "Leave fullscreen"
 msgstr "退出全屏"
 
 #: src/main.vala:68
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"您的媒体库和当前版本的 Shotwell 不兼容。它似乎是由 Shotwell %s (schema %d)创"
-"建的，而当前版本是 %s (schema %d) 。请使用最新版本的 Shotwell。"
+"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建的，当前版本是 %s (schema %d) "
+"。请使用最新版本的照片。"
 
 #: src/main.vala:73
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
-msgstr ""
-"Shotwell 无法将您的媒体库从 %s (schema %d)版本升级到 %s (schema %d)版本。更多"
-"的信息请查询 Shotwell 维基 %s"
+msgstr "无法将您的媒体库从 %s (schema %d) 版本升级到 %s (schema %d) 版本。更多的信息请查询此应用百科 %s"
 
 #: src/main.vala:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Your photo library is not compatible with this version of Photos.  It "
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"您的媒体库和当前版本的 Shotwell 不兼容。它似乎是由 Shotwell %s (schema %d)创"
-"建的。当前版本是 %s (schema %d)。请删除 %s 来释放您的照片库然后重新导入照片。"
+"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建的。当前版本号为 %s (schema %d) 。请删除 %s "
+"来清理您的照片库然后重新导入照片。"
 
 #: src/main.vala:85
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown error attempting to verify Photos' database: %s"
-msgstr "验证 Shotwell 数据库时发生未知错误：%s"
+msgstr "验证数据库时发生未知错误：%s"
 
 #: src/main.vala:118
-#, fuzzy
 msgid "Loading Photos"
-msgstr "正在载入 Shotwell"
+msgstr "正在载入照片"
 
 #: src/main.vala:280
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Shotwell 程序数据目录"
+msgstr "照片隐私数据路径"
 
 #: src/main.vala:280
 msgid "DIRECTORY"
@@ -569,9 +564,8 @@ msgid "Image Settings"
 msgstr "图像设置"
 
 #: src/Printing.vala:418
-#, fuzzy
 msgid "Printing…"
-msgstr "打印..."
+msgstr "打印中…"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -728,9 +722,8 @@ msgid "Revert to Original"
 msgstr "恢复到原始"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "重命名事件"
+msgstr "重命名事件…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
 msgid "Rename Event"
@@ -789,9 +782,8 @@ msgid "Make a duplicate of the photo"
 msgstr "创建照片副本"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "导出"
+msgstr "导出…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -802,14 +794,12 @@ msgid "Hide info panel"
 msgstr "隐藏信息面板"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
-msgstr "打印..."
+msgstr "打印…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "发布"
+msgstr "发布…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -824,9 +814,8 @@ msgid "Edit Comment"
 msgstr "修改备注"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "修改日期和时间"
+msgstr "调整日期和时间…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -837,9 +826,8 @@ msgid "_Open In"
 msgstr "打开方式"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "用 RAW 编辑器打开"
+msgstr "使用 RAW 编辑器打开…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -895,9 +883,9 @@ msgid "_New"
 msgstr "新建"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "重命名标签 %s ..."
+msgstr "重命名标签 “%s” …"
 
 #: src/Resources.vala:211
 #, c-format
@@ -905,14 +893,12 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "重命名标签 %s 为 %s"
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
-msgstr "重命名..."
+msgstr "重命名…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "修改标签"
+msgstr "修改标签…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -967,14 +953,12 @@ msgid "Delete Album"
 msgstr "删除相册"
 
 #: src/Resources.vala:246
-#, fuzzy
 msgid "_Edit…"
-msgstr "编辑"
+msgstr "编辑…"
 
 #: src/Resources.vala:247
-#, fuzzy
 msgid "Re_name…"
-msgstr "重命名..."
+msgstr "重命名…"
 
 #: src/Resources.vala:250
 #, c-format
@@ -1007,7 +991,6 @@ msgid "Move the selected photos back into the library"
 msgstr "将选定照片移回至媒体库"
 
 #: src/Resources.vala:293
-#, fuzzy
 msgid "File Mana_ger"
 msgstr "在文件管理器中显示"
 
@@ -1195,14 +1178,13 @@ msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "这将会移除智能相册\"%s\"，继续吗？"
 
 #: src/Dialogs/Dialogs.vala:67
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
 msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
-msgstr[0] "切换开发者将撤销您对于此照片所作的全部更改"
+msgstr[0] "切换开发者将撤销您对这些照片所作的全部更改"
 
 #: src/Dialogs/Dialogs.vala:71
 msgid "_Switch Developer"
@@ -1236,11 +1218,11 @@ msgstr "选择"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:147
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
-msgstr "Shotwell 无法为编辑此照片创建必需的文件，因为您没有写入 %s 的权限。"
+msgstr "无法创建编辑此照片所需要的文件，因为您没有写入 %s 的权限。"
 
 #: src/Dialogs/Dialogs.vala:156
 msgid ""
@@ -1266,9 +1248,8 @@ msgid "Con_tinue"
 msgstr "继续"
 
 #: src/Dialogs/Dialogs.vala:173
-#, fuzzy
 msgid "Save Details…"
-msgstr "保存详细信息..."
+msgstr "保存详细信息…"
 
 #: src/Dialogs/Dialogs.vala:174
 msgid "Save Details"
@@ -1330,21 +1311,19 @@ msgstr "以下文件因为它们不被识别为照片或视频而未被导入：
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:305
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
-msgstr "以下照片/视频因为它们不是 Shotwell 识别的格式而未被导入："
+msgstr "以下照片/视频因格式无法识别而未被导入："
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:320
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
-msgstr "以下照片/视频因为 Shotwell 无法复制它们而未被导入："
+msgstr "以下照片/视频因为无法复制而未被导入："
 
 #: src/Dialogs/Dialogs.vala:324
 #, c-format
@@ -1411,13 +1390,13 @@ msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] "%d 文件导入失败由于文件或硬件错误：\n"
 
 #: src/Dialogs/Dialogs.vala:414
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
 msgid_plural ""
 "%d photos failed to import because the photo library folder was not "
 "writable:\n"
-msgstr[0] "1 张照片由于无法写入媒体库导入失败：\n"
+msgstr[0] "%d 张照片由于无法写入媒体库导入失败：\n"
 
 #: src/Dialogs/Dialogs.vala:417
 #, c-format
@@ -1632,11 +1611,10 @@ msgstr[0] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:861
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
-msgstr "Shotwell 可以复制照片到您的媒体库，或者导入但并不复制。"
+msgstr "可以将照片复制到您的媒体库中，或仅导入而不复制。"
 
 #: src/Dialogs/Dialogs.vala:866
 msgid "Co_py Photos"
@@ -1693,9 +1671,8 @@ msgid "_Scaling constraint:"
 msgstr "缩放限制："
 
 #: src/Dialogs/ExportDialog.vala:102
-#, fuzzy
 msgid "_pixels"
-msgstr " 像素"
+msgstr "像素"
 
 #: src/Dialogs/ExportDialog.vala:105
 msgid "Export metadata"
@@ -2066,14 +2043,14 @@ msgid "Import"
 msgstr "导入"
 
 #: src/library/LibraryWindow.vala:780
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell 配置为将照片导入到您的主文件夹。\n"
+"当前配置为将照片导入到您的主文件夹。\n"
 "我们推荐您在 <span weight=\"bold\">编辑 %s 首选项</span>中更改此设置。\n"
 "您想继续导入照片吗？"
 
@@ -2222,14 +2199,12 @@ msgid "The selected photo was successfully published."
 msgstr "选中的照片已经成功发布。"
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
-msgstr "获取帐号信息..."
+msgstr "正在获取帐号信息…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
-msgstr "正在登录……"
+msgstr "正在登录…"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
@@ -2262,15 +2237,15 @@ msgid "Unable to publish"
 msgstr "无法发布"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell 无法发布选定项目，因为您尚未启用兼容的发布插件。要修复此问题，请选择"
-"<b>编辑 %s 首选项</b>，并且在<b>插件</b>标签页中启用一个或多个发布插件。"
+"无法发布选定项目，因为您尚未启用兼容的发布插件。要修复此问题，请选择<b>编辑 %s "
+"首选项</b>，并且在<b>插件</b>标签页中启用一个或多个发布插件。"
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2323,9 +2298,8 @@ msgid "Date"
 msgstr "日期"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "新建标签..."
+msgstr "新建标签…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2558,12 +2532,11 @@ msgstr "旋转"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "缩放以适应页面"
 
 #: src/Views/EditingHostPage.vala:153
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "缩放 _100%"
+msgstr "缩放 1:1"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -2587,7 +2560,6 @@ msgid "No Event"
 msgstr "暂无事件"
 
 #: src/Views/EventsDirectoryPage.vala:67
-#, fuzzy
 msgid "Merge events"
 msgstr "合并事件"
 
@@ -2625,9 +2597,8 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:334
-#, fuzzy
 msgid "%OB"
-msgstr "%m"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
@@ -2664,9 +2635,8 @@ msgstr "全部导入"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:942
-#, fuzzy
 msgid "Starting import, please wait…"
-msgstr "正在开始导入，请稍候..."
+msgstr "正在导入，请稍候…"
 
 #: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
@@ -2682,11 +2652,10 @@ msgstr "导入所有照片到您的媒体库"
 
 #. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access "
 "it.  Continue?"
-msgstr "Shotwell 需要从文件系统卸载相机来访问它。是否继续？"
+msgstr "需要从文件系统卸载相机来获取访问权限。  是否继续？"
 
 #: src/Views/ImportPage.vala:1105
 msgid "_Unmount"
@@ -2697,14 +2666,11 @@ msgid "Please unmount the camera."
 msgstr "请卸载相机。"
 
 #: src/Views/ImportPage.vala:1115
-#, fuzzy
 msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
-msgstr ""
-"该相机被其他程序锁定，仅在解锁后 Shotwell 才能访问。请关闭其他使用该相机的程"
-"序后重试。"
+msgstr "该相机被其他程序锁定，需要解锁后才能访问。  请关闭其他使用该相机的程序后重试。"
 
 #: src/Views/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
@@ -2720,9 +2686,8 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1147
-#, fuzzy
 msgid "Unmounting…"
-msgstr "卸载..."
+msgstr "卸载中…"
 
 #: src/Views/ImportPage.vala:1253
 msgid "Fetching photo information"
@@ -2781,9 +2746,8 @@ msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
 msgstr[0] "由于错误无法从相机中删除 %d 个照片/视频。"
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "导入中"
+msgstr "导入中…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
@@ -2794,9 +2758,8 @@ msgid "Stop importing photos"
 msgstr "停止导入照片"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "准备导入..."
+msgstr "准备导入…"
 
 #: src/Views/ImportQueuePage.vala:154
 #, c-format
@@ -2817,9 +2780,8 @@ msgid "Missing Files"
 msgstr "缺失的文件"
 
 #: src/Views/OfflinePage.vala:201
-#, fuzzy
 msgid "Deleting…"
-msgstr "删除..."
+msgstr "删除中…"
 
 #: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
 msgid "Ta_gs"
@@ -2855,12 +2817,12 @@ msgid "Sort photos by exposure date"
 msgstr "按照曝光日期排序"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell 无法播放选中视频：\n"
+"无法播放选择的视频：\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
@@ -2908,14 +2870,12 @@ msgid "Go to the next photo"
 msgstr "下一张"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
 msgstr "显示标题"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "过渡效果："
+msgstr "过渡速度"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
@@ -2969,14 +2929,12 @@ msgid "Videos"
 msgstr "视频"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "过渡效果："
+msgstr "过渡效果"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "移除"
+msgstr "移除规则"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
@@ -3072,9 +3030,8 @@ msgid "does not contain"
 msgstr "不包含"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>印刷尺寸</b>"
+msgstr "打印尺寸"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3101,7 +3058,6 @@ msgid "_Match photo aspect ratio"
 msgstr "保持照片比例"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
 msgstr "标题"
 
@@ -3110,9 +3066,8 @@ msgid "Print image _title"
 msgstr "打印图像标题"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>像素分辨率</b>"
+msgstr "像素分辨率"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3219,7 +3174,7 @@ msgstr ""
 "  鸿盟-行道树 https://launchpad.net/~hongsuda"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "正在创建相册 %s…"
 
@@ -3364,9 +3319,8 @@ msgstr ""
 "要继续发布到 Flickr，请退出并重新启动 Shotwell，然后再尝试发布。"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
-msgstr "准备登录..."
+msgstr "准备登录…"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3376,7 +3330,6 @@ msgid ""
 msgstr "发布所需的某个文件不可用。无法继续发布至 Flickr。"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
 msgstr "验证授权…"
 
@@ -3465,14 +3418,12 @@ msgid "Large (2048 pixels)"
 msgstr "较大（2048 像素）"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
-msgstr "正在测试连接 Facebook..."
+msgstr "正在测试连接 Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
-msgstr "创建相册..."
+msgstr "正在创建相册…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
