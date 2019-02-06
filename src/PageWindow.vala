@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io),
+                2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -24,8 +25,8 @@
 // subclass.  A subclass should set current_page to the user-visible Page for it to receive
 // various notifications.  It is the responsibility of the subclass to notify Pages when they're
 // switched to and from, and other aspects of the Page interface.
-public abstract class PageWindow : Gtk.Window {
-    protected Gtk.UIManager ui = new Gtk.UIManager ();
+public abstract class PageWindow : Gtk.ApplicationWindow {
+    protected Gtk.UIManager ui;
 
     private Page current_page = null;
     private int busy_counter = 0;
@@ -33,12 +34,15 @@ public abstract class PageWindow : Gtk.Window {
     protected virtual void switched_pages (Page? old_page, Page? new_page) {
     }
 
-    public PageWindow () {
+    construct {
         // the current page needs to know when modifier keys are pressed
-        add_events (Gdk.EventMask.KEY_PRESS_MASK | Gdk.EventMask.KEY_RELEASE_MASK
-                    | Gdk.EventMask.STRUCTURE_MASK);
+        add_events (
+            Gdk.EventMask.KEY_PRESS_MASK |
+            Gdk.EventMask.KEY_RELEASE_MASK |
+            Gdk.EventMask.STRUCTURE_MASK
+        );
 
-        set_has_resize_grip (false);
+        ui = new Gtk.UIManager ();
     }
 
     public Page? get_current_page () {

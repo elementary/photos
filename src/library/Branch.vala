@@ -170,14 +170,6 @@ public class Library.MainPage : CollectionPage {
             get_view ().monitor_source_collection (sources, new CollectionViewManager (this), null, null, monitor);
     }
 
-    protected override void get_config_photos_sort (out bool sort_order, out int sort_by) {
-        Config.Facade.get_instance ().get_library_photos_sort (out sort_order, out sort_by);
-    }
-
-    protected override void set_config_photos_sort (bool sort_order, int sort_by) {
-        Config.Facade.get_instance ().set_library_photos_sort (sort_order, sort_by);
-    }
-
     public override string get_back_name () {
         return _("All Photos");
     }

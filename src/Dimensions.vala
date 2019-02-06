@@ -72,8 +72,9 @@ public struct Dimensions {
     public static Dimensions for_widget_allocation (Gtk.Widget widget) {
         Gtk.Allocation allocation;
         widget.get_allocation (out allocation);
+        int scale_factor = widget.scale_factor;
 
-        return Dimensions (allocation.width, allocation.height);
+        return Dimensions (allocation.width * scale_factor, allocation.height * scale_factor);
     }
 
     public static Dimensions for_rectangle (Gdk.Rectangle rect) {
@@ -254,7 +255,8 @@ public struct Dimensions {
             return get_scaled_by_height (scale);
 
         default:
-            error ("Bad constraint: %d", (int) constraint);
+            critical ("Bad constraint: %d; returning original", (int) constraint);
+            return Dimensions (width, height);
         }
     }
 }
@@ -296,6 +298,7 @@ public struct Scaling {
 
     public static Scaling for_widget (Gtk.Widget widget, bool scale_up) {
         Dimensions viewport = Dimensions.for_widget_allocation (widget);
+        int scale_factor = widget.scale_factor;
 
         // Because it seems that Gtk.Application realizes the main window and its
         // attendant widgets lazily, it's possible to get here with the PhotoPage's
@@ -303,9 +306,9 @@ public struct Scaling {
         // gdk_pixbuf_scale_simple can't handle.
         //
         // If we get here, and the widget we're being drawn into is 1x1, then, most likely,
-        // it's not fully realized yet (since nothing in Shotwell requires this), so just
+        // it's not fully realized yet (since nothing in Photos requires this), so just
         // ignore it and return something safe instead.
-        if ((viewport.width <= 1) || (viewport.height <= 1))
+        if ((viewport.width <= 1 * scale_factor) || (viewport.height <= 1 * scale_factor))
             return for_original ();
 
         return Scaling (ScaleConstraint.DIMENSIONS, NO_SCALE, viewport, scale_up);
@@ -328,10 +331,14 @@ public struct Scaling {
         return Scaling (constraint, scale, Dimensions (), scale_up);
     }
 
-    private static Dimensions get_screen_dimensions (Gtk.Window window) {
-        Gdk.Screen screen = window.get_screen ();
+    public static Dimensions get_screen_dimensions (Gtk.Window window) {
+        var display = window.get_window ().get_display ();
+        var monitor = display.get_monitor_at_window (window.get_window ());
+        var geometry = monitor.get_geometry ();
 
-        return Dimensions (screen.get_width (), screen.get_height ());
+        int scale_factor = window.scale_factor;
+
+        return Dimensions (geometry.width * scale_factor, geometry.height * scale_factor);
     }
 
     private int scale_to_pixels () {

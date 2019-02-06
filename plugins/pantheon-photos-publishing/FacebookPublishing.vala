@@ -18,11 +18,10 @@
 */
 
 public class FacebookService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "facebook.svg";
     private GLib.Icon icon;
 
     public FacebookService (GLib.File resource_directory) {
-        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
+        icon = new ThemedIcon ("facebook");
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {
@@ -31,7 +30,7 @@ public class FacebookService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.facebook";
+        return "io.elementary.photos.publishing.facebook";
     }
 
     public unowned string get_pluggable_name () {
@@ -262,7 +261,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: testing connection to Facebook endpoint.");
         host.set_service_locked (true);
 
-        host.install_static_message_pane (_ ("Testing connection to Facebook..."));
+        host.install_static_message_pane (_ ("Testing connection to Facebook…"));
 
         GraphMessage endpoint_test_message = graph_session.new_endpoint_test ();
         endpoint_test_message.completed.connect (on_endpoint_test_completed);
@@ -355,7 +354,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: creating a new album named \"%s\".\n", publishing_params.new_album_name);
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Creating album..."));
+        host.install_static_message_pane (_ ("Creating album…"));
 
         GraphMessage create_album_message = graph_session.new_create_album (
                                                 publishing_params.new_album_name, publishing_params.privacy_object);
@@ -373,11 +372,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            // the trailing get_path () is required, since add_from_file can't cope
-            // with File objects directly and expects a pathname instead.
-            builder.add_from_file (
-                host.get_module_file ().get_parent ().
-                get_child ("facebook_publishing_options_pane.ui").get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/facebook_publishing_options_pane.ui");
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             host.post_error (
@@ -437,7 +432,7 @@ public class FacebookPublisher : Spit.Publishing.Publisher, GLib.Object {
     }
 
     private void do_authenticate_session (string good_login_uri) {
-        debug ("ACTION: preparing to extract session information encoded in uri = '%s'",
+        debug ("ACTION: Preparing to extract session information encoded in URI = '%s'",
                good_login_uri);
 
         // the raw uri is percent-encoded, so decode it
@@ -837,6 +832,7 @@ internal class WebAuthenticationPane : Spit.Publishing.DialogPane, Object {
         webview_frame = new Gtk.ScrolledWindow (null, null);
         webview_frame.set_shadow_type (Gtk.ShadowType.ETCHED_IN);
         webview_frame.set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
+        webview_frame.expand = true;
 
         webview = new WebKit.WebView ();
         webview.get_settings ().enable_plugins = false;

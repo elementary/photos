@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2011-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2011-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -122,6 +123,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         text_renderer = new Gtk.CellRendererText ();
         text_renderer.editing_canceled.connect (on_editing_canceled);
         text_renderer.editing_started.connect (on_editing_started);
+        text_renderer.ellipsize = Pango.EllipsizeMode.END;
         text_column.pack_start (text_renderer, true);
         text_column.add_attribute (text_renderer, "markup", Columns.NAME);
         append_column (text_column);
@@ -134,7 +136,6 @@ public class Sidebar.Tree : Gtk.TreeView {
 
         set_headers_visible (false);
         set_enable_search (false);
-        set_rules_hint (false);
         set_show_expanders (true);
         set_reorderable (false);
         set_enable_tree_lines (false);
@@ -159,10 +160,10 @@ public class Sidebar.Tree : Gtk.TreeView {
 
         popup_menu.connect (on_context_menu_keypress);
 
-        icon_theme = Resources.get_icon_theme_engine ();
+        icon_theme = Gtk.IconTheme.get_default ();
         icon_theme.changed.connect (on_theme_change);
 
-        get_style_context ().add_class (Granite.StyleClass.SOURCE_LIST);
+        get_style_context ().add_class (Granite.STYLE_CLASS_SOURCE_LIST);
 
         drag_begin.connect (on_drag_begin);
         drag_end.connect (on_drag_end);
@@ -816,8 +817,8 @@ public class Sidebar.Tree : Gtk.TreeView {
     private Gtk.TreePath? get_path_from_event (Gdk.EventButton event) {
         int x, y;
         Gdk.ModifierType mask;
-        event.window.get_device_position (Gdk.Display.get_default ().get_device_manager ().
-                                          get_client_pointer (), out x, out y, out mask);
+        var seat = event.get_seat ();
+        event.window.get_device_position (seat.get_pointer (), out x, out y, out mask);
 
         int cell_x, cell_y;
         Gtk.TreePath path;
@@ -864,10 +865,7 @@ public class Sidebar.Tree : Gtk.TreeView {
         if (context_menu == null)
             return false;
 
-        if (event != null)
-            context_menu.popup (null, null, null, event.button, event.time);
-        else
-            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
+        context_menu.popup_at_pointer (event);
 
         return true;
     }
@@ -879,7 +877,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             var new_search_menu_item = new Gtk.MenuItem.with_mnemonic (_("New Smart Album…"));
             new_search_menu_item.activate.connect (() => on_new_search);
 
-            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (_("New _Tag..."));
+            var new_tag_menu_item = new Gtk.MenuItem.with_mnemonic (_("New _Tag…"));
             new_tag_menu_item.activate.connect (() => on_new_tag);
 
             default_context_menu.add (new_search_menu_item);
@@ -887,7 +885,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             default_context_menu.show_all ();
         }
 
-        default_context_menu.popup (null, null, null, event.button, event.time);
+        default_context_menu.popup_at_pointer (event);
         return true;
     }
 

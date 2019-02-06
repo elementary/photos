@@ -91,12 +91,12 @@ public class PhotoRow {
     public Orientation orientation;
     public Gee.HashMap<string, KeyValueMap>? transformations;
     public string md5;
-    public string thumbnail_md5;
-    public string exif_md5;
+    public string? thumbnail_md5;
+    public string? exif_md5;
     public time_t time_created;
     public uint64 flags;
-    public string title;
-    public string comment;
+    public string? title;
+    public string? comment;
     public string? backlinks;
     public time_t time_reimported;
     public BackingPhotoID editable_id;
@@ -297,7 +297,7 @@ public class PhotoTable : DatabaseTable {
 
     // Force corrupted orientations to a safe value.
     //
-    // In previous versions of Shotwell, this field could be written to
+    // In previous versions of Photos, this field could be written to
     // the DB as a zero due to Vala 0.14 breaking the way it handled
     // objects passed as 'ref' arguments to methods.
     //

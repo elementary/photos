@@ -303,7 +303,7 @@ public abstract class MultipleDataSourceCommand : PageCommand {
         this.undo_progress_text = undo_progress_text;
 
         foreach (DataView view in iter) {
-            DataSource source = view.get_source ();
+            DataSource source = view.source;
             SourceCollection? collection = (SourceCollection) source.get_membership ();
 
             if (collection != null) {
@@ -1028,7 +1028,7 @@ public class NewEventCommand : MovePhotosCommand {
         // get the primary or "key" source for the new event (which is simply the first one)
         MediaSource key_source = null;
         foreach (DataView view in iter) {
-            MediaSource current_source = (MediaSource) view.get_source ();
+            MediaSource current_source = (MediaSource) view.source;
 
             if (key_source == null) {
                 key_source = current_source;
@@ -1071,7 +1071,7 @@ public class MergeEventsCommand : MovePhotosCommand {
         Gee.ArrayList<ThumbnailView> media_thumbs = new Gee.ArrayList<ThumbnailView> ();
 
         foreach (DataView view in iter) {
-            Event event = (Event) view.get_source ();
+            Event event = (Event) view.source;
 
             // First event we've examined?
             if (master_event == null) {
@@ -1199,7 +1199,7 @@ public class SetRawDeveloperCommand : MultipleDataSourceCommand {
         last_transformation_map = new Gee.HashMap<Photo, PhotoTransformationState> ();
 
         foreach (DataView view in iter) {
-            Photo? photo = view.get_source () as Photo;
+            Photo? photo = view.source as Photo;
             if (is_raw_photo (photo)) {
                 last_developer_map[photo] = photo.get_raw_developer ();
                 last_transformation_map[photo] = photo.save_transformation_state ();
@@ -1313,10 +1313,10 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
 
         // this should be replaced by a first function when we migrate to Gee's List
         foreach (DataView view in iter) {
-            prev_events.set (view.get_source () as Dateable, (view.get_source () as MediaSource).get_event ());
+            prev_events.set (view.source as Dateable, (view.source as MediaSource).get_event ());
 
             if (new_time == null) {
-                new_time = ((Dateable) view.get_source ()).get_exposure_time () +
+                new_time = ((Dateable) view.source).get_exposure_time () +
                            (time_t) time_shift;
                 break;
             }
@@ -2101,8 +2101,6 @@ public class ModifyTagsCommand : SingleDataSourceCommand {
         }
 
         foreach (string path in new_paths) {
-            assert (Tag.global.exists (path));
-
             SourceProxy proxy = Tag.for_path (path).get_proxy ();
             to_add.add (proxy);
             proxy.broken.connect (on_proxy_broken);
@@ -2280,7 +2278,7 @@ public class TrashUntrashPhotosCommand : PageCommand {
     public TrashUntrashPhotosCommand (Gee.Collection<MediaSource> sources, bool to_trash) {
         base (
             to_trash ? _ ("Move Photos to Trash") : _ ("Restore Photos from Trash"),
-            to_trash ? _ ("Move the photos to the Shotwell trash") : _ ("Restore the photos back to the Shotwell library"));
+            to_trash ? _ ("Move the photos to the Photos trash") : _ ("Restore the photos back to the Photos library"));
 
         this.sources = sources;
         this.to_trash = to_trash;

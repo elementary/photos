@@ -26,7 +26,7 @@ private class BlindsEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.blinds";
+        return "io.elementary.photos.transitions.blinds";
     }
 
     public override unowned string get_pluggable_name () {

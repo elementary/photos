@@ -21,6 +21,7 @@ private class ShotwellPublishingExtraServices : Object, Spit.Module {
     private Spit.Pluggable[] pluggables = new Spit.Pluggable[0];
 
     public ShotwellPublishingExtraServices (GLib.File module_file) {
+        Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/photos/plugins/publishing-extras/icons");
         pluggables += new YandexService ();
         pluggables += new TumblrService (module_file.get_parent ());
     }
@@ -34,7 +35,7 @@ private class ShotwellPublishingExtraServices : Object, Spit.Module {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.extras";
+        return "io.elementary.photos.publishing.extras";
     }
 
     public unowned Spit.Pluggable[]? get_pluggables () {

@@ -26,7 +26,7 @@ private class StripesEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.stripes";
+        return "io.elementary.photos.transitions.stripes";
     }
 
     public override unowned string get_pluggable_name () {

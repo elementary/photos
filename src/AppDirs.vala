@@ -18,15 +18,15 @@
 */
 
 class AppDirs {
-    private const string DEFAULT_DATA_DIR = "pantheon-photos";
-
     private static File exec_dir;
     private static File data_dir = null;
     private static File tmp_dir = null;
     private static File libexec_dir = null;
+    private static GLib.Settings file_settings;
 
     // Because this is called prior to Debug.init (), this function cannot do any logging calls
     public static void init (string arg0) {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
         File exec_file = File.new_for_path (Posix.realpath (Environment.find_program_in_path (arg0)));
         exec_dir = exec_file.get_parent ();
     }
@@ -42,7 +42,7 @@ class AppDirs {
 
     public static File get_cache_dir () {
         return ((data_dir == null) ?
-                File.new_for_path (Environment.get_user_cache_dir ()).get_child (DEFAULT_DATA_DIR) :
+                File.new_for_path (Environment.get_user_cache_dir ()).get_child (PROJECT_NAME) :
                 data_dir);
     }
 
@@ -115,7 +115,7 @@ class AppDirs {
     }
 
     /**
-     * @brief Returns the build directory if not installed yet, or a path
+     * Returns the build directory if not installed yet, or a path
      * to where any helper applets we need will live if installed.
      */
     public static File get_libexec_dir () {
@@ -131,19 +131,19 @@ class AppDirs {
         return libexec_dir;
     }
 
-    // Return the directory in which Shotwell is installed, or null if uninstalled.
+    // Return the directory in which Photos is installed, or null if uninstalled.
     public static File? get_install_dir () {
         return get_sys_install_dir (exec_dir);
     }
 
     public static File get_data_dir () {
-        return (data_dir == null) ? File.new_for_path (Environment.get_user_data_dir ()).get_child (DEFAULT_DATA_DIR) : data_dir;
+        return (data_dir == null) ? File.new_for_path (Environment.get_user_data_dir ()).get_child (PROJECT_NAME) : data_dir;
     }
 
     // The "import directory" is the same as the library directory, and are often used
     // interchangeably throughout the code.
     public static File get_import_dir () {
-        string path = Config.Facade.get_instance ().get_import_dir ();
+        string path = file_settings.get_string ("import-dir");
         if (!is_string_empty (path)) {
             // tilde -> home directory
             path = strip_pretty_path (path);
@@ -165,13 +165,8 @@ class AppDirs {
         return get_home_dir ().get_child (_ ("Pictures"));
     }
 
-    // Library folder + photo folder, based on user's preferred directory pattern.
     public static File get_baked_import_dir (time_t tm) {
-        string? pattern = Config.Facade.get_instance ().get_directory_pattern ();
-        if (is_string_empty (pattern))
-            pattern = Config.Facade.get_instance ().get_directory_pattern_custom ();
-        if (is_string_empty (pattern))
-            pattern = "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d"; // default
+        string? pattern = "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d"; // default
 
         DateTime date = new DateTime.from_unix_local (tm);
         return File.new_for_path (get_import_dir ().get_path () + Path.DIR_SEPARATOR_S + date.format (pattern));
@@ -185,7 +180,7 @@ class AppDirs {
     }
 
     public static void set_import_dir (string path) {
-        Config.Facade.get_instance ().set_import_dir (path);
+        file_settings.set_string ("import-dir", path);
     }
 
     public static File get_exec_dir () {
@@ -240,17 +235,10 @@ class AppDirs {
         return subdir;
     }
 
-    public static File get_resources_dir () {
-        File? install_dir = get_install_dir ();
-
-        return (install_dir != null) ? install_dir.get_child ("share").get_child ("pantheon-photos")
-               : get_exec_dir ();
-    }
-
     public static File get_lib_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child ("pantheon-photos")
+        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child (PROJECT_NAME)
                : get_exec_dir ();
     }
 
@@ -259,20 +247,7 @@ class AppDirs {
     }
 
     public static File get_user_plugins_dir () {
-        return get_home_dir ().get_child (".gnome2").get_child ("pantheon-photos").get_child ("plugins");
-    }
-
-    public static File? get_log_file () {
-        if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") != null) {
-            if (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE") == ":console:") {
-                return null;
-            } else {
-                return File.new_for_path (Environment.get_variable ("PANTHEON_PHOTOS_LOG_FILE"));
-            }
-        } else {
-            return File.new_for_path (Environment.get_user_cache_dir ()).
-                   get_child ("pantheon-photos").get_child ("pantheon-photos.log");
-        }
+        return File.new_for_path (GLib.Environment.get_user_data_dir ()).get_child (PROJECT_NAME).get_child ("plugins");
     }
 
     public static File get_thumbnailer_bin () {
@@ -285,4 +260,3 @@ class AppDirs {
         return f;
     }
 }
-

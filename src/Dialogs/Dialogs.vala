@@ -21,6 +21,27 @@
 // place: http://trac.yorba.org/ticket/3452
 namespace Dialogs {
 
+private static bool negate_affirm_question (string message, string title) {
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        title,
+        message,
+        "dialog-question",
+        Gtk.ButtonsType.NONE
+    );
+    dialog.transient_for = AppWindow.get_instance ();
+    dialog.set_urgency_hint (true);
+    dialog.add_button (_("_Cancel"), Gtk.ResponseType.NO);
+
+    var delete_button = (Gtk.Button) dialog.add_button (_("_Delete"), Gtk.ResponseType.YES);
+    delete_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    bool response = (dialog.run () == Gtk.ResponseType.YES);
+
+    dialog.destroy ();
+
+    return response;
+}
+
 public bool confirm_delete_tag (Tag tag) {
     int count = tag.get_sources_count ();
     if (count == 0)
@@ -30,23 +51,21 @@ public bool confirm_delete_tag (Tag tag) {
                      "This will remove the tag \"%s\" from %d photos.  Continue?",
                      count).printf (tag.get_user_visible_name (), count);
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_TAG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_TAG_TITLE);
 }
 
 public bool confirm_delete_saved_search (SavedSearch search) {
     string msg = _ ("This will remove the smart album \"%s\".  Continue?")
                  .printf (search.get_name ());
 
-    return AppWindow.negate_affirm_question (msg, _ ("_Cancel"), _ ("_Delete"),
-            Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
+    return negate_affirm_question (msg, Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
 }
 
 public bool confirm_warn_developer_changed (int number) {
     Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup (AppWindow.get_instance (),
             Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s",
-            "<span weight=\"bold\" size=\"larger\">%s</span>".printf (ngettext ("Switching developers will undo all changes you have made to this photo in Shotwell",
-                    "Switching developers will undo all changes you have made to these photos in Shotwell", number)));
+            "<span weight=\"bold\" size=\"larger\">%s</span>".printf (ngettext ("Switching developers will undo all changes you have made to this photo in Photos",
+                    "Switching developers will undo all changes you have made to these photos in Photos", number)));
 
     dialog.add_buttons (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
     dialog.add_buttons (_ ("_Switch Developer"), Gtk.ResponseType.YES);
@@ -125,7 +144,7 @@ public void open_external_editor_error_dialog (Error err, Photo photo) {
     if (err is IOError.PERMISSION_DENIED || err is FileError.PERM) {
         // Yes - display an alternate error message here.
         AppWindow.error_message (
-            _ ("Shotwell couldn't create a file for editing this photo because you do not have permission to write to %s.").printf (photo.get_master_file ().get_parent ().get_path ()));
+            _ ("Photos couldn't create a file for editing this photo because you do not have permission to write to %s.").printf (photo.get_master_file ().get_parent ().get_path ()));
     } else {
         // No - something else is wrong, display the error message
         // the system gave us.
@@ -151,7 +170,7 @@ public Gtk.ResponseType export_error_dialog (File dest, bool photos_remaining) {
 
 namespace ImportUI {
 private const int REPORT_FAILURE_COUNT = 4;
-internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details...");
+internal const string SAVE_RESULTS_BUTTON_NAME = _ ("Save Details…");
 internal const string SAVE_RESULTS_FILE_CHOOSER_TITLE = _ ("Save Details");
 internal const int SAVE_RESULTS_RESPONSE_ID = 1024;
 
@@ -220,7 +239,7 @@ public string get_media_specific_string (Gee.Collection<BatchImportResult> impor
 public string create_result_report_from_manifest (ImportManifest manifest) {
     StringBuilder builder = new StringBuilder ();
 
-    string header = _ ("Import Results Report") + " (Shotwell " + Resources.APP_VERSION + " @ " +
+    string header = _ ("Import Results Report") + " (Photos " + Resources.APP_VERSION + " @ " +
                     TimeVal ().to_iso8601 () + ")\n\n";
     builder.append (header);
 
@@ -280,10 +299,10 @@ public string create_result_report_from_manifest (ImportManifest manifest) {
     }
 
     //
-    // Photos/Videos Not Imported Because They Weren't in a Format Shotwell Understands
+    // Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
     //
     if (manifest.skipped_photos.size > 0) {
-        builder.append (_ ("Photos/Videos Not Imported Because They Weren't in a Format Shotwell Understands:")
+        builder.append (_ ("Photos/Videos Not Imported Because They Weren't in a Format Photos Understands:")
                         + "\n\n");
 
         foreach (BatchImportResult result in manifest.skipped_photos) {
@@ -295,10 +314,10 @@ public string create_result_report_from_manifest (ImportManifest manifest) {
     }
 
     //
-    // Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library
+    // Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
     //
     if (manifest.write_failed.size > 0) {
-        builder.append (_ ("Photos/Videos Not Imported Because Shotwell Couldn't Copy Them into its Library:")
+        builder.append (_ ("Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library:")
                         + "\n\n");
 
         foreach (BatchImportResult result in manifest.write_failed) {
@@ -460,7 +479,7 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
     if (manifest.skipped_photos.size > 0) {
         if (message.length > 0)
             message += "\n";
-        // we have no notion of "unsupported" video files right now in Shotwell (all
+        // we have no notion of "unsupported" video files right now in Photos (all
         // standard container formats are supported, it's just that the streams in them
         // might or might not be interpretable), so this message does not need to be
         // media specific
@@ -477,7 +496,7 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
         if (message.length > 0)
             message += "\n";
 
-        // we have no notion of "non-video" video files right now in Shotwell, so this
+        // we have no notion of "non-video" video files right now in Photos, so this
         // message doesn't need to be media specific
         string skipped_files_message = (ngettext ("1 non-image file skipped.\n",
                                         "%d non-image files skipped.\n", manifest.skipped_files.size)).printf (
@@ -588,7 +607,7 @@ internal void save_import_results (Gtk.Window? chooser_dialog_parent, string res
         (_ ("_Cancel")), Gtk.ResponseType.CANCEL, (_ ("_Save")), Gtk.ResponseType.ACCEPT, null);
     chooser_dialog.set_do_overwrite_confirmation (true);
     chooser_dialog.set_current_folder (Environment.get_home_dir ());
-    chooser_dialog.set_current_name ("Shotwell Import Log.txt");
+    chooser_dialog.set_current_name ("Photos Import Log.txt");
     chooser_dialog.set_local_only (false);
 
     int dialog_result = chooser_dialog.run ();
@@ -615,11 +634,7 @@ public abstract class TextEntryDialogMediator {
 
     public TextEntryDialogMediator (string title, string label, string? initial_text = null,
                                     Gee.Collection<string>? completion_list = null, string? completion_delimiter = null) {
-        Gtk.Builder builder = AppWindow.create_builder ();
-        dialog = new TextEntryDialog ();
-        dialog.get_content_area ().add ((Gtk.Box) builder.get_object ("dialog-vbox2"));
-        dialog.set_builder (builder);
-        dialog.setup (on_modify_validate, title, label, initial_text, completion_list, completion_delimiter);
+        dialog = new TextEntryDialog (on_modify_validate, title, label, initial_text, completion_list, completion_delimiter);
     }
 
     protected virtual bool on_modify_validate (string text) {
@@ -745,47 +760,6 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (only remove photos) and
-// Gtk.ResponseType.CANCEL.
-public Gtk.ResponseType remove_from_library_dialog (Gtk.Window owner, string title,
-        string user_message, int count) {
-    string delete_action = ngettext ("_Delete File", "_Delete Files", count);
-
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.CANCEL, "%s", user_message);
-    dialog.add_button (_ ("Only _Remove"), Gtk.ResponseType.NO);
-    dialog.add_button (delete_action, Gtk.ResponseType.YES);
-
-    // This dialog was previously created outright; we now 'hijack'
-    // dialog's old title and use it as the primary text, along with
-    // using the message as the secondary text.
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
-// Returns: Gtk.ResponseType.YES (delete photos), Gtk.ResponseType.NO (keep photos)
-public Gtk.ResponseType remove_from_filesystem_dialog (Gtk.Window owner, string title,
-        string user_message) {
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", user_message);
-    dialog.add_button (_ ("_Keep"), Gtk.ResponseType.NO);
-    dialog.add_button (_ ("_Delete"), Gtk.ResponseType.YES);
-    dialog.set_default_response ( Gtk.ResponseType.NO);
-
-    dialog.set_markup (build_alert_body_text (title, user_message));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
-
-    dialog.destroy ();
-
-    return result;
-}
-
 public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
@@ -819,21 +793,34 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
 }
 
 public bool remove_offline_dialog (Gtk.Window owner, int count) {
-    if (count == 0)
+    if (count == 0) {
         return false;
+    }
 
-    string msg = ngettext (
-                     "This will remove the photo from the library.  Continue?",
-                     "This will remove %d photos from the library.  Continue?",
-                     count).printf (count);
+    string primary_text = ngettext (
+        _("Remove Photo From Library"),
+        _("Remove Photos From Library"),
+        count
+    );
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
-    dialog.title = (count == 1) ? _ ("Remove Photo From Library") : _ ("Remove Photos From Library");
+    string secondary_text = ngettext (
+        "This will remove the photo from the library.  Continue?",
+        "This will remove %d photos from the library.  Continue?",
+         count
+    ).printf (count);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = owner;
+
+    var remove_button = (Gtk.Button) dialog.add_button (_ ("_Remove"), Gtk.ResponseType.OK);
+    remove_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
@@ -865,15 +852,13 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
 }
 
 public interface WelcomeServiceEntry : GLib.Object {
-    public abstract string get_service_name ();
-
     public abstract void execute ();
 }
 
 // This function is used to determine whether or not files should be copied or linked when imported.
 // Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 public Gtk.ResponseType copy_files_dialog () {
-    string msg = _ ("Shotwell can copy the photos into your library folder or it can import them without copying.");
+    string msg = _ ("Photos can copy the photos into your library folder or it can import them without copying.");
 
     Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
             Gtk.MessageType.QUESTION, Gtk.ButtonsType.CANCEL, "%s", msg);
@@ -926,11 +911,11 @@ public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_
         int num_not_deleted = not_deleted_photos.size + not_deleted_videos.size;
         if (num_not_deleted > 0) {
             // Alert the user that the files were not removed.
-            string delete_failed_message = 
+            string delete_failed_message =
                 ngettext ("The photo or video cannot be deleted.",
                           "%d photos/videos cannot be deleted.",
                           num_not_deleted).printf (num_not_deleted);
-            AppWindow.error_message_with_title (dialog_title, delete_failed_message, AppWindow.get_instance ());
+            AppWindow.error_message (dialog_title, delete_failed_message);
         }
     }
 

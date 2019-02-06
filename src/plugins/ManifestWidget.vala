@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2011-2013 Yorba Foundation
+*               2017-2018 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -19,40 +20,41 @@
 
 namespace Plugins {
 
-public class ManifestWidgetMediator {
-    public Gtk.Widget widget {
-        get {
-            return builder.get_object ("plugin-manifest") as Gtk.Widget;
-        }
-    }
+public class ManifestWidget : Gtk.Grid {
+    private Gtk.Button about_button;
+    private ManifestListView list;
 
-    private Gtk.Button about_button {
-        get {
-            return builder.get_object ("about-plugin-button") as Gtk.Button;
-        }
-    }
+    public ManifestWidget () {
+        list = new ManifestListView ();
 
-    private Gtk.ScrolledWindow list_bin {
-        get {
-            return builder.get_object ("plugin-list-scrolled-window") as Gtk.ScrolledWindow;
-        }
-    }
+        var list_bin = new Gtk.ScrolledWindow (null, null);
+        list_bin.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        list_bin.expand = true;
+        list_bin.add (list);
 
-    private Gtk.Builder builder = AppWindow.create_builder ();
-    private ManifestListView list = new ManifestListView ();
+        var frame = new Gtk.Frame (null);
+        frame.add (list_bin);
 
-    public ManifestWidgetMediator () {
-        list_bin.add_with_viewport (list);
+        about_button = new Gtk.Button.with_label (_("About"));
+
+        var action_area = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+        action_area.layout_style = Gtk.ButtonBoxStyle.END;
+        action_area.add (about_button);
+
+        orientation = Gtk.Orientation.VERTICAL;
+        row_spacing = 12;
+        add (frame);
+        add (action_area);
 
         about_button.clicked.connect (on_about);
-        list.get_selection ().changed.connect (on_selection_changed);
+        list.get_selection ().changed.connect (set_about_button_sensitivity);
 
         set_about_button_sensitivity ();
     }
 
-    ~ManifestWidgetMediator () {
+    ~ManifestWidget () {
         about_button.clicked.disconnect (on_about);
-        list.get_selection ().changed.disconnect (on_selection_changed);
+        list.get_selection ().changed.disconnect (set_about_button_sensitivity);
     }
 
     private void on_about () {
@@ -85,10 +87,11 @@ public class ManifestWidgetMediator {
             }
         }
 
-        Gtk.AboutDialog about_dialog = new Gtk.AboutDialog ();
+        var about_dialog = new Gtk.AboutDialog ();
         about_dialog.authors = authors;
         about_dialog.comments = info.brief_description;
         about_dialog.copyright = info.copyright;
+        about_dialog.deletable = false;
         about_dialog.license = info.license;
         about_dialog.wrap_license = info.is_license_wordwrapped;
         Gdk.Pixbuf? pix_icon = null;
@@ -124,10 +127,6 @@ public class ManifestWidgetMediator {
         about_dialog.run ();
 
         about_dialog.destroy ();
-    }
-
-    private void on_selection_changed () {
-        set_about_button_sensitivity ();
     }
 
     private void set_about_button_sensitivity () {
@@ -191,7 +190,6 @@ private class ManifestListView : Gtk.TreeView {
 
         set_headers_visible (false);
         set_enable_search (false);
-        set_rules_hint (true);
         set_show_expanders (true);
         set_reorderable (false);
         set_enable_tree_lines (false);

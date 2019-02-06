@@ -21,11 +21,6 @@ namespace PublishingUI {
 
 public class ConcreteDialogPane : Spit.Publishing.DialogPane, GLib.Object {
     protected Gtk.Box pane_widget = null;
-    protected Gtk.Builder builder = null;
-
-    public ConcreteDialogPane () {
-        builder = AppWindow.create_builder ();
-    }
 
     public Gtk.Widget get_widget () {
         return pane_widget;
@@ -43,38 +38,48 @@ public class ConcreteDialogPane : Spit.Publishing.DialogPane, GLib.Object {
 }
 
 public class StaticMessagePane : ConcreteDialogPane {
-    private Gtk.Label msg_label = null;
-
-    public StaticMessagePane (string message_string, bool enable_markup = false) {
+    public StaticMessagePane (string message_string) {
         base ();
-        msg_label = builder.get_object ("static_msg_label") as Gtk.Label;
-        pane_widget = builder.get_object ("static_msg_pane_widget") as Gtk.Box;
 
-        if (enable_markup) {
-            msg_label.set_markup (message_string);
-            msg_label.set_line_wrap (true);
-            msg_label.set_use_markup (true);
-        } else {
-            msg_label.set_label (message_string);
-        }
+        var msg_label = new Gtk.Label (message_string);
+        msg_label.max_width_chars = 70;
+        msg_label.margin_start = msg_label.margin_end = 16;
+        msg_label.margin_top = 97;
+        msg_label.margin_bottom = 24;
+        msg_label.use_markup = true;
+        msg_label.wrap = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (msg_label);
     }
 }
 
 public class LoginWelcomePane : ConcreteDialogPane {
-    private Gtk.Button login_button = null;
-    private Gtk.Label not_logged_in_label = null;
-
     public signal void login_requested ();
 
     public LoginWelcomePane (string service_welcome_message) {
         base ();
-        pane_widget = builder.get_object ("welcome_pane_widget") as Gtk.Box;
-        login_button = builder.get_object ("login_button") as Gtk.Button;
-        not_logged_in_label = builder.get_object ("not_logged_in_label") as Gtk.Label;
+
+        var not_logged_in_label = new Gtk.Label (service_welcome_message);
+        not_logged_in_label.margin_top = 97;
+        not_logged_in_label.margin_bottom = 24;
+        not_logged_in_label.margin_start = not_logged_in_label.margin_end = 16;
+        not_logged_in_label.max_width_chars = 70;
+        not_logged_in_label.use_markup = true;
+        not_logged_in_label.wrap = true;
+
+        var login_button = new Gtk.Button.with_mnemonic (_("_Login"));
+        login_button.margin_start = 256;
+        login_button.margin_end = 240;
+        login_button.margin_top = 80;
+        login_button.margin_bottom = 16;
+        login_button.receives_default = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (not_logged_in_label);
+        pane_widget.add (login_button);
 
         login_button.clicked.connect (on_login_clicked);
-        not_logged_in_label.set_use_markup (true);
-        not_logged_in_label.set_markup (service_welcome_message);
     }
 
     private void on_login_clicked () {
@@ -83,12 +88,19 @@ public class LoginWelcomePane : ConcreteDialogPane {
 }
 
 public class ProgressPane : ConcreteDialogPane {
-    private Gtk.ProgressBar progress_bar = null;
+    private Gtk.ProgressBar progress_bar;
 
     public ProgressPane () {
         base ();
-        pane_widget = (Gtk.Box) builder.get_object ("progress_pane_widget");
-        progress_bar = (Gtk.ProgressBar) builder.get_object ("publishing_progress_bar");
+
+        progress_bar = new Gtk.ProgressBar ();
+        progress_bar.height_request = 64;
+        progress_bar.margin_start = progress_bar.margin_end = 32;
+        progress_bar.margin_top = 108;
+        progress_bar.show_text = true;
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        pane_widget.add (progress_bar);
     }
 
     public void set_text (string text) {
@@ -132,13 +144,13 @@ public class SuccessPane : StaticMessagePane {
 
 public class AccountFetchWaitPane : StaticMessagePane {
     public AccountFetchWaitPane () {
-        base (_ ("Fetching account information..."));
+        base (_ ("Fetching account information…"));
     }
 }
 
 public class LoginWaitPane : StaticMessagePane {
     public LoginWaitPane () {
-        base (_ ("Logging in..."));
+        base (_ ("Logging in…"));
     }
 }
 
@@ -159,17 +171,22 @@ public class PublishingDialog : Gtk.Dialog {
 
     private Gtk.ListStore service_selector_box_model;
     private Gtk.ComboBox service_selector_box;
-    private Gtk.Label service_selector_box_label;
-    private Gtk.Box central_area_layouter;
+    private Gtk.Grid central_area_layouter;
     private Gtk.Button close_cancel_button;
     private Spit.Publishing.DialogPane active_pane;
     private Spit.Publishing.Publishable[] publishables;
     private Spit.Publishing.ConcretePublishingHost host;
     private Spit.PluggableInfo info;
+    private GLib.Settings sharing_settings;
+
+    construct {
+        sharing_settings = new GLib.Settings (GSettingsConfigurationEngine.SHARING_SCHEMA_NAME);
+    }
 
     protected PublishingDialog (Gee.Collection<MediaSource> to_publish) {
         assert (to_publish.size > 0);
 
+        deletable = false;
         resizable = false;
         delete_event.connect (on_window_close);
 
@@ -206,23 +223,24 @@ public class PublishingDialog : Gtk.Dialog {
 
         service_selector_box_model = new Gtk.ListStore (2, typeof (GLib.Icon), typeof (string));
         service_selector_box = new Gtk.ComboBox.with_model (service_selector_box_model);
+        service_selector_box.hexpand = true;
+        service_selector_box.halign = Gtk.Align.END;
 
-        Gtk.CellRendererPixbuf renderer_pix = new Gtk.CellRendererPixbuf ();
+        var renderer_pix = new Gtk.CellRendererPixbuf ();
         service_selector_box.pack_start (renderer_pix, true);
         service_selector_box.add_attribute (renderer_pix, "gicon", 0);
 
-        Gtk.CellRendererText renderer_text = new Gtk.CellRendererText ();
+        var renderer_text = new Gtk.CellRendererText ();
         service_selector_box.pack_start (renderer_text, true);
         service_selector_box.add_attribute (renderer_text, "text", 1);
 
         service_selector_box.set_active (0);
 
-        service_selector_box_label = new Gtk.Label.with_mnemonic (label);
+        var service_selector_box_label = new Gtk.Label.with_mnemonic (label);
         service_selector_box_label.set_mnemonic_widget (service_selector_box);
-        service_selector_box_label.set_alignment (0.0f, 0.5f);
 
         // get the name of the service the user last used
-        string? last_used_service = Config.Facade.get_instance ().get_last_used_service ();
+        string? last_used_service = sharing_settings.get_string ("last-used-service");
 
         Spit.Publishing.Service[] loaded_services = load_services (has_photos, has_videos);
 
@@ -252,36 +270,32 @@ public class PublishingDialog : Gtk.Dialog {
 
         service_selector_box.changed.connect (on_service_changed);
 
-        /* the wrapper is not an extraneous widget -- it's necessary to prevent the service
-           selection box from growing and shrinking whenever its parent's size changes.
-           When wrapped inside a Gtk.Alignment, the Alignment grows and shrinks instead of
-           the service selection box. */
-        Gtk.Alignment service_selector_box_wrapper = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
-        service_selector_box_wrapper.add (service_selector_box);
-
-        Gtk.Box service_selector_layouter = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        service_selector_layouter.set_border_width (12);
+        var service_selector_layouter = new Gtk.Grid ();
+        service_selector_layouter.column_spacing = 12;
+        service_selector_layouter.margin = 12;
+        service_selector_layouter.margin_top = 0;
         service_selector_layouter.add (service_selector_box_label);
-        service_selector_layouter.pack_start (service_selector_box_wrapper, true, true, 0);
+        service_selector_layouter.add (service_selector_box);
+
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        separator.hexpand = true;
 
         /* 'service area' is the selector assembly plus the horizontal rule dividing it from the
            rest of the dialog */
-        Gtk.Box service_area_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var service_area_layouter = new Gtk.Grid ();
+        service_area_layouter.orientation = Gtk.Orientation.VERTICAL;
         service_area_layouter.add (service_selector_layouter);
-        service_area_layouter.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        service_area_layouter.add (separator);
 
-        Gtk.Alignment service_area_wrapper = new Gtk.Alignment (0.0f, 0.0f, 1.0f, 0.0f);
-        service_area_wrapper.add (service_area_layouter);
+        central_area_layouter = new Gtk.Grid ();
+        central_area_layouter.orientation = Gtk.Orientation.VERTICAL;
 
-        central_area_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-        get_content_area ().pack_start (service_area_wrapper, false, false, 0);
+        get_content_area ().pack_start (service_area_layouter, false, false, 0);
         get_content_area ().pack_start (central_area_layouter, true, true, 0);
 
-        close_cancel_button = new Gtk.Button.with_mnemonic ("_Cancel");
+        close_cancel_button = (Gtk.Button) add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
         close_cancel_button.set_can_default (true);
         close_cancel_button.clicked.connect (on_close_cancel_clicked);
-        ((Gtk.Container) get_action_area ()).add (close_cancel_button);
 
         set_standard_window_mode ();
 
@@ -388,9 +402,10 @@ public class PublishingDialog : Gtk.Dialog {
         if (avail_services.length == 0) {
             // There are no enabled publishing services that accept this media type,
             // warn the user.
-            AppWindow.error_message_with_title (_ ("Unable to publish"),
-                                                _ ("Shotwell cannot publish the selected items because you do not have a compatible publishing plugin enabled. To correct this, choose <b>Edit %s Preferences</b> and enable one or more of the publishing plugins on the <b>Plugins</b> tab.").printf ("▸"),
-                                                null, false);
+            AppWindow.error_message (
+                _("Unable to publish"),
+                _("Photos cannot publish the selected items because you do not have a compatible publishing plugin enabled. To correct this, choose <b>Edit %s Preferences</b> and enable one or more of the publishing plugins on the <b>Plugins</b> tab.").printf ("▸")
+            );
 
             return;
         }
@@ -449,7 +464,7 @@ public class PublishingDialog : Gtk.Dialog {
         }
         assert (selected_service != null);
 
-        Config.Facade.get_instance ().set_last_used_service (selected_service.get_id ());
+        sharing_settings.set_string ("last-used-service", selected_service.get_id ());
 
         host = new Spit.Publishing.ConcretePublishingHost (selected_service, this, publishables);
         host.start_publishing ();
@@ -466,22 +481,16 @@ public class PublishingDialog : Gtk.Dialog {
 
     private void set_large_window_mode () {
         set_size_request (LARGE_WINDOW_WIDTH, LARGE_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (LARGE_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                LARGE_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
     private void set_colossal_window_mode () {
         set_size_request (COLOSSAL_WINDOW_WIDTH, COLOSSAL_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (COLOSSAL_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                COLOSSAL_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
     private void set_standard_window_mode () {
         set_size_request (STANDARD_WINDOW_WIDTH, STANDARD_WINDOW_HEIGHT);
-        central_area_layouter.set_size_request (STANDARD_WINDOW_WIDTH - BORDER_REGION_WIDTH,
-                                                STANDARD_WINDOW_HEIGHT - BORDER_REGION_HEIGHT);
         resizable = false;
     }
 
@@ -524,7 +533,7 @@ public class PublishingDialog : Gtk.Dialog {
             central_area_layouter.remove (active_pane.get_widget ());
         }
 
-        central_area_layouter.pack_start (pane.get_widget (), true, true, 0);
+        central_area_layouter.add (pane.get_widget ());
         show_all ();
 
         Spit.Publishing.DialogPane.GeometryOptions geometry_options =

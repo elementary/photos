@@ -40,7 +40,7 @@ public class Thumbnails {
 public class ThumbnailCache : Object {
     public const Gdk.InterpType DEFAULT_INTERP = Gdk.InterpType.HYPER;
     public const Jpeg.Quality DEFAULT_QUALITY = Jpeg.Quality.HIGH;
-    public const int MAX_INMEMORY_DATA_SIZE = 512 * 1024;
+    public const int MAX_INMEMORY_DATA_SIZE = 2048 * 1024;
 
     // Some code relies on Size's pixel values being manipulated and then using Size's methods,
     // so be careful before changing any of these values (and especially careful before arbitrarily
@@ -182,8 +182,8 @@ public class ThumbnailCache : Object {
 
     private static Workers fetch_workers = null;
 
-    public const ulong MAX_BIG_CACHED_BYTES = 40 * 1024 * 1024;
-    public const ulong MAX_MEDIUM_CACHED_BYTES = 30 * 1024 * 1024;
+    public const ulong MAX_BIG_CACHED_BYTES = 60 * 1024 * 1024;
+    public const ulong MAX_MEDIUM_CACHED_BYTES = 40 * 1024 * 1024;
 
     private static ThumbnailCache big = null;
     private static ThumbnailCache medium = null;
@@ -194,6 +194,19 @@ public class ThumbnailCache : Object {
     private static int cycle_async_resized_thumbnails = 0;
     private static int cycle_overflow_thumbnails = 0;
     private static ulong cycle_dropped_bytes = 0;
+    private static int _scale_factor = 1;
+    public static int scale_factor {
+        get {
+            return _scale_factor;
+        }
+        set {
+            if (_scale_factor != value) {
+                _scale_factor = value;
+                big = new ThumbnailCache (Size.BIG, MAX_BIG_CACHED_BYTES);
+                medium = new ThumbnailCache (Size.MEDIUM, MAX_MEDIUM_CACHED_BYTES);
+            }
+        }
+    }
 
     private File cache_dir;
     private Size size;
@@ -206,7 +219,7 @@ public class ThumbnailCache : Object {
 
     private ThumbnailCache (Size size, ulong max_cached_bytes, Gdk.InterpType interp = DEFAULT_INTERP,
                             Jpeg.Quality quality = DEFAULT_QUALITY) {
-        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d".printf (size.get_scale ()));
+        cache_dir = AppDirs.get_cache_subdir ("thumbs", "thumbs%d@%dx".printf (size.get_scale (), scale_factor));
         this.size = size;
         this.max_cached_bytes = max_cached_bytes;
         this.interp = interp;
@@ -312,6 +325,8 @@ public class ThumbnailCache : Object {
         // Taking advantage of Size's values matching their pixel size
         Size max_size = Size.BIG * 2;
         Dimensions dim = max_size.get_scaling ().get_scaled_dimensions (original_dim);
+        dim.width *= scale_factor;
+        dim.height *= scale_factor;
         Gdk.Pixbuf? largest_thumbnail = null;
         try {
             largest_thumbnail = reader.scaled_read (original_dim, dim);
@@ -326,6 +341,8 @@ public class ThumbnailCache : Object {
 
         foreach (Size size in ALL_SIZES) {
             dim = size.get_scaling ().get_scaled_dimensions (largest_thumb_dimensions);
+            dim.width *= scale_factor;
+            dim.height *= scale_factor;
             thumbnails.set (size, largest_thumbnail.scale_simple (dim.width, dim.height, Gdk.InterpType.HYPER));
         }
     }
@@ -391,13 +408,35 @@ public class ThumbnailCache : Object {
         if (pixbuf != null)
             return pixbuf;
 
-        pixbuf = read_pixbuf (source.get_source_id (), source.get_preferred_thumbnail_format ());
+        try {
+            pixbuf = read_pixbuf (source.get_source_id (), source.get_preferred_thumbnail_format ());
+        } catch (Error err) {
+            if (err is FileError) {
+                try {
+                    Photo photo = source as Photo;
+                    Video video = source as Video;
+
+                    if (photo != null) {
+                        pixbuf = photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true));
+                        replace (source, size, pixbuf);
+                        photo.notify_altered (new Alteration ("image", "thumbnail"));
+                    }
+
+                    if (video != null) {
+                        pixbuf = video.create_thumbnail (size.get_scale () * scale_factor);
+                        replace (source, size, pixbuf);
+                    }
+
+                } catch (Error e) {
+                    throw err;
+                }
+            } else {
+                throw err;
+            }
+        }
 
         cycle_fetched_thumbnails++;
         schedule_debug ();
-
-        // stash in memory for next time
-        store_in_memory (source.get_source_id (), pixbuf);
 
         return pixbuf;
     }
@@ -421,7 +460,7 @@ public class ThumbnailCache : Object {
         // (and the other should wait until it's done), two (or more) fetches could occur on the
         // same thumbnail file.
         //
-        // Due to the design of Shotwell, with one thumbnail per page, this is seen as an unlikely
+        // Due to the design of Photos, with one thumbnail per page, this is seen as an unlikely
         // situation.  This may change in the future, and the caching situation will need to be
         // handled.
 
@@ -464,7 +503,7 @@ public class ThumbnailCache : Object {
         }
 
         LibraryPhoto photo = (LibraryPhoto) source;
-        save_thumbnail (file, photo.get_pixbuf (Scaling.for_best_fit (size.get_scale (), true)), source);
+        save_thumbnail (file, photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true)), source);
 
         // See note in _import_with_pixbuf for reason why this is not maintained in in-memory
         // cache
@@ -473,7 +512,7 @@ public class ThumbnailCache : Object {
     private void _import_thumbnail (ThumbnailSource source, Gdk.Pixbuf? scaled, bool force = false)
     throws Error {
         assert (scaled != null);
-        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale ()));
+        assert (Dimensions.for_pixbuf (scaled).approx_scaled (size.get_scale () * scale_factor));
 
         // if not forcing the cache operation, check if file exists and is represented in the
         // database before continuing
@@ -513,7 +552,7 @@ public class ThumbnailCache : Object {
         remove_from_memory (source.get_source_id ());
 
         // scale to cache's parameters
-        Gdk.Pixbuf scaled = scale_pixbuf (original, size.get_scale (), interp, true);
+        Gdk.Pixbuf scaled = scale_pixbuf (original, size.get_scale () * scale_factor, interp, true);
 
         // save scaled image to disk
         save_thumbnail (file, scaled, source);

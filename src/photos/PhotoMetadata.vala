@@ -21,11 +21,11 @@
 // PhotoMetadata
 //
 // PhotoMetadata is a wrapper class around gexiv2.  The reasoning for this is (a) to facilitiate
-// interface changes to meet Shotwell's requirements without needing modifications of the library
+// interface changes to meet Photos' requirements without needing modifications of the library
 // itself, and (b) some requirements for this class (i.e. obtaining raw metadata) is not available
 // in gexiv2, and so must be done by hand.
 //
-// Although it's perceived that Exiv2 will remain Shotwell's metadata library of choice, this
+// Although it's perceived that Exiv2 will remain Photos' metadata library of choice, this
 // may change in the future, and so this wrapper helps with that as well.
 //
 // There is no expectation of thread-safety in this class (yet).
@@ -885,9 +885,7 @@ public class PhotoMetadata : MediaMetadata {
     };
 
     private static HierarchicalKeywordField[] HIERARCHICAL_KEYWORD_TAGS = {
-        // Xmp.lr.hierarchicalSubject should be writeable but isn't due to this bug
-        // in libexiv2: http://dev.exiv2.org/issues/784
-        new HierarchicalKeywordField ("Xmp.lr.hierarchicalSubject", "|", false, false),
+        new HierarchicalKeywordField ("Xmp.lr.hierarchicalSubject", "|", false, true),
         new HierarchicalKeywordField ("Xmp.digiKam.TagsList", "/", false, true),
         new HierarchicalKeywordField ("Xmp.MicrosoftPhoto.LastKeywordXMP", "/", false, true)
     };

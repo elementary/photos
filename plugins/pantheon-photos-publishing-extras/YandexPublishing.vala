@@ -23,7 +23,7 @@ public class YandexService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.yandex-fotki";
+        return "io.elementary.photos.publishing.yandex-fotki";
     }
 
     public unowned string get_pluggable_name () {
@@ -130,6 +130,7 @@ internal class WebAuthPane : Spit.Publishing.DialogPane, GLib.Object {
         webview_frame = new Gtk.ScrolledWindow (null, null);
         webview_frame.set_shadow_type (Gtk.ShadowType.ETCHED_IN);
         webview_frame.set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
+        webview_frame.expand = true;
 
         webview = new WebKit.WebView ();
         webview.get_settings ().enable_plugins = false;
@@ -235,11 +236,9 @@ internal class PublishingOptionsPane: Spit.Publishing.DialogPane, GLib.Object {
 
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-        File ui_file = host.get_module_file ().get_parent ().get_child ("yandex_publish_model.ui");
-
         try {
             builder = new Gtk.Builder ();
-            builder.add_from_file (ui_file.get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing-extras/ui/yandex_publish_model.ui");
             builder.connect_signals (null);
             Gtk.Alignment align = builder.get_object ("alignment") as Gtk.Alignment;
 

@@ -1,10 +1,12 @@
 # Photos
+[![Packaging status](https://repology.org/badge/tiny-repos/pantheon-photos.svg)](https://repology.org/metapackage/pantheon-photos)
 [![Translation status](https://l10n.elementary.io/widgets/photos/-/svg-badge.svg)](https://l10n.elementary.io/projects/photos/?utm_source=widget)
+
+![Photos Screenshot](data/screenshot.png?raw=true)
 
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
-* cmake
 * desktop-file-utils
 * intltool
 * libaccounts-glib-dev
@@ -27,21 +29,19 @@ You'll need the following dependencies:
 * libsqlite3-dev
 * libunity-dev
 * libwebkit2gtk-4.0-dev
+* libwebp-dev
 * libxml2
+* meson
 * python-scour
-* valac
+* valac >= 0.40
 
-It's recommended to create a clean build environment
+Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
-    mkdir build
-    cd build/
-    
-Run `cmake` to configure the build environment and then `make` to build
+    meson build --prefix=/usr
+    cd build
+    ninja
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-    
-To install, use `make install`, then execute with `pantheon-photos`
+To install, use `ninja install`, then execute with `io.elementary.photos`
 
-    sudo make install
-    pantheon-photos
+    sudo ninja install
+    io.elementary.photos

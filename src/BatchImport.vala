@@ -447,6 +447,7 @@ public class BatchImport : Object {
     private int max_outstanding_import_jobs = Workers.thread_per_cpu_minus_one ();
     private bool untrash_duplicates = true;
     private bool mark_duplicates_online = true;
+    private GLib.Settings file_settings;
 
     // These queues are staging queues, holding batches of work that must happen in the import
     // process, working on them all at once to minimize overhead.
@@ -487,6 +488,10 @@ public class BatchImport : Object {
 
     // Called at the end of the batched jobs; this will be signalled exactly once for the batch
     public signal void import_complete (ImportManifest manifest, BatchImportRoll import_roll);
+
+    construct {
+        file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
+    }
 
     public BatchImport (Gee.Iterable<BatchImportJob> jobs, string name, ImportReporter? reporter,
                         Gee.ArrayList<BatchImportJob>? prefailed = null,
@@ -1062,7 +1067,7 @@ public class BatchImport : Object {
 
                 // Set the default developer for raw photos
                 if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
-                    RawDeveloper d = Config.Facade.get_instance ().get_default_raw_developer ();
+                    var d = RawDeveloper.from_string (file_settings.get_string ("raw-developer-default"));
                     if (d == RawDeveloper.CAMERA && !photo.is_raw_developer_available (d))
                         d = RawDeveloper.EMBEDDED;
 

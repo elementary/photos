@@ -184,7 +184,13 @@ public class TagTable : DatabaseTable {
     public void set_tagged_sources (TagID tag_id, Gee.Collection<string> source_ids) throws DatabaseError {
         var stmt = create_stmt ("UPDATE TagTable SET photo_id_list=? WHERE id=?");
 
-        bind_text (stmt, 1, serialize_source_ids (source_ids));
+        var serialized = serialize_source_ids (source_ids);
+        if (serialized == null) {
+            bind_null (stmt, 1);
+        } else {
+            bind_text (stmt, 1, serialized);
+        }
+
         bind_int64 (stmt, 2, tag_id.id);
 
         var res = stmt.step ();

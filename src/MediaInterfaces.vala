@@ -18,7 +18,7 @@
 */
 
 //
-// Going forward, Shotwell will use MediaInterfaces, which allow for various operations and features
+// Going forward, Photos will use MediaInterfaces, which allow for various operations and features
 // to be added only to the MediaSources that support them (or make sense for).  For example, adding
 // a library-mode photo or video to an Event makes perfect sense, but does not make sense for a
 // direct-mode photo.  All three are MediaSources, and to make DirectPhoto descend from another
@@ -40,7 +40,7 @@
 //
 // TransactionController
 //
-// Because many operations in Shotwell need to be performed on collections of objects all at once,
+// Because many operations in Photos need to be performed on collections of objects all at once,
 // and that most of these objects are backed by a database, the TransactionController object gives
 // a way to generically group a series of operations on one or more similar objects into a single
 // transaction. This class is listed here because it's used by the various media interfaces to offer

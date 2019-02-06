@@ -1,5 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
+* Copyright (c) 2018 elementary, Inc. (https://elementary.io)
+*               2009-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -18,17 +19,16 @@
 */
 
 public class FullscreenWindow : PageWindow {
-    public const int TOOLBAR_INVOCATION_MSEC = 250;
     public const int TOOLBAR_DISMISSAL_SEC = 2;
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
-    private Gtk.Window toolbar_window;
+    private Gtk.Revealer revealer;
+    private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
-    private bool is_toolbar_shown = false;
-    private bool waiting_for_invoke = false;
     private time_t left_toolbar_time = 0;
     private bool switched_to = false;
-    private bool is_toolbar_dismissal_enabled = true;
+
+    public bool auto_dismiss_toolbar { get; set; default = true; }
 
     public FullscreenWindow (Page page) {
         set_current_page (page);
@@ -48,9 +48,9 @@ public class FullscreenWindow : PageWindow {
         set_border_width (0);
 
         pin_button = new Gtk.ToggleToolButton ();
-        pin_button.icon_name = "pin-toolbar";
+        pin_button.icon_name = "view-pin-symbolic";
         pin_button.tooltip_text = _("Pin the toolbar open");
-        pin_button.clicked.connect (update_toolbar_dismissal);
+        pin_button.bind_property ("active", this, "auto-dismiss-toolbar", GLib.BindingFlags.INVERT_BOOLEAN);
 
         var img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
 
@@ -58,7 +58,10 @@ public class FullscreenWindow : PageWindow {
         close_button.tooltip_text = _("Leave fullscreen");
         close_button.clicked.connect (on_close);
 
-        var toolbar = page.get_toolbar ();
+        toolbar = page.get_toolbar ();
+        toolbar.halign = Gtk.Align.CENTER;
+        toolbar.margin = 6;
+        toolbar.get_style_context ().add_class ("overlay-toolbar");
 
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
@@ -73,15 +76,17 @@ public class FullscreenWindow : PageWindow {
 
         toolbar.insert (close_button, -1);
 
-        // set up toolbar along bottom of screen
-        toolbar_window = new Gtk.Window (Gtk.WindowType.POPUP);
-        toolbar_window.set_screen (get_screen ());
-        toolbar_window.set_border_width (0);
-        toolbar_window.add (toolbar);
+        revealer = new Gtk.Revealer ();
+        revealer.halign = Gtk.Align.CENTER;
+        revealer.valign = Gtk.Align.END;
+        revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
+        revealer.add (toolbar);
 
-        toolbar_window.realize.connect (on_toolbar_realized);
+        var overlay = new Gtk.Overlay ();
+        overlay.add (page);
+        overlay.add_overlay (revealer);
 
-        add (page);
+        add (overlay);
 
         // call to set_default_size () saves one repaint caused by changing
         // size from default to full screen. In slideshow mode, this change
@@ -97,23 +102,13 @@ public class FullscreenWindow : PageWindow {
 
         // start off with toolbar invoked, as a clue for the user
         invoke_toolbar ();
-    }
 
-    public void disable_toolbar_dismissal () {
-        is_toolbar_dismissal_enabled = false;
-    }
-
-    public void update_toolbar_dismissal () {
-        is_toolbar_dismissal_enabled = !pin_button.get_active ();
+        page.grab_focus ();
     }
 
     private Gdk.Rectangle get_monitor_geometry () {
-        Gdk.Rectangle monitor;
-
-        get_screen ().get_monitor_geometry (
-            get_screen ().get_monitor_at_window (AppWindow.get_instance ().get_window ()), out monitor);
-
-        return monitor;
+        var monitor = get_display ().get_monitor_at_window (AppWindow.get_instance ().get_window ());
+        return monitor.get_geometry ();
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
@@ -136,16 +131,11 @@ public class FullscreenWindow : PageWindow {
                 return true;
         }
 
-        // Make sure this event gets propagated to the underlying window...
-        AppWindow.get_instance ().key_press_event (event);
-
-        // ...then let the base class take over
         return (base.key_press_event != null) ? base.key_press_event (event) : false;
     }
 
     private void on_close () {
         hide_toolbar ();
-        toolbar_window = null;
 
         AppWindow.get_instance ().end_fullscreen ();
     }
@@ -174,86 +164,51 @@ public class FullscreenWindow : PageWindow {
     }
 
     public override bool motion_notify_event (Gdk.EventMotion event) {
-        if (!is_toolbar_shown) {
-            // if pointer is in toolbar height range without the mouse down (i.e. in the middle of
-            // an edit operation) and it stays there the necessary amount of time, invoke the
-            // toolbar
-            if (!waiting_for_invoke && is_pointer_in_toolbar ()) {
-                Timeout.add (TOOLBAR_INVOCATION_MSEC, on_check_toolbar_invocation);
-                waiting_for_invoke = true;
-            }
+        if (!revealer.reveal_child) {
+            invoke_toolbar ();
         }
 
         return (base.motion_notify_event != null) ? base.motion_notify_event (event) : false;
     }
 
     private bool is_pointer_in_toolbar () {
-        Gdk.DeviceManager? devmgr = get_display ().get_device_manager ();
-        if (devmgr == null) {
-            debug ("No device manager for display");
+        var seat = get_display ().get_default_seat ();
+        if (seat == null) {
+            debug ("No seat for display");
 
             return false;
         }
 
         int py;
-        devmgr.get_client_pointer ().get_position (null, null, out py);
+        seat.get_pointer ().get_position (null, null, out py);
 
-        int wy;
-        toolbar_window.get_window ().get_geometry (null, out wy, null, null);
+        Gtk.Allocation toolbar_alloc;
+        toolbar.get_allocation (out toolbar_alloc);
 
-        return (py >= wy);
-    }
+        var screen_rect = get_monitor_geometry ();
 
-    private bool on_check_toolbar_invocation () {
-        waiting_for_invoke = false;
+        int threshold = screen_rect.height;
+        if (revealer.reveal_child) {
+            threshold -= toolbar_alloc.height;
+        }
 
-        if (is_toolbar_shown)
-            return false;
-
-        if (!is_pointer_in_toolbar ())
-            return false;
-
-        invoke_toolbar ();
-
-        return false;
-    }
-
-    private void on_toolbar_realized () {
-        Gtk.Requisition req;
-        toolbar_window.get_preferred_size (null, out req);
-
-        // place the toolbar in the center of the monitor along the bottom edge
-        Gdk.Rectangle monitor = get_monitor_geometry ();
-        int tx = monitor.x + (monitor.width - req.width) / 2;
-        if (tx < 0)
-            tx = 0;
-
-        int ty = monitor.y + monitor.height - req.height;
-        if (ty < 0)
-            ty = 0;
-
-        toolbar_window.move (tx, ty);
-        toolbar_window.set_opacity (Resources.TRANSIENT_WINDOW_OPACITY);
+        return py >= threshold;
     }
 
     private void invoke_toolbar () {
-        toolbar_window.show_all ();
-
-        is_toolbar_shown = true;
+        revealer.reveal_child = true;
 
         Timeout.add (TOOLBAR_CHECK_DISMISSAL_MSEC, on_check_toolbar_dismissal);
     }
 
     private bool on_check_toolbar_dismissal () {
-        if (!is_toolbar_shown)
-            return false;
-
-        if (toolbar_window == null)
+        if (!revealer.reveal_child)
             return false;
 
         // if dismissal is disabled, keep open but keep checking
-        if ((!is_toolbar_dismissal_enabled))
+        if (!auto_dismiss_toolbar) {
             return true;
+        }
 
         // if the pointer is in toolbar range, keep it alive, but keep checking
         if (is_pointer_in_toolbar ()) {
@@ -282,7 +237,7 @@ public class FullscreenWindow : PageWindow {
     }
 
     private void hide_toolbar () {
-        toolbar_window.hide ();
-        is_toolbar_shown = false;
+        revealer.reveal_child = false;
+        left_toolbar_time = 0;
     }
 }

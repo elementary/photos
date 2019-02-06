@@ -115,8 +115,8 @@ public const string ENTRY_POINT_NAME = "spit_entry_point";
 /**
  * A Module represents the resources of an entire dynamically-linked module (i.e. a .so/.la).
  *
- * A module holds zero or more Shotwell plugins ({@link Pluggable}). Once the module has been
- * loaded into process space this object is retrieved by Shotwell. All calls to the module and
+ * A module holds zero or more Photos plugins ({@link Pluggable}). Once the module has been
+ * loaded into process space this object is retrieved by Photos. All calls to the module and
  * its plugins are resolved through this interface.
  *
  * Note: The module is responsible for holding the reference to the Module object, of which there
@@ -192,7 +192,7 @@ public struct PluggableInfo {
 }
 
 /**
- * A generic interface to all Shotwell plugins.
+ * A generic interface to all Photos plugins.
  *
  * Each plugin in a module needs to implement this interface at a minimum. Extension
  * points may have (and probably will have) specific interface requirements as well.

@@ -23,6 +23,10 @@ public class Camera.Branch : Sidebar.Branch {
     private Gee.HashMap<DiscoveredCamera, Camera.SidebarEntry> camera_map = new Gee.HashMap <
     DiscoveredCamera, Camera.SidebarEntry > ();
 
+    class construct {
+        cameras_icon = new GLib.ThemedIcon (Resources.ICON_CAMERAS);
+    }
+
     public Branch () {
         base (new Camera.Grouping (),
               Sidebar.Branch.Options.HIDE_IF_EMPTY | Sidebar.Branch.Options.AUTO_OPEN_ON_NEW_CHILD,
@@ -33,14 +37,6 @@ public class Camera.Branch : Sidebar.Branch {
 
         CameraTable.get_instance ().camera_added.connect (on_camera_added);
         CameraTable.get_instance ().camera_removed.connect (on_camera_removed);
-    }
-
-    internal static void init () {
-        cameras_icon = new GLib.ThemedIcon (Resources.ICON_CAMERAS);
-    }
-
-    internal static void terminate () {
-        cameras_icon = null;
     }
 
     private static int camera_comparator (Sidebar.Entry a, Sidebar.Entry b) {

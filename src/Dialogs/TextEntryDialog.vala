@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2017 elementary  LLC. (https://launchpad.net/pantheon-photos)
+*               2017-2018 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -19,52 +19,68 @@
 */
 
 public class TextEntryDialog : Gtk.Dialog {
+    public string initial_text { get; construct; }
+    public string label { get; construct; }
+    public Gee.Collection<string>? completion_list { get; construct; }
+    public string? completion_delimiter { get; construct; }
+
     public delegate bool OnModifyValidateType (string text);
 
     private unowned OnModifyValidateType on_modify_validate;
     private Gtk.Entry entry;
-    private Gtk.Builder builder;
-    private Gtk.Button button1;
-    private Gtk.Button button2;
-    private Gtk.ButtonBox action_area_box;
 
-    public void set_builder (Gtk.Builder builder) {
-        this.builder = builder;
+    public TextEntryDialog (
+        OnModifyValidateType? modify_validate,
+        string title,
+        string label,
+        string? initial_text,
+        Gee.Collection<string>? completion_list,
+        string? completion_delimiter
+    ) {
+        Object (
+            completion_delimiter: completion_delimiter,
+            completion_list: completion_list,
+            initial_text: initial_text,
+            label: label,
+            title: title
+        );
+
+        on_modify_validate = modify_validate;
     }
 
-    public void setup (OnModifyValidateType? modify_validate, string title, string label,
-                       string? initial_text, Gee.Collection<string>? completion_list, string? completion_delimiter) {
-        set_title (title);
-        set_resizable (true);
-        set_deletable (false);
-        set_default_size (350, 104);
-        set_parent_window (AppWindow.get_instance ().get_parent_window ());
-        set_transient_for (AppWindow.get_instance ());
-        on_modify_validate = modify_validate;
+    construct {
+        var name_label = new Gtk.Label (label);
+        name_label.halign = Gtk.Align.START;
+        name_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        Gtk.Label name_label = builder.get_object ("label") as Gtk.Label;
-        name_label.set_text (label);
-
-        entry = builder.get_object ("entry") as Gtk.Entry;
-        entry.set_text (initial_text != null ? initial_text : "");
+        entry = new Gtk.Entry ();
+        entry.hexpand = true;
+        entry.text = initial_text ?? "";
         entry.grab_focus ();
-        entry.changed.connect (on_entry_changed);
-
-        action_area_box = (Gtk.ButtonBox) get_action_area ();
-        action_area_box.set_layout (Gtk.ButtonBoxStyle.END);
-
-        button1 = (Gtk.Button) add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-        button2 = (Gtk.Button) add_button (_ ("_Save"), Gtk.ResponseType.OK);
-        set_default_response (Gtk.ResponseType.OK);
 
         if (completion_list != null) { // Textfield with autocompletion
-            EntryMultiCompletion completion = new EntryMultiCompletion (completion_list,
-                    completion_delimiter);
-            entry.set_completion (completion);
+            entry.completion = new EntryMultiCompletion (completion_list, completion_delimiter);
         }
 
+        var grid = new Gtk.Grid ();
+        grid.margin_start = grid.margin_end = 6;
+        grid.margin_bottom = 18;
+        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.add (name_label);
+        grid.add (entry);
+
+        get_content_area ().add (grid);
+
+        add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
+        add_button (_("_Save"), Gtk.ResponseType.OK);
+
+        deletable = false;
+        resizable = false;
+        transient_for = AppWindow.get_instance ();
+        set_default_size (350, 104);
         set_default_response (Gtk.ResponseType.OK);
-        set_has_resize_grip (false);
+
+        entry.changed.connect (on_entry_changed);
     }
 
     public string? execute () {
@@ -84,7 +100,7 @@ public class TextEntryDialog : Gtk.Dialog {
         return text;
     }
 
-    public void on_entry_changed () {
+    private void on_entry_changed () {
         set_response_sensitive (Gtk.ResponseType.OK, on_modify_validate (entry.get_text ()));
     }
 }

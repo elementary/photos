@@ -54,7 +54,7 @@ void library_exec (string[] mounts) {
     }
 
     // validate the databases prior to using them
-    message ("Verifying database ...");
+    message ("Verifying database …");
     string errormsg = null;
     string app_version;
     int schema_version;
@@ -65,24 +65,24 @@ void library_exec (string[] mounts) {
         break;
 
     case Db.VerifyResult.FUTURE_VERSION:
-        errormsg = _ ("Your photo library is not compatible with this version of Shotwell.  It appears it was created by Shotwell %s (schema %d).  This version is %s (schema %d).  Please use the latest version of Shotwell.").printf (
+        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please use the latest version of Photos.").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
         break;
 
     case Db.VerifyResult.UPGRADE_ERROR:
-        errormsg = _ ("Shotwell was unable to upgrade your photo library from version %s (schema %d) to %s (schema %d).  For more information please check the Shotwell Wiki at %s").printf (
+        errormsg = _ ("Photos was unable to upgrade your photo library from version %s (schema %d) to %s (schema %d).  For more information please check the Photos Wiki at %s").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
                        Resources.WIKI_URL);
         break;
 
     case Db.VerifyResult.NO_UPGRADE_AVAILABLE:
-        errormsg = _ ("Your photo library is not compatible with this version of Shotwell.  It appears it was created by Shotwell %s (schema %d).  This version is %s (schema %d).  Please clear your library by deleting %s and re-import your photos.").printf (
+        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please clear your library by deleting %s and re-import your photos.").printf (
                        app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
                        AppDirs.get_data_dir ().get_path ());
         break;
 
     default:
-        errormsg = _ ("Unknown error attempting to verify Shotwell's database: %s").printf (
+        errormsg = _ ("Unknown error attempting to verify Photos' database: %s").printf (
                        result.to_string ());
         break;
     }
@@ -115,15 +115,9 @@ void library_exec (string[] mounts) {
                              + VideoTable.get_instance ().get_row_count ()
                              + Upgrades.get_instance ().get_step_count ();
         if (grand_total > 5000) {
-            progress_dialog = new ProgressDialog (null, _ ("Loading Shotwell"));
+            progress_dialog = new ProgressDialog (null, _ ("Loading Photos"));
             progress_dialog.update_display_every (100);
             progress_dialog.set_minimum_on_screen_time_msec (250);
-            try {
-                string icon_path = AppDirs.get_resources_dir ().get_child ("icons").get_child ("shotwell.svg").get_path ();
-                progress_dialog.icon = new Gdk.Pixbuf.from_file (icon_path);
-            } catch (Error err) {
-                debug ("Warning - could not load application icon for loading window: %s", err.message);
-            }
 
             aggregate_monitor = new AggregateProgressMonitor (grand_total, progress_dialog.monitor);
             monitor = aggregate_monitor.monitor;
@@ -157,7 +151,6 @@ void library_exec (string[] mounts) {
     Tag.init (monitor);
 
     MetadataWriter.init ();
-    DesktopIntegration.init ();
 
     Application.get_instance ().init_done ();
 
@@ -202,12 +195,10 @@ void library_exec (string[] mounts) {
 
     Application.get_instance ().start ();
 
-    DesktopIntegration.terminate ();
     MetadataWriter.terminate ();
     Tag.terminate ();
     Event.terminate ();
     LibraryPhoto.terminate ();
-    MediaCollectionRegistry.terminate ();
     LibraryMonitorPool.terminate ();
     Tombstone.terminate ();
     ThumbnailCache.terminate ();
@@ -263,9 +254,6 @@ void editing_exec (string filename) {
         return;
     }
 
-    // init modules direct-editing relies on
-    DesktopIntegration.init ();
-
     // TODO: At some point in the future, to support mixed-media in direct-edit mode, we will
     //       refactor DirectPhotoSourceCollection to be a MediaSourceCollection. At that point,
     //       we'll need to register DirectPhoto.global with the MediaCollectionRegistry
@@ -277,49 +265,25 @@ void editing_exec (string filename) {
 
     Application.get_instance ().start ();
 
-    DesktopIntegration.terminate ();
-
     // terminate units for direct-edit mode
     Direct.app_terminate ();
 }
 
 namespace CommandlineOptions {
-bool no_startup_progress = false;
-string data_dir = null;
-bool show_version = false;
-bool no_runtime_monitoring = false;
+    string data_dir = null;
+    bool no_runtime_monitoring = false;
+    bool no_startup_progress = false;
+    bool show_version = false;
+    bool debug_enabled = false;
 
-private OptionEntry[]? entries = null;
-
-public OptionEntry[] get_options () {
-    if (entries != null)
-        return entries;
-
-    OptionEntry datadir = { "datadir", 'd', 0, OptionArg.FILENAME, &data_dir,
-                            _ ("Path to Shotwell's private data"), _ ("DIRECTORY")
-                          };
-    entries += datadir;
-
-    OptionEntry no_monitoring = { "no-runtime-monitoring", 0, 0, OptionArg.NONE, &no_runtime_monitoring,
-                                  _ ("Do not monitor library directory at runtime for changes"), null
-                                };
-    entries += no_monitoring;
-
-    OptionEntry no_startup = { "no-startup-progress", 0, 0, OptionArg.NONE, &no_startup_progress,
-                               _ ("Don't display startup progress meter"), null
-                             };
-    entries += no_startup;
-
-    OptionEntry version = { "version", 'V', 0, OptionArg.NONE, &show_version,
-                            _ ("Show the application's version"), null
-                          };
-    entries += version;
-
-    OptionEntry terminator = { null, 0, 0, 0, null, null, null };
-    entries += terminator;
-
-    return entries;
-}
+    public const OptionEntry[] app_options = {
+        { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Photos' private data"), N_("DIRECTORY")},
+        { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
+        { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
+        { "version", 'v', 0, OptionArg.NONE, out show_version, N_("Show the application's version"), null},
+        { "debug", 'D', 0, OptionArg.NONE, out debug_enabled, N_("Show extra debugging output"), null},
+        { null }
+    };
 }
 
 void main (string[] args) {
@@ -343,7 +307,7 @@ void main (string[] args) {
 
     // init GTK (valac has already called g_threads_init ())
     try {
-        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.get_options (),
+        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.app_options,
                             Resources.APP_GETTEXT_PACKAGE);
     } catch (Error e) {
         print (e.message + "\n");
@@ -383,7 +347,6 @@ void main (string[] args) {
         }
     }
 
-    Debug.init (is_string_empty (filename) ? Debug.LIBRARY_PREFIX : Debug.VIEWER_PREFIX);
     message ("Shotwell %s %s",
              is_string_empty (filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
              Resources.APP_VERSION);
@@ -412,10 +375,6 @@ void main (string[] args) {
     // set up GLib environment
     GLib.Environment.set_application_name (_ (Resources.APP_TITLE));
 
-    // in both the case of running as the library or an editor, Resources is always
-    // initialized
-    Resources.init ();
-
     // since it's possible for a mount name to be passed that's not supported (and hence an empty
     // mount list), or for nothing to be on the command-line at all, only go to direct editing if a
     // filename is spec'd
@@ -425,13 +384,11 @@ void main (string[] args) {
         editing_exec (filename);
 
     // terminate mode-inspecific modules
-    Resources.terminate ();
     Application.terminate ();
-    Debug.terminate ();
     AppDirs.terminate ();
 
     // Back up db on successful run so we have something to roll back to if
-    // it gets corrupted in the next session.  Don't do this if another shotwell
+    // it gets corrupted in the next session.  Don't do this if another Photos
     // is open or if we're in direct mode.
     if (is_string_empty (filename) && !was_already_running) {
         string orig_path = AppDirs.get_data_subdir ("data").get_child ("photo.db").get_path ();

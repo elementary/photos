@@ -54,7 +54,7 @@ public class RGBHistogramManipulator : Gtk.DrawingArea {
     private Gdk.Pixbuf? get_drag_nub_pixbuf () {
         if (drag_nub_pixbuf == null) {
             try {
-                drag_nub_pixbuf = new Gdk.Pixbuf.from_resource ("/org/pantheon/photos/icons/drag-nub.svg");  
+                drag_nub_pixbuf = new Gdk.Pixbuf.from_resource ("/io/elementary/photos/icons/drag-nub.svg");
             } catch (Error err) {
                 error ("Can't load drag nub image: %s", err.message);
             }

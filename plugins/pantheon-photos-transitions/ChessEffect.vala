@@ -26,7 +26,7 @@ private class ChessEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.chess";
+        return "io.elementary.photos.transitions.chess";
     }
 
     public override unowned string get_pluggable_name () {

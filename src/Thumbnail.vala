@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Thumbnail : MediaSourceItem {
+public class Thumbnail : CheckerboardItem {
     // Collection properties Thumbnail responds to
     // SHOW_TAGS (bool)
     public const string PROP_SHOW_TAGS = CheckerboardItem.PROP_SHOW_SUBTITLES;
@@ -42,6 +42,19 @@ public class Thumbnail : MediaSourceItem {
         }
     }
 
+    private static int _scale_factor = 1;
+    private int scale_factor {
+        get {
+            return _scale_factor;
+        }
+        set {
+            if (_scale_factor != value) {
+                _scale_factor = value;
+                notify_view_altered ();
+            }
+        }
+    }
+
     public const Gdk.InterpType LOW_QUALITY_INTERP = Gdk.InterpType.NEAREST;
     public const Gdk.InterpType HIGH_QUALITY_INTERP = Gdk.InterpType.BILINEAR;
 
@@ -63,6 +76,8 @@ public class Thumbnail : MediaSourceItem {
         base (media, media.get_dimensions ().get_scaled (scale, true), media.get_name (),
               media.get_comment ());
 
+        scale_factor = ThumbnailCache.scale_factor;
+
         this.media = media;
         this.scale = scale;
 
@@ -70,7 +85,7 @@ public class Thumbnail : MediaSourceItem {
         Tag.global.items_altered.connect (on_tags_altered);
 
         original_dim = media.get_dimensions ();
-        dim = original_dim.get_scaled (scale, true);
+        dim = original_dim.get_scaled (scale * scale_factor, true);
 
         // initialize title and tags text line so they're properly accounted for when the display
         // size is calculated
@@ -221,7 +236,7 @@ public class Thumbnail : MediaSourceItem {
 
     protected override void thumbnail_altered () {
         original_dim = media.get_dimensions ();
-        dim = original_dim.get_scaled (scale, true);
+        dim = original_dim.get_scaled (scale * scale_factor, true);
 
         if (exposure)
             delayed_high_quality_fetch ();
@@ -249,7 +264,7 @@ public class Thumbnail : MediaSourceItem {
             return;
 
         scale = new_scale;
-        dim = original_dim.get_scaled (scale, true);
+        dim = original_dim.get_scaled (scale * scale_factor, true);
 
         cancel_async_fetch ();
 
@@ -376,10 +391,12 @@ public class Thumbnail : MediaSourceItem {
     public override void paint (Cairo.Context ctx, Gtk.StyleContext style_context) {
         base.paint (ctx, style_context);
 
+        scale_factor = style_context.get_scale ();
+
         if (media != null && media is Flaggable) {
             if (((Flaggable) media).is_flagged ()) {
                 style_context.save ();
-                style_context.add_class (Granite.StyleClass.OVERLAY_BAR);
+                style_context.add_class (Granite.STYLE_CLASS_OVERLAY_BAR);
                 var flag_icon = Resources.get_flag_trinket ();
                 style_context.render_icon (ctx, flag_icon, allocation.x + allocation.width - (flag_icon.width + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET), allocation.y + FRAME_WIDTH + BORDER_WIDTH + FLAG_OFFSET);
                 style_context.restore ();

@@ -20,7 +20,7 @@
 #if UNITY_SUPPORT
 public class UnityProgressBar : Object {
 
-    private static Unity.LauncherEntry l = Unity.LauncherEntry.get_for_desktop_id ("pantheon-photos.desktop");
+    private static Unity.LauncherEntry l = Unity.LauncherEntry.get_for_desktop_id ("io.elementary.photos.desktop");
     private static UnityProgressBar? visible_uniprobar;
 
     private double progress;

@@ -49,8 +49,9 @@ throws Error {
     }
 
     // Optionally convert to lower-case.
+    var file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
     string newbasename = basename;
-    if (Config.Facade.get_instance ().get_use_lowercase_filenames ())
+    if (file_settings.get_boolean ("use-lowercase-filenames"))
         newbasename = newbasename.down ();
 
     return global::generate_unique_file (dir, newbasename, out collision);

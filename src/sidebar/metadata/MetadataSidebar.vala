@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2011-2014 Yorba Foundation
-*               2016 elementary LLC (http://launchpad.net/pantheon-photos)
+*               2016 elementary LLC (https://github.com/elementary/photos)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -87,7 +87,7 @@ public class MetadataView : Gtk.ScrolledWindow {
 
         if (count == 1) {
             foreach (DataView item in iter) {
-                var source = item.get_source () as MediaSource;
+                var source = item.source as MediaSource;
                 if (source == null)
                     display_single = true;
                 break;

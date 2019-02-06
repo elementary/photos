@@ -26,7 +26,7 @@ private class SquaresEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.squares";
+        return "io.elementary.photos.transitions.squares";
     }
 
     public override unowned string get_pluggable_name () {

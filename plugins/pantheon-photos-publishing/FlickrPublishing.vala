@@ -20,11 +20,10 @@
 extern string hmac_sha1 (string key, string message);
 
 public class FlickrService : Object, Spit.Pluggable, Spit.Publishing.Service {
-    private const string ICON_FILENAME = "flickr.svg";
     private GLib.Icon icon;
 
     public FlickrService (GLib.File resource_directory) {
-        icon = new FileIcon (resource_directory.get_child (ICON_FILENAME));
+        icon = new ThemedIcon ("flickr");
     }
 
     public int get_pluggable_interface (int min_host_interface, int max_host_interface) {
@@ -33,7 +32,7 @@ public class FlickrService : Object, Spit.Pluggable, Spit.Publishing.Service {
     }
 
     public unowned string get_id () {
-        return "org.pantheon.photos.publishing.flickr";
+        return "io.elementary.photos.publishing.flickr";
     }
 
     public unowned string get_pluggable_name () {
@@ -383,7 +382,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: running authentication request transaction");
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Preparing for login..."));
+        host.install_static_message_pane (_ ("Preparing for login…"));
 
         AuthenticationRequestTransaction txn = new AuthenticationRequestTransaction (session);
         txn.completed.connect (on_auth_request_txn_completed);
@@ -447,7 +446,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            builder.add_from_file (host.get_module_file ().get_parent ().get_child ("flickr_pin_entry_pane.ui").get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/flickr_pin_entry_pane.ui");
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             host.post_error (
@@ -465,7 +464,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         debug ("ACTION: validating authorization PIN %s", pin);
 
         host.set_service_locked (true);
-        host.install_static_message_pane (_ ("Verifying authorization..."));
+        host.install_static_message_pane (_ ("Verifying authorization…"));
 
         AccessTokenFetchTransaction txn = new AccessTokenFetchTransaction (session, pin);
         txn.completed.connect (on_access_token_fetch_txn_completed);
@@ -594,11 +593,7 @@ public class FlickrPublisher : Spit.Publishing.Publisher, GLib.Object {
         Gtk.Builder builder = new Gtk.Builder ();
 
         try {
-            // the trailing get_path () is required, since add_from_file can't cope
-            // with File objects directly and expects a pathname instead.
-            builder.add_from_file (
-                host.get_module_file ().get_parent ().
-                get_child ("flickr_publishing_options_pane.ui").get_path ());
+            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/flickr_publishing_options_pane.ui");
         } catch (Error e) {
             warning ("Could not parse UI file! Error: %s.", e.message);
             host.post_error (

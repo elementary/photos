@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-// See the note in MediaInterfaces.vala for some thoughts on the theory of expanding Shotwell's
+// See the note in MediaInterfaces.vala for some thoughts on the theory of expanding Photos'
 // features via interfaces rather than class heirarchies.
 
 // Indexable DataSources provide raw strings that may be searched against (and, in the future,

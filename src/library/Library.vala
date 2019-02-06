@@ -20,18 +20,11 @@
 namespace Library {
 
 public void app_init () throws Error {
-    Util.init ();
     Db.init ();
     Plugins.init ();
     Slideshow.init ();
-    Photos.init ();
+    PhotoFileFormat.init_supported ();
     Publishing.init ();
-    Core.init ();
-    Sidebar.init ();
-    Events.init ();
-    Tags.init ();
-    Camera.init ();
-    Searches.init ();
     Library.TrashSidebarEntry.init ();
     Photo.develop_raw_photos_to_files = true;
 }

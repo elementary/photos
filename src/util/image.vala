@@ -200,7 +200,7 @@ void compute_arb_rotated_size (double src_width, double src_height, double angle
 }
 
 /**
- * @brief Rotates a pixbuf to an arbitrary angle, given in degrees, and returns the rotated pixbuf.
+ * Rotates a pixbuf to an arbitrary angle, given in degrees, and returns the rotated pixbuf.
  *
  * @param source_pixbuf The source image that needs to be angled.
  * @param angle The angle the source image should be rotated by.
@@ -250,11 +250,11 @@ Gdk.Pixbuf rotate_arb (Gdk.Pixbuf source_pixbuf, double angle) {
 }
 
 /**
- * @brief Rotates a point around the upper left corner of an image to an arbitrary angle,
+ * Rotates a point around the upper left corner of an image to an arbitrary angle,
  * given in degrees, and returns the rotated point, translated such that it, along with its attendant
  * image, are in positive x, positive y.
  *
- * @note May be subject to slight inaccuracy as Gdk points' coordinates may only be in whole pixels,
+ * Note: May be subject to slight inaccuracy as Gdk points' coordinates may only be in whole pixels,
  * so the fractional component is lost.
  *
  * @param source_point The point to be rotated and scaled.
@@ -289,11 +289,11 @@ Gdk.Point rotate_point_arb (Gdk.Point source_point, int img_w, int img_h, double
 }
 
 /**
- * @brief <u>De</u>rotates a point around the upper left corner of an image from an arbitrary angle,
+ * <u>De</u>rotates a point around the upper left corner of an image from an arbitrary angle,
  * given in degrees, and returns the de-rotated point, taking into account any translation necessary
  * to make sure all of the rotated image stays in positive x, positive y.
  *
- * @note May be subject to slight inaccuracy as Gdk points' coordinates may only be in whole pixels,
+ * Note: May be subject to slight inaccuracy as Gdk points' coordinates may only be in whole pixels,
  * so the fractional component is lost.
  *
  * @param source_point The point to be de-rotated.

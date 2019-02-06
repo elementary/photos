@@ -370,4 +370,3 @@ public class PixbufCache : Object {
         assert (removed);
     }
 }
-

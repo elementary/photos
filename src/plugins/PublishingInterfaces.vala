@@ -209,13 +209,13 @@ public interface DialogPane : GLib.Object {
     public abstract GeometryOptions get_preferred_geometry ();
 
     /**
-     * Invoked automatically by Shotwell when this pane has been installed into the on-screen
+     * Invoked automatically by Photos when this pane has been installed into the on-screen
      * publishing dialog box and become visible to the user.
      */
     public abstract void on_pane_installed ();
 
     /**
-     * Invoked automatically by Shotwell when this pane has been removed from the on-screen
+     * Invoked automatically by Photos when this pane has been removed from the on-screen
      * publishing dialog box and is no longer visible to the user.
      */
     public abstract void on_pane_uninstalled ();
@@ -254,7 +254,7 @@ public delegate void LoginCallback ();
 /**
  * Manages and provides services for publishing plugins.
  *
- * Implemented inside Shotwell, the PluginHost provides an interface through which the
+ * Implemented inside Photos, the PluginHost provides an interface through which the
  * developers of publishing plugins can query and make changes to the publishing
  * environment. For example, through the PluginHost, plugins can get a list of the photos
  * and videos to be published, install and remove user-interface panes in the publishing
@@ -372,7 +372,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * The text displayed depends on the type of media the current publishing service
      * supports. To provide visual consistency across publishing services and to allow
-     * Shotwell to handle internationalization, always use this convenience method; don’t
+     * Photos to handle internationalization, always use this convenience method; don’t
      * contruct and install success panes manually.
      *
      * If an error has posted, the {@link PluginHost} will not honor
@@ -386,7 +386,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      *
      * This is a convenience method only; similar results could be achieved by calling
      * {@link install_static_message_pane} with an appropriate text argument. To provide
-     * visual consistency across publishing services and to allow Shotwell to handle
+     * visual consistency across publishing services and to allow Photos to handle
      * internationalization, however, you should always use this convenience method whenever
      * you need to tell the user that you’re querying account information over the network.
      * Queries such as this are almost always performed immediately after the user has logged
@@ -402,7 +402,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * “Logging in...“
      *
      * As with {@link install_account_fetch_wait_pane}, this is a convenience method, but
-     * you should you use it provide to visual consistency and to let Shotwell handle
+     * you should you use it provide to visual consistency and to let Photos handle
      * internationalization. See the description of {@link install_account_fetch_wait_pane}
      * for more information.
      *
@@ -418,7 +418,7 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
      * When the user clicks the “Login” button, you’ll be notified of the user’s action through
      * the callback 'on_login_clicked'. Every Publisher should provide a welcome pane to
      * introduce the service and explain service-specific features or restrictions. To provide
-     * visual consistency across publishing services and to allow Shotwell to handle
+     * visual consistency across publishing services and to allow Photos to handle
      * internationalization, always use this convenience method; don’t contruct and install
      * welcome panes manually.
      *

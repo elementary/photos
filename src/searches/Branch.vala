@@ -104,16 +104,12 @@ public class Searches.SidebarEntry : Sidebar.SimplePageEntry, Sidebar.Renameable
 
     private SavedSearch search;
 
-    public SidebarEntry (SavedSearch search) {
-        this.search = search;
-    }
-
-    internal static void init () {
+    class construct {
         single_search_icon = new ThemedIcon ("playlist-automatic");
     }
 
-    internal static void terminate () {
-        single_search_icon = null;
+    public SidebarEntry (SavedSearch search) {
+        this.search = search;
     }
 
     public SavedSearch for_saved_search () {

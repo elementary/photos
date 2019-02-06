@@ -22,7 +22,7 @@ int number_of_processors () {
     return n <= 0 ? 1 : n;
 }
 
-// Return the directory in which Shotwell is installed, or null if uninstalled.
+// Return the directory in which Photos is installed, or null if uninstalled.
 File? get_sys_install_dir (File exec_dir) {
     // guard against exec_dir being a symlink
     File exec_dir1 = exec_dir;
@@ -34,10 +34,6 @@ File? get_sys_install_dir (File exec_dir) {
     }
     File prefix_dir = File.new_for_path (Resources.PREFIX);
     return exec_dir1.has_prefix (prefix_dir) ? prefix_dir : null;
-}
-
-void sys_show_uri (Gdk.Screen screen, string uri) throws Error {
-    Gtk.show_uri (screen, uri, Gdk.CURRENT_TIME);
 }
 
 int posix_wexitstatus (int status) {

@@ -26,7 +26,7 @@ private class FadeEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.fade";
+        return "io.elementary.photos.transitions.fade";
     }
 
     public override unowned string get_pluggable_name () {

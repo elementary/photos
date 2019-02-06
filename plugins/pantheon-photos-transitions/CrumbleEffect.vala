@@ -26,7 +26,7 @@ private class CrumbleEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.crumble";
+        return "io.elementary.photos.transitions.crumble";
     }
 
     public override unowned string get_pluggable_name () {

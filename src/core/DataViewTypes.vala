@@ -22,7 +22,7 @@ public class ThumbnailView : DataView {
     }
 
     public ThumbnailView (ThumbnailSource source) {
-        base (source);
+        Object (source: source);
     }
 
     public virtual void notify_thumbnail_altered () {
@@ -33,31 +33,31 @@ public class ThumbnailView : DataView {
 
 public class PhotoView : ThumbnailView {
     public PhotoView (PhotoSource source) {
-        base (source);
+        Object (source: source);
     }
 
     public PhotoSource get_photo_source () {
-        return (PhotoSource) get_source ();
+        return (PhotoSource) source;
     }
 }
 
 public class VideoView : ThumbnailView {
     public VideoView (VideoSource source) {
-        base (source);
+        Object (source: source);
     }
 
     public VideoSource get_video_source () {
-        return (VideoSource) get_source ();
+        return (VideoSource) source;
     }
 }
 
 public class EventView : ThumbnailView {
     public EventView (EventSource source) {
-        base (source);
+        Object (source: source);
     }
 
     public EventSource get_event_source () {
-        return (EventSource) get_source ();
+        return (EventSource) source;
     }
 }
 

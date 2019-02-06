@@ -19,10 +19,6 @@
 
 namespace Plugins {
 
-// GModule doesn't have a truly generic way to determine if a file is a shared library by extension,
-// so these are hard-coded
-private const string[] SHARED_LIB_EXTS = { "so", "la" };
-
 // Although not expecting this system to last very long, these ranges declare what versions of this
 // interface are supported by the current implementation.
 private const int MIN_SPIT_INTERFACE = 0;
@@ -64,7 +60,6 @@ private class ModuleRep {
 
     private ModuleRep (File file) {
         this.file = file;
-
         module = Module.open (file.get_path (), ModuleFlags.BIND_LAZY);
     }
 
@@ -104,9 +99,11 @@ private class PluggableRep {
     }
 
     private bool enabled = false;
+    private GLib.Settings enabled_plugin_settings;
 
     // Note that creating a PluggableRep does not activate it.
     public PluggableRep (Spit.Pluggable pluggable) {
+        enabled_plugin_settings = new GLib.Settings (GSettingsConfigurationEngine.PLUGINS_ENABLE_DISABLE_SCHEMA_NAME);
         this.pluggable = pluggable;
         id = pluggable.get_id ();
     }
@@ -116,14 +113,30 @@ private class PluggableRep {
         // register themselves)
         is_core = is_core_pluggable (pluggable);
 
-        FuzzyPropertyState saved_state = Config.Facade.get_instance ().is_plugin_enabled (id);
-        enabled = ((is_core && (saved_state != FuzzyPropertyState.DISABLED)) ||
-                   (!is_core && (saved_state == FuzzyPropertyState.ENABLED)));
+        enabled = enabled_plugin_settings.get_boolean (get_plugin_enable_disable_name (id));
 
         // inform the plugin of its activation state
         pluggable.activation (enabled);
 
         activated = true;
+    }
+
+    public static string? clean_plugin_id (string id) {
+        string cleaned = id.replace ("/", "-");
+        cleaned = cleaned.strip ();
+
+        return !is_string_empty (cleaned) ? cleaned : null;
+    }
+
+    public static string get_plugin_enable_disable_name (string id) {
+        string? cleaned_id = clean_plugin_id (id);
+        if (cleaned_id == null)
+            cleaned_id = "default";
+
+        cleaned_id = cleaned_id.replace ("io.elementary.photos.", "");
+        cleaned_id = cleaned_id.replace (".", "-");
+
+        return cleaned_id;
     }
 
     public bool is_enabled () {
@@ -136,7 +149,7 @@ private class PluggableRep {
             return false;
 
         this.enabled = enabled;
-        Config.Facade.get_instance ().set_plugin_enabled (id, enabled);
+        enabled_plugin_settings.set_boolean (get_plugin_enable_disable_name (id), enabled);
         pluggable.activation (enabled);
 
         return true;
@@ -340,19 +353,20 @@ public int compare_extension_point_names (void *a, void *b) {
 }
 
 private bool is_shared_library (File file) {
-    string name, ext;
-    disassemble_filename (file.get_basename (), out name, out ext);
+    var basename = file.get_basename ();
+    if (basename == null) {
+        return false;
+    }
 
-    foreach (string shared_ext in SHARED_LIB_EXTS) {
-        if (ext == shared_ext)
-            return true;
+    if (GLib.Module.SUFFIX in basename) {
+        return true;
     }
 
     return false;
 }
 
 private void search_for_plugins (File dir) throws Error {
-    debug ("Searching %s for plugins ...", dir.get_path ());
+    debug ("Searching %s for plugins …", dir.get_path ());
 
     // build a set of module names sans file extension ... this is to deal with the question of
     // .so vs. .la existing in the same directory (and letting GModule deal with the problem)

@@ -26,7 +26,7 @@ private class CircleEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.circle";
+        return "io.elementary.photos.transitions.circle";
     }
 
     public override unowned string get_pluggable_name () {

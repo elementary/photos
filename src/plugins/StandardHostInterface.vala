@@ -36,16 +36,16 @@ public class StandardHostInterface : Object, Spit.HostInterface {
         // special case: legacy plugins (Web publishers moved into SPIT) have special names
         // new plugins will use their full ID
         switch (id) {
-        case "org.pantheon.photos.publishing.facebook":
+        case "io.elementary.photos.publishing.facebook":
             return "facebook";
 
-        case "org.pantheon.photos.publishing.picasa":
+        case "io.elementary.photos.publishing.picasa":
             return "picasa";
 
-        case "org.pantheon.photos.publishing.flickr":
+        case "io.elementary.photos.publishing.flickr":
             return "flickr";
 
-        case "org.pantheon.photos.publishing.youtube":
+        case "io.elementary.photos.publishing.youtube":
             return "youtube";
 
         default:

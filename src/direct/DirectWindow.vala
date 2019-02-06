@@ -1,5 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
+*               2018 elementary LLC. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -22,6 +23,7 @@ public class DirectWindow : AppWindow {
 
     public DirectWindow (File file) {
         direct_photo_page = new DirectPhotoPage (file);
+        direct_photo_page.expand = true;
         direct_photo_page.get_view ().items_altered.connect (on_photo_changed);
         direct_photo_page.get_view ().items_state_changed.connect (on_photo_changed);
 
@@ -31,24 +33,39 @@ public class DirectWindow : AppWindow {
 
         direct_photo_page.switched_to ();
 
-        // simple layout: menu on top, photo in center, toolbar along bottom (mimicking the
-        // PhotoPage in the library, but without the sidebar)
-        Gtk.Box layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        layout.pack_start (direct_photo_page, true, true, 0);
-        layout.pack_end (direct_photo_page.get_toolbar (), false, false, 0);
+        var layout = new Gtk.Grid ();
+        layout.orientation = Gtk.Orientation.VERTICAL;
+        layout.add (direct_photo_page);
+        layout.add (direct_photo_page.get_toolbar ());
 
         add (layout);
-        header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
-        var save_action = get_direct_page ().get_action ("Save");
-        var save_btn = save_action.create_tool_item ();
-        save_btn.sensitive = true;
+        var save_btn = new Gtk.Button ();
+        save_btn.related_action = get_direct_page ().get_action ("Save");
+        save_btn.image = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
+        save_btn.tooltip_text = _("Save photo");
+
+        var save_as_btn = new Gtk.Button ();
+        save_as_btn.related_action = get_direct_page ().get_action ("SaveAs");
+        save_as_btn.image = new Gtk.Image.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
+        save_as_btn.tooltip_text = _("Save photo with a different name");
+
+        header.has_subtitle = false;
         header.pack_start (save_btn);
-
-        var save_as_action = get_direct_page ().get_action ("SaveAs");
-        var save_as_btn = save_as_action.create_tool_item ();
-        save_as_btn.sensitive = true;
         header.pack_start (save_as_btn);
+        header.pack_end (redo_btn);
+        header.pack_end (undo_btn);
+    }
+
+    construct {
+        set_default_size (
+            window_settings.get_int ("direct-width"),
+            window_settings.get_int ("direct-height")
+        );
+
+        if (window_settings.get_boolean ("direct-maximize")) {
+            maximize ();
+        }
     }
 
     public static DirectWindow get_app () {
@@ -84,7 +101,9 @@ public class DirectWindow : AppWindow {
         if (!get_direct_page ().check_quit ())
             return;
 
-        Config.Facade.get_instance ().set_direct_window_state (maximized, dimensions);
+        window_settings.set_boolean ("direct-maximize", is_maximized);
+        window_settings.set_int ("direct-width", dimensions.width);
+        window_settings.set_int ("direct-height", dimensions.height);
 
         base.on_quit ();
     }

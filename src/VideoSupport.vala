@@ -229,7 +229,7 @@ public class VideoReader {
         debug ("Thumbnailer timer called");
         if (thumbnailer_pid != 0) {
             debug ("Killing thumbnailer process: %d", thumbnailer_pid);
-            Posix.kill (thumbnailer_pid, Posix.SIGKILL);
+            Posix.kill (thumbnailer_pid, Posix.Signal.KILL);
         }
         return false; // Don't call again.
     }
@@ -245,7 +245,7 @@ public class VideoReader {
         }
         Posix.close (pipefd[1]); // Close the write end of the pipe.
 
-        // Use Shotwell's thumbnailer, redirect output to stdout.
+        // Use Photos' thumbnailer, redirect output to stdout.
         debug ("Launching thumbnailer process: %s", AppDirs.get_thumbnailer_bin ().get_path ());
         string[] argv = {AppDirs.get_thumbnailer_bin ().get_path (), video_file};
         try {
@@ -324,6 +324,7 @@ public class VideoReader {
 }
 
 public class Video : VideoSource, Flaggable, Monitorable, Dateable {
+    public const int NO_VIDEO_INTERPRETER_STATE = -1;
     public const string TYPENAME = "video";
 
     public const uint64 FLAG_TRASH =    0x0000000000000001;
@@ -362,6 +363,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
     private static int current_state;
     private static bool normal_regen_complete;
     private static bool offline_regen_complete;
+    private static GLib.Settings video_settings;
     public static VideoSourceCollection global;
 
     private VideoRow backing_row;
@@ -384,6 +386,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         current_state = -1;
         normal_regen_complete = false;
         offline_regen_complete = false;
+        video_settings = new GLib.Settings (GSettingsConfigurationEngine.VIDEO_SCHEMA_NAME);
 
         // initialize GStreamer, but don't pass it our actual command line arguments -- we don't
         // want our end users to be able to parameterize the GStreamer configuration
@@ -391,9 +394,9 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         unowned string[] fake_unowned_args = fake_args;
         Gst.init (ref fake_unowned_args);
 
-        int saved_state = Config.Facade.get_instance ().get_video_interpreter_state_cookie ();
+        int saved_state = video_settings.get_int ("interpreter-state-cookie");
         current_state = (int) Gst.Registry.get ().get_feature_list_cookie ();
-        if (saved_state == Config.Facade.NO_VIDEO_INTERPRETER_STATE) {
+        if (saved_state == NO_VIDEO_INTERPRETER_STATE) {
             message ("interpreter state cookie not found; assuming all video thumbnails are out of date");
             interpreter_state_changed = true;
         } else if (saved_state != current_state) {
@@ -460,7 +463,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         if (interpreter_state_changed) {
             message ("saving video interpreter state to configuration system");
 
-            Config.Facade.get_instance ().set_video_interpreter_state_cookie (current_state);
+            video_settings.set_int ("interpreter-state-cookie", current_state);
             interpreter_state_changed = false;
         }
     }

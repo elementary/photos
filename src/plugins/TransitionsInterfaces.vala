@@ -18,10 +18,10 @@
 */
 
 /**
- * Transitions are used in Shotwell for interstitial effects in slideshow mode. They may
+ * Transitions are used in Photos for interstitial effects in slideshow mode. They may
  * also be used elsewhere in future releases.
  *
- * Plugin writers should start by implementing a {@link Descriptor} which in turn Shotwell uses
+ * Plugin writers should start by implementing a {@link Descriptor} which in turn Photos uses
  * to instantiate an {@link Effect}.
  */
 namespace Spit.Transitions {

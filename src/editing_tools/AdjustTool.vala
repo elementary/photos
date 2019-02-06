@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2016 elementary LLC.
+*               2016-2018 elementary LLC.
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -24,91 +24,125 @@ public class EditingTools.AdjustTool : EditingTool {
     private const uint SLIDER_DELAY_MSEC = 100;
 
     private class AdjustToolWindow : EditingToolWindow {
-        public Gtk.Scale exposure_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                ExposureTransformation.MIN_PARAMETER, ExposureTransformation.MAX_PARAMETER,
-                1.0);
-        public Gtk.Scale saturation_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                SaturationTransformation.MIN_PARAMETER, SaturationTransformation.MAX_PARAMETER,
-                1.0);
-        public Gtk.Scale tint_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                TintTransformation.MIN_PARAMETER, TintTransformation.MAX_PARAMETER, 1.0);
-        public Gtk.Scale temperature_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                TemperatureTransformation.MIN_PARAMETER, TemperatureTransformation.MAX_PARAMETER,
-                1.0);
-
-        public Gtk.Scale shadows_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                ShadowDetailTransformation.MIN_PARAMETER, ShadowDetailTransformation.MAX_PARAMETER,
-                1.0);
-
-        public Gtk.Scale highlights_slider = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL,
-                HighlightDetailTransformation.MIN_PARAMETER, HighlightDetailTransformation.MAX_PARAMETER,
-                1.0);
-
-        public Gtk.Button ok_button = new Gtk.Button.with_mnemonic (_ ("_Apply"));
-        public Gtk.Button reset_button = new Gtk.Button.with_mnemonic (_ ("_Reset"));
-        public Gtk.Button cancel_button = new Gtk.Button.with_mnemonic (_ ("_Cancel"));
-        public RGBHistogramManipulator histogram_manipulator = new RGBHistogramManipulator ();
+        public Gtk.Button ok_button;
+        public Gtk.Button reset_button;
+        public Gtk.Button cancel_button;
+        public Gtk.Scale exposure_slider;
+        public Gtk.Scale saturation_slider;
+        public Gtk.Scale tint_slider;
+        public Gtk.Scale temperature_slider;
+        public Gtk.Scale shadows_slider;
+        public Gtk.Scale highlights_slider;
+        public RGBHistogramManipulator histogram_manipulator;
 
         public AdjustToolWindow (Gtk.Window container) {
             base (container);
+        }
 
-            Gtk.Grid slider_organizer = new Gtk.Grid ();
-            slider_organizer.set_column_homogeneous (false);
-            slider_organizer.set_row_spacing (12);
-            slider_organizer.set_column_spacing (12);
-            slider_organizer.set_margin_bottom (12);
+        construct {
+            histogram_manipulator = new RGBHistogramManipulator ();
 
-            Gtk.Label exposure_label = new Gtk.Label.with_mnemonic (_ ("Exposure:"));
-            exposure_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (exposure_label, 0, 0, 1, 1);
-            slider_organizer.attach (exposure_slider, 1, 0, 1, 1);
-            exposure_slider.set_draw_value (false);
-            exposure_slider.set_hexpand (true);
+            var exposure_label = new Gtk.Label (_("Exposure:"));
+            exposure_label.halign = Gtk.Align.END;
 
-            Gtk.Label saturation_label = new Gtk.Label.with_mnemonic (_ ("Saturation:"));
-            saturation_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (saturation_label, 0, 1, 1, 1);
-            slider_organizer.attach (saturation_slider, 1, 1, 1, 1);
-            saturation_slider.set_draw_value (false);
+            exposure_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                ExposureTransformation.MIN_PARAMETER,
+                ExposureTransformation.MAX_PARAMETER,
+                1.0
+            );
+            exposure_slider.draw_value = false;
+            exposure_slider.hexpand = true;
 
-            Gtk.Label tint_label = new Gtk.Label.with_mnemonic (_ ("Tint:"));
-            tint_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (tint_label, 0, 2, 1, 1);
-            slider_organizer.attach (tint_slider, 1, 2, 1, 1);
-            tint_slider.set_draw_value (false);
+            var saturation_label = new Gtk.Label (_("Saturation:"));
+            saturation_label.halign = Gtk.Align.END;
 
-            Gtk.Label temperature_label = new Gtk.Label.with_mnemonic (_ ("Temperature:"));
-            temperature_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (temperature_label, 0, 3, 1, 1);
-            slider_organizer.attach (temperature_slider, 1, 3, 1, 1);
-            temperature_slider.set_draw_value (false);
+            saturation_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                SaturationTransformation.MIN_PARAMETER,
+                SaturationTransformation.MAX_PARAMETER,
+                1.0
+            );
+            saturation_slider.draw_value = false;
 
-            Gtk.Label shadows_label = new Gtk.Label.with_mnemonic (_ ("Shadows:"));
-            shadows_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (shadows_label, 0, 4, 1, 1);
-            slider_organizer.attach (shadows_slider, 1, 4, 1, 1);
-            shadows_slider.set_draw_value (false);
+            var tint_label = new Gtk.Label (_("Tint:"));
+            tint_label.halign = Gtk.Align.END;
 
-            Gtk.Label highlights_label = new Gtk.Label.with_mnemonic (_ ("Highlights:"));
-            highlights_label.set_halign (Gtk.Align.END);
-            slider_organizer.attach (highlights_label, 0, 5, 1, 1);
-            slider_organizer.attach (highlights_slider, 1, 5, 1, 1);
-            highlights_slider.set_draw_value (false);
+            tint_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                TintTransformation.MIN_PARAMETER,
+                TintTransformation.MAX_PARAMETER,
+                1.0
+            );
+            tint_slider.draw_value = false;
+            tint_slider.has_origin = false;
+            tint_slider.get_style_context ().add_class ("tint");
 
-            Gtk.Box button_layouter = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-            button_layouter.set_homogeneous (true);
-            button_layouter.pack_start (cancel_button, true, true, 1);
-            button_layouter.pack_start (reset_button, true, true, 1);
-            button_layouter.pack_start (ok_button, true, true, 1);
+            var temperature_label = new Gtk.Label (_("Temperature:"));
+            temperature_label.halign = Gtk.Align.END;
 
-            Gtk.Box pane_layouter = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
-            pane_layouter.margin = 12;
-            pane_layouter.add (histogram_manipulator);
-            pane_layouter.add (slider_organizer);
-            pane_layouter.add (button_layouter);
-            pane_layouter.set_child_packing (histogram_manipulator, true, true, 0, Gtk.PackType.START);
+            temperature_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                TemperatureTransformation.MIN_PARAMETER,
+                TemperatureTransformation.MAX_PARAMETER,
+                1.0
+            );
+            temperature_slider.draw_value = false;
+            temperature_slider.has_origin = false;
+            temperature_slider.get_style_context ().add_class ("temperature");
 
-            add (pane_layouter);
+            var shadows_label = new Gtk.Label (_("Shadows:"));
+            shadows_label.halign = Gtk.Align.END;
+
+            shadows_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                ShadowDetailTransformation.MIN_PARAMETER,
+                ShadowDetailTransformation.MAX_PARAMETER,
+                1.0
+            );
+            shadows_slider.draw_value = false;
+
+            var highlights_label = new Gtk.Label (_("Highlights:"));
+            highlights_label.halign = Gtk.Align.END;
+
+            highlights_slider = new Gtk.Scale.with_range (
+                Gtk.Orientation.HORIZONTAL,
+                HighlightDetailTransformation.MIN_PARAMETER,
+                HighlightDetailTransformation.MAX_PARAMETER,
+                1.0
+            );
+            highlights_slider.draw_value = false;
+
+            ok_button = new Gtk.Button.with_mnemonic (_("_Apply"));
+            reset_button = new Gtk.Button.with_mnemonic (_("_Reset"));
+            cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
+
+            var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+            button_box.margin_top = 12;
+            button_box.add (reset_button);
+            button_box.add (cancel_button);
+            button_box.add (ok_button);
+
+            var grid = new Gtk.Grid ();
+            grid.column_spacing = 12;
+            grid.row_spacing = 12;
+            grid.margin_start = grid.margin_end = 12;
+            grid.attach (histogram_manipulator, 0, 0, 2, 1);
+            grid.attach (exposure_label, 0, 1, 1, 1);
+            grid.attach (exposure_slider, 1, 1, 1, 1);
+            grid.attach (saturation_label, 0, 2, 1, 1);
+            grid.attach (saturation_slider, 1, 2, 1, 1);
+            grid.attach (tint_label, 0, 3, 1, 1);
+            grid.attach (tint_slider, 1, 3, 1, 1);
+            grid.attach (temperature_label, 0, 4, 1, 1);
+            grid.attach (temperature_slider, 1, 4, 1, 1);
+            grid.attach (shadows_label, 0, 5, 1, 1);
+            grid.attach (shadows_slider, 1, 5, 1, 1);
+            grid.attach (highlights_label, 0, 6, 1, 1);
+            grid.attach (highlights_slider, 1, 6, 1, 1);
+            grid.attach (button_box, 0, 7, 2, 1);
+
+            get_content_area ().add (grid);
         }
     }
 
@@ -307,7 +341,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     public override void activate (PhotoCanvas canvas) {
-        adjust_tool_window = new AdjustToolWindow (canvas.get_container ());
+        adjust_tool_window = new AdjustToolWindow (canvas.container);
 
         Photo photo = canvas.get_photo ();
         transformations = photo.get_color_adjustments ();

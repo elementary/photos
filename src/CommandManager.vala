@@ -142,7 +142,7 @@ public class CommandManager {
 
     public CommandDescription? get_undo_description () {
         return top (undo_stack);
-    }    
+    }
 
     public bool undo () {
         Command? command = pop (undo_stack);

@@ -26,7 +26,7 @@ private class SlideEffectDescriptor : ShotwellTransitionDescriptor {
     }
 
     public override unowned string get_id () {
-        return "org.pantheon.photos.transitions.slide";
+        return "io.elementary.photos.transitions.slide";
     }
 
     public override unowned string get_pluggable_name () {
