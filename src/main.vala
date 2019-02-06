@@ -42,8 +42,6 @@ void library_exec (string[] mounts) {
     }
 
     // preconfigure units
-    //print (AppDirs.get_data_subdir ("data").get_child ("photo.db"));
-    //file_settings = new GLib.Settings
     Db.preconfigure (get_database_file ());
 
     // initialize units
@@ -402,5 +400,17 @@ void main (string[] args) {
 }
 
 private File get_database_file () {
-    return AppDirs.get_data_subdir ("data").get_child ("photo.db");
+    var db_settings = new GLib.Settings(GSettingsConfigurationEngine.DB_PREFS_SCHEMA_NAME);
+    var db_location = db_settings.get_string("database-location");
+    
+    if (db_location == "") {
+        var new_database = AppDirs.get_data_subdir ("data").get_child ("photo.db");
+        string new_path = new_database.get_path ();
+        
+        db_settings.set_string("database-location", new_path);
+        return new_database;
+    }
+    else {
+        return File.new_for_path(db_location);
+    }
 }
