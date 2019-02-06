@@ -13,6 +13,7 @@
     <child name="slideshow" schema="io.elementary.photos.preferences.slideshow" />
     <child name="window" schema="io.elementary.photos.preferences.window" />
     <child name="files" schema="io.elementary.photos.preferences.files" />
+    <child name="database" schema="io.elementary.photos.preferences.database" />
 </schema>
 
 <schema id="io.elementary.photos.preferences.ui" path="/io/elementary/photos/preferences/ui/">
@@ -594,6 +595,17 @@
         <summary>enable slideshow chess transition</summary>
         <description>True if the Chess-Board slideshow transition plugin is enabled, false otherwise</description>
     </key>
+</schema>
+
+
+<schema id="io.elementary.photos.preferences.database" path="/io/elementary/photos/preferences/database/">
+
+  <key name="database-location" type="s">
+  <default>""</default>
+  <summary>Location of the database</summary>
+  <description>Location of the database. If empty, Photos will generate a new database.</description>
+  </key>
+
 </schema>
 
 </schemalist>

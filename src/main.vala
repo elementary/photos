@@ -42,7 +42,9 @@ void library_exec (string[] mounts) {
     }
 
     // preconfigure units
-    Db.preconfigure (AppDirs.get_data_subdir ("data").get_child ("photo.db"));
+    //print (AppDirs.get_data_subdir ("data").get_child ("photo.db"));
+    //file_settings = new GLib.Settings
+    Db.preconfigure (get_database_file ());
 
     // initialize units
     try {
@@ -391,10 +393,14 @@ void main (string[] args) {
     // it gets corrupted in the next session.  Don't do this if another Photos
     // is open or if we're in direct mode.
     if (is_string_empty (filename) && !was_already_running) {
-        string orig_path = AppDirs.get_data_subdir ("data").get_child ("photo.db").get_path ();
+        string orig_path = get_database_file ().get_path ();
         string backup_path = orig_path + ".bak";
         string cmdline = "cp " + orig_path + " " + backup_path;
         Posix.system (cmdline);
         Posix.system ("sync");
     }
+}
+
+private File get_database_file () {
+    return AppDirs.get_data_subdir ("data").get_child ("photo.db");
 }
