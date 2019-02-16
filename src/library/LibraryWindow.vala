@@ -623,9 +623,7 @@ public class LibraryWindow : AppWindow {
         import_dialog.set_select_multiple (true);
         import_dialog.set_current_folder (import_dir);
 
-        int response = import_dialog.run ();
-
-        if (response == Gtk.ResponseType.ACCEPT) {
+        if (import_dialog.run () == Gtk.ResponseType.ACCEPT) {
             /* Set invisible the dialog because some wm keep it in front
              * giving the sensation of a froozen program.*/
             import_dialog.visible = false;
