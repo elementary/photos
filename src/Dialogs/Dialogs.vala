@@ -86,26 +86,24 @@ public File? choose_file (string current_file_basename) {
     if (current_export_dir == null)
         current_export_dir = File.new_for_path (Environment.get_home_dir ());
 
-    string file_chooser_title = VideoReader.is_supported_video_filename (current_file_basename) ?
-                                _ ("Export Video") : _ ("Export Photo");
-
-    Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (file_chooser_title,
-            AppWindow.get_instance (), Gtk.FileChooserAction.SAVE, _ ("_Cancel"),
-            Gtk.ResponseType.CANCEL, _ ("_Save"), Gtk.ResponseType.ACCEPT, null);
+    var chooser = new Gtk.FileChooserNative (
+        VideoReader.is_supported_video_filename (current_file_basename) ? _("Export Video") : _("Export Photo"),
+        AppWindow.get_instance (),
+        Gtk.FileChooserAction.SAVE,
+        _("_Save"),
+        _("_Cancel")
+    );
     chooser.set_do_overwrite_confirmation (true);
     chooser.set_current_folder (current_export_dir.get_path ());
     chooser.set_current_name (current_file_basename);
     chooser.set_local_only (false);
 
-    // The log handler reset should be removed once GTK 3.4 becomes widely available;
-    // please see https://bugzilla.gnome.org/show_bug.cgi?id=662814 for details.
-    Log.set_handler ("Gtk", LogLevelFlags.LEVEL_WARNING, suppress_warnings);
     File file = null;
     if (chooser.run () == Gtk.ResponseType.ACCEPT) {
         file = File.new_for_path (chooser.get_filename ());
         current_export_dir = file.get_parent ();
     }
-    Log.set_handler ("Gtk", LogLevelFlags.LEVEL_WARNING, Log.default_handler);
+
     chooser.destroy ();
 
     return file;
@@ -116,11 +114,15 @@ public File? choose_dir (string? user_title = null) {
         current_export_dir = File.new_for_path (Environment.get_home_dir ());
 
     if (user_title == null)
-        user_title = _ ("Export Photos");
+        user_title = _("Export Photos");
 
-    Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (user_title,
-            AppWindow.get_instance (), Gtk.FileChooserAction.SELECT_FOLDER, _ ("_Cancel"),
-            Gtk.ResponseType.CANCEL, _ ("_Select"), Gtk.ResponseType.ACCEPT, null);
+    var chooser = new Gtk.FileChooserDialog (
+        user_title,
+        AppWindow.get_instance (),
+        Gtk.FileChooserAction.SELECT_FOLDER,
+        _("_Select"),
+        _("_Cancel")
+    );
     chooser.set_current_folder (current_export_dir.get_path ());
     chooser.set_local_only (false);
 

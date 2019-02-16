@@ -412,9 +412,13 @@ public class DirectPhotoPage : EditingHostPage {
             output_format_filter.add_pattern ("*." + uppercase_extension);
         }
 
-        Gtk.FileChooserDialog save_as_dialog = new Gtk.FileChooserDialog (_ ("Save As"),
-                AppWindow.get_instance (), Gtk.FileChooserAction.SAVE, _("Cancel"),
-                Gtk.ResponseType.CANCEL, _("Save"), Gtk.ResponseType.OK);
+        var save_as_dialog = new Gtk.FileChooserNative (
+            _("Save As"),
+            AppWindow.get_instance (),
+            Gtk.FileChooserAction.SAVE,
+            _("Save"),
+            _("Cancel")
+        );
         save_as_dialog.set_select_multiple (false);
         save_as_dialog.set_current_name (filename);
         save_as_dialog.set_current_folder (current_save_dir.get_path ());
@@ -424,7 +428,7 @@ public class DirectPhotoPage : EditingHostPage {
 
         int response = save_as_dialog.run ();
         bool save_successful = false;
-        if (response == Gtk.ResponseType.OK) {
+        if (response == Gtk.ResponseType.ACCEPT) {
             // flag to prevent asking user about losing changes to the old file (since they'll be
             // loaded right into the new one)
             drop_if_dirty = true;
