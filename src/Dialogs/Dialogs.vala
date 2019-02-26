@@ -116,7 +116,7 @@ public File? choose_dir (string? user_title = null) {
     if (user_title == null)
         user_title = _("Export Photos");
 
-    var chooser = new Gtk.FileChooserDialog (
+    var chooser = new Gtk.FileChooserNative (
         user_title,
         AppWindow.get_instance (),
         Gtk.FileChooserAction.SELECT_FOLDER,
