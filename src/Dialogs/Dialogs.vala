@@ -604,9 +604,13 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
 }
 
 internal void save_import_results (Gtk.Window? chooser_dialog_parent, string results_log) {
-    Gtk.FileChooserDialog chooser_dialog = new Gtk.FileChooserDialog (
-        ImportUI.SAVE_RESULTS_FILE_CHOOSER_TITLE, chooser_dialog_parent, Gtk.FileChooserAction.SAVE,
-        (_ ("_Cancel")), Gtk.ResponseType.CANCEL, (_ ("_Save")), Gtk.ResponseType.ACCEPT, null);
+    var chooser_dialog = new Gtk.FileChooserNative (
+        ImportUI.SAVE_RESULTS_FILE_CHOOSER_TITLE,
+        chooser_dialog_parent,
+        Gtk.FileChooserAction.SAVE,
+        _("_Save"),
+        _("_Cancel")
+    );
     chooser_dialog.set_do_overwrite_confirmation (true);
     chooser_dialog.set_current_folder (Environment.get_home_dir ());
     chooser_dialog.set_current_name ("Photos Import Log.txt");
