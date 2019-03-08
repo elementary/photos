@@ -62,16 +62,24 @@ public bool confirm_delete_saved_search (SavedSearch search) {
 }
 
 public bool confirm_warn_developer_changed (int number) {
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog.with_markup (AppWindow.get_instance (),
-            Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s",
-            "<span weight=\"bold\" size=\"larger\">%s</span>".printf (ngettext ("Switching developers will undo all changes you have made to this photo in Photos",
-                    "Switching developers will undo all changes you have made to these photos in Photos", number)));
+    string secondary_text = ngettext (
+        "Switching developers will undo all changes you have made to this photo in Photos",
+        "Switching developers will undo all changes you have made to these photos in Photos",
+        number
+    );
 
-    dialog.add_buttons (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_buttons (_ ("_Switch Developer"), Gtk.ResponseType.YES);
+    var dialog = new Granite.MessageDialog (
+        _("Are You Sure You Want to Switch Developers?"),
+        secondary_text,
+        new ThemedIcon ("dialog-question"),
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = AppWindow.get_instance ();
+
+    var switch_button = (Gtk.Button) dialog.add_button (_("_Switch Developer"), Gtk.ResponseType.YES);
+    switch_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
     int response = dialog.run ();
-
     dialog.destroy ();
 
     return response == Gtk.ResponseType.YES;
