@@ -566,35 +566,48 @@ public bool report_manifest (ImportManifest manifest, bool show_dest_id,
     if (total == 0)
         message += _ ("No photos or videos imported.\n");
 
-    Gtk.MessageDialog dialog = null;
+    Granite.MessageDialog dialog = null;
     int dialog_response = Gtk.ResponseType.NONE;
     if (question == null) {
-        dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
-                                        Gtk.MessageType.INFO, Gtk.ButtonsType.NONE, "%s", message);
-        dialog.title = _ ("Import Complete");
-        Gtk.Widget save_results_button = dialog.add_button (ImportUI.SAVE_RESULTS_BUTTON_NAME,
-                                         ImportUI.SAVE_RESULTS_RESPONSE_ID);
-        save_results_button.set_visible (manifest.success.size < manifest.all.size);
-        Gtk.Widget ok_button = dialog.add_button (_ ("_Done"), Gtk.ResponseType.OK);
-        dialog.set_default (ok_button);
+        dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Import Complete"),
+            message,
+            "document-import",
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = AppWindow.get_instance ();
 
-        Gtk.Window dialog_parent = (Gtk.Window) dialog.get_parent ();
+        var save_results_button = dialog.add_button (ImportUI.SAVE_RESULTS_BUTTON_NAME, ImportUI.SAVE_RESULTS_RESPONSE_ID);
+        save_results_button.set_visible (manifest.success.size < manifest.all.size);
+
+        var ok_button = dialog.add_button (_("_Done"), Gtk.ResponseType.OK);
+
+        dialog.set_default (ok_button);
         dialog_response = dialog.run ();
         dialog.destroy ();
 
-        if (dialog_response == ImportUI.SAVE_RESULTS_RESPONSE_ID)
+        var dialog_parent = (Gtk.Window) dialog.get_parent ();
+
+        if (dialog_response == ImportUI.SAVE_RESULTS_RESPONSE_ID) {
             save_import_results (dialog_parent, create_result_report_from_manifest (manifest));
+        }
 
     } else {
         message += ("\n" + question.question);
 
-        dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
-                                        Gtk.MessageType.QUESTION, Gtk.ButtonsType.NONE, "%s", message);
-        dialog.title = _ ("Import Complete");
-        Gtk.Widget save_results_button = dialog.add_button (ImportUI.SAVE_RESULTS_BUTTON_NAME,
-                                         ImportUI.SAVE_RESULTS_RESPONSE_ID);
+        dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            _("Import Complete"),
+            message,
+            "dialog-question",
+            Gtk.ButtonsType.NONE
+        );
+        dialog.transient_for = AppWindow.get_instance ();
+
+        var save_results_button = dialog.add_button (ImportUI.SAVE_RESULTS_BUTTON_NAME, ImportUI.SAVE_RESULTS_RESPONSE_ID);
         save_results_button.set_visible (manifest.success.size < manifest.all.size);
-        Gtk.Widget no_button = dialog.add_button (question.no_button, Gtk.ResponseType.NO);
+
+        var no_button = dialog.add_button (question.no_button, Gtk.ResponseType.NO);
+
         dialog.add_button (question.yes_button, Gtk.ResponseType.YES);
         dialog.set_default (no_button);
 
