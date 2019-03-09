@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:41-0500\n"
+"POT-Creation-Date: 2019-03-08 16:39-0800\n"
 "PO-Revision-Date: 2018-06-25 14:14+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/photos/photos/"
@@ -385,11 +385,10 @@ msgid "Replace _All"
 msgstr "Заменить вс_ё"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:70
-#: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
-#: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
+#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -750,7 +749,7 @@ msgstr "Вернуться к оригиналу"
 msgid "Re_name Event…"
 msgstr "Переименовать событие"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
 msgid "Rename Event"
 msgstr "Переименовать событие"
 
@@ -1223,7 +1222,7 @@ msgstr[2] "Это действие удалит метку «%s» с %d фото
 msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Это действие удалит динамический альбом «%s». Продолжить?"
 
-#: src/Dialogs/Dialogs.vala:67
+#: src/Dialogs/Dialogs.vala:66
 #, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
@@ -1241,29 +1240,33 @@ msgstr[2] ""
 "Переключение между обработчиками отменит все изменения, внесенные в эти "
 "фотографии с помощью Shotwell"
 
-#: src/Dialogs/Dialogs.vala:71
+#: src/Dialogs/Dialogs.vala:72
+msgid "Are You Sure You Want to Switch Developers?"
+msgstr ""
+
+#: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
 msgstr "_Переключить обработчик"
 
-#: src/Dialogs/Dialogs.vala:90
+#: src/Dialogs/Dialogs.vala:98
 msgid "Export Video"
 msgstr "Экспортировать видео"
 
-#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
 msgid "Export Photo"
 msgstr "Экспортировать фотографию"
 
-#: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
 msgid "Export Photos"
 msgstr "Экспортировать фотографии"
 
-#: src/Dialogs/Dialogs.vala:123
+#: src/Dialogs/Dialogs.vala:131
 msgid "_Select"
 msgstr "_Выбрать"
 
@@ -1272,7 +1275,7 @@ msgstr "_Выбрать"
 #. if we can't copy an image over for editing in an external tool.
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:147
+#: src/Dialogs/Dialogs.vala:157
 #, fuzzy, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
@@ -1281,7 +1284,7 @@ msgstr ""
 "Shotwell не удалось создать файл для редактирования фотографии, потому что у "
 "вас нет разрешения на запись в %s."
 
-#: src/Dialogs/Dialogs.vala:156
+#: src/Dialogs/Dialogs.vala:166
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1289,7 +1292,7 @@ msgstr ""
 "Невозможно экспортировать следующее фото из-за ошибки файла.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:162
+#: src/Dialogs/Dialogs.vala:172
 msgid ""
 "\n"
 "\n"
@@ -1299,30 +1302,30 @@ msgstr ""
 "\n"
 "Хотите продолжить экспортирование?"
 
-#: src/Dialogs/Dialogs.vala:163
+#: src/Dialogs/Dialogs.vala:173
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "_Продолжить"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:183
 #, fuzzy
 msgid "Save Details…"
 msgstr "Сохранить подробности"
 
-#: src/Dialogs/Dialogs.vala:174
+#: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
 msgstr "Сохранить подробности"
 
-#: src/Dialogs/Dialogs.vala:189
+#: src/Dialogs/Dialogs.vala:199
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(и ещё %d)\n"
 
-#: src/Dialogs/Dialogs.vala:242
+#: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
 msgstr "Импортировать отчёт о результатах"
 
-#: src/Dialogs/Dialogs.vala:246
+#: src/Dialogs/Dialogs.vala:256
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
@@ -1330,7 +1333,7 @@ msgstr[0] "Попытка импорта %d файла."
 msgstr[1] "Попытка импорта %d файлов."
 msgstr[2] "Попытка импорта %d файлов."
 
-#: src/Dialogs/Dialogs.vala:249
+#: src/Dialogs/Dialogs.vala:259
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1341,31 +1344,31 @@ msgstr[2] "Из них, было успешно импортировано %d ф
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:261
+#: src/Dialogs/Dialogs.vala:271
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Дубликаты фотографий/видео не импортированы:"
 
-#: src/Dialogs/Dialogs.vala:265
+#: src/Dialogs/Dialogs.vala:275
 msgid "duplicates existing media item"
 msgstr "делает копию существующего экземпляра медиа"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:276
+#: src/Dialogs/Dialogs.vala:286
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Фотографии/видео не импортированные из-за ошибок камеры:"
 
-#: src/Dialogs/Dialogs.vala:279 src/Dialogs/Dialogs.vala:294
-#: src/Dialogs/Dialogs.vala:309 src/Dialogs/Dialogs.vala:325
-#: src/Dialogs/Dialogs.vala:340 src/Dialogs/Dialogs.vala:354
+#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
+#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
+#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
 msgid "error message:"
 msgstr "сообщение об ошибке:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:290
+#: src/Dialogs/Dialogs.vala:300
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Файлы не импортированы, так как не были распознаны как файлы фотографий или "
@@ -1374,7 +1377,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:305
+#: src/Dialogs/Dialogs.vala:315
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1386,7 +1389,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:320
+#: src/Dialogs/Dialogs.vala:330
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1395,7 +1398,7 @@ msgstr ""
 "Фотографии/видео не были импортированы, так как невозможно их скопировать в "
 "библиотеку:"
 
-#: src/Dialogs/Dialogs.vala:324
+#: src/Dialogs/Dialogs.vala:334
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1407,18 +1410,18 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:336
+#: src/Dialogs/Dialogs.vala:346
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Фотографии/видео не были импортированы, так как файлы повреждены:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:351
+#: src/Dialogs/Dialogs.vala:361
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Фотографии/видео не импортированные по другим причинам:"
 
-#: src/Dialogs/Dialogs.vala:371
+#: src/Dialogs/Dialogs.vala:381
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
@@ -1426,7 +1429,7 @@ msgstr[0] "%d дубликат фотографии не был импортир
 msgstr[1] "%d дубликата фотографии не были импортированы:\n"
 msgstr[2] "%d дубликатов фотографий не были импортированы:\n"
 
-#: src/Dialogs/Dialogs.vala:374
+#: src/Dialogs/Dialogs.vala:384
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
@@ -1434,7 +1437,7 @@ msgstr[0] "%d дубликат видео не был импортирован.\
 msgstr[1] "%d дубликата видео не были импортированы.\n"
 msgstr[2] "%d дубликатов видео не были импортированы.\n"
 
-#: src/Dialogs/Dialogs.vala:377
+#: src/Dialogs/Dialogs.vala:387
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
@@ -1442,7 +1445,7 @@ msgstr[0] "%d дубликат фотографии/видео не был им�
 msgstr[1] "%d дубликата фотографии/видео не было импортировано:\n"
 msgstr[2] "%d дубликатов фотографии/видео не было импортировано:\n"
 
-#: src/Dialogs/Dialogs.vala:391
+#: src/Dialogs/Dialogs.vala:401
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
@@ -1456,7 +1459,7 @@ msgstr[2] ""
 "%d фотографий не удалось импортировать из-за ошибки файла или аппаратной "
 "ошибки:\n"
 
-#: src/Dialogs/Dialogs.vala:394
+#: src/Dialogs/Dialogs.vala:404
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -1467,7 +1470,7 @@ msgstr[1] ""
 msgstr[2] ""
 "%d видео не удалось импортировать из-за ошибки файла или аппаратной ошибки:\n"
 
-#: src/Dialogs/Dialogs.vala:397
+#: src/Dialogs/Dialogs.vala:407
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1482,7 +1485,7 @@ msgstr[2] ""
 "Ошибка импорта %d фотографий/видео из-за файловой ошибки или аппаратной "
 "проблемы:\n"
 
-#: src/Dialogs/Dialogs.vala:400
+#: src/Dialogs/Dialogs.vala:410
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
@@ -1494,7 +1497,7 @@ msgstr[2] ""
 "%d файлов не удалось импортировать из-за ошибки файла или аппаратной "
 "ошибки:\n"
 
-#: src/Dialogs/Dialogs.vala:414
+#: src/Dialogs/Dialogs.vala:424
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1511,7 +1514,7 @@ msgstr[2] ""
 "Не удалось импортировать %d фотографий, поскольку каталог библиотеки был "
 "недоступен для записи:\n"
 
-#: src/Dialogs/Dialogs.vala:417
+#: src/Dialogs/Dialogs.vala:427
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1528,7 +1531,7 @@ msgstr[2] ""
 "Не удалось импортировать %d видео, так как каталог библиотеки был не "
 "доступен для записи:\n"
 
-#: src/Dialogs/Dialogs.vala:420
+#: src/Dialogs/Dialogs.vala:430
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1546,7 +1549,7 @@ msgstr[2] ""
 "Не удалось импортировать %d фотографий/видео, так как каталог библиотеки был "
 "не доступен для записи:\n"
 
-#: src/Dialogs/Dialogs.vala:423
+#: src/Dialogs/Dialogs.vala:433
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1563,7 +1566,7 @@ msgstr[2] ""
 "Не удалось импортировать %d файлов, так как каталог библиотеки был не "
 "доступен для записи:\n"
 
-#: src/Dialogs/Dialogs.vala:437
+#: src/Dialogs/Dialogs.vala:447
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
@@ -1571,7 +1574,7 @@ msgstr[0] "Не удалось импортировать %d фотографи�
 msgstr[1] "Не удалось импортировать %d фотографии из-за ошибки камеры:\n"
 msgstr[2] "Не удалось импортировать %d фотографий из-за ошибки камеры:\n"
 
-#: src/Dialogs/Dialogs.vala:440
+#: src/Dialogs/Dialogs.vala:450
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
@@ -1579,7 +1582,7 @@ msgstr[0] "Не удалось импортировать %d видео из-з�
 msgstr[1] "Не удалось импортировать %d видео из-за ошибки камеры:\n"
 msgstr[2] "Не удалось импортировать %d видео из-за ошибки камеры:\n"
 
-#: src/Dialogs/Dialogs.vala:443
+#: src/Dialogs/Dialogs.vala:453
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
@@ -1587,7 +1590,7 @@ msgstr[0] "Не удалось импортировать %d фотографи�
 msgstr[1] "Не удалось импортировать %d фотографии/видео из-за ошибки камеры:\n"
 msgstr[2] "Не удалось импортировать %d фотографий/видео из-за ошибки камеры:\n"
 
-#: src/Dialogs/Dialogs.vala:446
+#: src/Dialogs/Dialogs.vala:456
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
@@ -1595,7 +1598,7 @@ msgstr[0] "Не удалось импортировать %d файл из-за 
 msgstr[1] "Не удалось импортировать %d файла из-за ошибки камеры:\n"
 msgstr[2] "Не удалось импортировать %d файлов из-за ошибки камеры:\n"
 
-#: src/Dialogs/Dialogs.vala:460
+#: src/Dialogs/Dialogs.vala:470
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
@@ -1603,7 +1606,7 @@ msgstr[0] "Не удалось импортировать %d фотографи�
 msgstr[1] "Не удалось импортировать %d фотографии, так как они повреждены:\n"
 msgstr[2] "Не удалось импортировать %d фотографий, так как они повреждены:\n"
 
-#: src/Dialogs/Dialogs.vala:463
+#: src/Dialogs/Dialogs.vala:473
 #, fuzzy, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
@@ -1611,7 +1614,7 @@ msgstr[0] "1 видеоролик не импортирован, т.к. повр
 msgstr[1] "%d видеоролика не импортированы, т.к. повреждены:\n"
 msgstr[2] "%d видеороликов не импортированы, т.к. повреждены:\n"
 
-#: src/Dialogs/Dialogs.vala:466
+#: src/Dialogs/Dialogs.vala:476
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
@@ -1619,7 +1622,7 @@ msgstr[0] "Импорт %d изображения/видео не удался, 
 msgstr[1] "Импорт %d изображений/видео не удался, поскольку они повреждены:\n"
 msgstr[2] "Импорт %d изображений/видео не удался, поскольку они повреждены:\n"
 
-#: src/Dialogs/Dialogs.vala:469
+#: src/Dialogs/Dialogs.vala:479
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1631,7 +1634,7 @@ msgstr[2] "Импорт %d файлов не удался, поскольку о
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:486
+#: src/Dialogs/Dialogs.vala:496
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1641,7 +1644,7 @@ msgstr[2] "Пропущено %d неподдерживаемых фотогра
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:501
+#: src/Dialogs/Dialogs.vala:511
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
@@ -1649,7 +1652,7 @@ msgstr[0] "Пропущен %d файл, не являющийся изобра�
 msgstr[1] "Пропущено %d файла, не являющихся изображениями.\n"
 msgstr[2] "Пропущено %d файлов, не являющихся изображениями.\n"
 
-#: src/Dialogs/Dialogs.vala:512
+#: src/Dialogs/Dialogs.vala:522
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
@@ -1657,7 +1660,7 @@ msgstr[0] "%d фотография пропущена пользователем
 msgstr[1] "%d фотографии пропущены пользователем:\n"
 msgstr[2] "%d фотографий пропущены пользователем:\n"
 
-#: src/Dialogs/Dialogs.vala:515
+#: src/Dialogs/Dialogs.vala:525
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
@@ -1665,7 +1668,7 @@ msgstr[0] "%d видео пропущено пользователем:\n"
 msgstr[1] "%d видео пропущено пользователем:\n"
 msgstr[2] "%d видео пропущено пользователем:\n"
 
-#: src/Dialogs/Dialogs.vala:518
+#: src/Dialogs/Dialogs.vala:528
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
@@ -1673,7 +1676,7 @@ msgstr[0] "%d фотография/видео пропущены пользов�
 msgstr[1] "%d фотографии/видео пропущены пользователем:\n"
 msgstr[2] "%d фотографий/видео пропущены пользователем:\n"
 
-#: src/Dialogs/Dialogs.vala:521
+#: src/Dialogs/Dialogs.vala:531
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
@@ -1681,7 +1684,7 @@ msgstr[0] "%d файл пропущен пользователем:\n"
 msgstr[1] "%d файла пропущено пользователем:\n"
 msgstr[2] "%d файлов пропущено пользователем:\n"
 
-#: src/Dialogs/Dialogs.vala:535
+#: src/Dialogs/Dialogs.vala:545
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
@@ -1689,7 +1692,7 @@ msgstr[0] "Успешно импортирована %d фотография.\n"
 msgstr[1] "Успешно импортировано %d фотографии.\n"
 msgstr[2] "Успешно импортировано %d фотографий.\n"
 
-#: src/Dialogs/Dialogs.vala:538
+#: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
@@ -1697,7 +1700,7 @@ msgstr[0] "Успешно импортировано %d видео.\n"
 msgstr[1] "Успешно импортировано %d видео.\n"
 msgstr[2] "Успешно импортировано %d видео.\n"
 
-#: src/Dialogs/Dialogs.vala:541
+#: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1707,31 +1710,31 @@ msgstr[2] "%d фото/видео успешно импортировано.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:557
+#: src/Dialogs/Dialogs.vala:567
 msgid "No photos or videos imported.\n"
 msgstr "Не был импортирован ни один фото/видеофайл.\n"
 
-#: src/Dialogs/Dialogs.vala:564 src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
 msgid "Import Complete"
 msgstr "Импортирование завершено"
 
-#: src/Dialogs/Dialogs.vala:568
+#: src/Dialogs/Dialogs.vala:578
 msgid "_Done"
 msgstr "_Выполнено"
 
-#: src/Dialogs/Dialogs.vala:755 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Имя:"
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edit?"
 msgstr "Вернуть внешнее изменение?"
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edits?"
 msgstr "Вернуть внешние изменения?"
 
-#: src/Dialogs/Dialogs.vala:775
+#: src/Dialogs/Dialogs.vala:789
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1746,23 +1749,23 @@ msgstr[2] ""
 "Это действие уничтожит все изменения, сделанные в %d внешних файлах. "
 "Продолжить?"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edit"
 msgstr "От_менить внешнее изменение"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edits"
 msgstr "От_менить внешние изменения"
 
-#: src/Dialogs/Dialogs.vala:801
+#: src/Dialogs/Dialogs.vala:815
 msgid "Remove Photo From Library"
 msgstr "Удалить фотографии из библиотеки"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:816
 msgid "Remove Photos From Library"
 msgstr "Удалить фотографии из библиотеки"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:821
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
@@ -1770,11 +1773,11 @@ msgstr[0] "Это действие удалит %d фотографию из б�
 msgstr[1] "Это действие удалит %d фотографии из библиотеки. Продолжить?"
 msgstr[2] "Это действие удалит %d фотографий из библиотеки. Продолжить?"
 
-#: src/Dialogs/Dialogs.vala:820
+#: src/Dialogs/Dialogs.vala:834
 msgid "_Remove"
 msgstr "_Удалить"
 
-#: src/Dialogs/Dialogs.vala:841
+#: src/Dialogs/Dialogs.vala:855
 #, c-format
 msgid ""
 "\n"
@@ -1799,7 +1802,7 @@ msgstr[2] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:861
+#: src/Dialogs/Dialogs.vala:875
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1808,32 +1811,32 @@ msgstr ""
 "Shotwell может скопировать фотографии в папку библиотеки, либо импортировать "
 "их без копирования."
 
-#: src/Dialogs/Dialogs.vala:866
+#: src/Dialogs/Dialogs.vala:880
 msgid "Co_py Photos"
 msgstr "Ко_пировать фотографии"
 
-#: src/Dialogs/Dialogs.vala:867
+#: src/Dialogs/Dialogs.vala:881
 msgid "_Import in Place"
 msgstr "_Импортировать"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "Импортировать"
 
-#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Удалить из библиотеки"
 
-#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Удалить фотографии из библиотеки"
 
-#: src/Dialogs/Dialogs.vala:879
+#: src/Dialogs/Dialogs.vala:893
 msgid "Removing Photos From Library"
 msgstr "Удаление фотографий из библиотеки"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:915
+#: src/Dialogs/Dialogs.vala:929
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1925,7 +1928,7 @@ msgid "Add"
 msgstr "Добавить"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
 msgid "Save"
 msgstr "Сохранить"
 
@@ -1953,8 +1956,8 @@ msgstr "из следующих:"
 msgid "Add rule"
 msgstr ""
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
-#: src/Views/DirectPhotoPage.vala:416
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
+#: src/Views/DirectPhotoPage.vala:420
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -2234,15 +2237,15 @@ msgstr "По _убыванию"
 msgid "Sort photos in a descending order"
 msgstr "Сортировать фото по убыванию"
 
-#: src/library/LibraryWindow.vala:615
+#: src/library/LibraryWindow.vala:616
 msgid "Import From Folder"
 msgstr "Импортировать из папки"
 
-#: src/library/LibraryWindow.vala:617
+#: src/library/LibraryWindow.vala:619
 msgid "Import"
 msgstr "Импортировать"
 
-#: src/library/LibraryWindow.vala:780
+#: src/library/LibraryWindow.vala:782
 #, fuzzy, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2255,48 +2258,48 @@ msgstr ""
 "Параметры</span>.\n"
 "Продолжить импорт фотографии?"
 
-#: src/library/LibraryWindow.vala:784
+#: src/library/LibraryWindow.vala:786
 msgid "_Import"
 msgstr "_Импортирование"
 
-#: src/library/LibraryWindow.vala:785
+#: src/library/LibraryWindow.vala:787
 msgid "Library Location"
 msgstr "Расположение библиотеки"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:799
+#: src/library/LibraryWindow.vala:801
 msgid "Photos cannot be imported from this directory."
 msgstr "Фотографии не могут быть импортированы из этого каталога."
 
-#: src/library/LibraryWindow.vala:1026 src/library/LibraryWindow.vala:1037
+#: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
 msgid "Updating library…"
 msgstr "Обновление библиотеки…"
 
-#: src/library/LibraryWindow.vala:1043
+#: src/library/LibraryWindow.vala:1045
 msgid "Preparing to auto-import photos…"
 msgstr "Подготовка для автоматического импорта фотографий…"
 
-#: src/library/LibraryWindow.vala:1048
+#: src/library/LibraryWindow.vala:1050
 msgid "Auto-importing photos…"
 msgstr "Автоматический импорт фотографий…"
 
-#: src/library/LibraryWindow.vala:1056
+#: src/library/LibraryWindow.vala:1058
 msgid "Writing metadata to files…"
 msgstr "Запись метаданных в файлы…"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Import Photos"
 msgstr "Импорт фотографий"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Copy photos from a folder or external device."
 msgstr "Копировать фотографии из папки или внешнего устройства."
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Change Library Folder"
 msgstr "Изменить папку с фотографиями"
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Choose where to keep your photos."
 msgstr "Выбрать, где сохранять ваши фотографии."
 
@@ -2733,7 +2736,7 @@ msgstr "Закрыть _без сохранения"
 msgid "Error while saving to %s: %s"
 msgstr "Ошибка при сохранении в %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
 msgid "Save As"
 msgstr "Сохранить как"
 
@@ -3182,95 +3185,95 @@ msgid "Remove rule"
 msgstr "_Удалить"
 
 #. Ordering must correspond with Context
-#: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
+#: src/Widgets/SearchRowDate.vala:33 src/Widgets/SearchRowText.vala:31
 msgid "is exactly"
 msgstr "точно"
 
-#: src/Widgets/SearchRowDate.vala:37
+#: src/Widgets/SearchRowDate.vala:34
 msgid "is after"
 msgstr "после"
 
-#: src/Widgets/SearchRowDate.vala:38
+#: src/Widgets/SearchRowDate.vala:35
 msgid "is before"
 msgstr "перед"
 
-#: src/Widgets/SearchRowDate.vala:39
+#: src/Widgets/SearchRowDate.vala:36
 msgid "is between"
 msgstr "между"
 
-#: src/Widgets/SearchRowDate.vala:40 src/Widgets/SearchRowText.vala:38
+#: src/Widgets/SearchRowDate.vala:37 src/Widgets/SearchRowText.vala:35
 msgid "is not set"
 msgstr "не задано"
 
-#: src/Widgets/SearchRowDate.vala:47
+#: src/Widgets/SearchRowDate.vala:44
 msgid "and"
 msgstr "и"
 
 #. Ordering must correspond with SearchConditionFlagged.State
-#: src/Widgets/SearchRowFlagged.vala:32
+#: src/Widgets/SearchRowFlagged.vala:29
 msgid "flagged"
 msgstr "отмеченные"
 
-#: src/Widgets/SearchRowFlagged.vala:33
+#: src/Widgets/SearchRowFlagged.vala:30
 msgid "not flagged"
 msgstr "не отмеченные"
 
 #. Ordering must correspond with SearchConditionMediaType.Context
-#: src/Widgets/SearchRowFlagged.vala:38 src/Widgets/SearchRowMediaType.vala:33
+#: src/Widgets/SearchRowFlagged.vala:34 src/Widgets/SearchRowMediaType.vala:30
 msgid "is"
 msgstr "-"
 
-#: src/Widgets/SearchRowMediaType.vala:34
+#: src/Widgets/SearchRowMediaType.vala:31
 msgid "is not"
 msgstr "не"
 
 #. Ordering must correspond with SearchConditionMediaType.MediaType
-#: src/Widgets/SearchRowMediaType.vala:40
+#: src/Widgets/SearchRowMediaType.vala:37
 msgid "any photo"
 msgstr "любое фото"
 
-#: src/Widgets/SearchRowMediaType.vala:41
+#: src/Widgets/SearchRowMediaType.vala:38
 msgid "a raw photo"
 msgstr "цифровой негатив"
 
-#: src/Widgets/SearchRowMediaType.vala:42
+#: src/Widgets/SearchRowMediaType.vala:39
 msgid "a video"
 msgstr "видео"
 
-#: src/Widgets/SearchRowModified.vala:32
+#: src/Widgets/SearchRowModified.vala:29
 msgid "has"
 msgstr "содержит"
 
-#: src/Widgets/SearchRowModified.vala:33
+#: src/Widgets/SearchRowModified.vala:30
 msgid "has no"
 msgstr "не содержит"
 
-#: src/Widgets/SearchRowModified.vala:38
+#: src/Widgets/SearchRowModified.vala:35
 msgid "modifications"
 msgstr "модификации"
 
-#: src/Widgets/SearchRowModified.vala:39
+#: src/Widgets/SearchRowModified.vala:36
 msgid "internal modifications"
 msgstr "внутренние модификации"
 
-#: src/Widgets/SearchRowModified.vala:40
+#: src/Widgets/SearchRowModified.vala:37
 msgid "external modifications"
 msgstr "внешние модификации"
 
 #. Ordering must correspond with SearchConditionText.Context
-#: src/Widgets/SearchRowText.vala:33
+#: src/Widgets/SearchRowText.vala:30
 msgid "contains"
 msgstr "содержит"
 
-#: src/Widgets/SearchRowText.vala:35
+#: src/Widgets/SearchRowText.vala:32
 msgid "starts with"
 msgstr "начинается с"
 
-#: src/Widgets/SearchRowText.vala:36
+#: src/Widgets/SearchRowText.vala:33
 msgid "ends with"
 msgstr "оканчивается на"
 
-#: src/Widgets/SearchRowText.vala:37
+#: src/Widgets/SearchRowText.vala:34
 msgid "does not contain"
 msgstr "не содержит"
 
@@ -3388,7 +3391,7 @@ msgstr "Основные сервисы публикации"
 msgid "A temporary file needed for publishing is unavailable"
 msgstr "Временный файл, необходимый для публикации, недоступен"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3469,7 +3472,7 @@ msgstr "Менеджер подключений Shotwell"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
 msgid "Everyone"
 msgstr "Всем"
 
@@ -3642,7 +3645,7 @@ msgid "Friends only"
 msgstr "Только друзья"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1217
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Just me"
 msgstr "Только мне"
 
@@ -3704,7 +3707,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "URL перенаправления сервера не содержит ключа доступа"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3713,16 +3716,16 @@ msgstr ""
 "Вы зашли в Facebook как %s.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
 msgid "Where would you like to publish the selected photos?"
 msgstr "Где бы вы хотели опубликовать выбранные фотографии?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "_Размеры выгруженного:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "Друзья"
@@ -3906,7 +3909,7 @@ msgstr "Все права защищены 2010+ Евгений Поляков <
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Перейти на сайт Яндекс.Фотки"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:654
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "Вы не вошли в Яндекс.Фотки."
 
@@ -3955,7 +3958,7 @@ msgstr ""
 msgid "Shotwell Extra Publishing Services"
 msgstr "Дополнительные службы публикации Shotwell"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this Shotwell "
 "session.\n"

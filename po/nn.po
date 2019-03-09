@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:41-0500\n"
+"POT-Creation-Date: 2019-03-08 16:39-0800\n"
 "PO-Revision-Date: 2019-01-05 17:52+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -239,7 +239,8 @@ msgid "Time adjustments could not be undone on the following photo file."
 msgid_plural ""
 "Time adjustments could not be undone on the following photo files."
 msgstr[0] "Tidsjusteringar kunne ikkje gjerast om på den følgande biletefila."
-msgstr[1] "Tidsjusteringar kunne ikkje gjerast om på dei følgande biletefilene."
+msgstr[1] ""
+"Tidsjusteringar kunne ikkje gjerast om på dei følgande biletefilene."
 
 #: src/Commands.vala:1572 src/Commands.vala:1595
 msgid "Create Tag"
@@ -355,11 +356,10 @@ msgid "Replace _All"
 msgstr "Overskriv _alle"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:70
-#: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
-#: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
+#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -395,8 +395,8 @@ msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
 msgstr ""
-"Bilete var ikkje i stand til å oppgradere bibiloteket ditt frå versjon %s ("
-"skjema %d) til %s (skjema %d). For meir informasjon, sjekk Bilete sin wiki "
+"Bilete var ikkje i stand til å oppgradere bibiloteket ditt frå versjon %s "
+"(skjema %d) til %s (skjema %d). For meir informasjon, sjekk Bilete sin wiki "
 "på %s"
 
 #: src/main.vala:79
@@ -715,7 +715,7 @@ msgstr "Omgjer til original"
 msgid "Re_name Event…"
 msgstr "Gje nytt namn til ei hending…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
 msgid "Rename Event"
 msgstr "Gje nytt namn til hending"
 
@@ -1172,7 +1172,7 @@ msgstr[1] "Dette vil fjerne taggen «%s» frå %d bilete. Hald fram?"
 msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "Dette vil fjerne smart-albumet «%s».  Hald fram?"
 
-#: src/Dialogs/Dialogs.vala:67
+#: src/Dialogs/Dialogs.vala:66
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1186,29 +1186,33 @@ msgstr[1] ""
 "Å endre framkallar vil fjerne alle endringane du har gjort på desse bileta, "
 "i Bilete"
 
-#: src/Dialogs/Dialogs.vala:71
+#: src/Dialogs/Dialogs.vala:72
+msgid "Are You Sure You Want to Switch Developers?"
+msgstr ""
+
+#: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
 msgstr "_Byt framkallar"
 
-#: src/Dialogs/Dialogs.vala:90
+#: src/Dialogs/Dialogs.vala:98
 msgid "Export Video"
 msgstr "Eksporter video"
 
-#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
 msgid "Export Photo"
 msgstr "Eksporter bilete"
 
-#: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Lagre"
 
-#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
 msgid "Export Photos"
 msgstr "Eksporter bilete"
 
-#: src/Dialogs/Dialogs.vala:123
+#: src/Dialogs/Dialogs.vala:131
 msgid "_Select"
 msgstr "_Vel"
 
@@ -1217,7 +1221,7 @@ msgstr "_Vel"
 #. if we can't copy an image over for editing in an external tool.
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:147
+#: src/Dialogs/Dialogs.vala:157
 #, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
@@ -1226,7 +1230,7 @@ msgstr ""
 "Bilete kunne ikkje lage ei fil til redigering av dette biletet, sidan du "
 "manglar skrivetilgjenge til %s."
 
-#: src/Dialogs/Dialogs.vala:156
+#: src/Dialogs/Dialogs.vala:166
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1234,7 +1238,7 @@ msgstr ""
 "Kan ikkje eksportere dei følgande bileta på grunn av ein filfeil.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:162
+#: src/Dialogs/Dialogs.vala:172
 msgid ""
 "\n"
 "\n"
@@ -1244,36 +1248,36 @@ msgstr ""
 "\n"
 "Vil du halde fram med eksporteringa?"
 
-#: src/Dialogs/Dialogs.vala:163
+#: src/Dialogs/Dialogs.vala:173
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Hald _fram"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:183
 msgid "Save Details…"
 msgstr "Lagre detaljar…"
 
-#: src/Dialogs/Dialogs.vala:174
+#: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
 msgstr "Lagre detaljar"
 
-#: src/Dialogs/Dialogs.vala:189
+#: src/Dialogs/Dialogs.vala:199
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(og %d fleire)\n"
 
-#: src/Dialogs/Dialogs.vala:242
+#: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
 msgstr "Importeringsrapport"
 
-#: src/Dialogs/Dialogs.vala:246
+#: src/Dialogs/Dialogs.vala:256
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "Prøvde å importere %d fil."
 msgstr[1] "Prøvde å importere %d filer."
 
-#: src/Dialogs/Dialogs.vala:249
+#: src/Dialogs/Dialogs.vala:259
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1283,31 +1287,31 @@ msgstr[1] "Av desse vart %d filer importert utan feil."
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:261
+#: src/Dialogs/Dialogs.vala:271
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Duplikatbilete og -videoar som ikkje vart importert:"
 
-#: src/Dialogs/Dialogs.vala:265
+#: src/Dialogs/Dialogs.vala:275
 msgid "duplicates existing media item"
 msgstr "Det finst duplikat i dette mediet"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:276
+#: src/Dialogs/Dialogs.vala:286
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Bilete/videoar vart ikkje importert på grunn av kamerafeil:"
 
-#: src/Dialogs/Dialogs.vala:279 src/Dialogs/Dialogs.vala:294
-#: src/Dialogs/Dialogs.vala:309 src/Dialogs/Dialogs.vala:325
-#: src/Dialogs/Dialogs.vala:340 src/Dialogs/Dialogs.vala:354
+#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
+#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
+#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
 msgid "error message:"
 msgstr "Feilmelding:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:290
+#: src/Dialogs/Dialogs.vala:300
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Filene vart ikkje importert fordi dei ikkje blei oppfatta som bilete eller "
@@ -1316,7 +1320,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:305
+#: src/Dialogs/Dialogs.vala:315
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
@@ -1327,7 +1331,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:320
+#: src/Dialogs/Dialogs.vala:330
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
@@ -1335,7 +1339,7 @@ msgstr ""
 "Bilete/videoar vart ikkje importert fordi Bilete ikkje greidde å kopiere dei "
 "til sitt bibliotek:"
 
-#: src/Dialogs/Dialogs.vala:324
+#: src/Dialogs/Dialogs.vala:334
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1347,39 +1351,39 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:336
+#: src/Dialogs/Dialogs.vala:346
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Bilete/videoar vart ikkje importert fordi filene har feil i seg:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:351
+#: src/Dialogs/Dialogs.vala:361
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Bilete/videoar vart ikkje importert på grunn av andre årsaker:"
 
-#: src/Dialogs/Dialogs.vala:371
+#: src/Dialogs/Dialogs.vala:381
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "1 duplikatbilete vart ikkje importert:\n"
 msgstr[1] "%d duplikatbilete vart ikkje importert:\n"
 
-#: src/Dialogs/Dialogs.vala:374
+#: src/Dialogs/Dialogs.vala:384
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "1 duplikatvideo vart ikkje importert:\n"
 msgstr[1] "%d duplikatvideoar vart ikkje importert:\n"
 
-#: src/Dialogs/Dialogs.vala:377
+#: src/Dialogs/Dialogs.vala:387
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "1 duplikatbilete/video vart ikkje importert:\n"
 msgstr[1] "%d duplikatbilete/videoar vart ikkje importert:\n"
 
-#: src/Dialogs/Dialogs.vala:391
+#: src/Dialogs/Dialogs.vala:401
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
@@ -1388,7 +1392,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d bilete vart ikkje importert på grunn av ein fil- eller maskinvarefeil:\n"
 
-#: src/Dialogs/Dialogs.vala:394
+#: src/Dialogs/Dialogs.vala:404
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -1397,7 +1401,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d videoar vart ikkje importert på grunn av ein fil- eller maskinvarefeil:\n"
 
-#: src/Dialogs/Dialogs.vala:397
+#: src/Dialogs/Dialogs.vala:407
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1409,14 +1413,16 @@ msgstr[1] ""
 "%d bilete/videoar vart ikkje importert på grunn av ein fil- eller "
 "maskinvarefeil:\n"
 
-#: src/Dialogs/Dialogs.vala:400
+#: src/Dialogs/Dialogs.vala:410
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
-msgstr[0] "1 fil vart ikkje importert på grunn av ein fil- eller maskinvarefeil:\n"
-msgstr[1] "%d filer vart ikkje importert på grunn av fil- eller maskinvarefeil:\n"
+msgstr[0] ""
+"1 fil vart ikkje importert på grunn av ein fil- eller maskinvarefeil:\n"
+msgstr[1] ""
+"%d filer vart ikkje importert på grunn av fil- eller maskinvarefeil:\n"
 
-#: src/Dialogs/Dialogs.vala:414
+#: src/Dialogs/Dialogs.vala:424
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1430,7 +1436,7 @@ msgstr[1] ""
 "%d bilete feila under importering fordi biblioteksmappa ikkje var mogleg å "
 "skrive til:\n"
 
-#: src/Dialogs/Dialogs.vala:417
+#: src/Dialogs/Dialogs.vala:427
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1444,7 +1450,7 @@ msgstr[1] ""
 "%d videoar feila under importering fordi biblioteksmappa ikkje var mogleg å "
 "skrive til:\n"
 
-#: src/Dialogs/Dialogs.vala:420
+#: src/Dialogs/Dialogs.vala:430
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1459,7 +1465,7 @@ msgstr[1] ""
 "%d bilete/videoar feila under importering fordi biblioteksmappa ikkje var "
 "mogleg å skrive til:\n"
 
-#: src/Dialogs/Dialogs.vala:423
+#: src/Dialogs/Dialogs.vala:433
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1473,56 +1479,56 @@ msgstr[1] ""
 "%d filer feila under importering fordi biblioteksmappa ikkje var mogleg å "
 "skrive til:\n"
 
-#: src/Dialogs/Dialogs.vala:437
+#: src/Dialogs/Dialogs.vala:447
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "1 bilete vart ikkje importert på grunn av ein kamerafeil:\n"
 msgstr[1] "%d bilete vart ikkje importert på grunn av ein kamerafeil:\n"
 
-#: src/Dialogs/Dialogs.vala:440
+#: src/Dialogs/Dialogs.vala:450
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "1 video vart ikkje importert på grunn av ein kamerafeil:\n"
 msgstr[1] "%d videoar vart ikkje importert på grunn av ein kamerafeil:\n"
 
-#: src/Dialogs/Dialogs.vala:443
+#: src/Dialogs/Dialogs.vala:453
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] "1 bilete/video vart ikkje importert på grunn av ein kamerafeil:\n"
 msgstr[1] "%d bilete/videoar vart ikkje importert på grunn av kamerafeil:\n"
 
-#: src/Dialogs/Dialogs.vala:446
+#: src/Dialogs/Dialogs.vala:456
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "1 fil vart ikkje importert på grunn av ein kamerafeil.\n"
 msgstr[1] "%d filer vart ikkje importert på grunn av kamerafeil.\n"
 
-#: src/Dialogs/Dialogs.vala:460
+#: src/Dialogs/Dialogs.vala:470
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "1 bilete vart ikkje importert fordi fila inneheldt feil:\n"
 msgstr[1] "%d bilete vart ikkje importert fordi filene inneheldt feil:\n"
 
-#: src/Dialogs/Dialogs.vala:463
+#: src/Dialogs/Dialogs.vala:473
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "1 video vart ikkje importert fordi fila inneheldt feil:\n"
 msgstr[1] "%d videoar vart ikkje importert fordi filene inneheldt feil:\n"
 
-#: src/Dialogs/Dialogs.vala:466
+#: src/Dialogs/Dialogs.vala:476
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] "1 bilete/video vart ikkje importert fordi fila var skada:\n"
 msgstr[1] "%d bilete/video vart ikkje importert fordi filene var skada:\n"
 
-#: src/Dialogs/Dialogs.vala:469
+#: src/Dialogs/Dialogs.vala:479
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1533,7 +1539,7 @@ msgstr[1] "%d filer vart ikkje importert fordi dei var skada:\n"
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:486
+#: src/Dialogs/Dialogs.vala:496
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1542,56 +1548,57 @@ msgstr[1] "%d bilete blei utelatne (formatet er ikkje støtta):\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:501
+#: src/Dialogs/Dialogs.vala:511
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "1 fil, som ikkje er eit bilete, blei utelate.\n"
 msgstr[1] "%d filer, som ikkje er bilete, blei utelatne.\n"
 
-#: src/Dialogs/Dialogs.vala:512
+#: src/Dialogs/Dialogs.vala:522
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "1 bilete vart utelate fordi brukaren avbraut operasjonen:\n"
 msgstr[1] "%d bilete vart utelatne fordi brukaren avbraut operasjonen:\n"
 
-#: src/Dialogs/Dialogs.vala:515
+#: src/Dialogs/Dialogs.vala:525
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "1 video vart utelate fordi brukaren avbraut operasjonen:\n"
 msgstr[1] "%d videoar vart utelatne fordi brukaren avbraut operasjonen:\n"
 
-#: src/Dialogs/Dialogs.vala:518
+#: src/Dialogs/Dialogs.vala:528
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "1 bilete/video vart utelate fordi brukaren avbraut operasjonen:\n"
-msgstr[1] "%d bilete/videoar vart utelatne fordi brukaren avbraut operasjonen:\n"
+msgstr[1] ""
+"%d bilete/videoar vart utelatne fordi brukaren avbraut operasjonen:\n"
 
-#: src/Dialogs/Dialogs.vala:521
+#: src/Dialogs/Dialogs.vala:531
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "1 fil utelate fordi brukaren avbraut operasjonen.\n"
 msgstr[1] "%d filer utelatne fordi brukaren avbraut operasjonen.\n"
 
-#: src/Dialogs/Dialogs.vala:535
+#: src/Dialogs/Dialogs.vala:545
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 bilete importert.\n"
 msgstr[1] "%d bilete importert.\n"
 
-#: src/Dialogs/Dialogs.vala:538
+#: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "1 video vart importert.\n"
 msgstr[1] "%d videoar vart importert.\n"
 
-#: src/Dialogs/Dialogs.vala:541
+#: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1600,31 +1607,31 @@ msgstr[1] "%d bilete/videoar vart importert.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:557
+#: src/Dialogs/Dialogs.vala:567
 msgid "No photos or videos imported.\n"
 msgstr "Ingen bilete eller videoar vart importert.\n"
 
-#: src/Dialogs/Dialogs.vala:564 src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
 msgid "Import Complete"
 msgstr "Importering fullført"
 
-#: src/Dialogs/Dialogs.vala:568
+#: src/Dialogs/Dialogs.vala:578
 msgid "_Done"
 msgstr "_Ferdig"
 
-#: src/Dialogs/Dialogs.vala:755 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edit?"
 msgstr "Gjer om eksterne redigeringar?"
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edits?"
 msgstr "Nullstill eksterne redigeringar?"
 
-#: src/Dialogs/Dialogs.vala:775
+#: src/Dialogs/Dialogs.vala:789
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1636,34 +1643,34 @@ msgstr[1] ""
 "Dette vil øydelegge alle endringar som er gjort med %d eksterne filer.  Hald "
 "fram?"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edit"
 msgstr "_Gjer om eksterne redigeringar"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edits"
 msgstr "_Nullstill eksterne redigeringar"
 
-#: src/Dialogs/Dialogs.vala:801
+#: src/Dialogs/Dialogs.vala:815
 msgid "Remove Photo From Library"
 msgstr "Fjern bilete frå biletebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:816
 msgid "Remove Photos From Library"
 msgstr "Fjern bilete frå biblioteket"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:821
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "Dette vil fjerne biletet frå biblioteket.  Vil du halde fram?"
 msgstr[1] "Dette vil fjerne %d bilete frå biblioteket.  Vil du halde fram?"
 
-#: src/Dialogs/Dialogs.vala:820
+#: src/Dialogs/Dialogs.vala:834
 msgid "_Remove"
 msgstr "_Fjern"
 
-#: src/Dialogs/Dialogs.vala:841
+#: src/Dialogs/Dialogs.vala:855
 #, c-format
 msgid ""
 "\n"
@@ -1684,7 +1691,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:861
+#: src/Dialogs/Dialogs.vala:875
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1692,32 +1699,32 @@ msgstr ""
 "Bilete kan ikkje kopiere bileta til biblioteksmappa di eller importere dei "
 "utan å kopiere."
 
-#: src/Dialogs/Dialogs.vala:866
+#: src/Dialogs/Dialogs.vala:880
 msgid "Co_py Photos"
 msgstr "_Kopier bilete"
 
-#: src/Dialogs/Dialogs.vala:867
+#: src/Dialogs/Dialogs.vala:881
 msgid "_Import in Place"
 msgstr "_Importer utan kopiering"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "Importer til biblioteket"
 
-#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Fjern frå biblioteket"
 
-#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Fjern bilete frå biblioteket"
 
-#: src/Dialogs/Dialogs.vala:879
+#: src/Dialogs/Dialogs.vala:893
 msgid "Removing Photos From Library"
 msgstr "Fjernar bilete frå biblioteket"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:915
+#: src/Dialogs/Dialogs.vala:929
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1807,7 +1814,7 @@ msgid "Add"
 msgstr "Legg til"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
 msgid "Save"
 msgstr "Lagre"
 
@@ -1835,8 +1842,8 @@ msgstr "for dei følgande:"
 msgid "Add rule"
 msgstr "Legg til regel"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
-#: src/Views/DirectPhotoPage.vala:416
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
+#: src/Views/DirectPhotoPage.vala:420
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -2114,15 +2121,15 @@ msgstr "S_igande"
 msgid "Sort photos in a descending order"
 msgstr "Sorter bilete i sigande rekkefølge"
 
-#: src/library/LibraryWindow.vala:615
+#: src/library/LibraryWindow.vala:616
 msgid "Import From Folder"
 msgstr "Importer frå mappe"
 
-#: src/library/LibraryWindow.vala:617
+#: src/library/LibraryWindow.vala:619
 msgid "Import"
 msgstr "Importer"
 
-#: src/library/LibraryWindow.vala:780
+#: src/library/LibraryWindow.vala:782
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2131,52 +2138,52 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 "Bilete er sett opp til å importere bilete til heimemappa.\n"
-"Vi tilrår at du endrar dette i <span weight=\"bold\">Endre "
-"%s-innstillingar</span>.\n"
+"Vi tilrår at du endrar dette i <span weight=\"bold\">Endre %s-innstillingar</"
+"span>.\n"
 "Vil du halde fram med importeringa av bilete?"
 
-#: src/library/LibraryWindow.vala:784
+#: src/library/LibraryWindow.vala:786
 msgid "_Import"
 msgstr "_Importer"
 
-#: src/library/LibraryWindow.vala:785
+#: src/library/LibraryWindow.vala:787
 msgid "Library Location"
 msgstr "Bibliotekplassering"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:799
+#: src/library/LibraryWindow.vala:801
 msgid "Photos cannot be imported from this directory."
 msgstr "Ingen bilete frå denne mappa kunne importerast."
 
-#: src/library/LibraryWindow.vala:1026 src/library/LibraryWindow.vala:1037
+#: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
 msgid "Updating library…"
 msgstr "Oppdaterer bibliotek…"
 
-#: src/library/LibraryWindow.vala:1043
+#: src/library/LibraryWindow.vala:1045
 msgid "Preparing to auto-import photos…"
 msgstr "Førebur automatisk importering av bilete…"
 
-#: src/library/LibraryWindow.vala:1048
+#: src/library/LibraryWindow.vala:1050
 msgid "Auto-importing photos…"
 msgstr "Importerer bilete automatisk…"
 
-#: src/library/LibraryWindow.vala:1056
+#: src/library/LibraryWindow.vala:1058
 msgid "Writing metadata to files…"
 msgstr "Skriv metadata til filer…"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Import Photos"
 msgstr "Importer bilete"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Copy photos from a folder or external device."
 msgstr "Kopier bilete frå ei mappe eller ei ekstern eining."
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Change Library Folder"
 msgstr "Endre biblioteksmappe"
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Choose where to keep your photos."
 msgstr "Vel plassering for bileta dine."
 
@@ -2609,7 +2616,7 @@ msgstr "Lukk _utan å lagre"
 msgid "Error while saving to %s: %s"
 msgstr "Feil under lagring til %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
 msgid "Save As"
 msgstr "Lagre som"
 
@@ -3038,95 +3045,95 @@ msgid "Remove rule"
 msgstr "Fjern regel"
 
 #. Ordering must correspond with Context
-#: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
+#: src/Widgets/SearchRowDate.vala:33 src/Widgets/SearchRowText.vala:31
 msgid "is exactly"
 msgstr "er akkurat"
 
-#: src/Widgets/SearchRowDate.vala:37
+#: src/Widgets/SearchRowDate.vala:34
 msgid "is after"
 msgstr "er etter"
 
-#: src/Widgets/SearchRowDate.vala:38
+#: src/Widgets/SearchRowDate.vala:35
 msgid "is before"
 msgstr "er før"
 
-#: src/Widgets/SearchRowDate.vala:39
+#: src/Widgets/SearchRowDate.vala:36
 msgid "is between"
 msgstr "er mellom"
 
-#: src/Widgets/SearchRowDate.vala:40 src/Widgets/SearchRowText.vala:38
+#: src/Widgets/SearchRowDate.vala:37 src/Widgets/SearchRowText.vala:35
 msgid "is not set"
 msgstr "er ikkje sett"
 
-#: src/Widgets/SearchRowDate.vala:47
+#: src/Widgets/SearchRowDate.vala:44
 msgid "and"
 msgstr "og"
 
 #. Ordering must correspond with SearchConditionFlagged.State
-#: src/Widgets/SearchRowFlagged.vala:32
+#: src/Widgets/SearchRowFlagged.vala:29
 msgid "flagged"
 msgstr "markert"
 
-#: src/Widgets/SearchRowFlagged.vala:33
+#: src/Widgets/SearchRowFlagged.vala:30
 msgid "not flagged"
 msgstr "ikkje markert"
 
 #. Ordering must correspond with SearchConditionMediaType.Context
-#: src/Widgets/SearchRowFlagged.vala:38 src/Widgets/SearchRowMediaType.vala:33
+#: src/Widgets/SearchRowFlagged.vala:34 src/Widgets/SearchRowMediaType.vala:30
 msgid "is"
 msgstr "er"
 
-#: src/Widgets/SearchRowMediaType.vala:34
+#: src/Widgets/SearchRowMediaType.vala:31
 msgid "is not"
 msgstr "er ikkje"
 
 #. Ordering must correspond with SearchConditionMediaType.MediaType
-#: src/Widgets/SearchRowMediaType.vala:40
+#: src/Widgets/SearchRowMediaType.vala:37
 msgid "any photo"
 msgstr "kva som helst slags bilete"
 
-#: src/Widgets/SearchRowMediaType.vala:41
+#: src/Widgets/SearchRowMediaType.vala:38
 msgid "a raw photo"
 msgstr "eit RAW-bilete"
 
-#: src/Widgets/SearchRowMediaType.vala:42
+#: src/Widgets/SearchRowMediaType.vala:39
 msgid "a video"
 msgstr "ein video"
 
-#: src/Widgets/SearchRowModified.vala:32
+#: src/Widgets/SearchRowModified.vala:29
 msgid "has"
 msgstr "har"
 
-#: src/Widgets/SearchRowModified.vala:33
+#: src/Widgets/SearchRowModified.vala:30
 msgid "has no"
 msgstr "har ikkje"
 
-#: src/Widgets/SearchRowModified.vala:38
+#: src/Widgets/SearchRowModified.vala:35
 msgid "modifications"
 msgstr "endringar"
 
-#: src/Widgets/SearchRowModified.vala:39
+#: src/Widgets/SearchRowModified.vala:36
 msgid "internal modifications"
 msgstr "interne endringar"
 
-#: src/Widgets/SearchRowModified.vala:40
+#: src/Widgets/SearchRowModified.vala:37
 msgid "external modifications"
 msgstr "eksterne endringar"
 
 #. Ordering must correspond with SearchConditionText.Context
-#: src/Widgets/SearchRowText.vala:33
+#: src/Widgets/SearchRowText.vala:30
 msgid "contains"
 msgstr "inneheld"
 
-#: src/Widgets/SearchRowText.vala:35
+#: src/Widgets/SearchRowText.vala:32
 msgid "starts with"
 msgstr "byrjar med"
 
-#: src/Widgets/SearchRowText.vala:36
+#: src/Widgets/SearchRowText.vala:33
 msgid "ends with"
 msgstr "sluttar med"
 
-#: src/Widgets/SearchRowText.vala:37
+#: src/Widgets/SearchRowText.vala:34
 msgid "does not contain"
 msgstr "inneheld ikkje"
 
@@ -3239,9 +3246,10 @@ msgstr "Hovudteneste for publisering"
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
 msgid "A temporary file needed for publishing is unavailable"
-msgstr "Ei mellombels fil som er naudsynt for å publisere er ikkje tilgjengeleg"
+msgstr ""
+"Ei mellombels fil som er naudsynt for å publisere er ikkje tilgjengeleg"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3317,7 +3325,7 @@ msgstr "Shotwell-tilkopling"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
 msgid "Everyone"
 msgstr "Alle"
 
@@ -3488,7 +3496,7 @@ msgid "Friends only"
 msgstr "Berre vennar"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1217
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Just me"
 msgstr "Berre meg sjølv"
 
@@ -3547,7 +3555,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "Tenaren si vidaresendingsadresse inneheld ikkje ein tilgangsnøkkel"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3556,16 +3564,16 @@ msgstr ""
 "Du er logga inn på Facebook som %s.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
 msgid "Where would you like to publish the selected photos?"
 msgstr "Kvar vil du publisere dei utvalde bileta?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "Opplastinsstorleik:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "Vennar"
@@ -3626,7 +3634,8 @@ msgstr "Albumkommentar:"
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
 msgid ""
 "_Remove location, camera, and other identifying information before uploading"
-msgstr "_Fjern stad, kamera og annan identifiserande informasjon før opplasting"
+msgstr ""
+"_Fjern stad, kamera og annan identifiserande informasjon før opplasting"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:242
 msgid "_If a title is set and comment unset, use title as comment"
@@ -3745,7 +3754,7 @@ msgstr "Opphavsrett 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Sjå nettsida Yandex.Fotki"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:654
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "Du er ikkje logga inn på Yandex.Fotki."
 
@@ -3793,7 +3802,7 @@ msgstr ""
 msgid "Shotwell Extra Publishing Services"
 msgstr "Shotwell ekstra publiseringstjenester"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this Shotwell "
 "session.\n"

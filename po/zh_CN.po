@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:41-0500\n"
+"POT-Creation-Date: 2019-03-08 16:39-0800\n"
 "PO-Revision-Date: 2019-01-16 00:03+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
@@ -373,11 +373,10 @@ msgid "Replace _All"
 msgstr "全部替换"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:70
-#: src/Dialogs/Dialogs.vala:93 src/Dialogs/Dialogs.vala:122
-#: src/Dialogs/Dialogs.vala:607 src/Dialogs/Dialogs.vala:783
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
-#: src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
+#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -403,15 +402,17 @@ msgid ""
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please use the latest version of Photos."
 msgstr ""
-"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建的，当前版本是 %s (schema %d) "
-"。请使用最新版本的照片。"
+"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建"
+"的，当前版本是 %s (schema %d) 。请使用最新版本的照片。"
 
 #: src/main.vala:73
 #, c-format
 msgid ""
 "Photos was unable to upgrade your photo library from version %s (schema %d) "
 "to %s (schema %d).  For more information please check the Photos Wiki at %s"
-msgstr "无法将您的媒体库从 %s (schema %d) 版本升级到 %s (schema %d) 版本。更多的信息请查询此应用百科 %s"
+msgstr ""
+"无法将您的媒体库从 %s (schema %d) 版本升级到 %s (schema %d) 版本。更多的信息"
+"请查询此应用百科 %s"
 
 #: src/main.vala:79
 #, c-format
@@ -420,8 +421,9 @@ msgid ""
 "appears it was created by Photos %s (schema %d).  This version is %s (schema "
 "%d).  Please clear your library by deleting %s and re-import your photos."
 msgstr ""
-"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建的。当前版本号为 %s (schema %d) 。请删除 %s "
-"来清理您的照片库然后重新导入照片。"
+"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建"
+"的。当前版本号为 %s (schema %d) 。请删除 %s 来清理您的照片库然后重新导入照"
+"片。"
 
 #: src/main.vala:85
 #, c-format
@@ -725,7 +727,7 @@ msgstr "恢复到原始"
 msgid "Re_name Event…"
 msgstr "重命名事件…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:755
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
 msgid "Rename Event"
 msgstr "重命名事件"
 
@@ -1177,7 +1179,7 @@ msgstr[0] "这将移除标签 \"%s\" 从 %d 张照片中。继续么？"
 msgid "This will remove the smart album \"%s\".  Continue?"
 msgstr "这将会移除智能相册\"%s\"，继续吗？"
 
-#: src/Dialogs/Dialogs.vala:67
+#: src/Dialogs/Dialogs.vala:66
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1186,29 +1188,33 @@ msgid_plural ""
 "Photos"
 msgstr[0] "切换开发者将撤销您对这些照片所作的全部更改"
 
-#: src/Dialogs/Dialogs.vala:71
+#: src/Dialogs/Dialogs.vala:72
+msgid "Are You Sure You Want to Switch Developers?"
+msgstr ""
+
+#: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
 msgstr "切换开发者"
 
-#: src/Dialogs/Dialogs.vala:90
+#: src/Dialogs/Dialogs.vala:98
 msgid "Export Video"
 msgstr "导出视频"
 
-#: src/Dialogs/Dialogs.vala:90 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
 msgid "Export Photo"
 msgstr "导出照片"
 
-#: src/Dialogs/Dialogs.vala:94 src/Dialogs/Dialogs.vala:607
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "保存"
 
-#: src/Dialogs/Dialogs.vala:119 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
 msgid "Export Photos"
 msgstr "导出照片"
 
-#: src/Dialogs/Dialogs.vala:123
+#: src/Dialogs/Dialogs.vala:131
 msgid "_Select"
 msgstr "选择"
 
@@ -1217,14 +1223,14 @@ msgstr "选择"
 #. if we can't copy an image over for editing in an external tool.
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:147
+#: src/Dialogs/Dialogs.vala:157
 #, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr "无法创建编辑此照片所需要的文件，因为您没有写入 %s 的权限。"
 
-#: src/Dialogs/Dialogs.vala:156
+#: src/Dialogs/Dialogs.vala:166
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1232,7 +1238,7 @@ msgstr ""
 "由于文件错误无法导出以下照片。\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:162
+#: src/Dialogs/Dialogs.vala:172
 msgid ""
 "\n"
 "\n"
@@ -1242,35 +1248,35 @@ msgstr ""
 "\n"
 "您想要继续导出吗?"
 
-#: src/Dialogs/Dialogs.vala:163
+#: src/Dialogs/Dialogs.vala:173
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "继续"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:183
 msgid "Save Details…"
 msgstr "保存详细信息…"
 
-#: src/Dialogs/Dialogs.vala:174
+#: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
 msgstr "保存详细信息..."
 
-#: src/Dialogs/Dialogs.vala:189
+#: src/Dialogs/Dialogs.vala:199
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(和另外 %d 个)\n"
 
-#: src/Dialogs/Dialogs.vala:242
+#: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
 msgstr "导入结果报告"
 
-#: src/Dialogs/Dialogs.vala:246
+#: src/Dialogs/Dialogs.vala:256
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "尝试导入 %d 个文件。"
 
-#: src/Dialogs/Dialogs.vala:249
+#: src/Dialogs/Dialogs.vala:259
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1279,38 +1285,38 @@ msgstr[0] "其中，%d 个文件被成功导入。"
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:261
+#: src/Dialogs/Dialogs.vala:271
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "以下重复的照片/视频没有被导入："
 
-#: src/Dialogs/Dialogs.vala:265
+#: src/Dialogs/Dialogs.vala:275
 msgid "duplicates existing media item"
 msgstr "创建现有媒体文件的副本"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:276
+#: src/Dialogs/Dialogs.vala:286
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "照片/视频因为相机错误而未被导入："
 
-#: src/Dialogs/Dialogs.vala:279 src/Dialogs/Dialogs.vala:294
-#: src/Dialogs/Dialogs.vala:309 src/Dialogs/Dialogs.vala:325
-#: src/Dialogs/Dialogs.vala:340 src/Dialogs/Dialogs.vala:354
+#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
+#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
+#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
 msgid "error message:"
 msgstr "错误信息："
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:290
+#: src/Dialogs/Dialogs.vala:300
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr "以下文件因为它们不被识别为照片或视频而未被导入："
 
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:305
+#: src/Dialogs/Dialogs.vala:315
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
@@ -1319,13 +1325,13 @@ msgstr "以下照片/视频因格式无法识别而未被导入："
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:320
+#: src/Dialogs/Dialogs.vala:330
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr "以下照片/视频因为无法复制而未被导入："
 
-#: src/Dialogs/Dialogs.vala:324
+#: src/Dialogs/Dialogs.vala:334
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1335,61 +1341,61 @@ msgstr "无法将 %s⏎ »拷贝到 %s"
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:336
+#: src/Dialogs/Dialogs.vala:346
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "以下照片或视频因为文件损坏而未被导入："
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:351
+#: src/Dialogs/Dialogs.vala:361
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "因为其他原因而未被导入的照片或视频："
 
-#: src/Dialogs/Dialogs.vala:371
+#: src/Dialogs/Dialogs.vala:381
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "%d 个重复的照片没有导入：\n"
 
-#: src/Dialogs/Dialogs.vala:374
+#: src/Dialogs/Dialogs.vala:384
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "%d 个重复的视频没有导入：\n"
 
-#: src/Dialogs/Dialogs.vala:377
+#: src/Dialogs/Dialogs.vala:387
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "%d 个重复的照片/视频没有导入：\n"
 
-#: src/Dialogs/Dialogs.vala:391
+#: src/Dialogs/Dialogs.vala:401
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
 msgstr[0] "%d 个照片由于文件或硬件错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:394
+#: src/Dialogs/Dialogs.vala:404
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
 msgstr[0] "%d 个视频由于文件或硬件错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:397
+#: src/Dialogs/Dialogs.vala:407
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
 "%d photos/videos failed to import due to a file or hardware error:\n"
 msgstr[0] "%d 个照片/视频由于文件或硬件错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:400
+#: src/Dialogs/Dialogs.vala:410
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] "%d 文件导入失败由于文件或硬件错误：\n"
 
-#: src/Dialogs/Dialogs.vala:414
+#: src/Dialogs/Dialogs.vala:424
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1398,7 +1404,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "%d 张照片由于无法写入媒体库导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:417
+#: src/Dialogs/Dialogs.vala:427
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1407,7 +1413,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "%d 个视频由于无法写入媒体库导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:420
+#: src/Dialogs/Dialogs.vala:430
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1417,7 +1423,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "%d 个照片/视频由于无法写入媒体库导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:423
+#: src/Dialogs/Dialogs.vala:433
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1426,49 +1432,49 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "%d 文件导入失败因为照片库目录不可写：\n"
 
-#: src/Dialogs/Dialogs.vala:437
+#: src/Dialogs/Dialogs.vala:447
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "%d 个照片由于相机错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:440
+#: src/Dialogs/Dialogs.vala:450
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "%d 个视频由于相机错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:443
+#: src/Dialogs/Dialogs.vala:453
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] "%d 个照片/视频由于相机错误导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:446
+#: src/Dialogs/Dialogs.vala:456
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "%d 文件导入失败由于相机错误：\n"
 
-#: src/Dialogs/Dialogs.vala:460
+#: src/Dialogs/Dialogs.vala:470
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "%d 个照片由于文件损坏导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:463
+#: src/Dialogs/Dialogs.vala:473
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "%d 个视频由于文件损坏导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:466
+#: src/Dialogs/Dialogs.vala:476
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] "%d 个照片/视频由于文件损坏导入失败：\n"
 
-#: src/Dialogs/Dialogs.vala:469
+#: src/Dialogs/Dialogs.vala:479
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1478,7 +1484,7 @@ msgstr[0] "%d 文件由于损坏导入失败：\n"
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:486
+#: src/Dialogs/Dialogs.vala:496
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1486,49 +1492,49 @@ msgstr[0] "跳过 %d 个不支持的照片：\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:501
+#: src/Dialogs/Dialogs.vala:511
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "跳过 %d 个非照片文件。\n"
 
-#: src/Dialogs/Dialogs.vala:512
+#: src/Dialogs/Dialogs.vala:522
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "由于用户取消跳过 %d 个照片：\n"
 
-#: src/Dialogs/Dialogs.vala:515
+#: src/Dialogs/Dialogs.vala:525
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "由于用户取消跳过 %d 个视频：\n"
 
-#: src/Dialogs/Dialogs.vala:518
+#: src/Dialogs/Dialogs.vala:528
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "由于用户取消跳过 %d 个照片/视频：\n"
 
-#: src/Dialogs/Dialogs.vala:521
+#: src/Dialogs/Dialogs.vala:531
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "%d 文件被跳过由于用户取消：\n"
 
-#: src/Dialogs/Dialogs.vala:535
+#: src/Dialogs/Dialogs.vala:545
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "%d 个照片成功导入。\n"
 
-#: src/Dialogs/Dialogs.vala:538
+#: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "%d 个视频成功导入。\n"
 
-#: src/Dialogs/Dialogs.vala:541
+#: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1536,64 +1542,64 @@ msgstr[0] "%d 个照片/视频成功导入。\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:557
+#: src/Dialogs/Dialogs.vala:567
 msgid "No photos or videos imported.\n"
 msgstr "没有任何导入照片或视频。\n"
 
-#: src/Dialogs/Dialogs.vala:564 src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
 msgid "Import Complete"
 msgstr "导入完成"
 
-#: src/Dialogs/Dialogs.vala:568
+#: src/Dialogs/Dialogs.vala:578
 msgid "_Done"
 msgstr "完成"
 
-#: src/Dialogs/Dialogs.vala:755 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "名称："
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edit?"
 msgstr "恢复额外修改?"
 
-#: src/Dialogs/Dialogs.vala:773
+#: src/Dialogs/Dialogs.vala:787
 msgid "Revert External Edits?"
 msgstr "恢复额外修改?"
 
-#: src/Dialogs/Dialogs.vala:775
+#: src/Dialogs/Dialogs.vala:789
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files.  Continue?"
 msgstr[0] "这将撤消对于 %d 个外部文件所做的全部修改。继续吗？"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edit"
 msgstr "恢复额外修改"
 
-#: src/Dialogs/Dialogs.vala:779
+#: src/Dialogs/Dialogs.vala:793
 msgid "Re_vert External Edits"
 msgstr "恢复额外修改"
 
-#: src/Dialogs/Dialogs.vala:801
+#: src/Dialogs/Dialogs.vala:815
 msgid "Remove Photo From Library"
 msgstr "从照片库移除照片"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:816
 msgid "Remove Photos From Library"
 msgstr "从照片库移除照片"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:821
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "这将从媒体库中移除 %d 张照片中。继续么？"
 
-#: src/Dialogs/Dialogs.vala:820
+#: src/Dialogs/Dialogs.vala:834
 msgid "_Remove"
 msgstr "移除"
 
-#: src/Dialogs/Dialogs.vala:841
+#: src/Dialogs/Dialogs.vala:855
 #, c-format
 msgid ""
 "\n"
@@ -1610,38 +1616,38 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:861
+#: src/Dialogs/Dialogs.vala:875
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr "可以将照片复制到您的媒体库中，或仅导入而不复制。"
 
-#: src/Dialogs/Dialogs.vala:866
+#: src/Dialogs/Dialogs.vala:880
 msgid "Co_py Photos"
 msgstr "复制照片"
 
-#: src/Dialogs/Dialogs.vala:867
+#: src/Dialogs/Dialogs.vala:881
 msgid "_Import in Place"
 msgstr "导入到位置"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "导入到媒体库"
 
-#: src/Dialogs/Dialogs.vala:878 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "从媒体库移除"
 
-#: src/Dialogs/Dialogs.vala:879 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "正在从媒体库移除照片"
 
-#: src/Dialogs/Dialogs.vala:879
+#: src/Dialogs/Dialogs.vala:893
 msgid "Removing Photos From Library"
 msgstr "从照片库移除照片"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:915
+#: src/Dialogs/Dialogs.vala:929
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1730,7 +1736,7 @@ msgid "Add"
 msgstr "添加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:417
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
 msgid "Save"
 msgstr "保存"
 
@@ -1758,8 +1764,8 @@ msgstr "以下这些："
 msgid "Add rule"
 msgstr "添加规则"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:616
-#: src/Views/DirectPhotoPage.vala:416
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
+#: src/Views/DirectPhotoPage.vala:420
 msgid "Cancel"
 msgstr "取消"
 
@@ -2034,15 +2040,15 @@ msgstr "降序"
 msgid "Sort photos in a descending order"
 msgstr "按照降序排列照片"
 
-#: src/library/LibraryWindow.vala:615
+#: src/library/LibraryWindow.vala:616
 msgid "Import From Folder"
 msgstr "导入文件夹"
 
-#: src/library/LibraryWindow.vala:617
+#: src/library/LibraryWindow.vala:619
 msgid "Import"
 msgstr "导入"
 
-#: src/library/LibraryWindow.vala:780
+#: src/library/LibraryWindow.vala:782
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2054,48 +2060,48 @@ msgstr ""
 "我们推荐您在 <span weight=\"bold\">编辑 %s 首选项</span>中更改此设置。\n"
 "您想继续导入照片吗？"
 
-#: src/library/LibraryWindow.vala:784
+#: src/library/LibraryWindow.vala:786
 msgid "_Import"
 msgstr "导入"
 
-#: src/library/LibraryWindow.vala:785
+#: src/library/LibraryWindow.vala:787
 msgid "Library Location"
 msgstr "媒体库位置"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:799
+#: src/library/LibraryWindow.vala:801
 msgid "Photos cannot be imported from this directory."
 msgstr "无法从此文件夹导入照片。"
 
-#: src/library/LibraryWindow.vala:1026 src/library/LibraryWindow.vala:1037
+#: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
 msgid "Updating library…"
 msgstr "正在更新媒体库…"
 
-#: src/library/LibraryWindow.vala:1043
+#: src/library/LibraryWindow.vala:1045
 msgid "Preparing to auto-import photos…"
 msgstr "正在准备自动导入…"
 
-#: src/library/LibraryWindow.vala:1048
+#: src/library/LibraryWindow.vala:1050
 msgid "Auto-importing photos…"
 msgstr "正在自动导入照片…"
 
-#: src/library/LibraryWindow.vala:1056
+#: src/library/LibraryWindow.vala:1058
 msgid "Writing metadata to files…"
 msgstr "正在写入数据…"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Import Photos"
 msgstr "导入照片"
 
-#: src/library/LibraryWindow.vala:1163
+#: src/library/LibraryWindow.vala:1165
 msgid "Copy photos from a folder or external device."
 msgstr "从文件夹或外部设备中导入。"
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Change Library Folder"
 msgstr "更改目录"
 
-#: src/library/LibraryWindow.vala:1164
+#: src/library/LibraryWindow.vala:1166
 msgid "Choose where to keep your photos."
 msgstr "选择您想要存放照片的位置。"
 
@@ -2244,8 +2250,8 @@ msgid ""
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"无法发布选定项目，因为您尚未启用兼容的发布插件。要修复此问题，请选择<b>编辑 %s "
-"首选项</b>，并且在<b>插件</b>标签页中启用一个或多个发布插件。"
+"无法发布选定项目，因为您尚未启用兼容的发布插件。要修复此问题，请选择<b>编辑 "
+"%s 首选项</b>，并且在<b>插件</b>标签页中启用一个或多个发布插件。"
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2521,7 +2527,7 @@ msgstr "关闭但不保存"
 msgid "Error while saving to %s: %s"
 msgstr "保存 %s 时出错：%s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:415
+#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
 msgid "Save As"
 msgstr "另存为"
 
@@ -2670,7 +2676,9 @@ msgid ""
 "The camera is locked by another application.  Photos can only access the "
 "camera when it's unlocked.  Please close any other application using the "
 "camera and try again."
-msgstr "该相机被其他程序锁定，需要解锁后才能访问。  请关闭其他使用该相机的程序后重试。"
+msgstr ""
+"该相机被其他程序锁定，需要解锁后才能访问。  请关闭其他使用该相机的程序后重"
+"试。"
 
 #: src/Views/ImportPage.vala:1125
 msgid "Please close any other application using the camera."
@@ -2937,95 +2945,95 @@ msgid "Remove rule"
 msgstr "移除规则"
 
 #. Ordering must correspond with Context
-#: src/Widgets/SearchRowDate.vala:36 src/Widgets/SearchRowText.vala:34
+#: src/Widgets/SearchRowDate.vala:33 src/Widgets/SearchRowText.vala:31
 msgid "is exactly"
 msgstr "必须有"
 
-#: src/Widgets/SearchRowDate.vala:37
+#: src/Widgets/SearchRowDate.vala:34
 msgid "is after"
 msgstr "晚于"
 
-#: src/Widgets/SearchRowDate.vala:38
+#: src/Widgets/SearchRowDate.vala:35
 msgid "is before"
 msgstr "先于"
 
-#: src/Widgets/SearchRowDate.vala:39
+#: src/Widgets/SearchRowDate.vala:36
 msgid "is between"
 msgstr "介于"
 
-#: src/Widgets/SearchRowDate.vala:40 src/Widgets/SearchRowText.vala:38
+#: src/Widgets/SearchRowDate.vala:37 src/Widgets/SearchRowText.vala:35
 msgid "is not set"
 msgstr "未设为"
 
-#: src/Widgets/SearchRowDate.vala:47
+#: src/Widgets/SearchRowDate.vala:44
 msgid "and"
 msgstr "和"
 
 #. Ordering must correspond with SearchConditionFlagged.State
-#: src/Widgets/SearchRowFlagged.vala:32
+#: src/Widgets/SearchRowFlagged.vala:29
 msgid "flagged"
 msgstr "已标注"
 
-#: src/Widgets/SearchRowFlagged.vala:33
+#: src/Widgets/SearchRowFlagged.vala:30
 msgid "not flagged"
 msgstr "未标注"
 
 #. Ordering must correspond with SearchConditionMediaType.Context
-#: src/Widgets/SearchRowFlagged.vala:38 src/Widgets/SearchRowMediaType.vala:33
+#: src/Widgets/SearchRowFlagged.vala:34 src/Widgets/SearchRowMediaType.vala:30
 msgid "is"
 msgstr "是"
 
-#: src/Widgets/SearchRowMediaType.vala:34
+#: src/Widgets/SearchRowMediaType.vala:31
 msgid "is not"
 msgstr "不是"
 
 #. Ordering must correspond with SearchConditionMediaType.MediaType
-#: src/Widgets/SearchRowMediaType.vala:40
+#: src/Widgets/SearchRowMediaType.vala:37
 msgid "any photo"
 msgstr "任意照片"
 
-#: src/Widgets/SearchRowMediaType.vala:41
+#: src/Widgets/SearchRowMediaType.vala:38
 msgid "a raw photo"
 msgstr "一张 RAW 照片"
 
-#: src/Widgets/SearchRowMediaType.vala:42
+#: src/Widgets/SearchRowMediaType.vala:39
 msgid "a video"
 msgstr "一个视频"
 
-#: src/Widgets/SearchRowModified.vala:32
+#: src/Widgets/SearchRowModified.vala:29
 msgid "has"
 msgstr "有"
 
-#: src/Widgets/SearchRowModified.vala:33
+#: src/Widgets/SearchRowModified.vala:30
 msgid "has no"
 msgstr "没有"
 
-#: src/Widgets/SearchRowModified.vala:38
+#: src/Widgets/SearchRowModified.vala:35
 msgid "modifications"
 msgstr "修改"
 
-#: src/Widgets/SearchRowModified.vala:39
+#: src/Widgets/SearchRowModified.vala:36
 msgid "internal modifications"
 msgstr "内部修改"
 
-#: src/Widgets/SearchRowModified.vala:40
+#: src/Widgets/SearchRowModified.vala:37
 msgid "external modifications"
 msgstr "外部修改"
 
 #. Ordering must correspond with SearchConditionText.Context
-#: src/Widgets/SearchRowText.vala:33
+#: src/Widgets/SearchRowText.vala:30
 msgid "contains"
 msgstr "包含有"
 
-#: src/Widgets/SearchRowText.vala:35
+#: src/Widgets/SearchRowText.vala:32
 msgid "starts with"
 msgstr "开头为"
 
-#: src/Widgets/SearchRowText.vala:36
+#: src/Widgets/SearchRowText.vala:33
 msgid "ends with"
 msgstr "结尾为"
 
-#: src/Widgets/SearchRowText.vala:37
+#: src/Widgets/SearchRowText.vala:34
 msgid "does not contain"
 msgstr "不包含"
 
@@ -3137,7 +3145,7 @@ msgstr "主要上传服务"
 msgid "A temporary file needed for publishing is unavailable"
 msgstr "发布所需的临时文件不可用"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3215,7 +3223,7 @@ msgstr "Shotwell 连接"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
 msgid "Everyone"
 msgstr "所有人"
 
@@ -3380,7 +3388,7 @@ msgid "Friends only"
 msgstr "仅限朋友"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1217
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Just me"
 msgstr "仅自己"
 
@@ -3435,7 +3443,7 @@ msgstr "发布所需的某个文件不可用。无法继续发布至 Facebook。
 msgid "Server redirect URL contained no access token"
 msgstr "服务器重定向链接未包含访问令牌"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3444,16 +3452,16 @@ msgstr ""
 "您已经以 %s 的身份登录至 Facebook。\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
 msgid "Where would you like to publish the selected photos?"
 msgstr "您想将选中的照片发布到何处？"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "上传大小："
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "好友"
@@ -3630,7 +3638,7 @@ msgstr "版权所有 2010 + Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "访问 Yandex.Fotki 网站"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:654
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "您当前未登录 Yandex.Fotki 账号。"
 
@@ -3676,7 +3684,7 @@ msgstr ""
 msgid "Shotwell Extra Publishing Services"
 msgstr "Shotwell 外部发布服务"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
 msgid ""
 "You have already logged in and out of a Google service during this Shotwell "
 "session.\n"
