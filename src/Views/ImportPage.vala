@@ -1095,34 +1095,36 @@ public class ImportPage : CheckerboardPage {
             }
 
             if (mount != null) {
-                // it's mounted, offer to unmount for the user
-                string mounted_message = _ ("Photos needs to unmount the camera from the filesystem in order to access it.  Continue?");
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("The Camera Cannot Be Accessed While Mounted"),
+                    _("Photos needs to unmount the camera from the filesystem in order to access it."),
+                    "media-eject",
+                    Gtk.ButtonsType.CANCEL
+                );
+                dialog.transient_for = AppWindow.get_instance ();
 
-                Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
-                        Gtk.DialogFlags.MODAL, Gtk.MessageType.QUESTION,
-                        Gtk.ButtonsType.CANCEL, "%s", mounted_message);
-                dialog.title = _ (Resources.APP_TITLE);
-                dialog.add_button (_ ("_Unmount"), Gtk.ResponseType.YES);
+                dialog.add_button (_("_Unmount"), Gtk.ResponseType.YES);
+
                 int dialog_res = dialog.run ();
                 dialog.destroy ();
 
                 if (dialog_res != Gtk.ResponseType.YES) {
-                    set_page_message (_ ("Please unmount the camera."));
+                    set_page_message (_("Please unmount the camera."));
                 } else {
                     unmount_camera (mount);
                 }
             } else {
-                string locked_message = _ ("The camera is locked by another application.  Photos can only access the camera when it's unlocked.  Please close any other application using the camera and try again.");
-
                 // it's not mounted, so another application must have it locked
-                Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
-                        Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING,
-                        Gtk.ButtonsType.OK, "%s", locked_message);
-                dialog.title = _ (Resources.APP_TITLE);
+                var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("The Camera Is Locked By Another Application"),
+                    _("Photos can only access the camera when it's unlocked. Please close any other application using the camera and try again."),
+                    "dialog-warning"
+                );
+                dialog.transient_for = AppWindow.get_instance ();
                 dialog.run ();
                 dialog.destroy ();
 
-                set_page_message (_ ("Please close any other application using the camera."));
+                set_page_message (_("Please close any other application using the camera."));
             }
             break;
 
