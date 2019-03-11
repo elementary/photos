@@ -55,42 +55,39 @@ void library_exec (string[] mounts) {
 
     // validate the databases prior to using them
     message ("Verifying database …");
-    string errormsg = null;
+    string error_title = null;
+    string error_message = null;
     string app_version;
     int schema_version;
     Db.VerifyResult result = Db.verify_database (out app_version, out schema_version);
     switch (result) {
-    case Db.VerifyResult.OK:
-        // do nothing; no problems
-        break;
-
-    case Db.VerifyResult.FUTURE_VERSION:
-        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please use the latest version of Photos.").printf (
-                       app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
-        break;
-
-    case Db.VerifyResult.UPGRADE_ERROR:
-        errormsg = _ ("Photos was unable to upgrade your photo library from version %s (schema %d) to %s (schema %d).  For more information please check the Photos Wiki at %s").printf (
-                       app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
-                       Resources.WIKI_URL);
-        break;
-
-    case Db.VerifyResult.NO_UPGRADE_AVAILABLE:
-        errormsg = _ ("Your photo library is not compatible with this version of Photos.  It appears it was created by Photos %s (schema %d).  This version is %s (schema %d).  Please clear your library by deleting %s and re-import your photos.").printf (
-                       app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION,
-                       AppDirs.get_data_dir ().get_path ());
-        break;
-
-    default:
-        errormsg = _ ("Unknown error attempting to verify Photos' database: %s").printf (
-                       result.to_string ());
-        break;
+        case Db.VerifyResult.OK:
+            // do nothing; no problems
+            break;
+        case Db.VerifyResult.FUTURE_VERSION:
+            error_title = _("Your Photo Library Is Not Compatible With This Version of Photos");
+            error_message =  _("It appears it was created by Photos %s (schema %d). This version is %s (schema %d). Please use the latest version of Photos.").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
+            break;
+        case Db.VerifyResult.UPGRADE_ERROR:
+            error_title = _("Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) to %s (Schema %d)").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
+            error_message = _("For more information please check the Photos Wiki at %s").printf (Resources.WIKI_URL);
+            break;
+        case Db.VerifyResult.NO_UPGRADE_AVAILABLE:
+            error_title = _("Your Photo Library Is Not Compatible With This Version Of Photos");
+            error_message = _("It appears it was created by Photos %s (schema %d). This version is %s (schema %d). Please clear your library by deleting %s and re-import your photos.").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION, AppDirs.get_data_dir ().get_path ());
+            break;
+        default:
+            error_title = _("Unknown Error Attempting To Verify Photos' Database");
+            error_message = result.to_string ();
+            break;
     }
 
-    if (errormsg != null) {
-        Gtk.MessageDialog dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
-                Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", errormsg);
-        dialog.title = _ (Resources.APP_TITLE);
+    if (error_title != null) {
+        var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+            error_title,
+            error_message,
+            "dialog-error"
+        );
         dialog.run ();
         dialog.destroy ();
 
