@@ -21,7 +21,7 @@
 public abstract class Properties : Gtk.Grid {
     protected uint line_count = 0;
 
-    public Properties () {
+    protected Properties () {
         row_spacing = 0;
         column_spacing = 6;
     }

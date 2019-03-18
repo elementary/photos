@@ -66,7 +66,7 @@ public Spit.Module? spit_entry_point (Spit.EntryPointParams *params) {
 public abstract class ShotwellTransitionDescriptor : Object, Spit.Pluggable, Spit.Transitions.Descriptor {
     private GLib.Icon icon;
 
-    public ShotwellTransitionDescriptor (GLib.File resource_directory) {
+    protected ShotwellTransitionDescriptor (GLib.File resource_directory) {
         icon = new ThemedIcon ("slideshow-plugin");
     }
 

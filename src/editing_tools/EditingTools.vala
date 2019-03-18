@@ -31,7 +31,7 @@ namespace EditingTools {
 public abstract class EditingToolWindow : Gtk.Dialog {
     public bool user_moved { get; private set; default = false; }
 
-    public EditingToolWindow (Gtk.Window container) {
+    protected EditingToolWindow (Gtk.Window container) {
         Object (transient_for: container);
     }
 
@@ -85,8 +85,8 @@ public abstract class PhotoCanvas {
     private Gdk.Pixbuf scaled_pixbuf;
     private Gdk.Rectangle scaled_position;
 
-    public PhotoCanvas (Gtk.Window container, Gdk.Window drawing_window, Photo photo,
-                        Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
+    protected PhotoCanvas (Gtk.Window container, Gdk.Window drawing_window, Photo photo,
+                           Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
         this.container = container;
         this.drawing_window = drawing_window;
         this.photo = photo;
@@ -463,7 +463,7 @@ public abstract class EditingTool {
 
     public signal void aborted ();
 
-    public EditingTool (string name) {
+    protected EditingTool (string name) {
         this.name = name;
     }
 

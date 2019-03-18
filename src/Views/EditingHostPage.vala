@@ -76,7 +76,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     public SourceCollection sources { get; construct; }
 
-    public EditingHostPage (SourceCollection sources, string page_name) {
+    protected EditingHostPage (SourceCollection sources, string page_name) {
         Object (
             page_name: page_name,
             scale_up_to_viewport: false,

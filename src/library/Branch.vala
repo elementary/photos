@@ -156,7 +156,7 @@ public abstract class Library.HideablePageEntry : Sidebar.SimplePageEntry {
         }
     }
 
-    public HideablePageEntry () {
+    protected HideablePageEntry () {
     }
 }
 

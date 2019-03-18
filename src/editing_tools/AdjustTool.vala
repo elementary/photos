@@ -149,7 +149,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private abstract class AdjustToolCommand : Command {
         protected weak AdjustTool owner;
 
-        public AdjustToolCommand (AdjustTool owner, string name, string explanation) {
+        protected AdjustToolCommand (AdjustTool owner, string name, string explanation) {
             base (name, explanation);
 
             this.owner = owner;

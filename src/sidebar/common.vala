@@ -65,7 +65,7 @@ public abstract class Sidebar.SimplePageEntry : Object, Sidebar.Entry, Sidebar.S
     Sidebar.PageRepresentative, Sidebar.Contextable {
     private Page? page = null;
 
-    public SimplePageEntry () {
+    protected SimplePageEntry () {
     }
 
     public abstract string get_sidebar_name ();

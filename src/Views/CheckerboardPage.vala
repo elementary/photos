@@ -32,7 +32,7 @@ public abstract class CheckerboardPage : Page {
     private CheckerboardItem activated_item = null;
     private Gee.ArrayList<CheckerboardItem> previously_selected = null;
 
-    public CheckerboardPage (string page_name) {
+    protected CheckerboardPage (string page_name) {
         Object (page_name: page_name);
     }
 

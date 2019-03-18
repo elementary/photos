@@ -123,9 +123,9 @@ public abstract class BackgroundJob {
     private int completion_priority = Priority.HIGH;
     private int notification_priority = Priority.DEFAULT_IDLE;
 
-    public BackgroundJob (Object? owner = null, CompletionCallback? callback = null,
-                          Cancellable? cancellable = null, CancellationCallback? cancellation = null,
-                          AbstractSemaphore? completion_semaphore = null) {
+    protected BackgroundJob (Object? owner = null, CompletionCallback? callback = null,
+                             Cancellable? cancellable = null, CancellationCallback? cancellation = null,
+                             AbstractSemaphore? completion_semaphore = null) {
         this.owner = owner;
         this.callback = callback;
         this.cancellable = cancellable;

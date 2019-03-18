@@ -60,7 +60,7 @@ public abstract class SourceCollection : DataCollection {
 
     private Gee.MultiMap<SourceBacklink, DataSource>? backlinks = null;
 
-    public SourceCollection (string name) {
+    protected SourceCollection (string name) {
         base (name);
     }
 

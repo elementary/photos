@@ -659,8 +659,8 @@ internal void save_import_results (Gtk.Window? chooser_dialog_parent, string res
 public abstract class TextEntryDialogMediator {
     private TextEntryDialog dialog;
 
-    public TextEntryDialogMediator (string title, string label, string? initial_text = null,
-                                    Gee.Collection<string>? completion_list = null, string? completion_delimiter = null) {
+    protected TextEntryDialogMediator (string title, string label, string? initial_text = null,
+                                       Gee.Collection<string>? completion_list = null, string? completion_delimiter = null) {
         dialog = new TextEntryDialog (on_modify_validate, title, label, initial_text, completion_list, completion_delimiter);
     }
 

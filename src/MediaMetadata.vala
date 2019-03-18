@@ -18,7 +18,7 @@
 */
 
 public abstract class MediaMetadata {
-    public MediaMetadata () {
+    protected MediaMetadata () {
     }
 
     public abstract void read_from_file (File file) throws Error;

@@ -78,8 +78,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         toolbar.add (show_sidebar_button);
     }
 
-    public EventsDirectoryPage (string page_name, ViewManager view_manager,
-                                Gee.Collection<Event>? initial_events) {
+    protected EventsDirectoryPage (string page_name, ViewManager view_manager,
+                                   Gee.Collection<Event>? initial_events) {
         base (page_name);
 
         // set comparator before monitoring source collection, to prevent a re-sort

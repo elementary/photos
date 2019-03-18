@@ -1304,8 +1304,8 @@ internal class GraphSession {
         public weak GraphSession host_session;
         public int bytes_so_far;
 
-        public GraphMessageImpl (GraphSession host_session, Publishing.RESTSupport.HttpMethod method,
-                                 string relative_uri, string access_token, Endpoint endpoint = Endpoint.DEFAULT) {
+        protected GraphMessageImpl (GraphSession host_session, Publishing.RESTSupport.HttpMethod method,
+                                    string relative_uri, string access_token, Endpoint endpoint = Endpoint.DEFAULT) {
             this.method = method;
             this.access_token = access_token;
             this.host_session = host_session;

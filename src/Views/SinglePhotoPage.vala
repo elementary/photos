@@ -47,7 +47,7 @@ public abstract class SinglePhotoPage : Page {
 
     public bool scale_up_to_viewport { get; construct; }
 
-    public SinglePhotoPage (string page_name, bool scale_up_to_viewport) {
+    protected SinglePhotoPage (string page_name, bool scale_up_to_viewport) {
         Object (
             page_name: page_name,
             scale_up_to_viewport: scale_up_to_viewport

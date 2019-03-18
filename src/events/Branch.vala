@@ -382,7 +382,7 @@ public class Events.Branch : Sidebar.Branch {
 }
 
 public abstract class Events.DirectoryEntry : Sidebar.SimplePageEntry, Sidebar.ExpandableEntry {
-    public DirectoryEntry () {
+    protected DirectoryEntry () {
     }
 
     public override Icon? get_sidebar_icon () {

@@ -89,8 +89,8 @@ public abstract class CheckerboardItem : ThumbnailView {
         }
     }
 
-    public CheckerboardItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title, string? comment,
-                             bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
+    protected CheckerboardItem (ThumbnailSource source, Dimensions initial_pixbuf_dim, string title, string? comment,
+                                bool marked_up = false, Pango.Alignment alignment = Pango.Alignment.LEFT) {
         base (source);
 
         pixbuf_dim = initial_pixbuf_dim;

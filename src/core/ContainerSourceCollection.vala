@@ -47,8 +47,8 @@ public abstract class ContainerSourceCollection : DatabaseSourceCollection {
             Gee.Collection<DataSource> sources) {
     }
 
-    public ContainerSourceCollection (string backlink_name, string name,
-                                      GetSourceDatabaseKey source_key_func) {
+    protected ContainerSourceCollection (string backlink_name, string name,
+                                         GetSourceDatabaseKey source_key_func) {
         base (name, source_key_func);
 
         this.backlink_name = backlink_name;

@@ -38,7 +38,7 @@ public abstract class CollectionPage : MediaPage {
     private Gtk.ToolButton rotate_button;
     private Gtk.ToolButton flip_button;
 
-    public CollectionPage (string page_name) {
+    protected CollectionPage (string page_name) {
         Object (page_name: page_name);
     }
 

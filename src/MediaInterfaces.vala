@@ -64,7 +64,7 @@
 public abstract class TransactionController {
     private int count = 0;
 
-    public TransactionController () {
+    protected TransactionController () {
     }
 
     ~TransactionController () {

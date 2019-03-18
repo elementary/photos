@@ -62,7 +62,7 @@ public abstract class AppWindow : PageWindow {
         { ACTION_UNDO, on_undo }
     };
 
-    public AppWindow () {
+    protected AppWindow () {
         // although there are multiple AppWindow types, only one may exist per-process
         assert (instance == null);
         instance = this;

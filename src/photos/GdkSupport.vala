@@ -18,7 +18,7 @@
 */
 
 public abstract class GdkReader : PhotoFileReader {
-    public GdkReader (string filepath, PhotoFileFormat file_format) {
+    protected GdkReader (string filepath, PhotoFileFormat file_format) {
         base (filepath, file_format);
     }
 
@@ -43,7 +43,7 @@ public abstract class GdkSniffer : PhotoFileSniffer {
     private bool size_ready = false;
     private bool area_prepared = false;
 
-    public GdkSniffer (File file, PhotoFileSniffer.Options options) {
+    protected GdkSniffer (File file, PhotoFileSniffer.Options options) {
         base (file, options);
     }
 

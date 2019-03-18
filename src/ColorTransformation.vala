@@ -375,7 +375,7 @@ public class PixelTransformationBundle {
 public abstract class PixelTransformation {
     private PixelTransformationType type;
 
-    public PixelTransformation (PixelTransformationType type) {
+    protected PixelTransformation (PixelTransformationType type) {
         this.type = type;
     }
 
@@ -602,7 +602,7 @@ public class RGBTransformation : PixelTransformation {
 }
 
 public abstract class HSVTransformation : PixelTransformation {
-    public HSVTransformation (PixelTransformationType type) {
+    protected HSVTransformation (PixelTransformationType type) {
         base (type);
     }
 

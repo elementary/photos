@@ -51,7 +51,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     public bool in_view { get; private set; default = false; }
     public string page_name { get; construct set; }
 
-    public Page (string page_name) {
+    protected Page (string page_name) {
         Object (page_name: page_name);
     }
 

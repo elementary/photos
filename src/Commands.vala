@@ -25,7 +25,7 @@ public abstract class PageCommand : Command {
     private Photo library_photo = null;
     private CollectionPage collection_page = null;
 
-    public PageCommand (string name, string explanation) {
+    protected PageCommand (string name, string explanation) {
         base (name, explanation);
 
         page = AppWindow.get_instance ().get_current_page ();
@@ -116,7 +116,7 @@ public abstract class PageCommand : Command {
 public abstract class SingleDataSourceCommand : PageCommand {
     public DataSource source;
 
-    public SingleDataSourceCommand (DataSource source, string name, string explanation) {
+    protected SingleDataSourceCommand (DataSource source, string name, string explanation) {
         base (name, explanation);
 
         this.source = source;
@@ -143,7 +143,7 @@ public abstract class SimpleProxyableCommand : PageCommand {
     private SourceProxy proxy;
     private Gee.HashSet<SourceProxy> proxies = new Gee.HashSet<SourceProxy> ();
 
-    public SimpleProxyableCommand (Proxyable proxyable, string name, string explanation) {
+    protected SimpleProxyableCommand (Proxyable proxyable, string name, string explanation) {
         base (name, explanation);
 
         proxy = proxyable.get_proxy ();
@@ -196,7 +196,7 @@ public abstract class SimpleProxyableCommand : PageCommand {
 public abstract class SinglePhotoTransformationCommand : SingleDataSourceCommand {
     private PhotoTransformationState state;
 
-    public SinglePhotoTransformationCommand (Photo photo, string name, string explanation) {
+    protected SinglePhotoTransformationCommand (Photo photo, string name, string explanation) {
         base (photo, name, explanation);
 
         state = photo.save_transformation_state ();
@@ -220,7 +220,7 @@ public abstract class GenericPhotoTransformationCommand : SingleDataSourceComman
     private PhotoTransformationState original_state = null;
     private PhotoTransformationState transformed_state = null;
 
-    public GenericPhotoTransformationCommand (Photo photo, string name, string explanation) {
+    protected GenericPhotoTransformationCommand (Photo photo, string name, string explanation) {
         base (photo, name, explanation);
     }
 
@@ -295,8 +295,8 @@ public abstract class MultipleDataSourceCommand : PageCommand {
     private Gee.ArrayList<DataSource> acted_upon = new Gee.ArrayList<DataSource> ();
     private Gee.HashSet<SourceCollection> hooked_collections = new Gee.HashSet<SourceCollection> ();
 
-    public MultipleDataSourceCommand (Gee.Iterable<DataView> iter, string progress_text,
-                                      string undo_progress_text, string name, string explanation) {
+    protected MultipleDataSourceCommand (Gee.Iterable<DataView> iter, string progress_text,
+                                         string undo_progress_text, string name, string explanation) {
         base (name, explanation);
 
         this.progress_text = progress_text;
@@ -427,8 +427,8 @@ public abstract class MultipleDataSourceAtOnceCommand : PageCommand {
     private Gee.HashSet<DataSource> sources = new Gee.HashSet<DataSource> ();
     private Gee.HashSet<SourceCollection> hooked_collections = new Gee.HashSet<SourceCollection> ();
 
-    public MultipleDataSourceAtOnceCommand (Gee.Collection<DataSource> sources, string name,
-                                            string explanation) {
+    protected MultipleDataSourceAtOnceCommand (Gee.Collection<DataSource> sources, string name,
+                                               string explanation) {
         base (name, explanation);
 
         this.sources.add_all (sources);
@@ -503,7 +503,7 @@ public abstract class MultiplePhotoTransformationCommand : MultipleDataSourceCom
     private Gee.HashMap<Photo, PhotoTransformationState> map = new Gee.HashMap <
     Photo, PhotoTransformationState > ();
 
-    public MultiplePhotoTransformationCommand (Gee.Iterable<DataView> iter, string progress_text,
+    protected MultiplePhotoTransformationCommand (Gee.Iterable<DataView> iter, string progress_text,
             string undo_progress_text, string name, string explanation) {
         base (iter, progress_text, undo_progress_text, name, explanation);
 
@@ -1001,7 +1001,7 @@ public abstract class MovePhotosCommand : Command {
 
     protected RealMovePhotosCommand real_command;
 
-    public MovePhotosCommand (string name, string explanation) {
+    protected MovePhotosCommand (string name, string explanation) {
         base (name, explanation);
     }
 

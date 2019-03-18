@@ -35,7 +35,7 @@ public abstract class MediaPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     protected GLib.Settings ui_settings;
 
-    public MediaPage (string page_name) {
+    protected MediaPage (string page_name) {
         Object (page_name: page_name);
     }
 
