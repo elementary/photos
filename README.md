@@ -1,5 +1,5 @@
 # Photos
-[![Packaging status](https://repology.org/badge/tiny-repos/pantheon-photos.svg)](https://repology.org/metapackage/pantheon-photos)
+[![Packaging status](https://repology.org/badge/tiny-repos/elementary-photos.svg)](https://repology.org/metapackage/elementary-photos)
 [![Translation status](https://l10n.elementary.io/widgets/photos/-/svg-badge.svg)](https://l10n.elementary.io/projects/photos/?utm_source=widget)
 
 ![Photos Screenshot](data/screenshot.png?raw=true)
