@@ -797,8 +797,8 @@ public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> pho
     if (count == 0)
         return false;
 
-    string headline = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
-    string msg = ngettext (
+    string primary_text = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
+    string secondary_text = ngettext (
         "This will destroy all changes made to the external file.  Continue?",
         "This will destroy all changes made to %d external files.  Continue?",
         count
@@ -807,8 +807,8 @@ public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> pho
     string action = (count == 1) ? _("Re_vert External Edit") : _("Re_vert External Edits");
 
     var dialog = new Granite.MessageDialog.with_image_from_icon_name (
-        headline,
-        msg,
+        primary_text,
+        secondary_text,
         "dialog-warning",
         Gtk.ButtonsType.CANCEL
     );
