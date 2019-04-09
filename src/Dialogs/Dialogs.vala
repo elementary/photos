@@ -787,7 +787,7 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
+public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
         if (photo.has_editable ())
@@ -797,22 +797,25 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
     if (count == 0)
         return false;
 
-    string headline = (count == 1) ? _ ("Revert External Edit?") : _ ("Revert External Edits?");
+    string headline = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
     string msg = ngettext (
-                     "This will destroy all changes made to the external file.  Continue?",
-                     "This will destroy all changes made to %d external files.  Continue?",
-                     count).printf (count);
+        "This will destroy all changes made to the external file.  Continue?",
+        "This will destroy all changes made to %d external files.  Continue?",
+        count
+    ).printf (count);
 
-    string action = (count == 1) ? _ ("Re_vert External Edit") : _ ("Re_vert External Edits");
+    string action = (count == 1) ? _("Re_vert External Edit") : _("Re_vert External Edits");
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        headline,
+        msg,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = parent;
     dialog.add_button (action, Gtk.ResponseType.YES);
 
-    dialog.set_markup (build_alert_body_text (headline, msg));
-
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
