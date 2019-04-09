@@ -813,7 +813,9 @@ public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> pho
         Gtk.ButtonsType.CANCEL
     );
     dialog.transient_for = parent;
-    dialog.add_button (action, Gtk.ResponseType.YES);
+
+    var revert_button = dialog.add_button (action, Gtk.ResponseType.YES);
+    revert_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
     var result = (Gtk.ResponseType) dialog.run ();
 
