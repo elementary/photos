@@ -197,6 +197,7 @@ public class PhotoMetadata : MediaMetadata {
 #else
         exiv2.from_app1_segment (buffer, length);
 #endif
+        exif = Exif.Data.new_from_data (buffer, length);
         source_name = "<app1 segment %d bytes>".printf (length);
     }
 
