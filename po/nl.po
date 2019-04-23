@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:39-0800\n"
+"POT-Creation-Date: 2019-04-23 15:16-0700\n"
 "PO-Revision-Date: 2018-09-01 00:08+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/photos/photos/"
@@ -366,8 +366,8 @@ msgstr "_Alles vervangen"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
-#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
 #: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -388,79 +388,91 @@ msgid "Leave fullscreen"
 msgstr "Volledig scherm verlaten"
 
 #: src/main.vala:68
-#, c-format
+msgid "Your Photo Library Is Not Compatible With This Version of Photos"
+msgstr ""
+
+#: src/main.vala:69
+#, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please use the latest version of Photos."
 msgstr ""
 "Uw fotobibliotheek is niet compatibel met deze versie van Foto's. Het lijkt "
 "erop dat hij gemaakt is met Foto's %s (schema %d). Dit is versie %s (schema "
 "%d). Gebruik a.u.b. de nieuwste versie van Foto's."
 
-#: src/main.vala:73
-#, c-format
+#: src/main.vala:72
+#, fuzzy, c-format
 msgid ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
 msgstr ""
 "Foto's was niet in staat om uw fotobibliotheek te upgraden van versie %s "
 "(schema %d) naar %s (schema %d). Voor meer informatie, zie de (Engelstalige) "
 "Foto's wiki op %s"
 
-#: src/main.vala:79
+#: src/main.vala:73
 #, c-format
+msgid "For more information please check the Photos Wiki at %s"
+msgstr ""
+
+#: src/main.vala:76
+msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+msgstr ""
+
+#: src/main.vala:77
+#, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-import your photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
 msgstr ""
 "Uw fotobibliotheek is niet compatibel met deze versie van Foto's. Het lijkt "
 "erop dat hij gemaakt is met Foto's %s (schema %d). Dit is versie %s (schema "
 "%d). Wis uw bibliotheek door %s te verwijderen en importeer daarna uw foto's "
 "opnieuw."
 
-#: src/main.vala:85
-#, c-format
-msgid "Unknown error attempting to verify Photos' database: %s"
+#: src/main.vala:80
+#, fuzzy
+msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr ""
 "Er is een onbekende fout opgetreden bij het controleren van Foto's database: "
 "%s"
 
-#: src/main.vala:118
+#: src/main.vala:115
 msgid "Loading Photos"
 msgstr "Foto's laden"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "Path to Photos' private data"
 msgstr "Pad naar Foto's privédata"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "DIRECTORY"
 msgstr "MAP"
 
-#: src/main.vala:281
+#: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "Bibliotheekmap niet controleren op wijzigingen na opstarten"
 
-#: src/main.vala:282
+#: src/main.vala:279
 msgid "Don't display startup progress meter"
 msgstr "Opstartvoortgangsmeter niet tonen"
 
-#: src/main.vala:283
+#: src/main.vala:280
 msgid "Show the application's version"
 msgstr "Versie van toepassing tonen"
 
-#: src/main.vala:284
+#: src/main.vala:281
 msgid "Show extra debugging output"
 msgstr ""
 
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:310
+#: src/main.vala:307
 msgid "[FILE]"
 msgstr "[BESTAND]"
 
-#: src/main.vala:314
+#: src/main.vala:311
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -727,7 +739,7 @@ msgstr "Herstellen naar origineel"
 msgid "Re_name Event…"
 msgstr "Her_noem Gebeurtenis…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
 msgstr "Hernoem Gebeurtenis"
 
@@ -1217,7 +1229,7 @@ msgstr "Exporteer video"
 msgid "Export Photo"
 msgstr "Exporteren foto"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "Op_slaan"
@@ -1626,27 +1638,27 @@ msgstr[1] "%d  foto's/video's succesvol geïmporteerd.\n"
 msgid "No photos or videos imported.\n"
 msgstr "Geen foto's of video's geïmporteerd.\n"
 
-#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
+#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
 msgstr "Importeren voltooid"
 
-#: src/Dialogs/Dialogs.vala:578
+#: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
 msgstr "_Voltooid"
 
-#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Naam:"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
 msgstr "Externe veranderingen herstellen?"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edits?"
 msgstr "Externe veranderingen herstellen?"
 
-#: src/Dialogs/Dialogs.vala:789
+#: src/Dialogs/Dialogs.vala:802
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1656,34 +1668,34 @@ msgstr[0] ""
 msgstr[1] ""
 "Dit zal alle wijzigingen aan %d externe bestanden ongedaan maken. Doorgaan?"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edit"
 msgstr "Externe _veranderingen ongedaan maken"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edits"
 msgstr "Externe veran_deringen herstellen"
 
-#: src/Dialogs/Dialogs.vala:815
+#: src/Dialogs/Dialogs.vala:828
 msgid "Remove Photo From Library"
 msgstr "Foto uit bibliotheek verwijderen"
 
-#: src/Dialogs/Dialogs.vala:816
+#: src/Dialogs/Dialogs.vala:829
 msgid "Remove Photos From Library"
 msgstr "Foto's uit bibliotheek verwijderen"
 
-#: src/Dialogs/Dialogs.vala:821
+#: src/Dialogs/Dialogs.vala:834
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "Dit zal de foto uit de bibliotheek verwijderen. Doorgaan?"
 msgstr[1] "Dit zal %d foto's uit de bibliotheek verwijderen. Doorgaan?"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:847
 msgid "_Remove"
 msgstr "Ve_rwijderen"
 
-#: src/Dialogs/Dialogs.vala:855
+#: src/Dialogs/Dialogs.vala:868
 #, c-format
 msgid ""
 "\n"
@@ -1704,7 +1716,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:875
+#: src/Dialogs/Dialogs.vala:888
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1712,32 +1724,32 @@ msgstr ""
 "Foto's kan de foto's kopiëren naar uw bibliotheekmap of kan ze importeren "
 "zonder ze te kopiëren."
 
-#: src/Dialogs/Dialogs.vala:880
+#: src/Dialogs/Dialogs.vala:893
 msgid "Co_py Photos"
 msgstr "Foto's ko_piëren"
 
-#: src/Dialogs/Dialogs.vala:881
+#: src/Dialogs/Dialogs.vala:894
 msgid "_Import in Place"
 msgstr "_Importeren naar locatie"
 
-#: src/Dialogs/Dialogs.vala:882
+#: src/Dialogs/Dialogs.vala:895
 msgid "Import to Library"
 msgstr "Importeren naar bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Verwijder uit bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Verwijderen van foto uit bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:893
+#: src/Dialogs/Dialogs.vala:906
 msgid "Removing Photos From Library"
 msgstr "Foto's uit bibliotheek verwijderen"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:929
+#: src/Dialogs/Dialogs.vala:942
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2766,38 +2778,46 @@ msgstr "Importeer de geselecteerde foto's naar uw bibliotheek"
 msgid "Import all the photos into your library"
 msgstr "Importeer alle foto's naar uw bibliotheek"
 
-#. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
+msgid "The Camera Cannot Be Accessed While Mounted"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1100
+#, fuzzy
 msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Photo's moet de camera ontkoppelen om er toegang tot te kunnen krijgen. "
 "Doorgaan?"
 
-#: src/Views/ImportPage.vala:1105
+#: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
 msgstr "_Ontkoppelen"
 
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
 msgstr "Ontkoppel de camera."
 
-#: src/Views/ImportPage.vala:1115
+#. it's not mounted, so another application must have it locked
+#: src/Views/ImportPage.vala:1119
+msgid "The Camera Is Locked By Another Application"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1120
+#, fuzzy
 msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 msgstr ""
 "De camera is vergrendeld door een andere toepassing. Foto's kan alleen "
 "toegang krijgen tot de camera als deze ontgrendeld is. Sluit alle "
 "toepassingen die de camera gebruiken en probeer het opnieuw."
 
-#: src/Views/ImportPage.vala:1125
+#: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
 msgstr "Sluit alle andere toepassingen af die de camera gebruiken."
 
-#: src/Views/ImportPage.vala:1130
+#: src/Views/ImportPage.vala:1132
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2806,66 +2826,66 @@ msgstr ""
 "Kon geen voorbeelden ophalen vanaf de camera:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1147
+#: src/Views/ImportPage.vala:1149
 #, fuzzy
 msgid "Unmounting…"
 msgstr "Ontkoppelen..."
 
-#: src/Views/ImportPage.vala:1253
+#: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
 msgstr "Ophalen van foto-informatie"
 
-#: src/Views/ImportPage.vala:1608
+#: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Voorbeeld ophalen voor %s"
 
-#: src/Views/ImportPage.vala:1724
+#: src/Views/ImportPage.vala:1726
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Kan de camera niet vergrendelen: %s"
 
-#: src/Views/ImportPage.vala:1809
+#: src/Views/ImportPage.vala:1811
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Deze foto van de camera verwijderen?"
 msgstr[1] "Deze %d foto's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1814
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Deze video van de camera verwijderen?"
 msgstr[1] "Deze %d video's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1817
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Deze foto/video van de camera verwijderen?"
 msgstr[1] "Deze %d foto's/video's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1820
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Dit bestand van de camera verwijderen?"
 msgstr[1] "Deze %d bestanden van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: src/Views/ImportPage.vala:1826
+#: src/Views/ImportPage.vala:1828
 msgid "_Keep"
 msgstr "_Bewaren"
 
-#: src/Views/ImportPage.vala:1845
+#: src/Views/ImportPage.vala:1847
 msgid "Removing photos/videos from camera"
 msgstr "Foto's/video's verwijderen van de camera"
 
-#: src/Views/ImportPage.vala:1849
+#: src/Views/ImportPage.vala:1851
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."

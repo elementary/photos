@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:39-0800\n"
+"POT-Creation-Date: 2019-04-23 15:16-0700\n"
 "PO-Revision-Date: 2016-04-18 04:18+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/shotwell/"
@@ -360,8 +360,8 @@ msgstr "_എല്ലാം മാറ്റിയെഴുതുക"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
-#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
 #: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -382,77 +382,89 @@ msgid "Leave fullscreen"
 msgstr "പൂര്‍ണ്ണസ്ക്രീനില്‍ നിന്നും പുറത്ത് കടക്കുക"
 
 #: src/main.vala:68
+msgid "Your Photo Library Is Not Compatible With This Version of Photos"
+msgstr ""
+
+#: src/main.vala:69
 #, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please use the latest version of Photos."
 msgstr ""
 "നിങ്ങളുടെ ഫോട്ടോ ലൈബ്രറി ഷോട്ട്‌‌വെലിന്റെ ഈ പതിപ്പ് പിന്തുണക്കുന്നില്ല. അത് ഷോട്ട്‌‌വെല്‍ %s (സ്കീമ "
 "%d) ഉപയോഗിച്ച് നിര്‍മിച്ചതാണ്. ഈ പതിപ്പ് %s (സ്കീമ %d) ആണ്. ദയവായി ഷോട്ട്‌‌വെലിന്റെ പുതിയ "
 "പതിപ്പ് ഉപയോഗിക്കുക"
 
-#: src/main.vala:73
+#: src/main.vala:72
 #, fuzzy, c-format
 msgid ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
 msgstr ""
 "നിങ്ങളുടെ ഫോട്ടൊ ലൈബ്രറി വേര്‍ഷന്‍ %s (സ്കീമ %d)യില്‍ നിന്നും  %s(സ്കീമ %d)യിലേക്ക് ഉയര്‍ത്താന്‍ "
 "ഷോട്ട്‌‌വെലിനു സാധിച്ചില്ല. കൂടൂതല്‍ വിവരങ്ങള്‍ക്ക്  ഷോട്ട്‌‌വെല്‍ വിക്കി %s കാണുക"
 
-#: src/main.vala:79
+#: src/main.vala:73
+#, c-format
+msgid "For more information please check the Photos Wiki at %s"
+msgstr ""
+
+#: src/main.vala:76
+msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+msgstr ""
+
+#: src/main.vala:77
 #, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-import your photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
 msgstr ""
 "നിങ്ങളുടെ ഫോട്ടോ ലൈബ്രറി ഷോട്ട്‌‌വെലിന്റെ ഈ പതിപ്പ് പിന്തുണക്കുന്നില്ല. ഇത് ഷോട്ട്‌‌വെല്‍  %s (%d "
 "സ്കീമ ) ഉപയോഗിച്ച് സൃഷ്ടിച്ചതായി കാണുന്നു. ഈ പതിപ്പ്  %s (%d സ്കീമ )ആണ്. ദയവായി %s "
 "മാച്ച്കളഞ്ഞ് നിങ്ങളുടെ ലൈബ്രറി വെടിപ്പാക്കുക , അതിനു ശേഷം  ഫോട്ടോകള്‍ വീണ്ടും  ഇറക്കുമതി ചെയ്യുക"
 
-#: src/main.vala:85
-#, fuzzy, c-format
-msgid "Unknown error attempting to verify Photos' database: %s"
+#: src/main.vala:80
+#, fuzzy
+msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "ഷോട്ട്‌വെല്‍ ഡാറ്റാബേസ് ഉറപ്പുവരുത്തുന്നതില്‍ പിഴവ് :%s"
 
-#: src/main.vala:118
+#: src/main.vala:115
 #, fuzzy
 msgid "Loading Photos"
 msgstr "ഷോട്ട്‌‌വെല്‍ ലോഡ് ചെയ്യുന്നു..."
 
-#: src/main.vala:280
+#: src/main.vala:277
 #, fuzzy
 msgid "Path to Photos' private data"
 msgstr "ഷോട്ട്‌വെല്ലിന്റെ സ്വകാര്യ ഡേറ്റയിലേക്കുള്ള വഴി"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "DIRECTORY"
 msgstr "DIRECTORY"
 
-#: src/main.vala:281
+#: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "മാറ്റങ്ങള്‍ക്കായി പ്രവര്‍ത്തന സമയത്തു് ലൈബ്രറി ഡയറക്ടറി നിരീക്ഷിക്കേണ്ടതില്ല"
 
-#: src/main.vala:282
+#: src/main.vala:279
 msgid "Don't display startup progress meter"
 msgstr "പ്രാരംഭത്തിലുള്ള പുരോഗതി കാണിയ്ക്കുന്ന മീറ്റര്‍ കാണിയ്ക്കരുതു്"
 
-#: src/main.vala:283
+#: src/main.vala:280
 msgid "Show the application's version"
 msgstr "പ്രയോഗത്തിന്റെ പതിപ്പു് കാണിയ്ക്കുക"
 
-#: src/main.vala:284
+#: src/main.vala:281
 msgid "Show extra debugging output"
 msgstr ""
 
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:310
+#: src/main.vala:307
 msgid "[FILE]"
 msgstr "[ഫയല്‍]"
 
-#: src/main.vala:314
+#: src/main.vala:311
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr "'%s --help' ഉപയോഗിച്ച് ലഭ്യമായ കമാന്റ് ലൈന്‍ ഓപ്ഷനുകള്‍ കാണാവുന്നതാണ് .\n"
@@ -716,7 +728,7 @@ msgstr "നിലവിലുള്ളതാക്കുക"
 msgid "Re_name Event…"
 msgstr "ഇവന്റിന്റെ പേരു മാറ്റുക"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
 msgstr "ഇവന്റിന്റെ പേരു മാറ്റുക"
 
@@ -1218,7 +1230,7 @@ msgstr "ചലച്ചിത്രം  കയറ്റുമതി ചെയ്
 msgid "Export Photo"
 msgstr "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_സൂക്ഷിയ്ക്കുക"
@@ -1614,27 +1626,27 @@ msgstr[1] "%d ഫോട്ടോകള്‍ /വീഡിയോകള്‍ വ
 msgid "No photos or videos imported.\n"
 msgstr "ഒരു ഫോട്ടോയോ ചലച്ചിത്രമോ ഇറക്കുമതി ചെയ്തില്ല\n"
 
-#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
+#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
 msgstr "ഇറക്കുമതി പൂര്‍ത്തിയാക്കി"
 
-#: src/Dialogs/Dialogs.vala:578
+#: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
 msgstr ""
 
-#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "പേരു്:"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
 msgstr "ബാഹ്യ തിരുത്തല്‍ എടുത്തുകളയട്ടെ?"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edits?"
 msgstr "ബാഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയട്ടെ?"
 
-#: src/Dialogs/Dialogs.vala:789
+#: src/Dialogs/Dialogs.vala:802
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1642,23 +1654,23 @@ msgid_plural ""
 msgstr[0] "ബാഹ്യഫയലിനു വരുത്തിയ മാറ്റങ്ങള്‍ നഷ്ടപ്പെടാന്‍ ഇതു കാരണമാകും . തുടരണോ?"
 msgstr[1] "%d ബാഹ്യഫയലുകള്‍ക്ക്  വരുത്തിയ മാറ്റങ്ങള്‍ നഷ്ടപ്പെടാന്‍ ഇതു കാരണമാകും . തുടരണോ?"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edit"
 msgstr "ബാ_ഹ്യ തിരുത്തല്‍ എടുത്തുകളയുക"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edits"
 msgstr "ബാ_ഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയുക"
 
-#: src/Dialogs/Dialogs.vala:815
+#: src/Dialogs/Dialogs.vala:828
 msgid "Remove Photo From Library"
 msgstr "ഫോട്ടോ ലൈബ്രറിയില്‍ നിന്ന് കളയുക"
 
-#: src/Dialogs/Dialogs.vala:816
+#: src/Dialogs/Dialogs.vala:829
 msgid "Remove Photos From Library"
 msgstr "ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്ന് കളയുക"
 
-#: src/Dialogs/Dialogs.vala:821
+#: src/Dialogs/Dialogs.vala:834
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
@@ -1666,11 +1678,11 @@ msgstr[0] "ഇങ്ങനെ ചെയ്യുന്നതു ഫോട്ട�
 msgstr[1] ""
 "ഇങ്ങനെ ചെയ്യുന്നതു %d ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യാന്‍ കാരണമാകും . തുടരണോ?"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:847
 msgid "_Remove"
 msgstr "_"
 
-#: src/Dialogs/Dialogs.vala:855
+#: src/Dialogs/Dialogs.vala:868
 #, c-format
 msgid ""
 "\n"
@@ -1691,7 +1703,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:875
+#: src/Dialogs/Dialogs.vala:888
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1700,32 +1712,32 @@ msgstr ""
 "ഷോട്ട്‌‌വെല്ലിന് ഫോട്ടോകളെ നിങ്ങളുടെ ലൈബ്രറിയിലേക്ക് കോപ്പി ചെയ്യാനും , കോപ്പി ചെയ്യാതെ തന്നെ "
 "ഇറക്കുമതി ചെയ്യാനും  കഴിയും."
 
-#: src/Dialogs/Dialogs.vala:880
+#: src/Dialogs/Dialogs.vala:893
 msgid "Co_py Photos"
 msgstr "ഫോട്ടോകളുടെ പകര്‍പ്പു_കള്‍ എടുക്കുന്നു"
 
-#: src/Dialogs/Dialogs.vala:881
+#: src/Dialogs/Dialogs.vala:894
 msgid "_Import in Place"
 msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:882
+#: src/Dialogs/Dialogs.vala:895
 msgid "Import to Library"
 msgstr "ലൈബ്രറിയിലേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു"
 
-#: src/Dialogs/Dialogs.vala:893
+#: src/Dialogs/Dialogs.vala:906
 msgid "Removing Photos From Library"
 msgstr "ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്നും  നീക്കം  ചെയ്യുന്നു"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:929
+#: src/Dialogs/Dialogs.vala:942
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2749,39 +2761,45 @@ msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍ ല�
 msgid "Import all the photos into your library"
 msgstr "എല്ലാ ഫോട്ടോകളും ലൈബ്രറിയിലേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
+msgid "The Camera Cannot Be Accessed While Mounted"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1100
 #, fuzzy
 msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "ഷോട്ട്‌‌വെല്ലിനു ക്യാമറ ഉപയോഗിക്കുന്നതിനായി അതിനെ ഫയല്‍സിസ്റ്റത്തില്‍ നിന്ന് "
 "വിച്ഛേദിക്കേണ്ടതായിട്ടുണ്ട്. തുടരാമോ?"
 
-#: src/Views/ImportPage.vala:1105
+#: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
 msgstr "_ബന്ധം വിച്ഛേദിക്കുക"
 
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
 msgstr "ദയവായി ക്യാമറയുമായുള്ള ബന്ധം വിച്ഛേദിക്കുക"
 
-#: src/Views/ImportPage.vala:1115
+#. it's not mounted, so another application must have it locked
+#: src/Views/ImportPage.vala:1119
+msgid "The Camera Is Locked By Another Application"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1120
 #, fuzzy
 msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 msgstr ""
 "ക്യാമറ മറ്റൊരു പ്രയോഗം  ബന്ധിച്ചിരിക്കുകയാണ്.  ബന്ധിക്കാതെ ഇരിക്കുമ്പോഴെ ഷോട്ട്‌‌വെല്ലിന് ക്യാമറ "
 "ഉപയോഗിക്കാന്‍ കഴിയൂ. ദയവായി ക്യാമറ ഉപയോഗിക്കുന്ന മറ്റു പ്രയോഗങ്ങള്‍ നിര്‍ത്തിവെക്കുക"
 
-#: src/Views/ImportPage.vala:1125
+#: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
 msgstr "ക്യാമറ ഉപയോഗിക്കുന്ന മറ്റു പ്രയോഗങ്ങള്‍ ദയവായി നിര്‍ത്തുക"
 
-#: src/Views/ImportPage.vala:1130
+#: src/Views/ImportPage.vala:1132
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2790,66 +2808,66 @@ msgstr ""
 "ക്യമറയില്‍ നിന്ന് തൊട്ടു മുന്‍പത്തേത് ശേഖരിക്കാന്‍ കഴിഞ്ഞില്ല : \n"
 "%s"
 
-#: src/Views/ImportPage.vala:1147
+#: src/Views/ImportPage.vala:1149
 #, fuzzy
 msgid "Unmounting…"
 msgstr "ബന്ധം  വിച്ഛേദിക്കുന്നു..."
 
-#: src/Views/ImportPage.vala:1253
+#: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
 msgstr "ഫോട്ടോയുടെ വിവരങ്ങള്‍ ശേഖരിക്കുന്നു"
 
-#: src/Views/ImportPage.vala:1608
+#: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "%s നു വേണ്ടി തിരനോട്ടം  ശേഖരിക്കുന്നു"
 
-#: src/Views/ImportPage.vala:1724
+#: src/Views/ImportPage.vala:1726
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "ക്യാമറ ബന്ധിക്കാന്‍ സാധിച്ചില്ല : %s"
 
-#: src/Views/ImportPage.vala:1809
+#: src/Views/ImportPage.vala:1811
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "ഈ ഫോട്ടോ  ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "%d ഫോട്ടോകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1814
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "ഈ ചലച്ചിത്രം ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "%d ചലച്ചിത്രങ്ങള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1817
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "ഈ ഫോട്ടോ/ചലച്ചിത്രം ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "ഈ %d ഫോട്ടോകള്‍/ചലച്ചിത്രങ്ങള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1820
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "ഈ ഫയല്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "ഈ %d ഫയലുകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "നീക്കം ചെയ്യുക"
 
-#: src/Views/ImportPage.vala:1826
+#: src/Views/ImportPage.vala:1828
 msgid "_Keep"
 msgstr "_സൂക്ഷിക്കുക"
 
-#: src/Views/ImportPage.vala:1845
+#: src/Views/ImportPage.vala:1847
 msgid "Removing photos/videos from camera"
 msgstr "ഫോട്ടോകള്‍/വീഡിയോകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു."
 
-#: src/Views/ImportPage.vala:1849
+#: src/Views/ImportPage.vala:1851
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:39-0800\n"
+"POT-Creation-Date: 2019-04-23 15:16-0700\n"
 "PO-Revision-Date: 2018-09-19 10:31+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/photos/photos/"
@@ -358,8 +358,8 @@ msgstr "모두 바꾸기(_A)"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
-#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
 #: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -380,76 +380,88 @@ msgid "Leave fullscreen"
 msgstr "전체 화면 나가기"
 
 #: src/main.vala:68
-#, c-format
+msgid "Your Photo Library Is Not Compatible With This Version of Photos"
+msgstr ""
+
+#: src/main.vala:69
+#, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please use the latest version of Photos."
 msgstr ""
 "사진 라이브러리가 이 버전의 사진과 호환되지 않습니다. 이 라이브러리는 사진 "
 "%s (schema %d)(으)로 만들어진 것으로 보이지만 이 프로그램의 버전은 %s "
 "(schema %d)입니다. 최신 버전의 사진을 사용하십시오."
 
-#: src/main.vala:73
-#, c-format
+#: src/main.vala:72
+#, fuzzy, c-format
 msgid ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
 msgstr ""
 "사진이 사진 라이브러리를 버전 %s (schema %d)에서 %s (schema %d)(으)로 업그레"
 "이드 할 수 없습니다. 더 많은 정보는 %s에 있는 사진 위키에서 찾을 수 있습니다"
 
-#: src/main.vala:79
+#: src/main.vala:73
 #, c-format
+msgid "For more information please check the Photos Wiki at %s"
+msgstr ""
+
+#: src/main.vala:76
+msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+msgstr ""
+
+#: src/main.vala:77
+#, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-import your photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
 msgstr ""
 "사진 라이브러리가 이 버전의 사진과는 호환되지 않습니다. 이 라이브러리는 사진 "
 "%s (schema %d)(으)로 만들어진 것으로 보이지만 이 프로그램의 버전은 %s "
 "(schema %d)입니다. %s(을)를 지우셔서 라이브러리를 지우신 후 사진을 다시 가져"
 "오십시오."
 
-#: src/main.vala:85
-#, c-format
-msgid "Unknown error attempting to verify Photos' database: %s"
+#: src/main.vala:80
+#, fuzzy
+msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "사진의 데이터베이스 확인 시도 중 알 수 없는 오류가 생겼습니다: %s"
 
-#: src/main.vala:118
+#: src/main.vala:115
 msgid "Loading Photos"
 msgstr "사진 불러오는 중"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "Path to Photos' private data"
 msgstr "사진의 개인 정보 저장 경로"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "DIRECTORY"
 msgstr "디렉터리"
 
-#: src/main.vala:281
+#: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "시작할 때 라이브러리 디렉터리에 바뀐 점이 있는지 확인하지 않기"
 
-#: src/main.vala:282
+#: src/main.vala:279
 msgid "Don't display startup progress meter"
 msgstr "시작 진행 상태 표시하지 않기"
 
-#: src/main.vala:283
+#: src/main.vala:280
 msgid "Show the application's version"
 msgstr "프로그램 버전 보이기"
 
-#: src/main.vala:284
+#: src/main.vala:281
 msgid "Show extra debugging output"
 msgstr "추가 디버깅 출력 보이기"
 
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:310
+#: src/main.vala:307
 msgid "[FILE]"
 msgstr "[파일]"
 
-#: src/main.vala:314
+#: src/main.vala:311
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -714,7 +726,7 @@ msgstr "원래 이미지로 돌려놓기"
 msgid "Re_name Event…"
 msgstr "이벤트 이름 바꾸기(_N)…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
 msgstr "이벤트 이름 바꾸기"
 
@@ -1192,7 +1204,7 @@ msgstr "비디오 내보내기"
 msgid "Export Photo"
 msgstr "사진 내보내기"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "저장(_S)"
@@ -1544,27 +1556,27 @@ msgstr[0] "사진/비디오 %d개를 성공적으로 가져왔습니다.\n"
 msgid "No photos or videos imported.\n"
 msgstr "가져온 사진 또는 비디오가 없습니다.\n"
 
-#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
+#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
 msgstr "가져오기 완료"
 
-#: src/Dialogs/Dialogs.vala:578
+#: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
 msgstr "완료(_D)"
 
-#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "이름:"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
 msgstr "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edits?"
 msgstr "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:789
+#: src/Dialogs/Dialogs.vala:802
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1572,33 +1584,33 @@ msgid_plural ""
 msgstr[0] ""
 "외부 파일에 적용한 바뀐 내용 %d개를 모두 취소합니다. 계속하시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edit"
 msgstr "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edits"
 msgstr "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
 
-#: src/Dialogs/Dialogs.vala:815
+#: src/Dialogs/Dialogs.vala:828
 msgid "Remove Photo From Library"
 msgstr "라이브러리에서 사진 제거"
 
-#: src/Dialogs/Dialogs.vala:816
+#: src/Dialogs/Dialogs.vala:829
 msgid "Remove Photos From Library"
 msgstr "사진 라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:821
+#: src/Dialogs/Dialogs.vala:834
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "라이브러리에서 사진 %d매를 제거합니다. 계속하시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:847
 msgid "_Remove"
 msgstr "제거(_R)"
 
-#: src/Dialogs/Dialogs.vala:855
+#: src/Dialogs/Dialogs.vala:868
 #, c-format
 msgid ""
 "\n"
@@ -1615,7 +1627,7 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:875
+#: src/Dialogs/Dialogs.vala:888
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1623,32 +1635,32 @@ msgstr ""
 "사진은 사진을 라이브러리 폴더로 복사할 수도 있고 사진을 복사하지 않고 가져올 "
 "수도 있습니다."
 
-#: src/Dialogs/Dialogs.vala:880
+#: src/Dialogs/Dialogs.vala:893
 msgid "Co_py Photos"
 msgstr "사진 복사(_P)"
 
-#: src/Dialogs/Dialogs.vala:881
+#: src/Dialogs/Dialogs.vala:894
 msgid "_Import in Place"
 msgstr "복사하지 않고 가져오기(_I)"
 
-#: src/Dialogs/Dialogs.vala:882
+#: src/Dialogs/Dialogs.vala:895
 msgid "Import to Library"
 msgstr "라이브러리로 가져오기"
 
-#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "사진을 라이브러리에서 제거하는 중"
 
-#: src/Dialogs/Dialogs.vala:893
+#: src/Dialogs/Dialogs.vala:906
 msgid "Removing Photos From Library"
 msgstr "사진을 라이브러리에서 제거하는 중"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:929
+#: src/Dialogs/Dialogs.vala:942
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2663,38 +2675,46 @@ msgstr "선택한 사진을 라이브러리로 가져옵니다"
 msgid "Import all the photos into your library"
 msgstr "모든 사진을 라이브러리로 가져옵니다"
 
-#. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
+msgid "The Camera Cannot Be Accessed While Mounted"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1100
+#, fuzzy
 msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "카메라에 접근하려면 파일 시스템에서 카메라를 마운트 해제해야 합니다.  계속하"
 "시겠습니까?"
 
-#: src/Views/ImportPage.vala:1105
+#: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
 msgstr "마운트 해제(_U)"
 
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
 msgstr "카메라를 마운트 해제해 주십시오."
 
-#: src/Views/ImportPage.vala:1115
+#. it's not mounted, so another application must have it locked
+#: src/Views/ImportPage.vala:1119
+msgid "The Camera Is Locked By Another Application"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1120
+#, fuzzy
 msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 msgstr ""
 "다른 프로그램이 카메라를 사용하고 있습니다. 다른 프로그램이 사용 중이면 사진"
 "이 카메라에 접근할 수 없습니다. 카메라를 사용 중인 다른 프로그램을 닫으신 후 "
 "다시해보세요."
 
-#: src/Views/ImportPage.vala:1125
+#: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
 msgstr "카메라를 사용 중인 다른 프로그램을 닫으세요."
 
-#: src/Views/ImportPage.vala:1130
+#: src/Views/ImportPage.vala:1132
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2703,61 +2723,61 @@ msgstr ""
 "카메라에서 미리 보기를 가져올 수 없습니다:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1147
+#: src/Views/ImportPage.vala:1149
 msgid "Unmounting…"
 msgstr "마운트 해제 중…"
 
-#: src/Views/ImportPage.vala:1253
+#: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
 msgstr "사진 정보 가져오기"
 
-#: src/Views/ImportPage.vala:1608
+#: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "%s의 미리 보기 가져오는 중"
 
-#: src/Views/ImportPage.vala:1724
+#: src/Views/ImportPage.vala:1726
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "카메라를 잠글 수 없습니다: %s"
 
-#: src/Views/ImportPage.vala:1809
+#: src/Views/ImportPage.vala:1811
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "이 사진 %d매를 카메라에서 지우시겠습니까?"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1814
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "카메라에서 비디오 %d편을 지우시겠습니까?"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1817
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "카메라에서 사진/비디오 %d개를 지우시겠습니까?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1820
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "파일 %d개를 카메라에서 삭제하시겠습니까?"
 
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "삭제"
 
-#: src/Views/ImportPage.vala:1826
+#: src/Views/ImportPage.vala:1828
 msgid "_Keep"
 msgstr "유지(_K)"
 
-#: src/Views/ImportPage.vala:1845
+#: src/Views/ImportPage.vala:1847
 msgid "Removing photos/videos from camera"
 msgstr "카메라에서 사진/비디오에서 제거는 중입니다"
 
-#: src/Views/ImportPage.vala:1849
+#: src/Views/ImportPage.vala:1851
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."

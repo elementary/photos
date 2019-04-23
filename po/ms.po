@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:39-0800\n"
+"POT-Creation-Date: 2019-04-23 15:16-0700\n"
 "PO-Revision-Date: 2017-09-08 13:12+0000\n"
 "Last-Translator: M Aiman <m.aimanismail@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/photos/photos/"
@@ -356,8 +356,8 @@ msgstr "Ganti Semu_a"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
-#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
 #: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -378,79 +378,91 @@ msgid "Leave fullscreen"
 msgstr "Tinggalkan skrin penuh"
 
 #: src/main.vala:68
+msgid "Your Photo Library Is Not Compatible With This Version of Photos"
+msgstr ""
+
+#: src/main.vala:69
 #, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please use the latest version of Photos."
 msgstr ""
 "Pustaka foto anda tidak serasi dengan versi Shotwell ini. Ia telah dicipta "
 "melalui Shotwell %s (skema %d). Versi ini adalah %s (skema %d). Sila gunakan "
 "versi terkini Shotwell."
 
-#: src/main.vala:73
+#: src/main.vala:72
 #, fuzzy, c-format
 msgid ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
 msgstr ""
 "Shotwell tidak boleh tatarkan pustaka foto anda dari versi %s (skema %d) ke "
 "%s (skema %d). Untuk maklumat lanjut sila rujuk Wiki Shotwell di %s"
 
-#: src/main.vala:79
+#: src/main.vala:73
+#, c-format
+msgid "For more information please check the Photos Wiki at %s"
+msgstr ""
+
+#: src/main.vala:76
+msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+msgstr ""
+
+#: src/main.vala:77
 #, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-import your photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
 msgstr ""
 "Pustaka foto anda tidak serasi dengan versi Shotwell ini. Ia telah dicipta "
 "melalui Shotwell %s (skema %d). Versi ini adalah %s (skema %d). Sila "
 "kosongkan pustakan anda dengan memadam %s dan import-semula foto anda."
 
-#: src/main.vala:85
-#, fuzzy, c-format
-msgid "Unknown error attempting to verify Photos' database: %s"
+#: src/main.vala:80
+#, fuzzy
+msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr ""
 "Ralat tidak diketahui cuba untuk mengesahkan pangkalan data Shotwell: %s"
 
-#: src/main.vala:118
+#: src/main.vala:115
 #, fuzzy
 msgid "Loading Photos"
 msgstr "Memuatkan Shotwell"
 
-#: src/main.vala:280
+#: src/main.vala:277
 #, fuzzy
 msgid "Path to Photos' private data"
 msgstr "Laluan ke data peribadi Shotwell"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "DIRECTORY"
 msgstr "DIREKTORI"
 
-#: src/main.vala:281
+#: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
 msgstr ""
 "Jangan pantau direktori pustaka pada masa jalan untuk membuat perubahan"
 
-#: src/main.vala:282
+#: src/main.vala:279
 msgid "Don't display startup progress meter"
 msgstr "Jangan papar meter kemajuan permulaan"
 
-#: src/main.vala:283
+#: src/main.vala:280
 msgid "Show the application's version"
 msgstr "Tujuk versi aplikasi"
 
-#: src/main.vala:284
+#: src/main.vala:281
 msgid "Show extra debugging output"
 msgstr ""
 
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:310
+#: src/main.vala:307
 msgid "[FILE]"
 msgstr "[FAIL]"
 
-#: src/main.vala:314
+#: src/main.vala:311
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -718,7 +730,7 @@ msgstr "Kembali Semula ke Asal"
 msgid "Re_name Event…"
 msgstr "Nama Semula Peristiwa"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
 msgstr "Nama Semula Peristiwa"
 
@@ -1220,7 +1232,7 @@ msgstr "Eksport Video"
 msgid "Export Photo"
 msgstr "Eksport Foto"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Simpan"
@@ -1610,27 +1622,27 @@ msgstr[1] "%d foto/video berjaya diimport.\n"
 msgid "No photos or videos imported.\n"
 msgstr "Tiada foto atau video diimport.\n"
 
-#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
+#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
 msgstr "Proses Mengimport Selesai"
 
-#: src/Dialogs/Dialogs.vala:578
+#: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
 msgstr "_Selesai"
 
-#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Nama:"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
 msgstr "Kembali Suntingan Dalaman?"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edits?"
 msgstr "Kembali Suntingan Dalaman?"
 
-#: src/Dialogs/Dialogs.vala:789
+#: src/Dialogs/Dialogs.vala:802
 #, fuzzy, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1642,34 +1654,34 @@ msgstr[1] ""
 "Tindakan ini akan membatalkan semua perubahan yang telah dibuat pada %d fail "
 "luaran. Teruskannya?"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edit"
 msgstr "Kem_bali Penyunting Luaran"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edits"
 msgstr "Kem_bali Penyunting Luaran"
 
-#: src/Dialogs/Dialogs.vala:815
+#: src/Dialogs/Dialogs.vala:828
 msgid "Remove Photo From Library"
 msgstr "Buang Foto Dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:816
+#: src/Dialogs/Dialogs.vala:829
 msgid "Remove Photos From Library"
 msgstr "Buang Foto Dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:821
+#: src/Dialogs/Dialogs.vala:834
 #, fuzzy, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
 msgstr[0] "Tindakan ini akan membuang foto dari pustaka. Teruskannya?"
 msgstr[1] "Tindakan ini akan membuang %d foto dari pustaka. Teruskannya?"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:847
 msgid "_Remove"
 msgstr "_Buang"
 
-#: src/Dialogs/Dialogs.vala:855
+#: src/Dialogs/Dialogs.vala:868
 #, c-format
 msgid ""
 "\n"
@@ -1690,7 +1702,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:875
+#: src/Dialogs/Dialogs.vala:888
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1699,32 +1711,32 @@ msgstr ""
 "Shotwell tidak boleh menyalin foto kedalam folder pustaka anda atau ia boleh "
 "mengimportnya tanpa menyalin."
 
-#: src/Dialogs/Dialogs.vala:880
+#: src/Dialogs/Dialogs.vala:893
 msgid "Co_py Photos"
 msgstr "Sa_lin Foto"
 
-#: src/Dialogs/Dialogs.vala:881
+#: src/Dialogs/Dialogs.vala:894
 msgid "_Import in Place"
 msgstr "_Import di Tempat"
 
-#: src/Dialogs/Dialogs.vala:882
+#: src/Dialogs/Dialogs.vala:895
 msgid "Import to Library"
 msgstr "Import ke Pustaka"
 
-#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Buang dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Membuang Foto Dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:893
+#: src/Dialogs/Dialogs.vala:906
 msgid "Removing Photos From Library"
 msgstr "Membuang Foto Dari Pustaka"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:929
+#: src/Dialogs/Dialogs.vala:942
 #, fuzzy, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2753,40 +2765,46 @@ msgstr "Import foto pilihan ke dalam pustaka anda"
 msgid "Import all the photos into your library"
 msgstr "Import semua foto ke dalam pustaka anda"
 
-#. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
+msgid "The Camera Cannot Be Accessed While Mounted"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1100
 #, fuzzy
 msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Shotwell perlu menyahlekap kamera dari sistem fail untuk mencapainya. "
 "Teruskan?"
 
-#: src/Views/ImportPage.vala:1105
+#: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
 msgstr "_Nyahlekap"
 
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
 msgstr "Sila cabut kamera."
 
-#: src/Views/ImportPage.vala:1115
+#. it's not mounted, so another application must have it locked
+#: src/Views/ImportPage.vala:1119
+msgid "The Camera Is Locked By Another Application"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1120
 #, fuzzy
 msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 msgstr ""
 "Kamera telah dikunci oleh aplikasi lain. Shotwell hanya boleh mencapai "
 "kamera bila ia tidak dikunci. Sila tutup mana-mana aplikasi lain yang "
 "menggunakan kamera dan cuba lagi."
 
-#: src/Views/ImportPage.vala:1125
+#: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
 msgstr "Sila tutup aplikasi lain yang menggunakan kamera."
 
-#: src/Views/ImportPage.vala:1130
+#: src/Views/ImportPage.vala:1132
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2795,66 +2813,66 @@ msgstr ""
 "Tidak memperoleh pratonton dari kamera:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1147
+#: src/Views/ImportPage.vala:1149
 #, fuzzy
 msgid "Unmounting…"
 msgstr "Menyahlekap..."
 
-#: src/Views/ImportPage.vala:1253
+#: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
 msgstr "Mendapatkan maklumat foto"
 
-#: src/Views/ImportPage.vala:1608
+#: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Mendapatkan pratonton untuk %s"
 
-#: src/Views/ImportPage.vala:1724
+#: src/Views/ImportPage.vala:1726
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Tidak boleh mengunci kamera: %s"
 
-#: src/Views/ImportPage.vala:1809
+#: src/Views/ImportPage.vala:1811
 #, fuzzy, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Padam foto ini dari kamera?"
 msgstr[1] "Padam %d foto ini dari kamera?"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1814
 #, fuzzy, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Padam video ini dari kamera?"
 msgstr[1] "Padam %d video ini dari kamera?"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1817
 #, fuzzy, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Padam foto/video ini dari kamera?"
 msgstr[1] "Padam %d foto/video ini dari kamera?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1820
 #, fuzzy, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Padam fail ini dari kamera?"
 msgstr[1] "Padam %d fail ini dari kamera?"
 
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Padam"
 
-#: src/Views/ImportPage.vala:1826
+#: src/Views/ImportPage.vala:1828
 msgid "_Keep"
 msgstr "_Kekalkan"
 
-#: src/Views/ImportPage.vala:1845
+#: src/Views/ImportPage.vala:1847
 msgid "Removing photos/videos from camera"
 msgstr "Membuang foto/video dari kamera"
 
-#: src/Views/ImportPage.vala:1849
+#: src/Views/ImportPage.vala:1851
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
