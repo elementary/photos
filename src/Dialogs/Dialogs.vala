@@ -868,7 +868,7 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
                                     remainder).printf (remainder);
     }
 
-    var dialog = new Gtk.MessageDialog.with_image_from_icon_name (
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
         title,
         dialog_message,
         "dialog-error",
