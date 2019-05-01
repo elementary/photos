@@ -887,14 +887,18 @@ public interface WelcomeServiceEntry : GLib.Object {
 public Gtk.ResponseType copy_files_dialog () {
     string msg = _ ("Photos can copy the photos into your library folder or it can import them without copying.");
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.CANCEL, "%s", msg);
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        _("Import to Library"),
+        msg,
+        "dialog-question",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = AppWindow.get_instance ();
 
-    dialog.add_button (_ ("Co_py Photos"), Gtk.ResponseType.ACCEPT);
-    dialog.add_button (_ ("_Import in Place"), Gtk.ResponseType.REJECT);
-    dialog.title = _ ("Import to Library");
+    dialog.add_button (_("Co_py Photos"), Gtk.ResponseType.ACCEPT);
+    dialog.add_button (_("_Import in Place"), Gtk.ResponseType.REJECT);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
