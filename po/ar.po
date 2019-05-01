@@ -18,18 +18,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:39-0800\n"
-"PO-Revision-Date: 2018-12-22 00:09+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
-"Language-Team: Arabic <https://weblate.elementary.io/projects/photos/photos/"
-"ar/>\n"
+"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"PO-Revision-Date: 2019-04-18 00:31+0000\n"
+"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/photos/photos/ar/"
+">\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:03+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -65,7 +65,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"حدث خطأ فادح عند الوصول إلى مكتبة الصور. لا يمكن للصور الاستمرار.\n"
+"حدث خطأ فادح عند الوصول إلى مكتبة الصور.  لا يمكن لي التطبيق الاستمرار.\n"
 "\n"
 "%s"
 
@@ -131,7 +131,7 @@ msgstr "خطأ في كتابة ملف"
 
 #: src/BatchImport.vala:78
 msgid "Corrupt image file"
-msgstr "ملف صوري معطوب"
+msgstr "ملف صورة تالف"
 
 #: src/BatchImport.vala:81
 #, c-format
@@ -164,11 +164,11 @@ msgstr "تراجع عن عدم التحسين"
 
 #: src/Commands.vala:894
 msgid "Applying Color Transformations"
-msgstr "تطبيق تحول الألوان"
+msgstr "تطبيق تحولات اللون"
 
 #: src/Commands.vala:894
 msgid "Undoing Color Transformations"
-msgstr "التراجع عن تحول الألوان"
+msgstr "التراجع عن تحولات الالوان"
 
 #: src/Commands.vala:1044
 msgid "Creating New Event"
@@ -281,11 +281,11 @@ msgstr "استرجع الصور من المهملات"
 
 #: src/Commands.vala:2281
 msgid "Move the photos to the Photos trash"
-msgstr "انقل الصور إلى مهملات الصور"
+msgstr "نقل الصور إلى سلة المهملات"
 
 #: src/Commands.vala:2281
 msgid "Restore the photos back to the Photos library"
-msgstr "استرجع الصور مرة أخرى إلى مكتبة الصور"
+msgstr "إستعادة الصور إلى مكتبة الصور"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -305,11 +305,11 @@ msgstr "أزِل التعليم عن الصورة المختارة"
 
 #: src/Commands.vala:2388
 msgid "Flagging selected photos"
-msgstr "علم الصور المختارة"
+msgstr "وضع علامة على الصور المحددة"
 
 #: src/Commands.vala:2389
 msgid "Unflagging selected photos"
-msgstr "إلغاء تعليم الصور المختارة"
+msgstr "إزالة العلامة من الصور المحددة"
 
 #: src/Commands.vala:2396
 msgid "Flag"
@@ -377,8 +377,8 @@ msgstr "استبدل ال_كل"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:620
-#: src/Dialogs/Dialogs.vala:797 src/Dialogs/ExportDialog.vala:125
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
 #: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -399,76 +399,88 @@ msgid "Leave fullscreen"
 msgstr "غادر ملء الشاشة"
 
 #: src/main.vala:68
-#, c-format
+msgid "Your Photo Library Is Not Compatible With This Version of Photos"
+msgstr ""
+
+#: src/main.vala:69
+#, fuzzy, c-format
 msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please use the latest version of Photos."
 msgstr ""
 "لا تتوافق مكتبة الصور مع هذا الإصدار من الصور. يبدو أنه تم إنشاؤه بواسطة "
 "الصور %s (رقم %d). هذه النسخة هيا %s (رقم %d). يرجى استخدام أحدث إصدار من "
 "البرنامج."
 
+#: src/main.vala:72
+#, fuzzy, c-format
+msgid ""
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
+msgstr ""
+"تعذر على الصور ترقية مكتبة الصور من الإصدار%s (مخطط %d) إلى %s (مخطط %d).  "
+"لمزيد من المعلومات ، يرجى الاطلاع على Photos Wiki على %s"
+
 #: src/main.vala:73
 #, c-format
-msgid ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
-"تعذّر على الصور تحديث مكتبة الصور من الإصدار %s (النموذج %d) إلى الإصدار %s "
-"(النموذج %d).  لمزيد من المعلومات يرجى زيارة صفحة الويكي لبرنامج الصور على %s"
 
-#: src/main.vala:79
-#, c-format
-msgid ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-import your photos."
+#: src/main.vala:76
+msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
-"إن مكتبة الصور غير متوافقة مع هذا الإصدار من الصور.  يبدو أنها أنشئت "
-"باستخدام الصور %s (النموذج %d).  بينما هذا الإصدار %s (النموذج %d).  الرجاء "
-"مسح مكتبتك عن طريق حذف %s وإعادة استيراد الصور."
 
-#: src/main.vala:85
-#, c-format
-msgid "Unknown error attempting to verify Photos' database: %s"
+#: src/main.vala:77
+#, fuzzy, c-format
+msgid ""
+"It appears it was created by Photos %s (schema %d). This version is %s "
+"(schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
+msgstr ""
+"لا تتوافق مكتبة الصور مع هذا الإصدار من الصور.  يبدو أنه تم إنشاؤه بواسطة "
+"الصور %s (مخطط %d).  هذا الإصدار هو %s (مخطط %d).  يرجى مسح مكتبتك عن طريق "
+"حذف %s وإعادة استيراد صورك."
+
+#: src/main.vala:80
+#, fuzzy
+msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "خطأ غير معروف أثناء محاولة التحقق من قاعدة بيانات الصور: %s"
 
-#: src/main.vala:118
+#: src/main.vala:115
 msgid "Loading Photos"
 msgstr "يتم الان تحميل الصور"
 
-#: src/main.vala:280
+#: src/main.vala:277
 msgid "Path to Photos' private data"
 msgstr "مسار البيانات الخاصة بالصور"
 
-#: src/main.vala:280
+#: src/main.vala:277
 #, fuzzy
 msgid "DIRECTORY"
-msgstr "DIRECTORY"
+msgstr "الدليل"
 
-#: src/main.vala:281
+#: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "لا تراقب مجلد المكتبة في وقت التشغيل للتغييرات"
 
-#: src/main.vala:282
+#: src/main.vala:279
 msgid "Don't display startup progress meter"
 msgstr "لا تعرض شريط تحميل التشغيل"
 
-#: src/main.vala:283
+#: src/main.vala:280
 msgid "Show the application's version"
 msgstr "عرض إصدار التطبيق"
 
-#: src/main.vala:284
+#: src/main.vala:281
 msgid "Show extra debugging output"
 msgstr "أظهر معلومات التصحيح الإضافية"
 
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:310
+#: src/main.vala:307
 msgid "[FILE]"
 msgstr "[ملف]"
 
-#: src/main.vala:314
+#: src/main.vala:311
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -521,23 +533,23 @@ msgstr "بطاقة ملاحظات (3 × 5 بوصة)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
-msgstr "4 × 6 بوصة"
+msgstr "4 × 6 بوصة."
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
-msgstr "5 × 7 بوصة"
+msgstr "5 × 7 بوصة."
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
-msgstr "8 × 10 بوصة"
+msgstr "8 × 10 بوصة."
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
-msgstr "11 × 14 بوصة"
+msgstr "11 × 14 بوصة."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
-msgstr "16 × 20 بوصة"
+msgstr "16 × 20 بوصة."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
@@ -732,7 +744,7 @@ msgstr "استرجع إلى الأصل"
 msgid "Re_name Event…"
 msgstr "تغيير تسمية الحدث"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:769
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
 msgstr "تغيير تسمية الحدث"
 
@@ -1250,7 +1262,7 @@ msgstr "صدّر فيديو"
 msgid "Export Photo"
 msgstr "صدّر صورة"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:619
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "ا_حفظ"
@@ -1729,27 +1741,27 @@ msgstr[5] "تم استيراد %d صورة/فيديو بنجاح.\n"
 msgid "No photos or videos imported.\n"
 msgstr "لم يتم استيراد أي صور أو فيديوهات.\n"
 
-#: src/Dialogs/Dialogs.vala:574 src/Dialogs/Dialogs.vala:593
+#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
 msgstr "تم الاستيراد"
 
-#: src/Dialogs/Dialogs.vala:578
+#: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
 msgstr ""
 
-#: src/Dialogs/Dialogs.vala:769 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "الاسم:"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
 msgstr "العودة عن التعديل الخارجي؟"
 
-#: src/Dialogs/Dialogs.vala:787
+#: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edits?"
 msgstr "العودة عن التعديلات الخارجية؟"
 
-#: src/Dialogs/Dialogs.vala:789
+#: src/Dialogs/Dialogs.vala:802
 #, c-format
 msgid "This will destroy all changes made to the external file.  Continue?"
 msgid_plural ""
@@ -1770,23 +1782,23 @@ msgstr[4] ""
 msgstr[5] ""
 "سيلغي هذا جميع التغييرات الخارجية التي أجريت على %d ملف. هل ترغب بالاستمرار؟"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edit"
 msgstr "_عودة عن التعديل الخارجي"
 
-#: src/Dialogs/Dialogs.vala:793
+#: src/Dialogs/Dialogs.vala:806
 msgid "Re_vert External Edits"
 msgstr "_عودة عن التعديلات الخارجية"
 
-#: src/Dialogs/Dialogs.vala:815
+#: src/Dialogs/Dialogs.vala:828
 msgid "Remove Photo From Library"
 msgstr "أزِل الصورة من المكتبة"
 
-#: src/Dialogs/Dialogs.vala:816
+#: src/Dialogs/Dialogs.vala:829
 msgid "Remove Photos From Library"
 msgstr "أزِل الصور من المكتبة"
 
-#: src/Dialogs/Dialogs.vala:821
+#: src/Dialogs/Dialogs.vala:834
 #, c-format
 msgid "This will remove the photo from the library.  Continue?"
 msgid_plural "This will remove %d photos from the library.  Continue?"
@@ -1797,11 +1809,11 @@ msgstr[3] "هذا سيزيل %d صور من المكتبة. هل ترغب بال
 msgstr[4] "هذا سيزيل %d صورة من المكتبة. هل ترغب بالاستمرار؟"
 msgstr[5] "هذا سيزيل %d صورة من المكتبة. هل ترغب بالاستمرار؟"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:847
 msgid "_Remove"
 msgstr "أ_زل"
 
-#: src/Dialogs/Dialogs.vala:855
+#: src/Dialogs/Dialogs.vala:868
 #, c-format
 msgid ""
 "\n"
@@ -1814,72 +1826,72 @@ msgid_plural ""
 msgstr[0] ""
 "\n"
 "\n"
-"بالإضافة إلى %d أخرى"
+"بالإضافة إلى %d أخرى."
 msgstr[1] ""
 "\n"
 "\n"
-"بالإضافة إلى %d آخر"
+"بالإضافة إلى %d آخر."
 msgstr[2] ""
 "\n"
 "\n"
-"بالإضافة إلى %d آخرين"
+"بالإضافة إلى %d آخرين."
 msgstr[3] ""
 "\n"
 "\n"
-"بالإضافة إلى %d آخرى"
+"بالإضافة إلى %d آخرى."
 msgstr[4] ""
 "\n"
 "\n"
-"بالإضافة إلى %d آخرى"
+"بالإضافة إلى %d آخرى."
 msgstr[5] ""
 "\n"
 "\n"
-"بالإضافة إلى %d آخرى"
+"بالإضافة إلى %d آخرى."
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:875
+#: src/Dialogs/Dialogs.vala:888
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr "يمكن لـ شُتْ‌وِل نسخ الصور إلى مجلد مكتبتك أو يمكنه استيرادها بدون نسخها."
 
-#: src/Dialogs/Dialogs.vala:880
+#: src/Dialogs/Dialogs.vala:893
 msgid "Co_py Photos"
 msgstr "ا_نسخ الصور"
 
-#: src/Dialogs/Dialogs.vala:881
+#: src/Dialogs/Dialogs.vala:894
 msgid "_Import in Place"
 msgstr "ا_ستورد في المكان"
 
-#: src/Dialogs/Dialogs.vala:882
+#: src/Dialogs/Dialogs.vala:895
 msgid "Import to Library"
 msgstr "استورد إلى المكتبة"
 
-#: src/Dialogs/Dialogs.vala:892 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "أزِل من المكتبة"
 
-#: src/Dialogs/Dialogs.vala:893 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "إزالة الصورة من المكتبة"
 
-#: src/Dialogs/Dialogs.vala:893
+#: src/Dialogs/Dialogs.vala:906
 msgid "Removing Photos From Library"
 msgstr "إزالة الصور من المكتبة"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:929
+#: src/Dialogs/Dialogs.vala:942
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
-msgstr[0] "لا صور أو فيديوهات لحذفها"
-msgstr[1] "لا يمكن حذف صورة/فيديو واحد"
-msgstr[2] "لا يمكن حذف صورتين/فيديوهين"
-msgstr[3] "لا يمكن حذف %d صور/فيديوهات"
-msgstr[4] "لا يمكن حذف %d صورة/فيديو"
-msgstr[5] "لا يمكن حذف %d صورة/فيديو"
+msgstr[0] "لا صور أو فيديوهات لحذفها."
+msgstr[1] "لا يمكن حذف صورة/فيديو واحد."
+msgstr[2] "لا يمكن حذف صورتين/فيديوهين."
+msgstr[3] "لا يمكن حذف %d صور/فيديوهات."
+msgstr[4] "لا يمكن حذف %d صورة/فيديو."
+msgstr[5] "لا يمكن حذف %d صورة/فيديو."
 
 #. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
 #. aren't formats so much as they are operating modes that determine specific formats.
@@ -2260,7 +2272,7 @@ msgstr "عرض الشريط الجانبي"
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
 #: src/Views/TrashPage.vala:160
 msgid "Edit Photo In_fo"
-msgstr ""
+msgstr "تحرير معلومات الصورة"
 
 #: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
@@ -2709,7 +2721,7 @@ msgstr "ال_مطوّر"
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr ""
+msgstr "خيارات اخرى"
 
 #: src/Views/CollectionPage.vala:598
 msgid "Export Photo/Video"
@@ -2791,12 +2803,11 @@ msgstr "دوّر"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "تكبير لملائمة الصفحة"
 
 #: src/Views/EditingHostPage.vala:153
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "حجّم إلى _100%"
+msgstr "تكبير 1:1"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -2913,39 +2924,45 @@ msgstr "استورد الصور المختارة إلى مكتبتك"
 msgid "Import all the photos into your library"
 msgstr "استورد جميع الصور إلى مكتبتك"
 
-#. it's mounted, offer to unmount for the user
 #: src/Views/ImportPage.vala:1099
+msgid "The Camera Cannot Be Accessed While Mounted"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1100
 #, fuzzy
 msgid ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "يحتاج شُتْ‌وِل لفصل الكاميرا من نظام الملفات لكي يستطيع الوصول إليها.  هل ترغب "
 "بالاستمرار؟"
 
-#: src/Views/ImportPage.vala:1105
+#: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
 msgstr "ا_فصل"
 
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
 msgstr "من فضلك افصل الكاميرا."
 
-#: src/Views/ImportPage.vala:1115
+#. it's not mounted, so another application must have it locked
+#: src/Views/ImportPage.vala:1119
+msgid "The Camera Is Locked By Another Application"
+msgstr ""
+
+#: src/Views/ImportPage.vala:1120
 #, fuzzy
 msgid ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 msgstr ""
 "الكاميرا موصدة من قبل تطبيق آخر. يمكن لـ شُتْ‌وِل الوصول للكاميرا فقط عندما تكون "
 "غير موصدة. من فضلك أغلق أي تطبيقات أخرى تستخدم الكاميرا وحاول مجددا."
 
-#: src/Views/ImportPage.vala:1125
+#: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
 msgstr "من فضلك أغلق أي تطبيق آخر يستخدم الكاميرا."
 
-#: src/Views/ImportPage.vala:1130
+#: src/Views/ImportPage.vala:1132
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2954,48 +2971,48 @@ msgstr ""
 "تعذّر جلب المعاينات من الكاميرا:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1147
+#: src/Views/ImportPage.vala:1149
 #, fuzzy
 msgid "Unmounting…"
 msgstr "يفصل..."
 
-#: src/Views/ImportPage.vala:1253
+#: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
 msgstr "جلب معلومات الصورة"
 
-#: src/Views/ImportPage.vala:1608
+#: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "جلب المعاينة لـ %s"
 
-#: src/Views/ImportPage.vala:1724
+#: src/Views/ImportPage.vala:1726
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "تعذّر إيصاد الكاميرا: %s"
 
-#: src/Views/ImportPage.vala:1809
+#: src/Views/ImportPage.vala:1811
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "لا صور لحذفها."
+msgstr[0] "لا صور لحذفها"
 msgstr[1] "هل ترغب بحذف هذه الصورة من الكاميرا؟"
 msgstr[2] "هل ترغب بحذف هاتين الصورتين من الكاميرا؟"
 msgstr[3] "هل ترغب بحذف هذه الصور الـ%d من الكاميرا؟"
 msgstr[4] "هل ترغب بحذف هذه الصور الـ%d من الكاميرا؟"
 msgstr[5] "هل ترغب بحذف هذه الصور الـ%d من الكاميرا؟"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1814
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "لا فيديوهات لحذفها."
+msgstr[0] "لا فيديوهات لحذفها"
 msgstr[1] "هل ترغب بحذف هذا الفيديو من الكاميرا؟"
 msgstr[2] "هل ترغب بحذف هذين الفيديوهين من الكاميرا؟"
 msgstr[3] "هل ترغب بحذف هذه الفيديوهات الـ%d من الكاميرا؟"
 msgstr[4] "هل ترغب بحذف هذه الفيديوهات الـ%d من الكاميرا؟"
 msgstr[5] "هل ترغب بحذف هذه الفيديوهات الـ%d من الكاميرا؟"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1817
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
@@ -3006,7 +3023,7 @@ msgstr[3] "هل ترغب بحذف هذه الصور/الفيديوهات الـ%
 msgstr[4] "هل ترغب بحذف هذه الصور/الفيديوهات الـ%d من الكاميرا؟"
 msgstr[5] "هل ترغب بحذف هذه الصور/الفيديوهات الـ%d من الكاميرا؟"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1820
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
@@ -3017,19 +3034,19 @@ msgstr[3] "هل ترغب بحذف هذه الملفات الـ%d من الكام
 msgstr[4] "هل ترغب بحذف هذه الملفات الـ%d من الكاميرا؟"
 msgstr[5] "هل ترغب بحذف هذه الملفات الـ%d من الكاميرا؟"
 
-#: src/Views/ImportPage.vala:1826 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "احذف"
 
-#: src/Views/ImportPage.vala:1826
+#: src/Views/ImportPage.vala:1828
 msgid "_Keep"
 msgstr "أ_بقِ"
 
-#: src/Views/ImportPage.vala:1845
+#: src/Views/ImportPage.vala:1847
 msgid "Removing photos/videos from camera"
 msgstr "حذف صور/فيديوهات من الكاميرا"
 
-#: src/Views/ImportPage.vala:1849
+#: src/Views/ImportPage.vala:1851
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -3491,8 +3508,8 @@ msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"لم يتمكن شُتْ‌وِل من الاتصال بمكتبة صورك على Piwigo. برجاء التحقق من العنوان "
-"المُدخل."
+"لم يتمكن Shotwell من الاتصال بمكتبة صورك على Piwigo. يرجى التحقق من الرابط "
+"المُدخل"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
