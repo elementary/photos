@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-03-03 14:26+0000\n"
+"PO-Revision-Date: 2019-05-18 00:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/photos/"
 "ja/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -388,54 +388,46 @@ msgstr "全画面表示の解除"
 
 #: src/main.vala:68
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ラ"
-"イブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバー"
-"ジョンは %s (スキーマ %d) です。最新バージョンの \"フォト\" を使用してくださ"
-"い。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバージョンは %s (スキーマ %d) です。"
+"最新バージョンの \"フォト\" を使用してください。"
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
-msgstr ""
-"\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ "
-"%d) にアップグレードできませんでした。詳しい情報は、次の \"フォト\" Wiki を確"
-"認してください。%s"
+msgstr "\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ %d) にアップグレードできませんでした"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "詳細情報は、%s にある \"フォト\" の Wiki をご覧ください"
 
 #: src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ラ"
-"イブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバー"
-"ジョンは %s (スキーマ %d) です。%s を削除してライブラリを消去した上で、写真を"
-"再インポートしてください。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバージョンは %s (スキーマ %d) です。%s "
+"を削除してライブラリを消去した上で、写真を再インポートしてください。"
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "\"フォト\" のデータベースの検査中に不明なエラーが発生しました: %s"
+msgstr "\"フォト\" のデータベースの検査中に不明なエラーが発生しました"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -1200,7 +1192,7 @@ msgstr[0] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "現像を切り替えてもよろしいですか？"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1292,7 +1284,7 @@ msgstr[0] "%d 個のファイルのインポートを試みました。"
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
-msgstr[0] "以下の %d 個のファイルのインポートに成功しました。"
+msgstr[0] "以下の %d 個のファイルは正常にインポートされました。"
 
 #.
 #. Duplicates
@@ -1356,7 +1348,7 @@ msgid ""
 "\tto %s"
 msgstr ""
 "%s を %s にコピー\n"
-"\tできませんでした。"
+"\tできませんでした"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1564,19 +1556,19 @@ msgstr[0] "ユーザのキャンセルにより %d 件のファイルをスキ�
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
-msgstr[0] "%d 枚の写真のインポートに成功しました。\n"
+msgstr[0] "%d 枚の写真は正常にインポートされました。\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
-msgstr[0] "%d 個の動画のインポートに成功しました。\n"
+msgstr[0] "%d 個の動画は正常にインポートされました。\n"
 
 #: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
-msgstr[0] "%d 個の写真と動画のインポートに成功しました。\n"
+msgstr[0] "%d 個の写真と動画は正常にインポートされました。\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
@@ -1652,7 +1644,7 @@ msgid_plural ""
 msgstr[0] ""
 "\n"
 "\n"
-"その他 %d 個"
+"その他 %d 個。"
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
@@ -2229,23 +2221,23 @@ msgstr "ログイン(_L)"
 
 #: src/publishing/PublishingUI.vala:130
 msgid "The selected photos/videos were successfully published."
-msgstr "選択された写真/動画の公開に成功しました。"
+msgstr "選択された写真/動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:132
 msgid "The selected videos were successfully published."
-msgstr "選択された動画の公開に成功しました。"
+msgstr "選択された動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:134
 msgid "The selected photos were successfully published."
-msgstr "選択された写真の公開に成功しました。"
+msgstr "選択された写真は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:137
 msgid "The selected video was successfully published."
-msgstr "選択された動画の公開に成功しました。"
+msgstr "選択された動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:139
 msgid "The selected photo was successfully published."
-msgstr "選択された写真の公開に成功しました。"
+msgstr "選択された写真は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:147
 msgid "Fetching account information…"
@@ -2704,15 +2696,12 @@ msgstr "すべての写真をライブラリにインポートします"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "カメラがマウントされている間はアクセスできません"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr ""
-"\"フォト\" がこのカメラにアクセスするにはファイルシステムからカメラをアンマウ"
-"ントする必要があります。続行しますか？"
+msgstr "\"フォト\" がこのカメラにアクセスするには、ファイルシステムからカメラをアンマウントする必要があります。"
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2725,17 +2714,14 @@ msgstr "カメラをアンマウントしてください。"
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "カメラが他のアプリケーションによってロックされています"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"カメラが他のアプリケーションによってロックされています。\"フォト\" はカメラが"
-"ロックされていない時のみアクセスできます。カメラを使用している他のすべてのア"
-"プリケーションを閉じて、もう一度お試しください。"
+"\"フォト\" はカメラがロックされていない時のみアクセスできます。カメラを使用している他のすべてのアプリケーションを閉じて、もう一度お試しください。"
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
