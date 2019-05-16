@@ -1,7 +1,7 @@
 project(
     'io.elementary.photos',
     'vala', 'c',
-    version: '2.6.3',
+    version: '2.6.4',
     meson_version: '>=0.46.0'
 )
 
