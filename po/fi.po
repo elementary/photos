@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-07 21:32+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/photos/photos/fi/"
@@ -385,9 +385,10 @@ msgstr "Kiinnitä työkalurivi auki"
 msgid "Leave fullscreen"
 msgstr "Poistu koko näytön tilasta"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr "Kuvakirjastosi ei ole yhteensopiva tämän kuvasovelluksen version kanssa"
+msgstr ""
+"Kuvakirjastosi ei ole yhteensopiva tämän kuvasovelluksen version kanssa"
 
 #: src/main.vala:69
 #, fuzzy, c-format
@@ -411,10 +412,6 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
 
 #: src/main.vala:77
@@ -1714,32 +1711,32 @@ msgstr ""
 "Kuvat-sovellus voi kopioida kuvat kirjastokansioon tai tuoda ne ilman "
 "kopiointia."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "_Kopioi kuvat"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Tuo vanhasta sijainnista"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Tuo kirjastoon"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "_Kopioi kuvat"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Tuo vanhasta sijainnista"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Poista kirjastosta"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Poistetaan kuvia kirjastosta"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Poistetaan kuvia kirjastosta"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."

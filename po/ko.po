@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-08 07:32+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
-"\n"
+"Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,9 +379,10 @@ msgstr "열린 도구 모음 고정"
 msgid "Leave fullscreen"
 msgstr "전체 화면 나가기"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr "사용하시는 포토 라이브러리는 이 버전의 사진 앱과는 호환이 되지 않습니다"
+msgstr ""
+"사용하시는 포토 라이브러리는 이 버전의 사진 앱과는 호환이 되지 않습니다"
 
 #: src/main.vala:69
 #, c-format
@@ -389,24 +390,22 @@ msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"사진 앱%s (schema %d)으로 만들어진 것으로 보입니다. 사용하시는 버전은 %s (schema %d)입니다. 최신 버전의 사진 "
-"앱을 이용해주시기 바랍니다."
+"사진 앱%s (schema %d)으로 만들어진 것으로 보입니다. 사용하시는 버전은 %s "
+"(schema %d)입니다. 최신 버전의 사진 앱을 이용해주시기 바랍니다."
 
 #: src/main.vala:72
 #, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
-msgstr "사진 앱이 포토 라이브러리의 버전 %s (Schema %d)에서 %s (Schema %d)로 업그레이드를 할 수 없었습니다"
+msgstr ""
+"사진 앱이 포토 라이브러리의 버전 %s (Schema %d)에서 %s (Schema %d)로 업그레이"
+"드를 할 수 없었습니다"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "좀 더 자세한 정보는 %s에서 위키를 활용해 주세요"
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr "사용하시는 포토 라이브러리는 이 버전의 사진 앱과는 호환이 되지 않습니다"
 
 #: src/main.vala:77
 #, c-format
@@ -415,8 +414,9 @@ msgid ""
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"사진 앱%s (schema %d)으로 만들어진 것으로 보입니다. 사용하시는 버전은 %s (schema %d)입니다. %s을 지워서 "
-"라이브러리를 정리하시고 사진을 다시 불러와주세요."
+"사진 앱%s (schema %d)으로 만들어진 것으로 보입니다. 사용하시는 버전은 %s "
+"(schema %d)입니다. %s을 지워서 라이브러리를 정리하시고 사진을 다시 불러와주세"
+"요."
 
 #: src/main.vala:80
 msgid "Unknown Error Attempting To Verify Photos' Database"
@@ -1629,32 +1629,32 @@ msgstr ""
 "사진은 사진을 라이브러리 폴더로 복사할 수도 있고 사진을 복사하지 않고 가져올 "
 "수도 있습니다."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "사진 복사(_P)"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "복사하지 않고 가져오기(_I)"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "라이브러리로 가져오기"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "사진 복사(_P)"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "복사하지 않고 가져오기(_I)"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "사진을 라이브러리에서 제거하는 중"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "사진을 라이브러리에서 제거하는 중"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2676,7 +2676,9 @@ msgstr "마운트 된 상태에서는 카메라에 접근할 수 없습니다"
 #: src/Views/ImportPage.vala:1100
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr "사진에서 카메라에 접근하려면 파일 시스템에서 카메라의 마운트를 해제해야 합니다."
+msgstr ""
+"사진에서 카메라에 접근하려면 파일 시스템에서 카메라의 마운트를 해제해야 합니"
+"다."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2695,7 +2697,9 @@ msgstr "다른 애플리케이션에 의해서 카메라가 잠겨있습니다"
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
-msgstr "사진 앱은 잠금이 풀려야 카메라에 접근할 수 있습니다. 카메라를 사용 중인 다른 애플리케이션을 닫으신 후에 다시 시도해보세요."
+msgstr ""
+"사진 앱은 잠금이 풀려야 카메라에 접근할 수 있습니다. 카메라를 사용 중인 다른 "
+"애플리케이션을 닫으신 후에 다시 시도해보세요."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3809,6 +3813,10 @@ msgstr "체스판 무늬"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "블라인드"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr ""
+#~ "사용하시는 포토 라이브러리는 이 버전의 사진 앱과는 호환이 되지 않습니다"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "현재 사진 크기로 되돌리기"

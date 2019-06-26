@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-25 17:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
@@ -390,7 +390,7 @@ msgstr "Mantén la barra d'eines oberta"
 msgid "Leave fullscreen"
 msgstr "Surt de la pantalla completa"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 "La biblioteca de fotografies no és compatible amb aquesta versió del "
@@ -418,12 +418,6 @@ msgstr ""
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "Per obtenir-ne més informació comproveu el Wiki del Fotografies a %s."
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
-"La biblioteca de fotografies no és compatible amb aquesta versió del "
-"Fotografies."
 
 #: src/main.vala:77
 #, c-format
@@ -1745,32 +1739,32 @@ msgstr ""
 "Fotografies pot copiar les fotografies a la carpeta de la biblioteca o les "
 "pot importar sense copiar-les."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Co_pia les fotografies"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importa-les a la ubicació"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importa a la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Co_pia les fotografies"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importa-les a la ubicació"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Se suprimeix la fotografia de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Se suprimeixen fotografies de la biblioteca"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -3968,6 +3962,11 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr ""
+#~ "La biblioteca de fotografies no és compatible amb aquesta versió del "
+#~ "Fotografies."
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Torna a la mida actual de la fotografia"

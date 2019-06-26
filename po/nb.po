@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-08 12:33+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
@@ -384,7 +384,7 @@ msgstr "Lås verktøylinjen åpen"
 msgid "Leave fullscreen"
 msgstr "Forlat fullskjerm"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 #, fuzzy
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr "Ditt billedbibliotek er ikke kompatibelt med denne versjonen av Bilder"
@@ -409,14 +409,9 @@ msgstr ""
 "(skjema %d) til %s (skjema %d). For mer informasjon, sjekk Bilders wiki på %s"
 
 #: src/main.vala:73
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "For mer informasjon, sjekk Bilde-wiki-en på %s"
-
-#: src/main.vala:76
-#, fuzzy
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr "Ditt billedbibliotek er ikke kompatibelt med denne versjonen av Bilder"
 
 #: src/main.vala:77
 #, fuzzy, c-format
@@ -1709,32 +1704,32 @@ msgstr ""
 "Bilder kan kopiere bildene til din bildebibliotekmappe eller importere dem "
 "uten å kopiere."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Ko_pier bilder"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importer uten kopiering"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importer til biblioteket"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Ko_pier bilder"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importer uten kopiering"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Fjern fra bildebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Fjerner bilder fra bildebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Fjerner bilder fra bildebiblioteket"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -3924,6 +3919,11 @@ msgstr "Sjakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Gardiner"
+
+#, fuzzy
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr ""
+#~ "Ditt billedbibliotek er ikke kompatibelt med denne versjonen av Bilder"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Gå tilbake til aktuelle bildedimensjoner"

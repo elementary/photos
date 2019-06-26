@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-20 07:14+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -386,7 +386,7 @@ msgstr "Fixar a barra de ferramentas aberta"
 msgid "Leave fullscreen"
 msgstr "Sai da tela cheia"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr "Sua biblioteca de fotos não é compatível com esta versão do Fotos"
 
@@ -405,17 +405,13 @@ msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"O Fotos foi incapaz de atualizar a sua biblioteca de fotos da versão %s ("
-"esquema %d) para %s (esquema %d)"
+"O Fotos foi incapaz de atualizar a sua biblioteca de fotos da versão %s "
+"(esquema %d) para %s (esquema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "Para mais informações, consulte a Wiki do Fotos em %s"
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr "sua biblioteca de fotos não é compatível com esta versão do Fotos"
 
 #: src/main.vala:77
 #, c-format
@@ -1728,32 +1724,32 @@ msgstr ""
 "Fotos pode copiar as fotos na sua pasta de biblioteca ou pode importá-los "
 "sem copiar."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Co_py fotos"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importar no local"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importar para a biblioteca"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Co_py fotos"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importar no local"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Remover da biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Removendo fotos da biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Removendo fotos da biblioteca"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -3949,6 +3945,9 @@ msgstr "Xadrez"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Escuro"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "sua biblioteca de fotos não é compatível com esta versão do Fotos"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Retornar a foto para as dimensões atuais"

@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-18 00:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/photos/"
@@ -386,7 +386,7 @@ msgstr "ツールバーを開いた状態で固定します"
 msgid "Leave fullscreen"
 msgstr "全画面表示の解除"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
@@ -396,24 +396,23 @@ msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバージョンは %s (スキーマ %d) です。"
-"最新バージョンの \"フォト\" を使用してください。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。この"
+"バージョンは %s (スキーマ %d) です。最新バージョンの \"フォト\" を使用してく"
+"ださい。"
 
 #: src/main.vala:72
 #, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
-msgstr "\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ %d) にアップグレードできませんでした"
+msgstr ""
+"\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ "
+"%d) にアップグレードできませんでした"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "詳細情報は、%s にある \"フォト\" の Wiki をご覧ください"
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
 #: src/main.vala:77
 #, c-format
@@ -422,8 +421,9 @@ msgid ""
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバージョンは %s (スキーマ %d) です。%s "
-"を削除してライブラリを消去した上で、写真を再インポートしてください。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。この"
+"バージョンは %s (スキーマ %d) です。%s を削除してライブラリを消去した上で、写"
+"真を再インポートしてください。"
 
 #: src/main.vala:80
 msgid "Unknown Error Attempting To Verify Photos' Database"
@@ -1656,32 +1656,32 @@ msgstr ""
 "\"フォト\" はライブラリフォルダーに写真をコピーしたり、写真をコピーせずにイン"
 "ポートしたりすることができます。"
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "写真をコピー(_P)"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "元の場所でインポート(_I)"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "ライブラリにインポート"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "写真をコピー(_P)"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "元の場所でインポート(_I)"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "ライブラリから削除"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "ライブラリから写真を削除しています"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "ライブラリから写真を削除しています"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2701,7 +2701,9 @@ msgstr "カメラがマウントされている間はアクセスできません
 #: src/Views/ImportPage.vala:1100
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr "\"フォト\" がこのカメラにアクセスするには、ファイルシステムからカメラをアンマウントする必要があります。"
+msgstr ""
+"\"フォト\" がこのカメラにアクセスするには、ファイルシステムからカメラをアンマ"
+"ウントする必要があります。"
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2721,7 +2723,8 @@ msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"\"フォト\" はカメラがロックされていない時のみアクセスできます。カメラを使用している他のすべてのアプリケーションを閉じて、もう一度お試しください。"
+"\"フォト\" はカメラがロックされていない時のみアクセスできます。カメラを使用し"
+"ている他のすべてのアプリケーションを閉じて、もう一度お試しください。"
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3851,6 +3854,9 @@ msgstr "チェス"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ブラインド"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "現在の写真サイズに戻す"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-05-08 10:32+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -386,7 +386,7 @@ msgstr "Prisegti atvertą įrankių juostą"
 msgid "Leave fullscreen"
 msgstr "Išeiti iš viso ekrano"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr "Jūsų nuotraukų biblioteka nėra suderinama su šia Nuotraukų versija"
 
@@ -405,17 +405,13 @@ msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Nuotraukoms nepavyko naujinti jūsų nuotraukų bibliotekos iš versijos %s ("
-"schema %d) į %s (schema %d)"
+"Nuotraukoms nepavyko naujinti jūsų nuotraukų bibliotekos iš versijos %s "
+"(schema %d) į %s (schema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "Daugiau informacijos ieškokite Nuotraukų vikyje, adresu %s"
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr "Jūsų nuotraukų biblioteka nėra suderinama su šia Nuotraukų versija"
 
 #: src/main.vala:77
 #, c-format
@@ -1788,32 +1784,32 @@ msgstr ""
 "Programa Nuotraukos gali nukopijuoti nuotraukas į jūsų nuotraukų bibliotekos "
 "aplanką arba gali jas importuoti nekopijuojant."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "_Kopijuoti nuotraukas"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importuoti nekopijuojant"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importuoti į biblioteką"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "_Kopijuoti nuotraukas"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importuoti nekopijuojant"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Pašalinti iš bibliotekos"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Šalinama nuotrauka iš bibliotekos"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Šalinamos nuotraukos iš bibliotekos"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -4023,6 +4019,9 @@ msgstr "Šachmatai"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Langinės"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "Jūsų nuotraukų biblioteka nėra suderinama su šia Nuotraukų versija"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Grįžti prie dabartinių nuotraukos matmenų"
