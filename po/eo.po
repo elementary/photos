@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: shotwell-extras-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2018-10-29 13:36+0000\n"
-"Last-Translator: Augusto Fornitani <augusto.fornitani@outlook.com>\n"
-"Language-Team: Esperanto <https://weblate.elementary.io/projects/photos/"
-"photos/eo/>\n"
+"PO-Revision-Date: 2019-07-03 03:46+0000\n"
+"Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/photos/photos/"
+"eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -1500,68 +1500,68 @@ msgstr[1] ""
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 foto estis preterlasita pro uzanta rezigno:\n"
+msgstr[1] "%d fotoj estis preterlasitaj pro uzanta rezigno:\n"
 
 #: src/Dialogs/Dialogs.vala:525
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 video estis preterlasita pro uzanta rezigno:\n"
+msgstr[1] "%d videoj estis preterlasitaj pro uzanta rezigno:\n"
 
 #: src/Dialogs/Dialogs.vala:528
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 foto/video estis preterlasita pro uzanta rezigno:\n"
+msgstr[1] "%d fotoj/videoj estis preterlasitaj pro uzanta rezigno:\n"
 
 #: src/Dialogs/Dialogs.vala:531
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 dosiero estis preterlasita pro uzanta rezigno:\n"
+msgstr[1] "%d dosieroj estis preterlasitaj pro uzanta rezigno:\n"
 
 #: src/Dialogs/Dialogs.vala:545
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 foto sukcese importita\n"
+msgstr[1] "%d fotoj sukcese importitaj\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 video sukcese importita\n"
+msgstr[1] "%d videoj sukcese importitaj\n"
 
 #: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 foto/video sukcese importita\n"
+msgstr[1] "%d fotoj/videoj sukcese importitaj\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:567
 msgid "No photos or videos imported.\n"
-msgstr ""
+msgstr "Neniu foto aŭ video importita\n"
 
 #: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
-msgstr ""
+msgstr "Kompleta importo"
 
 #: src/Dialogs/Dialogs.vala:583
 msgid "_Done"
-msgstr ""
+msgstr "_Finite"
 
 #: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
-msgstr ""
+msgstr "Nomo:"
 
 #: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
@@ -1773,12 +1773,12 @@ msgstr ""
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
 #: src/Views/DirectPhotoPage.vala:420
 msgid "Cancel"
-msgstr ""
+msgstr "Rezigni"
 
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
-msgstr ""
+msgstr "Maleblas malfermi/krei fotan datumbazon %s: erarkodo %d"
 
 #: src/db/DatabaseTable.vala:59
 #, c-format
@@ -1786,6 +1786,8 @@ msgid ""
 "Unable to write to photo database file:\n"
 " %s"
 msgstr ""
+"Maleblas registri en la fota datumbaza dosiero:\n"
+" %s"
 
 #: src/db/DatabaseTable.vala:61
 #, c-format
@@ -1796,10 +1798,15 @@ msgid ""
 "Error was: \n"
 "%s"
 msgstr ""
+"Eraris atingo al datumbaza dosiero:\n"
+" %s\n"
+"\n"
+"Eraro estis:\n"
+"%s"
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
-msgstr ""
+msgstr "Konservi la foton"
 
 #: src/direct/DirectWindow.vala:51
 msgid "Save photo with a different name"
@@ -2163,12 +2170,12 @@ msgstr ""
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
-msgstr ""
+msgstr "Pretiĝanta por alŝuto"
 
 #: src/publishing/PublishingPluginHost.vala:25
 #, c-format
 msgid "Uploading %d of %d"
-msgstr ""
+msgstr "Alŝutanta %d el %d"
 
 #: src/publishing/PublishingPluginHost.vala:94
 #, c-format
