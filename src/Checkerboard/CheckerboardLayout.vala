@@ -85,9 +85,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         view.items_selected.connect (on_items_selection_changed);
         view.items_unselected.connect (on_items_selection_changed);
 
-        weak Gtk.StyleContext style_context = get_style_context ();
-        style_context.add_class ("solid-checkerboard-layout");
-
         // CheckerboardItems offer tooltips
         has_tooltip = true;
     }
