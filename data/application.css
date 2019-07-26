@@ -22,6 +22,24 @@
     color: @text_color;
 }
 
+scale.temperature trough {
+    background-image:
+        linear-gradient(
+            to right,
+            @BLUEBERRY_500,
+            @BANANA_500
+        );
+}
+
+scale.temperature:dir(rtl) trough {
+    background-image:
+        linear-gradient(
+            to left,
+            @BLUEBERRY_500,
+            @BANANA_500
+        );
+}
+
 scale.tint trough {
     background-image:
         linear-gradient(
@@ -40,11 +58,11 @@ scale.tint:dir(rtl) trough {
         );
 }
 
-scale.tint trough {
+scale.tint trough,
+scale.temperature trough {
     box-shadow:
         inset 0 0 0 1px alpha (#000, 0.7),
         inset 0 1px 0 alpha (#000, 0.7),
         inset 0 2px 0 alpha (#fff, 0.15),
         0 1px 0 0 alpha (@bg_highlight_color, 0.3);
 }
-
