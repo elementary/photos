@@ -1032,7 +1032,8 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             style_context.render_background (ctx, visible_page.x, visible_page.y, visible_page.width, visible_page.height);
 
             style_context.save ();
-            style_context.add_class ("card");
+            style_context.add_class (Granite.STYLE_CLASS_CARD);
+            style_context.add_class (Granite.STYLE_CLASS_CHECKERBOARD);
             foreach (CheckerboardItem item in intersection (visible_page)) {
                 item.paint (ctx, style_context);
             }
