@@ -1,6 +1,6 @@
 /*
 * Copyright (c) 2009-2013 Yorba Foundation
-*               2017 elementary  LLC. (https://github.com/elementary/photos)
+*               2017-2019 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -99,8 +99,10 @@ public class ExportDialog : Gtk.Dialog {
         pixels_entry.text = "%d".printf (current_scale);
         pixels_entry.xalign = 1;
 
-        Gtk.Label pixels_label = new Gtk.Label.with_mnemonic (_("_pixels"));
-        pixels_label.mnemonic_widget = pixels_entry;
+        Gtk.Label size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:"));
+        size_label.halign = Gtk.Align.END;
+        quality_label.use_underline = true;
+        size_label.mnemonic_widget = pixels_entry;
 
         export_metadata = new Gtk.CheckButton.with_label (_("Export metadata"));
         export_metadata.active = true;
@@ -116,8 +118,8 @@ public class ExportDialog : Gtk.Dialog {
         grid.attach (quality_combo, 1, 1, 1, 1);
         grid.attach (constraint_label, 0, 2, 1, 1);
         grid.attach (constraint_combo, 1, 2, 1, 1);
+        grid.attach (size_label, 0, 3, 1, 1);
         grid.attach (pixels_entry, 1, 3, 1, 1);
-        grid.attach (pixels_label, 2, 3, 1, 1);
         grid.attach (export_metadata, 1, 4, 1, 1);
 
         ((Gtk.Box) get_content_area ()).add (grid);
@@ -127,9 +129,10 @@ public class ExportDialog : Gtk.Dialog {
         export_button = add_button (_("_Export"), Gtk.ResponseType.OK);
         export_button.can_default = true;
         export_button.has_default = true;
+        export_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         export_button.grab_focus ();
 
-        get_action_area ().margin = 5;
+        get_action_area ().margin = 6;
 
         if (current_constraint == ScaleConstraint.ORIGINAL) {
             pixels_entry.sensitive = false;
