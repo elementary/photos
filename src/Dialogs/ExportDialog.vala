@@ -43,9 +43,8 @@ public class ExportDialog : Gtk.Dialog {
     private Gtk.ComboBoxText format_combo;
     private Gtk.CheckButton export_metadata;
     private Gee.ArrayList<string> format_options = new Gee.ArrayList<string> ();
-    private Gtk.Entry pixels_entry;
+    private Gtk.SpinButton pixels_entry;
     private Gtk.Widget export_button;
-    private bool in_insert = false;
 
     public ExportDialog (string title) {
         Object (deletable: false,
@@ -94,10 +93,10 @@ public class ExportDialog : Gtk.Dialog {
             ctr++;
         }
 
-        pixels_entry = new Gtk.Entry ();
-        pixels_entry.max_length = 6;
-        pixels_entry.text = "%d".printf (current_scale);
-        pixels_entry.xalign = 1;
+        pixels_entry = new Gtk.SpinButton.with_range (1, 999999, 1);
+        pixels_entry.set_max_length (6);
+        pixels_entry.set_value (current_scale);
+        pixels_entry.set_digits (0);
 
         Gtk.Label size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:"));
         size_label.halign = Gtk.Align.END;
@@ -142,9 +141,11 @@ public class ExportDialog : Gtk.Dialog {
         constraint_combo.changed.connect (on_constraint_changed);
         format_combo.changed.connect (on_format_changed);
         pixels_entry.changed.connect (on_pixels_changed);
-        pixels_entry.insert_text.connect (on_pixels_insert_text);
         pixels_entry.activate.connect (() => {
-            response (Gtk.ResponseType.OK);
+            if ((pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0))
+                response (Gtk.ResponseType.OK);
+            else
+                pixels_entry.set_value (current_scale);
         });
     }
 
@@ -222,7 +223,7 @@ public class ExportDialog : Gtk.Dialog {
             constraint = CONSTRAINT_ARRAY[index];
             current_constraint = constraint;
 
-            scale = int.parse (pixels_entry.get_text ());
+            scale = (int) pixels_entry.get_value ();
             if (constraint != ScaleConstraint.ORIGINAL)
                 assert (scale > 0);
             current_scale = scale;
@@ -298,32 +299,10 @@ public class ExportDialog : Gtk.Dialog {
     }
 
     private void on_pixels_changed () {
-        export_button.sensitive = (pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0);
-    }
-
-    private void on_pixels_insert_text (string text, int length, ref int position) {
-        // This is necessary because SignalHandler.block_by_func () is not properly bound
-        if (in_insert)
-            return;
-
-        in_insert = true;
-
-        if (length == -1)
-            length = (int) text.length;
-
-        // only permit numeric text
-        string new_text = "";
-        for (int ctr = 0; ctr < length; ctr++) {
-            if (text[ctr].isdigit ()) {
-                new_text += ((char) text[ctr]).to_string ();
-            }
+        if ((pixels_entry.get_text_length () > 0) && (pixels_entry.get_value () > 0)) {
+            export_button.sensitive = true;
+        } else {
+            export_button.sensitive = false;
         }
-
-        if (new_text.length > 0)
-            pixels_entry.insert_text (new_text, (int) new_text.length, ref position);
-
-        Signal.stop_emission_by_name (pixels_entry, "insert-text");
-
-        in_insert = false;
     }
 }
