@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:41-0500\n"
-"PO-Revision-Date: 2018-02-13 09:42+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
-"photos/extra/zh_TW/>\n"
+"PO-Revision-Date: 2019-05-23 12:03+0000\n"
+"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
+"photos/extra/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:15+0000\n"
 
 #: data/io.elementary.photos-viewer.desktop.in.in:3
@@ -26,8 +26,9 @@ msgid "Photo Viewer"
 msgstr "相片檢視器"
 
 #: data/io.elementary.photos-viewer.desktop.in.in:6
+#, fuzzy
 msgid "multimedia-photo-viewer"
-msgstr ""
+msgstr "multimedia-photo-viewer"
 
 #: data/io.elementary.photos.desktop.in.in:3
 #: data/io.elementary.photos.appdata.xml.in:8
@@ -42,7 +43,7 @@ msgstr "整理您的相片"
 #: data/io.elementary.photos.desktop.in.in:6
 #, fuzzy
 msgid "multimedia-photo-manager"
-msgstr "受歡迎的相片管理程式"
+msgstr "multimedia-photo-manager"
 
 #: data/io.elementary.photos.desktop.in.in:7
 msgid "Photo Manager"
@@ -77,9 +78,104 @@ msgstr ""
 msgid "Photos supports JPEG, PNG, TIFF, and a variety of RAW file formats."
 msgstr "《相片》支援 JPEG、PNG、TIFF 和各種 RAW 檔案格式。"
 
-#: data/io.elementary.photos.appdata.xml.in:139
-msgid "elementary LLC."
+#: data/io.elementary.photos.appdata.xml.in:37
+#: data/io.elementary.photos.appdata.xml.in:45
+msgid "Fix building against latest gexiv2"
 msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:38
+#: data/io.elementary.photos.appdata.xml.in:48
+#: data/io.elementary.photos.appdata.xml.in:56
+#: data/io.elementary.photos.appdata.xml.in:65
+#: data/io.elementary.photos.appdata.xml.in:77
+#: data/io.elementary.photos.appdata.xml.in:89
+#: data/io.elementary.photos.appdata.xml.in:97
+#: data/io.elementary.photos.appdata.xml.in:105
+#: data/io.elementary.photos.appdata.xml.in:114
+#: data/io.elementary.photos.appdata.xml.in:122
+#: data/io.elementary.photos.appdata.xml.in:133
+msgid "Translation updates"
+msgstr "翻譯更新"
+
+#: data/io.elementary.photos.appdata.xml.in:46
+msgid "Use Granite.MessageDialog throughout"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:47
+msgid "Use Gtk.FileChooserNative throughout"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:55
+#: data/io.elementary.photos.appdata.xml.in:64
+#: data/io.elementary.photos.appdata.xml.in:76
+#: data/io.elementary.photos.appdata.xml.in:88
+#: data/io.elementary.photos.appdata.xml.in:96
+#: data/io.elementary.photos.appdata.xml.in:104
+#: data/io.elementary.photos.appdata.xml.in:113
+#: data/io.elementary.photos.appdata.xml.in:121
+#: data/io.elementary.photos.appdata.xml.in:140
+msgid "Minor bug fixes"
+msgstr "小臭蟲修正"
+
+#: data/io.elementary.photos.appdata.xml.in:63
+msgid "Fix plugin windows not expanding"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:72
+msgid "Search box no longer loses focus after character input"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:73
+msgid "Colorized tint and temperature scales"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:74
+msgid "Add zoom to fit page button"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:75
+#: data/io.elementary.photos.appdata.xml.in:87
+msgid "Various UI fixes and improvements"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:84
+msgid "Prefer dark theme"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:85
+msgid "WebP format support"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:86
+msgid "Improved HiDPI support"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:112
+msgid "Preserve metadata when opening photo directly from the filesystem"
+msgstr "當直接從檔案系統開啟相片時保留中介資料"
+
+#: data/io.elementary.photos.appdata.xml.in:129
+msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
+msgstr "修正以鍵盤左鍵/右鍵導覽至下一個相片的問題"
+
+#: data/io.elementary.photos.appdata.xml.in:130
+msgid "Left bracket key rotates counterclockwise now"
+msgstr "左邊括號鍵現在會讓相片順時針旋轉"
+
+#: data/io.elementary.photos.appdata.xml.in:131
+msgid ""
+"Moved search into the headerbar and fixed a bug that prevents typing into "
+"the searchbox"
+msgstr "已將搜尋移動至標頭列，並修正了搜尋框中無法輸入的臭蟲"
+
+#: data/io.elementary.photos.appdata.xml.in:132
+msgid "Removed star and rejected ratings"
+msgstr "已移除星級和退絕評等"
+
+#: data/io.elementary.photos.appdata.xml.in:174
+#, fuzzy
+msgid "elementary LLC."
+msgstr "elementary LLC."
 
 #~ msgid "install;uninstall;remove;catalogue;store;apps;updates;software;"
 #~ msgstr ""
@@ -88,26 +184,3 @@ msgstr ""
 
 #~ msgid "About Photos"
 #~ msgstr "關於《相片》"
-
-#~ msgid "Preserve metadata when opening photo directly from the filesystem"
-#~ msgstr "當直接從檔案系統開啟相片時保留中介資料"
-
-#~ msgid "Minor bug fixes"
-#~ msgstr "小臭蟲修正"
-
-#~ msgid "Translation updates"
-#~ msgstr "翻譯更新"
-
-#~ msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
-#~ msgstr "修正以鍵盤左鍵/右鍵導覽至下一個相片的問題"
-
-#~ msgid "Left bracket key rotates counterclockwise now"
-#~ msgstr "左邊括號鍵現在會讓相片順時針旋轉"
-
-#~ msgid ""
-#~ "Moved search into the headerbar and fixed a bug that prevents typing into "
-#~ "the searchbox"
-#~ msgstr "已將搜尋移動至標頭列，並修正了搜尋框中無法輸入的臭蟲"
-
-#~ msgid "Removed star and rejected ratings"
-#~ msgstr "已移除星級和退絕評等"

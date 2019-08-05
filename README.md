@@ -16,7 +16,7 @@ You'll need the following dependencies:
 * libgexiv2-dev
 * libglib2.0-dev
 * libgphoto2-dev
-* libgranite-dev
+* libgranite-dev >= 5.2.0
 * libgstreamer1.0-dev
 * libgstreamer-plugins-base1.0-dev
 * libgtk-3-dev

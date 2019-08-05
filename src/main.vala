@@ -73,7 +73,7 @@ void library_exec (string[] mounts) {
             error_message = _("For more information please check the Photos Wiki at %s").printf (Resources.WIKI_URL);
             break;
         case Db.VerifyResult.NO_UPGRADE_AVAILABLE:
-            error_title = _("Your Photo Library Is Not Compatible With This Version Of Photos");
+            error_title = _("Your Photo Library Is Not Compatible With This Version of Photos");
             error_message = _("It appears it was created by Photos %s (schema %d). This version is %s (schema %d). Please clear your library by deleting %s and re-import your photos.").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION, AppDirs.get_data_dir ().get_path ());
             break;
         default:

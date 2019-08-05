@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-04-21 19:08+0000\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"PO-Revision-Date: 2019-05-13 23:02+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/photos/photos/tr/"
 ">\n"
@@ -25,18 +25,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:33+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Önbellek dizini oluşturulamıyor %s: %s"
+msgstr "%s önbellek dizini oluşturulamıyor: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "Veri klasörü oluşturulamadı %s: %s"
+msgstr "%s veri dizini oluşturulamıyor: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
@@ -46,12 +46,12 @@ msgstr "Resimler"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "Geçici klasör oluşturulamadı  %s: %s"
+msgstr "%s geçici dizini oluşturulamıyor: %s"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "Altklasör oluşturulamadı  %s: %s"
+msgstr "%s veri alt dizini oluşturulamıyor: %s"
 
 #: src/AppWindow.vala:163
 #, c-format
@@ -256,7 +256,7 @@ msgstr "Etiket Oluştur"
 #: src/Commands.vala:1630
 #, c-format
 msgid "Move Tag \"%s\""
-msgstr "Etiketi Taşı \"%s\""
+msgstr "\"%s\" Etiketini Taşı"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
@@ -339,7 +339,7 @@ msgstr "Olay %s"
 #: src/Exporter.vala:244
 #, c-format
 msgid "Unable to generate a temporary file for %s: %s"
-msgstr "%s: %s için geçici bir dosya oluşturulamıyor"
+msgstr "%s için geçici bir dosya oluşturulamıyor: %s"
 
 #: src/Exporter.vala:311
 msgid "Exporting"
@@ -385,7 +385,7 @@ msgstr "Araç çubuğunu açık olarak sabitle"
 msgid "Leave fullscreen"
 msgstr "Tam ekrandan çık"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
@@ -412,10 +412,6 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
 
 #: src/main.vala:77
@@ -864,7 +860,7 @@ msgstr "Etiket Ekle \"%s\""
 #: src/Resources.vala:186
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "Etiketler Ekle \"%s\" ve \"%s\""
+msgstr "\"%s\" ve \"%s\" Etiketini Ekle"
 
 #: src/Resources.vala:190
 msgid "Add Tags"
@@ -873,12 +869,12 @@ msgstr "Etiket Ekle"
 #: src/Resources.vala:194
 #, c-format
 msgid "_Delete Tag \"%s\""
-msgstr "Etiketi _Sil \"%s\""
+msgstr "\"%s\" Etiketini _Sil"
 
 #: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
-msgstr "Etiketi Sil \"%s\""
+msgstr "\"%s\" Etiketini Sil"
 
 #: src/Resources.vala:201
 msgid "Delete Tag"
@@ -908,7 +904,7 @@ msgstr "_Yeniden Adlandır…"
 
 #: src/Resources.vala:216
 msgid "Modif_y Tags…"
-msgstr "Etiketleri Düzenle…"
+msgstr "Etiketleri _Düzenle…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -953,8 +949,8 @@ msgstr "Etiket \"%s\" olarak adlandırılamadı, çünkü etiket zaten mevcut."
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
-"Aramayı \"% s \" olarak yeniden adlandırma başarısız çünkü bu isimle bir "
-"arama zaten var."
+"Aramayı \"%s\" olarak yeniden adlandırma başarısız çünkü bu isimle bir arama "
+"zaten var."
 
 #: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -1362,13 +1358,11 @@ msgstr ""
 "Kopyalayamadı:"
 
 #: src/Dialogs/Dialogs.vala:334
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "couldn't copy %s\n"
 "\tto %s"
-msgstr ""
-"%s kopyalanamadı\n"
-"%s için \t tuşuna basın"
+msgstr "%s, %s adresine kopyalanamadı"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1722,32 +1716,32 @@ msgstr ""
 "Fotoğraflar, fotoğrafları kitaplık klasörünün içine kopyalayabilir ya da "
 "kopyalama olmadan içe aktarabilir."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Fotoğrafları K_opyala"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Yerin içine aktar"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Kitaplığa Aktar"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Fotoğrafları K_opyala"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Yerin içine aktar"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Kitaplıktan Kaldır"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Fotoğraf Kitaplıktan Kaldırılıyor"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Fotoğraflar Kitaplıktan Kaldırılıyor"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2651,11 +2645,11 @@ msgstr "Çevir"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr "Sayfaya sığdırmak için yakınlaş"
+msgstr "Sayfaya sığdıracak kadar yakınlaştır"
 
 #: src/Views/EditingHostPage.vala:153
 msgid "Zoom 1:1"
-msgstr "Yakınlaş 1:1"
+msgstr "1:1 Yakınlaştır"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -3525,7 +3519,7 @@ msgstr "Fotoğraflar ve videolar _şunlara görülebilir:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
 msgid "Friends & family only"
-msgstr "Yalnızca aile & arkadaşlar"
+msgstr "Yalnızca aile ve arkadaşlar"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
 msgid "Family only"
@@ -3837,7 +3831,7 @@ msgid ""
 "You are logged into Tumblr as %s.\n"
 "\n"
 msgstr ""
-"%s olarak Tumblr'a giriş yaptınız.\n"
+"Tumblr'da %s olarak oturum açtınız.\n"
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30

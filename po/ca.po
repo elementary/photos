@@ -17,17 +17,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-01-15 00:05+0000\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"PO-Revision-Date: 2019-05-25 17:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://weblate.elementary.io/projects/photos/photos/"
-"ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 05:58+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -219,7 +219,7 @@ msgstr "Es restaura el revelador RAW anterior"
 
 #: src/Commands.vala:1192
 msgid "Set Developer"
-msgstr "Estableix el desenvolupador"
+msgstr "Estableix el revelador"
 
 #: src/Commands.vala:1282
 msgid "Original photo could not be adjusted."
@@ -390,58 +390,51 @@ msgstr "Mantén la barra d'eines oberta"
 msgid "Leave fullscreen"
 msgstr "Surt de la pantalla completa"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"La biblioteca de fotografies no és compatible amb aquesta versió del "
+"Fotografies."
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"La biblioteca de fotografies no és compatible amb aquesta versió del "
-"Fotografies. Sembla que es va crear amb el Fotografies %s (esquema %d). "
-"Aquesta versió és la %s (esquema %d). Si us plau, useu l'última versió del "
-"Fotografies."
+"Sembla que es va crear amb el Fotografies %s (esquema %d). Aquesta versió és "
+"la %s (esquema %d). Si us plau, useu l'última versió del Fotografies."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "El Fotografies no ha pogut actualitzar la biblioteca de fotografies de la "
-"versió %s (esquema %d) a la %s (esquema %d). Per obtenir-ne més informació "
-"comproveu el Wiki del Fotografies a %s"
+"versió %s (esquema %d) a la %s (esquema %d)."
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "Per obtenir-ne més informació comproveu el Wiki del Fotografies a %s."
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"La biblioteca de fotografies no és compatible amb aquesta versió del "
-"Fotografies. Sembla que es va crear amb el Fotografies %s (esquema %d). "
-"Aquesta versió és la %s (esquema %d). Netegeu la biblioteca mitjançant la "
+"Sembla que es va crear amb el Fotografies %s (esquema %d). Aquesta versió és "
+"la %s (esquema %d). Si us plau, netegeu la biblioteca mitjançant la "
 "supressió de %s i torneu a importar les fotografies."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr ""
-"S'ha produït un error desconegut en intentar verificar la base de dades del "
-"Fotografies: %s"
+"Hi ha hagut un error desconegut en intentar verificar la base de dades del "
+"Fotografies."
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -1221,7 +1214,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Segur que voleu canviar el revelador?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1746,32 +1739,32 @@ msgstr ""
 "Fotografies pot copiar les fotografies a la carpeta de la biblioteca o les "
 "pot importar sense copiar-les."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Co_pia les fotografies"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importa-les a la ubicació"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importa a la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Co_pia les fotografies"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importa-les a la ubicació"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Se suprimeix la fotografia de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Se suprimeixen fotografies de la biblioteca"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2592,7 +2585,7 @@ msgstr "Ajusta la mida de les miniatures"
 
 #: src/Views/CollectionPage.vala:166 src/Views/LibraryPhotoPage.vala:517
 msgid "_Developer"
-msgstr "_Desenvolupador"
+msgstr "Revela_dor"
 
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
 #: src/Views/LibraryPhotoPage.vala:557
@@ -2801,15 +2794,14 @@ msgstr "Importa totes les fotografies a la biblioteca"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "No es pot accedir a la càmera mentre estigui muntada."
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Cal que el Fotografies desmunti la càmera del sistema de fitxers per poder-"
-"hi accedir. Voleu continuar?"
+"hi accedir."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2822,17 +2814,15 @@ msgstr "Desmunteu la càmera."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "La càmera està bloquejada per una altra aplicació."
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Una altra aplicació està blocant la càmera. Fotografies només pot accedir a "
-"la càmera quan no està blocada. Tanqueu qualsevol altra aplicació que "
-"l'estigui utilitzant i torneu-ho a intentar."
+"El Fotografies només pot accedir a la càmera quan no està blocada. Tanqueu "
+"qualsevol altra aplicació que l'estigui utilitzant i torneu-ho a intentar."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3020,7 +3010,7 @@ msgstr "Enrere"
 
 #: src/Views/SlideshowPage.vala:65
 msgid "Go to the previous photo"
-msgstr "Vés a la fotografia anterior"
+msgstr "Ves a la fotografia anterior"
 
 #: src/Views/SlideshowPage.vala:68
 msgid "Pause"
@@ -3036,7 +3026,7 @@ msgstr "Següent"
 
 #: src/Views/SlideshowPage.vala:74
 msgid "Go to the next photo"
-msgstr "Vés a la fotografia següent"
+msgstr "Ves a la fotografia següent"
 
 #: src/Views/SlideshowPage.vala:81
 msgid "Show Photo Titles"
@@ -3326,7 +3316,7 @@ msgstr ""
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:22
 #: plugins/pantheon-photos-transitions/Resources.vala:22
 msgid "Visit the Yorba web site"
-msgstr "Vés al lloc web d'en Yorba"
+msgstr "Ves al lloc web d'en Yorba"
 
 #: plugins/pantheon-photos-publishing/Resources.vala:41
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
@@ -3820,11 +3810,11 @@ msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
 msgid "Visit the Yandex.Fotki web site"
-msgstr "Vés al lloc web d'en Yandex.Fotki"
+msgstr "Ves al lloc web d'en Yandex.Fotki"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Actualment no esteu connectat al Yandex.Fotki."
+msgstr "Actualment no esteu connectat a Yandex.Fotki."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
 msgid "Copyright 2012 BJA Electronics"
@@ -3972,6 +3962,11 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr ""
+#~ "La biblioteca de fotografies no és compatible amb aquesta versió del "
+#~ "Fotografies."
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Torna a la mida actual de la fotografia"

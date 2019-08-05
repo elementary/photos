@@ -18,16 +18,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2018-09-19 16:03+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/photos/photos/"
-"fi/>\n"
+"PO-Revision-Date: 2019-06-21 21:51+0000\n"
+"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/photos/photos/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-02-17 06:02+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -385,54 +385,48 @@ msgstr "Kiinnitä työkalurivi auki"
 msgid "Leave fullscreen"
 msgstr "Poistu koko näytön tilasta"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Kuvakirjastosi ei ole yhteensopiva tämän kuvasovelluksen version kanssa"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Kuvakirjasto ei ole yhteensopiva tämän kuvasovelluksen version kanssa. "
-"Kirjasto luotiin ilmeisesti kuvasovelluksen versiolla %s (skeema %d). Tämä "
-"versio on %s (skeema %d). Käytä kuvasovelluksen uusinta versiota."
+"Se luotiin ilmeisesti Kuvat-sovelluksen versiolla %s (skeema %d). Tämä "
+"versio on %s (skeema %d). Käytä Kuvat-sovelluksen uusinta versiota."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Kuvat-sovellus ei pystynyt päivittämään kuvakirjastoa versiosta %s (skeema "
-"%d) versioon %s (skeema %d). Lisätietoja on Kuvat-sovelluksen wikissä: %s"
+"%d) versioon %s (skeema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "Lisätietoja löytyy Kuvat-sovelluksen wikistä: %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Kuvakirjasto ei ole yhteensopiva tämän Kuvat-version kanssa. Kirjasto "
-"luotiin ilmeisesti Kuvat-sovelluksen versiolla %s (skeema %d). Tämä versio "
-"on %s (skeema %d). Tyhjennä kirjasto poistamalla hakemisto %s ja tuo kuvat "
+"Se luotiin ilmeisesti Kuvat-sovelluksen versiolla %s (skeema %d). Tämä "
+"versio on %s (skeema %d). Tyhjennä kirjastosi poistamalla %s ja tuo kuvasi "
 "uudelleen."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Tuntematon virhe varmistettaessa kuvasovelluksen tietokantaa: %s"
+msgstr "Tuntematon virhe yritettäessä varmentaa Kuvat-sovelluksen tietokantaa"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -1211,7 +1205,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Haluatko varmasti vaihtaa kehittäjiä?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1714,32 +1708,32 @@ msgstr ""
 "Kuvat-sovellus voi kopioida kuvat kirjastokansioon tai tuoda ne ilman "
 "kopiointia."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "_Kopioi kuvat"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Tuo vanhasta sijainnista"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Tuo kirjastoon"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "_Kopioi kuvat"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Tuo vanhasta sijainnista"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Poista kirjastosta"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Poistetaan kuvia kirjastosta"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Poistetaan kuvia kirjastosta"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2763,15 +2757,14 @@ msgstr "Tuo kaikki kuvat kirjastoon"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kameraa ei voida käyttää sen ollessa liitettynä tiedostojärjestelmään"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Kuvasovelluksen on irrotettava kamera tiedostojärjestelmästä, jotta sitä "
-"voidaan käyttää. Jatketaanko?"
+"Kuvat-sovelluksen on irroitettava kamera tiedostojärjestelmästä, jotta sitä "
+"voidaan käyttää."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2784,17 +2777,15 @@ msgstr "Irrota kamera."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kamera on lukittu toisen sovelluksen toimesta"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Toinen ohjelma on lukinnut kameran. Kuvat-sovellus voi käyttää kameraa vain, "
-"jos sitä ei ole lukittu. Sulje muut kameraa käyttävät ohjelmat ja yritä "
-"uudelleen."
+"Kuvat-sovellus voi käyttää kameraa vain, jos sitä ei ole lukittu. Sulje muut "
+"kameraa käyttävät sovellukset ja yritä uudelleen."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
