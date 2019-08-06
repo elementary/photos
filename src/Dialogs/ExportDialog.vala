@@ -100,7 +100,7 @@ public class ExportDialog : Gtk.Dialog {
 
         Gtk.Label size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:"));
         size_label.halign = Gtk.Align.END;
-        quality_label.use_underline = true;
+        size_label.use_underline = true;
         size_label.mnemonic_widget = pixels_entry;
 
         export_metadata = new Gtk.CheckButton.with_label (_("Export metadata"));
@@ -142,10 +142,11 @@ public class ExportDialog : Gtk.Dialog {
         format_combo.changed.connect (on_format_changed);
         pixels_entry.changed.connect (on_pixels_changed);
         pixels_entry.activate.connect (() => {
-            if ((pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0))
+            if ((pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0)) {
                 response (Gtk.ResponseType.OK);
-            else
+            } else {
                 pixels_entry.set_value (current_scale);
+            }
         });
     }
 
