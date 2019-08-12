@@ -70,28 +70,21 @@ public class SvgSniffer : GdkSniffer {
     private static bool is_svg_file (File file) throws Error {
         Xml.Doc* doc = Xml.Parser.parse_file (file.get_parse_name ());
 
-        if (doc == null) {
+        if (doc == null)
             return false;
-        }
 
         Xml.Node* root = doc->get_root_element ();
-        stdout.printf ("!!!!!%s!!!!!\n", root->name);
         if (root == null) {
             delete doc;
-
             return false;
         }
-        stdout.printf ("%s is not null\n", root->name);
+
         if (root->name != "svg") {
-            stdout.printf("%s is not svg\n", root->name);
-
             delete doc;
-
             return false;
         }
 
         delete doc;
-
         return true;
     }
 
@@ -111,8 +104,8 @@ public class SvgReader : GdkReader {
     public SvgReader (string filepath) {
         base (filepath, PhotoFileFormat.SVG);
     }
-    // TODO: determine if this matters
-    /*public override Gdk.Pixbuf scaled_read (Dimensions full, Dimensions scaled) throws Error {
+
+    public override Gdk.Pixbuf scaled_read (Dimensions full, Dimensions scaled) throws Error {
         Gdk.Pixbuf result = null;
         /* if we encounter a situation where there are two orders of magnitude or more of
            difference between the full image size and the scaled size, and if the full image
@@ -121,7 +114,7 @@ public class SvgReader : GdkReader {
            since 32-bit floats only have 6-7 decimal digits of precision in their mantissa. In
            this case, we prefetch the image at a larger scale and then downsample it to the
            desired scale as a post-process step. This short-circuits Gdk.Pixbuf's buggy
-           scaling code. *\/
+           scaling code. */
         if (((full.width > 9999) || (full.height > 9999)) && ((scaled.width < 100) ||
         (scaled.height < 100))) {
             Dimensions prefetch_dimensions = full.get_scaled_by_constraint (1000,
@@ -137,7 +130,7 @@ public class SvgReader : GdkReader {
         }
 
         return result;
-    }*/
+    }
 }
 
 public class SvgWriter : PhotoFileWriter {
