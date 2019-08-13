@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:41-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2018-06-25 14:14+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/photos/extra/"
@@ -80,7 +80,107 @@ msgstr ""
 "Просмотрщик фотографий поддерживает форматы JPEG, PNG, TIFF, а также "
 "разнообразные форматы RAW."
 
-#: data/io.elementary.photos.appdata.xml.in:139
+#: data/io.elementary.photos.appdata.xml.in:37
+#: data/io.elementary.photos.appdata.xml.in:45
+msgid "Fix building against latest gexiv2"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:38
+#: data/io.elementary.photos.appdata.xml.in:48
+#: data/io.elementary.photos.appdata.xml.in:56
+#: data/io.elementary.photos.appdata.xml.in:65
+#: data/io.elementary.photos.appdata.xml.in:77
+#: data/io.elementary.photos.appdata.xml.in:89
+#: data/io.elementary.photos.appdata.xml.in:97
+#: data/io.elementary.photos.appdata.xml.in:105
+#: data/io.elementary.photos.appdata.xml.in:114
+#: data/io.elementary.photos.appdata.xml.in:122
+#: data/io.elementary.photos.appdata.xml.in:133
+msgid "Translation updates"
+msgstr "Обновления перевода"
+
+#: data/io.elementary.photos.appdata.xml.in:46
+msgid "Use Granite.MessageDialog throughout"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:47
+msgid "Use Gtk.FileChooserNative throughout"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:55
+#: data/io.elementary.photos.appdata.xml.in:64
+#: data/io.elementary.photos.appdata.xml.in:76
+#: data/io.elementary.photos.appdata.xml.in:88
+#: data/io.elementary.photos.appdata.xml.in:96
+#: data/io.elementary.photos.appdata.xml.in:104
+#: data/io.elementary.photos.appdata.xml.in:113
+#: data/io.elementary.photos.appdata.xml.in:121
+#: data/io.elementary.photos.appdata.xml.in:140
+msgid "Minor bug fixes"
+msgstr "Исправления небольших ошибок"
+
+#: data/io.elementary.photos.appdata.xml.in:63
+msgid "Fix plugin windows not expanding"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:72
+msgid "Search box no longer loses focus after character input"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:73
+msgid "Colorized tint and temperature scales"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:74
+msgid "Add zoom to fit page button"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:75
+#: data/io.elementary.photos.appdata.xml.in:87
+msgid "Various UI fixes and improvements"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:84
+msgid "Prefer dark theme"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:85
+msgid "WebP format support"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:86
+msgid "Improved HiDPI support"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:112
+msgid "Preserve metadata when opening photo directly from the filesystem"
+msgstr ""
+"Метаданные сохраняются при открытии фотографии напрямую из файловой системы"
+
+#: data/io.elementary.photos.appdata.xml.in:129
+msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
+msgstr ""
+"Исправлена ошибка навигации между фотографиями с помощью навигационных клавиш"
+
+#: data/io.elementary.photos.appdata.xml.in:130
+msgid "Left bracket key rotates counterclockwise now"
+msgstr ""
+"Исправлено поведение клавиши открывающей квадратной скобки, теперь она "
+"отвечает за вращение против часовой стрелки"
+
+#: data/io.elementary.photos.appdata.xml.in:131
+msgid ""
+"Moved search into the headerbar and fixed a bug that prevents typing into "
+"the searchbox"
+msgstr ""
+"Строка поиска перемещена в заголовок окна; исправлена ошибка, мешающая "
+"печати в строке поиска"
+
+#: data/io.elementary.photos.appdata.xml.in:132
+msgid "Removed star and rejected ratings"
+msgstr "Удалён рейтинг"
+
+#: data/io.elementary.photos.appdata.xml.in:174
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -91,34 +191,3 @@ msgstr "elementary LLC."
 
 #~ msgid "About Photos"
 #~ msgstr "О программе"
-
-#~ msgid "Preserve metadata when opening photo directly from the filesystem"
-#~ msgstr ""
-#~ "Метаданные сохраняются при открытии фотографии напрямую из файловой "
-#~ "системы"
-
-#~ msgid "Minor bug fixes"
-#~ msgstr "Исправления небольших ошибок"
-
-#~ msgid "Translation updates"
-#~ msgstr "Обновления перевода"
-
-#~ msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
-#~ msgstr ""
-#~ "Исправлена ошибка навигации между фотографиями с помощью навигационных "
-#~ "клавиш"
-
-#~ msgid "Left bracket key rotates counterclockwise now"
-#~ msgstr ""
-#~ "Исправлено поведение клавиши открывающей квадратной скобки, теперь она "
-#~ "отвечает за вращение против часовой стрелки"
-
-#~ msgid ""
-#~ "Moved search into the headerbar and fixed a bug that prevents typing into "
-#~ "the searchbox"
-#~ msgstr ""
-#~ "Строка поиска перемещена в заголовок окна; исправлена ошибка, мешающая "
-#~ "печати в строке поиска"
-
-#~ msgid "Removed star and rejected ratings"
-#~ msgstr "Удалён рейтинг"

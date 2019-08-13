@@ -787,7 +787,7 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
+public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
         if (photo.has_editable ())
@@ -797,22 +797,27 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
     if (count == 0)
         return false;
 
-    string headline = (count == 1) ? _ ("Revert External Edit?") : _ ("Revert External Edits?");
-    string msg = ngettext (
-                     "This will destroy all changes made to the external file.  Continue?",
-                     "This will destroy all changes made to %d external files.  Continue?",
-                     count).printf (count);
+    string primary_text = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
+    string secondary_text = ngettext (
+        "This will destroy all changes made to the external file.  Continue?",
+        "This will destroy all changes made to %d external files.  Continue?",
+        count
+    ).printf (count);
 
-    string action = (count == 1) ? _ ("Re_vert External Edit") : _ ("Re_vert External Edits");
+    string action = (count == 1) ? _("Re_vert External Edit") : _("Re_vert External Edits");
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (action, Gtk.ResponseType.YES);
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = parent;
 
-    dialog.set_markup (build_alert_body_text (headline, msg));
+    var revert_button = dialog.add_button (action, Gtk.ResponseType.YES);
+    revert_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
@@ -889,14 +894,18 @@ public interface WelcomeServiceEntry : GLib.Object {
 public Gtk.ResponseType copy_files_dialog () {
     string msg = _ ("Photos can copy the photos into your library folder or it can import them without copying.");
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (), Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.QUESTION, Gtk.ButtonsType.CANCEL, "%s", msg);
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        _("Import to Library"),
+        msg,
+        "dialog-question",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = AppWindow.get_instance ();
 
-    dialog.add_button (_ ("Co_py Photos"), Gtk.ResponseType.ACCEPT);
-    dialog.add_button (_ ("_Import in Place"), Gtk.ResponseType.REJECT);
-    dialog.title = _ ("Import to Library");
+    dialog.add_button (_("Co_py Photos"), Gtk.ResponseType.ACCEPT);
+    dialog.add_button (_("_Import in Place"), Gtk.ResponseType.REJECT);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 

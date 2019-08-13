@@ -30,17 +30,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-01-15 00:05+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/photos/photos/"
-"fr/>\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"PO-Revision-Date: 2019-05-07 23:33+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -401,57 +401,47 @@ msgstr "Fixe la barre d'outils visible"
 msgid "Leave fullscreen"
 msgstr "Quitte le mode plein écran"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Votre photothèque n'est pas compatible avec cette version de Photos"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Votre photothèque n'est pas compatible avec cette version de Photos. Il "
-"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la "
-"%s (schéma %d). Veuillez utiliser la dernière version de Photos."
+"Il semble qu'elle a été créée par Photos %s (schéma %d). Cette version est "
+"la %s (schéma %d). Veuillez utiliser la dernière version de Photos."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Impossible de mettre à niveau votre photothèque de la version %s (schéma %d) "
-"à la version %s (schéma %d). Pour plus d'informations, veuillez consulter le "
-"wiki de Photos sur %s"
+"à la version %s (schéma %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "Pour plus d'informations, veuillez visiter le wiki sur %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Votre photothèque n'est pas compatible avec cette version de Photos. Il "
-"semble qu'elle a été créée par Photos %s (schéma %d). Cette version est la "
-"%s (schéma %d). Veuillez effacer votre librairie photos en supprimant %s "
+"Il semble qu'elle a été créée par Photos %s (schéma %d). Cette version est "
+"la %s (schéma %d). Veuillez effacer votre librairie photos en supprimant %s "
 "puis réimportez vos photos."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr ""
-"Erreur inconnue lors de la tentative de vérification de la base de données "
-"de Photos : %s"
+msgstr "Erreur inconnue lors de la vérification de la base de données"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -1232,7 +1222,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Voulez-vous vraiment changer de développeur ?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1769,32 +1759,32 @@ msgstr ""
 "Photos peut copier les photos dans votre photothèque ou les importer sans "
 "les copier."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Co_pier les photos"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Importer sans copier"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "Importer dans la photothèque"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "Co_pier les photos"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "_Importer sans copier"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Enlever de la photothèque"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "Effacement de la photo de la photothèque"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "Effacement des photos de la photothèque"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2825,15 +2815,14 @@ msgstr "Importe toutes les photos dans la photothèque"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "L'appareil photo ne peut pas être accédé lorsque celui-ci est monté"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Photos doit démonter l'appareil photo du système de fichiers pour pouvoir y "
-"accéder. Poursuivre l'opération ?"
+"accéder."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2846,17 +2835,16 @@ msgstr "Veuillez démonter l'appareil photo."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "L'appareil photo est verrouillé par une autre application"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"L'appareil photo est verrouillé par une autre application. Photos ne peut "
-"accéder à l'appareil photo que lorsque celui-ci est déverrouillé. Veuillez "
-"fermer toute autre application utilisant l'appareil photo puis réessayez."
+"Photos ne peut accéder à l'appareil photo que lorsque celui-ci est "
+"déverrouillé. Veuillez fermer toute autre application utilisant l'appareil "
+"photo puis réessayez."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -4017,6 +4005,9 @@ msgstr "Damier"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Stores"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "Votre photothèque n'est pas compatible avec cette version de Photos"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Revenir aux dimensions actuelles de la photo"

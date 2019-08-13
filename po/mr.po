@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-04-11 22:53+0000\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"PO-Revision-Date: 2019-05-08 11:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/photos/photos/mr/"
 ">\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:09+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -379,53 +379,46 @@ msgstr "साधनपट्टी उगडाला पिन करा"
 msgid "Leave fullscreen"
 msgstr "पडदाभर सोडा"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "आपले फोटो लायब्ररी फोटोंच्या या आवृत्तीशी सुसंगत नाही"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"तुमची छायाचित्र लाइब्ररि शॉटवेलच्या या आवृत्तीसह सहत्व नाही. शॉटवेल %s (स्किमा %d) तर्फे "
-"निर्माण केले नाही, असे आढळते.  हि आवृत्ती %s (schema %d) आहे.  कृपया शॉटवेलच्या दुसऱ्या "
-"आवृत्तीचा वापर करा."
+"असे दिसते की ते फोटो %s (स्कीमा %d) ने तयार केले होते. ही आवृत्ती %s (स्कीमा %d) आहे. "
+"कृपया फोटोंची नवीनतम आवृत्ती वापरा."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"आवृत्ती %s (स्किमा %d) पासून %s (स्किमा %d) करीता शॉटवेल छायाचित्र लाइब्ररि सुधारित "
-"करण्यास अशक्य.  अधिक माहितीकरीता %s येथे कृपया शॉटवेल विकि तपासा"
+"फोटो %s (स्कीमा %d) पासून %s वरून आपले फोटो लायब्ररी श्रेणीसुधारित करण्यात अक्षम होते "
+"(स्कीमा %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "अधिक माहितीसाठी कृपया फोटो विकी %s वर तपासा"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"तुमची छायाचित्र लाइब्ररि शॉटवेलच्या ह्या आवृत्तीसह सहत्व नाही. हे शॉटवेल %s (स्किमा %d) "
-"तर्फे निर्मीत आहे, असे आढळते.  हि आवृत्ती %s (स्किमा %d) आहे.  कृपया %s नष्ट करून लाइब्ररि "
-"नष्ट करा व छायाचित्र पुनः आयात करा."
+"असे दिसते की ते फोटो %s (स्कीमा %d) ने तयार केले होते. ही आवृत्ती %s (स्कीमा %d) आहे. "
+"कृपया %s हटवून आपली लायब्ररी साफ करा आणि आपले फोटो पुन्हा आयात करा."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "फोटोचे डाटाबेस: %s याची तपासणी करतेवेळी अपरिचीत त्रुटी आढळली"
+msgstr "अज्ञात त्रुटी फोटो डेटाबेस सत्यापित करण्याचा प्रयत्न करीत आहे"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -1193,7 +1186,7 @@ msgstr[1] "डेव्हलपर्स् बदलल्याने आप�
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "आपणास खात्री आहे की आपण विकसक स्विच करू इच्छिता?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1660,7 +1653,7 @@ msgstr[0] ""
 msgstr[1] ""
 "\n"
 "\n"
-"व %d इतर."
+"व %d  इतर."
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
@@ -1672,32 +1665,32 @@ msgstr ""
 "शॉटवेल छायाचित्रांना लाइब्ररि फोल्डरमध्ये प्रत बनवतो किंवा त्यास प्रत न बनवता आयात करणे "
 "शक्य आहे."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "छायाचित्रांचे प्रत बनवा (_p)"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "आयात जागेवर आहे (_I)"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:891
 msgid "Import to Library"
 msgstr "लाइब्ररिमध्ये आयात करा"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:898
+msgid "Co_py Photos"
+msgstr "छायाचित्रांचे प्रत बनवा (_p)"
+
+#: src/Dialogs/Dialogs.vala:899
+msgid "_Import in Place"
+msgstr "आयात जागेवर आहे (_I)"
+
+#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "लाइब्ररितून काढून टाका"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
 msgid "Removing Photo From Library"
 msgstr "लाइब्ररितून छायाचित्र काढून टाका"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:910
 msgid "Removing Photos From Library"
 msgstr "लाइब्ररिपासून छायाचित्र काढून टाकत आहे"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:946
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -2398,7 +2391,7 @@ msgstr "करीता:"
 msgid "%.1f second"
 msgid_plural "%.1f seconds"
 msgstr[0] "%.1f सेकंद"
-msgstr[1] "%.1f सेकंद"
+msgstr[1] "%.1f  सेकंद"
 
 #: src/sidebar/metadata/BasicProperties.vala:315
 #: src/sidebar/metadata/ExtendedProperties.vala:115
@@ -2718,14 +2711,12 @@ msgstr "सर्व छायाचित्रांना लाइब्र�
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "माउंट केल्यावर कॅमेरात प्रवेश केला जाऊ शकत नाही"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr ""
-"फोटोमध्ये प्रवेश करण्यासाठी फोटोंमधून कॅमेरा अनमाउंट करण्याची आवश्यकता आहे.  पुढे जायचे?"
+msgstr "फोटोमध्ये प्रवेश करण्यासाठी फाईल प्रणालीमधून कॅमेरा अनमाउंट करण्याची आवश्यकता आहे."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2738,16 +2729,15 @@ msgstr "कृपया कॅमेराला माउंट अशक्य
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "कॅमेरा दुसर्या अनुप्रयोगाद्वारे लॉक केलेला आहे"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"कॅमेरा इतर ॲप्लिकेशनतर्फे कुलूपबंद आहे.  कुलूपबंद नसल्यावरच शॉटवेल कॅमेराकरीता प्रवेश प्राप्त करू "
-"शकतो.  कृपया कॅमेरा वापरणारा ॲप्लिकेशन बंद करा आणि पुन्हा प्रयत्न करा."
+"जेव्हा तो अनलॉक केला असेल तेव्हा फोटो केवळ कॅमेर्यावर प्रवेश करू शकतात. कृपया कॅमेरा "
+"वापरणारा अन्य अनुप्रयोग बंद करा आणि पुन्हा प्रयत्न करा."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -2997,7 +2987,7 @@ msgstr "कचरपेटी रिकामी आहे"
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "फोटो हटवित आहे"
-msgstr[1] "फोटो हटवित आहे"
+msgstr[1] "फोटो  हटवित आहे"
 
 #: src/Views/TrashPage.vala:302
 msgid "Empty Trash"
@@ -3858,6 +3848,9 @@ msgstr "बुद्धिबळ"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ब्लाइंड्स"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "आपले फोटो लायब्ररी फोटोंच्या या आवृत्तीशी सुसंगत नाही"
 
 #~ msgid "_View"
 #~ msgstr "अवलोकन (_V)"
