@@ -860,8 +860,7 @@ public bool remove_offline_dialog (Gtk.Window owner, int count) {
 }
 
 public const int MAX_OBJECTS_DISPLAYED = 3;
-public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, string message,
-        string title) {
+public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, string message, string title) {
     string dialog_message = message + "\n";
 
     //add objects
@@ -874,10 +873,13 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
                                     remainder).printf (remainder);
     }
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
-            Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", dialog_message);
-
-    dialog.title = title;
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        title,
+        dialog_message,
+        "dialog-error",
+        Gtk.ButtonsType.CLOSE
+    );
+    dialog.transient_for = AppWindow.get_instance ();
 
     dialog.run ();
     dialog.destroy ();
