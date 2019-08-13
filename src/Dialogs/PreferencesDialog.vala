@@ -71,7 +71,7 @@ public class PreferencesDialog {
         var commit_metadata_switch = new Gtk.Switch ();
         commit_metadata_switch.halign = Gtk.Align.START;
 
-        var commit_metadata_label = new Gtk.Label.with_mnemonic (_("Write  _metadata to files:"));
+        var commit_metadata_label = new Gtk.Label.with_mnemonic (_("Write _metadata to files:"));
         commit_metadata_label.halign = Gtk.Align.END;
         commit_metadata_label.mnemonic_widget = commit_metadata_switch;
 

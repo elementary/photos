@@ -47,15 +47,15 @@ public bool confirm_delete_tag (Tag tag) {
     if (count == 0)
         return true;
     string msg = ngettext (
-                     "This will remove the tag \"%s\" from one photo.  Continue?",
-                     "This will remove the tag \"%s\" from %d photos.  Continue?",
+                     "This will remove the tag \"%s\" from one photo. Continue?",
+                     "This will remove the tag \"%s\" from %d photos. Continue?",
                      count).printf (tag.get_user_visible_name (), count);
 
     return negate_affirm_question (msg, Resources.DELETE_TAG_TITLE);
 }
 
 public bool confirm_delete_saved_search (SavedSearch search) {
-    string msg = _ ("This will remove the smart album \"%s\".  Continue?")
+    string msg = _ ("This will remove the smart album \"%s\". Continue?")
                  .printf (search.get_name ());
 
     return negate_affirm_question (msg, Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
@@ -797,14 +797,14 @@ public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> pho
     if (count == 0)
         return false;
 
-    string primary_text = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
+    string primary_text = ngettext ("Revert External Edit?", "Revert External Edits?", count);
     string secondary_text = ngettext (
-        "This will destroy all changes made to the external file.  Continue?",
-        "This will destroy all changes made to %d external files.  Continue?",
+        "This will destroy all changes made to the external file. Continue?",
+        "This will destroy all changes made to %d external files. Continue?",
         count
     ).printf (count);
 
-    string action = (count == 1) ? _("Re_vert External Edit") : _("Re_vert External Edits");
+    string action = ngettext ("Re_vert External Edit", "Re_vert External Edits", count);
 
     var dialog = new Granite.MessageDialog.with_image_from_icon_name (
         primary_text,
@@ -836,8 +836,8 @@ public bool remove_offline_dialog (Gtk.Window owner, int count) {
     );
 
     string secondary_text = ngettext (
-        "This will remove the photo from the library.  Continue?",
-        "This will remove %d photos from the library.  Continue?",
+        "This will remove the photo from the library. Continue?",
+        "This will remove %d photos from the library. Continue?",
          count
     ).printf (count);
 
@@ -914,7 +914,7 @@ public Gtk.ResponseType copy_files_dialog () {
 
 public void remove_photos_from_library (Gee.Collection<LibraryPhoto> photos) {
     remove_from_app (photos, _ ("Remove From Library"),
-                     (photos.size == 1) ? _ ("Removing Photo From Library") : _ ("Removing Photos From Library"), false);
+                     ngettext ("Removing Photo From Library", "Removing Photos From Library", photos.size), false);
 }
 
 public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_title,

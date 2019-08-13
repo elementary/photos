@@ -329,7 +329,7 @@ public class ExporterUI {
 
         var dialog = new Granite.MessageDialog.with_image_from_icon_name (
             _("Export"),
-            _("File %s already exists.  Replace?").printf (file.get_basename ()),
+            _("File %s already exists. Replace?").printf (file.get_basename ()),
             "dialog-question",
             Gtk.ButtonsType.NONE
         );
