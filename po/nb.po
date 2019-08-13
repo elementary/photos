@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-08-13 08:08-0700\n"
 "PO-Revision-Date: 2019-05-08 12:33+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
@@ -55,9 +55,9 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kan ikke lage data for underkatalog %s: %s"
 
 #: src/AppWindow.vala:163
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -349,8 +349,8 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "filen %s finnes fra før. Overskriv?"
 
 #: src/Exporter.vala:338
@@ -364,8 +364,8 @@ msgstr "Overskriv _alle"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -878,7 +878,7 @@ msgstr "Slett taggen \"%s\""
 msgid "Delete Tag"
 msgstr "Slett tagg"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_Slett"
 
@@ -909,113 +909,104 @@ msgid "Modify Tags"
 msgstr "Endre tagger"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "Tagg bildene som \"%s\""
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "Tagg bildet som \"%s\""
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "Tagg bildene som \"%s\""
+msgstr[1] "Tagg bildene som \"%s\""
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "Fjern taggen \"%s\" fra _bildene"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "Fjern taggen \"%s\" fra _bildene"
+msgstr[1] "Fjern taggen \"%s\" fra _bildene"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "Fjern taggen \"%s\" fra _bildene"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "Fjern taggen \"%s\" fra bildene"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "Fjern taggen \"%s\" fra bildene"
+msgstr[1] "Fjern taggen \"%s\" fra bildene"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "Fjern taggen \"%s\" fra bildene"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Kan ikke omdøpe taggen til \"%s\" fordi den allerede finnes."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "Kan ikke endre søket til \"%s\" da søket allerede finnes."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Smart album"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "Slett album"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 msgid "_Edit…"
 msgstr "_Rediger…"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 msgid "Re_name…"
 msgstr "_Gi nytt navn…"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Endre navn på søk fra \"%s\" til \"%s\""
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Slett søk \"%s\""
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "_Slett utvalg"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "Fjern de valgte bildene fra søppelkassen"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "Fjern de utvalgte bildene fra bildebiblioteket"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "_Gjenopprett utvalg"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "Flytt de valgte bildene tilbake til biblioteket"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 msgid "File Mana_ger"
 msgstr "Fil_behandler"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Kan ikke åpnes i filbehandleren: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "Fj_ern fra bildebiblioteket"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "Flytt til søppelkassen"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "Velg _alle"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "Velg alle"
 
@@ -1023,20 +1014,20 @@ msgstr "Velg alle"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %d. %b. %Y"
 
@@ -1046,14 +1037,14 @@ msgstr "%a %d. %b. %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1106,20 +1097,18 @@ msgid "Set _all photos/videos to this time"
 msgstr "Gi _alle bilder/videoer denne dato/tid"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "_Modifiser bildets originalfil"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "_Modifiser bildenes originalfiler"
+msgid_plural "_Modify original photo files"
+msgstr[0] "_Modifiser bildets originalfil"
+msgstr[1] "_Modifiser bildets originalfil"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "_Modifiser orginalfilene"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "_Modifiser originalfiler"
+msgid_plural "_Modify original files"
+msgstr[0] "_Modifiser orginalfilene"
+msgstr[1] "_Modifiser orginalfilene"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1176,15 +1165,15 @@ msgstr[0] "sekund"
 msgstr[1] "sekunder"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Dette vil fjerne taggen \"%s\" fra ett bilde. Fortsett?"
 msgstr[1] "Dette vil fjerne taggen \"%s\" fra %d bilder. Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Dette vil fjerne smart albumet \"%s\". Fortsette?"
 
 #: src/Dialogs/Dialogs.vala:66
@@ -1216,15 +1205,18 @@ msgstr "Eksporter video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
+#, fuzzy
 msgid "Export Photo"
-msgstr "Eksporter bilder"
+msgid_plural "Export Photos"
+msgstr[0] "Eksporter bilder"
+msgstr[1] "Eksporter bilder"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Lagre"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "Eksporter bilder"
 
@@ -1629,18 +1621,17 @@ msgid "Name:"
 msgstr "Navn:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "Omgjør eksterne redigeringer?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "nullstille eksterne redigeringer?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "Omgjør eksterne redigeringer?"
+msgstr[1] "Omgjør eksterne redigeringer?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
 "Dette vil ødelegge alle endringer som er gjort i den eksterne filen. "
 "Fortsett?"
@@ -1648,34 +1639,33 @@ msgstr[1] ""
 "Dette vil ødelegge alle endringer som er gjort i de %d eksterne filene. "
 "Fortsett?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "omgj_ør eksterne redigeringer"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "omgj_ør eksterne redigeringer"
+msgstr[1] "omgj_ør eksterne redigeringer"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "nu_llstille ekstern redigering"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "Fjerner bilder fra bildebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "Fjern bilder fra bildebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Dette vil fjerne bildet fra bildebiblioteket. Fortsett?"
 msgstr[1] "Dette vil fjerne %d bilder fra bildebiblioteket. Fortsett?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "_Fjern"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1696,7 +1686,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1704,32 +1694,31 @@ msgstr ""
 "Bilder kan kopiere bildene til din bildebibliotekmappe eller importere dem "
 "uten å kopiere."
 
-#: src/Dialogs/Dialogs.vala:891
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "Importer til biblioteket"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
 msgstr "Ko_pier bilder"
 
-#: src/Dialogs/Dialogs.vala:899
+#: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
 msgstr "_Importer uten kopiering"
 
-#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Fjern fra bildebiblioteket"
 
-#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "Fjerner bilder fra bildebiblioteket"
-
-#: src/Dialogs/Dialogs.vala:910
-msgid "Removing Photos From Library"
-msgstr "Fjerner bilder fra bildebiblioteket"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "Fjerner bilder fra bildebiblioteket"
+msgstr[1] "Fjerner bilder fra bildebiblioteket"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:946
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1789,7 +1778,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Endre importerte filtitler til små bokstaver:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+#, fuzzy
+msgid "Write _metadata to files:"
 msgstr "Skriv _metadata til filer:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -2554,12 +2544,11 @@ msgid "Other Actions"
 msgstr "Andre handlinger"
 
 #: src/Views/CollectionPage.vala:598
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "Eksporter bilder / videoer"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Eksporterer bilder/videoer"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "Eksporter bilder / videoer"
+msgstr[1] "Eksporter bilder / videoer"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2706,8 +2695,9 @@ msgid "Flagged"
 msgstr "Flagget"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Kan ikke avmontere kameraet. Prøv å avmontere kameraet fra filbehandleren."
 
@@ -3426,10 +3416,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 bildepunkter)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "Du er ikke innlogget på Flickr.\n"
@@ -3919,6 +3910,33 @@ msgstr "Sjakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Gardiner"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "Tagg bildet som \"%s\""
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "Fjern taggen \"%s\" fra _bildene"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "Fjern taggen \"%s\" fra bildene"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "_Modifiser bildenes originalfiler"
+
+#~ msgid "_Modify original files"
+#~ msgstr "_Modifiser originalfiler"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "nullstille eksterne redigeringer?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "nu_llstille ekstern redigering"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "Fjerner bilder fra bildebiblioteket"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "Eksporterer bilder/videoer"
 
 #, fuzzy
 #~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
