@@ -461,7 +461,7 @@ public class CameraAccumulator : Object, Core.TrackerAccumulator {
 }
 
 public class ImportPage : CheckerboardPage {
-    private const string UNMOUNT_FAILED_MSG = _ ("Unable to unmount camera.  Try unmounting the camera from the file manager.");
+    private const string UNMOUNT_FAILED_MSG = _ ("Unable to unmount camera. Try unmounting the camera from the file manager.");
 
     private class ImportViewManager : ViewManager {
         private ImportPage owner;
