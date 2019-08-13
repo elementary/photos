@@ -23,6 +23,9 @@ public class DirectPhotoPage : EditingHostPage {
     private DirectViewCollection? view_controller = null;
     private File current_save_dir;
     private bool drop_if_dirty = false;
+    private Gtk.Menu open_menu;
+    private Gtk.Menu open_raw_menu;
+    private Gtk.MenuItem open_raw_menu_item;
     private Gtk.Menu contractor_menu;
     private Gtk.Menu context_menu;
     private bool fullscreen;
@@ -141,11 +144,16 @@ public class DirectPhotoPage : EditingHostPage {
             context_menu.add (adjust_datetime_menu_item);
 
             if (fullscreen == false) {
-                var jump_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.JUMP_TO_FILE_MENU);
+                open_menu = new Gtk.Menu ();
 
-                var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
-                jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-                jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
+                var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
+                open_menu_item.set_submenu (open_menu);
+
+                open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
+                var open_raw_action = get_action ("OpenWithRaw");
+                open_raw_action.bind_property ("sensitive", open_raw_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+                open_raw_menu = new Gtk.Menu ();
+                open_raw_menu_item.set_submenu (open_raw_menu);
 
                 var print_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.PRINT_MENU);
                 var print_action = get_action ("Print");
@@ -158,17 +166,120 @@ public class DirectPhotoPage : EditingHostPage {
                 contractor_menu_item.set_submenu (contractor_menu);
 
                 context_menu.add (new Gtk.SeparatorMenuItem ());
-                context_menu.add (jump_menu_item);
+                context_menu.add (open_menu_item);
+                context_menu.add (open_raw_menu_item);
                 context_menu.add (contractor_menu_item);
             }
 
             context_menu.show_all ();
+
+            populate_external_app_menu (open_menu, false);
+
+            Photo? photo = (get_view ().get_selected_at (0).source as Photo);
+            if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
+                populate_external_app_menu (open_raw_menu, true);
+            }
+
+            open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
         }
 
         populate_contractor_menu (contractor_menu);
         popup_context_menu (context_menu, event);
 
         return true;
+    }
+
+    private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
+        SortedList<AppInfo> external_apps;
+        string[] mime_types;
+
+        foreach (Gtk.Widget item in menu.get_children ()) {
+            menu.remove (item);
+        }
+
+        // get list of all applications for the given mime types
+        if (raw) {
+            mime_types = PhotoFileFormat.RAW.get_mime_types ();
+        } else {
+            mime_types = PhotoFileFormat.get_editable_mime_types ();
+
+            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+
+            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
+            files_item_icon.pixel_size = 16;
+
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (files_item_icon);
+            menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
+
+            var jump_menu_item = new Gtk.MenuItem ();
+            jump_menu_item.add (menuitem_grid);
+
+            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
+            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
+            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
+
+            menu.add (jump_menu_item);
+        }
+
+        assert (mime_types.length != 0);
+        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+
+        foreach (AppInfo app in external_apps) {
+            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+            menu_item_icon.pixel_size = 16;
+
+            var menuitem_grid = new Gtk.Grid ();
+            menuitem_grid.add (menu_item_icon);
+            menuitem_grid.add (new Gtk.Label (app.get_name ()));
+
+            var item_app = new Gtk.MenuItem ();
+            item_app.add (menuitem_grid);
+
+            item_app.activate.connect (() => {
+                if (raw) {
+                    on_open_with_raw (app.get_commandline ());
+                } else {
+                    on_open_with (app.get_commandline ());
+                }
+            });
+            menu.add (item_app);
+        }
+        menu.show_all ();
+    }
+
+    private void on_open_with (string app) {
+        if (!has_photo ()) {
+            return;
+        }
+
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            get_photo ().open_with_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            open_external_editor_error_dialog (err, get_photo ());
+        }
+    }
+
+    private void on_open_with_raw (string app) {
+        if (!has_photo ()) {
+            return;
+        }
+
+        if (get_photo ().get_master_file_format () != PhotoFileFormat.RAW) {
+            return;
+        }
+
+        try {
+            AppWindow.get_instance ().set_busy_cursor ();
+            get_photo ().open_with_raw_external_editor (app);
+            AppWindow.get_instance ().set_normal_cursor ();
+        } catch (Error err) {
+            AppWindow.get_instance ().set_normal_cursor ();
+            AppWindow.error_message (Resources.launch_editor_failed (err));
+        }
     }
 
     private void update_zoom_menu_item_sensitivity () {
