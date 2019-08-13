@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-08-13 08:08-0700\n"
 "PO-Revision-Date: 2016-04-18 04:22+0000\n"
 "Last-Translator: AbsoluteVasilii <basil_russu@hotmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/shotwell/"
@@ -56,7 +56,7 @@ msgstr "Nu se poate crea subdosarul de date %s: %s"
 #: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -353,8 +353,8 @@ msgid "Export"
 msgstr "Exportă"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "Fișierul %s există deja. Înlocuiți?"
 
 #: src/Exporter.vala:338
@@ -368,8 +368,8 @@ msgstr "Înlocuiește _tot"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -894,7 +894,7 @@ msgstr "Șterge eticheta \"%s\""
 msgid "Delete Tag"
 msgstr "Șterge eticheta"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "Ș_terge"
 
@@ -927,116 +927,110 @@ msgid "Modify Tags"
 msgstr "Modifică etichetele"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "Etichetează fotografiile ca \"%s\""
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "Etichetează fotografia ca \"%s\""
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "Etichetează fotografiile ca \"%s\""
+msgstr[1] "Etichetează fotografiile ca \"%s\""
+msgstr[2] "Etichetează fotografiile ca \"%s\""
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "Șterge eticheta \"%s\" din _fotografii"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "Șterge eticheta \"%s\" din _fotografii"
+msgstr[1] "Șterge eticheta \"%s\" din _fotografii"
+msgstr[2] "Șterge eticheta \"%s\" din _fotografii"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "Șterge eticheta \"%s\" din fo_tografii"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "Șterge eticheta \"%s\" din fotografii"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "Șterge eticheta \"%s\" din fotografii"
+msgstr[1] "Șterge eticheta \"%s\" din fotografii"
+msgstr[2] "Șterge eticheta \"%s\" din fotografii"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "Șterge eticheta \"%s\" din fotografii"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Nu se poate redenumi eticheta în \"%s\" deoarece există deja."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "Nu se poate redenumi căutarea în \"%s\" deoarece căutarea există deja."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Album Inteligent"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "Șterge Album"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 #, fuzzy
 msgid "_Edit…"
 msgstr "_Editare"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 #, fuzzy
 msgid "Re_name…"
 msgstr "Rede_numește..."
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Redenumește căutarea \"%s\" în \"%s\""
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Șterge căutarea \"%s\""
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "_Ștergere Selecție"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "Șterge fotografiile selectate din coșul de gunoi"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "Șterge fotografiile selectate din colecție"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "_Restabilire Selecție"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "Mută fotografiile selectate înapoi în colecție"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "Arată în a_dministratorul de fișiere"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Nu se poate deschide în administratorul de fișiere: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "Șt_erge din colecție"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "_Mută la coșul de gunoi"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "Selecte_ază tot"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "Selectează toate articolele"
 
@@ -1044,20 +1038,20 @@ msgstr "Selectează toate articolele"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %d %b %Y"
 
@@ -1067,14 +1061,14 @@ msgstr "%a %d %b %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1126,20 +1120,20 @@ msgid "Set _all photos/videos to this time"
 msgstr "Marchează to_ate fotografiile/clipurile video cu această oră și dată"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "_Modifică fișierul fotografiei originale"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "_Modifică fișierele fotografiilor originale"
+msgid_plural "_Modify original photo files"
+msgstr[0] "_Modifică fișierul fotografiei originale"
+msgstr[1] "_Modifică fișierul fotografiei originale"
+msgstr[2] "_Modifică fișierul fotografiei originale"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "_Modifică fișierele originale"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "_Modifică fișierul original"
+msgid_plural "_Modify original files"
+msgstr[0] "_Modifică fișierele originale"
+msgstr[1] "_Modifică fișierele originale"
+msgstr[2] "_Modifică fișierele originale"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1200,9 +1194,9 @@ msgstr[1] "secunde"
 msgstr[2] "de secunde"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] ""
 "Această acțiune va șterge eticheta \"%s\" din fotografie. Continuați?"
 msgstr[1] ""
@@ -1211,8 +1205,8 @@ msgstr[2] ""
 "Această acțiune va șterge eticheta \"%s\" din %d de fotografii. Continuați?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Aceasta va elimina albumul inteligent \"%s\". Continuare?"
 
 #: src/Dialogs/Dialogs.vala:66
@@ -1247,15 +1241,19 @@ msgstr "Exportă clipul"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
+#, fuzzy
 msgid "Export Photo"
-msgstr "Exportă fotografiile"
+msgid_plural "Export Photos"
+msgstr[0] "Exportă fotografiile"
+msgstr[1] "Exportă fotografiile"
+msgstr[2] "Exportă fotografiile"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Salvează"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "Exportă fotografii"
 
@@ -1758,18 +1756,18 @@ msgid "Name:"
 msgstr "Nume:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "Anulați editările externe?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "Anulați editările externe?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "Anulați editările externe?"
+msgstr[1] "Anulați editările externe?"
+msgstr[2] "Anulați editările externe?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
 "Veți pierde toate modificările aplicate fișierului extern. Continuați?"
 msgstr[1] ""
@@ -1778,36 +1776,36 @@ msgstr[2] ""
 "Veți pierde toate modificările aplicate celor %d de fișiere externe. "
 "Continuați?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "Anulează e_ditările externe"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "Anulează e_ditările externe"
+msgstr[1] "Anulează e_ditările externe"
+msgstr[2] "Anulează e_ditările externe"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "Anulează editările e_xterne"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "Șterge fotografiile din colecție"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "Șterge fotografiile din colecție"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Această acțiune va șterge fotografia din colecție. Continuați?"
 msgstr[1] "Această acțiune va șterge %d fotografii din colecție. Continuați?"
 msgstr[2] ""
 "Această acțiune va șterge %d de fotografii din colecție. Continuați?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "Ște_rge"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1832,7 +1830,7 @@ msgstr[2] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1841,32 +1839,32 @@ msgstr ""
 "Shotwell poate copia fotografiile în dosarul colecție sau le poate importa "
 "fără a le copia."
 
-#: src/Dialogs/Dialogs.vala:891
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "Importă în colecție"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
 msgstr "Co_piază fotografiile"
 
-#: src/Dialogs/Dialogs.vala:899
+#: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
 msgstr "_Importă în locul"
 
-#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Șterge din colecție"
 
-#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "Se șterg fotografiile din colecție"
-
-#: src/Dialogs/Dialogs.vala:910
-msgid "Removing Photos From Library"
-msgstr "Se șterg fotografiile din colecție"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "Se șterg fotografiile din colecție"
+msgstr[1] "Se șterg fotografiile din colecție"
+msgstr[2] "Se șterg fotografiile din colecție"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:946
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1928,8 +1926,9 @@ msgid "R_ename imported files to lowercase:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
-msgstr ""
+#, fuzzy
+msgid "Write _metadata to files:"
+msgstr "Se scriu metadatele fișierelor..."
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2698,12 +2697,12 @@ msgid "Other Actions"
 msgstr ""
 
 #: src/Views/CollectionPage.vala:598
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "Exportă fotografiile/clipurile"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Exportă fotografii/clipuri video"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "Exportă fotografiile/clipurile"
+msgstr[1] "Exportă fotografiile/clipurile"
+msgstr[2] "Exportă fotografiile/clipurile"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2853,8 +2852,9 @@ msgid "Flagged"
 msgstr "Marcate"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Aparatul foto nu poate fi demontat. Încercați să demontați dispozitivul din "
 "administratorul de fișiere."
@@ -3589,10 +3589,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "Acum nu sunteți autentificat pe Flickr.\n"
@@ -4087,6 +4088,33 @@ msgstr "Șah"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Jaluzele"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "Etichetează fotografia ca \"%s\""
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "Șterge eticheta \"%s\" din fo_tografii"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "Șterge eticheta \"%s\" din fotografii"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "_Modifică fișierele fotografiilor originale"
+
+#~ msgid "_Modify original files"
+#~ msgstr "_Modifică fișierul original"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "Anulați editările externe?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "Anulează editările e_xterne"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "Se șterg fotografiile din colecție"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "Exportă fotografii/clipuri video"
 
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Restabilește dimensiunile originale ale fotografiei"
@@ -4731,9 +4759,6 @@ msgstr "Jaluzele"
 
 #~ msgid "Auto-importing photos..."
 #~ msgstr "Se importă automat fotografiile..."
-
-#~ msgid "Writing metadata to files..."
-#~ msgstr "Se scriu metadatele fișierelor..."
 
 #~ msgid "Automatically improve the photo's appearance"
 #~ msgstr "Îmbunătățește automat aspectul fotografiei"

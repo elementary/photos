@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-08-13 08:08-0700\n"
 "PO-Revision-Date: 2019-05-08 07:32+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/"
@@ -53,9 +53,9 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "데이터 하위 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
 
 #: src/AppWindow.vala:163
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -344,8 +344,8 @@ msgid "Export"
 msgstr "내보내기"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "파일 %s(이)가 이미 존재합니다. 바꾸시겠습니까?"
 
 #: src/Exporter.vala:338
@@ -359,8 +359,8 @@ msgstr "모두 바꾸기(_A)"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -869,7 +869,7 @@ msgstr "태그 \"%s\"(을)를 삭제합니다"
 msgid "Delete Tag"
 msgstr "태그 삭제"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "삭제(_D)"
 
@@ -900,113 +900,101 @@ msgid "Modify Tags"
 msgstr "태그 수정"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "사진에 \"%s\" 태그를 붙입니다"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "사진에 \"%s\"태그를 붙입니다"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "사진에 \"%s\" 태그를 붙입니다"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "사진에서 \"%s\" 태그를 제거합니다(_P)"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "사진에서 \"%s\" 태그를 제거합니다(_P)"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "사진에서 \"%s\" 태그를 제거합니다(_P)"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "사진에서 \"%s\" 태그를 제거합니다"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "사진에서 \"%s\" 태그를 제거합니다"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "사진에서 \"%s\" 태그를 제거합니다"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "태그가 이미 존재하기 때문에 태그 이름을 \"%s\"(으)로 바꿀 수 없습니다."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "검색이 이미 존재하기 때문에 검색  \"%s\"의 이름을 바꿀 수 없습니다."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "스마트 앨범"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "앨범 제거"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 msgid "_Edit…"
 msgstr "편집(_E)…"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 msgid "Re_name…"
 msgstr "이름 바꾸기(_N)…"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "검색  \"%s\"의 이름을  \"%s\"(으)로 바꾸기"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "검색  \"%s\" 삭제"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "선택 삭제하기(_D)"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "선택한 사진을 휴지통에서 제거합니다"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "선택한 사진을 라이브러리에서 제거합니다"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "선택 복구하기(_D)"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "선택한 사진을 라이브러리 안으로 이동합니다"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 msgid "File Mana_ger"
 msgstr "파일 관리자(_G)"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "파일 관리자로 열 수 없습니다: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "라이브러리에서 제거(_E)"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "휴지통으로(_M)"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "모두 선택(_A)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "모든 항목 선택"
 
@@ -1014,20 +1002,20 @@ msgstr "모든 항목 선택"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%p %-I:%M"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%p %-I:%M:%S"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%Y년 %b %d일 (%a)"
 
@@ -1037,14 +1025,14 @@ msgstr "%Y년 %b %d일 (%a)"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%b %d일 (%a)"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%Y년 %d일"
 
@@ -1096,20 +1084,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "모든 사진/비디오를 이 시간으로 설정(_A)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "원본 사진 파일 수정(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "원본 사진 파일 수정(_M)"
+msgid_plural "_Modify original photo files"
+msgstr[0] "원본 사진 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "원본 파일 수정(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "원본 파일 수정(_M)"
+msgid_plural "_Modify original files"
+msgstr[0] "원본 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1162,14 +1146,14 @@ msgid_plural "seconds"
 msgstr[0] "초"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "태그 \"%s\"(을)를 %d장의 사진에서 제거합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "이 스마트 앨범을 제거합니다 \"%s\". 계속할까요?"
 
 #: src/Dialogs/Dialogs.vala:66
@@ -1195,15 +1179,17 @@ msgstr "비디오 내보내기"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
+#, fuzzy
 msgid "Export Photo"
-msgstr "사진 내보내기"
+msgid_plural "Export Photos"
+msgstr[0] "사진 내보내기"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "저장(_S)"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "사진 내보내기"
 
@@ -1563,48 +1549,44 @@ msgid "Name:"
 msgstr "이름:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
 "외부 파일에 적용한 바뀐 내용 %d개를 모두 취소합니다. 계속하시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "라이브러리에서 사진 제거"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "사진 라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "라이브러리에서 사진 %d매를 제거합니다. 계속하시겠습니까?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "제거(_R)"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1621,7 +1603,7 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1629,32 +1611,30 @@ msgstr ""
 "사진은 사진을 라이브러리 폴더로 복사할 수도 있고 사진을 복사하지 않고 가져올 "
 "수도 있습니다."
 
-#: src/Dialogs/Dialogs.vala:891
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "라이브러리로 가져오기"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
 msgstr "사진 복사(_P)"
 
-#: src/Dialogs/Dialogs.vala:899
+#: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
 msgstr "복사하지 않고 가져오기(_I)"
 
-#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "사진을 라이브러리에서 제거하는 중"
-
-#: src/Dialogs/Dialogs.vala:910
-msgid "Removing Photos From Library"
-msgstr "사진을 라이브러리에서 제거하는 중"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "사진을 라이브러리에서 제거하는 중"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:946
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1713,7 +1693,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "불러온 파일 이름 소문자로 바꾸기:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+#, fuzzy
+msgid "Write _metadata to files:"
 msgstr "파일에 메타데이터 쓰기:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -2470,12 +2451,10 @@ msgid "Other Actions"
 msgstr "다른 작업"
 
 #: src/Views/CollectionPage.vala:598
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "사진/비디오 내보내기"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "사진/비디오 내보내기"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "사진/비디오 내보내기"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2622,8 +2601,9 @@ msgid "Flagged"
 msgstr "표시함"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "카메라를 마운트 해제할 수 없습니다. 카메라를 파일 관리자에서 마운트 해제해 보"
 "십시오."
@@ -3329,10 +3309,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "구글+(2048 x 1536 픽셀)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "플리커 서비스에 로그인하지 않았습니다.\n"
@@ -3813,6 +3794,33 @@ msgstr "체스판 무늬"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "블라인드"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "사진에 \"%s\"태그를 붙입니다"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "사진에서 \"%s\" 태그를 제거합니다(_P)"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "사진에서 \"%s\" 태그를 제거합니다"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "원본 사진 파일 수정(_M)"
+
+#~ msgid "_Modify original files"
+#~ msgstr "원본 파일 수정(_M)"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "사진을 라이브러리에서 제거하는 중"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "사진/비디오 내보내기"
 
 #~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 #~ msgstr ""
