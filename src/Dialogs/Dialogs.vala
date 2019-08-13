@@ -797,14 +797,14 @@ public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> pho
     if (count == 0)
         return false;
 
-    string primary_text = (count == 1) ? _("Revert External Edit?") : _("Revert External Edits?");
+    string primary_text = ngettext ("Revert External Edit?", "Revert External Edits?", count);
     string secondary_text = ngettext (
         "This will destroy all changes made to the external file.  Continue?",
         "This will destroy all changes made to %d external files.  Continue?",
         count
     ).printf (count);
 
-    string action = (count == 1) ? _("Re_vert External Edit") : _("Re_vert External Edits");
+    string action = ngettext ("Re_vert External Edit", "Re_vert External Edits", count);
 
     var dialog = new Granite.MessageDialog.with_image_from_icon_name (
         primary_text,
@@ -914,7 +914,7 @@ public Gtk.ResponseType copy_files_dialog () {
 
 public void remove_photos_from_library (Gee.Collection<LibraryPhoto> photos) {
     remove_from_app (photos, _ ("Remove From Library"),
-                     (photos.size == 1) ? _ ("Removing Photo From Library") : _ ("Removing Photos From Library"), false);
+                     ngettext ("Removing Photo From Library", "Removing Photos From Library", photos.size), false);
 }
 
 public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_title,
