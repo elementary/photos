@@ -47,15 +47,15 @@ public bool confirm_delete_tag (Tag tag) {
     if (count == 0)
         return true;
     string msg = ngettext (
-                     "This will remove the tag \"%s\" from one photo.  Continue?",
-                     "This will remove the tag \"%s\" from %d photos.  Continue?",
+                     "This will remove the tag \"%s\" from one photo. Continue?",
+                     "This will remove the tag \"%s\" from %d photos. Continue?",
                      count).printf (tag.get_user_visible_name (), count);
 
     return negate_affirm_question (msg, Resources.DELETE_TAG_TITLE);
 }
 
 public bool confirm_delete_saved_search (SavedSearch search) {
-    string msg = _ ("This will remove the smart album \"%s\".  Continue?")
+    string msg = _ ("This will remove the smart album \"%s\". Continue?")
                  .printf (search.get_name ());
 
     return negate_affirm_question (msg, Resources.DELETE_SAVED_SEARCH_DIALOG_TITLE);
@@ -787,7 +787,7 @@ public class EventRenameDialog : TextEntryDialogMediator {
     }
 }
 
-public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> photos) {
+public bool revert_editable_dialog (Gtk.Window parent, Gee.Collection<Photo> photos) {
     int count = 0;
     foreach (Photo photo in photos) {
         if (photo.has_editable ())
@@ -797,22 +797,27 @@ public bool revert_editable_dialog (Gtk.Window owner, Gee.Collection<Photo> phot
     if (count == 0)
         return false;
 
-    string headline = (count == 1) ? _ ("Revert External Edit?") : _ ("Revert External Edits?");
-    string msg = ngettext (
-                     "This will destroy all changes made to the external file.  Continue?",
-                     "This will destroy all changes made to %d external files.  Continue?",
-                     count).printf (count);
+    string primary_text = ngettext ("Revert External Edit?", "Revert External Edits?", count);
+    string secondary_text = ngettext (
+        "This will destroy all changes made to the external file. Continue?",
+        "This will destroy all changes made to %d external files. Continue?",
+        count
+    ).printf (count);
 
-    string action = (count == 1) ? _ ("Re_vert External Edit") : _ ("Re_vert External Edits");
+    string action = ngettext ("Re_vert External Edit", "Re_vert External Edits", count);
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (owner, Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s", msg);
-    dialog.add_button (_ ("_Cancel"), Gtk.ResponseType.CANCEL);
-    dialog.add_button (action, Gtk.ResponseType.YES);
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        primary_text,
+        secondary_text,
+        "dialog-warning",
+        Gtk.ButtonsType.CANCEL
+    );
+    dialog.transient_for = parent;
 
-    dialog.set_markup (build_alert_body_text (headline, msg));
+    var revert_button = dialog.add_button (action, Gtk.ResponseType.YES);
+    revert_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-    Gtk.ResponseType result = (Gtk.ResponseType) dialog.run ();
+    var result = (Gtk.ResponseType) dialog.run ();
 
     dialog.destroy ();
 
@@ -831,8 +836,8 @@ public bool remove_offline_dialog (Gtk.Window owner, int count) {
     );
 
     string secondary_text = ngettext (
-        "This will remove the photo from the library.  Continue?",
-        "This will remove %d photos from the library.  Continue?",
+        "This will remove the photo from the library. Continue?",
+        "This will remove %d photos from the library. Continue?",
          count
     ).printf (count);
 
@@ -855,8 +860,7 @@ public bool remove_offline_dialog (Gtk.Window owner, int count) {
 }
 
 public const int MAX_OBJECTS_DISPLAYED = 3;
-public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, string message,
-        string title) {
+public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, string message, string title) {
     string dialog_message = message + "\n";
 
     //add objects
@@ -869,10 +873,13 @@ public void multiple_object_error_dialog (Gee.ArrayList<DataObject> objects, str
                                     remainder).printf (remainder);
     }
 
-    Gtk.MessageDialog dialog = new Gtk.MessageDialog (AppWindow.get_instance (),
-            Gtk.DialogFlags.MODAL, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "%s", dialog_message);
-
-    dialog.title = title;
+    var dialog = new Granite.MessageDialog.with_image_from_icon_name (
+        title,
+        dialog_message,
+        "dialog-error",
+        Gtk.ButtonsType.CLOSE
+    );
+    dialog.transient_for = AppWindow.get_instance ();
 
     dialog.run ();
     dialog.destroy ();
@@ -907,7 +914,7 @@ public Gtk.ResponseType copy_files_dialog () {
 
 public void remove_photos_from_library (Gee.Collection<LibraryPhoto> photos) {
     remove_from_app (photos, _ ("Remove From Library"),
-                     (photos.size == 1) ? _ ("Removing Photo From Library") : _ ("Removing Photos From Library"), false);
+                     ngettext ("Removing Photo From Library", "Removing Photos From Library", photos.size), false);
 }
 
 public void remove_from_app (Gee.Collection<MediaSource> sources, string dialog_title,

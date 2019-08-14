@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-extras-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-07-21 14:24+0000\n"
+"POT-Creation-Date: 2019-08-13 08:08-0700\n"
+"PO-Revision-Date: 2019-08-13 03:21+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/photos/photos/"
 "eo/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Neeblis krei la kaŝmemora dosierujo %s: %s"
+msgstr "Neeblis krei la kaŝmemoran dosierujon %s: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -48,15 +48,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Ne eblas krei datuman subdosierujon %s: %s"
 
 #: src/AppWindow.vala:163
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Neriparebla eraro okazis dum aliro al la fototeko de Fotoj.  Fotoj ĉesos "
-"funkcii.\n"
+"Neriparebla eraro okazis dum aliro al la fototeko de Fotoj.  Fotoj tuj "
+"haltos.\n"
 "\n"
 "%s"
 
@@ -102,7 +102,7 @@ msgstr "Ne-subtenita dosierformo"
 
 #: src/BatchImport.vala:63
 msgid "Not an image file"
-msgstr "Ne estas bildodosiero"
+msgstr "Tio ne estas bildodosiero"
 
 #: src/BatchImport.vala:66
 msgid "Disk failure"
@@ -252,7 +252,7 @@ msgstr "Movi etikedon „%s“"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
-msgstr ""
+msgstr "Enrubujigi fotojn"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
@@ -342,9 +342,9 @@ msgid "Export"
 msgstr ""
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
-msgstr ""
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
+msgstr "Dosiero jam ekzistas je datumbazo"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -357,8 +357,8 @@ msgstr ""
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -409,8 +409,8 @@ msgid ""
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Ŝajnas esti kreita de Fotoj versio %s (skemo %d). Ĉi tio estas versio %s ("
-"skemo %d).  Bonvolu forviŝi vian fototekon forigante %s kaj reimportante "
+"Ŝajnas esti kreita de Fotoj versio %s (skemo %d). Ĉi tio estas versio %s "
+"(skemo %d).  Bonvolu forviŝi vian fototekon forigante %s kaj reimportante "
 "viajn fotojn."
 
 #: src/main.vala:80
@@ -860,7 +860,7 @@ msgstr "Forigi etikedon „%s“"
 msgid "Delete Tag"
 msgstr "Forigi etikedon"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_Forigi"
 
@@ -891,113 +891,104 @@ msgid "Modify Tags"
 msgstr ""
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "Etikedi foton kiel „%s“"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "Etikedi fotojn kiel „%s“"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "Etikedi foton kiel „%s“"
+msgstr[1] "Etikedi foton kiel „%s“"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "Forigi etikedon  „%s“ el la _foto"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "Forigi etikedon  „%s“ el la _foto"
+msgstr[1] "Forigi etikedon  „%s“ el la _foto"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "Forigi etikedon  „%s“ el la fotoj"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "Forigi etikedon  „%s“ el la foto"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "Forigi etikedon  „%s“ el la foto"
+msgstr[1] "Forigi etikedon  „%s“ el la foto"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "Forigi etikedon  „%s“ el la fotoj"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Neeblas renomi la etikedon „%s“ ĉar tiu etikedo jam ekzistas."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "Neeblas renomi la serĉon al „%s“ ĉar tiu serĉnomo jam ekzistas."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Inteligenta albumo"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "Forigi albumon"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 msgid "_Edit…"
 msgstr "_Redakti…"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 msgid "Re_name…"
 msgstr "Re_nomi…"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Renomi serĉon „%s“ al „%s“"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Forigi serĉon „%s“"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "_Forigi elekton"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "Forigi la elektitajn fotojn el la rubujo"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "Forigi la elektitajn fotojn el la fototeko"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "_Restaŭri elekton"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "Movi la elektitajn fotojn reen en la fototeko"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 msgid "File Mana_ger"
 msgstr ""
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr ""
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "Fo_rigi el fototeko"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr ""
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr ""
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr ""
 
@@ -1005,20 +996,20 @@ msgstr ""
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr ""
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr ""
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr ""
 
@@ -1028,14 +1019,14 @@ msgstr ""
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr ""
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr ""
 
@@ -1088,19 +1079,15 @@ msgstr "Difini la saman horon por ĉiuj fotoj/videoj"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
 msgid "_Modify original photo file"
-msgstr ""
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr ""
+msgid_plural "_Modify original photo files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 msgid "_Modify original file"
-msgstr ""
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr ""
+msgid_plural "_Modify original files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1157,15 +1144,15 @@ msgstr[0] "sekundo"
 msgstr[1] "sekundoj"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Tio forigos la etikedon „%s“ el unu foto.  Ĉu daŭrigi?"
 msgstr[1] "Tio forigos la etikedon „%s“ el %d fotoj.  Ĉu daŭrigi?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Tio forigos la inteligentan albumon „%s“.  Ĉu daŭrigi?"
 
 #: src/Dialogs/Dialogs.vala:66
@@ -1194,15 +1181,18 @@ msgstr "Eksporti videon"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
+#, fuzzy
 msgid "Export Photo"
-msgstr "Eksporti bildon"
+msgid_plural "Export Photos"
+msgstr[0] "Eksporti bildon"
+msgstr[1] "Eksporti bildon"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "_Konservi"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "Eksporti Bildojn"
 
@@ -1391,7 +1381,8 @@ msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
 "%d photos/videos failed to import due to a file or hardware error:\n"
 msgstr[0] "Neeblis importi 1 foton/videon, pro dosiera aŭ aparatara eraro:\n"
-msgstr[1] "Neeblis importi %d fotojn/videojn, pro dosiera aŭ aparatara eraro:\n"
+msgstr[1] ""
+"Neeblis importi %d fotojn/videojn, pro dosiera aŭ aparatara eraro:\n"
 
 #: src/Dialogs/Dialogs.vala:410
 #, c-format
@@ -1428,7 +1419,8 @@ msgid ""
 msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
-msgstr[0] "Neeblis importi 1 foton/videon, pro malpermeso skribi en la fototeko:\n"
+msgstr[0] ""
+"Neeblis importi 1 foton/videon, pro malpermeso skribi en la fototeko:\n"
 msgstr[1] ""
 "Neeblis importi %d fotojn/videojn, pro malpermeso skribi en la fototeko:\n"
 
@@ -1440,7 +1432,8 @@ msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] "Neeblis importi 1 dosieron, pro malpermeso skribi en la fototeko:\n"
-msgstr[1] "Neeblis importi %d dosierojn, pro malpermeso skribi en la fototeko:\n"
+msgstr[1] ""
+"Neeblis importi %d dosierojn, pro malpermeso skribi en la fototeko:\n"
 
 #: src/Dialogs/Dialogs.vala:447
 #, c-format
@@ -1586,49 +1579,47 @@ msgid "Name:"
 msgstr "Nomo:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "Ĉu malfari eksteran redakton?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "Ĉu malfari eksterajn redaktojn?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "Ĉu malfari eksteran redakton?"
+msgstr[1] "Ĉu malfari eksteran redakton?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "Tio malfaros ĉiujn eksterajn ŝanĝojn de la dosiero.  Ĉu daŭrigi?"
 msgstr[1] "Tio malfaros ĉiujn eksterajn ŝanĝojn de la dosieroj.  Ĉu daŭrigi?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "_Malfari eksteran redakton"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "_Malfari eksteran redakton"
+msgstr[1] "_Malfari eksteran redakton"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "_Malfari eksterajn redaktojn"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "Forigi foton el fototeko"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "Forigi fotojn el fototeko"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Tio forigi la foton el la fototeko.  Ĉu daŭrigi?"
 msgstr[1] "Tio forigi la fotojn el la fototeko.  Ĉu daŭrigi?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "_Forigi"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1649,7 +1640,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1657,32 +1648,31 @@ msgstr ""
 "La programo Fotoj povas kopii fotojn en via fototeka dosierujo aŭ importi "
 "sen kopii ilin."
 
-#: src/Dialogs/Dialogs.vala:891
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "Importi en la fototeko"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
 msgstr "_Kopii fotojn"
 
-#: src/Dialogs/Dialogs.vala:899
+#: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
 msgstr "_Importi surloke"
 
-#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "Forigi el la fototeko"
 
-#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "Forigi foton el fototeko"
-
-#: src/Dialogs/Dialogs.vala:910
-msgid "Removing Photos From Library"
-msgstr "Forigi fotojn el fototeko"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "Forigi foton el fototeko"
+msgstr[1] "Forigi foton el fototeko"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:946
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1742,7 +1732,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Re_nomi minuskle la importitajn dosierojn:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+#, fuzzy
+msgid "Write _metadata to files:"
 msgstr "Skribi _metadatumojn al dosieroj:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -2095,10 +2086,10 @@ msgid ""
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"La programo Fotoj estas agordita  por importi fotojn en via dosierujo Hejmo."
-"\n"
-"Ni rekomendas agordi tion ĉe <span weight=\"bold\">Redakti %s Agordoj</span>."
-"\n"
+"La programo Fotoj estas agordita  por importi fotojn en via dosierujo "
+"Hejmo.\n"
+"Ni rekomendas agordi tion ĉe <span weight=\"bold\">Redakti %s Agordoj</"
+"span>.\n"
 "Ĉu vi deziras daŭrigi la importadon de fotoj?"
 
 #: src/library/LibraryWindow.vala:786
@@ -2293,8 +2284,8 @@ msgid ""
 msgstr ""
 "Neeblas al Fotoj publikigi la elektitajn elementojn, ĉar ne estas aktivigita "
 "kongrua kromprogramo. Por korekti tion, elektu <b>Redakti %s Agordoj</b> kaj "
-"ebligu unu aŭ plurajn publikigajn kromprogramojn ĉe la langeto "
-"<b>Kromaĵoj</b>."
+"ebligu unu aŭ plurajn publikigajn kromprogramojn ĉe la langeto <b>Kromaĵoj</"
+"b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2506,12 +2497,11 @@ msgid "Other Actions"
 msgstr "Ceteraj agoj"
 
 #: src/Views/CollectionPage.vala:598
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "Eksporti bildon aŭ videon"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Eksporti bildojn/videojn"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "Eksporti bildon aŭ videon"
+msgstr[1] "Eksporti bildon aŭ videon"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2658,8 +2648,9 @@ msgid "Flagged"
 msgstr "Flaga"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Neeblas munti la kameraon.  Provu malmunti la kameraon per la "
 "dosiermastrumilo."
@@ -3366,10 +3357,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Guglo+ (2 048 × 1 536 bilderoj)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "Vi ne estas ensalutita nun ĉe Flickr. \n"
@@ -3851,3 +3843,24 @@ msgstr "Ŝaktabulo"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persieno"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "Etikedi fotojn kiel „%s“"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "Forigi etikedon  „%s“ el la fotoj"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "Forigi etikedon  „%s“ el la fotoj"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "Ĉu malfari eksterajn redaktojn?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "_Malfari eksterajn redaktojn"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "Forigi fotojn el fototeko"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "Eksporti bildojn/videojn"
