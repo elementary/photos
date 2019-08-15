@@ -593,11 +593,13 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.show_all ();
         }
 
-        populate_external_app_menu (open_menu, false);
-
         Photo? photo = (get_view ().get_selected_at (0).source as Photo);
-        if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
-            populate_external_app_menu (open_raw_menu, true);
+        if (photo != null) {
+            populate_external_app_menu (open_menu, photo.get_master_file_format (), false);
+
+            if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
+                populate_external_app_menu (open_raw_menu, PhotoFileFormat.RAW, true);
+            }
         }
 
         open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
@@ -618,7 +620,7 @@ public class LibraryPhotoPage : EditingHostPage {
         return true;
     }
 
-    private void populate_external_app_menu (Gtk.Menu menu, bool raw) {
+    private void populate_external_app_menu (Gtk.Menu menu, PhotoFileFormat file_format, bool raw) {
         SortedList<AppInfo> external_apps;
         string[] mime_types;
 
@@ -630,7 +632,7 @@ public class LibraryPhotoPage : EditingHostPage {
         if (raw) {
             mime_types = PhotoFileFormat.RAW.get_mime_types ();
         } else {
-            mime_types = PhotoFileFormat.get_editable_mime_types ();
+            mime_types = file_format.get_mime_types ();
 
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
 
