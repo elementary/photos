@@ -325,11 +325,9 @@ public abstract class CollectionPage : MediaPage {
         }
 
         // get list of all applications for the given mime types
-        if (raw) {
-            mime_types = PhotoFileFormat.RAW.get_mime_types ();
-        } else {
-            mime_types = file_format.get_mime_types ();
+        mime_types = file_format.get_mime_types ();
 
+        if (!raw) {
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
 
             var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
