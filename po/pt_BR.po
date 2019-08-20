@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-05-20 07:14+0000\n"
+"PO-Revision-Date: 2019-08-20 04:22+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "photos/photos/pt_BR/>\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-13 05:58+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,7 +55,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Não foi possível criar subdiretório de dados %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -351,9 +351,9 @@ msgid "Export"
 msgstr "Exportar"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "%s já existe.  Sobrescrever?"
+msgstr "O arquivo %s já existe. Substituir?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -910,25 +910,25 @@ msgid "Modify Tags"
 msgstr "Modificar etiquetas"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Etiquetar fotos como \"%s\""
+msgstr[0] "Etiquetar foto como \"%s\""
 msgstr[1] "Etiquetar fotos como \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Remover etiqueta \"%s\" da _foto"
-msgstr[1] "Remover etiqueta \"%s\" da _foto"
+msgstr[1] "Remover etiqueta \"%s\" das _fotos"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Remove a etiqueta \"%s\" da foto"
-msgstr[1] "Remove a etiqueta \"%s\" da foto"
+msgstr[0] "Remover a etiqueta \"%s\" da foto"
+msgstr[1] "Remover a etiqueta \"%s\" das fotos"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1101,18 +1101,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Definir tod_as fotos/vídeos para a mesma hora"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Modificar arquivo original da foto"
-msgstr[1] "_Modificar arquivo original da foto"
+msgstr[1] "_Modificar arquivo original das fotos"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Modificar originais"
-msgstr[1] "_Modificar originais"
+msgstr[0] "_Modificar o arquivo original"
+msgstr[1] "_Modificar os arquivos originais"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1169,14 +1167,14 @@ msgstr[0] "segundo"
 msgstr[1] "segundos"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Isto irá remover a etiqueta \"%s\" de uma foto.  Continuar?"
 msgstr[1] "Isto irá remover a etiqueta \"%s\" de %d fotos.  Continuar?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Isto irá remover o álbum inteligente \"%s\". Continuar?"
 
@@ -1208,10 +1206,9 @@ msgstr "Exportar vídeo"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Exportar fotos"
+msgstr[0] "Exportar foto"
 msgstr[1] "Exportar fotos"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1641,14 +1638,13 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Reverter edição externa?"
-msgstr[1] "Reverter edição externa?"
+msgstr[1] "Reverter edições externas?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
@@ -1660,10 +1656,9 @@ msgstr[1] ""
 "Continuar?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Re_verter edições externas"
+msgstr[0] "Re_verter edição externa"
 msgstr[1] "Re_verter edições externas"
 
 #: src/Dialogs/Dialogs.vala:833
@@ -1675,11 +1670,11 @@ msgid "Remove Photos From Library"
 msgstr "Remover fotos da galeria"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Isto irá remover a foto da galeria.  Continuar?"
-msgstr[1] "Isto irá remover %d fotos da galeria.  Continuar?"
+msgstr[0] "Isto irá remover a foto da galeria. Continuar?"
+msgstr[1] "Isto irá remover %d fotos da galeria. Continuar?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1731,10 +1726,9 @@ msgid "Remove From Library"
 msgstr "Remover da biblioteca"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Removendo fotos da biblioteca"
+msgstr[0] "Removendo foto da biblioteca"
 msgstr[1] "Removendo fotos da biblioteca"
 
 #. Alert the user that the files were not removed.
@@ -1798,9 +1792,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Renomear arquivos importados para letra minúscula:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Escreva _metadados nos arquivos:"
+msgstr "Escrever _metadados nos arquivos:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2563,11 +2556,10 @@ msgid "Other Actions"
 msgstr "Outras Ações"
 
 #: src/Views/CollectionPage.vala:598
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exportar foto/vídeo"
-msgstr[1] "Exportar foto/vídeo"
+msgstr[1] "Exportar fotos/vídeos"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2714,12 +2706,11 @@ msgid "Flagged"
 msgstr "Sinalizadas"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Não foi possível desmontar a câmera.  Tente desmontando a câmera no "
-"gerenciador de arquivos."
+"Não foi possível desmontar a câmera. Tente desmontar a câmera no gerenciador "
+"de arquivos."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -3441,7 +3432,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
