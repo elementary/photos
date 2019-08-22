@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-05-25 17:03+0000\n"
+"PO-Revision-Date: 2019-08-15 19:22+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
 ">\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-09 05:58+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -56,7 +56,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "No s'ha pogut crear el subdirectori de dades %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -355,7 +355,7 @@ msgid "Export"
 msgstr "Exporta"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Ja existeix el fitxer %s. Voleu reemplaçar-lo?"
 
@@ -918,25 +918,25 @@ msgid "Modify Tags"
 msgstr "Modifica les etiquetes"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Etiqueta la fotografia com a «%s»"
-msgstr[1] "Etiqueta la fotografia com a «%s»"
+msgstr[1] "Etiqueta les fotografies com a «%s»"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Suprimeix l'etiqueta «%s» de la _fotografia"
-msgstr[1] "Suprimeix l'etiqueta «%s» de la _fotografia"
+msgstr[1] "Suprimeix l'etiqueta «%s» de les _fotografies"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Suprimeix l'etiqueta «%s» de la fotografia"
-msgstr[1] "Suprimeix l'etiqueta «%s» de la fotografia"
+msgstr[1] "Suprimeix l'etiqueta «%s» de les fotografies"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1108,18 +1108,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Estableix _totes les fotografies/vídeos a aquesta hora"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "_Modificar el fitxer d'imatge original"
-msgstr[1] "_Modificar el fitxer d'imatge original"
+msgstr[0] "_Modifica el fitxer d'imatge original"
+msgstr[1] "_Modifica els fitxers d'imatge originals"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "_Modifica el fitxer original"
-msgstr[1] "_Modifica el fitxer original"
+msgstr[1] "_Modifica els fitxers originals"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1176,16 +1174,16 @@ msgstr[0] "segon"
 msgstr[1] "segons"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Això suprimirà l'etiqueta «%s» d'una fotografia. Voleu continuar?"
 msgstr[1] "Això suprimirà l'etiqueta «%s» de %d fotografies. Voleu continuar?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Això suprimirà l'àlbum intel·ligent \"%s\". Voleu continuar?"
+msgstr "Això suprimirà l'àlbum intel·ligent «%s». Voleu continuar?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1215,10 +1213,9 @@ msgstr "Exporta vídeos"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Exporta les fotografies"
+msgstr[0] "Exporta la fotografia"
 msgstr[1] "Exporta les fotografies"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1658,28 +1655,25 @@ msgid "Name:"
 msgstr "Nom:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Voleu revertir l'edició externa?"
-msgstr[1] "Voleu revertir l'edició externa?"
+msgstr[1] "Voleu revertir les edicions externes?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] ""
-"Això suprimirà tots els canvis fets al fitxer extern. Voleu continuar?"
+msgstr[0] "Això suprimirà tots els canvis fets al fitxer extern. Voleu continuar?"
 msgstr[1] ""
-"Això suprimirà tots els canvis fets als %d fitxers externs. Voleu continuar?"
+"Això suprimirà tots els canvis fets a %d fitxers externs. Voleu continuar?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "_Reverteix l'edició externa"
-msgstr[1] "_Reverteix l'edició externa"
+msgstr[1] "_Reverteix les edicions externes"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1690,7 +1684,7 @@ msgid "Remove Photos From Library"
 msgstr "Suprimeix les fotografies de la biblioteca"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Això suprimirà la fotografia de la biblioteca. Voleu continuar?"
@@ -1746,11 +1740,10 @@ msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Se suprimeix la fotografia de la biblioteca"
-msgstr[1] "Se suprimeix la fotografia de la biblioteca"
+msgstr[1] "Se suprimeixen les fotografies de la biblioteca"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1813,7 +1806,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Canvia el nom dels fitx_ers importats a minúscules:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Escriu les _metadades als fitxers:"
 
@@ -2583,11 +2575,10 @@ msgid "Other Actions"
 msgstr "Altres accions"
 
 #: src/Views/CollectionPage.vala:598
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Exporta la fotografia/vídeo"
-msgstr[1] "Exporta la fotografia/vídeo"
+msgstr[0] "Exporta la fotografia / vídeo"
+msgstr[1] "Exporta fotografies / vídeos"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2734,7 +2725,6 @@ msgid "Flagged"
 msgstr "Senyalat"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
@@ -3453,7 +3443,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3462,8 +3451,9 @@ msgid ""
 msgstr ""
 "Actualment no esteu connectat al Flickr.\n"
 "\n"
-"Feu clic a connecta per connectar-vos al Flickr en el navegador web.  Haureu "
-"d'autoritzar al Shotwell Connect per enllaçar el vostre compte del Flickr."
+"Feu clic a Connecta / Entra per iniciar sessió al Flickr des del navegador "
+"web.  Haureu d'autoritzar que el Shotwell Connect s'enllaci amb el compte "
+"del Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
