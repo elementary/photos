@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-08-25 01:22+0000\n"
-"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"PO-Revision-Date: 2019-09-02 09:01+0000\n"
+"Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/photos/photos/tr/"
 ">\n"
 "Language: tr\n"
@@ -388,49 +388,46 @@ msgstr "Tam ekrandan çık"
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Fotoğraf kütüphaneniz,  Fotoğraflar uygulamasının bu sürümü ile uyumlu değil"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Fotoğraf kitaplığınız Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar "
-"%s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
-"Lütfen Fotoğraflar'ın son sürümünü kullanın."
+"Fotoğraflar %s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s ("
+"schema %d). Lütfen Fotoğraflar'ın son sürümünü kullanın."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Fotoğraflar, fotoğraf kitaplığınızın sürümünü %s (schema %d) den %s (schema "
-"%d) 'e güncellemeyi başaramadı. Daha fazla bilgi için lütfen Fotoğraflar "
-"Wiki'yi buradan %s kontrol edin."
+"%d) 'e güncellemeyi başaramadı."
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
+"Daha fazla bilgi için lütfen Fotoğraflar Wiki'yi buradan %s kontrol edin."
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Fotoğraf kitaplığınız Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar "
-"%s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
-"Lütfen kitaplığınızı %s öğesini silerek temizleyin ve resimlerinizi yeniden "
-"içe aktarın."
+"Fotoğraflar %s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s ("
+"schema %d). Lütfen kitaplığınızı %s öğesini silerek temizleyin ve "
+"resimlerinizi yeniden içe aktarın."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr ""
-"Fotoğraflar veritabanını doğrulama girişiminde bilinmeyen hata oluştu: %s"
+msgstr "Fotoğraflar veritabanını doğrulama girişiminde bilinmeyen hata oluştu."
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -911,25 +908,25 @@ msgid "Modify Tags"
 msgstr "Etiketleri Düzenle"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Fotoğrafı \"%s\" olarak etiketle"
-msgstr[1] "Fotoğrafı \"%s\" olarak etiketle"
+msgstr[1] "Fotoğrafları \"%s\" olarak etiketle"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "\"%s\" Etiketini _Fotoğraftan Kaldır"
-msgstr[1] "\"%s\" Etiketini _Fotoğraftan Kaldır"
+msgstr[1] "\"%s\" Etiketini _Fotoğraflardan Kaldır"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "\"%s\" Etiketini Fotoğraftan Kaldır"
-msgstr[1] "\"%s\" Etiketini Fotoğraftan Kaldır"
+msgstr[1] "\"%s\" Etiketini Fotoğraflardan Kaldır"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1100,18 +1097,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Tüm fotoğrafları/videoları bu zamana _ayarla"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Özgün fotoğraf dosyasını değiştir"
-msgstr[1] "_Özgün fotoğraf dosyasını değiştir"
+msgstr[1] "_Özgün fotoğraf dosyalarını değiştir"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "_Özgün dosyayı değiştir"
-msgstr[1] "_Özgün dosyayı değiştir"
+msgstr[1] "_Özgün dosyaları değiştir"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1168,18 +1163,18 @@ msgstr[0] "saniye"
 msgstr[1] "saniye"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] ""
-"Bu işlem \"%s\" etiketini  %d fotoğraf(lar)dan kaldıracak.  Devam edilsin mi?"
+"Bu işlem \"%s\" etiketini  bir fotoğraftan kaldıracak.  Devam edilsin mi?"
 msgstr[1] ""
-"Bu işlem \"%s\" etiketini  %d fotoğraf(lar)dan kaldıracak.  Devam edilsin mi?"
+"Bu işlem \"%s\" etiketini  %d fotoğraftan kaldıracak.  Devam edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "\"%s\" bu akıllı albüm kaldırılacak.  Devam edilsin mi?"
+msgstr "Bu \"%s\"  akıllı albümünü kaldıracak.  Devam edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1197,7 +1192,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Geliştiricileri değiştirmek istediğinize emin misiniz?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1209,10 +1204,9 @@ msgstr "Video Ihracatı"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Fotoğrafları Dışa Aktar"
+msgstr[0] "Fotoğrafı Dışa Aktar"
 msgstr[1] "Fotoğrafları Dışa Aktar"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1633,30 +1627,28 @@ msgid "Name:"
 msgstr "Ad:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Harici Düzenlemeye Dönsün mü?"
-msgstr[1] "Harici Düzenlemeye Dönsün mü?"
+msgstr[1] "Harici Düzenlemelere Dönsün mü?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Bu işlem %d harici dosyaya yapılan tüm değişiklikleri yok edecek.  Devam "
+"Bu işlem harici dosyaya yapılan tüm değişiklikleri yok edecek.  Devam "
 "edilsin mi?"
 msgstr[1] ""
 "Bu işlem %d harici dosyaya yapılan tüm değişiklikleri yok edecek.  Devam "
 "edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "Harici Düzenlemeye D_ön"
-msgstr[1] "Harici Düzenlemeye D_ön"
+msgstr[1] "Harici Düzenlemelere D_ön"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1667,7 +1659,7 @@ msgid "Remove Photos From Library"
 msgstr "Fotoğrafları Kitaplıktan Kaldır"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Bu işlem fotoğrafı kitaplıktan kaldıracak.  Devam edilsin mi?"
@@ -1723,11 +1715,10 @@ msgid "Remove From Library"
 msgstr "Kitaplıktan Kaldır"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Fotoğraf Kitaplıktan Kaldırılıyor"
-msgstr[1] "Fotoğraf Kitaplıktan Kaldırılıyor"
+msgstr[1] "Fotoğraflar Kitaplıktan Kaldırılıyor"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1790,7 +1781,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "A_ktarılan dosyaları küçük harf ile isimlendir:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Dosyalara _meta yaz:"
 
@@ -2556,10 +2546,9 @@ msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
 #: src/Views/CollectionPage.vala:598
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Resimleri/Videoları Dışa Aktar"
+msgstr[0] "Resim/Video Dışa Aktar"
 msgstr[1] "Resimleri/Videoları Dışa Aktar"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
@@ -2707,10 +2696,10 @@ msgid "Flagged"
 msgstr "İşaretli"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
-msgstr "Kamera ayrılamadı. Kamerayı, dosya yöneticisinden ayırmayı deneyin."
+msgstr ""
+"Kamerayı çıkarma başarısız. Kamerayı, dosya yöneticisinden çıkarmayı deneyin."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -2755,15 +2744,14 @@ msgstr "Tüm fotoğrafları kitaplığınıza aktarın"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kamera takılı iken erişilemez"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Fotoğraflar uygulaması, erişim sağlamak için kamerayı dosya sisteminden "
-"ayrıması gerekiyor. Devam edilsin mi?"
+"çıkarması gerekiyor."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2776,17 +2764,15 @@ msgstr "Lütfen kamerayı ayırın."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kamera başka bir uygulama tarafından kilitlendi"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kamera, başka bir uygulama tarafından kullanılıyor. Fotoğraflar, kameraya "
-"yalnızca boştayken erişebilir. Lütfen kamerayı kullanan diğer uygulamayı "
-"kapatın ve yeniden deneyin."
+"Fotoğraflar, kameraya yalnızca kilitli değilken erişebilir. Lütfen kamerayı "
+"kullanan diğer uygulamayı kapatın ve yeniden deneyin."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3434,7 +3420,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 piksel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
