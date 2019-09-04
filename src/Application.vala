@@ -107,10 +107,6 @@ public class Photos.Application : Gtk.Application {
         return GLib.Application.get_default ().get_is_remote ();
     }
 
-    public static bool app_get_is_direct () {
-        return ((Photos.Application) GLib.Application.get_default ()).direct;
-    }
-
     /**
      * Signal handler for GApplication's 'command-line' signal.
      *
@@ -120,10 +116,8 @@ public class Photos.Application : Gtk.Application {
      * will trigger this and exit, and we'll need to bring the window back up...
      */
     public static void on_activated () {
-        GLib.Application.get_default ();
-
         LibraryWindow lw = AppWindow.get_instance () as LibraryWindow;
-        if ((lw != null) && (!app_get_is_direct ())) {
+        if ((lw != null) && (!((Photos.Application) GLib.Application.get_default ()).direct)) {
             LibraryWindow.get_app ().present ();
         }
     }
