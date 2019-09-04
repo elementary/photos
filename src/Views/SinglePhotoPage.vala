@@ -470,6 +470,9 @@ public abstract class SinglePhotoPage : Page {
         return popup_context_menu (get_page_context_menu ());
     }
 
+    protected virtual void return_to_collection () {
+    }
+
     protected virtual void on_previous_photo () {
     }
 
@@ -482,10 +485,18 @@ public abstract class SinglePhotoPage : Page {
         // we staunch the supply of new photos to under a quarter second (#533)
         bool nav_ok = (event.time - last_nav_key) > 200;
 
+        Gdk.ModifierType modifier_type;
+        event.get_state (out modifier_type);
+        bool has_alt_modifier = modifier_type == Gdk.ModifierType.MOD1_MASK;
+
         bool handled = true;
         switch (Gdk.keyval_name (event.keyval)) {
         case "Left":
         case "KP_Left":
+            if (has_alt_modifier) {
+                return_to_collection ();
+            }
+
             if (nav_ok) {
                 on_previous_photo ();
                 last_nav_key = event.time;
@@ -495,6 +506,10 @@ public abstract class SinglePhotoPage : Page {
         case "Right":
         case "KP_Right":
         case "space":
+            if (has_alt_modifier) {
+                break;
+            }
+
             if (nav_ok) {
                 on_next_photo ();
                 last_nav_key = event.time;

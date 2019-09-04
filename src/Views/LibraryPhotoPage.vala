@@ -707,7 +707,7 @@ public class LibraryPhotoPage : EditingHostPage {
         }
     }
 
-    private void return_to_collection () {
+    protected override void return_to_collection () {
         // Return to the previous page if it exists.
         if (null != return_page)
             LibraryWindow.get_app ().switch_to_page (return_page);
