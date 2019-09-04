@@ -88,7 +88,7 @@ public abstract class AppWindow : PageWindow {
         add_action_entries (action_entries, this);
         set_titlebar (header);
 
-        var application_instance = ((Photos.Application) GLib.Application.get_default ());
+        weak Photos.Application application_instance = ((Photos.Application) GLib.Application.get_default ());
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
