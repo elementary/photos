@@ -27,7 +27,7 @@ private bool was_already_running = false;
 public const string TRANSLATABLE = "translatable";
 
 void library_exec (string[] mounts) {
-    was_already_running = Application.app_get_is_remote ();
+    was_already_running = Photos.Application.app_get_is_remote ();
 
     if (was_already_running) {
         // Send attached cameras out to the primary instance.
@@ -36,8 +36,8 @@ void library_exec (string[] mounts) {
         //
         // This will also take care of killing us when it sees that another
         // instance was already registered.
-        Application.present_primary_instance ();
-        Application.send_to_primary_instance (mounts);
+        Photos.Application.present_primary_instance ();
+        Photos.Application.send_to_primary_instance (mounts);
         return;
     }
 
@@ -149,7 +149,7 @@ void library_exec (string[] mounts) {
 
     MetadataWriter.init ();
 
-    Application.get_instance ().init_done ();
+    ((Photos.Application) GLib.Application.get_default ()).init_done ();
 
     // create main library application window
     if (aggregate_monitor != null)
@@ -190,7 +190,7 @@ void library_exec (string[] mounts) {
 
     debug ("%lf seconds to Gtk.main ()", startup_timer.elapsed ());
 
-    Application.get_instance ().start ();
+    ((Photos.Application) GLib.Application.get_default ()).start ();
 
     MetadataWriter.terminate ();
     Tag.terminate ();
@@ -260,7 +260,7 @@ void editing_exec (string filename) {
 
     debug ("%lf seconds to Gtk.main ()", startup_timer.elapsed ());
 
-    Application.get_instance ().start ();
+    ((Photos.Application) GLib.Application.get_default ()).start ();
 
     // terminate units for direct-edit mode
     Direct.app_terminate ();
@@ -350,7 +350,7 @@ void main (string[] args) {
 
     // Have a filename here?  If so, configure ourselves for direct
     // mode, otherwise, default to library mode.
-    Application.init (!is_string_empty (filename));
+    Photos.Application.init (!is_string_empty (filename));
 
     // set custom data directory if it's been supplied
     if (CommandlineOptions.data_dir != null)
@@ -381,7 +381,7 @@ void main (string[] args) {
         editing_exec (filename);
 
     // terminate mode-inspecific modules
-    Application.terminate ();
+    Photos.Application.terminate ();
     AppDirs.terminate ();
 
     // Back up db on successful run so we have something to roll back to if
