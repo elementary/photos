@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Application : Gtk.Application {
+public class Photos.Application : Gtk.Application {
     private static Application instance = null;
     private int system_app_run_retval = 0;
     private bool direct;
@@ -91,7 +91,7 @@ public class Application : Gtk.Application {
      * instance.
      */
     public static void send_to_primary_instance (string[]? argv) {
-        get_instance ().run (argv);
+        GLib.Application.get_default ().run (argv);
     }
 
     /**
@@ -100,15 +100,11 @@ public class Application : Gtk.Application {
      * should only be called if we are _not_ the primary instance.
      */
     public static void present_primary_instance () {
-        get_instance ().activate ();
+        GLib.Application.get_default ().activate ();
     }
 
     public static bool app_get_is_remote () {
-        return get_instance ().get_is_remote ();
-    }
-
-    public static bool app_get_is_direct () {
-        return get_instance ().direct;
+        return GLib.Application.get_default ().get_is_remote ();
     }
 
     /**
@@ -120,10 +116,8 @@ public class Application : Gtk.Application {
      * will trigger this and exit, and we'll need to bring the window back up...
      */
     public static void on_activated () {
-        get_instance ();
-
         LibraryWindow lw = AppWindow.get_instance () as LibraryWindow;
-        if ((lw != null) && (!app_get_is_direct ())) {
+        if ((lw != null) && (!((Photos.Application) GLib.Application.get_default ()).direct)) {
             LibraryWindow.get_app ().present ();
         }
     }
@@ -168,13 +162,7 @@ public class Application : Gtk.Application {
     }
 
     public static void terminate () {
-        get_instance ().exit ();
-    }
-
-    public static Application get_instance () {
-        assert (instance != null);
-
-        return instance;
+        ((Photos.Application) GLib.Application.get_default ()).exit ();
     }
 
     public void start (string[]? argv = null) {

@@ -392,7 +392,7 @@ class SlideshowPage : SinglePhotoPage {
             return;
         }
 
-        cookie = Application.get_instance ().app_inhibit (
+        cookie = ((Photos.Application) GLib.Application.get_default ()).app_inhibit (
             Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
             _("Slideshow")
         );
@@ -403,7 +403,7 @@ class SlideshowPage : SinglePhotoPage {
             return;
         }
 
-        Application.get_instance ().uninhibit (cookie);
+        ((Photos.Application) GLib.Application.get_default ()).uninhibit (cookie);
         cookie = 0;
     }
 }
