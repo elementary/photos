@@ -115,7 +115,7 @@ public class Photos.Application : Gtk.Application {
      * a camera/removeable-storage mount; in either case, the remote instance
      * will trigger this and exit, and we'll need to bring the window back up...
      */
-    public static void on_activated () {
+    private static void on_activated () {
         LibraryWindow lw = AppWindow.get_instance () as LibraryWindow;
         if ((lw != null) && (!((Photos.Application) GLib.Application.get_default ()).direct)) {
             LibraryWindow.get_app ().present ();
@@ -130,7 +130,7 @@ public class Photos.Application : Gtk.Application {
      *
      * Note: This does _not_ get called in direct-edit mode.
      */
-    public static int on_command_line (ApplicationCommandLine acl) {
+    private static int on_command_line (ApplicationCommandLine acl) {
         string[]? argv = acl.get_arguments ();
 
         if (argv != null) {
@@ -218,17 +218,5 @@ public class Photos.Application : Gtk.Application {
      */
     public uint app_inhibit (Gtk.ApplicationInhibitFlags what, string? reason = "none given") {
         return inhibit (AppWindow.get_instance (), what, reason);
-    }
-
-    /**
-     * Turns off a previously-requested inhibition. Wrapper for
-     * Gtk.Application.uninhibit ().
-     */
-    public void app_uninhibit (uint cookie) {
-        uninhibit (cookie);
-    }
-
-    public int get_run_return_value () {
-        return system_app_run_retval;
     }
 }
