@@ -192,6 +192,15 @@ private class LibraryProperties : Properties {
 
             this.focus_in_event.connect (focus_in);
             this.focus_out_event.connect (focus_out);
+            this.paste_clipboard.connect (() => {
+                if (this.buffer.has_selection) {
+                    this.buffer.delete_selection (true, true);
+                }
+
+                var clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (),
+                                    Gdk.SELECTION_PRIMARY);
+                this.buffer.text = clipboard.wait_for_text ();
+            });
         }
 
         public string get_text () {
