@@ -17,16 +17,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2018-10-29 13:36+0000\n"
-"Last-Translator: Ciaran Ainsworth <ciaranainsworth@outlook.com>\n"
-"Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
-"projects/photos/photos/en_GB/>\n"
+"PO-Revision-Date: 2019-08-21 23:22+0000\n"
+"Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
+"Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
+"photos/photos/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:14+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,14 +55,14 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Unable to create data subdirectory %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -349,9 +349,9 @@ msgid "Export"
 msgstr "Export"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "File %s already exists.  Replace?"
+msgstr "File %s already exists. Replace?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -386,47 +386,45 @@ msgstr "Leave fullscreen"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Your Photo Library Is Not Compatible With This Version of Photos"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please use the latest version of Photos."
+"It appears it was created by Photos %s (schema %d). This version is %s ("
+"schema %d). Please use the latest version of Photos."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Photos was unable to upgrade your photo library from version %s (schema %d) "
-"to %s (schema %d).  For more information please check the Photos Wiki at %s"
+"Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
+"to %s (Schema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "For more information please check the Photos Wiki at %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Your photo library is not compatible with this version of Photos.  It "
-"appears it was created by Photos %s (schema %d).  This version is %s (schema "
-"%d).  Please clear your library by deleting %s and re-importing your photos."
+"It appears it was created by Photos %s (schema %d). This version is %s ("
+"schema %d). Please clear your library by deleting %s and re-import your "
+"photos."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Unknown error when attempting to verify Photos' database: %s"
+msgstr "Unknown Error Attempting To Verify Photos' Database"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -906,25 +904,25 @@ msgid "Modify Tags"
 msgstr "Modify Tags"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Tag Photo as '%s'"
-msgstr[1] "Tag Photo as '%s'"
+msgstr[0] "Tag Photo as \"%s\""
+msgstr[1] "Tag Photos as \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Remove Tag '%s' From _Photos"
-msgstr[1] "Remove Tag '%s' From _Photos"
+msgstr[0] "Remove Tag \"%s\" From _Photo"
+msgstr[1] "Remove Tag \"%s\" From _Photos"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Remove Tag '%s' From Photos"
-msgstr[1] "Remove Tag '%s' From Photos"
+msgstr[0] "Remove Tag \"%s\" From Photo"
+msgstr[1] "Remove Tag \"%s\" From Photos"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1093,17 +1091,15 @@ msgid "Set _all photos/videos to this time"
 msgstr "Set _all photos/videos to this time"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Modify original photo file"
-msgstr[1] "_Modify original photo file"
+msgstr[1] "_Modify original photo files"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Modify original files"
+msgstr[0] "_Modify original file"
 msgstr[1] "_Modify original files"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
@@ -1161,14 +1157,14 @@ msgstr[0] "second"
 msgstr[1] "seconds"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "This will remove the tag '%s' from one photo.  Continue?"
-msgstr[1] "This will remove the tag '%s' from %d photos.  Continue?"
+msgstr[0] "This will remove the tag \"%s\" from one photo. Continue?"
+msgstr[1] "This will remove the tag \"%s\" from %d photos. Continue?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "This will remove the smart album \"%s\".  Continue?"
 
@@ -1188,7 +1184,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Are You Sure You Want to Switch Developers?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1200,10 +1196,9 @@ msgstr "Export Video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Export Photos"
+msgstr[0] "Export Photo"
 msgstr[1] "Export Photos"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1615,25 +1610,23 @@ msgid "Name:"
 msgstr "Name:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Revert External Edit?"
-msgstr[1] "Revert External Edit?"
+msgstr[1] "Revert External Edits?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "This will destroy all changes made to the external file.  Continue?"
-msgstr[1] "This will destroy all changes made to %d external files.  Continue?"
+msgstr[0] "This will destroy all changes made to the external file. Continue?"
+msgstr[1] "This will destroy all changes made to %d external files. Continue?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Re_vert External Edits"
+msgstr[0] "Re_vert External Edit"
 msgstr[1] "Re_vert External Edits"
 
 #: src/Dialogs/Dialogs.vala:833
@@ -1645,11 +1638,11 @@ msgid "Remove Photos From Library"
 msgstr "Remove Photos From Library"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "This will remove the photo from the library.  Continue?"
-msgstr[1] "This will remove %d photos from the library.  Continue?"
+msgstr[0] "This will remove the photo from the library. Continue?"
+msgstr[1] "This will remove %d photos from the library. Continue?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1701,10 +1694,9 @@ msgid "Remove From Library"
 msgstr "Remove From Library"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Removing Photos From Library"
+msgstr[0] "Removing Photo From Library"
 msgstr[1] "Removing Photos From Library"
 
 #. Alert the user that the files were not removed.
@@ -1768,9 +1760,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "R_ename imported files to lowercase:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Write  _metadata to files:"
+msgstr "Write _metadata to files:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2532,10 +2523,9 @@ msgid "Other Actions"
 msgstr "Other Actions"
 
 #: src/Views/CollectionPage.vala:598
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Export Photos/Videos"
+msgstr[0] "Export Photo/Video"
 msgstr[1] "Export Photos/Videos"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
@@ -2683,11 +2673,10 @@ msgid "Flagged"
 msgstr "Flagged"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -2732,15 +2721,13 @@ msgstr "Import all the photos into your library"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "The Camera Cannot Be Accessed While Mounted"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Photos needs to unmount the camera from the filesystem in order to access "
-"it.  Continue?"
+"Photos needs to unmount the camera from the filesystem in order to access it."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2753,17 +2740,15 @@ msgstr "Please unmount the camera."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "The Camera Is Locked By Another Application"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"The camera is locked by another application.  Photos can only access the "
-"camera when it's unlocked.  Please close any other application using the "
-"camera and try again."
+"Photos can only access the camera when it's unlocked. Please close any other "
+"application using the camera and try again."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3401,7 +3386,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3410,7 +3394,7 @@ msgid ""
 msgstr ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorise Shotwell Connect to link to your Flickr account."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
