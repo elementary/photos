@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-08-13 08:08-0700\n"
 "PO-Revision-Date: 2016-04-18 04:21+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/"
@@ -55,7 +55,7 @@ msgstr "ਡਾਟਾ ਸਬ-ਡਾਇਰੈਕਟਰੀ %s ਬਣਾਉਣ ਲ�
 #: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -348,8 +348,8 @@ msgid "Export"
 msgstr "ਐਕਸਪੋਰਟ"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "ਫਾਇਲ %s ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ, ਬਦਲਣੀ ਹੈ?"
 
 #: src/Exporter.vala:338
@@ -363,8 +363,8 @@ msgstr "ਸਭ ਬਦਲੋ(_A)"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
@@ -882,7 +882,7 @@ msgstr "ਟੈਗ \"%s\" ਹਟਾਓ"
 msgid "Delete Tag"
 msgstr "ਟੈਗ ਹਟਾਓ"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "ਹਟਾਓ(_D)"
 
@@ -915,116 +915,107 @@ msgid "Modify Tags"
 msgstr "ਟੈਗ ਸੋਧੋ"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "ਫੋਟੋ ਨੂੰ \"%s\" ਵਾਂਗ ਟੈਗ ਕਰੋ"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "ਫੋਟੋ ਨੂੰ \"%s\" ਵਾਂਗ ਟੈਗ ਕਰੋ"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "ਫੋਟੋ ਨੂੰ \"%s\" ਵਾਂਗ ਟੈਗ ਕਰੋ"
+msgstr[1] "ਫੋਟੋ ਨੂੰ \"%s\" ਵਾਂਗ ਟੈਗ ਕਰੋ"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "ਟੈਗ \"%s\" ਨੂੰ ਫੋਟੋ ਤੋਂ ਹਟਾਓ(_P)"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "ਟੈਗ \"%s\" ਨੂੰ ਫੋਟੋ ਤੋਂ ਹਟਾਓ(_P)"
+msgstr[1] "ਟੈਗ \"%s\" ਨੂੰ ਫੋਟੋ ਤੋਂ ਹਟਾਓ(_P)"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "ਟੈਗ \"%s\" ਨੂੰ ਫੋਟੋਆਂ ਤੋਂ ਹਟਾਓ(_P)"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "ਫੋਟੋ ਤੋਂ \"%s\" ਟੈਗ ਹਟਾਓ"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "ਫੋਟੋ ਤੋਂ \"%s\" ਟੈਗ ਹਟਾਓ"
+msgstr[1] "ਫੋਟੋ ਤੋਂ \"%s\" ਟੈਗ ਹਟਾਓ"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "ਫੋਟੋਆਂ ਤੋਂ \"%s\" ਟੈਗ ਹਟਾਓ"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "ਟੈਗ ਦਾ ਨਾਂ \"%s\" ਦੇਣ ਤੋਂ ਅਸਮਰਥ ਕਿਉਂਕਿ ਟੈਗ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "ਖੋਜ ਦਾ ਨਾਂ \"%s\" ਦੇਣ ਤੋਂ ਅਸਮਰਥ ਕਿਉਂਕਿ ਖੋਜ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 #, fuzzy
 msgid "_Edit…"
 msgstr "ਸੋਧ(_E)"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 #, fuzzy
 msgid "Re_name…"
 msgstr "...ਨਾਂ ਬਦਲੋ(_n)"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "ਖੋਜ ਦਾ ਨਾਂ \"%s\" ਤੋਂ \"%s\" ਬਦਲੋ"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" ਖੋਜ ਹਟਾਓ"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "ਰੱਦੀ ਵਿੱਚੋਂ ਚੁਣੀਆਂ ਫੋਟੋਆਂ ਹਟਾਓ"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਚੁਣੀਆਂ ਫੋਟੋ ਹਟਾਓ"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "ਚੁਣੀਆਂ ਫੋਟੋਆਂ ਨੂੰ ਲਾਇਬਰੇਰੀ ਵਿੱਚ ਵਾਪਸ ਲਿਜਾਓ"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ਫਾਇਲ ਮੈਨੇਜਰ ਨਾਲ ਖੋਲ੍ਹੋ(_g)"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ਫਾਇਲ ਮੈਨੇਜਰ ਖੋਲ੍ਹਣ ਲਈ ਅਸਮਰੱਥ: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "ਲਾਇਬਰੇਰੀ ਵਿੱਚੋਂ ਹਟਾਓ(_e)"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "ਰੱਦੀ ਵਿੱਚ ਭੇਜੋ(_M)"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "ਸਭ ਚੁਣੋ(_A)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "ਸਭ ਆਈਟਮਾਂ ਚੁਣੋ"
 
@@ -1032,20 +1023,20 @@ msgstr "ਸਭ ਆਈਟਮਾਂ ਚੁਣੋ"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1055,14 +1046,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %d %b"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1114,20 +1105,18 @@ msgid "Set _all photos/videos to this time"
 msgstr "ਸਭ ਫੋਟੋ/ਵਿਡੀਓ ਲਈ ਇਹ ਸਮਾਂ ਸੈੱਟ ਕਰੋ"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "ਅਸਲੀ ਫੋਟੋ ਫਾਇਲ ਸੋਧੋ(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "ਅਸਲੀ ਫੋਟੋ ਫਾਇਲਾਂ ਸੋਧੋ(_M)"
+msgid_plural "_Modify original photo files"
+msgstr[0] "ਅਸਲੀ ਫੋਟੋ ਫਾਇਲ ਸੋਧੋ(_M)"
+msgstr[1] "ਅਸਲੀ ਫੋਟੋ ਫਾਇਲ ਸੋਧੋ(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "ਅਸਲੀ ਫਾਇਲ ਸੋਧੋ(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "ਅਸਲੀ ਫਾਇਲਾਂ ਸੋਧੋ(_M)"
+msgid_plural "_Modify original files"
+msgstr[0] "ਅਸਲੀ ਫਾਇਲ ਸੋਧੋ(_M)"
+msgstr[1] "ਅਸਲੀ ਫਾਇਲ ਸੋਧੋ(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1184,16 +1173,16 @@ msgstr[0] "ਸਕਿੰਟ"
 msgstr[1] "ਸਕਿੰਟ"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "ਇਸ ਨਾਲ \"%s\" ਟੈਗ ਨੂੰ ਇੱਕ ਫੋਟੋ ਤੋਂ ਹਟਾਏਗਾ।  ਜਾਰੀ?"
 msgstr[1] "ਇਸ ਨਾਲ \"%s\" ਟੈਗ ਨੂੰ %d ਫੋਟੋਆਂ ਤੋਂ ਹਟਾਏਗਾ।  ਜਾਰੀ?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr ""
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
+msgstr "ਇਸ ਨਾਲ \"%s\" ਟੈਗ ਨੂੰ ਇੱਕ ਫੋਟੋ ਤੋਂ ਹਟਾਏਗਾ।  ਜਾਰੀ?"
 
 #: src/Dialogs/Dialogs.vala:66
 #, fuzzy
@@ -1222,15 +1211,18 @@ msgstr "ਵਿਡੀਓ ਐਕਸਪੋਰਟ"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
+#, fuzzy
 msgid "Export Photo"
-msgstr "ਫੋਟੋ ਐਕਸਪੋਰਟ"
+msgid_plural "Export Photos"
+msgstr[0] "ਫੋਟੋ ਐਕਸਪੋਰਟ"
+msgstr[1] "ਫੋਟੋ ਐਕਸਪੋਰਟ"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
 msgid "_Save"
 msgstr "ਸੰਭਾਲੋ(_S)"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "ਫੋਟੋ ਐਕਸਪੋਰਟ"
 
@@ -1626,49 +1618,47 @@ msgid "Name:"
 msgstr "ਨਾਂ:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "ਬਾਹਰੀ ਸੋਧਾਂ ਵਾਪਸ?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ?"
+msgstr[1] "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "ਇਸ ਨਾਲ ਬਾਹਰੀ ਫਾਇਲ ਵਿਚਲੀਆਂ ਸਭ ਤਬਦੀਲੀਆਂ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ।  ਜਾਰੀ?"
 msgstr[1] "ਇਸ ਨਾਲ %d ਬਾਹਰੀ ਫਾਇਲਾਂ ਵਿਚਲੀਆਂ ਸਭ ਤਬਦੀਲੀਆਂ ਰੱਦ ਹੋ ਜਾਣਗੀਆਂ।  ਜਾਰੀ?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ ਲਵੋ(_v)"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ ਲਵੋ(_v)"
+msgstr[1] "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ ਲਵੋ(_v)"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ ਲਵੋ(_v)"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਫੋਟੋ ਹਟਾਓ"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਫੋਟੋ ਹਟਾਓ"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "ਇਸ ਨਾਲ ਲਾਇਬਰੇਰੀ ਵਿੱਚੋਂ ਫੋਟੋ ਹਟਾਈ ਜਾਵੇਗੀ।  ਜਾਰੀ?"
 msgstr[1] "ਇਸ ਨਾਲ ਲਾਇਬਰੇਰੀ ਵਿੱਚੋਂ %d ਫੋਟੋਆਂ ਹਟਾਈਆਂ ਜਾਣਗੀਆਂ।  ਜਾਰੀ?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "ਹਟਾਓ(_R)"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1689,7 +1679,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1698,32 +1688,31 @@ msgstr ""
 "ਸ਼ਾਟਵੈੱਲ ਫੋਟੋਆਂ ਨੂੰ ਤੁਹਾਡੇ ਲਾਇਬਰੇਰੀ ਫੋਲਡਰ ਵਿੱਚ ਕਾਪੀ ਕਰ ਸਕਦਾ ਹੈ ਜਾਂ ਇਹਨਾਂ ਨੂੰ ਬਿਨਾਂ ਕਾਪੀ ਕੀਤੇ "
 "ਇੰਪੋਰਟ ਕਰ ਸਕਦੀ ਹੈ।"
 
-#: src/Dialogs/Dialogs.vala:891
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "ਲਾਇਬਰੇਰੀ 'ਚ ਇੰਪੋਰਟ ਕਰੋ"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
 msgstr "ਫੋਟੋ ਕਾਪੀ ਕਰੋ(_p)"
 
-#: src/Dialogs/Dialogs.vala:899
+#: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
 msgstr "ਥਾਂ ਵਿੱਚ ਇੰਪੋਰਟ(_I)"
 
-#: src/Dialogs/Dialogs.vala:909 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
 msgid "Remove From Library"
 msgstr "ਲਾਇਬਰੇਰੀ ਵਿੱਚੋਂ ਹਟਾਓ"
 
-#: src/Dialogs/Dialogs.vala:910 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਹਟਾਓ"
-
-#: src/Dialogs/Dialogs.vala:910
-msgid "Removing Photos From Library"
-msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਫੋਟੋ ਹਟਾਓ"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "ਲਾਇਬਰੇਰੀ ਤੋਂ ਹਟਾਓ"
+msgstr[1] "ਲਾਇਬਰੇਰੀ ਤੋਂ ਹਟਾਓ"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:946
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1784,8 +1773,9 @@ msgid "R_ename imported files to lowercase:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
-msgstr ""
+#, fuzzy
+msgid "Write _metadata to files:"
+msgstr "...ਫਾਇਲਾਂ ਲਈ ਮੇਟਾਡਾਟਾ ਲਿਖਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2546,12 +2536,11 @@ msgid "Other Actions"
 msgstr ""
 
 #: src/Views/CollectionPage.vala:598
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "ਫੋਟੋ/ਵਿਡੀਓ ਐਕਸਪੋਰਟ"
-
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "ਫੋਟੋ/ਵਿਡੀਓ ਐਕਸਪੋਰਟ ਕਰੋ"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "ਫੋਟੋ/ਵਿਡੀਓ ਐਕਸਪੋਰਟ"
+msgstr[1] "ਫੋਟੋ/ਵਿਡੀਓ ਐਕਸਪੋਰਟ"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2701,8 +2690,9 @@ msgid "Flagged"
 msgstr "ਫਲੈਗ ਹੈ"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr "ਕੈਮਰਾ ਅਨਮਾਊਟ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਫਾਇਲ ਮੈਨੇਜਰ ਵਿੱਚੋਂ ਕੈਮਰਾ ਅਨਮਾਊਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: src/Views/ImportPage.vala:788
@@ -3415,10 +3405,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 ਪਿਕਸਲ)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "ਤੁਸੀਂ ਹਾਲੇ Flickr ਤੇ ਲਾਗਇਨ ਨਹੀਂ ਹੋ।\n"
@@ -3893,6 +3884,33 @@ msgstr "ਸ਼ਤਰੰਜ"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ਫੱਟੀਦਾਰ ਪਰਦੇ"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "ਫੋਟੋ ਨੂੰ \"%s\" ਵਾਂਗ ਟੈਗ ਕਰੋ"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "ਟੈਗ \"%s\" ਨੂੰ ਫੋਟੋਆਂ ਤੋਂ ਹਟਾਓ(_P)"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "ਫੋਟੋਆਂ ਤੋਂ \"%s\" ਟੈਗ ਹਟਾਓ"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "ਅਸਲੀ ਫੋਟੋ ਫਾਇਲਾਂ ਸੋਧੋ(_M)"
+
+#~ msgid "_Modify original files"
+#~ msgstr "ਅਸਲੀ ਫਾਇਲਾਂ ਸੋਧੋ(_M)"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "ਬਾਹਰੀ ਸੋਧਾਂ ਵਾਪਸ?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "ਬਾਹਰੀ ਸੋਧ ਵਾਪਸ ਲਵੋ(_v)"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "ਲਾਇਬਰੇਰੀ ਤੋਂ ਫੋਟੋ ਹਟਾਓ"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "ਫੋਟੋ/ਵਿਡੀਓ ਐਕਸਪੋਰਟ ਕਰੋ"
 
 #~ msgid "_View"
 #~ msgstr "ਵੇਖੋ(_V)"
@@ -4428,9 +4446,6 @@ msgstr "ਫੱਟੀਦਾਰ ਪਰਦੇ"
 
 #~ msgid "Auto-importing photos..."
 #~ msgstr "...ਫੋਟੋ ਆਟੋ-ਇੰਪੋਰਟ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ"
-
-#~ msgid "Writing metadata to files..."
-#~ msgstr "...ਫਾਇਲਾਂ ਲਈ ਮੇਟਾਡਾਟਾ ਲਿਖਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #~ msgid "Automatically improve the photo's appearance"
 #~ msgstr "ਫੋਟੋ ਦੀ ਦਿੱਖ ਆਪਣੇ-ਆਪ ਸੁਧਾਰੋ"
