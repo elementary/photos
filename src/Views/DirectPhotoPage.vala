@@ -32,7 +32,7 @@ public class DirectPhotoPage : EditingHostPage {
         this.fullscreen = fullscreen;
 
         if (!check_editable_file (file)) {
-            Application.get_instance ().panic ();
+            ((Photos.Application) GLib.Application.get_default ()).panic ();
 
             return;
         }

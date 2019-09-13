@@ -88,7 +88,7 @@ public abstract class AppWindow : PageWindow {
         add_action_entries (action_entries, this);
         set_titlebar (header);
 
-        var application_instance = Application.get_instance ();
+        weak Photos.Application application_instance = ((Photos.Application) GLib.Application.get_default ());
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_JUMP_TO_FILE, {"<Ctrl><Shift>M"});
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_QUIT, {"<Ctrl>Q"});
@@ -168,13 +168,13 @@ public abstract class AppWindow : PageWindow {
         critical (msg);
         error_message (msg, null);
 
-        Application.get_instance ().panic ();
+        ((Photos.Application) GLib.Application.get_default ()).panic ();
     }
 
     public abstract string get_app_role ();
 
     protected virtual void on_quit () {
-        Application.get_instance ().exit ();
+        ((Photos.Application) GLib.Application.get_default ()).exit ();
     }
 
     private void on_jump_to_file () {
