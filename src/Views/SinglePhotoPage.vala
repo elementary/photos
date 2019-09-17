@@ -485,9 +485,7 @@ public abstract class SinglePhotoPage : Page {
         // we staunch the supply of new photos to under a quarter second (#533)
         bool nav_ok = (event.time - last_nav_key) > 200;
 
-        Gdk.ModifierType modifier_type;
-        event.get_state (out modifier_type);
-        bool has_alt_modifier = modifier_type == Gdk.ModifierType.MOD1_MASK;
+        bool has_alt_modifier = (event.state & Gdk.ModifierType.MOD1_MASK) != 0;
 
         bool handled = true;
         switch (Gdk.keyval_name (event.keyval)) {
