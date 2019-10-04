@@ -281,13 +281,13 @@ public abstract class CheckerboardPage : Page {
         Gdk.Rectangle button_area = item.get_selection_button_area ();
 
         // The point does not have to be exactly over button area
-        const int x_error_margin = 3;
-        const int y_error_margin = 3;
+        const int X_ERROR_MARGIN = 3;
+        const int Y_ERROR_MARGIN = 3;
 
-        return x >= button_area.x - x_error_margin
-            && x <= button_area.x + button_area.width + x_error_margin
-            && y >= button_area.y - y_error_margin
-            && y <= button_area.y + button_area.height + y_error_margin;
+        return x >= button_area.x - X_ERROR_MARGIN
+            && x <= button_area.x + button_area.width + X_ERROR_MARGIN
+            && y >= button_area.y - Y_ERROR_MARGIN
+            && y <= button_area.y + button_area.height + Y_ERROR_MARGIN;
     }
 
     protected override bool on_left_click (Gdk.EventButton event) {

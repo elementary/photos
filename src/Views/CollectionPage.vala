@@ -126,7 +126,7 @@ public abstract class CollectionPage : MediaPage {
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
             var revert_action = get_action ("Revert");
