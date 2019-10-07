@@ -849,21 +849,21 @@ public class ImportPage : CheckerboardPage {
 
             var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
             var sidebar_action = get_common_action ("CommonDisplaySidebar");
-            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var viewtitle_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Titles"));
             var viewtitle_action = get_action ("ViewTitle");
-            viewtitle_action.bind_property ("active", viewtitle_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            viewtitle_action.bind_property ("active", viewtitle_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
 
             var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
             var ascending_action = get_common_action ("CommonSortEventsAscending");
-            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             ascending_menu_item.activate.connect (() => {
                 if (ascending_menu_item.active) {
                     ascending_action.activate ();
@@ -872,7 +872,7 @@ public class ImportPage : CheckerboardPage {
 
             var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
             var descending_action = get_common_action ("CommonSortEventsDescending");
-            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             descending_menu_item.activate.connect (() => {
                 if (descending_menu_item.active) {
                     descending_action.activate ();
@@ -1684,8 +1684,12 @@ public class ImportPage : CheckerboardPage {
                                                          camera, associated.get_fulldir (), associated.filename);
                     associated.update (preview, preview_md5, associated_metadata, null);
                 } catch (Error err) {
-                    warning ("Unable to fetch metadata for %s/%s: %s",  associated.get_fulldir (),
-                             associated.filename, err.message);
+                    warning (
+                        "Unable to fetch metadata for %s/%s: %s",
+                        associated.get_fulldir (),
+                        associated.filename,
+                        err.message
+                    );
                 }
             }
 
