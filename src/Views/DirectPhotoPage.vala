@@ -239,7 +239,7 @@ public class DirectPhotoPage : EditingHostPage {
 
             item_app.activate.connect (() => {
                 if (raw) {
-                    on_open_with_raw (app.get_commandline ());
+                    on_open_with_raw (app);
                 } else {
                     on_open_with (app.get_commandline ());
                 }
@@ -264,7 +264,7 @@ public class DirectPhotoPage : EditingHostPage {
         }
     }
 
-    private void on_open_with_raw (string app) {
+    private void on_open_with_raw (AppInfo app) {
         if (!has_photo ()) {
             return;
         }
@@ -275,7 +275,7 @@ public class DirectPhotoPage : EditingHostPage {
 
         try {
             AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_raw_external_editor (app);
+            get_photo ().open_with_raw_external_editor (app.get_commandline ());
             AppWindow.get_instance ().set_normal_cursor ();
         } catch (Error err) {
             AppWindow.get_instance ().set_normal_cursor ();
