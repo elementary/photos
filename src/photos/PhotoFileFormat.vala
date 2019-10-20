@@ -390,17 +390,6 @@ public enum PhotoFileFormat {
     public string[] get_mime_types () {
         return get_driver ().get_properties ().get_mime_types ();
     }
-
-    public static string[] get_editable_mime_types () {
-        string[] mime_types = {};
-
-        foreach (PhotoFileFormat file_format in PhotoFileFormat.get_supported ()) {
-            foreach (string mime_type in file_format.get_mime_types ())
-                mime_types += mime_type;
-        }
-
-        return mime_types;
-    }
 }
 
 //

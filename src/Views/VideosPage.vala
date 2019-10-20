@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Library.VideosEntry :  Library.HideablePageEntry {
+public class Library.VideosEntry : Library.HideablePageEntry {
     protected Icon icon = new ThemedIcon (Resources.ICON_VIDEOS_PAGE);
 
     public VideosEntry () {
