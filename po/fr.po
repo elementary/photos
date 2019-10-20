@@ -31,16 +31,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-05-07 23:33+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/"
-">\n"
+"PO-Revision-Date: 2019-10-05 09:23+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -69,7 +69,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Impossible de créer le sous-dossier de données %s : %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -366,7 +366,7 @@ msgid "Export"
 msgstr "Exporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Le fichier %s existe déjà. Remplacer ?"
 
@@ -928,25 +928,25 @@ msgid "Modify Tags"
 msgstr "Modifier les étiquettes"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Étiqueter la photo avec « %s »"
-msgstr[1] "Étiqueter la photo avec « %s »"
+msgstr[1] "Étiqueter les photos avec « %s »"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Enlever l'étiquette « %s » de la _photo"
-msgstr[1] "Enlever l'étiquette « %s » de la _photo"
+msgstr[1] "Enlever l'étiquette « %s » des _photos"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Enlever l'étiquette « %s » de la photo"
-msgstr[1] "Enlever l'étiquette « %s » de la photo"
+msgstr[1] "Enlever l'étiquette « %s » des photos"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1116,18 +1116,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Définir cette date pour _toutes les photos/vidéos"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Modifier la photo d'origine"
-msgstr[1] "_Modifier la photo d'origine"
+msgstr[1] "_Modifier les photos d'origine"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "_Modifier le fichier original"
-msgstr[1] "_Modifier le fichier original"
+msgstr[1] "_Modifier les fichiers originaux"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1184,14 +1182,14 @@ msgstr[0] "seconde"
 msgstr[1] "secondes"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Ceci enlèvera l'étiquette « %s » d'une photo. Poursuivre ?"
-msgstr[1] "Ceci enlèvera l'étiquette « %s » de %d photos. Poursuivre ?"
+msgstr[0] "Ceci enlèvera l'étiquette « %s » d'une photo. Voulez-vous continuer ?"
+msgstr[1] "Ceci enlèvera l'étiquette « %s » de %d photos. Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Ceci supprimera l'album intelligent « %s ». Voulez-vous continuer ?"
 
@@ -1223,11 +1221,10 @@ msgstr "Exporter la vidéo"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
 #: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporter la photo"
-msgstr[1] "Exporter la photo"
+msgstr[1] "Exporter les photos"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
@@ -1677,29 +1674,28 @@ msgid "Name:"
 msgstr "Nom :"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Annuler l'édition externe ?"
-msgstr[1] "Annuler l'édition externe ?"
+msgstr[0] "Annuler la modification externe ?"
+msgstr[1] "Annuler les modifications externes ?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Ceci détruira tous les changements appliqués au fichier externe. Poursuivre ?"
+"Ceci détruira toutes les modifications appliquées au fichier externe. Voulez-"
+"vous continuer ?"
 msgstr[1] ""
-"Ceci détruira tous les changements appliqués aux %d fichiers externes. "
-"Poursuivre ?"
+"Ceci détruira toutes les modifications appliquées aux %d fichiers externes. "
+"Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "A_nnuler l'édition externe"
-msgstr[1] "A_nnuler l'édition externe"
+msgstr[0] "A_nnuler la modification externe"
+msgstr[1] "A_nnuler les modifications externes"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1710,11 +1706,11 @@ msgid "Remove Photos From Library"
 msgstr "Enlever les photos de la photothèque"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Ceci enlèvera la photo de la photothèque. Poursuivre ?"
-msgstr[1] "Ceci enlèvera %d photos de la photothèque. Poursuivre ?"
+msgstr[0] "Ceci supprimera la photo de la bibliothèque. Voulez-vous continuer ?"
+msgstr[1] "Ceci supprimera %d photos de la photothèque. Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1766,11 +1762,10 @@ msgid "Remove From Library"
 msgstr "Enlever de la photothèque"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Effacement de la photo de la photothèque"
-msgstr[1] "Effacement de la photo de la photothèque"
+msgstr[0] "Suppression de la photo de la bibliothèque"
+msgstr[1] "Suppression des photos de la bibliothèque"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1833,7 +1828,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "R_enommer les fichiers importés en minuscules :"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Écrire les _métadonnées dans les fichiers :"
 
@@ -2604,11 +2598,10 @@ msgid "Other Actions"
 msgstr "Autres actions"
 
 #: src/Views/CollectionPage.vala:598
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporter la photo/vidéo"
-msgstr[1] "Exporter la photo/vidéo"
+msgstr[1] "Exporter les photos/vidéos"
 
 #: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
 msgid "Rotating"
@@ -2755,7 +2748,6 @@ msgid "Flagged"
 msgstr "Marquées"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
@@ -3490,7 +3482,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"

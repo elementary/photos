@@ -59,9 +59,11 @@ public class Library.PhotosPage : CollectionPage {
     protected override string get_view_empty_message () {
         var window = AppWindow.get_instance () as LibraryWindow;
         warn_if_fail (window != null);
-        if (window != null)
-            window.toggle_welcome_page (true, _ ("Add Some Photos"),_("No Photos were found in your library."), true);
-        return _ ("No photos/videos");
+        if (window != null) {
+            window.toggle_welcome_page (true, _("Add Some Photos"), _("No Photos were found in your library."), true);
+        }
+
+        return _("No photos/videos");
     }
 
     private class PhotosSearchViewFilter : CollectionPage.CollectionSearchViewFilter {
