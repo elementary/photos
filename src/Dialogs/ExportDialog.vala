@@ -43,7 +43,7 @@ public class ExportDialog : Gtk.Dialog {
     private Gtk.ComboBoxText format_combo;
     private Gtk.CheckButton export_metadata;
     private Gee.ArrayList<string> format_options = new Gee.ArrayList<string> ();
-    private Gtk.SpinButton pixels_entry;
+    private Gtk.SpinButton pixels_spinbutton;
     private Gtk.Widget export_button;
 
     public ExportDialog (string title) {
@@ -93,15 +93,15 @@ public class ExportDialog : Gtk.Dialog {
             ctr++;
         }
 
-        pixels_entry = new Gtk.SpinButton.with_range (1, 999999, 1);
-        pixels_entry.set_max_length (6);
-        pixels_entry.set_value (current_scale);
-        pixels_entry.set_digits (0);
+        pixels_spinbutton = new Gtk.SpinButton.with_range (1, 999999, 1);
+        pixels_spinbutton.set_max_length (6);
+        pixels_spinbutton.set_value (current_scale);
+        pixels_spinbutton.set_digits (0);
 
         Gtk.Label size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:"));
         size_label.halign = Gtk.Align.END;
         size_label.use_underline = true;
-        size_label.mnemonic_widget = pixels_entry;
+        size_label.mnemonic_widget = pixels_spinbutton;
 
         export_metadata = new Gtk.CheckButton.with_label (_("Export metadata"));
         export_metadata.active = true;
@@ -118,7 +118,7 @@ public class ExportDialog : Gtk.Dialog {
         grid.attach (constraint_label, 0, 2, 1, 1);
         grid.attach (constraint_combo, 1, 2, 1, 1);
         grid.attach (size_label, 0, 3, 1, 1);
-        grid.attach (pixels_entry, 1, 3, 1, 1);
+        grid.attach (pixels_spinbutton, 1, 3, 1, 1);
         grid.attach (export_metadata, 1, 4, 1, 1);
 
         ((Gtk.Box) get_content_area ()).add (grid);
@@ -134,18 +134,18 @@ public class ExportDialog : Gtk.Dialog {
         get_action_area ().margin = 6;
 
         if (current_constraint == ScaleConstraint.ORIGINAL) {
-            pixels_entry.sensitive = false;
+            pixels_spinbutton.sensitive = false;
             quality_combo.sensitive = false;
         }
 
         constraint_combo.changed.connect (on_constraint_changed);
         format_combo.changed.connect (on_format_changed);
-        pixels_entry.changed.connect (on_pixels_changed);
-        pixels_entry.activate.connect (() => {
-            if ((pixels_entry.get_text_length () > 0) && (int.parse (pixels_entry.get_text ()) > 0)) {
+        pixels_spinbutton.changed.connect (on_pixels_changed);
+        pixels_spinbutton.activate.connect (() => {
+            if ((pixels_spinbutton.get_text_length () > 0) && (int.parse (pixels_spinbutton.get_text ()) > 0)) {
                 response (Gtk.ResponseType.OK);
             } else {
-                pixels_entry.set_value (current_scale);
+                pixels_spinbutton.set_value (current_scale);
             }
         });
     }
@@ -224,7 +224,7 @@ public class ExportDialog : Gtk.Dialog {
             constraint = CONSTRAINT_ARRAY[index];
             current_constraint = constraint;
 
-            scale = (int) pixels_entry.get_value ();
+            scale = (int) pixels_spinbutton.get_value ();
             if (constraint != ScaleConstraint.ORIGINAL)
                 assert (scale > 0);
             current_scale = scale;
@@ -255,7 +255,7 @@ public class ExportDialog : Gtk.Dialog {
         bool original = CONSTRAINT_ARRAY[constraint_combo.get_active ()] == ScaleConstraint.ORIGINAL;
         bool jpeg = format_combo.get_active_text () ==
                     PhotoFileFormat.JFIF.get_properties ().get_user_visible_name ();
-        pixels_entry.sensitive = !original;
+        pixels_spinbutton.sensitive = !original;
         quality_combo.sensitive = !original && jpeg;
         if (original)
             export_button.sensitive = true;
@@ -274,7 +274,7 @@ public class ExportDialog : Gtk.Dialog {
             constraint_combo.set_active (0); /* 0 == original size */
             constraint_combo.set_sensitive (false);
             quality_combo.set_sensitive (false);
-            pixels_entry.sensitive = false;
+            pixels_spinbutton.sensitive = false;
             export_metadata.active = false;
             export_metadata.sensitive = false;
         } else if (format_combo.get_active_text () == CURRENT_FORMAT_LABEL) {
@@ -286,7 +286,7 @@ public class ExportDialog : Gtk.Dialog {
             // format.
             constraint_combo.set_sensitive (true);
             quality_combo.set_sensitive (false);
-            pixels_entry.sensitive = !original;
+            pixels_spinbutton.sensitive = !original;
             export_metadata.sensitive = true;
         } else {
             // if the user has chosen a specific format, then allow JPEG quality customization if
@@ -300,7 +300,7 @@ public class ExportDialog : Gtk.Dialog {
     }
 
     private void on_pixels_changed () {
-        if ((pixels_entry.get_text_length () > 0) && (pixels_entry.get_value () > 0)) {
+        if ((pixels_spinbutton.get_text_length () > 0) && (pixels_spinbutton.get_value () > 0)) {
             export_button.sensitive = true;
         } else {
             export_button.sensitive = false;
