@@ -196,7 +196,7 @@ public class DirectPhotoPage : EditingHostPage {
         SortedList<AppInfo> external_apps;
         string[] mime_types;
 
-        foreach (Gtk.Widget item in menu.get_children ()) {
+        foreach (weak Gtk.Widget item in menu.get_children ()) {
             menu.remove (item);
         }
 
@@ -241,7 +241,7 @@ public class DirectPhotoPage : EditingHostPage {
                 if (raw) {
                     on_open_with_raw (app);
                 } else {
-                    on_open_with (app.get_commandline ());
+                    on_open_with (app);
                 }
             });
             menu.add (item_app);
@@ -249,17 +249,18 @@ public class DirectPhotoPage : EditingHostPage {
         menu.show_all ();
     }
 
-    private void on_open_with (string app) {
+    private void on_open_with (AppInfo app) {
         if (!has_photo ()) {
             return;
         }
 
+        var app_window = AppWindow.get_instance ();
         try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_external_editor (app);
-            AppWindow.get_instance ().set_normal_cursor ();
+            app_window.set_busy_cursor ();
+            get_photo ().open_with_external_editor (app.get_commandline ());
+            app_window.set_normal_cursor ();
         } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
+            app_window.set_normal_cursor ();
             open_external_editor_error_dialog (err, get_photo ());
         }
     }
@@ -273,12 +274,13 @@ public class DirectPhotoPage : EditingHostPage {
             return;
         }
 
+        var app_window = AppWindow.get_instance ();
         try {
-            AppWindow.get_instance ().set_busy_cursor ();
+            app_window.set_busy_cursor ();
             get_photo ().open_with_raw_external_editor (app.get_commandline ());
-            AppWindow.get_instance ().set_normal_cursor ();
+            app_window.set_normal_cursor ();
         } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
+            app_window.set_normal_cursor ();
             AppWindow.error_message (Resources.launch_editor_failed (err));
         }
     }
