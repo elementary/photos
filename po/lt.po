@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
+"POT-Creation-Date: 2019-11-06 16:46+0000\n"
 "PO-Revision-Date: 2019-08-15 19:22+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -366,7 +366,7 @@ msgstr "Pakeisti _visus"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -1213,8 +1213,8 @@ msgstr "_Perjungti ryškalą"
 msgid "Export Video"
 msgstr "Eksportuoti vaizdo įrašą"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksportuoti nuotrauką"
@@ -1714,7 +1714,8 @@ msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "Tai sunaikins visus išoriniam failui atliktus pakeitimus. Tęsti?"
-msgstr[1] "Tai sunaikins visus %d išoriniams failams atliktus pakeitimus. Tęsti?"
+msgstr[1] ""
+"Tai sunaikins visus %d išoriniams failams atliktus pakeitimus. Tęsti?"
 msgstr[2] "Tai sunaikins visus %d išorinių failų atliktus pakeitimus. Tęsti?"
 
 #: src/Dialogs/Dialogs.vala:807
@@ -1789,11 +1790,11 @@ msgstr "_Kopijuoti nuotraukas"
 msgid "_Import in Place"
 msgstr "_Importuoti nekopijuojant"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Pašalinti iš bibliotekos"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Šalinama nuotrauka iš bibliotekos"
@@ -1820,27 +1821,28 @@ msgstr "Nepakeista"
 msgid "Current"
 msgstr "Dabartinis"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_Formatas:"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_Kokybė:"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "_Mastelio keitimo apribojimas:"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "_pikselių"
+#: src/Dialogs/ExportDialog.vala:101
+#, fuzzy
+msgid "_Size in pixels:"
+msgstr "_Slėpti informacinį skydelį"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Eksportuoti metaduomenis"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "_Eksportuoti"
 
@@ -2601,8 +2603,8 @@ msgstr "Žymės"
 msgid "Photos cannot be exported to this directory."
 msgstr "Nuotraukos negali būti eksportuotos į šį aplanką."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nėra nuotraukų/vaizdo įrašų"
@@ -2632,34 +2634,34 @@ msgstr "_Ryškalas"
 msgid "Other Actions"
 msgstr "Kiti veiksmai"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksportuoti nuotrauką ar vaizdo įrašą"
 msgstr[1] "Eksportuoti nuotraukas ar vaizdo įrašus"
 msgstr[2] "Eksportuoti nuotraukas ar vaizdo įrašus"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "Pasukama"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "Atšaukiamas pasukimas"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "Apverčiama horizontaliai"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "Atšaukiamas horizontalus apvertimas"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "Apverčiama vertikaliai"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "Atšaukiamas vertikalus apvertimas"
 
@@ -2887,12 +2889,12 @@ msgstr "Gaunama nuotraukų informacija"
 msgid "Fetching preview for %s"
 msgstr "Gaunama %s peržiūra"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Nepavyko užrakinti fotoaparato: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
@@ -2900,7 +2902,7 @@ msgstr[0] "Ištrinti šią %d nuotrauką iš fotoaparato?"
 msgstr[1] "Ištrinti šias %d nuotraukas iš fotoaparato?"
 msgstr[2] "Ištrinti šias %d nuotraukų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
@@ -2908,7 +2910,7 @@ msgstr[0] "Ištrinti šį %d vaizdo įrašą iš fotoaparato?"
 msgstr[1] "Ištrinti šiuos %d vaizdo įrašus iš fotoaparato?"
 msgstr[2] "Ištrinti šiuos %d vaizdo įrašų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
@@ -2916,7 +2918,7 @@ msgstr[0] "Ištrinti šią %d nuotrauką ar vaizdo įrašą iš fotoaparato?"
 msgstr[1] "Ištrinti šias %d nuotraukas ar vaizdo įrašus iš fotoaparato?"
 msgstr[2] "Ištrinti šias %d nuotraukų ar vaizdo įrašų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
@@ -2924,19 +2926,19 @@ msgstr[0] "Ištrinti šį %d failą iš fotoaparato?"
 msgstr[1] "Ištrinti šiuos %d failus iš fotoaparato?"
 msgstr[2] "Ištrinti šiuos %d failų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_Palikti"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "Šalinamos nuotraukos ir vaizdo įrašai iš fotoaparato"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2972,7 +2974,7 @@ msgstr "Importuota %s"
 msgid "Last Import"
 msgstr "Paskutinis importavimas"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Nepavyko eksportuoti %s: %s"
@@ -4011,6 +4013,9 @@ msgstr "Šachmatai"
 msgid "Blinds"
 msgstr "Langinės"
 
+#~ msgid "_pixels"
+#~ msgstr "_pikselių"
+
 #~ msgid "Tag Photos as \"%s\""
 #~ msgstr "Pridėti nuotraukoms žymę \"%s\""
 
@@ -4116,9 +4121,6 @@ msgstr "Langinės"
 
 #~ msgid "_Show info panel"
 #~ msgstr "_Rodyti informacinį skydelį"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "_Slėpti informacinį skydelį"
 
 #~ msgid "Edit _Title…"
 #~ msgstr "_Taisyti pavadinimą…"

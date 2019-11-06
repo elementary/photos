@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
+"POT-Creation-Date: 2019-11-06 16:46+0000\n"
 "PO-Revision-Date: 2019-09-12 13:22+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
@@ -370,7 +370,7 @@ msgstr "Reempl_aça'ls tots"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -1211,8 +1211,8 @@ msgstr "_Commuta el revelador"
 msgid "Export Video"
 msgstr "Exporta vídeos"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporta la fotografia"
@@ -1665,7 +1665,8 @@ msgstr[1] "Voleu revertir les edicions externes?"
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "Això suprimirà tots els canvis fets al fitxer extern. Voleu continuar?"
+msgstr[0] ""
+"Això suprimirà tots els canvis fets al fitxer extern. Voleu continuar?"
 msgstr[1] ""
 "Això suprimirà tots els canvis fets a %d fitxers externs. Voleu continuar?"
 
@@ -1735,11 +1736,11 @@ msgstr "Co_pia les fotografies"
 msgid "_Import in Place"
 msgstr "_Importa-les a la ubicació"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Se suprimeix la fotografia de la biblioteca"
@@ -1764,27 +1765,28 @@ msgstr "Sense modificar"
 msgid "Current"
 msgstr "Actual"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_Format:"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_Qualitat:"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "Constant d'e_scala:"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "_píxels"
+#: src/Dialogs/ExportDialog.vala:101
+#, fuzzy
+msgid "_Size in pixels:"
+msgstr "Ama_ga el plafó d'informació"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Exporta les metadades"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "_Exporta"
 
@@ -2543,8 +2545,8 @@ msgstr "Etiquetes"
 msgid "Photos cannot be exported to this directory."
 msgstr "No es poden exportar fotografies a aquest directori."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Cap fotografia/vídeo"
@@ -2574,33 +2576,33 @@ msgstr "Revela_dor"
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporta la fotografia / vídeo"
 msgstr[1] "Exporta fotografies / vídeos"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "Es gira"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "Es desfà la rotació"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "Es gira horitzontalment"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "Es desfà el gir horitzontal"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "Es gira verticalment"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "Es desfà el gir vertical"
 
@@ -2830,52 +2832,52 @@ msgstr "Es recull la informació de les fotografies"
 msgid "Fetching preview for %s"
 msgstr "Es recull la previsualització de %s"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "No es pot blocar la càmera: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Voleu suprimir aquesta fotografia de la càmera?"
 msgstr[1] "Voleu suprimir aquestes %d fotografies de la càmera?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Voleu suprimir aquest vídeo de la càmera?"
 msgstr[1] "Voleu suprimir aquests %d vídeos de la càmera?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Voleu suprimir aquesta fotografia/vídeo de la càmera?"
 msgstr[1] "Voleu suprimir aquestes %d fotografies/vídeos de la càmera?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Voleu suprimir aquest fitxer de la càmera?"
 msgstr[1] "Voleu suprimir aquests %d fitxers de la càmera?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_Manté"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "Se suprimeixen les fotografies / vídeos de la càmera"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2909,7 +2911,7 @@ msgstr "S'ha importat %s"
 msgid "Last Import"
 msgstr "Darrera importació"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "No s'ha pogut exportar %s: %s"
@@ -3944,6 +3946,9 @@ msgstr "Escacs"
 msgid "Blinds"
 msgstr "Persianes"
 
+#~ msgid "_pixels"
+#~ msgstr "_píxels"
+
 #~ msgid "Tag Photos as \"%s\""
 #~ msgstr "Etiqueta les fotografies com a «%s»"
 
@@ -4050,9 +4055,6 @@ msgstr "Persianes"
 
 #~ msgid "_Show info panel"
 #~ msgstr "Mo_stra el plafó d'informació"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "Ama_ga el plafó d'informació"
 
 #~ msgid "Edit _Title…"
 #~ msgstr "Edita'n el _títol…"
