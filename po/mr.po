@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-09-22 19:23+0000\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2019-11-06 22:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/photos/photos/mr/"
 ">\n"
@@ -57,8 +57,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"शॉटवेलच्या लाइब्ररिकरीता प्रवेश प्राप्त करतेवेळी धोकादायक त्रुटी आढळली.  "
-"शॉटवेल पुढे सुरू ठेवणेअशक्य.\n"
+"शॉटवेलच्या लाइब्ररिकरीता प्रवेश प्राप्त करतेवेळी धोकादायक त्रुटी आढळली.  शॉटवेल पुढे सुरू "
+"ठेवणेअशक्य.\n"
 "\n"
 "%s"
 
@@ -359,11 +359,11 @@ msgstr "सर्व अदलाबदल करा (_A)"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "रद्द करा (_C)"
 
@@ -1183,15 +1183,15 @@ msgstr "स्विच् डेव्हलपर (_S)"
 msgid "Export Video"
 msgstr "व्हिडिओ एक्सपोर्ट करा"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "छायाचित्र एक्सपोर्ट करा"
 msgstr[1] "छायाचित्रे एक्सपोर्ट करा"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "साठवा (_S)"
 
@@ -1662,11 +1662,11 @@ msgstr "छायाचित्रांचे प्रत बनवा (_p)"
 msgid "_Import in Place"
 msgstr "आयात जागेवर आहे (_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "लाइब्ररितून काढून टाका"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "लाइब्ररितून छायाचित्र काढून टाका"
@@ -1691,27 +1691,27 @@ msgstr "संपादन अशक्य"
 msgid "Current"
 msgstr "सध्याचे"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "रूपण (_F):"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "दर्जा (_Q):"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "स्केलिंग कंस्ट्रेंट (_S):"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "(_p)पिक्सेल्स्"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "_ पिक्सेलमध्ये आकार:"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Export metadata"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "(_E)निर्यात"
 
@@ -1763,7 +1763,7 @@ msgid "Add"
 msgstr "जोडा"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "सेव्ह करा"
 
@@ -1792,7 +1792,7 @@ msgid "Add rule"
 msgstr "नियम जोडा"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "रद्द करा"
 
@@ -2462,8 +2462,8 @@ msgstr "टॅग्स्"
 msgid "Photos cannot be exported to this directory."
 msgstr "ह्या डिरेक्ट्रीमध्ये छायाचित्र एक्सपोर्ट करणे अशक्य."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "छायाचित्र/व्हिडिओज् नाही"
@@ -2488,52 +2488,52 @@ msgstr "थंबनेल्स्चा आकार आयोजीत कर
 msgid "_Developer"
 msgstr "डेव्हलपर (_D)"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr "इतर क्रिया"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "छायाचित्र/व्हिडिओ एक्सपोर्ट करा"
 msgstr[1] "छायाचित्रे/व्हिडिओ एक्सपोर्ट करा"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "फिरवत आहे"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "फिरवणे पूर्ववत् करत आहे"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "आडवे पलटी करा"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "आडवे पलटवणे पूर्ववत् करा"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "उभेरित्या पलटवत आहे"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "उभेरित्या पलटवणे पूर्ववत् करत आहे"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s अस्तित्वात नाही."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s फाइल नाही."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2542,25 +2542,25 @@ msgstr ""
 "%s फाइल रूपणकरीता\n"
 "%s समर्थन पुरवत नाही."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "प्रत साठवा (_S)"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s करीता बदल साठवायचे?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "न साठवता बंद करा (_w)"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s: %s करीता साठवतेवेळी त्रुटी"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "असे साठवा"
 
@@ -2647,8 +2647,8 @@ msgstr "फ्लॅग केले"
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"कॅमेराअन-माउंट अशक्य करणे अशक्य.  फाइल व्यवस्थापकपासून कॅमेरा अन-माउंट अशक्य "
-"करायचा प्रयत्न करा."
+"कॅमेराअन-माउंट अशक्य करणे अशक्य.  फाइल व्यवस्थापकपासून कॅमेरा अन-माउंट अशक्य करायचा प्रयत्न "
+"करा."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -2747,52 +2747,52 @@ msgstr "छायाचित्र माहिती प्राप्त क
 msgid "Fetching preview for %s"
 msgstr "%s करीता पूर्वावलोकन प्राप्त करत आहे"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "कॅमेरा: %s कुलूपबंद करत आहे"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "कॅमेरापासून हे छायाचित्र नष्ट करायचे?"
 msgstr[1] "कॅमेरापासून हे %d छायाचित्र नष्ट करायचे?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "कॅमेरातून हे व्हिडिओ नष्ट करायचे?"
 msgstr[1] "कॅमेरातून हे %d व्हिडिओ नष्ट करायचे?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "ह्या छायाचित्र/व्हिडिओला कॅमेराऱ्यातून नष्ट करायचे?"
 msgstr[1] "ह्या %d छायाचित्र/व्हिडिओला कॅमेराऱ्यातून नष्ट करायचे?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "कॅमेरापासून ह्या फाइल्स् नष्ट करायचे?"
 msgstr[1] "कॅमेरापासून ह्या %d फाइल्स् नष्ट करायचे?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "नष्ट करा"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "जपवून ठेवा (_K)"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "कॅमेरापासून छायाचित्र/व्हिडिओज् काढून टाकत आहे"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2824,7 +2824,7 @@ msgstr "%s आयात केले"
 msgid "Last Import"
 msgstr "शेवटचे आयात"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s: %s एक्सपोर्ट करणे अशक्य"
@@ -3358,8 +3358,8 @@ msgid ""
 msgstr ""
 "तुम्ही सध्या फ्लिकरमध्ये प्रवेश केला नाही.\n"
 "\n"
-"वेब ब्राउजरमध्ये फ्लिकरमध्ये प्रवेश करण्यासाठी लॉगिनवर क्लिक करा.  फ्लिकर "
-"खात्याशी जोडणी करण्यासाठी तुम्हाला शॉटवेल कनेक्टशी ओळख पटवावी लागेल."
+"वेब ब्राउजरमध्ये फ्लिकरमध्ये प्रवेश करण्यासाठी लॉगिनवर क्लिक करा.  फ्लिकर खात्याशी जोडणी "
+"करण्यासाठी तुम्हाला शॉटवेल कनेक्टशी ओळख पटवावी लागेल."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""

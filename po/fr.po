@@ -30,11 +30,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-10-05 09:23+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/>"
-"\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2019-11-06 22:32+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -381,11 +381,11 @@ msgstr "_Tout remplacer"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -1185,8 +1185,10 @@ msgstr[1] "secondes"
 #, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Ceci enlèvera l'étiquette « %s » d'une photo. Voulez-vous continuer ?"
-msgstr[1] "Ceci enlèvera l'étiquette « %s » de %d photos. Voulez-vous continuer ?"
+msgstr[0] ""
+"Ceci enlèvera l'étiquette « %s » d'une photo. Voulez-vous continuer ?"
+msgstr[1] ""
+"Ceci enlèvera l'étiquette « %s » de %d photos. Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
@@ -1219,15 +1221,15 @@ msgstr "_Changer de développeur"
 msgid "Export Video"
 msgstr "Exporter la vidéo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporter la photo"
 msgstr[1] "Exporter les photos"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "_Enregistrer"
 
@@ -1709,8 +1711,10 @@ msgstr "Enlever les photos de la photothèque"
 #, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Ceci supprimera la photo de la bibliothèque. Voulez-vous continuer ?"
-msgstr[1] "Ceci supprimera %d photos de la photothèque. Voulez-vous continuer ?"
+msgstr[0] ""
+"Ceci supprimera la photo de la bibliothèque. Voulez-vous continuer ?"
+msgstr[1] ""
+"Ceci supprimera %d photos de la photothèque. Voulez-vous continuer ?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1757,11 +1761,11 @@ msgstr "Co_pier les photos"
 msgid "_Import in Place"
 msgstr "_Importer sans copier"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Enlever de la photothèque"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Suppression de la photo de la bibliothèque"
@@ -1786,27 +1790,27 @@ msgstr "Non modifié"
 msgid "Current"
 msgstr "Actuel"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_Format :"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_Qualité :"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "_Contrainte d'échelle :"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "_pixels"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "_Taille en pixels :"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Exporter les métadonnées"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "_Exporter"
 
@@ -1858,7 +1862,7 @@ msgid "Add"
 msgstr "Ajouter"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -1887,7 +1891,7 @@ msgid "Add rule"
 msgstr "Ajouter une règle"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2566,8 +2570,8 @@ msgstr "Étiquettes"
 msgid "Photos cannot be exported to this directory."
 msgstr "Les photos ne peuvent pas être exportées dans ce dossier."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Aucune photo/vidéo"
@@ -2592,52 +2596,52 @@ msgstr "Agrandir ou réduire les miniatures"
 msgid "_Developer"
 msgstr "_Révélateur"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporter la photo/vidéo"
 msgstr[1] "Exporter les photos/vidéos"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "Rotation"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "Annuler la rotation"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "Miroir horizontal"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "Annuler le miroir horizontal"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "Miroir vertical"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "Annuler le miroir vertical"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s n'existe pas."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s n'est pas un fichier."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2646,25 +2650,25 @@ msgstr ""
 "%s ne prend pas en charge le format du fichier\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "_Enregistrer une copie"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Perdre les modifications apportées à %s ?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "Fermer _sans enregistrer"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Erreur lors de l'enregistrement de %s : %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "Enregistrer sous"
 
@@ -2854,52 +2858,52 @@ msgstr "Récupération des informations sur les photos"
 msgid "Fetching preview for %s"
 msgstr "Récupération de l'aperçu de %s"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Impossible de verrouiller l'appareil photo : %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Supprimer cette photo de l'appareil photo ?"
 msgstr[1] "Supprimer ces %d photos de l'appareil photo ?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Supprimer cette vidéo de l'appareil photo ?"
 msgstr[1] "Supprimer ces %d vidéos de l'appareil photo ?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Supprimer cette photo/vidéo de l'appareil photo ?"
 msgstr[1] "Supprimer ces %d photos/vidéos de l'appareil photo ?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Supprimer ces fichiers de l'appareil ?"
 msgstr[1] "Supprimer ces %d fichiers de l'appareil ?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Supprimer"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_Garder"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "Effacement des photos/vidéos de l'appareil photo"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2935,7 +2939,7 @@ msgstr "%s importé"
 msgid "Last Import"
 msgstr "Dernière importation"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Impossible d'exporter %s : %s"
@@ -3988,6 +3992,9 @@ msgstr "Damier"
 msgid "Blinds"
 msgstr "Stores"
 
+#~ msgid "_pixels"
+#~ msgstr "_pixels"
+
 #~ msgid "Tag Photos as \"%s\""
 #~ msgstr "Étiqueter les photos avec « %s »"
 
@@ -4092,9 +4099,6 @@ msgstr "Stores"
 
 #~ msgid "_Show info panel"
 #~ msgstr "_Afficher le panneau d'information"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "_Masquer le panneau d'information"
 
 #~ msgid "Edit _Title…"
 #~ msgstr "Modifier le nom…"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-extras-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-08-27 18:22+0000\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2019-11-10 19:24+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/photos/photos/"
 "eo/>\n"
@@ -357,11 +357,11 @@ msgstr "_Anstataŭi ĉiujn"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "_Rezigni"
 
@@ -1184,15 +1184,15 @@ msgstr "Ŝanĝi _Rivelilon"
 msgid "Export Video"
 msgstr "Eksporti videon"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksporti bildon"
 msgstr[1] "Eksporti bildojn"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "_Konservi"
 
@@ -1662,11 +1662,11 @@ msgstr "_Kopii fotojn"
 msgid "_Import in Place"
 msgstr "_Importi surloke"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Forigi el la fototeko"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Forigi foton el fototeko"
@@ -1691,27 +1691,27 @@ msgstr "Nemodifita"
 msgid "Current"
 msgstr "Nune"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_Formato:"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_Kvalito:"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "_Skalaj limoj:"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "_bilderoj"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "_Bildera grando:"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Eksporti metadatumojn"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "_Eksporti"
 
@@ -1763,7 +1763,7 @@ msgid "Add"
 msgstr "Aldoni"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "Konservi"
 
@@ -1792,7 +1792,7 @@ msgid "Add rule"
 msgstr "Aldoni regulon"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Rezigni"
 
@@ -2465,8 +2465,8 @@ msgstr "Etikedoj"
 msgid "Photos cannot be exported to this directory."
 msgstr "Neeblas eksporti fotojn al ĉi dosierujo."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Neniu foto/video"
@@ -2491,52 +2491,52 @@ msgstr "Agordu la grandon de miniaturoj"
 msgid "_Developer"
 msgstr "_Rivelilo"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr "Ceteraj agoj"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksporti bildon aŭ videon"
 msgstr[1] "Eksporti bildojn aŭ videojn"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "Turnado"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "Malfari turnon"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "Inversigi horizontale"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "Malfari inversigon horizontalan"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "Renversi"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "Malfari renverson"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s ne ekzistas."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s ne estas dosiero."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2545,25 +2545,25 @@ msgstr ""
 "%s ne subtenas la dosierformaton de\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "_Konservi kopion"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Perdi la ŝanĝojn al %s?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "Fermi _sen konservi"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Okazis eraro dum konservo de %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "Konservi kiel"
 
@@ -2752,52 +2752,52 @@ msgstr "Akiranta fotajn informojn"
 msgid "Fetching preview for %s"
 msgstr "Akiranta antaŭvidojn por %s"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Neeblas ŝlosi la kameraon: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Ĉu forigi ĉi foton el la kamerao?"
 msgstr[1] "Ĉu forigi ĉi %d fotojn el la kamerao?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Ĉu forigi ĉi videon el la kamerao?"
 msgstr[1] "Ĉu forigi ĉi %d videojn el la kamerao?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Ĉu forigi ĉi foton/videon el la kamerao?"
 msgstr[1] "Ĉu forigi ĉi %d fotojn/videojn el la kamerao?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Ĉu forigi ĉi dosieron el la kamerao?"
 msgstr[1] "Ĉu forigi ĉi %d dosierojn el la kamerao?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Forigi"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_Konservi"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "Foriganta fotojn/videojn el la kamerao"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2829,7 +2829,7 @@ msgstr "Importis %s"
 msgid "Last Import"
 msgstr "Lasta importo"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Neeblas eksporti %s: %s"

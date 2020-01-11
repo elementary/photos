@@ -31,17 +31,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 08:08-0700\n"
-"PO-Revision-Date: 2019-01-16 00:03+0000\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2019-12-18 10:07+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
+"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "photos/photos/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-03-19 06:40+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -70,7 +70,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "无法创建数据子文件夹 %s：%s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -360,7 +360,7 @@ msgid "Export"
 msgstr "导出"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "文件 %s 已存在。是否替换？"
 
@@ -375,11 +375,11 @@ msgstr "全部替换"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:125 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "取消"
 
@@ -397,46 +397,39 @@ msgstr "退出全屏"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "您的照片库与当前版本的照片应用不兼容"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
-msgstr ""
-"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建"
-"的，当前版本是 %s (schema %d) 。请使用最新版本的照片。"
+msgstr "它似乎是由 %s (schema %d) 版本的照片创建的，当前版本是 %s (schema %d) 。请使用最新版本的照片应用。"
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
-msgstr ""
-"无法将您的媒体库从 %s (schema %d) 版本升级到 %s (schema %d) 版本。更多的信息"
-"请查询此应用百科 %s"
+msgstr "无法将您的媒体库从 %s (Schema %d) 版本升级到 %s (Schema %d) 版本"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "更多信息请查询应用百科 %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"您的媒体库和当前版本的照片不兼容。它似乎是由 %s (schema %d) 版本的照片创建"
-"的。当前版本号为 %s (schema %d) 。请删除 %s 来清理您的照片库然后重新导入照"
-"片。"
+"它似乎是由 %s (schema %d) 版本的照片创建的。当前版本号为 %s (schema %d) 。请删除 %s 来清理您的照片库然后重新导入照片。"
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "验证数据库时发生未知错误：%s"
+msgstr "验证数据库时发生未知错误"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -915,22 +908,22 @@ msgid "Modify Tags"
 msgstr "修改标签"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "为照片添加标签 %s"
+msgstr[0] "为照片添加标签 “%s”"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "移除标签 %s"
+msgstr[0] "从照片移除标签 “%s”"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "从照片移除标签 %s"
+msgstr[0] "从照片移除标签 “%s”"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1099,13 +1092,11 @@ msgid "Set _all photos/videos to this time"
 msgstr "设置所有照片/视频为此时间"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "修改原始照片文件"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "修改原始文件"
@@ -1161,15 +1152,15 @@ msgid_plural "seconds"
 msgstr[0] "秒"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "这将移除标签 \"%s\" 从 %d 张照片中。继续么？"
+msgstr[0] "这将从 %d 张照片中移除标签 \"%s\" 。要继续吗？"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "这将会移除智能相册\"%s\"，继续吗？"
+msgstr "这将会移除智能相册 \"%s\"，要继续吗？"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1182,7 +1173,7 @@ msgstr[0] "切换开发者将撤销您对这些照片所作的全部更改"
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "您确定要切换开发者吗？"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1192,15 +1183,14 @@ msgstr "切换开发者"
 msgid "Export Video"
 msgstr "导出视频"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
-#, fuzzy
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "导出照片"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "保存"
 
@@ -1553,23 +1543,21 @@ msgid "Name:"
 msgstr "名称："
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "恢复额外修改?"
+msgstr[0] "要移除外部变更吗?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "这将撤消对于 %d 个外部文件所做的全部修改。继续吗？"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "恢复额外修改"
+msgstr[0] "移除外部修改"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1580,7 +1568,7 @@ msgid "Remove Photos From Library"
 msgstr "从照片库移除照片"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "这将从媒体库中移除 %d 张照片中。继续么？"
@@ -1624,12 +1612,11 @@ msgstr "复制照片"
 msgid "_Import in Place"
 msgstr "导入到位置"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "从媒体库移除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "正在从媒体库移除照片"
@@ -1652,27 +1639,27 @@ msgstr "未修改的"
 msgid "Current"
 msgstr "当前"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "格式："
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "质量："
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "缩放限制："
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "像素"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "图片尺寸："
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "导出元数据"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "导出"
 
@@ -1694,7 +1681,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "重命名为小写："
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "变更写入文件："
 
@@ -1725,7 +1711,7 @@ msgid "Add"
 msgstr "添加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "保存"
 
@@ -1754,7 +1740,7 @@ msgid "Add rule"
 msgstr "添加规则"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "取消"
 
@@ -2418,8 +2404,8 @@ msgstr "标签"
 msgid "Photos cannot be exported to this directory."
 msgstr "照片不可以被导出到该文件夹。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "没有照片/视频"
@@ -2444,77 +2430,76 @@ msgstr "改变缩略图大小"
 msgid "_Developer"
 msgstr "开发人员"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr "其他操作"
 
-#: src/Views/CollectionPage.vala:598
-#, fuzzy
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "导出照片/视频"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "正在旋转"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "正在取消旋转"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "正在水平翻转"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "正在取消水平翻转"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "正在垂直翻转"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "正在取消垂直翻转"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s 不存在。"
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s 不是一个文件。"
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
 "%s."
 msgstr "%s 不支持 %s 类型的文件。"
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "保存副本"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "放弃对 %s 的更改？"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "关闭但不保存"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "保存 %s 时出错：%s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "另存为"
 
@@ -2598,7 +2583,6 @@ msgid "Flagged"
 msgstr "已标注"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr "不能卸载相机。请尝试从文件管理器中卸载相机。"
@@ -2646,13 +2630,12 @@ msgstr "导入所有照片到您的媒体库"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "无法访问挂载中的相机"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr "需要从文件系统卸载相机来获取访问权限。  是否继续？"
+msgstr "需要从文件系统卸载相机来获取访问权限。"
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2702,48 +2685,48 @@ msgstr "获取照片信息"
 msgid "Fetching preview for %s"
 msgstr "获取 %s 的预览"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "无法锁定相机：%s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "从相机删除 %d 张照片？"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "从相机删除这 %d 个视频？"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "从相机删除 %d 个照片/视频？"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "从相机删除 %d 个文件？"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "刪除"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "保留"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "正在从相机移除照片/视频"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2774,7 +2757,7 @@ msgstr "已导入 %s"
 msgid "Last Import"
 msgstr "最近导入"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "无法导出 %s：%s"
@@ -3777,6 +3760,9 @@ msgstr "茄子"
 msgid "Blinds"
 msgstr "百叶窗"
 
+#~ msgid "_pixels"
+#~ msgstr "像素"
+
 #~ msgid "Tag Photos as \"%s\""
 #~ msgstr "为照片添加标签 %s"
 
@@ -3878,9 +3864,6 @@ msgstr "百叶窗"
 
 #~ msgid "_Show info panel"
 #~ msgstr "显示信息"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "隐藏信息"
 
 #, fuzzy
 #~ msgid "Edit _Title…"
