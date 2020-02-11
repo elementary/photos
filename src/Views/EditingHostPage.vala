@@ -59,8 +59,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleToolButton straighten_button = null;
     protected Gtk.ToggleToolButton enhance_button = null;
     private SliderAssembly zoom_slider = null;
-    private Gtk.ToolButton prev_button = null;
-    private Gtk.ToolButton next_button = null;
+    private Gtk.Button prev_button = null;
+    private Gtk.Button next_button = null;
     private EditingTools.EditingTool current_tool = null;
     private Gtk.ToggleToolButton current_editing_toggle = null;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
@@ -99,7 +99,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar = get_toolbar ();
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 
@@ -166,14 +166,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
             zoom_group.add (zoom_original);
             zoom_group.add (zoom_slider);
 
-            var group_wrapper = new Gtk.ToolItem ();
-            group_wrapper.add (zoom_group);
-
-            prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+            prev_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             prev_button.tooltip_text = _("Previous photo");
             prev_button.clicked.connect (on_previous_photo);
 
-            next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+            next_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             next_button.tooltip_text = _("Next photo");
             next_button.clicked.connect (on_next_photo);
 
@@ -191,14 +188,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar.add (adjust_button);
             toolbar.add (enhance_button);
             toolbar.add (separator);
-            toolbar.add (group_wrapper);
+            toolbar.pack_end (zoom_group);
 
             //  show metadata sidebar button
             var app = AppWindow.get_instance () as LibraryWindow;
             if (app != null) {
                 show_sidebar_button = MediaPage.create_sidebar_button ();
                 show_sidebar_button.clicked.connect (on_show_sidebar);
-                toolbar.insert (show_sidebar_button, -1);
+                toolbar.pack_end (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }
         }

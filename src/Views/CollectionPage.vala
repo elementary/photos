@@ -48,10 +48,9 @@ public abstract class CollectionPage : MediaPage {
         show_all ();
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
-            var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
-            slideshow_button.icon_name = "media-playback-start-symbolic";
+            var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             slideshow_button.tooltip_text = _("Play a slideshow");
             slideshow_button.clicked.connect (on_slideshow);
 
@@ -95,9 +94,6 @@ public abstract class CollectionPage : MediaPage {
             zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
             connect_slider (zoom_assembly);
 
-            var group_wrapper = new Gtk.ToolItem ();
-            group_wrapper.add (zoom_assembly);
-
             show_sidebar_button = MediaPage.create_sidebar_button ();
             show_sidebar_button.clicked.connect (on_show_sidebar);
 
@@ -110,7 +106,7 @@ public abstract class CollectionPage : MediaPage {
             toolbar.add (new Gtk.SeparatorToolItem ());
             toolbar.add (enhance_button);
             toolbar.add (separator);
-            toolbar.add (group_wrapper);
+            toolbar.add (zoom_assembly);
             toolbar.add (show_sidebar_button);
 
             var app = AppWindow.get_instance () as LibraryWindow;

@@ -43,7 +43,7 @@ public class ImportQueuePage : SinglePhotoPage {
 #endif
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             var progress_item = new Gtk.ToolItem ();
             progress_item.set_expand (true);
