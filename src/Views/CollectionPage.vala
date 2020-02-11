@@ -50,7 +50,7 @@ public abstract class CollectionPage : MediaPage {
 
     public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
-            var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             slideshow_button.tooltip_text = _("Play a slideshow");
             slideshow_button.clicked.connect (on_slideshow);
 
@@ -83,10 +83,6 @@ public abstract class CollectionPage : MediaPage {
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
-            separator.set_draw (false);
-
             var zoom_assembly = new SliderAssembly (Thumbnail.MIN_SCALE,
                                                     Thumbnail.MAX_SCALE,
                                                     MediaPage.MANUAL_STEPPING, 0);
@@ -99,15 +95,15 @@ public abstract class CollectionPage : MediaPage {
 
             toolbar = base.get_toolbar ();
             toolbar.add (slideshow_button);
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (rotate_button);
             toolbar.add (flip_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (publish_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.add (zoom_assembly);
-            toolbar.add (show_sidebar_button);
+            toolbar.pack_end (show_sidebar_button);
+            toolbar.pack_end (zoom_assembly);
 
             var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());

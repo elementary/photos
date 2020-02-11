@@ -59,11 +59,11 @@ public class LibraryPhotoPage : EditingHostPage {
         if (toolbar == null) {
             base.get_toolbar ();
 
-            var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start", Gtk.IconSize.LARGE_TOOLBAR);
             slideshow_button.tooltip_text = _("Play a slideshow");
             slideshow_button.clicked.connect (on_slideshow);
 
-            get_toolbar ().pack_start (slideshow_button);
+            get_toolbar ().add (slideshow_button);
         }
         return toolbar;
     }

@@ -137,9 +137,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
-
             var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
             zoom_fit.tooltip_text = _("Zoom to fit page");
             zoom_fit.valign = Gtk.Align.CENTER;
@@ -177,18 +174,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar = base.get_toolbar ();
             toolbar.add (prev_button);
             toolbar.add (next_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (rotate_button);
             toolbar.add (flip_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (crop_button);
             toolbar.add (straighten_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
+            toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.add (redeye_button);
             toolbar.add (adjust_button);
             toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.pack_end (zoom_group);
 
             //  show metadata sidebar button
             var app = AppWindow.get_instance () as LibraryWindow;
@@ -198,6 +193,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 toolbar.pack_end (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }
+
+            toolbar.pack_end (zoom_group);
         }
 
         return toolbar;

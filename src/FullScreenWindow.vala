@@ -63,6 +63,11 @@ public class FullscreenWindow : PageWindow {
         toolbar.margin = 6;
         toolbar.get_style_context ().add_class ("overlay-toolbar");
 
+        page.set_cursor_hide_time (TOOLBAR_DISMISSAL_SEC * 1000);
+        page.start_cursor_hiding ();
+
+        toolbar.pack_end (close_button);
+
         if (page is SlideshowPage) {
             // slideshow page doesn't own toolbar to hide it, subscribe to signal instead
             ((SlideshowPage) page).hide_toolbar.connect (hide_toolbar);
@@ -70,11 +75,6 @@ public class FullscreenWindow : PageWindow {
             // only non-slideshow pages should have pin button
             toolbar.pack_end (pin_button);
         }
-
-        page.set_cursor_hide_time (TOOLBAR_DISMISSAL_SEC * 1000);
-        page.start_cursor_hiding ();
-
-        toolbar.pack_end (close_button);
 
         revealer = new Gtk.Revealer ();
         revealer.halign = Gtk.Align.CENTER;
