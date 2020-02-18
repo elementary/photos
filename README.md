@@ -32,7 +32,6 @@ You'll need the following dependencies:
 * libwebp-dev
 * libxml2
 * meson
-* python-scour
 * valac >= 0.40
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
