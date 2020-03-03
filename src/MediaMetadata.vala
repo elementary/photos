@@ -138,4 +138,3 @@ public class MetadataDateTime {
         return to_exif_date_time (timestamp);
     }
 }
-

@@ -373,7 +373,7 @@ private class PhotoMonitor : MediaMonitor {
 
     public override File[]? get_auxilliary_backing_files (Monitorable monitorable) {
         LibraryPhoto photo = (LibraryPhoto) monitorable;
-        File[] files =  new File[0];
+        File[] files = new File[0];
 
         // Editable.
         if (photo.has_editable ())
@@ -1166,4 +1166,3 @@ private class PhotoMonitor : MediaMonitor {
         assert (removed);
     }
 }
-

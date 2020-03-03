@@ -52,7 +52,7 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
 
-    private const ActionEntry[] action_entries = {
+    private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_FULLSCREEN, on_fullscreen },
         { ACTION_JUMP_TO_FILE, on_jump_to_file },
         { ACTION_QUIT, on_quit },
@@ -85,7 +85,7 @@ public abstract class AppWindow : PageWindow {
         icon_name = "multimedia-photo-manager";
         title = _(Resources.APP_TITLE);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
         set_titlebar (header);
 
         var application_instance = Application.get_instance ();

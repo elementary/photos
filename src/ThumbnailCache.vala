@@ -64,7 +64,7 @@ public class ThumbnailCache : Object {
         }
     }
 
-    private static Size[] ALL_SIZES = { Size.BIG, Size.MEDIUM };
+    private static Size[] all_sizes = { Size.BIG, Size.MEDIUM };
 
     public delegate void AsyncFetchCallback (Gdk.Pixbuf? pixbuf, Gdk.Pixbuf? unscaled, Dimensions dim,
             Gdk.InterpType interp, Error? err);
@@ -311,7 +311,7 @@ public class ThumbnailCache : Object {
     }
 
     public static void rotate (ThumbnailSource source, Rotation rotation) throws Error {
-        foreach (Size size in ALL_SIZES) {
+        foreach (Size size in all_sizes) {
             Gdk.Pixbuf thumbnail = fetch (source, size);
             thumbnail = rotation.perform (thumbnail);
             replace (source, size, thumbnail);
@@ -339,7 +339,7 @@ public class ThumbnailCache : Object {
         largest_thumbnail = orientation.rotate_pixbuf (largest_thumbnail);
         Dimensions largest_thumb_dimensions = Dimensions.for_pixbuf (largest_thumbnail);
 
-        foreach (Size size in ALL_SIZES) {
+        foreach (Size size in all_sizes) {
             dim = size.get_scaling ().get_scaled_dimensions (largest_thumb_dimensions);
             dim.width *= scale_factor;
             dim.height *= scale_factor;
@@ -348,7 +348,7 @@ public class ThumbnailCache : Object {
     }
 
     public static void generate_for_video_frame (Thumbnails thumbnails, Gdk.Pixbuf preview_frame) {
-        foreach (Size size in ALL_SIZES) {
+        foreach (Size size in all_sizes) {
             Scaling current_scaling = size.get_scaling ();
             Gdk.Pixbuf current_thumbnail = current_scaling.perform_on_pixbuf (preview_frame,
                                            Gdk.InterpType.HYPER, true);
@@ -392,7 +392,7 @@ public class ThumbnailCache : Object {
             cycle_dropped_bytes = 0;
         }
 
-        foreach (Size size in ALL_SIZES) {
+        foreach (Size size in all_sizes) {
             ThumbnailCache cache = get_cache_for (size);
             ulong avg = (cache.cache_lru.size != 0) ? cache.cached_bytes / cache.cache_lru.size : 0;
             debug ("thumbnail cache %d: %d thumbnails, %lu/%lu bytes, %lu bytes/thumbnail",
@@ -668,4 +668,3 @@ public class ThumbnailCache : Object {
         DEFAULT_QUALITY);
     }
 }
-

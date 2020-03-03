@@ -909,4 +909,3 @@ public class MediaCollectionRegistry {
         return (source_id.has_prefix (Photo.TYPENAME) || source_id.has_prefix (Video.TYPENAME + "-"));
     }
 }
-

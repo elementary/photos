@@ -428,7 +428,7 @@ public class MetadataWriter : Object {
         if (added != null && !relinking) {
             Gee.ArrayList<LibraryPhoto> added_photos = new Gee.ArrayList<LibraryPhoto> ();
             foreach (DataSource source in added) {
-                LibraryPhoto? photo =  source as LibraryPhoto;
+                LibraryPhoto? photo = source as LibraryPhoto;
                 if (photo != null && !importing_photos.contains (photo))
                     added_photos.add (photo);
             }
