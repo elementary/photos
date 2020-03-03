@@ -122,4 +122,3 @@ public abstract class PhotoFileMetadataWriter : PhotoFileAdapter {
 
     public abstract void write_metadata (PhotoMetadata metadata) throws Error;
 }
-

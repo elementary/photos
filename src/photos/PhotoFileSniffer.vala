@@ -44,8 +44,8 @@ public class DetectedPhotoInformation {
 
 public abstract class PhotoFileSniffer {
     public enum Options {
-        GET_ALL =       0x00000000,
-        NO_MD5 =        0x00000001
+        GET_ALL = 0x00000000,
+        NO_MD5 = 0x00000001
     }
 
     protected File file;
@@ -100,4 +100,3 @@ public class PhotoFileInterrogator {
         }
     }
 }
-

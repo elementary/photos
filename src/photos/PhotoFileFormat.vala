@@ -423,7 +423,7 @@ public abstract class PhotoFileFormatDriver {
 //
 
 public enum PhotoFileFormatFlags {
-    NONE =                  0x00000000,
+    NONE = 0x00000000
 }
 
 public abstract class PhotoFileFormatProperties {
@@ -463,4 +463,3 @@ public abstract class PhotoFileFormatProperties {
         return file.get_parent ().get_child ("%s.%s".printf (name, get_default_extension ()));
     }
 }
-
