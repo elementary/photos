@@ -98,7 +98,7 @@ private VerifyResult upgrade_database (int input_version) {
     //
 
     if (input_version < 19) {
-        Application.get_instance ().set_raw_thumbs_fix_required (true);
+        ((Photos.Application) GLib.Application.get_default ()).set_raw_thumbs_fix_required (true);
     }
 
     version = 19;

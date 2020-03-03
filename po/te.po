@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
 "PO-Revision-Date: 2016-04-18 04:25+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/shotwell/language/"
@@ -54,7 +54,7 @@ msgstr "డేటా సబ్‌డైరెక్టరీ %s ని సృష
 #: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -347,8 +347,8 @@ msgid "Export"
 msgstr "ఎగుమతిచేయి"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "ఫైల్ %s ఇదివరకే ఉంది.  పునఃస్థాపించాలా?"
 
 #: src/Exporter.vala:338
@@ -362,11 +362,11 @@ msgstr "అన్నిటిని పునఃస్థాపించు(_A)"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "రద్దుచేయి (_C)"
 
@@ -382,7 +382,7 @@ msgstr "తెరిచిన సాధనపట్టీని గ్రుచ�
 msgid "Leave fullscreen"
 msgstr "పూర్తి తెరను వదిలిపెట్టు"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
@@ -407,10 +407,6 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
 
 #: src/main.vala:77
@@ -882,7 +878,7 @@ msgstr "\"%s\" ట్యాగుని తీసివేయి"
 msgid "Delete Tag"
 msgstr "ట్యాగును తీసివేయి"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "తీసివేయి(_D)"
 
@@ -915,117 +911,108 @@ msgid "Modify Tags"
 msgstr "ట్యాగులను సవరించు"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "ఫొటోలను \"%s\" వలె ట్యాగ్‌చేయి"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "ఫొటోలను ఇలా \"%s\" ట్యాగ్ చేయి"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "ఫొటోలను \"%s\" వలె ట్యాగ్‌చేయి"
+msgstr[1] "ఫొటోలను \"%s\" వలె ట్యాగ్‌చేయి"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు(_P)"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు(_P)"
+msgstr[1] "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు(_P)"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు (_P)"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు"
+msgstr[1] "\"%s\" ట్యాగును ఫొటోల నుండి తొలగించు"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "\"%s\" గా పేరు మార్చుట కుదరదు, ఎందుకంటే అది ఇప్పటికే వున్నది."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "\"%s\" కి వెతుకులాట పేరుని మార్చలేకపోతుంది, ఎందుకంటే అటువంటి వెతుకలాట ఇంతకుముందే ఉన్నది."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 #, fuzzy
 msgid "_Edit…"
 msgstr "సవరణ (_E)"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 #, fuzzy
 msgid "Re_name…"
 msgstr "పేరుమార్చు...(_n)"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "శోధన పేరును \"%s\" నుండి \"%s\" కు మార్చు"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" శోధనను తొలగించు"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "ఎంచుకున్న ఫొటోలను చెత్తబుట్ట నుండి తొలగించు"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "ఎంచుకున్న ఫొటోలను లైబ్రరీ నుండి తొలగించు"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "ఎంచుకున్న ఫొటోలను తిరిగి లైబ్రరీలోనికి తరలించు"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ఫైల్ నిర్వాహకిలో చూపించు(_g)"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ఫైల్ నిర్వాహకంలో తెరుచుటకు సాధ్యపడటంలేదు: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "లైబ్రరీ నుండి తొలగించు(_e)"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "చెత్తబుట్టకి తరలించు(_M)"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "అన్నింటినీ ఎంచుకో(_A)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "అన్ని అంశాలను ఎంచుకోండి"
 
@@ -1033,20 +1020,20 @@ msgstr "అన్ని అంశాలను ఎంచుకోండి"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1056,14 +1043,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1115,20 +1102,18 @@ msgid "Set _all photos/videos to this time"
 msgstr "అన్ని ఫొటోలు/వీడియోలను ఈ సమయానికి అమర్చు (_a)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "యధార్థ ఫోటో ఫైలను సవరించు (_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "యధార్థ ఫోటో ఫైళ్ళను సవరించు (_M)"
+msgid_plural "_Modify original photo files"
+msgstr[0] "యధార్థ ఫోటో ఫైలను సవరించు (_M)"
+msgstr[1] "యధార్థ ఫోటో ఫైలను సవరించు (_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "అసలు ఫైళ్ళను సవరించు(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "అసలు ఫైళ్ళను సవరించు (_M)"
+msgid_plural "_Modify original files"
+msgstr[0] "అసలు ఫైళ్ళను సవరించు(_M)"
+msgstr[1] "అసలు ఫైళ్ళను సవరించు(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1185,16 +1170,16 @@ msgstr[0] "సెకను"
 msgstr[1] "సెకనులు"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "ఇది \"%s\" ట్యాగును ఒక ఫొటో నుండి తొలగిస్తుంది.  కొనసాగమంటారా?"
 msgstr[1] "ఇది \"%s\" ట్యాగును %d ఫొటోల నుండి తొలగిస్తుంది.  కొనసాగమంటారా?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr ""
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
+msgstr "ఇది \"%s\" ట్యాగును ఒక ఫొటో నుండి తొలగిస్తుంది.  కొనసాగమంటారా?"
 
 #: src/Dialogs/Dialogs.vala:66
 #, fuzzy
@@ -1221,17 +1206,20 @@ msgstr "అభివృద్దికారి మార్చు (_S)"
 msgid "Export Video"
 msgstr "వీడియో ఎగుమతిచేయి"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
+#, fuzzy
 msgid "Export Photo"
-msgstr "ఫొటో ఎగుమతిచేయి"
+msgid_plural "Export Photos"
+msgstr[0] "ఫొటో ఎగుమతిచేయి"
+msgstr[1] "ఫొటో ఎగుమతిచేయి"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "దాచు (_S)"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "ఫొటోలను ఎగుమతిచేయి"
 
@@ -1615,49 +1603,47 @@ msgid "Name:"
 msgstr "పేరు:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "బాహ్య కూర్పును సవరించాలా?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "బాహ్య కూర్పులను రద్దుచేయాలా?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "బాహ్య కూర్పును సవరించాలా?"
+msgstr[1] "బాహ్య కూర్పును సవరించాలా?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "ఇది బహిరంగ ఫైలుకు చేసిన అన్ని మార్పులను రద్దుచేస్తుంది.  కొనసాగాలా?"
 msgstr[1] "ఇది %d బహిరంగ ఫైళ్ళకు చేసిన అన్ని మార్పులను రద్దుచేస్తుంది.  కొనసాగాలా?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "బయటి కూర్పుల మార్పులను రద్దుచేయి(_v)"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "బయటి కూర్పుల మార్పులను రద్దుచేయి(_v)"
+msgstr[1] "బయటి కూర్పుల మార్పులను రద్దుచేయి(_v)"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "బాహ్య కూర్పులను రద్దుచేయుము (_v)"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "ఫొటోలను లైబ్రరీ నుండి తొలగించు"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "లైబ్రరీ నుండి ఫొటోలను తొలగించు"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "ఇది ఫొటోను లైబ్రరీ నుంచి తొలగిస్తుంది.  కొనసాగాలా?"
 msgstr[1] "ఇది %d ఫొటోలను లైబ్రరీ నుంచి తొలగిస్తుంది.  కొనసాగాలా?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "తొలగించు(_R)"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1678,39 +1664,38 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr "షాట్‌వెల్ ఫొటోలను లైబ్రరీ సంచయంలోనికి నకలుతీయగలదు లేదా వాటిని నకలుతీయకుండానే దిగుమతిచేసుకోగలదు."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "ఫోటోలను నకలుతీయి(_p)"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "అదే స్థానంలో దిగుమతి (_I)"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "లైబ్రరీకి దిగుమతిచేయి"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905
+msgid "Co_py Photos"
+msgstr "ఫోటోలను నకలుతీయి(_p)"
+
+#: src/Dialogs/Dialogs.vala:906
+msgid "_Import in Place"
+msgstr "అదే స్థానంలో దిగుమతి (_I)"
+
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "లైబ్రరీ నుండి తొలగించు"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "లైబ్రరీ నుండి ఫొటోలను తొలగిస్తోంది"
-
-#: src/Dialogs/Dialogs.vala:906
-msgid "Removing Photos From Library"
-msgstr "లైబ్రరీ నుండి ఫొటోలను తొలగిస్తున్నది"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "లైబ్రరీ నుండి ఫొటోలను తొలగిస్తోంది"
+msgstr[1] "లైబ్రరీ నుండి ఫొటోలను తొలగిస్తోంది"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1728,28 +1713,28 @@ msgstr "మార్చబడనిది"
 msgid "Current"
 msgstr "ప్రస్థుత"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "ఫార్మాట్ (_F):"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "నాణ్యత(_Q)"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "స్కేలింగ్ కన్‌స్ట్రెయింట్(_S):"
 
-#: src/Dialogs/ExportDialog.vala:102
+#: src/Dialogs/ExportDialog.vala:101
 #, fuzzy
-msgid "_pixels"
+msgid "_Size in pixels:"
 msgstr " పిక్సెళ్ళు ( _p)"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "మెటాడేటాను ఎగుమతిచేయి"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr ""
 
@@ -1771,8 +1756,9 @@ msgid "R_ename imported files to lowercase:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
-msgstr ""
+#, fuzzy
+msgid "Write _metadata to files:"
+msgstr "మెటాడేటాను ఫైళ్ళకి వ్రాస్తుంది..."
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1801,7 +1787,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr ""
 
@@ -1830,7 +1816,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr ""
 
@@ -2501,8 +2487,8 @@ msgstr "ట్యాగులు"
 msgid "Photos cannot be exported to this directory."
 msgstr "ఈ డైరెక్టరీకి ఫొటోలను ఎగుమతి చేయడం వీలుకాదు."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ఫొటోలు/వీడియోలు లేవు"
@@ -2527,54 +2513,53 @@ msgstr "థంబ్‌నెయిళ్ళ యొక్క పరిమాణ�
 msgid "_Developer"
 msgstr "అభివృద్ధికారుడు (_D)"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "ఫొటోలు/వీడియోలు ఎగుమతిచేయి"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "ఫొటోలు/వీడియోలు ఎగుమతిచేయి"
+msgstr[1] "ఫొటోలు/వీడియోలు ఎగుమతిచేయి"
 
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "ఫొటోలు/వీడియోలను ఎగుమతిచేయి"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "తిప్పినదానిని రద్దుచేస్తోంది"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "అడ్డముగా తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "అడ్డంగా తిప్పినదానిని రద్దుచేయి"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "నిలువుగా తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "నిలువుగా తిప్పినదానిని రద్దుచేయి"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s ఏమాత్రం లేదు."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s ఫైలు కాదు."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2583,25 +2568,25 @@ msgstr ""
 "%s  తోడ్పాటు లేదు : ఫైల్ ఫార్మాట్\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "ఒక నకలు దాచు(_S)"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s మార్పులు వదలివేయాలా?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "దాచకుండానే మూసివేయి(_w)"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s కి భద్రపరుస్తుండగా దోషం: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "ఇలా దాచు"
 
@@ -2688,8 +2673,9 @@ msgid "Flagged"
 msgstr "గుర్తుపెట్టబడినవి"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr "కెమెరాను అన్‌మౌంట్ చేయలేకపోతోంది.  కెమెరాను ఫైల్ నిర్వాహకం నుంచి అన్‌మౌంట్ చేయడానికి ప్రయత్నించండి."
 
 #: src/Views/ImportPage.vala:788
@@ -2793,52 +2779,52 @@ msgstr "ఫోటో సమాచారాన్ని తెస్తోంద�
 msgid "Fetching preview for %s"
 msgstr "%s కొరకు మునుజూపును తెస్తోంది"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "కెమెరాను లాక్ చేయలేకపోతోంది: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "ఈ ఫొటోను కెమెరా నుండి తీసివేయమంటారా?"
 msgstr[1] "ఈ %d ఫొటోలను కెమెరా నుండి తీసివేయమంటారా?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "ఈ వీడియోను కెమెరా నుండి తీసివేయమంటారా?"
 msgstr[1] "ఈ %d వీడియోలను కెమెరా నుండి తీసివేయమంటారా?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "ఈ ఫొటో/వీడియోను కెమెరా నుండి తీసివేయమంటారా?"
 msgstr[1] "ఈ %d ఫొటోలు/వీడియోలను కెమెరా నుండి తీసివేయమంటారా?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "ఈ ఫైళ్ళను కెమెరా నుండి తీసివేయాలా?"
 msgstr[1] "ఈ %d ఫైళ్ళను కెమెరా నుండి తీసివేయాలా?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "తీసివేయి"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "ఉంచు(_K)"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "ఫొటోలు/వీడియోలు కెమెరా నుంచి తొలగించబడుతున్నాయి"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2872,7 +2858,7 @@ msgstr "%s దిగుమతిచేయబడినవి"
 msgid "Last Import"
 msgstr "ఆఖరి దిగుమతి"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ఎగుమతిచేయలేకపోతోంది: %s"
@@ -3398,10 +3384,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixels)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "మీరు ప్రస్తుతం Flickr కు లాగినైలేరు.\n"
@@ -3865,6 +3852,33 @@ msgstr "చెస్"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "బ్లైండ్స్"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "ఫొటోలను ఇలా \"%s\" ట్యాగ్ చేయి"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు (_P)"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "ఫొటోల నుండి \"%s\" ట్యాగును తొలగించు"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "యధార్థ ఫోటో ఫైళ్ళను సవరించు (_M)"
+
+#~ msgid "_Modify original files"
+#~ msgstr "అసలు ఫైళ్ళను సవరించు (_M)"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "బాహ్య కూర్పులను రద్దుచేయాలా?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "బాహ్య కూర్పులను రద్దుచేయుము (_v)"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "లైబ్రరీ నుండి ఫొటోలను తొలగిస్తున్నది"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "ఫొటోలు/వీడియోలను ఎగుమతిచేయి"
 
 #~ msgid "_View"
 #~ msgstr "వీక్షణం (_V)"
@@ -4383,9 +4397,6 @@ msgstr "బ్లైండ్స్"
 
 #~ msgid "Auto-importing photos..."
 #~ msgstr "ఫొటోలను స్వయం-దిగుమతిచేస్తోంది..."
-
-#~ msgid "Writing metadata to files..."
-#~ msgstr "మెటాడేటాను ఫైళ్ళకి వ్రాస్తుంది..."
 
 #~ msgid "Automatically improve the photo's appearance"
 #~ msgstr "స్వయంచాలకంగా ఫొటో కనపడువిధాన్ని మెరుగుపరుచు"

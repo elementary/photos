@@ -513,7 +513,7 @@ public class BatchImport : Object {
         }
 
         // watch for user exit in the application
-        Application.get_instance ().exiting.connect (user_halt);
+        ((Photos.Application) GLib.Application.get_default ()).exiting.connect (user_halt);
 
         // Use a timer to report imported photos to observers
         Timeout.add (DISPLAY_QUEUE_TIMER_MSEC, display_imported_timer);
@@ -523,7 +523,7 @@ public class BatchImport : Object {
 #if TRACE_DTORS
         debug ("DTOR: BatchImport (%s)", name);
 #endif
-        Application.get_instance ().exiting.disconnect (user_halt);
+        ((Photos.Application) GLib.Application.get_default ()).exiting.disconnect (user_halt);
     }
 
     public string get_name () {

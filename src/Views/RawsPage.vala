@@ -60,7 +60,7 @@ public class Library.RawsPage : CollectionPage {
         var window = AppWindow.get_instance () as LibraryWindow;
         warn_if_fail (window != null);
         if (window != null)
-            window.toggle_welcome_page (true, _ ("Add Some Photos"), _("No Photos were found in your library."), true);
+            window.toggle_welcome_page (true, _("Add Some Photos"), _("No Photos were found in your library."), true);
         return _ ("No photos/videos");
     }
 

@@ -759,11 +759,11 @@ public class MediaCollectionRegistry {
     private static GLib.Settings file_settings;
 
     private MediaCollectionRegistry () {
-        Application.get_instance ().init_done.connect (on_init_done);
+        ((Photos.Application) GLib.Application.get_default ()).init_done.connect (on_init_done);
     }
 
     ~MediaCollectionRegistry () {
-        Application.get_instance ().init_done.disconnect (on_init_done);
+        ((Photos.Application) GLib.Application.get_default ()).init_done.disconnect (on_init_done);
     }
 
     private void on_init_done () {
