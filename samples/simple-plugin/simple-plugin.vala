@@ -59,4 +59,3 @@ public Spit.Module? spit_entry_point (Spit.EntryPointParams *params) {
 // This is here to keep valac happy.
 private void dummy_main () {
 }
-

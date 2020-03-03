@@ -559,6 +559,4 @@ internal class Uploader : Publishing.RESTSupport.BatchUploader {
                                       parameters, get_current_publishable ());
     }
 }
-
 }
-
