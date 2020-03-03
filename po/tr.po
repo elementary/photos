@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-04-21 19:08+0000\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2019-11-10 19:24+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/photos/photos/tr/"
 ">\n"
@@ -25,18 +25,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:33+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Önbellek dizini oluşturulamıyor %s: %s"
+msgstr "%s önbellek dizini oluşturulamıyor: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "Veri klasörü oluşturulamadı %s: %s"
+msgstr "%s veri dizini oluşturulamıyor: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
@@ -46,22 +46,22 @@ msgstr "Resimler"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "Geçici klasör oluşturulamadı  %s: %s"
+msgstr "%s geçici dizini oluşturulamıyor: %s"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "Altklasör oluşturulamadı  %s: %s"
+msgstr "%s veri alt dizini oluşturulamıyor: %s"
 
 #: src/AppWindow.vala:163
 #, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Fotoğraflar kitaplığına erişim sırasında kritik bir hata meydana geldi.  "
+"Fotoğraf kitaplığına erişim sırasında kritik bir hata meydana geldi.  "
 "Fotoğraflar devam edemiyor.\n"
 "\n"
 "%s"
@@ -256,7 +256,7 @@ msgstr "Etiket Oluştur"
 #: src/Commands.vala:1630
 #, c-format
 msgid "Move Tag \"%s\""
-msgstr "Etiketi Taşı \"%s\""
+msgstr "\"%s\" Etiketini Taşı"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
@@ -339,7 +339,7 @@ msgstr "Olay %s"
 #: src/Exporter.vala:244
 #, c-format
 msgid "Unable to generate a temporary file for %s: %s"
-msgstr "%s: %s için geçici bir dosya oluşturulamıyor"
+msgstr "%s için geçici bir dosya oluşturulamıyor: %s"
 
 #: src/Exporter.vala:311
 msgid "Exporting"
@@ -351,8 +351,8 @@ msgstr "Dışa Aktar"
 
 #: src/Exporter.vala:332
 #, c-format
-msgid "File %s already exists.  Replace?"
-msgstr "%s dosyası zaten mevcut.  Yer değiştirilsin mi?"
+msgid "File %s already exists. Replace?"
+msgstr "%s dosyası zaten mevcut. Dosya değiştirilsin mi?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -365,11 +365,11 @@ msgstr "_Tümünü Değiştir"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "İ_ptal"
 
@@ -385,56 +385,49 @@ msgstr "Araç çubuğunu açık olarak sabitle"
 msgid "Leave fullscreen"
 msgstr "Tam ekrandan çık"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Fotoğraf kütüphaneniz, Fotoğraflar uygulamasının bu sürümü ile uyumlu değil"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Fotoğraf kitaplığınız Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar "
-"%s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
-"Lütfen Fotoğraflar'ın son sürümünü kullanın."
+"Fotoğraflar %s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s "
+"(schema %d). Lütfen Fotoğraflar'ın son sürümünü kullanın."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Fotoğraflar, fotoğraf kitaplığınızın sürümünü %s (schema %d) den %s (schema "
-"%d) 'e güncellemeyi başaramadı. Daha fazla bilgi için lütfen Fotoğraflar "
-"Wiki'yi buradan %s kontrol edin."
+"%d) 'e güncellemeyi başaramadı."
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+"Daha fazla bilgi için lütfen Fotoğraflar Wiki'yi buradan %s kontrol edin."
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Fotoğraf kitaplığınız Fotoğraflar'ın bu sürümüyle uyumlu değil. Fotoğraflar "
-"%s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s (schema %d). "
-"Lütfen kitaplığınızı %s öğesini silerek temizleyin ve resimlerinizi yeniden "
-"içe aktarın."
+"Fotoğraflar %s (schema %d) ile oluşturulduğu görünüyor. Bu sürüm ise %s "
+"(schema %d). Lütfen kitaplığınızı %s öğesini silerek temizleyin ve "
+"resimlerinizi yeniden içe aktarın."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr ""
-"Fotoğraflar veritabanını doğrulama girişiminde bilinmeyen hata oluştu: %s"
+msgstr "Fotoğraflar veritabanını doğrulama girişiminde bilinmeyen hata oluştu."
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -854,7 +847,7 @@ msgstr "İşareti _Kaldır"
 #: src/Resources.vala:179
 #, c-format
 msgid "Unable to launch editor: %s"
-msgstr "Düzenleyici çalıştırılamadı: %s"
+msgstr "Düzenleyici başlatılamadı: %s"
 
 #: src/Resources.vala:184
 #, c-format
@@ -864,7 +857,7 @@ msgstr "Etiket Ekle \"%s\""
 #: src/Resources.vala:186
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "Etiketler Ekle \"%s\" ve \"%s\""
+msgstr "\"%s\" ve \"%s\" Etiketini Ekle"
 
 #: src/Resources.vala:190
 msgid "Add Tags"
@@ -873,18 +866,18 @@ msgstr "Etiket Ekle"
 #: src/Resources.vala:194
 #, c-format
 msgid "_Delete Tag \"%s\""
-msgstr "Etiketi _Sil \"%s\""
+msgstr "\"%s\" Etiketini _Sil"
 
 #: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
-msgstr "Etiketi Sil \"%s\""
+msgstr "\"%s\" Etiketini Sil"
 
 #: src/Resources.vala:201
 msgid "Delete Tag"
 msgstr "Etiketi Sil"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_Sil"
 
@@ -908,7 +901,7 @@ msgstr "_Yeniden Adlandır…"
 
 #: src/Resources.vala:216
 msgid "Modif_y Tags…"
-msgstr "Etiketleri Düzenle…"
+msgstr "Etiketleri _Düzenle…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -917,113 +910,104 @@ msgstr "Etiketleri Düzenle"
 #: src/Resources.vala:220
 #, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "Fotoğrafı \"%s\" olarak etiketle"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "Fotoğrafları \"%s\" olarak etiketle"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "Fotoğrafı \"%s\" olarak etiketle"
+msgstr[1] "Fotoğrafları \"%s\" olarak etiketle"
 
 #: src/Resources.vala:224
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "\"%s\" Etiketini _Fotoğraftan Kaldır"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "\"%s\" Etiketini _Fotoğraftan Kaldır"
+msgstr[1] "\"%s\" Etiketini _Fotoğraflardan Kaldır"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "\"%s\" Etiketini _Fotoğraflardan Kaldır"
-
-#: src/Resources.vala:229
+#: src/Resources.vala:228
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "\"%s\" Etiketini Fotoğraftan Kaldır"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "\"%s\" Etiketini Fotoğraftan Kaldır"
+msgstr[1] "\"%s\" Etiketini Fotoğraflardan Kaldır"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "\"%s\" Etiketini Fotoğraflardan Kaldır"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Etiket \"%s\" olarak adlandırılamadı, çünkü etiket zaten mevcut."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
-"Aramayı \"% s \" olarak yeniden adlandırma başarısız çünkü bu isimle bir "
-"arama zaten var."
+"Aramayı \"%s\" olarak yeniden adlandırma başarısız çünkü bu isimle bir arama "
+"zaten var."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Akıllı Albüm"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "Albümü Sil"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 msgid "_Edit…"
 msgstr "_Düzenle…"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 msgid "Re_name…"
 msgstr "Yeniden Adlandır…"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "\"%s\" Aramasını \"%s\" Olarak Yeniden Adlandır"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" Aramasını Sil"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "_Seçimi sil"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "Seçili fotoğrafları çöp kutusundan geri getir"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "Seçili fotoğrafları kitaplıktan kaldır"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "_Seçimi Geri Yükle"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "Seçili fotoğrafları kitaplığa geri taşı"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 msgid "File Mana_ger"
 msgstr "Dosya Yöneticisi"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Dosya yöneticisinde açılamıyor: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "Kitaplıktan K_aldır"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "_Çöpe Taşı"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "_Tümünü Seç"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "Tüm öğeleri seç"
 
@@ -1031,20 +1015,20 @@ msgstr "Tüm öğeleri seç"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %d %b, %Y"
 
@@ -1054,14 +1038,14 @@ msgstr "%a %d %b, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1114,19 +1098,15 @@ msgstr "Tüm fotoğrafları/videoları bu zamana _ayarla"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
 msgid "_Modify original photo file"
-msgstr "_Özgün fotoğraf dosyasını değiştir"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "_Özgün fotoğraf dosyalarını değiştir"
+msgid_plural "_Modify original photo files"
+msgstr[0] "_Özgün fotoğraf dosyasını değiştir"
+msgstr[1] "_Özgün fotoğraf dosyalarını değiştir"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 msgid "_Modify original file"
-msgstr "_Özgün dosyayı değiştir"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "_Özgün dosyaları değiştir"
+msgid_plural "_Modify original files"
+msgstr[0] "_Özgün dosyayı değiştir"
+msgstr[1] "_Özgün dosyaları değiştir"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1184,17 +1164,17 @@ msgstr[1] "saniye"
 
 #: src/Dialogs/Dialogs.vala:50
 #, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] ""
-"Bu işlem \"%s\" etiketini  %d fotoğraf(lar)dan kaldıracak.  Devam edilsin mi?"
+"Bu işlem \"%s\" etiketini bir fotoğraftan kaldıracak. Devam edilsin mi?"
 msgstr[1] ""
-"Bu işlem \"%s\" etiketini  %d fotoğraf(lar)dan kaldıracak.  Devam edilsin mi?"
+"Bu işlem \"%s\" etiketini %d fotoğraftan kaldıracak. Devam edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr "\"%s\" bu akıllı albüm kaldırılacak.  Devam edilsin mi?"
+msgid "This will remove the smart album \"%s\". Continue?"
+msgstr "Bu \"%s\" akıllı albümünü kaldıracak. Devam edilsin mi?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1204,15 +1184,15 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraf(lar)a yapmış "
+"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraf üstünde yapmış "
 "olduğunuz tüm değişiklikleri geri alacak"
 msgstr[1] ""
-"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraf(lar)a yapmış "
+"Geliştiricileri değiştirmek Fotoğraflar'da bu fotoğraflar üstünde yapmış "
 "olduğunuz tüm değişiklikleri geri alacak"
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Geliştiricileri değiştirmek istediğinize emin misiniz?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1222,17 +1202,19 @@ msgstr "_Geliştirici Değiştir"
 msgid "Export Video"
 msgstr "Video Ihracatı"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
-msgstr "Fotoğrafları Dışa Aktar"
+msgid_plural "Export Photos"
+msgstr[0] "Fotoğrafı Dışa Aktar"
+msgstr[1] "Fotoğrafları Dışa Aktar"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "Fotoğrafları Dışa Aktar"
 
@@ -1362,13 +1344,11 @@ msgstr ""
 "Kopyalayamadı:"
 
 #: src/Dialogs/Dialogs.vala:334
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "couldn't copy %s\n"
 "\tto %s"
-msgstr ""
-"%s kopyalanamadı\n"
-"%s için \t tuşuna basın"
+msgstr "%s, %s adresine kopyalanamadı"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1648,52 +1628,48 @@ msgstr "Ad:"
 
 #: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
-msgstr "Harici Düzenlemeye Dönsün mü?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "Harici Düzenlemelere Dönsün mü?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "Harici Düzenlemeye Dönsün mü?"
+msgstr[1] "Harici Düzenlemelere Dönsün mü?"
 
 #: src/Dialogs/Dialogs.vala:802
 #, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Bu işlem %d harici dosyaya yapılan tüm değişiklikleri yok edecek.  Devam "
+"Bu işlem harici dosyada yapılan tüm değişiklikleri yok edecektir. Devam "
 "edilsin mi?"
 msgstr[1] ""
-"Bu işlem %d harici dosyaya yapılan tüm değişiklikleri yok edecek.  Devam "
+"Bu işlem %d harici dosyada yapılan tüm değişiklikleri yok edecektir. Devam "
 "edilsin mi?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
 msgid "Re_vert External Edit"
-msgstr "Harici Düzenlemeye D_ön"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "Harici Düzenlemeye D_ön"
+msgstr[1] "Harici Düzenlemelere D_ön"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "Harici Düzenlemelere D_ön"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "Fotoğrafı Kitaplıktan Kaldır"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "Fotoğrafları Kitaplıktan Kaldır"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:839
 #, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
-msgstr[0] "Bu işlem fotoğrafı kitaplıktan kaldıracak.  Devam edilsin mi?"
-msgstr[1] "Bu işlem %d fotoğrafı kitaplıktan kaldıracak.  Devam edilsin mi?"
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
+msgstr[0] "Bu işlem fotoğrafı kitaplıktan kaldıracak. Devam edilsin mi?"
+msgstr[1] "Bu işlem %d fotoğrafı kitaplıktan kaldıracak. Devam edilsin mi?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "_Kaldır"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1714,7 +1690,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1722,32 +1698,30 @@ msgstr ""
 "Fotoğraflar, fotoğrafları kitaplık klasörünün içine kopyalayabilir ya da "
 "kopyalama olmadan içe aktarabilir."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "Fotoğrafları K_opyala"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_Yerin içine aktar"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "Kitaplığa Aktar"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905
+msgid "Co_py Photos"
+msgstr "Fotoğrafları K_opyala"
+
+#: src/Dialogs/Dialogs.vala:906
+msgid "_Import in Place"
+msgstr "_Yerin içine aktar"
+
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Kitaplıktan Kaldır"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
-msgstr "Fotoğraf Kitaplıktan Kaldırılıyor"
-
-#: src/Dialogs/Dialogs.vala:906
-msgid "Removing Photos From Library"
-msgstr "Fotoğraflar Kitaplıktan Kaldırılıyor"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "Fotoğraf Kitaplıktan Kaldırılıyor"
+msgstr[1] "Fotoğraflar Kitaplıktan Kaldırılıyor"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1765,27 +1739,27 @@ msgstr "Değiştirilmemiş"
 msgid "Current"
 msgstr "Mevcut"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_Biçim:"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_Kalite:"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "_Baskı ölçeklendiriliyor:"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "_piksel"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "_Boyut (piksel):"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "Metadata'yı dışa aktar"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "_Dışa Aktar"
 
@@ -1807,7 +1781,7 @@ msgid "R_ename imported files to lowercase:"
 msgstr "A_ktarılan dosyaları küçük harf ile isimlendir:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+msgid "Write _metadata to files:"
 msgstr "Dosyalara _meta yaz:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -1837,7 +1811,7 @@ msgid "Add"
 msgstr "Ekle"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "Kaydet"
 
@@ -1866,7 +1840,7 @@ msgid "Add rule"
 msgstr "Kural ekle"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "İptal"
 
@@ -2540,8 +2514,8 @@ msgstr "Etiketler"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotoğraflar, bu dizinden dışa aktarılamadı."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Fotoğraf/Video Yok"
@@ -2566,54 +2540,52 @@ msgstr "Önizleme boyutunu ayarla"
 msgid "_Developer"
 msgstr "_Geliştirici"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
-msgstr "Resimleri/Videoları Dışa Aktar"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "Resmi/Videoyu Dışa Aktar"
+msgstr[1] "Resimleri/Videoları Dışa Aktar"
 
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "Fotoğrafları/Videoları Dışa Aktar"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "Döndürülüyor"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "Döndürme İşlemi Geri Alınıyor"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "Yatay Olarak Çevriliyor"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "Yatay Olarak Çevirme Geri Alınıyor"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "Dikey Olarak Çevriliyor"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "Dikey Olarak Çevirme Geri Alınıyor"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s bulunamadı."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s bir dosya değil."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2622,25 +2594,25 @@ msgstr ""
 "%s şu dosya biçimini desteklemiyor:\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "Bir Kopya _Kaydet"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s dosyasındaki değişiklikler kaybedilsin mi?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "_Kaydetmeden Kapat"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s dosyasına kaydedilirken hata: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "Farklı Kaydet"
 
@@ -2651,11 +2623,11 @@ msgstr "Çevir"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr "Sayfaya sığdırmak için yakınlaş"
+msgstr "Sayfaya sığdıracak kadar yakınlaştır"
 
 #: src/Views/EditingHostPage.vala:153
 msgid "Zoom 1:1"
-msgstr "Yakınlaş 1:1"
+msgstr "1:1 Yakınlaştır"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
@@ -2725,8 +2697,9 @@ msgstr "İşaretli"
 
 #: src/Views/ImportPage.vala:464
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
-msgstr "Kamera ayrılamadı. Kamerayı, dosya yöneticisinden ayırmayı deneyin."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
+msgstr ""
+"Kamerayı çıkarma başarısız. Kamerayı, dosya yöneticisinden çıkarmayı deneyin."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -2771,15 +2744,14 @@ msgstr "Tüm fotoğrafları kitaplığınıza aktarın"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kamera takılı iken erişilemez"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Fotoğraflar uygulaması, erişim sağlamak için kamerayı dosya sisteminden "
-"ayrıması gerekiyor. Devam edilsin mi?"
+"çıkarması gerekiyor."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2792,17 +2764,15 @@ msgstr "Lütfen kamerayı ayırın."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kamera başka bir uygulama tarafından kilitlendi"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kamera, başka bir uygulama tarafından kullanılıyor. Fotoğraflar, kameraya "
-"yalnızca boştayken erişebilir. Lütfen kamerayı kullanan diğer uygulamayı "
-"kapatın ve yeniden deneyin."
+"Fotoğraflar, kameraya yalnızca kilitli değilken erişebilir. Lütfen kamerayı "
+"kullanan diğer uygulamayı kapatın ve yeniden deneyin."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -2830,52 +2800,52 @@ msgstr "Fotoğraf bilgisi alınıyor"
 msgid "Fetching preview for %s"
 msgstr "%s için önizleme alınıyor"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Kamera kilitlenemedi: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Bu %d fotoğraf kameradan silinsin mi?"
 msgstr[1] "Bu %d fotoğraf kameradan silinsin mi?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Bu %d video kameradan silinsin mi?"
 msgstr[1] "Bu %d video kameradan silinsin mi?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Bu %d fotoğraf/video kameradan silinsin mi?"
 msgstr[1] "Bu %d fotoğraf/video kameradan silinsin mi?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Bu %d dosya kameradan silinsin mi?"
 msgstr[1] "Bu %d dosya kameradan silinsin mi?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Sil"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_Koru"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "Fotoğraflar/Videolar kameradan kaldırılıyor"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2907,7 +2877,7 @@ msgstr "İçe Aktarıldı %s"
 msgid "Last Import"
 msgstr "Son İçe Aktarılanlar"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Dışa aktarılamadı %s: %s"
@@ -3453,10 +3423,10 @@ msgstr "Google+ (2048 x 1536 piksel)"
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
-"Şu anda Flickr'da oturum açmış bulunmuyorsunuz.\n"
+"Şu anda Flickr'da oturum açmadınız.\n"
 "\n"
 "Flickr'a giriş yapmak için web tarayıcınızda Oturum Aç'a tıklayın. Flickr "
 "hesabınıza Shotwell Connect'i bağlamak için yetki vermeniz gerekiyor."
@@ -3525,7 +3495,7 @@ msgstr "Fotoğraflar ve videolar _şunlara görülebilir:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
 msgid "Friends & family only"
-msgstr "Yalnızca aile & arkadaşlar"
+msgstr "Yalnızca aile ve arkadaşlar"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
 msgid "Family only"
@@ -3837,7 +3807,7 @@ msgid ""
 "You are logged into Tumblr as %s.\n"
 "\n"
 msgstr ""
-"%s olarak Tumblr'a giriş yaptınız.\n"
+"Tumblr'da %s olarak oturum açtınız.\n"
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
@@ -3945,6 +3915,36 @@ msgstr "Satranç"
 msgid "Blinds"
 msgstr "Kesitler"
 
+#~ msgid "_pixels"
+#~ msgstr "_piksel"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "Fotoğrafları \"%s\" olarak etiketle"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "\"%s\" Etiketini _Fotoğraflardan Kaldır"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "\"%s\" Etiketini Fotoğraflardan Kaldır"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "_Özgün fotoğraf dosyalarını değiştir"
+
+#~ msgid "_Modify original files"
+#~ msgstr "_Özgün dosyaları değiştir"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "Harici Düzenlemelere Dönsün mü?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "Harici Düzenlemelere D_ön"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "Fotoğraflar Kitaplıktan Kaldırılıyor"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "Fotoğrafları/Videoları Dışa Aktar"
+
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "Geçerli fotoğraf boyutlarına dön"
 
@@ -4020,9 +4020,6 @@ msgstr "Kesitler"
 
 #~ msgid "_Show info panel"
 #~ msgstr "_Bilgi panelini göster"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "_Bilgi panelini gizle"
 
 #, fuzzy
 #~ msgid "Edit _Title…"

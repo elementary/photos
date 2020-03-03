@@ -211,7 +211,7 @@ public class MetadataWriter : Object {
         Tag.global.frozen.connect (on_collection_frozen);
         Tag.global.thawed.connect (on_collection_thawed);
 
-        Application.get_instance ().exiting.connect (on_application_exiting);
+        ((Photos.Application) GLib.Application.get_default ()).exiting.connect (on_application_exiting);
 
         LibraryMonitorPool.get_instance ().monitor_installed.connect (on_monitor_installed);
         LibraryMonitorPool.get_instance ().monitor_destroyed.connect (on_monitor_destroyed);
@@ -232,7 +232,7 @@ public class MetadataWriter : Object {
         Tag.global.frozen.disconnect (on_collection_frozen);
         Tag.global.thawed.disconnect (on_collection_thawed);
 
-        Application.get_instance ().exiting.disconnect (on_application_exiting);
+        ((Photos.Application) GLib.Application.get_default ()).exiting.disconnect (on_application_exiting);
 
         LibraryMonitorPool.get_instance ().monitor_installed.disconnect (on_monitor_installed);
         LibraryMonitorPool.get_instance ().monitor_destroyed.disconnect (on_monitor_destroyed);

@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
-"PO-Revision-Date: 2019-03-03 14:26+0000\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
+"PO-Revision-Date: 2020-01-25 15:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/photos/"
 "ja/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -62,7 +62,7 @@ msgstr "データサブディレクトリ %s を作成できません: %s"
 #: src/AppWindow.vala:163
 #, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -352,7 +352,7 @@ msgstr "エクスポート"
 
 #: src/Exporter.vala:332
 #, c-format
-msgid "File %s already exists.  Replace?"
+msgid "File %s already exists. Replace?"
 msgstr "ファイル %s はすでに存在します。置き換えますか？"
 
 #: src/Exporter.vala:338
@@ -366,11 +366,11 @@ msgstr "すべて置き換え(_A)"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -386,56 +386,48 @@ msgstr "ツールバーを開いた状態で固定します"
 msgid "Leave fullscreen"
 msgstr "全画面表示の解除"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ラ"
-"イブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバー"
-"ジョンは %s (スキーマ %d) です。最新バージョンの \"フォト\" を使用してくださ"
-"い。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。この"
+"バージョンは %s (スキーマ %d) です。最新バージョンの \"フォト\" を使用してく"
+"ださい。"
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "\"フォト\" は写真ライブラリのバージョンを %s (スキーマ %d) から %s (スキーマ "
-"%d) にアップグレードできませんでした。詳しい情報は、次の \"フォト\" Wiki を確"
-"認してください。%s"
+"%d) にアップグレードできませんでした"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
-msgstr ""
+msgstr "詳細情報は、%s にある \"フォト\" の Wiki をご覧ください"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"お使いの写真ライブラリはこのバージョンの \"フォト\" と互換性がありません。ラ"
-"イブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。このバー"
-"ジョンは %s (スキーマ %d) です。%s を削除してライブラリを消去した上で、写真を"
-"再インポートしてください。"
+"このライブラリは \"フォト\" %s (スキーマ %d) で作成されたもののようです。この"
+"バージョンは %s (スキーマ %d) です。%s を削除してライブラリを消去した上で、写"
+"真を再インポートしてください。"
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "\"フォト\" のデータベースの検査中に不明なエラーが発生しました: %s"
+msgstr "\"フォト\" のデータベースの検査中に不明なエラーが発生しました"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -738,7 +730,7 @@ msgstr "イベント名の変更(_N)…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
-msgstr "イベント名の変更"
+msgstr "イベント名を変更"
 
 #: src/Resources.vala:132
 msgid "Make _Key Photo for Event"
@@ -885,7 +877,7 @@ msgstr "タグ \"%s\" を削除"
 msgid "Delete Tag"
 msgstr "タグを削除"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "削除(_D)"
 
@@ -918,111 +910,99 @@ msgstr "タグを修正"
 #: src/Resources.vala:220
 #, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "写真にタグ \"%s\" を付ける"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "写真にタグ \"%s\" を付ける"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "写真にタグ \"%s\" を付ける"
 
 #: src/Resources.vala:224
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "写真からタグ \"%s\" を削除(_P)"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "写真からタグ \"%s\" を削除(_P)"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "写真からタグ \"%s\" を削除(_P)"
-
-#: src/Resources.vala:229
+#: src/Resources.vala:228
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "写真からタグ \"%s\" を削除します"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "写真からタグ \"%s\" を削除します"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "写真からタグ \"%s\" を削除します"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "すでにタグが存在しているため、タグ名を \"%s\" に変更できません。"
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "すでに検索が存在しているため、検索名を \"%s\" に変更できません。"
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "スマートアルバム"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "アルバムを削除"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 msgid "_Edit…"
 msgstr "編集(_E)…"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 msgid "Re_name…"
 msgstr "名前を変更(_N)…"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "検索 \"%s\" の名前を \"%s\" に変更します"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "検索 \"%s\" を削除"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "選択項目を削除(_D)"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "選択された写真をゴミ箱から削除します"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "選択された写真をライブラリから削除します"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "選択項目を復元(_R)"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "選択された写真をライブラリに戻します"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 msgid "File Mana_ger"
 msgstr "ファイルマネージャー(_G)"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ファイルマネージャーで開けません: %s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "ライブラリから削除(_E)"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "ゴミ箱に移動(_M)"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "すべて選択(_A)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "すべての項目を選択します"
 
@@ -1030,20 +1010,20 @@ msgstr "すべての項目を選択します"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%p %-I:%M"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%p %-I:%M:%S"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%Y年%m月%d日 (%a)"
 
@@ -1053,14 +1033,14 @@ msgstr "%Y年%m月%d日 (%a)"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%m月%d日 (%a)"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1113,19 +1093,13 @@ msgstr "すべての写真と動画をこの時間に設定(_A)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
 msgid "_Modify original photo file"
-msgstr "元の写真ファイルを修正(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "元の写真ファイルを修正(_M)"
+msgid_plural "_Modify original photo files"
+msgstr[0] "元の写真ファイルを修正(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 msgid "_Modify original file"
-msgstr "元のファイルを修正(_M)"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "元のファイルを修正(_M)"
+msgid_plural "_Modify original files"
+msgstr[0] "元のファイルを修正(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1179,14 +1153,14 @@ msgstr[0] "秒"
 
 #: src/Dialogs/Dialogs.vala:50
 #, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "この操作はタグ \"%s\" を %d 件の写真から削除します。続行しますか？"
 
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr "この操作はスマートアルバム %s を削除します。続行しますか？"
+msgid "This will remove the smart album \"%s\". Continue?"
+msgstr "この操作はスマートアルバム \"%s\" を削除します。続行しますか？"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1200,7 +1174,7 @@ msgstr[0] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "現像を切り替えてもよろしいですか？"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1210,17 +1184,18 @@ msgstr "現像を変更(_S)"
 msgid "Export Video"
 msgstr "動画をエクスポート"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
 msgid "Export Photo"
-msgstr "写真をエクスポート"
+msgid_plural "Export Photos"
+msgstr[0] "写真をエクスポート"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "写真をエクスポート"
 
@@ -1276,7 +1251,7 @@ msgstr "詳細を保存"
 #: src/Dialogs/Dialogs.vala:199
 #, c-format
 msgid "(and %d more)\n"
-msgstr "(その他 %d 個)\n"
+msgstr "(そのほか %d 個)\n"
 
 #: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
@@ -1292,7 +1267,7 @@ msgstr[0] "%d 個のファイルのインポートを試みました。"
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
-msgstr[0] "以下の %d 個のファイルのインポートに成功しました。"
+msgstr[0] "以下の %d 個のファイルは正常にインポートされました。"
 
 #.
 #. Duplicates
@@ -1356,7 +1331,7 @@ msgid ""
 "\tto %s"
 msgstr ""
 "%s を %s にコピー\n"
-"\tできませんでした。"
+"\tできませんでした"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1370,7 +1345,7 @@ msgstr "ファイルが壊れているため、写真または動画はインポ
 #.
 #: src/Dialogs/Dialogs.vala:361
 msgid "Photos/Videos Not Imported for Other Reasons:"
-msgstr "他の理由により写真または動画はインポートされませんでした:"
+msgstr "ほかの理由により写真または動画はインポートされませんでした:"
 
 #: src/Dialogs/Dialogs.vala:381
 #, c-format
@@ -1564,19 +1539,19 @@ msgstr[0] "ユーザのキャンセルにより %d 件のファイルをスキ�
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
-msgstr[0] "%d 枚の写真のインポートに成功しました。\n"
+msgstr[0] "%d 枚の写真は正常にインポートされました。\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
-msgstr[0] "%d 個の動画のインポートに成功しました。\n"
+msgstr[0] "%d 個の動画は正常にインポートされました。\n"
 
 #: src/Dialogs/Dialogs.vala:551
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
-msgstr[0] "%d 個の写真と動画のインポートに成功しました。\n"
+msgstr[0] "%d 個の写真と動画は正常にインポートされました。\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
@@ -1598,48 +1573,42 @@ msgstr "名前:"
 
 #: src/Dialogs/Dialogs.vala:800
 msgid "Revert External Edit?"
-msgstr "外部での編集を元に戻しますか？"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "外部での編集を元に戻しますか？"
+msgid_plural "Revert External Edits?"
+msgstr[0] "外部での編集を元に戻しますか？"
 
 #: src/Dialogs/Dialogs.vala:802
 #, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
 "この操作は %d 個の外部ファイルに対して行なったすべての変更点を破棄します。続"
 "行しますか？"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
 msgid "Re_vert External Edit"
-msgstr "外部での編集を元に戻す(_V)"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "外部での編集を元に戻す(_V)"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "外部での編集を元に戻す(_V)"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "ライブラリから写真を削除"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "ライブラリから写真を削除"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:839
 #, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "この操作はライブラリから %d 個の写真を削除します。続行しますか？"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "削除(_R)"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1652,11 +1621,11 @@ msgid_plural ""
 msgstr[0] ""
 "\n"
 "\n"
-"その他 %d 個"
+"そのほか %d 個。"
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1664,32 +1633,29 @@ msgstr ""
 "\"フォト\" はライブラリフォルダーに写真をコピーしたり、写真をコピーせずにイン"
 "ポートしたりすることができます。"
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "写真をコピー(_P)"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "元の場所でインポート(_I)"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "ライブラリにインポート"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905
+msgid "Co_py Photos"
+msgstr "写真をコピー(_P)"
+
+#: src/Dialogs/Dialogs.vala:906
+msgid "_Import in Place"
+msgstr "元の場所でインポート(_I)"
+
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "ライブラリから削除"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
-msgstr "ライブラリから写真を削除しています"
-
-#: src/Dialogs/Dialogs.vala:906
-msgid "Removing Photos From Library"
-msgstr "ライブラリから写真を削除しています"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "ライブラリから写真を削除しています"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1706,27 +1672,27 @@ msgstr "変更なし"
 msgid "Current"
 msgstr "現在のファイル形式"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "形式(_F):"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "品質(_Q):"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "サイズ変更の基準(_S):"
 
-#: src/Dialogs/ExportDialog.vala:102
-msgid "_pixels"
-msgstr "ピクセル(_P)"
+#: src/Dialogs/ExportDialog.vala:101
+msgid "_Size in pixels:"
+msgstr "サイズ (ピクセル) (_S):"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "メタデータをエクスポート"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "エクスポート(_E)"
 
@@ -1748,7 +1714,7 @@ msgid "R_ename imported files to lowercase:"
 msgstr "インポートしたファイルを小文字の名前に変更(_E):"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+msgid "Write _metadata to files:"
 msgstr "ファイルにメタデータを書き込む(_M):"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -1778,7 +1744,7 @@ msgid "Add"
 msgstr "追加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "保存"
 
@@ -1807,7 +1773,7 @@ msgid "Add rule"
 msgstr "ルールを追加"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -2221,7 +2187,7 @@ msgstr "エラーが発生したため %s への公開を続けることがで�
 
 #: src/publishing/PublishingPluginHost.vala:97
 msgid "To try publishing to another service, select one from the above menu."
-msgstr "他のサービスへの公開を試すには、上のメニューから選択してください。"
+msgstr "ほかのサービスへの公開を試すには、上のメニューから選択してください。"
 
 #: src/publishing/PublishingUI.vala:71
 msgid "_Login"
@@ -2229,23 +2195,23 @@ msgstr "ログイン(_L)"
 
 #: src/publishing/PublishingUI.vala:130
 msgid "The selected photos/videos were successfully published."
-msgstr "選択された写真/動画の公開に成功しました。"
+msgstr "選択された写真/動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:132
 msgid "The selected videos were successfully published."
-msgstr "選択された動画の公開に成功しました。"
+msgstr "選択された動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:134
 msgid "The selected photos were successfully published."
-msgstr "選択された写真の公開に成功しました。"
+msgstr "選択された写真は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:137
 msgid "The selected video was successfully published."
-msgstr "選択された動画の公開に成功しました。"
+msgstr "選択された動画は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:139
 msgid "The selected photo was successfully published."
-msgstr "選択された写真の公開に成功しました。"
+msgstr "選択された写真は正常に公開されました。"
 
 #: src/publishing/PublishingUI.vala:147
 msgid "Fetching account information…"
@@ -2473,8 +2439,8 @@ msgstr "タグ"
 msgid "Photos cannot be exported to this directory."
 msgstr "写真をこのディレクトリにエクスポートできません。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "写真や動画がありません"
@@ -2499,79 +2465,76 @@ msgstr "サムネイルのサイズを調整します"
 msgid "_Developer"
 msgstr "現像(_D)"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr "その他の操作"
+msgstr "ほかの操作"
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
 msgid "Export Photo/Video"
-msgstr "写真や動画をエクスポート"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "写真や動画をエクスポート"
 
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "写真や動画をエクスポート"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "回転"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "回転を元に戻す"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "左右反転"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "左右反転を元に戻す"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "上下反転"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "上下反転を元に戻す"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s は存在しません。"
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s はファイルではありません。"
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
 "%s."
 msgstr "%s は %s のファイル形式をサポートしていません。"
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "コピーを保存(_S)"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s への変更を破棄しますか？"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "保存せずに閉じる(_W)"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s への保存中にエラーが発生しました: %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "名前を付けて保存"
 
@@ -2582,7 +2545,7 @@ msgstr "回転"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr "ズームしてページに合わせます"
+msgstr "ズームしてページに合わせる"
 
 #: src/Views/EditingHostPage.vala:153
 msgid "Zoom 1:1"
@@ -2656,7 +2619,7 @@ msgstr "フラグ付き"
 
 #: src/Views/ImportPage.vala:464
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "カメラをアンマウントできません。ファイルマネージャーからカメラのアンマウント"
 "をしてみてください。"
@@ -2704,15 +2667,14 @@ msgstr "すべての写真をライブラリにインポートします"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "カメラがマウントされている間はアクセスできません"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"\"フォト\" がこのカメラにアクセスするにはファイルシステムからカメラをアンマウ"
-"ントする必要があります。続行しますか？"
+"\"フォト\" がこのカメラにアクセスするには、ファイルシステムからカメラをアンマ"
+"ウントする必要があります。"
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2725,21 +2687,18 @@ msgstr "カメラをアンマウントしてください。"
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "カメラがほかのアプリケーションによってロックされています"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"カメラが他のアプリケーションによってロックされています。\"フォト\" はカメラが"
-"ロックされていない時のみアクセスできます。カメラを使用している他のすべてのア"
-"プリケーションを閉じて、もう一度お試しください。"
+"\"フォト\" はカメラがロックされていない時のみアクセスできます。カメラを使用しているほかのすべてのアプリケーションを閉じて、もう一度お試しください。"
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
-msgstr "カメラを利用している他のすべてのアプリケーションを閉じてください。"
+msgstr "カメラを利用しているほかのすべてのアプリケーションを閉じてください。"
 
 #: src/Views/ImportPage.vala:1132
 #, c-format
@@ -2763,48 +2722,48 @@ msgstr "写真情報を取得しています"
 msgid "Fetching preview for %s"
 msgstr "%s のプレビューを取得しています"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "カメラをロックできません: %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "カメラから %d 個の写真を削除しますか？"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "カメラから %d 個の動画を削除しますか？"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "カメラから %d 個の写真と動画を削除しますか？"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "カメラから %d 個のファイルを削除しますか？"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "削除"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "保持(_K)"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "カメラから写真と動画を削除しています"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2835,7 +2794,7 @@ msgstr "%s をインポートしました"
 msgid "Last Import"
 msgstr "最後にインポートされたもの"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s をエクスポートできません: %s"
@@ -3375,14 +3334,14 @@ msgstr "Google+ (2048 x 1536 ピクセル)"
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "現在 Flickr にログインしていません。\n"
 "\n"
 "ログインをクリックして、Web ブラウザーで Flickr にログインしてください。"
-"Flickr アカウントへのリンクに接続するには、Shotwell を認証する必要がありま"
-"す。"
+"Flickr アカウントへのリンクに接続するには、Shotwell Connect を認証する必要が"
+"あります。"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3599,7 +3558,7 @@ msgstr "アルバムコメント:"
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
 msgid ""
 "_Remove location, camera, and other identifying information before uploading"
-msgstr "アップロード前に撮影場所やカメラ、その他の識別情報を削除(_R)"
+msgstr "アップロード前に撮影場所やカメラ、そのほかの識別情報を削除(_R)"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:242
 msgid "_If a title is set and comment unset, use title as comment"
@@ -3866,6 +3825,39 @@ msgstr "チェス"
 msgid "Blinds"
 msgstr "ブラインド"
 
+#~ msgid "_pixels"
+#~ msgstr "ピクセル(_P)"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "写真にタグ \"%s\" を付ける"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "写真からタグ \"%s\" を削除(_P)"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "写真からタグ \"%s\" を削除します"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "元の写真ファイルを修正(_M)"
+
+#~ msgid "_Modify original files"
+#~ msgstr "元のファイルを修正(_M)"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "外部での編集を元に戻しますか？"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "外部での編集を元に戻す(_V)"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "ライブラリから写真を削除しています"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "写真や動画をエクスポート"
+
+#~ msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
+#~ msgstr "写真ライブラリはこのバージョンの \"フォト\" と互換性がありません"
+
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "現在の写真サイズに戻す"
 
@@ -3939,9 +3931,6 @@ msgstr "ブラインド"
 
 #~ msgid "_Show info panel"
 #~ msgstr "情報パネルを表示(_S)"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "情報パネルを隠す(_H)"
 
 #~ msgid "Edit _Title…"
 #~ msgstr "タイトルの編集(_T)…"

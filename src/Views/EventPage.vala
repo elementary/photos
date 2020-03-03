@@ -182,4 +182,3 @@ public class NoEventPage : CollectionPage {
         ui_settings.set_int ("event-photos-sort-by", sort_by);
     }
 }
-

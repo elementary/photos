@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
 "PO-Revision-Date: 2016-12-27 08:30+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgstr "چىسلا بالامۇندەرىجىسى %s: %s نى قۇرغىلى ب�
 #: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -331,8 +331,8 @@ msgid "Export"
 msgstr "چىقىرىش"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "ھۆججەت %s مەۋجۇت، ئالماشتۇرامسىز؟"
 
 #: src/Exporter.vala:338
@@ -346,11 +346,11 @@ msgstr "ھەممىسىنى ئالماشتۇرۇش"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
@@ -366,7 +366,7 @@ msgstr "قورال ستونىنى ئىچىپ مۇقىملاشتۇرۇش"
 msgid "Leave fullscreen"
 msgstr "پۈتۈن ئىكراندا كۆرسىتىش"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
@@ -392,10 +392,6 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
 
 #: src/main.vala:77
@@ -875,7 +871,7 @@ msgstr "خەتكۈچ \"%s\" نى ئۆچۈرۈش"
 msgid "Delete Tag"
 msgstr "خەتكۈچنى ئۆچۈرۈش"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "ئۆچۈرۈش"
 
@@ -908,118 +904,106 @@ msgid "Modify Tags"
 msgstr "خەتكۈچنى ئۆزگەرتىش"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "سۈرەتكە \"%s\" دەپ خەتكۈچ قويۇش"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "سۈرەتلەرگە \"%s\" دەپ خەتكۈچ قويۇش"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "سۈرەتكە \"%s\" دەپ خەتكۈچ قويۇش"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "سۈرەتلەردىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "خەتكۈچنىڭ ئىسمىنى \"%s\" غا ئۆزگەرتكىلى بولمىدى چۈنكى بۇ خەتكۈچ مەۋجۇت."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "ئىزدەشنىڭ ئىسمىنى \"%s\" غا ئۆزگەرتكىلى بولمىدى چۈنكى بۇ ئىزدەش مەۋجۇت."
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "ئەقلىي ئىقتىدارلىق ئالبوم"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr "ئالبومنى ئۆچۈرۈش"
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 #, fuzzy
 msgid "_Edit…"
 msgstr "تەھرىرلەش"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 #, fuzzy
 msgid "Re_name…"
 msgstr "ئىسمىنى ئۆزگەرتىش...."
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "ئىزدەش \"%s\" نىڭ ئىسمىنى \"%s\" غا ئۆزگەرتىش...."
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "ئىزدەش \"%s\" نى ئۆچۈرۈش"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr "تاللانغان تۈرنى ئۆچۈرۈش"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "تاللانغان سۈرەتلەرنى ئەخلەت چېلىكىدىن يۆتكەش"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "تاللانغان سۈرەتلەرنى سۈرەت ئامبىرىدىن يۆتكەش"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr "تاللانغان تۈرلەرنى ئەسلىگە قايتۇرۇش"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "تاللانغان سۈرەتلەرنى سۈرەت ئامبىرىغا قايتۇرۇش"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ھۆججەت باشقۇرغۇچتا كۆرسىتىش"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "%s نى ھۆججەت باشقۇرغۇچتا ئاچقىلى بولمىدى"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "سۈرەت ئامبىرىدىن ئۆچۈرۈش"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "ئەخەت چېلىكىگە تاشلاش"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "ھەممىسىنى تاللاش"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "ھەممە تۈرلەرنى تاللاش"
 
@@ -1027,20 +1011,20 @@ msgstr "ھەممە تۈرلەرنى تاللاش"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%Y-%m-%d-%a"
 
@@ -1050,14 +1034,14 @@ msgstr "%Y-%m-%d-%a"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%b-%d-%a"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%Y-%d"
 
@@ -1109,20 +1093,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "ھەممە سۈرەت/ۋېدىئولارغا بۇ ۋاقىتنى تەڭشەش"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "ئەسلى سۈرەت ھۆججىتىنى ئۆزگەرتىش"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "ئەسلى سۈرەت ھۆججەتلىرىنى ئۆزگەرتىش"
+msgid_plural "_Modify original photo files"
+msgstr[0] "ئەسلى سۈرەت ھۆججىتىنى ئۆزگەرتىش"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "ئەسلى ھۆججەتنى ئۆزگەرتىش"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "ئەسلى ھۆججەتلەرنى ئۆزگەرتىش"
+msgid_plural "_Modify original files"
+msgstr[0] "ئەسلى ھۆججەتنى ئۆزگەرتىش"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1175,14 +1155,14 @@ msgid_plural "seconds"
 msgstr[0] "سىكۇنت"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "بۇ خەتكۈچ \"%s\" نى %d دىن يۆتكىۋىتىدۇ"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "بۇ ئەقلىي ئىقتىدارلىق ئالبوم \"%s\" نى ئۆچۈرۈۋىتىدۇ. داۋاملاشتۇرامسىز؟"
 
 #: src/Dialogs/Dialogs.vala:66
@@ -1209,17 +1189,19 @@ msgstr "كود ئاچقۇچىنى ئالماشتۇرۇش"
 msgid "Export Video"
 msgstr "ۋېدىئونى چىقىرىش"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
+#, fuzzy
 msgid "Export Photo"
-msgstr "سۈرەتنى چىقىرىش"
+msgid_plural "Export Photos"
+msgstr[0] "سۈرەتنى چىقىرىش"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "ساقلاش"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "سۈرەتلەرنى چىقىرىش"
 
@@ -1596,49 +1578,45 @@ msgid "Name:"
 msgstr "ئىسمى:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرامسىز؟"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرامسىز؟"
+msgid_plural "Revert External Edits?"
+msgstr[0] "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرامسىز؟"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
 "بۇ تاشقى %d ھۆججەتلەرگە قىلىنغان بارلىق ئۆزگەرتىشلەرنى بىكار قىلىۋىتىدۇ. "
 "داۋاملاشتۇرامسىز؟"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرۇش"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرۇش"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرۇش"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "ئامباردىن سۈرەت يۆتكەش"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "ئامباردىن سۈرەتلەرنى يۆتكەش"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "بۇ ئامباردىن %d سۈرەتنى يۆتكىۋىتىدۇ، داۋاملاشتۇرامسىز؟"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "يۆتكەش"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1655,7 +1633,7 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1664,32 +1642,30 @@ msgstr ""
 "Shotwell سۈرەتلەرنى ئامبىرىڭىزغا كۆپەيتەلەيدۇ ئەكىرەلەيدۇ ياكى كۆپەيەيتمەي "
 "بىۋاسىتە كىرگۈزەلەيدۇ."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "سۈرەتلەرنى كۆپەيتىش"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "كىرگۈزۈش ئورنى"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "ئامبارغا كىرگۈزۈش"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905
+msgid "Co_py Photos"
+msgstr "سۈرەتلەرنى كۆپەيتىش"
+
+#: src/Dialogs/Dialogs.vala:906
+msgid "_Import in Place"
+msgstr "كىرگۈزۈش ئورنى"
+
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "سۈرەت ئامبىرىدىن يۆتكەش"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "سۈرەتلەرنى سۈرەت ئامبىرىدىن يۆتكەۋاتىدۇ"
-
-#: src/Dialogs/Dialogs.vala:906
-msgid "Removing Photos From Library"
-msgstr "سۈرەتلەرنى ئامباردىن يۆتكىۋىتىش"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "سۈرەتلەرنى سۈرەت ئامبىرىدىن يۆتكەۋاتىدۇ"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1706,28 +1682,28 @@ msgstr "ئۆزگەرتىلمىگەن"
 msgid "Current"
 msgstr "نۆۋەتتىكى"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "فورماتى:"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "سۈپىتى:"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "كىچىكلىتىش چەكلىمىسى:"
 
-#: src/Dialogs/ExportDialog.vala:102
+#: src/Dialogs/ExportDialog.vala:101
 #, fuzzy
-msgid "_pixels"
-msgstr " پىكسىل"
+msgid "_Size in pixels:"
+msgstr "ئۇچۇر تاختىسىنى يوشۇرۇش"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "مېتا ئۇچۇرىنى چىقىرىش"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr "چىقىرىش"
 
@@ -1749,7 +1725,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "كىچىك ھەرپلەر بىلەن ھۆججەتلەرگە قايتا ئىسىم قويۇش:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
+#, fuzzy
+msgid "Write _metadata to files:"
 msgstr "مېتا ئۇچۇرلىرىنى ھۆججەتلەرگە يىزىڭ:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
@@ -1779,7 +1756,7 @@ msgid "Add"
 msgstr "قىتىش"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr "ساقلاش"
 
@@ -1808,7 +1785,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
@@ -2474,8 +2451,8 @@ msgstr "خەتكۈچلەر"
 msgid "Photos cannot be exported to this directory."
 msgstr "سۈرەتلەرنى بۇ مۇندەرىجىگە چىقارغىلى بولمايدۇ."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "سۈرەت/ۋېدىئو يوق"
@@ -2500,79 +2477,77 @@ msgstr "قىسقارتىلغان سۈرەتنىڭ چوڭلۇقىنى ئۆزگە�
 msgid "_Developer"
 msgstr "كود ئاچقۇچى"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "سۈرەت/ۋېدىئونى چىقىرىش"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "سۈرەت/ۋېدىئونى چىقىرىش"
 
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "سۈرەتلەر/ۋېدىئولارنى چىقىرىش"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "ئايلاندۇرۇۋاتىدۇ"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "ئايلاندۇرۇشنى ئەمەلدىن قالدۇرۇۋاتىدۇ"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "گورىزونتال ئايلاندۇرۇۋاتىدۇ"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "گورىزونتال ئايلاندۇرۇشنى ئەمەلدىن قالدۇرۇۋاتىدۇ"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "ۋېرتىكال ئايلاندۇرۇۋاتىدۇ"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "ۋېرتىكال ئايلاندۇرۇشنى ئەمەلدىن قالدۇرۋاتىدۇ"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s مەۋجۇت ئەمەس."
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s ھۆججەت ئەمەس."
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
 "%s."
 msgstr "%s ھۆججەت فورماتى %s نى قوللىمايدۇ."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "كۆپەيتىپ ساقلاش"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s غا قىلغان ئۆزگەرتىشلەرنى تاشلىۋىتەمسىز؟"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "ساقلىمايلا تاقاش"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s نى %s غا ساقلاۋاتقاندا خاتالىك كۆرۈلدى"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "بۆلەك جايغا ساقلاش"
 
@@ -2659,8 +2634,9 @@ msgid "Flagged"
 msgstr "بەلگە قىلىنغان"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "كامىرانى كومپىيۇتىردىن چىقارغىلى بولمىدى، ھۆججەت باشقۇرغۇچتىن چىقىرىپ سىناپ "
 "بىقىڭ."
@@ -2767,48 +2743,48 @@ msgstr "سۈرەت ئۇچۇرىغا ئىرىشىۋاتىدۇ"
 msgid "Fetching preview for %s"
 msgstr "%s نىڭ ئالدىن كۆرۈش نۇسخىسىغا ئىرىشىۋاتىدۇ"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "كامىرا %s نى قۇلۇپلىغىلى بولمىدى"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, fuzzy, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "بۇ سۈرەتلەرنى كامىرادىن ئۆچۈرەمسىز؟"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, fuzzy, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "بۇ ۋېدىئولارنى كامىرادىن ئۆچۈرەمسىز؟"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, fuzzy, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "بۇ سۈرەتلەرنى/ۋېدىئولارنى كامىرادىن ئۆچۈرەمسىز؟"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, fuzzy, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "بۇ ھۆججەتلەرنى كامىرادىن ئۆچۈرەمسىز؟"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "ئۆچۈرۈش"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "ساقلاپ قىلىش"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "كامىرادىن سۈرەت/ۋېدىئولارنى يۆتكەۋاتىدۇ"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2842,7 +2818,7 @@ msgstr "%s كىرگۈزۈلدى"
 msgid "Last Import"
 msgstr "ئالدىنقى قىتىم كىرگۈزۈلگىنى"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s نى چىقارنغىلى بولمىدى: %s"
@@ -3375,10 +3351,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 پىكسىل)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "سىز ھازىرچە Flickr غا كىرمىدىڭىز.\n"
@@ -3873,6 +3850,37 @@ msgstr "چەيزە"
 msgid "Blinds"
 msgstr "پەنجىرە"
 
+#, fuzzy
+#~ msgid "_pixels"
+#~ msgstr " پىكسىل"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "سۈرەتلەرگە \"%s\" دەپ خەتكۈچ قويۇش"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "سۈرەتتىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "سۈرەتلەردىن خەتكۈچ \"%s\" نى ئۆچۈرۈش"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "ئەسلى سۈرەت ھۆججەتلىرىنى ئۆزگەرتىش"
+
+#~ msgid "_Modify original files"
+#~ msgstr "ئەسلى ھۆججەتلەرنى ئۆزگەرتىش"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرامسىز؟"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "باشقا ئۆزگەرتىشلەرنى ئەسلىگە قايتۇرۇش"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "سۈرەتلەرنى ئامباردىن يۆتكىۋىتىش"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "سۈرەتلەر/ۋېدىئولارنى چىقىرىش"
+
 #~ msgid "Return to current photo dimensions"
 #~ msgstr "نۆۋەتتىكى سۈرەت چوڭلۇقىغا قايتۇرۇش"
 
@@ -3944,9 +3952,6 @@ msgstr "پەنجىرە"
 
 #~ msgid "_Show info panel"
 #~ msgstr "ئۇچۇر تاختىسىنى كۆرسىتىش"
-
-#~ msgid "_Hide info panel"
-#~ msgstr "ئۇچۇر تاختىسىنى يوشۇرۇش"
 
 #, fuzzy
 #~ msgid "Edit _Title…"

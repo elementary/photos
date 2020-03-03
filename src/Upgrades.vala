@@ -29,7 +29,7 @@ public class Upgrades {
         // Add all upgrade tasks here.
         add (new MimicsRemovalTask ());
 
-        if (Application.get_instance ().get_raw_thumbs_fix_required ())
+        if (((Photos.Application) GLib.Application.get_default ()).get_raw_thumbs_fix_required ())
             add (new FixupRawThumbnailsTask ());
     }
 

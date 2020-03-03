@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 15:16-0700\n"
+"POT-Creation-Date: 2019-12-15 17:37+0000\n"
 "PO-Revision-Date: 2016-04-18 04:18+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/shotwell/"
@@ -52,7 +52,7 @@ msgstr "%s എന്ന ഡാറ്റാ ഉപഡയറക്റ്ററി 
 #: src/AppWindow.vala:163
 #, fuzzy, c-format
 msgid ""
-"A fatal error occurred when accessing Photos' library.  Photos cannot "
+"A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
@@ -346,8 +346,8 @@ msgid "Export"
 msgstr "കയറ്റുമതി"
 
 #: src/Exporter.vala:332
-#, c-format
-msgid "File %s already exists.  Replace?"
+#, fuzzy, c-format
+msgid "File %s already exists. Replace?"
 msgstr "%s എന്ന ഫയല്‍ നിലവിലുള്ളതാണ്. അതു മാറ്റണോ?"
 
 #: src/Exporter.vala:338
@@ -361,11 +361,11 @@ msgstr "_എല്ലാം മാറ്റിയെഴുതുക"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/Dialogs.vala:810 src/Dialogs/ExportDialog.vala:125
-#: src/Dialogs/ProgressDialog.vala:63 src/Dialogs/TextEntryDialog.vala:74
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:327
+#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "_റദ്ദാക്കുക"
 
@@ -381,7 +381,7 @@ msgstr "ടൂള്‍ബാര്‍ തുറന്ന നിലയില്�
 msgid "Leave fullscreen"
 msgstr "പൂര്‍ണ്ണസ്ക്രീനില്‍ നിന്നും പുറത്ത് കടക്കുക"
 
-#: src/main.vala:68
+#: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
@@ -407,10 +407,6 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
-
-#: src/main.vala:76
-msgid "Your Photo Library Is Not Compatible With This Version Of Photos"
 msgstr ""
 
 #: src/main.vala:77
@@ -882,7 +878,7 @@ msgstr "\"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യു�
 msgid "Delete Tag"
 msgstr "ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:202 src/Resources.vala:245 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_നീക്കം ചെയ്യുക"
 
@@ -915,119 +911,110 @@ msgid "Modify Tags"
 msgstr "ടാഗുകള്‍ തിരുത്തുക"
 
 #: src/Resources.vala:220
-#, c-format
+#, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
-msgstr "ഫോട്ടോ \"%s\" ആയി ടാഗ് ചെയ്യുക"
-
-#: src/Resources.vala:220
-#, c-format
-msgid "Tag Photos as \"%s\""
-msgstr "ഫോട്ടോകള്‍ \"%s\" ആയി ടാഗ് ചെയ്യുക"
+msgid_plural "Tag Photos as \"%s\""
+msgstr[0] "ഫോട്ടോ \"%s\" ആയി ടാഗ് ചെയ്യുക"
+msgstr[1] "ഫോട്ടോ \"%s\" ആയി ടാഗ് ചെയ്യുക"
 
 #: src/Resources.vala:224
-#, c-format
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
-msgstr "_ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+msgid_plural "Remove Tag \"%s\" From _Photos"
+msgstr[0] "_ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+msgstr[1] "_ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:225
-#, c-format
-msgid "Remove Tag \"%s\" From _Photos"
-msgstr "_ഫോട്ടോകളില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
-
-#: src/Resources.vala:229
-#, c-format
+#: src/Resources.vala:228
+#, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
-msgstr "ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+msgid_plural "Remove Tag \"%s\" From Photos"
+msgstr[0] "ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+msgstr[1] "ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:230
-#, c-format
-msgid "Remove Tag \"%s\" From Photos"
-msgstr "ഫോട്ടോകളില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
-
-#: src/Resources.vala:234
+#: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "\"%s\" എന്ന് ടാഗിനെ പേരുമാറ്റാന്‍ കഴിയില്ല കാരണം  ആ പേരില്‍ ഒരു ടാഗ് ആദ്യമേ നിലവിലുണ്ട്."
 
-#: src/Resources.vala:238
+#: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "തിരച്ചിലിന്  \"%s\" എന്നു പേരുമാറ്റാന്‍ സാധ്യമല്ല  കാരണം  ആ പേരില്‍ ഒരു തിരച്ചില്‍ ആദ്യമേ "
 "നിലവിലുണ്ട്"
 
-#: src/Resources.vala:241 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:243
+#: src/Resources.vala:241
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:246
+#: src/Resources.vala:244
 #, fuzzy
 msgid "_Edit…"
 msgstr "‌_തിരുത്തുക"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:245
 #, fuzzy
 msgid "Re_name…"
 msgstr "പേര് _മാറ്റുക"
 
-#: src/Resources.vala:250
+#: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "\"%s\" എന്ന തിരച്ചില്‍ \"%s\" എന്ന പേരിലാക്കുക"
 
-#: src/Resources.vala:254
+#: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" എന്ന തിരച്ചില്‍ മായ്ച് കളയുക"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:284
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:287
+#: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
 msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍ ചവറ്റുകുട്ടയില്‍ നിന്നും  നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
 msgstr "തിരഞ്ഞെടുത്ത ചിത്രങ്ങള്‍ ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:290
+#: src/Resources.vala:288
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:291
+#: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
 msgstr "തിരഞ്ഞെടുത്ത ചിത്രങ്ങള്‍ ലൈബ്രറിയിലേക്ക് തിരിച്ചെടുക്കുക"
 
-#: src/Resources.vala:293
+#: src/Resources.vala:291
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ഫയല്‍ മാനേ_ജറില്‍ കാണിക്കുക"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ഫയല്‍ മാനേജര്‍ തുറക്കാന്‍ കഴിഞ്ഞില്ല :%s"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:297
 msgid "R_emove From Library"
 msgstr "ലൈബ്രറിയില്‍ _നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:299
 msgid "_Move to Trash"
 msgstr "_ചവറ്റുകുട്ടയിലേക്ക് നീക്കുക"
 
-#: src/Resources.vala:303
+#: src/Resources.vala:301
 msgid "Select _All"
 msgstr "എല്ലാം  _തിരഞ്ഞെടുക്കുക"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:302
 msgid "Select all items"
 msgstr "എല്ലാ ഇനങ്ങളൂം  തിരഞ്ഞെടുക്കുക"
 
@@ -1035,20 +1022,20 @@ msgstr "എല്ലാ ഇനങ്ങളൂം  തിരഞ്ഞെടുക
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:343
+#: src/Resources.vala:341
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:348
+#: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:352
+#: src/Resources.vala:350
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1058,14 +1045,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:357 src/Resources.vala:367
+#: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:362
+#: src/Resources.vala:360
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1117,20 +1104,18 @@ msgid "Set _all photos/videos to this time"
 msgstr "എല്ലാ ഫോട്ടോകളും / വീഡിയോകളും  ഈ സമയത്തേക്ക് ക്രമീകരിക്കുക"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
+#, fuzzy
 msgid "_Modify original photo file"
-msgstr "_യഥാര്‍ത്ഥ ഫോട്ടോ ഫയല്‍ തിരുത്തുക"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:114
-msgid "_Modify original photo files"
-msgstr "_യഥാര്‍ത്ഥ ഫോട്ടോ ഫയലുകള്‍ തിരുത്തുക"
+msgid_plural "_Modify original photo files"
+msgstr[0] "_യഥാര്‍ത്ഥ ഫോട്ടോ ഫയല്‍ തിരുത്തുക"
+msgstr[1] "_യഥാര്‍ത്ഥ ഫോട്ടോ ഫയല്‍ തിരുത്തുക"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
+#, fuzzy
 msgid "_Modify original file"
-msgstr "_യഥാര്‍ത്ഥ ഫയല്‍ തിരുത്തുക"
-
-#: src/Dialogs/AdjustDateTimeDialog.vala:117
-msgid "_Modify original files"
-msgstr "_യഥാര്‍ത്ഥ ഫയലുകള്‍ തിരുത്തുക"
+msgid_plural "_Modify original files"
+msgstr[0] "_യഥാര്‍ത്ഥ ഫയല്‍ തിരുത്തുക"
+msgstr[1] "_യഥാര്‍ത്ഥ ഫയല്‍ തിരുത്തുക"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1187,16 +1172,16 @@ msgstr[0] "സെക്കന്റ്"
 msgstr[1] "സെക്കന്റുകള്‍"
 
 #: src/Dialogs/Dialogs.vala:50
-#, c-format
-msgid "This will remove the tag \"%s\" from one photo.  Continue?"
-msgid_plural "This will remove the tag \"%s\" from %d photos.  Continue?"
+#, fuzzy, c-format
+msgid "This will remove the tag \"%s\" from one photo. Continue?"
+msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "ഇത് \"%s \" എന്ന ടാഗ് ഫോട്ടോയില്‍ നിന്ന് നീക്കം  ചെയ്യും , തുടരട്ടെ?"
 msgstr[1] "ഇത് \"%s \" എന്ന ടാഗ് %d ഫോട്ടോകളില്‍ നിന്ന് നീക്കം  ചെയ്യും , തുടരട്ടെ?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, c-format
-msgid "This will remove the smart album \"%s\".  Continue?"
-msgstr ""
+#, fuzzy, c-format
+msgid "This will remove the smart album \"%s\". Continue?"
+msgstr "ഇത് \"%s \" എന്ന ടാഗ് ഫോട്ടോയില്‍ നിന്ന് നീക്കം  ചെയ്യും , തുടരട്ടെ?"
 
 #: src/Dialogs/Dialogs.vala:66
 #, fuzzy
@@ -1225,17 +1210,20 @@ msgstr "_ഡെവലപ്പര്‍ മാറ്റുക"
 msgid "Export Video"
 msgstr "ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:600
-#: src/Views/LibraryPhotoPage.vala:803
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
+#: src/Views/LibraryPhotoPage.vala:804
+#, fuzzy
 msgid "Export Photo"
-msgstr "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
+msgid_plural "Export Photos"
+msgstr[0] "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
+msgstr[1] "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:314
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
 msgid "_Save"
 msgstr "_സൂക്ഷിയ്ക്കുക"
 
-#: src/Dialogs/Dialogs.vala:125 src/Views/CollectionPage.vala:600
+#: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
 msgstr "ഫോട്ടോകള്‍ കയറ്റുമതി ചെയ്യുക"
 
@@ -1639,50 +1627,48 @@ msgid "Name:"
 msgstr "പേരു്:"
 
 #: src/Dialogs/Dialogs.vala:800
+#, fuzzy
 msgid "Revert External Edit?"
-msgstr "ബാഹ്യ തിരുത്തല്‍ എടുത്തുകളയട്ടെ?"
-
-#: src/Dialogs/Dialogs.vala:800
-msgid "Revert External Edits?"
-msgstr "ബാഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയട്ടെ?"
+msgid_plural "Revert External Edits?"
+msgstr[0] "ബാഹ്യ തിരുത്തല്‍ എടുത്തുകളയട്ടെ?"
+msgstr[1] "ബാഹ്യ തിരുത്തല്‍ എടുത്തുകളയട്ടെ?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, c-format
-msgid "This will destroy all changes made to the external file.  Continue?"
+#, fuzzy, c-format
+msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
-"This will destroy all changes made to %d external files.  Continue?"
+"This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "ബാഹ്യഫയലിനു വരുത്തിയ മാറ്റങ്ങള്‍ നഷ്ടപ്പെടാന്‍ ഇതു കാരണമാകും . തുടരണോ?"
 msgstr[1] "%d ബാഹ്യഫയലുകള്‍ക്ക്  വരുത്തിയ മാറ്റങ്ങള്‍ നഷ്ടപ്പെടാന്‍ ഇതു കാരണമാകും . തുടരണോ?"
 
-#: src/Dialogs/Dialogs.vala:806
+#: src/Dialogs/Dialogs.vala:807
+#, fuzzy
 msgid "Re_vert External Edit"
-msgstr "ബാ_ഹ്യ തിരുത്തല്‍ എടുത്തുകളയുക"
+msgid_plural "Re_vert External Edits"
+msgstr[0] "ബാ_ഹ്യ തിരുത്തല്‍ എടുത്തുകളയുക"
+msgstr[1] "ബാ_ഹ്യ തിരുത്തല്‍ എടുത്തുകളയുക"
 
-#: src/Dialogs/Dialogs.vala:806
-msgid "Re_vert External Edits"
-msgstr "ബാ_ഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയുക"
-
-#: src/Dialogs/Dialogs.vala:828
+#: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
 msgstr "ഫോട്ടോ ലൈബ്രറിയില്‍ നിന്ന് കളയുക"
 
-#: src/Dialogs/Dialogs.vala:829
+#: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
 msgstr "ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്ന് കളയുക"
 
-#: src/Dialogs/Dialogs.vala:834
-#, c-format
-msgid "This will remove the photo from the library.  Continue?"
-msgid_plural "This will remove %d photos from the library.  Continue?"
+#: src/Dialogs/Dialogs.vala:839
+#, fuzzy, c-format
+msgid "This will remove the photo from the library. Continue?"
+msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "ഇങ്ങനെ ചെയ്യുന്നതു ഫോട്ടോ ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യാന്‍ കാരണമാകും . തുടരണോ?"
 msgstr[1] ""
 "ഇങ്ങനെ ചെയ്യുന്നതു %d ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യാന്‍ കാരണമാകും . തുടരണോ?"
 
-#: src/Dialogs/Dialogs.vala:847
+#: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
 msgstr "_"
 
-#: src/Dialogs/Dialogs.vala:868
+#: src/Dialogs/Dialogs.vala:872
 #, c-format
 msgid ""
 "\n"
@@ -1703,7 +1689,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:888
+#: src/Dialogs/Dialogs.vala:895
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1712,32 +1698,31 @@ msgstr ""
 "ഷോട്ട്‌‌വെല്ലിന് ഫോട്ടോകളെ നിങ്ങളുടെ ലൈബ്രറിയിലേക്ക് കോപ്പി ചെയ്യാനും , കോപ്പി ചെയ്യാതെ തന്നെ "
 "ഇറക്കുമതി ചെയ്യാനും  കഴിയും."
 
-#: src/Dialogs/Dialogs.vala:893
-msgid "Co_py Photos"
-msgstr "ഫോട്ടോകളുടെ പകര്‍പ്പു_കള്‍ എടുക്കുന്നു"
-
-#: src/Dialogs/Dialogs.vala:894
-msgid "_Import in Place"
-msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് ഇറക്കുമതി ചെയ്യുക"
-
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
 msgstr "ലൈബ്രറിയിലേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:905 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:905
+msgid "Co_py Photos"
+msgstr "ഫോട്ടോകളുടെ പകര്‍പ്പു_കള്‍ എടുക്കുന്നു"
+
+#: src/Dialogs/Dialogs.vala:906
+msgid "_Import in Place"
+msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് ഇറക്കുമതി ചെയ്യുക"
+
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:906 src/Views/LibraryPhotoPage.vala:724
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
+#, fuzzy
 msgid "Removing Photo From Library"
-msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു"
-
-#: src/Dialogs/Dialogs.vala:906
-msgid "Removing Photos From Library"
-msgstr "ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്നും  നീക്കം  ചെയ്യുന്നു"
+msgid_plural "Removing Photos From Library"
+msgstr[0] "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു"
+msgstr[1] "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:942
+#: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1755,28 +1740,28 @@ msgstr "തിരുത്താത്തവ"
 msgid "Current"
 msgstr "ഇപ്പോഴത്തേത്"
 
-#: src/Dialogs/ExportDialog.vala:57
+#: src/Dialogs/ExportDialog.vala:56
 msgid "_Format:"
 msgstr "_ഫോര്‍മാറ്റ്"
 
-#: src/Dialogs/ExportDialog.vala:69
+#: src/Dialogs/ExportDialog.vala:68
 msgid "_Quality:"
 msgstr "_ഗുണനിലവാരം"
 
-#: src/Dialogs/ExportDialog.vala:83
+#: src/Dialogs/ExportDialog.vala:82
 msgid "_Scaling constraint:"
 msgstr "_ആനുപാതിക നിയന്ത്രകം/പരിധി:"
 
-#: src/Dialogs/ExportDialog.vala:102
+#: src/Dialogs/ExportDialog.vala:101
 #, fuzzy
-msgid "_pixels"
+msgid "_Size in pixels:"
 msgstr " _പിക്സലുകള്‍"
 
-#: src/Dialogs/ExportDialog.vala:105
+#: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
 msgstr "മെറ്റാഡാറ്റ കയറ്റുമതി ചെയ്യുന്നു"
 
-#: src/Dialogs/ExportDialog.vala:127
+#: src/Dialogs/ExportDialog.vala:128
 msgid "_Export"
 msgstr ""
 
@@ -1798,8 +1783,9 @@ msgid "R_ename imported files to lowercase:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:74
-msgid "Write  _metadata to files:"
-msgstr ""
+#, fuzzy
+msgid "Write _metadata to files:"
+msgstr "ഫയലുകളിലേക്ക് മെറ്റാഡാറ്റ ചേര്‍ക്കുന്നു..."
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1828,7 +1814,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:419
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
 msgid "Save"
 msgstr ""
 
@@ -1857,7 +1843,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
-#: src/Views/DirectPhotoPage.vala:420
+#: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr ""
 
@@ -2528,8 +2514,8 @@ msgstr "ടാഗുകള്‍"
 msgid "Photos cannot be exported to this directory."
 msgstr "ഈ ഡയറക്റ്ററിയിലേക്ക് ഫോട്ടോകള്‍ കയറ്റുമതി ചെയ്യാന്‍ കഴിയില്ല"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:914
-#: src/Views/CollectionPage.vala:915 src/Views/PhotosPage.vala:64
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
+#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ഒരു ഫോട്ടോയും/വീഡിയോയും  ഇല്ല"
@@ -2554,79 +2540,78 @@ msgstr "നഖചിത്രങ്ങളുടെ വലുപ്പം  ക്
 msgid "_Developer"
 msgstr "_ഡെവെലപ്പര്‍"
 
-#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:155
+#: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:598
+#: src/Views/CollectionPage.vala:599
+#, fuzzy
 msgid "Export Photo/Video"
-msgstr "ഫോട്ടോ/ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
+msgid_plural "Export Photos/Videos"
+msgstr[0] "ഫോട്ടോ/ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
+msgstr[1] "ഫോട്ടോ/ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 
-#: src/Views/CollectionPage.vala:598
-msgid "Export Photos/Videos"
-msgstr "ഫോട്ടോകള്‍/ചലച്ചിത്രങ്ങള്‍ കയറ്റുമതി ചെയ്യുക"
-
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
 msgstr "കറക്കുക"
 
-#: src/Views/CollectionPage.vala:693 src/Views/CollectionPage.vala:709
+#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Undoing Rotate"
 msgstr "കറക്കല്‍ നിരാകരിക്കുക"
 
-#: src/Views/CollectionPage.vala:718
+#: src/Views/CollectionPage.vala:719
 msgid "Flipping Horizontally"
 msgstr "വിലങ്ങനെ അകമ്പുറം  മറിക്കുക"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Undoing Flip Horizontally"
 msgstr "വിലങ്ങനെ അകമ്പുറം  മറിച്ചത് നിരാകരിക്കുക"
 
-#: src/Views/CollectionPage.vala:728
+#: src/Views/CollectionPage.vala:729
 msgid "Flipping Vertically"
 msgstr "കുത്തനെ അകമ്പുറം  മറിക്കുക"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Undoing Flip Vertically"
 msgstr "കൂത്തനെ അകമ്പുറം  മറിച്ചത് നിരാകരിക്കുക"
 
-#: src/Views/DirectPhotoPage.vala:95
+#: src/Views/DirectPhotoPage.vala:98
 #, c-format
 msgid "%s does not exist."
 msgstr "%s നിലവിലില്ല"
 
-#: src/Views/DirectPhotoPage.vala:97
+#: src/Views/DirectPhotoPage.vala:100
 #, c-format
 msgid "%s is not a file."
 msgstr "%s ഒരു ഫയലല്ല"
 
-#: src/Views/DirectPhotoPage.vala:99
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
 "%s."
 msgstr "%s %s എന്ന ഫയല്‍ഫോര്‍മാറ്റ് സപ്പോര്‍ട്ട് ചെയ്യുന്നില്ല."
 
-#: src/Views/DirectPhotoPage.vala:314
+#: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
 msgstr "_ഒരു പതിപ്പ് സൂക്ഷിച്ചുവെക്കുക"
 
-#: src/Views/DirectPhotoPage.vala:317
+#: src/Views/DirectPhotoPage.vala:431
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s നുശേഷമുള്ള മാറ്റങ്ങള്‍ നശിപ്പിക്കട്ടെ?"
 
-#: src/Views/DirectPhotoPage.vala:324
+#: src/Views/DirectPhotoPage.vala:438
 msgid "Close _without Saving"
 msgstr "സംരക്ഷിക്കാതെ _അടക്കുക"
 
-#: src/Views/DirectPhotoPage.vala:364
+#: src/Views/DirectPhotoPage.vala:478
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s ലേക്ക് സൂക്ഷിക്കുന്നതില്‍ പിഴവ് : %s"
 
-#: src/Views/DirectPhotoPage.vala:394 src/Views/DirectPhotoPage.vala:416
+#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
 msgid "Save As"
 msgstr "ഇങ്ങനെ സംരക്ഷിക്കുക"
 
@@ -2713,8 +2698,9 @@ msgid "Flagged"
 msgstr "മുദ്രവെച്ചവ"
 
 #: src/Views/ImportPage.vala:464
+#, fuzzy
 msgid ""
-"Unable to unmount camera.  Try unmounting the camera from the file manager."
+"Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "ക്യാമറയുമായുള്ള ബന്ധം  വിച്ഛേദിക്കാന്‍ സാധിച്ചില്ല , ഫയല്‍ മാനേജറില്‍ നിന്നും  ബന്ധം  "
 "വിച്ഛേദിക്കാന്‍ ശ്രമിക്കൂ"
@@ -2822,52 +2808,52 @@ msgstr "ഫോട്ടോയുടെ വിവരങ്ങള്‍ ശേഖ�
 msgid "Fetching preview for %s"
 msgstr "%s നു വേണ്ടി തിരനോട്ടം  ശേഖരിക്കുന്നു"
 
-#: src/Views/ImportPage.vala:1726
+#: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "ക്യാമറ ബന്ധിക്കാന്‍ സാധിച്ചില്ല : %s"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "ഈ ഫോട്ടോ  ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "%d ഫോട്ടോകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1814
+#: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "ഈ ചലച്ചിത്രം ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "%d ചലച്ചിത്രങ്ങള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1817
+#: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "ഈ ഫോട്ടോ/ചലച്ചിത്രം ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "ഈ %d ഫോട്ടോകള്‍/ചലച്ചിത്രങ്ങള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1820
+#: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "ഈ ഫയല്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 msgstr[1] "ഈ %d ഫയലുകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യട്ടെ?"
 
-#: src/Views/ImportPage.vala:1828 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "നീക്കം ചെയ്യുക"
 
-#: src/Views/ImportPage.vala:1828
+#: src/Views/ImportPage.vala:1832
 msgid "_Keep"
 msgstr "_സൂക്ഷിക്കുക"
 
-#: src/Views/ImportPage.vala:1847
+#: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
 msgstr "ഫോട്ടോകള്‍/വീഡിയോകള്‍ ക്യാമറയില്‍ നിന്ന് നീക്കം  ചെയ്യുന്നു."
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2905,7 +2891,7 @@ msgstr "ഇറക്കുമതി ചെയ്തു %s"
 msgid "Last Import"
 msgstr "അവസാനത്തെ ഇറക്കുമതി"
 
-#: src/Views/LibraryPhotoPage.vala:823
+#: src/Views/LibraryPhotoPage.vala:824
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s കയറ്റുമതി ചെയ്യാന്‍ കഴിഞ്ഞില്ല : %s"
@@ -3434,10 +3420,11 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "ഗൂഗിള്‍+ (2048x1536 കുത്തുകള്‍)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
-"Click Login to log into Flickr in your Web browser.  You will have to "
+"Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
 "നിങ്ങള്‍ ഇപ്പോള്‍ ഫ്ലിക്കറില്‍ ലോഗിന്‍ ചെയ്തിട്ടില്ല \n"
@@ -3907,6 +3894,33 @@ msgstr "ചെസ്സ്"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ബ്ലൈന്‍ഡുകള്‍"
+
+#~ msgid "Tag Photos as \"%s\""
+#~ msgstr "ഫോട്ടോകള്‍ \"%s\" ആയി ടാഗ് ചെയ്യുക"
+
+#~ msgid "Remove Tag \"%s\" From _Photos"
+#~ msgstr "_ഫോട്ടോകളില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+
+#~ msgid "Remove Tag \"%s\" From Photos"
+#~ msgstr "ഫോട്ടോകളില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
+
+#~ msgid "_Modify original photo files"
+#~ msgstr "_യഥാര്‍ത്ഥ ഫോട്ടോ ഫയലുകള്‍ തിരുത്തുക"
+
+#~ msgid "_Modify original files"
+#~ msgstr "_യഥാര്‍ത്ഥ ഫയലുകള്‍ തിരുത്തുക"
+
+#~ msgid "Revert External Edits?"
+#~ msgstr "ബാഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയട്ടെ?"
+
+#~ msgid "Re_vert External Edits"
+#~ msgstr "ബാ_ഹ്യ തിരുത്തലുകള്‍ എടുത്തുകളയുക"
+
+#~ msgid "Removing Photos From Library"
+#~ msgstr "ഫോട്ടോകള്‍ ലൈബ്രറിയില്‍ നിന്നും  നീക്കം  ചെയ്യുന്നു"
+
+#~ msgid "Export Photos/Videos"
+#~ msgstr "ഫോട്ടോകള്‍/ചലച്ചിത്രങ്ങള്‍ കയറ്റുമതി ചെയ്യുക"
 
 #~ msgid "_View"
 #~ msgstr "_കാണുക"
@@ -4427,9 +4441,6 @@ msgstr "ബ്ലൈന്‍ഡുകള്‍"
 
 #~ msgid "Auto-importing photos..."
 #~ msgstr "ഫോട്ടോകള്‍ താനേ ഇറക്കുമതി ചെയ്യുന്നു..."
-
-#~ msgid "Writing metadata to files..."
-#~ msgstr "ഫയലുകളിലേക്ക് മെറ്റാഡാറ്റ ചേര്‍ക്കുന്നു..."
 
 #~ msgid "Automatically improve the photo's appearance"
 #~ msgstr "ഫോട്ടോയുടെ പുറംകാഴ്ച താനേ മെച്ചപ്പെടുത്തുക"

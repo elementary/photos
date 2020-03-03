@@ -113,4 +113,3 @@ public class SavedSearchPage : CollectionPage {
         base.update_actions (selected_count, count);
     }
 }
-
