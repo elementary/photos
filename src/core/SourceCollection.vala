@@ -231,4 +231,3 @@ public abstract class SourceCollection : DataCollection {
         notify_backlink_removed (backlink, sources);
     }
 }
-

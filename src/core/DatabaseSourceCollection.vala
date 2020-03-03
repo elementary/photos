@@ -96,4 +96,3 @@ public class DatabaseSourceHoldingTank : SourceHoldingTank {
         base.notify_contents_altered (added, removed);
     }
 }
-

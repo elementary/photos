@@ -60,4 +60,3 @@ public class EventView : ThumbnailView {
         return (EventSource) source;
     }
 }
-
