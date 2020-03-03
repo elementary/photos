@@ -484,6 +484,4 @@ private void load_module (File file) {
     foreach (Spit.Pluggable pluggable in module_rep.spit_module.get_pluggables ())
         pluggable_table.set (pluggable.get_id (), new PluggableRep (pluggable));
 }
-
 }
-

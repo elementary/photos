@@ -564,6 +564,4 @@ public class PublishingDialog : Gtk.Dialog {
         return result;
     }
 }
-
 }
-

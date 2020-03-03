@@ -128,4 +128,3 @@ public class KeyValueMap {
         map.set (key, "(%d, %d)".printf (point.x, point.y));
     }
 }
-

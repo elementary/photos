@@ -251,4 +251,3 @@ public bool file_equal (File? a, File? b) {
 public uint file_hash (File? file) {
     return file != null ? file.hash () : 0;
 }
-

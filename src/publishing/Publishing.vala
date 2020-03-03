@@ -29,6 +29,4 @@ public void init () throws Error {
     Plugins.register_extension_point (typeof (Spit.Publishing.Service), _ ("Publishing"),
     Resources.PUBLISH, core_ids);
 }
-
 }
-

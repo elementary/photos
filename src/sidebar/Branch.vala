@@ -222,7 +222,7 @@ public class Sidebar.Branch : Object {
                    CompareFunc<Sidebar.Entry>? root_comparator = null) {
 
         this.default_comparator = default_comparator;
-        this.root = new Node(root, null, (root_comparator != null) ? root_comparator : default_comparator);
+        this.root = new Node (root, null, (root_comparator != null) ? root_comparator : default_comparator);
         this.options = options;
 
         map.set (root, this.root);
@@ -269,7 +269,7 @@ public class Sidebar.Branch : Object {
 
         Node parent_node = map.get (parent);
 
-        Node entry_node = new Node(entry, parent_node, (comparator != null) ? comparator : default_comparator);
+        Node entry_node = new Node (entry, parent_node, (comparator != null) ? comparator : default_comparator);
 
         parent_node.add_child (entry_node);
         map.set (entry, entry_node);
@@ -446,4 +446,3 @@ public class Sidebar.Branch : Object {
         children_reordered (node.entry);
     }
 }
-
