@@ -63,29 +63,29 @@ public abstract class MediaPage : CheckerboardPage {
 
             var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
             var sidebar_action = get_common_action ("CommonDisplaySidebar");
-            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var title_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Titles"));
             var title_action = get_action ("ViewTitle");
-            title_action.bind_property ("active", title_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            title_action.bind_property ("active", title_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var comment_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Comments"));
             var comment_action = get_action ("ViewComment");
-            comment_action.bind_property ("active", comment_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            comment_action.bind_property ("active", comment_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var tags_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Ta_gs"));
             var tags_action = get_action ("ViewTags");
-            tags_action.bind_property ("active", tags_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            tags_action.bind_property ("active", tags_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var sort_photos_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Photos"));
 
             var by_title_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("By _Title"));
             var by_title_action = get_action ("SortByTitle");
-            by_title_action.bind_property ("active", by_title_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            by_title_action.bind_property ("active", by_title_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             by_title_menu_item.activate.connect (() => {
                 if (by_title_menu_item.active) {
                     by_title_action.activate ();
@@ -94,7 +94,7 @@ public abstract class MediaPage : CheckerboardPage {
 
             var by_exposure_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (by_title_menu_item, _("By Exposure _Date"));
             var by_exposure_action = get_action ("SortByExposureDate");
-            by_exposure_action.bind_property ("active", by_exposure_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            by_exposure_action.bind_property ("active", by_exposure_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             by_exposure_menu_item.activate.connect (() => {
                 if (by_exposure_menu_item.active) {
                     by_exposure_action.activate ();
@@ -103,7 +103,7 @@ public abstract class MediaPage : CheckerboardPage {
 
             var ascending_photos_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
             var ascending_photos_action = get_action ("SortAscending");
-            ascending_photos_action.bind_property ("active", ascending_photos_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_photos_action.bind_property ("active", ascending_photos_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             ascending_photos_menu_item.activate.connect (() => {
                 if (ascending_photos_menu_item.active) {
                     ascending_photos_action.activate ();
@@ -112,7 +112,7 @@ public abstract class MediaPage : CheckerboardPage {
 
             var descending_photos_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_photos_menu_item, _("D_escending"));
             var descending_photos_action = get_action ("SortDescending");
-            descending_photos_action.bind_property ("active", descending_photos_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_photos_action.bind_property ("active", descending_photos_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             descending_photos_menu_item.activate.connect (() => {
                 if (descending_photos_menu_item.active) {
                     descending_photos_action.activate ();
@@ -131,7 +131,7 @@ public abstract class MediaPage : CheckerboardPage {
 
             var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
             var ascending_action = get_common_action ("CommonSortEventsAscending");
-            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            ascending_action.bind_property ("active", ascending_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             ascending_menu_item.activate.connect (() => {
                 if (ascending_menu_item.active) {
                     ascending_action.activate ();
@@ -140,7 +140,7 @@ public abstract class MediaPage : CheckerboardPage {
 
             var descending_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (ascending_menu_item, _("D_escending"));
             var descending_action = get_common_action ("CommonSortEventsDescending");
-            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            descending_action.bind_property ("active", descending_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             descending_menu_item.activate.connect (() => {
                 if (descending_menu_item.active) {
                     descending_action.activate ();
@@ -199,7 +199,7 @@ public abstract class MediaPage : CheckerboardPage {
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
         Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
         Gtk.ActionEntry new_event = { "NewEvent", null, null, "<Ctrl>N", null, on_new_event };
-        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus",  null, on_increase_size };
+        Gtk.ActionEntry increase_size = { "IncreaseSize", null, null, "<Ctrl>plus", null, on_increase_size };
         Gtk.ActionEntry decrease_size = { "DecreaseSize", null, null, "<Ctrl>minus", null, on_decrease_size };
         Gtk.ActionEntry flag = { "Flag", null, null, "<Ctrl>G", null, on_flag_unflag };
         Gtk.ActionEntry sort_photos = { "SortPhotos", null, null, null, null, null };

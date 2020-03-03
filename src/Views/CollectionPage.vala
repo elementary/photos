@@ -126,7 +126,7 @@ public abstract class CollectionPage : MediaPage {
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
             var revert_action = get_action ("Revert");
@@ -594,10 +594,12 @@ public abstract class CollectionPage : MediaPage {
         }
 
         string title = null;
-        if (has_some_videos)
+        if (has_some_videos) {
             title = (export_list.size == 1) ? _ ("Export Photo/Video") : _ ("Export Photos/Videos");
-        else
-            title = (export_list.size == 1) ?  _ ("Export Photo") : _ ("Export Photos");
+        } else {
+            title = (export_list.size == 1) ? _ ("Export Photo") : _ ("Export Photos");
+        }
+
         ExportDialog export_dialog = new ExportDialog (title);
 
         // Setting up the parameters object requires a bit of thinking about what the user wants.

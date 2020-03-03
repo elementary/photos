@@ -55,4 +55,3 @@ public class FlaggedPage : CollectionPage {
         return search_filter;
     }
 }
-

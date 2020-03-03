@@ -482,7 +482,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE|BindingFlags.BIDIRECTIONAL);
+            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
             var revert_action = get_action ("Revert");
@@ -840,7 +840,7 @@ public class LibraryPhotoPage : EditingHostPage {
                                   get_photo ().is_raw_developer_available (RawDeveloper.SHOTWELL));
             set_action_sensitive ("RawDeveloperCamera",
                                   get_photo ().is_raw_developer_available (RawDeveloper.EMBEDDED) ||
-                                  get_photo ().is_raw_developer_available (RawDeveloper.CAMERA));;
+                                  get_photo ().is_raw_developer_available (RawDeveloper.CAMERA));
 
             // Set active developer in menu.
             switch (get_photo ().get_raw_developer ()) {
