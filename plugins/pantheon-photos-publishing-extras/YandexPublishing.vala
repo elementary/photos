@@ -644,7 +644,7 @@ public class YandexPublisher : Spit.Publishing.Publisher, GLib.Object {
     private void start_web_auth () {
         host.set_service_locked (false);
 
-        web_auth_pane = new WebAuthPane (("http://oauth.yandex.ru/authorize?CLIENT_ID=%s&response_type=token").printf (CLIENT_ID));
+        web_auth_pane = new WebAuthPane (("http://oauth.yandex.ru/authorize?client_id=%s&response_type=token").printf (CLIENT_ID));
         web_auth_pane.login_succeeded.connect (web_auth_login_succeeded);
         web_auth_pane.login_failed.connect (web_auth_login_failed);
 

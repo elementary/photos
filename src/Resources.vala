@@ -423,7 +423,7 @@ public string get_start_multimonth_span_format_string () {
         fetch_lc_time_format ();
     }
 
-    return start_multimonth_date_format_string ;
+    return start_multimonth_date_format_string;
 }
 
 public string get_end_multimonth_span_format_string () {
