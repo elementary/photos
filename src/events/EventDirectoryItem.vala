@@ -177,5 +177,3 @@ class EventDirectoryItem : CheckerboardItem {
             set_comment ("");
     }
 }
-
-

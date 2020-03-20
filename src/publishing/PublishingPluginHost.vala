@@ -246,6 +246,4 @@ public class ConcretePublishingHost : Plugins.StandardHostInterface,
         return report_plugin_upload_progress;
     }
 }
-
 }
-

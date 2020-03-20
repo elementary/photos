@@ -1005,9 +1005,9 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
         FAILED_RETRY_URL,
         FAILED_RETRY_USER
     }
-    private static string INTRO_MESSAGE = _ ("Enter the URL of your Piwigo photo library as well as the username and password associated with your Piwigo account for that library.");
-    private static string FAILED_RETRY_URL_MESSAGE = _ ("Shotwell cannot contact your Piwigo photo library. Please verify the URL you entered");
-    private static string FAILED_RETRY_USER_MESSAGE = _ ("Username and/or password invalid. Please try again");
+    private static string intro_message = _ ("Enter the URL of your Piwigo photo library as well as the username and password associated with your Piwigo account for that library.");
+    private static string failed_retry_url_message = _ ("Shotwell cannot contact your Piwigo photo library. Please verify the URL you entered");
+    private static string failed_retry_user_message = _ ("Username and/or password invalid. Please try again");
 
     private Gtk.Box pane_widget = null;
     private Gtk.Builder builder;
@@ -1031,17 +1031,17 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
             Gtk.Label message_label = builder.get_object ("message_label") as Gtk.Label;
             switch (mode) {
             case Mode.INTRO:
-                message_label.set_text (INTRO_MESSAGE);
+                message_label.set_text (intro_message);
                 break;
 
             case Mode.FAILED_RETRY_URL:
                 message_label.set_markup ("<b>%s</b>\n\n%s".printf (_ (
-                                              "Invalid URL"), FAILED_RETRY_URL_MESSAGE));
+                                              "Invalid URL"), failed_retry_url_message));
                 break;
 
             case Mode.FAILED_RETRY_USER:
                 message_label.set_markup ("<b>%s</b>\n\n%s".printf (_ (
-                                              "Invalid User Name or Password"), FAILED_RETRY_USER_MESSAGE));
+                                              "Invalid User Name or Password"), failed_retry_user_message));
                 break;
             }
 
@@ -1131,7 +1131,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
  */
 internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
 
-    private static string DEFAULT_CATEGORY_NAME = _ ("Shotwell Connect");
+    private static string default_category_name = _ ("Shotwell Connect");
 
     private Gtk.Box pane_widget = null;
     private Gtk.Builder builder;
@@ -1402,8 +1402,8 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
             album_comment.set_sensitive (false);
             album_comment_label.set_sensitive (false);
         }
-        if (!category_already_exists (DEFAULT_CATEGORY_NAME))
-            new_category_entry.set_text (DEFAULT_CATEGORY_NAME);
+        if (!category_already_exists (default_category_name))
+            new_category_entry.set_text (default_category_name);
     }
 
     private void create_within_categories_combo () {
@@ -1727,7 +1727,7 @@ private class ImagesAddTransaction : Publishing.RESTSupport.UploadTransaction {
 
         GLib.HashTable<string, string> disposition_table =
             new GLib.HashTable<string, string> (GLib.str_hash, GLib.str_equal);
-        disposition_table.insert ("filename",  Soup.URI.encode (
+        disposition_table.insert ("filename", Soup.URI.encode (
                                       publishable.get_param_string (
                                           Spit.Publishing.Publishable.PARAM_STRING_BASENAME), null));
         disposition_table.insert ("name", "image");

@@ -54,4 +54,3 @@ public class Library.OfflineSidebarEntry : Library.HideablePageEntry {
         return total;
     }
 }
-

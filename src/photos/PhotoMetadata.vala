@@ -139,7 +139,7 @@ public class PhotoMetadata : MediaMetadata {
 
         public override uint8[] flatten () throws Error {
             unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
-            assert (props != null  &&props.length > number);
+            assert (props != null && props.length > number);
 
             return owner.exiv2.get_preview_image (props[number]).get_data ();
         }
@@ -702,25 +702,25 @@ public class PhotoMetadata : MediaMetadata {
         exiv2.clear ();
     }
 
-    private static string[] DATE_TIME_TAGS = {
+    private static string[] date_time_tags = {
         "Exif.Image.DateTime",
         "Xmp.tiff.DateTime",
         "Xmp.xmp.ModifyDate"
     };
 
     public MetadataDateTime? get_modification_date_time () {
-        return get_first_date_time (DATE_TIME_TAGS);
+        return get_first_date_time (date_time_tags);
     }
 
     public void set_modification_date_time (MetadataDateTime? date_time,
                                             SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (DATE_TIME_TAGS, date_time, option);
+            set_all_date_time (date_time_tags, date_time, option);
         else
-            remove_tags (DATE_TIME_TAGS);
+            remove_tags (date_time_tags);
     }
 
-    private static string[] EXPOSURE_DATE_TIME_TAGS = {
+    private static string[] exposure_date_time_tags = {
         "Exif.Photo.DateTimeOriginal",
         "Xmp.exif.DateTimeOriginal",
         "Xmp.xmp.CreateDate",
@@ -730,32 +730,32 @@ public class PhotoMetadata : MediaMetadata {
     };
 
     public MetadataDateTime? get_exposure_date_time () {
-        return get_first_date_time (EXPOSURE_DATE_TIME_TAGS);
+        return get_first_date_time (exposure_date_time_tags);
     }
 
     public void set_exposure_date_time (MetadataDateTime? date_time,
                                         SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (EXPOSURE_DATE_TIME_TAGS, date_time, option);
+            set_all_date_time (exposure_date_time_tags, date_time, option);
         else
-            remove_tags (EXPOSURE_DATE_TIME_TAGS);
+            remove_tags (exposure_date_time_tags);
     }
 
-    private static string[] DIGITIZED_DATE_TIME_TAGS = {
+    private static string[] digitized_date_time_tags = {
         "Exif.Photo.DateTimeDigitized",
         "Xmp.exif.DateTimeDigitized"
     };
 
     public MetadataDateTime? get_digitized_date_time () {
-        return get_first_date_time (DIGITIZED_DATE_TIME_TAGS);
+        return get_first_date_time (digitized_date_time_tags);
     }
 
     public void set_digitized_date_time (MetadataDateTime? date_time,
                                          SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (DIGITIZED_DATE_TIME_TAGS, date_time, option);
+            set_all_date_time (digitized_date_time_tags, date_time, option);
         else
-            remove_tags (DIGITIZED_DATE_TIME_TAGS);
+            remove_tags (digitized_date_time_tags);
     }
 
     public override MetadataDateTime? get_creation_date_time () {
@@ -766,14 +766,14 @@ public class PhotoMetadata : MediaMetadata {
         return creation;
     }
 
-    private static string[] WIDTH_TAGS = {
+    private static string[] width_tags = {
         "Exif.Photo.PixelXDimension",
         "Xmp.exif.PixelXDimension",
         "Xmp.tiff.ImageWidth",
         "Xmp.exif.PixelXDimension"
     };
 
-    public static string[] HEIGHT_TAGS = {
+    public static string[] height_tags = {
         "Exif.Photo.PixelYDimension",
         "Xmp.exif.PixelYDimension",
         "Xmp.tiff.ImageHeight",
@@ -782,16 +782,16 @@ public class PhotoMetadata : MediaMetadata {
 
     public Dimensions? get_pixel_dimensions () {
         // walk the tag arrays concurrently, returning the dimensions of the first found pair
-        assert (WIDTH_TAGS.length == HEIGHT_TAGS.length);
-        for (int ctr = 0; ctr < WIDTH_TAGS.length; ctr++) {
+        assert (width_tags.length == height_tags.length);
+        for (int ctr = 0; ctr < width_tags.length; ctr++) {
             // Can't turn this into a single if statement with an || bailing out due to this bug:
             // https://bugzilla.gnome.org/show_bug.cgi?id=565385
             long width;
-            if (!get_long (WIDTH_TAGS[ctr], out width))
+            if (!get_long (width_tags[ctr], out width))
                 continue;
 
             long height;
-            if (!get_long (HEIGHT_TAGS[ctr], out height))
+            if (!get_long (height_tags[ctr], out height))
                 continue;
 
             return Dimensions ((int) width, (int) height);
@@ -802,11 +802,11 @@ public class PhotoMetadata : MediaMetadata {
 
     public void set_pixel_dimensions (Dimensions? dim, SetOption option = SetOption.ALL_DOMAINS) {
         if (dim != null) {
-            set_all_long (WIDTH_TAGS, dim.width, option);
-            set_all_long (HEIGHT_TAGS, dim.height, option);
+            set_all_long (width_tags, dim.width, option);
+            set_all_long (height_tags, dim.height, option);
         } else {
-            remove_tags (WIDTH_TAGS);
-            remove_tags (HEIGHT_TAGS);
+            remove_tags (width_tags);
+            remove_tags (height_tags);
         }
     }
 
@@ -832,7 +832,7 @@ public class PhotoMetadata : MediaMetadata {
 
     private const string IPHOTO_TITLE_TAG = "Iptc.Application2.ObjectName";
 
-    private static string[] STANDARD_TITLE_TAGS = {
+    private static string[] standard_title_tags = {
         "Iptc.Application2.Caption",
         "Xmp.dc.title",
         "Iptc.Application2.Headline",
@@ -849,7 +849,7 @@ public class PhotoMetadata : MediaMetadata {
         // but get_string_multiple will return a list of titles w/o language information
         Gee.List<string>? titles = has_tag (IPHOTO_TITLE_TAG)
                                    ? get_string_multiple (IPHOTO_TITLE_TAG)
-                                   : get_first_string_multiple (STANDARD_TITLE_TAGS);
+                                   : get_first_string_multiple (standard_title_tags);
 
         // use the first string every time (assume it's default)
         // TODO: We could get a list of all titles by their lang="<iso code>" and attempt to find
@@ -870,9 +870,9 @@ public class PhotoMetadata : MediaMetadata {
             if (has_tag (IPHOTO_TITLE_TAG))
                 set_string (IPHOTO_TITLE_TAG, title);
             else
-                set_all_string (STANDARD_TITLE_TAGS, title, option);
+                set_all_string (standard_title_tags, title, option);
         } else {
-            remove_tags (STANDARD_TITLE_TAGS);
+            remove_tags (standard_title_tags);
         }
     }
 
@@ -887,12 +887,12 @@ public class PhotoMetadata : MediaMetadata {
             remove_tag ("Exif.Photo.UserComment");
     }
 
-    private static string[] KEYWORD_TAGS = {
+    private static string[] keyword_tags = {
         "Xmp.dc.subject",
         "Iptc.Application2.Keywords"
     };
 
-    private static HierarchicalKeywordField[] HIERARCHICAL_KEYWORD_TAGS = {
+    private static HierarchicalKeywordField[] hierarchical_keyword_tags = {
         new HierarchicalKeywordField ("Xmp.lr.hierarchicalSubject", "|", false, true),
         new HierarchicalKeywordField ("Xmp.digiKam.TagsList", "/", false, true),
         new HierarchicalKeywordField ("Xmp.MicrosoftPhoto.LastKeywordXMP", "/", false, true)
@@ -900,7 +900,7 @@ public class PhotoMetadata : MediaMetadata {
 
     public Gee.Set<string>? get_keywords (owned CompareDataFunc<string>? compare_func = null) {
         Gee.Set<string> keywords = null;
-        foreach (string tag in KEYWORD_TAGS) {
+        foreach (string tag in keyword_tags) {
             Gee.Collection<string>? values = get_string_multiple (tag);
             if (values != null && values.size > 0) {
                 if (keywords == null)
@@ -915,13 +915,13 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     private void internal_set_hierarchical_keywords (HierarchicalTagIndex? index) {
-        foreach (HierarchicalKeywordField current_field in HIERARCHICAL_KEYWORD_TAGS)
+        foreach (HierarchicalKeywordField current_field in hierarchical_keyword_tags)
             remove_tag (current_field.field_name);
 
         if (index == null)
             return;
 
-        foreach (HierarchicalKeywordField current_field in HIERARCHICAL_KEYWORD_TAGS) {
+        foreach (HierarchicalKeywordField current_field in hierarchical_keyword_tags) {
             if (!current_field.is_writeable)
                 continue;
 
@@ -960,16 +960,16 @@ public class PhotoMetadata : MediaMetadata {
         }
 
         if (keywords != null) {
-            set_all_string_multiple (KEYWORD_TAGS, flat_keywords, option);
+            set_all_string_multiple (keyword_tags, flat_keywords, option);
             internal_set_hierarchical_keywords (htag_index);
         } else {
-            remove_tags (KEYWORD_TAGS);
+            remove_tags (keyword_tags);
             internal_set_hierarchical_keywords (null);
         }
     }
 
     public bool has_hierarchical_keywords () {
-        foreach (HierarchicalKeywordField field in HIERARCHICAL_KEYWORD_TAGS) {
+        foreach (HierarchicalKeywordField field in hierarchical_keyword_tags) {
             Gee.Collection<string>? values = get_string_multiple (field.field_name);
 
             if (values != null && values.size > 0)
@@ -984,7 +984,7 @@ public class PhotoMetadata : MediaMetadata {
 
         Gee.Set<string> h_keywords = create_string_set (null);
 
-        foreach (HierarchicalKeywordField field in HIERARCHICAL_KEYWORD_TAGS) {
+        foreach (HierarchicalKeywordField field in hierarchical_keyword_tags) {
             Gee.Collection<string>? values = get_string_multiple (field.field_name);
 
             if (values == null || values.size < 1)
@@ -1011,7 +1011,7 @@ public class PhotoMetadata : MediaMetadata {
         // GExiv2.Orientation is the same value-wise as Orientation, with one exception:
         // GExiv2.Orientation.UNSPECIFIED must be handled
         GExiv2.Orientation orientation = exiv2.get_orientation ();
-        if (orientation ==  GExiv2.Orientation.UNSPECIFIED || orientation < Orientation.MIN ||
+        if (orientation == GExiv2.Orientation.UNSPECIFIED || orientation < Orientation.MIN ||
                 orientation > Orientation.MAX)
             return Orientation.TOP_LEFT;
         else
@@ -1117,13 +1117,13 @@ public class PhotoMetadata : MediaMetadata {
         return get_string_interpreted ("Exif.Photo.FocalLength");
     }
 
-    private static string[] ARTIST_TAGS = {
+    private static string[] artist_tags = {
         "Exif.Image.Artist",
         "Exif.Canon.OwnerName" // Custom tag used by Canon DSLR cameras
     };
 
     public string? get_artist () {
-        return get_first_string_interpreted (ARTIST_TAGS);
+        return get_first_string_interpreted (artist_tags);
     }
 
     public string? get_copyright () {

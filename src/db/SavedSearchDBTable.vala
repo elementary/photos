@@ -484,4 +484,3 @@ public class SavedSearchDBTable : DatabaseTable {
         update_text_by_id_2 (search_id.id, "name", new_name);
     }
 }
-

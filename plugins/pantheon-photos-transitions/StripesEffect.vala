@@ -94,4 +94,3 @@ private class StripesEffect : Object, Transitions.Effect {
     public void cancel () {
     }
 }
-

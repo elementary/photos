@@ -19,8 +19,8 @@
  */
 
 class WebPFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = { "webp" };
-    private static string[] KNOWN_MIME_TYPES = { "image/webp" };
+    private static string[] known_extensions = { "webp" };
+    private static string[] known_mime_types = { "image/webp" };
 
     private static WebPFileFormatProperties instance = null;
 
@@ -45,19 +45,19 @@ class WebPFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string get_default_extension () {
-        return KNOWN_EXTENSIONS[0];
+        return known_extensions[0];
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 
@@ -164,10 +164,10 @@ public class WebPReader : PhotoFileReader {
 
         uint8[] png_data;
         result.save_to_buffer (out png_data, "png");
-        var loader = new Gdk.PixbufLoader();
+        var loader = new Gdk.PixbufLoader ();
         loader.write (png_data);
-        result = loader.get_pixbuf();
-        loader.close();
+        result = loader.get_pixbuf ();
+        loader.close ();
 
         return result;
     }

@@ -1199,4 +1199,3 @@ public class Tag : DataSource, ContainerSource, Proxyable, Indexable {
         base.destroy ();
     }
 }
-

@@ -51,4 +51,3 @@ public Spit.Module? spit_entry_point (Spit.EntryPointParams *params) {
     return (params->module_spit_interface != Spit.UNSUPPORTED_INTERFACE)
            ? new ShotwellPublishingExtraServices (params->module_file) : null;
 }
-

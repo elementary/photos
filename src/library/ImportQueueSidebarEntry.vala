@@ -66,4 +66,3 @@ public class Library.ImportQueueSidebarEntry : Library.HideablePageEntry {
         get_queue_page ().enqueue_and_schedule (batch_import, allow_user_cancel);
     }
 }
-

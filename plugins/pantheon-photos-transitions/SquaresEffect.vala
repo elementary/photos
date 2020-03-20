@@ -96,4 +96,3 @@ private class SquaresEffect : Object, Transitions.Effect {
     public void cancel () {
     }
 }
-

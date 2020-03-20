@@ -928,7 +928,7 @@ public class Sidebar.Tree : Gtk.TreeView {
             }
 
             // Remember what tree item is highlighted for next time.
-            old_path_ref = (path != null) ?  new Gtk.TreeRowReference (store, path) : null;
+            old_path_ref = (path != null) ? new Gtk.TreeRowReference (store, path) : null;
         }
 
         return base.button_press_event (event);

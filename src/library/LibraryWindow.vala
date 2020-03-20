@@ -44,10 +44,10 @@ public class LibraryWindow : AppWindow {
 
     // these values reflect the priority various background operations have when reporting
     // progress to the LibraryWindow progress bar ... higher values give priority to those reports
-    private const int STARTUP_SCAN_PROGRESS_PRIORITY =      35;
-    private const int REALTIME_UPDATE_PROGRESS_PRIORITY =   40;
-    private const int REALTIME_IMPORT_PROGRESS_PRIORITY =   50;
-    private const int METADATA_WRITER_PROGRESS_PRIORITY =   30;
+    private const int STARTUP_SCAN_PROGRESS_PRIORITY = 35;
+    private const int REALTIME_UPDATE_PROGRESS_PRIORITY = 40;
+    private const int REALTIME_IMPORT_PROGRESS_PRIORITY = 50;
+    private const int METADATA_WRITER_PROGRESS_PRIORITY = 30;
 
     // This lists the order of the toplevel items in the sidebar.  New toplevel items should be
     // added here in the position they should appear in the sidebar.  To re-order, simply move
@@ -338,7 +338,7 @@ public class LibraryWindow : AppWindow {
 
     private Gtk.ActionEntry[] create_common_actions () {
         Gtk.ActionEntry import = { "CommonFileImport", null, null, "<Ctrl>I", null, on_file_import };
-        Gtk.ActionEntry sort = { "CommonSortEvents", null,  _("Sort _Events"), null, null, null };
+        Gtk.ActionEntry sort = { "CommonSortEvents", null, _("Sort _Events"), null, null, null };
         Gtk.ActionEntry preferences = { "CommonPreferences", null, null, null, null, on_preferences };
         Gtk.ActionEntry jump_to_event = { "CommonJumpToEvent", null, _("View Eve_nt for Photo"), null, null, on_jump_to_event };
         Gtk.ActionEntry find = { "CommonFind", null, null, null, null, on_find };

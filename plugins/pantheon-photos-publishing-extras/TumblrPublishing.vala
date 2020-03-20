@@ -593,8 +593,8 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
             INTRO,
             FAILED_RETRY_USER
         }
-        private static string INTRO_MESSAGE = _ ("Enter the username and password associated with your Tumblr account.");
-        private static string FAILED_RETRY_USER_MESSAGE = _ ("Username and/or password invalid. Please try again");
+        private static string intro_message = _ ("Enter the username and password associated with your Tumblr account.");
+        private static string failed_retry_user_message = _ ("Username and/or password invalid. Please try again");
 
         private Gtk.Box pane_widget = null;
         private Gtk.Builder builder;
@@ -616,12 +616,12 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
                 Gtk.Label message_label = builder.get_object ("message_label") as Gtk.Label;
                 switch (mode) {
                 case Mode.INTRO:
-                    message_label.set_text (INTRO_MESSAGE);
+                    message_label.set_text (intro_message);
                     break;
 
                 case Mode.FAILED_RETRY_USER:
                     message_label.set_markup ("<b>%s</b>\n\n%s".printf (_ (
-                                                  "Invalid User Name or Password"), FAILED_RETRY_USER_MESSAGE));
+                                                  "Invalid User Name or Password"), failed_retry_user_message));
                     break;
                 }
 
@@ -902,7 +902,7 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
         }
 
 
-        public UploadTransaction (Session session, Spit.Publishing.Publishable publishable, string blog_url)  {
+        public UploadTransaction (Session session, Spit.Publishing.Publishable publishable, string blog_url) {
             debug ("Init upload transaction");
             base.with_endpoint_url (session, publishable, "http://api.tumblr.com/v2/blog/%s/post".printf (blog_url) );
             this.session = session;

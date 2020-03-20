@@ -1235,12 +1235,12 @@ public class ExpansionTransformation : HSVTransformation {
 
         remap_table = new float[256];
 
-        float LOW_KINK_MASS = LOW_DISCARD_MASS;
+        const float LOW_KINK_MASS = LOW_DISCARD_MASS;
         low_kink = 0;
         while (histogram.get_cumulative_probability (low_kink) < LOW_KINK_MASS)
             low_kink++;
 
-        float HIGH_KINK_MASS = 1.0f - HIGH_DISCARD_MASS;
+        const float HIGH_KINK_MASS = 1.0f - HIGH_DISCARD_MASS;
         high_kink = 255;
         while ((histogram.get_cumulative_probability (high_kink) > HIGH_KINK_MASS) && (high_kink > 0))
             high_kink--;
@@ -1403,7 +1403,7 @@ public class HermiteGammaApproximationFunction {
         else {
             float indep_var = x_scale * x;
 
-            float dep_var =  6.0f * ((indep_var * indep_var * indep_var) -
+            float dep_var = 6.0f * ((indep_var * indep_var * indep_var) -
                                      (2.0f * (indep_var * indep_var)) + (indep_var));
 
             return dep_var.clamp (0.0f, 1.0f);
@@ -1529,4 +1529,3 @@ public PixelTransformationBundle create_auto_enhance_adjustments (Gdk.Pixbuf pix
     return adjustments;
 }
 }
-

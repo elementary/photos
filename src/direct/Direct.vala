@@ -48,6 +48,4 @@ public void app_init () throws Error {
 public void app_terminate () {
     DirectPhoto.terminate ();
 }
-
 }
-

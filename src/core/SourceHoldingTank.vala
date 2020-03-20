@@ -219,4 +219,3 @@ public class SourceHoldingTank {
         return "SourceHoldingTank @ 0x%p".printf (this);
     }
 }
-

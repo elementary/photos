@@ -91,4 +91,3 @@ public class VersionTable : DatabaseTable {
             fatal ("update_version %d".printf (version), res);
     }
 }
-

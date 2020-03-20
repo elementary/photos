@@ -311,4 +311,3 @@ private class VideoMonitor : MediaMonitor {
             Video.notify_normal_thumbs_regenerated ();
     }
 }
-

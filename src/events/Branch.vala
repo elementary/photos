@@ -552,4 +552,3 @@ public class Events.NoEventEntry : Sidebar.SimplePageEntry {
         return new NoEventPage ();
     }
 }
-

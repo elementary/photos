@@ -265,7 +265,7 @@ public class PhotoTable : DatabaseTable {
         row.orientation = row.master.original_orientation;
     }
 
-    public bool master_exif_updated (PhotoID photoID, int64 filesize, long timestamp,
+    public bool master_exif_updated (PhotoID photo_id, int64 filesize, long timestamp,
                                      string md5, string? exif_md5, string? thumbnail_md5, PhotoRow row) {
         var stmt = create_stmt (
             "UPDATE PhotoTable SET filesize = ?, timestamp = ?, md5 = ?, exif_md5 = ?,"
@@ -276,7 +276,7 @@ public class PhotoTable : DatabaseTable {
         bind_text (stmt, 3, md5);
         bind_text (stmt, 4, exif_md5);
         bind_text (stmt, 5, thumbnail_md5);
-        bind_int64 (stmt, 6, photoID.id);
+        bind_int64 (stmt, 6, photo_id.id);
 
         var res = stmt.step ();
         if (res != Sqlite.DONE) {

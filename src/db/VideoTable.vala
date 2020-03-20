@@ -281,10 +281,10 @@ public class VideoTable : DatabaseTable {
             throw_error ("VideoTable.remove_by_file", res);
     }
 
-    public void remove (VideoID videoID) throws DatabaseError {
+    public void remove (VideoID video_id) throws DatabaseError {
         var stmt = create_stmt ("DELETE FROM VideoTable WHERE id=?");
 
-        bind_int64 (stmt, 1, videoID.id);
+        bind_int64 (stmt, 1, video_id.id);
 
         var res = stmt.step ();
         if (res != Sqlite.DONE)
@@ -413,4 +413,3 @@ public class VideoTable : DatabaseTable {
         update_int64_by_id_2 (video_id.id, "timestamp", (int64) timestamp);
     }
 }
-

@@ -96,4 +96,3 @@ public abstract class ShotwellTransitionDescriptor : Object, Spit.Pluggable, Spi
 
     public abstract Spit.Transitions.Effect create (Spit.HostInterface host);
 }
-
