@@ -749,4 +749,3 @@ public struct ZoomState {
         return true;
     }
 }
-

@@ -54,4 +54,3 @@ public interface Indexable : DataSource {
         return !is_string_empty (builder.str) ? builder.str : null;
     }
 }
-

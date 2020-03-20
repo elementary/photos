@@ -292,4 +292,3 @@ public class Tags.SidebarEntry : Sidebar.SimplePageEntry, Sidebar.RenameableEntr
                   tag.get_path ().data);
     }
 }
-

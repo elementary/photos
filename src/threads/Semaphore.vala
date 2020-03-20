@@ -170,4 +170,3 @@ public class EventSemaphore : AbstractSemaphore {
         return true;
     }
 }
-

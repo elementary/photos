@@ -65,11 +65,11 @@ public class TiffFileFormatDriver : PhotoFileFormatDriver {
 }
 
 private class TiffFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = {
+    private static string[] known_extensions = {
         "tif", "tiff"
     };
 
-    private static string[] KNOWN_MIME_TYPES = {
+    private static string[] known_mime_types = {
         "image/tiff"
     };
 
@@ -100,15 +100,15 @@ private class TiffFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 

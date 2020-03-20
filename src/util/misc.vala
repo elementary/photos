@@ -247,7 +247,7 @@ public string format_local_datespan (Time from_date, Time to_date) {
         // are these consecutive dates?
         if ((from_date.month == to_date.month) && (from_date.day == (to_date.day - 1))) {
             // Yes; display like so: Sat, July 4 - 5, 20X6
-            from_format =  Resources.get_start_multiday_span_format_string ();
+            from_format = Resources.get_start_multiday_span_format_string ();
             to_format = Resources.get_end_multiday_span_format_string ();
         } else {
             // No, but they're in the same year; display in shortened
@@ -387,4 +387,3 @@ public bool is_twentyfour_hr_time_system () {
     // if no AM/PM designation is found, the location is set to use a 24 hr time system
     return is_string_empty (Time.local (0).format ("%p"));
 }
-

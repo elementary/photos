@@ -64,4 +64,3 @@ public class Library.FlaggedSidebarEntry : Library.HideablePageEntry, Sidebar.In
         return total;
     }
 }
-

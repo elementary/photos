@@ -84,7 +84,7 @@ public class EventTable : DatabaseTable {
     }
 
     public EventRow create (string? primary_source_id, string? comment) throws DatabaseError {
-        assert (primary_source_id != null  &&primary_source_id != "");
+        assert (primary_source_id != null && primary_source_id != "");
 
         var stmt = create_stmt ("INSERT INTO EventTable (primary_source_id, time_created, comment) VALUES (?, ?, ?)");
 

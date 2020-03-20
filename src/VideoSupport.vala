@@ -327,9 +327,9 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
     public const int NO_VIDEO_INTERPRETER_STATE = -1;
     public const string TYPENAME = "video";
 
-    public const uint64 FLAG_TRASH =    0x0000000000000001;
-    public const uint64 FLAG_OFFLINE =  0x0000000000000002;
-    public const uint64 FLAG_FLAGGED =  0x0000000000000004;
+    public const uint64 FLAG_TRASH = 0x0000000000000001;
+    public const uint64 FLAG_OFFLINE = 0x0000000000000002;
+    public const uint64 FLAG_FLAGGED = 0x0000000000000004;
 
     public class InterpretableResults {
         internal Video video;

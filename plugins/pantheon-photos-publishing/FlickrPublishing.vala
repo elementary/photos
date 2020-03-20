@@ -905,7 +905,7 @@ private class UploadTransaction : Publishing.RESTSupport.UploadTransaction {
 
         /// TODO: This may need to be revisited to send the title separately; please see
         /// http://www.flickr.com/services/api/upload.api.html for more details.
-        disposition_table.insert ("filename",  Soup.URI.encode (
+        disposition_table.insert ("filename", Soup.URI.encode (
                                       publishable.get_param_string (Spit.Publishing.Publishable.PARAM_STRING_BASENAME), null));
 
         disposition_table.insert ("name", "photo");

@@ -66,7 +66,7 @@ void library_exec (string[] mounts) {
             break;
         case Db.VerifyResult.FUTURE_VERSION:
             error_title = _("Your Photo Library Is Not Compatible With This Version of Photos");
-            error_message =  _("It appears it was created by Photos %s (schema %d). This version is %s (schema %d). Please use the latest version of Photos.").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
+            error_message = _("It appears it was created by Photos %s (schema %d). This version is %s (schema %d). Please use the latest version of Photos.").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
             break;
         case Db.VerifyResult.UPGRADE_ERROR:
             error_title = _("Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) to %s (Schema %d)").printf (app_version, schema_version, Resources.APP_VERSION, DatabaseTable.SCHEMA_VERSION);
@@ -273,7 +273,7 @@ namespace CommandlineOptions {
     bool show_version = false;
     bool debug_enabled = false;
 
-    public const OptionEntry[] app_options = {
+    public const OptionEntry[] APP_OPTIONS = {
         { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Photos' private data"), N_("DIRECTORY")},
         { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
         { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
@@ -304,7 +304,7 @@ void main (string[] args) {
 
     // init GTK (valac has already called g_threads_init ())
     try {
-        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.app_options,
+        Gtk.init_with_args (ref args, _ ("[FILE]"), CommandlineOptions.APP_OPTIONS,
                             Resources.APP_GETTEXT_PACKAGE);
     } catch (Error e) {
         print (e.message + "\n");

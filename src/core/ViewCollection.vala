@@ -660,7 +660,7 @@ public class ViewCollection : DataCollection {
 
     public override void items_altered (Gee.Map<DataObject, Alteration> map) {
         // Cast - our DataObjects are DataViews.
-        filter_altered_items((Gee.Collection<DataView>) map.keys);
+        filter_altered_items ((Gee.Collection<DataView>) map.keys);
 
         base.items_altered (map);
     }
@@ -1283,4 +1283,3 @@ public abstract class ViewFilter {
     // Return true if view should be visible, false if it should be hidden.
     public abstract bool predicate (DataView view);
 }
-

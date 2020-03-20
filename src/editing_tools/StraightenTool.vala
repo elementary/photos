@@ -91,7 +91,7 @@ public class StraightenTool : EditingTool {
             // b&w dashing so it will be more visible on
             // different backgrounds.
             ctx.set_source_rgba (0.0, 0.0, 0.0, alpha);
-            ctx.set_dash (GUIDE_DASH,  GUIDE_DASH[0] / 2);
+            ctx.set_dash (GUIDE_DASH, GUIDE_DASH[0] / 2);
             ctx.move_to (x[0] + 0.5, y[0] + 0.5);
             ctx.line_to (x[1] + 0.5, y[1] + 0.5);
             ctx.stroke ();

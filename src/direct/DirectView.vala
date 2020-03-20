@@ -60,4 +60,3 @@ private class DirectViewCollection : ViewCollection {
         return strcmp (aview->get_collate_key (), bview->get_collate_key ());
     }
 }
-

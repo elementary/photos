@@ -332,6 +332,4 @@ public interface Effect : Object {
     protected virtual void reserved6 () {}
     protected virtual void reserved7 () {}
 }
-
 }
-

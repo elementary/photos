@@ -76,5 +76,3 @@ public class Library.TrashSidebarEntry : Sidebar.SimplePageEntry, Sidebar.Intern
         sidebar_icon_changed (get_current_icon ());
     }
 }
-
-

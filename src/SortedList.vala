@@ -193,7 +193,7 @@ public class SortedList<G> : Object, Gee.Traversable<G>, Gee.Iterable<G>, Gee.Co
             if (compare == 0)
                 return mid;
             else if (compare > 0)
-                max =  mid - 1;
+                max = mid - 1;
             else
                 min = mid + 1;
 
@@ -445,4 +445,3 @@ public class SortedList<G> : Object, Gee.Traversable<G>, Gee.Iterable<G>, Gee.Co
             array[list_index] = scratch[scratch_index++];
     }
 }
-

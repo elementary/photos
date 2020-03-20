@@ -815,7 +815,7 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         if (count == 0)
             return 0;
 
-        return  ((MediaSource) (((DataView) view.get_at (count - 1)).source)).get_exposure_time ();
+        return ((MediaSource) (((DataView) view.get_at (count - 1)).source)).get_exposure_time ();
     }
 
     public override uint64 get_total_filesize () {

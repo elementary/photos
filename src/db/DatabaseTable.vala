@@ -440,4 +440,3 @@ public abstract class DatabaseTable {
             throw_error ("commit_transaction", res);
     }
 }
-

@@ -22,7 +22,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
     public const string PREFS_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".preferences";
     public const string UI_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".ui";
     public const string SLIDESHOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".slideshow";
-    public const string WINDOW_PREFS_SCHEMA_NAME =  PREFS_SCHEMA_NAME + ".window";
+    public const string WINDOW_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".window";
     public const string FILES_PREFS_SCHEMA_NAME = PREFS_SCHEMA_NAME + ".files";
     public const string VIDEO_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".video";
     public const string PRINTING_SCHEMA_NAME = ROOT_SCHEMA_NAME + ".printing";
@@ -34,7 +34,7 @@ public class GSettingsConfigurationEngine : ConfigurationEngine, GLib.Object {
         var schema_source = SettingsSchemaSource.get_default ();
         var settings_scheme = schema_source.lookup (schema, true);
         if (settings_scheme == null) {
-            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' is not installed".printf(schema));
+            throw new ConfigurationError.ENGINE_ERROR ("schema '%s' is not installed".printf (schema));
         }
 
         if (!settings_scheme.has_key (key)) {

@@ -141,4 +141,3 @@ public class DataView : DataObject {
         unsubscribed (source);
     }
 }
-

@@ -185,8 +185,8 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
             hour.set_value (time.hour);
             system.set_active (TimeSystem.24HR);
         } else {
-            int AMPM_hour = time.hour % 12;
-            hour.set_value ((AMPM_hour == 0) ? 12 : AMPM_hour);
+            int ampm_hour = time.hour % 12;
+            hour.set_value ((ampm_hour == 0) ? 12 : ampm_hour);
             system.set_active ((time.hour >= 12) ? TimeSystem.PM : TimeSystem.AM);
         }
 
@@ -318,12 +318,12 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
 
             hour.set_value (time);
         } else {
-            int AMPM_hour = ((int) hour.get_value ()) % 12;
+            int ampm_hour = ((int) hour.get_value ()) % 12;
 
             hour.set_range (1, 12);
             set_original_time_label (false);
 
-            hour.set_value ((AMPM_hour == 0) ? 12 : AMPM_hour);
+            hour.set_value ((ampm_hour == 0) ? 12 : ampm_hour);
         }
 
         on_time_changed ();
