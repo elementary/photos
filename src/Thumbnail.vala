@@ -209,7 +209,7 @@ public class Thumbnail : CheckerboardItem {
         return (result != 0) ? result : filename_ascending_comparator (a, b);
     }
 
-    public static int64 exposure_time_desending_comparator (void *a, void *b) {
+    public static int64 exposure_time_descending_comparator (void *a, void *b) {
         int64 result = exposure_time_ascending_comparator (b, a);
 
         return (result != 0) ? result : filename_descending_comparator (a, b);
@@ -217,6 +217,24 @@ public class Thumbnail : CheckerboardItem {
 
     public static bool exposure_time_comparator_predicate (DataObject object, Alteration alteration) {
         return alteration.has_detail ("metadata", "exposure-time");
+    }
+
+    public static int64 timestamp_ascending_comparator (void *a, void *b) {
+        int64 time_a = (int64) (((Thumbnail *) a)->media.get_timestamp ());
+        int64 time_b = (int64) (((Thumbnail *) b)->media.get_timestamp ());
+        int64 result = (time_a - time_b);
+
+        return (result != 0) ? result : exposure_time_ascending_comparator (a, b);
+    }
+
+    public static int64 timestamp_descending_comparator (void *a, void *b) {
+        int64 result = timestamp_ascending_comparator (b, a);
+
+        return (result != 0) ? result : exposure_time_descending_comparator (a, b);
+    }
+
+    public static bool timestamp_comparator_predicate (DataObject object, Alteration alteration) {
+        return alteration.has_detail ("metadata", "timestamp");
     }
 
     public static int64 filename_ascending_comparator (void *a, void *b) {
