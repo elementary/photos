@@ -18,16 +18,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2018-10-04 00:03+0000\n"
-"Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/photos/photos/"
-"cs/>\n"
+"PO-Revision-Date: 2020-05-11 12:10+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/photos/photos/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-27 05:50+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -56,7 +56,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Nepodařilo se vytvořit podsložku %s pro data: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -353,9 +353,9 @@ msgid "Export"
 msgstr "Export"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "Soubor %s již existuje. Přepsat?"
+msgstr "Soubor %s už existuje. Přepsat?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -390,47 +390,45 @@ msgstr "Ukončí prohlížení přes celou obrazovku"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Vaše knihovna fotek není kompatibilní s touto verzí Fotek"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Vaše knihovna fotek není kompatibilní s touto verzí programu Fotky. Vypadá "
-"to, že byla vytvořena ve Fotky %s (schéma %d). Tato verze je %s (schéma %d). "
-"Použijte prosím poslední verzi Fotek."
+"Zdá se, že toto bylo vytvořeno ve Fotky %s (schéma %d). Tato verze je %s ("
+"schéma %d). Použijte prosím poslední verzi Fotek."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Programu Fotky se nepodařilo aktualizovat vaši knihovnu z verze %s (schéma "
-"%d) na verzi %s (schéma %d). Více informací najdete na Wiki Fotek na %s"
+"%d) na verzi %s (schéma %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "Další informace naleznete na wiki pojednávající o aplikaci Fotky na %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Vaše knihovna fotek není kompatibilní s touto verzí programu Fotky. Vypadá "
-"to, že byla vytvořena ve Fotky %s (schéma %d). Tato verze je %s (schéma %d). "
-"Vyčistěte prosím svou knihovnu smazáním %s a znovu naimportujte fotografie."
+"Zdá se, že toto bylo vytvořeno ve Fotky %s (schéma %d). Tato verze je %s ("
+"schéma %d). Vyčistěte prosím svou knihovnu smazáním %s a znovu naimportujte "
+"fotografie."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Neznámá chyba při pokusu o ověření databáze programu Fotky: %s"
+msgstr "Neznámá chyba při pokusu o ověření databáze programu Fotky"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -909,28 +907,28 @@ msgid "Modify Tags"
 msgstr "Změnit nálepky"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Přidat nálepku \"%s\" k fotografiím"
-msgstr[1] "Přidat nálepku \"%s\" k fotografiím"
-msgstr[2] "Přidat nálepku \"%s\" k fotografiím"
+msgstr[0] "Označit fotku štítek „%s“"
+msgstr[1] "Označit fotky štítek „%s“"
+msgstr[2] "Označit fotky štítek „%s“"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "O_dstranit nálepku \"%s\" fotografiím"
-msgstr[1] "O_dstranit nálepku \"%s\" fotografiím"
-msgstr[2] "O_dstranit nálepku \"%s\" fotografiím"
+msgstr[0] "_Odebrat fotce štítek „%s“"
+msgstr[1] "_Odebrat fotkám štítek „%s“"
+msgstr[2] "_Odebrat fotkám štítek „%s“"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "O_dstranit nálepku \"%s\" fotografiím"
-msgstr[1] "O_dstranit nálepku \"%s\" fotografiím"
-msgstr[2] "O_dstranit nálepku \"%s\" fotografiím"
+msgstr[0] "Odebrat fotce štítek „%s“"
+msgstr[1] "Odebrat fotkám štítek „%s“"
+msgstr[2] "Odebrat fotkám štítek „%s“"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1100,18 +1098,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Nastavit tento čas _všem fotografiím/videím"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Upravit původní obrazový soubor"
-msgstr[1] "_Upravit původní obrazový soubor"
-msgstr[2] "_Upravit původní obrazový soubor"
+msgstr[1] "_Upravit původní obrazové soubory"
+msgstr[2] "_Upravit původní obrazové soubory"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "Z_měnit původní soubory"
+msgstr[0] "Z_měnit původní soubor"
 msgstr[1] "Z_měnit původní soubory"
 msgstr[2] "Z_měnit původní soubory"
 
@@ -1174,17 +1170,17 @@ msgstr[1] "vteřiny"
 msgstr[2] "vteřin"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Tím odstraníte nálepku \"%s\" z jedné fotky. Pokračovat?"
-msgstr[1] "Tím odstraníte nálepku \"%s\" ze %d fotek. Pokračovat?"
-msgstr[2] "Tím odstraníte nálepku \"%s\" z %d fotek. Pokračovat?"
+msgstr[0] "Toto odebere štítek „%s“ z jedné fotky. Pokračovat?"
+msgstr[1] "Toto odebere štítek „%s“ ze %d fotek. Pokračovat?"
+msgstr[2] "Toto odebere štítek „%s“ ze %d fotek. Pokračovat?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Toto odstraní chytré album \"%s\". Pokračovat?"
+msgstr "Toto odstraní chytré album „%s“. Pokračovat?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1205,7 +1201,7 @@ msgstr[2] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Opravdu chcete přepnout do režimu pro vývojáře?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1217,12 +1213,11 @@ msgstr "Exportovat Video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Exportování fotografií"
-msgstr[1] "Exportování fotografií"
-msgstr[2] "Exportování fotografií"
+msgstr[0] "Exportovat fotku"
+msgstr[1] "Exportovat fotky"
+msgstr[2] "Exportovat fotky"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1551,33 +1546,33 @@ msgstr[2] "Přidání %d souborů se nepodařilo kvůli chybě fotoaparátu:\n"
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
-msgstr[0] "Selhal import 1 fotky, protože byla poškozená:\n"
-msgstr[1] "Selhal import %d fotek, protože byly poškozené:\n"
-msgstr[2] "Selhal import %d fotek, protože byly poškozené:\n"
+msgstr[0] "Nepodařil se import 1 fotky, protože byla poškozená:\n"
+msgstr[1] "Nepodařil se import %d fotek, protože byly poškozené:\n"
+msgstr[2] "Nepodařil se import %d fotek, protože byly poškozené:\n"
 
 #: src/Dialogs/Dialogs.vala:473
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] "Selhal import 1 videa, protože bylo poškozené:\n"
-msgstr[1] "Selhal import %d videí, protože byly poškozená:\n"
-msgstr[2] "Selhal import %d videí, protože byly poškozená:\n"
+msgstr[0] "Nepodařil se import 1 videa, protože bylo poškozené:\n"
+msgstr[1] "Nepodařil se import %d videí, protože byly poškozená:\n"
+msgstr[2] "Nepodařil se import %d videí, protože byly poškozená:\n"
 
 #: src/Dialogs/Dialogs.vala:476
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
-msgstr[0] "Selhal import jedné fotky/videa, protože byla poškozená:\n"
-msgstr[1] "Selhal import %d fotek/videí, protože byly poškozené:\n"
-msgstr[2] "Selhal import %d fotek/videí, protože byly poškozené:\n"
+msgstr[0] "Nepodařil se import jedné fotky/videa, protože byla poškozená:\n"
+msgstr[1] "Nepodařil se import %d fotek/videí, protože byly poškozené:\n"
+msgstr[2] "Nepodařil se import %d fotek/videí, protože byly poškozené:\n"
 
 #: src/Dialogs/Dialogs.vala:479
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] "Selhal import jednoho souboru, protože byl poškozený:\n"
-msgstr[1] "Selhal import %d souborů, protože byly poškozené:\n"
-msgstr[2] "Selhal import %d souborů, protože byly poškozené:\n"
+msgstr[0] "Nepodařil se import jednoho souboru, protože byl poškozený:\n"
+msgstr[1] "Nepodařil se import %d souborů, protože byly poškozené:\n"
+msgstr[2] "Nepodařil se import %d souborů, protože byly poškozené:\n"
 
 #. we have no notion of "unsupported" video files right now in Photos (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1676,15 +1671,14 @@ msgid "Name:"
 msgstr "Název:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Vzít zpět vnější změny?"
-msgstr[1] "Vzít zpět vnější změny?"
-msgstr[2] "Vzít zpět vnější změny?"
+msgstr[0] "Vzít zpět změnu, provedenou zvenčí?"
+msgstr[1] "Vzít zpět změny, provedené zvenčí?"
+msgstr[2] "Vzít zpět změny, provedené zvenčí?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
@@ -1698,12 +1692,11 @@ msgstr[2] ""
 "Pokračovat?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Na_vrátit externí úpravy"
-msgstr[1] "Na_vrátit externí úpravy"
-msgstr[2] "Na_vrátit externí úpravy"
+msgstr[0] "_Vzít zpět externí úpravu"
+msgstr[1] "_Vzít zpět externí úpravy"
+msgstr[2] "_Vzít zpět externí úpravy"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1714,7 +1707,7 @@ msgid "Remove Photos From Library"
 msgstr "Odstranit fotografie z knihovny"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Tímto fotografii odstraníte. Pokračovat?"
@@ -1775,10 +1768,9 @@ msgid "Remove From Library"
 msgstr "Odstranit z knihovny"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Probíhá odstraňování fotografií z knihovny"
+msgstr[0] "Probíhá odstraňování fotografie z knihovny"
 msgstr[1] "Probíhá odstraňování fotografií z knihovny"
 msgstr[2] "Probíhá odstraňování fotografií z knihovny"
 
@@ -1815,9 +1807,8 @@ msgid "_Scaling constraint:"
 msgstr "Omezení _zvětšování:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Skrýt informační panel"
+msgstr "Veliko_st v pixelech:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1845,7 +1836,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Přejmenovat importované soubory na malá písmena:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Zapsat _metadata do souborů:"
 
@@ -2614,10 +2604,9 @@ msgid "Other Actions"
 msgstr "Další akce"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Exportovat fotografie/videa"
+msgstr[0] "Exportovat fotografii/video"
 msgstr[1] "Exportovat fotografie/videa"
 msgstr[2] "Exportovat fotografie/videa"
 
@@ -2764,7 +2753,6 @@ msgid "Flagged"
 msgstr "Označeno"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
@@ -2815,14 +2803,14 @@ msgstr "Importuje všechny fotografie do knihovny"
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
+"Ke kameře není možné přistupovat, pokud je souborový systém v ní připojený"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Fotky potřebují odpojit fotoaparát ze souborového systému, aby k němu měli "
-"přístup. Pokračovat?"
+"přístup."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2835,17 +2823,15 @@ msgstr "Odpojte fotoaparát."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kamera je uzamčena jinou aplikací"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Fotoaparát je uzamčen jinou aplikací. Fotky mohou přistupovat k fotoaparátu "
-"pouze když je odemčen. Prosím ukončete všechny aplikace, které ho používají, "
-"a zkuste to znovu."
+"Fotky mohou přistupovat k fotoaparátu pouze když je odemčen. Prosím ukončete "
+"všechny aplikace, které ho používají, a zkuste to znovu."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3273,7 +3259,7 @@ msgstr "bodů na palec"
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Copyright 2009-2013 Yorba Foundation"
+msgstr "Autorská práva 2009-2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
 msgid ""
@@ -3495,7 +3481,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixelů)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3831,7 +3816,7 @@ msgstr "Videa a nová fotoalba vidí:"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
 msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+msgstr "Autorská práva 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
 msgid "Visit the Yandex.Fotki web site"
@@ -3843,7 +3828,7 @@ msgstr "K Yandex.Fotki nejste přihlášeni."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
 msgid "Copyright 2012 BJA Electronics"
-msgstr "Copyright 2012 BJA Electronics"
+msgstr "Autorská práva 2012 BJA Electronics"
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
 msgid "1280 x 853 pixels"
@@ -3956,7 +3941,9 @@ msgstr "Základní přechody"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
+msgstr ""
+"Autorská práva 2010 Maxim Kartashev, autorská práva 2011-2013 Yorba "
+"Foundation"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
