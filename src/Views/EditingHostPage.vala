@@ -1626,6 +1626,24 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
+    public void on_copy_image () {
+        if (!has_photo ())
+            return;
+
+        Gdk.Pixbuf? original;
+
+        original =
+            get_photo ().get_original_orientation ().rotate_pixbuf (get_photo ().get_prefetched_copy ());
+
+        if (original == null)
+            return;
+
+        Gdk.Display display = Gdk.Display.get_default ();
+        Gtk.Clipboard clipboard = Gtk.Clipboard.get_for_display (display, Gdk.SELECTION_CLIPBOARD);
+
+        clipboard.set_image(original);
+    }
+
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         rotate_button.set_icon_widget (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
         rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);

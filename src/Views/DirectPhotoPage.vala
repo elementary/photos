@@ -70,6 +70,7 @@ public class DirectPhotoPage : EditingHostPage {
         Gtk.ActionEntry best_fit = { "ZoomFit", null, null, "<Ctrl>0", null, snap_zoom_to_min };
         Gtk.ActionEntry actual_size = { "Zoom100", null, null, "<Ctrl>1", null, snap_zoom_to_isomorphic };
         Gtk.ActionEntry max_size = { "Zoom200", null, null, "<Ctrl>2", null, snap_zoom_to_max };
+        Gtk.ActionEntry copy_image = { "CopyImage", null, null, "<Ctrl>C", null, on_copy_image };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
         actions += save;
@@ -89,6 +90,7 @@ public class DirectPhotoPage : EditingHostPage {
         actions += best_fit;
         actions += actual_size;
         actions += max_size;
+        actions += copy_image;
 
         return actions;
     }
@@ -146,6 +148,10 @@ public class DirectPhotoPage : EditingHostPage {
             if (fullscreen == false) {
                 open_menu = new Gtk.Menu ();
 
+                var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_MENU);
+                var copy_image_action = get_action ("CopyImage");
+                copy_image_menu_item.activate.connect (() => copy_image_action.activate ());
+
                 var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
                 open_menu_item.set_submenu (open_menu);
 
@@ -166,6 +172,7 @@ public class DirectPhotoPage : EditingHostPage {
                 contractor_menu_item.set_submenu (contractor_menu);
 
                 context_menu.add (new Gtk.SeparatorMenuItem ());
+                context_menu.add (copy_image_menu_item);
                 context_menu.add (open_menu_item);
                 context_menu.add (open_raw_menu_item);
                 context_menu.add (contractor_menu_item);
@@ -592,6 +599,14 @@ public class DirectPhotoPage : EditingHostPage {
                 } else {
                     on_save ();
                 }
+                return true;
+            }
+        }
+
+        if (match_keycode (Gdk.Key.c, keycode)) {
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
+                (event.state & Gdk.ModifierType.SHIFT_MASK)   == 0) {
+                activate_action ("CopyImage");
                 return true;
             }
         }
