@@ -148,22 +148,20 @@
 <schema id="io.elementary.photos.preferences.window" path="/io/elementary/photos/preferences/window/">
     <key name="library-maximize" type="b">
         <default>false</default>
-        <summary>maximize library window</summary>
+        <summary>Maximize library window</summary>
         <description>True if library application is maximized, false otherwise.</description>
     </key>
 
-    <key name="library-width" type="i">
-        <default>1000</default>
-        <summary>width of library window</summary>
-        <description>The last recorded width of the library application window.</description>
-    </key>
+    <key name="library-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Library window position</summary>
+      <description>Most recent library window position (x, y)</description>
 
-    <key name="library-height" type="i">
-        <default>680</default>
-        <summary>height of library window</summary>
-        <description>The last recorded height of the library application window.</description>
-    </key>
-
+    <key name="library-size" type="(ii)">
+      <default>(1000, 680)</default>
+      <summary>Library window size</summary>
+      <description>Most recent library window size (width, height)</description>
+   
     <key name="direct-maximize" type="b">
         <default>false</default>
         <summary>maximize direct-edit window</summary>
