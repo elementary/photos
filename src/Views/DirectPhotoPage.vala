@@ -605,7 +605,7 @@ public class DirectPhotoPage : EditingHostPage {
 
         if (match_keycode (Gdk.Key.c, keycode)) {
             if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
-                (event.state & Gdk.ModifierType.SHIFT_MASK)   == 0) {
+                (event.state & Gdk.ModifierType.SHIFT_MASK) == 0) {
                 activate_action ("CopyImage");
                 return true;
             }

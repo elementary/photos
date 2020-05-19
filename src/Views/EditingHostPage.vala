@@ -1641,7 +1641,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Gdk.Display display = Gdk.Display.get_default ();
         Gtk.Clipboard clipboard = Gtk.Clipboard.get_for_display (display, Gdk.SELECTION_CLIPBOARD);
 
-        clipboard.set_image(original);
+        clipboard.set_image (original);
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {

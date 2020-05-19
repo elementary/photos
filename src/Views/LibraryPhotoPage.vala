@@ -449,7 +449,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
         case "c":
             if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
-                (event.state & Gdk.ModifierType.SHIFT_MASK)   == 0) {
+                (event.state & Gdk.ModifierType.SHIFT_MASK) == 0) {
                 activate_action ("CopyImage");
             }
             else {
