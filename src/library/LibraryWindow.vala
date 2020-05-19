@@ -144,8 +144,8 @@ public class LibraryWindow : AppWindow {
 
     construct {
         set_default_size (
-            window_settings.get_int ("library-width"),
-            window_settings.get_int ("library-height")
+            window_settings.get_int ("library-position"),
+            window_settings.get_int ("library-size")
         );
 
         if (window_settings.get_boolean ("library-maximize")) {
@@ -513,8 +513,8 @@ public class LibraryWindow : AppWindow {
 
     protected override void on_quit () {
         window_settings.set_boolean ("library-maximize", is_maximized);
-        window_settings.set_int ("library-width", dimensions.width);
-        window_settings.set_int ("library-height", dimensions.height);
+        window_settings.set_int ("library-position", dimensions.position);
+        window_settings.set_int ("library-size", dimensions.size);
 
         base.on_quit ();
     }
