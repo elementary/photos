@@ -56,7 +56,6 @@ photos_files = files(
     'Thumbnail.vala',
     'TimedQueue.vala',
     'Tombstone.vala',
-    'UnityProgressBar.vala',
     'Upgrades.vala',
     'VideoMetadata.vala',
     'VideoMonitor.vala',

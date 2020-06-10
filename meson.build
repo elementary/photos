@@ -85,12 +85,6 @@ dependencies = [
     config_dep
 ]
 
-if get_option('libunity')
-    unity_dep = dependency('unity')
-    add_project_arguments('--define=UNITY_SUPPORT=1', language : 'vala')
-    dependencies += unity_dep
-endif
-
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 
 #FIXME: Move the Resource files when we have the required GLib version
