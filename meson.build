@@ -35,7 +35,7 @@ gstreamer_dep = dependency('gstreamer-1.0', version: '>=1.0.0')
 gstreamer_base_dep = dependency('gstreamer-base-1.0', version: '>=1.0.0')
 gstreamer_plugins_base_dep = dependency('gstreamer-plugins-base-1.0', version: '>=1.0.0')
 gstreamer_pbutils_dep = dependency('gstreamer-pbutils-1.0', version: '>=1.0.0')
-granite_dep = dependency('granite', version: '>=5.2.0')
+granite_dep = dependency('granite', version: '>=5.2.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 gudev_dep = dependency('gudev-1.0', version: '>=145')
 json_glib_dep = dependency('json-glib-1.0')
@@ -84,12 +84,6 @@ dependencies = [
     linux_dep,
     config_dep
 ]
-
-if get_option('libunity')
-    unity_dep = dependency('unity')
-    add_project_arguments('--define=UNITY_SUPPORT=1', language : 'vala')
-    dependencies += unity_dep
-endif
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 

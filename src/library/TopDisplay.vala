@@ -26,10 +26,6 @@ public class TopDisplay : Gtk.Stack {
     private uint background_progress_pulse_id = 0U;
     private const int BACKGROUND_PROGRESS_PULSE_MSEC = 250;
 
-#if UNITY_SUPPORT
-    UnityProgressBar uniprobar;
-#endif
-
     private bool show_progress {
         set {
             if (value) {
@@ -72,9 +68,6 @@ public class TopDisplay : Gtk.Stack {
 
         add (title_label);
         add_named (progress_grid, "progress");
-#if UNITY_SUPPORT
-        uniprobar = UnityProgressBar.get_instance ();
-#endif
     }
 
     public void start_pulse_background_progress_bar (string label, int priority) {
@@ -133,11 +126,10 @@ public class TopDisplay : Gtk.Stack {
         background_progress_label.label = _ ("%s (%d%%)").printf (label, (int) (fraction * 100.0));
         show_progress = true;
 
-#if UNITY_SUPPORT
         //UnityProgressBar: try to draw & set progress
-        uniprobar.set_visible (true);
-        uniprobar.set_progress (fraction);
-#endif
+        Granite.Services.Application.set_progress_visible.begin (true);
+        Granite.Services.Application.set_progress.begin (fraction);
+
     }
 
     public void clear_background_progress_bar (int priority) {
@@ -153,9 +145,8 @@ public class TopDisplay : Gtk.Stack {
         background_progress_label.label = "";
         show_progress = false;
 
-#if UNITY_SUPPORT
         //UnityProgressBar: reset
-        uniprobar.reset ();
-#endif
+        Granite.Services.Application.set_progress_visible.begin (false);
+        Granite.Services.Application.set_progress.begin (0.0);
     }
 }
