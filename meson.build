@@ -11,13 +11,32 @@ add_project_arguments([
         '-Wno-unused',
         '-Wl,--enable-new-dtags',
 
+        '-include', 'config.h',
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
     ],
     language: 'c',
 )
+add_project_arguments([
+        '--vapidir', join_paths(meson.current_source_dir(), 'vapi'),
+        '--pkg', 'config',
+    ],
+    language: 'vala',
+)
 
 libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
 pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
+
+conf_data = configuration_data()
+conf_data.set_quoted('PROJECT_NAME', meson.project_name())
+conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf_data.set_quoted('_VERSION', meson.project_version())
+conf_data.set_quoted('_PREFIX', get_option('prefix'))
+conf_data.set_quoted('_LIB', join_paths(get_option('prefix'), get_option('libdir')))
+conf_data.set_quoted('_LIBEXECDIR', libexecdir)
+config_header = configure_file(
+    output : 'config.h',
+    configuration : conf_data
+)
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -52,7 +71,6 @@ gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 linux_dep = meson.get_compiler('vala').find_library('linux')
-config_dep = meson.get_compiler('vala').find_library('config', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 
 vapi_include = include_directories('./vapi')
 
@@ -82,7 +100,6 @@ dependencies = [
     webkit2gtk_dep,
     lconv_dep,
     linux_dep,
-    config_dep
 ]
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
