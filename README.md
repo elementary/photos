@@ -16,7 +16,7 @@ You'll need the following dependencies:
 * libgexiv2-dev
 * libglib2.0-dev
 * libgphoto2-dev
-* libgranite-dev >= 5.2.0
+* libgranite-dev >= 5.2.5
 * libgstreamer1.0-dev
 * libgstreamer-plugins-base1.0-dev
 * libgtk-3-dev
@@ -27,7 +27,6 @@ You'll need the following dependencies:
 * libsignon-glib-dev
 * libsoup2.4-dev
 * libsqlite3-dev
-* libunity-dev
 * libwebkit2gtk-4.0-dev
 * libwebp-dev
 * libxml2

@@ -17,16 +17,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2018-12-12 23:02+0000\n"
-"Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/photos/photos/"
-"da/>\n"
+"PO-Revision-Date: 2020-05-25 15:11+0000\n"
+"Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
+"Language-Team: Danish <https://l10n.elementary.io/projects/photos/photos/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-03-22 07:08+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,7 +55,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Det var ikke muligt at lave data undermappen %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -349,9 +349,9 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "Fil %s findes allerede. Overskriv?"
+msgstr "Filen %s findes allerede. Overskriv?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -386,48 +386,45 @@ msgstr "Forlad fuldskærm"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Dit Foto Bibliotek Er Ikke Kompatibelt Med Denne Version af Fotos"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Dit fotobibliotek er ikke kompatibelt med denne version af Billeder.  Det "
-"ser ud til det blev oprettet af Billeder %s (skema %d).  Dette er version %s "
-"(skema %d).  Brug venligst den nyeste version af Billeder."
+"Det fremgår at det var oprettet med Fotos %s (skema %d). Denne version er %s "
+"(skema %d). Brug venligst den seneste version af Fotos."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Fotos var ude af stand til at opgradere dit fotobibliotek fra version %s "
-"(skema %d) til %s (skema %d).  For mere information, se Fotos wiki'en: %s"
+"Fotos var ude af stand til at opgradere dit fotobibliotek fra version %s ("
+"skema %d) til %s (skema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "For mere information tjek venligst Fotos Wiki på %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Dit fotobibliotek er ikke kompatibelt med denne version af Fotos.  Det ser "
-"ud til det blev oprettet af Fotos %s (skema %d).  Dette er version %s (skema "
-"%d). Brug venligst den nyeste version af Fotos.  Venligst rengør dit "
-"bibliotek ved at slette %s og re-importere dine billeder."
+"Det ser ud til, at det blev oprettet af Fotos %s (skema %d). Denne version "
+"er %s (skema %d). Vær venlig at ryde dit fotobibliotek ved at slette %s, og "
+"gen-importer så dine fotos."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Ukendt fejl under forsøg på at kontrollere Fotos database: %s"
+msgstr "Ukendt fejl under forsøg på at kontrollere Fotos database"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -516,23 +513,23 @@ msgstr "Notekort (3 x 5 tommer)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
-msgstr "4 x 6 tommer"
+msgstr "10 x 15 cm."
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
-msgstr "5 x 7 tommer"
+msgstr "13 x 18 cm."
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
-msgstr "8 x 10 tommer"
+msgstr "20.3 x 25.4 cm."
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
-msgstr "11 x 14 tommer"
+msgstr "27.9 x 35.5 cm."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
-msgstr "16 x 20 tommer"
+msgstr "40,6 x 50.8 cm."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
@@ -871,7 +868,7 @@ msgstr "_Slet mærkatet »%s«"
 #: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
-msgstr "Slet mærkatet »%s«"
+msgstr "Slet mærkatet \"%s\""
 
 #: src/Resources.vala:201
 msgid "Delete Tag"
@@ -908,25 +905,25 @@ msgid "Modify Tags"
 msgstr "Ændr mærkater"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Mærk billeder som »%s«"
-msgstr[1] "Mærk billeder som »%s«"
+msgstr[0] "Mærk billede som \"%s\""
+msgstr[1] "Mærk billeder som \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Fjern mærkat »%s« fra billeder"
-msgstr[1] "Fjern mærkat »%s« fra billeder"
+msgstr[0] "Fjern mærkat \"%s\" fra _billede"
+msgstr[1] "Fjern mærkat \"%s\" fra _billeder"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Fjern mærkat »%s« fra billeder"
-msgstr[1] "Fjern mærkat »%s« fra billeder"
+msgstr[0] "Fjern mærkat \"%s\" fra billede"
+msgstr[1] "Fjern mærkat \"%s\" fra billeder"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1086,7 +1083,7 @@ msgstr "PM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:98
 msgid "24 Hr"
-msgstr "24 t."
+msgstr "24 timer"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:102
 msgid "_Shift photos/videos by the same amount"
@@ -1097,17 +1094,15 @@ msgid "Set _all photos/videos to this time"
 msgstr "Sæt _alle billeder til denne tid"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Ændr originale fotofil"
-msgstr[1] "_Ændr originale fotofil"
+msgstr[1] "_Ændr originale fotofiler"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Ændr oprindelige filer"
+msgstr[0] "_Ændr oprindelig fil"
 msgstr[1] "_Ændr oprindelige filer"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
@@ -1165,14 +1160,14 @@ msgstr[0] "sekund"
 msgstr[1] "sekunder"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Dette vil fjerne mærkatet »%s« fra et billede. Fortsæt?"
+msgstr[0] "Dette vil fjerne mærkatet \"%s\" fra et billede. Fortsæt?"
 msgstr[1] "Dette vil fjerne mærkaterne »%s« fra %d billeder. Fortsæt?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Dette vil fjerne smartalbummet \"%s\".  Fortsæt?"
 
@@ -1192,7 +1187,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Er Du SIkker På, At Du Ønsker At Skifte Udviklere?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1204,11 +1199,10 @@ msgstr "Eksporter Video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksporter billede"
-msgstr[1] "Eksporter billede"
+msgstr[1] "Eksporter billeder"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1618,25 +1612,23 @@ msgid "Name:"
 msgstr "Navn:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Fortryd ekstern redigering?"
-msgstr[1] "Fortryd ekstern redigering?"
+msgstr[1] "Fortryd eksterne redigeringer?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "Dette vil ødelægge alle forandringer i den eksterne fil. Fortsæt?"
-msgstr[1] "Dette vil ødelægge alle forandringer i %d eksterne filer. Fortsæt?"
+msgstr[0] "Dette vil ødelægge alle ændringer i den eksterne fil. Fortsæt?"
+msgstr[1] "Dette vil ødelægge alle ændringer i %d eksterne filer. Fortsæt?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Omg_ør eksterne editeringer"
+msgstr[0] "Omg_ør ekstern redigering"
 msgstr[1] "Omg_ør eksterne editeringer"
 
 #: src/Dialogs/Dialogs.vala:833
@@ -1648,7 +1640,7 @@ msgid "Remove Photos From Library"
 msgstr "Fjern billeder fra bibliotek"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Dette vil fjerne billedet fra biblioteket. Fortsæt?"
@@ -1704,11 +1696,10 @@ msgid "Remove From Library"
 msgstr "Fjern fra biblioteket"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Fjerner billeder fra biblioteket"
-msgstr[1] "Fjerner billeder fra biblioteket"
+msgstr[0] "Fjerner billede fra bibliotek"
+msgstr[1] "Fjerner billeder fra bibliotek"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1742,9 +1733,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skaleringsbegrænsning:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Skjul infopanel"
+msgstr "_Størrelse i pixels:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1772,7 +1762,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Omdøb importerede filer til små bogstaver:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Skriv _metadata til filer:"
 
@@ -1932,7 +1921,7 @@ msgstr "HD-video (16 : 9)"
 
 #: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
-msgstr "Letter (8.5 x 11 in.)"
+msgstr "Brev (8.5 x 11 in.)"
 
 #: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
@@ -2536,10 +2525,9 @@ msgid "Other Actions"
 msgstr "Andre Handlinger"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Eksporter billeder/videoer"
+msgstr[0] "Eksporter billede/video"
 msgstr[1] "Eksporter billeder/videoer"
 
 #: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
@@ -2687,7 +2675,6 @@ msgid "Flagged"
 msgstr "Markeret"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
@@ -2737,15 +2724,12 @@ msgstr "Importere alle billeder ind i dit bibliotek"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kameraet kan ikke tilgås når det er monteret"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr ""
-"Fotos har brug for at afmontere kameraet fra filsystemet for at få adgang "
-"til det. Fortsæt?"
+msgstr "Fotos skal afmontere kameraet fra filsystemet for at få adgang til det."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2758,17 +2742,15 @@ msgstr "Afmonter venligst kameraet."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kameraet Er Låst Af En Anden Applikation"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kameraet er låst af en anden applikation. Fotos kan kun tilgå kameraet når "
-"det er ulåst. Luk venligst alle andre applikationer som bruger kameraet og "
-"forsøg igen."
+"Fotos kan kun få adgang til kameraet, når det er låst op. Luk ethvert andet "
+"program ved hjælp af kameraet, og prøv igen."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3409,7 +3391,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 billedpunkter)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3419,7 +3400,7 @@ msgstr ""
 "Du er ikke logget på Flickr i øjeblikket.\n"
 "\n"
 "Klik på Log ind for at logge på Flickr i din webbrowser. Du vil skulle "
-"godkende Shotwell Connect for at henvise til din Flickr-konto."
+"godkende Shotwell Connect for at linke din Flickr-konto."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2020-05-11 12:10+0000\n"
+"PO-Revision-Date: 2020-05-30 21:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/photos/photos/cs/>"
 "\n"
@@ -33,7 +33,7 @@ msgstr ""
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Nelze vytvořit cache adresáře  %s: %s"
+msgstr "Nedaří se vytvořit složku pro mezipaměť %s: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -102,7 +102,7 @@ msgstr "Není soubor"
 
 #: src/BatchImport.vala:57
 msgid "File already exists in database"
-msgstr "Soubor je již v databázi"
+msgstr "Soubor už v databázi je"
 
 #: src/BatchImport.vala:60
 msgid "Unsupported file format"
@@ -205,9 +205,9 @@ msgstr "Odstranění duplicitních fotografií"
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
-msgstr[0] "Nemohu zkopírovat %d fotografii kvůli chybám v souboru"
-msgstr[1] "Nemohu zkopírovat %d fotografie kvůli chybám v souboru"
-msgstr[2] "Nemohu zkopírovat %d fotografií kvůli chybám v souboru"
+msgstr[0] "Nedaří se zkopírovat fotografii kvůli chybám v souboru"
+msgstr[1] "Nedaří se zkopírovat %d fotografie kvůli chybám v souboru"
+msgstr[2] "Nedaří se zkopírovat %d fotografií kvůli chybám v souboru"
 
 #: src/Commands.vala:1191
 msgid "Setting RAW developer"
@@ -223,11 +223,11 @@ msgstr "Nastavení vývojky"
 
 #: src/Commands.vala:1282
 msgid "Original photo could not be adjusted."
-msgstr "Originální fotografie nemůže být upravována."
+msgstr "Původní fotografie nemůže být upravována."
 
 #: src/Commands.vala:1303
 msgid "Adjusting Date and Time"
-msgstr "Nastavení času a data"
+msgstr "Nastavení data a času"
 
 #: src/Commands.vala:1303
 msgid "Undoing Date and Time Adjustment"
@@ -259,7 +259,7 @@ msgstr "Vytvořit značku"
 #: src/Commands.vala:1630
 #, c-format
 msgid "Move Tag \"%s\""
-msgstr "Přesunout značku \"%s\""
+msgstr "Přesunout značku „%s“"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
@@ -267,7 +267,7 @@ msgstr "Vyhodit fotografie do koše"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
-msgstr "Vyjmout fotografie z koše"
+msgstr "Obnovit fotografie z koše"
 
 #: src/Commands.vala:2281
 msgid "Move the photos to the Photos trash"
@@ -374,7 +374,7 @@ msgstr "Přepsat _vše"
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
 #: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
-msgstr "_Zrušit"
+msgstr "_Storno"
 
 #: src/Exporter.vala:342
 msgid "_Replace"
@@ -382,7 +382,7 @@ msgstr "_Přepsat"
 
 #: src/FullScreenWindow.vala:52
 msgid "Pin the toolbar open"
-msgstr "Připíchnout otevřený panel"
+msgstr "Připnout otevřený panel"
 
 #: src/FullScreenWindow.vala:58
 msgid "Leave fullscreen"
@@ -432,7 +432,7 @@ msgstr "Neznámá chyba při pokusu o ověření databáze programu Fotky"
 
 #: src/main.vala:115
 msgid "Loading Photos"
-msgstr "Načítám Fotky"
+msgstr "Načítání aplikace Fotky"
 
 #: src/main.vala:277
 msgid "Path to Photos' private data"
@@ -452,11 +452,11 @@ msgstr "Nezobrazovat při spuštění ukazatel průběhu"
 
 #: src/main.vala:280
 msgid "Show the application's version"
-msgstr "Zobrazit verzi programu"
+msgstr "Zobrazit verzi aplikace"
 
 #: src/main.vala:281
 msgid "Show extra debugging output"
-msgstr "Zobrazit extra debugovací výstup"
+msgstr "Zobrazit podrobnější ladící výstup"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:307
@@ -817,7 +817,7 @@ msgstr "Upravit komentář"
 
 #: src/Resources.vala:166
 msgid "_Adjust Date and Time…"
-msgstr "_Přizpůsobit datum a čas…"
+msgstr "Přizpůsobit d_atum a čas…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -851,30 +851,30 @@ msgstr "Nepodařilo se spustit editor: %s"
 #: src/Resources.vala:184
 #, c-format
 msgid "Add Tag \"%s\""
-msgstr "Přidat nálepku \"%s\""
+msgstr "Přidat štítek „%s“"
 
 #: src/Resources.vala:186
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "Přidat nálepky \"%s\" a \"%s\""
+msgstr "Přidat štítky „%s“ a „%s“"
 
 #: src/Resources.vala:190
 msgid "Add Tags"
-msgstr "Přidat nálepky"
+msgstr "Přidat štítky"
 
 #: src/Resources.vala:194
 #, c-format
 msgid "_Delete Tag \"%s\""
-msgstr "S_mazat nálepku \"%s\""
+msgstr "S_mazat štítek „%s“"
 
 #: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
-msgstr "Smazat nálepku \"%s\""
+msgstr "Smazat štítek „%s“"
 
 #: src/Resources.vala:201
 msgid "Delete Tag"
-msgstr "Smazat nálepku"
+msgstr "Smazat štítek"
 
 #: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
@@ -887,12 +887,12 @@ msgstr "_Nový"
 #: src/Resources.vala:207
 #, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Pře_jmenovat označení \"%s\"…"
+msgstr "Pře_jmenovat označení „%s“…"
 
 #: src/Resources.vala:211
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
-msgstr "Přejmenovat nálepku \"%s\" na \"%s\""
+msgstr "Přejmenovat nálepku „%s“ na „%s“"
 
 #: src/Resources.vala:214
 msgid "_Rename…"
@@ -900,19 +900,19 @@ msgstr "_Přejmenovat…"
 
 #: src/Resources.vala:216
 msgid "Modif_y Tags…"
-msgstr "Změnit označení…"
+msgstr "_Změnit označení…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
-msgstr "Změnit nálepky"
+msgstr "Změnit štítky"
 
 #: src/Resources.vala:220
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Označit fotku štítek „%s“"
-msgstr[1] "Označit fotky štítek „%s“"
-msgstr[2] "Označit fotky štítek „%s“"
+msgstr[0] "Označit fotku štítkem „%s“"
+msgstr[1] "Označit fotky štítkem „%s“"
+msgstr[2] "Označit fotky štítkem „%s“"
 
 #: src/Resources.vala:224
 #, c-format
@@ -933,13 +933,12 @@ msgstr[2] "Odebrat fotkám štítek „%s“"
 #: src/Resources.vala:232
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
-msgstr "Nepodařilo se přejmenovat nálepku na \"%s\", protože taková už je."
+msgstr "Nepodařilo se přejmenovat štítek na „%s“, protože takový už existuje."
 
 #: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
-msgstr ""
-"Nepodařilo se přejmenovat hledání na \"%s\", protože už takové existuje."
+msgstr "Nepodařilo se přejmenovat hledání na „%s“, protože už takové existuje."
 
 #: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -960,12 +959,12 @@ msgstr "Pře_jmenovat…"
 #: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
-msgstr "Přejmenovat hledání \"%s\" na \"%s\""
+msgstr "Přejmenovat hledání „%s“ na „%s“"
 
 #: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
-msgstr "Smazat hledání \"%s\""
+msgstr "Smazat hledání „%s“"
 
 #: src/Resources.vala:284
 msgid "_Delete Selection"
@@ -1165,9 +1164,9 @@ msgstr[2] "minut"
 #: src/Dialogs/AdjustDateTimeDialog.vala:300
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "vteřina"
-msgstr[1] "vteřiny"
-msgstr[2] "vteřin"
+msgstr[0] "sekunda"
+msgstr[1] "sekundy"
+msgstr[2] "sekund"
 
 #: src/Dialogs/Dialogs.vala:50
 #, c-format
@@ -1271,11 +1270,11 @@ msgstr "Po_kračovat"
 
 #: src/Dialogs/Dialogs.vala:183
 msgid "Save Details…"
-msgstr "Uložit detaily…"
+msgstr "Uložit podrobnosti…"
 
 #: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
-msgstr "Uložit detaily"
+msgstr "Uložit podrobnosti"
 
 #: src/Dialogs/Dialogs.vala:199
 #, c-format
@@ -1897,7 +1896,7 @@ msgstr "Přidat pravidlo"
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr "Storno"
 
 #: src/db/DatabaseTable.vala:50
 #, c-format
@@ -2306,7 +2305,7 @@ msgstr "Příprava nahrávání"
 #: src/publishing/PublishingPluginHost.vala:25
 #, c-format
 msgid "Uploading %d of %d"
-msgstr "Nahrávám %d z %d"
+msgstr "Nahrává se %d z %d"
 
 #: src/publishing/PublishingPluginHost.vala:94
 #, c-format
@@ -2432,7 +2431,7 @@ msgstr "Typ média"
 
 #: src/searches/SearchBoolean.vala:186
 msgid "Flag state"
-msgstr "Stav vlajky"
+msgstr "Stav příznaku"
 
 #: src/searches/SearchBoolean.vala:189
 msgid "Photo state"
@@ -2530,7 +2529,7 @@ msgstr "Umělec:"
 
 #: src/sidebar/metadata/ExtendedProperties.vala:125
 msgid "Copyright:"
-msgstr "Copyright:"
+msgstr "Autorská práva:"
 
 #: src/sidebar/metadata/LibraryProperties.vala:81
 msgid "Tags, separated by commas"
@@ -2778,7 +2777,7 @@ msgstr "Importovat vy_brané"
 
 #: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
 msgid "Import _All"
-msgstr "Importovat _všechny"
+msgstr "Importov_at všechny"
 
 #. Ticket #3304 - Import page shouldn't display confusing message
 #. prior to import.
@@ -3290,7 +3289,7 @@ msgstr "Jste přihlášeni k YouTube jako %s."
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
 #, c-format
 msgid "Videos will appear in '%s'"
-msgstr "Videa se objeví v '%s'"
+msgstr "Videa se objeví v „%s“"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
 msgid "Public listed"
@@ -3406,15 +3405,15 @@ msgstr "Administrátoři, Rodina, Přátelé, Kontakty"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1240
 msgid "Admins, Family, Friends"
-msgstr "Administrátoři, Rodina, Přátelé"
+msgstr "Správci, Rodina, Přátelé"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
 msgid "Admins, Family"
-msgstr "Administrátoři, Rodina"
+msgstr "Správci, Rodina"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
 msgid "Admins"
-msgstr "Administrátoři"
+msgstr "Správci"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1250
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
