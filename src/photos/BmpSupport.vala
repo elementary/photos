@@ -20,8 +20,8 @@
 namespace Photos {
 
 class BmpFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = { "bmp", "dib" };
-    private static string[] KNOWN_MIME_TYPES = { GPhoto.MIME.BMP };
+    private static string[] known_extensions = { "bmp", "dib" };
+    private static string[] known_mime_types = { GPhoto.MIME.BMP };
 
     private static BmpFileFormatProperties instance = null;
 
@@ -46,19 +46,19 @@ class BmpFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string get_default_extension () {
-        return KNOWN_EXTENSIONS[0];
+        return known_extensions[0];
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 

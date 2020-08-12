@@ -26,10 +26,6 @@ public class ImportQueuePage : SinglePhotoPage {
     private Gtk.ProgressBar progress_bar = new Gtk.ProgressBar ();
     private bool stopped = false;
 
-#if UNITY_SUPPORT
-    UnityProgressBar uniprobar = UnityProgressBar.get_instance ();
-#endif
-
     public signal void batch_added (BatchImport batch_import);
 
     public signal void batch_removed (BatchImport batch_import);
@@ -37,10 +33,9 @@ public class ImportQueuePage : SinglePhotoPage {
     public ImportQueuePage () {
         base (NAME, false);
 
-#if UNITY_SUPPORT
         //UnityProgressBar: try to draw progress bar
-        uniprobar.set_visible (true);
-#endif
+        Granite.Services.Application.set_progress_visible.begin (true);
+
     }
 
     public override Gtk.ActionBar get_toolbar () {
@@ -132,10 +127,9 @@ public class ImportQueuePage : SinglePhotoPage {
         double pct = (completed_bytes <= total_bytes) ? (double) completed_bytes / (double) total_bytes
                      : 0.0;
         progress_bar.set_fraction (pct);
-#if UNITY_SUPPORT
+
         //UnityProgressBar: set progress
-        uniprobar.set_progress (pct);
-#endif
+        Granite.Services.Application.set_progress (pct);
     }
 
     private void on_imported (ThumbnailSource source, Gdk.Pixbuf pixbuf, int to_follow) {
@@ -184,10 +178,10 @@ public class ImportQueuePage : SinglePhotoPage {
             progress_bar.set_ellipsize (Pango.EllipsizeMode.NONE);
             progress_bar.set_text ("");
             progress_bar.set_fraction (0.0);
-#if UNITY_SUPPORT
+
             //UnityProgressBar: reset
-            uniprobar.reset ();
-#endif
+            Granite.Services.Application.set_progress_visible.begin (false);
+            Granite.Services.Application.set_progress.begin (0.0);
 
             // blank the display
             blank_display ();

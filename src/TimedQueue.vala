@@ -294,4 +294,3 @@ public class HashTimedQueue<G> : TimedQueue<G> {
             item_count.set (item, count);
     }
 }
-

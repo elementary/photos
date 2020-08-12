@@ -633,4 +633,3 @@ public class DataCollection {
         thawed ();
     }
 }
-

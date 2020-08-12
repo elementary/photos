@@ -83,10 +83,10 @@ public class TombstoneTable : DatabaseTable {
         time_t time_created = (time_t) now_sec ();
 
         bind_text (stmt, 1, filepath);
-        bind_int64 (stmt,2, filesize);
+        bind_int64 (stmt, 2, filesize);
         bind_text (stmt, 3, md5);
-        bind_int64 (stmt,4, (int64) time_created);
-        bind_int (stmt,5, reason.serialize ());
+        bind_int64 (stmt, 4, (int64) time_created);
+        bind_int (stmt, 5, reason.serialize ());
 
         var res = stmt.step ();
         if (res != Sqlite.DONE)
@@ -145,4 +145,3 @@ public class TombstoneTable : DatabaseTable {
         delete_by_id (tombstone_id.id);
     }
 }
-

@@ -46,4 +46,3 @@ public class Library.LastImportSidebarEntry : Library.HideablePageEntry {
         visible = (MediaCollectionRegistry.get_instance ().get_last_import_id () != null);
     }
 }
-

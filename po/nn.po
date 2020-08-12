@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2019-01-05 17:52+0000\n"
-"Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
-"Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
-"photos/photos/nn/>\n"
+"PO-Revision-Date: 2020-07-25 17:12+0000\n"
+"Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
+"Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/photos/"
+"photos/nn/>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:10+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -48,7 +48,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kan ikkje lage data for underkatalog %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -343,7 +343,7 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Fila %s finst frå før av. Overskriv?"
 
@@ -381,48 +381,45 @@ msgstr "Forlat fullskjerm"
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete. "
-"Det ser ut til at det var laga av Photos %s (skjema %d).  Denne versjonen er "
+"Det ser ut til at det var laga av Bilete %s (skjema %d).  Denne versjonen er "
 "%s (skjema %d). Ver venleg og bruk den nyaste versjonen av Bilete."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Bilete var ikkje i stand til å oppgradere bibiloteket ditt frå versjon %s "
-"(skjema %d) til %s (skjema %d). For meir informasjon, sjekk Bilete sin wiki "
-"på %s"
+"Bilete var ikkje i stand til å oppgradera bibiloteket ditt frå versjon %s ("
+"skjema %d) til %s (skjema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "For meir informasjon, gå til Bilete sin wiki på %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete. "
 "Det ser ut til at det var laga med Bilete %s (skjema %d). Denne versjonen er "
-"%s (skjema %d).  Rydd opp i biblioteket ditt ved å slette %s og importer "
+"%s (skjema %d).  Rydd opp i biblioteket ditt ved å sletta %s og importer "
 "bileta på nytt."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Ein ukjend feil oppstod under verifisering av Bilete sin database: %s"
+msgstr "Ein ukjend feil oppstod under verifisering av Bilete sin database"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -903,25 +900,25 @@ msgid "Modify Tags"
 msgstr "Endre taggar"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Tagg bileta som «%s»"
-msgstr[1] "Tagg bileta som «%s»"
+msgstr[0] "Tagg bilete som \"%s\""
+msgstr[1] "Tagg bileta som \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Fjern taggen «%s» frå _bileta"
-msgstr[1] "Fjern taggen «%s» frå _bileta"
+msgstr[0] "Fjern taggen \"%s\" frå _bilete"
+msgstr[1] "Fjern taggen\"%s\" frå _bileta"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Fjern taggen «%s» frå bileta"
-msgstr[1] "Fjern taggen «%s» frå bileta"
+msgstr[0] "Fjern taggen \"%s\" frå bilete"
+msgstr[1] "Fjern taggen \"%s\" frå bileta"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1090,11 +1087,10 @@ msgid "Set _all photos/videos to this time"
 msgstr "Gje _alle bilete/videoar dette tidspunktet"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "_Modifiser biletet si originalfil"
-msgstr[1] "_Modifiser biletet si originalfil"
+msgstr[0] "_Modifiser bilete si originalfil"
+msgstr[1] "_Modifiser bileta si originalfil"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 #, fuzzy

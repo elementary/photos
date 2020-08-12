@@ -326,4 +326,3 @@ public class Alteration {
         return new Alteration.from_map (compressed);
     }
 }
-

@@ -253,14 +253,14 @@ public string delete_search_label (string name) {
 }
 
 private static Gdk.Pixbuf? flag_trinket_cache;
-private const int flag_padding = 2;
+private const int FLAG_PADDING = 2;
 
 public Gdk.Pixbuf? get_flag_trinket () {
     if (flag_trinket_cache != null)
       return flag_trinket_cache;
 
     int size = 16;
-    int padded_size = size + flag_padding * 2;
+    int padded_size = size + FLAG_PADDING * 2;
     Granite.Drawing.BufferSurface surface = new Granite.Drawing.BufferSurface (padded_size, padded_size);
     Cairo.Context cr = surface.context;
 
@@ -275,7 +275,7 @@ public Gdk.Pixbuf? get_flag_trinket () {
         return null;
     }
 
-    Gdk.cairo_set_source_pixbuf (cr, flag, flag_padding, flag_padding);
+    Gdk.cairo_set_source_pixbuf (cr, flag, FLAG_PADDING, FLAG_PADDING);
     cr.paint ();
     flag_trinket_cache = surface.load_to_pixbuf ();
     return flag_trinket_cache;
@@ -301,12 +301,12 @@ public const string MOVE_TO_TRASH_MENU = _("_Move to Trash");
 public const string SELECT_ALL_MENU = _("Select _All");
 public const string SELECT_ALL_TOOLTIP = _("Select all items");
 
-private string HH_MM_FORMAT_STRING = null;
-private string HH_MM_SS_FORMAT_STRING = null;
-private string LONG_DATE_FORMAT_STRING = null;
-private string START_MULTIDAY_DATE_FORMAT_STRING = null;
-private string END_MULTIDAY_DATE_FORMAT_STRING = null;
-private string START_MULTIMONTH_DATE_FORMAT_STRING = null;
+private string hh_mm_format_string = null;
+private string hh_mm_ss_format_string = null;
+private string long_date_format_string = null;
+private string start_multiday_date_format_string = null;
+private string end_multiday_date_format_string = null;
+private string start_multimonth_date_format_string = null;
 
 /**
  * Helper for getting a format string that matches the
@@ -338,31 +338,31 @@ private void fetch_lc_time_format () {
     /// Locale-specific time format for 12-hour time, i.e. 8:31 PM
     /// Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    HH_MM_FORMAT_STRING = _("%-I:%M %p");
+    hh_mm_format_string = _("%-I:%M %p");
 
     /// Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
     /// Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    HH_MM_SS_FORMAT_STRING = _("%-I:%M:%S %p");
+    hh_mm_ss_format_string = _("%-I:%M:%S %p");
 
     /// Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    LONG_DATE_FORMAT_STRING = _("%a %b %d, %Y");
+    long_date_format_string = _("%a %b %d, %Y");
 
     /// Locale-specific starting date format for multi-date strings,
     /// i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    START_MULTIDAY_DATE_FORMAT_STRING = _("%a %b %d");
+    start_multiday_date_format_string = _("%a %b %d");
 
     /// Locale-specific ending date format for multi-date strings,
     /// i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    END_MULTIDAY_DATE_FORMAT_STRING = _("%d, %Y");
+    end_multiday_date_format_string = _("%d, %Y");
 
     /// Locale-specific calendar date format for multi-month strings,
     /// i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
     /// See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-    START_MULTIMONTH_DATE_FORMAT_STRING = _("%a %b %d");
+    start_multimonth_date_format_string = _("%a %b %d");
 
     // ...put everything back like we found it.
     if (old_messages != null) {
@@ -379,51 +379,51 @@ private void fetch_lc_time_format () {
  * user's LC_TIME settings.
  */
 public string get_hh_mm_format_string () {
-    if (HH_MM_FORMAT_STRING == null) {
+    if (hh_mm_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return HH_MM_FORMAT_STRING;
+    return hh_mm_format_string;
 }
 
 public string get_hh_mm_ss_format_string () {
-    if (HH_MM_SS_FORMAT_STRING == null) {
+    if (hh_mm_ss_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return HH_MM_SS_FORMAT_STRING;
+    return hh_mm_ss_format_string;
 }
 
 public string get_long_date_format_string () {
-    if (LONG_DATE_FORMAT_STRING == null) {
+    if (long_date_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return LONG_DATE_FORMAT_STRING;
+    return long_date_format_string;
 }
 
 public string get_start_multiday_span_format_string () {
-    if (START_MULTIDAY_DATE_FORMAT_STRING == null) {
+    if (start_multiday_date_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return START_MULTIDAY_DATE_FORMAT_STRING;
+    return start_multiday_date_format_string;
 }
 
 public string get_end_multiday_span_format_string () {
-    if (END_MULTIDAY_DATE_FORMAT_STRING == null) {
+    if (end_multiday_date_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return END_MULTIDAY_DATE_FORMAT_STRING;
+    return end_multiday_date_format_string;
 }
 
 public string get_start_multimonth_span_format_string () {
-    if (START_MULTIMONTH_DATE_FORMAT_STRING == null) {
+    if (start_multimonth_date_format_string == null) {
         fetch_lc_time_format ();
     }
 
-    return START_MULTIMONTH_DATE_FORMAT_STRING;
+    return start_multimonth_date_format_string;
 }
 
 public string get_end_multimonth_span_format_string () {

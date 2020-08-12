@@ -858,7 +858,7 @@ internal class WebAuthenticationPane : Spit.Publishing.DialogPane, Object {
         public string? exception_translation_2;
 
         public LocaleLookup (string prefix, string translation, string? exception_code = null,
-                             string? exception_translation  = null, string? exception_code_2  = null,
+                             string? exception_translation = null, string? exception_code_2 = null,
                              string? exception_translation_2 = null) {
             this.prefix = prefix;
             this.translation = translation;
@@ -1403,18 +1403,18 @@ internal class GraphSession {
                 mp_envelope.append_form_string ("privacy", resource_privacy);
 
             // get photo title and post it as message on FB API
-            string publishable_title = publishable.get_param_string("title");
+            string publishable_title = publishable.get_param_string ("title");
             if (!suppress_titling && publishable_title != null)
                 mp_envelope.append_form_string ("name", publishable_title);
 
             // set 'message' data field with EXIF comment field. Title has precedence.
-            string publishable_comment = publishable.get_param_string("comment");
+            string publishable_comment = publishable.get_param_string ("comment");
             if (!suppress_titling && publishable_comment != null)
-                mp_envelope.append_form_string("message", publishable_comment);
+                mp_envelope.append_form_string ("message", publishable_comment);
 
             // set correct date of the picture
             if (!suppress_titling)
-                mp_envelope.append_form_string("backdated_time", publishable.get_exposure_date_time().to_string());
+                mp_envelope.append_form_string ("backdated_time", publishable.get_exposure_date_time ().to_string ());
 
             string source_file_mime_type =
                 (publishable.get_media_type () == Spit.Publishing.Publisher.MediaType.VIDEO) ?

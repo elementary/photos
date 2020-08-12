@@ -247,4 +247,3 @@ public abstract class ContainerSourceCollection : DatabaseSourceCollection {
         attached_collections.clear ();
     }
 }
-

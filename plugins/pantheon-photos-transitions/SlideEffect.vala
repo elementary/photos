@@ -85,4 +85,3 @@ private class SlideEffect : Object, Transitions.Effect {
     public void cancel () {
     }
 }
-

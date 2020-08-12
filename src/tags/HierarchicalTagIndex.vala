@@ -98,6 +98,4 @@ public class HierarchicalTagIndex {
 
         return result;
     }
-
 }
-

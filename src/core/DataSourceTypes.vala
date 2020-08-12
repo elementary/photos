@@ -117,5 +117,3 @@ public interface ContainerSource : DataSource {
 
     public abstract void establish_link_many (Gee.Collection<DataSource> sources);
 }
-
-

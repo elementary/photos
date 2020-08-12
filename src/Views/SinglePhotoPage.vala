@@ -61,7 +61,7 @@ public abstract class SinglePhotoPage : Page {
         // should never be shown, but this may change if/when zooming is supported
         set_policy (Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
 
-        canvas.get_style_context ().add_class ("checkerboard-layout");
+        canvas.get_style_context ().add_class (Granite.STYLE_CLASS_CHECKERBOARD);
 
         viewport.add (canvas);
 

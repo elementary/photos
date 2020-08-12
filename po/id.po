@@ -18,16 +18,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2018-10-21 03:47+0000\n"
+"PO-Revision-Date: 2020-03-28 17:09+0000\n"
 "Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
-"Language-Team: Indonesian <https://weblate.elementary.io/projects/photos/"
-"photos/id/>\n"
+"Language-Team: Indonesian <https://l10n.elementary.io/projects/photos/photos/"
+"id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -56,7 +56,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Gagal membuat subdirektori data %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -347,9 +347,9 @@ msgid "Export"
 msgstr "Ekspor"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "Berkas %s sudah ada. Timpa?"
+msgstr "Berkas %s sudah ada. Ganti?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -384,47 +384,45 @@ msgstr "Tinggalkan layar penuh"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Pustakan Foto Anda tidak kompatibel dengan versi Foto ini"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Pustaka foto Anda tidak kompatibel dengan versi Foto saat ini. Tampaknya "
-"pustaka dibuat oleh %s (schema %d) Foto. Versi saat ini adalah %s (schema "
-"%d). Harap gunakan versi terbaru Foto."
+"Tampaknya dibuat oleh %s (skema %d) Foto. Versi saat ini adalah %s (skema %d)"
+". Harap gunakan versi Foto terbaru."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Foto gagal meningkatkan pustaka foto Anda dari versi %s (schema %d) ke %s "
-"(schema %d). Untuk informasi lebih lanjut silakan periksa Wiki Foto di %s"
+"Foto gagal meningkatkan pustaka Foto Anda dari versi %s (skema %d) ke %s ("
+"skema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "Untuk info lebih lanjut silakan lihat Wiki Foto di %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Pustaka foto Anda tidak kompatibel dengan versi Foto ini. Tampaknya dibuat "
-"oleh Foto %s (skema %d). Versi ini adalah %s (skema %d). Silakan bersihkan "
-"pustaka Anda dengan cara menghapus %s dan mengimpor ulang foto-foto Anda."
+"Tampaknya dibuat oleh Foto %s (skema %d). Versi ini adalah %s (skema %d). "
+"Silakan bersihkan pustaka Anda dengan cara menghapus %s dan mengimpor ulang "
+"foto-foto Anda."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Galat tidak diketahui mencoba untuk memverifikasi basis data Foto: %s"
+msgstr "Galat tidak diketahui mencoba untuk verifikasi basis data Foto"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -905,19 +903,19 @@ msgid "Modify Tags"
 msgstr "Ubah Tanda"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Tandai Foto Sebagai \"%s\""
+msgstr[0] "Tandai Foto sebagai \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Hapus Tanda \"%s\" Dari _Foto"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Hapus Tanda \"%s\" Dari Foto"
@@ -1090,13 +1088,11 @@ msgid "Set _all photos/videos to this time"
 msgstr "Atur semu_a foto/video ke waktu ini"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "_Modifikasi berkas asli foto"
+msgstr[0] "_Modifikasi berkas foto asli"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "_Modifikasi berkas asli"
@@ -1152,15 +1148,15 @@ msgid_plural "seconds"
 msgstr[0] "detik"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Tanda \"%s\" akan dihapus dari %d foto. Teruskan?"
+msgstr[0] "Hal ini akan menghapus tanda \"%s\" dari %d foto. Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Ini akan menghapus album pintar \"%s\".  Lanjutkan?"
+msgstr "Hal ini akan menghapus album pintar \"%s\".  Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1175,7 +1171,7 @@ msgstr[0] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Apa Anda yakin akan berganti Pengembang?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1187,7 +1183,6 @@ msgstr "Ekspor Video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Ekspor Foto"
@@ -1560,25 +1555,23 @@ msgid "Name:"
 msgstr "Nama:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Kembalikan Penyuntingan Eksternal?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Ini akan menghancurkan semua perubahan yang dilakukan pada %d berkas "
-"eksternal. Lanjutkan?"
+"Hal ini akan menghancurkan semua perubahan pada %d berkas eksternal. "
+"Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Kembalikan Pen_yuntingan Eksternal"
+msgstr[0] "Kembalikan Penyuntingan Eksternal"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1589,10 +1582,10 @@ msgid "Remove Photos From Library"
 msgstr "Hapus Foto Dari Album"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Ini akan menghapus %d foto dari album.  Lanjutkan?"
+msgstr[0] "Hal ini akan menghapus %d foto dari album.  Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1640,10 +1633,9 @@ msgid "Remove From Library"
 msgstr "Hapus Dari Album"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Hapus Foto dari Album"
+msgstr[0] "Menghapus Foto dari Pustaka"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1676,9 +1668,8 @@ msgid "_Scaling constraint:"
 msgstr "_Batas skala:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Sembunyikan panel info"
+msgstr "_Ukuran dalam piksel:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1706,9 +1697,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Ubah n_ama berkas impor ke huruf kecil:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Tuliskan  _metadata ke berkas:"
+msgstr "Tulis  _metadata pada berkas:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2466,7 +2456,6 @@ msgid "Other Actions"
 msgstr "Tindakan Lain"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Ekspor Foto/Video"
@@ -2616,11 +2605,9 @@ msgid "Flagged"
 msgstr "Ditandai"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
-msgstr ""
-"Kamera tidak dapat dilepas. Silakan lepas melalui program pengelola berkas."
+msgstr "Tidak dapat melepas kamera. Coba lepas kamera dari pengelola berkas."
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
@@ -2665,14 +2652,12 @@ msgstr "Impor semua foto ke album"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kamera Tidak Dapat Diakses Pada Saat Terpasang"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
-msgstr ""
-"Foto perlu melepas kamera dari sistemfile agar dapat mengaksesnya. Lanjutkan?"
+msgstr "Foto perlu melepas kamera dari sistemberkas agar dapat mengaksesnya."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
@@ -2685,17 +2670,15 @@ msgstr "Silakan lepaskan kamera."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kamera Terkunci oleh Aplikasi Lain"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kamera terkunci oleh aplikasi lain.  Foto hanya dapat mengakses kamera pada "
-"saat tidak terkunci.  Silakan matikan aplikasi yang sedang menggunakan "
-"kamera dan coba kembali."
+"Foto hanya dapat mengakses kamera pada saat tidak terkunci.  Silakan tutup "
+"aplikasi lain yang sedang menggunakan kamera dan coba kembali."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -3328,7 +3311,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3337,8 +3319,8 @@ msgid ""
 msgstr ""
 "Anda saat ini tidak masuk ke Flickr.\n"
 "\n"
-"Klik Log masuk untuk masuk ke Flickr di peramban Web Anda. Anda harus "
-"memberi otorisasi pada Shotwell Connect untuk menautkan ke akun Flickr Anda."
+"Klik Masuk untuk masuk ke Flickr pada peramban Anda. Anda harus "
+"mengotorisasi Shotwell Connect untuk menautkan ke akun Flickr Anda."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""

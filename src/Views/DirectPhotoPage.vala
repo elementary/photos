@@ -177,7 +177,7 @@ public class DirectPhotoPage : EditingHostPage {
             if (photo != null) {
                 unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
                 populate_external_app_menu (open_menu, photo_file_format, false);
-    
+
                 if (photo_file_format == PhotoFileFormat.RAW) {
                     populate_external_app_menu (open_raw_menu, PhotoFileFormat.RAW, true);
                 }

@@ -1,7 +1,7 @@
 project(
     'io.elementary.photos',
     'vala', 'c',
-    version: '2.6.5',
+    version: '2.7.0',
     meson_version: '>=0.46.0'
 )
 
@@ -11,13 +11,32 @@ add_project_arguments([
         '-Wno-unused',
         '-Wl,--enable-new-dtags',
 
+        '-include', 'config.h',
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
     ],
     language: 'c',
 )
+add_project_arguments([
+        '--vapidir', join_paths(meson.current_source_dir(), 'vapi'),
+        '--pkg', 'config',
+    ],
+    language: 'vala',
+)
 
 libexecdir = join_paths(get_option('prefix'), get_option('libexecdir'), meson.project_name())
 pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name(), 'plugins')
+
+conf_data = configuration_data()
+conf_data.set_quoted('PROJECT_NAME', meson.project_name())
+conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf_data.set_quoted('_VERSION', meson.project_version())
+conf_data.set_quoted('_PREFIX', get_option('prefix'))
+conf_data.set_quoted('_LIB', join_paths(get_option('prefix'), get_option('libdir')))
+conf_data.set_quoted('_LIBEXECDIR', libexecdir)
+config_header = configure_file(
+    output : 'config.h',
+    configuration : conf_data
+)
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -35,7 +54,7 @@ gstreamer_dep = dependency('gstreamer-1.0', version: '>=1.0.0')
 gstreamer_base_dep = dependency('gstreamer-base-1.0', version: '>=1.0.0')
 gstreamer_plugins_base_dep = dependency('gstreamer-plugins-base-1.0', version: '>=1.0.0')
 gstreamer_pbutils_dep = dependency('gstreamer-pbutils-1.0', version: '>=1.0.0')
-granite_dep = dependency('granite', version: '>=5.2.0')
+granite_dep = dependency('granite', version: '>=5.2.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 gudev_dep = dependency('gudev-1.0', version: '>=145')
 json_glib_dep = dependency('json-glib-1.0')
@@ -52,7 +71,6 @@ gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 linux_dep = meson.get_compiler('vala').find_library('linux')
-config_dep = meson.get_compiler('vala').find_library('config', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 
 vapi_include = include_directories('./vapi')
 
@@ -82,14 +100,7 @@ dependencies = [
     webkit2gtk_dep,
     lconv_dep,
     linux_dep,
-    config_dep
 ]
-
-if get_option('libunity')
-    unity_dep = dependency('unity')
-    add_project_arguments('--define=UNITY_SUPPORT=1', language : 'vala')
-    dependencies += unity_dep
-endif
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
 
