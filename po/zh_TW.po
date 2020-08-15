@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2018-02-13 09:43+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
-"photos/photos/zh_TW/>\n"
+"PO-Revision-Date: 2020-08-16 05:13+0000\n"
+"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
+"photos/photos/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:14+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -53,14 +53,14 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "無法建立資料子目錄 %s：%s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"存取 Shotwell 的珍藏館時遭遇到嚴重錯誤。Shotwell 無法繼續執行。\n"
+"存取 Photo 的珍藏館時遭遇到嚴重錯誤。Photo 無法繼續執行。\n"
 "\n"
 "%s"
 
@@ -260,14 +260,12 @@ msgid "Restore Photos from Trash"
 msgstr "從回收筒還原檔案"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "將相片移至 Shotwell 回收筒"
+msgstr "將相片移至 Photo 垃圾筒"
 
 #: src/Commands.vala:2281
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "將相片還原至 Shotwell 珍藏館"
+msgstr "將相片還原至 Photo 珍藏館"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
@@ -345,7 +343,7 @@ msgid "Export"
 msgstr "匯出"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "檔案 %s 已經存在。要取代嗎？"
 
@@ -382,16 +380,14 @@ msgstr "離開全螢幕"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "您的相片珍藏館與此版本的 Photos 不相容"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
-msgstr ""
-"您的相片珍藏館與此版本的 Shotwell 不相容。該珍藏館似乎是由 Shotwell %s "
-"(schema %d) 所建立。此版本為 %s (schema %d)。請使用最新版的 Shotwell。"
+msgstr "該珍藏館似乎是由 Photos %s (schema %d) 所建立。此版本為 %s (schema %d)。請使用最新版的 Photos。"
 
 #: src/main.vala:72
 #, fuzzy, c-format
