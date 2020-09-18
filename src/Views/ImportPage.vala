@@ -505,7 +505,7 @@ public class ImportPage : CheckerboardPage {
             filename = import_file.filename;
             filesize = import_file.file_size;
             metadata = (import_file is PhotoImportSource) ?
-                       (import_file as PhotoImportSource).get_metadata () : null;
+                       ((PhotoImportSource)import_file).get_metadata () : null;
             exposure_time = import_file.get_exposure_time ();
         }
 
@@ -1665,10 +1665,10 @@ public class ImportPage : CheckerboardPage {
 #endif
 
             if (import_source is VideoImportSource)
-                (import_source as VideoImportSource).update (preview);
+                ((VideoImportSource)import_source).update (preview);
 
             if (import_source is PhotoImportSource)
-                (import_source as PhotoImportSource).update (preview, preview_md5, metadata,
+                ((PhotoImportSource)import_source).update (preview, preview_md5, metadata,
                         exif_only_md5);
 
             if (associated != null) {

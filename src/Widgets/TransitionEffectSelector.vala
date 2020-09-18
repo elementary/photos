@@ -69,7 +69,7 @@ public class TransitionEffectSelector : Gtk.ToolItem {
 
         effect_list_box = new Gtk.ListBox ();
         effect_list_box.bind_model (effect_list_store, (item) => {
-            return new LayoutRow ((item as ListStoreItem).name);
+            return new LayoutRow (((ListStoreItem)item).name);
         });
 
         effect_list_box.row_activated.connect ((row) => {
