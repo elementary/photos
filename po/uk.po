@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2019-09-21 18:22+0000\n"
-"Last-Translator: Andrii Priadko <mendeleev.ua@gmail.com>\n"
+"PO-Revision-Date: 2020-09-18 17:37+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/photos/photos/"
 "uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:13+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -40,7 +40,7 @@ msgstr "Не вдалося створити каталог даних %s: %s"
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
-msgstr "Фотографії"
+msgstr "Зображення"
 
 #: src/AppDirs.vala:198
 #, c-format
@@ -419,7 +419,7 @@ msgstr ""
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "Докладніше про Фотографії на сторінках Вікі за посиланням %s"
 
 #: src/main.vala:77
 #, fuzzy, c-format
@@ -527,23 +527,23 @@ msgstr "Картка (3 ⨯ 5 дюймів)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
-msgstr "4 ⨯ 6 дюймів"
+msgstr "4 x 6 дюймів"
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
-msgstr "5 ⨯ 7 дюймів"
+msgstr "5 x 7 дюймів"
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
-msgstr "8 ⨯ 10 дюймів"
+msgstr "8 x 10 дюймів"
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
-msgstr "11 ⨯ 14 дюймів"
+msgstr "11 x 14 дюймів"
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
-msgstr "16 ⨯ 20 дюймів"
+msgstr "16 x 20 дюймів"
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
@@ -2192,7 +2192,7 @@ msgstr "Всі фото"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
-msgstr "_Імпортувати з теки..."
+msgstr "_Імпортувати з теки…"
 
 #: src/library/LibraryWindow.vala:164
 msgid "_Preferences"
@@ -2297,7 +2297,7 @@ msgstr "Імпорт фотографій з цього каталогу нем�
 
 #: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
 msgid "Updating library…"
-msgstr "Оновлення бібліотеки...."
+msgstr "Оновлення бібліотеки…"
 
 #: src/library/LibraryWindow.vala:1045
 msgid "Preparing to auto-import photos…"
@@ -2325,7 +2325,7 @@ msgstr "Змінити теку Бібліотеки"
 
 #: src/library/LibraryWindow.vala:1166
 msgid "Choose where to keep your photos."
-msgstr "Вибрати місце для збереження фото"
+msgstr "Вибрати місце для збереження світлин."
 
 #: src/library/TopDisplay.vala:133
 #, c-format
@@ -3112,7 +3112,7 @@ msgstr "Додати деякі фото"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
 msgid "No Photos were found in your library."
-msgstr "У вашій бібліотеці не знайдено фотографій"
+msgstr "У вашій бібліотеці не знайдено світлин."
 
 #: src/Views/RawsPage.vala:24
 msgid "Raw Photos"
@@ -3120,7 +3120,7 @@ msgstr "Raw Фотографії"
 
 #: src/Views/RawsPage.vala:37
 msgid "Raws"
-msgstr "Raws"
+msgstr "RAW"
 
 #: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
 msgid "Slideshow"
@@ -3492,9 +3492,7 @@ msgstr ""
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
 msgid "Username and/or password invalid. Please try again"
-msgstr ""
-"Некоректні значення імені користувача і/або пароля. Будь ласка, повторіть "
-"спробу."
+msgstr "Недійсні ім'я користувача та/або пароль. Повторіть спробу"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1039
 msgid "Invalid URL"
