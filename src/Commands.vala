@@ -1313,7 +1313,7 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
 
         // this should be replaced by a first function when we migrate to Gee's List
         foreach (DataView view in iter) {
-            prev_events.set (view.source as Dateable, (view.source as MediaSource).get_event ());
+            prev_events.set ((Dateable)(view.source), ((MediaSource)(view.source)).get_event ());
 
             if (new_time == null) {
                 new_time = ((Dateable) view.source).get_exposure_time () +
@@ -1409,7 +1409,7 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
             set_time (photo, photo.get_exposure_time () - (time_t) time_shift);
         }
 
-        (source as MediaSource).set_event (prev_events.get (source as Dateable));
+        ((MediaSource)source).set_event (prev_events.get (source as Dateable));
     }
 }
 
