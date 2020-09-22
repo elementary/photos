@@ -148,13 +148,13 @@ public abstract class Photo : PhotoSource, Dateable {
     private time_t cached_exposure_time;
 
     public enum Exception {
-        NONE            = 0,
-        ORIENTATION     = 1 << 0,
-        CROP            = 1 << 1,
-        REDEYE          = 1 << 2,
-        ADJUST          = 1 << 3,
-        STRAIGHTEN      = 1 << 4,
-        ALL             = 0xFFFFFFFF;
+        NONE = 0,
+        ORIENTATION = 1 << 0,
+        CROP = 1 << 1,
+        REDEYE = 1 << 2,
+        ADJUST = 1 << 3,
+        STRAIGHTEN = 1 << 4,
+        ALL = 0xFFFFFFFF;
 
         public bool prohibits (Exception exception) {
             return ((this & exception) != 0);
@@ -2585,7 +2585,7 @@ public abstract class Photo : PhotoSource, Dateable {
         lock (row) {
             KeyValueMap map = get_transformation ("adjustments");
             if (map == null) {
-                map = new KeyValueMap("adjustments");
+                map = new KeyValueMap ("adjustments");
             }
             return map;
         }
@@ -3947,7 +3947,7 @@ public abstract class Photo : PhotoSource, Dateable {
     // use one of the above wrapper functions to call this rather than call this directly.
     private void update_editable (bool only_attributes, PhotoFileReader? new_reader = null) throws Error {
         // only_attributes only available for updating existing editable
-        assert ((only_attributes  &&new_reader == null) || (!only_attributes));
+        assert ((only_attributes && new_reader == null) || (!only_attributes));
 
         PhotoFileReader? old_reader = get_editable_reader ();
 
@@ -4486,7 +4486,7 @@ public abstract class Photo : PhotoSource, Dateable {
         apply_timer.stop ();
         debug ("Auto-Enhance apply time: %f sec", apply_timer.elapsed ());
 #endif
-        set_enhanced(true);
+        set_enhanced (true);
         return true;
     }
 
@@ -5045,11 +5045,11 @@ public class LibraryPhotoSourceCollection : MediaSourceCollection {
 public class LibraryPhoto : Photo, Flaggable, Monitorable {
     // Top 16 bits are reserved for Photo
     // Warning: FLAG_HIDDEN and FLAG_FAVORITE have been deprecated for ratings and rating filters.
-    private const uint64 FLAG_HIDDEN =      0x0000000000000001;
-    private const uint64 FLAG_FAVORITE =    0x0000000000000002;
-    private const uint64 FLAG_TRASH =       0x0000000000000004;
-    private const uint64 FLAG_OFFLINE =     0x0000000000000008;
-    private const uint64 FLAG_FLAGGED =     0x0000000000000010;
+    private const uint64 FLAG_HIDDEN = 0x0000000000000001;
+    private const uint64 FLAG_FAVORITE = 0x0000000000000002;
+    private const uint64 FLAG_TRASH = 0x0000000000000004;
+    private const uint64 FLAG_OFFLINE = 0x0000000000000008;
+    private const uint64 FLAG_FLAGGED = 0x0000000000000010;
 
     public static LibraryPhotoSourceCollection global = null;
 
@@ -5324,7 +5324,7 @@ public class LibraryPhoto : Photo, Flaggable, Monitorable {
         remove_flags (FLAG_OFFLINE);
     }
 
-    public  bool is_flagged () {
+    public bool is_flagged () {
         return is_flag_set (FLAG_FLAGGED);
     }
 

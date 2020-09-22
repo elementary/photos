@@ -80,4 +80,3 @@ private class FadeEffect : Object, Transitions.Effect {
     public void cancel () {
     }
 }
-

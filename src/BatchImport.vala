@@ -2066,4 +2066,3 @@ private class ThumbnailWriterJob : BackgroundImportJob {
         completed_import_source.thumbnails = null;
     }
 }
-

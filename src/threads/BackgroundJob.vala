@@ -253,4 +253,3 @@ public abstract class BackgroundJob {
         return false;
     }
 }
-

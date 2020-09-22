@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2019-09-21 18:22+0000\n"
-"Last-Translator: Andrii Priadko <mendeleev.ua@gmail.com>\n"
+"PO-Revision-Date: 2020-09-21 00:14+0000\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/photos/photos/"
 "uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:13+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -40,7 +40,7 @@ msgstr "Не вдалося створити каталог даних %s: %s"
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
 msgid "Pictures"
-msgstr "Фотографії"
+msgstr "Зображення"
 
 #: src/AppDirs.vala:198
 #, c-format
@@ -60,14 +60,14 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Виникла помилка при спробі доступу до бібліотеки. Програма \"Фотографії\" не "
-"може продовжити свою роботу.\n"
+"Виникла помилка під час спроби доступу до бібліотеки Світлин. Світлини не "
+"можуть продовжити роботу.\n"
 "\n"
 "%s"
 
 #: src/AppWindow.vala:332
 msgid "Undo"
-msgstr "Вернути"
+msgstr "Повернути"
 
 #: src/AppWindow.vala:333
 msgid "Redo"
@@ -176,11 +176,11 @@ msgstr "Вилучення запису події"
 
 #: src/Commands.vala:1054
 msgid "Moving Photos to New Event"
-msgstr "Пересування фотографій до нової події"
+msgstr "Переміщення світлин до нової події"
 
 #: src/Commands.vala:1055
 msgid "Setting Photos to Previous Event"
-msgstr "Прив’язка фотографій до попередньої події"
+msgstr "Повернути світлин до попередньої події"
 
 #: src/Commands.vala:1112
 msgid "Merging"
@@ -192,19 +192,19 @@ msgstr "Скасування об’єднання"
 
 #: src/Commands.vala:1122
 msgid "Duplicating photos"
-msgstr "Дублювання фотографій"
+msgstr "Дублювання світлин"
 
 #: src/Commands.vala:1122
 msgid "Removing duplicated photos"
-msgstr "Вилучення дублікатів фотографій"
+msgstr "Вилучення дублікатів світлин"
 
 #: src/Commands.vala:1145
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
-msgstr[0] "Не вдалося створити дублікати %d фотографії через помилки у файлах"
-msgstr[1] "Не вдалося створити дублікати %d фотографій через помилки у файлах"
-msgstr[2] "Не вдалося створити дублікат %d фотографії через помилку у файлі"
+msgstr[0] "Не вдалося створити дублікат світлини через помилку у файлі"
+msgstr[1] "Не вдалося створити дублікати %d світлин через помилки у файлах"
+msgstr[2] "Не вдалося створити дублікат %d світлин через помилку у файлі"
 
 #: src/Commands.vala:1191
 msgid "Setting RAW developer"
@@ -220,40 +220,34 @@ msgstr "Вказати проявника"
 
 #: src/Commands.vala:1282
 msgid "Original photo could not be adjusted."
-msgstr "Не вдалося скоригувати початкову фотографію."
+msgstr "Не вдалося виправити джерельну світлину."
 
 #: src/Commands.vala:1303
 msgid "Adjusting Date and Time"
-msgstr "Коригування дати і часу"
+msgstr "Виправлення дати і часу"
 
 #: src/Commands.vala:1303
 msgid "Undoing Date and Time Adjustment"
-msgstr "Скасування коригування дати і часу"
+msgstr "Скасування виправлення дати і часу"
 
 #: src/Commands.vala:1334
 msgid "One original photo could not be adjusted."
 msgid_plural "The following original photos could not be adjusted."
-msgstr[0] "Фотографії з наведеними нижче назвами не вдалося скоригувати."
-msgstr[1] "Фотографії з наведеними нижче назвами не вдалося скоригувати."
-msgstr[2] "Не вдалося скоригувати одну фотографію."
+msgstr[0] "Не вдалося виправити одну джерельну світлину."
+msgstr[1] "Не вдалося виправити ці джерельні світлини."
+msgstr[2] "Не вдалося виправити цих джерельних світлин."
 
 #: src/Commands.vala:1336 src/Commands.vala:1360
 msgid "Time Adjustment Error"
-msgstr "Помилка коригування часу"
+msgstr "Помилка виправлення часу"
 
 #: src/Commands.vala:1358
 msgid "Time adjustments could not be undone on the following photo file."
 msgid_plural ""
 "Time adjustments could not be undone on the following photo files."
-msgstr[0] ""
-"Для файлів фотографій з наведеного нижче списку не вдалося скасувати "
-"коригування часу."
-msgstr[1] ""
-"Для файлів фотографій з наведеного нижче списку не вдалося скасувати "
-"коригування часу."
-msgstr[2] ""
-"Для файла фотографії з наведеною нижче назвою не вдалося скасувати "
-"коригування часу."
+msgstr[0] "Виправлення часу не можна скасувати в цьому фотофайлі."
+msgstr[1] "Виправлення часу не можна скасувати в цих фотофайлах."
+msgstr[2] "Виправлення часу не можна скасувати в цих фотофайлах."
 
 #: src/Commands.vala:1572 src/Commands.vala:1595
 msgid "Create Tag"
@@ -266,43 +260,43 @@ msgstr "Пересунути мітку «%s»"
 
 #: src/Commands.vala:2280
 msgid "Move Photos to Trash"
-msgstr "Пересунути фотографії до смітника"
+msgstr "Перемістити світлини до смітника"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
-msgstr "Відновити фотографії зі смітника"
+msgstr "Відновити світлини зі смітника"
 
 #: src/Commands.vala:2281
 msgid "Move the photos to the Photos trash"
-msgstr "Перемістити фотограції до смітника"
+msgstr "Перемістити світлини до смітника Світлин"
 
 #: src/Commands.vala:2281
 msgid "Restore the photos back to the Photos library"
-msgstr "Відновити фотографії назад до бібліотеки"
+msgstr "Відновити світлини до бібліотеки Світлин"
 
 #: src/Commands.vala:2300
 msgid "Moving Photos to Trash"
-msgstr "Пересування фотографій до смітника"
+msgstr "Переміщення світлин до смітника"
 
 #: src/Commands.vala:2300
 msgid "Restoring Photos From Trash"
-msgstr "Відновлення фотографій зі смітника"
+msgstr "Відновлення світлин зі смітника"
 
 #: src/Commands.vala:2386
 msgid "Flag selected photos"
-msgstr "Позначити вибрані фотографії"
+msgstr "Позначити вибрані світлини"
 
 #: src/Commands.vala:2387
 msgid "Unflag selected photos"
-msgstr "Зняти позначення з вибраних фотографій"
+msgstr "Прибрати позначки з вибраних світлин"
 
 #: src/Commands.vala:2388
 msgid "Flagging selected photos"
-msgstr "Позначаємо фотографії прапорцем"
+msgstr "Позначаємо вибрані світлини"
 
 #: src/Commands.vala:2389
 msgid "Unflagging selected photos"
-msgstr "Скасовуємо позначення фотографій прапорцем"
+msgstr "Скасовуємо позначення вибраних світлин"
 
 #: src/Commands.vala:2396
 msgid "Flag"
@@ -310,7 +304,7 @@ msgstr "Позначити"
 
 #: src/Commands.vala:2396
 msgid "Unflag"
-msgstr "Зняти позначення"
+msgstr "Прибрати позначку"
 
 #: src/Dimensions.vala:30
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1254
@@ -393,60 +387,53 @@ msgstr "Вийти з повноекранного режиму"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
-"Ваша фото бібліотека не сумісна із цією версією програми \"Фотографії\""
+msgstr "Ваша бібліотека світлин не сумісна з цією версією Світлин"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Ваша бібліотека фотографій несумісна з цією версією Shotwell. Ймовірно, її "
-"було створено за допомогою Shotwell %s (схема %d). Ви працюєте з версією "
-"програми %s (схема %d). Будь ласка, користуйтеся свіжими версіями Shotwell."
+"Схоже це було створено за допомогою застосунку Світлини %s (схема %d). Ви "
+"працюєте з версією %s (схема %d). Використовуйте найновішу версію застосунку "
+"Світлини."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Shotwell не вдалося оновити вашу бібліотеку фотографій з версії %s (схема "
-"%d) до версії %s (схема %d). Докладніше про процедуру оновлення можна "
-"дізнатися з вікі Shotwell за адресою %s"
+"Світлинам не вдалося оновити вашу бібліотеку світлин з версії %s (схема %d) "
+"до версії %s (схема %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "Докладніше про Світлини на сторінках Вікі за посиланням %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Ваша бібліотека фотографій несумісна з цією версією Shotwell. Бібліотеку "
-"було створено за допомогою версії програми Shotwell %s (схема %d). Ви "
-"користуєтеся версією %s (схема %d). Будь ласка, спорожніть вашу бібліотеку "
-"(для цього слід вилучити %s) і повторно імпортуйте ваші фотографії."
+"Схоже, її створено Світлинами %s (схема %d). Ця версія %s (схема %d). "
+"Видаліть бібліотеку, видаливши %s, та повторно імпортуйте свої фотографії."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Невідома помилка під час спроби перевірки бази даних Shotwell: %s"
+msgstr "Невідома помилка під час спроби перевірки бази даних Світлин"
 
 #: src/main.vala:115
-#, fuzzy
 msgid "Loading Photos"
-msgstr "Завантаження Shotwell"
+msgstr "Завантаження Світлин"
 
 #: src/main.vala:277
-#, fuzzy
 msgid "Path to Photos' private data"
-msgstr "Шлях до конфіденційних даних Shotwell"
+msgstr "Шлях до приватних даних Світлин"
 
 #: src/main.vala:277
 msgid "DIRECTORY"
@@ -527,23 +514,23 @@ msgstr "Картка (3 ⨯ 5 дюймів)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
-msgstr "4 ⨯ 6 дюймів"
+msgstr "4 x 6 дюймів"
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
-msgstr "5 ⨯ 7 дюймів"
+msgstr "5 x 7 дюймів"
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
-msgstr "8 ⨯ 10 дюймів"
+msgstr "8 x 10 дюймів"
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
-msgstr "11 ⨯ 14 дюймів"
+msgstr "11 x 14 дюймів"
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
-msgstr "16 ⨯ 20 дюймів"
+msgstr "16 x 20 дюймів"
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
@@ -589,7 +576,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Не вдалося надрукувати фотографію:\n"
+"Не вдалося надрукувати світлину:\n"
 "\n"
 "%s"
 
@@ -598,15 +585,15 @@ msgstr ""
 #: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
 #: src/Views/PhotosPage.vala:37
 msgid "Photos"
-msgstr "Фотографії"
+msgstr "Світлини"
 
 #: src/Resources.vala:24
 msgid "Photo Manager"
-msgstr "Впорядник фотографій"
+msgstr "Менеджер світлин"
 
 #: src/Resources.vala:25
 msgid "Photo Viewer"
-msgstr "Переглядач фотографій"
+msgstr "Переглядач світлин"
 
 #: src/Resources.vala:85
 msgid "Rotate _Right"
@@ -618,7 +605,7 @@ msgstr "Обернути праворуч"
 
 #: src/Resources.vala:87
 msgid "Rotate the photos right (press Ctrl to rotate left)"
-msgstr "Обернути фотографії праворуч (натисніть Ctrl для обертання ліворуч)"
+msgstr "Обернути світлини праворуч (натисніть Ctrl для обертання ліворуч)"
 
 #: src/Resources.vala:89
 msgid "Rotate _Left"
@@ -630,7 +617,7 @@ msgstr "Обернути ліворуч"
 
 #: src/Resources.vala:91
 msgid "Rotate the photos left"
-msgstr "Обернути фотографії ліворуч"
+msgstr "Обернути світлини ліворуч"
 
 #: src/Resources.vala:93
 msgid "Flip Hori_zontally"
@@ -671,8 +658,8 @@ msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
-"Автоматично поліпшувати зовнішній вигляд фотографій\n"
-"(Замінює попередні налаштування кольору)"
+"Автоматично покращувати зовнішній вигляд світлин\n"
+"(Замінює попередні виправлення кольору)"
 
 #: src/Resources.vala:105
 msgid "Revert _Enhancement"
@@ -696,7 +683,7 @@ msgstr "Вставити коригування кольорів"
 
 #: src/Resources.vala:112
 msgid "Apply copied color adjustments to the selected photos"
-msgstr "Застосувати скопійоване коригування кольорів до позначених фотографій"
+msgstr "Застосувати копійоване виправлення кольорів до позначених світлин"
 
 #: src/Resources.vala:114
 msgid "Crop"
@@ -704,7 +691,7 @@ msgstr "Обрізати"
 
 #: src/Resources.vala:115
 msgid "Crop the photo's size"
-msgstr "Обрізати фотографію"
+msgstr "Обрізати світлину"
 
 #: src/Resources.vala:117
 msgid "Straighten"
@@ -712,7 +699,7 @@ msgstr "Розтягнути"
 
 #: src/Resources.vala:118
 msgid "Straighten the photo"
-msgstr "Виправити фотографію"
+msgstr "Вирівняти світлину"
 
 #: src/Resources.vala:120
 msgid "Red-eye"
@@ -720,16 +707,15 @@ msgstr "Червоні очі"
 
 #: src/Resources.vala:121
 msgid "Reduce or eliminate any red-eye effects in the photo"
-msgstr ""
-"Зменшити або усунути будь-які наслідки ефекту «червоних очей» на фотографії"
+msgstr "Зменшити або усунути будь-які наслідки ефекту червоних очей на світлині"
 
 #: src/Resources.vala:123
 msgid "Adjust"
-msgstr "Скоригувати"
+msgstr "Виправити"
 
 #: src/Resources.vala:124
 msgid "Adjust the photo's color and tone"
-msgstr "Скоригувати колір і тон фотографії"
+msgstr "Виправити колір і тон світлини"
 
 #: src/Resources.vala:126
 msgid "Re_vert to Original"
@@ -750,15 +736,15 @@ msgstr "Перейменувати подію"
 
 #: src/Resources.vala:132
 msgid "Make _Key Photo for Event"
-msgstr "Зробити _ключовою фотографією події"
+msgstr "Зробити _ключовою світлиною події"
 
 #: src/Resources.vala:133
 msgid "Make Key Photo for Event"
-msgstr "Зробити ключовою фотографією події"
+msgstr "Зробити ключовою світлиною події"
 
 #: src/Resources.vala:135
 msgid "_New Event"
-msgstr "С_творити запис події"
+msgstr "_Створити запис події"
 
 #: src/Resources.vala:136
 msgid "New Event"
@@ -766,11 +752,11 @@ msgstr "Створити запис події"
 
 #: src/Resources.vala:138
 msgid "Move Photos"
-msgstr "Пересунути фотографії"
+msgstr "Перемістити світлини"
 
 #: src/Resources.vala:139
 msgid "Move photos to an event"
-msgstr "Пересунути фотографії до події"
+msgstr "Перемістити світлини до події"
 
 #: src/Resources.vala:141
 msgid "_Merge Events"
@@ -786,7 +772,7 @@ msgstr "Поєднати події у спільну групу подій"
 
 #: src/Resources.vala:145
 msgid "_Filter Photos"
-msgstr "_Фільтрувати фотографії"
+msgstr "_Фільтрувати світлини"
 
 #: src/Resources.vala:147
 msgid "_Duplicate"
@@ -798,12 +784,11 @@ msgstr "Дублювати"
 
 #: src/Resources.vala:149
 msgid "Make a duplicate of the photo"
-msgstr "Створити дублікат фотографії"
+msgstr "Створити дублікат світлини"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Експорт"
+msgstr "_Експорт…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -931,28 +916,28 @@ msgid "Modify Tags"
 msgstr "Змінити мітки"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Додати до фотографії мітку «%s»"
-msgstr[1] "Додати до фотографії мітку «%s»"
-msgstr[2] "Додати до фотографії мітку «%s»"
+msgstr[0] "Додати світлині мітку \"%s\""
+msgstr[1] "Додати світлинам мітку \"%s\""
+msgstr[2] "Додати світлинам мітку \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Вилучити мітку «%s» з _фотографії"
-msgstr[1] "Вилучити мітку «%s» з _фотографії"
-msgstr[2] "Вилучити мітку «%s» з _фотографії"
+msgstr[0] "Вилучити мітку \"%s\" зі _світлини"
+msgstr[1] "Вилучити мітку \"%s\" зі _світлин"
+msgstr[2] "Вилучити мітку \"%s\" зі _світлин"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Вилучення мітки «%s» з фотографії"
-msgstr[1] "Вилучення мітки «%s» з фотографії"
-msgstr[2] "Вилучення мітки «%s» з фотографії"
+msgstr[0] "Вилучення мітки \"%s\" зі світлини"
+msgstr[1] "Вилучення мітки \"%s\" зі світлин"
+msgstr[2] "Вилучення мітки \"%s\" зі світлин"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1002,11 +987,11 @@ msgstr "В_илучити вибране"
 
 #: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
-msgstr "Вилучити позначені фотографії до смітника"
+msgstr "Вилучити вибрані світлини до смітника"
 
 #: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
-msgstr "Вилучити позначені фотографії з бібліотеки"
+msgstr "Вилучити вибрані світлини з бібліотеки"
 
 #: src/Resources.vala:288
 msgid "_Restore Selection"
@@ -1014,17 +999,16 @@ msgstr "_Відновити виділені"
 
 #: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
-msgstr "Пересунути позначені фотографії назад до бібліотеки"
+msgstr "Перемістити вибрані світлини назад до бібліотеки"
 
 #: src/Resources.vala:291
-#, fuzzy
 msgid "File Mana_ger"
-msgstr "Показати у _менеджері файлів"
+msgstr "Файловий пере_глядач"
 
 #: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
-msgstr "Не вдалося відкрити у програмі для керування файлами: %s"
+msgstr "Не вдалося відкрити у переглядачі файлів: %s"
 
 #: src/Resources.vala:297
 msgid "R_emove From Library"
@@ -1082,7 +1066,7 @@ msgstr "%d, %Y"
 
 #: src/SearchFilter.vala:240
 msgid "Search Photos"
-msgstr "Пошук фотографій"
+msgstr "Пошук світлин"
 
 #: src/Tag.vala:830
 msgid "untitled"
@@ -1121,19 +1105,18 @@ msgstr "24 год."
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:102
 msgid "_Shift photos/videos by the same amount"
-msgstr "Зс_унути фотографії або відео на однаковий проміжок часу"
+msgstr "Зміс_тити світлини/відео на однакову кількість часу"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:107
 msgid "Set _all photos/videos to this time"
-msgstr "Встановити цей час для всі_х фотографій або відео"
+msgstr "Встановити цей час для всі_х світлин/відео"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "З_мінити початковий файл фотографії"
-msgstr[1] "З_мінити початковий файл фотографії"
-msgstr[2] "З_мінити початковий файл фотографії"
+msgstr[0] "З_мінити джерельний файл світлини"
+msgstr[1] "З_мінити джерельні файли світлин"
+msgstr[2] "З_мінити джерельні файли світлин"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 #, fuzzy
@@ -1178,44 +1161,43 @@ msgid "day"
 msgid_plural "days"
 msgstr[0] "день"
 msgstr[1] "дні"
-msgstr[2] "день"
+msgstr[2] "днів"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:298
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "година"
 msgstr[1] "години"
-msgstr[2] "година"
+msgstr[2] "годин"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:299
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "хвилина"
 msgstr[1] "хвилини"
-msgstr[2] "хвилина"
+msgstr[2] "хвилин"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:300
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "секунда"
 msgstr[1] "секунди"
-msgstr[2] "секунда"
+msgstr[2] "секунд"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Буде вилучено мітку «%s» з %d фотографії. Продовжувати?"
-msgstr[1] "Буде вилучено мітку «%s» з %d фотографій. Продовжувати?"
-msgstr[2] "Буде вилучено мітку «%s» з %d фотографії. Продовжувати?"
+msgstr[0] "Буде вилучено мітку \"%s\" з однієї світлини. Продовжити?"
+msgstr[1] "Буде вилучено мітку \"%s\" з %d світлин. Продовжити?"
+msgstr[2] "Буде вилучено мітку \"%s\" з %d світлин. Продовжити?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Це видалить розумний альбом \"%s\". Продовжити?"
+msgstr "Буде вилучено інтелектуальний альбом \"%s\". Продовжити?"
 
 #: src/Dialogs/Dialogs.vala:66
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1223,14 +1205,14 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Перемикання обробника призведе до скасування всіх змін, які було внесено у "
-"цю фотографію за допомогою Shotwell"
+"Перемикання обробника призведе до скасування всіх змін внесених до цієї "
+"світлини за допомогою Світлин"
 msgstr[1] ""
-"Перемикання обробника призведе до скасування всіх змін, які було внесено у "
-"ці фотографії за допомогою Shotwell"
+"Перемикання обробника призведе до скасування всіх змін внесених до цих "
+"світлин за допомогою Світлин"
 msgstr[2] ""
-"Перемикання обробника призведе до скасування всіх змін, які було внесено у "
-"ці фотографії за допомогою Shotwell"
+"Перемикання обробника призведе до скасування всіх змін внесених до цих "
+"світлин за допомогою Світлин"
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
@@ -1242,16 +1224,15 @@ msgstr "П_еремкнути обробник"
 
 #: src/Dialogs/Dialogs.vala:98
 msgid "Export Video"
-msgstr "Експортування відео"
+msgstr "Експортувати відео"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Експортувати фотографію"
-msgstr[1] "Експортувати фотографію"
-msgstr[2] "Експортувати фотографію"
+msgstr[0] "Експортувати світлину"
+msgstr[1] "Експортувати світлини"
+msgstr[2] "Експортувати світлини"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1260,11 +1241,11 @@ msgstr "З_берегти"
 
 #: src/Dialogs/Dialogs.vala:125
 msgid "Export Photos"
-msgstr "Експорт фотографій"
+msgstr "Експорт світлин"
 
 #: src/Dialogs/Dialogs.vala:131
 msgid "_Select"
-msgstr "_Обрати"
+msgstr "_Вибрати"
 
 #. Ticket #3023
 #. Attempt to replace the system error with something friendlier
@@ -1272,21 +1253,20 @@ msgstr "_Обрати"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Shotwell не вдалося створити файл для редагування цієї фотографії, оскільки "
-"у вас немає прав доступу на запис до %s."
+"Світлинам не вдалося створити файл для редагування цієї світлини, оскільки у "
+"вас немає прав записувати до %s."
 
 #: src/Dialogs/Dialogs.vala:166
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
 msgstr ""
-"Не вдалося експортувати фотографію з наведеною нижче назвою через помилку у "
-"файлі.\n"
+"Не вдалося експортувати світлину з наведеною назвою через помилку у файлі.\n"
 "\n"
 
 #: src/Dialogs/Dialogs.vala:172
@@ -1326,7 +1306,7 @@ msgstr "Імпортувати звіт з результатами"
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
-msgstr[0] "Виконано спробу імпортування %d файла."
+msgstr[0] "Виконано спробу імпортування %d файлу."
 msgstr[1] "Виконано спробу імпортування %d файлів."
 msgstr[2] "Виконано спробу імпортування %d файлів."
 
@@ -1343,7 +1323,7 @@ msgstr[2] "З них успішно імпортовано %d файлів."
 #.
 #: src/Dialogs/Dialogs.vala:271
 msgid "Duplicate Photos/Videos Not Imported:"
-msgstr "Дублікати фотографій та відео, які не було імпортовано:"
+msgstr "Дублікати світлин/відео, які не було імпортовано:"
 
 #: src/Dialogs/Dialogs.vala:275
 msgid "duplicates existing media item"
@@ -1354,8 +1334,7 @@ msgstr "мультимедійні дані з наявним дублікато
 #.
 #: src/Dialogs/Dialogs.vala:286
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
-msgstr ""
-"Фотографії та відео, які не було імпортовано через помилки на фотоапараті:"
+msgstr "Світлини/відео, які не було імпортовано через помилки камери:"
 
 #: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
 #: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
@@ -1369,32 +1348,30 @@ msgstr "повідомлення про помилку:"
 #: src/Dialogs/Dialogs.vala:300
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
-"Файли, які не було імпортовано через те, що ці файли не файлами фотографій "
-"або відео:"
+"Файли, які не було імпортовано оскільки їх не розпізнано як світлини чи "
+"відео:"
 
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:315
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Фотографії та відео, які не було імпортовано через те, що дані зберігалися у "
-"форматі, який Shotwell не може обробляти:"
+"Світлини/відео, які не було імпортовано оскільки вони не зберігалися у "
+"відомому Світлинам форматі:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:330
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"Фотографії і відео, які не було імпортовано через те, що Shotwell не вдалося "
-"скопіювати їх до бібліотеки програми:"
+"Світлини/відео, які не було імпортовано оскільки застосунок Світлини не може "
+"копіювати їх до своєї бібліотеки:"
 
 #: src/Dialogs/Dialogs.vala:334
 #, c-format
@@ -1402,7 +1379,7 @@ msgid ""
 "couldn't copy %s\n"
 "\tto %s"
 msgstr ""
-"не вдалося скопіювати %s\n"
+"не вдалося копіювати %s\n"
 "\tдо %s"
 
 #.
@@ -1410,28 +1387,28 @@ msgstr ""
 #.
 #: src/Dialogs/Dialogs.vala:346
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
-msgstr "Фотографії та відео, які не було імпортовано через пошкодження файлів:"
+msgstr "Світлини/відео, які не було імпортовано через пошкодження файлів:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
 #: src/Dialogs/Dialogs.vala:361
 msgid "Photos/Videos Not Imported for Other Reasons:"
-msgstr "Фотографії або відео, які не було імпортовано з інших причин:"
+msgstr "Світлини/відео, які не було імпортовано з інших причин:"
 
 #: src/Dialogs/Dialogs.vala:381
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
-msgstr[0] "Не імпортовано %d дублікат фотографій:\n"
-msgstr[1] "Не імпортовано %d дублікати фотографій:\n"
-msgstr[2] "Не імпортовано %d дублікат фотографії:\n"
+msgstr[0] "Не імпортовано 1 дублікат світлини:\n"
+msgstr[1] "Не імпортовано %d дублікати світлин:\n"
+msgstr[2] "Не імпортовано %d дублікатів світлин:\n"
 
 #: src/Dialogs/Dialogs.vala:384
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
-msgstr[0] "Не імпортовано %d дублікат відео:\n"
+msgstr[0] "Не імпортовано 1 дублікат відео:\n"
 msgstr[1] "Не імпортовано %d дублікати відео:\n"
 msgstr[2] "Не імпортовано %d дублікат відео:\n"
 
@@ -1439,34 +1416,33 @@ msgstr[2] "Не імпортовано %d дублікат відео:\n"
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
-msgstr[0] "Не імпортовано %d дублікат фотографій або відео:\n"
-msgstr[1] "Не імпортовано %d дублікати фотографій або відео:\n"
-msgstr[2] "Не імпортовано %d дублікат фотографії або відео:\n"
+msgstr[0] "Не імпортовано 1 дублікат світлини/відео:\n"
+msgstr[1] "Не імпортовано %d дублікати світлин/відео:\n"
+msgstr[2] "Не імпортовано %d дублікатів світлин/відео:\n"
 
 #: src/Dialogs/Dialogs.vala:401
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d фотографію через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати 1 світлину через помилку в файлі чи апаратній помилці:"
+"\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d фотографії через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати %d світлини через помилку в файлі чи апаратній "
+"помилці:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d фотографію через помилку у файлі або апаратну "
-"помилку:\n"
+"Не вдалося імпортувати %d світлин через помилку в файлі чи апаратній помилці:"
+"\n"
 
 #: src/Dialogs/Dialogs.vala:404
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d відео через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати 1 відео через помилки у файлах або апаратні помилки:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d відео через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати %d відео через помилки у файлах або апаратні помилки:"
+"\n"
 msgstr[2] ""
 "Не вдалося імпортувати %d відео через помилку у файлі або апаратну помилку:\n"
 
@@ -1476,27 +1452,27 @@ msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
 "%d photos/videos failed to import due to a file or hardware error:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d фотографію або відео через помилки у файлах або "
-"апаратні помилки:\n"
+"Не вдалося імпортувати 1 світлину/відео через помилку в файлі або апаратні "
+"помилки:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d фотографії або відео через помилки у файлах або "
-"апаратні помилки:\n"
+"Не вдалося імпортувати %d світлини/відео через помилки у файлах або апаратні "
+"помилки:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d фотографію або відео через помилку у файлі або "
-"апаратну помилку:\n"
+"Не вдалося імпортувати %d світлин/відео через помилки у файлах або апаратні "
+"помилки:\n"
 
 #: src/Dialogs/Dialogs.vala:410
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d файл через помилки у файлах або апаратні помилки:\n"
+"Не вдалося імпортувати 1 файл через помилки у файлах або апаратні помилки:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d файли через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати %d файли через помилки у файлах або апаратні помилки:"
+"\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d файлів через помилки у файлах або апаратні "
-"помилки:\n"
+"Не вдалося імпортувати %d файлів через помилки у файлах або апаратні помилки:"
+"\n"
 
 #: src/Dialogs/Dialogs.vala:424
 #, c-format
@@ -1506,14 +1482,14 @@ msgid_plural ""
 "%d photos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d фотографію, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати 1 світлину, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d фотографії, оскільки теку бібліотеки фотографій "
+"Не вдалося імпортувати %d світлини, оскільки теку бібліотеки світлин "
 "захищено від запису:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d фотографію, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати %d світлин, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 
 #: src/Dialogs/Dialogs.vala:427
 #, c-format
@@ -1523,14 +1499,14 @@ msgid_plural ""
 "%d videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d відео, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати 1 відео, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d відео, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати %d відео, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d відео, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати %d відео, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 
 #: src/Dialogs/Dialogs.vala:430
 #, c-format
@@ -1541,14 +1517,14 @@ msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d фотографію або відео, оскільки теку бібліотеки "
-"фотографій захищено від запису:\n"
+"Не вдалося імпортувати 1 світлину/відео, оскільки теку бібліотеки світлин "
+"захищено від запису:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d фотографії або відео, оскільки теку бібліотеки "
-"фотографій захищено від запису:\n"
+"Не вдалося імпортувати %d світлини/відео, оскільки теку бібліотеки світлин "
+"захищено від запису:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d фотографію або відео, оскільки теку бібліотеки "
-"фотографій захищено від запису:\n"
+"Не вдалося імпортувати %d світлин/відео, оскільки теку бібліотеки світлин "
+"захищено від запису:\n"
 
 #: src/Dialogs/Dialogs.vala:433
 #, c-format
@@ -1558,75 +1534,63 @@ msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d файл, оскільки теку бібліотеки фотографій захищено "
-"від запису:\n"
+"Не вдалося імпортувати 1 файл, оскільки теку бібліотеки світлин захищено від "
+"запису:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d файли, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати %d файли, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d файлів, оскільки теку бібліотеки фотографій "
-"захищено від запису:\n"
+"Не вдалося імпортувати %d файлів, оскільки теку бібліотеки світлин захищено "
+"від запису:\n"
 
 #: src/Dialogs/Dialogs.vala:447
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
-msgstr[0] ""
-"Не вдалося імпортувати %d фотографію через помилки у роботі з фотоапаратом:\n"
-msgstr[1] ""
-"Не вдалося імпортувати %d фотографії через помилки у роботі з фотоапаратом:\n"
-msgstr[2] ""
-"Не вдалося імпортувати %d фотографію через помилки у роботі з фотоапаратом:\n"
+msgstr[0] "Не вдалося імпортувати 1 світлину через помилки у роботі камери:\n"
+msgstr[1] "Не вдалося імпортувати %d світлини через помилки у роботі камери:\n"
+msgstr[2] "Не вдалося імпортувати %d світлин через помилки у роботі камери:\n"
 
 #: src/Dialogs/Dialogs.vala:450
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
-msgstr[0] ""
-"Не вдалося імпортувати %d відео через помилки у роботі з фотоапаратом:\n"
-msgstr[1] ""
-"Не вдалося імпортувати %d відео через помилки у роботі з фотоапаратом:\n"
-msgstr[2] ""
-"Не вдалося імпортувати %d відео через помилки у роботі з фотоапаратом:\n"
+msgstr[0] "Не вдалося імпортувати 1 відео через помилки у роботі камери:\n"
+msgstr[1] "Не вдалося імпортувати %d відео через помилки у роботі камери:\n"
+msgstr[2] "Не вдалося імпортувати %d відео через помилки у роботі камери:\n"
 
 #: src/Dialogs/Dialogs.vala:453
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] ""
-"Не вдалося імпортувати %d фотографію або відео через помилки у роботі з "
-"фотоапаратом:\n"
+"Не вдалося імпортувати 1 світлину/відео через помилки у роботі камери:\n"
 msgstr[1] ""
-"Не вдалося імпортувати %d фотографії або відео через помилки у роботі з "
-"фотоапаратом:\n"
+"Не вдалося імпортувати %d світлини/відео через помилки у роботі камери:\n"
 msgstr[2] ""
-"Не вдалося імпортувати %d фотографію або відео через помилки у роботі з "
-"фотоапаратом:\n"
+"Не вдалося імпортувати %d світлин/відео через помилки у роботі камери:\n"
 
 #: src/Dialogs/Dialogs.vala:456
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
-msgstr[0] ""
-"Не вдалося імпортувати %d файл через помилки у роботі з фотоапаратом:\n"
-msgstr[1] ""
-"Не вдалося імпортувати %d файл через помилки у роботі з фотоапаратом:\n"
-msgstr[2] ""
-"Не вдалося імпортувати %d файлів через помилки у роботі з фотоапаратом:\n"
+msgstr[0] "Не вдалося імпортувати 1 файл через помилки у роботі камери:\n"
+msgstr[1] "Не вдалося імпортувати %d файл через помилки у роботі камери:\n"
+msgstr[2] "Не вдалося імпортувати %d файлів через помилки у роботі камери:\n"
 
 #: src/Dialogs/Dialogs.vala:470
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
-msgstr[0] "Не вдалося імпортувати %d фотографію, оскільки її пошкоджено:\n"
-msgstr[1] "Не вдалося імпортувати %d фотографії, оскільки їх пошкоджено:\n"
-msgstr[2] "Не вдалося імпортувати %d фотографій, оскільки їх пошкоджено:\n"
+msgstr[0] "Не вдалося імпортувати 1 світлину, оскільки її пошкоджено:\n"
+msgstr[1] "Не вдалося імпортувати %d світлини, оскільки їх пошкоджено:\n"
+msgstr[2] "Не вдалося імпортувати %d світлин, оскільки їх пошкоджено:\n"
 
 #: src/Dialogs/Dialogs.vala:473
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] "Не вдалося імпортувати %d відео, оскільки його пошкоджено:\n"
+msgstr[0] "Не вдалося імпортувати 1 відео, оскільки його пошкоджено:\n"
 msgstr[1] "Не вдалося імпортувати %d відео, оскільки їх пошкоджено:\n"
 msgstr[2] "Не вдалося імпортувати %d відео, оскільки їх пошкоджено:\n"
 
@@ -1634,12 +1598,9 @@ msgstr[2] "Не вдалося імпортувати %d відео, оскіл�
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
-msgstr[0] ""
-"Не вдалося імпортувати %d фотографію/відео, оскільки їх пошкоджено:\n"
-msgstr[1] ""
-"Не вдалося імпортувати %d фотографії/відео, оскільки їх пошкоджено:\n"
-msgstr[2] ""
-"Не вдалося імпортувати %d фотографій/відео, оскільки їх пошкоджено:\n"
+msgstr[0] "Не вдалося імпортувати 1 світлину/відео, оскільки її пошкоджено:\n"
+msgstr[1] "Не вдалося імпортувати %d світлини/відео, оскільки її пошкоджено:\n"
+msgstr[2] "Не вдалося імпортувати %d світлин/відео, оскільки її пошкоджено:\n"
 
 #: src/Dialogs/Dialogs.vala:479
 #, c-format
@@ -1657,9 +1618,9 @@ msgstr[2] "Не вдалося імпортувати %d файлів, оскі�
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
-msgstr[0] "Пропущено %d фотографію у форматі, який не підтримується:\n"
-msgstr[1] "Пропущено %d фотографії у форматі, який не підтримується:\n"
-msgstr[2] "Пропущено %d фотографію у форматі, який не підтримується:\n"
+msgstr[0] "Пропущено 1 світлину непідтримуваного формату:\n"
+msgstr[1] "Пропущено %d світлини непідтримуваного формату:\n"
+msgstr[2] "Пропущено %d світлин непідтримуваного формату:\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
@@ -1667,55 +1628,55 @@ msgstr[2] "Пропущено %d фотографію у форматі, яки�
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
-msgstr[0] "Пропущено %d звичайний файл (не є файлами зображень).\n"
-msgstr[1] "Пропущено %d звичайних файла (не є файлами зображень).\n"
-msgstr[2] "Пропущено %d звичайний файл.\n"
+msgstr[0] "Пропущено 1 файл, що не є зображенням.\n"
+msgstr[1] "Пропущено %d файли, що не є зображеннями.\n"
+msgstr[2] "Пропущено %d файлів, що не є зображеннями.\n"
 
 #: src/Dialogs/Dialogs.vala:522
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
-msgstr[0] "Обробку %d фотографії скасовано користувачем:\n"
-msgstr[1] "Обробку %d фотографій скасовано користувачем:\n"
-msgstr[2] "Обробку %d фотографії скасовано користувачем:\n"
+msgstr[0] "1 світлину пропущено, скасовано користувачем:\n"
+msgstr[1] "%d світлини пропущено, скасовано користувачем:\n"
+msgstr[2] "%d світлин пропущено, скасовано користувачем:\n"
 
 #: src/Dialogs/Dialogs.vala:525
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
-msgstr[0] "Обробку %d відео скасовано користувачем:\n"
-msgstr[1] "Обробку %d відео скасовано користувачем:\n"
-msgstr[2] "Обробку %d відео скасовано користувачем:\n"
+msgstr[0] "1 відео пропущено, скасовано користувачем:\n"
+msgstr[1] "%d відео пропущено, скасовано користувачем:\n"
+msgstr[2] "%d відео пропущено, скасовано користувачем:\n"
 
 #: src/Dialogs/Dialogs.vala:528
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
-msgstr[0] "Обробку %d фотографії або відео скасовано користувачем:\n"
-msgstr[1] "Обробку %d фотографій або відео скасовано користувачем:\n"
-msgstr[2] "Обробку %d фотографії або відео скасовано користувачем:\n"
+msgstr[0] "1 світлину/відео пропущено, скасовано користувачем:\n"
+msgstr[1] "%d світлини/відео пропущено, скасовано користувачем:\n"
+msgstr[2] "%d світлин/відео пропущено, скасовано користувачем:\n"
 
 #: src/Dialogs/Dialogs.vala:531
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
-msgstr[0] "Обробку %d файла скасовано користувачем:\n"
-msgstr[1] "Обробку %d файлів скасовано користувачем:\n"
-msgstr[2] "Обробку %d файлів скасовано користувачем:\n"
+msgstr[0] "1 файл пропущено, скасовано користувачем:\n"
+msgstr[1] "%d файли пропущено, скасовано користувачем:\n"
+msgstr[2] "%d файли пропущено, скасовано користувачем:\n"
 
 #: src/Dialogs/Dialogs.vala:545
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
-msgstr[0] "Успішно імпортовано %d фотографію.\n"
-msgstr[1] "Успішно імпортовано %d фотографії.\n"
-msgstr[2] "Успішно імпортовано %d фотографію.\n"
+msgstr[0] "Успішно імпортовано 1 світлину.\n"
+msgstr[1] "Успішно імпортовано %d світлини.\n"
+msgstr[2] "Успішно імпортовано %d світлин.\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
-msgstr[0] "Успішно імпортовано %d відео.\n"
+msgstr[0] "Успішно імпортовано 1 відео.\n"
 msgstr[1] "Успішно імпортовано %d відео.\n"
 msgstr[2] "Успішно імпортовано %d відео.\n"
 
@@ -1723,15 +1684,15 @@ msgstr[2] "Успішно імпортовано %d відео.\n"
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
-msgstr[0] "Успішно імпортовано %d фотографію або відео.\n"
-msgstr[1] "Успішно імпортовано %d фотографії або відео.\n"
-msgstr[2] "Успішно імпортовано %d фотографію або відео.\n"
+msgstr[0] "Успішно імпортовано 1 світлину/відео.\n"
+msgstr[1] "Успішно імпортовано %d світлини/відео.\n"
+msgstr[2] "Успішно імпортовано %d світлин/відео.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
 #: src/Dialogs/Dialogs.vala:567
 msgid "No photos or videos imported.\n"
-msgstr "Не імпортовано жодної фотографії або відео.\n"
+msgstr "Не імпортовано жодної світлини чи відео.\n"
 
 #: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
 msgid "Import Complete"
@@ -1746,7 +1707,6 @@ msgid "Name:"
 msgstr "Назва:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Скасувати зовнішні зміни?"
@@ -1754,47 +1714,46 @@ msgstr[1] "Скасувати зовнішні зміни?"
 msgstr[2] "Скасувати зовнішні зміни?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Виконання цієї дії приведе до знищення всіх змін, внесених у %d зовнішній "
+"Виконання цієї дії призведе до знищення всіх змін, внесених у зовнішній "
 "файл. Продовжити?"
 msgstr[1] ""
-"Виконання цієї дії призведе до знищення всіх змін, внесених у %d зовнішніх "
+"Виконання цієї дії призведе до знищення всіх змін, внесених у %d зовнішні "
 "файли. Продовжити?"
 msgstr[2] ""
-"Виконання цієї дії призведе до знищення всіх змін, внесених у %d зовнішній "
-"файл. Продовжити?"
+"Виконання цієї дії призведе до знищення всіх змін, внесених у %d зовнішніх "
+"файлів. Продовжити?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "С_касувати зовнішню зміну"
-msgstr[1] "С_касувати зовнішню зміну"
-msgstr[2] "С_касувати зовнішню зміну"
+msgstr[0] "С_касувати зовнішні зміни"
+msgstr[1] "С_касувати зовнішні зміни"
+msgstr[2] "С_касувати зовнішні зміни"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
-msgstr "Вилучення фотографії з бібліотеки"
+msgstr "Вилучення світлини з бібліотеки"
 
 #: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
-msgstr "Вилучення фотографій з бібліотеки"
+msgstr "Вилучити світлини з бібліотеки"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "З бібліотеки буде вилучено %d фотографію. Продовжувати?"
-msgstr[1] "З бібліотеки буде вилучено %d фотографії. Продовжувати?"
-msgstr[2] "З бібліотеки буде вилучено %d фотографію. Продовжувати?"
+msgstr[0] "З бібліотеки буде вилучено світлину. Продовжити?"
+msgstr[1] "З бібліотеки буде вилучено %d світлини. Продовжити?"
+msgstr[2] "З бібліотеки буде вилучено %d світлин. Продовжити?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
-msgstr "В_илучити"
+msgstr "_Вилучити"
 
 #: src/Dialogs/Dialogs.vala:872
 #, c-format
@@ -1822,13 +1781,12 @@ msgstr[2] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:895
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Shotwell може копіювати файли фотографій до вашої теки бібліотеки або може "
-"просто імпортувати їх без безпосереднього копіювання."
+"Світлини можуть копіювати світлини до вашої теки бібліотеки або імпортувати "
+"їх без копіювання."
 
 #: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
@@ -1836,32 +1794,31 @@ msgstr "Імпорт до бібліотеки"
 
 #: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
-msgstr "_Копіювати фотографії"
+msgstr "Ко_піювати світлини"
 
 #: src/Dialogs/Dialogs.vala:906
 msgid "_Import in Place"
-msgstr "І_мпортувати сюди"
+msgstr "_Імпортувати сюди"
 
 #: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:725
 msgid "Remove From Library"
 msgstr "Вилучити з бібліотеки"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Вилучення фотографії з бібліотеки"
-msgstr[1] "Вилучення фотографії з бібліотеки"
-msgstr[2] "Вилучення фотографії з бібліотеки"
+msgstr[0] "Вилучення світлини з бібліотеки"
+msgstr[1] "Вилучення світлин з бібліотеки"
+msgstr[2] "Вилучення світлин з бібліотеки"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
-msgstr[0] "Не вдалося вилучити %d файл фотографій або відеофайл."
-msgstr[1] "Не вдалося вилучити %d файли фотографій або відеофайли."
-msgstr[2] "Не вдалося вилучити %d файл фотографії або відеофайл."
+msgstr[0] "Не вдалося видалити світлину чи відео."
+msgstr[1] "Не вдалося видалити %d світлини/відео."
+msgstr[2] "Не вдалося видалити %d світлин/відео."
 
 #. "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
 #. aren't formats so much as they are operating modes that determine specific formats.
@@ -1887,9 +1844,8 @@ msgid "_Scaling constraint:"
 msgstr "Обмеження _масштабування:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Сховати інформаційну панель"
+msgstr "_Розмір в пікселях:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1906,20 +1862,19 @@ msgstr "Бібліотека"
 
 #: src/Dialogs/PreferencesDialog.vala:54
 msgid "_Import photos to:"
-msgstr "_Імпортувати фотографії до:"
+msgstr "_Імпортувати світлини до:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Watch library for new files:"
-msgstr "Стежити за новими файлами бібліотеки"
+msgstr "Стежити за появою нових файлів:"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "R_ename imported files to lowercase:"
-msgstr "_Перейменування імпортованих файлів в нижній регістр:"
+msgstr "П_ерейменування імпортованих файлів в нижній регістр:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "_ Записувати метадані до файлів:"
+msgstr "Записувати _метадані до файлів:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1984,8 +1939,7 @@ msgstr "Скасувати"
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
-msgstr ""
-"Не вдалося відкрити або створити базу даних фотографій %s: код помилки %d"
+msgstr "Не вдалося відкрити/створити базу даних світлин %s: код помилки %d"
 
 #: src/db/DatabaseTable.vala:59
 #, c-format
@@ -1993,7 +1947,7 @@ msgid ""
 "Unable to write to photo database file:\n"
 " %s"
 msgstr ""
-"Не вдалося записати дані до файла бази даних фотографій:\n"
+"Не вдалося записати дані до файлу бази даних світлин:\n"
 " %s"
 
 #: src/db/DatabaseTable.vala:61
@@ -2013,11 +1967,11 @@ msgstr ""
 
 #: src/direct/DirectWindow.vala:46
 msgid "Save photo"
-msgstr "Зберегти фотографію"
+msgstr "Зберегти світлину"
 
 #: src/direct/DirectWindow.vala:51
 msgid "Save photo with a different name"
-msgstr "Зберегти фотографію зі зміною назви"
+msgstr "Зберегти світлину змінивши назву"
 
 #: src/editing_tools/StraightenTool.vala:111
 msgid "Angle:"
@@ -2164,9 +2118,9 @@ msgstr "Розширення контрастності"
 #, c-format
 msgid "%d Photo/Video"
 msgid_plural "%d Photos/Videos"
-msgstr[0] "%d фотографія/відео"
-msgstr[1] "%d фотографії/відео"
-msgstr[2] "%d фотографій/відео"
+msgstr[0] "%d світлина/відео"
+msgstr[1] "%d світлини/відео"
+msgstr[2] "%d світлин/відео"
 
 #: src/events/EventDirectoryItem.vala:98
 #: src/sidebar/metadata/BasicProperties.vala:260
@@ -2182,17 +2136,17 @@ msgstr[2] "%d відео"
 #, c-format
 msgid "%d Photo"
 msgid_plural "%d Photos"
-msgstr[0] "%d фотографія"
-msgstr[1] "%d фотографії"
-msgstr[2] "%d фотографія"
+msgstr[0] "%d світлина"
+msgstr[1] "%d світлини"
+msgstr[2] "%d світлин"
 
 #: src/library/Branch.vala:174
 msgid "All Photos"
-msgstr "Всі фото"
+msgstr "Всі світлини"
 
 #: src/library/LibraryWindow.vala:159
 msgid "_Import From Folder…"
-msgstr "_Імпортувати з теки..."
+msgstr "_Імпортувати з теки…"
 
 #: src/library/LibraryWindow.vala:164
 msgid "_Preferences"
@@ -2211,14 +2165,14 @@ msgstr "Впорядкувати п_одії"
 #: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
 #: src/Views/LibraryPhotoPage.vala:542
 msgid "View Eve_nt for Photo"
-msgstr "Переглянути п_одію, пов’язану з фотографією"
+msgstr "Переглянути по_дію, пов’язану зі світлиною"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
 #: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
-msgstr "Новий Розумний альбом"
+msgstr "Новий інтелектуальний альбом…"
 
 #: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
 #: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
@@ -2236,18 +2190,18 @@ msgstr "Показати бічну панель"
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
 #: src/Views/TrashPage.vala:160
 msgid "Edit Photo In_fo"
-msgstr "Редагувати Інформацію про фотографію"
+msgstr "Змінити відо_мості про світлину"
 
 #: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
 #: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
 msgid "_Ascending"
-msgstr "За з_ростанням"
+msgstr "_За зростанням"
 
 #: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
 msgid "Sort photos in an ascending order"
-msgstr "Впорядкувати фотографії за зростанням значення критерію"
+msgstr "Впорядкувати світлини за зростанням"
 
 #: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
 #: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
@@ -2258,7 +2212,7 @@ msgstr "За с_паданням"
 
 #: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
 msgid "Sort photos in a descending order"
-msgstr "Впорядкувати фотографії за спаданням значення критерію"
+msgstr "Впорядкувати світлини за спаданням"
 
 #: src/library/LibraryWindow.vala:616
 msgid "Import From Folder"
@@ -2269,18 +2223,17 @@ msgid "Import"
 msgstr "Імпорт"
 
 #: src/library/LibraryWindow.vala:782
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"Shotwell налаштовано на імпортування фотографій до вашого домашнього "
-"каталогу.\n"
-"Рекомендуємо змінити ці налаштування за допомогою пункту меню <span weight="
-"\"bold\">Зміни %s Налаштування</span>.\n"
-"Хочете продовжити імпортування фотографій?"
+"Світлини налаштовано на імпортування світлин до вашої домашньої теки.\n"
+"Радимо змінити ці налаштування за допомогою пункту меню <span weight=\"bold\""
+">Змінити %s Параметри</span>.\n"
+"Хочете продовжити імпортування світлин?"
 
 #: src/library/LibraryWindow.vala:786
 msgid "_Import"
@@ -2293,31 +2246,31 @@ msgstr "Розташування бібліотеки"
 #. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:801
 msgid "Photos cannot be imported from this directory."
-msgstr "Імпорт фотографій з цього каталогу неможливий."
+msgstr "Не вдалося імпортувати світлини з цієї теки."
 
 #: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
 msgid "Updating library…"
-msgstr "Оновлення бібліотеки...."
+msgstr "Оновлення бібліотеки…"
 
 #: src/library/LibraryWindow.vala:1045
 msgid "Preparing to auto-import photos…"
-msgstr "Підготовка до авто-імпорту фот"
+msgstr "Підготовка до автоімпорту світлин…"
 
 #: src/library/LibraryWindow.vala:1050
 msgid "Auto-importing photos…"
-msgstr "Авто-імпорт фото"
+msgstr "Автоімпорт світлин…"
 
 #: src/library/LibraryWindow.vala:1058
 msgid "Writing metadata to files…"
-msgstr "Запис метаданих до файлів"
+msgstr "Запис метаданих до файлів…"
 
 #: src/library/LibraryWindow.vala:1165
 msgid "Import Photos"
-msgstr "Імпорт фото"
+msgstr "Імпорт світлин"
 
 #: src/library/LibraryWindow.vala:1165
 msgid "Copy photos from a folder or external device."
-msgstr "Скопіювати фото з теки або зовнішнього пристрою."
+msgstr "Копіювати світлини з теки або зовнішнього пристрою."
 
 #: src/library/LibraryWindow.vala:1166
 msgid "Change Library Folder"
@@ -2325,7 +2278,7 @@ msgstr "Змінити теку Бібліотеки"
 
 #: src/library/LibraryWindow.vala:1166
 msgid "Choose where to keep your photos."
-msgstr "Вибрати місце для збереження фото"
+msgstr "Вибрати місце зберігання світлин."
 
 #: src/library/TopDisplay.vala:133
 #, c-format
@@ -2410,7 +2363,7 @@ msgstr "_Увійти"
 
 #: src/publishing/PublishingUI.vala:130
 msgid "The selected photos/videos were successfully published."
-msgstr "Позначені фотографії або відео було успішно оприлюднено."
+msgstr "Вибрані світлини/відео успішно оприлюднено."
 
 #: src/publishing/PublishingUI.vala:132
 msgid "The selected videos were successfully published."
@@ -2418,33 +2371,31 @@ msgstr "Позначені відео було успішно оприлюдне
 
 #: src/publishing/PublishingUI.vala:134
 msgid "The selected photos were successfully published."
-msgstr "Позначені фотографії було успішно оприлюднено."
+msgstr "Вибрані світлини успішно оприлюднено."
 
 #: src/publishing/PublishingUI.vala:137
 msgid "The selected video was successfully published."
-msgstr "Позначені відео було успішно оприлюднено."
+msgstr "Вибрані відео успішно оприлюднено."
 
 #: src/publishing/PublishingUI.vala:139
 msgid "The selected photo was successfully published."
-msgstr "Позначені фотографії було успішно оприлюднено."
+msgstr "Вибрану світлину успішно оприлюднено."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
-msgstr "Отримання відомостей щодо облікового запису…"
+msgstr "Отримання відомостей про обліковий запис…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
-msgstr "Вхід до системи…"
+msgstr "Вхід…"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
-msgstr "Оприлюднення фотографій"
+msgstr "Оприлюднення світлин"
 
 #: src/publishing/PublishingUI.vala:214
 msgid "Publish photos _to:"
-msgstr "Оприлюднити фотографії _на:"
+msgstr "Оприлюднити світлини _на:"
 
 #: src/publishing/PublishingUI.vala:216
 msgid "Publish Videos"
@@ -2456,11 +2407,11 @@ msgstr "Оприлюднити відео _на"
 
 #: src/publishing/PublishingUI.vala:219
 msgid "Publish Photos and Videos"
-msgstr "Оприлюднення фотографій і відео"
+msgstr "Оприлюднення світлин і відео"
 
 #: src/publishing/PublishingUI.vala:220
 msgid "Publish photos and videos _to"
-msgstr "Оприлюднити фотографії і відео _на:"
+msgstr "Оприлюднити світлини й відео _на"
 
 #. There are no enabled publishing services that accept this media type,
 #. warn the user.
@@ -2469,17 +2420,17 @@ msgid "Unable to publish"
 msgstr "Не вдалося оприлюднити"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Shotwell не вдалося оприлюднити вказані дані, оскільки у вашій системі не "
-"увімкнено сумісного з програмою додатка оприлюднення. Щоб виправити це, "
-"скористайтеся пунктом меню <b>Зміни %s Налаштування</b> і увімкніть один або "
-"декілька додатків на вкладці <b>Додатки</b>."
+"Світлинам не вдалося оприлюднити вибрані елементи, оскільки немає "
+"увімкненого сумісного плагіна оприлюднення. Щоб виправити це, скористайтеся "
+"пунктом меню <b>Змінити %s Параметри</b> та увімкніть один або кілька "
+"плагінів у вкладці <b>Плагіни</b>."
 
 #: src/publishing/Publishing.vala:29
 msgid "Publishing"
@@ -2525,16 +2476,15 @@ msgstr "Стан позначення"
 
 #: src/searches/SearchBoolean.vala:189
 msgid "Photo state"
-msgstr "Стан фотографії"
+msgstr "Стан світлини"
 
 #: src/searches/SearchBoolean.vala:192
 msgid "Date"
 msgstr "Дата"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
-msgstr "Створити _мітку…"
+msgstr "Нова _мітка…"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2542,7 +2492,7 @@ msgstr "RAW+JPEG"
 
 #: src/sidebar/metadata/BasicProperties.vala:248
 msgid "Items:"
-msgstr "Об’єкти"
+msgstr "Елементи:"
 
 #: src/sidebar/metadata/BasicProperties.vala:252
 #, c-format
@@ -2550,7 +2500,7 @@ msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d подія"
 msgstr[1] "%d події"
-msgstr[2] "%d подія"
+msgstr[2] "%d подій"
 
 #: src/sidebar/metadata/BasicProperties.vala:276
 msgid "Date:"
@@ -2573,7 +2523,7 @@ msgstr "До:"
 msgid "%.1f second"
 msgid_plural "%.1f seconds"
 msgstr[0] "%.1f секунда"
-msgstr[1] "%.1f секунд"
+msgstr[1] "%.1f секунди"
 msgstr[2] "%.1f секунд"
 
 #: src/sidebar/metadata/BasicProperties.vala:315
@@ -2660,17 +2610,17 @@ msgstr "Мітки"
 
 #: src/util/DragAndDropHandler.vala:180
 msgid "Photos cannot be exported to this directory."
-msgstr "Експорт фотографій до цього каталогу неможливий."
+msgstr "Неможливо експортувати світлин до цієї теки."
 
 #: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
 #: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
-msgstr "Немає фотографій або відео"
+msgstr "Немає світлин/відео"
 
 #: src/Views/CheckerboardPage.vala:95
 msgid "No photos/videos found"
-msgstr "Не виявлено фотографій або відео"
+msgstr "Не виявлено світлин/відео"
 
 #: src/Views/CollectionPage.vala:53 src/Views/LibraryPhotoPage.vala:63
 msgid "S_lideshow"
@@ -2691,15 +2641,14 @@ msgstr "П_роявник"
 #: src/Views/CollectionPage.vala:211 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:557
 msgid "Other Actions"
-msgstr ""
+msgstr "Інші дії"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Експортувати фотографію/відео"
-msgstr[1] "Експортувати фотографію/відео"
-msgstr[2] "Експортувати фотографію/відео"
+msgstr[0] "Експортувати світлину/відео"
+msgstr[1] "Експортувати світлини/відео"
+msgstr[2] "Експортувати світлини/відео"
 
 #: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
 msgid "Rotating"
@@ -2782,16 +2731,16 @@ msgstr "Масштаб _100%"
 
 #: src/Views/EditingHostPage.vala:173
 msgid "Previous photo"
-msgstr "Попередня фотографія"
+msgstr "Попередня світлина"
 
 #: src/Views/EditingHostPage.vala:177
 msgid "Next photo"
-msgstr "Наступна фотографія"
+msgstr "Наступна світлина"
 
 #: src/Views/EditingHostPage.vala:1504
 #, c-format
 msgid "Photo source file missing: %s"
-msgstr "Не виявлено файла джерела фотографії: %s"
+msgstr "Не виявлено файлу джерела світлини: %s"
 
 #: src/Views/EventPage.vala:136
 msgid "All Events"
@@ -2858,16 +2807,16 @@ msgstr ""
 
 #: src/Views/ImportPage.vala:788
 msgid "Hide photos already imported"
-msgstr "Ховати фотографії, які вже імпортовано"
+msgstr "Ховати світлини, які вже імпортовано"
 
 #: src/Views/ImportPage.vala:791
 msgid "Only display photos that have not been imported"
-msgstr "Показувати лише фотографії, які ще не було імпортовано"
+msgstr "Показувати лише світлини, які ще не імпортовано"
 
 #: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
 #: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
 msgid "_Titles"
-msgstr "_Заголовки"
+msgstr "_Назви"
 
 #: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
 msgid "Import _Selected"
@@ -2888,51 +2837,47 @@ msgstr "Розпочинаємо імпортування, зачекайте…
 
 #: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
-msgstr "Показувати заголовки всіх фотографій"
+msgstr "Показувати назви кожної світлини"
 
 #: src/Views/ImportPage.vala:974
 msgid "Import the selected photos into your library"
-msgstr "Пересунути позначені фотографії до вашої бібліотеки"
+msgstr "Імпортувати вибрані світлини до вашої бібліотеки"
 
 #: src/Views/ImportPage.vala:979
 msgid "Import all the photos into your library"
-msgstr "Імпортувати всі фотографії до вашої бібліотеки"
+msgstr "Імпортувати всі світлини до вашої бібліотеки"
 
 #: src/Views/ImportPage.vala:1099
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Неможливо отримати доступ до камери під час її під'єднання"
 
 #: src/Views/ImportPage.vala:1100
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Shotwell потрібно демонтувати пристрій фотоапарата з файлової системи, щоб "
-"отримати до нього доступ. Продовжити?"
+"Світлини потребують від'єднання камери від файлової системи, щоб отримати до "
+"неї доступ."
 
 #: src/Views/ImportPage.vala:1106
 msgid "_Unmount"
-msgstr "_Демонтувати"
+msgstr "_Від'єднати"
 
 #: src/Views/ImportPage.vala:1112
 msgid "Please unmount the camera."
-msgstr "Будь ласка, демонтуйте пристрій фотоапарата."
+msgstr "Від'єднайте камеру."
 
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1119
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Камеру заблоковано іншим застосунком"
 
 #: src/Views/ImportPage.vala:1120
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Пристрій фотоапарата заблоковано сторонньою програмою. Shotwell зможе "
-"отримати доступ до фотоапарата лише після його розблокування. Будь ласка, "
-"завершіть роботу будь-яких інших програм, які працюють з фотоапаратом, і "
-"повторіть спробу."
+"Світлини може отримати доступ до камери лише якщо її розблоковано. Закрийте "
+"будь-який інший застосунок, що використовує камеру та повторіть спробу."
 
 #: src/Views/ImportPage.vala:1127
 msgid "Please close any other application using the camera."
@@ -2956,49 +2901,49 @@ msgstr "Демонтування…"
 
 #: src/Views/ImportPage.vala:1255
 msgid "Fetching photo information"
-msgstr "Отримання даних щодо фотографій"
+msgstr "Отримання відомостей про світлину"
 
 #: src/Views/ImportPage.vala:1610
 #, c-format
 msgid "Fetching preview for %s"
-msgstr "Отримання мініатюри %s"
+msgstr "Отримання ескізу для %s"
 
 #: src/Views/ImportPage.vala:1730
 #, c-format
 msgid "Unable to lock camera: %s"
-msgstr "Не вдалося заблокувати пристрій фотоапарата: %s"
+msgstr "Не вдалося заблокувати камеру: %s"
 
 #: src/Views/ImportPage.vala:1815
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
-msgstr[0] "Вилучити %d фотографію з фотоапарата?"
-msgstr[1] "Вилучити %d фотографії з фотоапарата?"
-msgstr[2] "Вилучити %d фотографію з фотоапарата?"
+msgstr[0] "Вилучити цю світлину з камери?"
+msgstr[1] "Вилучити ці %d світлини з камери?"
+msgstr[2] "Вилучити ці %d світлин з камери?"
 
 #: src/Views/ImportPage.vala:1818
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
-msgstr[0] "Вилучити %d відео з фотоапарата?"
-msgstr[1] "Вилучити %d відео з фотоапарата?"
-msgstr[2] "Вилучити %d відео з фотоапарата?"
+msgstr[0] "Вилучити це відео з камери?"
+msgstr[1] "Вилучити ці %d відео з камери?"
+msgstr[2] "Вилучити ці %d відео з камери?"
 
 #: src/Views/ImportPage.vala:1821
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
-msgstr[0] "Вилучити %d фотографію або відео з фотоапарата?"
-msgstr[1] "Вилучити %d фотографії або відео з фотоапарата?"
-msgstr[2] "Вилучити %d фотографію або відео з фотоапарата?"
+msgstr[0] "Видалити цю світлину/відео з камери?"
+msgstr[1] "Видалити ці %d світлини/відео з камери?"
+msgstr[2] "Видалити ці %d світлин/відео з камери?"
 
 #: src/Views/ImportPage.vala:1824
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
-msgstr[0] "Вилучити ці %d файл з фотоапарата?"
-msgstr[1] "Вилучити ці %d файли з фотоапарата?"
-msgstr[2] "Вилучити ці %d файлів з фотоапарата?"
+msgstr[0] "Видалити цей файл з камери?"
+msgstr[1] "Видалити ці %d файли з камери?"
+msgstr[2] "Видалити ці %d файлів з камери?"
 
 #: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
 msgid "Delete"
@@ -3010,36 +2955,31 @@ msgstr "_Не вилучати"
 
 #: src/Views/ImportPage.vala:1851
 msgid "Removing photos/videos from camera"
-msgstr "Вилучення фотографій або відео з фотоапарата"
+msgstr "Вилучення світлин/відео з камери"
 
 #: src/Views/ImportPage.vala:1855
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
-msgstr[0] ""
-"Не вдалося вилучити з фотоапарата %d фотографію або відео через помилки."
-msgstr[1] ""
-"Не вдалося вилучити з фотоапарата %d фотографії або відео через помилки."
-msgstr[2] ""
-"Не вдалося вилучити з фотоапарата %d фотографію або відео через помилки."
+msgstr[0] "Не вдалося видалити з камери %d світлину/відео через помилки."
+msgstr[1] "Не вдалося видалити з камери %d світлини/відео через помилки."
+msgstr[2] "Не вдалося видалити з камери %d світлин/відео через помилки."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Імпортування"
+msgstr "Імпортування…"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "_Stop Import"
-msgstr "П_рипинити імпортування"
+msgstr "_Зупинити імпортування"
 
 #: src/Views/ImportQueuePage.vala:69
 msgid "Stop importing photos"
-msgstr "Припинити імпортування фотографій"
+msgstr "Зупинити імпортування світлин"
 
 #: src/Views/ImportQueuePage.vala:127
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "Приготування до імпортування…"
+msgstr "Приготування до імпорту…"
 
 #: src/Views/ImportQueuePage.vala:154
 #, c-format
@@ -3070,12 +3010,12 @@ msgstr "_Мітки"
 
 #: src/Views/MediaPage.vala:84
 msgid "Sort _Photos"
-msgstr "Впорядкувати _фотографії"
+msgstr "Впорядкувати _світлини"
 
 #. Sort criteria.
 #: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
 msgid "By _Title"
-msgstr "За _заголовком"
+msgstr "За _назвою"
 
 #: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
 msgid "By Exposure _Date"
@@ -3083,44 +3023,44 @@ msgstr "За _датою знімання"
 
 #: src/Views/MediaPage.vala:238
 msgid "Display the comment of each photo"
-msgstr "Показувати коментар до кожної фотографії"
+msgstr "Показувати коментар до кожної світлини"
 
 #: src/Views/MediaPage.vala:244
 msgid "Display each photo's tags"
-msgstr "Показувати мітки всіх фотографій"
+msgstr "Показувати мітки всіх світлин"
 
 #: src/Views/MediaPage.vala:260
 msgid "Sort photos by title"
-msgstr "Впорядкувати фотографії за заголовком"
+msgstr "Впорядкувати світлини за назвою"
 
 #: src/Views/MediaPage.vala:266
 msgid "Sort photos by exposure date"
-msgstr "Впорядкувати фотографії за датою знімання"
+msgstr "Впорядкувати світлини за датою знімання"
 
 #: src/Views/MediaPage.vala:413
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Shotwell не вдалося відтворити позначені відео:\n"
+"Світлинам не вдалося відтворити позначені відео:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
 msgid "Add Some Photos"
-msgstr "Додати деякі фото"
+msgstr "Додати світлини"
 
 #: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
 msgid "No Photos were found in your library."
-msgstr "У вашій бібліотеці не знайдено фотографій"
+msgstr "У вашій бібліотеці не знайдено світлин."
 
 #: src/Views/RawsPage.vala:24
 msgid "Raw Photos"
-msgstr "Raw Фотографії"
+msgstr "Raw світлини"
 
 #: src/Views/RawsPage.vala:37
 msgid "Raws"
-msgstr "Raws"
+msgstr "RAW"
 
 #: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:397
 msgid "Slideshow"
@@ -3132,7 +3072,7 @@ msgstr "Назад"
 
 #: src/Views/SlideshowPage.vala:65
 msgid "Go to the previous photo"
-msgstr "Перейти до попередньої фотографії"
+msgstr "Перейти до попередньої світлини"
 
 #: src/Views/SlideshowPage.vala:68
 msgid "Pause"
@@ -3148,17 +3088,15 @@ msgstr "Далі"
 
 #: src/Views/SlideshowPage.vala:74
 msgid "Go to the next photo"
-msgstr "Перейти до наступної фотографії"
+msgstr "Перейти до наступної світлини"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "Показати за_головок"
+msgstr "Показати заголовки світлин"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Е_фект переходу:"
+msgstr "Швидкість переходу"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
@@ -3172,7 +3110,7 @@ msgstr "і нижче"
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
 msgid "All photo source files are missing."
-msgstr "Не виявлено всіх файлів джерел даних фотографій."
+msgstr "Не виявлено жодного джерельного файлу світлини."
 
 #: src/Views/SlideshowPage.vala:196
 msgid "Continue the slideshow"
@@ -3189,7 +3127,7 @@ msgstr "О_чистити смітник"
 
 #: src/Views/TrashPage.vala:89 src/Views/TrashPage.vala:234
 msgid "Delete all photos in the trash"
-msgstr "Вилучити всі фотографії до смітника"
+msgstr "Видалити всі світлини до смітника"
 
 #: src/Views/TrashPage.vala:288 src/Views/TrashPage.vala:289
 msgid "Trash is empty"
@@ -3198,9 +3136,9 @@ msgstr "Смітник порожній"
 #: src/Views/TrashPage.vala:294
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
-msgstr[0] "Вилучення фотографії"
-msgstr[1] "Вилучення фотографій"
-msgstr[2] "Вилучення фотографії"
+msgstr[0] "Видалення світлини"
+msgstr[1] "Видалення світлин"
+msgstr[2] "Видалення світлин"
 
 #: src/Views/TrashPage.vala:302
 msgid "Empty Trash"
@@ -3208,7 +3146,7 @@ msgstr "Спорожнити смітник"
 
 #: src/Views/TrashPage.vala:302
 msgid "Emptying Trash…"
-msgstr "Спорожнення кошика ..."
+msgstr "Очищення Смітника…"
 
 #: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
 msgid "Videos"
@@ -3270,11 +3208,11 @@ msgstr "не збігається з"
 #. Ordering must correspond with SearchConditionMediaType.MediaType
 #: src/Widgets/SearchRowMediaType.vala:37
 msgid "any photo"
-msgstr "будь-яка фотографія"
+msgstr "будь-яка світлина"
 
 #: src/Widgets/SearchRowMediaType.vala:38
 msgid "a raw photo"
-msgstr "необроблена фотографія"
+msgstr "необроблена світлина"
 
 #: src/Widgets/SearchRowMediaType.vala:39
 msgid "a video"
@@ -3462,9 +3400,9 @@ msgstr ""
 "  zigi21 https://launchpad.net/~huckier78"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
-msgstr "Створюємо альбом %s…"
+msgstr "Створення альбому %s…"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
 msgid "An error message occurred when publishing to Piwigo. Please try again."
@@ -3477,8 +3415,8 @@ msgid ""
 "Enter the URL of your Piwigo photo library as well as the username and "
 "password associated with your Piwigo account for that library."
 msgstr ""
-"Вкажіть адресу вашої бібліотеки фотографій Piwigo, а також ім’я користувача "
-"і пароль, пов’язані з вашим обліковим записом Piwigo, до якого прив’язано "
+"Введіть URL-адресу вашої бібліотеки світлин Piwigo та ім’я користувача і "
+"пароль, пов’язані з вашим обліковим записом Piwigo, до якого прив’язано "
 "бібліотеку."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
@@ -3486,15 +3424,13 @@ msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell не вдалося встановити зв’язок з вашою бібліотекою фотографій "
-"Piwigo. Будь ласка, перевірте, чи правильно вказано адресу."
+"Shotwell не вдалося з’єднатися з вашою бібліотекою світлин Piwigo. Перевірте "
+"правильність вказаної URL-адреси"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
 msgid "Username and/or password invalid. Please try again"
-msgstr ""
-"Некоректні значення імені користувача і/або пароля. Будь ласка, повторіть "
-"спробу."
+msgstr "Недійсні ім'я користувача та/або пароль. Повторіть спробу"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1039
 msgid "Invalid URL"
@@ -3561,6 +3497,11 @@ msgid ""
 "Click Login to log into Google Photos in your Web browser. You will have to "
 "authorize elementary OS to link to your Google Photos account."
 msgstr ""
+"Ви не ввійшли до Google Фото.\n"
+"\n"
+"Натисніть Увійти для входу до Google Фото у своєму переглядачі. Вам "
+"доведеться дозволити пов’язування вашого облікового запису Google Фото та "
+"elementary OS."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
 msgid ""
@@ -3663,15 +3604,15 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1168
 msgid "Photos _visible to:"
-msgstr "Фотографії зможе _бачити:"
+msgstr "Світлини можуть _бачити:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1170
 msgid "Videos _visible to:"
-msgstr "Відео зможуть _бачити:"
+msgstr "Відео можуть _бачити:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1173
 msgid "Photos and videos _visible to:"
-msgstr "Фотографії і відео зможуть _бачити:"
+msgstr "Світлини та відео можуть _бачити:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
 msgid "Friends & family only"
@@ -3699,13 +3640,12 @@ msgid ""
 "upload photos and publish to your feed. These permissions are required for "
 "Shotwell Connect to function."
 msgstr ""
-"Ви ще не увійшли до системи Facebook.\n"
+"Ви ще не увійшли до Facebook.\n"
 "\n"
-"Якщо у вас ще немає облікового запису Facebook, ви можете створити таких "
-"запис під час виконання процедури з входу до системи. Під час входу до "
-"системи Shotwell може попросити у вас дозволу на вивантаження фотографій та "
-"їх оприлюднення за допомогою подачі. Ці дозволи потрібні для нормальної "
-"роботи Shotwell."
+"Якщо у вас ще немає облікового запису Facebook, ви можете створити його під "
+"час виконання входу. Під час входу, Shotwell Connect може попросити у вас "
+"дозволу на вивантаження світлин та їхнього оприлюднення до стрічки. Ці "
+"дозволи потрібні для нормальної роботи Shotwell Connect."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
 msgid ""
@@ -3760,7 +3700,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
 msgid "Where would you like to publish the selected photos?"
-msgstr "Де ви бажаєте оприлюднити позначені фотографії?"
+msgstr "Де ви бажаєте оприлюднити вибрані світлини?"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
@@ -3774,7 +3714,7 @@ msgstr "Друзі"
 
 #: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
 msgid "Video privacy _setting:"
-msgstr "_Конфіденційність відео:"
+msgstr "_Параметри приватності відео:"
 
 #: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
@@ -3783,7 +3723,7 @@ msgstr "_Конфіденційність відео:"
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
 msgid "_Logout"
-msgstr "Ви_йти з системи"
+msgstr "_Вийти з системи"
 
 #: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
@@ -3796,11 +3736,11 @@ msgstr "_Оприлюднити"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:24
 msgid "Photos will appear in:"
-msgstr "Фотографії з’являться у:"
+msgstr "Світлини з’являться в:"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:40
 msgid "An _existing category:"
-msgstr "_Вже створеній категорії:"
+msgstr "_Наявній категорії:"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:52
 msgid "A _new album named:"
@@ -3808,11 +3748,11 @@ msgstr "_Новому альбомі з назвою:"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:121
 msgid "Photos will be _visible by:"
-msgstr "Фотографії зможуть _бачити:"
+msgstr "Світлини будуть _видимі:"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:149
 msgid "Photo size:"
-msgstr "Розмір фотографії:"
+msgstr "Розмір світлини:"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:176
 msgid "within category:"
@@ -3857,7 +3797,7 @@ msgstr "мітка"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:49
 msgid "_URL of your Piwigo photo library"
-msgstr "_Адреса вашої бібліотеки фотографій Piwigo"
+msgstr "_URL-адреса вашої бібліотеки світлин Piwigo"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:59
 msgid "User _name"
@@ -3887,7 +3827,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
 msgid "Photo _size preset:"
-msgstr "Шаблон _розміру фотографій:"
+msgstr "Типовий _розмір світлин:"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
 msgid ""
@@ -3908,7 +3848,7 @@ msgstr "мітка _видимості (заповнено у коді)"
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
 msgid "Photo _size:"
-msgstr "_Розмір фотографії:"
+msgstr "_Розмір світлини:"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
 msgid ""
@@ -3941,7 +3881,7 @@ msgstr "Створити _альбом з назвою:"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
 msgid "Videos and new photo albums _visible to:"
-msgstr "Відео і нові фотоальбоми зможуть _бачити:"
+msgstr "Відео і нові фотоальбоми можуть _бачити:"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
 msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
@@ -4029,7 +3969,7 @@ msgstr "Вимкнути _коментування"
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
 msgid "_Forbid downloading original photo"
-msgstr "За_боронити звантаження початкових версій фотографій"
+msgstr "_Заборонити звантаження початкових версій світлин"
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
 msgid "Public"

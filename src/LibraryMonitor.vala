@@ -1028,4 +1028,3 @@ public class LibraryMonitor : DirectoryMonitor {
         base.notify_file_deleted (file);
     }
 }
-

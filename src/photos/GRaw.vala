@@ -315,6 +315,4 @@ private void throw_exception (string caller, LibRaw.Result result) throws Except
         return;
     }
 }
-
 }
-

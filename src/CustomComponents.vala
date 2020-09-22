@@ -63,7 +63,7 @@ public class RGBHistogramManipulator : Gtk.DrawingArea {
         return drag_nub_pixbuf;
     }
 
-    public RGBHistogramManipulator( ) {
+    public RGBHistogramManipulator () {
         set_size_request (CONTROL_WIDTH, CONTROL_HEIGHT);
 
         if (dummy_slider == null)
@@ -360,4 +360,3 @@ public class RGBHistogramManipulator : Gtk.DrawingArea {
         update_nub_extrema ();
     }
 }
-

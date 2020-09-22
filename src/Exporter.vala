@@ -56,7 +56,7 @@ public struct ExportFormatParameters {
                                        PhotoFileFormat.get_system_default_format (), Jpeg.Quality.HIGH);
     }
 
-    public static ExportFormatParameters for_JPEG (Jpeg.Quality quality) {
+    public static ExportFormatParameters for_jpeg (Jpeg.Quality quality) {
         return ExportFormatParameters (ExportFormatMode.SPECIFIED, PhotoFileFormat.JFIF,
                                        quality);
     }
@@ -367,4 +367,3 @@ public class ExporterUI {
         return export_error_dialog (file, remaining > 0) != Gtk.ResponseType.CANCEL;
     }
 }
-

@@ -291,6 +291,4 @@ private class ManifestListView : Gtk.TreeView {
         return true;
     }
 }
-
 }
-

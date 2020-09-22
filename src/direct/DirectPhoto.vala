@@ -325,4 +325,3 @@ public class DirectPhotoSourceCollection : DatabaseSourceCollection {
         return file_map.get (file);
     }
 }
-

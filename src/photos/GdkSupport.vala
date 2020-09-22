@@ -139,4 +139,3 @@ public abstract class GdkSniffer : PhotoFileSniffer {
         area_prepared = true;
     }
 }
-

@@ -34,9 +34,9 @@ public class DragAndDropHandler {
         { "shotwell/media-id-atom", Gtk.TargetFlags.SAME_APP, TargetType.MEDIA_LIST }
     };
 
-    private static Gdk.Atom? XDS_ATOM = null;
-    private static Gdk.Atom? TEXT_ATOM = null;
-    private static uint8[]? XDS_FAKE_TARGET = null;
+    private static Gdk.Atom? xds_atom = null;
+    private static Gdk.Atom? text_atom = null;
+    private static uint8[]? xds_fake_target = null;
 
     private weak Page page;
     private Gtk.Widget event_source;
@@ -50,14 +50,14 @@ public class DragAndDropHandler {
         assert (event_source.get_has_window ());
 
         // Need to do this because static member variables are not properly handled
-        if (XDS_ATOM == null)
-            XDS_ATOM = Gdk.Atom.intern_static_string ("XdndDirectSave0");
+        if (xds_atom == null)
+            xds_atom = Gdk.Atom.intern_static_string ("XdndDirectSave0");
 
-        if (TEXT_ATOM == null)
-            TEXT_ATOM = Gdk.Atom.intern_static_string ("text/plain");
+        if (text_atom == null)
+            text_atom = Gdk.Atom.intern_static_string ("text/plain");
 
-        if (XDS_FAKE_TARGET == null)
-            XDS_FAKE_TARGET = string_to_uchar_array ("shotwell.txt");
+        if (xds_fake_target == null)
+            xds_fake_target = string_to_uchar_array ("shotwell.txt");
 
         // register what's available on this DnD Source
         Gtk.drag_source_set (event_source, Gdk.ModifierType.BUTTON1_MASK, SOURCE_TARGET_ENTRIES,
@@ -104,11 +104,11 @@ public class DragAndDropHandler {
 
         // set the XDS property to indicate an XDS save is available
 #if VALA_0_20
-        Gdk.property_change (context.get_source_window (), XDS_ATOM, TEXT_ATOM, 8, Gdk.PropMode.REPLACE,
-                             XDS_FAKE_TARGET, 1);
+        Gdk.property_change (context.get_source_window (), xds_atom, text_atom, 8, Gdk.PropMode.REPLACE,
+                             xds_fake_target, 1);
 #else
-        Gdk.property_change (context.get_source_window (), XDS_ATOM, TEXT_ATOM, 8, Gdk.PropMode.REPLACE,
-                             XDS_FAKE_TARGET);
+        Gdk.property_change (context.get_source_window (), xds_atom, text_atom, 8, Gdk.PropMode.REPLACE,
+                             xds_fake_target);
 #endif
     }
 
@@ -125,10 +125,10 @@ public class DragAndDropHandler {
             uchar[] data = new uchar[4096];
             Gdk.Atom actual_type;
             int actual_format = 0;
-            bool fetched = Gdk.property_get (context.get_source_window (), XDS_ATOM, TEXT_ATOM,
+            bool fetched = Gdk.property_get (context.get_source_window (), xds_atom, text_atom,
                                              0, data.length, 0, out actual_type, out actual_format, out data);
 
-            // the destination path is actually for our XDS_FAKE_TARGET, use its parent
+            // the destination path is actually for our xds_fake_target, use its parent
             // to determine where the file(s) should go
             if (fetched && data != null && data.length > 0)
                 drag_destination = File.new_for_uri (uchar_array_to_string (data)).get_parent ();
@@ -137,7 +137,7 @@ public class DragAndDropHandler {
                    (drag_destination != null) ? drag_destination.get_path () : "(no path)");
 
             // Set the property to "S" for Success or "E" for Error
-            selection_data.set (XDS_ATOM, 8,
+            selection_data.set (xds_atom, 8,
                                 string_to_uchar_array ((drag_destination != null) ? "S" : "E"));
             break;
 

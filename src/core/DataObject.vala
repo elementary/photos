@@ -147,4 +147,3 @@ public abstract class DataObject : Object {
             member_of.clear_property (name);
     }
 }
-

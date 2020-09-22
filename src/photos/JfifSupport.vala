@@ -63,11 +63,11 @@ public class JfifFileFormatDriver : PhotoFileFormatDriver {
 }
 
 public class JfifFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = {
+    private static string[] known_extensions = {
         "jpg", "jpeg", "jpe"
     };
 
-    private static string[] KNOWN_MIME_TYPES = {
+    private static string[] known_mime_types = {
         "image/jpeg"
     };
 
@@ -98,15 +98,15 @@ public class JfifFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 
@@ -246,4 +246,3 @@ private int read_marker (FileInputStream fins, out Jpeg.Marker marker) throws Er
     return length - 2;
 }
 }
-

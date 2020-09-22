@@ -665,4 +665,3 @@ private class AVIChunk {
     }
 
 }
-

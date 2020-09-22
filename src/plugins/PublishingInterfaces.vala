@@ -116,9 +116,9 @@ public interface Publisher : GLib.Object {
      * indicates that a publishing service supports the upload of both photos and videos.
      */
     public enum MediaType {
-        NONE =          0,
-        PHOTO =         1 << 0,
-        VIDEO =         1 << 1
+        NONE = 0,
+        PHOTO = 1 << 0,
+        VIDEO = 1 << 1
     }
 
     /**
@@ -175,7 +175,7 @@ public interface DialogPane : GLib.Object {
          * When the associated pane is installed, the on-screen publishing dialog box will be
          * sized normally and will not allow the user to change its size.
          */
-        NONE =          0,
+        NONE = 0,
 
         /**
          * If this bit is set, when the associated pane is installed, the on-screen publishing
@@ -187,7 +187,7 @@ public interface DialogPane : GLib.Object {
          * If this bit is set, when the associated pane is installed, the on-screen publishing
          * dialog box will allow the user to change its size.
          */
-        RESIZABLE =     1 << 1,
+        RESIZABLE = 1 << 1,
 
         /**
          * If this bit is set, when the associated pane is installed, the on-screen publishing
@@ -526,9 +526,9 @@ public interface PluginHost : GLib.Object, Spit.HostInterface {
  */
 public interface Publishable : GLib.Object {
 
-    public const string PARAM_STRING_BASENAME    = "basename";
-    public const string PARAM_STRING_TITLE       = "title";
-    public const string PARAM_STRING_COMMENT     = "comment";
+    public const string PARAM_STRING_BASENAME = "basename";
+    public const string PARAM_STRING_TITLE = "title";
+    public const string PARAM_STRING_COMMENT = "comment";
     public const string PARAM_STRING_EVENTCOMMENT = "eventcomment";
 
     /**
@@ -613,6 +613,4 @@ public interface Service : Object, Spit.Pluggable {
     protected virtual void reserved6 () {}
     protected virtual void reserved7 () {}
 }
-
 }
-

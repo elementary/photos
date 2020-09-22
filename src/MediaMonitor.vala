@@ -428,4 +428,3 @@ public abstract class MediaMonitor : Object {
         return true;
     }
 }
-

@@ -286,7 +286,7 @@ public class PrintJob : Gtk.PrintOperation {
         photos.add_all (to_print);
 
         set_embed_page_setup (true);
-        double photo_aspect_ratio =  photos[0].get_dimensions ().get_aspect_ratio ();
+        double photo_aspect_ratio = photos[0].get_dimensions ().get_aspect_ratio ();
         if (photo_aspect_ratio < 1.0)
             photo_aspect_ratio = 1.0 / photo_aspect_ratio;
     }

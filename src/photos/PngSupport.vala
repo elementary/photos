@@ -18,8 +18,8 @@
 */
 
 class PngFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = { "png" };
-    private static string[] KNOWN_MIME_TYPES = { "image/png" };
+    private static string[] known_extensions = { "png" };
+    private static string[] known_mime_types = { "image/png" };
 
     private static PngFileFormatProperties instance = null;
 
@@ -44,19 +44,19 @@ class PngFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string get_default_extension () {
-        return KNOWN_EXTENSIONS[0];
+        return known_extensions[0];
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 
@@ -191,4 +191,3 @@ public class PngFileFormatDriver : PhotoFileFormatDriver {
         return new PhotoMetadata ();
     }
 }
-

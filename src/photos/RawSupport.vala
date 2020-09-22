@@ -63,13 +63,13 @@ public class RawFileFormatDriver : PhotoFileFormatDriver {
 }
 
 public class RawFileFormatProperties : PhotoFileFormatProperties {
-    private static string[] KNOWN_EXTENSIONS = {
+    private static string[] known_extensions = {
         "3fr", "arw", "srf", "sr2", "bay", "crw", "cr2", "cap", "iiq", "eip", "dcs", "dcr", "drf",
         "k25", "kdc", "dng", "erf", "fff", "mef", "mos", "mrw", "nef", "nrw", "orf", "ptx", "pef",
         "pxn", "r3d", "raf", "raw", "rw2", "raw", "rwl", "rwz", "x3f", "srw"
     };
 
-    private static string[] KNOWN_MIME_TYPES = {
+    private static string[] known_mime_types = {
         /* a catch-all MIME type for all formats supported by the dcraw command-line
            tool (and hence libraw) */
         "image/x-dcraw",
@@ -159,15 +159,15 @@ public class RawFileFormatProperties : PhotoFileFormatProperties {
     }
 
     public override string[] get_known_extensions () {
-        return KNOWN_EXTENSIONS;
+        return known_extensions;
     }
 
     public override string get_default_mime_type () {
-        return KNOWN_MIME_TYPES[0];
+        return known_mime_types[0];
     }
 
     public override string[] get_mime_types () {
-        return KNOWN_MIME_TYPES;
+        return known_mime_types;
     }
 }
 

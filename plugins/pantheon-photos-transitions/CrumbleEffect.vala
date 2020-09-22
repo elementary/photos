@@ -113,4 +113,3 @@ private class CrumbleEffect : Object, Transitions.Effect {
     public void cancel () {
     }
 }
-

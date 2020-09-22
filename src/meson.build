@@ -4,18 +4,6 @@ library_files = files(
     'plugins/TransitionsInterfaces.vala'
 )
 
-conf_data = configuration_data()
-conf_data.set_quoted('PROJECT_NAME', meson.project_name())
-conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-conf_data.set_quoted('_VERSION', meson.project_version())
-conf_data.set_quoted('_PREFIX', get_option('prefix'))
-conf_data.set_quoted('_LIB', join_paths(get_option('prefix'), get_option('libdir')))
-conf_data.set_quoted('_LIBEXECDIR', libexecdir)
-config_header = configure_file(
-    output : 'config.h',
-    configuration : conf_data
-)
-
 photos_files = files(
     'AppDirs.vala',
     'Application.vala',
@@ -56,7 +44,6 @@ photos_files = files(
     'Thumbnail.vala',
     'TimedQueue.vala',
     'Tombstone.vala',
-    'UnityProgressBar.vala',
     'Upgrades.vala',
     'VideoMetadata.vala',
     'VideoMonitor.vala',
@@ -235,7 +222,6 @@ photos_exe = executable(
     meson.project_name(),
     photos_files,
     library_files,
-    config_header,
     icons_gresource,
     global_gresource,
     dependencies: dependencies,

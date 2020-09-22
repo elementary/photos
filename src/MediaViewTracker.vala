@@ -124,4 +124,3 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
         return "%d photos/%d videos/%d raw/%d flagged".printf (photos, videos, raw, flagged);
     }
 }
-

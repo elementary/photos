@@ -120,10 +120,10 @@ public class Argument {
         return strcmp (arg1.key, arg2.key);
     }
 
-    public static Argument[] sort (Argument[] inputArray) {
+    public static Argument[] sort (Argument[] input_array) {
         FixedTreeSet<Argument> sorted_args = new FixedTreeSet<Argument> (Argument.compare);
 
-        foreach (Argument arg in inputArray)
+        foreach (Argument arg in input_array)
             sorted_args.add (arg);
 
         return sorted_args.to_array ();
@@ -1174,6 +1174,4 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
         return service;
     }
 }
-
 }
-

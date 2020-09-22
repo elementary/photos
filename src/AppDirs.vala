@@ -251,11 +251,11 @@ class AppDirs {
     }
 
     public static File get_thumbnailer_bin () {
-        const string filename = "video-thumbnailer";
-        File f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/thumbnailer/" + filename);
+        const string FILENAME = "video-thumbnailer";
+        File f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/thumbnailer/" + FILENAME);
         if (!f.query_exists ()) {
             // If we're running installed.
-            f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/" + filename);
+            f = File.new_for_path (AppDirs.get_libexec_dir ().get_path () + "/" + FILENAME);
         }
         return f;
     }
