@@ -140,7 +140,11 @@ public class LibraryWindow : AppWindow {
     private Gtk.Notebook notebook;
     private Gtk.Box right_vbox;
 
-    private GLib.Settings ui_settings;
+    private static GLib.Settings ui_settings;
+
+    static construct {
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+    }
 
     construct {
         set_default_size (
@@ -227,7 +231,6 @@ public class LibraryWindow : AppWindow {
 
         add (client_paned);
 
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
         ui_settings.bind ("sidebar-position", client_paned, "position", DEFAULT);
         ui_settings.bind ("metadata-sidebar-position", right_client_paned, "position", DEFAULT);
 
