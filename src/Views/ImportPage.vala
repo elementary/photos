@@ -505,7 +505,7 @@ public class ImportPage : CheckerboardPage {
             filename = import_file.filename;
             filesize = import_file.file_size;
             metadata = (import_file is PhotoImportSource) ?
-                       (import_file as PhotoImportSource).get_metadata () : null;
+                       ((PhotoImportSource)import_file).get_metadata () : null;
             exposure_time = import_file.get_exposure_time ();
         }
 
@@ -709,10 +709,6 @@ public class ImportPage : CheckerboardPage {
     private Gtk.Menu page_context_menu;
     private Gtk.Menu import_context_menu;
     private GLib.Settings ui_settings;
-
-#if UNITY_SUPPORT
-    UnityProgressBar uniprobar = UnityProgressBar.get_instance ();
-#endif
 
     public enum RefreshResult {
         OK,
@@ -1333,17 +1329,14 @@ public class ImportPage : CheckerboardPage {
         // Associate files (for RAW+JPEG)
         auto_match_raw_jpeg (import_list);
 
-#if UNITY_SUPPORT
         //UnityProgressBar: try to draw progress bar
-        uniprobar.set_visible (true);
-#endif
+        Granite.Services.Application.set_progress_visible.begin (true);
 
         load_previews_and_metadata (import_list);
 
-#if UNITY_SUPPORT
         //UnityProgressBar: reset
-        uniprobar.reset ();
-#endif
+        Granite.Services.Application.set_progress_visible.begin (false);
+        Granite.Services.Application.set_progress.begin (0.0);
 
         progress_bar.visible = false;
         progress_bar.set_ellipsize (Pango.EllipsizeMode.NONE);
@@ -1672,10 +1665,10 @@ public class ImportPage : CheckerboardPage {
 #endif
 
             if (import_source is VideoImportSource)
-                (import_source as VideoImportSource).update (preview);
+                ((VideoImportSource)import_source).update (preview);
 
             if (import_source is PhotoImportSource)
-                (import_source as PhotoImportSource).update (preview, preview_md5, metadata,
+                ((PhotoImportSource)import_source).update (preview, preview_md5, metadata,
                         exif_only_md5);
 
             if (associated != null) {
@@ -1697,10 +1690,9 @@ public class ImportPage : CheckerboardPage {
             import_sources.add (import_source);
 
             progress_bar.set_fraction ((double) (++loaded_photos) / (double) import_list.size);
-#if UNITY_SUPPORT
+
             //UnityProgressBar: set progress
-            uniprobar.set_progress ((double) (loaded_photos) / (double) import_list.size);
-#endif
+            Granite.Services.Application.set_progress.begin ((double) (loaded_photos) / (double) import_list.size);
 
             // spin the event loop so the UI doesn't freeze
             spin_event_loop ();

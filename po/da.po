@@ -16,17 +16,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2018-12-12 23:02+0000\n"
-"Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/photos/photos/"
-"da/>\n"
+"POT-Creation-Date: 2020-09-30 00:47+0000\n"
+"PO-Revision-Date: 2020-05-25 15:11+0000\n"
+"Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
+"Language-Team: Danish <https://l10n.elementary.io/projects/photos/photos/da/"
+">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-03-22 07:08+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,7 +55,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Det var ikke muligt at lave data undermappen %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -349,9 +349,9 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "Fil %s findes allerede. Overskriv?"
+msgstr "Filen %s findes allerede. Overskriv?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -364,7 +364,7 @@ msgstr "Overskriv _alle"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -386,48 +386,45 @@ msgstr "Forlad fuldskærm"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Dit Foto Bibliotek Er Ikke Kompatibelt Med Denne Version af Fotos"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Dit fotobibliotek er ikke kompatibelt med denne version af Billeder.  Det "
-"ser ud til det blev oprettet af Billeder %s (skema %d).  Dette er version %s "
-"(skema %d).  Brug venligst den nyeste version af Billeder."
+"Det fremgår at det var oprettet med Fotos %s (skema %d). Denne version er %s "
+"(skema %d). Brug venligst den seneste version af Fotos."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
 "Fotos var ude af stand til at opgradere dit fotobibliotek fra version %s "
-"(skema %d) til %s (skema %d).  For mere information, se Fotos wiki'en: %s"
+"(skema %d) til %s (skema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "For mere information tjek venligst Fotos Wiki på %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Dit fotobibliotek er ikke kompatibelt med denne version af Fotos.  Det ser "
-"ud til det blev oprettet af Fotos %s (skema %d).  Dette er version %s (skema "
-"%d). Brug venligst den nyeste version af Fotos.  Venligst rengør dit "
-"bibliotek ved at slette %s og re-importere dine billeder."
+"Det ser ud til, at det blev oprettet af Fotos %s (skema %d). Denne version "
+"er %s (skema %d). Vær venlig at ryde dit fotobibliotek ved at slette %s, og "
+"gen-importer så dine fotos."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Ukendt fejl under forsøg på at kontrollere Fotos database: %s"
+msgstr "Ukendt fejl under forsøg på at kontrollere Fotos database"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -516,23 +513,23 @@ msgstr "Notekort (3 x 5 tommer)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
 msgid "4 x 6 in."
-msgstr "4 x 6 tommer"
+msgstr "10 x 15 cm."
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
 msgid "5 x 7 in."
-msgstr "5 x 7 tommer"
+msgstr "13 x 18 cm."
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
 msgid "8 x 10 in."
-msgstr "8 x 10 tommer"
+msgstr "20.3 x 25.4 cm."
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
 msgid "11 x 14 in."
-msgstr "11 x 14 tommer"
+msgstr "27.9 x 35.5 cm."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
 msgid "16 x 20 in."
-msgstr "16 x 20 tommer"
+msgstr "40,6 x 50.8 cm."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
 msgid "Metric Wallet (9 x 13 cm)"
@@ -582,7 +579,7 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/Resources.vala:23 src/library/TopDisplay.vala:52
 #: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
 #: src/Views/PhotosPage.vala:37
 msgid "Photos"
@@ -871,7 +868,7 @@ msgstr "_Slet mærkatet »%s«"
 #: src/Resources.vala:198
 #, c-format
 msgid "Delete Tag \"%s\""
-msgstr "Slet mærkatet »%s«"
+msgstr "Slet mærkatet \"%s\""
 
 #: src/Resources.vala:201
 msgid "Delete Tag"
@@ -908,25 +905,25 @@ msgid "Modify Tags"
 msgstr "Ændr mærkater"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Mærk billeder som »%s«"
-msgstr[1] "Mærk billeder som »%s«"
+msgstr[0] "Mærk billede som \"%s\""
+msgstr[1] "Mærk billeder som \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Fjern mærkat »%s« fra billeder"
-msgstr[1] "Fjern mærkat »%s« fra billeder"
+msgstr[0] "Fjern mærkat \"%s\" fra _billede"
+msgstr[1] "Fjern mærkat \"%s\" fra _billeder"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Fjern mærkat »%s« fra billeder"
-msgstr[1] "Fjern mærkat »%s« fra billeder"
+msgstr[0] "Fjern mærkat \"%s\" fra billede"
+msgstr[1] "Fjern mærkat \"%s\" fra billeder"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1067,7 +1064,7 @@ msgid "Cameras"
 msgstr "Kameraer"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
+#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
 msgid "Camera"
 msgstr "Kamera"
 
@@ -1086,7 +1083,7 @@ msgstr "PM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:98
 msgid "24 Hr"
-msgstr "24 t."
+msgstr "24 timer"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:102
 msgid "_Shift photos/videos by the same amount"
@@ -1097,17 +1094,15 @@ msgid "Set _all photos/videos to this time"
 msgstr "Sæt _alle billeder til denne tid"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Ændr originale fotofil"
-msgstr[1] "_Ændr originale fotofil"
+msgstr[1] "_Ændr originale fotofiler"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Ændr oprindelige filer"
+msgstr[0] "_Ændr oprindelig fil"
 msgstr[1] "_Ændr oprindelige filer"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
@@ -1165,14 +1160,14 @@ msgstr[0] "sekund"
 msgstr[1] "sekunder"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Dette vil fjerne mærkatet »%s« fra et billede. Fortsæt?"
+msgstr[0] "Dette vil fjerne mærkatet \"%s\" fra et billede. Fortsæt?"
 msgstr[1] "Dette vil fjerne mærkaterne »%s« fra %d billeder. Fortsæt?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Dette vil fjerne smartalbummet \"%s\".  Fortsæt?"
 
@@ -1192,7 +1187,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Er Du SIkker På, At Du Ønsker At Skifte Udviklere?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1204,11 +1199,10 @@ msgstr "Eksporter Video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksporter billede"
-msgstr[1] "Eksporter billede"
+msgstr[1] "Eksporter billeder"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1618,25 +1612,23 @@ msgid "Name:"
 msgstr "Navn:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Fortryd ekstern redigering?"
-msgstr[1] "Fortryd ekstern redigering?"
+msgstr[1] "Fortryd eksterne redigeringer?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "Dette vil ødelægge alle forandringer i den eksterne fil. Fortsæt?"
-msgstr[1] "Dette vil ødelægge alle forandringer i %d eksterne filer. Fortsæt?"
+msgstr[0] "Dette vil ødelægge alle ændringer i den eksterne fil. Fortsæt?"
+msgstr[1] "Dette vil ødelægge alle ændringer i %d eksterne filer. Fortsæt?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Omg_ør eksterne editeringer"
+msgstr[0] "Omg_ør ekstern redigering"
 msgstr[1] "Omg_ør eksterne editeringer"
 
 #: src/Dialogs/Dialogs.vala:833
@@ -1648,7 +1640,7 @@ msgid "Remove Photos From Library"
 msgstr "Fjern billeder fra bibliotek"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Dette vil fjerne billedet fra biblioteket. Fortsæt?"
@@ -1704,11 +1696,10 @@ msgid "Remove From Library"
 msgstr "Fjern fra biblioteket"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Fjerner billeder fra biblioteket"
-msgstr[1] "Fjerner billeder fra biblioteket"
+msgstr[0] "Fjerner billede fra bibliotek"
+msgstr[1] "Fjerner billeder fra bibliotek"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1742,9 +1733,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skaleringsbegrænsning:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Skjul infopanel"
+msgstr "_Størrelse i pixels:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1772,7 +1762,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Omdøb importerede filer til små bogstaver:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "Skriv _metadata til filer:"
 
@@ -1793,7 +1782,7 @@ msgstr "Plugins"
 msgid "_Close"
 msgstr "_Luk"
 
-#: src/Dialogs/ProgressDialog.vala:99
+#: src/Dialogs/ProgressDialog.vala:96
 #, c-format
 msgid "%d%%"
 msgstr "%d%%"
@@ -1831,7 +1820,7 @@ msgstr "af følgende:"
 msgid "Add rule"
 msgstr "Tilføj regel"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:623
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Annuller"
@@ -1932,7 +1921,7 @@ msgstr "HD-video (16 : 9)"
 
 #: src/editing_tools/CropTool.vala:218
 msgid "Letter (8.5 x 11 in.)"
-msgstr "Letter (8.5 x 11 in.)"
+msgstr "Brev (8.5 x 11 in.)"
 
 #: src/editing_tools/CropTool.vala:220
 msgid "Tabloid (11 x 17 in.)"
@@ -2038,85 +2027,85 @@ msgstr[1] "%d billeder"
 msgid "All Photos"
 msgstr "Alle billeder"
 
-#: src/library/LibraryWindow.vala:159
+#: src/library/LibraryWindow.vala:163
 msgid "_Import From Folder…"
 msgstr "_Importér fra mappe…"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:168
 msgid "_Preferences"
 msgstr "_Indstillinger"
 
-#: src/library/LibraryWindow.vala:175
+#: src/library/LibraryWindow.vala:179
 msgid "Settings"
 msgstr "Opsætning"
 
-#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
-#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/library/LibraryWindow.vala:344 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:858 src/Views/OfflinePage.vala:109
 #: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "Sorter _hændelser"
 
-#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/library/LibraryWindow.vala:346 src/Views/CollectionPage.vala:196
 #: src/Views/LibraryPhotoPage.vala:542
 msgid "View Eve_nt for Photo"
 msgstr "Se begive_nhed for billede"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:352 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Nyt smartalbum…"
 
-#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
-#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/library/LibraryWindow.vala:374 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:846 src/Views/OfflinePage.vala:101
 #: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "_Sidebjælke"
 
-#: src/library/LibraryWindow.vala:372
+#: src/library/LibraryWindow.vala:375
 msgid "Display the sidebar"
 msgstr "Vis sidebjælken"
 
-#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/library/LibraryWindow.vala:379 src/library/LibraryWindow.vala:380
 #: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
-#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/ImportPage.vala:850 src/Views/LibraryPhotoPage.vala:483
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
 #: src/Views/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Rediger billed_info"
 
-#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:391 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:860 src/Views/OfflinePage.vala:111
 #: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Stigende"
 
-#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:391 src/Views/MediaPage.vala:276
 msgid "Sort photos in an ascending order"
 msgstr "Sorter billeder i stigende orden"
 
-#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
-#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:397 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:869 src/Views/OfflinePage.vala:120
 #: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
 #: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
 msgid "D_escending"
 msgstr "_Faldende"
 
-#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:397 src/Views/MediaPage.vala:281
 msgid "Sort photos in a descending order"
 msgstr "Sorter billeder i faldende orden"
 
-#: src/library/LibraryWindow.vala:616
+#: src/library/LibraryWindow.vala:619
 msgid "Import From Folder"
 msgstr "Importer fra mappe"
 
-#: src/library/LibraryWindow.vala:619
+#: src/library/LibraryWindow.vala:622
 msgid "Import"
 msgstr "Importér"
 
-#: src/library/LibraryWindow.vala:782
+#: src/library/LibraryWindow.vala:785
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2129,52 +2118,52 @@ msgstr ""
 "span>.\n"
 "Vil du fortsætte med at importere billeder?"
 
-#: src/library/LibraryWindow.vala:786
+#: src/library/LibraryWindow.vala:789
 msgid "_Import"
 msgstr "_Importer"
 
-#: src/library/LibraryWindow.vala:787
+#: src/library/LibraryWindow.vala:790
 msgid "Library Location"
 msgstr "Bibliotekets placering"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:801
+#: src/library/LibraryWindow.vala:804
 msgid "Photos cannot be imported from this directory."
 msgstr "Biller kan ikke blive importeret fra denne mappe."
 
-#: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
+#: src/library/LibraryWindow.vala:1031 src/library/LibraryWindow.vala:1042
 msgid "Updating library…"
 msgstr "Opdaterer bibliotek…"
 
-#: src/library/LibraryWindow.vala:1045
+#: src/library/LibraryWindow.vala:1048
 msgid "Preparing to auto-import photos…"
 msgstr "Forbereder automatisk import af billeder…"
 
-#: src/library/LibraryWindow.vala:1050
+#: src/library/LibraryWindow.vala:1053
 msgid "Auto-importing photos…"
 msgstr "Importerer automatisk billeder…"
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1061
 msgid "Writing metadata to files…"
 msgstr "Skriver metadata til filer…"
 
-#: src/library/LibraryWindow.vala:1165
+#: src/library/LibraryWindow.vala:1168
 msgid "Import Photos"
 msgstr "Importér billeder"
 
-#: src/library/LibraryWindow.vala:1165
+#: src/library/LibraryWindow.vala:1168
 msgid "Copy photos from a folder or external device."
 msgstr "Kopiér billeder fra en mappe eller ekstern enhed."
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1169
 msgid "Change Library Folder"
 msgstr "Skift biblioteksmappe"
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1169
 msgid "Choose where to keep your photos."
 msgstr "Vælg hvor dine billeder skal lagres."
 
-#: src/library/TopDisplay.vala:133
+#: src/library/TopDisplay.vala:126
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
@@ -2504,8 +2493,8 @@ msgstr "Mærkater"
 msgid "Photos cannot be exported to this directory."
 msgstr "Billeder kan ikke blive eksporteret til denne mappe."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
-#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:916
+#: src/Views/CollectionPage.vala:917 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ingen fotos/videoer"
@@ -2536,33 +2525,32 @@ msgid "Other Actions"
 msgstr "Andre Handlinger"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Eksporter billeder/videoer"
+msgstr[0] "Eksporter billede/video"
 msgstr[1] "Eksporter billeder/videoer"
 
-#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
+#: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Rotating"
 msgstr "Roterer"
 
-#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
+#: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Undoing Rotate"
 msgstr "Fortryder rotering"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Flipping Horizontally"
 msgstr "Vender vandret"
 
-#: src/Views/CollectionPage.vala:720
+#: src/Views/CollectionPage.vala:721
 msgid "Undoing Flip Horizontally"
 msgstr "Fortryder vandret vending"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Flipping Vertically"
 msgstr "Vender lodret"
 
-#: src/Views/CollectionPage.vala:730
+#: src/Views/CollectionPage.vala:731
 msgid "Undoing Flip Vertically"
 msgstr "Fortryder lodret vending"
 
@@ -2687,31 +2675,30 @@ msgid "Flagged"
 msgstr "Markeret"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Kunne ikke afmontere kameraet. Forsøg afmontering af kameraet fra "
 "filhåndteringen."
 
-#: src/Views/ImportPage.vala:788
+#: src/Views/ImportPage.vala:784
 msgid "Hide photos already imported"
 msgstr "Skjul billeder der allerede er importeret"
 
-#: src/Views/ImportPage.vala:791
+#: src/Views/ImportPage.vala:787
 msgid "Only display photos that have not been imported"
 msgstr "Vis kun billeder som endnu ikke er blevet importeret"
 
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/ImportPage.vala:854 src/Views/ImportPage.vala:957
 #: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
 msgid "_Titles"
 msgstr "_Titler"
 
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:970
 msgid "Import _Selected"
 msgstr "Importer _valgte"
 
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+#: src/Views/ImportPage.vala:919 src/Views/ImportPage.vala:974
 msgid "Import _All"
 msgstr "Importer _alle"
 
@@ -2719,62 +2706,58 @@ msgstr "Importer _alle"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
+#: src/Views/ImportPage.vala:938
 msgid "Starting import, please wait…"
 msgstr "Starter import, vent venligst…"
 
-#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:958 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
 msgstr "Vis titlen på hvert billede"
 
-#: src/Views/ImportPage.vala:974
+#: src/Views/ImportPage.vala:970
 msgid "Import the selected photos into your library"
 msgstr "Importer de valgte billeder til dit bibliotek"
 
-#: src/Views/ImportPage.vala:979
+#: src/Views/ImportPage.vala:975
 msgid "Import all the photos into your library"
 msgstr "Importere alle billeder ind i dit bibliotek"
 
-#: src/Views/ImportPage.vala:1099
+#: src/Views/ImportPage.vala:1095
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kameraet kan ikke tilgås når det er monteret"
 
-#: src/Views/ImportPage.vala:1100
-#, fuzzy
+#: src/Views/ImportPage.vala:1096
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Fotos har brug for at afmontere kameraet fra filsystemet for at få adgang "
-"til det. Fortsæt?"
+"Fotos skal afmontere kameraet fra filsystemet for at få adgang til det."
 
-#: src/Views/ImportPage.vala:1106
+#: src/Views/ImportPage.vala:1102
 msgid "_Unmount"
 msgstr "_Afmonter"
 
-#: src/Views/ImportPage.vala:1112
+#: src/Views/ImportPage.vala:1108
 msgid "Please unmount the camera."
 msgstr "Afmonter venligst kameraet."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1119
+#: src/Views/ImportPage.vala:1115
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kameraet Er Låst Af En Anden Applikation"
 
-#: src/Views/ImportPage.vala:1120
-#, fuzzy
+#: src/Views/ImportPage.vala:1116
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kameraet er låst af en anden applikation. Fotos kan kun tilgå kameraet når "
-"det er ulåst. Luk venligst alle andre applikationer som bruger kameraet og "
-"forsøg igen."
+"Fotos kan kun få adgang til kameraet, når det er låst op. Luk ethvert andet "
+"program ved hjælp af kameraet, og prøv igen."
 
-#: src/Views/ImportPage.vala:1127
+#: src/Views/ImportPage.vala:1123
 msgid "Please close any other application using the camera."
 msgstr "Luk venligst alle andre applikationer som bruger kameraet."
 
-#: src/Views/ImportPage.vala:1132
+#: src/Views/ImportPage.vala:1128
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2783,65 +2766,65 @@ msgstr ""
 "Kunne ikke indhente forhåndsvisninger fra kameraet:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1149
+#: src/Views/ImportPage.vala:1145
 msgid "Unmounting…"
 msgstr "Afmonterer…"
 
-#: src/Views/ImportPage.vala:1255
+#: src/Views/ImportPage.vala:1251
 msgid "Fetching photo information"
 msgstr "Indhenter billedinformation"
 
-#: src/Views/ImportPage.vala:1610
+#: src/Views/ImportPage.vala:1603
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Indhenter forhåndsvisning for %s"
 
-#: src/Views/ImportPage.vala:1730
+#: src/Views/ImportPage.vala:1722
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Kan ikke låse kamera: %s"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1807
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Slet dette billede fra kameraet?"
 msgstr[1] "Slet disse %d billeder fra kameraet?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1810
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "%d Slet denne video fra kameraet?"
 msgstr[1] "Slet disse %d videoer fra kameraet?"
 
-#: src/Views/ImportPage.vala:1821
+#: src/Views/ImportPage.vala:1813
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "%d Slet dette billede/denne video fra kameraet?"
 msgstr[1] "Slet disse %d billeder/videoer fra kameraet?"
 
-#: src/Views/ImportPage.vala:1824
+#: src/Views/ImportPage.vala:1816
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Slette disse filer fra kameraet?"
 msgstr[1] "Slette disse %d filer fra kameraet?"
 
-#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1824 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Slet"
 
-#: src/Views/ImportPage.vala:1832
+#: src/Views/ImportPage.vala:1824
 msgid "_Keep"
 msgstr "_Behold"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1843
 msgid "Removing photos/videos from camera"
 msgstr "Fjern billeder/videoer fra kameraet"
 
-#: src/Views/ImportPage.vala:1855
+#: src/Views/ImportPage.vala:1847
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2852,19 +2835,19 @@ msgstr[1] "Kan ikke slette %d billeder/videoer fra kameraet på grund af fejl."
 msgid "Importing…"
 msgstr "Importerer…"
 
-#: src/Views/ImportQueuePage.vala:69
+#: src/Views/ImportQueuePage.vala:64
 msgid "_Stop Import"
 msgstr "_Stop import"
 
-#: src/Views/ImportQueuePage.vala:69
+#: src/Views/ImportQueuePage.vala:64
 msgid "Stop importing photos"
 msgstr "Stop importering af billeder"
 
-#: src/Views/ImportQueuePage.vala:127
+#: src/Views/ImportQueuePage.vala:122
 msgid "Preparing to import…"
 msgstr "Forbereder import…"
 
-#: src/Views/ImportQueuePage.vala:154
+#: src/Views/ImportQueuePage.vala:148
 #, c-format
 msgid "Imported %s"
 msgstr "Importerede %s"
@@ -2928,11 +2911,11 @@ msgstr ""
 "Fotos var ude af stand til at afspille den valgte video:\n"
 "%s"
 
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+#: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
 msgid "Add Some Photos"
 msgstr "Tilføj nogle billeder"
 
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+#: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
 msgid "No Photos were found in your library."
 msgstr "Der blev ikke fundet nogen billeder i dit bibliotek."
 
@@ -3409,7 +3392,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 billedpunkter)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3419,7 +3401,7 @@ msgstr ""
 "Du er ikke logget på Flickr i øjeblikket.\n"
 "\n"
 "Klik på Log ind for at logge på Flickr i din webbrowser. Du vil skulle "
-"godkende Shotwell Connect for at henvise til din Flickr-konto."
+"godkende Shotwell Connect for at linke din Flickr-konto."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""

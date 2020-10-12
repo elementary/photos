@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-15 17:37+0000\n"
-"PO-Revision-Date: 2019-01-05 17:52+0000\n"
-"Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
-"Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
-"photos/photos/nn/>\n"
+"POT-Creation-Date: 2020-09-30 00:47+0000\n"
+"PO-Revision-Date: 2020-07-25 17:12+0000\n"
+"Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
+"Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/photos/"
+"photos/nn/>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:10+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -48,7 +48,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kan ikkje lage data for underkatalog %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -343,7 +343,7 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Fila %s finst frå før av. Overskriv?"
 
@@ -358,7 +358,7 @@ msgstr "Overskriv _alle"
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
-#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:63
+#: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74
 #: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
 #: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
@@ -381,48 +381,45 @@ msgstr "Forlat fullskjerm"
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete. "
-"Det ser ut til at det var laga av Photos %s (skjema %d).  Denne versjonen er "
+"Det ser ut til at det var laga av Bilete %s (skjema %d).  Denne versjonen er "
 "%s (skjema %d). Ver venleg og bruk den nyaste versjonen av Bilete."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Bilete var ikkje i stand til å oppgradere bibiloteket ditt frå versjon %s "
-"(skjema %d) til %s (skjema %d). For meir informasjon, sjekk Bilete sin wiki "
-"på %s"
+"Bilete var ikkje i stand til å oppgradera bibiloteket ditt frå versjon %s "
+"(skjema %d) til %s (skjema %d)"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "For meir informasjon, gå til Bilete sin wiki på %s"
 
 #: src/main.vala:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Biletebiblioteket ditt er ikkje kompatibelt med denne versjonen av Bilete. "
 "Det ser ut til at det var laga med Bilete %s (skjema %d). Denne versjonen er "
-"%s (skjema %d).  Rydd opp i biblioteket ditt ved å slette %s og importer "
+"%s (skjema %d).  Rydd opp i biblioteket ditt ved å sletta %s og importer "
 "bileta på nytt."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Ein ukjend feil oppstod under verifisering av Bilete sin database: %s"
+msgstr "Ein ukjend feil oppstod under verifisering av Bilete sin database"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -577,7 +574,7 @@ msgstr ""
 "%s"
 
 #. TRANSLATORS: This is the application name, not a category or mimetype name
-#: src/Resources.vala:23 src/library/TopDisplay.vala:56
+#: src/Resources.vala:23 src/library/TopDisplay.vala:52
 #: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
 #: src/Views/PhotosPage.vala:37
 msgid "Photos"
@@ -903,25 +900,25 @@ msgid "Modify Tags"
 msgstr "Endre taggar"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Tagg bileta som «%s»"
-msgstr[1] "Tagg bileta som «%s»"
+msgstr[0] "Tagg bilete som \"%s\""
+msgstr[1] "Tagg bileta som \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Fjern taggen «%s» frå _bileta"
-msgstr[1] "Fjern taggen «%s» frå _bileta"
+msgstr[0] "Fjern taggen \"%s\" frå _bilete"
+msgstr[1] "Fjern taggen\"%s\" frå _bileta"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Fjern taggen «%s» frå bileta"
-msgstr[1] "Fjern taggen «%s» frå bileta"
+msgstr[0] "Fjern taggen \"%s\" frå bilete"
+msgstr[1] "Fjern taggen \"%s\" frå bileta"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1060,7 +1057,7 @@ msgid "Cameras"
 msgstr "Kamera"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:729 src/Views/ImportPage.vala:745
+#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
 msgid "Camera"
 msgstr "Kamera"
 
@@ -1090,11 +1087,10 @@ msgid "Set _all photos/videos to this time"
 msgstr "Gje _alle bilete/videoar dette tidspunktet"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "_Modifiser biletet si originalfil"
-msgstr[1] "_Modifiser biletet si originalfil"
+msgstr[0] "_Modifiser bilete si originalfil"
+msgstr[1] "_Modifiser bileta si originalfil"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
 #, fuzzy
@@ -1803,7 +1799,7 @@ msgstr "Programutvidingar"
 msgid "_Close"
 msgstr "_Lukk"
 
-#: src/Dialogs/ProgressDialog.vala:99
+#: src/Dialogs/ProgressDialog.vala:96
 #, c-format
 msgid "%d%%"
 msgstr "%d%%"
@@ -1841,7 +1837,7 @@ msgstr "for dei følgande:"
 msgid "Add rule"
 msgstr "Legg til regel"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:620
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:623
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Avbryt"
@@ -2050,85 +2046,85 @@ msgstr[1] "%d bilete"
 msgid "All Photos"
 msgstr "Alle bilete"
 
-#: src/library/LibraryWindow.vala:159
+#: src/library/LibraryWindow.vala:163
 msgid "_Import From Folder…"
 msgstr "_Importer frå mappe…"
 
-#: src/library/LibraryWindow.vala:164
+#: src/library/LibraryWindow.vala:168
 msgid "_Preferences"
 msgstr "_Preferansar"
 
-#: src/library/LibraryWindow.vala:175
+#: src/library/LibraryWindow.vala:179
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: src/library/LibraryWindow.vala:341 src/Views/EventsDirectoryPage.vala:139
-#: src/Views/ImportPage.vala:862 src/Views/OfflinePage.vala:109
+#: src/library/LibraryWindow.vala:344 src/Views/EventsDirectoryPage.vala:139
+#: src/Views/ImportPage.vala:858 src/Views/OfflinePage.vala:109
 #: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "Sorter _hendingar"
 
-#: src/library/LibraryWindow.vala:343 src/Views/CollectionPage.vala:196
+#: src/library/LibraryWindow.vala:346 src/Views/CollectionPage.vala:196
 #: src/Views/LibraryPhotoPage.vala:542
 msgid "View Eve_nt for Photo"
 msgstr "Sjå hen_dinga biletet høyrer til"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:349 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:352 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Nytt smart-album…"
 
-#: src/library/LibraryWindow.vala:371 src/Views/EventsDirectoryPage.vala:131
-#: src/Views/ImportPage.vala:850 src/Views/OfflinePage.vala:101
+#: src/library/LibraryWindow.vala:374 src/Views/EventsDirectoryPage.vala:131
+#: src/Views/ImportPage.vala:846 src/Views/OfflinePage.vala:101
 #: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "S_idemeny"
 
-#: src/library/LibraryWindow.vala:372
+#: src/library/LibraryWindow.vala:375
 msgid "Display the sidebar"
 msgstr "Vis sidemenyen"
 
-#: src/library/LibraryWindow.vala:376 src/library/LibraryWindow.vala:377
+#: src/library/LibraryWindow.vala:379 src/library/LibraryWindow.vala:380
 #: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
-#: src/Views/ImportPage.vala:854 src/Views/LibraryPhotoPage.vala:483
+#: src/Views/ImportPage.vala:850 src/Views/LibraryPhotoPage.vala:483
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
 #: src/Views/TrashPage.vala:160
 msgid "Edit Photo In_fo"
 msgstr "Redigere bilete_informasjon"
 
-#: src/library/LibraryWindow.vala:388 src/Views/EventsDirectoryPage.vala:141
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:111
+#: src/library/LibraryWindow.vala:391 src/Views/EventsDirectoryPage.vala:141
+#: src/Views/ImportPage.vala:860 src/Views/OfflinePage.vala:111
 #: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Stigande"
 
-#: src/library/LibraryWindow.vala:388 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:391 src/Views/MediaPage.vala:276
 msgid "Sort photos in an ascending order"
 msgstr "Sorter bileta i stigande rekkefølge"
 
-#: src/library/LibraryWindow.vala:394 src/Views/EventsDirectoryPage.vala:150
-#: src/Views/ImportPage.vala:873 src/Views/OfflinePage.vala:120
+#: src/library/LibraryWindow.vala:397 src/Views/EventsDirectoryPage.vala:150
+#: src/Views/ImportPage.vala:869 src/Views/OfflinePage.vala:120
 #: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
 #: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
 msgid "D_escending"
 msgstr "S_igande"
 
-#: src/library/LibraryWindow.vala:394 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:397 src/Views/MediaPage.vala:281
 msgid "Sort photos in a descending order"
 msgstr "Sorter bilete i sigande rekkefølge"
 
-#: src/library/LibraryWindow.vala:616
+#: src/library/LibraryWindow.vala:619
 msgid "Import From Folder"
 msgstr "Importer frå mappe"
 
-#: src/library/LibraryWindow.vala:619
+#: src/library/LibraryWindow.vala:622
 msgid "Import"
 msgstr "Importer"
 
-#: src/library/LibraryWindow.vala:782
+#: src/library/LibraryWindow.vala:785
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2141,52 +2137,52 @@ msgstr ""
 "span>.\n"
 "Vil du halde fram med importeringa av bilete?"
 
-#: src/library/LibraryWindow.vala:786
+#: src/library/LibraryWindow.vala:789
 msgid "_Import"
 msgstr "_Importer"
 
-#: src/library/LibraryWindow.vala:787
+#: src/library/LibraryWindow.vala:790
 msgid "Library Location"
 msgstr "Bibliotekplassering"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:801
+#: src/library/LibraryWindow.vala:804
 msgid "Photos cannot be imported from this directory."
 msgstr "Ingen bilete frå denne mappa kunne importerast."
 
-#: src/library/LibraryWindow.vala:1028 src/library/LibraryWindow.vala:1039
+#: src/library/LibraryWindow.vala:1031 src/library/LibraryWindow.vala:1042
 msgid "Updating library…"
 msgstr "Oppdaterer bibliotek…"
 
-#: src/library/LibraryWindow.vala:1045
+#: src/library/LibraryWindow.vala:1048
 msgid "Preparing to auto-import photos…"
 msgstr "Førebur automatisk importering av bilete…"
 
-#: src/library/LibraryWindow.vala:1050
+#: src/library/LibraryWindow.vala:1053
 msgid "Auto-importing photos…"
 msgstr "Importerer bilete automatisk…"
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1061
 msgid "Writing metadata to files…"
 msgstr "Skriv metadata til filer…"
 
-#: src/library/LibraryWindow.vala:1165
+#: src/library/LibraryWindow.vala:1168
 msgid "Import Photos"
 msgstr "Importer bilete"
 
-#: src/library/LibraryWindow.vala:1165
+#: src/library/LibraryWindow.vala:1168
 msgid "Copy photos from a folder or external device."
 msgstr "Kopier bilete frå ei mappe eller ei ekstern eining."
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1169
 msgid "Change Library Folder"
 msgstr "Endre biblioteksmappe"
 
-#: src/library/LibraryWindow.vala:1166
+#: src/library/LibraryWindow.vala:1169
 msgid "Choose where to keep your photos."
 msgstr "Vel plassering for bileta dine."
 
-#: src/library/TopDisplay.vala:133
+#: src/library/TopDisplay.vala:126
 #, c-format
 msgid "%s (%d%%)"
 msgstr "%s (%d%%)"
@@ -2515,8 +2511,8 @@ msgstr "Taggar"
 msgid "Photos cannot be exported to this directory."
 msgstr "Bilete kan ikkje eksportere til denne mappa."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:915
-#: src/Views/CollectionPage.vala:916 src/Views/PhotosPage.vala:66
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:916
+#: src/Views/CollectionPage.vala:917 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ingen bilete/videoar"
@@ -2553,27 +2549,27 @@ msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksporter bilete/video"
 msgstr[1] "Eksporter bilete/video"
 
-#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
+#: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Rotating"
 msgstr "Rotering"
 
-#: src/Views/CollectionPage.vala:694 src/Views/CollectionPage.vala:710
+#: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Undoing Rotate"
 msgstr "Angrar rotering"
 
-#: src/Views/CollectionPage.vala:719
+#: src/Views/CollectionPage.vala:720
 msgid "Flipping Horizontally"
 msgstr "Vender horisontalt"
 
-#: src/Views/CollectionPage.vala:720
+#: src/Views/CollectionPage.vala:721
 msgid "Undoing Flip Horizontally"
 msgstr "Angrar horisontal vending"
 
-#: src/Views/CollectionPage.vala:729
+#: src/Views/CollectionPage.vala:730
 msgid "Flipping Vertically"
 msgstr "Vend vertikalt"
 
-#: src/Views/CollectionPage.vala:730
+#: src/Views/CollectionPage.vala:731
 msgid "Undoing Flip Vertically"
 msgstr "Angrar vertikal vending"
 
@@ -2705,24 +2701,24 @@ msgstr ""
 "Klarte ikkje avmontere kameraet. Prøv å avmontere kameraet frå "
 "filbehandlaren."
 
-#: src/Views/ImportPage.vala:788
+#: src/Views/ImportPage.vala:784
 msgid "Hide photos already imported"
 msgstr "Skjul bilete som allereie er importerte"
 
-#: src/Views/ImportPage.vala:791
+#: src/Views/ImportPage.vala:787
 msgid "Only display photos that have not been imported"
 msgstr "Vis berre bilete som ikkje har vorte importerte"
 
-#: src/Views/ImportPage.vala:858 src/Views/ImportPage.vala:961
+#: src/Views/ImportPage.vala:854 src/Views/ImportPage.vala:957
 #: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
 msgid "_Titles"
 msgstr "_Titlar"
 
-#: src/Views/ImportPage.vala:918 src/Views/ImportPage.vala:974
+#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:970
 msgid "Import _Selected"
 msgstr "Importer _valde"
 
-#: src/Views/ImportPage.vala:923 src/Views/ImportPage.vala:978
+#: src/Views/ImportPage.vala:919 src/Views/ImportPage.vala:974
 msgid "Import _All"
 msgstr "Importer _alle"
 
@@ -2730,27 +2726,27 @@ msgstr "Importer _alle"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:942
+#: src/Views/ImportPage.vala:938
 msgid "Starting import, please wait…"
 msgstr "Byrjar å importere, ver venleg og vent…"
 
-#: src/Views/ImportPage.vala:962 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:958 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
 msgstr "Vis titlane for kvart bilete"
 
-#: src/Views/ImportPage.vala:974
+#: src/Views/ImportPage.vala:970
 msgid "Import the selected photos into your library"
 msgstr "Importer dei valde bileta til biblioteket ditt"
 
-#: src/Views/ImportPage.vala:979
+#: src/Views/ImportPage.vala:975
 msgid "Import all the photos into your library"
 msgstr "Importer alle bileta til biblioteket ditt"
 
-#: src/Views/ImportPage.vala:1099
+#: src/Views/ImportPage.vala:1095
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1100
+#: src/Views/ImportPage.vala:1096
 #, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
@@ -2758,20 +2754,20 @@ msgstr ""
 "Bilete treng å avmontere kameraet frå filsystemet for å få tilgjenge til "
 "det. Vil du halde fram="
 
-#: src/Views/ImportPage.vala:1106
+#: src/Views/ImportPage.vala:1102
 msgid "_Unmount"
 msgstr "_Avmonter"
 
-#: src/Views/ImportPage.vala:1112
+#: src/Views/ImportPage.vala:1108
 msgid "Please unmount the camera."
 msgstr "Ver venleg og avmonter kameraet."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1119
+#: src/Views/ImportPage.vala:1115
 msgid "The Camera Is Locked By Another Application"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1120
+#: src/Views/ImportPage.vala:1116
 #, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
@@ -2781,11 +2777,11 @@ msgstr ""
 "kameraet når det er ulåst. Ver venleg og steng andre program som brukar "
 "kameraet, og prøv igjen."
 
-#: src/Views/ImportPage.vala:1127
+#: src/Views/ImportPage.vala:1123
 msgid "Please close any other application using the camera."
 msgstr "Ver venleg og lukk alle andre program som brukar kameraet."
 
-#: src/Views/ImportPage.vala:1132
+#: src/Views/ImportPage.vala:1128
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2794,65 +2790,65 @@ msgstr ""
 "Klarte ikkje å hente førehandsvising frå kameraet:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1149
+#: src/Views/ImportPage.vala:1145
 msgid "Unmounting…"
 msgstr "Avmonterer…"
 
-#: src/Views/ImportPage.vala:1255
+#: src/Views/ImportPage.vala:1251
 msgid "Fetching photo information"
 msgstr "Hentar biletinformasjon"
 
-#: src/Views/ImportPage.vala:1610
+#: src/Views/ImportPage.vala:1603
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Hentar førehandsvising for %s"
 
-#: src/Views/ImportPage.vala:1730
+#: src/Views/ImportPage.vala:1722
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Kan ikkje låse kameraet: %s"
 
-#: src/Views/ImportPage.vala:1815
+#: src/Views/ImportPage.vala:1807
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Vil du slette dette biletet frå kameraet?"
 msgstr[1] "Vil du slette desse %d bileta frå kameraet?"
 
-#: src/Views/ImportPage.vala:1818
+#: src/Views/ImportPage.vala:1810
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Vil du slette denne videoen frå kameraet?"
 msgstr[1] "Vil du slette desse %d videoane frå kameraet?"
 
-#: src/Views/ImportPage.vala:1821
+#: src/Views/ImportPage.vala:1813
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Slette biletet/videoen frå kameraet?"
 msgstr[1] "Slette desse %d bileta/videoane frå kameraet?"
 
-#: src/Views/ImportPage.vala:1824
+#: src/Views/ImportPage.vala:1816
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Vil du slette desse filene frå kameraet?"
 msgstr[1] "Vil du slette desse %d filene frå kameraet?"
 
-#: src/Views/ImportPage.vala:1832 src/Views/TrashPage.vala:293
+#: src/Views/ImportPage.vala:1824 src/Views/TrashPage.vala:293
 msgid "Delete"
 msgstr "Slett"
 
-#: src/Views/ImportPage.vala:1832
+#: src/Views/ImportPage.vala:1824
 msgid "_Keep"
 msgstr "_Behald"
 
-#: src/Views/ImportPage.vala:1851
+#: src/Views/ImportPage.vala:1843
 msgid "Removing photos/videos from camera"
 msgstr "Fjernar bilete/videoar frå kameraet"
 
-#: src/Views/ImportPage.vala:1855
+#: src/Views/ImportPage.vala:1847
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2863,19 +2859,19 @@ msgstr[1] "Kan ikkje slette %d bilete/videoar frå kameraet pga. feil."
 msgid "Importing…"
 msgstr "Importerer…"
 
-#: src/Views/ImportQueuePage.vala:69
+#: src/Views/ImportQueuePage.vala:64
 msgid "_Stop Import"
 msgstr "_Stopp importering"
 
-#: src/Views/ImportQueuePage.vala:69
+#: src/Views/ImportQueuePage.vala:64
 msgid "Stop importing photos"
 msgstr "Stopp importering av bilete"
 
-#: src/Views/ImportQueuePage.vala:127
+#: src/Views/ImportQueuePage.vala:122
 msgid "Preparing to import…"
 msgstr "Klargjer importering…"
 
-#: src/Views/ImportQueuePage.vala:154
+#: src/Views/ImportQueuePage.vala:148
 #, c-format
 msgid "Imported %s"
 msgstr "Importerte %s"
@@ -2939,11 +2935,11 @@ msgstr ""
 "Bilete greidde ikkje å spele av den valde videoen:\n"
 "%s"
 
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+#: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
 msgid "Add Some Photos"
 msgstr "Legg til nokre bilete"
 
-#: src/Views/PhotosPage.vala:63 src/Views/RawsPage.vala:63
+#: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
 msgid "No Photos were found in your library."
 msgstr "Ingen bilete vart funne i biblioteket ditt."
 
