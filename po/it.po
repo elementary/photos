@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-30 00:47+0000\n"
-"PO-Revision-Date: 2019-07-03 03:46+0000\n"
+"PO-Revision-Date: 2020-10-23 20:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/photos/photos/it/"
 ">\n"
@@ -34,7 +34,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -63,7 +63,7 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Impossibile creare la sottodirectory dati %s: %s"
 
 #: src/AppWindow.vala:163
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
@@ -359,7 +359,7 @@ msgid "Export"
 msgstr "Esporta"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Il file %s esiste già. Sostituirlo?"
 
@@ -440,7 +440,6 @@ msgstr ""
 "database di Foto"
 
 #: src/main.vala:115
-#, fuzzy
 msgid "Loading Photos"
 msgstr "Caricamento di Foto"
 
@@ -924,25 +923,25 @@ msgid "Modify Tags"
 msgstr "Modifica etichette"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Etichetta foto come \"%s\""
-msgstr[1] "Etichetta foto come \"%s\""
+msgstr[0] "Etichetta la foto come \"%s\""
+msgstr[1] "Etichetta le foto come \"%s\""
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Rimuovi etichetta \"%s\" dalla _foto"
-msgstr[1] "Rimuovi etichetta \"%s\" dalla _foto"
+msgstr[1] "Rimuovi etichetta \"%s\" dalle _foto"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Rimuovi l'etichetta \"%s\" dalla foto"
-msgstr[1] "Rimuovi l'etichetta \"%s\" dalla foto"
+msgstr[1] "Rimuovi l'etichetta \"%s\" dalle foto"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1111,18 +1110,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "_Imposta tutte foto/video a quest'ora"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Modifica file originale della foto"
-msgstr[1] "_Modifica file originale della foto"
+msgstr[1] "_Modifica file originale delle foto"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Modifica file originale"
-msgstr[1] "_Modifica file originale"
+msgstr[0] "_Modifica il file originale"
+msgstr[1] "_Modifica i file originali"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1179,14 +1176,14 @@ msgstr[0] "secondo"
 msgstr[1] "secondi"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Verrà rimossa l'etichetta \"%s\" da una foto. Vuoi continuare?"
 msgstr[1] "Verrà rimossa l'etichetta \"%s\" da %d foto. Vuoi continuare?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Questo rimuoverà l'album intelligente \"%s\". Vuoi continuare?"
 
@@ -1218,11 +1215,10 @@ msgstr "Esporta video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Esporta foto"
-msgstr[1] "Esporta foto"
+msgstr[0] "Esporta la foto"
+msgstr[1] "Esporta le foto"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1653,27 +1649,24 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Ripristinare la modifica esterne?"
-msgstr[1] "Ripristinare la modifica esterne?"
+msgstr[0] "Ripristinare la modifica esterna?"
+msgstr[1] "Ripristinare le modifiche esterne?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "Verranno annullate tutte le modifiche al file esterno. Continuare?"
-msgstr[1] ""
-"Verranno annullate tutte le modifiche a %d file esterni. Continuare?"
+msgstr[1] "Verranno annullate tutte le modifiche a %d file esterni. Continuare?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Ripristina modifica _esterna"
-msgstr[1] "Ripristina modifica _esterna"
+msgstr[0] "Ripristina la modifica _esterna"
+msgstr[1] "Ripristina le modifica _esterna"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1684,7 +1677,7 @@ msgid "Remove Photos From Library"
 msgstr "Rimuovi foto dalla raccolta"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Verrà rimossa la foto dalla raccolta. Vuoi continuare?"
@@ -1740,11 +1733,10 @@ msgid "Remove From Library"
 msgstr "Rimuovi dalla raccolta"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Rimozione foto dalla raccolta"
-msgstr[1] "Rimozione foto dalla raccolta"
+msgstr[0] "Rimozione della foto dalla raccolta"
+msgstr[1] "Rimozione delle foto dalla raccolta"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1778,9 +1770,8 @@ msgid "_Scaling constraint:"
 msgstr "Vincolo di _ridimensionamento:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Nascondi pannello informazioni"
+msgstr "_Dimensione in pixel:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1808,9 +1799,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Rinomina i file importati in minuscolo:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Scrivi metadati nei file:"
+msgstr "Scrivi _metadati nei file:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2575,7 +2565,6 @@ msgid "Other Actions"
 msgstr "Altre azioni"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Esporta foto/video"
@@ -2653,7 +2642,7 @@ msgstr "Ruota"
 
 #: src/Views/EditingHostPage.vala:144
 msgid "Zoom to fit page"
-msgstr "Zoom alla pagina completa"
+msgstr "Zoom per adattare alla pagina"
 
 #: src/Views/EditingHostPage.vala:153
 msgid "Zoom 1:1"
@@ -2726,11 +2715,10 @@ msgid "Flagged"
 msgstr "Con contrassegno"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Impossibile smontare la fotocamera. Provare a smontare la fotocamera dal "
+"Impossibile smontare la fotocamera. Prova a smontare la fotocamera dal "
 "gestore di file."
 
 #: src/Views/ImportPage.vala:784
@@ -2776,15 +2764,13 @@ msgstr "Importa tutte le foto nella raccolta"
 
 #: src/Views/ImportPage.vala:1095
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Non è possibile accedere alla fotocamera mentre è montata"
 
 #: src/Views/ImportPage.vala:1096
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Per poter accedere alla fotocamera, Foto deve prima smontarla dal "
-"filesystem. Continuare?"
+"Per poter accedere alla fotocamera, Foto deve prima smontarla dal filesystem."
 
 #: src/Views/ImportPage.vala:1102
 msgid "_Unmount"
@@ -2797,17 +2783,15 @@ msgstr "Smontare la fotocamera."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1115
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "La fotocamera è bloccata da un'altra applicazione"
 
 #: src/Views/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"La fotocamera è bloccata da un'altra applicazione. Foto può accedere alla "
-"fotocamera solo quando è sbloccata. Chiudere tutte le altre applicazioni che "
-"usano la fotocamera e riprovare."
+"Foto può accedere alla fotocamera solo quando è sbloccata. Chiudere tutte le "
+"altre applicazioni che usano la fotocamera e riprovare."
 
 #: src/Views/ImportPage.vala:1123
 msgid "Please close any other application using the camera."
@@ -3419,9 +3403,9 @@ msgid ""
 "Click Login to log into Google Photos in your Web browser. You will have to "
 "authorize elementary OS to link to your Google Photos account."
 msgstr ""
-"Non si è attualmente connessi a Google Foto.\n"
+"Non sei attualmente connesso a Google Foto.\n"
 "\n"
-"Fai click su Accedi per accedere a Google Foto in un browser web. Dovrai "
+"Fai clic su Accedi per accedere a Google Foto in un browser web. Dovrai "
 "autorizzare elementary OS a collegarsi al tuo account Google Foto."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
@@ -3455,17 +3439,16 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 × 1536 pixel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
-"Non si è attualmente connessi a Flickr.\n"
+"Non sei attualmente connesso a Flickr.\n"
 "\n"
-"Fai click su Accedi per collegarsi a Flickr nel tuo browser Web. Dovrai "
-"autorizzare Foto Connect a collegarsi al tuo account Flickr."
+"Fai clic su Accedi per collegarti a Flickr nel tuo. Dovrai autorizzare Foto "
+"Connect a collegarsi al tuo account Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
