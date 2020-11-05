@@ -22,13 +22,27 @@ jobs:
         ninja -C build
         ninja -C build install
 
+  flatpak:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/bilelmoussaoui/flatpak-github-actions
+      options: --privileged
+
+    steps:
+    - uses: actions@v2
+    - uses: bilelmoussaoui/flatpak-github-actions@v2
+      with:
+        bundle: "io.elementary.photos.flatpak"
+        manifest-path: "io.elementary.photos.yml"
   lint:
 
     runs-on: ubuntu-latest
-    
+
     container:
       image: valalang/lint
-      
+
     steps:
     - uses: actions/checkout@v1
     - name: Lint
