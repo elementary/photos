@@ -57,6 +57,7 @@ gstreamer_pbutils_dep = dependency('gstreamer-pbutils-1.0', version: '>=1.0.0')
 granite_dep = dependency('granite', version: '>=5.2.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 gudev_dep = dependency('gudev-1.0', version: '>=145')
+handy = dependency('libhandy-1')
 json_glib_dep = dependency('json-glib-1.0')
 libexif_dep = dependency('libexif', version: '>=0.6.16')
 gphoto2_dep = dependency('libgphoto2', version: '>=2.4.2')
@@ -88,6 +89,7 @@ dependencies = [
     granite_dep,
     gtk_dep,
     gudev_dep,
+    handy,
     json_glib_dep,
     libexif_dep,
     gphoto2_dep,
