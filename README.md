@@ -21,6 +21,7 @@ You'll need the following dependencies:
 * libgstreamer-plugins-base1.0-dev
 * libgtk-3-dev
 * libgudev-1.0-dev
+* libhandy-1-dev
 * libjson-glib-dev
 * libraw-dev
 * librest-dev
