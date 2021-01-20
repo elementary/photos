@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-30 00:47+0000\n"
-"PO-Revision-Date: 2019-05-08 12:33+0000\n"
+"PO-Revision-Date: 2021-01-21 00:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
 "photos/nb/>\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-14 05:51+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -909,25 +909,25 @@ msgid "Modify Tags"
 msgstr "Endre tagger"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Tagg bildene som \"%s\""
-msgstr[1] "Tagg bildene som \"%s\""
+msgstr[0] "Tagg bildene som «%s»"
+msgstr[1] "Tagg bildene som «%s»"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "Fjern taggen \"%s\" fra _bildene"
-msgstr[1] "Fjern taggen \"%s\" fra _bildene"
+msgstr[0] "Fjern taggen «%s» fra _bildet"
+msgstr[1] "Fjern taggen «%s» fra _bildene"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Fjern taggen \"%s\" fra bildene"
-msgstr[1] "Fjern taggen \"%s\" fra bildene"
+msgstr[0] "Fjern taggen «%s» fra bildet"
+msgstr[1] "Fjern taggen «%s» fra bildene"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1097,17 +1097,15 @@ msgid "Set _all photos/videos to this time"
 msgstr "Gi _alle bilder/videoer denne dato/tid"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "_Modifiser bildets originalfil"
-msgstr[1] "_Modifiser bildets originalfil"
+msgstr[1] "_Modifiser bildenes originalfiler"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "_Modifiser orginalfilene"
+msgstr[0] "_Modifiser orginalfil"
 msgstr[1] "_Modifiser orginalfilene"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
@@ -1165,11 +1163,11 @@ msgstr[0] "sekund"
 msgstr[1] "sekunder"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Dette vil fjerne taggen \"%s\" fra ett bilde. Fortsett?"
-msgstr[1] "Dette vil fjerne taggen \"%s\" fra %d bilder. Fortsett?"
+msgstr[0] "Dette vil fjerne taggen «%s» fra ett bilde. Fortsett?"
+msgstr[1] "Dette vil fjerne taggen «%s» fra %d bilder. Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:58
 #, fuzzy, c-format
@@ -1205,10 +1203,9 @@ msgstr "Eksporter video"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Eksporter bilder"
+msgstr[0] "Eksporter bilde"
 msgstr[1] "Eksporter bilder"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1621,10 +1618,9 @@ msgid "Name:"
 msgstr "Navn:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Omgjør eksterne redigeringer?"
+msgstr[0] "Omgjør ekstern redigering?"
 msgstr[1] "Omgjør eksterne redigeringer?"
 
 #: src/Dialogs/Dialogs.vala:802
@@ -1640,11 +1636,10 @@ msgstr[1] ""
 "Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "omgj_ør eksterne redigeringer"
-msgstr[1] "omgj_ør eksterne redigeringer"
+msgstr[0] "Omgj_ør ekstern redigering"
+msgstr[1] "Omgj_ør eksterne redigeringer"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1655,11 +1650,11 @@ msgid "Remove Photos From Library"
 msgstr "Fjern bilder fra bildebiblioteket"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Dette vil fjerne bildet fra bildebiblioteket. Fortsett?"
-msgstr[1] "Dette vil fjerne %d bilder fra bildebiblioteket. Fortsett?"
+msgstr[0] "Dette vil fjerne bildet fra biblioteket. Fortsett?"
+msgstr[1] "Dette vil fjerne %d bilder fra biblioteket. Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1711,11 +1706,10 @@ msgid "Remove From Library"
 msgstr "Fjern fra bildebiblioteket"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Fjerner bilder fra bildebiblioteket"
-msgstr[1] "Fjerner bilder fra bildebiblioteket"
+msgstr[0] "Fjerner bilde fra biblioteket"
+msgstr[1] "Fjerner bilder fra biblioteket"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -2545,10 +2539,9 @@ msgid "Other Actions"
 msgstr "Andre handlinger"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Eksporter bilder / videoer"
+msgstr[0] "Eksporter bilde/video"
 msgstr[1] "Eksporter bilder / videoer"
 
 #: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
