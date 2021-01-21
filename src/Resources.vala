@@ -79,7 +79,7 @@ public const string ICON_PHOTOS_PAGE = "folder-pictures";
 public const string ICON_TRASH_EMPTY = "user-trash";
 public const string ICON_TRASH_FULL = "user-trash-full";
 public const string ICON_VIDEOS_PAGE = "folder-videos";
-public const string ICON_RAW_PAGE = "accessories-camera";
+public const string ICON_RAW_PAGE = "camera-web";
 public const string ICON_FLAGGED_PAGE = "edit-flag";
 
 public const string ROTATE_CW_MENU = _("Rotate _Right");
