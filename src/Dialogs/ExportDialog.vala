@@ -18,7 +18,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class ExportDialog : Gtk.Dialog {
+public class ExportDialog : Granite.Dialog {
     // "Unmodified" and "Current," though they appear in the "Format:" popup menu, really
     // aren't formats so much as they are operating modes that determine specific formats.
     // Hereafter we'll refer to these as "special formats."

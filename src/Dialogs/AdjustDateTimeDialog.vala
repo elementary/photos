@@ -18,7 +18,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class AdjustDateTimeDialog : Gtk.Dialog {
+public class AdjustDateTimeDialog : Granite.Dialog {
     private const int64 SECONDS_IN_DAY = 60 * 60 * 24;
     private const int64 SECONDS_IN_HOUR = 60 * 60;
     private const int64 SECONDS_IN_MINUTE = 60;

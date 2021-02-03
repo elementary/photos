@@ -135,7 +135,6 @@ public class EditingTools.CropTool : EditingTool {
 
             var layout = new Gtk.Grid ();
             layout.column_spacing = 6;
-            layout.margin_start = layout.margin_end = 12;
             layout.add (constraint_combo);
             layout.add (custom_aspect_revealer);
             layout.add (pivot_reticle_button);

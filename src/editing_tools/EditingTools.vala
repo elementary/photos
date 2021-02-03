@@ -28,14 +28,25 @@
 
 namespace EditingTools {
 
-public abstract class EditingToolWindow : Gtk.Dialog {
+public abstract class EditingToolWindow : Hdy.Window {
     public bool user_moved { get; private set; default = false; }
+
+    private Gtk.Grid content_area;
 
     protected EditingToolWindow (Gtk.Window container) {
         Object (transient_for: container);
     }
 
     construct {
+        content_area = new Gtk.Grid () {
+            margin = 12
+        };
+
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (content_area);
+
+        add (window_handle);
+
         accept_focus = true;
         can_focus = true;
         deletable = false;
@@ -51,6 +62,10 @@ public abstract class EditingToolWindow : Gtk.Dialog {
 
     ~EditingToolWindow () {
         Log.set_handler ("Gdk", LogLevelFlags.LEVEL_WARNING, Log.default_handler);
+    }
+
+    protected Gtk.Grid get_content_area () {
+        return content_area;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {

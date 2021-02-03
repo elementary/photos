@@ -141,7 +141,6 @@ public class StraightenTool : EditingTool {
             button_layout.pack_start (ok_button, true, true, 0);
 
             Gtk.Box main_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            main_layout.margin_start = main_layout.margin_end = 12;
             main_layout.pack_start (description_label, true, true, 0);
             main_layout.pack_start (slider_layout, true, true, 0);
             main_layout.pack_start (angle_label, true, true, 0);

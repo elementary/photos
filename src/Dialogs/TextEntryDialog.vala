@@ -18,7 +18,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class TextEntryDialog : Gtk.Dialog {
+public class TextEntryDialog : Granite.Dialog {
     public string initial_text { get; construct; }
     public string label { get; construct; }
     public Gee.Collection<string>? completion_list { get; construct; }

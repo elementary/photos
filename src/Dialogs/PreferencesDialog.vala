@@ -30,7 +30,7 @@ public class PreferencesDialog {
 
     private static PreferencesDialog preferences_dialog;
 
-    private Gtk.Dialog dialog;
+    private Granite.Dialog dialog;
     private Gtk.FileChooserButton library_dir_button;
     private string? lib_dir = null;
     private Gtk.ComboBoxText default_raw_developer_combo;
@@ -39,7 +39,7 @@ public class PreferencesDialog {
     private PreferencesDialog () {
         file_settings = new GLib.Settings (GSettingsConfigurationEngine.FILES_PREFS_SCHEMA_NAME);
 
-        dialog = new Gtk.Dialog ();
+        dialog = new Granite.Dialog ();
         dialog.width_request = 450;
         dialog.resizable = false;
         dialog.deletable = false;
