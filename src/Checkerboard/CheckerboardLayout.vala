@@ -449,7 +449,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         return intersects;
     }
 
-    public CheckerboardItem? get_item_relative_to (CheckerboardItem item, CompassPoint point) {
+    public CheckerboardItem? get_item_relative_to (CheckerboardItem item, Gtk.DirectionType direction) {
         if (view.get_count () == 0)
             return null;
 
@@ -465,46 +465,46 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             return null;
         }
 
-        switch (point) {
-        case CompassPoint.NORTH:
-            if (--row < 0)
-                row = 0;
-            break;
-
-        case CompassPoint.SOUTH:
-            if (++row >= rows)
-                row = rows - 1;
-            break;
-
-        case CompassPoint.EAST:
-            if (++col >= columns) {
-                if (++row >= rows) {
-                    row = rows - 1;
-                    col = columns - 1;
-                } else {
-                    col = 0;
-                }
-            }
-            break;
-
-        case CompassPoint.WEST:
-            if (--col < 0) {
-                if (--row < 0) {
+        switch (direction) {
+            case Gtk.DirectionType.UP:
+                if (--row < 0)
                     row = 0;
-                    col = 0;
-                } else {
-                    col = columns - 1;
-                }
-            }
-            break;
+                break;
 
-        default:
-            error ("Bad compass point %d", (int) point);
+            case Gtk.DirectionType.DOWN:
+                if (++row >= rows)
+                    row = rows - 1;
+                break;
+
+            case Gtk.DirectionType.RIGHT:
+                if (++col >= columns) {
+                    if (++row >= rows) {
+                        row = rows - 1;
+                        col = columns - 1;
+                    } else {
+                        col = 0;
+                    }
+                }
+                break;
+
+            case Gtk.DirectionType.LEFT:
+                if (--col < 0) {
+                    if (--row < 0) {
+                        row = 0;
+                        col = 0;
+                    } else {
+                        col = columns - 1;
+                    }
+                }
+                break;
+
+            default:
+                error ("Bad compass direction %d", (int) direction);
         }
 
         CheckerboardItem? new_item = get_item_at_coordinate (col, row);
 
-        if (new_item == null && point == CompassPoint.SOUTH) {
+        if (new_item == null && direction == Gtk.DirectionType.DOWN) {
             // nothing directly below, get last item on next row
             new_item = (CheckerboardItem? ) view.get_last ();
             if (new_item.get_row () <= item.get_row ())
