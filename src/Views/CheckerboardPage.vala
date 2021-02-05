@@ -220,25 +220,25 @@ public abstract class CheckerboardPage : Page {
         switch (Gdk.keyval_name (event.keyval)) {
         case "Up":
         case "KP_Up":
-            move_cursor (CompassPoint.NORTH);
+            move_cursor (Gtk.DirectionType.UP);
             select_anchor_to_cursor (state);
             break;
 
         case "Down":
         case "KP_Down":
-            move_cursor (CompassPoint.SOUTH);
+            move_cursor (Gtk.DirectionType.DOWN);
             select_anchor_to_cursor (state);
             break;
 
         case "Left":
         case "KP_Left":
-            move_cursor (CompassPoint.WEST);
+            move_cursor (Gtk.DirectionType.LEFT);
             select_anchor_to_cursor (state);
             break;
 
         case "Right":
         case "KP_Right":
-            move_cursor (CompassPoint.EAST);
+            move_cursor (Gtk.DirectionType.RIGHT);
             select_anchor_to_cursor (state);
             break;
 
@@ -649,7 +649,7 @@ public abstract class CheckerboardPage : Page {
         vadj.set_value (top);
     }
 
-    public void move_cursor (CompassPoint point) {
+    private void move_cursor (Gtk.DirectionType direction) {
         // if no items, nothing to do
         if (get_view ().get_count () == 0)
             return;
@@ -664,7 +664,7 @@ public abstract class CheckerboardPage : Page {
         }
 
         // move the cursor relative to the "first" item
-        CheckerboardItem? item = layout.get_item_relative_to (cursor, point);
+        CheckerboardItem? item = layout.get_item_relative_to (cursor, direction);
         if (item != null)
             cursor_to_item (item);
     }

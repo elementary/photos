@@ -81,7 +81,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private class CropToolWindow : EditingToolWindow {
-        public Gtk.Button ok_button { get; private set; }
+        public Gtk.Button crop_button { get; private set; }
         public Gtk.Button cancel_button { get; private set; }
         public Gtk.ComboBox constraint_combo { get; private set; }
         public Gtk.Button pivot_reticle_button { get; private set; }
@@ -96,42 +96,52 @@ public class EditingTools.CropTool : EditingTool {
 
         construct {
             cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
-            cancel_button.margin_start = 18;
 
-            ok_button = new Gtk.Button.with_label (Resources.CROP_LABEL);
+            crop_button = new Gtk.Button.with_label (Resources.CROP_LABEL) {
+                can_default = true
+            };
+
+            var combo_text_renderer = new Gtk.CellRendererText ();
 
             constraint_combo = new Gtk.ComboBox ();
-            Gtk.CellRendererText combo_text_renderer = new Gtk.CellRendererText ();
             constraint_combo.pack_start (combo_text_renderer, true);
             constraint_combo.add_attribute (combo_text_renderer, "text", 0);
             constraint_combo.set_row_separator_func (constraint_combo_separator_func);
             constraint_combo.set_active (0);
 
-            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            pivot_reticle_button.tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations");
+            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+                tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations"),
+                margin_end = 18
+            };
 
-            custom_width_entry = new Gtk.Entry ();
-            custom_width_entry.vexpand = true;
-            custom_width_entry.width_chars = 4;
-            custom_width_entry.xalign = 0.5f;
+            custom_width_entry = new Gtk.Entry () {
+                activates_default = true,
+                vexpand = true,
+                width_chars = 4,
+                xalign = 0.5f
+            };
 
-            custom_height_entry = new Gtk.Entry ();
-            custom_height_entry.width_chars = 4;
-            custom_height_entry.xalign = 0.5f;
+            custom_height_entry = new Gtk.Entry () {
+                activates_default = true,
+                width_chars = 4,
+                xalign = 0.5f
+            };
 
-            var custom_aspect_grid = new Gtk.Grid ();
-            custom_aspect_grid.column_spacing = 3;
+            var custom_aspect_grid = new Gtk.Grid () {
+                column_spacing = 3
+            };
             custom_aspect_grid.add (custom_width_entry);
             custom_aspect_grid.add (new Gtk.Label (":"));
             custom_aspect_grid.add (custom_height_entry);
 
-            custom_aspect_revealer = new Gtk.Revealer ();
-            custom_aspect_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+            custom_aspect_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            };
             custom_aspect_revealer.add (custom_aspect_grid);
 
             var response_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
             response_sizegroup.add_widget (cancel_button);
-            response_sizegroup.add_widget (ok_button);
+            response_sizegroup.add_widget (crop_button);
 
             var layout = new Gtk.Grid ();
             layout.column_spacing = 6;
@@ -140,9 +150,12 @@ public class EditingTools.CropTool : EditingTool {
             layout.add (custom_aspect_revealer);
             layout.add (pivot_reticle_button);
             layout.add (cancel_button);
-            layout.add (ok_button);
+            layout.add (crop_button);
 
             get_content_area ().add (layout);
+
+            // Has to be set after activates_default
+            crop_button.has_default = true;
 
             custom_width_entry.focus_out_event.connect (() => {
                 most_recently_edited = custom_width_entry;
@@ -210,35 +223,35 @@ public class EditingTools.CropTool : EditingTool {
     private static ConstraintDescription[] create_constraints () {
         ConstraintDescription[] result = new ConstraintDescription[0];
 
-        result += new ConstraintDescription (_ ("Unconstrained"), 0, 0, false, ANY_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("Square"), 1, 1, false);
-        result += new ConstraintDescription (_ ("Screen"), 0, 0, true, SCREEN_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("Original Size"), 0, 0, true, ORIGINAL_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("SD Video (4 : 3)"), 4, 3, true);
-        result += new ConstraintDescription (_ ("HD Video (16 : 9)"), 16, 9, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Wallet (2 x 3 in.)"), 3, 2, true);
-        result += new ConstraintDescription (_ ("Notecard (3 x 5 in.)"), 5, 3, true);
-        result += new ConstraintDescription (_ ("4 x 6 in."), 6, 4, true);
-        result += new ConstraintDescription (_ ("5 x 7 in."), 7, 5, true);
-        result += new ConstraintDescription (_ ("8 x 10 in."), 10, 8, true);
-        result += new ConstraintDescription (_ ("Letter (8.5 x 11 in.)"), 85, 110, true);
-        result += new ConstraintDescription (_ ("11 x 14 in."), 14, 11, true);
-        result += new ConstraintDescription (_ ("Tabloid (11 x 17 in.)"), 17, 11, true);
-        result += new ConstraintDescription (_ ("16 x 20 in."), 20, 16, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Metric Wallet (9 x 13 cm)"), 13, 9, true);
-        result += new ConstraintDescription (_ ("Postcard (10 x 15 cm)"), 15, 10, true);
-        result += new ConstraintDescription (_ ("13 x 18 cm"), 18, 13, true);
-        result += new ConstraintDescription (_ ("18 x 24 cm"), 24, 18, true);
-        result += new ConstraintDescription (_ ("A4 (210 x 297 mm)"), 210, 297, true);
-        result += new ConstraintDescription (_ ("20 x 30 cm"), 30, 20, true);
-        result += new ConstraintDescription (_ ("24 x 40 cm"), 40, 24, true);
-        result += new ConstraintDescription (_ ("30 x 40 cm"), 40, 30, true);
-        result += new ConstraintDescription (_ ("A3 (297 x 420 mm)"), 420, 297, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Custom"), 0, 0, true, CUSTOM_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Unconstrained"), 0, 0, false, ANY_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Square"), 1, 1, false);
+        result += new ConstraintDescription (_("Screen"), 0, 0, true, SCREEN_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Original Size"), 0, 0, true, ORIGINAL_ASPECT_RATIO);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("SD Video (4 : 3)"), 4, 3, true);
+        result += new ConstraintDescription (_("HD Video (16 : 9)"), 16, 9, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Wallet (2 x 3 in.)"), 3, 2, true);
+        result += new ConstraintDescription (_("Notecard (3 x 5 in.)"), 5, 3, true);
+        result += new ConstraintDescription (_("4 x 6 in."), 6, 4, true);
+        result += new ConstraintDescription (_("5 x 7 in."), 7, 5, true);
+        result += new ConstraintDescription (_("8 x 10 in."), 10, 8, true);
+        result += new ConstraintDescription (_("Letter (8.5 x 11 in.)"), 85, 110, true);
+        result += new ConstraintDescription (_("11 x 14 in."), 14, 11, true);
+        result += new ConstraintDescription (_("Tabloid (11 x 17 in.)"), 17, 11, true);
+        result += new ConstraintDescription (_("16 x 20 in."), 20, 16, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Metric Wallet (9 x 13 cm)"), 13, 9, true);
+        result += new ConstraintDescription (_("Postcard (10 x 15 cm)"), 15, 10, true);
+        result += new ConstraintDescription (_("13 x 18 cm"), 18, 13, true);
+        result += new ConstraintDescription (_("18 x 24 cm"), 24, 18, true);
+        result += new ConstraintDescription (_("A4 (210 x 297 mm)"), 210, 297, true);
+        result += new ConstraintDescription (_("20 x 30 cm"), 30, 20, true);
+        result += new ConstraintDescription (_("24 x 40 cm"), 40, 24, true);
+        result += new ConstraintDescription (_("30 x 40 cm"), 40, 30, true);
+        result += new ConstraintDescription (_("A3 (297 x 420 mm)"), 420, 297, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Custom"), 0, 0, true, CUSTOM_ASPECT_RATIO);
 
         return result;
     }
@@ -256,8 +269,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private void update_pivot_button_state () {
-        crop_tool_window.pivot_reticle_button.set_sensitive (
-            get_selected_constraint ().is_pivotable);
+        crop_tool_window.pivot_reticle_button.sensitive = get_selected_constraint ().is_pivotable;
     }
 
     private ConstraintDescription get_selected_constraint () {
@@ -383,7 +395,10 @@ public class EditingTools.CropTool : EditingTool {
         if (selected_constraint.aspect_ratio == CUSTOM_ASPECT_RATIO) {
             set_custom_constraint_mode ();
         } else {
-            set_normal_constraint_mode ();
+            if (constraint_mode != ConstraintMode.NORMAL) {
+                crop_tool_window.custom_aspect_revealer.reveal_child = false;
+                constraint_mode = ConstraintMode.NORMAL;
+            }
 
             if (selected_constraint.aspect_ratio != ANY_ASPECT_RATIO) {
                 // user may have switched away from 'Custom' without
@@ -428,15 +443,6 @@ public class EditingTools.CropTool : EditingTool {
         custom_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
 
         constraint_mode = ConstraintMode.CUSTOM;
-    }
-
-    private void set_normal_constraint_mode () {
-        if (constraint_mode == ConstraintMode.NORMAL)
-            return;
-
-        crop_tool_window.custom_aspect_revealer.reveal_child = false;
-
-        constraint_mode = ConstraintMode.NORMAL;
     }
 
     private Box constrain_crop (Box crop) {
@@ -573,8 +579,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private void bind_window_handlers () {
-        crop_tool_window.key_press_event.connect (on_keypress);
-        crop_tool_window.ok_button.clicked.connect (on_crop_ok);
+        crop_tool_window.crop_button.clicked.connect (on_crop_ok);
         crop_tool_window.cancel_button.clicked.connect (notify_cancel);
         crop_tool_window.constraint_combo.changed.connect (constraint_changed);
         crop_tool_window.pivot_reticle_button.clicked.connect (on_pivot_button_clicked);
@@ -587,8 +592,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private void unbind_window_handlers () {
-        crop_tool_window.key_press_event.disconnect (on_keypress);
-        crop_tool_window.ok_button.clicked.disconnect (on_crop_ok);
+        crop_tool_window.crop_button.clicked.disconnect (on_crop_ok);
         crop_tool_window.cancel_button.clicked.disconnect (notify_cancel);
         crop_tool_window.constraint_combo.changed.disconnect (constraint_changed);
         crop_tool_window.pivot_reticle_button.clicked.disconnect (on_pivot_button_clicked);
@@ -597,17 +601,6 @@ public class EditingTools.CropTool : EditingTool {
         crop_tool_window.custom_width_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
         crop_tool_window.custom_height_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
         crop_tool_window.custom_width_entry.insert_text.disconnect (on_width_insert_text);
-    }
-
-    public override bool on_keypress (Gdk.EventKey event) {
-        if ((Gdk.keyval_name (event.keyval) == "KP_Enter") ||
-                (Gdk.keyval_name (event.keyval) == "Enter") ||
-                (Gdk.keyval_name (event.keyval) == "Return")) {
-            on_crop_ok ();
-            return true;
-        }
-
-        return base.on_keypress (event);
     }
 
     private void on_pivot_button_clicked () {
