@@ -58,7 +58,6 @@ public errordomain MetadataDateTimeError {
 }
 
 public class MetadataDateTime {
-
     private time_t timestamp;
 
     public MetadataDateTime (time_t timestamp) {
@@ -68,11 +67,6 @@ public class MetadataDateTime {
     public MetadataDateTime.from_exif (string label) throws MetadataDateTimeError {
         if (!from_exif_date_time (label, out timestamp))
             throw new MetadataDateTimeError.INVALID_FORMAT ("%s is not EXIF format date/time", label);
-    }
-
-    public MetadataDateTime.from_iptc (string date, string time) throws MetadataDateTimeError {
-        // TODO: Support IPTC date/time format
-        throw new MetadataDateTimeError.UNSUPPORTED_FORMAT ("IPTC date/time format not currently supported");
     }
 
     public MetadataDateTime.from_xmp (string label) throws MetadataDateTimeError {
@@ -88,10 +82,8 @@ public class MetadataDateTime {
     }
 
     public string get_exif_label () {
-        return to_exif_date_time (timestamp);
+        return Time.local (timestamp).format ("%Y:%m:%d %H:%M:%S");
     }
-
-    // TODO: get_iptc_date () and get_iptc_time ()
 
     public string get_xmp_label () {
         TimeVal time_val = TimeVal ();
@@ -101,7 +93,7 @@ public class MetadataDateTime {
         return time_val.to_iso8601 ();
     }
 
-    public static bool from_exif_date_time (string date_time, out time_t timestamp) {
+    private static bool from_exif_date_time (string date_time, out time_t timestamp) {
         timestamp = 0;
 
         Time tm = Time ();
@@ -128,13 +120,5 @@ public class MetadataDateTime {
         timestamp = tm.mktime ();
 
         return true;
-    }
-
-    public static string to_exif_date_time (time_t timestamp) {
-        return Time.local (timestamp).format ("%Y:%m:%d %H:%M:%S");
-    }
-
-    public string to_string () {
-        return to_exif_date_time (timestamp);
     }
 }
