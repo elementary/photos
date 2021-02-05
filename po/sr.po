@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-30 00:47+0000\n"
+"POT-Creation-Date: 2021-02-05 18:14+0000\n"
 "PO-Revision-Date: 2020-12-19 10:16+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/photos/photos/sr/"
@@ -23,8 +23,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:11+0000\n"
 
@@ -53,7 +53,7 @@ msgstr "Не могу да направим привремени директо�
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Не могу да направим подфасциклу података „%s“: %s"
 
-#: src/AppWindow.vala:163
+#: src/AppWindow.vala:162
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -66,11 +66,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:331
 msgid "Undo"
 msgstr "Опозови"
 
-#: src/AppWindow.vala:333
+#: src/AppWindow.vala:332
 msgid "Redo"
 msgstr "Понови"
 
@@ -367,10 +367,10 @@ msgstr "Замени _све"
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
 #: src/Dialogs/ExportDialog.vala:126 src/Dialogs/ProgressDialog.vala:60
-#: src/Dialogs/TextEntryDialog.vala:74
-#: src/editing_tools/StraightenTool.vala:113 src/editing_tools/CropTool.vala:98
-#: src/editing_tools/AdjustTool.vala:118 src/publishing/PublishingUI.vala:296
-#: src/publishing/PublishingUI.vala:515 src/Views/DirectPhotoPage.vala:441
+#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:118
+#: src/editing_tools/CropTool.vala:98 src/editing_tools/StraightenTool.vala:113
+#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
+#: src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
 msgstr "_Откажи"
 
@@ -396,8 +396,8 @@ msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Изгледа да је направљена Фотографком %s (шема %d). Ово издање је %s (шема %d)"
-". Користите најнвије издање Фотографка."
+"Изгледа да је направљена Фотографком %s (шема %d). Ово издање је %s (шема "
+"%d). Користите најнвије издање Фотографка."
 
 #: src/main.vala:72
 #, c-format
@@ -405,8 +405,8 @@ msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Фотографко није могао да надогради вашу збирку фотографија са издања %s ("
-"шема %d) на %s (шема %d)"
+"Фотографко није могао да надогради вашу збирку фотографија са издања %s "
+"(шема %d) на %s (шема %d)"
 
 #: src/main.vala:73
 #, c-format
@@ -420,8 +420,8 @@ msgid ""
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Изгледа да је направљена Фотографком %s (шема %d). Ово издање је %s (шема %d)"
-". Очистите вашу збирку тако што ћете обрисати „%s“ и поново увести ваше "
+"Изгледа да је направљена Фотографком %s (шема %d). Ово издање је %s (шема "
+"%d). Очистите вашу збирку тако што ћете обрисати „%s“ и поново увести ваше "
 "фотографије."
 
 #: src/main.vala:80
@@ -504,59 +504,59 @@ msgstr "16 слика по страни"
 msgid "32 images per page"
 msgstr "32 слике по страни"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:213
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:226
 msgid "Wallet (2 x 3 in.)"
 msgstr "Новчаник (2 × 3 ин.)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:214
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:227
 msgid "Notecard (3 x 5 in.)"
 msgstr "Бележница (3 × 5 ин.)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:215
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:228
 msgid "4 x 6 in."
 msgstr "4 × 6 ин."
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:216
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:229
 msgid "5 x 7 in."
 msgstr "5 × 7 ин."
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:217
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:230
 msgid "8 x 10 in."
 msgstr "8 × 10 ин."
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:219
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:232
 msgid "11 x 14 in."
 msgstr "11 × 14 ин."
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:221
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:234
 msgid "16 x 20 in."
 msgstr "16 × 20 ин."
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:223
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:236
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Метрички новчаник (9 × 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:224
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:237
 msgid "Postcard (10 x 15 cm)"
 msgstr "Честитка (10 × 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:225
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:238
 msgid "13 x 18 cm"
 msgstr "13 × 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:226
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:239
 msgid "18 x 24 cm"
 msgstr "18 × 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:228
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:241
 msgid "20 x 30 cm"
 msgstr "20 × 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:229
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:242
 msgid "24 x 40 cm"
 msgstr "24 × 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:230
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:243
 msgid "30 x 40 cm"
 msgstr "30 × 40 cm"
 
@@ -604,7 +604,8 @@ msgstr "Заокрени на десно"
 
 #: src/Resources.vala:87
 msgid "Rotate the photos right (press Ctrl to rotate left)"
-msgstr "Заокрените фотографије на десно (притисните Ктрл за заокретање на лево)"
+msgstr ""
+"Заокрените фотографије на десно (притисните Ктрл за заокретање на лево)"
 
 #: src/Resources.vala:89
 msgid "Rotate _Left"
@@ -1071,7 +1072,7 @@ msgid "Camera"
 msgstr "Фотоапарат"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:58
-#: src/editing_tools/RedEyeTool.vala:66 src/editing_tools/AdjustTool.vala:116
+#: src/editing_tools/AdjustTool.vala:116 src/editing_tools/RedEyeTool.vala:66
 msgid "_Apply"
 msgstr "_Примени"
 
@@ -1405,17 +1406,23 @@ msgstr[2] "Није увезено %d двоструких фотографиј�
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
-msgstr[0] "Увоз %d фотографије није успео због грешке у датотеци или уређају:\n"
-msgstr[1] "Увоз %d фотографије није успео због грешке у датотеци или уређају:\n"
-msgstr[2] "Увоз %d фотографија није успео због грешке у датотеци или уређају:\n"
+msgstr[0] ""
+"Увоз %d фотографије није успео због грешке у датотеци или уређају:\n"
+msgstr[1] ""
+"Увоз %d фотографије није успео због грешке у датотеци или уређају:\n"
+msgstr[2] ""
+"Увоз %d фотографија није успео због грешке у датотеци или уређају:\n"
 
 #: src/Dialogs/Dialogs.vala:404
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
-msgstr[0] "Увоз %d видео снимка није успео због грешке у датотеци или уређају:\n"
-msgstr[1] "Увоз %d видео снимка није успео због грешке у датотеци или уређају:\n"
-msgstr[2] "Увоз %d видео снимака није успео због грешке у датотеци или уређају:\n"
+msgstr[0] ""
+"Увоз %d видео снимка није успео због грешке у датотеци или уређају:\n"
+msgstr[1] ""
+"Увоз %d видео снимка није успео због грешке у датотеци или уређају:\n"
+msgstr[2] ""
+"Увоз %d видео снимака није успео због грешке у датотеци или уређају:\n"
 
 #: src/Dialogs/Dialogs.vala:407
 #, c-format
@@ -1493,9 +1500,12 @@ msgid ""
 msgid_plural ""
 "%d files failed to import because the photo library folder was not "
 "writable:\n"
-msgstr[0] "%d датотека није увезена због немогућности уписа у фасциклу збирке:\n"
-msgstr[1] "%d датотеке нису увезене због немогућности уписа у фасциклу збирке:\n"
-msgstr[2] "%d датотека није увезено због немогућности уписа у фасциклу збирке:\n"
+msgstr[0] ""
+"%d датотека није увезена због немогућности уписа у фасциклу збирке:\n"
+msgstr[1] ""
+"%d датотеке нису увезене због немогућности уписа у фасциклу збирке:\n"
+msgstr[2] ""
+"%d датотека није увезено због немогућности уписа у фасциклу збирке:\n"
 
 #: src/Dialogs/Dialogs.vala:447
 #, c-format
@@ -1675,9 +1685,12 @@ msgstr[2] "Да вратим спољне измене?"
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "Ово ће уништити све измене учињене на %d спољној датотеци. Да наставим?"
-msgstr[1] "Ово ће уништити све измене учињене на %d спољне датотеке. Да наставим?"
-msgstr[2] "Ово ће уништити све измене учињене на %d спољних датотека. Да наставим?"
+msgstr[0] ""
+"Ово ће уништити све измене учињене на %d спољној датотеци. Да наставим?"
+msgstr[1] ""
+"Ово ће уништити све измене учињене на %d спољне датотеке. Да наставим?"
+msgstr[2] ""
+"Ово ће уништити све измене учињене на %d спољних датотека. Да наставим?"
 
 #: src/Dialogs/Dialogs.vala:807
 msgid "Re_vert External Edit"
@@ -1882,7 +1895,7 @@ msgstr "од следећег:"
 msgid "Add rule"
 msgstr "Додај правило"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:623
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Откажи"
@@ -1915,93 +1928,13 @@ msgstr ""
 "Грешка је:\n"
 "%s"
 
-#: src/direct/DirectWindow.vala:46
+#: src/direct/DirectWindow.vala:47
 msgid "Save photo"
 msgstr "Сачувај слику"
 
-#: src/direct/DirectWindow.vala:51
+#: src/direct/DirectWindow.vala:52
 msgid "Save photo with a different name"
 msgstr "Сачувај слику под другим називом"
-
-#: src/editing_tools/StraightenTool.vala:111
-msgid "Angle:"
-msgstr "Угао:"
-
-#: src/editing_tools/StraightenTool.vala:112
-msgid "_Straighten"
-msgstr "_Исправи"
-
-#: src/editing_tools/StraightenTool.vala:114
-#: src/editing_tools/AdjustTool.vala:117
-msgid "_Reset"
-msgstr "_Поново постави"
-
-#: src/editing_tools/RedEyeTool.vala:63
-msgid "Size:"
-msgstr "Величина:"
-
-#: src/editing_tools/RedEyeTool.vala:78
-msgid "Close the red-eye tool"
-msgstr "Затвори алат за уклањање црвених очију"
-
-#: src/editing_tools/RedEyeTool.vala:80
-msgid "Remove any red-eye effects in the selected region"
-msgstr "Уклони ефекат црвених очију у изабраној области"
-
-#: src/editing_tools/CropTool.vala:111
-msgid "Pivot the crop rectangle between portrait and landscape orientations"
-msgstr ""
-"Промени оријентацију правоугаоника за исецање између водоравног и усправног"
-
-#: src/editing_tools/CropTool.vala:205
-msgid "Unconstrained"
-msgstr "Невезано"
-
-#: src/editing_tools/CropTool.vala:206
-msgid "Square"
-msgstr "Квадратни"
-
-#: src/editing_tools/CropTool.vala:207
-msgid "Screen"
-msgstr "Екрански"
-
-#: src/editing_tools/CropTool.vala:208
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
-msgid "Original Size"
-msgstr "Изворна величина"
-
-#: src/editing_tools/CropTool.vala:209 src/editing_tools/CropTool.vala:212
-#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:232
-msgid "-"
-msgstr "-"
-
-#: src/editing_tools/CropTool.vala:210
-msgid "SD Video (4 : 3)"
-msgstr "СД видео (4 : 3)"
-
-#: src/editing_tools/CropTool.vala:211
-msgid "HD Video (16 : 9)"
-msgstr "ХД видео (16 : 9)"
-
-#: src/editing_tools/CropTool.vala:218
-msgid "Letter (8.5 x 11 in.)"
-msgstr "Писмо (8,5 × 11 ин.)"
-
-#: src/editing_tools/CropTool.vala:220
-msgid "Tabloid (11 x 17 in.)"
-msgstr "Таблоид (11 × 17 ин.)"
-
-#: src/editing_tools/CropTool.vala:227
-msgid "A4 (210 x 297 mm)"
-msgstr "A4 (210 × 297 mm)"
-
-#: src/editing_tools/CropTool.vala:231
-msgid "A3 (297 x 420 mm)"
-msgstr "A3 (297 × 420 mm)"
-
-#: src/editing_tools/CropTool.vala:233
-msgid "Custom"
-msgstr "Прилагођено"
 
 #: src/editing_tools/AdjustTool.vala:45
 msgid "Exposure:"
@@ -2026,6 +1959,11 @@ msgstr "Сенке:"
 #: src/editing_tools/AdjustTool.vala:105
 msgid "Highlights:"
 msgstr "Светлине:"
+
+#: src/editing_tools/AdjustTool.vala:117
+#: src/editing_tools/StraightenTool.vala:114
+msgid "_Reset"
+msgstr "_Поново постави"
 
 #: src/editing_tools/AdjustTool.vala:176
 msgid "Reset Colors"
@@ -2063,6 +2001,81 @@ msgstr "Светлине"
 #: src/editing_tools/AdjustTool.vala:603
 msgid "Contrast Expansion"
 msgstr "Повећање контраста"
+
+#: src/editing_tools/CropTool.vala:113
+msgid "Pivot the crop rectangle between portrait and landscape orientations"
+msgstr ""
+"Промени оријентацију правоугаоника за исецање између водоравног и усправног"
+
+#: src/editing_tools/CropTool.vala:218
+msgid "Unconstrained"
+msgstr "Невезано"
+
+#: src/editing_tools/CropTool.vala:219
+msgid "Square"
+msgstr "Квадратни"
+
+#: src/editing_tools/CropTool.vala:220
+msgid "Screen"
+msgstr "Екрански"
+
+#: src/editing_tools/CropTool.vala:221
+#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
+msgid "Original Size"
+msgstr "Изворна величина"
+
+#: src/editing_tools/CropTool.vala:222 src/editing_tools/CropTool.vala:225
+#: src/editing_tools/CropTool.vala:235 src/editing_tools/CropTool.vala:245
+msgid "-"
+msgstr "-"
+
+#: src/editing_tools/CropTool.vala:223
+msgid "SD Video (4 : 3)"
+msgstr "СД видео (4 : 3)"
+
+#: src/editing_tools/CropTool.vala:224
+msgid "HD Video (16 : 9)"
+msgstr "ХД видео (16 : 9)"
+
+#: src/editing_tools/CropTool.vala:231
+msgid "Letter (8.5 x 11 in.)"
+msgstr "Писмо (8,5 × 11 ин.)"
+
+#: src/editing_tools/CropTool.vala:233
+msgid "Tabloid (11 x 17 in.)"
+msgstr "Таблоид (11 × 17 ин.)"
+
+#: src/editing_tools/CropTool.vala:240
+msgid "A4 (210 x 297 mm)"
+msgstr "A4 (210 × 297 mm)"
+
+#: src/editing_tools/CropTool.vala:244
+msgid "A3 (297 x 420 mm)"
+msgstr "A3 (297 × 420 mm)"
+
+#: src/editing_tools/CropTool.vala:246
+msgid "Custom"
+msgstr "Прилагођено"
+
+#: src/editing_tools/RedEyeTool.vala:63
+msgid "Size:"
+msgstr "Величина:"
+
+#: src/editing_tools/RedEyeTool.vala:78
+msgid "Close the red-eye tool"
+msgstr "Затвори алат за уклањање црвених очију"
+
+#: src/editing_tools/RedEyeTool.vala:80
+msgid "Remove any red-eye effects in the selected region"
+msgstr "Уклони ефекат црвених очију у изабраној области"
+
+#: src/editing_tools/StraightenTool.vala:111
+msgid "Angle:"
+msgstr "Угао:"
+
+#: src/editing_tools/StraightenTool.vala:112
+msgid "_Straighten"
+msgstr "_Исправи"
 
 #: src/events/EventDirectoryItem.vala:96
 #, c-format
@@ -2106,35 +2119,35 @@ msgstr "_Поставке"
 msgid "Settings"
 msgstr "Подешавања"
 
-#: src/library/LibraryWindow.vala:344 src/Views/EventsDirectoryPage.vala:139
+#: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:139
 #: src/Views/ImportPage.vala:858 src/Views/OfflinePage.vala:109
 #: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:164
 msgid "Sort _Events"
 msgstr "Поређај _догађаје"
 
-#: src/library/LibraryWindow.vala:346 src/Views/CollectionPage.vala:196
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:196
 #: src/Views/LibraryPhotoPage.vala:542
 msgid "View Eve_nt for Photo"
 msgstr "Прегледај _догађај за фотографију"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:352 src/searches/Branch.vala:87
+#: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
 msgstr "Нови паметни албум…"
 
-#: src/library/LibraryWindow.vala:374 src/Views/EventsDirectoryPage.vala:131
+#: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:131
 #: src/Views/ImportPage.vala:846 src/Views/OfflinePage.vala:101
 #: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:156
 msgid "S_idebar"
 msgstr "_Бочна површ"
 
-#: src/library/LibraryWindow.vala:375
+#: src/library/LibraryWindow.vala:380
 msgid "Display the sidebar"
 msgstr "Прикажи бочну површ"
 
-#: src/library/LibraryWindow.vala:379 src/library/LibraryWindow.vala:380
+#: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
 #: src/Views/CollectionPage.vala:127 src/Views/EventsDirectoryPage.vala:135
 #: src/Views/ImportPage.vala:850 src/Views/LibraryPhotoPage.vala:483
 #: src/Views/OfflinePage.vala:105 src/Views/MediaPage.vala:68
@@ -2142,37 +2155,37 @@ msgstr "Прикажи бочну површ"
 msgid "Edit Photo In_fo"
 msgstr "Уреди податке _фотографије"
 
-#: src/library/LibraryWindow.vala:391 src/Views/EventsDirectoryPage.vala:141
+#: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:141
 #: src/Views/ImportPage.vala:860 src/Views/OfflinePage.vala:111
 #: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:166
 msgid "_Ascending"
 msgstr "_Растуће"
 
-#: src/library/LibraryWindow.vala:391 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
 msgid "Sort photos in an ascending order"
 msgstr "Поређајте фотографије по растућем реду"
 
-#: src/library/LibraryWindow.vala:397 src/Views/EventsDirectoryPage.vala:150
+#: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:150
 #: src/Views/ImportPage.vala:869 src/Views/OfflinePage.vala:120
 #: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
 #: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:175
 msgid "D_escending"
 msgstr "_Опадајуће"
 
-#: src/library/LibraryWindow.vala:397 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
 msgid "Sort photos in a descending order"
 msgstr "Поређај фотографије опадајућим редом"
 
-#: src/library/LibraryWindow.vala:619
+#: src/library/LibraryWindow.vala:624
 msgid "Import From Folder"
 msgstr "Увези из фасцикле"
 
-#: src/library/LibraryWindow.vala:622
+#: src/library/LibraryWindow.vala:627
 msgid "Import"
 msgstr "Увези"
 
-#: src/library/LibraryWindow.vala:785
+#: src/library/LibraryWindow.vala:790
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2181,52 +2194,52 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 "Фтографко је подешен да увози фотографије у ваш лични директоријум.\n"
-"Препоручујемо вам да измените ово у <span weight=\"bold\">Уреди %s "
-"поставке</span>\n"
+"Препоручујемо вам да измените ово у <span weight=\"bold\">Уреди %s поставке</"
+"span>\n"
 "Да ли желите да наставите са увозом фотографија? "
 
-#: src/library/LibraryWindow.vala:789
+#: src/library/LibraryWindow.vala:794
 msgid "_Import"
 msgstr "_Увези"
 
-#: src/library/LibraryWindow.vala:790
+#: src/library/LibraryWindow.vala:795
 msgid "Library Location"
 msgstr "Место збирке"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:804
+#: src/library/LibraryWindow.vala:809
 msgid "Photos cannot be imported from this directory."
 msgstr "Фотографије не могу бити увезене из овог директоријума."
 
-#: src/library/LibraryWindow.vala:1031 src/library/LibraryWindow.vala:1042
+#: src/library/LibraryWindow.vala:1036 src/library/LibraryWindow.vala:1047
 msgid "Updating library…"
 msgstr "Освежавам збирку…"
 
-#: src/library/LibraryWindow.vala:1048
+#: src/library/LibraryWindow.vala:1053
 msgid "Preparing to auto-import photos…"
 msgstr "Спремам се да сам увезем фотографије…"
 
-#: src/library/LibraryWindow.vala:1053
+#: src/library/LibraryWindow.vala:1058
 msgid "Auto-importing photos…"
 msgstr "Сам увозим фотографије…"
 
-#: src/library/LibraryWindow.vala:1061
+#: src/library/LibraryWindow.vala:1066
 msgid "Writing metadata to files…"
 msgstr "Записујем метаподатке у датотеке…"
 
-#: src/library/LibraryWindow.vala:1168
+#: src/library/LibraryWindow.vala:1173
 msgid "Import Photos"
 msgstr "Увези слике"
 
-#: src/library/LibraryWindow.vala:1168
+#: src/library/LibraryWindow.vala:1173
 msgid "Copy photos from a folder or external device."
 msgstr "Умножите фотографије из фасцикле или спољног уређаја."
 
-#: src/library/LibraryWindow.vala:1169
+#: src/library/LibraryWindow.vala:1174
 msgid "Change Library Folder"
 msgstr "Измени фасциклу збирке"
 
-#: src/library/LibraryWindow.vala:1169
+#: src/library/LibraryWindow.vala:1174
 msgid "Choose where to keep your photos."
 msgstr "Изаберите место за чување ваших фотографија."
 
@@ -3868,8 +3881,8 @@ msgid ""
 "To continue publishing to Google services, quit and restart Shotwell, then "
 "try publishing again."
 msgstr ""
-"Већ сте се пријавили и одјавили са Гугл услуге током ове сесије Фото-бунара."
-"\n"
+"Већ сте се пријавили и одјавили са Гугл услуге током ове сесије Фото-"
+"бунара.\n"
 "\n"
 "Да наставите са објавама на Гугл услугу, изађите и поново покрените Фото-"
 "бунар, и покушајте поново да објавите."
