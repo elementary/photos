@@ -103,11 +103,13 @@ photos_files = files(
     'direct/DirectView.vala',
     'direct/DirectWindow.vala',
 
-    'editing_tools/EditingTools.vala',
-    'editing_tools/StraightenTool.vala',
-    'editing_tools/RedEyeTool.vala',
-    'editing_tools/CropTool.vala',
     'editing_tools/AdjustTool.vala',
+    'editing_tools/CropTool.vala',
+    'editing_tools/EditingTools.vala',
+    'editing_tools/EditingToolWindow.vala',
+    'editing_tools/PhotoCanvas.vala',
+    'editing_tools/RedEyeTool.vala',
+    'editing_tools/StraightenTool.vala',
 
     'events/Branch.vala',
     'events/EventDirectoryItem.vala',
