@@ -296,7 +296,7 @@ public class EditingTools.AdjustTool : EditingTool {
 
                 // multiple successive enhances are as good as a single, as long as it's on the
                 // same photo
-                return photo.equals (owner.canvas.get_photo ());
+                return photo.equals (owner.canvas.photo);
             }
 
             AdjustEnhanceCommand enhance_command = command as AdjustEnhanceCommand;
@@ -343,7 +343,7 @@ public class EditingTools.AdjustTool : EditingTool {
     public override void activate (PhotoCanvas canvas) {
         adjust_tool_window = new AdjustToolWindow (canvas.container);
 
-        Photo photo = canvas.get_photo ();
+        Photo photo = canvas.photo;
         transformations = photo.get_color_adjustments ();
         transformer = transformations.generate_transformer ();
 
@@ -396,8 +396,8 @@ public class EditingTools.AdjustTool : EditingTool {
         bind_canvas_handlers (canvas);
         bind_window_handlers ();
 
-        draw_to_pixbuf = canvas.get_scaled_pixbuf ().copy ();
-        init_fp_pixel_cache (canvas.get_scaled_pixbuf ());
+        draw_to_pixbuf = canvas.scaled_pixbuf.copy ();
+        init_fp_pixel_cache (canvas.scaled_pixbuf);
 
         /* if we have an 1x1 pixel image, then there's no need to deal with recomputing the
            histogram, because a histogram for a 1x1 image is meaningless. The histogram shows the
@@ -418,7 +418,7 @@ public class EditingTools.AdjustTool : EditingTool {
         }
         virgin_histogram_pixbuf = histogram_pixbuf.copy ();
 
-        DataCollection? owner = canvas.get_photo ().get_membership ();
+        DataCollection? owner = canvas.photo.get_membership ();
         if (owner != null)
             owner.items_altered.connect (on_photos_altered);
 
@@ -431,7 +431,7 @@ public class EditingTools.AdjustTool : EditingTool {
 
     public override void deactivate () {
         if (canvas != null) {
-            DataCollection? owner = canvas.get_photo ().get_membership ();
+            DataCollection? owner = canvas.photo.get_membership ();
             if (owner != null)
                 owner.items_altered.disconnect (on_photos_altered);
 
@@ -486,9 +486,9 @@ public class EditingTools.AdjustTool : EditingTool {
 
         get_tool_window ().hide ();
 
-        applied (new AdjustColorsSingleCommand (canvas.get_photo (), transformations,
+        applied (new AdjustColorsSingleCommand (canvas.photo, transformations,
                                                 Resources.ADJUST_LABEL, Resources.ADJUST_TOOLTIP), draw_to_pixbuf,
-                 canvas.get_photo ().get_dimensions (), false);
+                 canvas.photo.get_dimensions (), false);
     }
 
     private void update_transformations (PixelTransformationBundle new_transformations) {
@@ -604,8 +604,8 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_canvas_resize () {
-        draw_to_pixbuf = canvas.get_scaled_pixbuf ().copy ();
-        init_fp_pixel_cache (canvas.get_scaled_pixbuf ());
+        draw_to_pixbuf = canvas.scaled_pixbuf.copy ();
+        init_fp_pixel_cache (canvas.scaled_pixbuf);
     }
 
     private bool on_hscale_reset (Gtk.Widget widget, Gdk.EventButton event) {
@@ -671,17 +671,17 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     public bool enhance () {
-        AdjustEnhanceCommand command = new AdjustEnhanceCommand (this, canvas.get_photo ());
+        AdjustEnhanceCommand command = new AdjustEnhanceCommand (this, canvas.photo);
         AppWindow.get_command_manager ().execute (command);
 
         return true;
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> map) {
-        if (!map.has_key (canvas.get_photo ()))
+        if (!map.has_key (canvas.photo))
             return;
 
-        PixelTransformationBundle adjustments = canvas.get_photo ().get_color_adjustments ();
+        PixelTransformationBundle adjustments = canvas.photo.get_color_adjustments ();
         set_adjustments (adjustments);
     }
 
