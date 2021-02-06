@@ -27,8 +27,6 @@
  */
 
 public abstract class EditingTools.EditingToolWindow : Gtk.Dialog {
-    public bool user_moved { get; private set; default = false; }
-
     protected EditingToolWindow (Gtk.Window container) {
         Object (transient_for: container);
     }
@@ -64,7 +62,6 @@ public abstract class EditingTools.EditingToolWindow : Gtk.Dialog {
             return (base.button_press_event != null) ? base.button_press_event (event) : true;
 
         begin_move_drag ((int) event.button, (int) event.x_root, (int) event.y_root, event.time);
-        user_moved = true;
 
         return true;
     }
