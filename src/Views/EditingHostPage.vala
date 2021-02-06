@@ -197,8 +197,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var app = AppWindow.get_instance () as LibraryWindow;
             if (app != null) {
                 show_sidebar_button = MediaPage.create_sidebar_button ();
-                show_sidebar_button.clicked.connect (on_show_sidebar);
-                toolbar.insert (show_sidebar_button, -1);
+                show_sidebar_button.clicked.connect (() => {
+                    app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+                    update_sidebar_action (!app.is_metadata_sidebar_visible ());
+                });
+                toolbar.add (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }
         }
@@ -211,14 +214,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         get_view ().contents_altered.disconnect (on_view_contents_ordering_altered);
         get_view ().ordering_changed.disconnect (on_view_contents_ordering_altered);
-    }
-
-    private void on_show_sidebar () {
-        var app = AppWindow.get_instance () as LibraryWindow;
-        if (app != null) {
-            app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-            update_sidebar_action (!app.is_metadata_sidebar_visible ());
-        }
     }
 
     private void on_zoom_slider_value_changed () {
