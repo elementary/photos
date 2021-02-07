@@ -81,14 +81,14 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private class CropToolWindow : EditingToolWindow {
-        public Gtk.Button crop_button;
-        public Gtk.Button cancel_button;
-        public Gtk.ComboBox constraint_combo;
-        public Gtk.Button pivot_reticle_button;
-        public Gtk.Entry custom_width_entry;
-        public Gtk.Entry custom_height_entry;
-        public Gtk.Revealer custom_aspect_revealer;
-        public Gtk.Entry most_recently_edited = null;
+        public Gtk.Button crop_button { get; private set; }
+        public Gtk.Button cancel_button { get; private set; }
+        public Gtk.ComboBox constraint_combo { get; private set; }
+        public Gtk.Button pivot_reticle_button { get; private set; }
+        public Gtk.Entry custom_width_entry { get; private set; }
+        public Gtk.Entry custom_height_entry { get; private set; }
+        public Gtk.Revealer custom_aspect_revealer { get; private set; }
+        public Gtk.Entry most_recently_edited { get; private set; default = null; }
 
         public CropToolWindow (Gtk.Window container) {
             Object (transient_for: container);
@@ -156,6 +156,14 @@ public class EditingTools.CropTool : EditingTool {
 
             // Has to be set after activates_default
             crop_button.has_default = true;
+
+            custom_width_entry.focus_out_event.connect (() => {
+                most_recently_edited = custom_width_entry;
+            });
+
+            custom_height_entry.focus_out_event.connect (() => {
+                most_recently_edited = custom_height_entry;
+            });
         }
 
         private static bool constraint_combo_separator_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
@@ -277,16 +285,6 @@ public class EditingTools.CropTool : EditingTool {
         }
 
         return result;
-    }
-
-    private bool on_width_entry_focus_out (Gdk.EventFocus event) {
-        crop_tool_window.most_recently_edited = crop_tool_window.custom_width_entry;
-        return on_custom_entry_focus_out (event);
-    }
-
-    private bool on_height_entry_focus_out (Gdk.EventFocus event) {
-        crop_tool_window.most_recently_edited = crop_tool_window.custom_height_entry;
-        return on_custom_entry_focus_out (event);
     }
 
     private bool on_custom_entry_focus_out (Gdk.EventFocus event) {
@@ -587,8 +585,8 @@ public class EditingTools.CropTool : EditingTool {
         crop_tool_window.pivot_reticle_button.clicked.connect (on_pivot_button_clicked);
 
         // set up the custom width and height entry boxes
-        crop_tool_window.custom_width_entry.focus_out_event.connect (on_width_entry_focus_out);
-        crop_tool_window.custom_height_entry.focus_out_event.connect (on_height_entry_focus_out);
+        crop_tool_window.custom_width_entry.focus_out_event.connect (on_custom_entry_focus_out);
+        crop_tool_window.custom_height_entry.focus_out_event.connect (on_custom_entry_focus_out);
         crop_tool_window.custom_width_entry.insert_text.connect (on_width_insert_text);
         crop_tool_window.custom_height_entry.insert_text.connect (on_height_insert_text);
     }
@@ -600,8 +598,8 @@ public class EditingTools.CropTool : EditingTool {
         crop_tool_window.pivot_reticle_button.clicked.disconnect (on_pivot_button_clicked);
 
         // set up the custom width and height entry boxes
-        crop_tool_window.custom_width_entry.focus_out_event.disconnect (on_width_entry_focus_out);
-        crop_tool_window.custom_height_entry.focus_out_event.disconnect (on_height_entry_focus_out);
+        crop_tool_window.custom_width_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
+        crop_tool_window.custom_height_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
         crop_tool_window.custom_width_entry.insert_text.disconnect (on_width_insert_text);
     }
 
