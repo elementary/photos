@@ -197,8 +197,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
             var app = AppWindow.get_instance () as LibraryWindow;
             if (app != null) {
                 show_sidebar_button = MediaPage.create_sidebar_button ();
-                show_sidebar_button.clicked.connect (on_show_sidebar);
-                toolbar.insert (show_sidebar_button, -1);
+                show_sidebar_button.clicked.connect (() => {
+                    app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+                    update_sidebar_action (!app.is_metadata_sidebar_visible ());
+                });
+                toolbar.add (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }
         }
@@ -211,14 +214,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         get_view ().contents_altered.disconnect (on_view_contents_ordering_altered);
         get_view ().ordering_changed.disconnect (on_view_contents_ordering_altered);
-    }
-
-    private void on_show_sidebar () {
-        var app = AppWindow.get_instance () as LibraryWindow;
-        if (app != null) {
-            app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-            update_sidebar_action (!app.is_metadata_sidebar_visible ());
-        }
     }
 
     private void on_zoom_slider_value_changed () {
@@ -969,12 +964,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return false;
     }
 
-    protected override void on_resize (Gdk.Rectangle rect) {
-        base.on_resize (rect);
-
-        track_tool_window ();
-    }
-
     protected override void on_resize_finished (Gdk.Rectangle rect) {
         // because we've loaded SinglePhotoPage with an image scaled to window size, as the window
         // is resized it scales that, which pixellates, especially scaling upward.  Once the window
@@ -1141,7 +1130,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // save the position of the tool
         EditingTools.EditingToolWindow? tool_window = tool.get_tool_window ();
-        if (tool_window != null && tool_window.user_moved) {
+        if (tool_window != null) {
             int last_location_x, last_location_y;
             tool_window.get_position (out last_location_x, out last_location_y);
             last_locations[tool.name + "_x"] = last_location_x;
@@ -1344,21 +1333,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             return current_tool.on_leave_notify_event ();
 
         return base.on_leave_notify_event ();
-    }
-
-    private void track_tool_window () {
-        // if editing tool window is present and the user hasn't touched it, it moves with the window
-        if (current_tool != null) {
-            EditingTools.EditingToolWindow tool_window = current_tool.get_tool_window ();
-            if (tool_window != null && !tool_window.user_moved)
-                place_tool_window ();
-        }
-    }
-
-    protected override void on_move (Gdk.Rectangle rect) {
-        track_tool_window ();
-
-        base.on_move (rect);
     }
 
     protected override void on_move_finished (Gdk.Rectangle rect) {

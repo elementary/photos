@@ -30,14 +30,18 @@
 // and primitives for an EditingTool to obtain information about the image, to draw on the host's
 // canvas, and to be signalled when the canvas and its pixbuf changes (is resized).
 public abstract class EditingTools.PhotoCanvas {
+    public signal void new_surface (Cairo.Context ctx, Dimensions dim);
+    public signal void resized_scaled_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position);
+
+    public Cairo.Context default_ctx { get; private set; }
+    public Dimensions surface_dim { get; private set; }
+    public Gdk.Pixbuf scaled_pixbuf { get; private set; }
+    public Gdk.Rectangle scaled_position { get; private set; }
+    public Gdk.Window drawing_window { get; private set; }
     public Gtk.Window container { get; private set; }
-    private Gdk.Window drawing_window;
-    private Photo photo;
-    private Cairo.Context default_ctx;
-    private Dimensions surface_dim;
+    public Photo photo { get; private set; }
+
     private Cairo.Surface scaled;
-    private Gdk.Pixbuf scaled_pixbuf;
-    private Gdk.Rectangle scaled_position;
 
     protected PhotoCanvas (Gtk.Window container, Gdk.Window drawing_window, Photo photo,
                            Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
@@ -51,17 +55,11 @@ public abstract class EditingTools.PhotoCanvas {
         this.scaled = pixbuf_to_surface (default_ctx, scaled, scaled_position);
     }
 
-    public signal void new_surface (Cairo.Context ctx, Dimensions dim);
-
-    public signal void resized_scaled_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled,
-            Gdk.Rectangle scaled_position);
-
     public Gdk.Rectangle unscaled_to_raw_rect (Gdk.Rectangle rectangle) {
         return photo.unscaled_to_raw_rect (rectangle);
     }
 
-    public Gdk.Point active_to_unscaled_point (Gdk.Point active_point) {
-        Gdk.Rectangle scaled_position = get_scaled_pixbuf_position ();
+    private Gdk.Point active_to_unscaled_point (Gdk.Point active_point) {
         Dimensions unscaled_dims = photo.get_dimensions ();
 
         double scale_factor_x = ((double) unscaled_dims.width) /
@@ -97,11 +95,9 @@ public abstract class EditingTools.PhotoCanvas {
     }
 
     public Gdk.Point user_to_active_point (Gdk.Point user_point) {
-        Gdk.Rectangle active_offsets = get_scaled_pixbuf_position ();
-
         Gdk.Point result = {0};
-        result.x = user_point.x - active_offsets.x;
-        result.y = user_point.y - active_offsets.y;
+        result.x = user_point.x - scaled_position.x;
+        result.y = user_point.y - scaled_position.y;
 
         return result;
     }
@@ -126,22 +122,6 @@ public abstract class EditingTools.PhotoCanvas {
         return active_rect;
     }
 
-    public Photo get_photo () {
-        return photo;
-    }
-
-    public Gdk.Window get_drawing_window () {
-        return drawing_window;
-    }
-
-    public Cairo.Context get_default_ctx () {
-        return default_ctx;
-    }
-
-    public Dimensions get_surface_dim () {
-        return surface_dim;
-    }
-
     public Scaling get_scaling () {
         return Scaling.for_viewport (surface_dim, false);
     }
@@ -151,18 +131,6 @@ public abstract class EditingTools.PhotoCanvas {
         this.surface_dim = surface_dim;
 
         new_surface (default_ctx, surface_dim);
-    }
-
-    public Cairo.Surface get_scaled_surface () {
-        return scaled;
-    }
-
-    public Gdk.Pixbuf get_scaled_pixbuf () {
-        return scaled_pixbuf;
-    }
-
-    public Gdk.Rectangle get_scaled_pixbuf_position () {
-        return scaled_position;
     }
 
     public void resized_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
@@ -180,7 +148,7 @@ public abstract class EditingTools.PhotoCanvas {
     // methods automatically adjust for its position.
     //
     // If these methods are not used, all painting to the drawable should be offet by
-    // get_scaled_pixbuf_position ().x and get_scaled_pixbuf_position ().y
+    // scaled_position.x and scaled_position.y
     public void paint_pixbuf (Gdk.Pixbuf pixbuf) {
         default_ctx.save ();
 
@@ -191,24 +159,6 @@ public abstract class EditingTools.PhotoCanvas {
         Gdk.cairo_set_source_pixbuf (default_ctx, pixbuf, scaled_position.x, scaled_position.y);
         default_ctx.rectangle (scaled_position.x, scaled_position.y,
                                pixbuf.get_width (), pixbuf.get_height ());
-        default_ctx.fill ();
-        default_ctx.restore ();
-    }
-
-    public void paint_pixbuf_area (Gdk.Pixbuf pixbuf, Box source_area) {
-        default_ctx.save ();
-        if (pixbuf.get_has_alpha ()) {
-            get_style_context ().render_background (default_ctx,
-                                                    scaled_position.x + source_area.left,
-                                                    scaled_position.y + source_area.top,
-                                                    source_area.get_width (),
-                                                    source_area.get_height ());
-        }
-        Gdk.cairo_set_source_pixbuf (default_ctx, pixbuf, scaled_position.x,
-                                     scaled_position.y);
-        default_ctx.rectangle (scaled_position.x + source_area.left,
-                               scaled_position.y + source_area.top,
-                               source_area.get_width (), source_area.get_height ());
         default_ctx.fill ();
         default_ctx.restore ();
     }
@@ -324,18 +274,6 @@ public abstract class EditingTools.PhotoCanvas {
         ctx.stroke ();
     }
 
-    public void erase_horizontal_line (int x, int y, int width) {
-        default_ctx.save ();
-
-        default_ctx.set_operator (Cairo.Operator.SOURCE);
-        default_ctx.set_source_surface (scaled, scaled_position.x, scaled_position.y);
-        default_ctx.rectangle (scaled_position.x + x, scaled_position.y + y,
-                               width - 1, 1);
-        default_ctx.fill ();
-
-        default_ctx.restore ();
-    }
-
     public void draw_circle (Cairo.Context ctx, int active_center_x, int active_center_y,
                              int radius) {
         int center_x = active_center_x + scaled_position.x;
@@ -344,30 +282,6 @@ public abstract class EditingTools.PhotoCanvas {
         int scale_factor = container.scale_factor;
         ctx.arc (center_x * scale_factor, center_y * scale_factor, radius * scale_factor, 0, 2 * GLib.Math.PI);
         ctx.stroke ();
-    }
-
-    public void erase_vertical_line (int x, int y, int height) {
-        default_ctx.save ();
-
-        // Ticket #3146 - artifacting when moving the crop box or
-        // enlarging it from the lower right.
-        // We now no longer subtract one from the height before choosing
-        // a region to erase.
-        default_ctx.set_operator (Cairo.Operator.SOURCE);
-        default_ctx.set_source_surface (scaled, scaled_position.x, scaled_position.y);
-        default_ctx.rectangle (scaled_position.x + x, scaled_position.y + y,
-                               1, height);
-        default_ctx.fill ();
-
-        default_ctx.restore ();
-    }
-
-    public void erase_box (Box box) {
-        erase_horizontal_line (box.left, box.top, box.get_width ());
-        erase_horizontal_line (box.left, box.bottom, box.get_width ());
-
-        erase_vertical_line (box.left, box.top, box.get_height ());
-        erase_vertical_line (box.right, box.top, box.get_height ());
     }
 
     public void invalidate_area (Box area) {
