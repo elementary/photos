@@ -213,7 +213,7 @@ public class StraightenTool : EditingTool {
      * of the photo and centered at the Photo's center.
      */
     private void on_ok_clicked () {
-        assert (canvas.get_photo () != null);
+        assert (canvas.photo != null);
 
         // compute where the crop box should be now and set the image's
         // current crop to it
@@ -223,11 +223,11 @@ public class StraightenTool : EditingTool {
                                     image_dims.width, image_dims.height, slider_val);
 
         StraightenCommand command = new StraightenCommand (
-            canvas.get_photo (), slider_val,
+            canvas.photo, slider_val,
             Box.from_center (new_crop_center,
                              (int) (rotate_scale * crop_width), (int) (rotate_scale * crop_height)),
             Resources.STRAIGHTEN_LABEL, Resources.STRAIGHTEN_TOOLTIP);
-        applied (command, canvas.get_scaled_pixbuf (), image_dims, true);
+        applied (command, canvas.scaled_pixbuf, image_dims, true);
     }
 
     private void high_qual_repaint () {
@@ -285,7 +285,7 @@ public class StraightenTool : EditingTool {
     }
 
     private void prepare_image () {
-        Dimensions canvas_dims = canvas.get_surface_dim ();
+        Dimensions canvas_dims = canvas.surface_dim;
         Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE * scale_factor, TEMP_PIXBUF_SIZE * scale_factor);
         if (viewport == last_viewport)
             return;     // no change
@@ -295,10 +295,10 @@ public class StraightenTool : EditingTool {
         Gdk.Pixbuf low_res_tmp = null;
         try {
             low_res_tmp =
-                canvas.get_photo ().get_pixbuf_with_options (Scaling.for_viewport (viewport, false),
+                canvas.photo.get_pixbuf_with_options (Scaling.for_viewport (viewport, false),
                         Photo.Exception.STRAIGHTEN | Photo.Exception.CROP);
         } catch (Error e) {
-            warning ("A pixbuf for %s couldn't be fetched.", canvas.get_photo ().to_string ());
+            warning ("A pixbuf for %s couldn't be fetched.", canvas.photo.to_string ());
             low_res_tmp = new Gdk.Pixbuf (Gdk.Colorspace.RGB, false, 8, 1, 1);
         }
 
@@ -351,11 +351,11 @@ public class StraightenTool : EditingTool {
         this.canvas = canvas;
         bind_canvas_handlers (this.canvas);
 
-        image_dims = canvas.get_photo ().get_dimensions (
+        image_dims = canvas.photo.get_dimensions (
                          Photo.Exception.STRAIGHTEN | Photo.Exception.CROP);
 
         Box crop_region;
-        if (!canvas.get_photo ().get_crop (out crop_region)) {
+        if (!canvas.photo.get_crop (out crop_region)) {
             crop_region.left = 0;
             crop_region.right = image_dims.width;
 
@@ -366,7 +366,7 @@ public class StraightenTool : EditingTool {
         // read the photo's current angle and start the tool with the slider set to that value. we
         // also use this to de-rotate the crop region
         double incoming_angle = 0.0;
-        canvas.get_photo ().get_straighten (out incoming_angle);
+        canvas.photo.get_straighten (out incoming_angle);
 
         // Translate the crop center to image coordinates.
         crop_center = derotate_point_arb (crop_region.get_center (),
@@ -379,7 +379,7 @@ public class StraightenTool : EditingTool {
         prepare_image ();
 
         // set crosshair cursor
-        canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.CROSSHAIR));
+        canvas.drawing_window.set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.CROSSHAIR));
 
         window = new StraightenToolWindow (canvas.container);
         bind_window_handlers ();
@@ -409,7 +409,7 @@ public class StraightenTool : EditingTool {
 
         if (canvas != null) {
             unbind_canvas_handlers (canvas);
-            canvas.get_drawing_window ().set_cursor (null);
+            canvas.drawing_window.set_cursor (null);
         }
 
         base.deactivate ();
@@ -485,25 +485,25 @@ public class StraightenTool : EditingTool {
      *      it's not used.
      */
     public override void paint (Cairo.Context ctx) {
-        int w = canvas.get_drawing_window ().get_width () * scale_factor;
-        int h = canvas.get_drawing_window ().get_height () * scale_factor;
+        int w = canvas.drawing_window.get_width () * scale_factor;
+        int h = canvas.drawing_window.get_height () * scale_factor;
 
         // fill region behind the rotation surface with neutral color
-        canvas.get_default_ctx ().identity_matrix ();
-        canvas.get_style_context ().render_background (canvas.get_default_ctx (), 0, 0, w, h);
+        canvas.default_ctx.identity_matrix ();
+        canvas.get_style_context ().render_background (canvas.default_ctx, 0, 0, w, h);
 
         // copy the composited result to the main window.
-        canvas.get_default_ctx ().translate ((w - view_width) / 2.0, (h - view_height) / 2.0);
-        canvas.get_default_ctx ().set_source_surface (rotate_surf, 0, 0);
-        canvas.get_default_ctx ().rectangle (0, 0, view_width, view_height);
-        canvas.get_default_ctx ().fill ();
-        canvas.get_default_ctx ().paint ();
+        canvas.default_ctx.translate ((w - view_width) / 2.0, (h - view_height) / 2.0);
+        canvas.default_ctx.set_source_surface (rotate_surf, 0, 0);
+        canvas.default_ctx.rectangle (0, 0, view_width, view_height);
+        canvas.default_ctx.fill ();
+        canvas.default_ctx.paint ();
 
         // reset the 'modelview' matrix, since when the canvas is not in
         // 'tool' mode, it 'expects' things to be set up a certain way.
-        canvas.get_default_ctx ().identity_matrix ();
+        canvas.default_ctx.identity_matrix ();
 
-        guide.draw (canvas.get_default_ctx ());
+        guide.draw (canvas.default_ctx);
     }
 
     /**

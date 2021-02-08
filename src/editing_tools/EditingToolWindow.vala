@@ -27,8 +27,6 @@
  */
 
 public abstract class EditingTools.EditingToolWindow : Hdy.Window {
-    public bool user_moved { get; private set; default = false; }
-
     private Gtk.Grid content_area;
 
     protected EditingToolWindow (Gtk.Window container) {
@@ -71,16 +69,5 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
             return true;
         }
         return AppWindow.get_instance ().key_press_event (event);
-    }
-
-    public override bool button_press_event (Gdk.EventButton event) {
-        // LMB only
-        if (event.button != 1)
-            return (base.button_press_event != null) ? base.button_press_event (event) : true;
-
-        begin_move_drag ((int) event.button, (int) event.x_root, (int) event.y_root, event.time);
-        user_moved = true;
-
-        return true;
     }
 }
