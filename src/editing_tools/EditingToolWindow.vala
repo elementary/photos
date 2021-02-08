@@ -40,7 +40,7 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
         focus_on_map = true;
         resizable = false;
 
-        add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
+        add_events (Gdk.EventMask.KEY_PRESS_MASK);
 
         // Needed to prevent the (spurious) 'This event was synthesised outside of GDK'
         // warnings after a keypress.
