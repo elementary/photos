@@ -1,5 +1,6 @@
 /*
-* Copyright 2011-2013 Yorba Foundation
+* Copyright 2021 elementary, Inc. <https://elementary.io>
+*           2011-2013 Yorba Foundation
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -16,15 +17,6 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 */
-
-/* This file is the master unit file for the EditingTools unit.  It should be edited to include
- * whatever code is deemed necessary.
- *
- * The init () and terminate () methods are mandatory.
- *
- * If the unit needs to be configured prior to initialization, add the proper parameters to
- * the preconfigure () method, implement it, and ensure in init () that it's been called.
- */
 
 public abstract class EditingTools.EditingToolWindow : Hdy.Window {
     public Gtk.Grid content_area { get; private set; }
