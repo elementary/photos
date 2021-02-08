@@ -37,7 +37,6 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
 
         accept_focus = true;
         can_focus = true;
-        deletable = false;
         focus_on_map = true;
         resizable = false;
 
