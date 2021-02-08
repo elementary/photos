@@ -30,17 +30,14 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
             margin = 12
         };
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (content_area);
-
-        add (window_handle);
+        add (content_area);
 
         accept_focus = true;
         can_focus = true;
         focus_on_map = true;
         resizable = false;
 
-        add_events (Gdk.EventMask.KEY_PRESS_MASK);
+        add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.KEY_PRESS_MASK);
 
         // Needed to prevent the (spurious) 'This event was synthesised outside of GDK'
         // warnings after a keypress.
@@ -56,5 +53,15 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
             return true;
         }
         return AppWindow.get_instance ().key_press_event (event);
+    }
+
+    public override bool button_press_event (Gdk.EventButton event) {
+        // LMB only
+        if (event.button != 1)
+            return (base.button_press_event != null) ? base.button_press_event (event) : true;
+
+        begin_move_drag ((int) event.button, (int) event.x_root, (int) event.y_root, event.time);
+
+        return true;
     }
 }
