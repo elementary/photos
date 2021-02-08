@@ -27,7 +27,7 @@
  */
 
 public abstract class EditingTools.EditingToolWindow : Hdy.Window {
-    private Gtk.Grid content_area;
+    public Gtk.Grid content_area { get; private set; }
 
     protected EditingToolWindow (Gtk.Window container) {
         Object (transient_for: container);
@@ -58,10 +58,6 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
 
     ~EditingToolWindow () {
         Log.set_handler ("Gdk", LogLevelFlags.LEVEL_WARNING, Log.default_handler);
-    }
-
-    protected Gtk.Grid get_content_area () {
-        return content_area;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {

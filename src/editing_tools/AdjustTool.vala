@@ -141,7 +141,7 @@ public class EditingTools.AdjustTool : EditingTool {
             grid.attach (highlights_slider, 1, 6, 1, 1);
             grid.attach (button_box, 0, 7, 2, 1);
 
-            get_content_area ().add (grid);
+            content_area.add (grid);
         }
     }
 

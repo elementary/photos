@@ -151,7 +151,7 @@ public class EditingTools.CropTool : EditingTool {
             layout.add (cancel_button);
             layout.add (crop_button);
 
-            get_content_area ().add (layout);
+            content_area.add (layout);
 
             // Has to be set after activates_default
             crop_button.has_default = true;

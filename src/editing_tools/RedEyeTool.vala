@@ -85,7 +85,7 @@ public class EditingTools.RedeyeTool : EditingTool {
             layout.add (close_button);
             layout.add (apply_button);
 
-            get_content_area ().add (layout);
+            content_area.add (layout);
         }
     }
 

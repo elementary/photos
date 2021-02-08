@@ -146,7 +146,7 @@ public class StraightenTool : EditingTool {
             main_layout.pack_start (angle_label, true, true, 0);
             main_layout.pack_start (button_layout, true, true, 0);
 
-            get_content_area ().add (main_layout);
+            content_area.add (main_layout);
 
             reset_button.clicked.connect (on_reset_clicked);
 
