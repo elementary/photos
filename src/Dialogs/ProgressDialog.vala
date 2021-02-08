@@ -18,7 +18,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class ProgressDialog : Gtk.Dialog {
+public class ProgressDialog : Granite.Dialog {
     private Gtk.ProgressBar progress_bar;
     private Gtk.Button cancel_button = null;
     private Cancellable cancellable;

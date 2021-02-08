@@ -20,7 +20,7 @@
 
 // This dialog displays a boolean search configuration.
 public class SavedSearchDialog : Object {
-    private Gtk.Dialog dialog;
+    private Granite.Dialog dialog;
     private Gtk.Button add_criteria;
     private Gtk.ComboBoxText operator;
     private Gtk.Grid row_box;
@@ -119,7 +119,7 @@ public class SavedSearchDialog : Object {
         search_grid.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, 3, 4, 1);
         search_grid.attach (row_box, 0, 4, 4, 1);
 
-        dialog = new Gtk.Dialog ();
+        dialog = new Granite.Dialog ();
         dialog.title = _("Smart Album");
         dialog.modal = true;
         dialog.transient_for = AppWindow.get_instance ();

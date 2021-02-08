@@ -80,13 +80,12 @@ public class EditingTools.RedeyeTool : EditingTool {
             apply_button.set_tooltip_text (_ ("Remove any red-eye effects in the selected region"));
 
             Gtk.Box layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
-            layout.margin_start = layout.margin_end = 12;
             layout.add (slider_label);
             layout.add (slider);
             layout.add (close_button);
             layout.add (apply_button);
 
-            get_content_area ().add (layout);
+            content_area.add (layout);
         }
     }
 
