@@ -1,6 +1,6 @@
 /*
-* Copyright (c) 2009-2013 Yorba Foundation
-*               2017-2019 elementary, Inc. (https://elementary.io)
+* Copyright 2009-2013 Yorba Foundation
+*           2017-2021 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -47,16 +47,18 @@ public class ExportDialog : Granite.Dialog {
     private Gtk.Widget export_button;
 
     public ExportDialog (string title) {
-        Object (deletable: false,
-                resizable: false,
-                title: title);
+        Object (
+            resizable: false,
+            title: title
+        );
     }
 
     construct {
-        var format_label = new Gtk.Label.with_mnemonic (_("_Format:"));
-        format_label.halign = Gtk.Align.END;
-        format_label.use_underline = true;
-        format_label.mnemonic_widget = format_combo;
+        var format_label = new Gtk.Label.with_mnemonic (_("_Format:")) {
+            halign = Gtk.Align.END,
+            mnemonic_widget = format_combo,
+            use_underline = true
+        };
 
         format_combo = new Gtk.ComboBoxText ();
         format_add_option (UNMODIFIED_FORMAT_LABEL);
@@ -65,10 +67,11 @@ public class ExportDialog : Granite.Dialog {
             format_add_option (format.get_properties ().get_user_visible_name ());
         }
 
-        var quality_label = new Gtk.Label.with_mnemonic (_("_Quality:"));
-        quality_label.halign = Gtk.Align.END;
-        quality_label.use_underline = true;
-        quality_label.mnemonic_widget = quality_combo;
+        var quality_label = new Gtk.Label.with_mnemonic (_("_Quality:")) {
+            halign = Gtk.Align.END,
+            mnemonic_widget = quality_combo,
+            use_underline = true
+        };
 
         quality_combo = new Gtk.ComboBoxText ();
         int ctr = 0;
@@ -79,10 +82,11 @@ public class ExportDialog : Granite.Dialog {
             ctr++;
         }
 
-        var constraint_label = new Gtk.Label.with_mnemonic (_("_Scaling constraint:"));
-        constraint_label.halign = Gtk.Align.END;
-        constraint_label.use_underline = true;
-        constraint_label.mnemonic_widget = constraint_combo;
+        var constraint_label = new Gtk.Label.with_mnemonic (_("_Scaling constraint:")) {
+            halign = Gtk.Align.END,
+            mnemonic_widget = constraint_combo,
+            use_underline = true
+        };
 
         constraint_combo = new Gtk.ComboBoxText ();
         ctr = 0;
@@ -93,35 +97,39 @@ public class ExportDialog : Granite.Dialog {
             ctr++;
         }
 
-        pixels_spinbutton = new Gtk.SpinButton.with_range (1, 999999, 1);
-        pixels_spinbutton.set_max_length (6);
-        pixels_spinbutton.set_value (current_scale);
-        pixels_spinbutton.set_digits (0);
+        pixels_spinbutton = new Gtk.SpinButton.with_range (1, 999999, 1) {
+            digits = 0,
+            max_length = 6,
+            value = current_scale
+        };
 
-        Gtk.Label size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:"));
-        size_label.halign = Gtk.Align.END;
-        size_label.use_underline = true;
-        size_label.mnemonic_widget = pixels_spinbutton;
+        var size_label = new Gtk.Label.with_mnemonic (_("_Size in pixels:")) {
+            halign = Gtk.Align.END,
+            mnemonic_widget = pixels_spinbutton,
+            use_underline = true
+        };
 
-        export_metadata = new Gtk.CheckButton.with_label (_("Export metadata"));
-        export_metadata.active = true;
+        export_metadata = new Gtk.CheckButton.with_label (_("Export metadata")) {
+            active = true
+        };
 
-        var grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
-        grid.row_spacing = 6;
-        grid.margin = 12;
-        grid.margin_top = 0;
-        grid.attach (format_label, 0, 0, 1, 1);
-        grid.attach (format_combo, 1, 0, 1, 1);
-        grid.attach (quality_label, 0, 1, 1, 1);
-        grid.attach (quality_combo, 1, 1, 1, 1);
-        grid.attach (constraint_label, 0, 2, 1, 1);
-        grid.attach (constraint_combo, 1, 2, 1, 1);
-        grid.attach (size_label, 0, 3, 1, 1);
-        grid.attach (pixels_spinbutton, 1, 3, 1, 1);
-        grid.attach (export_metadata, 1, 4, 1, 1);
+        var grid = new Gtk.Grid () {
+            column_spacing = 12,
+            row_spacing = 6,
+            margin = 12,
+            margin_top = 0
+        };
+        grid.attach (format_label, 0, 0);
+        grid.attach (format_combo, 1, 0);
+        grid.attach (quality_label, 0, 1);
+        grid.attach (quality_combo, 1, 1);
+        grid.attach (constraint_label, 0, 2);
+        grid.attach (constraint_combo, 1, 2);
+        grid.attach (size_label, 0, 3);
+        grid.attach (pixels_spinbutton, 1, 3);
+        grid.attach (export_metadata, 1, 4);
 
-        ((Gtk.Box) get_content_area ()).add (grid);
+        get_content_area ().add (grid);
 
         add_button (_("_Cancel"), Gtk.ResponseType.CANCEL);
 
@@ -130,8 +138,6 @@ public class ExportDialog : Granite.Dialog {
         export_button.has_default = true;
         export_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         export_button.grab_focus ();
-
-        get_action_area ().margin = 6;
 
         if (current_constraint == ScaleConstraint.ORIGINAL) {
             pixels_spinbutton.sensitive = false;
