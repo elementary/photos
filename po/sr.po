@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-05 18:14+0000\n"
-"PO-Revision-Date: 2020-12-19 10:16+0000\n"
+"PO-Revision-Date: 2021-02-16 04:04+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/photos/photos/sr/"
 ">\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:11+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -584,7 +584,7 @@ msgstr ""
 #: src/photos/RawSupport.vala:310 src/Views/PhotosPage.vala:24
 #: src/Views/PhotosPage.vala:37
 msgid "Photos"
-msgstr "Фотографије"
+msgstr "Фотографко"
 
 #: src/Resources.vala:24
 msgid "Photo Manager"
@@ -1120,7 +1120,7 @@ msgstr "%d.%m.%Y. %H:%M:%S"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %I:%M:%S %p"
-msgstr "%d.%m.%Y. %H:%M:%S "
+msgstr "%d.%m.%Y. %H:%M:%S"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:294
 #, c-format
@@ -1172,9 +1172,9 @@ msgstr[2] "секунди"
 #, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Ово ће уклонити ознаку „%s“ из %d фотографије.  Да наставим?"
-msgstr[1] "Ово ће уклонити ознаку „%s“ из %d фотографије.  Да наставим?"
-msgstr[2] "Ово ће уклонити ознаку „%s“ из %d фотографија.  Да наставим?"
+msgstr[0] "Ово ће уклонити ознаку „%s“ из %d фотографије. Да наставим?"
+msgstr[1] "Ово ће уклонити ознаку „%s“ из %d фотографије. Да наставим?"
+msgstr[2] "Ово ће уклонити ознаку „%s“ из %d фотографија. Да наставим?"
 
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
@@ -1484,13 +1484,13 @@ msgid_plural ""
 "%d photos/videos failed to import because the photo library folder was not "
 "writable:\n"
 msgstr[0] ""
-"Увоз %d фотографије/видео снимака није успео због немогућности уписа у "
+"Увоз %d фотографије/видео снимка није успео због немогућности уписа у "
 "фасциклу збирке:\n"
 msgstr[1] ""
-"Увоз %d фотографије/видео снимака није успео због немогућности уписа у "
+"Увоз %d фотографије/видео снимка није успео због немогућности уписа у "
 "фасциклу збирке:\n"
 msgstr[2] ""
-"Увоз %d фотографије/видео снимака није успео због немогућности уписа у "
+"Увоз %d фотографија/видео снимака није успео због немогућности уписа у "
 "фасциклу збирке:\n"
 
 #: src/Dialogs/Dialogs.vala:433
@@ -1554,7 +1554,7 @@ msgstr[2] "Увоз %d оштећених фотографија није усп
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] "Учитавање 1 снимка није успело јер је оштећен:\n"
+msgstr[0] "Учитавање %d снимка није успело јер је оштећен:\n"
 msgstr[1] "Учитавање %d снимка није успело јер су оштећени:\n"
 msgstr[2] "Учитавање %d снимака није успело јер су оштећени:\n"
 
@@ -1570,9 +1570,9 @@ msgstr[2] "Увоз %d оштећених фотографија/видео сн
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] "Учитавање 1 датотеке није успело јер је оштећена:\n"
+msgstr[0] "Учитавање %d датотеке није успело јер је оштећена:\n"
 msgstr[1] "Учитавање %d датотеке није успело јер су оштећене:\n"
-msgstr[2] "Учитавање %d датотека није успело јер су оштећена:\n"
+msgstr[2] "Учитавање %d датотека није успело јер су оштећене:\n"
 
 #. we have no notion of "unsupported" video files right now in Photos (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1924,7 +1924,8 @@ msgid ""
 "%s"
 msgstr ""
 "Грешка приступа датотеци базе података:\n"
-"%s\n"
+" %s\n"
+"\n"
 "Грешка је:\n"
 "%s"
 
@@ -2194,9 +2195,9 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 "Фтографко је подешен да увози фотографије у ваш лични директоријум.\n"
-"Препоручујемо вам да измените ово у <span weight=\"bold\">Уреди %s поставке</"
-"span>\n"
-"Да ли желите да наставите са увозом фотографија? "
+"Препоручујемо вам да измените ово у <span weight=\"bold\">Уреди %s "
+"поставке</span>\n"
+"Да ли желите да наставите са увозом фотографија?"
 
 #: src/library/LibraryWindow.vala:794
 msgid "_Import"
@@ -3372,7 +3373,7 @@ msgid ""
 "entered"
 msgstr ""
 "Фото-бунар не може да приступи вашој Пивиго збирци слика. Проверите унету "
-"интернет адресу."
+"интернет адресу"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3499,7 +3500,6 @@ msgid ""
 "publishing again."
 msgstr ""
 "Већ сте се пријавили и одјавили са Фликра током ове сесије Фото-бунара.\n"
-"\n"
 "Да наставите са објавама на Фликру, изађите и поново покрените Фото-бунар, и "
 "покушајте поново да објавите."
 
@@ -3596,7 +3596,6 @@ msgid ""
 "publishing again."
 msgstr ""
 "Већ сте се пријавили и одјавили са Фејсбука током ове сесије Фото-бунара.\n"
-"\n"
 "Да наставите са објавама на Фејсбуку, изађите и поново покрените Фото-бунар, "
 "и покушајте поново да објавите."
 
