@@ -42,16 +42,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-05 18:14+0000\n"
-"PO-Revision-Date: 2018-09-21 00:06+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/photos/photos/"
-"de/>\n"
+"PO-Revision-Date: 2021-02-15 12:46+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/photos/photos/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-07 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -80,15 +80,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Fehler beim Erstellen des Unterordners %s für Daten: %s"
 
 #: src/AppWindow.vala:162
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Beim Zugriff auf die Fotobibliothek ist ein schwerwiegender Fehler "
-"aufgetreten. Die Anwendung kann nicht fortgesetzt werden.\n"
+"Beim Zugriff auf die Fotosammlung ist ein schwerwiegender Fehler "
+"aufgetreten. Fotos kann nicht fortgesetzt werden.\n"
 "\n"
 "%s"
 
@@ -187,19 +187,19 @@ msgstr "Optimierung wiederherstellen"
 
 #: src/Commands.vala:894
 msgid "Applying Color Transformations"
-msgstr "Wende Farbumwandlung an"
+msgstr "Farbumwandlung anwenden"
 
 #: src/Commands.vala:894
 msgid "Undoing Color Transformations"
-msgstr "Entferne Farbumwandlung"
+msgstr "Farbumwandlung zurücknehmen"
 
 #: src/Commands.vala:1044
 msgid "Creating New Event"
-msgstr "Anlegen eines neuen Ereignisses"
+msgstr "Neues Ereignis anlegen"
 
 #: src/Commands.vala:1045
 msgid "Removing Event"
-msgstr "Ereignis wird entfernt"
+msgstr "Ereignis entfernen"
 
 #: src/Commands.vala:1054
 msgid "Moving Photos to New Event"
@@ -242,7 +242,7 @@ msgstr "Vorherigen RAW-Entwickler wiederherstellen"
 
 #: src/Commands.vala:1192
 msgid "Set Developer"
-msgstr "Wähle Entwickler"
+msgstr "Entwickler wählen"
 
 #: src/Commands.vala:1282
 msgid "Original photo could not be adjusted."
@@ -371,14 +371,14 @@ msgstr "Fehler beim Erstellen einer temporären Datei für %s: %s"
 
 #: src/Exporter.vala:311
 msgid "Exporting"
-msgstr "Wird exportiert"
+msgstr "Exportieren"
 
 #: src/Exporter.vala:331
 msgid "Export"
 msgstr "Exportieren"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "Die Datei %s existiert bereits. Soll sie überschrieben werden?"
 
@@ -415,31 +415,30 @@ msgstr "Vollbild verlassen"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Ihre Fotosammlung ist nicht kompatibel mit dieser Version von Fotos"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Ihre Fotobibliothek ist nicht mit dieser Anwendungsversion kompatibel.  Es "
-"scheint, dass es von Photos %s erstellt wurde (Schema %d).  Diese Version "
-"ist %s (Schema %d).  Bitte verwenden Sie die neueste Anwendungsversion."
+"Es scheint, dass sie mit Fotos %s (Schema %d) erstellt wurde. Diese Version "
+"ist %s (Schema %d).  Bitte verwenden Sie die aktuellste Version von Fotos."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Photos konnte Ihre Fotobibliothek nicht von Version %s (Schema %d) zu %s "
-"(Schema %d) aktualisieren. Weitere Informationen finden Sie im Wiki unter %s"
+"Fotos konnte Ihre Fotosammlung nicht von Version %s (Schema %d) zu %s ("
+"Schema %d) aktualisieren"
 
 #: src/main.vala:73
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "Weitere Informationen finden Sie im Fotos-Wiki unter %s"
 
 #: src/main.vala:77
 #, fuzzy, c-format
@@ -448,23 +447,21 @@ msgid ""
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Die Datenbank für die Fotobibliothek ist nicht mit dieser Version von Photos "
-"kompatibel. Es sieht so aus, als wäre sie von Photos %s (Schema %d) erzeugt "
-"worden. Dies ist Version %s (Schema %d). Bitte säubern Sie Ihre Bibliothek "
-"durch Löschen von %s und erneutem Import Ihrer Fotos."
+"Es scheint, als wäre sie von Fotos %s (Schema %d) erzeugt worden. Dies ist "
+"Version %s (Schema %d). Bitte erneuern Sie Ihre Sammlung durch Löschen von "
+"%s und erneuten Import Ihrer Fotos."
 
 #: src/main.vala:80
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Unbekannter Fehler bei der Überprüfung der Datenbank: %s"
+msgstr "Unbekannter Fehler bei der Überprüfung der Fotos-Datenbank"
 
 #: src/main.vala:115
 msgid "Loading Photos"
-msgstr "Photos wird geladen"
+msgstr "Fotos laden"
 
 #: src/main.vala:277
 msgid "Path to Photos' private data"
-msgstr "Pfad zu Photos Verwaltungsinformation"
+msgstr "Pfad zu Fotos’ Verwaltungsinformation"
 
 #: src/main.vala:277
 msgid "DIRECTORY"
@@ -484,7 +481,7 @@ msgstr "Versionsnummer anzeigen"
 
 #: src/main.vala:281
 msgid "Show extra debugging output"
-msgstr "Zeige mehr Debuggergebnisse an"
+msgstr "Zusätzliche Informationen zur Fehlerbehebung anzeigen"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:307
@@ -939,25 +936,25 @@ msgid "Modify Tags"
 msgstr "Schlagworte ändern"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Foto mit »%s« verschlagworten"
-msgstr[1] "Foto mit »%s« verschlagworten"
+msgstr[1] "Fotos mit »%s« verschlagworten"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Schlagwort »%s« vom _Foto entfernen"
-msgstr[1] "Schlagwort »%s« vom _Foto entfernen"
+msgstr[1] "Schlagwort »%s« von _Fotos entfernen"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Schlagwort »%s« vom Foto entfernen"
-msgstr[1] "Schlagwort »%s« vom Foto entfernen"
+msgstr[1] "Schlagwort »%s« von Fotos entfernen"
 
 #: src/Resources.vala:232
 #, c-format
@@ -1130,18 +1127,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "_Alle Fotos/Videos auf diesen Zeitpunkt setzen"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:114
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "Original Bilddatei _verändern"
-msgstr[1] "Original Bilddatei _verändern"
+msgstr[0] "Originale Bilddatei _verändern"
+msgstr[1] "Originale Bilddateien _verändern"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:117
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "Originaldatei _ändern"
-msgstr[1] "Originaldatei _ändern"
+msgstr[1] "Originaldateien _ändern"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 msgid "Original: "
@@ -1198,16 +1193,16 @@ msgstr[0] "Sekunde"
 msgstr[1] "Sekunden"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Das wird das Schlagwort »%s« von einem Foto entfernen. Fortsetzen?"
-msgstr[1] "Das wird das Schlagwort »%s« von %d Fotos entfernen. Fortsetzen?"
+msgstr[0] "Hierdurch wird das Schlagwort »%s« von einem Foto entfernt. Fortsetzen?"
+msgstr[1] "Hierdurch das Schlagwort »%s« von %d Fotos entfernt. Fortsetzen?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Das intelligente Album »%s« wird entfernt. Fortfahren?"
+msgstr "Hierdurch wird das intelligente Album »%s«. Fortfahren?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1225,7 +1220,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie die Entwickler wechseln wollen?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1237,11 +1232,10 @@ msgstr "Video exportieren"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:601
 #: src/Views/LibraryPhotoPage.vala:804
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Foto exportieren"
-msgstr[1] "Foto exportieren"
+msgstr[1] "Fotos exportieren"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
@@ -1689,28 +1683,28 @@ msgid "Name:"
 msgstr "Name:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Externe Veränderung zurücknehmen?"
-msgstr[1] "Externe Veränderung zurücknehmen?"
+msgstr[0] "Externe Änderung zurücknehmen?"
+msgstr[1] "Externe Änderungen zurücknehmen?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Dies wird alle Veränderungen der externen Datei zerstören. Fortfahren?"
+"Hiermit werden alle an der externen Datei vorgenommenen Änderungen "
+"verworfen. Fortfahren?"
 msgstr[1] ""
-"Dies wird alle Veränderungen der %d externen Dateien zerstören. Fortfahren?"
+"Hiermit werden alle an %d externen Dateien vorgenommenen Änderungen "
+"verworfen. Fortfahren?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Externe _Veränderung zurücknehmen"
-msgstr[1] "Externe _Veränderung zurücknehmen"
+msgstr[0] "Externe Änderung _verwerfen"
+msgstr[1] "Externe Änderungen _verwerfen"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1721,11 +1715,11 @@ msgid "Remove Photos From Library"
 msgstr "Fotos aus der Bibliothek entfernen"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Das Foto wird aus der Bibliothek entfernt. Fortfahren?"
-msgstr[1] "%d Fotos werden aus der Bibliothek entfernt. Fortfahren?"
+msgstr[0] "Das Foto wird aus der Sammlung entfernt. Fortfahren?"
+msgstr[1] "%d Fotos werden aus der Sammlung entfernt. Fortfahren?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1777,11 +1771,10 @@ msgid "Remove From Library"
 msgstr "Aus der Bibliothek entfernen"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Foto wird aus Bibliothek entfernt"
-msgstr[1] "Foto wird aus Bibliothek entfernt"
+msgstr[0] "Foto wird aus Sammlung entfernt"
+msgstr[1] "Fotos werden aus Sammlung entfernt"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1815,9 +1808,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skalierungsbeschränkung:"
 
 #: src/Dialogs/ExportDialog.vala:101
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "Informationsbereich aus_blenden"
+msgstr "_Größe in Pixel:"
 
 #: src/Dialogs/ExportDialog.vala:106
 msgid "Export metadata"
@@ -1845,7 +1837,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Importierte Dateien in Kleinschreibweise umbenennen:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "_Metadaten in Dateien schreiben:"
 
@@ -2616,11 +2607,10 @@ msgid "Other Actions"
 msgstr "Weitere Aktionen"
 
 #: src/Views/CollectionPage.vala:599
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Foto/Video exportieren"
-msgstr[1] "Foto/Video exportieren"
+msgstr[1] "Fotos/Videos exportieren"
 
 #: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Rotating"
@@ -2767,12 +2757,11 @@ msgid "Flagged"
 msgstr "Markiert"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Das Kameramedium kann nicht ausgehängt werden. Versuchen Sie es bitte über "
-"die Dateiverwaltung."
+"Das Kameramedium kann nicht ausgehängt werden. Versuchen Sie es über die "
+"Dateiverwaltung."
 
 #: src/Views/ImportPage.vala:784
 msgid "Hide photos already imported"
@@ -2818,14 +2807,14 @@ msgstr "Alle Fotos in die Bibliothek importieren"
 #: src/Views/ImportPage.vala:1095
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
+"Auf die Kamera kann nicht zugegriffen werden, während sie eingehängt ist."
 
 #: src/Views/ImportPage.vala:1096
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Photos muss die Kamera aus dem Dateisystem aushängen, um auf diese zugreifen "
-"zu können. Möchten Sie fortfahren?"
+"Fotos muss die Kamera aus dem Dateisystem aushängen, um auf sie zugreifen zu "
+"können."
 
 #: src/Views/ImportPage.vala:1102
 msgid "_Unmount"
@@ -2838,17 +2827,16 @@ msgstr "Bitte hängen Sie die Kamera aus."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1115
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Die Kamera wird von einer anderen Anwendung verwendet"
 
 #: src/Views/ImportPage.vala:1116
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Photos kann nur auf die Kamera zugreifen, wenn sie nicht durch andere "
-"Programme blockiert wird. Bitte schließen sie alle anderen Programme welche "
-"momentan auf die Kamera zugreifen und versuchen Sie es erneut."
+"Fotos kann nur auf die Kamera zugreifen, wenn sie nicht durch andere "
+"Programme blockiert wird. Bitte schließen Sie alle anderen Anwendungen, die "
+"momentan auf die Kamera zugreifen, und versuchen Sie es erneut."
 
 #: src/Views/ImportPage.vala:1123
 msgid "Please close any other application using the camera."
@@ -3501,18 +3489,17 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 × 1536 Pixel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
-"Sie sind gerade nicht bei Flickr angemeldet.\n"
+"Sie sind im Moment nicht bei Flickr angemeldet.\n"
 "\n"
-"Auf »Anmelden« klicken, um sich über Ihren Internet-Browser bei Flickr "
-"anzumelden. In Flickr müssen Sie Shotwell-Connect für die Verbindung mit "
-"Ihrem Flickr-Konto autorisieren."
+"Mit einem Klick auf »Anmelden«können Sie sich über Ihren Internet-Browser "
+"bei Flickr anmelden. Sie müssen »Shotwell Connect« erlauben, eine Verbindung "
+"zu Ihrem Flickr-Konto aufzubauen."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
