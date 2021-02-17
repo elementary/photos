@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-05 18:14+0000\n"
-"PO-Revision-Date: 2020-01-25 15:08+0000\n"
+"PO-Revision-Date: 2021-02-17 06:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/photos/"
 "ja/>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -3611,8 +3611,8 @@ msgid ""
 "'you are logged in as $name'\n"
 "(populated in the application code)"
 msgstr ""
-"'$nameでログインしています'\n"
-"(アプリケーションコード内で挿入されます)"
+"'$name としてログインしています'\n"
+"(この文章はソースコード内で上書きされます)"
 
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
 msgid "Photo _size preset:"
@@ -3624,11 +3624,15 @@ msgid ""
 "\n"
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
-msgstr "(name) で Flickr にログインしています。"
+msgstr ""
+"(名前) として Flickr にログインしています。\n"
+"\n"
+"(このラベルの文字列はソースコード内で上書きされるので、\n"
+"この翻訳文は表示されません)"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
 msgid "_visibility label (populated in the code)"
-msgstr "ビジビリティラベル (コード内で挿入されます)(_V)"
+msgstr "公開範囲に関するラベル (ソースコード内で上書きされます)(_V)"
 
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
@@ -3767,8 +3771,9 @@ msgid ""
 "so changes made here will not display)"
 msgstr ""
 "(名前) として Tumblr にログインしています。\n"
-"(このラベルの文字列は挿入されて、コード内部に設定されますので、\n"
-"ここで加える変更は表示されません)"
+"\n"
+"(このラベルの文字列はソースコード内で上書きされるので、\n"
+"この翻訳文は表示されません)"
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
 msgid "Blogs:"
