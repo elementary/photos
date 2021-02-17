@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-05 18:14+0000\n"
-"PO-Revision-Date: 2021-01-21 00:11+0000\n"
+"PO-Revision-Date: 2021-02-17 05:08+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
 "photos/nb/>\n"
@@ -263,7 +263,7 @@ msgstr "Flytt bilder til søppelbøtten"
 
 #: src/Commands.vala:2280
 msgid "Restore Photos from Trash"
-msgstr "Gjenopprett bilder fra  søppelkassen"
+msgstr "Gjenopprett bilder fra papirkurven"
 
 #: src/Commands.vala:2281
 msgid "Move the photos to the Photos trash"
@@ -400,13 +400,13 @@ msgstr ""
 "(skjema %d). Vennligst bruk den nyeste versjonen av Bilder."
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Bilder var ikke i stand til å oppgradere ditt bildebibliotek fra versjon %s  "
-"(skjema %d) til %s (skjema %d). For mer informasjon, sjekk Bilders wiki på %s"
+"Bilder kunne ikke oppgradere ditt bildebibliotek fra versjon %s (skjema %d) "
+"til %s (skjema %d)."
 
 #: src/main.vala:73
 #, fuzzy, c-format
@@ -471,9 +471,9 @@ msgstr ""
 "kommandolinje kommandoer.\n"
 
 #: src/MediaMonitor.vala:413
-#, c-format
+#, c-format, fuzzy
 msgid "Unable to process monitoring updates: %s"
-msgstr "Greide ikke å behandle mon.  oppdateringene :%s"
+msgstr "Greide ikke å behandle mon.-oppdateringene: %s"
 
 #: src/Photo.vala:3787
 msgid "modified"
@@ -3270,14 +3270,11 @@ msgstr "Besøk Yorbas nettsted"
 #: plugins/pantheon-photos-transitions/Resources.vala:41
 msgid "translator-credits"
 msgstr ""
+"Allan Nordhøy <epost@anotheragency.no>\n"
 "Jan Roar Roed <janroed@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Allan Nordhøy https://launchpad.net/~comradekingu\n"
-"  Anders Hansen https://launchpad.net/~janaha\n"
-"  Kevin Brubeck Unhammer https://launchpad.net/~unhammer\n"
-"  ProsjektX https://launchpad.net/~prosjektx\n"
-"  elementary Apps team https://launchpad.net/~elementary-apps"
+"Anders Hansen\n"
+"Kevin Brubeck Unhammer\n"
+"ProsjektX og elementary Apps-laget"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
@@ -3293,8 +3290,8 @@ msgid ""
 "Enter the URL of your Piwigo photo library as well as the username and "
 "password associated with your Piwigo account for that library."
 msgstr ""
-"Legg inn adressen (URL)til  ditt Piwigo fotobibliotek med tilhørende "
-"brukernavn og passord for dette bilioteket."
+"Legg inn nettadressen til ditt Piwigo-fotobibliotek med tilhørende "
+"brukernavn og passord for dette biblioteket."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
 msgid ""
@@ -3474,7 +3471,7 @@ msgstr "Din Flickr Pro-konto gir deg rett til ubegrenset opplastingsmengde."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1168
 msgid "Photos _visible to:"
-msgstr "Bilder er  _synlige for:"
+msgstr "Bilder er _synlige for:"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1170
 msgid "Videos _visible to:"
