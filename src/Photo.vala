@@ -1951,7 +1951,7 @@ public abstract class Photo : PhotoSource, Dateable {
         }
     }
 
-    public override time_t get_timestamp () {
+    public override int64 get_timestamp () {
         lock (row) {
             return backing_photo_row.timestamp;
         }
@@ -2287,7 +2287,7 @@ public abstract class Photo : PhotoSource, Dateable {
         }
     }
 
-    public override time_t get_exposure_time () {
+    public override int64 get_exposure_time () {
         return cached_exposure_time;
     }
 

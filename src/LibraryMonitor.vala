@@ -230,7 +230,7 @@ public class LibraryMonitor : DirectoryMonitor {
     private Gee.HashSet<File> pending_imports = new Gee.HashSet<File> (file_hash, file_equal);
     private Gee.ArrayList<BatchImport> batch_import_queue = new Gee.ArrayList<BatchImport> ();
     private BatchImportRoll current_import_roll = null;
-    private time_t last_import_roll_use = 0;
+    private int64 last_import_roll_use = 0;
     private BatchImport current_batch_import = null;
     private int checksums_completed = 0;
     private int checksums_total = 0;
@@ -601,7 +601,7 @@ public class LibraryMonitor : DirectoryMonitor {
         // If no import roll, or it's been over IMPORT_ROLL_QUIET_SEC since using the last one,
         // create a new one.  This allows for multiple files to come in back-to-back and be
         // imported on the same roll.
-        time_t now = (time_t) now_sec ();
+        int64 now = (int64) now_sec ();
         if (current_import_roll == null || (now - last_import_roll_use) >= IMPORT_ROLL_QUIET_SEC)
             current_import_roll = new BatchImportRoll ();
         last_import_roll_use = now;

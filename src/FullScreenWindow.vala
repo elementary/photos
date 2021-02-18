@@ -25,7 +25,7 @@ public class FullscreenWindow : PageWindow {
     private Gtk.Revealer revealer;
     private Gtk.Toolbar toolbar;
     private Gtk.ToggleToolButton pin_button;
-    private time_t left_toolbar_time = 0;
+    private int64 left_toolbar_time = 0;
     private bool switched_to = false;
 
     public bool auto_dismiss_toolbar { get; set; default = true; }
@@ -225,7 +225,7 @@ public class FullscreenWindow : PageWindow {
         }
 
         // see if enough time has elapsed
-        time_t now = time_t ();
+        int64 now = time_t ();
         assert (now >= left_toolbar_time);
 
         if (now - left_toolbar_time < TOOLBAR_DISMISSAL_SEC)

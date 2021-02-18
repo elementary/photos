@@ -20,10 +20,10 @@
 public class BackingFileState {
     public string filepath;
     public int64 filesize;
-    public time_t modification_time;
+    public int64 modification_time;
     public string? md5;
 
-    public BackingFileState (string filepath, int64 filesize, time_t modification_time, string? md5) {
+    public BackingFileState (string filepath, int64 filesize, int64 modification_time, string? md5) {
         this.filepath = filepath;
         this.filesize = filesize;
         this.modification_time = modification_time;
@@ -165,7 +165,7 @@ public abstract class MediaSource : ThumbnailSource, Indexable {
     public abstract File get_master_file ();
     public abstract uint64 get_master_filesize ();
     public abstract uint64 get_filesize ();
-    public abstract time_t get_timestamp ();
+    public abstract int64 get_timestamp ();
 
     // Must return at least one, for the master file.
     public abstract BackingFileState[] get_backing_files_state ();
@@ -268,7 +268,7 @@ public abstract class MediaSource : ThumbnailSource, Indexable {
         controller.commit ();
     }
 
-    public abstract time_t get_exposure_time ();
+    public abstract int64 get_exposure_time ();
 
     public abstract ImportID get_import_id ();
 }

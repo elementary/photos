@@ -85,7 +85,7 @@ public struct ImportID {
 public class PhotoRow {
     public PhotoID photo_id;
     public BackingPhotoRow master;
-    public time_t exposure_time;
+    public int64 exposure_time;
     public ImportID import_id;
     public EventID event_id;
     public Orientation orientation;
@@ -93,12 +93,12 @@ public class PhotoRow {
     public string md5;
     public string? thumbnail_md5;
     public string? exif_md5;
-    public time_t time_created;
+    public int64 time_created;
     public uint64 flags;
     public string? title;
     public string? comment;
     public string? backlinks;
-    public time_t time_reimported;
+    public int64 time_reimported;
     public BackingPhotoID editable_id;
     public bool metadata_dirty;
     public bool enhanced;
@@ -222,7 +222,7 @@ public class PhotoTable : DatabaseTable {
         photo_row.photo_id = PhotoID (db.last_insert_rowid ());
         photo_row.orientation = photo_row.master.original_orientation;
         photo_row.event_id = EventID ();
-        photo_row.time_created = (time_t) time_created;
+        photo_row.time_created = (int64) time_created;
         photo_row.flags = 0;
 
         return photo_row.photo_id;
@@ -240,7 +240,7 @@ public class PhotoTable : DatabaseTable {
             + "exif_md5 = ?, thumbnail_md5 = ?, file_format = ?, title = ?, time_reimported = ? "
             + "WHERE id = ?");
 
-        time_t time_reimported = (time_t) now_sec ();
+        int64 time_reimported = (int64) now_sec ();
 
         bind_int (stmt, 1, row.master.dim.width);
         bind_int (stmt, 2, row.master.dim.height);
@@ -332,8 +332,8 @@ public class PhotoTable : DatabaseTable {
         row.master.filepath = stmt.column_text (0);
         row.master.dim = Dimensions (stmt.column_int (1), stmt.column_int (2));
         row.master.filesize = stmt.column_int64 (3);
-        row.master.timestamp = (time_t) stmt.column_int64 (4);
-        row.exposure_time = (time_t) stmt.column_int64 (5);
+        row.master.timestamp = (int64) stmt.column_int64 (4);
+        row.exposure_time = (int64) stmt.column_int64 (5);
         row.orientation = (Orientation) stmt.column_int (6);
         row.master.original_orientation = (Orientation) stmt.column_int (7);
         row.import_id.id = stmt.column_int64 (8);
@@ -342,12 +342,12 @@ public class PhotoTable : DatabaseTable {
         row.md5 = stmt.column_text (11);
         row.thumbnail_md5 = stmt.column_text (12);
         row.exif_md5 = stmt.column_text (13);
-        row.time_created = (time_t) stmt.column_int64 (14);
+        row.time_created = (int64) stmt.column_int64 (14);
         row.flags = stmt.column_int64 (15);
         row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (16));
         row.title = stmt.column_text (17);
         row.backlinks = stmt.column_text (18);
-        row.time_reimported = (time_t) stmt.column_int64 (19);
+        row.time_reimported = (int64) stmt.column_int64 (19);
         row.editable_id = BackingPhotoID (stmt.column_int64 (20));
         row.metadata_dirty = stmt.column_int (21) != 0;
         row.developer = stmt.column_text (22) != null ? RawDeveloper.from_string (stmt.column_text (22)) :
@@ -378,8 +378,8 @@ public class PhotoTable : DatabaseTable {
             row.master.filepath = stmt.column_text (1);
             row.master.dim = Dimensions (stmt.column_int (2), stmt.column_int (3));
             row.master.filesize = stmt.column_int64 (4);
-            row.master.timestamp = (time_t) stmt.column_int64 (5);
-            row.exposure_time = (time_t) stmt.column_int64 (6);
+            row.master.timestamp = (int64) stmt.column_int64 (5);
+            row.exposure_time = (int64) stmt.column_int64 (6);
             row.orientation = (Orientation) stmt.column_int (7);
             row.master.original_orientation = (Orientation) stmt.column_int (8);
             row.import_id.id = stmt.column_int64 (9);
@@ -388,12 +388,12 @@ public class PhotoTable : DatabaseTable {
             row.md5 = stmt.column_text (12);
             row.thumbnail_md5 = stmt.column_text (13);
             row.exif_md5 = stmt.column_text (14);
-            row.time_created = (time_t) stmt.column_int64 (15);
+            row.time_created = (int64) stmt.column_int64 (15);
             row.flags = stmt.column_int64 (16);
             row.master.file_format = PhotoFileFormat.unserialize (stmt.column_int (17));
             row.title = stmt.column_text (18);
             row.backlinks = stmt.column_text (19);
-            row.time_reimported = (time_t) stmt.column_int64 (20);
+            row.time_reimported = (int64) stmt.column_int64 (20);
             row.editable_id = BackingPhotoID (stmt.column_int64 (21));
             row.metadata_dirty = stmt.column_int (22) != 0;
             row.developer = stmt.column_text (23) != null ? RawDeveloper.from_string (stmt.column_text (23)) :
@@ -479,11 +479,11 @@ public class PhotoTable : DatabaseTable {
         update_text_by_id_2 (photo_id.id, "filename", filepath);
     }
 
-    public void update_timestamp (PhotoID photo_id, time_t timestamp) throws DatabaseError {
+    public void update_timestamp (PhotoID photo_id, int64 timestamp) throws DatabaseError {
         update_int64_by_id_2 (photo_id.id, "timestamp", timestamp);
     }
 
-    public bool set_exposure_time (PhotoID photo_id, time_t time) {
+    public bool set_exposure_time (PhotoID photo_id, int64 time) {
         return update_int64_by_id (photo_id.id, "exposure_time", (int64) time);
     }
 
@@ -976,10 +976,10 @@ public struct BackingPhotoID {
 
 public class BackingPhotoRow {
     public BackingPhotoID id;
-    public time_t time_created;
+    public int64 time_created;
     public string? filepath = null;
     public int64 filesize;
-    public time_t timestamp;
+    public int64 timestamp;
     public PhotoFileFormat file_format;
     public Dimensions dim;
     public Orientation original_orientation;
@@ -1050,7 +1050,7 @@ public class BackingPhotoTable : DatabaseTable {
             + "file_format, time_created) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-        time_t time_created = (time_t) now_sec ();
+        int64 time_created = (int64) now_sec ();
 
         bind_text (stmt, 1, state.filepath);
         bind_int64 (stmt, 2, state.timestamp);
@@ -1084,12 +1084,12 @@ public class BackingPhotoTable : DatabaseTable {
         BackingPhotoRow row = new BackingPhotoRow ();
         row.id = id;
         row.filepath = stmt.column_text (0);
-        row.timestamp = (time_t) stmt.column_int64 (1);
+        row.timestamp = (int64) stmt.column_int64 (1);
         row.filesize = stmt.column_int64 (2);
         row.dim = Dimensions (stmt.column_int (3), stmt.column_int (4));
         row.original_orientation = (Orientation) stmt.column_int (5);
         row.file_format = PhotoFileFormat.unserialize (stmt.column_int (6));
-        row.time_created = (time_t) stmt.column_int64 (7);
+        row.time_created = (int64) stmt.column_int64 (7);
 
         return row;
     }
@@ -1114,7 +1114,7 @@ public class BackingPhotoTable : DatabaseTable {
             throw_error ("BackingPhotoTable.update", res);
     }
 
-    public void update_attributes (BackingPhotoID id, time_t timestamp, int64 filesize) throws DatabaseError {
+    public void update_attributes (BackingPhotoID id, int64 timestamp, int64 filesize) throws DatabaseError {
         var stmt = create_stmt ("UPDATE BackingPhotoTable SET timestamp=?, filesize=? WHERE id=?");
 
         bind_int64 (stmt, 1, timestamp);
@@ -1134,7 +1134,7 @@ public class BackingPhotoTable : DatabaseTable {
         update_text_by_id_2 (id.id, "filepath", filepath);
     }
 
-    public void update_timestamp (BackingPhotoID id, time_t timestamp) throws DatabaseError {
+    public void update_timestamp (BackingPhotoID id, int64 timestamp) throws DatabaseError {
         update_int64_by_id_2 (id.id, "timestamp", timestamp);
     }
 }

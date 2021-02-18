@@ -39,7 +39,7 @@ public class TagRow {
     public TagID tag_id;
     public string name;
     public Gee.Set<string>? source_id_list;
-    public time_t time_created;
+    public int64 time_created;
 }
 
 public class TagTable : DatabaseTable {
@@ -87,7 +87,7 @@ public class TagTable : DatabaseTable {
     public TagRow add (string name) throws DatabaseError {
         var stmt = create_stmt ("INSERT INTO TagTable (name, time_created) VALUES (?, ?)");
 
-        time_t time_created = (time_t) now_sec ();
+        int64 time_created = (int64) now_sec ();
 
         bind_text (stmt, 1, name);
         bind_int64 (stmt, 2, time_created);
@@ -147,7 +147,7 @@ public class TagTable : DatabaseTable {
         row.tag_id = tag_id;
         row.name = stmt.column_text (0);
         row.source_id_list = unserialize_source_ids (stmt.column_text (1));
-        row.time_created = (time_t) stmt.column_int64 (2);
+        row.time_created = (int64) stmt.column_int64 (2);
 
         return row;
     }
@@ -169,7 +169,7 @@ public class TagTable : DatabaseTable {
             row.tag_id = TagID (stmt.column_int64 (0));
             row.name = stmt.column_text (1);
             row.source_id_list = unserialize_source_ids (stmt.column_text (2));
-            row.time_created = (time_t) stmt.column_int64 (3);
+            row.time_created = (int64) stmt.column_int64 (3);
 
             rows.add (row);
         }

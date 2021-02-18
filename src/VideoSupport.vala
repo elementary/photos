@@ -30,7 +30,8 @@ public class VideoImportParams {
     public File file;
     public ImportID import_id = ImportID ();
     public string? md5;
-    public time_t exposure_time_override;
+//~     public int64 exposure_time_override;
+    public int64 exposure_time_override;
 
     // IN/OUT:
     public Thumbnails? thumbnails;
@@ -39,7 +40,7 @@ public class VideoImportParams {
     public VideoRow row = new VideoRow ();
 
     public VideoImportParams (File file, ImportID import_id, string? md5,
-                              Thumbnails? thumbnails = null, time_t exposure_time_override = 0) {
+                              Thumbnails? thumbnails = null, int64 exposure_time_override = 0) {
         this.file = file;
         this.import_id = import_id;
         this.md5 = md5;
@@ -124,7 +125,7 @@ public class VideoReader {
         // make sure params has a valid md5
         assert (params.md5 != null);
 
-        time_t exposure_time = params.exposure_time_override;
+        int64 exposure_time = params.exposure_time_override;
         string title = "";
         string comment = "";
 
@@ -164,7 +165,7 @@ public class VideoReader {
 
         if (exposure_time == 0) {
             // Use time reported by Gstreamer, if available.
-            exposure_time = (time_t) (reader.timestamp != null ?
+            exposure_time = (int64) (reader.timestamp != null ?
                                       reader.timestamp.to_unix () : 0);
         }
 
@@ -740,13 +741,13 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         }
     }
 
-    public override time_t get_exposure_time () {
+    public override int64 get_exposure_time () {
         lock (backing_row) {
             return backing_row.exposure_time;
         }
     }
 
-    public void set_exposure_time (time_t time) {
+    public void set_exposure_time (int64 time) {
         lock (backing_row) {
             try {
                 VideoTable.get_instance ().set_exposure_time (backing_row.video_id, time);
@@ -779,7 +780,7 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
         }
     }
 
-    public override time_t get_timestamp () {
+    public override int64 get_timestamp () {
         lock (backing_row) {
             return backing_row.timestamp;
         }

@@ -192,8 +192,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     }
 
     private static int64 event_ascending_comparator (void *a, void *b) {
-        time_t start_a = ((EventDirectoryItem *) a)->event.get_start_time ();
-        time_t start_b = ((EventDirectoryItem *) b)->event.get_start_time ();
+        int64 start_a = ((EventDirectoryItem *) a)->event.get_start_time ();
+        int64 start_b = ((EventDirectoryItem *) b)->event.get_start_time ();
 
         return start_a - start_b;
     }
@@ -338,13 +338,13 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         private int year = 0;
         DirectoryType type;
 
-        public SubEventDirectoryManager (DirectoryType type, Time time) {
+        public SubEventDirectoryManager (DirectoryType type, DateTime time) {
             base ();
 
             if (type == DirectoryType.MONTH)
-                month = time.month;
+                month = time.get_month ();
             this.type = type;
-            year = time.year;
+            year = time.get_year ();
         }
 
         public override bool include_in_view (DataSource source) {
@@ -352,11 +352,12 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
                 return false;
 
             EventSource event = (EventSource) source;
-            Time event_time = Time.local (event.get_start_time ());
-            if (event_time.year == year) {
+            DateTime event_time = new DateTime.from_unix_local (event.get_start_time ());
+            if (event_time.get_year () == year) {
                 if (type == DirectoryType.MONTH) {
-                    return (event_time.month == month);
+                    return (event_time.get_month () == month);
                 }
+
                 return true;
             }
             return false;
@@ -375,7 +376,7 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         }
     }
 
-    public SubEventsDirectoryPage (DirectoryType type, Time time) {
+    public SubEventsDirectoryPage (DirectoryType type, DateTime time) {
         string page_name;
         if (type == SubEventsDirectoryPage.DirectoryType.UNDATED) {
             page_name = UNDATED_PAGE_NAME;

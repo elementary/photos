@@ -108,8 +108,8 @@ public class MetadataWriter : Object {
             }
 
             // exposure date/time
-            time_t current_exposure_time = photo.get_exposure_time ();
-            time_t metadata_exposure_time = 0;
+            int64 current_exposure_time = photo.get_exposure_time ();
+            int64 metadata_exposure_time = 0;
             MetadataDateTime? metadata_exposure_date_time = metadata.get_exposure_date_time ();
             if (metadata_exposure_date_time != null)
                 metadata_exposure_time = metadata_exposure_date_time.get_timestamp ();
