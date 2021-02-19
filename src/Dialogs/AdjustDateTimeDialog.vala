@@ -228,10 +228,11 @@ public class AdjustDateTimeDialog : Granite.Dialog {
         bool response = false;
 
         if (run () == Gtk.ResponseType.OK) {
-            if (no_original_time)
-                time_shift = (int64) get_time ();
-            else
-                time_shift = (int64) (get_time () - original_time);
+            if (no_original_time) {
+                time_shift = get_time ();
+            } else {
+                time_shift = get_time () - original_time;
+            }
 
             keep_relativity = relativity_radio_button.get_active ();
 
@@ -264,7 +265,7 @@ public class AdjustDateTimeDialog : Granite.Dialog {
     }
 
     private void on_time_changed () {
-        int64 time_shift = ((int64) get_time () - (int64) original_time);
+        int64 time_shift = get_time () - original_time;
 
         previous_time_system = (TimeSystem) system.get_active ();
 

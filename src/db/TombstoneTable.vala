@@ -85,7 +85,7 @@ public class TombstoneTable : DatabaseTable {
         bind_text (stmt, 1, filepath);
         bind_int64 (stmt, 2, filesize);
         bind_text (stmt, 3, md5);
-        bind_int64 (stmt, 4, (int64) time_created);
+        bind_int64 (stmt, 4, time_created);
         bind_int (stmt, 5, reason.serialize ());
 
         var res = stmt.step ();
@@ -126,7 +126,7 @@ public class TombstoneTable : DatabaseTable {
             row.filepath = stmt.column_text (1);
             row.filesize = stmt.column_int64 (2);
             row.md5 = stmt.column_text (3);
-            row.time_created = (int64) stmt.column_int64 (4);
+            row.time_created = stmt.column_int64 (4);
             row.reason = Tombstone.Reason.unserialize (stmt.column_int (5));
 
             rows[index++] = row;

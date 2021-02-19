@@ -145,7 +145,7 @@ public class EventTable : DatabaseTable {
         if (row.name != null && row.name.length == 0)
             row.name = null;
         row.primary_source_id = source_id_upgrade (stmt.column_int64 (1), stmt.column_text (2));
-        row.time_created = (int64) stmt.column_int64 (3);
+        row.time_created = stmt.column_int64 (3);
         row.comment = stmt.column_text (4);
 
         return row;
@@ -174,7 +174,7 @@ public class EventTable : DatabaseTable {
             row.event_id = EventID (stmt.column_int64 (0));
             row.name = stmt.column_text (1);
             row.primary_source_id = source_id_upgrade (stmt.column_int64 (2), stmt.column_text (3));
-            row.time_created = (int64) stmt.column_int64 (4);
+            row.time_created = stmt.column_int64 (4);
             row.comment = stmt.column_text (5);
 
             event_rows.add (row);
@@ -214,7 +214,7 @@ public class EventTable : DatabaseTable {
         if (!select_by_id (event_id.id, "time_created", out stmt))
             return 0;
 
-        return (int64) stmt.column_int64 (0);
+        return stmt.column_int64 (0);
     }
 
     public bool set_comment (EventID event_id, string new_comment) {

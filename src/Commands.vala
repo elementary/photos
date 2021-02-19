@@ -1253,7 +1253,7 @@ public class AdjustDateTimePhotoCommand : SingleDataSourceCommand {
     }
 
     public override void execute () {
-        set_time (dateable, dateable.get_exposure_time () + (int64) time_shift);
+        set_time (dateable, dateable.get_exposure_time () + time_shift);
 
         prev_event = dateable.get_event ();
 
@@ -1269,7 +1269,7 @@ public class AdjustDateTimePhotoCommand : SingleDataSourceCommand {
     }
 
     public override void undo () {
-        set_time (dateable, dateable.get_exposure_time () - (int64) time_shift);
+        set_time (dateable, dateable.get_exposure_time () - time_shift);
 
         dateable.set_event (prev_event);
     }
@@ -1316,8 +1316,7 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
             prev_events.set ((Dateable)(view.source), ((MediaSource)(view.source)).get_event ());
 
             if (new_time == null) {
-                new_time = ((Dateable) view.source).get_exposure_time () +
-                           (int64) time_shift;
+                new_time = ((Dateable) view.source).get_exposure_time () + time_shift;
                 break;
             }
         }
@@ -1382,7 +1381,7 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
         Dateable dateable = ((Dateable) source);
 
         if (keep_relativity && dateable.get_exposure_time () != 0) {
-            set_time (dateable, dateable.get_exposure_time () + (int64) time_shift);
+            set_time (dateable, dateable.get_exposure_time () + time_shift);
         } else {
             old_times.set (dateable, dateable.get_exposure_time ());
             set_time (dateable, new_time);
@@ -1406,7 +1405,7 @@ public class AdjustDateTimePhotosCommand : MultipleDataSourceCommand {
             set_time (photo, old_times.get (photo));
             old_times.unset (photo);
         } else {
-            set_time (photo, photo.get_exposure_time () - (int64) time_shift);
+            set_time (photo, photo.get_exposure_time () - time_shift);
         }
 
         ((MediaSource)source).set_event (prev_events.get (source as Dateable));

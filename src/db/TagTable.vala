@@ -147,7 +147,7 @@ public class TagTable : DatabaseTable {
         row.tag_id = tag_id;
         row.name = stmt.column_text (0);
         row.source_id_list = unserialize_source_ids (stmt.column_text (1));
-        row.time_created = (int64) stmt.column_int64 (2);
+        row.time_created = stmt.column_int64 (2);
 
         return row;
     }
@@ -169,7 +169,7 @@ public class TagTable : DatabaseTable {
             row.tag_id = TagID (stmt.column_int64 (0));
             row.name = stmt.column_text (1);
             row.source_id_list = unserialize_source_ids (stmt.column_text (2));
-            row.time_created = (int64) stmt.column_int64 (3);
+            row.time_created = stmt.column_int64 (3);
 
             rows.add (row);
         }

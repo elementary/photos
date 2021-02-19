@@ -147,7 +147,7 @@ public class VideoTable : DatabaseTable {
         // fill in ignored fields with database values
         video_row.video_id = VideoID (db.last_insert_rowid ());
         video_row.event_id = EventID ();
-        video_row.time_created = (int64) time_created;
+        video_row.time_created = time_created;
         video_row.flags = 0;
 
         return video_row.video_id;
@@ -188,15 +188,15 @@ public class VideoTable : DatabaseTable {
         row.clip_duration = stmt.column_double (3);
         row.is_interpretable = (stmt.column_int (4) == 1);
         row.filesize = stmt.column_int64 (5);
-        row.timestamp = (int64) stmt.column_int64 (6);
-        row.exposure_time = (int64) stmt.column_int64 (7);
+        row.timestamp = stmt.column_int64 (6);
+        row.exposure_time = stmt.column_int64 (7);
         row.import_id.id = stmt.column_int64 (8);
         row.event_id.id = stmt.column_int64 (9);
         row.md5 = stmt.column_text (10);
-        row.time_created = (int64) stmt.column_int64 (11);
+        row.time_created = stmt.column_int64 (11);
         row.title = stmt.column_text (12);
         row.backlinks = stmt.column_text (13);
-        row.time_reimported = (int64) stmt.column_int64 (14);
+        row.time_reimported = stmt.column_int64 (14);
         row.flags = stmt.column_int64 (15);
         row.comment = stmt.column_text (16);
 
@@ -252,7 +252,7 @@ public class VideoTable : DatabaseTable {
     }
 
     public void set_exposure_time (VideoID video_id, int64 time) throws DatabaseError {
-        update_int64_by_id_2 (video_id.id, "exposure_time", (int64) time);
+        update_int64_by_id_2 (video_id.id, "exposure_time", time);
     }
 
     public void set_flags (VideoID video_id, uint64 flags) throws DatabaseError {
@@ -410,6 +410,6 @@ public class VideoTable : DatabaseTable {
     }
 
     public void set_timestamp (VideoID video_id, int64 timestamp) throws DatabaseError {
-        update_int64_by_id_2 (video_id.id, "timestamp", (int64) timestamp);
+        update_int64_by_id_2 (video_id.id, "timestamp", timestamp);
     }
 }
