@@ -438,7 +438,7 @@ public class BatchImport : Object {
     private int file_imports_to_perform = -1;
     private int file_imports_completed = 0;
     private Cancellable? cancellable = null;
-    private ulong last_preparing_ms = 0;
+    private int64 last_preparing_ms = 0;
     private Gee.HashSet<File> skipset;
 #if !NO_DUPE_DETECTION
     private Gee.HashMap<string, File> imported_full_md5_table = new Gee.HashMap<string, File> ();
@@ -597,13 +597,13 @@ public class BatchImport : Object {
         // only report "progress" if progress has been made (and enough time has progressed),
         // otherwise still preparing
         if (completed_bytes == 0) {
-            ulong now = now_ms ();
+            int64 now = now_ms ();
             if (now - last_preparing_ms > 250) {
                 last_preparing_ms = now;
                 preparing ();
             }
         } else if (increment_of_progress > 0) {
-            ulong now = now_ms ();
+            int64 now = now_ms ();
             if (now - last_preparing_ms > 250) {
                 last_preparing_ms = now;
                 progress (completed_bytes, total_bytes);

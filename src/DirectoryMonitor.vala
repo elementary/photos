@@ -101,7 +101,7 @@ public class DirectoryMonitor : Object {
         public File? other_file;
         public FileMonitorEvent event;
         public uint position;
-        public ulong time_created_msec;
+        public int64 time_created_msec;
         public FileInfo? info = null;
         public Error? err = null;
         public bool completed = false;
@@ -1393,7 +1393,7 @@ public class DirectoryMonitor : Object {
     }
 
     private bool check_for_expired_delete_events () {
-        ulong expiration = now_ms () - DELETED_EXPIRATION_MSEC;
+        int64 expiration = now_ms () - DELETED_EXPIRATION_MSEC;
 
         bool any_deleted = false;
         bool any_expired = false;

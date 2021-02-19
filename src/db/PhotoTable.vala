@@ -188,7 +188,7 @@ public class PhotoTable : DatabaseTable {
             + "exif_md5, time_created, file_format, title, editable_id, developer, comment) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        ulong time_created = now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, photo_row.master.filepath);
         bind_int (stmt, 2, photo_row.master.dim.width);

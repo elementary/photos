@@ -67,22 +67,16 @@ public bool int_value_equals (Value a, Value b) {
     return (int) a == (int) b;
 }
 
-public ulong timeval_to_ms (TimeVal time_val) {
-    return (((ulong) time_val.tv_sec) * 1000) + (((ulong) time_val.tv_usec) / 1000);
+public int64 now_ms () {
+    var date_time_now = new DateTime.now_local ();
+
+    return date_time_now.to_unix () * 1000 + date_time_now.get_microsecond () / 1000;
 }
 
-public ulong now_ms () {
-    return timeval_to_ms (TimeVal ());
-}
+public int64 now_sec () {
+    var date_time_now = new DateTime.now_local ();
 
-public ulong now_sec () {
-    TimeVal time_val = TimeVal ();
-
-    return time_val.tv_sec;
-}
-
-public inline int64 now_int64 () {
-    return (int64) now_sec ();
+    return date_time_now.to_unix ();
 }
 
 public string md5_binary (uint8 *buffer, size_t length) {

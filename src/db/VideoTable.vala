@@ -121,7 +121,7 @@ public class VideoTable : DatabaseTable {
             + "filesize, timestamp, exposure_time, import_id, event_id, md5, time_created, title, comment) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        ulong time_created = now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, video_row.filepath);
         bind_int (stmt, 2, video_row.width);
