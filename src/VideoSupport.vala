@@ -30,7 +30,6 @@ public class VideoImportParams {
     public File file;
     public ImportID import_id = ImportID ();
     public string? md5;
-//~     public int64 exposure_time_override;
     public int64 exposure_time_override;
 
     // IN/OUT:

@@ -22,7 +22,6 @@ public class AdjustDateTimeDialog : Granite.Dialog {
     private const int64 SECONDS_IN_DAY = 60 * 60 * 24;
     private const int64 SECONDS_IN_HOUR = 60 * 60;
     private const int64 SECONDS_IN_MINUTE = 60;
-//~     private const int YEAR_OFFSET = 1900;
     private bool no_original_time = false;
 
     private const int CALENDAR_THUMBNAIL_SCALE = 1;
@@ -209,11 +208,6 @@ public class AdjustDateTimeDialog : Granite.Dialog {
     }
 
     private int64 get_time () {
-//~         Time time = Time ();
-
-//~         time.second = (int) second.get_value ();
-//~         time.minute = (int) minute.get_value ();
-
         // convert to 24 hr
         int hour = (int) hour.get_value ();
         hour = (hour == 12 && system.get_active () != TimeSystem.24HR) ? 0 : hour;
@@ -221,12 +215,9 @@ public class AdjustDateTimeDialog : Granite.Dialog {
 
         uint year, month, day;
         calendar.get_date (out year, out month, out day);
-//~         time.year = ((int) year) - YEAR_OFFSET;
-//~         time.month = (int) month;
-//~         time.day = (int) day;
-
-//~         time.isdst = -1;
-        var date_time = new DateTime.local ((int)year, (int)month, (int)day, hour, (int) minute.get_value (), second.get_value ());
+        var date_time = new DateTime.local (
+            (int) year, (int) month, (int) day, hour, (int) minute.get_value (), second.get_value ()
+        );
         return date_time.to_unix ();
     }
 

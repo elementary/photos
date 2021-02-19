@@ -58,7 +58,6 @@ public errordomain MetadataDateTimeError {
 }
 
 public class MetadataDateTime {
-//~     private int64 timestamp;
     private int64 timestamp;
 
     public MetadataDateTime (int64 timestamp) {
@@ -71,12 +70,10 @@ public class MetadataDateTime {
     }
 
     public MetadataDateTime.from_xmp (string label) throws MetadataDateTimeError {
-//~         TimeVal time_val = TimeVal ();
         DateTime? date_time = new DateTime.from_iso8601 (label, null);
         if (date_time == null)
             throw new MetadataDateTimeError.INVALID_FORMAT ("%s is not XMP format date/time", label);
 
-//~         timestamp = time_val.tv_sec;
         timestamp = date_time.to_unix ();
     }
 
@@ -85,16 +82,11 @@ public class MetadataDateTime {
     }
 
     public string get_exif_label () {
-//~         return Time.local (timestamp).format ("%Y:%m:%d %H:%M:%S");
         return (new DateTime.from_unix_utc (timestamp)).format ("%Y:%m:%d %H:%M:%S");
     }
 
     public string get_xmp_label () {
-//~         TimeVal time_val = TimeVal ();
-//~         time_val.tv_sec = timestamp;
-//~         time_val.tv_usec = 0;
         var date_time = new DateTime.from_unix_utc (timestamp);
-//~         return time_val.to_iso8601 ();
         return date_time.format_iso8601 ();
     }
 
@@ -125,12 +117,7 @@ public class MetadataDateTime {
             return false;
         }
 
-//~         tm.year -= 1900;
-//~         tm.month--;
-//~         tm.isdst = -1;
-
-        var date_time = new DateTime.local (year, month, day, hour, minute, (double)second);
-//~         timestamp = tm.mktime ();
+        var date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
         timestamp = date_time.to_unix ();
 
         return true;
