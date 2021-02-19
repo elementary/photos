@@ -236,7 +236,7 @@ public class PhotoTable : DatabaseTable {
             + "exif_md5 = ?, thumbnail_md5 = ?, file_format = ?, title = ?, time_reimported = ? "
             + "WHERE id = ?");
 
-        int64 time_reimported = (int64) now_sec ();
+        int64 time_reimported = now_sec ();
 
         bind_int (stmt, 1, row.master.dim.width);
         bind_int (stmt, 2, row.master.dim.height);
@@ -1046,7 +1046,7 @@ public class BackingPhotoTable : DatabaseTable {
             + "file_format, time_created) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-        int64 time_created = (int64) now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, state.filepath);
         bind_int64 (stmt, 2, state.timestamp);

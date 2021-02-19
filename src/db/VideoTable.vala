@@ -221,15 +221,15 @@ public class VideoTable : DatabaseTable {
             row.clip_duration = stmt.column_double (4);
             row.is_interpretable = (stmt.column_int (5) == 1);
             row.filesize = stmt.column_int64 (6);
-            row.timestamp = (int64) stmt.column_int64 (7);
-            row.exposure_time = (int64) stmt.column_int64 (8);
+            row.timestamp = stmt.column_int64 (7);
+            row.exposure_time = stmt.column_int64 (8);
             row.import_id.id = stmt.column_int64 (9);
             row.event_id.id = stmt.column_int64 (10);
             row.md5 = stmt.column_text (11);
-            row.time_created = (int64) stmt.column_int64 (12);
+            row.time_created = stmt.column_int64 (12);
             row.title = stmt.column_text (13);
             row.backlinks = stmt.column_text (14);
-            row.time_reimported = (int64) stmt.column_int64 (15);
+            row.time_reimported = stmt.column_int64 (15);
             row.flags = stmt.column_int64 (16);
             row.comment = stmt.column_text (17);
 

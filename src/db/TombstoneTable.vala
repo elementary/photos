@@ -80,7 +80,7 @@ public class TombstoneTable : DatabaseTable {
         + "(filepath, filesize, md5, time_created, reason) "
         + "VALUES (?, ?, ?, ?, ?)");
 
-        int64 time_created = (int64) now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, filepath);
         bind_int64 (stmt, 2, filesize);

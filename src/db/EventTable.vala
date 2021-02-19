@@ -88,7 +88,7 @@ public class EventTable : DatabaseTable {
 
         var stmt = create_stmt ("INSERT INTO EventTable (primary_source_id, time_created, comment) VALUES (?, ?, ?)");
 
-        int64 time_created = (int64) now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, primary_source_id);
         bind_int64 (stmt, 2, time_created);

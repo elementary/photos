@@ -601,9 +601,11 @@ public class LibraryMonitor : DirectoryMonitor {
         // If no import roll, or it's been over IMPORT_ROLL_QUIET_SEC since using the last one,
         // create a new one.  This allows for multiple files to come in back-to-back and be
         // imported on the same roll.
-        int64 now = (int64) now_sec ();
-        if (current_import_roll == null || (now - last_import_roll_use) >= IMPORT_ROLL_QUIET_SEC)
+        int64 now = now_sec ();
+        if (current_import_roll == null || (now - last_import_roll_use) >= IMPORT_ROLL_QUIET_SEC) {
             current_import_roll = new BatchImportRoll ();
+        }
+
         last_import_roll_use = now;
 
         Gee.ArrayList<BatchImportJob> jobs = new Gee.ArrayList<BatchImportJob> ();

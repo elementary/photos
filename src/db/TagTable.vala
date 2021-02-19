@@ -87,7 +87,7 @@ public class TagTable : DatabaseTable {
     public TagRow add (string name) throws DatabaseError {
         var stmt = create_stmt ("INSERT INTO TagTable (name, time_created) VALUES (?, ?)");
 
-        int64 time_created = (int64) now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, name);
         bind_int64 (stmt, 2, time_created);
