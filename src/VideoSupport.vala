@@ -164,8 +164,7 @@ public class VideoReader {
 
         if (exposure_time == 0) {
             // Use time reported by Gstreamer, if available.
-            exposure_time = (int64) (reader.timestamp != null ?
-                                      reader.timestamp.to_unix () : 0);
+            exposure_time = (reader.timestamp != null ? reader.timestamp.to_unix () : 0);
         }
 
         params.row.video_id = VideoID ();

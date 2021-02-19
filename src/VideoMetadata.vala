@@ -76,7 +76,7 @@ private class QuickTimeMetadataLoader {
     }
 
     public MetadataDateTime? get_creation_date_time () {
-        return new MetadataDateTime ((int64) get_creation_date_time_for_quicktime ());
+        return new MetadataDateTime (get_creation_date_time_for_quicktime ());
     }
 
     public string? get_title () {
@@ -320,7 +320,7 @@ private class AVIMetadataLoader {
     }
 
     public MetadataDateTime? get_creation_date_time () {
-        return new MetadataDateTime ((int64) get_creation_date_time_for_avi ());
+        return new MetadataDateTime (get_creation_date_time_for_avi ());
     }
 
     public string? get_title () {
