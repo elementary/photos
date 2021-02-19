@@ -265,7 +265,7 @@ public class PhotoTable : DatabaseTable {
         row.orientation = row.master.original_orientation;
     }
 
-    public bool master_exif_updated (PhotoID photo_id, int64 filesize, long timestamp,
+    public bool master_exif_updated (PhotoID photo_id, int64 filesize, int64 timestamp,
                                      string md5, string? exif_md5, string? thumbnail_md5, PhotoRow row) {
         var stmt = create_stmt (
             "UPDATE PhotoTable SET filesize = ?, timestamp = ?, md5 = ?, exif_md5 = ?,"

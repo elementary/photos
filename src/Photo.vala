@@ -555,11 +555,12 @@ public abstract class Photo : PhotoSource, Dateable {
     }
 
     public static void import_developed_backing_photo (PhotoRow row, RawDeveloper d,
-            BackingPhotoRow bpr) throws Error {
+                                                       BackingPhotoRow bpr) throws Error {
+
         File file = File.new_for_path (bpr.filepath);
         FileInfo info = file.query_info (DirectoryMonitor.SUPPLIED_ATTRIBUTES,
         FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
-        TimeVal timestamp = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         PhotoFileInterrogator interrogator = new PhotoFileInterrogator (
             file, PhotoFileSniffer.Options.GET_ALL);
@@ -568,7 +569,7 @@ public abstract class Photo : PhotoSource, Dateable {
         DetectedPhotoInformation? detected = interrogator.get_detected_photo_information ();
         bpr.dim = detected.image_dim;
         bpr.filesize = info.get_size ();
-        bpr.timestamp = timestamp.tv_sec;
+        bpr.timestamp = mod_time;
         bpr.original_orientation = detected.metadata != null ? detected.metadata.get_orientation () :
         Orientation.TOP_LEFT;
 
@@ -1096,7 +1097,7 @@ public abstract class Photo : PhotoSource, Dateable {
             return ImportResult.UNSUPPORTED_FORMAT;
         }
 
-        TimeVal timestamp = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         // if all MD5s supplied, don't sniff for them
         if (params.exif_md5 != null && params.thumbnail_md5 != null && params.full_md5 != null) {
@@ -1164,7 +1165,7 @@ public abstract class Photo : PhotoSource, Dateable {
         params.row.master.filepath = file.get_path ();
         params.row.master.dim = detected.image_dim;
         params.row.master.filesize = info.get_size ();
-        params.row.master.timestamp = timestamp.tv_sec;
+        params.row.master.timestamp = mod_time;
         params.row.exposure_time = exposure_time;
         params.row.orientation = orientation;
         params.row.master.original_orientation = orientation;
@@ -1261,10 +1262,10 @@ public abstract class Photo : PhotoSource, Dateable {
             return null;
         }
 
-        TimeVal modification_time = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         backing.filepath = file.get_path ();
-        backing.timestamp = modification_time.tv_sec;
+        backing.timestamp = mod_time;
         backing.filesize = info.get_size ();
         backing.file_format = detected.file_format;
         backing.dim = detected.image_dim;
@@ -1624,16 +1625,15 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Use this only if the master file's modification time has been changed (i.e. touched)
     public void set_master_timestamp (FileInfo info) {
-        TimeVal modification = info.get_modification_time ();
-
+        var mod_time = info.get_modification_date_time ().to_unix ();
         try {
             lock (row) {
-                if (row.master.timestamp == modification.tv_sec) {
+                if (row.master.timestamp == mod_time) {
                     return;
                 }
 
-                PhotoTable.get_instance ().update_timestamp (row.photo_id, modification.tv_sec);
-                row.master.timestamp = modification.tv_sec;
+                PhotoTable.get_instance ().update_timestamp (row.photo_id, mod_time);
+                row.master.timestamp = mod_time;
             }
         } catch (DatabaseError err) {
             AppWindow.database_error (err);
@@ -1650,14 +1650,14 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // Use this only if the editable file's modification time has been changed (i.e. touched)
     public void update_editable_modification_time (FileInfo info) throws DatabaseError {
-        TimeVal modification = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         bool altered = false;
         lock (row) {
-            if (row.editable_id.is_valid () && editable.timestamp != modification.tv_sec) {
+            if (row.editable_id.is_valid () && editable.timestamp != mod_time) {
                 BackingPhotoTable.get_instance ().update_timestamp (row.editable_id,
-                modification.tv_sec);
-                editable.timestamp = modification.tv_sec;
+                mod_time);
+                editable.timestamp = mod_time;
                 altered = true;
             }
         }
@@ -2239,7 +2239,7 @@ public abstract class Photo : PhotoSource, Dateable {
             error ("Unable to read file information for %s: %s", to_string (), err.message);
         }
 
-        TimeVal timestamp = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         // interrogate file for photo information
         PhotoFileInterrogator interrogator = new PhotoFileInterrogator (file);
@@ -2258,8 +2258,10 @@ public abstract class Photo : PhotoSource, Dateable {
 
         bool success;
         lock (row) {
-            success = PhotoTable.get_instance ().master_exif_updated (get_photo_id (), info.get_size (),
-                      timestamp.tv_sec, detected.md5, detected.exif_md5, detected.thumbnail_md5, row);
+            success = PhotoTable.get_instance ().master_exif_updated (
+                        get_photo_id (), info.get_size (), mod_time, detected.md5,
+                        detected.exif_md5, detected.thumbnail_md5, row
+            );
         }
 
         if (success) {
@@ -4001,15 +4003,15 @@ public abstract class Photo : PhotoSource, Dateable {
                 return;
             }
 
-            TimeVal timestamp = info.get_modification_time ();
+            var mod_time = info.get_modification_date_time ().to_unix ();
 
-            BackingPhotoTable.get_instance ().update_attributes (editable_id, timestamp.tv_sec,
+            BackingPhotoTable.get_instance ().update_attributes (editable_id, mod_time,
                     info.get_size ());
             lock (row) {
-                timestamp_changed = editable.timestamp != timestamp.tv_sec;
+                timestamp_changed = editable.timestamp != mod_time;
                 filesize_changed = editable.filesize != info.get_size ();
 
-                editable.timestamp = timestamp.tv_sec;
+                editable.timestamp = mod_time;
                 editable.filesize = info.get_size ();
             }
         } else {
