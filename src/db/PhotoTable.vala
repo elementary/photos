@@ -57,11 +57,7 @@ public struct ImportID {
     }
 
     public static ImportID generate () {
-        TimeVal timestamp = TimeVal ();
-        timestamp.get_current_time ();
-        int64 id = timestamp.tv_sec;
-
-        return ImportID (id);
+        return ImportID (now_sec ());
     }
 
     public bool is_invalid () {

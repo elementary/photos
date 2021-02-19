@@ -59,10 +59,10 @@ public class VideoReader {
     private Gdk.Pixbuf preview_frame = null;
     private File file = null;
     private GLib.Pid thumbnailer_pid = 0;
-    public DateTime? timestamp {
+    public int64 timestamp {
         get;
         private set;
-        default = null;
+        default = -1;
     }
 
     public VideoReader (File file) {
@@ -119,7 +119,7 @@ public class VideoReader {
             return ImportResult.UNSUPPORTED_FORMAT;
         }
 
-        TimeVal timestamp = info.get_modification_time ();
+        var timestamp = info.get_modification_date_time ().to_unix ();
 
         // make sure params has a valid md5
         assert (params.md5 != null);
@@ -164,13 +164,13 @@ public class VideoReader {
 
         if (exposure_time == 0) {
             // Use time reported by Gstreamer, if available.
-            exposure_time = (reader.timestamp != null ? reader.timestamp.to_unix () : 0);
+            exposure_time = (reader.timestamp > 0 ? reader.timestamp : 0);
         }
 
         params.row.video_id = VideoID ();
         params.row.filepath = file.get_path ();
         params.row.filesize = info.get_size ();
-        params.row.timestamp = timestamp.tv_sec;
+        params.row.timestamp = timestamp;
         params.row.width = preview_frame.width;
         params.row.height = preview_frame.height;
         params.row.clip_duration = clip_duration;
@@ -213,8 +213,9 @@ public class VideoReader {
             // (and the corresponding output struct) in order to implement #2836.
             Date? video_date = null;
             if (info.get_tags () != null && info.get_tags ().get_date (Gst.Tags.DATE, out video_date)) {
+
                 timestamp = new DateTime.local (video_date.get_year (), video_date.get_month (),
-                video_date.get_day (), 0, 0, 0);
+                video_date.get_day (), 0, 0, 0).to_unix ();
             }
         } catch (Error e) {
             debug ("Video read error: %s", e.message);
@@ -785,15 +786,15 @@ public class Video : VideoSource, Flaggable, Monitorable, Dateable {
     }
 
     public void set_master_timestamp (FileInfo info) {
-        TimeVal time_val = info.get_modification_time ();
+        var mod_time = info.get_modification_date_time ().to_unix ();
 
         try {
             lock (backing_row) {
-                if (backing_row.timestamp == time_val.tv_sec)
+                if (backing_row.timestamp == mod_time)
                     return;
 
-                VideoTable.get_instance ().set_timestamp (backing_row.video_id, time_val.tv_sec);
-                backing_row.timestamp = time_val.tv_sec;
+                VideoTable.get_instance ().set_timestamp (backing_row.video_id, mod_time);
+                backing_row.timestamp = mod_time;
             }
         } catch (DatabaseError err) {
             AppWindow.database_error (err);
