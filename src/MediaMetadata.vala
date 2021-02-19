@@ -129,7 +129,7 @@ public class MetadataDateTime {
 //~         tm.month--;
 //~         tm.isdst = -1;
 
-        var date_time = new DateTime.utc (year, month, day, hour, minute, (double)second);
+        var date_time = new DateTime.local (year, month, day, hour, minute, (double)second);
 //~         timestamp = tm.mktime ();
         timestamp = date_time.to_unix ();
 
