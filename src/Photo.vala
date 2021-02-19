@@ -145,7 +145,7 @@ public abstract class Photo : PhotoSource, Dateable {
     // Here, we cache the exposure time to avoid paying to access the row every time we
     // need to know it. This is initially set in the constructor, and updated whenever
     // the exposure time is set (please see set_exposure_time () for details).
-    private time_t cached_exposure_time;
+    private int64 cached_exposure_time;
 
     public enum Exception {
         NONE = 0,
@@ -1127,7 +1127,7 @@ public abstract class Photo : PhotoSource, Dateable {
         }
 
         Orientation orientation = Orientation.TOP_LEFT;
-        time_t exposure_time = 0;
+        int64 exposure_time = 0;
         string title = "";
         string comment = "";
 
@@ -2425,7 +2425,7 @@ public abstract class Photo : PhotoSource, Dateable {
         file_exif_updated ();
     }
 
-    public void set_exposure_time (time_t time) {
+    public void set_exposure_time (int64 time) {
         bool committed;
         lock (row) {
             committed = PhotoTable.get_instance ().set_exposure_time (row.photo_id, time);
@@ -2440,7 +2440,7 @@ public abstract class Photo : PhotoSource, Dateable {
         }
     }
 
-    public void set_exposure_time_persistent (time_t time) throws Error {
+    public void set_exposure_time_persistent (int64 time) throws Error {
         PhotoFileReader source = get_source_reader ();
 
         // Try to write to backing file
