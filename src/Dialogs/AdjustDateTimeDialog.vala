@@ -200,9 +200,10 @@ public class AdjustDateTimeDialog : Granite.Dialog {
             return;
 
         original_time_label.set_text (
-            _ ("Original: ") +
-            (new DateTime.from_unix_local (original_time)).format (
-                use_24_hr_format ? _ ("%m/%d/%Y, %H:%M:%S") : _ ("%m/%d/%Y, %I:%M:%S %p")
+            _ ("Original: %s").printf (
+                (new DateTime.from_unix_local (original_time)).format (
+                    use_24_hr_format ? _ ("%m/%d/%Y, %H:%M:%S") : _ ("%m/%d/%Y, %I:%M:%S %p")
+                )
             )
         );
     }
