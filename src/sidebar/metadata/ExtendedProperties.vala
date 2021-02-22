@@ -94,8 +94,9 @@ private class ExtendedProperties : Properties {
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
             int64 exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
-            exposure_date = get_prettyprint_date (new DateTime.from_unix_local (exposure_time_obj));
-            exposure_time = get_prettyprint_time_with_seconds (new DateTime.from_unix_local (exposure_time_obj));
+            var exposure_dt = new DateTime.from_unix_local (exposure_time_obj);
+            exposure_date = get_prettyprint_date (exposure_dt);
+            exposure_time = get_prettyprint_time_with_seconds (exposure_dt);
             comment = media.get_comment ();
         } else if (source is EventSource) {
             Event event = (Event) source;
