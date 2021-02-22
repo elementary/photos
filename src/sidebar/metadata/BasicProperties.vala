@@ -262,10 +262,12 @@ private class BasicProperties : Properties {
         }
 
         if (start_time != 0) {
-            string start_date = get_prettyprint_date (new DateTime.from_unix_local (start_time));
-            string start_time = get_prettyprint_time (new DateTime.from_unix_local (start_time));
-            string end_date = get_prettyprint_date (new DateTime.from_unix_local (end_time));
-            string end_time = get_prettyprint_time (new DateTime.from_unix_local (end_time));
+            var start_dt = new DateTime.from_unix_local (start_time);
+            string start_date = get_prettyprint_date (start_dt);
+            string start_time = get_prettyprint_time (start_dt);
+            var end_dt = new DateTime.from_unix_local (end_time);
+            string end_date = get_prettyprint_date (end_dt);
+            string end_time = get_prettyprint_time (end_dt);
 
             if (start_date == end_date) {
                 if (start_time == end_time) {
