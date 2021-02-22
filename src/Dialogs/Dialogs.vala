@@ -250,7 +250,7 @@ public string create_result_report_from_manifest (ImportManifest manifest) {
     StringBuilder builder = new StringBuilder ();
 
     string header = _ ("Import Results Report") + " (Photos " + Resources.APP_VERSION + " @ " +
-                    (new DateTime.now_local ()).to_string () + ")\n\n";
+                    (new DateTime.now_local ()).format_iso8601 () + ")\n\n";
     builder.append (header);
 
     string subhead = (ngettext ("Attempted to import %d file.", "Attempted to import %d files.",
