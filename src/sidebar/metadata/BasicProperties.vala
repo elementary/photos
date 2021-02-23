@@ -18,8 +18,8 @@
 */
 
 private class BasicProperties : Properties {
-    private time_t start_time = time_t ();
-    private time_t end_time = time_t ();
+    private int64 start_time = 0;
+    private int64 end_time = 0;
     private Dimensions dimensions;
     private EditableTitle title_entry;
     private MediaSource? source;
@@ -167,7 +167,7 @@ private class BasicProperties : Properties {
             DataSource source = view.source;
 
             if (source is PhotoSource || source is PhotoImportSource) {
-                time_t exposure_time = (source is PhotoSource) ?
+                int64 exposure_time = (source is PhotoSource) ?
                                        ((PhotoSource) source).get_exposure_time () :
                                        ((PhotoImportSource) source).get_exposure_time ();
 
@@ -206,7 +206,7 @@ private class BasicProperties : Properties {
                 video_count += event_video_count;
                 event_count++;
             } else if (source is VideoSource || source is VideoImportSource) {
-                time_t exposure_time = (source is VideoSource) ?
+                int64 exposure_time = (source is VideoSource) ?
                                        ((VideoSource) source).get_exposure_time () :
                                        ((VideoImportSource) source).get_exposure_time ();
 
@@ -262,10 +262,12 @@ private class BasicProperties : Properties {
         }
 
         if (start_time != 0) {
-            string start_date = get_prettyprint_date (Time.local (start_time));
-            string start_time = get_prettyprint_time (Time.local (start_time));
-            string end_date = get_prettyprint_date (Time.local (end_time));
-            string end_time = get_prettyprint_time (Time.local (end_time));
+            var start_dt = new DateTime.from_unix_local (start_time);
+            string start_date = get_prettyprint_date (start_dt);
+            string start_time = get_prettyprint_time (start_dt);
+            var end_dt = new DateTime.from_unix_local (end_time);
+            string end_date = get_prettyprint_date (end_dt);
+            string end_time = get_prettyprint_time (end_dt);
 
             if (start_date == end_date) {
                 if (start_time == end_time) {

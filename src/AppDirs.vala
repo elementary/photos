@@ -165,7 +165,7 @@ class AppDirs {
         return get_home_dir ().get_child (_ ("Pictures"));
     }
 
-    public static File get_baked_import_dir (time_t tm) {
+    public static File get_baked_import_dir (int64 tm) {
         string? pattern = "%Y" + Path.DIR_SEPARATOR_S + "%m" + Path.DIR_SEPARATOR_S + "%d"; // default
 
         DateTime date = new DateTime.from_unix_local (tm);

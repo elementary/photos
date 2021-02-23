@@ -40,7 +40,7 @@ public abstract class Properties : Gtk.Grid {
         line_count++;
     }
 
-    protected string get_prettyprint_time (Time time) {
+    protected string get_prettyprint_time (DateTime time) {
         string timestring = time.format (Resources.get_hh_mm_format_string ());
 
         if (timestring[0] == '0')
@@ -49,7 +49,7 @@ public abstract class Properties : Gtk.Grid {
         return timestring;
     }
 
-    protected string get_prettyprint_time_with_seconds (Time time) {
+    protected string get_prettyprint_time_with_seconds (DateTime time) {
         string timestring = time.format (Resources.get_hh_mm_ss_format_string ());
 
         if (timestring[0] == '0')
@@ -58,12 +58,12 @@ public abstract class Properties : Gtk.Grid {
         return timestring;
     }
 
-    protected string get_prettyprint_date (Time date) {
+    protected string get_prettyprint_date (DateTime date) {
         string date_string = null;
-        Time today = Time.local (time_t ());
-        if (date.day_of_year == today.day_of_year && date.year == today.year) {
+        var today = new DateTime.now ();
+        if (date.get_day_of_year () == today.get_day_of_year () && date.get_year () == today.get_year ()) {
             date_string = _ ("Today");
-        } else if (date.day_of_year == (today.day_of_year - 1) && date.year == today.year) {
+        } else if (date.get_day_of_year () == (today.get_day_of_year () - 1) && date.get_year () == today.get_year ()) {
             date_string = _ ("Yesterday");
         } else {
             date_string = format_local_date (date);

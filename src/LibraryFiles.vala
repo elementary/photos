@@ -23,12 +23,12 @@ namespace LibraryFiles {
 // Thus, when the method returns success a file may exist already, and should be overwritten.
 //
 // This function is thread safe.
-public File? generate_unique_file (string basename, MediaMetadata? metadata, time_t ts, out bool collision)
+public File? generate_unique_file (string basename, MediaMetadata? metadata, int64 ts, out bool collision)
 throws Error {
     // use exposure timestamp over the supplied one (which probably comes from the file's
     // modified time, or is simply time ()), unless it's zero, in which case use current time
 
-    time_t timestamp = ts;
+    int64 timestamp = ts;
     if (metadata != null) {
         MetadataDateTime? date_time = metadata.get_creation_date_time ();
         if (date_time != null)
@@ -59,7 +59,7 @@ throws Error {
 
 // This function is thread-safe.
 private File duplicate (File src, FileProgressCallback? progress_callback, bool blacklist) throws Error {
-    time_t timestamp = 0;
+    int64 timestamp = 0;
     try {
         timestamp = query_file_modified (src);
     } catch (Error err) {

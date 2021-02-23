@@ -36,12 +36,12 @@ abstract class ImportSource : ThumbnailSource, Indexable {
     public string folder { get; construct; }
     public ulong file_size { get; construct; }
 
-    private time_t modification_time;
+    private int64 modification_time;
     private Gdk.Pixbuf? preview = null;
     private string? indexable_keywords = null;
 
     protected ImportSource (string camera_name, GPhoto.Camera camera, int fsid, string folder,
-                            string filename, ulong file_size, time_t modification_time) {
+                            string filename, ulong file_size, int64 modification_time) {
         Object (
             camera: camera,
             camera_name: camera_name,
@@ -58,7 +58,7 @@ abstract class ImportSource : ThumbnailSource, Indexable {
         this.preview = preview;
     }
 
-    public time_t get_modification_time () {
+    public int64 get_modification_time () {
         return modification_time;
     }
 
@@ -66,7 +66,7 @@ abstract class ImportSource : ThumbnailSource, Indexable {
         return preview;
     }
 
-    public virtual time_t get_exposure_time () {
+    public virtual int64 get_exposure_time () {
         return get_modification_time ();
     }
 
@@ -103,7 +103,7 @@ abstract class ImportSource : ThumbnailSource, Indexable {
 
 class VideoImportSource : ImportSource {
     public VideoImportSource (string camera_name, GPhoto.Camera camera, int fsid, string folder,
-                              string filename, ulong file_size, time_t modification_time) {
+                              string filename, ulong file_size, int64 modification_time) {
         base (camera_name, camera, fsid, folder, filename, file_size, modification_time);
     }
 
@@ -152,7 +152,7 @@ class PhotoImportSource : ImportSource {
     private PhotoImportSource? associated = null; // JPEG source for RAW+JPEG
 
     public PhotoImportSource (string camera_name, GPhoto.Camera camera, int fsid, string folder,
-                              string filename, ulong file_size, time_t modification_time, PhotoFileFormat file_format) {
+                              string filename, ulong file_size, int64 modification_time, PhotoFileFormat file_format) {
         base (camera_name, camera, fsid, folder, filename, file_size, modification_time);
         this.file_format = file_format;
     }
@@ -193,7 +193,7 @@ class PhotoImportSource : ImportSource {
         this.exif_md5 = exif_md5;
     }
 
-    public override time_t get_exposure_time () {
+    public override int64 get_exposure_time () {
         if (metadata == null)
             return get_modification_time ();
 
@@ -483,7 +483,7 @@ public class ImportPage : CheckerboardPage {
         private string filename;
         private uint64 filesize;
         private PhotoMetadata metadata;
-        private time_t exposure_time;
+        private int64 exposure_time;
         private CameraImportJob? associated = null;
         private BackingPhotoRow? associated_file = null;
         private DuplicatedFile? duplicated_file;
@@ -509,7 +509,7 @@ public class ImportPage : CheckerboardPage {
             exposure_time = import_file.get_exposure_time ();
         }
 
-        public time_t get_exposure_time () {
+        public int64 get_exposure_time () {
             return exposure_time;
         }
 
@@ -517,7 +517,7 @@ public class ImportPage : CheckerboardPage {
             return duplicated_file;
         }
 
-        public override time_t get_exposure_time_override () {
+        public override int64 get_exposure_time_override () {
             return (import_file is VideoImportSource) ? get_exposure_time () : 0;
         }
 

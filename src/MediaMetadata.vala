@@ -58,9 +58,9 @@ public errordomain MetadataDateTimeError {
 }
 
 public class MetadataDateTime {
-    private time_t timestamp;
+    private int64 timestamp;
 
-    public MetadataDateTime (time_t timestamp) {
+    public MetadataDateTime (int64 timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -70,54 +70,55 @@ public class MetadataDateTime {
     }
 
     public MetadataDateTime.from_xmp (string label) throws MetadataDateTimeError {
-        TimeVal time_val = TimeVal ();
-        if (!time_val.from_iso8601 (label))
+        DateTime? date_time = new DateTime.from_iso8601 (label, null);
+        if (date_time == null)
             throw new MetadataDateTimeError.INVALID_FORMAT ("%s is not XMP format date/time", label);
 
-        timestamp = time_val.tv_sec;
+        timestamp = date_time.to_unix ();
     }
 
-    public time_t get_timestamp () {
+    public int64 get_timestamp () {
         return timestamp;
     }
 
     public string get_exif_label () {
-        return Time.local (timestamp).format ("%Y:%m:%d %H:%M:%S");
+        return (new DateTime.from_unix_utc (timestamp)).format ("%Y:%m:%d %H:%M:%S");
     }
 
     public string get_xmp_label () {
-        TimeVal time_val = TimeVal ();
-        time_val.tv_sec = timestamp;
-        time_val.tv_usec = 0;
-
-        return time_val.to_iso8601 ();
+        var date_time = new DateTime.from_unix_utc (timestamp);
+        return date_time.format_iso8601 ();
     }
 
-    private static bool from_exif_date_time (string date_time, out time_t timestamp) {
+    private static bool from_exif_date_time (string date_time_s, out int64 timestamp) {
         timestamp = 0;
 
-        Time tm = Time ();
-
         // Check standard EXIF format
-        if (date_time.scanf ("%d:%d:%d %d:%d:%d",
-                             &tm.year, &tm.month, &tm.day, &tm.hour, &tm.minute, &tm.second) != 6) {
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+
+        if (date_time_s.scanf ("%d:%d:%d %d:%d:%d",
+                             &year, &month, &day, &hour, &minute, &second) != 6) {
             // Fallback in a more generic format
-            string tmp = date_time.dup ();
+            string tmp = date_time_s.dup ();
             tmp.canon ("0123456789", ' ');
             if (tmp.scanf ("%4d%2d%2d%2d%2d%2d",
-                           &tm.year, &tm.month, &tm.day, &tm.hour, &tm.minute, &tm.second) != 6)
+                           year, month, day, hour, minute, second) != 6) {
                 return false;
+            }
         }
 
         // watch for bogosity
-        if (tm.year <= 1900 || tm.month <= 0 || tm.day < 0 || tm.hour < 0 || tm.minute < 0 || tm.second < 0)
+        if (year <= 0 || month <= 0 || day < 0 || hour < 0 || minute < 0 || second < 0) {
             return false;
+        }
 
-        tm.year -= 1900;
-        tm.month--;
-        tm.isdst = -1;
-
-        timestamp = tm.mktime ();
+        var date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
+        timestamp = date_time.to_unix ();
 
         return true;
     }

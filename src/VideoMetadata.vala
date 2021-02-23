@@ -67,7 +67,7 @@ private class QuickTimeMetadataLoader {
 
     // Quicktime calendar date/time format is number of seconds since January 1, 1904.
     // This converts to UNIX time (66 years + 17 leap days).
-    public const time_t QUICKTIME_EPOCH_ADJUSTMENT = 2082844800;
+    public const int64 QUICKTIME_EPOCH_ADJUSTMENT = 2082844800;
 
     private File file = null;
 
@@ -76,7 +76,7 @@ private class QuickTimeMetadataLoader {
     }
 
     public MetadataDateTime? get_creation_date_time () {
-        return new MetadataDateTime ((time_t) get_creation_date_time_for_quicktime ());
+        return new MetadataDateTime (get_creation_date_time_for_quicktime ());
     }
 
     public string? get_title () {
@@ -124,9 +124,9 @@ private class QuickTimeMetadataLoader {
         return ret;
     }
 
-    private ulong get_creation_date_time_for_quicktime () {
+    private int64 get_creation_date_time_for_quicktime () {
         QuickTimeAtom test = new QuickTimeAtom (file);
-        time_t timestamp = 0;
+        int64 timestamp = 0;
 
         try {
             test.open_file ();
@@ -179,7 +179,7 @@ private class QuickTimeMetadataLoader {
         if (timestamp < 0)
             timestamp += QUICKTIME_EPOCH_ADJUSTMENT;
 
-        return (ulong) timestamp;
+        return timestamp;
     }
 }
 
@@ -320,7 +320,7 @@ private class AVIMetadataLoader {
     }
 
     public MetadataDateTime? get_creation_date_time () {
-        return new MetadataDateTime ((time_t) get_creation_date_time_for_avi ());
+        return new MetadataDateTime (get_creation_date_time_for_avi ());
     }
 
     public string? get_title () {
@@ -442,7 +442,7 @@ private class AVIMetadataLoader {
     // Largely based on GStreamer's avi/gstavidemux.c
     // and the information here:
     // http://www.eden-foundation.org/products/code/film_date_stamp/index.html
-    private ulong parse_date (string sdate) {
+    private int64 parse_date (string sdate) {
         if (sdate.length == 0) {
             return 0;
         }
@@ -480,8 +480,8 @@ private class AVIMetadataLoader {
         date.to_time (out time);
 
         // watch for overflow (happens on quasi-bogus dates, like Year 200)
-        time_t tm = time.mktime ();
-        ulong result = tm + seconds;
+        int64 tm = time.mktime ();
+        int64 result = tm + seconds;
         if (result < tm) {
             debug ("Overflow for timestamp in video file %s", file.get_path ());
 
@@ -521,9 +521,9 @@ private class AVIMetadataLoader {
         return DateMonth.BAD_MONTH;
     }
 
-    private ulong get_creation_date_time_for_avi () {
+    private int64 get_creation_date_time_for_avi () {
         AVIChunk chunk = new AVIChunk (file);
-        ulong timestamp = 0;
+        int64 timestamp = 0;
         try {
             chunk.open_file ();
             chunk.nonsection_skip (12); // Advance past 12 byte header.
@@ -540,6 +540,7 @@ private class AVIMetadataLoader {
         } catch (GLib.Error e) {
             debug ("Error while closing AVI file: %s", e.message);
         }
+
         return timestamp;
     }
 }

@@ -702,25 +702,25 @@ public class PhotoMetadata : MediaMetadata {
         exiv2.clear ();
     }
 
-    private static string[] date_time_tags = {
+    private static string[] date_int64ags = {
         "Exif.Image.DateTime",
         "Xmp.tiff.DateTime",
         "Xmp.xmp.ModifyDate"
     };
 
     public MetadataDateTime? get_modification_date_time () {
-        return get_first_date_time (date_time_tags);
+        return get_first_date_time (date_int64ags);
     }
 
     public void set_modification_date_time (MetadataDateTime? date_time,
                                             SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (date_time_tags, date_time, option);
+            set_all_date_time (date_int64ags, date_time, option);
         else
-            remove_tags (date_time_tags);
+            remove_tags (date_int64ags);
     }
 
-    private static string[] exposure_date_time_tags = {
+    private static string[] exposure_date_int64ags = {
         "Exif.Photo.DateTimeOriginal",
         "Xmp.exif.DateTimeOriginal",
         "Xmp.xmp.CreateDate",
@@ -730,32 +730,32 @@ public class PhotoMetadata : MediaMetadata {
     };
 
     public MetadataDateTime? get_exposure_date_time () {
-        return get_first_date_time (exposure_date_time_tags);
+        return get_first_date_time (exposure_date_int64ags);
     }
 
     public void set_exposure_date_time (MetadataDateTime? date_time,
                                         SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (exposure_date_time_tags, date_time, option);
+            set_all_date_time (exposure_date_int64ags, date_time, option);
         else
-            remove_tags (exposure_date_time_tags);
+            remove_tags (exposure_date_int64ags);
     }
 
-    private static string[] digitized_date_time_tags = {
+    private static string[] digitized_date_int64ags = {
         "Exif.Photo.DateTimeDigitized",
         "Xmp.exif.DateTimeDigitized"
     };
 
     public MetadataDateTime? get_digitized_date_time () {
-        return get_first_date_time (digitized_date_time_tags);
+        return get_first_date_time (digitized_date_int64ags);
     }
 
     public void set_digitized_date_time (MetadataDateTime? date_time,
                                          SetOption option = SetOption.ALL_DOMAINS) {
         if (date_time != null)
-            set_all_date_time (digitized_date_time_tags, date_time, option);
+            set_all_date_time (digitized_date_int64ags, date_time, option);
         else
-            remove_tags (digitized_date_time_tags);
+            remove_tags (digitized_date_int64ags);
     }
 
     public override MetadataDateTime? get_creation_date_time () {
