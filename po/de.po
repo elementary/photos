@@ -42,10 +42,10 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-23 20:41+0000\n"
-"PO-Revision-Date: 2021-02-16 04:04+0000\n"
+"PO-Revision-Date: 2021-02-25 00:27+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/photos/photos/de/"
-">\n"
+"Language-Team: German <https://l10n.elementary.io/projects/photos/photos/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +57,8 @@ msgstr ""
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Kann Verzeichnis zur Zwischenspeicherung nicht anlegen %s: %s"
+msgstr ""
+"Verzeichnis %s: %s für die Zwischenspeicherung kann nicht angelegt werden"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -72,12 +73,12 @@ msgstr "Bilder"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "Fehler beim Erstellen des Ordners %s für temporäre Dateien: %s"
+msgstr "Temporäres Verzeichnis %s: %s kann nicht angelegt werden"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "Fehler beim Erstellen des Unterordners %s für Daten: %s"
+msgstr "Datenunterverzeichnis %s: %s kann nicht angelegt werden"
 
 #: src/AppWindow.vala:162
 #, c-format
@@ -171,11 +172,11 @@ msgstr "Zurücknehmen wird rückgängig gemacht"
 
 #: src/Commands.vala:790
 msgid "Enhancing"
-msgstr "Die Optimierung wird vorgenommen"
+msgstr "Optimieren"
 
 #: src/Commands.vala:790
 msgid "Undoing Enhance"
-msgstr "Die Optimierung wird verworfen"
+msgstr "Optimierung wird verworfen"
 
 #: src/Commands.vala:826
 msgid "UnEnhancing"
@@ -203,27 +204,27 @@ msgstr "Ereignis entfernen"
 
 #: src/Commands.vala:1054
 msgid "Moving Photos to New Event"
-msgstr "Fotos werden in neues Ereignis verschoben"
+msgstr "Fotos in neues Ereignis verschieben"
 
 #: src/Commands.vala:1055
 msgid "Setting Photos to Previous Event"
-msgstr "Fotos werden auf vorheriges Ereignis gesetzt"
+msgstr "Fotos dem vorherigen Ereignis zuordnen"
 
 #: src/Commands.vala:1112
 msgid "Merging"
-msgstr "Zusammenführen läuft"
+msgstr "Zusammenführen"
 
 #: src/Commands.vala:1113
 msgid "Unmerging"
-msgstr "Zusammenführung wird rückgängig gemacht"
+msgstr "Zusammenführung rückgängig machen"
 
 #: src/Commands.vala:1122
 msgid "Duplicating photos"
-msgstr "Fotos werden verdoppelt"
+msgstr "Fotos verdoppeln"
 
 #: src/Commands.vala:1122
 msgid "Removing duplicated photos"
-msgstr "Verdoppelte Fotos werden entfernt"
+msgstr "Verdoppelte Fotos entfernen"
 
 #: src/Commands.vala:1145
 #, c-format
@@ -250,7 +251,7 @@ msgstr "Das Originalfoto konnte nicht geändert werden."
 
 #: src/Commands.vala:1303
 msgid "Adjusting Date and Time"
-msgstr "Datum und Uhrzeit werden geändert"
+msgstr "Datum und Uhrzeit ändern"
 
 #: src/Commands.vala:1303
 msgid "Undoing Date and Time Adjustment"
@@ -304,11 +305,11 @@ msgstr "Wiederherstellen der Fotos in die Fotosammlung"
 
 #: src/Commands.vala:2299
 msgid "Moving Photos to Trash"
-msgstr "Fotos werden in den Papierkorb verschoben"
+msgstr "Fotos in den Papierkorb verschieben"
 
 #: src/Commands.vala:2299
 msgid "Restoring Photos From Trash"
-msgstr "Fotos werden aus dem Papierkorb wiederhergestellt"
+msgstr "Fotos aus dem Papierkorb wiederherstellen"
 
 #: src/Commands.vala:2385
 msgid "Flag selected photos"
@@ -356,7 +357,7 @@ msgstr "Höhe"
 #: src/DirectoryMonitor.vala:901
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
-msgstr "Kann %s nicht überwachen: Ist kein Ordner (%s)"
+msgstr "%s kann nicht überwacht werden: Kein Ordner (%s)"
 
 #. if no name, pretty up the start time
 #: src/Event.vala:733
@@ -424,7 +425,7 @@ msgid ""
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
 "Es scheint, dass sie mit Fotos %s (Schema %d) erstellt wurde. Diese Version "
-"ist %s (Schema %d).  Bitte verwenden Sie die aktuellste Version von Fotos."
+"ist %s (Schema %d). Bitte verwenden Sie die aktuellste Version von Fotos."
 
 #: src/main.vala:72
 #, c-format
@@ -449,7 +450,7 @@ msgid ""
 msgstr ""
 "Es scheint, als wäre sie von Fotos %s (Schema %d) erzeugt worden. Dies ist "
 "Version %s (Schema %d). Bitte erneuern Sie Ihre Sammlung durch Löschen von "
-"%s und erneuten Import Ihrer Fotos."
+"%s und erneutem Import Ihrer Fotos."
 
 #: src/main.vala:80
 msgid "Unknown Error Attempting To Verify Photos' Database"
@@ -594,7 +595,7 @@ msgstr "Bildeinstellungen"
 
 #: src/Printing.vala:418
 msgid "Printing…"
-msgstr "Drucken…"
+msgstr "Drucken …"
 
 #: src/Printing.vala:438 src/Printing.vala:641
 #, c-format
@@ -794,7 +795,7 @@ msgstr "Zusammenführen"
 
 #: src/Resources.vala:143
 msgid "Combine events into a single event"
-msgstr "Ereignisse zu einem Einzelereignis kombinieren"
+msgstr "Mehrere Ereignisse zu einem Ereignis zusammenfassen"
 
 #: src/Resources.vala:145
 msgid "_Filter Photos"
@@ -802,11 +803,11 @@ msgstr "Fotos _filtern"
 
 #: src/Resources.vala:147
 msgid "_Duplicate"
-msgstr "_Verdoppeln"
+msgstr "_Duplizieren"
 
 #: src/Resources.vala:148
 msgid "Duplicate"
-msgstr "Verdoppeln"
+msgstr "Dublizieren"
 
 #: src/Resources.vala:149
 msgid "Make a duplicate of the photo"
@@ -834,7 +835,7 @@ msgstr "Veröffentlichen …"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
-msgstr "Das ausgewählte Foto auf verschiedenen Internetseiten veröffentlichen"
+msgstr "Ausgewähltes Foto auf Internetseiten veröffentlichen"
 
 #: src/Resources.vala:162
 msgid "Edit Title"
@@ -885,11 +886,11 @@ msgstr "Schlagwort »%s« hinzufügen"
 #: src/Resources.vala:186
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "Schlagworte »%s« und »%s« hinzufügen"
+msgstr "Schlagwörter »%s« und »%s« hinzufügen"
 
 #: src/Resources.vala:190
 msgid "Add Tags"
-msgstr "Schlagworte hinzufügen"
+msgstr "Schlagwörter hinzufügen"
 
 #: src/Resources.vala:194
 #, c-format
@@ -929,11 +930,11 @@ msgstr "Umbenennen …"
 
 #: src/Resources.vala:216
 msgid "Modif_y Tags…"
-msgstr "Schlagworte ändern …"
+msgstr "Schlagwörter ändern …"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
-msgstr "Schlagworte ändern"
+msgstr "Schlagwörter ändern"
 
 #: src/Resources.vala:220
 #, c-format
@@ -967,8 +968,8 @@ msgstr ""
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
-"Die Suche kann nicht nach »%s« umbenannt werden, weil die Suche bereits "
-"vorhanden ist."
+"Die Suche kann nicht nach »%s« umbenannt werden, weil eine solche Suche "
+"bereits vorhanden ist."
 
 #: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -1002,11 +1003,11 @@ msgstr "Auswahl _löschen"
 
 #: src/Resources.vala:285
 msgid "Remove the selected photos from the trash"
-msgstr "Die ausgewählten Fotos aus dem Papierkorb entfernen"
+msgstr "Ausgewählte Fotos aus dem Papierkorb entfernen"
 
 #: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
-msgstr "Die ausgewählten Fotos aus der Sammlung entfernen"
+msgstr "Ausgewählte Fotos aus der Sammlung entfernen"
 
 #: src/Resources.vala:288
 msgid "_Restore Selection"
@@ -1014,7 +1015,7 @@ msgstr "Auswahl _wiederherstellen"
 
 #: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
-msgstr "Ausgewählte Bilder zurück in die Bibliothek verschieben"
+msgstr "Ausgewählte Bilder zurück in die Sammlung verschieben"
 
 #: src/Resources.vala:291
 msgid "File Mana_ger"
@@ -1023,7 +1024,7 @@ msgstr "Dateiverwaltung"
 #: src/Resources.vala:294
 #, c-format
 msgid "Unable to open in file manager: %s"
-msgstr "Konnte Speicherort nicht in der Dateiverwaltung öffnen: %s"
+msgstr "Speicherort konnte in der Dateiverwaltung nicht geöffnet werden: %s"
 
 #: src/Resources.vala:297
 msgid "R_emove From Library"
@@ -1108,11 +1109,11 @@ msgstr "_Anwenden"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:95
 msgid "AM"
-msgstr "Vormittag"
+msgstr "AM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:96
 msgid "PM"
-msgstr "Nachmittag"
+msgstr "PM"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:97
 msgid "24 Hr"
@@ -1139,10 +1140,9 @@ msgstr[0] "Originaldatei _ändern"
 msgstr[1] "Originaldateien _ändern"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Ursprüngliche Größe: "
+msgstr "Ursprüngliche Größe: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1216,10 +1216,10 @@ msgid_plural ""
 "Photos"
 msgstr[0] ""
 "Durch das Wechseln des Entwicklers gehen alle Änderungen verloren, die Sie "
-"mit Photos an diesem Foto vorgenommen haben"
+"mit Fotos an diesem Foto vorgenommen haben"
 msgstr[1] ""
 "Durch das Wechseln des Entwicklers gehen alle Änderungen verloren, die Sie "
-"mit Photos an diesen Fotos vorgenommen haben"
+"mit Fotos an diesen Fotos vorgenommen haben"
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
@@ -1264,7 +1264,7 @@ msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"Photos konnte keine Datei zur Bearbeitung dieses Fotos erstellen, weil Sie "
+"Fotos konnte keine Datei zur Bearbeitung dieses Fotos erstellen, weil Sie "
 "keine Schreibrechte für %s besitzen."
 
 #: src/Dialogs/Dialogs.vala:166
@@ -1272,7 +1272,7 @@ msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
 msgstr ""
-"Kann das Foto wegen eines Dateifehlers nicht exportieren.\n"
+"Foto kann wegen eines Dateifehlers nicht exportiert werden.\n"
 "\n"
 
 #: src/Dialogs/Dialogs.vala:172
@@ -1292,7 +1292,7 @@ msgstr "For_tsetzen"
 
 #: src/Dialogs/Dialogs.vala:183
 msgid "Save Details…"
-msgstr "Details speichern…"
+msgstr "Details speichern …"
 
 #: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
@@ -1305,7 +1305,7 @@ msgstr "(und %d andere)\n"
 
 #: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
-msgstr "Import Ergebnisse anzeigen"
+msgstr "Importergebnisse anzeigen"
 
 #: src/Dialogs/Dialogs.vala:256
 #, c-format
@@ -1351,7 +1351,7 @@ msgstr "Fehlermeldung:"
 #: src/Dialogs/Dialogs.vala:300
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
-"Diese Dateien wurden nicht importiert da Sie nicht als Foto oder Video "
+"Diese Dateien wurden nicht importiert, da sie nicht als Foto oder Video "
 "erkannt wurden:"
 
 #.
@@ -1362,7 +1362,7 @@ msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"Fotos/Videos wurden nicht importiert, da Sie nicht in einem mit Photos "
+"Fotos/Videos wurden nicht importiert, da sie nicht in einem mit Fotos "
 "kompatiblen Format vorliegen:"
 
 #.
@@ -1381,7 +1381,9 @@ msgstr ""
 msgid ""
 "couldn't copy %s\n"
 "\tto %s"
-msgstr "konnte %s⏎ » nicht nach %s kopieren"
+msgstr ""
+"konnte %s\n"
+" nicht nach %s kopieren"
 
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
@@ -1569,34 +1571,25 @@ msgstr[1] ""
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
-msgstr[0] ""
-"Ein Video konnte wegen eines Datei- oder Hardwarefehlers nicht importiert "
-"werden.\n"
-msgstr[1] ""
-"%d Videos konnten wegen Datei- oder Hardwarefehlern nicht importiert "
-"werden.\n"
+msgstr[0] "Ein Video konnte nicht importiert werden, weil es beschädigt war:\n"
+msgstr[1] "%d Videos konnten nicht importiert werden, weil sie beschädigt waren:\n"
 
 #: src/Dialogs/Dialogs.vala:476
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] ""
-"Ein Foto/Video konnte wegen eines Datei- oder Hardwarefehlers nicht "
-"importiert werden.\n"
+"Ein Foto/Video konnte nicht importiert werden, weil es beschädigt war:\n"
 msgstr[1] ""
-"%d Fotos/Videos konnten wegen Datei- oder Hardwarefehlern nicht importiert "
-"werden.\n"
+"%d Fotos/Videos konnten nicht importiert werden, weil sie beschädigt waren:\n"
 
 #: src/Dialogs/Dialogs.vala:479
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
-msgstr[0] ""
-"Eine Datei konnte wegen eines Datei- oder Hardwarefehlers nicht importiert "
-"werden.\n"
+msgstr[0] "Eine Datei konnte nicht importiert werden, weil sie beschädigt war:\n"
 msgstr[1] ""
-"%d Dateien konnten wegen eines Datei- oder Hardwarefehlers nicht importiert "
-"werden.\n"
+"%d Dateien konnten nicht importiert werden, weil sie beschädigt waren:\n"
 
 #. we have no notion of "unsupported" video files right now in Photos (all
 #. standard container formats are supported, it's just that the streams in them
@@ -1606,8 +1599,8 @@ msgstr[1] ""
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
-msgstr[0] "Ein Foto mit nicht unterstütztem Format übersprungen.\n"
-msgstr[1] "%d Fotos mit nicht unterstütztem Format übersprungen.\n"
+msgstr[0] "Ein Foto in nicht unterstütztem Format übersprungen.\n"
+msgstr[1] "%d Fotos in nicht unterstütztem Format übersprungen.\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
@@ -1615,8 +1608,8 @@ msgstr[1] "%d Fotos mit nicht unterstütztem Format übersprungen.\n"
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
-msgstr[0] "Eine nicht-Bild Datei übersprungen.\n"
-msgstr[1] "%d nicht-Bild Dateien übersprungen.\n"
+msgstr[0] "Eine Nicht-Bild-Datei übersprungen.\n"
+msgstr[1] "%d Nicht-Bild-Dateien übersprungen.\n"
 
 #: src/Dialogs/Dialogs.vala:522
 #, c-format
@@ -1754,8 +1747,8 @@ msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"Photos kann die Fotos in Ihren Sammlungsordner kopieren oder nur "
-"importieren, ohne diese dabei zu duplizieren."
+"Fotos kann die Fotos entweder in Ihren Sammlungsordner kopieren oder aber "
+"sie nur importieren, ohne diese dabei zu duplizieren."
 
 #: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
@@ -1776,8 +1769,8 @@ msgstr "Aus der Sammlung entfernen"
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:725
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Foto wird aus Sammlung entfernt"
-msgstr[1] "Fotos werden aus Sammlung entfernt"
+msgstr[0] "Foto aus Sammlung entfernen"
+msgstr[1] "Fotos aus Sammlung entfernen"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1906,9 +1899,7 @@ msgstr "Abbrechen"
 #: src/db/DatabaseTable.vala:50
 #, c-format
 msgid "Unable to open/create photo database %s: error code %d"
-msgstr ""
-"Die Fotodatenbank %s kann wegen eines Dateifehlers nicht erstellt werden: "
-"Fehlernummer %d"
+msgstr "Fotodatenbank %s kann nicht geöffnet/erstellt werden: Fehlernummer %d"
 
 #: src/db/DatabaseTable.vala:59
 #, c-format
@@ -2203,7 +2194,7 @@ msgstr ""
 
 #: src/library/LibraryWindow.vala:794
 msgid "_Import"
-msgstr "_Import"
+msgstr "_Importieren"
 
 #: src/library/LibraryWindow.vala:795
 msgid "Library Location"
@@ -2220,7 +2211,7 @@ msgstr "Sammlung aktualisieren …"
 
 #: src/library/LibraryWindow.vala:1053
 msgid "Preparing to auto-import photos…"
-msgstr "Automatisches importieren von Fotos wird vorbereitet …"
+msgstr "Automatisches Importieren von Fotos vorbereiten …"
 
 #: src/library/LibraryWindow.vala:1058
 msgid "Auto-importing photos…"
@@ -2228,7 +2219,7 @@ msgstr "Fotos werden automatisch importiert …"
 
 #: src/library/LibraryWindow.vala:1066
 msgid "Writing metadata to files…"
-msgstr "Metadaten werden in Dateien geschrieben …"
+msgstr "Metadaten in Dateien schreiben …"
 
 #: src/library/LibraryWindow.vala:1173
 msgid "Import Photos"
@@ -2244,7 +2235,7 @@ msgstr "Sammlungsordner ändern"
 
 #: src/library/LibraryWindow.vala:1174
 msgid "Choose where to keep your photos."
-msgstr "Wählen Sie, wo Sie Ihre Fotos aufbewahren möchten."
+msgstr "Wählen, wo Sie Ihre Fotos aufbewahren möchten."
 
 #: src/library/TopDisplay.vala:126
 #, c-format
@@ -2301,16 +2292,16 @@ msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr "Über Photos"
+msgstr "Info"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
-msgstr "Es wird für das Hochladen vorbereitet"
+msgstr "Hochladen vorbereiten"
 
 #: src/publishing/PublishingPluginHost.vala:25
 #, c-format
 msgid "Uploading %d of %d"
-msgstr "%d von %d wird hochgeladen"
+msgstr "%d von %d hochladen"
 
 #: src/publishing/PublishingPluginHost.vala:94
 #, c-format
@@ -2322,7 +2313,8 @@ msgstr ""
 #: src/publishing/PublishingPluginHost.vala:97
 msgid "To try publishing to another service, select one from the above menu."
 msgstr ""
-"Um auf einem Dienst zu veröffentlichen, wählen Sie bitte aus dem obigen Menü."
+"Um auf einem anderen Dienst zu veröffentlichen, wählen Sie bitte einen aus "
+"dem obigen Menü."
 
 #: src/publishing/PublishingUI.vala:71
 msgid "_Login"
@@ -2350,11 +2342,11 @@ msgstr "Das ausgewählte Foto wurde erfolgreich veröffentlicht."
 
 #: src/publishing/PublishingUI.vala:147
 msgid "Fetching account information…"
-msgstr "Kontoinformationen werden abgerufen…"
+msgstr "Kontoinformationen abrufen …"
 
 #: src/publishing/PublishingUI.vala:153
 msgid "Logging in…"
-msgstr "Anmeldung…"
+msgstr "Anmeldung …"
 
 #: src/publishing/PublishingUI.vala:213
 msgid "Publish Photos"
@@ -2394,7 +2386,7 @@ msgid ""
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"Photos kann die gewählten Objekte nicht veröffentlichen, da Sie keine "
+"Fotos kann die gewählten Objekte nicht veröffentlichen, da Sie keine "
 "kompatible Erweiterung zur Veröffentlichung aktiviert haben. Um dieses "
 "Problem zu lösen, wählen Sie <b>Bearbeiten %s Einstellungen</b> und "
 "aktivieren Sie eine oder mehrere der Erweiterungen zum Veröffentlichen im "
@@ -2452,7 +2444,7 @@ msgstr "Datum"
 
 #: src/sidebar/Tree.vala:880
 msgid "New _Tag…"
-msgstr "Neues Schlagwort…"
+msgstr "Neues Schlagwort …"
 
 #: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
 msgid "RAW+JPEG"
@@ -2540,7 +2532,7 @@ msgstr "Urheberrecht:"
 
 #: src/sidebar/metadata/LibraryProperties.vala:81
 msgid "Tags, separated by commas"
-msgstr "Schlagworte, durch Kommata getrennt"
+msgstr "Schlagwörter, durch Kommata getrennt"
 
 #: src/sidebar/metadata/MetadataSidebar.vala:52
 msgid "No items selected"
@@ -2576,7 +2568,7 @@ msgstr "Schlagwörter"
 
 #: src/util/DragAndDropHandler.vala:180
 msgid "Photos cannot be exported to this directory."
-msgstr "Fotos können nicht in diesen Ordner exportiert werden."
+msgstr "In diesen Ordner können keine Fotos exportiert werden."
 
 #: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:916
 #: src/Views/CollectionPage.vala:917 src/Views/PhotosPage.vala:67
@@ -2617,7 +2609,7 @@ msgstr[1] "Fotos/Videos exportieren"
 
 #: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Rotating"
-msgstr "Drehen läuft"
+msgstr "Drehen"
 
 #: src/Views/CollectionPage.vala:695 src/Views/CollectionPage.vala:711
 msgid "Undoing Rotate"
@@ -2633,7 +2625,7 @@ msgstr "»Horizontal spiegeln« wird zurück genommen"
 
 #: src/Views/CollectionPage.vala:730
 msgid "Flipping Vertically"
-msgstr "Es wird senkrecht gespiegelt"
+msgstr "Senkrecht spiegeln"
 
 #: src/Views/CollectionPage.vala:731
 msgid "Undoing Flip Vertically"
@@ -2660,7 +2652,7 @@ msgstr ""
 
 #: src/Views/DirectPhotoPage.vala:428
 msgid "_Save a Copy"
-msgstr "Eine Kopie _speichern"
+msgstr "Kopie _speichern"
 
 #: src/Views/DirectPhotoPage.vala:431
 #, c-format
@@ -2720,7 +2712,7 @@ msgstr "Ereignisse zusammenführen"
 
 #: src/Views/EventsDirectoryPage.vala:164 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
-msgstr "Bilds_chirmfüllend"
+msgstr "Vollbilds_chirm"
 
 #: src/Views/EventsDirectoryPage.vala:229 src/Views/MediaPage.vala:76
 #: src/Views/MediaPage.vala:237
@@ -2768,7 +2760,7 @@ msgstr ""
 
 #: src/Views/ImportPage.vala:784
 msgid "Hide photos already imported"
-msgstr "Bereits importierte Fotos verbergen"
+msgstr "Bereits importierte Fotos ausblenden"
 
 #: src/Views/ImportPage.vala:787
 msgid "Only display photos that have not been imported"
@@ -2793,7 +2785,7 @@ msgstr "_Alle importieren"
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:938
 msgid "Starting import, please wait…"
-msgstr "Import beginnt, bitte warten…"
+msgstr "Import beginnt, bitte warten …"
 
 #: src/Views/ImportPage.vala:958 src/Views/MediaPage.vala:232
 msgid "Display the title of each photo"
@@ -2810,7 +2802,7 @@ msgstr "Alle Fotos in die Sammlung importieren"
 #: src/Views/ImportPage.vala:1095
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
-"Auf die Kamera kann nicht zugegriffen werden, während sie eingehängt ist."
+"Ein Zugriff auf die Kamera ist nicht möglich, während sie eingehängt ist"
 
 #: src/Views/ImportPage.vala:1096
 msgid ""
@@ -2857,7 +2849,7 @@ msgstr ""
 
 #: src/Views/ImportPage.vala:1145
 msgid "Unmounting…"
-msgstr "Aushängen…"
+msgstr "Aushängen …"
 
 #: src/Views/ImportPage.vala:1251
 msgid "Fetching photo information"
@@ -2871,7 +2863,7 @@ msgstr "Vorschaubild für %s wird abgerufen"
 #: src/Views/ImportPage.vala:1722
 #, c-format
 msgid "Unable to lock camera: %s"
-msgstr "Kamera kann nicht reserviert werden: %s"
+msgstr "Kamera kann nicht gesperrt werden: %s"
 
 #: src/Views/ImportPage.vala:1807
 #, c-format
@@ -2924,7 +2916,7 @@ msgstr[1] ""
 
 #: src/Views/ImportQueuePage.vala:21
 msgid "Importing…"
-msgstr "Importieren…"
+msgstr "Importieren …"
 
 #: src/Views/ImportQueuePage.vala:64
 msgid "_Stop Import"
@@ -2936,7 +2928,7 @@ msgstr "Fotoimport abbrechen"
 
 #: src/Views/ImportQueuePage.vala:122
 msgid "Preparing to import…"
-msgstr "Importieren wird vorbereitet…"
+msgstr "Importieren vorbereiten …"
 
 #: src/Views/ImportQueuePage.vala:148
 #, c-format
@@ -2958,11 +2950,11 @@ msgstr "Fehlende Dateien"
 
 #: src/Views/OfflinePage.vala:201
 msgid "Deleting…"
-msgstr "Löschen…"
+msgstr "Löschen …"
 
 #: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
 msgid "Ta_gs"
-msgstr "Ta_gs"
+msgstr "Schla_gwörter"
 
 #: src/Views/MediaPage.vala:84
 msgid "Sort _Photos"
@@ -2983,7 +2975,7 @@ msgstr "Notizen zu den Bildern anzeigen"
 
 #: src/Views/MediaPage.vala:244
 msgid "Display each photo's tags"
-msgstr "Schlagworte jedes Fotos anzeigen"
+msgstr "Schlagwörter der Fotos anzeigen"
 
 #: src/Views/MediaPage.vala:260
 msgid "Sort photos by title"
@@ -2999,7 +2991,7 @@ msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"Photos konnte das ausgewählte Video nicht abspielen:\n"
+"Fotos konnte das ausgewählte Video nicht abspielen:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
@@ -3100,7 +3092,7 @@ msgstr "Papierkorb leeren"
 
 #: src/Views/TrashPage.vala:302
 msgid "Emptying Trash…"
-msgstr "Leere Müll …"
+msgstr "Papierkorb leeren …"
 
 #: src/Views/VideosPage.vala:36 src/Views/VideosPage.vala:57
 msgid "Videos"
@@ -3261,7 +3253,7 @@ msgstr "Pixel pro Zoll"
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Urheberrecht 2009-2013 Yorba Foundation"
+msgstr "Urheberrecht 2009 – 2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
 msgid ""
@@ -3273,7 +3265,7 @@ msgid ""
 msgstr ""
 "Sie sind gerade nicht bei YouTube angemeldet.\n"
 "\n"
-"Um fortzufahren müssen Sie bereits ein Google-Konto besitzen und dieses für "
+"Um fortzufahren, müssen Sie bereits ein Google-Konto besitzen und dieses für "
 "die Nutzung von YouTube eingerichtet haben. Die meisten Konten können Sie "
 "mit Ihrem Browser einrichten, indem Sie sich mindestens einmal bei der "
 "YouTube-Seite anmelden."
@@ -3331,14 +3323,14 @@ msgstr ""
 "Sie haben sich während dieser Sitzung bereits bei einem Google-Dienst an- "
 "und abgemeldet.\n"
 "\n"
-"Um weiterhin über einen Google-Dienst zu publizieren, beenden Sie Photos, "
+"Um weiterhin über einen Google-Dienst zu publizieren, beenden Sie Fotos, "
 "starten es neu und versuchen es dann erneut."
 
 #: plugins/pantheon-photos-publishing/Resources.vala:22
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:22
 #: plugins/pantheon-photos-transitions/Resources.vala:22
 msgid "Visit the Yorba web site"
-msgstr "Die Yorba-Internetseite besuchen"
+msgstr "Yorbas Internetseite besuchen"
 
 #: plugins/pantheon-photos-publishing/Resources.vala:41
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
@@ -3361,13 +3353,13 @@ msgstr ""
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
 msgid "Creating album %s…"
-msgstr "Album %s wird erstellt…"
+msgstr "Album %s erstellen …"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
 msgid "An error message occurred when publishing to Piwigo. Please try again."
 msgstr ""
-"Ein Fehler trat auf beim veröffentlichen auf Piwigo. Bitte versuchen Sie "
-"erneut."
+"Beim Veröffentlichen auf Piwigo ist ein Fehler aufgetreten. Bitte versuchen "
+"Sie erneut."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
 msgid ""
@@ -3430,13 +3422,13 @@ msgstr "Admins"
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
 msgid "500 x 375 pixels"
-msgstr "500 x 375 Pixel"
+msgstr "500 × 375 Pixel"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1251
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
 msgid "1024 x 768 pixels"
-msgstr "1024 x 768 Pixel"
+msgstr "1024 × 768 Pixel"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1252
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
@@ -3456,6 +3448,7 @@ msgid ""
 "authorize elementary OS to link to your Google Photos account."
 msgstr ""
 "Sie sind im Augenblick nicht bei Google Photos angemeldet.\n"
+"\n"
 "Melden Sie sich bei Google Photos an, indem Sie in Ihrem Internet-Browser "
 "auf »Anmelden« klicken. Sie müssen elementary OS dazu legitimieren, eine "
 "Verbindung zu Ihrem Google-Photos-Konto aufbauen zu können."
@@ -3480,7 +3473,7 @@ msgstr "Klein (640 × 480 Pixel)"
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
 msgid "Medium (1024 x 768 pixels)"
-msgstr "Mittel  (1024 × 768 Pixel)"
+msgstr "Mittel (1024 × 768 Pixel)"
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
 msgid "Recommended (1600 x 1200 pixels)"
@@ -3515,7 +3508,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
-msgstr "Anmeldung wird vorbereitet…"
+msgstr "Anmeldung vorbereiten …"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
@@ -3528,7 +3521,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
 msgid "Verifying authorization…"
-msgstr "Autorisierung wird überprüft…"
+msgstr "Autorisierung überprüfen …"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
 #, c-format
@@ -3608,7 +3601,7 @@ msgid ""
 msgstr ""
 "Sie haben sich in dieser Sitzung bereits bei Facebook an- und wieder "
 "abgemeldet.\n"
-"Um weiterhin auf Facebook zu publizieren, beenden Sie Photos, starten es neu "
+"Um weiterhin auf Facebook zu publizieren, beenden Sie Fotos, starten es neu "
 "und versuchen es dann erneut."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
@@ -3621,11 +3614,11 @@ msgstr "Groß (2048 Pixel)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
 msgid "Testing connection to Facebook…"
-msgstr "Verbindung zu Facebook wird geprüft…"
+msgstr "Verbindung zu Facebook prüfen …"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
 msgid "Creating album…"
-msgstr "Album wird erstellt…"
+msgstr "Album erstellen …"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
 msgid ""
@@ -3719,17 +3712,17 @@ msgstr "Albumnotiz:"
 msgid ""
 "_Remove location, camera, and other identifying information before uploading"
 msgstr ""
-"_Entferne Ort, Kamera, und andere Identifizierende Informationen vor dem "
-"hochladen"
+"Ort, Kameratyp und andere identifizierende Daten vor dem Hochladen entfe_rnen"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:242
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
-"_Falls ein Titel angegeben ist und keine Notiz, den Titel als Notiz verwenden"
+"_Falls ein Titel angegeben ist, aber keine Notiz, den Titel als Notiz "
+"verwenden"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
 msgid "_Do no upload tags"
-msgstr "_Schlagworte nicht hochladen"
+msgstr "_Schlagwörter nicht hochladen"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:278
 msgid "Logout"
@@ -3799,7 +3792,7 @@ msgid ""
 "your Web browser."
 msgstr ""
 "Geben Sie die Bestätigungsnummer ein, die nach der Anmeldung bei Flickr mit "
-"ihren Web Browser angezeigt wird."
+"Ihrem Internet-Browser angezeigt wird."
 
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
 msgid "Authorization _Number:"
@@ -3810,17 +3803,17 @@ msgid ""
 " (text depends on fb username and is modified in the app - \n"
 "anything put into this field won't display)"
 msgstr ""
-" (der Text ist abhängig vom Facebook Benutzernamen und wird in der Anwendung "
+" (der Text ist abhängig vom Facebook-Benutzernamen und wird in der Anwendung "
 "modifiziert – \n"
 "alles was in diesem Feld steht wird nicht angezeigt)"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
 msgid "Publish to an e_xisting album:"
-msgstr "In ein e_xistierendes Album veröffentlichen:"
+msgstr "In einem bereits vorhandenen Album veröffentlichen:"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
 msgid "Create a _new album named:"
-msgstr "Ein _neues Album mit folgendem Namen erstellen:"
+msgstr "_Neues Album mit folgendem Namen erstellen:"
 
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
 msgid "Videos and new photo albums _visible to:"
@@ -3832,11 +3825,11 @@ msgstr "Urheberrecht 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
 msgid "Visit the Yandex.Fotki web site"
-msgstr "Die Yandex.Fotki-Internetseite besuchen"
+msgstr "Yandex.Fotkis Internetseite besuchen"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Sie sind aktuell nicht bei Yandex.Fotki angemeldet."
+msgstr "Sie sind im Moment nicht bei Yandex.Fotki angemeldet."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
 msgid "Copyright 2012 BJA Electronics"
@@ -3850,21 +3843,18 @@ msgstr "1280 × 853 Pixel"
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
 #, c-format
 msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr ""
-"'%s' ist keine gültige Antwort auf eine OAuth Authentifizierungsanfrage"
+msgstr "»%s« ist keine gültige Antwort auf eine OAuth-Authentifizierungsanfrage"
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
 msgid ""
 "TumblrPublisher: start( ): can't start; this publisher is not restartable."
 msgstr ""
-"TumblrPublisher: start( ): kann nicht starten; das Werkezug zum "
+"TumblrPublisher: start( ): kann nicht starten; das Werkzeug zum "
 "Veröffentlichen ist nicht neu startbar."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
 msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Geben Sie den Benutzernamen und Ihr Passwort ein für das mit Tumblr "
-"verbundene Konto."
+msgstr "Benutzername und Passwort für das Tumblr-Konto eingeben."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
@@ -3883,7 +3873,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
 msgid "Shotwell Extra Publishing Services"
-msgstr "Zusätzliche Veröffentlichungsdienste"
+msgstr "Shotwell Zusätzliche Veröffentlichungsdienste"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
 msgid ""
@@ -3896,8 +3886,8 @@ msgstr ""
 "Sie haben sich während dieser Sitzung bereits bei einem Google-Service an- "
 "und abgemeldet.\n"
 "\n"
-"Um weitere Veröffentlichungen durchführen zu können, müssen Sie die "
-"Anwendung schließen und erneut starten. Versuchen Sie es danach erneut."
+"Um mehr bei Google-Diensten zu veröffentlichen, müssen Sie diese Anwendung "
+"schließen und erneut starten. Versuchen Sie danach erneut zu veröffentlichen."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
@@ -3913,7 +3903,7 @@ msgstr "_Notizfunktion deaktivieren"
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
 msgid "_Forbid downloading original photo"
-msgstr "Herunterladen des Originalfotos verbieten"
+msgstr "Herunterladen des Originalfotos unterbinden"
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
 msgid "Public"
@@ -3929,8 +3919,7 @@ msgstr ""
 "Sie sind als (name) bei Tumblr angemeldet.\n"
 "\n"
 "(Der Inhalt dieser Beschriftung wurde im Quelltext festgelegt, \n"
-"und veröffentlicht,\n"
-"daher haben Änderungen hier keinen Einfluss)"
+"und veröffentlicht, daher haben Änderungen hier keinen Einfluss)"
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
 msgid "Blogs:"
@@ -3954,12 +3943,12 @@ msgstr "Schieben"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:40
 msgid "Core Slideshow Transitions"
-msgstr "Standard Diaschau-Übergänge"
+msgstr "Standard-Diaschauübergänge"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
-"Urheberrecht 2010 Maxim Kartashev, Urheberrecht 2011-2013 Yorba Foundation"
+"Urheberrecht 2010 Maxim Kartashev, Urheberrecht 2011–2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3987,7 +3976,7 @@ msgstr "Schachbrett"
 
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
-msgstr "Verdunkeln"
+msgstr "Abdunkeln"
 
 #~ msgid "_pixels"
 #~ msgstr "_Pixel"
