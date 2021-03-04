@@ -79,6 +79,12 @@ modules:
         url: https://github.com/gphoto/libgphoto2/releases/download/v2.5.26/libgphoto2-2.5.26.tar.gz
         sha256: 3f99ca5cf12a8376e7e17d60e41fe1df90ffb08fbec68450d9beec2452262948
 
+  - name: granite
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://github.com/elementary/granite.git
+
   - name: gudev
     config-opts:
       - '--disable-umockdev'
