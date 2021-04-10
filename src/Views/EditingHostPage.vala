@@ -107,8 +107,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
             rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
             rotate_button.clicked.connect (on_rotate_clockwise);
 
-
-
             flip_button = new Gtk.ToolButton (null, null);
             flip_button.icon_name = "object-flip-horizontal";
             flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
@@ -129,7 +127,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             redeye_button.tooltip_text = Resources.RED_EYE_TOOLTIP;
             redeye_button.toggled.connect (on_redeye_toggled);
             redeye_button.create_menu_proxy.connect (() => {
-                var redeye_menu_item = new Gtk.MenuItem.with_label ("Red Eye Correction");
+                var redeye_menu_item = new Gtk.MenuItem.with_label (Resources.RED_EYE_LABEL);
                 redeye_menu_item.activate.connect (() => {
                     redeye_button.active = true;
                 });
@@ -142,11 +140,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
             adjust_button.tooltip_text = Resources.ADJUST_TOOLTIP;
             adjust_button.toggled.connect (on_adjust_toggled);
             adjust_button.create_menu_proxy.connect (() => {
-                var adjust_menu_item = new Gtk.MenuItem.with_label ("Adjust");
+                var adjust_menu_item = new Gtk.MenuItem.with_label (Resources.ADJUST_LABEL);
                 adjust_menu_item.activate.connect (() => {
                     adjust_button.active = true;
                 });
-                adjust_button.set_proxy_menu_item ("Enhance", adjust_menu_item);
+                adjust_button.set_proxy_menu_item ("Adjust", adjust_menu_item);
                 return true;
             });
             enhance_button = new Gtk.ToggleToolButton (); // Not sure why this is a toggle
@@ -154,7 +152,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
             enhance_button.create_menu_proxy.connect (() => {
-                var enhance_menu_item = new Gtk.CheckMenuItem.with_label ("Enhance");
+                var enhance_menu_item = new Gtk.CheckMenuItem.with_label (Resources.ENHANCE_LABEL);
                 enhance_menu_item.active = enhance_button.active;
                 enhance_menu_item.activate.connect (() => {
                     enhance_button.clicked ();
