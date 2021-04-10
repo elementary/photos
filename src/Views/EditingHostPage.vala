@@ -107,6 +107,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
             rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
             rotate_button.clicked.connect (on_rotate_clockwise);
 
+
+
             flip_button = new Gtk.ToolButton (null, null);
             flip_button.icon_name = "object-flip-horizontal";
             flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
@@ -132,10 +134,20 @@ public abstract class EditingHostPage : SinglePhotoPage {
             adjust_button.tooltip_text = Resources.ADJUST_TOOLTIP;
             adjust_button.toggled.connect (on_adjust_toggled);
 
-            enhance_button = new Gtk.ToggleToolButton ();
+            enhance_button = new Gtk.ToggleToolButton (); // Not sure why this is a toggle
             enhance_button.icon_widget = new Gtk.Image.from_icon_name ("image-auto-adjust", Gtk.IconSize.LARGE_TOOLBAR);
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
             enhance_button.clicked.connect (on_enhance);
+            enhance_button.create_menu_proxy.connect (() => {
+                var enhance_menu_item = new Gtk.CheckMenuItem.with_label ("Enhance");
+                enhance_menu_item.active = has_photo () && get_photo ().is_enhanced ();
+                enhance_menu_item.activate.connect (() => {
+                    on_enhance ();
+                    enhance_menu_item.active = has_photo () && get_photo ().is_enhanced ();
+                });
+                enhance_button.set_proxy_menu_item ("Enhance", enhance_menu_item);
+                return true;
+            });
 
             var separator = new Gtk.SeparatorToolItem ();
             separator.set_expand (true);
@@ -196,14 +208,25 @@ public abstract class EditingHostPage : SinglePhotoPage {
             //  show metadata sidebar button
             var app = AppWindow.get_instance () as LibraryWindow;
             if (app != null) {
-                show_sidebar_button = MediaPage.create_sidebar_button ();
+                var show_sidebar_button = MediaPage.create_sidebar_button ();
                 show_sidebar_button.clicked.connect (() => {
                     app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
                     update_sidebar_action (!app.is_metadata_sidebar_visible ());
                 });
+                show_sidebar_button.create_menu_proxy.connect (() => {
+                    var show_sidebar_item = new Gtk.CheckMenuItem.with_label ("Show Sidebar");
+                    show_sidebar_item.active = app.is_metadata_sidebar_visible ();
+                    show_sidebar_item.toggled.connect (() => {
+                        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
+                        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+                    });
+
+                    show_sidebar_button.set_proxy_menu_item ("Sidebar", show_sidebar_item);
+                    return true;
+                });
                 toolbar.add (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
-            }
+            } else {critical ("app null");}
         }
 
         return toolbar;
@@ -1747,8 +1770,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
             cancel_zoom ();
         }
 
-        if (!has_photo ())
+        if (!has_photo ()) {
             return;
+        }
 
         EditingTools.AdjustTool adjust_tool = current_tool as EditingTools.AdjustTool;
         if (adjust_tool != null) {
