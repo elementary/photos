@@ -225,12 +225,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
                     update_sidebar_action (!app.is_metadata_sidebar_visible ());
                 });
+
                 show_sidebar_button.create_menu_proxy.connect (() => {
                     var show_sidebar_item = new Gtk.CheckMenuItem.with_label ("Show Sidebar");
                     show_sidebar_item.active = app.is_metadata_sidebar_visible ();
-                    show_sidebar_item.toggled.connect (() => {
-                        app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-                        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+                    show_sidebar_item.activate.connect (() => {
+                        show_sidebar_button.clicked ();
                     });
 
                     show_sidebar_button.set_proxy_menu_item ("Sidebar", show_sidebar_item);
@@ -238,7 +238,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 });
                 toolbar.add (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
-            } else {critical ("app null");}
+            }
         }
 
         return toolbar;
