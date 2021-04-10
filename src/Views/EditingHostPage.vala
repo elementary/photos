@@ -161,10 +161,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 return true;
             });
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
+            var expanding_separator = new Gtk.SeparatorToolItem ();
+            expanding_separator.set_expand (true);
 
-            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+            var zoom_fit = new Gtk.ToolButton (
+                new Gtk.Image.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+                 _("Zoom to fit page")
+            );
             zoom_fit.tooltip_text = _("Zoom to fit page");
             zoom_fit.valign = Gtk.Align.CENTER;
             zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
@@ -173,7 +176,19 @@ public abstract class EditingHostPage : SinglePhotoPage {
             zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
             zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
 
-            var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
+            zoom_fit.create_menu_proxy.connect (() => {
+                var zoom_fit_menu_item = new Gtk.MenuItem.with_label (_("Fit to page"));
+                zoom_fit_menu_item.activate.connect (() => {
+                    zoom_fit.clicked ();
+                });
+                zoom_fit.set_proxy_menu_item ("ZoomFit", zoom_fit_menu_item);
+                return true;
+            });
+
+            var zoom_original = new Gtk.ToolButton (
+                new Gtk.Image.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.SMALL_TOOLBAR),
+                 _("Zoom 1:1")
+            );
             zoom_original.tooltip_text = _("Zoom 1:1");
             zoom_original.valign = Gtk.Align.CENTER;
             zoom_original.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
@@ -181,17 +196,22 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 snap_zoom_to_isomorphic ();
             });
 
-            zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0);
+            zoom_original.create_menu_proxy.connect (() => {
+                var zoom_original_menu_item = new Gtk.MenuItem.with_label (_("Restore original size"));
+                zoom_original_menu_item.activate.connect (() => {
+                    zoom_original.clicked ();
+                });
+                zoom_original.set_proxy_menu_item ("ZoomOriginal", zoom_original_menu_item);
+                return true;
+            });
+
+            zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0); // Now subclass of Gtk.ToolItem
             zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
-
-            var zoom_group = new Gtk.Grid ();
-            zoom_group.column_spacing = 6;
-            zoom_group.add (zoom_fit);
-            zoom_group.add (zoom_original);
-            zoom_group.add (zoom_slider);
-
-            var group_wrapper = new Gtk.ToolItem ();
-            group_wrapper.add (zoom_group);
+            //Not simple to create a proxy menu item for the slider so we don't for now
+            zoom_slider.create_menu_proxy.connect (() => {
+                zoom_slider.set_proxy_menu_item ("ZoomSlider", null);
+                return true;
+            });
 
             prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
             prev_button.tooltip_text = _("Previous photo");
@@ -214,8 +234,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar.add (redeye_button);
             toolbar.add (adjust_button);
             toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.add (group_wrapper);
+            toolbar.add (expanding_separator);
+            toolbar.add (zoom_fit);
+            toolbar.add (zoom_original);
+            toolbar.add (zoom_slider);
+
 
             //  show metadata sidebar button
             var app = AppWindow.get_instance () as LibraryWindow;

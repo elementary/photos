@@ -18,7 +18,7 @@
 * Authored by: David Hewitt <davidmhewitt@gmail.com>
 */
 
-public class SliderAssembly : Gtk.Grid {
+public class SliderAssembly : Gtk.ToolItem {
     private Gtk.Scale slider;
     private Gtk.EventBox decrease_box;
     private Gtk.EventBox increase_box;
@@ -53,9 +53,10 @@ public class SliderAssembly : Gtk.Grid {
     }
 
     construct {
-        orientation = Gtk.Orientation.HORIZONTAL;
-        margin_top = 5;
-        margin_bottom = 5;
+        var grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.HORIZONTAL,
+            valign = Gtk.Align.CENTER
+        };
 
         var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
         decrease_box = new Gtk.EventBox ();
@@ -70,14 +71,14 @@ public class SliderAssembly : Gtk.Grid {
             return false;
         });
 
-        add (decrease_box);
+        grid.add (decrease_box);
 
         slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
         slider.value_changed.connect (on_slider_value_changed);
         slider.draw_value = false;
         slider.set_size_request (150, -1);
 
-        add (slider);
+        grid.add (slider);
 
         var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU);
         increase_box = new Gtk.EventBox ();
@@ -92,7 +93,9 @@ public class SliderAssembly : Gtk.Grid {
             return false;
         });
 
-        add (increase_box);
+        grid.add (increase_box);
+        add (grid);
+        show_all ();
     }
 
     public SliderAssembly (double min, double max, double step, double initial_val) {
