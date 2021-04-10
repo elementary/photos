@@ -133,7 +133,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
             adjust_button.icon_widget = new Gtk.Image.from_icon_name ("image-adjust", Gtk.IconSize.LARGE_TOOLBAR);
             adjust_button.tooltip_text = Resources.ADJUST_TOOLTIP;
             adjust_button.toggled.connect (on_adjust_toggled);
-
+            adjust_button.create_menu_proxy.connect (() => {
+                var adjust_menu_item = new Gtk.MenuItem.with_label ("Adjust");
+                adjust_menu_item.activate.connect (() => {
+                    adjust_button.active = true;
+                });
+                adjust_button.set_proxy_menu_item ("Enhance", adjust_menu_item);
+                return true;
+            });
             enhance_button = new Gtk.ToggleToolButton (); // Not sure why this is a toggle
             enhance_button.icon_widget = new Gtk.Image.from_icon_name ("image-auto-adjust", Gtk.IconSize.LARGE_TOOLBAR);
             enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
