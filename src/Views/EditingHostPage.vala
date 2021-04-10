@@ -155,10 +155,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
             enhance_button.clicked.connect (on_enhance);
             enhance_button.create_menu_proxy.connect (() => {
                 var enhance_menu_item = new Gtk.CheckMenuItem.with_label ("Enhance");
-                enhance_menu_item.active = has_photo () && get_photo ().is_enhanced ();
+                enhance_menu_item.active = enhance_button.active;
                 enhance_menu_item.activate.connect (() => {
-                    on_enhance ();
-                    enhance_menu_item.active = has_photo () && get_photo ().is_enhanced ();
+                    enhance_button.clicked ();
                 });
                 enhance_button.set_proxy_menu_item ("Enhance", enhance_menu_item);
                 return true;
