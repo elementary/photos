@@ -128,6 +128,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
             redeye_button.icon_widget = new Gtk.Image.from_icon_name ("image-red-eye", Gtk.IconSize.LARGE_TOOLBAR);
             redeye_button.tooltip_text = Resources.RED_EYE_TOOLTIP;
             redeye_button.toggled.connect (on_redeye_toggled);
+            redeye_button.create_menu_proxy.connect (() => {
+                var redeye_menu_item = new Gtk.MenuItem.with_label ("Red Eye Correction");
+                redeye_menu_item.activate.connect (() => {
+                    redeye_button.active = true;
+                });
+                redeye_button.set_proxy_menu_item ("RedEye", redeye_menu_item);
+                return true;
+            });
 
             adjust_button = new Gtk.ToggleToolButton ();
             adjust_button.icon_widget = new Gtk.Image.from_icon_name ("image-adjust", Gtk.IconSize.LARGE_TOOLBAR);
