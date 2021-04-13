@@ -133,9 +133,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
         enhance_button.clicked.connect (on_enhance);
 
-        // var separator = new Gtk.SeparatorToolItem ();
-        // separator.set_expand (true);
-
         var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
         zoom_fit.tooltip_text = _("Zoom to fit page");
         zoom_fit.valign = Gtk.Align.CENTER;
@@ -172,8 +169,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
         next_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         next_button.tooltip_text = _("Next photo");
         next_button.clicked.connect (on_next_photo);
-
-        // toolbar = base.get_toolbar ();
 
         toolbar.pack_start (prev_button);
         toolbar.pack_start (next_button);

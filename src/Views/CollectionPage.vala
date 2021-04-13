@@ -99,8 +99,6 @@ public abstract class CollectionPage : MediaPage {
         toolbar.pack_start (enhance_button);
         toolbar.pack_end (show_sidebar_button);
         toolbar.pack_end (zoom_assembly);
-        // toolbar.pack_end (group_wrapper);
-
 
         var app = AppWindow.get_instance () as LibraryWindow;
         update_sidebar_action (!app.is_metadata_sidebar_visible ());
