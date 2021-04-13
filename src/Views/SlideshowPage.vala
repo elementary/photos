@@ -23,7 +23,7 @@ class SlideshowPage : SinglePhotoPage {
     private const int CHECK_ADVANCE_MSEC = 250;
 
     private Photo current;
-    private Gtk.ToolButton play_pause_button;
+    private Gtk.Button play_pause_button;
     private PixbufCache cache = null;
     private Timer timer = new Timer ();
     private bool playing = true;
@@ -65,19 +65,19 @@ class SlideshowPage : SinglePhotoPage {
         previous_button.tooltip_text = _("Go to the previous photo");
         previous_button.clicked.connect (on_previous_photo);
 
-        play_pause_button = new Gtk.ToolButton (null, _("Pause"));
-        play_pause_button.icon_name = "media-playback-pause-symbolic";
+        play_pause_button = new Gtk.Button.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         play_pause_button.tooltip_text = _("Pause the slideshow");
         play_pause_button.clicked.connect (on_play_pause);
 
-        var next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Next"));
+        var next_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         next_button.tooltip_text = _("Go to the next photo");
         next_button.clicked.connect (on_next_photo);
 
         var effect_selector = new TransitionEffectSelector ();
 
-        var titles_toggle = new Gtk.ToggleToolButton ();
-        titles_toggle.icon_name = "preferences-desktop-font-symbolic";
+        var titles_toggle = new Gtk.ToggleButton ();
+        titles_toggle.image = new Gtk.Image.from_icon_name ("preferences-desktop-font-symbolic",
+                                                            Gtk.IconSize.LARGE_TOOLBAR);
         titles_toggle.tooltip_text = _("Show Photo Titles");
         titles_toggle.margin_start = 6;
         titles_toggle.active = slideshow_settings.get_boolean ("show-title");
@@ -192,10 +192,12 @@ class SlideshowPage : SinglePhotoPage {
 
     private void on_play_pause () {
         if (playing) {
-            play_pause_button.icon_name = "media-playback-start-symbolic";
+            play_pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic",
+                                                                    Gtk.IconSize.LARGE_TOOLBAR);
             play_pause_button.tooltip_text = _("Continue the slideshow");
         } else {
-            play_pause_button.icon_name = "media-playback-pause-symbolic";
+            play_pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic",
+                                                                    Gtk.IconSize.LARGE_TOOLBAR);
             play_pause_button.tooltip_text = _("Pause the slideshow");
         }
 

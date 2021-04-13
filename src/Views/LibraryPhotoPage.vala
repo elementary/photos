@@ -55,10 +55,8 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
-        Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic",
-                                                              Gtk.IconSize.LARGE_TOOLBAR);
-
-        Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
+        Gtk.Button slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",
+                                                                     Gtk.IconSize.LARGE_TOOLBAR);
         slideshow_button.set_tooltip_text (_("Play a slideshow"));
         slideshow_button.clicked.connect (on_slideshow);
         toolbar.pack_start (slideshow_button);

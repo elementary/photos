@@ -21,7 +21,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
     protected Gtk.ActionBar toolbar;
-    protected Gtk.ToolButton show_sidebar_button;
+    protected Gtk.Button show_sidebar_button;
 
     private ViewCollection view = null;
     private Gtk.Window container = null;
@@ -319,10 +319,10 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (show_sidebar_button == null)
             return;
         if (!show) {
-            show_sidebar_button.icon_name = Resources.HIDE_PANE;
+            show_sidebar_button.image = new Gtk.Image.from_icon_name (Resources.HIDE_PANE, Gtk.IconSize.LARGE_TOOLBAR);
             show_sidebar_button.tooltip_text = Resources.UNTOGGLE_METAPANE_TOOLTIP;
         } else {
-            show_sidebar_button.icon_name = Resources.SHOW_PANE;
+            show_sidebar_button.image = new Gtk.Image.from_icon_name (Resources.SHOW_PANE, Gtk.IconSize.LARGE_TOOLBAR);
             show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         }
         var app = AppWindow.get_instance () as LibraryWindow;
