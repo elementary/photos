@@ -228,7 +228,7 @@ public abstract class Page : Gtk.ScrolledWindow {
                 toolbar.pack_end (add_widget);
             }
 
-            show_all ()
+            show_all ();
         }
 
         return toolbar;
