@@ -180,10 +180,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
             toolbar = base.get_toolbar ();
             toolbar.pack_start (prev_button);
             toolbar.pack_start (next_button);
+            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.pack_start (rotate_button);
             toolbar.pack_start (flip_button);
+            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.pack_start (crop_button);
             toolbar.pack_start (straighten_button);
+            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
             toolbar.pack_start (redeye_button);
             toolbar.pack_start (adjust_button);
             toolbar.pack_start (enhance_button);
@@ -196,6 +199,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
                     update_sidebar_action (!app.is_metadata_sidebar_visible ());
                 });
+                toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
                 toolbar.pack_end (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }

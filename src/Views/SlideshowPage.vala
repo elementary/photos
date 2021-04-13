@@ -107,14 +107,14 @@ class SlideshowPage : SinglePhotoPage {
         slider_wrapper.add (slider);
 
         var toolbar = get_toolbar ();
-        toolbar.add (previous_button);
-        toolbar.add (play_pause_button);
-        toolbar.add (next_button);
-        toolbar.add (new Gtk.SeparatorToolItem ());
-        toolbar.add (effect_selector);
-        toolbar.add (titles_toggle);
-        toolbar.add (slider_wrapper);
-        toolbar.add (new Gtk.SeparatorToolItem ());
+        toolbar.pack_start (previous_button);
+        toolbar.pack_start (play_pause_button);
+        toolbar.pack_start (next_button);
+        toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (effect_selector);
+        toolbar.pack_start (titles_toggle);
+        toolbar.pack_start (slider_wrapper);
+        toolbar.add (new Gtk.Separator (Gtk.Orientation.VERTICAL));
     }
 
     public override void switched_to () {

@@ -50,9 +50,9 @@ public class ImportQueuePage : SinglePhotoPage {
             stop_button.set_related_action (get_action ("Stop"));
 
             toolbar = base.get_toolbar ();
-            toolbar.add (progress_item);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (stop_button);
+            toolbar.pack_start (progress_item);
+            toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+            toolbar.pack_end (stop_button);
         }
 
         return toolbar;

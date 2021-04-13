@@ -68,7 +68,7 @@ public class OfflinePage : CheckerboardPage {
             remove_button.tooltip_text = Resources.DELETE_FROM_LIBRARY_TOOLTIP;
             var remove_tool = new Gtk.ToolItem ();
             remove_tool.add (remove_button);
-            toolbar.pack_end (remove_tool);
+            toolbar.pack_start (remove_tool);
             var remove_action = get_action ("RemoveFromLibrary");
             remove_action.bind_property ("sensitive", remove_button, "sensitive", BindingFlags.SYNC_CREATE);
             remove_button.clicked.connect (() => remove_action.activate ());

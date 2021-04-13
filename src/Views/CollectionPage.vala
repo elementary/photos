@@ -105,9 +105,9 @@ public abstract class CollectionPage : MediaPage {
             toolbar.pack_start (slideshow_button);
             toolbar.pack_start (rotate_button);
             toolbar.pack_start (flip_button);
-            toolbar.pack_start (new Gtk.SeparatorToolItem ());
+            // toolbar.pack_start (new Gtk.SeparatorToolItem ());
             toolbar.pack_start (publish_button);
-            toolbar.pack_start (new Gtk.SeparatorToolItem ());
+            // toolbar.pack_start (new Gtk.SeparatorToolItem ());
             toolbar.pack_start (enhance_button);
             toolbar.pack_end (show_sidebar_button);
             toolbar.pack_end (group_wrapper);

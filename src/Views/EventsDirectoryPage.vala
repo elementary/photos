@@ -73,9 +73,9 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         show_sidebar_button.clicked.connect (on_show_sidebar);
 
         var toolbar = get_toolbar ();
-        toolbar.add (merge_button);
-        toolbar.add (separator);
-        toolbar.add (show_sidebar_button);
+        toolbar.pack_start (merge_button);
+        // toolbar.add (separator);
+        toolbar.pack_end (show_sidebar_button);
     }
 
     protected EventsDirectoryPage (string page_name, ViewManager view_manager,

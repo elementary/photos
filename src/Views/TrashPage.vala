@@ -58,9 +58,9 @@ public class TrashPage : CheckerboardPage {
         if (toolbar == null) {
             var app = AppWindow.get_instance () as LibraryWindow;
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
-            separator.set_draw (false);
+            // var separator = new Gtk.SeparatorToolItem ();
+            // separator.set_expand (true);
+            // separator.set_draw (false);
 
             var restore_button = new Gtk.Button.with_mnemonic (Resources.RESTORE_PHOTOS_MENU);
             restore_button.margin_start = restore_button.margin_end = 3;
@@ -100,12 +100,12 @@ public class TrashPage : CheckerboardPage {
             show_sidebar_button.clicked.connect (on_show_sidebar);
 
             base.get_toolbar ();
-            toolbar.add (separator);
-            toolbar.add (restore_tool);
-            toolbar.add (delete_tool);
-            toolbar.add (empty_trash_tool);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (show_sidebar_button);
+            // toolbar.add (separator);
+            toolbar.pack_start (restore_tool);
+            toolbar.pack_start (delete_tool);
+            toolbar.pack_start (empty_trash_tool);
+            toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+            toolbar.pack_end (show_sidebar_button);
 
             update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }

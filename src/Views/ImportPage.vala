@@ -816,12 +816,12 @@ public class ImportPage : CheckerboardPage {
             import_all_ti.add (import_all_button);
 
             base.get_toolbar ();
-            toolbar.add (hide_item);
-            toolbar.add (separator);
-            toolbar.add (progress_item);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (import_sel_ti);
-            toolbar.add (import_all_ti);
+            toolbar.pack_start (hide_item);
+            toolbar.pack_start (separator);
+            toolbar.pack_start (progress_item);
+            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+            toolbar.pack_start (import_sel_ti);
+            toolbar.pack_start (import_all_ti);
 
             update_toolbar_state ();
 
