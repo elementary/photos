@@ -869,7 +869,7 @@ public abstract class CollectionPage : MediaPage {
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         flip_button.image = new Gtk.Image.from_icon_name (Resources.VFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.VFLIP_TOOLTIP;
-        rotate_button.image = new Gtk.Image.from_icon_name (Resources.COUNTERCLOCKWISE,  Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_button.image = new Gtk.Image.from_icon_name (Resources.COUNTERCLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
         rotate_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP;
         flip_button.clicked.disconnect (on_flip_horizontally);
         flip_button.clicked.connect (on_flip_vertically);
