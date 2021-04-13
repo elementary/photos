@@ -20,8 +20,8 @@
 public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
-    protected Gtk.Toolbar toolbar;
-    protected Gtk.ToolButton show_sidebar_button;
+    protected Gtk.ActionBar? toolbar = null;
+    protected Gtk.Button? show_sidebar_button = null;
 
     private ViewCollection view = null;
     private Gtk.Window container = null;
@@ -206,15 +206,35 @@ public abstract class Page : Gtk.ScrolledWindow {
         return event_source;
     }
 
-    public virtual Gtk.Toolbar get_toolbar () {
+    /* Parameters add ability to have a widget inserted (by the parent) before or after the parents actionbar widgets
+     * Otherwise Any widgets packed into the actionbar after getting it from the parent will appear inside the 
+     * parent's widgets. */
+    public Gtk.ActionBar get_toolbar (Gtk.Widget? add_widget = null,
+                                      Gtk.PackType position = Gtk.PackType.START) {
+
         if (toolbar == null) {
-            toolbar = new Gtk.Toolbar ();
+            toolbar = new Gtk.ActionBar ();
             toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
             toolbar.valign = Gtk.Align.END;
             toolbar.halign = Gtk.Align.FILL;
+
+            if (add_widget != null && position == Gtk.PackType.START) {
+                toolbar.pack_start (add_widget);
+            }
+
+            add_toolbar_widgets (toolbar);
+
+            if (add_widget != null && position == Gtk.PackType.END) {
+                toolbar.pack_end (add_widget);
+            }
+
+            show_all ();
         }
+
         return toolbar;
+    }
+
+    protected virtual void add_toolbar_widgets (Gtk.ActionBar toolbar) {
     }
 
     public virtual Gtk.Menu? get_page_context_menu () {
@@ -299,10 +319,10 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (show_sidebar_button == null)
             return;
         if (!show) {
-            show_sidebar_button.icon_name = Resources.HIDE_PANE;
+            show_sidebar_button.image = new Gtk.Image.from_icon_name (Resources.HIDE_PANE, Gtk.IconSize.LARGE_TOOLBAR);
             show_sidebar_button.tooltip_text = Resources.UNTOGGLE_METAPANE_TOOLTIP;
         } else {
-            show_sidebar_button.icon_name = Resources.SHOW_PANE;
+            show_sidebar_button.image = new Gtk.Image.from_icon_name (Resources.SHOW_PANE, Gtk.IconSize.LARGE_TOOLBAR);
             show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         }
         var app = AppWindow.get_instance () as LibraryWindow;

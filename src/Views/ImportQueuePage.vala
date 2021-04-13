@@ -38,24 +38,19 @@ public class ImportQueuePage : SinglePhotoPage {
 
     }
 
-    public override Gtk.Toolbar get_toolbar () {
-        if (toolbar == null) {
-            var progress_item = new Gtk.ToolItem ();
-            progress_item.set_expand (true);
-            progress_item.add (progress_bar);
+    public virtual void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        var progress_item = new Gtk.ToolItem ();
+        progress_item.set_expand (true);
+        progress_item.add (progress_bar);
 
-            progress_bar.set_show_text (true);
+        progress_bar.set_show_text (true);
 
-            var stop_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
-            stop_button.set_related_action (get_action ("Stop"));
+        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        stop_button.set_related_action (get_action ("Stop"));
 
-            toolbar = base.get_toolbar ();
-            toolbar.add (progress_item);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (stop_button);
-        }
-
-        return toolbar;
+        toolbar.pack_start (progress_item);
+        toolbar.pack_end (stop_button);
+        base.add_toolbar_widgets (toolbar);
     }
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {

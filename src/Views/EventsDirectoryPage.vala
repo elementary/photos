@@ -61,21 +61,16 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
-        var merge_button = new Gtk.ToolButton (null, null);
-        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
+        var merge_button = new Gtk.Button.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
         merge_button.related_action = get_action ("Merge");
         merge_button.tooltip_text = _("Merge events");
-
-        var separator = new Gtk.SeparatorToolItem ();
-        separator.set_expand (true);
 
         show_sidebar_button = MediaPage.create_sidebar_button ();
         show_sidebar_button.clicked.connect (on_show_sidebar);
 
         var toolbar = get_toolbar ();
-        toolbar.add (merge_button);
-        toolbar.add (separator);
-        toolbar.add (show_sidebar_button);
+        toolbar.pack_start (merge_button);
+        toolbar.pack_end (show_sidebar_button);
     }
 
     protected EventsDirectoryPage (string page_name, ViewManager view_manager,

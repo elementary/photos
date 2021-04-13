@@ -29,14 +29,14 @@ public abstract class CollectionPage : MediaPage {
 
     private ExporterUI exporter = null;
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
-    private Gtk.ToggleToolButton enhance_button = null;
+    private Gtk.ToggleButton? enhance_button = null;
     private Gtk.Menu item_context_menu;
     private Gtk.Menu open_menu;
     private Gtk.Menu open_raw_menu;
     private Gtk.MenuItem open_raw_menu_item;
     private Gtk.Menu contractor_menu;
-    private Gtk.ToolButton rotate_button;
-    private Gtk.ToolButton flip_button;
+    private Gtk.Button rotate_button;
+    private Gtk.Button flip_button;
 
     protected CollectionPage (string page_name) {
         Object (page_name: page_name);
@@ -48,76 +48,61 @@ public abstract class CollectionPage : MediaPage {
         show_all ();
     }
 
-    public override Gtk.Toolbar get_toolbar () {
-        if (toolbar == null) {
-            var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
-            slideshow_button.icon_name = "media-playback-start-symbolic";
-            slideshow_button.tooltip_text = _("Play a slideshow");
-            slideshow_button.clicked.connect (on_slideshow);
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        var slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",
+                                                              Gtk.IconSize.LARGE_TOOLBAR);
+        slideshow_button.tooltip_text = _("Play a slideshow");
+        slideshow_button.clicked.connect (on_slideshow);
 
-            rotate_button = new Gtk.ToolButton (null, Resources.ROTATE_CW_MENU);
-            rotate_button.icon_name = Resources.CLOCKWISE;
-            rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
-            rotate_button.clicked.connect (on_rotate_clockwise);
+        rotate_button = new Gtk.Button.from_icon_name (Resources.CLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP; // Will be used be screen reader if no label
+        rotate_button.clicked.connect (on_rotate_clockwise);
 
-            var rotate_action = get_action ("RotateClockwise");
-            rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var rotate_action = get_action ("RotateClockwise");
+        rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            flip_button = new Gtk.ToolButton (null, Resources.HFLIP_MENU);
-            flip_button.icon_name = Resources.HFLIP;
-            flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
-            flip_button.clicked.connect (on_flip_horizontally);
+        flip_button = new Gtk.Button.from_icon_name (Resources.HFLIP, Gtk.IconSize.LARGE_TOOLBAR);
+        flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
+        flip_button.clicked.connect (on_flip_horizontally);
 
-            var flip_action = get_action ("FlipHorizontally");
-            flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var flip_action = get_action ("FlipHorizontally");
+        flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var publish_button = new Gtk.ToolButton (null, Resources.PUBLISH_MENU);
-            publish_button.icon_name = Resources.PUBLISH;
-            publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
-            publish_button.clicked.connect (on_publish);
+        var publish_button = new Gtk.Button.from_icon_name (Resources.PUBLISH, Gtk.IconSize.LARGE_TOOLBAR);
+        publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
+        publish_button.clicked.connect (on_publish);
 
-            var publish_action = get_action ("Publish");
-            publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var publish_action = get_action ("Publish");
+        publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            enhance_button = new Gtk.ToggleToolButton ();
-            enhance_button.icon_name = Resources.ENHANCE;
-            enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
-            enhance_button.clicked.connect (on_enhance);
+        enhance_button = new Gtk.ToggleButton ();
+        enhance_button.image = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
+        enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
+        enhance_button.clicked.connect (on_enhance);
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
-            separator.set_draw (false);
+        var zoom_assembly = new SliderAssembly (Thumbnail.MIN_SCALE,
+                                                Thumbnail.MAX_SCALE,
+                                                MediaPage.MANUAL_STEPPING, 0);
 
-            var zoom_assembly = new SliderAssembly (Thumbnail.MIN_SCALE,
-                                                    Thumbnail.MAX_SCALE,
-                                                    MediaPage.MANUAL_STEPPING, 0);
+        zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
+        connect_slider (zoom_assembly);
 
-            zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
-            connect_slider (zoom_assembly);
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
 
-            var group_wrapper = new Gtk.ToolItem ();
-            group_wrapper.add (zoom_assembly);
+        toolbar.pack_start (slideshow_button);
+        toolbar.pack_start (rotate_button);
+        toolbar.pack_start (flip_button);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (publish_button);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (enhance_button);
+        toolbar.pack_end (show_sidebar_button);
+        toolbar.pack_end (zoom_assembly);
 
-            show_sidebar_button = MediaPage.create_sidebar_button ();
-            show_sidebar_button.clicked.connect (on_show_sidebar);
-
-            toolbar = base.get_toolbar ();
-            toolbar.add (slideshow_button);
-            toolbar.add (rotate_button);
-            toolbar.add (flip_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (publish_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.add (group_wrapper);
-            toolbar.add (show_sidebar_button);
-
-            var app = AppWindow.get_instance () as LibraryWindow;
-            update_sidebar_action (!app.is_metadata_sidebar_visible ());
-        }
-
-        return toolbar;
+        var app = AppWindow.get_instance () as LibraryWindow;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        base.add_toolbar_widgets (toolbar);
     }
 
     public override Gtk.Menu? get_item_context_menu () {
@@ -880,11 +865,9 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
-        flip_button.label = Resources.VFLIP_MENU;
-        flip_button.icon_name = Resources.VFLIP;
+        flip_button.image = new Gtk.Image.from_icon_name (Resources.VFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.VFLIP_TOOLTIP;
-        rotate_button.label = Resources.ROTATE_CCW_MENU;
-        rotate_button.icon_name = Resources.COUNTERCLOCKWISE;
+        rotate_button.image = new Gtk.Image.from_icon_name (Resources.COUNTERCLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
         rotate_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP;
         flip_button.clicked.disconnect (on_flip_horizontally);
         flip_button.clicked.connect (on_flip_vertically);
@@ -895,11 +878,9 @@ public abstract class CollectionPage : MediaPage {
     }
 
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
-        flip_button.label = Resources.HFLIP_MENU;
-        flip_button.icon_name = Resources.HFLIP;
+        flip_button.image = new Gtk.Image.from_icon_name (Resources.HFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
-        rotate_button.label = Resources.ROTATE_CW_MENU;
-        rotate_button.icon_name = Resources.CLOCKWISE;
+        rotate_button.image = new Gtk.Image.from_icon_name (Resources.CLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
         rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
         flip_button.clicked.disconnect (on_flip_vertically);
         flip_button.clicked.connect (on_flip_horizontally);
