@@ -61,7 +61,7 @@ class SlideshowPage : SinglePhotoPage {
 
         update_transition_effect ();
 
-        var previous_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), _("Back"));
+        var previous_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         previous_button.tooltip_text = _("Go to the previous photo");
         previous_button.clicked.connect (on_previous_photo);
 

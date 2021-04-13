@@ -24,7 +24,7 @@ public class FullscreenWindow : PageWindow {
 
     private Gtk.Revealer revealer;
     private Gtk.ActionBar toolbar;
-    private Gtk.ToggleToolButton pin_button;
+    private Gtk.ToggleButton pin_button;
     private int64 left_toolbar_time = 0;
     private bool switched_to = false;
 
@@ -47,14 +47,12 @@ public class FullscreenWindow : PageWindow {
 
         set_border_width (0);
 
-        pin_button = new Gtk.ToggleToolButton ();
-        pin_button.icon_name = "view-pin-symbolic";
+        pin_button = new Gtk.ToggleButton ();
+        pin_button.image = new Gtk.Image.from_icon_name ("view-pin-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         pin_button.tooltip_text = _("Pin the toolbar open");
         pin_button.bind_property ("active", this, "auto-dismiss-toolbar", GLib.BindingFlags.INVERT_BOOLEAN);
 
-        var img = new Gtk.Image.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-
-        var close_button = new Gtk.ToolButton (img, null);
+        var close_button = new Gtk.Button.from_icon_name ("window-restore-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         close_button.tooltip_text = _("Leave fullscreen");
         close_button.clicked.connect (on_close);
 

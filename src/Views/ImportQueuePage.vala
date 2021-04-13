@@ -45,11 +45,10 @@ public class ImportQueuePage : SinglePhotoPage {
 
         progress_bar.set_show_text (true);
 
-        var stop_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.set_related_action (get_action ("Stop"));
 
         toolbar.pack_start (progress_item);
-        toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         toolbar.pack_end (stop_button);
         base.add_toolbar_widgets (toolbar);
     }
