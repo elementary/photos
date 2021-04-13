@@ -99,7 +99,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar = get_toolbar ();
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
 
@@ -178,20 +178,15 @@ public abstract class EditingHostPage : SinglePhotoPage {
             next_button.clicked.connect (on_next_photo);
 
             toolbar = base.get_toolbar ();
-            toolbar.add (prev_button);
-            toolbar.add (next_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (rotate_button);
-            toolbar.add (flip_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (crop_button);
-            toolbar.add (straighten_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (redeye_button);
-            toolbar.add (adjust_button);
-            toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.add (group_wrapper);
+            toolbar.pack_start (prev_button);
+            toolbar.pack_start (next_button);
+            toolbar.pack_start (rotate_button);
+            toolbar.pack_start (flip_button);
+            toolbar.pack_start (crop_button);
+            toolbar.pack_start (straighten_button);
+            toolbar.pack_start (redeye_button);
+            toolbar.pack_start (adjust_button);
+            toolbar.pack_start (enhance_button);
 
             //  show metadata sidebar button
             var app = AppWindow.get_instance () as LibraryWindow;
@@ -201,9 +196,11 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
                     update_sidebar_action (!app.is_metadata_sidebar_visible ());
                 });
-                toolbar.add (show_sidebar_button);
+                toolbar.pack_end (show_sidebar_button);
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
             }
+
+            toolbar.pack_end (group_wrapper);
         }
 
         return toolbar;

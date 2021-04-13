@@ -48,7 +48,7 @@ public abstract class CollectionPage : MediaPage {
         show_all ();
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             var slideshow_button = new Gtk.ToolButton (null, _("S_lideshow"));
             slideshow_button.icon_name = "media-playback-start-symbolic";
@@ -102,16 +102,16 @@ public abstract class CollectionPage : MediaPage {
             show_sidebar_button.clicked.connect (on_show_sidebar);
 
             toolbar = base.get_toolbar ();
-            toolbar.add (slideshow_button);
-            toolbar.add (rotate_button);
-            toolbar.add (flip_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (publish_button);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (enhance_button);
-            toolbar.add (separator);
-            toolbar.add (group_wrapper);
-            toolbar.add (show_sidebar_button);
+            toolbar.pack_start (slideshow_button);
+            toolbar.pack_start (rotate_button);
+            toolbar.pack_start (flip_button);
+            toolbar.pack_start (new Gtk.SeparatorToolItem ());
+            toolbar.pack_start (publish_button);
+            toolbar.pack_start (new Gtk.SeparatorToolItem ());
+            toolbar.pack_start (enhance_button);
+            toolbar.pack_end (show_sidebar_button);
+            toolbar.pack_end (group_wrapper);
+
 
             var app = AppWindow.get_instance () as LibraryWindow;
             update_sidebar_action (!app.is_metadata_sidebar_visible ());

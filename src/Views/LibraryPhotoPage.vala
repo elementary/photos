@@ -55,7 +55,7 @@ public class LibraryPhotoPage : EditingHostPage {
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             base.get_toolbar ();
 
@@ -63,7 +63,7 @@ public class LibraryPhotoPage : EditingHostPage {
             Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
             slideshow_button.set_tooltip_text (_("Play a slideshow"));
             slideshow_button.clicked.connect (on_slideshow);
-            get_toolbar ().insert (slideshow_button, 0);
+            get_toolbar ().pack_start (slideshow_button);
         }
         return toolbar;
     }

@@ -20,7 +20,7 @@
 public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
-    protected Gtk.Toolbar toolbar;
+    protected Gtk.ActionBar toolbar;
     protected Gtk.ToolButton show_sidebar_button;
 
     private ViewCollection view = null;
@@ -206,11 +206,10 @@ public abstract class Page : Gtk.ScrolledWindow {
         return event_source;
     }
 
-    public virtual Gtk.Toolbar get_toolbar () {
+    public virtual Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
-            toolbar = new Gtk.Toolbar ();
+            toolbar = new Gtk.ActionBar ();
             toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-            toolbar.set_style (Gtk.ToolbarStyle.ICONS);
             toolbar.valign = Gtk.Align.END;
             toolbar.halign = Gtk.Align.FILL;
         }

@@ -1087,7 +1087,7 @@ public class LibraryWindow : AppWindow {
         metadata_sidebar.save_changes ();
         Page current_page = get_current_page ();
         if (current_page != null) {
-            Gtk.Toolbar toolbar = current_page.get_toolbar ();
+            Gtk.ActionBar toolbar = current_page.get_toolbar ();
             if (toolbar != null) {
                 toolbar.destroy ();
             }

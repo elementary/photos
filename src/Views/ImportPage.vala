@@ -779,7 +779,7 @@ public class ImportPage : CheckerboardPage {
         Video.global.contents_altered.disconnect (on_media_added_removed);
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             hide_imported = new Gtk.CheckButton.with_label (_("Hide photos already imported"));
             hide_imported.active = ui_settings.get_boolean ("hide-photos-already-imported");

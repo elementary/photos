@@ -54,7 +54,7 @@ public class TrashPage : CheckerboardPage {
         on_trashcan_contents_altered (Video.global.get_trashcan_contents (), null);
     }
 
-    public override Gtk.Toolbar get_toolbar () {
+    public override Gtk.ActionBar get_toolbar () {
         if (toolbar == null) {
             var app = AppWindow.get_instance () as LibraryWindow;
 

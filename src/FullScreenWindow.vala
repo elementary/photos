@@ -23,7 +23,7 @@ public class FullscreenWindow : PageWindow {
     public const int TOOLBAR_CHECK_DISMISSAL_MSEC = 500;
 
     private Gtk.Revealer revealer;
-    private Gtk.Toolbar toolbar;
+    private Gtk.ActionBar toolbar;
     private Gtk.ToggleToolButton pin_button;
     private int64 left_toolbar_time = 0;
     private bool switched_to = false;
@@ -68,13 +68,13 @@ public class FullscreenWindow : PageWindow {
             ((SlideshowPage) page).hide_toolbar.connect (hide_toolbar);
         } else {
             // only non-slideshow pages should have pin button
-            toolbar.insert (pin_button, -1);
+            toolbar.pack_end (pin_button);
         }
 
         page.set_cursor_hide_time (TOOLBAR_DISMISSAL_SEC * 1000);
         page.start_cursor_hiding ();
 
-        toolbar.insert (close_button, -1);
+        toolbar.pack_end (close_button);
 
         revealer = new Gtk.Revealer ();
         revealer.halign = Gtk.Align.CENTER;
