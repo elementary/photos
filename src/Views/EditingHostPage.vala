@@ -57,12 +57,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleButton? redeye_button = null;
     private Gtk.ToggleButton? adjust_button = null;
     private Gtk.ToggleButton? straighten_button = null;
-    protected Gtk.ToggleButton enhance_button = null;
+    protected Gtk.ToggleButton? enhance_button = null;
     private SliderAssembly zoom_slider = null;
     private Gtk.Button prev_button = null;
     private Gtk.Button next_button = null;
     private EditingTools.EditingTool current_tool = null;
-    private Gtk.ToggleButton current_editing_toggle = null;
+    private Gtk.ToggleButton? current_editing_toggle = null;
     private Gdk.Pixbuf cancel_editing_pixbuf = null;
     private bool photo_missing = false;
     private PixbufCache cache = null;

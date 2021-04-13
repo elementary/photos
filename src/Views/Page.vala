@@ -20,8 +20,8 @@
 public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
 
-    protected Gtk.ActionBar toolbar;
-    protected Gtk.Button show_sidebar_button;
+    protected Gtk.ActionBar? toolbar = null;
+    protected Gtk.Button? show_sidebar_button = null;
 
     private ViewCollection view = null;
     private Gtk.Window container = null;
