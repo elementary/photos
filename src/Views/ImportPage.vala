@@ -779,56 +779,51 @@ public class ImportPage : CheckerboardPage {
         Video.global.contents_altered.disconnect (on_media_added_removed);
     }
 
-    public override Gtk.ActionBar get_toolbar () {
-        if (toolbar == null) {
-            hide_imported = new Gtk.CheckButton.with_label (_("Hide photos already imported"));
-            hide_imported.active = ui_settings.get_boolean ("hide-photos-already-imported");
-            hide_imported.sensitive = false;
-            hide_imported.tooltip_text = _("Only display photos that have not been imported");
-            hide_imported.clicked.connect (on_hide_imported);
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        hide_imported = new Gtk.CheckButton.with_label (_("Hide photos already imported"));
+        hide_imported.active = ui_settings.get_boolean ("hide-photos-already-imported");
+        hide_imported.sensitive = false;
+        hide_imported.tooltip_text = _("Only display photos that have not been imported");
+        hide_imported.clicked.connect (on_hide_imported);
 
-            var hide_item = new Gtk.ToolItem ();
-            hide_item.add (hide_imported);
+        var hide_item = new Gtk.ToolItem ();
+        hide_item.add (hide_imported);
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_draw (false);
+        var separator = new Gtk.SeparatorToolItem ();
+        separator.set_draw (false);
 
-            progress_bar.orientation = Gtk.Orientation.HORIZONTAL;
-            progress_bar.visible = false;
-            progress_bar.show_text = true;
-            progress_bar.no_show_all = true;
+        progress_bar.orientation = Gtk.Orientation.HORIZONTAL;
+        progress_bar.visible = false;
+        progress_bar.show_text = true;
+        progress_bar.no_show_all = true;
 
-            var progress_item = new Gtk.ToolItem ();
-            progress_item.set_expand (true);
-            progress_item.add (progress_bar);
+        var progress_item = new Gtk.ToolItem ();
+        progress_item.set_expand (true);
+        progress_item.add (progress_bar);
 
-            var import_selected_button = new Gtk.Button.with_label ("Import Selected");
-            import_selected_button.set_related_action (get_action ("ImportSelected"));
+        var import_selected_button = new Gtk.Button.with_label ("Import Selected");
+        import_selected_button.set_related_action (get_action ("ImportSelected"));
 
-            var import_sel_ti = new Gtk.ToolItem ();
-            import_sel_ti.add (import_selected_button);
+        var import_sel_ti = new Gtk.ToolItem ();
+        import_sel_ti.add (import_selected_button);
 
-            var import_all_button = new Gtk.Button.with_label ("Import All");
-            import_all_button.set_related_action (get_action ("ImportAll"));
+        var import_all_button = new Gtk.Button.with_label ("Import All");
+        import_all_button.set_related_action (get_action ("ImportAll"));
 
-            var import_all_ti = new Gtk.ToolItem ();
-            import_all_ti.margin_start = 6;
-            import_all_ti.add (import_all_button);
+        var import_all_ti = new Gtk.ToolItem ();
+        import_all_ti.margin_start = 6;
+        import_all_ti.add (import_all_button);
 
-            base.get_toolbar ();
-            toolbar.pack_start (hide_item);
-            toolbar.pack_start (separator);
-            toolbar.pack_start (progress_item);
-            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-            toolbar.pack_start (import_sel_ti);
-            toolbar.pack_start (import_all_ti);
+        toolbar.pack_start (hide_item);
+        toolbar.pack_start (separator);
+        toolbar.pack_start (progress_item);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (import_sel_ti);
+        toolbar.pack_start (import_all_ti);
 
-            update_toolbar_state ();
+        update_toolbar_state ();
 
-            show_all ();
-        }
-
-        return toolbar;
+        base.add_toolbar_widgets (toolbar);
     }
 
     public override Gtk.Menu? get_item_context_menu () {

@@ -206,14 +206,35 @@ public abstract class Page : Gtk.ScrolledWindow {
         return event_source;
     }
 
-    public virtual Gtk.ActionBar get_toolbar () {
+    /* Parameters add ability to have a widget inserted (by the parent) before or after the parents actionbar widgets
+     * Otherwise Any widgets packed into the actionbar after getting it from the parent will appear inside the 
+     * parent's widgets. */
+    public Gtk.ActionBar get_toolbar (Gtk.Widget? add_widget = null,
+                                      Gtk.PackType position = Gtk.PackType.START) {
+
         if (toolbar == null) {
             toolbar = new Gtk.ActionBar ();
             toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
             toolbar.valign = Gtk.Align.END;
             toolbar.halign = Gtk.Align.FILL;
+
+            if (add_widget != null && position == Gtk.PackType.START) {
+                toolbar.pack_start (add_widget);
+            }
+
+            add_toolbar_widgets (toolbar);
+
+            if (add_widget != null && position == Gtk.PackType.END) {
+                toolbar.pack_end (add_widget);
+            }
+
+            show_all ()
         }
+
         return toolbar;
+    }
+
+    protected virtual void add_toolbar_widgets (Gtk.ActionBar toolbar) {
     }
 
     public virtual Gtk.Menu? get_page_context_menu () {

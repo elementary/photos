@@ -99,115 +99,111 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar = get_toolbar ();
     }
 
-    public override Gtk.ActionBar get_toolbar () {
-        if (toolbar == null) {
-            // set up page's toolbar (used by AppWindow for layout and FullscreenWindow as a popup)
+    protected override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
+        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
+        rotate_button.clicked.connect (on_rotate_clockwise);
 
-            rotate_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR), _("Rotate"));
-            rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
-            rotate_button.clicked.connect (on_rotate_clockwise);
+        flip_button = new Gtk.ToolButton (null, null);
+        flip_button.icon_name = "object-flip-horizontal";
+        flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
+        flip_button.clicked.connect (on_flip_horizontally);
 
-            flip_button = new Gtk.ToolButton (null, null);
-            flip_button.icon_name = "object-flip-horizontal";
-            flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
-            flip_button.clicked.connect (on_flip_horizontally);
+        crop_button = new Gtk.ToggleToolButton ();
+        crop_button.icon_widget = new Gtk.Image.from_icon_name ("image-crop", Gtk.IconSize.LARGE_TOOLBAR);
+        crop_button.tooltip_text = Resources.CROP_TOOLTIP;
+        crop_button.toggled.connect (on_crop_toggled);
 
-            crop_button = new Gtk.ToggleToolButton ();
-            crop_button.icon_widget = new Gtk.Image.from_icon_name ("image-crop", Gtk.IconSize.LARGE_TOOLBAR);
-            crop_button.tooltip_text = Resources.CROP_TOOLTIP;
-            crop_button.toggled.connect (on_crop_toggled);
+        straighten_button = new Gtk.ToggleToolButton ();
+        straighten_button.icon_widget = new Gtk.Image.from_icon_name ("object-straighten", Gtk.IconSize.LARGE_TOOLBAR);
+        straighten_button.tooltip_text = Resources.STRAIGHTEN_TOOLTIP;
+        straighten_button.toggled.connect (on_straighten_toggled);
 
-            straighten_button = new Gtk.ToggleToolButton ();
-            straighten_button.icon_widget = new Gtk.Image.from_icon_name ("object-straighten", Gtk.IconSize.LARGE_TOOLBAR);
-            straighten_button.tooltip_text = Resources.STRAIGHTEN_TOOLTIP;
-            straighten_button.toggled.connect (on_straighten_toggled);
+        redeye_button = new Gtk.ToggleToolButton ();
+        redeye_button.icon_widget = new Gtk.Image.from_icon_name ("image-red-eye", Gtk.IconSize.LARGE_TOOLBAR);
+        redeye_button.tooltip_text = Resources.RED_EYE_TOOLTIP;
+        redeye_button.toggled.connect (on_redeye_toggled);
 
-            redeye_button = new Gtk.ToggleToolButton ();
-            redeye_button.icon_widget = new Gtk.Image.from_icon_name ("image-red-eye", Gtk.IconSize.LARGE_TOOLBAR);
-            redeye_button.tooltip_text = Resources.RED_EYE_TOOLTIP;
-            redeye_button.toggled.connect (on_redeye_toggled);
+        adjust_button = new Gtk.ToggleToolButton ();
+        adjust_button.icon_widget = new Gtk.Image.from_icon_name ("image-adjust", Gtk.IconSize.LARGE_TOOLBAR);
+        adjust_button.tooltip_text = Resources.ADJUST_TOOLTIP;
+        adjust_button.toggled.connect (on_adjust_toggled);
 
-            adjust_button = new Gtk.ToggleToolButton ();
-            adjust_button.icon_widget = new Gtk.Image.from_icon_name ("image-adjust", Gtk.IconSize.LARGE_TOOLBAR);
-            adjust_button.tooltip_text = Resources.ADJUST_TOOLTIP;
-            adjust_button.toggled.connect (on_adjust_toggled);
+        enhance_button = new Gtk.ToggleToolButton ();
+        enhance_button.icon_widget = new Gtk.Image.from_icon_name ("image-auto-adjust", Gtk.IconSize.LARGE_TOOLBAR);
+        enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
+        enhance_button.clicked.connect (on_enhance);
 
-            enhance_button = new Gtk.ToggleToolButton ();
-            enhance_button.icon_widget = new Gtk.Image.from_icon_name ("image-auto-adjust", Gtk.IconSize.LARGE_TOOLBAR);
-            enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
-            enhance_button.clicked.connect (on_enhance);
+        var separator = new Gtk.SeparatorToolItem ();
+        separator.set_expand (true);
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
+        var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
+        zoom_fit.tooltip_text = _("Zoom to fit page");
+        zoom_fit.valign = Gtk.Align.CENTER;
+        zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-            var zoom_fit = new Gtk.Button.from_icon_name ("zoom-fit-best-symbolic", Gtk.IconSize.MENU);
-            zoom_fit.tooltip_text = _("Zoom to fit page");
-            zoom_fit.valign = Gtk.Align.CENTER;
-            zoom_fit.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        var zoom_fit_action = get_action ("ZoomFit");
+        zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
+        zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
 
-            var zoom_fit_action = get_action ("ZoomFit");
-            zoom_fit_action.bind_property ("sensitive", zoom_fit, "sensitive", BindingFlags.SYNC_CREATE);
-            zoom_fit.clicked.connect (() => zoom_fit_action.activate ());
+        var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
+        zoom_original.tooltip_text = _("Zoom 1:1");
+        zoom_original.valign = Gtk.Align.CENTER;
+        zoom_original.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        zoom_original.clicked.connect (() => {
+            snap_zoom_to_isomorphic ();
+        });
 
-            var zoom_original = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.MENU);
-            zoom_original.tooltip_text = _("Zoom 1:1");
-            zoom_original.valign = Gtk.Align.CENTER;
-            zoom_original.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-            zoom_original.clicked.connect (() => {
-                snap_zoom_to_isomorphic ();
-            });
+        zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0);
+        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
 
-            zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0);
-            zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        var zoom_group = new Gtk.Grid ();
+        zoom_group.column_spacing = 6;
+        zoom_group.add (zoom_fit);
+        zoom_group.add (zoom_original);
+        zoom_group.add (zoom_slider);
 
-            var zoom_group = new Gtk.Grid ();
-            zoom_group.column_spacing = 6;
-            zoom_group.add (zoom_fit);
-            zoom_group.add (zoom_original);
-            zoom_group.add (zoom_slider);
+        var group_wrapper = new Gtk.ToolItem ();
+        group_wrapper.add (zoom_group);
 
-            var group_wrapper = new Gtk.ToolItem ();
-            group_wrapper.add (zoom_group);
+        prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+        prev_button.tooltip_text = _("Previous photo");
+        prev_button.clicked.connect (on_previous_photo);
 
-            prev_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
-            prev_button.tooltip_text = _("Previous photo");
-            prev_button.clicked.connect (on_previous_photo);
+        next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
+        next_button.tooltip_text = _("Next photo");
+        next_button.clicked.connect (on_next_photo);
 
-            next_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR), null);
-            next_button.tooltip_text = _("Next photo");
-            next_button.clicked.connect (on_next_photo);
+        // toolbar = base.get_toolbar ();
 
-            toolbar = base.get_toolbar ();
-            toolbar.pack_start (prev_button);
-            toolbar.pack_start (next_button);
-            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-            toolbar.pack_start (rotate_button);
-            toolbar.pack_start (flip_button);
-            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-            toolbar.pack_start (crop_button);
-            toolbar.pack_start (straighten_button);
-            toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-            toolbar.pack_start (redeye_button);
-            toolbar.pack_start (adjust_button);
-            toolbar.pack_start (enhance_button);
+        toolbar.pack_start (prev_button);
+        toolbar.pack_start (next_button);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (rotate_button);
+        toolbar.pack_start (flip_button);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (crop_button);
+        toolbar.pack_start (straighten_button);
+        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_start (redeye_button);
+        toolbar.pack_start (adjust_button);
+        toolbar.pack_start (enhance_button);
+        toolbar.pack_end (group_wrapper);
 
-            //  show metadata sidebar button
-            var app = AppWindow.get_instance () as LibraryWindow;
-            if (app != null) {
-                show_sidebar_button = MediaPage.create_sidebar_button ();
-                show_sidebar_button.clicked.connect (() => {
-                    app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
-                    update_sidebar_action (!app.is_metadata_sidebar_visible ());
-                });
-                toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-                toolbar.pack_end (show_sidebar_button);
+        //  show metadata sidebar button
+        var app = AppWindow.get_instance () as LibraryWindow;
+        if (app != null) {
+            show_sidebar_button = MediaPage.create_sidebar_button ();
+            show_sidebar_button.clicked.connect (() => {
+                app.set_metadata_sidebar_visible (!app.is_metadata_sidebar_visible ());
                 update_sidebar_action (!app.is_metadata_sidebar_visible ());
-            }
-
-            toolbar.pack_end (group_wrapper);
+            });
+            toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+            toolbar.pack_end (show_sidebar_button);
+            update_sidebar_action (!app.is_metadata_sidebar_visible ());
         }
 
-        return toolbar;
+        base.add_toolbar_widgets (toolbar);
     }
 
     ~EditingHostPage () {

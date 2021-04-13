@@ -106,7 +106,7 @@ class SlideshowPage : SinglePhotoPage {
         slider_wrapper.margin_start = 6;
         slider_wrapper.add (slider);
 
-        var toolbar = get_toolbar ();
+        var toolbar = base.get_toolbar ();
         toolbar.pack_start (previous_button);
         toolbar.pack_start (play_pause_button);
         toolbar.pack_start (next_button);

@@ -58,23 +58,17 @@ public class OfflinePage : CheckerboardPage {
         Video.global.offline_contents_altered.disconnect (on_offline_contents_altered);
     }
 
-    public override Gtk.ActionBar get_toolbar () {
-        if (toolbar == null) {
-            toolbar = new Gtk.ActionBar ();
-            toolbar.get_style_context ().add_class ("bottom-toolbar"); // for elementary theme
-
-            var remove_button = new Gtk.Button.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
-            remove_button.margin_start = remove_button.margin_end = 3;
-            remove_button.tooltip_text = Resources.DELETE_FROM_LIBRARY_TOOLTIP;
-            var remove_tool = new Gtk.ToolItem ();
-            remove_tool.add (remove_button);
-            toolbar.pack_start (remove_tool);
-            var remove_action = get_action ("RemoveFromLibrary");
-            remove_action.bind_property ("sensitive", remove_button, "sensitive", BindingFlags.SYNC_CREATE);
-            remove_button.clicked.connect (() => remove_action.activate ());
-        }
-
-        return toolbar;
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        var remove_button = new Gtk.Button.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
+        remove_button.margin_start = remove_button.margin_end = 3;
+        remove_button.tooltip_text = Resources.DELETE_FROM_LIBRARY_TOOLTIP;
+        var remove_tool = new Gtk.ToolItem ();
+        remove_tool.add (remove_button);
+        toolbar.pack_start (remove_tool);
+        var remove_action = get_action ("RemoveFromLibrary");
+        remove_action.bind_property ("sensitive", remove_button, "sensitive", BindingFlags.SYNC_CREATE);
+        remove_button.clicked.connect (() => remove_action.activate ());
+        base.add_toolbar_widgets (toolbar);
     }
 
     public override Gtk.Menu? get_page_sidebar_menu () {
