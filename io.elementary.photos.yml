@@ -1,9 +1,7 @@
 app-id: io.elementary.photos
-runtime: org.gnome.Platform
-runtime-version: '3.38'
-base: io.elementary.BaseApp
-base-version: juno-20.08
-sdk: org.gnome.Sdk
+runtime: io.elementary.Platform
+runtime-version: '0.1.0'
+sdk: io.elementary.Sdk
 command: io.elementary.photos
 finish-args:
   - '--filesystem=home'
@@ -79,12 +77,6 @@ modules:
         url: https://github.com/gphoto/libgphoto2/releases/download/v2.5.26/libgphoto2-2.5.26.tar.gz
         sha256: 3f99ca5cf12a8376e7e17d60e41fe1df90ffb08fbec68450d9beec2452262948
 
-  - name: granite
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/elementary/granite.git
-
   - name: gudev
     config-opts:
       - '--disable-umockdev'
@@ -116,16 +108,6 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/GNOME/librest.git
         tag: '0.8.1'
-
-  - name: handy
-    buildsystem: meson
-    config-opts:
-      - '-Dexamples=false'
-      - '-Dtests=false'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: '1.0.3'
 
   - name: photos
     buildsystem: meson
