@@ -164,7 +164,7 @@ public void delete_all_files (File dir, Gee.Set<string>? exceptions = null, Prog
     }
 }
 
-public time_t query_file_modified (File file) throws Error {
+public int64 query_file_modified (File file) throws Error {
     FileInfo info = file.query_info (FileAttribute.TIME_MODIFIED, FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
     null);
 

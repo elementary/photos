@@ -18,16 +18,15 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class AdjustDateTimeDialog : Gtk.Dialog {
+public class AdjustDateTimeDialog : Granite.Dialog {
     private const int64 SECONDS_IN_DAY = 60 * 60 * 24;
     private const int64 SECONDS_IN_HOUR = 60 * 60;
     private const int64 SECONDS_IN_MINUTE = 60;
-    private const int YEAR_OFFSET = 1900;
     private bool no_original_time = false;
 
     private const int CALENDAR_THUMBNAIL_SCALE = 1;
 
-    private time_t original_time;
+    private int64 original_time;
     private Gtk.Label original_time_label;
     private Gtk.Calendar calendar;
     private Gtk.SpinButton hour;
@@ -173,25 +172,25 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
             no_original_time = true;
         }
 
-        set_time (Time.local (original_time));
+        set_time (new DateTime.from_unix_local (original_time));
         set_original_time_label (ui_settings.get_boolean ("use-24-hour-time"));
     }
 
-    private void set_time (Time time) {
-        calendar.select_month (time.month, time.year + YEAR_OFFSET);
-        calendar.select_day (time.day);
+    private void set_time (DateTime time) {
+        calendar.select_month (time.get_month (), time.get_year ());
+        calendar.select_day (time.get_day_of_month ());
 
         if (ui_settings.get_boolean ("use-24-hour-time")) {
-            hour.set_value (time.hour);
+            hour.set_value (time.get_hour ());
             system.set_active (TimeSystem.24HR);
         } else {
-            int ampm_hour = time.hour % 12;
+            int ampm_hour = time.get_hour () % 12;
             hour.set_value ((ampm_hour == 0) ? 12 : ampm_hour);
-            system.set_active ((time.hour >= 12) ? TimeSystem.PM : TimeSystem.AM);
+            system.set_active ((time.get_hour () >= 12) ? TimeSystem.PM : TimeSystem.AM);
         }
 
-        minute.set_value (time.minute);
-        second.set_value (time.second);
+        minute.set_value (time.get_minute ());
+        second.set_value (time.get_second ());
 
         previous_time_system = (TimeSystem) system.get_active ();
     }
@@ -200,31 +199,27 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         if (no_original_time)
             return;
 
-        original_time_label.set_text (_ ("Original: ") +
-                                      Time.local (original_time).format (use_24_hr_format ? _ ("%m/%d/%Y, %H:%M:%S") :
-                                              _ ("%m/%d/%Y, %I:%M:%S %p")));
+        original_time_label.set_text (
+            _ ("Original: %s").printf (
+                (new DateTime.from_unix_local (original_time)).format (
+                    use_24_hr_format ? _ ("%m/%d/%Y, %H:%M:%S") : _ ("%m/%d/%Y, %I:%M:%S %p")
+                )
+            )
+        );
     }
 
-    private time_t get_time () {
-        Time time = Time ();
-
-        time.second = (int) second.get_value ();
-        time.minute = (int) minute.get_value ();
-
+    private int64 get_time () {
         // convert to 24 hr
         int hour = (int) hour.get_value ();
-        time.hour = (hour == 12 && system.get_active () != TimeSystem.24HR) ? 0 : hour;
-        time.hour += ((system.get_active () == TimeSystem.PM) ? 12 : 0);
+        hour = (hour == 12 && system.get_active () != TimeSystem.24HR) ? 0 : hour;
+        hour += ((system.get_active () == TimeSystem.PM) ? 12 : 0);
 
         uint year, month, day;
         calendar.get_date (out year, out month, out day);
-        time.year = ((int) year) - YEAR_OFFSET;
-        time.month = (int) month;
-        time.day = (int) day;
-
-        time.isdst = -1;
-
-        return time.mktime ();
+        var date_time = new DateTime.local (
+            (int) year, (int) month, (int) day, hour, (int) minute.get_value (), second.get_value ()
+        );
+        return date_time.to_unix ();
     }
 
     public bool execute (out int64 time_shift, out bool keep_relativity,
@@ -234,10 +229,11 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
         bool response = false;
 
         if (run () == Gtk.ResponseType.OK) {
-            if (no_original_time)
-                time_shift = (int64) get_time ();
-            else
-                time_shift = (int64) (get_time () - original_time);
+            if (no_original_time) {
+                time_shift = get_time ();
+            } else {
+                time_shift = get_time () - original_time;
+            }
 
             keep_relativity = relativity_radio_button.get_active ();
 
@@ -270,7 +266,7 @@ public class AdjustDateTimeDialog : Gtk.Dialog {
     }
 
     private void on_time_changed () {
-        int64 time_shift = ((int64) get_time () - (int64) original_time);
+        int64 time_shift = get_time () - original_time;
 
         previous_time_system = (TimeSystem) system.get_active ();
 

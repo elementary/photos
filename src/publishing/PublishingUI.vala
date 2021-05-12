@@ -154,7 +154,7 @@ public class LoginWaitPane : StaticMessagePane {
     }
 }
 
-public class PublishingDialog : Gtk.Dialog {
+public class PublishingDialog : Granite.Dialog {
     private const int LARGE_WINDOW_WIDTH = 860;
     private const int LARGE_WINDOW_HEIGHT = 688;
     private const int COLOSSAL_WINDOW_WIDTH = 1024;

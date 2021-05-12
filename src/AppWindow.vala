@@ -36,7 +36,7 @@ public abstract class AppWindow : PageWindow {
     protected Dimensions dimensions;
     private int pos_x = 0;
     private int pos_y = 0;
-    protected Gtk.HeaderBar header;
+    protected Hdy.HeaderBar header;
 
     protected Gtk.Button redo_btn;
     protected Gtk.Button undo_btn;
@@ -79,14 +79,13 @@ public abstract class AppWindow : PageWindow {
         undo_btn = new Gtk.Button.from_icon_name ("edit-undo", Gtk.IconSize.LARGE_TOOLBAR);
         undo_btn.action_name = ACTION_PREFIX + ACTION_UNDO;
 
-        header = new Gtk.HeaderBar ();
+        header = new Hdy.HeaderBar ();
         header.show_close_button = true;
 
         icon_name = "multimedia-photo-manager";
         title = _(Resources.APP_TITLE);
 
         add_action_entries (ACTION_ENTRIES, this);
-        set_titlebar (header);
 
         weak Photos.Application application_instance = ((Photos.Application) GLib.Application.get_default ());
         application_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});

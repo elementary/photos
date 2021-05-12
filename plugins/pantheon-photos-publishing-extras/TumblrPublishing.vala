@@ -1141,17 +1141,15 @@ public class TumblrPublisher : Spit.Publishing.Publisher, GLib.Object {
         }
 
         public string get_oauth_nonce () {
-            TimeVal currtime = TimeVal ();
-            currtime.get_current_time ();
-
-            return Checksum.compute_for_string (ChecksumType.MD5, currtime.tv_sec.to_string () +
-                                                currtime.tv_usec.to_string ());
+            var currtime = new DateTime.now_local ();
+            //Note: Is this random/unique enough?
+            return Checksum.compute_for_string (ChecksumType.MD5, currtime.to_unix ().to_string () +
+                                                currtime.get_microsecond ().to_string ());
         }
 
         public string get_oauth_timestamp () {
             return GLib.get_real_time ().to_string ().substring (0, 10);
         }
-
     }
 
 

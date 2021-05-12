@@ -51,19 +51,19 @@ public class VideoRow {
     public VideoID video_id;
     public string filepath;
     public int64 filesize;
-    public time_t timestamp;
+    public int64 timestamp;
     public int width;
     public int height;
     public double clip_duration;
     public bool is_interpretable;
-    public time_t exposure_time;
+    public int64 exposure_time;
     public ImportID import_id;
     public EventID event_id;
     public string md5;
-    public time_t time_created;
+    public int64 time_created;
     public string title;
     public string? backlinks;
-    public time_t time_reimported;
+    public int64 time_reimported;
     public uint64 flags;
     public string comment;
 }
@@ -121,7 +121,7 @@ public class VideoTable : DatabaseTable {
             + "filesize, timestamp, exposure_time, import_id, event_id, md5, time_created, title, comment) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        ulong time_created = now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, video_row.filepath);
         bind_int (stmt, 2, video_row.width);
@@ -147,7 +147,7 @@ public class VideoTable : DatabaseTable {
         // fill in ignored fields with database values
         video_row.video_id = VideoID (db.last_insert_rowid ());
         video_row.event_id = EventID ();
-        video_row.time_created = (time_t) time_created;
+        video_row.time_created = time_created;
         video_row.flags = 0;
 
         return video_row.video_id;
@@ -188,15 +188,15 @@ public class VideoTable : DatabaseTable {
         row.clip_duration = stmt.column_double (3);
         row.is_interpretable = (stmt.column_int (4) == 1);
         row.filesize = stmt.column_int64 (5);
-        row.timestamp = (time_t) stmt.column_int64 (6);
-        row.exposure_time = (time_t) stmt.column_int64 (7);
+        row.timestamp = stmt.column_int64 (6);
+        row.exposure_time = stmt.column_int64 (7);
         row.import_id.id = stmt.column_int64 (8);
         row.event_id.id = stmt.column_int64 (9);
         row.md5 = stmt.column_text (10);
-        row.time_created = (time_t) stmt.column_int64 (11);
+        row.time_created = stmt.column_int64 (11);
         row.title = stmt.column_text (12);
         row.backlinks = stmt.column_text (13);
-        row.time_reimported = (time_t) stmt.column_int64 (14);
+        row.time_reimported = stmt.column_int64 (14);
         row.flags = stmt.column_int64 (15);
         row.comment = stmt.column_text (16);
 
@@ -221,15 +221,15 @@ public class VideoTable : DatabaseTable {
             row.clip_duration = stmt.column_double (4);
             row.is_interpretable = (stmt.column_int (5) == 1);
             row.filesize = stmt.column_int64 (6);
-            row.timestamp = (time_t) stmt.column_int64 (7);
-            row.exposure_time = (time_t) stmt.column_int64 (8);
+            row.timestamp = stmt.column_int64 (7);
+            row.exposure_time = stmt.column_int64 (8);
             row.import_id.id = stmt.column_int64 (9);
             row.event_id.id = stmt.column_int64 (10);
             row.md5 = stmt.column_text (11);
-            row.time_created = (time_t) stmt.column_int64 (12);
+            row.time_created = stmt.column_int64 (12);
             row.title = stmt.column_text (13);
             row.backlinks = stmt.column_text (14);
-            row.time_reimported = (time_t) stmt.column_int64 (15);
+            row.time_reimported = stmt.column_int64 (15);
             row.flags = stmt.column_int64 (16);
             row.comment = stmt.column_text (17);
 
@@ -251,8 +251,8 @@ public class VideoTable : DatabaseTable {
         update_text_by_id_2 (video_id.id, "comment", new_comment != null ? new_comment : "");
     }
 
-    public void set_exposure_time (VideoID video_id, time_t time) throws DatabaseError {
-        update_int64_by_id_2 (video_id.id, "exposure_time", (int64) time);
+    public void set_exposure_time (VideoID video_id, int64 time) throws DatabaseError {
+        update_int64_by_id_2 (video_id.id, "exposure_time", time);
     }
 
     public void set_flags (VideoID video_id, uint64 flags) throws DatabaseError {
@@ -409,7 +409,7 @@ public class VideoTable : DatabaseTable {
         return result;
     }
 
-    public void set_timestamp (VideoID video_id, time_t timestamp) throws DatabaseError {
-        update_int64_by_id_2 (video_id.id, "timestamp", (int64) timestamp);
+    public void set_timestamp (VideoID video_id, int64 timestamp) throws DatabaseError {
+        update_int64_by_id_2 (video_id.id, "timestamp", timestamp);
     }
 }

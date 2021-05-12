@@ -93,9 +93,10 @@ private class ExtendedProperties : Properties {
             is_raw = (photo.get_master_file_format () == PhotoFileFormat.RAW);
             artist = metadata.get_artist ();
             copyright = metadata.get_copyright ();
-            time_t exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
-            exposure_date = get_prettyprint_date (Time.local (exposure_time_obj));
-            exposure_time = get_prettyprint_time_with_seconds (Time.local (exposure_time_obj));
+            int64 exposure_time_obj = metadata.get_exposure_date_time ().get_timestamp ();
+            var exposure_dt = new DateTime.from_unix_local (exposure_time_obj);
+            exposure_date = get_prettyprint_date (exposure_dt);
+            exposure_time = get_prettyprint_time_with_seconds (exposure_dt);
             comment = media.get_comment ();
         } else if (source is EventSource) {
             Event event = (Event) source;

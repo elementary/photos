@@ -18,14 +18,14 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class ProgressDialog : Gtk.Dialog {
+public class ProgressDialog : Granite.Dialog {
     private Gtk.ProgressBar progress_bar;
     private Gtk.Button cancel_button = null;
     private Cancellable cancellable;
     private uint64 last_count = uint64.MAX;
     private int update_every = 1;
     private int minimum_on_screen_time_msec = 500;
-    private ulong time_started;
+    private int64 time_started;
 
     public ProgressDialog (Gtk.Window? owner, string text, Cancellable? cancellable = null) {
         this.cancellable = cancellable;

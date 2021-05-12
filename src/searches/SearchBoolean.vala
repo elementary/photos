@@ -717,7 +717,7 @@ public class SearchConditionDate : SearchCondition {
 
     // Determines whether the source is included.
     public override bool predicate (MediaSource source) {
-        time_t exposure_time = source.get_exposure_time ();
+        int64 exposure_time = source.get_exposure_time ();
         if (exposure_time == 0)
             return context == Context.IS_NOT_SET;
 

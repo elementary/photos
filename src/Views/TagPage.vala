@@ -55,7 +55,7 @@ public class TagPage : CollectionPage {
             delete_menu_item.activate.connect (() => delete_action.activate ());
 
             page_sidebar_menu.add (new_child_menu_item);
-            page_sidebar_menu.add (new Gtk.SeparatorToolItem ());
+            page_sidebar_menu.add (new Gtk.SeparatorMenuItem ());
             page_sidebar_menu.add (rename_menu_item);
             page_sidebar_menu.add (delete_menu_item);
             page_sidebar_menu.show_all ();

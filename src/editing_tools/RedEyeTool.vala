@@ -80,13 +80,12 @@ public class EditingTools.RedeyeTool : EditingTool {
             apply_button.set_tooltip_text (_ ("Remove any red-eye effects in the selected region"));
 
             Gtk.Box layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
-            layout.margin_start = layout.margin_end = 12;
             layout.add (slider_label);
             layout.add (slider);
             layout.add (close_button);
             layout.add (apply_button);
 
-            get_content_area ().add (layout);
+            content_area.add (layout);
         }
     }
 
@@ -99,7 +98,7 @@ public class EditingTools.RedeyeTool : EditingTool {
     private Gdk.Point reticle_move_anchor;
     private Gdk.Cursor cached_arrow_cursor;
     private Gdk.Cursor cached_grab_cursor;
-    private Gdk.Rectangle old_scaled_pixbuf_position;
+    private Gdk.Rectangle old_scaled_position;
     private Gdk.Pixbuf current_pixbuf = null;
     private int scale_factor = 1;
 
@@ -119,7 +118,7 @@ public class EditingTools.RedeyeTool : EditingTool {
     }
 
     private RedeyeInstance new_interaction_instance (PhotoCanvas canvas) {
-        Gdk.Rectangle photo_bounds = canvas.get_scaled_pixbuf_position ();
+        Gdk.Rectangle photo_bounds = canvas.scaled_position;
         Gdk.Point photo_center = {0};
         photo_center.x = photo_bounds.x + (photo_bounds.width / (2 * scale_factor));
         photo_center.y = photo_bounds.y + (photo_bounds.height / (2 * scale_factor));
@@ -174,27 +173,27 @@ public class EditingTools.RedeyeTool : EditingTool {
 
         // transform screen coords back to image coords,
         // taking into account straightening angle.
-        Dimensions dimensions = canvas.get_photo ().get_dimensions (
+        Dimensions dimensions = canvas.photo.get_dimensions (
                                     Photo.Exception.STRAIGHTEN | Photo.Exception.CROP);
 
         double theta = 0.0;
 
-        canvas.get_photo ().get_straighten (out theta);
+        canvas.photo.get_straighten (out theta);
 
         instance_raw.center = derotate_point_arb (instance_raw.center,
                               dimensions.width, dimensions.height, theta);
 
-        RedeyeCommand command = new RedeyeCommand (canvas.get_photo (), instance_raw,
+        RedeyeCommand command = new RedeyeCommand (canvas.photo, instance_raw,
                 Resources.RED_EYE_LABEL, Resources.RED_EYE_TOOLTIP);
         AppWindow.get_command_manager ().execute (command);
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> map) {
-        if (!map.has_key (canvas.get_photo ()))
+        if (!map.has_key (canvas.photo))
             return;
 
         try {
-            current_pixbuf = canvas.get_photo ().get_pixbuf (canvas.get_scaling ());
+            current_pixbuf = canvas.photo.get_pixbuf (canvas.get_scaling ());
         } catch (Error err) {
             warning ("%s", err.message);
             aborted ();
@@ -206,18 +205,18 @@ public class EditingTools.RedeyeTool : EditingTool {
     }
 
     private void on_close () {
-        applied (null, current_pixbuf, canvas.get_photo ().get_dimensions (), false);
+        applied (null, current_pixbuf, canvas.photo.get_dimensions (), false);
     }
 
     private void on_canvas_resize () {
-        Gdk.Rectangle scaled_pixbuf_position =
-            canvas.get_scaled_pixbuf_position ();
+        Gdk.Rectangle scaled_position =
+            canvas.scaled_position;
 
-        user_interaction_instance.center.x -= old_scaled_pixbuf_position.x;
-        user_interaction_instance.center.y -= old_scaled_pixbuf_position.y;
+        user_interaction_instance.center.x -= old_scaled_position.x;
+        user_interaction_instance.center.y -= old_scaled_position.y;
 
-        double scale_factor = ((double) scaled_pixbuf_position.width) /
-                              ((double) old_scaled_pixbuf_position.width);
+        double scale_factor = ((double) scaled_position.width) /
+                              ((double) old_scaled_position.width);
 
         user_interaction_instance.center.x =
             (int) (((double) user_interaction_instance.center.x) *
@@ -226,10 +225,10 @@ public class EditingTools.RedeyeTool : EditingTool {
             (int) (((double) user_interaction_instance.center.y) *
                    scale_factor + 0.5);
 
-        user_interaction_instance.center.x += scaled_pixbuf_position.x;
-        user_interaction_instance.center.y += scaled_pixbuf_position.y;
+        user_interaction_instance.center.x += scaled_position.x;
+        user_interaction_instance.center.y += scaled_position.y;
 
-        old_scaled_pixbuf_position = scaled_pixbuf_position;
+        old_scaled_position = scaled_position;
 
         current_pixbuf = null;
     }
@@ -238,12 +237,12 @@ public class EditingTools.RedeyeTool : EditingTool {
         scale_factor = canvas.container.scale_factor;
         user_interaction_instance = new_interaction_instance (canvas);
 
-        prepare_ctx (canvas.get_default_ctx (), canvas.get_surface_dim ());
+        prepare_ctx (canvas.default_ctx, canvas.surface_dim);
 
         bind_canvas_handlers (canvas);
 
-        old_scaled_pixbuf_position = canvas.get_scaled_pixbuf_position ();
-        current_pixbuf = canvas.get_scaled_pixbuf ();
+        old_scaled_position = canvas.scaled_position;
+        current_pixbuf = canvas.scaled_pixbuf;
 
         redeye_tool_window = new RedeyeToolWindow (canvas.container);
         redeye_tool_window.slider.set_value (user_interaction_instance.radius);
@@ -253,7 +252,7 @@ public class EditingTools.RedeyeTool : EditingTool {
         cached_arrow_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR);
         cached_grab_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.FLEUR);
 
-        DataCollection? owner = canvas.get_photo ().get_membership ();
+        DataCollection? owner = canvas.photo.get_membership ();
         if (owner != null)
             owner.items_altered.connect (on_photos_altered);
 
@@ -262,7 +261,7 @@ public class EditingTools.RedeyeTool : EditingTool {
 
     public override void deactivate () {
         if (canvas != null) {
-            DataCollection? owner = canvas.get_photo ().get_membership ();
+            DataCollection? owner = canvas.photo.get_membership ();
             if (owner != null)
                 owner.items_altered.disconnect (on_photos_altered);
 
@@ -306,7 +305,7 @@ public class EditingTools.RedeyeTool : EditingTool {
     }
 
     public override void paint (Cairo.Context ctx) {
-        canvas.paint_pixbuf ((current_pixbuf != null) ? current_pixbuf : canvas.get_scaled_pixbuf ());
+        canvas.paint_pixbuf ((current_pixbuf != null) ? current_pixbuf : canvas.scaled_pixbuf);
 
         /* user_interaction_instance has its radius in user coords, and
            draw_redeye_instance expects active region coords */
@@ -336,7 +335,7 @@ public class EditingTools.RedeyeTool : EditingTool {
         if (is_reticle_move_in_progress) {
 
             Gdk.Rectangle active_region_rect =
-                canvas.get_scaled_pixbuf_position ();
+                canvas.scaled_position;
 
             int x_clamp_low =
                 active_region_rect.x + user_interaction_instance.radius + 1;
@@ -370,9 +369,9 @@ public class EditingTools.RedeyeTool : EditingTool {
                 RedeyeInstance.to_bounds_rect (user_interaction_instance);
 
             if (coord_in_rectangle (x, y, bounds)) {
-                canvas.get_drawing_window ().set_cursor (cached_grab_cursor);
+                canvas.drawing_window.set_cursor (cached_grab_cursor);
             } else {
-                canvas.get_drawing_window ().set_cursor (cached_arrow_cursor);
+                canvas.drawing_window.set_cursor (cached_arrow_cursor);
             }
         }
     }

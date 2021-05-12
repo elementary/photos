@@ -101,7 +101,7 @@ public class DirectoryMonitor : Object {
         public File? other_file;
         public FileMonitorEvent event;
         public uint position;
-        public ulong time_created_msec;
+        public int64 time_created_msec;
         public FileInfo? info = null;
         public Error? err = null;
         public bool completed = false;
@@ -297,7 +297,7 @@ public class DirectoryMonitor : Object {
 
             // get all the interesting matchable items from the supplied FileInfo
             int64 match_size = match.get_size ();
-            TimeVal match_time = match.get_modification_time ();
+            int64 match_time = match.get_modification_date_time ().to_unix ();
 
             foreach (File file in map.keys) {
                 FileInfo info = map.get (file);
@@ -310,10 +310,9 @@ public class DirectoryMonitor : Object {
                 if (match_size != info.get_size ())
                     continue;
 
-                TimeVal time = info.get_modification_time ();
-
-                if (time.tv_sec != match_time.tv_sec)
+                if (info.get_modification_date_time ().to_unix () != match_time) {
                     continue;
+                }
 
                 return file;
             }
@@ -1393,7 +1392,7 @@ public class DirectoryMonitor : Object {
     }
 
     private bool check_for_expired_delete_events () {
-        ulong expiration = now_ms () - DELETED_EXPIRATION_MSEC;
+        int64 expiration = now_ms () - DELETED_EXPIRATION_MSEC;
 
         bool any_deleted = false;
         bool any_expired = false;

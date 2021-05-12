@@ -15,20 +15,38 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y desktop-file-utils gettext libaccounts-glib-dev libexif-dev libgee-0.8-dev libgeocode-glib-dev libgexiv2-dev libglib2.0-dev libgphoto2-dev libgranite-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk-3-dev libgudev-1.0-dev libjson-glib-dev libraw-dev librest-dev libsignon-glib-dev libsoup2.4-dev libsqlite3-dev libwebkit2gtk-4.0-dev libwebp-dev libxml2 libxml2-utils meson valac
+        apt install -y desktop-file-utils gettext libaccounts-glib-dev libexif-dev libgee-0.8-dev libgeocode-glib-dev libgexiv2-dev libglib2.0-dev libgphoto2-dev libgranite-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk-3-dev libgudev-1.0-dev libhandy-1-dev libjson-glib-dev libraw-dev librest-dev libsignon-glib-dev libsoup2.4-dev libsqlite3-dev libwebkit2gtk-4.0-dev libwebp-dev libxml2 libxml2-utils meson valac
     - name: Build
       run: |
         meson build
         ninja -C build
         ninja -C build install
 
+  flatpak:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/bilelmoussaoui/flatpak-github-actions:elementary-juno
+      options: --privileged
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: bilelmoussaoui/flatpak-github-actions@master
+      with:
+        bundle: "io.elementary.photos.flatpak"
+        manifest-path: "io.elementary.photos.yml"
+        repository-name: "elementary"
+        repository-url: "https://flatpak.elementary.io/elementary.flatpakrepo"
+        cache-key: "flatpak-builder-${{ github.sha }}"
+ 
   lint:
 
     runs-on: ubuntu-latest
-    
+
     container:
       image: valalang/lint
-      
+
     steps:
     - uses: actions/checkout@v1
     - name: Lint

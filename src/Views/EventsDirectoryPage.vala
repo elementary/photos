@@ -61,21 +61,16 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     construct {
         ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
 
-        var merge_button = new Gtk.ToolButton (null, null);
-        merge_button.icon_widget = new Gtk.Image.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
+        var merge_button = new Gtk.Button.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
         merge_button.related_action = get_action ("Merge");
         merge_button.tooltip_text = _("Merge events");
-
-        var separator = new Gtk.SeparatorToolItem ();
-        separator.set_expand (true);
 
         show_sidebar_button = MediaPage.create_sidebar_button ();
         show_sidebar_button.clicked.connect (on_show_sidebar);
 
         var toolbar = get_toolbar ();
-        toolbar.add (merge_button);
-        toolbar.add (separator);
-        toolbar.add (show_sidebar_button);
+        toolbar.pack_start (merge_button);
+        toolbar.pack_end (show_sidebar_button);
     }
 
     protected EventsDirectoryPage (string page_name, ViewManager view_manager,
@@ -192,8 +187,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     }
 
     private static int64 event_ascending_comparator (void *a, void *b) {
-        time_t start_a = ((EventDirectoryItem *) a)->event.get_start_time ();
-        time_t start_b = ((EventDirectoryItem *) b)->event.get_start_time ();
+        int64 start_a = ((EventDirectoryItem *) a)->event.get_start_time ();
+        int64 start_b = ((EventDirectoryItem *) b)->event.get_start_time ();
 
         return start_a - start_b;
     }
@@ -338,13 +333,13 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         private int year = 0;
         DirectoryType type;
 
-        public SubEventDirectoryManager (DirectoryType type, Time time) {
+        public SubEventDirectoryManager (DirectoryType type, DateTime time) {
             base ();
 
             if (type == DirectoryType.MONTH)
-                month = time.month;
+                month = time.get_month ();
             this.type = type;
-            year = time.year;
+            year = time.get_year ();
         }
 
         public override bool include_in_view (DataSource source) {
@@ -352,11 +347,12 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
                 return false;
 
             EventSource event = (EventSource) source;
-            Time event_time = Time.local (event.get_start_time ());
-            if (event_time.year == year) {
+            DateTime event_time = new DateTime.from_unix_local (event.get_start_time ());
+            if (event_time.get_year () == year) {
                 if (type == DirectoryType.MONTH) {
-                    return (event_time.month == month);
+                    return (event_time.get_month () == month);
                 }
+
                 return true;
             }
             return false;
@@ -375,7 +371,7 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         }
     }
 
-    public SubEventsDirectoryPage (DirectoryType type, Time time) {
+    public SubEventsDirectoryPage (DirectoryType type, DateTime time) {
         string page_name;
         if (type == SubEventsDirectoryPage.DirectoryType.UNDATED) {
             page_name = UNDATED_PAGE_NAME;

@@ -35,6 +35,7 @@ public class DirectWindow : AppWindow {
 
         var layout = new Gtk.Grid ();
         layout.orientation = Gtk.Orientation.VERTICAL;
+        layout.add (header);
         layout.add (direct_photo_page);
         layout.add (direct_photo_page.get_toolbar ());
 

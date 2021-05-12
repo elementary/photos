@@ -81,14 +81,14 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private class CropToolWindow : EditingToolWindow {
-        public Gtk.Button ok_button;
-        public Gtk.Button cancel_button;
-        public Gtk.ComboBox constraint_combo;
-        public Gtk.Button pivot_reticle_button;
-        public Gtk.Entry custom_width_entry;
-        public Gtk.Entry custom_height_entry;
-        public Gtk.Revealer custom_aspect_revealer;
-        public Gtk.Entry most_recently_edited = null;
+        public Gtk.Button crop_button { get; private set; }
+        public Gtk.Button cancel_button { get; private set; }
+        public Gtk.ComboBox constraint_combo { get; private set; }
+        public Gtk.Button pivot_reticle_button { get; private set; }
+        public Gtk.Entry custom_width_entry { get; private set; }
+        public Gtk.Entry custom_height_entry { get; private set; }
+        public Gtk.Revealer custom_aspect_revealer { get; private set; }
+        public Gtk.Entry most_recently_edited { get; private set; default = null; }
 
         public CropToolWindow (Gtk.Window container) {
             Object (transient_for: container);
@@ -96,53 +96,73 @@ public class EditingTools.CropTool : EditingTool {
 
         construct {
             cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
-            cancel_button.margin_start = 18;
 
-            ok_button = new Gtk.Button.with_label (Resources.CROP_LABEL);
+            crop_button = new Gtk.Button.with_label (Resources.CROP_LABEL) {
+                can_default = true
+            };
+
+            var combo_text_renderer = new Gtk.CellRendererText ();
 
             constraint_combo = new Gtk.ComboBox ();
-            Gtk.CellRendererText combo_text_renderer = new Gtk.CellRendererText ();
             constraint_combo.pack_start (combo_text_renderer, true);
             constraint_combo.add_attribute (combo_text_renderer, "text", 0);
             constraint_combo.set_row_separator_func (constraint_combo_separator_func);
             constraint_combo.set_active (0);
 
-            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            pivot_reticle_button.tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations");
+            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+                tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations"),
+                margin_end = 18
+            };
 
-            custom_width_entry = new Gtk.Entry ();
-            custom_width_entry.vexpand = true;
-            custom_width_entry.width_chars = 4;
-            custom_width_entry.xalign = 0.5f;
+            custom_width_entry = new Gtk.Entry () {
+                activates_default = true,
+                vexpand = true,
+                width_chars = 4,
+                xalign = 0.5f
+            };
 
-            custom_height_entry = new Gtk.Entry ();
-            custom_height_entry.width_chars = 4;
-            custom_height_entry.xalign = 0.5f;
+            custom_height_entry = new Gtk.Entry () {
+                activates_default = true,
+                width_chars = 4,
+                xalign = 0.5f
+            };
 
-            var custom_aspect_grid = new Gtk.Grid ();
-            custom_aspect_grid.column_spacing = 3;
+            var custom_aspect_grid = new Gtk.Grid () {
+                column_spacing = 3
+            };
             custom_aspect_grid.add (custom_width_entry);
             custom_aspect_grid.add (new Gtk.Label (":"));
             custom_aspect_grid.add (custom_height_entry);
 
-            custom_aspect_revealer = new Gtk.Revealer ();
-            custom_aspect_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+            custom_aspect_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            };
             custom_aspect_revealer.add (custom_aspect_grid);
 
             var response_sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
             response_sizegroup.add_widget (cancel_button);
-            response_sizegroup.add_widget (ok_button);
+            response_sizegroup.add_widget (crop_button);
 
             var layout = new Gtk.Grid ();
             layout.column_spacing = 6;
-            layout.margin_start = layout.margin_end = 12;
             layout.add (constraint_combo);
             layout.add (custom_aspect_revealer);
             layout.add (pivot_reticle_button);
             layout.add (cancel_button);
-            layout.add (ok_button);
+            layout.add (crop_button);
 
-            get_content_area ().add (layout);
+            content_area.add (layout);
+
+            // Has to be set after activates_default
+            crop_button.has_default = true;
+
+            custom_width_entry.focus_out_event.connect (() => {
+                most_recently_edited = custom_width_entry;
+            });
+
+            custom_height_entry.focus_out_event.connect (() => {
+                most_recently_edited = custom_height_entry;
+            });
         }
 
         private static bool constraint_combo_separator_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
@@ -202,35 +222,35 @@ public class EditingTools.CropTool : EditingTool {
     private static ConstraintDescription[] create_constraints () {
         ConstraintDescription[] result = new ConstraintDescription[0];
 
-        result += new ConstraintDescription (_ ("Unconstrained"), 0, 0, false, ANY_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("Square"), 1, 1, false);
-        result += new ConstraintDescription (_ ("Screen"), 0, 0, true, SCREEN_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("Original Size"), 0, 0, true, ORIGINAL_ASPECT_RATIO);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("SD Video (4 : 3)"), 4, 3, true);
-        result += new ConstraintDescription (_ ("HD Video (16 : 9)"), 16, 9, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Wallet (2 x 3 in.)"), 3, 2, true);
-        result += new ConstraintDescription (_ ("Notecard (3 x 5 in.)"), 5, 3, true);
-        result += new ConstraintDescription (_ ("4 x 6 in."), 6, 4, true);
-        result += new ConstraintDescription (_ ("5 x 7 in."), 7, 5, true);
-        result += new ConstraintDescription (_ ("8 x 10 in."), 10, 8, true);
-        result += new ConstraintDescription (_ ("Letter (8.5 x 11 in.)"), 85, 110, true);
-        result += new ConstraintDescription (_ ("11 x 14 in."), 14, 11, true);
-        result += new ConstraintDescription (_ ("Tabloid (11 x 17 in.)"), 17, 11, true);
-        result += new ConstraintDescription (_ ("16 x 20 in."), 20, 16, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Metric Wallet (9 x 13 cm)"), 13, 9, true);
-        result += new ConstraintDescription (_ ("Postcard (10 x 15 cm)"), 15, 10, true);
-        result += new ConstraintDescription (_ ("13 x 18 cm"), 18, 13, true);
-        result += new ConstraintDescription (_ ("18 x 24 cm"), 24, 18, true);
-        result += new ConstraintDescription (_ ("A4 (210 x 297 mm)"), 210, 297, true);
-        result += new ConstraintDescription (_ ("20 x 30 cm"), 30, 20, true);
-        result += new ConstraintDescription (_ ("24 x 40 cm"), 40, 24, true);
-        result += new ConstraintDescription (_ ("30 x 40 cm"), 40, 30, true);
-        result += new ConstraintDescription (_ ("A3 (297 x 420 mm)"), 420, 297, true);
-        result += new ConstraintDescription (_ ("-"), 0, 0, false, SEPARATOR);
-        result += new ConstraintDescription (_ ("Custom"), 0, 0, true, CUSTOM_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Unconstrained"), 0, 0, false, ANY_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Square"), 1, 1, false);
+        result += new ConstraintDescription (_("Screen"), 0, 0, true, SCREEN_ASPECT_RATIO);
+        result += new ConstraintDescription (_("Original Size"), 0, 0, true, ORIGINAL_ASPECT_RATIO);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("SD Video (4 : 3)"), 4, 3, true);
+        result += new ConstraintDescription (_("HD Video (16 : 9)"), 16, 9, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Wallet (2 x 3 in.)"), 3, 2, true);
+        result += new ConstraintDescription (_("Notecard (3 x 5 in.)"), 5, 3, true);
+        result += new ConstraintDescription (_("4 x 6 in."), 6, 4, true);
+        result += new ConstraintDescription (_("5 x 7 in."), 7, 5, true);
+        result += new ConstraintDescription (_("8 x 10 in."), 10, 8, true);
+        result += new ConstraintDescription (_("Letter (8.5 x 11 in.)"), 85, 110, true);
+        result += new ConstraintDescription (_("11 x 14 in."), 14, 11, true);
+        result += new ConstraintDescription (_("Tabloid (11 x 17 in.)"), 17, 11, true);
+        result += new ConstraintDescription (_("16 x 20 in."), 20, 16, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Metric Wallet (9 x 13 cm)"), 13, 9, true);
+        result += new ConstraintDescription (_("Postcard (10 x 15 cm)"), 15, 10, true);
+        result += new ConstraintDescription (_("13 x 18 cm"), 18, 13, true);
+        result += new ConstraintDescription (_("18 x 24 cm"), 24, 18, true);
+        result += new ConstraintDescription (_("A4 (210 x 297 mm)"), 210, 297, true);
+        result += new ConstraintDescription (_("20 x 30 cm"), 30, 20, true);
+        result += new ConstraintDescription (_("24 x 40 cm"), 40, 24, true);
+        result += new ConstraintDescription (_("30 x 40 cm"), 40, 30, true);
+        result += new ConstraintDescription (_("A3 (297 x 420 mm)"), 420, 297, true);
+        result += new ConstraintDescription (_("-"), 0, 0, false, SEPARATOR);
+        result += new ConstraintDescription (_("Custom"), 0, 0, true, CUSTOM_ASPECT_RATIO);
 
         return result;
     }
@@ -248,16 +268,15 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private void update_pivot_button_state () {
-        crop_tool_window.pivot_reticle_button.set_sensitive (
-            get_selected_constraint ().is_pivotable);
+        crop_tool_window.pivot_reticle_button.sensitive = get_selected_constraint ().is_pivotable;
     }
 
     private ConstraintDescription get_selected_constraint () {
         ConstraintDescription result = constraints[crop_tool_window.constraint_combo.get_active ()];
 
         if (result.aspect_ratio == ORIGINAL_ASPECT_RATIO) {
-            result.basis_width = canvas.get_scaled_pixbuf_position ().width;
-            result.basis_height = canvas.get_scaled_pixbuf_position ().height;
+            result.basis_width = canvas.scaled_position.width;
+            result.basis_height = canvas.scaled_position.height;
         } else if (result.aspect_ratio == SCREEN_ASPECT_RATIO) {
             var dimensions = Scaling.get_screen_dimensions (AppWindow.get_instance ());
             result.basis_width = dimensions.width;
@@ -265,16 +284,6 @@ public class EditingTools.CropTool : EditingTool {
         }
 
         return result;
-    }
-
-    private bool on_width_entry_focus_out (Gdk.EventFocus event) {
-        crop_tool_window.most_recently_edited = crop_tool_window.custom_width_entry;
-        return on_custom_entry_focus_out (event);
-    }
-
-    private bool on_height_entry_focus_out (Gdk.EventFocus event) {
-        crop_tool_window.most_recently_edited = crop_tool_window.custom_height_entry;
-        return on_custom_entry_focus_out (event);
     }
 
     private bool on_custom_entry_focus_out (Gdk.EventFocus event) {
@@ -366,8 +375,8 @@ public class EditingTools.CropTool : EditingTool {
         float result = get_selected_constraint ().aspect_ratio;
 
         if (result == ORIGINAL_ASPECT_RATIO) {
-            result = ((float) canvas.get_scaled_pixbuf_position ().width) /
-                     ((float) canvas.get_scaled_pixbuf_position ().height);
+            result = ((float) canvas.scaled_position.width) /
+                     ((float) canvas.scaled_position.height);
         } else if (result == SCREEN_ASPECT_RATIO) {
             var dimensions = Scaling.get_screen_dimensions (AppWindow.get_instance ());
             result = ((float) dimensions.width) / ((float) dimensions.height);
@@ -385,7 +394,10 @@ public class EditingTools.CropTool : EditingTool {
         if (selected_constraint.aspect_ratio == CUSTOM_ASPECT_RATIO) {
             set_custom_constraint_mode ();
         } else {
-            set_normal_constraint_mode ();
+            if (constraint_mode != ConstraintMode.NORMAL) {
+                crop_tool_window.custom_aspect_revealer.reveal_child = false;
+                constraint_mode = ConstraintMode.NORMAL;
+            }
 
             if (selected_constraint.aspect_ratio != ANY_ASPECT_RATIO) {
                 // user may have switched away from 'Custom' without
@@ -432,15 +444,6 @@ public class EditingTools.CropTool : EditingTool {
         constraint_mode = ConstraintMode.CUSTOM;
     }
 
-    private void set_normal_constraint_mode () {
-        if (constraint_mode == ConstraintMode.NORMAL)
-            return;
-
-        crop_tool_window.custom_aspect_revealer.reveal_child = false;
-
-        constraint_mode = ConstraintMode.NORMAL;
-    }
-
     private Box constrain_crop (Box crop) {
         float user_aspect_ratio = get_constraint_aspect_ratio ();
         if (user_aspect_ratio == ANY_ASPECT_RATIO)
@@ -454,7 +457,7 @@ public class EditingTools.CropTool : EditingTool {
         // PHASE 2: Crop to the image boundary.
         Dimensions image_size = get_photo_dimensions ();
         double angle;
-        canvas.get_photo ().get_straighten (out angle);
+        canvas.photo.get_straighten (out angle);
         crop = clamp_inside_rotated_image (crop, image_size.width, image_size.height, angle, false);
 
         // PHASE 3: Crop down to the aspect ratio if necessary.
@@ -476,14 +479,14 @@ public class EditingTools.CropTool : EditingTool {
         scale_factor = canvas.container.scale_factor;
         bind_canvas_handlers (canvas);
 
-        prepare_ctx (canvas.get_default_ctx (), canvas.get_surface_dim ());
+        prepare_ctx (canvas.default_ctx, canvas.surface_dim);
 
         if (crop_surface != null)
             crop_surface = null;
 
         crop_surface = new Cairo.ImageSurface (Cairo.Format.ARGB32,
-                                               canvas.get_scaled_pixbuf_position ().width,
-                                               canvas.get_scaled_pixbuf_position ().height);
+                                               canvas.scaled_position.width,
+                                               canvas.scaled_position.height);
 
         Cairo.Context ctx = new Cairo.Context (crop_surface);
         ctx.set_source_rgba (0.0, 0.0, 0.0, 1.0);
@@ -494,7 +497,7 @@ public class EditingTools.CropTool : EditingTool {
 
         // set up the constraint combo box
         crop_tool_window.constraint_combo.set_model (constraint_list);
-        if (!canvas.get_photo ().has_crop ()) {
+        if (!canvas.photo.has_crop ()) {
             int index;
             ConstraintDescription? desc = get_last_constraint (out index);
             if (desc != null && !desc.is_separator ())
@@ -508,10 +511,10 @@ public class EditingTools.CropTool : EditingTool {
         bind_window_handlers ();
 
         // obtain crop dimensions and paint against the uncropped photo
-        Dimensions uncropped_dim = canvas.get_photo ().get_dimensions (Photo.Exception.CROP);
+        Dimensions uncropped_dim = canvas.photo.get_dimensions (Photo.Exception.CROP);
 
         Box crop;
-        if (!canvas.get_photo ().get_crop (out crop)) {
+        if (!canvas.photo.get_crop (out crop)) {
             int xofs = (int) (uncropped_dim.width * CROP_INIT_X_PCT);
             int yofs = (int) (uncropped_dim.height * CROP_INIT_Y_PCT);
 
@@ -523,7 +526,7 @@ public class EditingTools.CropTool : EditingTool {
         // scale the crop to the scaled photo's size ... the scaled crop is maintained in
         // coordinates not relative to photo's position on canvas
         scaled_crop = crop.get_scaled_similar (uncropped_dim,
-                                               Dimensions.for_rectangle (canvas.get_scaled_pixbuf_position ()));
+                                               Dimensions.for_rectangle (canvas.scaled_position));
 
         // get the custom width and height from the saved config and
         // set up the initial custom values with it.
@@ -544,7 +547,7 @@ public class EditingTools.CropTool : EditingTool {
         crop_tool_window.hide ();
 
         // was 'custom' the most-recently-chosen menu item?
-        if (!canvas.get_photo ().has_crop ()) {
+        if (!canvas.photo.has_crop ()) {
             ConstraintDescription? desc = get_last_constraint (null);
             if (desc != null && !desc.is_separator () && desc.aspect_ratio == CUSTOM_ASPECT_RATIO)
                 set_custom_constraint_mode ();
@@ -575,41 +578,28 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private void bind_window_handlers () {
-        crop_tool_window.key_press_event.connect (on_keypress);
-        crop_tool_window.ok_button.clicked.connect (on_crop_ok);
+        crop_tool_window.crop_button.clicked.connect (on_crop_ok);
         crop_tool_window.cancel_button.clicked.connect (notify_cancel);
         crop_tool_window.constraint_combo.changed.connect (constraint_changed);
         crop_tool_window.pivot_reticle_button.clicked.connect (on_pivot_button_clicked);
 
         // set up the custom width and height entry boxes
-        crop_tool_window.custom_width_entry.focus_out_event.connect (on_width_entry_focus_out);
-        crop_tool_window.custom_height_entry.focus_out_event.connect (on_height_entry_focus_out);
+        crop_tool_window.custom_width_entry.focus_out_event.connect (on_custom_entry_focus_out);
+        crop_tool_window.custom_height_entry.focus_out_event.connect (on_custom_entry_focus_out);
         crop_tool_window.custom_width_entry.insert_text.connect (on_width_insert_text);
         crop_tool_window.custom_height_entry.insert_text.connect (on_height_insert_text);
     }
 
     private void unbind_window_handlers () {
-        crop_tool_window.key_press_event.disconnect (on_keypress);
-        crop_tool_window.ok_button.clicked.disconnect (on_crop_ok);
+        crop_tool_window.crop_button.clicked.disconnect (on_crop_ok);
         crop_tool_window.cancel_button.clicked.disconnect (notify_cancel);
         crop_tool_window.constraint_combo.changed.disconnect (constraint_changed);
         crop_tool_window.pivot_reticle_button.clicked.disconnect (on_pivot_button_clicked);
 
         // set up the custom width and height entry boxes
-        crop_tool_window.custom_width_entry.focus_out_event.disconnect (on_width_entry_focus_out);
-        crop_tool_window.custom_height_entry.focus_out_event.disconnect (on_height_entry_focus_out);
+        crop_tool_window.custom_width_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
+        crop_tool_window.custom_height_entry.focus_out_event.disconnect (on_custom_entry_focus_out);
         crop_tool_window.custom_width_entry.insert_text.disconnect (on_width_insert_text);
-    }
-
-    public override bool on_keypress (Gdk.EventKey event) {
-        if ((Gdk.keyval_name (event.keyval) == "KP_Enter") ||
-                (Gdk.keyval_name (event.keyval) == "Enter") ||
-                (Gdk.keyval_name (event.keyval) == "Return")) {
-            on_crop_ok ();
-            return true;
-        }
-
-        return base.on_keypress (event);
     }
 
     private void on_pivot_button_clicked () {
@@ -640,7 +630,7 @@ public class EditingTools.CropTool : EditingTool {
 
         // make sure the cursor isn't set to a modify indicator
         if (canvas != null)
-            canvas.get_drawing_window ().set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
+            canvas.drawing_window.set_cursor (new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.LEFT_PTR));
 
         crop_surface = null;
 
@@ -678,7 +668,7 @@ public class EditingTools.CropTool : EditingTool {
 
     private void on_resized_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
         Dimensions new_dim = Dimensions.for_pixbuf (scaled);
-        Dimensions uncropped_dim = canvas.get_photo ().get_dimensions (Photo.Exception.CROP);
+        Dimensions uncropped_dim = canvas.photo.get_dimensions (Photo.Exception.CROP);
 
         // rescale to full crop
         Box crop = scaled_crop.get_scaled_similar (old_dim, uncropped_dim);
@@ -699,7 +689,7 @@ public class EditingTools.CropTool : EditingTool {
         x *= scale_factor;
         y *= scale_factor;
 
-        Gdk.Rectangle scaled_pixbuf_pos = canvas.get_scaled_pixbuf_position ();
+        Gdk.Rectangle scaled_pixbuf_pos = canvas.scaled_position;
 
         // scaled_crop is not maintained relative to photo's position on canvas
         Box offset_scaled_crop = scaled_crop.get_offset (scaled_pixbuf_pos.x, scaled_pixbuf_pos.y);
@@ -747,8 +737,8 @@ public class EditingTools.CropTool : EditingTool {
 
     public override void paint (Cairo.Context default_ctx) {
         // fill region behind the crop surface with neutral color
-        int w = canvas.get_drawing_window ().get_width () * scale_factor;
-        int h = canvas.get_drawing_window ().get_height () * scale_factor;
+        int w = canvas.drawing_window.get_width () * scale_factor;
+        int h = canvas.drawing_window.get_height () * scale_factor;
 
         canvas.get_style_context ().render_background (default_ctx, 0, 0, w, h);
 
@@ -778,22 +768,22 @@ public class EditingTools.CropTool : EditingTool {
 
         // scale screen-coordinate crop to photo's coordinate system
         Box crop = scaled_crop.get_scaled_similar (
-                       Dimensions.for_rectangle (canvas.get_scaled_pixbuf_position ()),
-                       canvas.get_photo ().get_dimensions (Photo.Exception.CROP));
+                       Dimensions.for_rectangle (canvas.scaled_position),
+                       canvas.photo.get_dimensions (Photo.Exception.CROP));
 
         // crop the current pixbuf and offer it to the editing host
-        Gdk.Pixbuf cropped = new Gdk.Pixbuf.subpixbuf (canvas.get_scaled_pixbuf (), scaled_crop.left,
+        Gdk.Pixbuf cropped = new Gdk.Pixbuf.subpixbuf (canvas.scaled_pixbuf, scaled_crop.left,
                 scaled_crop.top, scaled_crop.get_width (), scaled_crop.get_height ());
 
         // signal host; we have a cropped image, but it will be scaled upward, and so a better one
         // should be fetched
-        applied (new CropCommand (canvas.get_photo (), crop, Resources.CROP_LABEL,
+        applied (new CropCommand (canvas.photo, crop, Resources.CROP_LABEL,
                                   Resources.CROP_TOOLTIP), cropped, crop.get_dimensions (), true);
     }
 
     private void update_cursor (int x, int y) {
         // scaled_crop is not maintained relative to photo's position on canvas
-        Gdk.Rectangle scaled_pos = canvas.get_scaled_pixbuf_position ();
+        Gdk.Rectangle scaled_pos = canvas.scaled_position;
         Box offset_scaled_crop = scaled_crop.get_offset (scaled_pos.x, scaled_pos.y);
 
         Gdk.CursorType cursor_type = Gdk.CursorType.LEFT_PTR;
@@ -841,7 +831,7 @@ public class EditingTools.CropTool : EditingTool {
 
         if (cursor_type != current_cursor_type) {
             Gdk.Cursor cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), cursor_type);
-            canvas.get_drawing_window ().set_cursor (cursor);
+            canvas.drawing_window.set_cursor (cursor);
             current_cursor_type = cursor_type;
         }
     }
@@ -856,13 +846,13 @@ public class EditingTools.CropTool : EditingTool {
 
     // Return the dimensions of the uncropped source photo scaled to canvas coordinates.
     private Dimensions get_photo_dimensions () {
-        Dimensions photo_dims = canvas.get_photo ().get_dimensions (Photo.Exception.CROP);
-        Dimensions surface_dims = canvas.get_surface_dim ();
+        Dimensions photo_dims = canvas.photo.get_dimensions (Photo.Exception.CROP);
+        Dimensions surface_dims = canvas.surface_dim;
         double scale_factor = double.min ((double) surface_dims.width / photo_dims.width,
                                           (double) surface_dims.height / photo_dims.height);
         scale_factor = double.min (scale_factor, 1.0);
 
-        photo_dims = canvas.get_photo ().get_dimensions (
+        photo_dims = canvas.photo.get_dimensions (
                          Photo.Exception.CROP | Photo.Exception.STRAIGHTEN);
 
         return { (int) (photo_dims.width * scale_factor),
@@ -871,7 +861,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private bool on_canvas_manipulation (int x, int y) {
-        Gdk.Rectangle scaled_pos = canvas.get_scaled_pixbuf_position ();
+        Gdk.Rectangle scaled_pos = canvas.scaled_position;
 
         // scaled_crop is maintained in coordinates non-relative to photo's position on canvas ...
         // but bound tool to photo itself
@@ -1066,7 +1056,7 @@ public class EditingTools.CropTool : EditingTool {
 
         Dimensions photo_dims = get_photo_dimensions ();
         double angle;
-        canvas.get_photo ().get_straighten (out angle);
+        canvas.photo.get_straighten (out angle);
 
         Box new_crop;
         if (get_constraint_aspect_ratio () == ANY_ASPECT_RATIO) {
@@ -1219,8 +1209,8 @@ public class EditingTools.CropTool : EditingTool {
             // current dimensions
             // scale screen-coordinate crop to photo's coordinate system
             Box adj_crop = scaled_crop.get_scaled_similar (
-                               Dimensions.for_rectangle (canvas.get_scaled_pixbuf_position ()),
-                               canvas.get_photo ().get_dimensions (Photo.Exception.CROP));
+                               Dimensions.for_rectangle (canvas.scaled_position),
+                               canvas.photo.get_dimensions (Photo.Exception.CROP));
             string text = adj_crop.get_width ().to_string () + "x" + adj_crop.get_height ().to_string ();
             int x = crop.left + crop.get_width () / 2;
             int y = crop.top + crop.get_height () / 2;

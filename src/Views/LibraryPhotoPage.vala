@@ -36,7 +36,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
     public LibraryPhotoPage () {
         base (LibraryPhoto.global, "Photo");
-
         // monitor view to update UI elements
         get_view ().items_altered.connect (on_photos_altered);
 
@@ -55,17 +54,13 @@ public class LibraryPhotoPage : EditingHostPage {
         LibraryPhoto.global.items_altered.disconnect (on_metadata_altered);
     }
 
-    public override Gtk.Toolbar get_toolbar () {
-        if (toolbar == null) {
-            base.get_toolbar ();
-
-            Gtk.Image start_image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            Gtk.ToolButton slideshow_button = new Gtk.ToolButton (start_image, _("S_lideshow"));
-            slideshow_button.set_tooltip_text (_("Play a slideshow"));
-            slideshow_button.clicked.connect (on_slideshow);
-            get_toolbar ().insert (slideshow_button, 0);
-        }
-        return toolbar;
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        Gtk.Button slideshow_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",
+                                                                     Gtk.IconSize.LARGE_TOOLBAR);
+        slideshow_button.set_tooltip_text (_("Play a slideshow"));
+        slideshow_button.clicked.connect (on_slideshow);
+        toolbar.pack_start (slideshow_button);
+        base.add_toolbar_widgets (toolbar);
     }
 
     public override Gtk.Box get_header_buttons () {

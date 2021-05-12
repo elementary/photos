@@ -54,62 +54,53 @@ public class TrashPage : CheckerboardPage {
         on_trashcan_contents_altered (Video.global.get_trashcan_contents (), null);
     }
 
-    public override Gtk.Toolbar get_toolbar () {
-        if (toolbar == null) {
-            var app = AppWindow.get_instance () as LibraryWindow;
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+        var app = AppWindow.get_instance () as LibraryWindow;
 
-            var separator = new Gtk.SeparatorToolItem ();
-            separator.set_expand (true);
-            separator.set_draw (false);
+        var restore_button = new Gtk.Button.with_mnemonic (Resources.RESTORE_PHOTOS_MENU);
+        restore_button.margin_start = restore_button.margin_end = 3;
+        restore_button.clicked.connect (on_restore);
+        restore_button.tooltip_text = Resources.RESTORE_PHOTOS_TOOLTIP;
 
-            var restore_button = new Gtk.Button.with_mnemonic (Resources.RESTORE_PHOTOS_MENU);
-            restore_button.margin_start = restore_button.margin_end = 3;
-            restore_button.clicked.connect (on_restore);
-            restore_button.tooltip_text = Resources.RESTORE_PHOTOS_TOOLTIP;
+        var restore_tool = new Gtk.ToolItem ();
+        restore_tool.add (restore_button);
 
-            var restore_tool = new Gtk.ToolItem ();
-            restore_tool.add (restore_button);
+        var restore_action = get_action ("Restore");
+        restore_action.bind_property ("sensitive", restore_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var restore_action = get_action ("Restore");
-            restore_action.bind_property ("sensitive", restore_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var delete_button = new Gtk.Button.with_mnemonic (Resources.DELETE_PHOTOS_MENU);
+        delete_button.margin_start = delete_button.margin_end = 3;
+        delete_button.tooltip_text = Resources.DELETE_FROM_TRASH_TOOLTIP;
+        delete_button.clicked.connect (on_delete);
 
-            var delete_button = new Gtk.Button.with_mnemonic (Resources.DELETE_PHOTOS_MENU);
-            delete_button.margin_start = delete_button.margin_end = 3;
-            delete_button.tooltip_text = Resources.DELETE_FROM_TRASH_TOOLTIP;
-            delete_button.clicked.connect (on_delete);
+        var delete_tool = new Gtk.ToolItem ();
+        delete_tool.add (delete_button);
 
-            var delete_tool = new Gtk.ToolItem ();
-            delete_tool.add (delete_button);
+        var delete_action = get_action ("Delete");
+        delete_action.bind_property ("sensitive", delete_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var delete_action = get_action ("Delete");
-            delete_action.bind_property ("sensitive", delete_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var empty_trash_button = new Gtk.Button.with_mnemonic (_("_Empty Trash"));
+        empty_trash_button.margin_start = empty_trash_button.margin_end = 3;
+        empty_trash_button.tooltip_text = _("Delete all photos in the trash");
+        empty_trash_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        empty_trash_button.clicked.connect (on_empty_trash);
 
-            var empty_trash_button = new Gtk.Button.with_mnemonic (_("_Empty Trash"));
-            empty_trash_button.margin_start = empty_trash_button.margin_end = 3;
-            empty_trash_button.tooltip_text = _("Delete all photos in the trash");
-            empty_trash_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-            empty_trash_button.clicked.connect (on_empty_trash);
+        var empty_trash_tool = new Gtk.ToolItem ();
+        empty_trash_tool.add (empty_trash_button);
 
-            var empty_trash_tool = new Gtk.ToolItem ();
-            empty_trash_tool.add (empty_trash_button);
+        var empty_trash_action = get_action ("EmptyTrash");
+        empty_trash_action.bind_property ("sensitive", empty_trash_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-            var empty_trash_action = get_action ("EmptyTrash");
-            empty_trash_action.bind_property ("sensitive", empty_trash_button, "sensitive", BindingFlags.SYNC_CREATE);
+        show_sidebar_button = MediaPage.create_sidebar_button ();
+        show_sidebar_button.clicked.connect (on_show_sidebar);
+        toolbar.pack_start (restore_tool);
+        toolbar.pack_start (delete_tool);
+        toolbar.pack_start (empty_trash_tool);
+        toolbar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        toolbar.pack_end (show_sidebar_button);
 
-            show_sidebar_button = MediaPage.create_sidebar_button ();
-            show_sidebar_button.clicked.connect (on_show_sidebar);
-
-            base.get_toolbar ();
-            toolbar.add (separator);
-            toolbar.add (restore_tool);
-            toolbar.add (delete_tool);
-            toolbar.add (empty_trash_tool);
-            toolbar.add (new Gtk.SeparatorToolItem ());
-            toolbar.add (show_sidebar_button);
-
-            update_sidebar_action (!app.is_metadata_sidebar_visible ());
-        }
-        return toolbar;
+        update_sidebar_action (!app.is_metadata_sidebar_visible ());
+        base.add_toolbar_widgets (toolbar);
     }
 
     public override Gtk.Menu? get_item_context_menu () {
