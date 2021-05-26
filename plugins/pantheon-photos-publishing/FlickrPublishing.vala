@@ -1060,11 +1060,10 @@ internal class Session : Publishing.RESTSupport.Session {
     }
 
     public string get_oauth_nonce () {
-        TimeVal currtime = TimeVal ();
-        currtime.get_current_time ();
+        var currtime = new DateTime.now_local ();
 
-        return Checksum.compute_for_string (ChecksumType.MD5, currtime.tv_sec.to_string () +
-                                            currtime.tv_usec.to_string ());
+        return Checksum.compute_for_string (ChecksumType.MD5, currtime.to_unix ().to_string () +
+                                            currtime.get_microsecond ().to_string ());
     }
 
     public string get_oauth_timestamp () {

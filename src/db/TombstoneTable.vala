@@ -40,7 +40,7 @@ public class TombstoneRow {
     public string filepath;
     public int64 filesize;
     public string? md5;
-    public time_t time_created;
+    public int64 time_created;
     public Tombstone.Reason reason;
 }
 
@@ -80,12 +80,12 @@ public class TombstoneTable : DatabaseTable {
         + "(filepath, filesize, md5, time_created, reason) "
         + "VALUES (?, ?, ?, ?, ?)");
 
-        time_t time_created = (time_t) now_sec ();
+        int64 time_created = now_sec ();
 
         bind_text (stmt, 1, filepath);
         bind_int64 (stmt, 2, filesize);
         bind_text (stmt, 3, md5);
-        bind_int64 (stmt, 4, (int64) time_created);
+        bind_int64 (stmt, 4, time_created);
         bind_int (stmt, 5, reason.serialize ());
 
         var res = stmt.step ();
@@ -126,7 +126,7 @@ public class TombstoneTable : DatabaseTable {
             row.filepath = stmt.column_text (1);
             row.filesize = stmt.column_int64 (2);
             row.md5 = stmt.column_text (3);
-            row.time_created = (time_t) stmt.column_int64 (4);
+            row.time_created = stmt.column_int64 (4);
             row.reason = Tombstone.Reason.unserialize (stmt.column_int (5));
 
             rows[index++] = row;

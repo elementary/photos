@@ -222,7 +222,7 @@ public interface Monitorable : MediaSource {
 // from Photo to here in order to add this capability to videos. It should
 // fire a "metadata:exposure-time" alteration when called.
 public interface Dateable : MediaSource {
-    public abstract void set_exposure_time (time_t target_time);
+    public abstract void set_exposure_time (int64 target_time);
 
-    public abstract time_t get_exposure_time ();
+    public abstract int64 get_exposure_time ();
 }

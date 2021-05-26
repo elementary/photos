@@ -226,10 +226,15 @@ public class LibraryWindow : AppWindow {
         right_frame.add (right_vbox);
 
         client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        client_paned.expand = true;
         client_paned.pack1 (sidebar_paned, false, false);
         client_paned.pack2 (right_frame, true, false);
 
-        add (client_paned);
+        var layout = new Gtk.Grid ();
+        layout.orientation = Gtk.Orientation.VERTICAL;
+        layout.add (header);
+        layout.add (client_paned);
+        add (layout);
 
         ui_settings.bind ("sidebar-position", client_paned, "position", DEFAULT);
         ui_settings.bind ("metadata-sidebar-position", right_client_paned, "position", DEFAULT);
@@ -1082,7 +1087,7 @@ public class LibraryWindow : AppWindow {
         metadata_sidebar.save_changes ();
         Page current_page = get_current_page ();
         if (current_page != null) {
-            Gtk.Toolbar toolbar = current_page.get_toolbar ();
+            Gtk.ActionBar toolbar = current_page.get_toolbar ();
             if (toolbar != null) {
                 toolbar.destroy ();
             }

@@ -67,22 +67,16 @@ public bool int_value_equals (Value a, Value b) {
     return (int) a == (int) b;
 }
 
-public ulong timeval_to_ms (TimeVal time_val) {
-    return (((ulong) time_val.tv_sec) * 1000) + (((ulong) time_val.tv_usec) / 1000);
+public int64 now_ms () {
+    var date_time_now = new DateTime.now_local ();
+
+    return date_time_now.to_unix () * 1000 + date_time_now.get_microsecond () / 1000;
 }
 
-public ulong now_ms () {
-    return timeval_to_ms (TimeVal ());
-}
+public int64 now_sec () {
+    var date_time_now = new DateTime.now_local ();
 
-public ulong now_sec () {
-    TimeVal time_val = TimeVal ();
-
-    return time_val.tv_sec;
-}
-
-public inline time_t now_time_t () {
-    return (time_t) now_sec ();
+    return date_time_now.to_unix ();
 }
 
 public string md5_binary (uint8 *buffer, size_t length) {
@@ -238,14 +232,14 @@ public Gee.List<MediaSource>? unserialize_media_sources (uchar *serialized, int 
     return list;
 }
 
-public string format_local_datespan (Time from_date, Time to_date) {
+public string format_local_datespan (DateTime from_date, DateTime to_date) {
     string from_format, to_format;
 
     // Ticket #3240 - Change the way date ranges are pretty-
     // printed if the start and end date occur on consecutive days.
-    if (from_date.year == to_date.year) {
+    if (from_date.get_year () == to_date.get_year ()) {
         // are these consecutive dates?
-        if ((from_date.month == to_date.month) && (from_date.day == (to_date.day - 1))) {
+        if ((from_date.get_month () == to_date.get_month ()) && (from_date.get_day_of_month () == (to_date.get_day_of_month () - 1))) {
             // Yes; display like so: Sat, July 4 - 5, 20X6
             from_format = Resources.get_start_multiday_span_format_string ();
             to_format = Resources.get_end_multiday_span_format_string ();
@@ -266,7 +260,7 @@ public string format_local_datespan (Time from_date, Time to_date) {
                                         to_date.format (to_format)));
 }
 
-public string format_local_date (Time date) {
+public string format_local_date (DateTime date) {
     return String.strip_leading_zeroes (date.format (Resources.get_long_date_format_string ()));
 }
 

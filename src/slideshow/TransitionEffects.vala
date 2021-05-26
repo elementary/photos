@@ -142,7 +142,7 @@ public class TransitionClock {
     private Spit.Transitions.Motion? motion = null;
     private unowned RepaintCallback? repaint = null;
     private uint timer_id = 0;
-    private ulong time_started = 0;
+    private int64 time_started = 0;
     private int frame_number = 0;
     private bool cancelled = false;
 

@@ -825,9 +825,8 @@ public abstract class MediaPage : CheckerboardPage {
         return get_checkerboard_layout ().get_scale ();
     }
 
-    public static Gtk.ToolButton create_sidebar_button () {
-        var show_sidebar_button = new Gtk.ToolButton (null, null);
-        show_sidebar_button.icon_name = Resources.SHOW_PANE;
+    public static Gtk.Button create_sidebar_button () {
+        var show_sidebar_button = new Gtk.Button.from_icon_name (Resources.SHOW_PANE, Gtk.IconSize.LARGE_TOOLBAR);
         show_sidebar_button.tooltip_text = Resources.TOGGLE_METAPANE_TOOLTIP;
         return show_sidebar_button;
     }

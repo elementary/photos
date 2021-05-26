@@ -23,13 +23,6 @@ public enum AdjustmentRelation {
     ABOVE
 }
 
-public enum CompassPoint {
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST
-}
-
 public enum Direction {
     FORWARD,
     BACKWARD;
