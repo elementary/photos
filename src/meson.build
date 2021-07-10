@@ -135,6 +135,7 @@ photos_files = files(
     'photos/PhotoMetadata.vala',
     'photos/PngSupport.vala',
     'photos/RawSupport.vala',
+    'photos/SvgSupport.vala',
     'photos/TiffSupport.vala',
     'photos/WebPSupport.vala',
 

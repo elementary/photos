@@ -73,6 +73,7 @@ public static PhotoFileFormat[] get_metadata_writeable () {
 public enum PhotoFileFormat {
     JFIF,
     RAW,
+    SVG,
     PNG,
     TIFF,
     BMP,
@@ -89,7 +90,7 @@ public enum PhotoFileFormat {
     // This is currently listed in the order of detection, that is, the file is examined from
     // left to right.  (See PhotoFileInterrogator.)
     public static PhotoFileFormat[] get_supported () {
-        return { JFIF, RAW, PNG, TIFF, BMP, GIF, WEBP };
+        return { JFIF, RAW, SVG, PNG, TIFF, BMP, GIF, WEBP };
     }
 
     public static PhotoFileFormat[] get_writeable () {
@@ -171,6 +172,9 @@ public enum PhotoFileFormat {
         case WEBP:
             return 6;
 
+        case SVG:
+            return 7;
+
         case UNKNOWN:
         default:
             return -1;
@@ -200,6 +204,9 @@ public enum PhotoFileFormat {
 
         case 6:
             return WEBP;
+
+        case 7:
+            return SVG;
 
         default:
             return UNKNOWN;
@@ -248,6 +255,9 @@ public enum PhotoFileFormat {
         case "gif":
             return PhotoFileFormat.GIF;
 
+        case "svg":
+            return PhotoFileFormat.SVG;
+
         default:
             return PhotoFileFormat.UNKNOWN;
         }
@@ -261,6 +271,10 @@ public enum PhotoFileFormat {
 
         case RAW:
             RawFileFormatDriver.init ();
+            break;
+
+        case SVG:
+            SvgFileFormatDriver.init ();
             break;
 
         case PNG:
@@ -295,6 +309,9 @@ public enum PhotoFileFormat {
 
         case RAW:
             return RawFileFormatDriver.get_instance ();
+
+        case SVG:
+            return SvgFileFormatDriver.get_instance ();
 
         case PNG:
             return PngFileFormatDriver.get_instance ();
