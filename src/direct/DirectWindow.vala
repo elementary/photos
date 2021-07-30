@@ -78,8 +78,10 @@ public class DirectWindow : AppWindow {
     }
 
     public void update_title (File file, bool modified) {
-        header.title = "%s%s (%s) - %s".printf ((modified) ? "*" : "", file.get_basename (),
+        title = "%s%s (%s) - %s".printf ((modified) ? "*" : "", file.get_basename (),
                                          get_display_pathname (file.get_parent ()), _ (Resources.APP_TITLE));
+        header.title = "%s%s (%s) - %s".printf ((modified) ? "*" : "", file.get_basename (),
+                                                get_display_pathname (file.get_parent ()), _ (Resources.APP_TITLE));
     }
 
     protected override void on_fullscreen () {
