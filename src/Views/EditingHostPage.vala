@@ -270,17 +270,18 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return snap_interpolation_factor (get_zoom_state ().get_interpolation_factor () + adjustment);
     }
 
+    bool zooming = false;
     private void zoom_about_event_cursor_point (Gdk.EventScroll event, double zoom_increment) {
-        if (photo_missing)
+        if (photo_missing || zooming) {
             return;
+        }
+
+        zooming = true;
 
         Gdk.Point cursor_wrt_viewport_center = get_cursor_wrt_viewport_center (event);
         Gdk.Point iso_pixel_under_cursor = get_iso_pixel_under_cursor (event);
 
         double interp = adjust_interpolation_factor (get_ctrl_pressed () ? zoom_increment / 5.0 : zoom_increment);
-        zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
-        zoom_slider.slider_value = interp;
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
 
         ZoomState new_zoom_state = ZoomState.rescale (get_zoom_state (), interp);
 
@@ -301,7 +302,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
         set_zoom_state (new_zoom_state);
         repaint ();
 
-        update_cursor_for_zoom_context ();
+        Idle.add (() => {
+            update_cursor_for_zoom_context ();
+
+            zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
+            zoom_slider.slider_value = interp;
+            zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+
+            zooming = false;
+            return Source.REMOVE;
+        });
     }
 
     protected void snap_zoom_to_min () {
