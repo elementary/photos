@@ -22,7 +22,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int TRINKET_SCALE = 24;
     public const int TRINKET_PADDING = 1;
 
-    public const double ZOOM_INCREMENT_SIZE = 0.03;
+    public const double ZOOM_INCREMENT_SIZE = 0.02;
     public const int PAN_INCREMENT_SIZE = 64; /* in pixels */
     public const int TOOL_WINDOW_SEPARATOR = 8;
     public const int PIXBUF_CACHE_COUNT = 5;
@@ -150,7 +150,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             snap_zoom_to_isomorphic ();
         });
 
-        zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0);
+        zoom_slider = new SliderAssembly (0, 1.1, 0.02, 0);
         zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
 
         var zoom_group = new Gtk.Grid ();
@@ -258,9 +258,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     private double snap_interpolation_factor (double interp) {
-        if (interp < 0.03)
-            interp = 0.0;
-        else if (interp > 0.97)
+        if (interp < 0.02)
+            interp = 0.02;
+        else if (interp > 1.0)
             interp = 1.0;
 
         return interp;
@@ -277,7 +277,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Gdk.Point cursor_wrt_viewport_center = get_cursor_wrt_viewport_center (event);
         Gdk.Point iso_pixel_under_cursor = get_iso_pixel_under_cursor (event);
 
-        double interp = adjust_interpolation_factor (zoom_increment);
+        double interp = adjust_interpolation_factor (get_ctrl_pressed () ? zoom_increment / 5.0 : zoom_increment);
         zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
         zoom_slider.slider_value = interp;
         zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
@@ -361,24 +361,18 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_mousewheel_up (Gdk.EventScroll event) {
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
-            return false;
+        if (zoom_slider.get_sensitive ()) {
+            zoom_about_event_cursor_point (event, ZOOM_INCREMENT_SIZE);
+        }
 
-        if (get_zoom_state ().is_max () || !zoom_slider.get_sensitive ())
-            return false;
-
-        zoom_about_event_cursor_point (event, ZOOM_INCREMENT_SIZE);
         return false;
     }
 
     protected override bool on_mousewheel_down (Gdk.EventScroll event) {
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
-            return false;
+        if (zoom_slider.get_sensitive ()) {
+            zoom_about_event_cursor_point (event, -ZOOM_INCREMENT_SIZE);
+        }
 
-        if (get_zoom_state ().is_min () || !zoom_slider.get_sensitive ())
-            return false;
-
-        zoom_about_event_cursor_point (event, -ZOOM_INCREMENT_SIZE);
         return false;
     }
 
