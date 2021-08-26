@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 18:04+0000\n"
-"PO-Revision-Date: 2021-08-26 11:31+0000\n"
+"PO-Revision-Date: 2021-08-26 13:02+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
 "hu/>\n"
@@ -405,7 +405,7 @@ msgid ""
 "to %s (Schema %d)"
 msgstr ""
 "A Fotók alkalmazás nem volt képes frissíteni az ön fényképgyűjteményét a(z) "
-"%s verzióról (%d. séma) %s verzióra (%d. séma)."
+"%s verzióról (%d. séma) %s verzióra (%d. séma)"
 
 #: src/main.vala:73
 #, c-format
@@ -724,9 +724,8 @@ msgid "Revert to Original"
 msgstr "Vissza az eredetihez"
 
 #: src/Resources.vala:129
-#, fuzzy
 msgid "Re_name Event…"
-msgstr "Esemény átnevezése"
+msgstr "Esemény át_nevezése…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
@@ -785,9 +784,8 @@ msgid "Make a duplicate of the photo"
 msgstr "Másolat készítése a fényképről"
 
 #: src/Resources.vala:151
-#, fuzzy
 msgid "_Export…"
-msgstr "_Exportálás"
+msgstr "_Exportálás…"
 
 #: src/Resources.vala:153
 msgid "Show info panel"
@@ -803,9 +801,8 @@ msgid "_Print…"
 msgstr "_Nyomtatás…"
 
 #: src/Resources.vala:159
-#, fuzzy
 msgid "Pu_blish…"
-msgstr "Közzététel"
+msgstr "Közzé_tétel…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
@@ -820,9 +817,8 @@ msgid "Edit Comment"
 msgstr "A megjegyzés szerkesztése"
 
 #: src/Resources.vala:166
-#, fuzzy
 msgid "_Adjust Date and Time…"
-msgstr "Dátum és idő módosítása"
+msgstr "Dátum és idő _módosítása…"
 
 #: src/Resources.vala:167
 msgid "Adjust Date and Time"
@@ -830,12 +826,11 @@ msgstr "Dátum és idő módosítása"
 
 #: src/Resources.vala:169
 msgid "_Open In"
-msgstr ""
+msgstr "_Megnyitás ebben"
 
 #: src/Resources.vala:171
-#, fuzzy
 msgid "_Open With RAW Editor…"
-msgstr "Megnyitás RA_W szerkesztővel"
+msgstr "Megnyitás _RAW szerkesztővel…"
 
 #: src/Resources.vala:173
 msgid "Find"
@@ -891,9 +886,9 @@ msgid "_New"
 msgstr "Ú_j"
 
 #: src/Resources.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "A(z) \"%s\" címke át_nevezése..."
+msgstr "A(z) \"%s\" címke át_nevezése…"
 
 #: src/Resources.vala:211
 #, c-format
@@ -906,9 +901,8 @@ msgid "_Rename…"
 msgstr "Át_nevezés…"
 
 #: src/Resources.vala:216
-#, fuzzy
 msgid "Modif_y Tags…"
-msgstr "Címkék módosítása"
+msgstr "_Címkék módosítása…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
@@ -954,9 +948,8 @@ msgid "Delete Album"
 msgstr "Album törlése"
 
 #: src/Resources.vala:244
-#, fuzzy
 msgid "_Edit…"
-msgstr "S_zerkesztés"
+msgstr "_Szerkesztés…"
 
 #: src/Resources.vala:245
 #, fuzzy
@@ -1055,7 +1048,7 @@ msgstr "%b. %d. %a"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:360
 msgid "%d, %Y"
-msgstr "%Y. %d."
+msgstr "%Y. %b. %d."
 
 #: src/SearchFilter.vala:240
 msgid "Search Photos"
@@ -1119,10 +1112,9 @@ msgstr[0] "Eredeti fájl _módosítása"
 msgstr[1] "Eredeti fájl _módosítása"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Eredeti: "
+msgstr "Eredeti: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1272,9 +1264,8 @@ msgid "Con_tinue"
 msgstr "Foly_tatás"
 
 #: src/Dialogs/Dialogs.vala:183
-#, fuzzy
 msgid "Save Details…"
-msgstr "Részletek mentése"
+msgstr "Részletek mentése…"
 
 #: src/Dialogs/Dialogs.vala:184
 msgid "Save Details"
@@ -1765,9 +1756,8 @@ msgid "_Scaling constraint:"
 msgstr "_Méretezési megszorítás:"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "Infópanel elrejtése"
+msgstr "_Méret pixelekben:"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -1852,7 +1842,7 @@ msgstr "a következőkkel:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr ""
+msgstr "Szabály hozzáadása"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
 #: src/Views/DirectPhotoPage.vala:534
@@ -2252,11 +2242,11 @@ msgstr "TIFF"
 
 #: src/photos/WebPSupport.vala:44
 msgid "WebP"
-msgstr ""
+msgstr "WebP"
 
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
-msgstr ""
+msgstr "Névjegy"
 
 #: src/publishing/PublishingPluginHost.vala:24
 msgid "Preparing for upload"
@@ -2558,7 +2548,7 @@ msgstr "_Előhívó"
 #: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
-msgstr ""
+msgstr "További műveletek"
 
 #: src/Views/CollectionPage.vala:584
 #, fuzzy
@@ -2634,7 +2624,7 @@ msgstr "Mentés másként"
 
 #: src/Views/EditingHostPage.vala:137
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Nagyítás az oldal kitöltéséhez"
 
 #: src/Views/EditingHostPage.vala:146
 #, fuzzy
@@ -2761,7 +2751,7 @@ msgstr "Minden fénykép importálása a gyűjteményébe"
 
 #: src/Views/ImportPage.vala:1090
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "A kamera nem érhető el, amíg csatolva van"
 
 #: src/Views/ImportPage.vala:1091
 msgid ""
@@ -2872,9 +2862,8 @@ msgstr[0] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőg
 msgstr[1] "Hiba történt, %d fénykép/videó nem törölhető a fényképezőgépről."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Importálás"
+msgstr "Importálás…"
 
 #: src/Views/ImportQueuePage.vala:59
 msgid "_Stop Import"
@@ -2931,7 +2920,7 @@ msgstr "_Készítés dátuma"
 
 #: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "A _fájl módosításának ideje szerint"
 
 #: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
@@ -3002,13 +2991,12 @@ msgid "Show Photo Titles"
 msgstr "_Cím megjelenítése"
 
 #: src/Views/SlideshowPage.vala:96
-#, fuzzy
 msgid "Transition Speed"
-msgstr "Átmenet _effektus:"
+msgstr "Átmenet sebessége"
 
 #: src/Views/SlideshowPage.vala:98
 msgid "Faster"
-msgstr ""
+msgstr "Gyorsabb"
 
 #: src/Views/SlideshowPage.vala:99
 #, fuzzy
@@ -3060,9 +3048,8 @@ msgid "Videos"
 msgstr "Videók"
 
 #: src/Widgets/TransitionEffectSelector.vala:65
-#, fuzzy
 msgid "Transition Effect"
-msgstr "Átmenet _effektus:"
+msgstr "Átmeneti hatás"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -3790,7 +3777,7 @@ msgstr "A _videókat és új fényképalbumokat láthatja:"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
 msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+msgstr "Szerzői jogok: 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
 msgid "Visit the Yandex.Fotki web site"
@@ -3888,7 +3875,8 @@ msgid ""
 msgstr ""
 "Bejelentkezett a Tumblr-re, mint (name).\n"
 "\n"
-"(ez a szöveg a kódon belül lesz feltöltve)"
+"(ez a szöveg a kódon belül van meghatározva,\n"
+"úgyhogy a módosítások nem lesznek megjelenítve)"
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
 msgid "Blogs:"
