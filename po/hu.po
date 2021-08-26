@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 18:04+0000\n"
-"PO-Revision-Date: 2021-08-26 01:32+0000\n"
-"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
+"PO-Revision-Date: 2021-08-26 11:25+0000\n"
+"Last-Translator: Sziráki Bálint <blntsziraki@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
 "hu/>\n"
 "Language: hu\n"
@@ -55,15 +55,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Nem hozható létre az adatalkönyvtár (%s): %s"
 
 #: src/AppWindow.vala:162
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Végzetes hiba történt a Shotwell gyűjtemény megnyitása közben, a Shotwell "
-"futása nem folytatódhat.\n"
+"Végzetes hiba történt a Fotók alkalmazás könyvtárának megnyitása közben, az "
+"alkalmazás futása nem folytatódhat.\n"
 "\n"
 "%s"
 
@@ -266,14 +266,12 @@ msgid "Restore Photos from Trash"
 msgstr "Fényképek visszaállítása a Kukából"
 
 #: src/Commands.vala:2280
-#, fuzzy
 msgid "Move the photos to the Photos trash"
-msgstr "Fényképek áthelyezése a Shotwell kukájába"
+msgstr "Fényképek áthelyezése a Fotók kukájába"
 
 #: src/Commands.vala:2280
-#, fuzzy
 msgid "Restore the photos back to the Photos library"
-msgstr "Fényképek visszaállítása a Shotwell gyűjteményébe"
+msgstr "Fényképek visszaállítása a Fotók könyvtárba"
 
 #: src/Commands.vala:2299
 msgid "Moving Photos to Trash"
@@ -389,16 +387,17 @@ msgstr "Teljes képernyő elhagyása"
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
+"Az ön Fotók app könyvtára nem kompatibilis az alkalmazás ezen verziójával"
 
 #: src/main.vala:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"A fényképgyűjteménye nem kompatibilis ezzel a Shotwell verzióval. Úgy tűnik, "
-"a Shotwell a(z) %s verzióval (%d. séma) készült, míg a jelenlegi verzió: %s "
-"(%d. séma). Próbálja meg a Shotwell legfrissebb verzióját használni."
+"Úgy tűnik, hogy a Fotók app kovetkező verziójával készült: %s (séma %d). A "
+"jelenlegi verzió: %s (séma %d). Kérjük használja a Fotók app legfrissebb "
+"verzióját."
 
 #: src/main.vala:72
 #, fuzzy, c-format
