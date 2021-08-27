@@ -25,9 +25,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
     // the following are minimums, as the pads and gutters expand to fill up the window width
     public const int COLUMN_GUTTER_PADDING = 24;
 
-    // For a 40% alpha channel
-    private const double SELECTION_ALPHA = 0.40;
-
     // The number of pixels that the scrollbars of Gtk.ScrolledWindows allocate for themselves
     // before their final size is computed. This must be taken into account when computing
     // the width of this widget. This value was 0 in Gtk+ 2.x but is 1 in Gtk+ 3.x. See
@@ -1079,15 +1076,43 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         // find the visible intersection of the viewport and the selection band
         Gdk.Rectangle visible_page = get_adjustment_page (hadjustment, vadjustment);
         Gdk.Rectangle visible_band = Gdk.Rectangle ();
+
         visible_page.intersect (selection_band, out visible_band);
-        ctx.rectangle (visible_band.x, visible_band.y, visible_band.width, visible_band.height);
-        var style_context = get_style_context ();
-        style_context.save ();
-        style_context.add_class (Granite.STYLE_CLASS_ACCENT);
-        var selected_rgba = style_context.get_color (Gtk.StateFlags.NORMAL);
-        ctx.set_source_rgba ( selected_rgba.red, selected_rgba.green, selected_rgba.blue, SELECTION_ALPHA);
+
+        var label_widget_path = new Gtk.WidgetPath ();
+        label_widget_path.append_type (typeof (Gtk.IconView));
+        label_widget_path.iter_set_object_name (-1, "rubberband");
+
+        var rubberband_context = new Gtk.StyleContext ();
+        rubberband_context.set_path (label_widget_path);
+
+        var bg_color = (Gdk.RGBA) rubberband_context.get_property (
+            Gtk.STYLE_PROPERTY_BACKGROUND_COLOR,
+            Gtk.StateFlags.NORMAL
+        );
+
+        var border_color = (Gdk.RGBA) rubberband_context.get_property (
+            Gtk.STYLE_PROPERTY_BORDER_COLOR,
+            Gtk.StateFlags.NORMAL
+        );
+
+        var border_radius = (int) rubberband_context.get_property (
+            Gtk.STYLE_PROPERTY_BORDER_RADIUS,
+            Gtk.StateFlags.NORMAL
+        );
+
+        // Don't draw lines across half pixels
+        ctx.translate (0.5, 0.5);
+
+        Granite.Drawing.Utilities.cairo_rounded_rectangle (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height, border_radius);
+        ctx.set_source_rgba (bg_color.red, bg_color.green, bg_color.blue, bg_color.alpha);
         ctx.fill ();
-        style_context.restore ();
+
+        Granite.Drawing.Utilities.cairo_rounded_rectangle (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height, border_radius);
+        ctx.set_source_rgba (border_color.red, border_color.green, border_color.blue, border_color.alpha);
+        ctx.set_line_width (1.0);
+        ctx.stroke ();
+
         ctx.restore ();
     }
 
