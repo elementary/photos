@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 18:04+0000\n"
-"PO-Revision-Date: 2021-08-26 13:02+0000\n"
-"Last-Translator: zoli111 <acszoltan111@gmail.com>\n"
+"PO-Revision-Date: 2021-08-27 16:54+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
 "hu/>\n"
 "Language: hu\n"
@@ -349,7 +349,7 @@ msgid "Export"
 msgstr "Exportálás"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
 msgstr "A(z) %s fájl már létezik. Lecseréli?"
 
@@ -796,7 +796,6 @@ msgid "Hide info panel"
 msgstr "Infópanel elrejtése"
 
 #: src/Resources.vala:157
-#, fuzzy
 msgid "_Print…"
 msgstr "_Nyomtatás…"
 
@@ -896,7 +895,6 @@ msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "A(z) \"%s\" címke átnevezése erre: \"%s\""
 
 #: src/Resources.vala:214
-#, fuzzy
 msgid "_Rename…"
 msgstr "Át_nevezés…"
 
@@ -909,25 +907,25 @@ msgid "Modify Tags"
 msgstr "Címkék módosítása"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Fényképek címkézése ezzel: „%s”"
+msgstr[0] "Fénykép címkézése ezzel: „%s”"
 msgstr[1] "Fényképek címkézése ezzel: „%s”"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "A(z) \"%s\" címke _eltávolítása a fényképről"
-msgstr[1] "A(z) \"%s\" címke _eltávolítása a fényképről"
+msgstr[1] "A(z) \"%s\" címke _eltávolítása a fényképekről"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "A(z) \"%s\" címke eltávolítása a fényképről"
-msgstr[1] "A(z) \"%s\" címke eltávolítása a fényképről"
+msgstr[1] "A(z) \"%s\" címke eltávolítása a fényképekről"
 
 #: src/Resources.vala:232
 #, c-format
@@ -952,7 +950,6 @@ msgid "_Edit…"
 msgstr "_Szerkesztés…"
 
 #: src/Resources.vala:245
-#, fuzzy
 msgid "Re_name…"
 msgstr "Át_nevezés…"
 
@@ -987,7 +984,6 @@ msgid "Move the selected photos back into the library"
 msgstr "Kijelölt fényképek visszaállítása a gyűjteménybe"
 
 #: src/Resources.vala:291
-#, fuzzy
 msgid "File Mana_ger"
 msgstr "_Megjelenítés a fájlkezelőben"
 
@@ -1098,18 +1094,16 @@ msgid "Set _all photos/videos to this time"
 msgstr "Min_den fotó/videó beállítása erre az időre"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:113
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "Eredeti fényképfájl _módosítása"
-msgstr[1] "Eredeti fényképfájl _módosítása"
+msgstr[1] "Eredeti fényképfájlok _módosítása"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:116
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "Eredeti fájl _módosítása"
-msgstr[1] "Eredeti fájl _módosítása"
+msgstr[1] "Eredeti fájlok _módosítása"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
 #, c-format
@@ -1167,19 +1161,18 @@ msgstr[0] "másodperc"
 msgstr[1] "másodperc"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
 msgstr[0] "Ez eltávolítja a(z) „%s” címkét egy fényképről. Folytatja?"
 msgstr[1] "Ez eltávolítja a(z) „%s” címkét %d fényképről. Folytatja?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "Ez eltávolítja a(z) \"%s\" okosalbumot. Folytatja?"
 
 #: src/Dialogs/Dialogs.vala:66
-#, fuzzy
 msgid ""
 "Switching developers will undo all changes you have made to this photo in "
 "Photos"
@@ -1187,15 +1180,15 @@ msgid_plural ""
 "Switching developers will undo all changes you have made to these photos in "
 "Photos"
 msgstr[0] ""
-"Az előhívók váltása a fénykép minden, a Shotwellben végzett módosítását "
+"Az előhívók váltása a fénykép minden, a Fotókban végzett módosítását "
 "visszavonja"
 msgstr[1] ""
-"Az előhívók váltása a fényképek minden, a Shotwellben végzett módosítását "
+"Az előhívók váltása a fényképek minden, a Fotókban végzett módosítását "
 "visszavonja"
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Biztosan előhívót vált?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1207,10 +1200,9 @@ msgstr "Videó exportálása"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
 #: src/Views/LibraryPhotoPage.vala:799
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Fényképek exportálása"
+msgstr[0] "Fénykép exportálása"
 msgstr[1] "Fényképek exportálása"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
@@ -1232,12 +1224,12 @@ msgstr "_Kijelölés"
 #. Did we fail because we can't write to this directory?
 #. Yes - display an alternate error message here.
 #: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos couldn't create a file for editing this photo because you do not have "
 "permission to write to %s."
 msgstr ""
-"A Shotwell nem tudott létrehozni fájlt a fénykép szerkesztéséhez, mert nincs "
+"A Fotók nem tudott létrehozni fájlt a fénykép szerkesztéséhez, mert nincs "
 "jogosultsága ide írni: %s."
 
 #: src/Dialogs/Dialogs.vala:166
@@ -1330,24 +1322,22 @@ msgstr ""
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
 #: src/Dialogs/Dialogs.vala:315
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
 msgstr ""
-"A Shotwell által nem értelmezhető formátumú, és emiatt nem importált fotók/"
+"A Fotók által nem értelmezhető formátumú, és emiatt nem importált fotók/"
 "videók:"
 
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
 #: src/Dialogs/Dialogs.vala:330
-#, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"A Shotwell által a gyűjteménybe nem másolható, és emiatt nem importált fotók/"
+"A Fotók által a gyűjteménybe nem másolható, és emiatt nem importált fotók/"
 "videók:"
 
 #: src/Dialogs/Dialogs.vala:334
@@ -1630,27 +1620,24 @@ msgid "Name:"
 msgstr "Név:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Visszavonja a külső szerkesztést?"
-msgstr[1] "Visszavonja a külső szerkesztést?"
+msgstr[1] "Visszavonja a külső szerkesztéseket?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "Ezzel a külső fájlon végzett minden változtatás elvész. Folytatja?"
-msgstr[1] ""
-"Ezzel a külső %d fájlon végzett minden változtatás elvész. Folytatja?"
+msgstr[1] "Ezzel a külső %d fájlon végzett minden változtatás elvész. Folytatja?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "Külső szerkesztés _visszavonása"
-msgstr[1] "Külső szerkesztés _visszavonása"
+msgstr[1] "Külső szerkesztések _visszavonása"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
@@ -1661,7 +1648,7 @@ msgid "Remove Photos From Library"
 msgstr "Fényképek eltávolítása a gyűjteményből"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Ezzel eltávolítja a fényképet a gyűjteményből. Folytatja?"
@@ -1693,13 +1680,12 @@ msgstr[1] ""
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
 #: src/Dialogs/Dialogs.vala:895
-#, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr ""
-"A Shotwell átmásolhatja a fényképeket a gyűjtemény könyvtárába, vagy "
-"importálhatja azokat másolás nélkül is."
+"A Fotók átmásolhatja a fényképeket a gyűjteményébe vagy importálhatja azokat "
+"másolás nélkül is."
 
 #: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
@@ -1718,11 +1704,10 @@ msgid "Remove From Library"
 msgstr "Eltávolítás a gyűjteményből"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:720
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Fényképek eltávolítás a gyűjteményből"
-msgstr[1] "Fényképek eltávolítás a gyűjteményből"
+msgstr[0] "Fénykép eltávolítása a gyűjteményből"
+msgstr[1] "Fényképek eltávolítása a gyűjteményből"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:953
@@ -1785,7 +1770,6 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Importált fájlok á_tnevezése kisbetűssé:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
 msgstr "_Metaadatok fájlokba írása:"
 
@@ -2134,15 +2118,15 @@ msgid "Import"
 msgstr "Importálás"
 
 #: src/library/LibraryWindow.vala:790
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
 "We recommend changing this in <span weight=\"bold\">Edit %s Preferences</"
 "span>.\n"
 "Do you want to continue importing photos?"
 msgstr ""
-"A Shotwell az importált fényképeket az ön saját könyvtárába helyezi el.\n"
-"Javasoljuk, hogy ezt módosítsa <span weight=\"bold\">A(z) %s beállításainak "
+"A Fotók az importált fényképeket az ön saját könyvtárába helyezi el.\n"
+"Javasoljuk, hogy ezt módosítsa <span weight=\"bold\">A %s beállításainak "
 "szerkesztése</span> alatt.\n"
 "Szeretné folytatni a fényképek importálását?"
 
@@ -2292,12 +2276,10 @@ msgid "The selected photo was successfully published."
 msgstr "A kijelölt fénykép sikeresen közzétéve."
 
 #: src/publishing/PublishingUI.vala:147
-#, fuzzy
 msgid "Fetching account information…"
 msgstr "Fiókinformációk letöltése…"
 
 #: src/publishing/PublishingUI.vala:153
-#, fuzzy
 msgid "Logging in…"
 msgstr "Bejelentkezés…"
 
@@ -2332,15 +2314,15 @@ msgid "Unable to publish"
 msgstr "Nem sikerült közzétenni"
 
 #: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos cannot publish the selected items because you do not have a "
 "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
 "Preferences</b> and enable one or more of the publishing plugins on the "
 "<b>Plugins</b> tab."
 msgstr ""
-"A Shotwell nem képes közzétenni a kijelölt elemeket, mert nincs engedélyezve "
-"a megfelelő közzétételi bővítmény. Ennek javításához válassza a(z) <b>%s "
+"A Fotók nem képes közzétenni a kijelölt elemeket, mert nincs engedélyezve a "
+"megfelelő közzétételi bővítmény. Ennek javításához válassza a <b>%s "
 "beállításainak szerkesztése</b> menüpontot, és engedélyezze az egyik "
 "közzétételi bővítményt a <b>Bővítmények</b> lapon."
 
@@ -2395,7 +2377,6 @@ msgid "Date"
 msgstr "Dátum"
 
 #: src/sidebar/Tree.vala:880
-#, fuzzy
 msgid "New _Tag…"
 msgstr "Új _címke…"
 
@@ -2551,10 +2532,9 @@ msgid "Other Actions"
 msgstr "További műveletek"
 
 #: src/Views/CollectionPage.vala:584
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Fényképek/videók exportálása"
+msgstr[0] "Fénykép/videó exportálása"
 msgstr[1] "Fényképek/videók exportálása"
 
 #: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
@@ -2627,9 +2607,8 @@ msgid "Zoom to fit page"
 msgstr "Nagyítás az oldal kitöltéséhez"
 
 #: src/Views/EditingHostPage.vala:146
-#, fuzzy
 msgid "Zoom 1:1"
-msgstr "_100% nagyítás"
+msgstr "Eredeti méret"
 
 #: src/Views/EditingHostPage.vala:166
 msgid "Previous photo"
@@ -2653,9 +2632,8 @@ msgid "No Event"
 msgstr "Nincs esemény"
 
 #: src/Views/EventsDirectoryPage.vala:66
-#, fuzzy
 msgid "Merge events"
-msgstr "_Események egyesítése"
+msgstr "Események egyesítése"
 
 #: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
@@ -2691,20 +2669,18 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:329
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
 msgstr "Megjelölve"
 
 #: src/Views/ImportPage.vala:464
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"A fényképezőgép leválasztása nem sikerült, próbálja meg a fájlkezelőből "
+"A fényképezőgép leválasztása nem sikerült. Próbálja meg a fájlkezelőből "
 "leválasztani."
 
 #: src/Views/ImportPage.vala:783
@@ -2733,7 +2709,6 @@ msgstr "Összes im_portálása"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:933
-#, fuzzy
 msgid "Starting import, please wait…"
 msgstr "Importálás kezdése, kis türelmet…"
 
@@ -2796,7 +2771,6 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1140
-#, fuzzy
 msgid "Unmounting…"
 msgstr "Leválasztás…"
 
@@ -2874,7 +2848,6 @@ msgid "Stop importing photos"
 msgstr "Fényképek importálásának leállítása"
 
 #: src/Views/ImportQueuePage.vala:117
-#, fuzzy
 msgid "Preparing to import…"
 msgstr "Importálás előkészítése…"
 
@@ -2897,7 +2870,6 @@ msgid "Missing Files"
 msgstr "Hiányzó fájlok"
 
 #: src/Views/OfflinePage.vala:194
-#, fuzzy
 msgid "Deleting…"
 msgstr "Törlés…"
 
@@ -2939,18 +2911,16 @@ msgid "Sort photos by exposure date"
 msgstr "Fényképek rendezése készítésük dátuma szerint"
 
 #: src/Views/MediaPage.vala:282
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Fényképek rendezése készítésük dátuma szerint"
+msgstr "Fényképek rendezése importálásuk dátuma szerint"
 
 #: src/Views/MediaPage.vala:429
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
 "%s"
 msgstr ""
-"A Shotwell nem tudta lejátszani a kijelölt videót:\n"
+"A Fotók nem tudta lejátszani a kijelölt videót:\n"
 "%s"
 
 #: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
@@ -2986,9 +2956,8 @@ msgid "Go to the next photo"
 msgstr "Ugrás a következő fényképre"
 
 #: src/Views/SlideshowPage.vala:81
-#, fuzzy
 msgid "Show Photo Titles"
-msgstr "_Cím megjelenítése"
+msgstr "Fotócímek megjelenítése"
 
 #: src/Views/SlideshowPage.vala:96
 msgid "Transition Speed"
@@ -2999,9 +2968,8 @@ msgid "Faster"
 msgstr "Gyorsabb"
 
 #: src/Views/SlideshowPage.vala:99
-#, fuzzy
 msgid "Slower"
-msgstr "és kisebb"
+msgstr "Lassabb"
 
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
@@ -3052,9 +3020,8 @@ msgid "Transition Effect"
 msgstr "Átmeneti hatás"
 
 #: src/Widgets/SearchRowContainer.vala:63
-#, fuzzy
 msgid "Remove rule"
-msgstr "_Eltávolítás"
+msgstr "Szabály eltávolítása"
 
 #. Ordering must correspond with Context
 #: src/Widgets/SearchRowDate.vala:33 src/Widgets/SearchRowText.vala:31
@@ -3150,9 +3117,8 @@ msgid "does not contain"
 msgstr "nem tartalmazza"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Nyomtatott képméret</b>"
+msgstr "Nyomtatott képméret"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3179,18 +3145,16 @@ msgid "_Match photo aspect ratio"
 msgstr "Fénykép _méretarányának megtartása"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Címek"
+msgstr "Címek"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Kép _címének nyomtatása"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Felbontás képpontban</b>"
+msgstr "Felbontás képpontban"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
@@ -3299,7 +3263,7 @@ msgstr ""
 "  Mark Lutring https://launchpad.net/~marcus-elitemail"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
+#, c-format
 msgid "Creating album %s…"
 msgstr "A(z) %s album létrehozása…"
 
@@ -3320,8 +3284,8 @@ msgid ""
 "Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"A Shotwell nem tud kapcsolódni a Piwigo képgyűjteményhez. Kérem ellenőrizze "
-"az URL-címet"
+"A Fotók nem tud kapcsolódni a Piwigo képgyűjteményhez. Ellenőrizze az URL-"
+"címet"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3340,7 +3304,7 @@ msgstr "Érvénytelen felhasználónév vagy jelszó"
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
 msgid "Shotwell Connect"
-msgstr "Shotwell kapcsolat"
+msgstr "Fotók Kapcsolat"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3430,18 +3394,17 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 képpont)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
-"Jelenleg nincs bejelentkezve Flickr-re\n"
+"Jelenleg nincs bejelentkezve Flickr-re.\n"
 "\n"
-"Kattintson a Bejelentkezés gombra a bejelentkezéshez a Flickr fiókjába a "
-"böngészőből. A bejelentkezés során jogosultságot kell adnia a Shotwell "
-"Connectnek, hogy hozzáférjen a Flickr fiókjához."
+"Kattintson a Bejelentkezés gombra a Flickr-fiókjába való bejelentkezéshez a "
+"böngészőből. A bejelentkezés során jogosultságot kell adnia a Fotóknak, hogy "
+"hozzáférjen a Flickr-fiókjához."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3449,13 +3412,12 @@ msgid ""
 "To continue publishing to Flickr, quit and restart Shotwell, then try "
 "publishing again."
 msgstr ""
-"A Shotwell használata közben már bejelentkezett a Flickr-re, és "
-"kijelentkezett onnan.\n"
-"A Flickr-re való feltöltés folytatásához indítsa újra a Shotwellt, és "
-"próbálja újra a feltöltést."
+"A Fotók használata közben már bejelentkezett a Flickr-re, és kijelentkezett "
+"onnan.\n"
+"A Flickr-re való feltöltés folytatásához indítsa újra a Fotókat és próbálja "
+"újra a feltöltést."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
 msgid "Preparing for login…"
 msgstr "Felkészülés a bejelentkezésre…"
 
@@ -3469,7 +3431,6 @@ msgstr ""
 "nem folytatódhat."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
 msgid "Verifying authorization…"
 msgstr "Felhatalmazás ellenőrzése…"
 
@@ -3535,9 +3496,9 @@ msgid ""
 msgstr ""
 "Jelenleg nincs bejelentkezve a Facebookra.\n"
 "\n"
-"Ha nincs még Facebook fiókja, a bejelentkezés során létrehozhat egyet. "
-"Engedélyeznie kell a fényképek feltöltését, és a falon való közzétételét. "
-"Ezek az engedélyek szükségesek a Shotwell kapcsolat működéséhez."
+"Ha nincs még Facebook-fiókja, a bejelentkezés során létrehozhat egyet. "
+"Engedélyeznie kell a fényképek feltöltését és az idővonalon való "
+"közzétételét. Ezek az engedélyek szükségesek a Fotók Kapcsolat működéséhez."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
 msgid ""
@@ -3546,10 +3507,10 @@ msgid ""
 "To continue publishing to Facebook, quit and restart Shotwell, then try "
 "publishing again."
 msgstr ""
-"A Shotwell használata közben már bejelentkezett a Facebookra, és "
-"kijelentkezett onnan.\n"
-"A Facebookra való feltöltés folytatásához indítsa újra a Shotwellt, és "
-"próbálja újra a feltöltést."
+"A Fotók használata közben már bejelentkezett a Facebookra, és kijelentkezett "
+"onnan.\n"
+"A Facebookra való feltöltés folytatásához indítsa újra a Fotókat és próbálja "
+"újra a feltöltést."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3560,12 +3521,10 @@ msgid "Large (2048 pixels)"
 msgstr "Nagy (2048 képpont)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
 msgid "Testing connection to Facebook…"
-msgstr "Kapcsolat tesztelése a Facebookhoz…"
+msgstr "Facebook-kapcsolat tesztelése…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
 msgid "Creating album…"
 msgstr "Album létrehozása…"
 
@@ -3830,7 +3789,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
 msgid "Shotwell Extra Publishing Services"
-msgstr "Shotwell extra közzétételi szolgáltatások"
+msgstr "Fotók extra közzétételi szolgáltatások"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
 msgid ""
@@ -3840,11 +3799,11 @@ msgid ""
 "To continue publishing to Google services, quit and restart Shotwell, then "
 "try publishing again."
 msgstr ""
-"A Shotwell használata közben már bejelentkezett a Google szolgáltatásra, és "
+"A Fotók használata közben már bejelentkezett a Google szolgáltatásokba, és "
 "kijelentkezett onnan.\n"
 "\n"
-"A Google szolgáltatásra való feltöltés folytatásához indítsa újra a "
-"Shotwellt, és próbálja újra a feltöltést."
+"A Google szolgáltatásokba való feltöltés folytatásához indítsa újra a "
+"Fotókat és próbálja újra a feltöltést."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
