@@ -28,9 +28,9 @@ public class SliderAssembly : Gtk.Grid {
 
     public signal void value_changed ();
 
-    public string tooltip {
+    public string slider_tooltip {
         set {
-            slider.tooltip_text = value;
+            slider.tooltip_markup = value;
         }
     }
 
@@ -57,7 +57,9 @@ public class SliderAssembly : Gtk.Grid {
         margin_top = 5;
         margin_bottom = 5;
 
-        var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
+        var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Increase thumbnail size"))
+        };
         decrease_box = new Gtk.EventBox ();
         decrease_box.above_child = true;
         decrease_box.visible_window = false;
@@ -79,7 +81,9 @@ public class SliderAssembly : Gtk.Grid {
 
         add (slider);
 
-        var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU);
+        var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Increase thumbnail size"))
+        };
         increase_box = new Gtk.EventBox ();
         increase_box.above_child = true;
         increase_box.visible_window = false;
