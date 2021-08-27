@@ -371,16 +371,28 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_mousewheel_up (Gdk.EventScroll event) {
-        if (zoom_slider.get_sensitive ()) {
-            zoom_about_event_cursor_point (event, ZOOM_INCREMENT_SIZE);
+        if (get_ctrl_pressed ()) {
+            if (zoom_slider.get_sensitive ()) {
+                zoom_about_event_cursor_point (
+                    event, get_alt_pressed () ? ZOOM_INCREMENT_SIZE : ZOOM_INCREMENT_SIZE * 5.0
+                );
+            }
+        } else {
+            //TODO Handle panning/switching photo on unmodified scroll/swipe
         }
 
         return false;
     }
 
     protected override bool on_mousewheel_down (Gdk.EventScroll event) {
-        if (zoom_slider.get_sensitive ()) {
-            zoom_about_event_cursor_point (event, -ZOOM_INCREMENT_SIZE);
+        if (get_ctrl_pressed ()) {
+            if (zoom_slider.get_sensitive ()) {
+                zoom_about_event_cursor_point (
+                    event, get_alt_pressed () ? -ZOOM_INCREMENT_SIZE : -ZOOM_INCREMENT_SIZE * 5.0
+                );
+            }
+        } else {
+            //TODO Handle panning/switching photo on unmodified scroll/swipe
         }
 
         return false;
