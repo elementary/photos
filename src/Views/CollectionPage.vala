@@ -84,13 +84,6 @@ public abstract class CollectionPage : MediaPage {
                                                 Thumbnail.MAX_SCALE,
                                                 MediaPage.MANUAL_STEPPING, 0);
 
-        var primary_text = _("Adjust the size of the thumbnails");
-        var secondary_text = _("Control + Scroll, Control + Plus, Control + Minus");
-        zoom_assembly.slider_tooltip = "%s\n%s".printf (
-            primary_text,
-            Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (secondary_text)
-        );
-
         connect_slider (zoom_assembly);
 
         show_sidebar_button = MediaPage.create_sidebar_button ();

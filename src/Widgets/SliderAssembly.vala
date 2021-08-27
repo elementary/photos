@@ -28,12 +28,6 @@ public class SliderAssembly : Gtk.Grid {
 
     public signal void value_changed ();
 
-    public string slider_tooltip {
-        set {
-            slider.tooltip_markup = value;
-        }
-    }
-
     public bool inverted {
         set {
             slider.inverted = value;
@@ -58,7 +52,7 @@ public class SliderAssembly : Gtk.Grid {
         margin_bottom = 5;
 
         var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU) {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Increase thumbnail size"))
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Increase zoom level"))
         };
         decrease_box = new Gtk.EventBox ();
         decrease_box.above_child = true;
@@ -74,15 +68,22 @@ public class SliderAssembly : Gtk.Grid {
 
         add (decrease_box);
 
-        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
+        var primary_tooltip_text = _("Adjust zoom level");
+        var secondary_tooltip_text = _("Control + Scroll, Control + Plus, Control + Minus");
+        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null) {
+            draw_value = false,
+            tooltip_markup = "%s\n%s".printf (
+                primary_tooltip_text,
+                Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (secondary_tooltip_text)
+            )
+        };
         slider.value_changed.connect (on_slider_value_changed);
-        slider.draw_value = false;
         slider.set_size_request (150, -1);
 
         add (slider);
 
         var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU) {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Increase thumbnail size"))
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Decrease zoom level"))
         };
         increase_box = new Gtk.EventBox ();
         increase_box.above_child = true;
