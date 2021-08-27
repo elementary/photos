@@ -52,7 +52,7 @@ public class SliderAssembly : Gtk.Grid {
         margin_bottom = 5;
 
         var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU) {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Increase zoom level"))
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Zoom Out"))
         };
         decrease_box = new Gtk.EventBox ();
         decrease_box.above_child = true;
@@ -68,7 +68,7 @@ public class SliderAssembly : Gtk.Grid {
 
         add (decrease_box);
 
-        var primary_tooltip_text = _("Adjust zoom level");
+        var primary_tooltip_text = _("Adjust Zoom");
         var secondary_tooltip_text = _("Control + Scroll, Control + Plus, Control + Minus");
         slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null) {
             draw_value = false,
@@ -83,7 +83,7 @@ public class SliderAssembly : Gtk.Grid {
         add (slider);
 
         var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU) {
-            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Decrease zoom level"))
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Zoom In"))
         };
         increase_box = new Gtk.EventBox ();
         increase_box.above_child = true;
