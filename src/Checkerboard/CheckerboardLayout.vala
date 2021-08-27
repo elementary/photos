@@ -1075,10 +1075,20 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         if (hadjustment == null || vadjustment == null)
             return;
 
+        ctx.save ();
         // find the visible intersection of the viewport and the selection band
         Gdk.Rectangle visible_page = get_adjustment_page (hadjustment, vadjustment);
         Gdk.Rectangle visible_band = Gdk.Rectangle ();
         visible_page.intersect (selection_band, out visible_band);
+        ctx.rectangle (visible_band.x, visible_band.y, visible_band.width, visible_band.height);
+        var style_context = get_style_context ();
+        style_context.save ();
+        style_context.add_class (Granite.STYLE_CLASS_ACCENT);
+        var selected_rgba = style_context.get_color (Gtk.StateFlags.NORMAL);
+        ctx.set_source_rgba ( selected_rgba.red, selected_rgba.green, selected_rgba.blue, SELECTION_ALPHA);
+        ctx.fill ();
+        style_context.restore ();
+        ctx.restore ();
     }
 
     public override bool query_tooltip (int x, int y, bool keyboard_mode, Gtk.Tooltip tooltip) {
