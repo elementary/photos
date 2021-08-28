@@ -551,11 +551,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         if (get_window () != null) {
             Gdk.Rectangle union;
             selection_band.union (old_selection_band, out union);
-            // Ensure selection band is fully erased
-            union.x--;
-            union.y--;
-            union.width += 2;
-            union.height += 2;
 
             get_window ().invalidate_rect (union, false);
         }
@@ -1092,8 +1087,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         var rubberband_context = new Gtk.StyleContext ();
         rubberband_context.set_path (label_widget_path);
 
-        // Don't draw lines across half pixels
-        ctx.translate (0.5, 0.5);
         rubberband_context.render_background (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height);
         rubberband_context.render_frame (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height);
         ctx.restore ();
