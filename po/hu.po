@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 18:04+0000\n"
-"PO-Revision-Date: 2021-08-28 00:01+0000\n"
+"PO-Revision-Date: 2021-08-28 02:02+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
 "hu/>\n"
@@ -604,7 +604,7 @@ msgstr "Forgatás jobbra"
 
 #: src/Resources.vala:87
 msgid "Rotate the photos right (press Ctrl to rotate left)"
-msgstr "Fényképek forgatása jobbra (Ctrl = balra forgatás)"
+msgstr "Fényképek forgatása jobbra (Ctrl a balra forgatáshoz)"
 
 #: src/Resources.vala:89
 msgid "Rotate _Left"
@@ -628,8 +628,7 @@ msgstr "Tükrözés vízszintesen"
 
 #: src/Resources.vala:95
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
-msgstr ""
-"Kép vízszintes tükrözése (Nyomja meg a Ctrl-t, a függőleges tükrözéshez)"
+msgstr "Kép vízszintes tükrözése (Ctrl a függőleges tükrözéshez)"
 
 #: src/Resources.vala:97
 msgid "Flip Verti_cally"
@@ -657,7 +656,7 @@ msgid ""
 "(Overwrites previous color adjustments)"
 msgstr ""
 "Automatikusan javítja a fotók kinézetét\n"
-"(Felülírja a korábbi színbeállítás módosításokat)"
+"(Felülírja a színbeállítás korábbi módosításait)"
 
 #: src/Resources.vala:105
 msgid "Revert _Enhancement"
@@ -773,11 +772,11 @@ msgstr "_Fényképek szűrése"
 
 #: src/Resources.vala:147
 msgid "_Duplicate"
-msgstr "_Többszörözés"
+msgstr "Meg_kettőzés"
 
 #: src/Resources.vala:148
 msgid "Duplicate"
-msgstr "Többszörözés"
+msgstr "Megkettőzés"
 
 #: src/Resources.vala:149
 msgid "Make a duplicate of the photo"
@@ -939,7 +938,7 @@ msgstr "Nem lehet átnevezni a keresést erre: „%s”, mert a keresés már l�
 
 #: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
-msgstr "Okos album"
+msgstr "Okosalbum"
 
 #: src/Resources.vala:241
 msgid "Delete Album"
@@ -973,7 +972,7 @@ msgstr "Kijelölt fényképek eltávolítása a Kukából"
 
 #: src/Resources.vala:286
 msgid "Remove the selected photos from the library"
-msgstr "Kijelölt fényképek eltávolítása a gyűjteményből"
+msgstr "Kijelölt fényképek eltávolítása a könyvtárból"
 
 #: src/Resources.vala:288
 msgid "_Restore Selection"
@@ -981,7 +980,7 @@ msgstr "Kijelölés _visszaállítása"
 
 #: src/Resources.vala:289
 msgid "Move the selected photos back into the library"
-msgstr "Kijelölt fényképek visszaállítása a gyűjteménybe"
+msgstr "Kijelölt fényképek visszaállítása a könyvtárba"
 
 #: src/Resources.vala:291
 msgid "File Mana_ger"
@@ -994,7 +993,7 @@ msgstr "Nem nyitható meg a fájlkezelőben: %s"
 
 #: src/Resources.vala:297
 msgid "R_emove From Library"
-msgstr "_Eltávolítás a gyűjteményből"
+msgstr "_Eltávolítás a könyvtárból"
 
 #: src/Resources.vala:299
 msgid "_Move to Trash"
@@ -1014,20 +1013,20 @@ msgstr "Minden elem kijelölése"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:341
 msgid "%-I:%M %p"
-msgstr "%H.%M"
+msgstr "%H:%M"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:346
 msgid "%-I:%M:%S %p"
-msgstr "%H.%M.%S"
+msgstr "%H:%M:%S"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:350
 msgid "%a %b %d, %Y"
-msgstr "%Y. %b. %d. %a"
+msgstr "%Y. %b. %d., %a"
 
 #. / Locale-specific starting date format for multi-date strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 - 10, 2006"
@@ -1037,14 +1036,14 @@ msgstr "%Y. %b. %d. %a"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:355 src/Resources.vala:365
 msgid "%a %b %d"
-msgstr "%b. %d. %a"
+msgstr "%b. %d., %a"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
 #: src/Resources.vala:360
 msgid "%d, %Y"
-msgstr "%Y. %b. %d."
+msgstr "%Y. %d."
 
 #: src/SearchFilter.vala:240
 msgid "Search Photos"
@@ -1112,11 +1111,11 @@ msgstr "Eredeti: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
-msgstr "%Y. %m. %d. %k.%M.%S"
+msgstr "%Y. %m. %d. %H:%M:%S"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %I:%M:%S %p"
-msgstr "%Y. %m %d. %k:%M:%S"
+msgstr "%Y. %m. %d. %p %I:%M:%S"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:290
 #, c-format
@@ -1270,7 +1269,7 @@ msgstr "(és még %d)\n"
 
 #: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
-msgstr "Importálás eredményei jelentés"
+msgstr "Importálás eredményei jelentése"
 
 #: src/Dialogs/Dialogs.vala:256
 #, c-format
@@ -1295,7 +1294,7 @@ msgstr "Nem importált, duplikált fotók/videók:"
 
 #: src/Dialogs/Dialogs.vala:275
 msgid "duplicates existing media item"
-msgstr "Duplikálja a meglévő médiaelemet"
+msgstr "megkettőzi a meglévő médiaelemet"
 
 #.
 #. Files Not Imported Due to Camera Errors
@@ -1337,7 +1336,7 @@ msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"A Fotók által a gyűjteménybe nem másolható, és emiatt nem importált fotók/"
+"A Fotók által a könyvtárba nem másolható, és emiatt nem importált fotók/"
 "videók:"
 
 #: src/Dialogs/Dialogs.vala:334
@@ -1442,7 +1441,7 @@ msgstr[0] ""
 "%d videót nem sikerült importálni, mert a fényképgyűjtemény mappája nem "
 "írható:\n"
 msgstr[1] ""
-"%d fényképet nem sikerült importálni, mert a fényképgyűjtemény mappája nem "
+"%d videót nem sikerült importálni, mert a fényképgyűjtemény mappája nem "
 "írható:\n"
 
 #: src/Dialogs/Dialogs.vala:430
@@ -1556,8 +1555,8 @@ msgstr[1] "%d nem képfájl kihagyva.\n"
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
-msgstr[0] "Egy fénykép a felhasználó utasítására kihagyva.\n"
-msgstr[1] "%d fénykép a felhasználó utasítására kihagyva.\n"
+msgstr[0] "Egy fénykép a felhasználó utasítására kihagyva:\n"
+msgstr[1] "%d fénykép a felhasználó utasítására kihagyva:\n"
 
 #: src/Dialogs/Dialogs.vala:525
 #, c-format
@@ -1818,7 +1817,7 @@ msgstr "összes"
 
 #: src/Dialogs/SavedSearchDialog.vala:93
 msgid "none"
-msgstr "nincs"
+msgstr "egyik sem"
 
 #: src/Dialogs/SavedSearchDialog.vala:96
 msgid "of the following:"
@@ -1831,7 +1830,7 @@ msgstr "Szabály hozzáadása"
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
-msgstr "Mégsem"
+msgstr "Mégse"
 
 #: src/db/DatabaseTable.vala:50
 #, c-format
@@ -2067,7 +2066,7 @@ msgstr "Fénykép _eseményének megjelenítése"
 #: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
 #: src/sidebar/Tree.vala:877
 msgid "New Smart Album…"
-msgstr "Új okos album…"
+msgstr "Új okosalbum…"
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
@@ -2332,7 +2331,7 @@ msgstr "Közzététel"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
-msgstr "Okos albumok"
+msgstr "Okosalbumok"
 
 #: src/searches/SearchBoolean.vala:165
 msgid "Any text"
