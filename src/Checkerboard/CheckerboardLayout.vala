@@ -25,9 +25,6 @@ public class CheckerboardLayout : Gtk.DrawingArea {
     // the following are minimums, as the pads and gutters expand to fill up the window width
     public const int COLUMN_GUTTER_PADDING = 24;
 
-    // For a 40% alpha channel
-    private const double SELECTION_ALPHA = 0.40;
-
     // The number of pixels that the scrollbars of Gtk.ScrolledWindows allocate for themselves
     // before their final size is computed. This must be taken into account when computing
     // the width of this widget. This value was 0 in Gtk+ 2.x but is 1 in Gtk+ 3.x. See
@@ -555,7 +552,7 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             Gdk.Rectangle union;
             selection_band.union (old_selection_band, out union);
 
-            queue_draw_area (union.x, union.y, union.width, union.height);
+            get_window ().invalidate_rect (union, false);
         }
     }
 
@@ -1024,8 +1021,9 @@ public class CheckerboardLayout : Gtk.DrawingArea {
             debug ("draw %s: %s", page_name, rectangle_to_string (visible_page));
 #endif
 
-            if (exposure_dirty)
+            if (exposure_dirty) {
                 expose_items ("draw");
+            }
 
             // have all items in the exposed area paint themselves
             weak Gtk.StyleContext style_context = get_style_context ();
@@ -1079,15 +1077,18 @@ public class CheckerboardLayout : Gtk.DrawingArea {
         // find the visible intersection of the viewport and the selection band
         Gdk.Rectangle visible_page = get_adjustment_page (hadjustment, vadjustment);
         Gdk.Rectangle visible_band = Gdk.Rectangle ();
+
         visible_page.intersect (selection_band, out visible_band);
-        ctx.rectangle (visible_band.x, visible_band.y, visible_band.width, visible_band.height);
-        var style_context = get_style_context ();
-        style_context.save ();
-        style_context.add_class (Granite.STYLE_CLASS_ACCENT);
-        var selected_rgba = style_context.get_color (Gtk.StateFlags.NORMAL);
-        ctx.set_source_rgba ( selected_rgba.red, selected_rgba.green, selected_rgba.blue, SELECTION_ALPHA);
-        ctx.fill ();
-        style_context.restore ();
+
+        // Construct a stylecontext that matches Gtk.IconView rubberband
+        var label_widget_path = new Gtk.WidgetPath ();
+        label_widget_path.append_type (typeof (Gtk.IconView));
+        label_widget_path.iter_set_object_name (-1, "rubberband");
+        var rubberband_context = new Gtk.StyleContext ();
+        rubberband_context.set_path (label_widget_path);
+
+        rubberband_context.render_background (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height);
+        rubberband_context.render_frame (ctx, visible_band.x, visible_band.y, visible_band.width, visible_band.height);
         ctx.restore ();
     }
 
