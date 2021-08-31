@@ -365,6 +365,8 @@ void main (string[] args) {
     // init internationalization with the default system locale
     Intl.setlocale (LocaleCategory.ALL, "");
     Intl.textdomain (GETTEXT_PACKAGE);
+    Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+    Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
     startup_timer = new Timer ();
     startup_timer.start ();
