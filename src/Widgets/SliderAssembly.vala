@@ -68,8 +68,9 @@ public class SliderAssembly : Gtk.Grid {
 
         add (decrease_box);
 
+        // Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
         var primary_tooltip_text = _("Adjust Zoom");
-        var secondary_tooltip_text = _("Control + Scroll, Control + Plus, Control + Minus");
+        var secondary_tooltip_text = _("%s + Scroll").printf (Granite.accel_to_string ("<Control>"));
         slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null) {
             draw_value = false,
             tooltip_markup = "%s\n%s".printf (
