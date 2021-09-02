@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2016-04-18 04:18+0000\n"
 "Last-Translator: Bojan Karkalasev <bojankarkalasev@gmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/shotwell/"
@@ -1209,7 +1209,7 @@ msgstr ""
 msgid "Export Video"
 msgstr "Извези видео"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2072,7 +2072,7 @@ msgstr "Подесувања"
 msgid "Sort _Events"
 msgstr "Подреди ги _настаните"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Погледни го _настанот за фотографијата"
@@ -2095,7 +2095,7 @@ msgid "Display the sidebar"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2512,8 +2512,8 @@ msgstr "Ознаки"
 msgid "Photos cannot be exported to this directory."
 msgstr "Фотографиите не можат да се извезат на оваа папка."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Нема слики/видеа"
@@ -2526,47 +2526,43 @@ msgstr ""
 msgid "Play a slideshow"
 msgstr "Пушти слајдшоу"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Прилагоди ја големината на сликите"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Извези слика/видео"
 msgstr[1] "Извези слика/видео"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Ротирање"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Враќање на ротација"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Хоризонтално вртење"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Враќање на хоризонтално вртење"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Вертикално вртење"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Враќање на вертикално вртење"
 
@@ -2628,7 +2624,7 @@ msgstr "Претходна фотографија"
 msgid "Next photo"
 msgstr "Следна фотографија"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Недостасува изворна датотека на фотографијата: %s"
@@ -3041,6 +3037,30 @@ msgstr "Видеа"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "_Намали"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Прилагоди"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Зголеми"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -3915,6 +3935,9 @@ msgstr "Шах"
 msgid "Blinds"
 msgstr "Сепаратори"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Прилагоди ја големината на сликите"
+
 #~ msgid "S_lideshow"
 #~ msgstr "С_лајд шоу"
 
@@ -3948,14 +3971,8 @@ msgstr "Сепаратори"
 #~ msgid "Next Photo"
 #~ msgstr "Следна фотографија"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Зголеми"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Зголемување на големината на фотографијата"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Намали"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Намалување на големината на фотографијата"

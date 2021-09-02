@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2017-04-09 18:51+0000\n"
 "Last-Translator: Roman <xmitarai@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/shotwell/language/"
@@ -1248,7 +1248,7 @@ msgstr "_Prepnúť vývojára"
 msgid "Export Video"
 msgstr "Exportovať video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2192,7 +2192,7 @@ msgstr "Nastavenia"
 msgid "Sort _Events"
 msgstr "Zora_diť udalosti"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Zobraziť u_dalosť fotografie"
@@ -2215,7 +2215,7 @@ msgid "Display the sidebar"
 msgstr "Zobraz bočný panel"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2645,8 +2645,8 @@ msgstr "Značky"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemôžu byť exportované do tohoto adresára."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Žiadne fotografie/videá"
@@ -2659,20 +2659,16 @@ msgstr "Neboli nájdené žiadne fotografie/videá"
 msgid "Play a slideshow"
 msgstr "Spustiť prezentáciu"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Upraviť veľkosť náhľadov"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Vývojár"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2680,27 +2676,27 @@ msgstr[0] "Exportovať fotografiu/video"
 msgstr[1] "Exportovať fotografiu/video"
 msgstr[2] "Exportovať fotografiu/video"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Otáča sa"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Vracia sa spať otáčanie"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Prevracia sa horizontálne"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Vracia sa prevrátenie horizontálne"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Prevracia sa vertikálne"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Vracia sa prevrátenie vertikálne"
 
@@ -2762,7 +2758,7 @@ msgstr "Predchádzajúca fotografia"
 msgid "Next photo"
 msgstr "Ďalšia fotografia"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Chýba zdrojový súbor fotografie: %s"
@@ -3187,6 +3183,30 @@ msgstr "Videá"
 #, fuzzy
 msgid "Transition Effect"
 msgstr "_Efekt prechodu:"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "_Vzdialiť"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Upraviť"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Priblížiť"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -4072,6 +4092,9 @@ msgstr "Šachovnica"
 msgid "Blinds"
 msgstr "Oslepenie"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Upraviť veľkosť náhľadov"
+
 #~ msgid "S_lideshow"
 #~ msgstr "P_rezentácia"
 
@@ -4274,14 +4297,8 @@ msgstr "Oslepenie"
 #~ msgid "Next Photo"
 #~ msgstr "Ďalšia fotografia"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Priblížiť"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Zvýšiť zväčšenie fotografie"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Vzdialiť"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Zmenšiť zväčšenie fotografie"

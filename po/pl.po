@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2019-11-17 21:24+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/photos/photos/pl/"
@@ -1224,7 +1224,7 @@ msgstr "_Przełącz wywoływacz"
 msgid "Export Video"
 msgstr "Eksport nagrań wideo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2196,7 +2196,7 @@ msgstr "Ustawienia"
 msgid "Sort _Events"
 msgstr "Uporządkuj wydarz_enia"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Wyświetl wydarze_nie dla zdjęcia"
@@ -2219,7 +2219,7 @@ msgid "Display the sidebar"
 msgstr "Wyświetla panel boczny"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2647,8 +2647,8 @@ msgstr "Etykiety"
 msgid "Photos cannot be exported to this directory."
 msgstr "Nie można eksportować zdjęć do tego katalogu."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Brak zdjęć/nagrań wideo"
@@ -2661,20 +2661,16 @@ msgstr "Nie odnaleziono zdjęć/nagrań wideo"
 msgid "Play a slideshow"
 msgstr "Odtwarza pokaz slajdów"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Dopasowuje rozmiar miniatur"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Wywoływacz"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Inne działania"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2682,27 +2678,27 @@ msgstr[0] "Eksport zdjęcia/nagrania wideo"
 msgstr[1] "Eksport zdjęcia/nagrania wideo"
 msgstr[2] "Eksport zdjęcia/nagrania wideo"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Obracanie"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Cofanie obrotu"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Odwracanie poziome"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Cofanie odwrócenia poziomego"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Odwracanie pionowe"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Cofanie odwrócenia pionowego"
 
@@ -2763,7 +2759,7 @@ msgstr "Poprzednie zdjęcie"
 msgid "Next photo"
 msgstr "Następne zdjęcie"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Brak pliku źródłowego zdjęcia: %s"
@@ -3175,6 +3171,30 @@ msgstr "Nagrania wideo"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efekt przejścia"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "P_omniejsz"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Dopasuj"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "Pow_iększ"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -4057,6 +4077,9 @@ msgstr "Szachy"
 msgid "Blinds"
 msgstr "Zasłony"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Dopasowuje rozmiar miniatur"
+
 #~ msgid "S_lideshow"
 #~ msgstr "Pokaz s_lajdów"
 
@@ -4249,14 +4272,8 @@ msgstr "Zasłony"
 #~ msgid "Next Photo"
 #~ msgstr "Następne zdjęcie"
 
-#~ msgid "Zoom _In"
-#~ msgstr "Pow_iększ"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Zwiększa powiększenie zdjęcia"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "P_omniejsz"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Zmniejsza powiększenie zdjęcia"

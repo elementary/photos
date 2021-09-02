@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2021-01-04 21:48+0000\n"
 "Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -1241,7 +1241,7 @@ msgstr "_Schimbă programatorul"
 msgid "Export Video"
 msgstr "Exportă clipul"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2217,7 +2217,7 @@ msgstr "Opţiuni"
 msgid "Sort _Events"
 msgstr "Sortează _evenimente"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Vizualizare eve_niment pentru fotografie"
@@ -2240,7 +2240,7 @@ msgid "Display the sidebar"
 msgstr "Afișează bara laterală"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2667,8 +2667,8 @@ msgstr "Etichete"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografiile nu pot fi exportate în acest director"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nicio fotografie/niciun clip video"
@@ -2681,20 +2681,16 @@ msgstr "Nicio fotografie/niciun clip video nu a fost găsit"
 msgid "Play a slideshow"
 msgstr "Redă o prezentare de diapozitive"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Modificați dimensiunea miniaturilor"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Programator"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2702,27 +2698,27 @@ msgstr[0] "Exportă fotografiile/clipurile"
 msgstr[1] "Exportă fotografiile/clipurile"
 msgstr[2] "Exportă fotografiile/clipurile"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Se rotește"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Se anulează rotirea"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Se inversează pe orizontală"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Se anulează inversarea pe orizontală"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Se inversează pe verticală"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Se anulează inversarea pe verticală"
 
@@ -2784,7 +2780,7 @@ msgstr "Fotogafia anterioară"
 msgid "Next photo"
 msgstr "Fotografia următoare"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Fișierul sursă al fotografiei lipsește: %s"
@@ -3212,6 +3208,30 @@ msgstr "Clipuri"
 #, fuzzy
 msgid "Transition Effect"
 msgstr "Efecte _tranziție:"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "Mi_cșorează"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Modifică"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Mărește"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -4080,6 +4100,9 @@ msgstr "Șah"
 msgid "Blinds"
 msgstr "Jaluzele"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Modificați dimensiunea miniaturilor"
+
 #~ msgid "S_lideshow"
 #~ msgstr "Pre_zentare diapozitive"
 
@@ -4274,14 +4297,8 @@ msgstr "Jaluzele"
 #~ msgid "Next Photo"
 #~ msgstr "Fotografia următoare"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Mărește"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Mărește mai mult fotografia"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Mi_cșorează"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Micșorează fotografia mărită"
