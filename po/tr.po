@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
-"PO-Revision-Date: 2021-05-28 07:59+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
+"PO-Revision-Date: 2021-09-04 11:49+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/photos/photos/tr/"
 ">\n"
@@ -1203,7 +1203,7 @@ msgstr "_Geliştirici Değiştir"
 msgid "Export Video"
 msgstr "Video Ihracatı"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -2069,7 +2069,7 @@ msgstr "Ayarlar"
 msgid "Sort _Events"
 msgstr "_Olayları Sırala"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Resmin Etkinliğine Bak"
@@ -2092,7 +2092,7 @@ msgid "Display the sidebar"
 msgstr "Kenar çubuğunu görüntüle"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2517,8 +2517,8 @@ msgstr "Etiketler"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotoğraflar, bu dizinden dışa aktarılamadı."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Fotoğraf/Video Yok"
@@ -2531,46 +2531,42 @@ msgstr "Hiç Resim/Video bulunamadı"
 msgid "Play a slideshow"
 msgstr "Bir slayt gösterisi oynat"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Önizleme boyutunu ayarla"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Geliştirici"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Resmi/Videoyu Dışa Aktar"
 msgstr[1] "Resimleri/Videoları Dışa Aktar"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Döndürülüyor"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Döndürme İşlemi Geri Alınıyor"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Yatay Olarak Çevriliyor"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Yatay Olarak Çevirme Geri Alınıyor"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Dikey Olarak Çevriliyor"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Dikey Olarak Çevirme Geri Alınıyor"
 
@@ -2631,7 +2627,7 @@ msgstr "Önceki fotoğraf"
 msgid "Next photo"
 msgstr "Sonraki fotoğraf"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Fotoğraf kaynağı bulunamadı: %s"
@@ -3029,6 +3025,24 @@ msgstr "Videolar"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Geçiş efekti"
+
+#: src/Widgets/SliderAssembly.vala:55
+msgid "Zoom Out"
+msgstr "Uzaklaştır"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+msgid "Adjust Zoom"
+msgstr "Yakınlaştırmayı Ayarla"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr "%s + Kaydır"
+
+#: src/Widgets/SliderAssembly.vala:87
+msgid "Zoom In"
+msgstr "Yakınlaştır"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3904,6 +3918,9 @@ msgstr "Satranç"
 msgid "Blinds"
 msgstr "Kesitler"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Önizleme boyutunu ayarla"
+
 #~ msgid "S_lideshow"
 #~ msgstr "S_layt Gösterisi"
 
@@ -4102,14 +4119,8 @@ msgstr "Kesitler"
 #~ msgid "Next Photo"
 #~ msgstr "Sonraki Fotoğraf"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Yakınlaştır"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Fotoğrafı büyüt"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Uzaklaştır"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Fotoğrafı küçült"

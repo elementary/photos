@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2018-11-12 22:52+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/photos/photos/"
@@ -1217,7 +1217,7 @@ msgstr "_Promijeni razvijač"
 msgid "Export Video"
 msgstr "Izvezi video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2126,7 +2126,7 @@ msgstr "Podešavanja"
 msgid "Sort _Events"
 msgstr "Razvrstaj događaj_e"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Prikaži do_gađaj za fotografiju"
@@ -2149,7 +2149,7 @@ msgid "Display the sidebar"
 msgstr "Prikaži bočnu traku"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2577,8 +2577,8 @@ msgstr "Oznake"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografije ne mogu biti izvezene u ovaj direktorij."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nema fotografija/videosnimki"
@@ -2591,20 +2591,16 @@ msgstr "Nisu pronađene fotografije/videosnimke"
 msgid "Play a slideshow"
 msgstr "Pokreni slideshow"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Prilagodi veličinu minijatura"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Razvijač"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Druge radnje"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2612,27 +2608,27 @@ msgstr[0] "Izvoz fotografija/videosnimki"
 msgstr[1] "Izvoz fotografija/videosnimki"
 msgstr[2] "Izvoz fotografija/videosnimki"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Okretanje"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Poništavanje okretanja"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Izokretanje vodoravno"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Poništavanje vodoravnog izokretanja"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Izokretanje okomito"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Poništavanje okomitog izokretanja"
 
@@ -2693,7 +2689,7 @@ msgstr "Prethodna fotografija"
 msgid "Next photo"
 msgstr "Sljedeća fotografija"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Nedostaje izvorna datoteka fotografije: %s"
@@ -3107,6 +3103,30 @@ msgstr "Videosnimke"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efekt prijelaza"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom 1:1"
+msgid "Zoom Out"
+msgstr "Uvećanje 1:1"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Prilagodi"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom 1:1"
+msgid "Zoom In"
+msgstr "Uvećanje 1:1"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3972,6 +3992,9 @@ msgstr "Šahovnica"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Zastor"
+
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Prilagodi veličinu minijatura"
 
 #~ msgid "S_lideshow"
 #~ msgstr "S_lideshow"

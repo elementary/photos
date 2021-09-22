@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
-"PO-Revision-Date: 2021-05-27 20:51+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
+"PO-Revision-Date: 2021-09-04 16:44+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
 ">\n"
@@ -1212,7 +1212,7 @@ msgstr "_Commuta el revelador"
 msgid "Export Video"
 msgstr "Exporta vídeos"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -2096,7 +2096,7 @@ msgstr "Configuració"
 msgid "Sort _Events"
 msgstr "Ordena els es_deveniments"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Visualitza l'_esdeveniment de la fotografia"
@@ -2119,7 +2119,7 @@ msgid "Display the sidebar"
 msgstr "Mostra la barra lateral"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2545,8 +2545,8 @@ msgstr "Etiquetes"
 msgid "Photos cannot be exported to this directory."
 msgstr "No es poden exportar fotografies a aquest directori."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Cap fotografia/vídeo"
@@ -2559,46 +2559,42 @@ msgstr "No s'ha trobat cap fotografia/vídeo"
 msgid "Play a slideshow"
 msgstr "Reprodueix una presentació de diapositives"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Ajusta la mida de les miniatures"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "Revela_dor"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporta la fotografia / vídeo"
 msgstr[1] "Exporta fotografies / vídeos"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Es gira"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Es desfà la rotació"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Es gira horitzontalment"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Es desfà el gir horitzontal"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Es gira verticalment"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Es desfà el gir vertical"
 
@@ -2659,7 +2655,7 @@ msgstr "Fotografia anterior"
 msgid "Next photo"
 msgstr "Fotografia següent"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Manca el fitxer font de la fotografia: %s"
@@ -3060,6 +3056,24 @@ msgstr "Vídeos"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efecte de transició"
+
+#: src/Widgets/SliderAssembly.vala:55
+msgid "Zoom Out"
+msgstr "Redueix"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+msgid "Adjust Zoom"
+msgstr "Ajusta l'ampliació"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr "%s + desplaçament"
+
+#: src/Widgets/SliderAssembly.vala:87
+msgid "Zoom In"
+msgstr "Amplia"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3932,6 +3946,9 @@ msgstr "Escacs"
 msgid "Blinds"
 msgstr "Persianes"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Ajusta la mida de les miniatures"
+
 #~ msgid "S_lideshow"
 #~ msgstr "_Presentació de diapositives"
 
@@ -4128,14 +4145,8 @@ msgstr "Persianes"
 #~ msgid "Next Photo"
 #~ msgstr "Fotografia següent"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Amplia"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Incrementa l'ampliació de la fotografia"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Redueix"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Redueix l'ampliació de la fotografia"

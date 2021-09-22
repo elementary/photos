@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2019-12-31 11:23+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/"
@@ -1204,7 +1204,7 @@ msgstr "Ontwikkelaar _wisselen"
 msgid "Export Video"
 msgstr "Exporteer video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -2069,7 +2069,7 @@ msgstr "Instellingen"
 msgid "Sort _Events"
 msgstr "G_ebeurtenissen sorteren"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Gebeurte_nis van foto bekijken"
@@ -2092,7 +2092,7 @@ msgid "Display the sidebar"
 msgstr "Zijbalk tonen"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2518,8 +2518,8 @@ msgstr "Labels"
 msgid "Photos cannot be exported to this directory."
 msgstr "Foto's kunnen niet worden geëxporteerd naar deze map."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Geen foto's/video's"
@@ -2532,46 +2532,42 @@ msgstr "Geen foto's/video's gevonden"
 msgid "Play a slideshow"
 msgstr "Diavoorstelling afspelen"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Pas de grootte van de miniaturen aan"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Ontwikkelaar"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Andere acties"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporteer foto/video"
 msgstr[1] "Exporteer foto’s/video’s"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Aan het draaien"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Draaien aan het ongedaan maken"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Bezig met horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Ongedaan maken van horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Verticaal spiegelen"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Verticaal spiegelen ongedaan maken"
 
@@ -2632,7 +2628,7 @@ msgstr "Vorige foto"
 msgid "Next photo"
 msgstr "Volgende foto"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Bronbestand van foto ontbreekt: %s"
@@ -3037,6 +3033,30 @@ msgstr "Video's"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Overgangseffect"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "Uitz_oomen"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Aanpassen"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Inzoomen"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3919,6 +3939,9 @@ msgstr "Schaakbord"
 msgid "Blinds"
 msgstr "Lamellen"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Pas de grootte van de miniaturen aan"
+
 #~ msgid "S_lideshow"
 #~ msgstr "Diavoorste_lling"
 
@@ -4110,14 +4133,8 @@ msgstr "Lamellen"
 #~ msgid "Next Photo"
 #~ msgstr "Volgende foto"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Inzoomen"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Foto vergroten"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Uitz_oomen"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Foto verkleinen"

@@ -84,7 +84,6 @@ public abstract class CollectionPage : MediaPage {
                                                 Thumbnail.MAX_SCALE,
                                                 MediaPage.MANUAL_STEPPING, 0);
 
-        zoom_assembly.tooltip = _("Adjust the size of the thumbnails");
         connect_slider (zoom_assembly);
 
         show_sidebar_button = MediaPage.create_sidebar_button ();

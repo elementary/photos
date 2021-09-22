@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2016-12-15 07:08+0000\n"
 "Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1212,7 +1212,7 @@ msgstr "_Cambiar de revelador"
 msgid "Export Video"
 msgstr "Exportar la vidèo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2114,7 +2114,7 @@ msgstr "Paramètres"
 msgid "Sort _Events"
 msgstr "Triar los even_iments"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Afichar l'e_veniment de la fòto"
@@ -2137,7 +2137,7 @@ msgid "Display the sidebar"
 msgstr "Afichar lo panèl lateral"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2566,8 +2566,8 @@ msgstr "Etiquetas"
 msgid "Photos cannot be exported to this directory."
 msgstr "Las fòtos pòdon pas èsser exportadas dins aquel dorsièr."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Pas de fòto/vidèo"
@@ -2580,47 +2580,43 @@ msgstr "Cap de fòto/vidèo pas trobada"
 msgid "Play a slideshow"
 msgstr "Avia un diaporama"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Agrandir o reduire las miniaturas"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Desvolopaire"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exportar la fòto/vidèo"
 msgstr[1] "Exportar la fòto/vidèo"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Rotacion"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Anullar la rotacion"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Miralh orizontal"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Anullar lo miralh orizontal"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Miralh vertical"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Anullar lo miralh vertical"
 
@@ -2682,7 +2678,7 @@ msgstr "Fòto precedenta"
 msgid "Next photo"
 msgstr "Fòto seguenta"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Fichièr font de la fòto mancant : %s"
@@ -3099,6 +3095,30 @@ msgstr "Vidèos"
 #, fuzzy
 msgid "Transition Effect"
 msgstr "Efièit de _transicion :"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "Zoom a_rrièr"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Ajustar"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "Zoom a_vant"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -3970,6 +3990,9 @@ msgstr "Damièr"
 msgid "Blinds"
 msgstr "Estòrs"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Agrandir o reduire las miniaturas"
+
 #~ msgid "S_lideshow"
 #~ msgstr "_Diaporama"
 
@@ -4034,14 +4057,8 @@ msgstr "Estòrs"
 #~ msgid "Next Photo"
 #~ msgstr "Fòto seguenta"
 
-#~ msgid "Zoom _In"
-#~ msgstr "Zoom a_vant"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Aumentar l'agrandiment de la fòto"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Zoom a_rrièr"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Reduire l'agrandiment de la fòto"

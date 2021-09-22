@@ -350,8 +350,8 @@ public class LibraryPhotoPage : EditingHostPage {
         update_zoom_menu_item_sensitivity ();
     }
 
-    protected override bool on_zoom_slider_key_press (Gdk.EventKey event) {
-        if (base.on_zoom_slider_key_press (event))
+    protected override bool on_zoom_assembly_key_press (Gdk.EventKey event) {
+        if (base.on_zoom_assembly_key_press (event))
             return true;
 
         if (Gdk.keyval_name (event.keyval) == "Escape") {

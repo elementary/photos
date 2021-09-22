@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
 "PO-Revision-Date: 2016-04-18 04:17+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/shotwell/"
@@ -1229,7 +1229,7 @@ msgstr "Pār_slēgt attīstītāju"
 msgid "Export Video"
 msgstr "Eksportēt video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2127,7 +2127,7 @@ msgstr "Iestatījumi"
 msgid "Sort _Events"
 msgstr "Kārtot _notikumus"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Skatīt fotogrāfijas _notikumu"
@@ -2150,7 +2150,7 @@ msgid "Display the sidebar"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2575,8 +2575,8 @@ msgstr "Birkas"
 msgid "Photos cannot be exported to this directory."
 msgstr "Uz šo mapi nevar eksportēt fotogrāfijas."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nav fotogrāfijas/video"
@@ -2589,20 +2589,16 @@ msgstr "Netika atrastas fotogrāfijas/video"
 msgid "Play a slideshow"
 msgstr "Rādīt slaidrādi"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Pielāgot sīktēlu izmēru"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Attīstītājs"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2610,27 +2606,27 @@ msgstr[0] "Eksportēt fotogrāfijas/video"
 msgstr[1] "Eksportēt fotogrāfijas/video"
 msgstr[2] "Eksportēt fotogrāfijas/video"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Pagriešana"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Atsauc pagriešanu"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Apmet horizontāli"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Atsauc horizontālo apmešanu"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Apmet vertikāli"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Atsauc vertikālo apmešanu"
 
@@ -2690,7 +2686,7 @@ msgstr "Iepriekšējā fotogrāfija"
 msgid "Next photo"
 msgstr "Nākamā fotogrāfija"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Pazudusi fotogrāfijas avota datne — %s"
@@ -3109,6 +3105,30 @@ msgstr "Video"
 #, fuzzy
 msgid "Transition Effect"
 msgstr "Pārejas efek_ti:"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "Tā_lināt"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Pielāgot"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "Tuv_ināt"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -3953,6 +3973,9 @@ msgstr ""
 msgid "Blinds"
 msgstr ""
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Pielāgot sīktēlu izmēru"
+
 #~ msgid "S_lideshow"
 #~ msgstr "S_laidrāde"
 
@@ -4099,14 +4122,8 @@ msgstr ""
 #~ msgid "Next Photo"
 #~ msgstr "Nākamā fotogrāfija"
 
-#~ msgid "Zoom _In"
-#~ msgstr "Tuv_ināt"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Palielināt fotogrāfijas palielinājumu"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Tā_lināt"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Samazināt fotogrāfijas palielinājumu"

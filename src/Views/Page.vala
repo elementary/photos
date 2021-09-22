@@ -837,6 +837,8 @@ public abstract class Page : Gtk.ScrolledWindow {
         return on_motion (event, x, y, mask);
     }
 
+    private double total_dx = 0.0;
+    private double total_dy = 0.0;
     private bool on_mousewheel_internal (Gdk.EventScroll event) {
         switch (event.direction) {
         case Gdk.ScrollDirection.UP:
@@ -856,14 +858,20 @@ public abstract class Page : Gtk.ScrolledWindow {
             bool vertical = false;
             bool horizontal = false;
             if (event.get_scroll_deltas (out dx, out dy)) {
-                if (dx != 0) {
-                    horizontal = dx > 0 ? on_mousewheel_right (event) : on_mousewheel_left (event);
+                total_dx += dx;
+                total_dy += dy;
+                if (total_dx.abs () > 0.05) {
+                    horizontal = total_dx > 0 ? on_mousewheel_right (event) : on_mousewheel_left (event);
+                    total_dx = 0.0;
                 }
-                if (dy != 0) {
-                    vertical = dy > 0 ? on_mousewheel_down (event) : on_mousewheel_up (event);
+                if (total_dy.abs () > 0.05) {
+                    vertical = total_dy > 0 ? on_mousewheel_down (event) : on_mousewheel_up (event);
+                    total_dy = 0.0;
                 }
+
                 return horizontal || vertical;
             }
+
             return false;
         default:
             return false;

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 16:14+0000\n"
-"PO-Revision-Date: 2021-07-08 00:23+0000\n"
+"POT-Creation-Date: 2021-09-02 06:22+0000\n"
+"PO-Revision-Date: 2021-09-02 07:48+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/photos/photos/"
 "uk/>\n"
@@ -1217,7 +1217,7 @@ msgstr "П_еремкнути обробник"
 msgid "Export Video"
 msgstr "Експортувати відео"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -2153,7 +2153,7 @@ msgstr "Налаштування"
 msgid "Sort _Events"
 msgstr "Впорядкувати п_одії"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Переглянути по_дію, пов’язану зі світлиною"
@@ -2176,7 +2176,7 @@ msgid "Display the sidebar"
 msgstr "Показати бічну панель"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
 #: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
@@ -2601,8 +2601,8 @@ msgstr "Мітки"
 msgid "Photos cannot be exported to this directory."
 msgstr "Неможливо експортувати світлин до цієї теки."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Немає світлин/відео"
@@ -2615,47 +2615,43 @@ msgstr "Не виявлено світлин/відео"
 msgid "Play a slideshow"
 msgstr "Почати показ слайдів"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Виправити розміри мініатюр"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "Р_едактор"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Інші дії"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Експортувати світлину/відео"
 msgstr[1] "Експортувати світлини/відео"
 msgstr[2] "Експортувати світлини/відео"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Обертання"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Скасування обертання"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Віддзеркалення горизонтально"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Скасування горизонтального віддзеркалення"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Віддзеркалити вертикально"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Скасування вертикального віддзеркалення"
 
@@ -2716,7 +2712,7 @@ msgstr "Попередня світлина"
 msgid "Next photo"
 msgstr "Наступна світлина"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Не виявлено файлу джерела світлини: %s"
@@ -3121,6 +3117,24 @@ msgstr "Відео"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Ефект переходу"
+
+#: src/Widgets/SliderAssembly.vala:55
+msgid "Zoom Out"
+msgstr "Зменшити"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+msgid "Adjust Zoom"
+msgstr "Налаштування масштабування"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr "%s + Прокручування"
+
+#: src/Widgets/SliderAssembly.vala:87
+msgid "Zoom In"
+msgstr "Збільшити"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -4000,6 +4014,9 @@ msgstr "Шахи"
 msgid "Blinds"
 msgstr "Жалюзі"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Виправити розміри мініатюр"
+
 #~ msgid "S_lideshow"
 #~ msgstr "По_каз слайдів"
 
@@ -4200,14 +4217,8 @@ msgstr "Жалюзі"
 #~ msgid "Next Photo"
 #~ msgstr "Наступна фотографія"
 
-#~ msgid "Zoom _In"
-#~ msgstr "З_більшити"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Збільшити масштаб показу фотографії"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "З_меншити"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Зменшити масштаб показу фотографії"
