@@ -56,6 +56,9 @@ public class DirectWindow : AppWindow {
         header.pack_start (save_as_btn);
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
+
+        // Set initial focus on photo
+        direct_photo_page.focus (Gtk.DirectionType.DOWN);
     }
 
     construct {
