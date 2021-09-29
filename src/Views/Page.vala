@@ -912,11 +912,15 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (context_menu == null || !on_context_invoked ())
             return false;
 
-        if (event == null) {
-            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
-        } else {
-            context_menu.popup (null, null, null, event.button, event.time);
-        }
+        // `popup_at_pointer (event)` does not work properly with multiple monitors but `popup_at_rect (...)` does
+        var rect = Gdk.Rectangle () {
+            x = (int)event.x,
+            y = (int)event.y,
+            width = 1,
+            height = 1
+        };
+        context_menu.popup_at_rect (get_window (), rect, Gdk.Gravity.NORTH_WEST, Gdk.Gravity.NORTH_WEST, event);
+
 
         return true;
     }
