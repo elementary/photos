@@ -101,11 +101,10 @@ public class LibraryWindow : AppWindow {
 
     private string import_dir = Environment.get_home_dir ();
 
-    private Gtk.Paned sidebar_paned;
     private Gtk.Paned client_paned;
     private Gtk.Paned right_client_paned;
     private MetadataView metadata_sidebar;
-
+    private Gtk.ScrolledWindow scrolled_sidebar;
     private Gtk.ActionGroup common_action_group = new Gtk.ActionGroup ("LibraryWindowGlobalActionGroup");
 
     private OneShotScheduler properties_scheduler = null;
@@ -193,13 +192,10 @@ public class LibraryWindow : AppWindow {
         sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
 
         // put the sidebar in a scrolling window
-        var scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
+        scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
         scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
         scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         scrolled_sidebar.add (sidebar_tree);
-
-        sidebar_paned = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-        sidebar_paned.pack1 (scrolled_sidebar, true, false);
 
         // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
         notebook = new Gtk.Notebook ();
@@ -227,7 +223,7 @@ public class LibraryWindow : AppWindow {
 
         client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         client_paned.expand = true;
-        client_paned.pack1 (sidebar_paned, false, false);
+        client_paned.pack1 (scrolled_sidebar, false, false);
         client_paned.pack2 (right_frame, true, false);
 
         var layout = new Gtk.Grid ();
@@ -759,7 +755,7 @@ public class LibraryWindow : AppWindow {
     }
 
     private void set_sidebar_visible (bool visible) {
-        sidebar_paned.set_visible (visible);
+        scrolled_sidebar.set_visible (visible);
         ui_settings.set_boolean ("display-sidebar", visible);
     }
 
