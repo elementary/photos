@@ -1,7 +1,7 @@
 project(
     'io.elementary.photos',
     'vala', 'c',
-    version: '2.7.0',
+    version: '2.7.2',
     meson_version: '>=0.46.0'
 )
 
@@ -29,6 +29,7 @@ pluginsdir = join_paths(get_option('prefix'), get_option('libdir'), meson.projec
 conf_data = configuration_data()
 conf_data.set_quoted('PROJECT_NAME', meson.project_name())
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 conf_data.set_quoted('_VERSION', meson.project_version())
 conf_data.set_quoted('_PREFIX', get_option('prefix'))
 conf_data.set_quoted('_LIB', join_paths(get_option('prefix'), get_option('libdir')))

@@ -56,6 +56,9 @@ public class DirectWindow : AppWindow {
         header.pack_start (save_as_btn);
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
+
+        // Set initial focus on photo
+        direct_photo_page.focus (Gtk.DirectionType.DOWN);
     }
 
     construct {
@@ -80,6 +83,7 @@ public class DirectWindow : AppWindow {
     public void update_title (File file, bool modified) {
         title = "%s%s (%s) - %s".printf ((modified) ? "*" : "", file.get_basename (),
                                          get_display_pathname (file.get_parent ()), _ (Resources.APP_TITLE));
+        header.title = title;
     }
 
     protected override void on_fullscreen () {

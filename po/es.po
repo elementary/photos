@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
-"PO-Revision-Date: 2021-02-26 10:41+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"PO-Revision-Date: 2021-08-27 09:46+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/photos/photos/es/"
 ">\n"
 "Language: es\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "No se pudo crear la carpeta de caché %s: %s"
+msgstr "No se pudo crear la carpeta de antememoria %s: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -54,7 +54,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Ocurrió un grave error al acceder a la colección de Fotos. Fotos no puede "
+"Ocurrió un error grave al acceder a la colección de Fotos. Fotos no puede "
 "continuar.\n"
 "\n"
 "%s"
@@ -150,7 +150,7 @@ msgstr "Desmejorando"
 
 #: src/Commands.vala:826
 msgid "Undoing UnEnhance"
-msgstr "Deshaciendo desmejorar"
+msgstr "Deshaciendo desmejora"
 
 #: src/Commands.vala:894
 msgid "Applying Color Transformations"
@@ -264,7 +264,7 @@ msgstr "Mover las fotos a la Papelera"
 
 #: src/Commands.vala:2280
 msgid "Restore the photos back to the Photos library"
-msgstr "Restaurar las fotos a la biblioteca"
+msgstr "Restaurar las fotos a la colección de Fotos"
 
 #: src/Commands.vala:2299
 msgid "Moving Photos to Trash"
@@ -379,7 +379,7 @@ msgstr "Salir de pantalla completa"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr "Su biblioteca de Fotos no es compatible con esta versión de Fotos"
+msgstr "Su colección fotográfica no es compatible con esta versión de Fotos"
 
 #: src/main.vala:69
 #, c-format
@@ -1192,7 +1192,7 @@ msgstr "_Cambiar de revelador"
 msgid "Export Video"
 msgstr "Exportar vídeo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1330,8 +1330,8 @@ msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr ""
-"No se ha podido importar los siguientes archivos porque Fotos no pudo "
-"copiarlos a la biblioteca:"
+"No se importaron los archivos siguientes porque Fotos no pudo copiarlos en "
+"la colección:"
 
 #: src/Dialogs/Dialogs.vala:334
 #, c-format
@@ -1434,7 +1434,7 @@ msgstr[0] ""
 "la colección de fotos:\n"
 msgstr[1] ""
 "Falló la importación de %d fotos porque no se puede escribir en la carpeta "
-"de la biblioteca de fotos:\n"
+"de la colección de fotos:\n"
 
 #: src/Dialogs/Dialogs.vala:427
 #, c-format
@@ -1838,7 +1838,7 @@ msgstr "de los siguientes:"
 
 #: src/Dialogs/SavedSearchDialog.vala:101
 msgid "Add rule"
-msgstr "Agregar regla"
+msgstr "Añadir regla"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
 #: src/Views/DirectPhotoPage.vala:534
@@ -2066,11 +2066,11 @@ msgstr "Configuración"
 
 #: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
 #: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:155
+#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
 msgid "Sort _Events"
 msgstr "Ordenar _eventos"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Ver eve_nto para la foto"
@@ -2084,7 +2084,7 @@ msgstr "Nuevo album inteligente…"
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:147
+#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
 msgid "S_idebar"
 msgstr "_Barra lateral"
 
@@ -2093,32 +2093,32 @@ msgid "Display the sidebar"
 msgstr "Mostrar la barra lateral"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:68
+#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
 msgid "Edit Photo In_fo"
 msgstr "Editar información de la foto"
 
 #: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
 #: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:157
+#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
+#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
 msgid "_Ascending"
 msgstr "_Ascendente"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
 msgid "Sort photos in an ascending order"
 msgstr "Ordenar fotos en orden ascendente"
 
 #: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:166
+#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
+#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
 msgid "D_escending"
 msgstr "D_escendente"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
 msgid "Sort photos in a descending order"
 msgstr "Ordenar fotos en orden descendente"
 
@@ -2517,8 +2517,8 @@ msgstr "Etiquetas"
 msgid "Photos cannot be exported to this directory."
 msgstr "No se pueden exportar las fotos a este directorio."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "No hay fotos/vídeos"
@@ -2529,48 +2529,44 @@ msgstr "No se encontraron fotos/vídeos"
 
 #: src/Views/CollectionPage.vala:54 src/Views/LibraryPhotoPage.vala:60
 msgid "Play a slideshow"
-msgstr "Iniciar la presentación de diapositivas"
+msgstr "Iniciar el pase de diapositivas"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Ajustar el tamaño de las miniaturas"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Revelador"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Otras acciones"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exportar foto o vídeo"
 msgstr[1] "Exportar fotos o vídeos"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Girando"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Deshaciendo el giro"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Volteando horizontalmente"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Deshaciendo volteo horizontal"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Volteando verticalmente"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Deshaciendo volteo vertical"
 
@@ -2621,7 +2617,7 @@ msgstr "Ampliar para ajustar la página"
 
 #: src/Views/EditingHostPage.vala:146
 msgid "Zoom 1:1"
-msgstr "Zoom 1:1"
+msgstr "Escala 1∶1"
 
 #: src/Views/EditingHostPage.vala:166
 msgid "Previous photo"
@@ -2631,7 +2627,7 @@ msgstr "Foto anterior"
 msgid "Next photo"
 msgstr "Siguiente foto"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Falta el archivo de origen de la foto: %s"
@@ -2648,12 +2644,12 @@ msgstr "No hay eventos"
 msgid "Merge events"
 msgstr "Combinar eventos"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
 msgstr "Pantalla c_ompleta"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:76
-#: src/Views/MediaPage.vala:237
+#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
+#: src/Views/MediaPage.vala:248
 msgid "_Comments"
 msgstr "_Comentarios"
 
@@ -2705,7 +2701,7 @@ msgid "Only display photos that have not been imported"
 msgstr "Mostrar solo las fotos que no han sido importadas"
 
 #: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
 msgid "_Titles"
 msgstr "_Títulos"
 
@@ -2723,9 +2719,9 @@ msgstr "Importar tod_as"
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:933
 msgid "Starting import, please wait…"
-msgstr "Comenzando la importación, espere un momento…"
+msgstr "Comenzando la importación; espere un momento…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
 msgid "Display the title of each photo"
 msgstr "Mostrar el título de cada foto"
 
@@ -2759,7 +2755,7 @@ msgstr "Desmonte la cámara."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1110
 msgid "The Camera Is Locked By Another Application"
-msgstr "La cámara está bloqueada por otra aplicación"
+msgstr "Otra aplicación bloquea la cámara"
 
 #: src/Views/ImportPage.vala:1111
 msgid ""
@@ -2825,8 +2821,8 @@ msgstr[1] "¿Quiere eliminar estas %d fotos/vídeos de la cámara?"
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
-msgstr[0] "¿Eliminar este archivo de la cámara?"
-msgstr[1] "¿Eliminar estos %d archivos de la cámara?"
+msgstr[0] "¿Quiere eliminar este archivo de la cámara?"
+msgstr[1] "¿Quiere eliminar estos %d archivos de la cámara?"
 
 #: src/Views/ImportPage.vala:1819 src/Views/TrashPage.vala:284
 msgid "Delete"
@@ -2880,46 +2876,54 @@ msgstr "No se puede exportar %s: %s"
 
 #: src/Views/OfflinePage.vala:21
 msgid "Missing Files"
-msgstr "Archivos eliminados"
+msgstr "Archivos faltantes"
 
 #: src/Views/OfflinePage.vala:194
 msgid "Deleting…"
 msgstr "Eliminando…"
 
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
 msgid "Ta_gs"
 msgstr "_Etiquetas"
 
-#: src/Views/MediaPage.vala:84
+#: src/Views/MediaPage.vala:85
 msgid "Sort _Photos"
 msgstr "Ordenar _fotos"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
 msgid "By _Title"
 msgstr "Por _título"
 
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
 msgid "By Exposure _Date"
-msgstr "Por fecha de exposición"
+msgstr "Por _fecha de exposición"
 
-#: src/Views/MediaPage.vala:238
+#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+msgid "By _File Modification Time"
+msgstr "Por hora de modificación del _archivo"
+
+#: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
 msgstr "Mostrar el comentario de cada foto"
 
-#: src/Views/MediaPage.vala:244
+#: src/Views/MediaPage.vala:255
 msgid "Display each photo's tags"
 msgstr "Mostrar la etiqueta de cada foto"
 
-#: src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:271
 msgid "Sort photos by title"
 msgstr "Ordenar las fotos por título"
 
-#: src/Views/MediaPage.vala:266
+#: src/Views/MediaPage.vala:277
 msgid "Sort photos by exposure date"
 msgstr "Ordenar fotos por fecha de exposición"
 
-#: src/Views/MediaPage.vala:413
+#: src/Views/MediaPage.vala:282
+msgid "Sort photos by import timestamp"
+msgstr "Ordenar fotos por fecha y hora de importación"
+
+#: src/Views/MediaPage.vala:429
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -2934,7 +2938,7 @@ msgstr "Añadir algunas fotos"
 
 #: src/Views/PhotosPage.vala:64 src/Views/RawsPage.vala:63
 msgid "No Photos were found in your library."
-msgstr "No se han encontrado fotos en tu biblioteca."
+msgstr "No se encontró ninguna fotografía en la colección."
 
 #: src/Views/RawsPage.vala:24
 msgid "Raw Photos"
@@ -2942,11 +2946,11 @@ msgstr "Fotos RAW"
 
 #: src/Views/RawsPage.vala:37
 msgid "Raws"
-msgstr "Raws"
+msgstr "RAW"
 
 #: src/Views/SlideshowPage.vala:43 src/Views/SlideshowPage.vala:399
 msgid "Slideshow"
-msgstr "Diapositivas"
+msgstr "Pase de diapositivas"
 
 #: src/Views/SlideshowPage.vala:65
 msgid "Go to the previous photo"
@@ -2954,7 +2958,7 @@ msgstr "Ir a la foto anterior"
 
 #: src/Views/SlideshowPage.vala:69 src/Views/SlideshowPage.vala:201
 msgid "Pause the slideshow"
-msgstr "Pausar la presentación"
+msgstr "Pausar el pase"
 
 #: src/Views/SlideshowPage.vala:73
 msgid "Go to the next photo"
@@ -2979,11 +2983,11 @@ msgstr "Lento"
 #. An entire slideshow set might be missing, so check for a loop.
 #: src/Views/SlideshowPage.vala:164
 msgid "All photo source files are missing."
-msgstr "Todos los archivos origen de fotos están perdidos."
+msgstr "Faltan todos los archivos de origen de las fotos."
 
 #: src/Views/SlideshowPage.vala:197
 msgid "Continue the slideshow"
-msgstr "Continuar la presentación"
+msgstr "Continuar el pase"
 
 #: src/Views/TrashPage.vala:22
 msgid "Trash"
@@ -3023,6 +3027,30 @@ msgstr "Vídeos"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efecto de transición"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "Re_ducir"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Ajuste"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Ampliar"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3175,7 +3203,7 @@ msgstr "píxeles por pulgada"
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
 msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Copyright 2009–2013 Yorba Foundation"
+msgstr "Derechos de autor © 2009-2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
 msgid ""
@@ -3203,7 +3231,7 @@ msgstr ""
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
 #, c-format
 msgid "You are logged into YouTube as %s."
-msgstr "Has iniciado sesión en YouTube como «%s»."
+msgstr "Ha accedido a YouTube como «%s»."
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
 #, c-format
@@ -3212,11 +3240,11 @@ msgstr "Los vídeos aparecerán en «%s»"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
 msgid "Public listed"
-msgstr "Listado públicamente"
+msgstr "Catalogado públicamente"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
 msgid "Public unlisted"
-msgstr "No listado públicamente"
+msgstr "No catalogado públicamente"
 
 #: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
@@ -3240,17 +3268,17 @@ msgid ""
 "To continue publishing to Google services, quit and restart this software, "
 "then try publishing again."
 msgstr ""
-"Ya has iniciado y cerrado sesióna en un servicio de Google durante esta "
+"Ya ha iniciado y cerrado sesión en un servicio de Google durante esta "
 "sesión.\n"
 "\n"
-"Para continuar publicando con servicios de Google, cierra y reinicia este "
-"software. A continuación, intenta publicar de nuevo."
+"Para continuar publicando con servicios de Google, cierre y reinicie este "
+"programa. A continuación, intente publicar de nuevo."
 
 #: plugins/pantheon-photos-publishing/Resources.vala:22
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:22
 #: plugins/pantheon-photos-transitions/Resources.vala:22
 msgid "Visit the Yorba web site"
-msgstr "Visita el sitio web de Yorba"
+msgstr "Visitar el sitio web de Yorba"
 
 #: plugins/pantheon-photos-publishing/Resources.vala:41
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
@@ -3335,11 +3363,11 @@ msgstr "Administradores, Familia, Amigos, Contactos"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1240
 msgid "Admins, Family, Friends"
-msgstr "Administradores, Familia, Amigos"
+msgstr "Administradores, familia, amigos"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
 msgid "Admins, Family"
-msgstr "Administradores, Familia"
+msgstr "Administradores, familia"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
 msgid "Admins"
@@ -3374,11 +3402,11 @@ msgid ""
 "Click Login to log into Google Photos in your Web browser. You will have to "
 "authorize elementary OS to link to your Google Photos account."
 msgstr ""
-"No has iniciado sesión en Google Fotos\n"
+"No ha accedido a Google Fotos actualmente.\n"
 "\n"
-"Has clic en iniciar sesión para iniciar sesión en Google Fotos usando tu "
-"navegador web. Para ello, tendrás que autorizar la vinculación de elementary "
-"OS con tu cuenta de Google Fotos."
+"Pulse en Acceder para iniciar sesión en Google Fotos en el navegador web. "
+"Tendrá que autorizar el enlace entre elementary OS y la cuenta de Google "
+"Fotos."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
 msgid ""
@@ -3417,10 +3445,10 @@ msgid ""
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Shotwell Connect to link to your Flickr account."
 msgstr ""
-"No ha iniciado sesión en Flickr.\n"
+"No ha accedido a Flickr.\n"
 "\n"
-"Pulse Iniciar sesión para identificarse en Flickr en su navegador web. "
-"Tendrá que autorizar a Fotos para que se enlace a su cuenta de Flickr."
+"Pulse Acceder para identificarse en Flickr en su navegador web. Tendrá que "
+"autorizar a Shotwell Connect para que se enlace a su cuenta de Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3455,7 +3483,7 @@ msgid ""
 "You are logged into Flickr as %s.\n"
 "\n"
 msgstr ""
-"Has iniciado sesión en Flickr como «%s».\n"
+"Ha accedido a Flickr como «%s».\n"
 "\n"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
@@ -3510,11 +3538,11 @@ msgid ""
 "upload photos and publish to your feed. These permissions are required for "
 "Shotwell Connect to function."
 msgstr ""
-"Actualmente no ha iniciado sesión en Facebook.\n"
+"Actualmente no ha accedido a Facebook.\n"
 "\n"
 "Si no tiene una cuenta de Facebook, puede crear una durante el proceso de "
 "inicio de sesión. Durante el inicio de sesión, Shotwell Connect le puede "
-"pedir permiso para subir fotos y publicar en su muro. Estos permisos son "
+"pedir permiso para cargar fotos y publicar en su muro. Estos permisos son "
 "necesarios para que Shotwell Connect funcione."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
@@ -3539,7 +3567,7 @@ msgstr "Grande (2048 píxeles)"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
 msgid "Testing connection to Facebook…"
-msgstr "Comprobando la conexión a Facebook…"
+msgstr "Probando la conexión a Facebook…"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
 msgid "Creating album…"
@@ -3555,8 +3583,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
 msgid "Server redirect URL contained no access token"
-msgstr ""
-"La URL redireccionada por el servidor no contenía ningún  token de acceso"
+msgstr "El URL de redirección del servidor no contenía ninguna ficha de acceso"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #, c-format
@@ -3564,7 +3591,7 @@ msgid ""
 "You are logged into Facebook as %s.\n"
 "\n"
 msgstr ""
-"Has iniciado sesión en Facebook como %s.\n"
+"Ha accedido a Facebook como %s.\n"
 "\n"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
@@ -3574,7 +3601,7 @@ msgstr "¿Dónde quiere publicar las fotos seleccionadas?"
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
-msgstr "_Tamaño de subida:"
+msgstr "_Tamaño de carga:"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
@@ -3666,7 +3693,7 @@ msgstr "etiqueta"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:49
 msgid "_URL of your Piwigo photo library"
-msgstr "_URL de tu biblioteca de fotos de Piwigo"
+msgstr "_URL de su colección de fotos de Piwigo"
 
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:59
 msgid "User _name"
@@ -3684,14 +3711,14 @@ msgstr "_Recordar la contraseña"
 #: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:151
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
 msgid "Login"
-msgstr "Iniciar sesión"
+msgstr "Acceder"
 
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
 msgid ""
 "'you are logged in as $name'\n"
 "(populated in the application code)"
 msgstr ""
-"«has iniciado sesión como $name»\n"
+"«ha accedido como $name»\n"
 "(rellenado en el código de la aplicación)"
 
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
@@ -3705,7 +3732,7 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
-"Has iniciado sesión en Flickr como (nombre).\n"
+"Ha accedido a Flickr como (nombre).\n"
 "\n"
 "(el texto de esta etiqueta se rellena y se introduce en el código, \n"
 "por lo que los cambios que se hagan aquí no serán mostrados)"
@@ -3724,8 +3751,8 @@ msgid ""
 "Enter the confirmation number which appears after you log into Flickr in "
 "your Web browser."
 msgstr ""
-"Introduce el número de confirmación que aparece en tu navegador web después "
-"de iniciar sesión en Flickr."
+"Introduzca el número de confirmación que aparece en el navegador web después "
+"de acceder a Flickr."
 
 #: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
 msgid "Authorization _Number:"
@@ -3754,7 +3781,7 @@ msgstr "Vídeos y álbumes de fotos nuevos _visibles para:"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
 msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+msgstr "Derechos de autor © 2010- Yevgueni Poliákov <zbr@ioremap.net>"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
 msgid "Visit the Yandex.Fotki web site"
@@ -3762,11 +3789,11 @@ msgstr "Visitar el sitio web de Yandex.Fotki"
 
 #: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
 msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Actualmente no ha iniciado sesión en Yandex.Fotki."
+msgstr "Actualmente no ha accedido a Yandex.Fotki."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
 msgid "Copyright 2012 BJA Electronics"
-msgstr "Copyright 2012 BJA Electronics"
+msgstr "Derechos de autor © 2012 BJA Electronics"
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
 msgid "1280 x 853 pixels"
@@ -3788,7 +3815,7 @@ msgstr ""
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
 msgid "Enter the username and password associated with your Tumblr account."
 msgstr ""
-"Introduce el nombre de usuario y la contraseña asociados a tu cuenta de "
+"Introduzca el nombre de usuario y la contraseña asociados a su cuenta de "
 "Tumblr."
 
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
@@ -3803,7 +3830,7 @@ msgid ""
 "You are logged into Tumblr as %s.\n"
 "\n"
 msgstr ""
-"Has iniciado sesión en Tumblr como %s.\n"
+"Ha accedido a Tumblr como %s.\n"
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
@@ -3849,7 +3876,7 @@ msgid ""
 "(this label's string is populated and set inside the code, \n"
 "so changes made here will not display)"
 msgstr ""
-"Has iniciado sesión en Tumblr como (nombre).\n"
+"Ha accedido a Tumblr como (nombre).\n"
 "\n"
 "(el texto de esta etiqueta se rellena y establece en el código, \n"
 "así que los cambios que se hagan aquí no serán mostrados)"
@@ -3909,6 +3936,9 @@ msgstr "Ajedrez"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianas"
+
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Ajustar el tamaño de las miniaturas"
 
 #~ msgid "S_lideshow"
 #~ msgstr "_Diapositivas"
@@ -4101,14 +4131,8 @@ msgstr "Persianas"
 #~ msgid "Next Photo"
 #~ msgstr "Siguiente foto"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Ampliar"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Aumentar la ampliación de la foto"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Re_ducir"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Reducir la ampliación de la foto"

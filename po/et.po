@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
 "PO-Revision-Date: 2016-04-18 04:08+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/shotwell/"
@@ -1218,7 +1218,7 @@ msgstr "_Vaheta ilmutajat"
 msgid "Export Video"
 msgstr "Video eksportimine"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 #, fuzzy
 msgid "Export Photo"
@@ -2067,11 +2067,11 @@ msgstr "Sätted"
 
 #: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
 #: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:155
+#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
 msgid "Sort _Events"
 msgstr "Sü_ndmuste järjestus"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Ava selle foto _sündmus"
@@ -2085,7 +2085,7 @@ msgstr ""
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:147
+#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
 msgid "S_idebar"
 msgstr "_Külgriba"
 
@@ -2094,32 +2094,32 @@ msgid "Display the sidebar"
 msgstr "Külgriba kuvamine"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:68
+#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
 msgid "Edit Photo In_fo"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
 #: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:157
+#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
+#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
 msgid "_Ascending"
 msgstr "_Kasvav"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
 msgid "Sort photos in an ascending order"
 msgstr "Fotod sorditakse kasvavalt"
 
 #: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:166
+#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
+#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
 msgid "D_escending"
 msgstr "_Kahanev"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
 msgid "Sort photos in a descending order"
 msgstr "Fotod sorditakse kahanevalt"
 
@@ -2517,8 +2517,8 @@ msgstr "Sildid"
 msgid "Photos cannot be exported to this directory."
 msgstr "Sellesse kausta pole võimalik fotosid eksportida."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Fotosid/videoid pole"
@@ -2531,47 +2531,43 @@ msgstr "Ühtegi fotot/videot ei leitud"
 msgid "Play a slideshow"
 msgstr "Slaidiesituse alustamine"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Pisipiltide suuruse muutmine"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Ilmutaja"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Fotode/videote eksportimine"
 msgstr[1] "Fotode/videote eksportimine"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Pööramine"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Pööramise tagasivõtmine"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Horisontaalpeegeldus"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Horisontaalpeegelduse tagasivõtmine"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Vertikaalpeegeldus"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Vertikaalpeegelduse tagasivõtmine"
 
@@ -2633,7 +2629,7 @@ msgstr "Eelmine foto"
 msgid "Next photo"
 msgstr "Järgmine foto"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Foto lähtefail on puudu: %s"
@@ -2651,12 +2647,12 @@ msgstr "Sündmuseid pole"
 msgid "Merge events"
 msgstr "_Sündmuste ühendamine"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
 msgstr "Täisekr_aan"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:76
-#: src/Views/MediaPage.vala:237
+#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
+#: src/Views/MediaPage.vala:248
 msgid "_Comments"
 msgstr "_Kommentaarid"
 
@@ -2710,7 +2706,7 @@ msgid "Only display photos that have not been imported"
 msgstr "Kuvatakse ainult importimata jäänud fotosid"
 
 #: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
 msgid "_Titles"
 msgstr "_Pealkirjad"
 
@@ -2731,7 +2727,7 @@ msgstr "Impordi _kõik"
 msgid "Starting import, please wait…"
 msgstr "Importimise alustamine, palun oota..."
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
 msgid "Display the title of each photo"
 msgstr "Igale fotole pealkirja näitamine"
 
@@ -2900,40 +2896,50 @@ msgstr "Puuduvad failid"
 msgid "Deleting…"
 msgstr "Kustutamine..."
 
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
 msgid "Ta_gs"
 msgstr "Sil_did"
 
-#: src/Views/MediaPage.vala:84
+#: src/Views/MediaPage.vala:85
 msgid "Sort _Photos"
 msgstr "Fotode _järjestus"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
 msgid "By _Title"
 msgstr "_Pealkirja järgi"
 
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
 msgid "By Exposure _Date"
 msgstr "_Kuupäeva järgi"
 
-#: src/Views/MediaPage.vala:238
+#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+msgid "By _File Modification Time"
+msgstr ""
+
+#: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
 msgstr "Fotode kommentaaride kuvamine"
 
-#: src/Views/MediaPage.vala:244
+#: src/Views/MediaPage.vala:255
 msgid "Display each photo's tags"
 msgstr "Kõigi fotode siltide kuvamine"
 
-#: src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:271
 msgid "Sort photos by title"
 msgstr "Fotode sorteerimine pealkirja järgi"
 
-#: src/Views/MediaPage.vala:266
+#: src/Views/MediaPage.vala:277
 msgid "Sort photos by exposure date"
 msgstr "Fotode sorteerimine võttekuupäeva järgi"
 
-#: src/Views/MediaPage.vala:413
+#: src/Views/MediaPage.vala:282
+#, fuzzy
+#| msgid "Sort photos by exposure date"
+msgid "Sort photos by import timestamp"
+msgstr "Fotode sorteerimine võttekuupäeva järgi"
+
+#: src/Views/MediaPage.vala:429
 #, fuzzy, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3041,6 +3047,30 @@ msgstr "Videod"
 #, fuzzy
 msgid "Transition Effect"
 msgstr "_Üleminekuefekt:"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "_Vähenda"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Kohenda"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "Suu_renda"
 
 #: src/Widgets/SearchRowContainer.vala:63
 #, fuzzy
@@ -3887,6 +3917,9 @@ msgstr "Malelaud"
 msgid "Blinds"
 msgstr "Ribad"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Pisipiltide suuruse muutmine"
+
 #~ msgid "S_lideshow"
 #~ msgstr "_Slaidiesitlus"
 
@@ -4043,14 +4076,8 @@ msgstr "Ribad"
 #~ msgid "Next Photo"
 #~ msgstr "Järgmine foto"
 
-#~ msgid "Zoom _In"
-#~ msgstr "Suu_renda"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Foto suurenduse suurendamine"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Vähenda"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Foto suurenduse vähendamine"

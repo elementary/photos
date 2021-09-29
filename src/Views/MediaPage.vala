@@ -26,7 +26,8 @@ public abstract class MediaPage : CheckerboardPage {
         MIN = 1,
         TITLE = 1,
         EXPOSURE_DATE = 2,
-        MAX = 2
+        TIMESTAMP = 3,
+        MAX = 3
     }
 
     private SliderAssembly? connected_slider = null;
@@ -101,6 +102,15 @@ public abstract class MediaPage : CheckerboardPage {
                 }
             });
 
+            var by_timestamp_menu_item = new Gtk.RadioMenuItem.with_mnemonic_from_widget (by_title_menu_item, _("By _File Modification Time"));
+            var by_timestamp_action = get_action ("SortByTimestamp");
+            by_timestamp_action.bind_property ("active", by_timestamp_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            by_timestamp_menu_item.activate.connect (() => {
+                if (by_timestamp_menu_item.active) {
+                    by_timestamp_action.activate ();
+                }
+            });
+
             var ascending_photos_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
             var ascending_photos_action = get_action ("SortAscending");
             ascending_photos_action.bind_property ("active", ascending_photos_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
@@ -122,6 +132,7 @@ public abstract class MediaPage : CheckerboardPage {
             var sort_photos_menu = new Gtk.Menu ();
             sort_photos_menu.add (by_title_menu_item);
             sort_photos_menu.add (by_exposure_menu_item);
+            sort_photos_menu.add (by_timestamp_menu_item);
             sort_photos_menu.add (new Gtk.SeparatorMenuItem ());
             sort_photos_menu.add (ascending_photos_menu_item);
             sort_photos_menu.add (descending_photos_menu_item);
@@ -266,6 +277,11 @@ public abstract class MediaPage : CheckerboardPage {
                                          _("Sort photos by exposure date"), SortBy.EXPOSURE_DATE
                                        };
         sort_crit_actions += by_date;
+
+        Gtk.RadioActionEntry by_timestamp = { "SortByTimestamp", null, _("By _File Modification Time"), null,
+                                         _("Sort photos by import timestamp"), SortBy.TIMESTAMP
+                                       };
+        sort_crit_actions += by_timestamp;
 
         action_group.add_radio_actions (sort_crit_actions, sort_by, on_sort_changed);
 
@@ -708,8 +724,15 @@ public abstract class MediaPage : CheckerboardPage {
         case SortBy.EXPOSURE_DATE:
             if (ascending)
                 comparator = Thumbnail.exposure_time_ascending_comparator;
-            else comparator = Thumbnail.exposure_time_desending_comparator;
+            else comparator = Thumbnail.exposure_time_descending_comparator;
             predicate = Thumbnail.exposure_time_comparator_predicate;
+            break;
+
+        case SortBy.TIMESTAMP:
+            if (ascending)
+                comparator = Thumbnail.timestamp_ascending_comparator;
+            else comparator = Thumbnail.timestamp_descending_comparator;
+            predicate = Thumbnail.timestamp_comparator_predicate;
             break;
 
         default:

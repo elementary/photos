@@ -571,7 +571,7 @@ public struct ZoomState {
     }
 
     private void compute_zoom_factors () {
-        max_factor = 2.0;
+        max_factor = 10.0;
 
         double viewport_to_content_x;
         double viewport_to_content_y;

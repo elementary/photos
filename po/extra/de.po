@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
-"PO-Revision-Date: 2021-02-16 04:04+0000\n"
-"Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/photos/extra/de/"
-">\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"PO-Revision-Date: 2021-09-23 08:26+0000\n"
+"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/photos/extra/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,20 +30,18 @@ msgid "multimedia-photo-viewer"
 msgstr "multimedia-photo-viewer"
 
 #: data/io.elementary.photos.desktop.in.in:3
-#: data/io.elementary.photos.appdata.xml.in:8
+#: data/io.elementary.photos.appdata.xml.in:9
 msgid "Photos"
 msgstr "Fotos"
 
 #: data/io.elementary.photos.desktop.in.in:4
-#: data/io.elementary.photos.appdata.xml.in:9
+#: data/io.elementary.photos.appdata.xml.in:10
 msgid "Organize your photos"
 msgstr "Ihre Fotos verwalten"
 
 #: data/io.elementary.photos.desktop.in.in:6
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "io.elementary.photos"
-msgstr "elementary LLC."
+msgstr "io.elementary.photos"
 
 #: data/io.elementary.photos.desktop.in.in:7
 msgid "Photo Manager"
@@ -57,9 +55,9 @@ msgid ""
 msgstr ""
 "album;kameras;zuschneiden;bearbeiten;optimieren;exportieren;galerie;bilder;"
 "importieren;verwalten;fotografien;fotos;bilder;fotografie;drucken;"
-"veröffentlichen;drehen;teilen;schlüsselwörter;video;"
+"veröffentlichen;drehen;teilen;schlüsselwörter;video;tags;photos;"
 
-#: data/io.elementary.photos.appdata.xml.in:11
+#: data/io.elementary.photos.appdata.xml.in:12
 msgid ""
 "Photos is an easy-to-use, fast photo organizer. It allows you to import "
 "photos from your camera or disk, organize them by date and subject matter, "
@@ -68,134 +66,152 @@ msgid ""
 "editor does not alter your master photos, making it easy to experiment and "
 "correct errors."
 msgstr ""
-"Photos ist eine unkomplizierte, schnelle Fotoverwaltung. Mit ihr können Sie "
+"Fotos ist eine unkomplizierte, schnelle Fotoverwaltung. Mit ihr können Sie "
 "Fotos von Kameras oder Datenträgern importieren und sie nach Datum, Themen "
 "und auch Bewertungen sortieren. Die Anwendung bietet außerdem grundlegende "
 "Funktionen zur Fotobearbeitung wie Zuschneiden, Rote-Augen-Korrektur, "
-"Farbkorrektur und Ausrichtung. Photos nichtdestruktive Bildbearbeitung "
+"Farbkorrektur und Ausrichtung. Fotos nicht-destruktive Bildbearbeitung "
 "ändert dabei die Originaldateien nicht, sodass Experimente mit Ihren Fotos "
 "und die Beseitigung von Fehlern risikolos möglich sind."
 
-#: data/io.elementary.photos.appdata.xml.in:18
+#: data/io.elementary.photos.appdata.xml.in:19
 msgid "Photos supports JPEG, PNG, TIFF, and a variety of RAW file formats."
 msgstr ""
-"Photos unterstützt JPEG, PNG, TIFF und eine Vielzahl von RAW-Dateiformaten."
-
-#: data/io.elementary.photos.appdata.xml.in:38
-msgid "Show saved state correctly in the context-menu"
-msgstr ""
+"Fotos unterstützt JPEG, PNG, TIFF und eine Vielzahl von RAW-Dateiformaten."
 
 #: data/io.elementary.photos.appdata.xml.in:39
-#: data/io.elementary.photos.appdata.xml.in:47
+msgid "Draw selection rectangle when dragging to select"
+msgstr "Zeichne ein Auswahlrechteck wenn zum Auswählen gezogen wird"
+
+#: data/io.elementary.photos.appdata.xml.in:40
+msgid "Show image titles in preview mode"
+msgstr "Bildnamen im Vorschaumodus anzeigen"
+
+#: data/io.elementary.photos.appdata.xml.in:41
+#: data/io.elementary.photos.appdata.xml.in:50
 #: data/io.elementary.photos.appdata.xml.in:58
-#: data/io.elementary.photos.appdata.xml.in:66
-#: data/io.elementary.photos.appdata.xml.in:76
-#: data/io.elementary.photos.appdata.xml.in:84
-#: data/io.elementary.photos.appdata.xml.in:93
-#: data/io.elementary.photos.appdata.xml.in:105
-#: data/io.elementary.photos.appdata.xml.in:117
-#: data/io.elementary.photos.appdata.xml.in:125
-#: data/io.elementary.photos.appdata.xml.in:133
-#: data/io.elementary.photos.appdata.xml.in:142
-#: data/io.elementary.photos.appdata.xml.in:150
+#: data/io.elementary.photos.appdata.xml.in:69
+#: data/io.elementary.photos.appdata.xml.in:77
+#: data/io.elementary.photos.appdata.xml.in:87
+#: data/io.elementary.photos.appdata.xml.in:95
+#: data/io.elementary.photos.appdata.xml.in:104
+#: data/io.elementary.photos.appdata.xml.in:116
+#: data/io.elementary.photos.appdata.xml.in:128
+#: data/io.elementary.photos.appdata.xml.in:136
+#: data/io.elementary.photos.appdata.xml.in:144
+#: data/io.elementary.photos.appdata.xml.in:153
 #: data/io.elementary.photos.appdata.xml.in:161
+#: data/io.elementary.photos.appdata.xml.in:172
 msgid "Translation updates"
 msgstr "Übersetzungsaktualisierungen"
 
-#: data/io.elementary.photos.appdata.xml.in:46
-msgid "Add Open In menu to the photo viewer"
-msgstr ""
+#: data/io.elementary.photos.appdata.xml.in:48
+msgid "Fix keyboard activation in tool windows"
+msgstr "Behebt einen Fehler bei der Tastaturaktivierung in Toolfenstern"
 
-#: data/io.elementary.photos.appdata.xml.in:54
-msgid "Add checkerboard behind semi-transparent photos in grid view"
-msgstr ""
-
-#: data/io.elementary.photos.appdata.xml.in:55
-msgid "Fix pasting in comment box"
-msgstr ""
-
-#: data/io.elementary.photos.appdata.xml.in:56
-msgid "Make sure we show the right apps in the Open In menu"
-msgstr ""
+#: data/io.elementary.photos.appdata.xml.in:49
+msgid "Show saved state correctly in the context-menu"
+msgstr "Zeige gespeichert-Zustand korrekt im Kontextmenü an"
 
 #: data/io.elementary.photos.appdata.xml.in:57
-msgid "Redesign a large number of dialogs"
-msgstr ""
+msgid "Add Open In menu to the photo viewer"
+msgstr "Fügt \"Öffnen in...\" Menü zum Foto Viewer hinzu"
 
 #: data/io.elementary.photos.appdata.xml.in:65
-#: data/io.elementary.photos.appdata.xml.in:73
+msgid "Add checkerboard behind semi-transparent photos in grid view"
+msgstr ""
+"Schachbrettmuster hinter halbtransparenten Fotos in der Kachelansicht "
+"hinzugefügt"
+
+#: data/io.elementary.photos.appdata.xml.in:66
+msgid "Fix pasting in comment box"
+msgstr "Fehler beim Einfügen in die Kommentarbox behoben"
+
+#: data/io.elementary.photos.appdata.xml.in:67
+msgid "Make sure we show the right apps in the Open In menu"
+msgstr "Sicherstellen, dass wir die richtigen Apps im Öffnen in.. Menü zeigen"
+
+#: data/io.elementary.photos.appdata.xml.in:68
+msgid "Redesign a large number of dialogs"
+msgstr "Große Anzahl an Dialogen neu gestaltet"
+
+#: data/io.elementary.photos.appdata.xml.in:76
+#: data/io.elementary.photos.appdata.xml.in:84
 msgid "Fix building against latest gexiv2"
-msgstr ""
+msgstr "Neuester gexiv2 beim Build berücksichtigt"
 
-#: data/io.elementary.photos.appdata.xml.in:74
+#: data/io.elementary.photos.appdata.xml.in:85
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Konsequent Granite.MessageDialog benutzen"
 
-#: data/io.elementary.photos.appdata.xml.in:75
+#: data/io.elementary.photos.appdata.xml.in:86
 msgid "Use Gtk.FileChooserNative throughout"
-msgstr ""
+msgstr "Konsequent Gtk.FileChooserNative benutzen"
 
-#: data/io.elementary.photos.appdata.xml.in:83
-#: data/io.elementary.photos.appdata.xml.in:92
-#: data/io.elementary.photos.appdata.xml.in:104
-#: data/io.elementary.photos.appdata.xml.in:116
-#: data/io.elementary.photos.appdata.xml.in:124
-#: data/io.elementary.photos.appdata.xml.in:132
-#: data/io.elementary.photos.appdata.xml.in:141
-#: data/io.elementary.photos.appdata.xml.in:149
-#: data/io.elementary.photos.appdata.xml.in:168
+#: data/io.elementary.photos.appdata.xml.in:94
+#: data/io.elementary.photos.appdata.xml.in:103
+#: data/io.elementary.photos.appdata.xml.in:115
+#: data/io.elementary.photos.appdata.xml.in:127
+#: data/io.elementary.photos.appdata.xml.in:135
+#: data/io.elementary.photos.appdata.xml.in:143
+#: data/io.elementary.photos.appdata.xml.in:152
+#: data/io.elementary.photos.appdata.xml.in:160
+#: data/io.elementary.photos.appdata.xml.in:179
 msgid "Minor bug fixes"
 msgstr "Kleinere Fehlerbehebungen"
 
-#: data/io.elementary.photos.appdata.xml.in:91
+#: data/io.elementary.photos.appdata.xml.in:102
 msgid "Fix plugin windows not expanding"
 msgstr ""
+"Beheben eines Fehler, der dafür sorgte, dass Plugin-Fenster nicht vergrößert "
+"wurden"
 
-#: data/io.elementary.photos.appdata.xml.in:100
+#: data/io.elementary.photos.appdata.xml.in:111
 msgid "Search box no longer loses focus after character input"
-msgstr ""
-
-#: data/io.elementary.photos.appdata.xml.in:101
-msgid "Colorized tint and temperature scales"
-msgstr ""
-
-#: data/io.elementary.photos.appdata.xml.in:102
-msgid "Add zoom to fit page button"
-msgstr ""
-
-#: data/io.elementary.photos.appdata.xml.in:103
-#: data/io.elementary.photos.appdata.xml.in:115
-msgid "Various UI fixes and improvements"
-msgstr ""
+msgstr "Suchfeld verliert nicht länger den Fokus nach Buchstabeneingabe"
 
 #: data/io.elementary.photos.appdata.xml.in:112
-msgid "Prefer dark theme"
-msgstr ""
+msgid "Colorized tint and temperature scales"
+msgstr "Sättigungs- und Farbtemperaturskalen coloriert"
 
 #: data/io.elementary.photos.appdata.xml.in:113
-msgid "WebP format support"
+msgid "Add zoom to fit page button"
 msgstr ""
+"Button hinzugefügt der die Funktion \"Zoomen um an Seite anzupassen\" bietet"
 
 #: data/io.elementary.photos.appdata.xml.in:114
-msgid "Improved HiDPI support"
-msgstr ""
+#: data/io.elementary.photos.appdata.xml.in:126
+msgid "Various UI fixes and improvements"
+msgstr "Diverse Fehlerbehebungen und Verbesserungen an der UI"
 
-#: data/io.elementary.photos.appdata.xml.in:140
+#: data/io.elementary.photos.appdata.xml.in:123
+msgid "Prefer dark theme"
+msgstr "Dark mode bevorzugen"
+
+#: data/io.elementary.photos.appdata.xml.in:124
+msgid "WebP format support"
+msgstr "Unterstützung für das WebP Format"
+
+#: data/io.elementary.photos.appdata.xml.in:125
+msgid "Improved HiDPI support"
+msgstr "Verbesserte HiDPI-Unterstützung"
+
+#: data/io.elementary.photos.appdata.xml.in:151
 msgid "Preserve metadata when opening photo directly from the filesystem"
 msgstr ""
 "Beibehaltung der Metadaten beim Öffnen von Fotos direkt aus dem Dateisystem"
 
-#: data/io.elementary.photos.appdata.xml.in:157
+#: data/io.elementary.photos.appdata.xml.in:168
 msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
 msgstr ""
 "Fehler bei der Navigation mit den Pfeiltasten der Tastatur zum nächsten Foto "
 "behoben"
 
-#: data/io.elementary.photos.appdata.xml.in:158
+#: data/io.elementary.photos.appdata.xml.in:169
 msgid "Left bracket key rotates counterclockwise now"
 msgstr "Taste »Eckige Klammer links« dreht Fotos jetzt gegen den Uhrzeigersinn"
 
-#: data/io.elementary.photos.appdata.xml.in:159
+#: data/io.elementary.photos.appdata.xml.in:170
 msgid ""
 "Moved search into the headerbar and fixed a bug that prevents typing into "
 "the searchbox"
@@ -203,15 +219,13 @@ msgstr ""
 "Die Suche wurde in die Kopfzeile verschoben und ein Fehler behoben, der die "
 "Eingabe in das Suchfeld verhindert"
 
-#: data/io.elementary.photos.appdata.xml.in:160
+#: data/io.elementary.photos.appdata.xml.in:171
 msgid "Removed star and rejected ratings"
 msgstr "Stern gelöscht und Bewertungen verworfen"
 
-#: data/io.elementary.photos.appdata.xml.in:202
-#, fuzzy
-#| msgid "elementary LLC."
+#: data/io.elementary.photos.appdata.xml.in:213
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #~ msgid "multimedia-photo-manager"
 #~ msgstr "multimedia-photo-manager"

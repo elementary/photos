@@ -28,12 +28,6 @@ public class SliderAssembly : Gtk.Grid {
 
     public signal void value_changed ();
 
-    public string tooltip {
-        set {
-            slider.tooltip_text = value;
-        }
-    }
-
     public bool inverted {
         set {
             slider.inverted = value;
@@ -57,7 +51,9 @@ public class SliderAssembly : Gtk.Grid {
         margin_top = 5;
         margin_bottom = 5;
 
-        var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU);
+        var decrease = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_OUT, Gtk.IconSize.MENU) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>minus"}, _("Zoom Out"))
+        };
         decrease_box = new Gtk.EventBox ();
         decrease_box.above_child = true;
         decrease_box.visible_window = false;
@@ -72,14 +68,24 @@ public class SliderAssembly : Gtk.Grid {
 
         add (decrease_box);
 
-        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null);
+        // Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+        var primary_tooltip_text = _("Adjust Zoom");
+        var secondary_tooltip_text = _("%s + Scroll").printf (Granite.accel_to_string ("<Control>"));
+        slider = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, null) {
+            draw_value = false,
+            tooltip_markup = "%s\n%s".printf (
+                primary_tooltip_text,
+                Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (secondary_tooltip_text)
+            )
+        };
         slider.value_changed.connect (on_slider_value_changed);
-        slider.draw_value = false;
         slider.set_size_request (150, -1);
 
         add (slider);
 
-        var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU);
+        var increase = new Gtk.Image.from_icon_name (Resources.ICON_ZOOM_IN, Gtk.IconSize.MENU) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>plus"}, _("Zoom In"))
+        };
         increase_box = new Gtk.EventBox ();
         increase_box.above_child = true;
         increase_box.visible_window = false;

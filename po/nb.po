@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
-"PO-Revision-Date: 2021-02-17 05:08+0000\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"PO-Revision-Date: 2021-09-07 19:18+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
 "photos/nb/>\n"
@@ -1112,7 +1112,7 @@ msgstr[1] "_Modifiser orginalfilene"
 #, fuzzy, c-format
 #| msgid "Original: "
 msgid "Original: %s"
-msgstr "Original: "
+msgstr "Original: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1172,9 +1172,9 @@ msgstr[0] "Dette vil fjerne taggen «%s» fra ett bilde. Fortsett?"
 msgstr[1] "Dette vil fjerne taggen «%s» fra %d bilder. Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Dette vil fjerne smart albumet \"%s\". Fortsette?"
+msgstr "Dette vil fjerne det smarte albumet «%s». Fortsett?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1203,7 +1203,7 @@ msgstr "_Bytt fremkaller"
 msgid "Export Video"
 msgstr "Eksporter video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1444,7 +1444,9 @@ msgid_plural ""
 msgstr[0] ""
 "1 video feilet under importering fordi bildebibliotekmappen ikke var "
 "skrivbar:\n"
-msgstr[1] "%d bla bla\n"
+msgstr[1] ""
+"%d videoer feilet under importering fordi bildebibliotekmappen ikke var "
+"skrivbar:\n"
 
 #: src/Dialogs/Dialogs.vala:430
 #, c-format
@@ -1745,9 +1747,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skaleringsbegrensing:"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Gjem informasjonspanel"
+msgstr "_Størrelse i piksler:"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -2057,11 +2058,11 @@ msgstr "Innstillinger"
 
 #: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
 #: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:155
+#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
 msgid "Sort _Events"
 msgstr "Sorter _hendelser"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Se hen_delsen bildet tilhører"
@@ -2075,7 +2076,7 @@ msgstr "Nytt smart album…"
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:147
+#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
 msgid "S_idebar"
 msgstr "S_idestolpe"
 
@@ -2084,32 +2085,32 @@ msgid "Display the sidebar"
 msgstr "Vis sidestolpen"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:68
+#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
 msgid "Edit Photo In_fo"
 msgstr "Rediger foto in_fo"
 
 #: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
 #: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:157
+#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
+#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
 msgid "_Ascending"
 msgstr "_Stigende"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
 msgid "Sort photos in an ascending order"
 msgstr "Sorter bilder i stigende rekkefølge"
 
 #: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:166
+#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
+#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
 msgid "D_escending"
 msgstr "S_ynkende"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
 msgid "Sort photos in a descending order"
 msgstr "Sorter bilder i synkende rekkefølge"
 
@@ -2509,8 +2510,8 @@ msgstr "Tagger"
 msgid "Photos cannot be exported to this directory."
 msgstr "Bilder kan ikke eksporteres til denne mappen."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ingen bilder/videoer"
@@ -2523,46 +2524,42 @@ msgstr "Ingen bilder/videoer funnet"
 msgid "Play a slideshow"
 msgstr "vis et diasshow"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Juster størrelsen på miniatyrbildene"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Fremkaller"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Andre handlinger"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksporter bilde/video"
 msgstr[1] "Eksporter bilder / videoer"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Rotering"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "angre rotering"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Flipper horisontalt"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Angre horisontal flipp"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Flipper vertikalt"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Angre vertikal flipp"
 
@@ -2623,7 +2620,7 @@ msgstr "Forrige bilde"
 msgid "Next photo"
 msgstr "Neste bilde"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Kildefil for bilde mangler: %s"
@@ -2640,12 +2637,12 @@ msgstr "Ingen hendelse"
 msgid "Merge events"
 msgstr "Flett hendelser"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
 msgstr "Fulls_kjerm"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:76
-#: src/Views/MediaPage.vala:237
+#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
+#: src/Views/MediaPage.vala:248
 msgid "_Comments"
 msgstr "_Kommentarer"
 
@@ -2697,7 +2694,7 @@ msgid "Only display photos that have not been imported"
 msgstr "Vis kun bilder som ikke har blitt importert"
 
 #: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
 msgid "_Titles"
 msgstr "_Titler"
 
@@ -2717,7 +2714,7 @@ msgstr "Importer _alle"
 msgid "Starting import, please wait…"
 msgstr "Importering starter, vent…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
 msgid "Display the title of each photo"
 msgstr "Vis titlene for hvert bilde"
 
@@ -2739,8 +2736,7 @@ msgstr "Dette kameraet kan ikke nås mens det er montert"
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Bilder trenger å avmontere kameraet fra filsystemet for å få tilgang til "
-"det. Fortsett?"
+"Bilder trenger å avmontere kameraet fra filsystemet for å få tilgang til det."
 
 #: src/Views/ImportPage.vala:1097
 msgid "_Unmount"
@@ -2881,40 +2877,48 @@ msgstr "Manglende filer"
 msgid "Deleting…"
 msgstr "Sletter…"
 
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
 msgid "Ta_gs"
 msgstr "Ta_gger"
 
-#: src/Views/MediaPage.vala:84
+#: src/Views/MediaPage.vala:85
 msgid "Sort _Photos"
 msgstr "Sorter _bilder"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
 msgid "By _Title"
 msgstr "Etter _tittel"
 
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
 msgid "By Exposure _Date"
 msgstr "_Etter eksponeringsdato"
 
-#: src/Views/MediaPage.vala:238
+#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+msgid "By _File Modification Time"
+msgstr "Etter _filendringstid"
+
+#: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
 msgstr "Vis kommentar for hvert bilde"
 
-#: src/Views/MediaPage.vala:244
+#: src/Views/MediaPage.vala:255
 msgid "Display each photo's tags"
 msgstr "Vis taggene for hvert bilde"
 
-#: src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:271
 msgid "Sort photos by title"
 msgstr "Sorter bilder etter tittel"
 
-#: src/Views/MediaPage.vala:266
+#: src/Views/MediaPage.vala:277
 msgid "Sort photos by exposure date"
 msgstr "Sorter bildene etter eksponeringsdato"
 
-#: src/Views/MediaPage.vala:413
+#: src/Views/MediaPage.vala:282
+msgid "Sort photos by import timestamp"
+msgstr "Sorter bilder etter importtidsstempel"
+
+#: src/Views/MediaPage.vala:429
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3018,6 +3022,24 @@ msgstr "Videoer"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Overgangseffekt"
+
+#: src/Widgets/SliderAssembly.vala:55
+msgid "Zoom Out"
+msgstr "For_minsk"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+msgid "Adjust Zoom"
+msgstr "Juster forstørrelse"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr "%s + Rulling"
+
+#: src/Widgets/SliderAssembly.vala:87
+msgid "Zoom In"
+msgstr "For_størr"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3883,6 +3905,9 @@ msgstr "Sjakk"
 msgid "Blinds"
 msgstr "Gardiner"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Juster størrelsen på miniatyrbildene"
+
 #~ msgid "S_lideshow"
 #~ msgstr "L_ysbildefremvisning"
 
@@ -4077,14 +4102,8 @@ msgstr "Gardiner"
 #~ msgid "Next Photo"
 #~ msgstr "Neste bilde"
 
-#~ msgid "Zoom _In"
-#~ msgstr "Zoom _inn"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Øk bildets forstørrelsesgrad"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "Zoom _ut"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "minsk bildets forstørrelsesgrad"

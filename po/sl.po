@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
 "PO-Revision-Date: 2020-01-08 00:07+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/photos/photos/"
@@ -1237,7 +1237,7 @@ msgstr "_Zamenjaj razvijalca"
 msgid "Export Video"
 msgstr "Izvozi videoposnetek"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -2239,11 +2239,11 @@ msgstr "Nastavitve"
 
 #: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
 #: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:155
+#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
 msgid "Sort _Events"
 msgstr "Razvrsti _dogodke"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Oglej si dogo_dek za fotografijo"
@@ -2257,7 +2257,7 @@ msgstr "Nov pametni album…"
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:147
+#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
 msgid "S_idebar"
 msgstr "Stranska vrstica"
 
@@ -2266,32 +2266,32 @@ msgid "Display the sidebar"
 msgstr "Prikaži stransko vrstico"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:68
+#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
 msgid "Edit Photo In_fo"
 msgstr "Uredi informacije v sliki"
 
 #: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
 #: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:157
+#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
+#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
 msgid "_Ascending"
 msgstr "N_araščajoče"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
 msgid "Sort photos in an ascending order"
 msgstr "Razvrsti fotografije v naraščajočem vrstnem redu"
 
 #: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:166
+#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
+#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
 msgid "D_escending"
 msgstr "_Padajoče"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
 msgid "Sort photos in a descending order"
 msgstr "Razvrsti fotografije v padajočem vrstnem redu"
 
@@ -2697,8 +2697,8 @@ msgstr "Oznake"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografij ni mogoče izvoziti v to mapo."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ni fotografij/videov"
@@ -2711,20 +2711,16 @@ msgstr "Ni najdenih fotografij/videov"
 msgid "Play a slideshow"
 msgstr "Predvaja diapredstavitev"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Prilagodi velikost sličic"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Razvijalec"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Druge možnosti"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2733,27 +2729,27 @@ msgstr[1] "Izvozi fotografijo ali videoposnetek"
 msgstr[2] "Izvozi fotografijo ali videoposnetek"
 msgstr[3] "Izvozi fotografijo ali videoposnetek"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Vrtenje"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Razveljavljanje vrtenja"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Zrcaljenje vodoravno"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Razveljavljanje vodoravnega zrcaljenja"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Zrcaljenje navpično"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Razveljavljanje navpičnega zrcaljenja"
 
@@ -2814,7 +2810,7 @@ msgstr "Predhodna fotografija"
 msgid "Next photo"
 msgstr "Naslednja fotografija"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Izvirna datoteka fotografije manjka: %s"
@@ -2831,12 +2827,12 @@ msgstr "Brez dogodka"
 msgid "Merge events"
 msgstr "_Združi dogodke"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
 msgstr "_Celozaslonski način"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:76
-#: src/Views/MediaPage.vala:237
+#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
+#: src/Views/MediaPage.vala:248
 msgid "_Comments"
 msgstr "_Komentarji"
 
@@ -2890,7 +2886,7 @@ msgid "Only display photos that have not been imported"
 msgstr "Pokaži le fotografije, ki niso bile uvožene"
 
 #: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
 msgid "_Titles"
 msgstr "_Naslovi"
 
@@ -2911,7 +2907,7 @@ msgstr "Uvozi _vse"
 msgid "Starting import, please wait…"
 msgstr "Začenjanje uvoza, prosimo počakajte ..."
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
 msgid "Display the title of each photo"
 msgstr "Prikaže naslov vsake fotografije"
 
@@ -3092,40 +3088,50 @@ msgstr "Manjkajoče datoteke"
 msgid "Deleting…"
 msgstr "Brisanje ..."
 
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
 msgid "Ta_gs"
 msgstr "Ozna_ke"
 
-#: src/Views/MediaPage.vala:84
+#: src/Views/MediaPage.vala:85
 msgid "Sort _Photos"
 msgstr "Razvrsti _fotografije"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
 msgid "By _Title"
 msgstr "Po _naslovu"
 
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
 msgid "By Exposure _Date"
 msgstr "Po _datumu zajema"
 
-#: src/Views/MediaPage.vala:238
+#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+msgid "By _File Modification Time"
+msgstr ""
+
+#: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
 msgstr "Prikaži komentar vsake fotografije"
 
-#: src/Views/MediaPage.vala:244
+#: src/Views/MediaPage.vala:255
 msgid "Display each photo's tags"
 msgstr "Prikaže oznake vsake fotografije"
 
-#: src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:271
 msgid "Sort photos by title"
 msgstr "Razvrsti fotografije po naslovu"
 
-#: src/Views/MediaPage.vala:266
+#: src/Views/MediaPage.vala:277
 msgid "Sort photos by exposure date"
 msgstr "Razvrsti fotografije po datumu zajema"
 
-#: src/Views/MediaPage.vala:413
+#: src/Views/MediaPage.vala:282
+#, fuzzy
+#| msgid "Sort photos by exposure date"
+msgid "Sort photos by import timestamp"
+msgstr "Razvrsti fotografije po datumu zajema"
+
+#: src/Views/MediaPage.vala:429
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3231,6 +3237,30 @@ msgstr "Videoposnetki"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Učinek prehoda"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "O_ddalji"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Prilagodi"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Približaj"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -4100,6 +4130,9 @@ msgstr "Šah"
 msgid "Blinds"
 msgstr "Roleta"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Prilagodi velikost sličic"
+
 #~ msgid "S_lideshow"
 #~ msgstr "P_redstavitev"
 
@@ -4292,14 +4325,8 @@ msgstr "Roleta"
 #~ msgid "Next Photo"
 #~ msgstr "Naslednja fotografija"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Približaj"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Poveča povečavo fotografije"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "O_ddalji"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Zmanjša povečavo fotografije"

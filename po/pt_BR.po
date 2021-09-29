@@ -16,9 +16,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 18:51+0000\n"
-"PO-Revision-Date: 2019-11-22 18:24+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"PO-Revision-Date: 2021-07-11 23:19+0000\n"
+"Last-Translator: Guilherme Vinícius Rosa Cristóvão <guilherme.vinicius."
+"cristovao@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "photos/photos/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -26,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-13 05:58+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -1113,10 +1114,9 @@ msgstr[0] "_Modificar o arquivo original"
 msgstr[1] "_Modificar os arquivos originais"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Original:· "
+msgstr "Original: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1172,8 +1172,8 @@ msgstr[1] "segundos"
 #, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "Isto irá remover a etiqueta \"%s\" de uma foto.  Continuar?"
-msgstr[1] "Isto irá remover a etiqueta \"%s\" de %d fotos.  Continuar?"
+msgstr[0] "Isto irá remover a etiqueta \"%s\" de uma foto. Continuar?"
+msgstr[1] "Isto irá remover a etiqueta \"%s\" de %d fotos. Continuar?"
 
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
@@ -1206,7 +1206,7 @@ msgstr "_Mudar Desenvolvedor"
 msgid "Export Video"
 msgstr "Exportar vídeo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:586
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1651,10 +1651,10 @@ msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Isto irá destruir todas as alterações feitas para o arquivo externo.  "
+"Isto irá destruir todas as alterações feitas para o arquivo externo. "
 "Continuar?"
 msgstr[1] ""
-"Isto irá destruir todas as alterações feitas para %d arquivos externos.  "
+"Isto irá destruir todas as alterações feitas para %d arquivos externos. "
 "Continuar?"
 
 #: src/Dialogs/Dialogs.vala:807
@@ -2076,11 +2076,11 @@ msgstr "Configurações"
 
 #: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
 #: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:155
+#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
 msgid "Sort _Events"
 msgstr "Ordenar _Eventos"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:181
+#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Ver evento para foto"
@@ -2094,7 +2094,7 @@ msgstr "Novo Álbum Inteligente…"
 
 #: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
 #: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:64 src/Views/TrashPage.vala:147
+#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
 msgid "S_idebar"
 msgstr "_Barra lateral"
 
@@ -2103,32 +2103,32 @@ msgid "Display the sidebar"
 msgstr "Exibir sidebar"
 
 #: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:112 src/Views/EventsDirectoryPage.vala:130
+#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
 #: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:68
+#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
 #: src/Views/TrashPage.vala:151
 msgid "Edit Photo In_fo"
 msgstr "Editar in_formações da foto"
 
 #: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
 #: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:104 src/Views/MediaPage.vala:132
-#: src/Views/MediaPage.vala:276 src/Views/TrashPage.vala:157
+#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
+#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
 msgid "_Ascending"
 msgstr "_Ascendente"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:276
+#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
 msgid "Sort photos in an ascending order"
 msgstr "Organiza as fotos em ordem ascendente"
 
 #: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
 #: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:113 src/Views/MediaPage.vala:141
-#: src/Views/MediaPage.vala:281 src/Views/TrashPage.vala:166
+#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
+#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
 msgid "D_escending"
 msgstr "D_escendente"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:281
+#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
 msgid "Sort photos in a descending order"
 msgstr "Organiza as fotos em ordem descendente"
 
@@ -2526,8 +2526,8 @@ msgstr "Etiquetas"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotos não podem ser exportadas para este diretório."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:897
-#: src/Views/CollectionPage.vala:898 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
+#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Sem fotos/vídeos"
@@ -2540,46 +2540,42 @@ msgstr "Sem fotos/vídeos encontrados"
 msgid "Play a slideshow"
 msgstr "Exibir apresentação de slides"
 
-#: src/Views/CollectionPage.vala:87
-msgid "Adjust the size of the thumbnails"
-msgstr "Ajustar o tamanho das miniaturas"
-
-#: src/Views/CollectionPage.vala:151 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
 msgid "_Developer"
 msgstr "_Desenvolvedor"
 
-#: src/Views/CollectionPage.vala:196 src/Views/DirectPhotoPage.vala:163
+#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
 #: src/Views/LibraryPhotoPage.vala:552
 msgid "Other Actions"
 msgstr "Outras Ações"
 
-#: src/Views/CollectionPage.vala:584
+#: src/Views/CollectionPage.vala:583
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exportar foto/vídeo"
 msgstr[1] "Exportar fotos/vídeos"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Rotating"
 msgstr "Girando"
 
-#: src/Views/CollectionPage.vala:680 src/Views/CollectionPage.vala:696
+#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
 msgid "Undoing Rotate"
 msgstr "Desfazendo rotação"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:704
 msgid "Flipping Horizontally"
 msgstr "Invertendo horizontalmente"
 
-#: src/Views/CollectionPage.vala:706
+#: src/Views/CollectionPage.vala:705
 msgid "Undoing Flip Horizontally"
 msgstr "Desfazendo inversão horizontal"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:714
 msgid "Flipping Vertically"
 msgstr "Invertendo verticalmente"
 
-#: src/Views/CollectionPage.vala:716
+#: src/Views/CollectionPage.vala:715
 msgid "Undoing Flip Vertically"
 msgstr "Desfazendo inversão vertical"
 
@@ -2640,7 +2636,7 @@ msgstr "Foto anterior"
 msgid "Next photo"
 msgstr "Próxima foto"
 
-#: src/Views/EditingHostPage.vala:1469
+#: src/Views/EditingHostPage.vala:1485
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "Faltando arquivo fonte da foto: %s"
@@ -2657,12 +2653,12 @@ msgstr "Nenhum evento"
 msgid "Merge events"
 msgstr "Unir eventos"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
 msgid "Fulls_creen"
 msgstr "Te_la cheia"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:76
-#: src/Views/MediaPage.vala:237
+#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
+#: src/Views/MediaPage.vala:248
 msgid "_Comments"
 msgstr "_Comentários"
 
@@ -2714,7 +2710,7 @@ msgid "Only display photos that have not been imported"
 msgstr "Somente exibir fotos que não foram importadas"
 
 #: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:72 src/Views/MediaPage.vala:231
+#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
 msgid "_Titles"
 msgstr "_Títulos"
 
@@ -2734,7 +2730,7 @@ msgstr "Importar todas"
 msgid "Starting import, please wait…"
 msgstr "Iniciando importação, por favor aguarde…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:232
+#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
 msgid "Display the title of each photo"
 msgstr "Exibe o título de cada foto"
 
@@ -2894,40 +2890,48 @@ msgstr "Arquivos perdidos"
 msgid "Deleting…"
 msgstr "Apagando…"
 
-#: src/Views/MediaPage.vala:80 src/Views/MediaPage.vala:243
+#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
 msgid "Ta_gs"
 msgstr "Eti_quetas"
 
-#: src/Views/MediaPage.vala:84
+#: src/Views/MediaPage.vala:85
 msgid "Sort _Photos"
 msgstr "Organizar _fotos"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:86 src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
 msgid "By _Title"
 msgstr "Por _título"
 
-#: src/Views/MediaPage.vala:95 src/Views/MediaPage.vala:265
+#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
 msgid "By Exposure _Date"
 msgstr "Por _data de exposição"
 
-#: src/Views/MediaPage.vala:238
+#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+msgid "By _File Modification Time"
+msgstr "Pela data de modificação de _File"
+
+#: src/Views/MediaPage.vala:249
 msgid "Display the comment of each photo"
 msgstr "Exibir o comentário de cada foto"
 
-#: src/Views/MediaPage.vala:244
+#: src/Views/MediaPage.vala:255
 msgid "Display each photo's tags"
 msgstr "Exibe as etiquetas de cada foto"
 
-#: src/Views/MediaPage.vala:260
+#: src/Views/MediaPage.vala:271
 msgid "Sort photos by title"
 msgstr "Ordena as fotos pelo título"
 
-#: src/Views/MediaPage.vala:266
+#: src/Views/MediaPage.vala:277
 msgid "Sort photos by exposure date"
 msgstr "Ordena as fotos pela data de exposição"
 
-#: src/Views/MediaPage.vala:413
+#: src/Views/MediaPage.vala:282
+msgid "Sort photos by import timestamp"
+msgstr "Ordena as fotos pela importação de timestamps"
+
+#: src/Views/MediaPage.vala:429
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3031,6 +3035,30 @@ msgstr "Vídeos"
 #: src/Widgets/TransitionEffectSelector.vala:65
 msgid "Transition Effect"
 msgstr "Efeito de transição"
+
+#: src/Widgets/SliderAssembly.vala:55
+#, fuzzy
+#| msgid "Zoom _Out"
+msgid "Zoom Out"
+msgstr "_Reduzir"
+
+#. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
+#: src/Widgets/SliderAssembly.vala:72
+#, fuzzy
+#| msgid "Adjust"
+msgid "Adjust Zoom"
+msgstr "Ajustar"
+
+#: src/Widgets/SliderAssembly.vala:73
+#, c-format
+msgid "%s + Scroll"
+msgstr ""
+
+#: src/Widgets/SliderAssembly.vala:87
+#, fuzzy
+#| msgid "Zoom _In"
+msgid "Zoom In"
+msgstr "_Ampliar"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3421,7 +3449,7 @@ msgid ""
 msgstr ""
 "Você não está conectado ao Flickr.\n"
 "\n"
-"Clique em Login para entrar no Flickr no seu navegador.  Você terá que "
+"Clique em Login para entrar no Flickr no seu navegador. Você terá que "
 "autorizar o Shotwell Connect a se conectar à sua conta do Flickr."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
@@ -3908,6 +3936,9 @@ msgstr "Xadrez"
 msgid "Blinds"
 msgstr "Escuro"
 
+#~ msgid "Adjust the size of the thumbnails"
+#~ msgstr "Ajustar o tamanho das miniaturas"
+
 #~ msgid "S_lideshow"
 #~ msgstr "Exibição de s_lides"
 
@@ -4103,14 +4134,8 @@ msgstr "Escuro"
 #~ msgid "Next Photo"
 #~ msgstr "Próxima foto"
 
-#~ msgid "Zoom _In"
-#~ msgstr "_Ampliar"
-
 #~ msgid "Increase the magnification of the photo"
 #~ msgstr "Aumentar a ampliação da foto"
-
-#~ msgid "Zoom _Out"
-#~ msgstr "_Reduzir"
 
 #~ msgid "Decrease the magnification of the photo"
 #~ msgstr "Diminuir a ampliação da foto"

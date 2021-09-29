@@ -22,7 +22,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int TRINKET_SCALE = 24;
     public const int TRINKET_PADDING = 1;
 
-    public const double ZOOM_INCREMENT_SIZE = 0.03;
+    public const double ZOOM_INCREMENT_SIZE = 0.02;
     public const int PAN_INCREMENT_SIZE = 64; /* in pixels */
     public const int TOOL_WINDOW_SEPARATOR = 8;
     public const int PIXBUF_CACHE_COUNT = 5;
@@ -58,7 +58,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private Gtk.ToggleButton? adjust_button = null;
     private Gtk.ToggleButton? straighten_button = null;
     protected Gtk.ToggleButton? enhance_button = null;
-    private SliderAssembly zoom_slider = null;
+    private SliderAssembly zoom_assembly = null;
     private Gtk.Button prev_button = null;
     private Gtk.Button next_button = null;
     private EditingTools.EditingTool current_tool = null;
@@ -150,14 +150,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
             snap_zoom_to_isomorphic ();
         });
 
-        zoom_slider = new SliderAssembly (0, 1.1, 0.1, 0);
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        zoom_assembly = new SliderAssembly (0, 1.1, 0.02, 0);
+        zoom_assembly.value_changed.connect (on_zoom_assembly_value_changed);
 
         var zoom_group = new Gtk.Grid ();
         zoom_group.column_spacing = 6;
         zoom_group.add (zoom_fit);
         zoom_group.add (zoom_original);
-        zoom_group.add (zoom_slider);
+        zoom_group.add (zoom_assembly);
 
         var group_wrapper = new Gtk.ToolItem ();
         group_wrapper.add (zoom_group);
@@ -207,8 +207,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         get_view ().ordering_changed.disconnect (on_view_contents_ordering_altered);
     }
 
-    private void on_zoom_slider_value_changed () {
-        ZoomState new_zoom_state = ZoomState.rescale (get_zoom_state (), zoom_slider.slider_value);
+    private void on_zoom_assembly_value_changed () {
+        ZoomState new_zoom_state = ZoomState.rescale (get_zoom_state (), zoom_assembly.slider_value);
 
         if (new_zoom_state.is_default ()) {
             cancel_zoom ();
@@ -258,9 +258,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     private double snap_interpolation_factor (double interp) {
-        if (interp < 0.03)
-            interp = 0.0;
-        else if (interp > 0.97)
+        if (interp < 0.02)
+            interp = 0.02;
+        else if (interp > 1.0)
             interp = 1.0;
 
         return interp;
@@ -270,17 +270,18 @@ public abstract class EditingHostPage : SinglePhotoPage {
         return snap_interpolation_factor (get_zoom_state ().get_interpolation_factor () + adjustment);
     }
 
+    bool zooming = false;
     private void zoom_about_event_cursor_point (Gdk.EventScroll event, double zoom_increment) {
-        if (photo_missing)
+        if (photo_missing || zooming) {
             return;
+        }
+
+        zooming = true;
 
         Gdk.Point cursor_wrt_viewport_center = get_cursor_wrt_viewport_center (event);
         Gdk.Point iso_pixel_under_cursor = get_iso_pixel_under_cursor (event);
 
-        double interp = adjust_interpolation_factor (zoom_increment);
-        zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
-        zoom_slider.slider_value = interp;
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        double interp = adjust_interpolation_factor (get_ctrl_pressed () ? zoom_increment / 5.0 : zoom_increment);
 
         ZoomState new_zoom_state = ZoomState.rescale (get_zoom_state (), interp);
 
@@ -301,23 +302,32 @@ public abstract class EditingHostPage : SinglePhotoPage {
         set_zoom_state (new_zoom_state);
         repaint ();
 
-        update_cursor_for_zoom_context ();
+        Idle.add (() => {
+            update_cursor_for_zoom_context ();
+
+            zoom_assembly.value_changed.disconnect (on_zoom_assembly_value_changed);
+            zoom_assembly.slider_value = interp;
+            zoom_assembly.value_changed.connect (on_zoom_assembly_value_changed);
+
+            zooming = false;
+            return Source.REMOVE;
+        });
     }
 
     protected void snap_zoom_to_min () {
-        zoom_slider.slider_value = 0.0;
+        zoom_assembly.slider_value = 0.0;
     }
 
     protected void snap_zoom_to_max () {
-        zoom_slider.slider_value = 1.0;
+        zoom_assembly.slider_value = 1.0;
     }
 
     protected void snap_zoom_to_isomorphic () {
         ZoomState iso_state = ZoomState.rescale_to_isomorphic (get_zoom_state ());
-        zoom_slider.slider_value = iso_state.get_interpolation_factor ();
+        zoom_assembly.slider_value = iso_state.get_interpolation_factor ();
     }
 
-    protected virtual bool on_zoom_slider_key_press (Gdk.EventKey event) {
+    protected virtual bool on_zoom_assembly_key_press (Gdk.EventKey event) {
         switch (Gdk.keyval_name (event.keyval)) {
         case "equal":
         case "plus":
@@ -344,16 +354,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected virtual void on_increase_size () {
-        zoom_slider.increase_step ();
+        zoom_assembly.increase_step ();
     }
 
     protected virtual void on_decrease_size () {
-        zoom_slider.decrease_step ();
+        zoom_assembly.decrease_step ();
     }
 
     protected override void save_zoom_state () {
         base.save_zoom_state ();
-        saved_slider_val = zoom_slider.slider_value;
+        saved_slider_val = zoom_assembly.slider_value;
     }
 
     protected override ZoomBuffer? get_zoom_buffer () {
@@ -361,33 +371,39 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_mousewheel_up (Gdk.EventScroll event) {
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
-            return false;
+        if (get_ctrl_pressed ()) {
+            if (zoom_assembly.get_sensitive ()) {
+                zoom_about_event_cursor_point (
+                    event, get_alt_pressed () ? ZOOM_INCREMENT_SIZE : ZOOM_INCREMENT_SIZE * 5.0
+                );
+            }
+        } else {
+            //TODO Handle panning/switching photo on unmodified scroll/swipe
+        }
 
-        if (get_zoom_state ().is_max () || !zoom_slider.get_sensitive ())
-            return false;
-
-        zoom_about_event_cursor_point (event, ZOOM_INCREMENT_SIZE);
         return false;
     }
 
     protected override bool on_mousewheel_down (Gdk.EventScroll event) {
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) == 0)
-            return false;
+        if (get_ctrl_pressed ()) {
+            if (zoom_assembly.get_sensitive ()) {
+                zoom_about_event_cursor_point (
+                    event, get_alt_pressed () ? -ZOOM_INCREMENT_SIZE : -ZOOM_INCREMENT_SIZE * 5.0
+                );
+            }
+        } else {
+            //TODO Handle panning/switching photo on unmodified scroll/swipe
+        }
 
-        if (get_zoom_state ().is_min () || !zoom_slider.get_sensitive ())
-            return false;
-
-        zoom_about_event_cursor_point (event, -ZOOM_INCREMENT_SIZE);
         return false;
     }
 
     protected override void restore_zoom_state () {
         base.restore_zoom_state ();
 
-        zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
-        zoom_slider.slider_value = saved_slider_val;
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        zoom_assembly.value_changed.disconnect (on_zoom_assembly_value_changed);
+        zoom_assembly.slider_value = saved_slider_val;
+        zoom_assembly.value_changed.connect (on_zoom_assembly_value_changed);
     }
 
     public override bool is_zoom_supported () {
@@ -448,9 +464,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     private void set_photo (Photo photo) {
-        zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
-        zoom_slider.slider_value = 0.0;
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        zoom_assembly.value_changed.disconnect (on_zoom_assembly_value_changed);
+        zoom_assembly.slider_value = 0.0;
+        zoom_assembly.value_changed.connect (on_zoom_assembly_value_changed);
         photo_changing (photo);
         DataView view = get_view ().get_view_for_source (photo);
         assert (view != null);
@@ -730,7 +746,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         redeye_button.sensitive = sensitivity;
         adjust_button.sensitive = sensitivity;
         enhance_button.sensitive = sensitivity;
-        zoom_slider.sensitive = sensitivity;
+        zoom_assembly.sensitive = sensitivity;
 
         deactivate_tool ();
     }
@@ -865,8 +881,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     protected override void cancel_zoom () {
         base.cancel_zoom ();
 
-        zoom_slider.value_changed.disconnect (on_zoom_slider_value_changed);
-        zoom_slider.value_changed.connect (on_zoom_slider_value_changed);
+        zoom_assembly.value_changed.disconnect (on_zoom_assembly_value_changed);
+        zoom_assembly.value_changed.connect (on_zoom_assembly_value_changed);
 
         if (get_photo () != null)
             set_zoom_state (ZoomState (get_photo ().get_dimensions (), get_surface_dim (), 0.0));
@@ -1041,7 +1057,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // save the zoom state and cancel zoom so that the user can see all of the original
         // photo
-        if (zoom_slider.slider_value != 0.0) {
+        if (zoom_assembly.slider_value != 0.0) {
             save_zoom_state ();
             cancel_zoom ();
         }
@@ -1188,7 +1204,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         // if no editing tool, then determine whether we should start a pan operation over the
         // zoomed photo or fall through to the default DnD behavior if we're not zoomed
-        if ((current_tool == null) && (zoom_slider.slider_value != 0.0)) {
+        if ((current_tool == null) && (zoom_assembly.slider_value != 0.0)) {
             zoom_pan_start_point.x = (int) event.x;
             zoom_pan_start_point.y = (int) event.y;
             is_pan_in_progress = true;
@@ -1388,7 +1404,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
         // if the user pressed the "0", "1" or "2" keys then handle the event as if were
         // directed at the zoom slider ("0", "1" and "2" are hotkeys that jump to preset
         // zoom levels
-        if (on_zoom_slider_key_press (event))
+        if (on_zoom_assembly_key_press (event))
             return true;
 
         bool handled = true;
@@ -1673,13 +1689,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private void on_tool_activated () {
         assert (current_editing_toggle != null);
-        zoom_slider.set_sensitive (false);
+        zoom_assembly.set_sensitive (false);
         current_editing_toggle.active = true;
     }
 
     private void on_tool_deactivated () {
         assert (current_editing_toggle != null);
-        zoom_slider.set_sensitive (true);
+        zoom_assembly.set_sensitive (true);
         current_editing_toggle.active = false;
     }
 
