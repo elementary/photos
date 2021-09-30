@@ -124,7 +124,6 @@ public class MetadataDateTime {
         switch (month) {
             case 4:
             case 6:
-            case 8:
             case 9:
             case 11:
                 if (day > 30) {
