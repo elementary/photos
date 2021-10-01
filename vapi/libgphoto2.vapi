@@ -1,4 +1,5 @@
 /* Copyright 2009-2013 Yorba Foundation
+ * Copyright 2016 Software Freedom Conservancy Inc.
  *
  * This software is licensed under the GNU LGPL (version 2.1 or later).
  * See the COPYING file in this distribution.
@@ -28,7 +29,7 @@ namespace GPhoto {
         public int usb_class;
         public int usb_protocol;
     }
-    
+
     [Compact]
     [CCode (
         cname="CameraAbilitiesList",
@@ -46,7 +47,7 @@ namespace GPhoto {
         public int lookup_model(string model);
         public Result get_abilities(int index, out CameraAbilities abilities);
     }
-    
+
     [Compact]
     [CCode (
         cname="Camera",
@@ -64,8 +65,8 @@ namespace GPhoto {
         public Result set_port_info(PortInfo info);
         public Result get_abilities(out CameraAbilities abilities);
         public Result set_abilities(CameraAbilities abilities);
-        public Result get_storageinfo(CameraStorageInformation **sifs, out int count, Context context);
-        
+        public Result get_storageinfo([CCode (array_length_pos=1.1)]out CameraStorageInformation[] sifs, Context context);
+
         // Folders
         [CCode (cname="gp_camera_folder_list_folders")]
         public Result list_folders(string folder, CameraList list, Context context);
@@ -74,12 +75,12 @@ namespace GPhoto {
         [CCode (cname="gp_camera_folder_delete_all")]
         public Result delete_all_files(string folder, Context context);
         [CCode (cname="gp_camera_folder_put_file")]
-        public Result put_file(string folder, CameraFile file, Context context);
+        public Result put_file(string folder, string filename, CameraFileType type, CameraFile file, Context context);
         [CCode (cname="gp_camera_folder_make_dir")]
         public Result make_dir(string folder, string name, Context context);
         [CCode (cname="gp_camera_folder_remove_dir")]
         public Result remove_dir(string folder, string name, Context context);
-        
+
         // Files
         [CCode (cname="gp_camera_file_get_info")]
         public Result get_file_info(string folder, string file, out CameraFileInfo info, Context context);
@@ -91,7 +92,7 @@ namespace GPhoto {
         [CCode (cname="gp_camera_file_delete")]
         public Result delete_file(string folder, string filename, Context context);
     }
-    
+
     [Compact]
     [CCode (
         cname="CameraFile",
@@ -104,11 +105,14 @@ namespace GPhoto {
     public class CameraFile {
         [CCode (cname="gp_file_new")]
         public static Result create(out CameraFile file);
-        public Result get_data_and_size(out uint8 *data, out ulong data_len);
+        [CCode (cname="gp_file_new_from_fd")]
+        public static Result create_from_fd(out CameraFile file, int fd);
+        [CCode (cname="gp_file_get_data_and_size")]
+        public Result get_data([CCode (array_length_pos=1.1, array_length_type="gulong")]out unowned uint8[] data);
         public Result save(string filename);
         public Result slurp(uint8[] data, out size_t readlen);
     }
-    
+
     [SimpleType]
     [CCode (
         cname="CameraFileInfo",
@@ -120,7 +124,7 @@ namespace GPhoto {
         public CameraFileInfoFile file;
         public CameraFileInfoAudio audio;
     }
-    
+
     [SimpleType]
     [CCode (
         cname="CameraFileInfoAudio",
@@ -128,7 +132,7 @@ namespace GPhoto {
     )]
     public struct CameraFileInfoAudio {
     }
-    
+
     [CCode (
         cname="CameraFileInfoFields",
         cheader_filename="gphoto2/gphoto2-filesys.h",
@@ -138,7 +142,6 @@ namespace GPhoto {
     public enum CameraFileInfoFields {
         NONE,
         TYPE,
-        NAME,
         SIZE,
         WIDTH,
         HEIGHT,
@@ -147,7 +150,7 @@ namespace GPhoto {
         MTIME,
         ALL
     }
-    
+
     [SimpleType]
     [CCode (
         cname="CameraFileInfoFile",
@@ -157,14 +160,13 @@ namespace GPhoto {
         public CameraFileInfoFields fields;
         public CameraFileStatus status;
         public ulong size;
-        public string type;
+        public char type[64];
         public uint width;
         public uint height;
-        public string name;
         public CameraFilePermissions permissions;
         public time_t mtime;
     }
-    
+
     [SimpleType]
     [CCode (
         cname="CameraFileInfoPreview",
@@ -174,14 +176,11 @@ namespace GPhoto {
         public CameraFileInfoFields fields;
         public CameraFileStatus status;
         public ulong size;
-        public string type;
+        public char type[64];
         public uint width;
         public uint height;
-        public string name;
-        public CameraFilePermissions permissions;
-        public time_t mtime;
     }
-    
+
     [CCode (
         cname="CameraFileOperation",
         cheader_filename="gphoto2/gphoto2-abilities-list.h",
@@ -196,7 +195,7 @@ namespace GPhoto {
         AUDIO,
         EXIF
     }
-    
+
     [CCode (
         cname="CameraFilePermissions",
         cheader_filename="gphoto2/gphoto2-filesys.h",
@@ -209,7 +208,7 @@ namespace GPhoto {
         DELETE,
         ALL
     }
-    
+
     [CCode (
         cname="CameraFileStatus",
         cheader_filename="gphoto2/gphoto2-filesys.h",
@@ -219,7 +218,7 @@ namespace GPhoto {
         NOT_DOWNLOADED,
         DOWNLOADED
     }
-    
+
     [CCode (
         cname="CameraFileType",
         cheader_filename="gphoto2/gphoto2-file.h",
@@ -233,7 +232,7 @@ namespace GPhoto {
         EXIF,
         METADATA
     }
-    
+
     [CCode (
         cname="CameraFolderOperation",
         cheader_filename="gphoto2/gphoto2-abilities-list.h",
@@ -247,7 +246,7 @@ namespace GPhoto {
         MAKE_DIR,
         REMOVE_DIR
     }
-    
+
     [Compact]
     [CCode (
         cname="CameraList",
@@ -264,14 +263,14 @@ namespace GPhoto {
         public Result append(string name, string value);
         public Result reset();
         public Result sort();
-        public Result find_by_name(out int? index, string name);
+        public Result find_by_name(out int index, string name);
         public Result get_name(int index, out unowned string name);
         public Result get_value(int index, out unowned string value);
         public Result set_name(int index, string name);
         public Result set_value(int index, string value);
         public Result populate(string format, int count);
     }
-    
+
     [CCode (
         cname="CameraOperation",
         cheader_filename="gphoto2/gphoto2-abilities-list.h",
@@ -286,7 +285,7 @@ namespace GPhoto {
         CAPTURE_PREVIEW,
         CONFIG
     }
-    
+
     [CCode (
         cname="CameraStorageInfoFields",
         cheader_filename="gphoto2/gphoto2-filesys.h",
@@ -304,7 +303,7 @@ namespace GPhoto {
         FREESPACEKBYTES,
         FREESPACEIMAGES
     }
-    
+
     [SimpleType]
     [CCode (
         cname="CameraStorageInformation",
@@ -312,9 +311,9 @@ namespace GPhoto {
     )]
     public struct CameraStorageInformation {
         public CameraStorageInfoFields fields;
-        public string basedir;
-        public string label;
-        public string description;
+        public char basedir[256];
+        public char label[256];
+        public char description[256];
         public int type;
         public int fstype;
         public int access;
@@ -322,7 +321,7 @@ namespace GPhoto {
         public ulong freekbytes;
         public ulong freeimages;
     }
-    
+
     [Compact]
     [CCode (
         ref_function="GPHOTO_REF_CONTEXT",
@@ -334,29 +333,29 @@ namespace GPhoto {
         public Context();
         public void set_idle_func(ContextIdleFunc func);
         public void set_progress_funcs(
-            [CCode (delegate_target_pos=3.1)] ContextProgressStartFunc startFunc, 
-            [CCode (delegate_target_pos=3.1)] ContextProgressUpdateFunc updateFunc, 
+            [CCode (delegate_target_pos=3.1)] ContextProgressStartFunc startFunc,
+            [CCode (delegate_target_pos=3.1)] ContextProgressUpdateFunc updateFunc,
             [CCode (delegate_target_pos=3.1)] ContextProgressStopFunc stopFunc);
         public void set_error_func([CCode (delegate_target_pos=3.1)] ContextErrorFunc errorFunc);
         public void set_status_func([CCode (delegate_target_pos=3.1)] ContextStatusFunc statusFunc);
         public void set_message_func([CCode (delegate_target_pos=3.1)] ContextMessageFunc messageFunc);
     }
-    
+
     public delegate void ContextIdleFunc(Context context);
-    
+
     public delegate void ContextErrorFunc(Context context, string text);
-    
+
     public delegate void ContextStatusFunc(Context context, string text);
-    
+
     public delegate void ContextMessageFunc(Context context, string text);
-    
+
     // TODO: Support for va_args in Vala, esp. for delegates?
     public delegate uint ContextProgressStartFunc(Context context, float target, string text);
-    
+
     public delegate void ContextProgressUpdateFunc(Context context, uint id, float current);
-    
+
     public delegate void ContextProgressStopFunc(Context context, uint id);
-    
+
     [CCode (
         cheader_filename="gphoto2/gphoto2-file.h",
         cprefix="GP_MIME_"
@@ -382,7 +381,7 @@ namespace GPhoto {
         public const string ASF;
         public const string MPEG;
     }
-    
+
     [SimpleType]
     [CCode (
         destroy_function="",
@@ -402,7 +401,7 @@ namespace GPhoto {
         [CCode (cname="gp_port_info_set_library_filename")]
         public int set_library_filename(string lib);
     }
-    
+
     [Compact]
     [CCode (
         free_function="gp_port_info_list_free",
@@ -417,7 +416,7 @@ namespace GPhoto {
         public int lookup_path(string name);
         public Result get_info(int index, out PortInfo info);
     }
-    
+
     [CCode (
         cheader_filename="gphoto2/gphoto2-port-info-list.h",
         cprefix="GP_PORT_"
@@ -430,7 +429,7 @@ namespace GPhoto {
         DISK,
         PTPIP
     }
-    
+
     [CCode (
         cname="int",
         cheader_filename="gphoto2/gphoto2-result.h,gphoto2/gphoto2-port-result.h",
@@ -472,24 +471,25 @@ namespace GPhoto {
         CANCEL,
         CAMERA_ERROR,
         OS_FAILURE;
-        
+
         [CCode (cname="gp_port_result_as_string")]
         public unowned string as_string();
-        
+
         public string to_full_string() {
             return "%s (%d)".printf(as_string(), this);
         }
     }
-    
+
     [CCode (
         cheader_filename="gphoto2/gphoto2-version.h",
-        cprefix="GP_VERSION"
+        cprefix="GP_VERSION_"
     )]
     public enum VersionVerbosity {
         SHORT,
         VERBOSE
     }
-    
+
     public unowned string library_version(VersionVerbosity verbosity);
 }
+
 
