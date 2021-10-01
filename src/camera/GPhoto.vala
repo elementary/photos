@@ -132,11 +132,11 @@ public Bytes? camera_file_to_bytes (Context context, CameraFile file) {
     // CameraFile being the owner of the data. This way, the CameraFile is freed
     // when the Bytes are freed
     unowned uint8[] buffer = null;
-    var res = file.get_data(out buffer);
+    var res = file.get_data (out buffer);
     if (res != Result.OK)
         return null;
 
-    return Bytes.new_with_owner<GPhoto.CameraFile>(buffer, file);
+    return Bytes.new_with_owner<GPhoto.CameraFile> (buffer, file);
 }
 
 // Libgphoto will in some instances refuse to get metadata from a camera, but the camera is accessable as a
