@@ -112,9 +112,6 @@ public class MetadataDateTime {
             }
         }
 
-        GLib.DateTime? test_date_time = new DateTime.local (-1, -1, -1, -1, -1, -1);
-        assert (test_date_time == null);
-
         GLib.DateTime? date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
 
         if (date_time == null) {
