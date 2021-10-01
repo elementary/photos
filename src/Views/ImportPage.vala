@@ -312,10 +312,8 @@ class ImportPreview : CheckerboardItem {
             pixbuf = icon_theme.load_icon ("image-missing", 48, 0);
         } catch (Error e) {
             // Create an empty black pixbuf as a fallback
-            pixbuf = new Gdk.Pixbuf (Gdk.Colorspace.RGB, false, 8, 50, 50);
+            pixbuf = new Gdk.Pixbuf (Gdk.Colorspace.RGB, false, 8, 48, 48);
             pixbuf.fill (0);
-
-            warning("Could not load icon from theme: %s", e.message);
         }
 
         return pixbuf;
