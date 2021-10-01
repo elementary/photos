@@ -278,8 +278,7 @@ class ImportPreview : CheckerboardItem {
         bool using_placeholder = (pixbuf == null);
         if (pixbuf == null) {
             if (placeholder_preview == null) {
-                placeholder_preview = AppWindow.get_instance ().render_icon ("image-missing",
-                                      Gtk.IconSize.DIALOG, null);
+                placeholder_preview = get_placeholder_pixbuf ();
                 placeholder_preview = scale_pixbuf (placeholder_preview, MAX_SCALE,
                                                     Gdk.InterpType.BILINEAR, true);
             }
@@ -303,6 +302,23 @@ class ImportPreview : CheckerboardItem {
         }
 
         set_image (pixbuf);
+    }
+
+    private Gdk.Pixbuf get_placeholder_pixbuf () {
+        Gdk.Pixbuf? pixbuf = null;
+
+        try {
+            var icon_theme = Gtk.IconTheme.get_default ();
+            pixbuf = icon_theme.load_icon ("image-missing", 48, 0);
+        } catch (Error e) {
+            // Create an empty black pixbuf as a fallback
+            pixbuf = new Gdk.Pixbuf (Gdk.Colorspace.RGB, false, 8, 50, 50);
+            pixbuf.fill (0);
+
+            warning("Could not load icon from theme: %s", e.message);
+        }
+
+        return pixbuf;
     }
 
     public bool is_already_imported () {
@@ -1250,11 +1266,10 @@ public class ImportPage : CheckerboardPage {
 
         Gee.ArrayList<ImportSource> import_list = new Gee.ArrayList<ImportSource> ();
 
-        GPhoto.CameraStorageInformation *sifs = null;
-        int count = 0;
-        refresh_result = camera.get_storageinfo (&sifs, out count, spin_idle_context.context);
+        GPhoto.CameraStorageInformation[] sifs = null;
+        refresh_result = camera.get_storageinfo (out sifs, spin_idle_context.context);
         if (refresh_result == GPhoto.Result.OK) {
-            for (int fsid = 0; fsid < count; fsid++) {
+            for (int fsid = 0; fsid < sifs.length; fsid++) {
                 // Check well-known video and image paths first to prevent accidental
                 // scanning of undesired directories (which can cause user annoyance with
                 // some smartphones or camera-equipped media players)
@@ -1389,18 +1404,15 @@ public class ImportPage : CheckerboardPage {
     // Need to do this because some phones (iPhone, in particular) changes the name of their filesystem
     // between each mount
     public static string? get_fs_basedir (GPhoto.Camera camera, int fsid) {
-        GPhoto.CameraStorageInformation *sifs = null;
-        int count = 0;
-        GPhoto.Result res = camera.get_storageinfo (&sifs, out count, null_context.context);
+        GPhoto.CameraStorageInformation[] sifs = null;
+        GPhoto.Result res = camera.get_storageinfo (out sifs, null_context.context);
         if (res != GPhoto.Result.OK)
             return null;
 
-        if (fsid >= count)
+        if (fsid >= sifs.length)
             return null;
 
-        GPhoto.CameraStorageInformation *ifs = sifs + fsid;
-
-        return (ifs->fields & GPhoto.CameraStorageInfoFields.BASE) != 0 ? ifs->basedir : "/";
+        return (sifs[fsid].fields & GPhoto.CameraStorageInfoFields.BASE) != 0 ? (string)sifs[fsid].basedir : "/";
     }
 
     public static string? get_fulldir (GPhoto.Camera camera, string camera_name, int fsid, string folder) {
@@ -1474,12 +1486,12 @@ public class ImportPage : CheckerboardPage {
                     import_list.add (video_source);
                 } else {
                     // determine file format from type, and then from file extension
-                    PhotoFileFormat file_format = PhotoFileFormat.from_gphoto_type (info.file.type);
+                    PhotoFileFormat file_format = PhotoFileFormat.from_gphoto_type ((string)info.file.type);
                     if (file_format == PhotoFileFormat.UNKNOWN) {
                         file_format = PhotoFileFormat.get_by_basename_extension (filename);
                         if (file_format == PhotoFileFormat.UNKNOWN) {
                             message ("Skipping %s/%s: Not a supported file extension (%s)", fulldir,
-                                     filename, info.file.type);
+                                     filename, (string)info.file.type);
 
                             continue;
                         }
@@ -1627,9 +1639,8 @@ public class ImportPage : CheckerboardPage {
             // this means the preview orientation will be wrong and the MD5 is not generated
             // if the EXIF did not parse properly (see above)
 
-            uint8[] preview_raw = null;
-            size_t preview_raw_length = 0;
             Gdk.Pixbuf preview = null;
+            string? preview_md5 = null;
             try {
                 string preview_fulldir = fulldir;
                 string preview_filename = filename;
@@ -1638,7 +1649,7 @@ public class ImportPage : CheckerboardPage {
                     preview_filename = associated.filename;
                 }
                 preview = GPhoto.load_preview (spin_idle_context.context, camera, preview_fulldir,
-                                               preview_filename, out preview_raw, out preview_raw_length);
+                                               preview_filename, out preview_md5);
             } catch (Error err) {
                 // only issue the warning message if we're not reading a video. GPhoto is capable
                 // of reading video previews about 50% of the time, so we don't want to put a guard
@@ -1649,11 +1660,6 @@ public class ImportPage : CheckerboardPage {
                     warning ("Unable to fetch preview for %s/%s: %s", fulldir, filename, err.message);
                 }
             }
-
-            // calculate thumbnail fingerprint
-            string? preview_md5 = null;
-            if (preview != null && preview_raw != null && preview_raw_length > 0)
-                preview_md5 = md5_binary (preview_raw, preview_raw_length);
 
 #if TRACE_MD5
             debug ("camera MD5 %s: exif=%s preview=%s", filename, exif_only_md5, preview_md5);
