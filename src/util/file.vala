@@ -168,7 +168,7 @@ public int64 query_file_modified (File file) throws Error {
     FileInfo info = file.query_info (FileAttribute.TIME_MODIFIED, FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
     null);
 
-    return info.get_modification_time ().tv_sec;
+    return info.get_modification_date_time ().to_unix ();
 }
 
 public bool query_is_directory (File file) {
