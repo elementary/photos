@@ -112,39 +112,15 @@ public class MetadataDateTime {
             }
         }
 
-        // watch for bogosity
-        if (year <= 0 || month <= 0 || day < 0 || hour < 0 || minute < 0 || second < 0) {
+        GLib.DateTime? test_date_time = new DateTime.local (-1, -1, -1, -1, -1, -1);
+        assert (test_date_time == null);
+
+        GLib.DateTime? date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
+
+        if (date_time == null) {
             return false;
         }
 
-        if (month > 12 || hour >= 24 || minute >= 60 || second >= 60) {
-            return false;
-        }
-
-        switch (month) {
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                if (day > 30) {
-                    return false;
-                }
-                break;
-            case 2:
-                // Oops, no leap check, this will cause errors if metadata claims to be from February 29th on a non-leap-year
-                // It may be safer to just forbid parsing dates for any feburary 29th
-                if (day > 29) {
-                    return false;
-                }
-                break;
-            default:
-                if (day > 31) {
-                    return false;
-                }
-                break;
-        }
-
-        var date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
         timestamp = date_time.to_unix ();
 
         return true;
