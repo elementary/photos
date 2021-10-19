@@ -407,16 +407,16 @@ public class ViewCollection : DataCollection {
     public override bool add (DataObject object) {
         ((DataView) object).internal_set_visible (true);
 
-        if (!base.add (object))
+        if (!base.add (object)) {
             return false;
+        }
 
         filter_altered_items ((Gee.Collection<DataView>) get_singleton (object));
 
         return true;
     }
 
-    public override Gee.Collection<DataObject> add_many (Gee.Collection<DataObject> objects,
-            ProgressMonitor? monitor = null) {
+    public override Gee.Collection<DataObject> add_many (Gee.Collection<DataObject> objects, ProgressMonitor? monitor = null) {
         foreach (DataObject object in objects)
             ((DataView) object).internal_set_visible (true);
 

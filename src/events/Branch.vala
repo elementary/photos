@@ -102,11 +102,11 @@ public class Events.Branch : Sidebar.Branch {
         }
 
         if (a is Events.DirectoryEntry && b is Events.DirectoryEntry) {
-            if (a is Events.YearDirectoryEntry) {
+            if (a is Events.YearDirectoryEntry && b is Events.YearDirectoryEntry) {
                 return ((Events.YearDirectoryEntry) a).get_year () - ((Events.YearDirectoryEntry) b).get_year ();
-            } else if (a is Events.MonthDirectoryEntry) {
+            } else if (a is Events.MonthDirectoryEntry && b is Events.MonthDirectoryEntry) {
                 return ((Events.MonthDirectoryEntry) a).get_month () - ((Events.MonthDirectoryEntry) b).get_month ();
-            } else if (a is Events.DayDirectoryEntry) {
+            } else if (a is Events.DayDirectoryEntry && b is Events.DayDirectoryEntry) {
                 return ((Events.DayDirectoryEntry) a).get_day_of_month () - ((Events.DayDirectoryEntry) b).get_day_of_month ();
             }
         } else if (a is Events.EventEntry && b is Events.EventEntry) {
@@ -343,8 +343,9 @@ public class Events.Branch : Sidebar.Branch {
     }
 
     private void add_undated_event (Event event) {
-        if (!has_entry (undated_entry))
+        if (!has_entry (undated_entry)) {
             graft (get_root (), undated_entry);
+        }
 
         graft_event (undated_entry, event);
     }

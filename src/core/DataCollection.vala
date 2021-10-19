@@ -346,7 +346,6 @@ public class DataCollection {
         foreach (DataObject object in objects) {
             if (internal_contains (object)) {
                 debug ("%s cannot add %s: already present", to_string (), object.to_string ());
-
                 continue;
             }
 
