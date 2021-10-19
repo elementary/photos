@@ -229,7 +229,6 @@ public class Events.Branch : Sidebar.Branch {
         }
 
         day = new Events.DayDirectoryEntry (event_tm.format (SubEventsDirectoryPage.DAY_FORMAT), event_tm);
-message ("Made new day %s", day.to_string ());
         if (month != null) {
             graft (month, day);
             graft_event (day, event);
@@ -239,15 +238,11 @@ message ("Made new day %s", day.to_string ());
         if (year == null) {
             year = new Events.YearDirectoryEntry (event_tm.format (SubEventsDirectoryPage.YEAR_FORMAT),
                                                   event_tm);
-message ("made new year entry %s", year.to_string ());
             graft (get_root (), year);
-        } else {
-message ("existing year %s", year.to_string ());
         }
 
         month = new Events.MonthDirectoryEntry (event_tm.format (SubEventsDirectoryPage.MONTH_FORMAT),
                                                 event_tm);
-message ("made new month %s", month.to_string ());
 
         graft (year, month);
         graft (month, day);
@@ -507,13 +502,13 @@ public class Events.DayDirectoryEntry : Events.DirectoryEntry {
         return name;
     }
 
-    // public int get_year () {
-    //     return tm.get_year ();
-    // }
+    public int get_year () {
+        return tm.get_year ();
+    }
 
-    // public int get_month () {
-    //     return tm.get_month () + 1;
-    // }
+    public int get_month () {
+        return tm.get_month () + 1;
+    }
 
     public int get_day_of_month () {
         return tm.get_day_of_month () + 1;

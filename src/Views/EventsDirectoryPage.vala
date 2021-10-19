@@ -340,21 +340,30 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         public SubEventDirectoryManager (DirectoryType type, DateTime time) {
             base ();
 
-            if (type == DirectoryType.MONTH)
+            if (type == DirectoryType.DAY) {
+                day = time.get_day_of_month ();
+            }
+
+            if (type == DirectoryType.MONTH) {
                 month = time.get_month ();
+            }
+
             this.type = type;
             year = time.get_year ();
         }
 
         public override bool include_in_view (DataSource source) {
-            if (!base.include_in_view (source))
+            if (!base.include_in_view (source)) {
                 return false;
+            }
 
             EventSource event = (EventSource) source;
             DateTime event_time = new DateTime.from_unix_local (event.get_start_time ());
             if (event_time.get_year () == year) {
                 if (type == DirectoryType.MONTH) {
                     return (event_time.get_month () == month);
+                } else if (type == DirectoryType.DAY) {
+                    return (event_time.get_day_of_month () == day);
                 }
 
                 return true;
