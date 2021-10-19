@@ -89,9 +89,9 @@ public class Tags.Branch : Sidebar.Branch {
                 parent_tag = tag.get_hierarchical_parent ();
                 if (parent_tag != null) {
                     Tags.SidebarEntry parent_entry = entry_map.get (parent_tag);
-                    graft (parent_entry, entry);
+                    graft (parent_entry, entry, comparator);
                 } else {
-                    graft (get_root (), entry);
+                    graft (get_root (), entry, comparator);
                 }
 
                 // Save the most-recently-processed on tag.  During a reparenting,

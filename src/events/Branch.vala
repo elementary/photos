@@ -50,7 +50,7 @@ public class Events.Branch : Sidebar.Branch {
 
     public Branch () {
         base (new Events.MasterDirectoryEntry (), Sidebar.Branch.Options.STARTUP_EXPAND_TO_FIRST_CHILD,
-              event_year_comparator);
+              entry_comparator);
 
         // seed the branch
         foreach (DataObject object in Event.global.get_all ())
@@ -90,99 +90,83 @@ public class Events.Branch : Sidebar.Branch {
         return (Events.MasterDirectoryEntry) get_root ();
     }
 
-    private static int event_year_comparator (Sidebar.Entry a, Sidebar.Entry b) {
-        if (a == b)
+    private static int entry_comparator (Sidebar.Entry a, Sidebar.Entry b) {
+        if (a == b) {
             return 0;
+        }
 
+        if (!_sort_ascending) {
+            Sidebar.Entry swap = a;
+            a = b;
+            b = swap;
+        }
+
+        if (a is Events.DirectoryEntry && b is Events.DirectoryEntry) {
+            if (a is Events.YearDirectoryEntry) {
+                return ((Events.YearDirectoryEntry) a).get_year () - ((Events.YearDirectoryEntry) b).get_year ();
+            } else if (a is Events.MonthDirectoryEntry) {
+                return ((Events.MonthDirectoryEntry) a).get_month () - ((Events.MonthDirectoryEntry) b).get_month ();
+            } else if (a is Events.DayDirectoryEntry) {
+                return ((Events.DayDirectoryEntry) a).get_day_of_month () - ((Events.DayDirectoryEntry) b).get_day_of_month ();
+            }
+        } else if (a is Events.EventEntry && b is Events.EventEntry) {
+            var event_a = ((Events.EventEntry) a).event;
+            var event_b = ((Events.EventEntry) b).event;
+            if (event_a != null && event_b != null) {
+                int64 result = 0;
+                var start_a = event_a.get_start_time ();
+                var start_b = event_b.get_start_time ();
+                if (start_a > 0 && start_b > 0) {
+                    result = start_a - start_b;
+                    // to stabilize sort (events with the same start time are allowed)
+                    if (result == 0) {
+                        result = event_a.get_event_id ().id - event_b.get_event_id ().id;
+                    }
+                } else { // Undated event
+                    result = event_a.get_name ().collate (event_b.get_name ());
+                    // Sort events with same name by instance id.
+                    if (result == 0) {
+                        result = (int64) (event_b.get_instance_id () - event_a.get_instance_id ());
+                    }
+                }
+
+                return result < 0 ? -1 : 1;
+            }
+        }
+        // Undated and no event entries are not subject to sort order so reverse the swap
+        if (!_sort_ascending) {
+            Sidebar.Entry swap = a;
+            a = b;
+            b = swap;
+        }
+
+        return no_event_comparator (a, b);
+    }
+
+    private static int no_event_comparator (Sidebar.Entry a, Sidebar.Entry b) {
         // The Undated and No Event entries should always appear last in the
         // list, respectively.
         if (a is Events.UndatedDirectoryEntry) {
-            if (b is Events.NoEventEntry)
+            if (b is Events.NoEventEntry) {
                 return -1;
+            }
+
             return 1;
         } else if (b is Events.UndatedDirectoryEntry) {
-            if (a is Events.NoEventEntry)
+            if (a is Events.NoEventEntry) {
                 return 1;
+            }
+
             return -1;
         }
 
-        if (a is Events.NoEventEntry)
+        if (a is Events.NoEventEntry) {
             return 1;
-        else if (b is Events.NoEventEntry)
+        } else if (b is Events.NoEventEntry) {
             return -1;
-
-        if (!_sort_ascending) {
-            Sidebar.Entry swap = a;
-            a = b;
-            b = swap;
         }
 
-        int result =
-            ((Events.YearDirectoryEntry) a).get_year () - ((Events.YearDirectoryEntry) b).get_year ();
-        assert (result != 0);
-
-        return result;
-    }
-
-    private static int event_month_comparator (Sidebar.Entry a, Sidebar.Entry b) {
-        if (a == b)
-            return 0;
-
-        if (!_sort_ascending) {
-            Sidebar.Entry swap = a;
-            a = b;
-            b = swap;
-        }
-
-        int result =
-            ((Events.MonthDirectoryEntry) a).get_month () - ((Events.MonthDirectoryEntry) b).get_month ();
-        assert (result != 0);
-
-        return result;
-    }
-
-    private static int event_comparator (Sidebar.Entry a, Sidebar.Entry b) {
-        if (a == b)
-            return 0;
-
-        if (!_sort_ascending) {
-            Sidebar.Entry swap = a;
-            a = b;
-            b = swap;
-        }
-
-        int64 result = ((Events.EventEntry) a).get_event ().get_start_time ()
-                       - ((Events.EventEntry) b).get_event ().get_start_time ();
-
-        // to stabilize sort (events with the same start time are allowed)
-        if (result == 0) {
-            result = ((Events.EventEntry) a).get_event ().get_event_id ().id
-                     - ((Events.EventEntry) b).get_event ().get_event_id ().id;
-        }
-
-        assert (result != 0);
-
-        return (result < 0) ? -1 : 1;
-    }
-
-    private static int undated_event_comparator (Sidebar.Entry a, Sidebar.Entry b) {
-        if (a == b)
-            return 0;
-
-        if (!_sort_ascending) {
-            Sidebar.Entry swap = a;
-            a = b;
-            b = swap;
-        }
-
-        int ret = ((Events.EventEntry) a).get_event ().get_name ().collate (
-                      ((Events.EventEntry) b).get_event ().get_name ());
-
-        if (ret == 0)
-            ret = (int) (((Events.EventEntry) b).get_event ().get_instance_id () -
-                         ((Events.EventEntry) a).get_event ().get_instance_id ());
-
-        return ret;
+        assert_not_reached ();
     }
 
     public Events.EventEntry? get_entry_for_event (Event event) {
@@ -235,25 +219,39 @@ public class Events.Branch : Sidebar.Branch {
 
         DateTime event_tm = new DateTime.from_unix_local (event_time);
 
-        Sidebar.Entry? year;
-        Sidebar.Entry? month = find_event_month (event, event_tm, out year);
-        if (month != null) {
-            graft_event (month, event, event_comparator);
+        Sidebar.Entry? year, month;
+        Sidebar.Entry? day = find_event_day (event, event_tm, out year, out month);
 
+        if (day != null) {
+            graft_event (day, event);
+
+            return;
+        }
+
+        day = new Events.DayDirectoryEntry (event_tm.format (SubEventsDirectoryPage.DAY_FORMAT), event_tm);
+message ("Made new day %s", day.to_string ());
+        if (month != null) {
+            graft (month, day);
+            graft_event (day, event);
             return;
         }
 
         if (year == null) {
             year = new Events.YearDirectoryEntry (event_tm.format (SubEventsDirectoryPage.YEAR_FORMAT),
                                                   event_tm);
-            graft (get_root (), year, event_month_comparator);
+message ("made new year entry %s", year.to_string ());
+            graft (get_root (), year);
+        } else {
+message ("existing year %s", year.to_string ());
         }
 
         month = new Events.MonthDirectoryEntry (event_tm.format (SubEventsDirectoryPage.MONTH_FORMAT),
                                                 event_tm);
-        graft (year, month, event_comparator);
+message ("made new month %s", month.to_string ());
 
-        graft_event (month, event, event_comparator);
+        graft (year, month);
+        graft (month, day);
+        graft_event (day, event);
     }
 
     private void move_event (Event event) {
@@ -266,22 +264,28 @@ public class Events.Branch : Sidebar.Branch {
 
         DateTime event_tm = new DateTime.from_unix_local (event_time);
 
-        Sidebar.Entry? year;
-        Sidebar.Entry? month = find_event_month (event, event_tm, out year);
+        Sidebar.Entry? year, month;
+        Sidebar.Entry? day = find_event_day (event, event_tm, out year, out month);
 
         if (year == null) {
             year = new Events.YearDirectoryEntry (event_tm.format (SubEventsDirectoryPage.YEAR_FORMAT),
                                                   event_tm);
-            graft (get_root (), year, event_month_comparator);
+            graft (get_root (), year);
         }
 
         if (month == null) {
             month = new Events.MonthDirectoryEntry (event_tm.format (SubEventsDirectoryPage.MONTH_FORMAT),
                                                     event_tm);
-            graft (year, month, event_comparator);
+            graft (year, month);
         }
 
-        reparent_event (event, month);
+        if (day == null) {
+            day = new Events.DayDirectoryEntry (event_tm.format (SubEventsDirectoryPage.DAY_FORMAT),
+                                                    event_tm);
+            graft (month, day);
+        }
+
+        reparent_event (event, day);
     }
 
     private void remove_event (Event event) {
@@ -307,17 +311,28 @@ public class Events.Branch : Sidebar.Branch {
         }
     }
 
-    private Sidebar.Entry? find_event_month (Event event, DateTime event_tm, out Sidebar.Entry found_year) {
+    private Sidebar.Entry? find_event_day (Event event, DateTime event_tm, out Sidebar.Entry? found_year, out Sidebar.Entry? found_month) {
         // find the year first
         found_year = find_event_year (event, event_tm);
-        if (found_year == null)
+        if (found_year == null) {
             return null;
+        }
 
         int event_month = event_tm.get_month () + 1;
 
         // found the year, traverse the months
-        return find_first_child (found_year, (entry) => {
+        found_month = find_first_child (found_year, (entry) => {
             return ((Events.MonthDirectoryEntry) entry).get_month () == event_month;
+        });
+
+        if (found_month == null) {
+            return null;
+        }
+
+        int event_day = event_tm.get_day_of_month () + 1;
+
+        return find_first_child (found_month, (entry) => {
+            return ((Events.DayDirectoryEntry)entry).get_day_of_month () == event_day;
         });
     }
 
@@ -334,7 +349,7 @@ public class Events.Branch : Sidebar.Branch {
 
     private void add_undated_event (Event event) {
         if (!has_entry (undated_entry))
-            graft (get_root (), undated_entry, undated_event_comparator);
+            graft (get_root (), undated_entry);
 
         graft_event (undated_entry, event);
     }
@@ -470,8 +485,42 @@ public class Events.MonthDirectoryEntry : Events.DirectoryEntry {
         return tm.get_month () + 1;
     }
 
+    // public int get_day_of_month () {
+    //     return tm.get_day_of_month () + 1;
+    // }
+
     protected override Page create_page () {
         return new SubEventsDirectoryPage (SubEventsDirectoryPage.DirectoryType.MONTH, tm);
+    }
+}
+
+public class Events.DayDirectoryEntry : Events.DirectoryEntry {
+    private string name;
+    private DateTime tm;
+
+    public DayDirectoryEntry (string name, DateTime tm) {
+        this.name = name;
+        this.tm = tm;
+    }
+
+    public override string get_sidebar_name () {
+        return name;
+    }
+
+    // public int get_year () {
+    //     return tm.get_year ();
+    // }
+
+    // public int get_month () {
+    //     return tm.get_month () + 1;
+    // }
+
+    public int get_day_of_month () {
+        return tm.get_day_of_month () + 1;
+    }
+
+    protected override Page create_page () {
+        return new SubEventsDirectoryPage (SubEventsDirectoryPage.DirectoryType.DAY, tm);
     }
 }
 
@@ -491,18 +540,19 @@ public class Events.UndatedDirectoryEntry : Events.DirectoryEntry {
 
 public class Events.EventEntry : Sidebar.SimplePageEntry, Sidebar.RenameableEntry,
     Sidebar.InternalDropTargetEntry {
-    private Event event;
+    public Event event {get; construct;}
 
     public EventEntry (Event event) {
-        this.event = event;
-    }
-
-    public Event get_event () {
-        return event;
+        Object (event: event);
     }
 
     public override string get_sidebar_name () {
         return event.get_name ();
+    }
+
+    public override string? get_sidebar_tooltip () {
+        // Time in current timezone for simplicity - should it be the original timezone if different?
+        return (new DateTime.from_unix_local (event.get_start_time ())).format ("%R");
     }
 
     public override Icon? get_sidebar_icon () {

@@ -58,7 +58,7 @@ public class Searches.Branch : Sidebar.Branch {
         debug ("smart album added");
         Searches.SidebarEntry entry = new Searches.SidebarEntry (search);
         entry_map.set (search, entry);
-        graft (get_root (), entry);
+        graft (get_root (), entry, comparator);
     }
 
     private void on_saved_search_removed (SavedSearch search) {

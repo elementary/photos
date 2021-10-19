@@ -321,14 +321,18 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
     public enum DirectoryType {
         YEAR,
         MONTH,
+        DAY,
         UNDATED;
     }
 
     public const string UNDATED_PAGE_NAME = _ ("Undated");
     public const string YEAR_FORMAT = _ ("%Y");
     public const string MONTH_FORMAT = _ ("%OB");
+    ///TRANSLATORS The first placeholder represents the name of the day, the second represents the day number in the month
+    public const string DAY_FORMAT = _ ("%A %e");
 
     private class SubEventDirectoryManager : EventsDirectoryPage.EventDirectoryManager {
+        private int day = 0;
         private int month = 0;
         private int year = 0;
         DirectoryType type;
@@ -358,6 +362,10 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
             return false;
         }
 
+        public int get_day_of_month () {
+            return day;
+        }
+
         public int get_month () {
             return month;
         }
@@ -376,10 +384,15 @@ public class SubEventsDirectoryPage : EventsDirectoryPage {
         if (type == SubEventsDirectoryPage.DirectoryType.UNDATED) {
             page_name = UNDATED_PAGE_NAME;
         } else {
-            page_name = time.format ((type == DirectoryType.YEAR) ? YEAR_FORMAT : MONTH_FORMAT);
+            page_name = time.format ((type == DirectoryType.YEAR) ? YEAR_FORMAT :
+                                     (type == DirectoryType.MONTH) ? MONTH_FORMAT : DAY_FORMAT);
         }
 
         base (page_name, new SubEventDirectoryManager (type, time), null);
+    }
+
+    public int get_day_of_month () {
+        return ((SubEventDirectoryManager) view_manager).get_month ();
     }
 
     public int get_month () {

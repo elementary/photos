@@ -102,7 +102,7 @@ public class Library.Branch : Sidebar.Branch {
 
     private void insert (Sidebar.Entry entry, int position) {
         entry.set_data<int> (POSITION_DATA, position);
-        graft (get_root (), entry);
+        graft (get_root (), entry, comparator);
     }
 
     private void on_videos_visibility_changed () {

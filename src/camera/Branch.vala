@@ -75,7 +75,7 @@ public class Camera.Branch : Sidebar.Branch {
         camera_map.set (camera, entry);
 
         // want to show before adding page so the grouping is available to graft onto
-        graft (get_root (), entry);
+        graft (get_root (), entry, camera_comparator);
     }
 
     private void remove_camera (DiscoveredCamera camera) {
