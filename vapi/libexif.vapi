@@ -1,4 +1,5 @@
 /* Copyright 2009-2013 Yorba Foundation
+ * Copyright 2016 Software Freedom Conservancy Inc.
  *
  * This software is licensed under the GNU LGPL (version 2.1 or later).
  * See the COPYING file in this distribution.
@@ -63,7 +64,11 @@ namespace Exif {
         public static void set_slong(uchar *buffer, ByteOrder byteOrder, int32 val);
     }
 
-    [CCode (cheader_filename="libexif/exif-content.h", has_target=false)]
+    [CCode (
+        cheader_filename="libexif/exif-content.h",
+        has_target=false,
+        cname="ExifContentForeachEntryFunc"
+    )]
     public delegate void ForeachEntryFunc(Entry e, void *user);
 
     [Compact]
@@ -79,7 +84,7 @@ namespace Exif {
         [CCode (cname="exif_data_new")]
         public Data();
         public static Data? new_from_file(string path);
-        public static Data? new_from_data(uint8 *data, size_t count);
+        public static Data? new_from_data([CCode (array_length_pos=1.1)]uint8[] data);
         public void dump();
         public void fix();
         public void foreach_content(ForeachContentFunc cb, void *user = null);
@@ -90,14 +95,18 @@ namespace Exif {
         public void unset_option(DataOption option);
         public void save_data(uchar **buffer, uint *size);
         public void set_data_type(DataType data_type);
-        
+
         // length is Exif.IFD_COUNT
-        public Content[] ifd;
+        public Content ifd[Exif.IFD_COUNT];
         public uchar *data;
         public uint size;
     }
 
-    [CCode (cheader_filename="libexif/exif-data.h", has_target=false)]
+    [CCode (
+        cheader_filename="libexif/exif-data.h",
+        has_target=false,
+        cname="ExifDataForeachContentFunc"
+    )]
     public delegate void ForeachContentFunc(Content c, void *user);
 
     [CCode (
@@ -113,7 +122,7 @@ namespace Exif {
         public unowned string get_name();
         public unowned string get_description();
     }
-    
+
     [CCode (
         cname="ExifDataType",
         cheader_filename="libexif/exif-data-type.h",
@@ -124,7 +133,7 @@ namespace Exif {
         UNCOMPRESSED_PLANAR,
         UNCOMPRESSED_YCC,
         COMPRESSED;
-        
+
         public bool is_valid() {
             switch (this) {
                 case UNCOMPRESSED_CHUNKY:
@@ -132,16 +141,16 @@ namespace Exif {
                 case UNCOMPRESSED_YCC:
                 case COMPRESSED:
                     return true;
-                
+
                 default:
                     return false;
             }
         }
     }
-    
+
     [CCode (cname="EXIF_DATA_TYPE_COUNT")]
     public const int DATA_TYPE_COUNT;
-    
+
     [Compact]
     [CCode (
         cname="ExifEntry",
@@ -160,14 +169,14 @@ namespace Exif {
         public string get_string() {
             char[] buffer = new char[256];
             get_value(buffer, 256);
-            
+
             GLib.StringBuilder builder = new GLib.StringBuilder();
             foreach (char c in buffer)
                 builder.append_c(c);
-            
+
             return builder.str;
         }
-        
+
         public Tag tag;
         public Format format;
         public ulong components;
@@ -215,7 +224,7 @@ namespace Exif {
 
         public unowned string get_name();
     }
-    
+
     [CCode (cname="EXIF_IFD_COUNT")]
     public const int IFD_COUNT;
 
@@ -265,7 +274,7 @@ namespace Exif {
         public unowned string get_title();
         public unowned string get_message();
     }
-    
+
     [Compact]
     [CCode (
         cname="ExifMem",
@@ -280,7 +289,7 @@ namespace Exif {
         public void free(void *ptr);
         public static Mem new_default();
     }
-    
+
     [SimpleType]
     [CCode (
         cname="ExifRational",
@@ -290,7 +299,7 @@ namespace Exif {
         uint32 numerator;
         uint32 denominator;
     }
-    
+
     [CCode (
         cname="ExifSupportLevel",
         cheader_filename="libexif/exif-tag.h",
@@ -302,7 +311,7 @@ namespace Exif {
         MANDATORY,
         OPTIONAL
     }
-    
+
     [CCode (
         cname="ExifTag",
         cheader_filename="libexif/exif-tag.h",
@@ -338,3 +347,4 @@ namespace Exif {
         public SupportLevel get_support_level_in_ifd(Ifd ifd, DataType data_type);
     }
 }
+
