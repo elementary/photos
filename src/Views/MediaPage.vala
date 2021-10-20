@@ -34,15 +34,12 @@ public abstract class MediaPage : CheckerboardPage {
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
     private Gtk.Menu page_context_menu;
-    protected GLib.Settings ui_settings;
 
     protected MediaPage (string page_name) {
         Object (page_name: page_name);
     }
 
     construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
 
