@@ -741,7 +741,11 @@ public class Sidebar.Tree : Gtk.TreeView {
             if (icon != null)
                 return icon;
 
-            Gtk.IconInfo? info = icon_theme.lookup_by_gicon (gicon, 16, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            // Using Gtk.IconLookupFlags.GENERIC_FALLBACK gives a runtime error warning in the terminal
+            Gtk.IconInfo? info = icon_theme.lookup_by_gicon_for_scale (
+                gicon, 16, get_scale_factor (), Gtk.IconLookupFlags.FORCE_SIZE
+            );
+
             if (info == null)
                 return null;
 
