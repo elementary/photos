@@ -157,26 +157,33 @@ public class LibraryWindow : AppWindow {
 
         top_display = new TopDisplay ();
 
-        var import_menu_item = new Gtk.MenuItem ();
+        var import_menu_item = new Gtk.ModelButton ();
         import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.label = _("_Import From Folder…");
-        import_menu_item.use_underline = true;
+        import_menu_item.text = _("_Import From Folder…");
 
-        var preferences_menu_item = new Gtk.MenuItem ();
+        var preferences_menu_item = new Gtk.ModelButton ();
         preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.label = _("_Preferences");
-        preferences_menu_item.use_underline = true;
+        preferences_menu_item.text = _("_Preferences");
 
-        var settings_menu = new Gtk.Menu ();
-        settings_menu.add (import_menu_item);
-        settings_menu.add (new Gtk.SeparatorMenuItem ());
-        settings_menu.add (preferences_menu_item);
-        settings_menu.show_all ();
+        var menu_popover_grid = new Gtk.Grid();
+        menu_popover_grid.column_spacing = 3;
+        menu_popover_grid.margin_bottom = 3;
+        menu_popover_grid.margin_top = 6;
+        menu_popover_grid.orientation = Gtk.Orientation.VERTICAL;
+        menu_popover_grid.row_spacing = 3;
+
+        menu_popover_grid.add (import_menu_item);
+        menu_popover_grid.add (new Gtk.SeparatorMenuItem ());
+        menu_popover_grid.add (preferences_menu_item);
+        menu_popover_grid.show_all ();
+
+        var menu_popover = new Gtk.Popover (null);
+        menu_popover.add (menu_popover_grid);
 
         var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         settings.tooltip_text = _("Settings");
-        settings.popup = settings_menu;
+        settings.popover = menu_popover;
         settings.show_all ();
 
         search_entry = new SearchFilterEntry ();
@@ -191,6 +198,8 @@ public class LibraryWindow : AppWindow {
         sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
         sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
 
+        // put the sidebar in a scrolling window
+        // put the sidebar in a scrolling window
         // put the sidebar in a scrolling window
         scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
         scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
