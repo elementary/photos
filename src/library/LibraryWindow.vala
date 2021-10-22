@@ -163,9 +163,10 @@ public class LibraryWindow : AppWindow {
         };
 
 
-        var preferences_menu_item = new Gtk.ModelButton ();
-        preferences_menu_item.related_action = get_common_action ("CommonPreferences");
-        preferences_menu_item.text = _("_Preferences");
+        var preferences_menu_item = new Gtk.ModelButton () {
+            related_action = get_common_action ("CommonPreferences"),
+            text = _("_Preferences")
+        };
 
         var menu_popover_grid = new Gtk.Grid();
         menu_popover_grid.column_spacing = 3;
