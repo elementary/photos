@@ -168,12 +168,14 @@ public class LibraryWindow : AppWindow {
             text = _("_Preferences")
         };
 
-        var menu_popover_grid = new Gtk.Grid();
-        menu_popover_grid.column_spacing = 3;
-        menu_popover_grid.margin_bottom = 3;
-        menu_popover_grid.margin_top = 6;
-        menu_popover_grid.orientation = Gtk.Orientation.VERTICAL;
-        menu_popover_grid.row_spacing = 3;
+        var menu_popover_grid = new Gtk.Grid() {
+            column_spacing = 3,
+            margin_bottom = 3,
+            margin_top = 6,
+            orientation = Gtk.Orientation.VERTICAL,
+            row_spacing = 3
+        };
+        
 
         menu_popover_grid.add (import_menu_item);
         menu_popover_grid.add (new Gtk.SeparatorMenuItem ());
@@ -183,14 +185,18 @@ public class LibraryWindow : AppWindow {
         var menu_popover = new Gtk.Popover (null);
         menu_popover.add (menu_popover_grid);
 
-        var settings = new Gtk.MenuButton ();
-        settings.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        settings.tooltip_text = _("Settings");
-        settings.popover = menu_popover;
+        var settings = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR),
+            tooltip_text = _("Settings"),
+            popover = menu_popover
+        };
+
         settings.show_all ();
 
-        search_entry = new SearchFilterEntry ();
-        search_entry.valign = Gtk.Align.CENTER;
+        search_entry = new SearchFilterEntry () {
+            valign = Gtk.Align.CENTER
+        };
+
 
         header.pack_end (settings);
         header.pack_end (redo_btn);
