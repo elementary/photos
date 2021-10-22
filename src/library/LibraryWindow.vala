@@ -197,34 +197,41 @@ public class LibraryWindow : AppWindow {
             valign = Gtk.Align.CENTER
         };
 
-
         header.pack_end (settings);
         header.pack_end (redo_btn);
         header.pack_end (undo_btn);
         header.pack_end (search_entry);
         header.set_custom_title (top_display);
 
-        sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
-        sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
+        sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler) {
+            width_request = SIDEBAR_MIN_WIDTH
+        };
 
         // put the sidebar in a scrolling window
-        scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
-        scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        scrolled_sidebar = new Gtk.ScrolledWindow (null, null) {
+            hscrollbar_policy = Gtk.PolicyType.NEVER
+        };
+
         scrolled_sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         scrolled_sidebar.add (sidebar_tree);
 
         // use a Notebook to hold all the pages, which are switched when a sidebar child is selected
-        notebook = new Gtk.Notebook ();
+        notebook = new Gtk.Notebook () {
+            width_request = PAGE_MIN_WIDTH
+        };
+
         notebook.set_show_tabs (false);
         notebook.set_show_border (false);
         // TODO: Calc according to layout's size, to give sidebar a maximum width
-        notebook.width_request = PAGE_MIN_WIDTH;
+        metadata_sidebar = new MetadataView () {
+            width_request = METADATA_SIDEBAR_MIN_WIDTH
+        };
 
-        metadata_sidebar = new MetadataView ();
-        metadata_sidebar.width_request = METADATA_SIDEBAR_MIN_WIDTH;
 
-        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        right_client_paned.width_request = METADATA_SIDEBAR_MIN_WIDTH;
+        right_client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL) {
+            width_request = METADATA_SIDEBAR_MIN_WIDTH
+        };
+
         right_client_paned.pack1 (notebook, true, false);
         right_client_paned.pack2 (metadata_sidebar, false, false);
 
@@ -237,13 +244,16 @@ public class LibraryWindow : AppWindow {
         right_frame.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         right_frame.add (right_vbox);
 
-        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        client_paned.expand = true;
+        client_paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL) {
+            expand = true
+        };
         client_paned.pack1 (scrolled_sidebar, false, false);
         client_paned.pack2 (right_frame, true, false);
 
-        var layout = new Gtk.Grid ();
-        layout.orientation = Gtk.Orientation.VERTICAL;
+        var layout = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
         layout.add (header);
         layout.add (client_paned);
         add (layout);
