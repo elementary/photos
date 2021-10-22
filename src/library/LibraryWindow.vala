@@ -157,9 +157,11 @@ public class LibraryWindow : AppWindow {
 
         top_display = new TopDisplay ();
 
-        var import_menu_item = new Gtk.ModelButton ();
-        import_menu_item.related_action = get_common_action ("CommonFileImport");
-        import_menu_item.text = _("_Import From Folder…");
+        var import_menu_item = new Gtk.ModelButton () {
+            related_action = get_common_action ("CommonFileImport"),
+            text = _("_Import From Folder…")
+        };
+
 
         var preferences_menu_item = new Gtk.ModelButton ();
         preferences_menu_item.related_action = get_common_action ("CommonPreferences");
@@ -198,8 +200,6 @@ public class LibraryWindow : AppWindow {
         sidebar_tree = new Sidebar.Tree (DND_TARGET_ENTRIES, Gdk.DragAction.ASK, external_drop_handler);
         sidebar_tree.width_request = SIDEBAR_MIN_WIDTH;
 
-        // put the sidebar in a scrolling window
-        // put the sidebar in a scrolling window
         // put the sidebar in a scrolling window
         scrolled_sidebar = new Gtk.ScrolledWindow (null, null);
         scrolled_sidebar.hscrollbar_policy = Gtk.PolicyType.NEVER;
