@@ -168,14 +168,13 @@ public class LibraryWindow : AppWindow {
             text = _("_Preferences")
         };
 
-        var menu_popover_grid = new Gtk.Grid() {
+        var menu_popover_grid = new Gtk.Grid () {
             column_spacing = 3,
             margin_bottom = 3,
             margin_top = 6,
             orientation = Gtk.Orientation.VERTICAL,
             row_spacing = 3
         };
-        
 
         menu_popover_grid.add (import_menu_item);
         menu_popover_grid.add (new Gtk.SeparatorMenuItem ());
