@@ -185,7 +185,7 @@ public class LibraryWindow : AppWindow {
         menu_popover.add (menu_popover_grid);
 
         var settings = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.LARGE_TOOLBAR),
+            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
             tooltip_text = _("Settings"),
             popover = menu_popover
         };
