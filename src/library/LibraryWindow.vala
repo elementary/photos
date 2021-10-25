@@ -412,9 +412,10 @@ public class LibraryWindow : AppWindow {
                                           };
         actions += searchbar;
 
-        Gtk.ToggleActionEntry sidebar = { "CommonDisplaySidebar", null, _("S_idebar"),
-                                          "F9", _("Display the sidebar"), on_display_sidebar, is_sidebar_visible ()
-                                        };
+        Gtk.ToggleActionEntry sidebar = {
+            "CommonDisplaySidebar", null, null,
+            "F9", null, on_display_sidebar, is_sidebar_visible ()
+        };
         actions += sidebar;
 
         Gtk.ToggleActionEntry meta_sidebar = { "CommonDisplayMetadataSidebar", null, _("Edit Photo In_fo"),
