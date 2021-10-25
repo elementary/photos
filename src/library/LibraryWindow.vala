@@ -162,6 +162,22 @@ public class LibraryWindow : AppWindow {
             text = _("_Import From Folder…")
         };
 
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var sidebar_modelbutton = new Gtk.ModelButton () {
+            related_action = get_common_action ("CommonDisplaySidebar"),
+        };
+        sidebar_modelbutton.get_child ().destroy ();
+        sidebar_modelbutton.add (new Granite.AccelLabel (_("Toggle Sidebar"), "F9"));
+
+        var metadata_modelbutton = new Gtk.ModelButton () {
+            related_action = get_common_action ("CommonDisplayMetadataSidebar"),
+        };
+        metadata_modelbutton.get_child ().destroy ();
+        metadata_modelbutton.add (new Granite.AccelLabel (_("Toggle Photo Info"), "F10"));
 
         var preferences_menu_item = new Gtk.ModelButton () {
             related_action = get_common_action ("CommonPreferences"),
@@ -169,15 +185,14 @@ public class LibraryWindow : AppWindow {
         };
 
         var menu_popover_grid = new Gtk.Grid () {
-            column_spacing = 3,
             margin_bottom = 3,
-            margin_top = 6,
-            orientation = Gtk.Orientation.VERTICAL,
-            row_spacing = 3
+            margin_top = 3,
+            orientation = Gtk.Orientation.VERTICAL
         };
-
         menu_popover_grid.add (import_menu_item);
-        menu_popover_grid.add (new Gtk.SeparatorMenuItem ());
+        menu_popover_grid.add (separator);
+        menu_popover_grid.add (sidebar_modelbutton);
+        menu_popover_grid.add (metadata_modelbutton);
         menu_popover_grid.add (preferences_menu_item);
         menu_popover_grid.show_all ();
 
