@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 21:53+0000\n"
+"POT-Creation-Date: 2021-10-26 17:54+0000\n"
 "PO-Revision-Date: 2021-10-25 22:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/extra/ja/"
@@ -82,19 +82,88 @@ msgstr "JPEG・PNG・TIFF・各種 RAW ファイル形式がサポートされ�
 msgid ""
 "Focus photos on startup when previewing to fix navigating with left and "
 "right arrow keys"
-msgstr "フォトビューアーの起動時に写真にフォーカスするように変更し、左右キーで画像を変更できなかった不具合を修正"
+msgstr ""
+"フォトビューアーの起動時に写真にフォーカスするように変更し、左右キーで画像を"
+"変更できなかった不具合を修正"
 
 #: data/io.elementary.photos.appdata.xml.in:40
 msgid "Fix a possible crash with invalid date and time info"
 msgstr "撮影日時の情報が間違っているとクラッシュすることがある不具合を修正"
 
 #: data/io.elementary.photos.appdata.xml.in:41
+msgid ""
+"Move Toggle Sidebar and Toggle Photo Info actions to the main menubutton"
+msgstr ""
+
+#: data/io.elementary.photos.appdata.xml.in:42
+#: data/io.elementary.photos.appdata.xml.in:51
+#: data/io.elementary.photos.appdata.xml.in:60
+#: data/io.elementary.photos.appdata.xml.in:68
+#: data/io.elementary.photos.appdata.xml.in:79
+#: data/io.elementary.photos.appdata.xml.in:87
+#: data/io.elementary.photos.appdata.xml.in:97
+#: data/io.elementary.photos.appdata.xml.in:105
+#: data/io.elementary.photos.appdata.xml.in:114
+#: data/io.elementary.photos.appdata.xml.in:126
+#: data/io.elementary.photos.appdata.xml.in:138
+#: data/io.elementary.photos.appdata.xml.in:146
+#: data/io.elementary.photos.appdata.xml.in:154
+#: data/io.elementary.photos.appdata.xml.in:163
+#: data/io.elementary.photos.appdata.xml.in:171
+#: data/io.elementary.photos.appdata.xml.in:182
+msgid "Translation updates"
+msgstr "翻訳の更新"
+
+#: data/io.elementary.photos.appdata.xml.in:49
+msgid "Draw selection rectangle when dragging to select"
+msgstr "ドラッグして写真を選択した際に、選択箇所を長方形で描画するように修正"
+
 #: data/io.elementary.photos.appdata.xml.in:50
+msgid "Show image titles in preview mode"
+msgstr "画像ビューアーでも画像のタイトルを表示するように修正"
+
+#: data/io.elementary.photos.appdata.xml.in:58
+msgid "Fix keyboard activation in tool windows"
+msgstr "ツールウィンドウでキーボードが有効にならない不具合を修正"
+
 #: data/io.elementary.photos.appdata.xml.in:59
+msgid "Show saved state correctly in the context-menu"
+msgstr ""
+"コンテキストメニューに表示されるアプリの保存状態が間違っている不具合を修正"
+
 #: data/io.elementary.photos.appdata.xml.in:67
+msgid "Add Open In menu to the photo viewer"
+msgstr "フォトビューアーに “指定した方法で開く” メニューを追加"
+
+#: data/io.elementary.photos.appdata.xml.in:75
+msgid "Add checkerboard behind semi-transparent photos in grid view"
+msgstr "グリッドビューで半透明な画像の背景にチェック柄を追加"
+
+#: data/io.elementary.photos.appdata.xml.in:76
+msgid "Fix pasting in comment box"
+msgstr "コメント欄への貼り付けの際の不具合を修正"
+
+#: data/io.elementary.photos.appdata.xml.in:77
+msgid "Make sure we show the right apps in the Open In menu"
+msgstr "“指定した方法で開く” メニューに正しいアプリを表示するように修正"
+
 #: data/io.elementary.photos.appdata.xml.in:78
+msgid "Redesign a large number of dialogs"
+msgstr "各ダイアログのデザインを変更"
+
 #: data/io.elementary.photos.appdata.xml.in:86
+#: data/io.elementary.photos.appdata.xml.in:94
+msgid "Fix building against latest gexiv2"
+msgstr "最新の gexiv2 を使用した際のビルドの修正"
+
+#: data/io.elementary.photos.appdata.xml.in:95
+msgid "Use Granite.MessageDialog throughout"
+msgstr "一貫的な Granite.MessageDialog の利用"
+
 #: data/io.elementary.photos.appdata.xml.in:96
+msgid "Use Gtk.FileChooserNative throughout"
+msgstr "一貫的な Gtk.FileChooserNative の利用"
+
 #: data/io.elementary.photos.appdata.xml.in:104
 #: data/io.elementary.photos.appdata.xml.in:113
 #: data/io.elementary.photos.appdata.xml.in:125
@@ -103,128 +172,66 @@ msgstr "撮影日時の情報が間違っているとクラッシュすること
 #: data/io.elementary.photos.appdata.xml.in:153
 #: data/io.elementary.photos.appdata.xml.in:162
 #: data/io.elementary.photos.appdata.xml.in:170
-#: data/io.elementary.photos.appdata.xml.in:181
-msgid "Translation updates"
-msgstr "翻訳の更新"
-
-#: data/io.elementary.photos.appdata.xml.in:48
-msgid "Draw selection rectangle when dragging to select"
-msgstr "ドラッグして写真を選択した際に、選択箇所を長方形で描画するように修正"
-
-#: data/io.elementary.photos.appdata.xml.in:49
-msgid "Show image titles in preview mode"
-msgstr "画像ビューアーでも画像のタイトルを表示するように修正"
-
-#: data/io.elementary.photos.appdata.xml.in:57
-msgid "Fix keyboard activation in tool windows"
-msgstr "ツールウィンドウでキーボードが有効にならない不具合を修正"
-
-#: data/io.elementary.photos.appdata.xml.in:58
-msgid "Show saved state correctly in the context-menu"
-msgstr ""
-"コンテキストメニューに表示されるアプリの保存状態が間違っている不具合を修正"
-
-#: data/io.elementary.photos.appdata.xml.in:66
-msgid "Add Open In menu to the photo viewer"
-msgstr "フォトビューアーに “指定した方法で開く” メニューを追加"
-
-#: data/io.elementary.photos.appdata.xml.in:74
-msgid "Add checkerboard behind semi-transparent photos in grid view"
-msgstr "グリッドビューで半透明な画像の背景にチェック柄を追加"
-
-#: data/io.elementary.photos.appdata.xml.in:75
-msgid "Fix pasting in comment box"
-msgstr "コメント欄への貼り付けの際の不具合を修正"
-
-#: data/io.elementary.photos.appdata.xml.in:76
-msgid "Make sure we show the right apps in the Open In menu"
-msgstr "“指定した方法で開く” メニューに正しいアプリを表示するように修正"
-
-#: data/io.elementary.photos.appdata.xml.in:77
-msgid "Redesign a large number of dialogs"
-msgstr "各ダイアログのデザインを変更"
-
-#: data/io.elementary.photos.appdata.xml.in:85
-#: data/io.elementary.photos.appdata.xml.in:93
-msgid "Fix building against latest gexiv2"
-msgstr "最新の gexiv2 を使用した際のビルドの修正"
-
-#: data/io.elementary.photos.appdata.xml.in:94
-msgid "Use Granite.MessageDialog throughout"
-msgstr "一貫的な Granite.MessageDialog の利用"
-
-#: data/io.elementary.photos.appdata.xml.in:95
-msgid "Use Gtk.FileChooserNative throughout"
-msgstr "一貫的な Gtk.FileChooserNative の利用"
-
-#: data/io.elementary.photos.appdata.xml.in:103
-#: data/io.elementary.photos.appdata.xml.in:112
-#: data/io.elementary.photos.appdata.xml.in:124
-#: data/io.elementary.photos.appdata.xml.in:136
-#: data/io.elementary.photos.appdata.xml.in:144
-#: data/io.elementary.photos.appdata.xml.in:152
-#: data/io.elementary.photos.appdata.xml.in:161
-#: data/io.elementary.photos.appdata.xml.in:169
-#: data/io.elementary.photos.appdata.xml.in:188
+#: data/io.elementary.photos.appdata.xml.in:189
 msgid "Minor bug fixes"
 msgstr "軽微なバグの修正"
 
-#: data/io.elementary.photos.appdata.xml.in:111
+#: data/io.elementary.photos.appdata.xml.in:112
 msgid "Fix plugin windows not expanding"
 msgstr "プラグインウィンドウが拡大されない不具合を修正"
 
-#: data/io.elementary.photos.appdata.xml.in:120
+#: data/io.elementary.photos.appdata.xml.in:121
 msgid "Search box no longer loses focus after character input"
 msgstr "文字入力後に検索ボックスがフォーカスを失う不具合を修正"
 
-#: data/io.elementary.photos.appdata.xml.in:121
+#: data/io.elementary.photos.appdata.xml.in:122
 msgid "Colorized tint and temperature scales"
 msgstr "彩度と色温度のスケールのカラー表示"
 
-#: data/io.elementary.photos.appdata.xml.in:122
+#: data/io.elementary.photos.appdata.xml.in:123
 msgid "Add zoom to fit page button"
 msgstr "“ズームしてページに合わせる”ボタンを追加"
 
-#: data/io.elementary.photos.appdata.xml.in:123
-#: data/io.elementary.photos.appdata.xml.in:135
+#: data/io.elementary.photos.appdata.xml.in:124
+#: data/io.elementary.photos.appdata.xml.in:136
 msgid "Various UI fixes and improvements"
 msgstr "UI に関する各種の修正と改善"
 
-#: data/io.elementary.photos.appdata.xml.in:132
+#: data/io.elementary.photos.appdata.xml.in:133
 msgid "Prefer dark theme"
 msgstr "ダークテーマの使用"
 
-#: data/io.elementary.photos.appdata.xml.in:133
+#: data/io.elementary.photos.appdata.xml.in:134
 msgid "WebP format support"
 msgstr "WebP 形式への対応"
 
-#: data/io.elementary.photos.appdata.xml.in:134
+#: data/io.elementary.photos.appdata.xml.in:135
 msgid "Improved HiDPI support"
 msgstr "HiDPI への対応を改善"
 
-#: data/io.elementary.photos.appdata.xml.in:160
+#: data/io.elementary.photos.appdata.xml.in:161
 msgid "Preserve metadata when opening photo directly from the filesystem"
 msgstr "ファイルシステムから画像を直接写真を開くときにメタデータを保持"
 
-#: data/io.elementary.photos.appdata.xml.in:177
+#: data/io.elementary.photos.appdata.xml.in:178
 msgid "Fix navigation to next photo with left/right arrow keys on keyboard"
 msgstr "キーボードの左右矢印キーを使用した次の写真へのナビゲーションを修正"
 
-#: data/io.elementary.photos.appdata.xml.in:178
+#: data/io.elementary.photos.appdata.xml.in:179
 msgid "Left bracket key rotates counterclockwise now"
 msgstr "左のブラケットキーが反時計回りに回転するように"
 
-#: data/io.elementary.photos.appdata.xml.in:179
+#: data/io.elementary.photos.appdata.xml.in:180
 msgid ""
 "Moved search into the headerbar and fixed a bug that prevents typing into "
 "the searchbox"
 msgstr "ヘッダーバーに検索が移動し、検索ボックスへの入力ができないバグを修正"
 
-#: data/io.elementary.photos.appdata.xml.in:180
+#: data/io.elementary.photos.appdata.xml.in:181
 msgid "Removed star and rejected ratings"
 msgstr "スターを削除し、評価を拒否"
 
-#: data/io.elementary.photos.appdata.xml.in:222
+#: data/io.elementary.photos.appdata.xml.in:223
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
