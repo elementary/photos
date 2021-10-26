@@ -1127,8 +1127,9 @@ public class VideoSourceCollection : MediaSourceCollection {
         if (video.get_filesize () != info.get_size ())
             return;
 
-        if (video.get_timestamp () == info.get_modification_date_time ().to_unix ());
+        if (video.get_timestamp () == info.get_modification_date_time ().to_unix ()) {
             matching_master.add (video);
+        }
     }
 
     public void fetch_by_matching_backing (FileInfo info, Gee.Collection<Video> matching_master) {
