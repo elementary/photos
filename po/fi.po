@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 18:32+0000\n"
-"PO-Revision-Date: 2021-09-13 08:08+0000\n"
+"PO-Revision-Date: 2021-10-28 11:18+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/photos/photos/fi/"
 ">\n"
@@ -1632,7 +1632,7 @@ msgstr[0] "Kumotaanko ulkoinen muokkaus?"
 msgstr[1] "Kumotaanko ulkoinen muokkaus?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
@@ -1642,10 +1642,9 @@ msgstr[1] ""
 "Tämä tuhoaa kaikki %d ulkoiseen tiedostoon tehdyt muutokset. Haluatko jatkaa?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "_Kumoa ulkoiset muokkaukset"
+msgstr[0] "_Kumoa ulkoinen muokkaus"
 msgstr[1] "_Kumoa ulkoiset muokkaukset"
 
 #: src/Dialogs/Dialogs.vala:833
@@ -2051,16 +2050,12 @@ msgid "_Import From Folder…"
 msgstr "_Tuo kansiosta…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "S_ivupalkki"
+msgstr "Näytä/piilota sivupalkki"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "_Muokkaa kuvan tietoja"
+msgstr "Näytä/piilota kuvan tiedot"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2678,11 +2673,10 @@ msgid "Flagged"
 msgstr "Merkitty"
 
 #: src/Views/ImportPage.vala:478
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Kameran irrottaminen ei onnistu. Yritä irrottaa kamera "
+"Kameran liitoksen irrottaminen ei onnistu. Yritä irrottaa kameran liitos "
 "tiedostonhallintaohjelman kautta."
 
 #: src/Views/ImportPage.vala:797
