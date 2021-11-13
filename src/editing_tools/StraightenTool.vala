@@ -121,19 +121,19 @@ public class StraightenTool : EditingTool {
         public StraightenToolWindow (Gtk.Window container) {
             Object (transient_for: container);
         }
-        
+
         construct {
             angle_slider.set_size_request (MIN_SLIDER_SIZE, -1);
             angle_slider.set_value (0.0);
             angle_slider.set_draw_value (false);
-            
+
             description_label.set_padding (CONTROL_SPACING, 0);
             angle_label.set_padding (0, 0);
             angle_label.set_size_request (MIN_LABEL_SIZE, -1);
-            
+
             Gtk.Box slider_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
             slider_layout.pack_start (angle_slider, true, true, 0);
-            
+
             Gtk.Box button_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, CONTROL_SPACING);
             cancel_button.set_size_request (MIN_BUTTON_SIZE, -1);
             reset_button.set_size_request (MIN_BUTTON_SIZE, -1);
@@ -141,17 +141,17 @@ public class StraightenTool : EditingTool {
             button_layout.pack_start (cancel_button, true, true, 0);
             button_layout.pack_start (reset_button, true, true, 0);
             button_layout.pack_start (ok_button, true, true, 0);
-            
+
             Gtk.Box main_layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             main_layout.pack_start (description_label, true, true, 0);
             main_layout.pack_start (slider_layout, true, true, 0);
             main_layout.pack_start (angle_label, true, true, 0);
             main_layout.pack_start (button_layout, true, true, 0);
-            
+
             content_area.add (main_layout);
-            
+
             reset_button.clicked.connect (on_reset_clicked);
-            
+
             set_position (Gtk.WindowPosition.CENTER_ON_PARENT);
         }
 
