@@ -149,9 +149,9 @@ public class StraightenTool : EditingTool {
             main_layout.pack_start (button_layout, true, true, 0);
 
             content_area.add (main_layout);
-
+            
             reset_button.clicked.connect (on_reset_clicked);
-
+            
             set_position (Gtk.WindowPosition.CENTER_ON_PARENT);
         }
 
