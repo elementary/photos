@@ -16,16 +16,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 18:32+0000\n"
-"PO-Revision-Date: 2019-12-31 11:23+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/"
-">\n"
+"PO-Revision-Date: 2021-11-14 05:32+0000\n"
+"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -1111,10 +1111,9 @@ msgstr[0] "Originele bestand _aanpassen"
 msgstr[1] "Originele bestanden _aanpassen"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Origineel: "
+msgstr "Origineel: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1176,7 +1175,7 @@ msgstr[1] "Dit zal het label \"%s\" van %d foto's verwijderen. Doorgaan?"
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Hiermee verwijdert u het smart album \"%s\".  Doorgaan?"
+msgstr "Hiermee verwijdert u het smart album \"%s\". Doorgaan?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1597,7 +1596,7 @@ msgstr[1] "%d bestanden overgeslagen wegens het annuleren door de gebruiker:\n"
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 foto succesvol geïmporteerd.\n"
-msgstr[1] "%d  foto's succesvol geïmporteerd.\n"
+msgstr[1] "%d foto's succesvol geïmporteerd.\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
@@ -1611,7 +1610,7 @@ msgstr[1] "%d video's succesvol geïmporteerd.\n"
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
 msgstr[0] "1 foto/video succesvol geïmporteerd.\n"
-msgstr[1] "%d  foto's/video's succesvol geïmporteerd.\n"
+msgstr[1] "%d foto's/video's succesvol geïmporteerd.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
@@ -2056,16 +2055,12 @@ msgid "_Import From Folder…"
 msgstr "_Importeer uit map…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "Z_ijbalk"
+msgstr "Zijbalk aan/uitzetten"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Edit Foto In_fo"
+msgstr "Foto Info aan/uitzetten"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2904,7 +2899,7 @@ msgstr "Op _datum"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Op _Laatst gewijzigd"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2923,10 +2918,8 @@ msgid "Sort photos by exposure date"
 msgstr "Foto's sorteren op datum"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Foto's sorteren op datum"
+msgstr "Foto's sorteren op datum van importeren"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -3034,28 +3027,22 @@ msgid "Transition Effect"
 msgstr "Overgangseffect"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "Uitz_oomen"
+msgstr "Uitzoomen"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Aanpassen"
+msgstr "Zoomniveau aanpassen"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + Scroll"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "_Inzoomen"
+msgstr "Inzoomen"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3289,21 +3276,7 @@ msgstr "Bezoek de Yorba-website"
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
 #: plugins/pantheon-photos-transitions/Resources.vala:41
 msgid "translator-credits"
-msgstr ""
-"Kaj-Ivar van der Wijst <kaj-ivar@vanderwijst.com>\n"
-"Rob <linuxned@gmail.com>\n"
-"Redmar <redmar@ubuntu-nl.org>\n"
-"Heimen Stoffels <vistausss@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Corjan Bos https://launchpad.net/~corjanbos\n"
-"  Dolores Verbraeken https://launchpad.net/~barbara-verbraeken\n"
-"  Geoffrey De Belie https://launchpad.net/~computergeoffrey\n"
-"  Peter Nijssen https://launchpad.net/~ptnijssen\n"
-"  Thomas Berends https://launchpad.net/~thomasberends\n"
-"  martin greenfieldt https://launchpad.net/~dutchmartin\n"
-"  needhelp007 https://launchpad.net/~iempie3\n"
-"  rob https://launchpad.net/~rvdb"
+msgstr "translator-credits"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
@@ -3446,9 +3419,9 @@ msgid ""
 msgstr ""
 "U bent momenteel niet aangemeld bij Flickr.\n"
 "\n"
-"Klik op aanmelden om uzelf in uw webbrowser aan te melden bij Flickr.  U "
-"dient Shotwell te autoriseren om een verbinding te maken met uw Flickr-"
-"account."
+"Klik op aanmelden om uzelf in uw webbrowser aan te melden bij Flickr. U "
+"dient Shotwell Connect te autoriseren om een verbinding te maken met uw "
+"Flickr-account."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3906,9 +3879,7 @@ msgstr "Kern-diavoorstellingsovergangen"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
-"Copyright 2010 Maxim Kartashev, \n"
-"Copyright 2011-2013 Yorba Foundation"
+msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
