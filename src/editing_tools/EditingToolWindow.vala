@@ -22,7 +22,7 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
     public Gtk.Grid content_area { get; private set; }
 
     protected EditingToolWindow (Gtk.Window container) {
-        Object (transient_for: container);
+        Object ( transient_for: container );
     }
 
     construct {
@@ -57,8 +57,9 @@ public abstract class EditingTools.EditingToolWindow : Hdy.Window {
 
     public override bool button_press_event (Gdk.EventButton event) {
         // LMB only
-        if (event.button != 1)
+        if (event.button != 1) {
             return (base.button_press_event != null) ? base.button_press_event (event) : true;
+        }
 
         begin_move_drag ((int) event.button, (int) event.x_root, (int) event.y_root, event.time);
 

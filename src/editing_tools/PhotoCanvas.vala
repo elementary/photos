@@ -29,30 +29,35 @@
 // The PhotoCanvas is an interface object between an EditingTool and its host.  It provides objects
 // and primitives for an EditingTool to obtain information about the image, to draw on the host's
 // canvas, and to be signalled when the canvas and its pixbuf changes (is resized).
-public abstract class EditingTools.PhotoCanvas {
+public abstract class EditingTools.PhotoCanvas : Object {
     public signal void new_surface (Cairo.Context ctx, Dimensions dim);
     public signal void resized_scaled_pixbuf (Dimensions old_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position);
 
-    public Cairo.Context default_ctx { get; private set; }
-    public Dimensions surface_dim { get; private set; }
-    public Gdk.Pixbuf scaled_pixbuf { get; private set; }
-    public Gdk.Rectangle scaled_position { get; private set; }
-    public Gdk.Window drawing_window { get; private set; }
-    public Gtk.Window container { get; private set; }
-    public Photo photo { get; private set; }
+    public Cairo.Context default_ctx { get; set construct; }
+    public Dimensions surface_dim { get; set construct; }
+    public Gdk.Pixbuf scaled_pixbuf { get; set construct; }
+    public Gdk.Rectangle scaled_position { get; set construct; }
+    public Gdk.Window drawing_window { get; set construct; }
+    public Gtk.Window container { get; set construct; }
+    public Photo photo { get; set construct; }
 
-    private Cairo.Surface scaled;
+    private Cairo.Surface scaled { get; set; }
 
     protected PhotoCanvas (Gtk.Window container, Gdk.Window drawing_window, Photo photo,
-                           Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled, Gdk.Rectangle scaled_position) {
-        this.container = container;
-        this.drawing_window = drawing_window;
-        this.photo = photo;
-        this.default_ctx = default_ctx;
-        this.surface_dim = surface_dim;
-        this.scaled_position = scaled_position;
-        this.scaled_pixbuf = scaled;
-        this.scaled = pixbuf_to_surface (default_ctx, scaled, scaled_position);
+                           Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled_pixbuf, Gdk.Rectangle scaled_position) {
+        Object (
+            container: container,
+            drawing_window: drawing_window,
+            photo: photo,
+            default_ctx: default_ctx,
+            surface_dim: surface_dim,
+            scaled_position: scaled_position,
+            scaled_pixbuf: scaled_pixbuf
+        );
+    }
+
+    construct {
+        scaled = pixbuf_to_surface (default_ctx, scaled_pixbuf, scaled_position);
     }
 
     public Gdk.Rectangle unscaled_to_raw_rect (Gdk.Rectangle rectangle) {
@@ -166,10 +171,11 @@ public abstract class EditingTools.PhotoCanvas {
     // Paint a surface on top of the photo
     public void paint_surface (Cairo.Surface surface, bool over) {
         default_ctx.save ();
-        if (over == false)
+        if (over == false) {
             default_ctx.set_operator (Cairo.Operator.SOURCE);
-        else
+        } else {
             default_ctx.set_operator (Cairo.Operator.OVER);
+        }
 
         default_ctx.set_source_surface (scaled, scaled_position.x, scaled_position.y);
         default_ctx.paint ();
@@ -180,10 +186,11 @@ public abstract class EditingTools.PhotoCanvas {
 
     public void paint_surface_area (Cairo.Surface surface, Box source_area, bool over) {
         default_ctx.save ();
-        if (over == false)
+        if (over == false) {
             default_ctx.set_operator (Cairo.Operator.SOURCE);
-        else
+        } else {
             default_ctx.set_operator (Cairo.Operator.OVER);
+        }
 
         default_ctx.set_source_surface (scaled, scaled_position.x, scaled_position.y);
         default_ctx.rectangle (scaled_position.x + source_area.left,

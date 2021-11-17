@@ -70,8 +70,10 @@ public class EditingTools.RedeyeTool : EditingTool {
                 RedeyeInstance.MIN_RADIUS, RedeyeInstance.MAX_RADIUS, 1.0);
 
         public RedeyeToolWindow (Gtk.Window container) {
-            base (container);
+            Object ( transient_for: container );
+        }
 
+        construct {
             slider.set_size_request (80, -1);
             slider.set_draw_value (false);
 
@@ -103,7 +105,9 @@ public class EditingTools.RedeyeTool : EditingTool {
     private int scale_factor = 1;
 
     private RedeyeTool () {
-        base ("RedeyeTool");
+        Object (
+            name: "RedeyeTool"
+        );
     }
 
     public static RedeyeTool factory () {
@@ -189,8 +193,9 @@ public class EditingTools.RedeyeTool : EditingTool {
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> map) {
-        if (!map.has_key (canvas.photo))
+        if (!map.has_key (canvas.photo)) {
             return;
+        }
 
         try {
             current_pixbuf = canvas.photo.get_pixbuf (canvas.get_scaling ());
@@ -253,8 +258,9 @@ public class EditingTools.RedeyeTool : EditingTool {
         cached_grab_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.FLEUR);
 
         DataCollection? owner = canvas.photo.get_membership ();
-        if (owner != null)
+        if (owner != null) {
             owner.items_altered.connect (on_photos_altered);
+        }
 
         base.activate (canvas);
     }
