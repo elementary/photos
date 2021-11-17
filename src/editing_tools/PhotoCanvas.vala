@@ -44,7 +44,9 @@ public abstract class EditingTools.PhotoCanvas : Object {
     private Cairo.Surface scaled { get; set; }
 
     protected PhotoCanvas (Gtk.Window container, Gdk.Window drawing_window, Photo photo,
-                           Cairo.Context default_ctx, Dimensions surface_dim, Gdk.Pixbuf scaled_pixbuf, Gdk.Rectangle scaled_position) {
+                           Cairo.Context default_ctx, Dimensions surface_dim
+                           , Gdk.Pixbuf scaled_pixbuf
+                           , Gdk.Rectangle scaled_position) {
         Object (
             container: container,
             drawing_window: drawing_window,
