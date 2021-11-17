@@ -116,7 +116,8 @@ public class EditingTools.CropTool : EditingTool {
             constraint_combo.set_row_separator_func (constraint_combo_separator_func);
             constraint_combo.set_active (0);
 
-            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            pivot_reticle_button = new Gtk.Button.from_icon_name ("object-rotate-right-symbolic"
+            , Gtk.IconSize.SMALL_TOOLBAR) {
                 tooltip_text = _("Pivot the crop rectangle between portrait and landscape orientations"),
                 margin_end = 18
             };
