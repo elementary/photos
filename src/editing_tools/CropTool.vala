@@ -46,25 +46,22 @@ public class EditingTools.CropTool : EditingTool {
         public int basis_width { get; set construct; }
         public int basis_height { get; set construct; }
         public bool is_pivotable { get; construct; }
-        public float new_aspect_ratio { get; construct; }
-        public float aspect_ratio { get; set; }
+        public float aspect_ratio { get; set construct; }
 
         public ConstraintDescription (string new_name, int new_basis_width, int new_basis_height,
                                       bool new_pivotable, float new_aspect_ratio = COMPUTE_FROM_BASIS) {
+
+            if (new_aspect_ratio == COMPUTE_FROM_BASIS) {
+                aspect_ratio = ((float) basis_width) / ((float) basis_height);
+            }
+
             Object (
                 name: new_name,
                 basis_width: new_basis_width,
                 basis_height: new_basis_height,
-                is_pivotable: new_pivotable
+                is_pivotable: new_pivotable,
+                aspect_ratio: new_aspect_ratio,
             );
-        }
-
-        construct {
-            if (new_aspect_ratio == COMPUTE_FROM_BASIS) {
-                aspect_ratio = ((float) basis_width) / ((float) basis_height);
-            } else {
-                aspect_ratio = new_aspect_ratio;
-            }
         }
 
         public bool is_separator () {
