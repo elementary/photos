@@ -18,9 +18,9 @@
 */
 
 public interface CommandDescription : Object {
-    public abstract string get_name ();
+    public abstract string name { get; construct; }
 
-    public abstract string get_explanation ();
+    public abstract string explanation { get; construct; }
 }
 
 // Command's overrideable action calls are guaranteed to be called in this order:
@@ -38,13 +38,15 @@ public interface CommandDescription : Object {
 //
 // redo ()'s default implementation is to call execute, which in many cases is appropriate.
 public abstract class Command : Object, CommandDescription {
-    private string name;
-    private string explanation;
+    public virtual string name { get; construct; }
+    public virtual string explanation { get; construct; }
     private weak CommandManager manager = null;
 
     protected Command (string name, string explanation) {
-        this.name = name;
-        this.explanation = explanation;
+        Object (
+            name: name,
+            explanation: explanation
+        );
     }
 
     ~Command () {
@@ -70,13 +72,13 @@ public abstract class Command : Object, CommandDescription {
         return false;
     }
 
-    public virtual string get_name () {
-        return name;
-    }
+    // public virtual string get_name () {
+    //     return name;
+    // }
 
-    public virtual string get_explanation () {
-        return explanation;
-    }
+    // public virtual string get_explanation () {
+    //     return explanation;
+    // }
 
     public CommandManager? get_command_manager () {
         return manager;
