@@ -161,8 +161,6 @@ public class EditingTools.AdjustTool : EditingTool {
 
     private abstract class AdjustToolCommand : Command {
         public weak AdjustTool owner { get; construct; }
-        public string name { get; construct; }
-        public string explanation { get; construct; }
 
         protected AdjustToolCommand (AdjustTool owner, string name, string explanation) {
             Object (
