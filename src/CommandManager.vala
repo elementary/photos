@@ -72,14 +72,6 @@ public abstract class Command : Object, CommandDescription {
         return false;
     }
 
-    // public virtual string get_name () {
-    //     return name;
-    // }
-
-    // public virtual string get_explanation () {
-    //     return explanation;
-    // }
-
     public CommandManager? get_command_manager () {
         return manager;
     }
