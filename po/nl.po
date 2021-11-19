@@ -15,17 +15,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 21:38+0000\n"
-"PO-Revision-Date: 2019-12-31 11:23+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/"
-">\n"
+"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"PO-Revision-Date: 2021-11-14 05:32+0000\n"
+"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:05+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -1069,7 +1069,7 @@ msgid "Cameras"
 msgstr "Camera's"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
+#: src/Views/ImportPage.vala:739 src/Views/ImportPage.vala:755
 msgid "Camera"
 msgstr "Camera"
 
@@ -1111,10 +1111,9 @@ msgstr[0] "Originele bestand _aanpassen"
 msgstr[1] "Originele bestanden _aanpassen"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Origineel: "
+msgstr "Origineel: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1176,7 +1175,7 @@ msgstr[1] "Dit zal het label \"%s\" van %d foto's verwijderen. Doorgaan?"
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Hiermee verwijdert u het smart album \"%s\".  Doorgaan?"
+msgstr "Hiermee verwijdert u het smart album \"%s\". Doorgaan?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1597,7 +1596,7 @@ msgstr[1] "%d bestanden overgeslagen wegens het annuleren door de gebruiker:\n"
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 foto succesvol geïmporteerd.\n"
-msgstr[1] "%d  foto's succesvol geïmporteerd.\n"
+msgstr[1] "%d foto's succesvol geïmporteerd.\n"
 
 #: src/Dialogs/Dialogs.vala:548
 #, c-format
@@ -1611,7 +1610,7 @@ msgstr[1] "%d video's succesvol geïmporteerd.\n"
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
 msgstr[0] "1 foto/video succesvol geïmporteerd.\n"
-msgstr[1] "%d  foto's/video's succesvol geïmporteerd.\n"
+msgstr[1] "%d foto's/video's succesvol geïmporteerd.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
@@ -1842,7 +1841,7 @@ msgstr "van het volgende:"
 msgid "Add rule"
 msgstr "Voeg regel toe"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Annuleer"
@@ -2051,85 +2050,80 @@ msgstr[1] "%d foto's"
 msgid "All Photos"
 msgstr "Alle Foto's"
 
-#: src/library/LibraryWindow.vala:163
+#: src/library/LibraryWindow.vala:162
 msgid "_Import From Folder…"
 msgstr "_Importeer uit map…"
 
-#: src/library/LibraryWindow.vala:168
+#: src/library/LibraryWindow.vala:174
+msgid "Toggle Sidebar"
+msgstr "Zijbalk aan/uitzetten"
+
+#: src/library/LibraryWindow.vala:180
+msgid "Toggle Photo Info"
+msgstr "Foto Info aan/uitzetten"
+
+#: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
 msgstr "_Voorkeuren"
 
-#: src/library/LibraryWindow.vala:179
+#: src/library/LibraryWindow.vala:204
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
-#: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
+#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:126
+#: src/Views/ImportPage.vala:859 src/Views/OfflinePage.vala:94
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:147
 msgid "Sort _Events"
 msgstr "G_ebeurtenissen sorteren"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Gebeurte_nis van foto bekijken"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
-#: src/sidebar/Tree.vala:877
+#: src/library/LibraryWindow.vala:393 src/searches/Branch.vala:87
+#: src/sidebar/Tree.vala:881
 msgid "New Smart Album…"
 msgstr "Nieuw Smart Album…"
 
-#: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
-#: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
-msgid "S_idebar"
-msgstr "Z_ijbalk"
-
-#: src/library/LibraryWindow.vala:380
-msgid "Display the sidebar"
-msgstr "Zijbalk tonen"
-
-#: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
-#: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
-#: src/Views/TrashPage.vala:151
+#: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
+#: src/Views/CollectionPage.vala:111 src/Views/LibraryPhotoPage.vala:478
 msgid "Edit Photo In_fo"
 msgstr "Edit Foto In_fo"
 
-#: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
-#: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
-#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
+#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:128
+#: src/Views/ImportPage.vala:861 src/Views/OfflinePage.vala:96
+#: src/Views/MediaPage.vala:103 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:278 src/Views/TrashPage.vala:149
 msgid "_Ascending"
 msgstr "_Oplopend"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
+#: src/library/LibraryWindow.vala:433 src/Views/MediaPage.vala:278
 msgid "Sort photos in an ascending order"
 msgstr "Foto's sorteren in oplopende volgorde"
 
-#: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
-#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
+#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:137
+#: src/Views/ImportPage.vala:870 src/Views/OfflinePage.vala:105
+#: src/Views/MediaPage.vala:112 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:283 src/Views/TrashPage.vala:158
 msgid "D_escending"
 msgstr "Aflop_end"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
+#: src/library/LibraryWindow.vala:439 src/Views/MediaPage.vala:283
 msgid "Sort photos in a descending order"
 msgstr "Foto's sorteren in aflopende volgorde"
 
-#: src/library/LibraryWindow.vala:624
+#: src/library/LibraryWindow.vala:661
 msgid "Import From Folder"
 msgstr "Importeren uit map"
 
-#: src/library/LibraryWindow.vala:627
+#: src/library/LibraryWindow.vala:664
 msgid "Import"
 msgstr "Importeer"
 
-#: src/library/LibraryWindow.vala:790
+#: src/library/LibraryWindow.vala:827
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2142,48 +2136,48 @@ msgstr ""
 "Voorkeuren</span>.\n"
 "Wilt u doorgaan met het importeren van foto's?"
 
-#: src/library/LibraryWindow.vala:794
+#: src/library/LibraryWindow.vala:831
 msgid "_Import"
 msgstr "_Importeer"
 
-#: src/library/LibraryWindow.vala:795
+#: src/library/LibraryWindow.vala:832
 msgid "Library Location"
 msgstr "Bibliotheeklocatie"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:809
+#: src/library/LibraryWindow.vala:846
 msgid "Photos cannot be imported from this directory."
 msgstr "Foto's uit deze map kunnen niet worden geïmporteerd."
 
-#: src/library/LibraryWindow.vala:1036 src/library/LibraryWindow.vala:1047
+#: src/library/LibraryWindow.vala:1073 src/library/LibraryWindow.vala:1084
 msgid "Updating library…"
 msgstr "Bibliotheek bijwerken…"
 
-#: src/library/LibraryWindow.vala:1053
+#: src/library/LibraryWindow.vala:1090
 msgid "Preparing to auto-import photos…"
 msgstr "Automatisch importeren van foto's voorbereiden…"
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1095
 msgid "Auto-importing photos…"
 msgstr "Foto's automatisch importeren…"
 
-#: src/library/LibraryWindow.vala:1066
+#: src/library/LibraryWindow.vala:1103
 msgid "Writing metadata to files…"
 msgstr "Metadata naar bestanden schrijven…"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Import Photos"
 msgstr "Foto's importeren"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Copy photos from a folder or external device."
 msgstr "Kopieer foto's uit een map of extern apparaat."
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Change Library Folder"
 msgstr "Verander Bibliotheek Map"
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Choose where to keep your photos."
 msgstr "Kies waar u uw foto's wilt bewaren."
 
@@ -2390,11 +2384,11 @@ msgstr "Foto status"
 msgid "Date"
 msgstr "Datum"
 
-#: src/sidebar/Tree.vala:880
+#: src/sidebar/Tree.vala:884
 msgid "New _Tag…"
 msgstr "Nieuw _label…"
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
@@ -2645,40 +2639,40 @@ msgstr "Geen gebeurtenis"
 msgid "Merge events"
 msgstr "Samenvoegingsgebeurtenissen"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
+#: src/Views/EventsDirectoryPage.vala:151 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
 msgstr "Volledig s_cherm"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
-#: src/Views/MediaPage.vala:248
+#: src/Views/EventsDirectoryPage.vala:213 src/Views/MediaPage.vala:66
+#: src/Views/MediaPage.vala:234
 msgid "_Comments"
 msgstr "_Commentaren"
 
-#: src/Views/EventsDirectoryPage.vala:225
+#: src/Views/EventsDirectoryPage.vala:214
 msgid "Display the comment of each event"
 msgstr "Toon commentaar van elke gebeurtenis"
 
-#: src/Views/EventsDirectoryPage.vala:249
+#: src/Views/EventsDirectoryPage.vala:238
 msgid "No events"
 msgstr "Geen gebeurtenissen"
 
-#: src/Views/EventsDirectoryPage.vala:253
+#: src/Views/EventsDirectoryPage.vala:242
 msgid "No events found"
 msgstr "Geen gebeurtenissen gevonden"
 
-#: src/Views/EventsDirectoryPage.vala:313
+#: src/Views/EventsDirectoryPage.vala:302
 msgid "Events"
 msgstr "Gebeurtenissen"
 
-#: src/Views/EventsDirectoryPage.vala:327
+#: src/Views/EventsDirectoryPage.vala:316
 msgid "Undated"
 msgstr "Zonder datum"
 
-#: src/Views/EventsDirectoryPage.vala:328
+#: src/Views/EventsDirectoryPage.vala:317
 msgid "%Y"
 msgstr "%Y"
 
-#: src/Views/EventsDirectoryPage.vala:329
+#: src/Views/EventsDirectoryPage.vala:318
 msgid "%OB"
 msgstr "%OB"
 
@@ -2686,31 +2680,31 @@ msgstr "%OB"
 msgid "Flagged"
 msgstr "Gemarkeerd"
 
-#: src/Views/ImportPage.vala:464
+#: src/Views/ImportPage.vala:478
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Kon camera niet ontkoppelen. Probeer de camera via bestandsbeheer te "
 "ontkoppelen."
 
-#: src/Views/ImportPage.vala:783
+#: src/Views/ImportPage.vala:797
 msgid "Hide photos already imported"
 msgstr "Verberg foto's die al geïmporteerd zijn"
 
-#: src/Views/ImportPage.vala:786
+#: src/Views/ImportPage.vala:800
 msgid "Only display photos that have not been imported"
 msgstr "Toon alleen foto's die nog niet geïmporteerd zijn"
 
-#: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
+#: src/Views/ImportPage.vala:855 src/Views/ImportPage.vala:955
+#: src/Views/MediaPage.vala:62 src/Views/MediaPage.vala:228
 msgid "_Titles"
 msgstr "_Titels"
 
-#: src/Views/ImportPage.vala:909 src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:968
 msgid "Import _Selected"
 msgstr "_Selectie importeren"
 
-#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:969
+#: src/Views/ImportPage.vala:917 src/Views/ImportPage.vala:972
 msgid "Import _All"
 msgstr "_Alles importeren"
 
@@ -2718,49 +2712,49 @@ msgstr "_Alles importeren"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:933
+#: src/Views/ImportPage.vala:936
 msgid "Starting import, please wait…"
 msgstr "Importeren wordt gestart, een moment geduld…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
+#: src/Views/ImportPage.vala:956 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
 msgstr "Toon de titel van elke foto"
 
-#: src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:968
 msgid "Import the selected photos into your library"
 msgstr "Importeer de geselecteerde foto's naar uw bibliotheek"
 
-#: src/Views/ImportPage.vala:970
+#: src/Views/ImportPage.vala:973
 msgid "Import all the photos into your library"
 msgstr "Importeer alle foto's naar uw bibliotheek"
 
-#: src/Views/ImportPage.vala:1090
+#: src/Views/ImportPage.vala:1093
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
 "De camera is niet toegankelijk terwijl deze gekoppeld is aan het "
 "bestandssysteem"
 
-#: src/Views/ImportPage.vala:1091
+#: src/Views/ImportPage.vala:1094
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Photo's moet de camera ontkoppelen van het bestandssysteem om toegang tot de "
 "camera te kunnen krijgen."
 
-#: src/Views/ImportPage.vala:1097
+#: src/Views/ImportPage.vala:1100
 msgid "_Unmount"
 msgstr "_Ontkoppelen"
 
-#: src/Views/ImportPage.vala:1103
+#: src/Views/ImportPage.vala:1106
 msgid "Please unmount the camera."
 msgstr "Ontkoppel de camera."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1113
 msgid "The Camera Is Locked By Another Application"
 msgstr "De camera is vergrendeld door een andere toepassing"
 
-#: src/Views/ImportPage.vala:1111
+#: src/Views/ImportPage.vala:1114
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
@@ -2768,11 +2762,11 @@ msgstr ""
 "Foto's kan alleen toegang krijgen tot de camera als deze ontgrendeld is. "
 "Sluit alle toepassingen die de camera gebruiken en probeer het opnieuw."
 
-#: src/Views/ImportPage.vala:1118
+#: src/Views/ImportPage.vala:1121
 msgid "Please close any other application using the camera."
 msgstr "Sluit alle andere toepassingen af die de camera gebruiken."
 
-#: src/Views/ImportPage.vala:1123
+#: src/Views/ImportPage.vala:1126
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2781,65 +2775,65 @@ msgstr ""
 "Kon geen voorbeelden ophalen vanaf de camera:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1140
+#: src/Views/ImportPage.vala:1143
 msgid "Unmounting…"
 msgstr "Ontkoppelen…"
 
-#: src/Views/ImportPage.vala:1246
+#: src/Views/ImportPage.vala:1249
 msgid "Fetching photo information"
 msgstr "Ophalen van foto-informatie"
 
-#: src/Views/ImportPage.vala:1598
+#: src/Views/ImportPage.vala:1597
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Voorbeeld ophalen voor %s"
 
-#: src/Views/ImportPage.vala:1717
+#: src/Views/ImportPage.vala:1710
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Kan de camera niet vergrendelen: %s"
 
-#: src/Views/ImportPage.vala:1802
+#: src/Views/ImportPage.vala:1795
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Deze foto van de camera verwijderen?"
 msgstr[1] "Deze %d foto's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1805
+#: src/Views/ImportPage.vala:1798
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Deze video van de camera verwijderen?"
 msgstr[1] "Deze %d video's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1808
+#: src/Views/ImportPage.vala:1801
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Deze foto/video van de camera verwijderen?"
 msgstr[1] "Deze %d foto's/video's van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1804
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Dit bestand van de camera verwijderen?"
 msgstr[1] "Deze %d bestanden van de camera verwijderen?"
 
-#: src/Views/ImportPage.vala:1819 src/Views/TrashPage.vala:284
+#: src/Views/ImportPage.vala:1812 src/Views/TrashPage.vala:273
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: src/Views/ImportPage.vala:1819
+#: src/Views/ImportPage.vala:1812
 msgid "_Keep"
 msgstr "_Bewaren"
 
-#: src/Views/ImportPage.vala:1838
+#: src/Views/ImportPage.vala:1831
 msgid "Removing photos/videos from camera"
 msgstr "Foto's/video's verwijderen van de camera"
 
-#: src/Views/ImportPage.vala:1842
+#: src/Views/ImportPage.vala:1835
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2882,54 +2876,52 @@ msgstr "Kon %s niet exporteren: %s"
 msgid "Missing Files"
 msgstr "Ontbrekende bestanden"
 
-#: src/Views/OfflinePage.vala:194
+#: src/Views/OfflinePage.vala:183
 msgid "Deleting…"
 msgstr "Verwijderen…"
 
-#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
+#: src/Views/MediaPage.vala:70 src/Views/MediaPage.vala:240
 msgid "Ta_gs"
 msgstr "_Labels"
 
-#: src/Views/MediaPage.vala:85
+#: src/Views/MediaPage.vala:74
 msgid "Sort _Photos"
 msgstr "_Foto's sorteren"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:257
 msgid "By _Title"
 msgstr "Op _titel"
 
-#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
+#: src/Views/MediaPage.vala:85 src/Views/MediaPage.vala:262
 msgid "By Exposure _Date"
 msgstr "Op _datum"
 
-#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+#: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Op _Laatst gewijzigd"
 
-#: src/Views/MediaPage.vala:249
+#: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
 msgstr "Toon commentaar van elke foto"
 
-#: src/Views/MediaPage.vala:255
+#: src/Views/MediaPage.vala:241
 msgid "Display each photo's tags"
 msgstr "Labels van elke foto tonen"
 
-#: src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:257
 msgid "Sort photos by title"
 msgstr "Foto's sorteren op titel"
 
-#: src/Views/MediaPage.vala:277
+#: src/Views/MediaPage.vala:263
 msgid "Sort photos by exposure date"
 msgstr "Foto's sorteren op datum"
 
-#: src/Views/MediaPage.vala:282
-#, fuzzy
-#| msgid "Sort photos by exposure date"
+#: src/Views/MediaPage.vala:268
 msgid "Sort photos by import timestamp"
-msgstr "Foto's sorteren op datum"
+msgstr "Foto's sorteren op datum van importeren"
 
-#: src/Views/MediaPage.vala:429
+#: src/Views/MediaPage.vala:415
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3000,29 +2992,29 @@ msgid "Trash"
 msgstr "Prullenbak"
 
 #: src/Views/TrashPage.vala:82 src/Views/TrashPage.vala:126
-#: src/Views/TrashPage.vala:201 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:190 src/Views/TrashPage.vala:214
 msgid "_Empty Trash"
 msgstr "_Prullenbak legen"
 
-#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:214
 msgid "Delete all photos in the trash"
 msgstr "Alle foto's uit de prullenbak verwijderen"
 
-#: src/Views/TrashPage.vala:279 src/Views/TrashPage.vala:280
+#: src/Views/TrashPage.vala:268 src/Views/TrashPage.vala:269
 msgid "Trash is empty"
 msgstr "De prullenbak is leeg"
 
-#: src/Views/TrashPage.vala:285
+#: src/Views/TrashPage.vala:274
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "Een foto verwijderen"
 msgstr[1] "Foto's verwijderen"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Empty Trash"
 msgstr "Prullenbak legen"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Emptying Trash…"
 msgstr "Prullenbak leegmaken…"
 
@@ -3035,28 +3027,22 @@ msgid "Transition Effect"
 msgstr "Overgangseffect"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "Uitz_oomen"
+msgstr "Uitzoomen"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Aanpassen"
+msgstr "Zoomniveau aanpassen"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + Scroll"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "_Inzoomen"
+msgstr "Inzoomen"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3290,21 +3276,7 @@ msgstr "Bezoek de Yorba-website"
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
 #: plugins/pantheon-photos-transitions/Resources.vala:41
 msgid "translator-credits"
-msgstr ""
-"Kaj-Ivar van der Wijst <kaj-ivar@vanderwijst.com>\n"
-"Rob <linuxned@gmail.com>\n"
-"Redmar <redmar@ubuntu-nl.org>\n"
-"Heimen Stoffels <vistausss@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Corjan Bos https://launchpad.net/~corjanbos\n"
-"  Dolores Verbraeken https://launchpad.net/~barbara-verbraeken\n"
-"  Geoffrey De Belie https://launchpad.net/~computergeoffrey\n"
-"  Peter Nijssen https://launchpad.net/~ptnijssen\n"
-"  Thomas Berends https://launchpad.net/~thomasberends\n"
-"  martin greenfieldt https://launchpad.net/~dutchmartin\n"
-"  needhelp007 https://launchpad.net/~iempie3\n"
-"  rob https://launchpad.net/~rvdb"
+msgstr "translator-credits"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
@@ -3447,9 +3419,9 @@ msgid ""
 msgstr ""
 "U bent momenteel niet aangemeld bij Flickr.\n"
 "\n"
-"Klik op aanmelden om uzelf in uw webbrowser aan te melden bij Flickr.  U "
-"dient Shotwell te autoriseren om een verbinding te maken met uw Flickr-"
-"account."
+"Klik op aanmelden om uzelf in uw webbrowser aan te melden bij Flickr. U "
+"dient Shotwell Connect te autoriseren om een verbinding te maken met uw "
+"Flickr-account."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
@@ -3907,9 +3879,7 @@ msgstr "Kern-diavoorstellingsovergangen"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
-"Copyright 2010 Maxim Kartashev, \n"
-"Copyright 2011-2013 Yorba Foundation"
+msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3938,6 +3908,9 @@ msgstr "Schaakbord"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellen"
+
+#~ msgid "Display the sidebar"
+#~ msgstr "Zijbalk tonen"
 
 #~ msgid "Adjust the size of the thumbnails"
 #~ msgstr "Pas de grootte van de miniaturen aan"

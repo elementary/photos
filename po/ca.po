@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 21:38+0000\n"
-"PO-Revision-Date: 2021-09-04 16:44+0000\n"
+"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"PO-Revision-Date: 2021-10-31 16:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
 ">\n"
@@ -1078,7 +1078,7 @@ msgid "Cameras"
 msgstr "Càmeres"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
+#: src/Views/ImportPage.vala:739 src/Views/ImportPage.vala:755
 msgid "Camera"
 msgstr "Càmera"
 
@@ -1866,7 +1866,7 @@ msgstr "amb el següent:"
 msgid "Add rule"
 msgstr "Afegeix una regla"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -2078,85 +2078,80 @@ msgstr[1] "%d fotografies"
 msgid "All Photos"
 msgstr "Totes les fotografies"
 
-#: src/library/LibraryWindow.vala:163
+#: src/library/LibraryWindow.vala:162
 msgid "_Import From Folder…"
 msgstr "_Importa des de la carpeta…"
 
-#: src/library/LibraryWindow.vala:168
+#: src/library/LibraryWindow.vala:174
+msgid "Toggle Sidebar"
+msgstr "Commuta la barra lateral"
+
+#: src/library/LibraryWindow.vala:180
+msgid "Toggle Photo Info"
+msgstr "Commuta la informació de la fotografia"
+
+#: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
 msgstr "Preferè_ncies"
 
-#: src/library/LibraryWindow.vala:179
+#: src/library/LibraryWindow.vala:204
 msgid "Settings"
 msgstr "Configuració"
 
-#: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
-#: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
+#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:126
+#: src/Views/ImportPage.vala:859 src/Views/OfflinePage.vala:94
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:147
 msgid "Sort _Events"
 msgstr "Ordena els es_deveniments"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Visualitza l'_esdeveniment de la fotografia"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
-#: src/sidebar/Tree.vala:877
+#: src/library/LibraryWindow.vala:393 src/searches/Branch.vala:87
+#: src/sidebar/Tree.vala:881
 msgid "New Smart Album…"
 msgstr "Àlbum intel·ligent nou…"
 
-#: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
-#: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
-msgid "S_idebar"
-msgstr "Ba_rra lateral"
-
-#: src/library/LibraryWindow.vala:380
-msgid "Display the sidebar"
-msgstr "Mostra la barra lateral"
-
-#: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
-#: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
-#: src/Views/TrashPage.vala:151
+#: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
+#: src/Views/CollectionPage.vala:111 src/Views/LibraryPhotoPage.vala:478
 msgid "Edit Photo In_fo"
 msgstr "Edita la in_formació de la fotografia"
 
-#: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
-#: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
-#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
+#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:128
+#: src/Views/ImportPage.vala:861 src/Views/OfflinePage.vala:96
+#: src/Views/MediaPage.vala:103 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:278 src/Views/TrashPage.vala:149
 msgid "_Ascending"
 msgstr "_Ascendent"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
+#: src/library/LibraryWindow.vala:433 src/Views/MediaPage.vala:278
 msgid "Sort photos in an ascending order"
 msgstr "Ordena les fotografies en ordre ascendent"
 
-#: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
-#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
+#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:137
+#: src/Views/ImportPage.vala:870 src/Views/OfflinePage.vala:105
+#: src/Views/MediaPage.vala:112 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:283 src/Views/TrashPage.vala:158
 msgid "D_escending"
 msgstr "D_escendent"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
+#: src/library/LibraryWindow.vala:439 src/Views/MediaPage.vala:283
 msgid "Sort photos in a descending order"
 msgstr "Ordena les fotografies en ordre descendent"
 
-#: src/library/LibraryWindow.vala:624
+#: src/library/LibraryWindow.vala:661
 msgid "Import From Folder"
 msgstr "Importa des d'una carpeta"
 
-#: src/library/LibraryWindow.vala:627
+#: src/library/LibraryWindow.vala:664
 msgid "Import"
 msgstr "Importa"
 
-#: src/library/LibraryWindow.vala:790
+#: src/library/LibraryWindow.vala:827
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2170,48 +2165,48 @@ msgstr ""
 "%s</span>.\n"
 "Voleu continuar la importació de les fotografies?"
 
-#: src/library/LibraryWindow.vala:794
+#: src/library/LibraryWindow.vala:831
 msgid "_Import"
 msgstr "_Importa"
 
-#: src/library/LibraryWindow.vala:795
+#: src/library/LibraryWindow.vala:832
 msgid "Library Location"
 msgstr "Ubicació de la biblioteca"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:809
+#: src/library/LibraryWindow.vala:846
 msgid "Photos cannot be imported from this directory."
 msgstr "No es poden importar fotografies des d'aquest directori."
 
-#: src/library/LibraryWindow.vala:1036 src/library/LibraryWindow.vala:1047
+#: src/library/LibraryWindow.vala:1073 src/library/LibraryWindow.vala:1084
 msgid "Updating library…"
 msgstr "S'actualitza la biblioteca…"
 
-#: src/library/LibraryWindow.vala:1053
+#: src/library/LibraryWindow.vala:1090
 msgid "Preparing to auto-import photos…"
 msgstr "Preparant per importar fotografies automàticament…"
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1095
 msgid "Auto-importing photos…"
 msgstr "S'importen les fotografies automàticament…"
 
-#: src/library/LibraryWindow.vala:1066
+#: src/library/LibraryWindow.vala:1103
 msgid "Writing metadata to files…"
 msgstr "S'escriuen les metadades als fitxers…"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Import Photos"
 msgstr "Importa les fotografies"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Copy photos from a folder or external device."
 msgstr "Copia fotografies des d'una carpeta o dispositiu externs."
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Change Library Folder"
 msgstr "Canvia la carpeta de la biblioteca"
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Choose where to keep your photos."
 msgstr "Trieu on desar les fotografies."
 
@@ -2417,11 +2412,11 @@ msgstr "Estat de la fotografia"
 msgid "Date"
 msgstr "Data"
 
-#: src/sidebar/Tree.vala:880
+#: src/sidebar/Tree.vala:884
 msgid "New _Tag…"
 msgstr "E_tiqueta nova…"
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
@@ -2672,40 +2667,40 @@ msgstr "Cap esdeveniment"
 msgid "Merge events"
 msgstr "Combina els esdeveniments"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
+#: src/Views/EventsDirectoryPage.vala:151 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
 msgstr "_Pantalla completa"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
-#: src/Views/MediaPage.vala:248
+#: src/Views/EventsDirectoryPage.vala:213 src/Views/MediaPage.vala:66
+#: src/Views/MediaPage.vala:234
 msgid "_Comments"
 msgstr "_Comentaris"
 
-#: src/Views/EventsDirectoryPage.vala:225
+#: src/Views/EventsDirectoryPage.vala:214
 msgid "Display the comment of each event"
 msgstr "Mostra el comentari de cada esdeveniment"
 
-#: src/Views/EventsDirectoryPage.vala:249
+#: src/Views/EventsDirectoryPage.vala:238
 msgid "No events"
 msgstr "Sense esdeveniments"
 
-#: src/Views/EventsDirectoryPage.vala:253
+#: src/Views/EventsDirectoryPage.vala:242
 msgid "No events found"
 msgstr "No s'han trobat esdeveniments"
 
-#: src/Views/EventsDirectoryPage.vala:313
+#: src/Views/EventsDirectoryPage.vala:302
 msgid "Events"
 msgstr "Esdeveniments"
 
-#: src/Views/EventsDirectoryPage.vala:327
+#: src/Views/EventsDirectoryPage.vala:316
 msgid "Undated"
 msgstr "Sense data"
 
-#: src/Views/EventsDirectoryPage.vala:328
+#: src/Views/EventsDirectoryPage.vala:317
 msgid "%Y"
 msgstr "%Y"
 
-#: src/Views/EventsDirectoryPage.vala:329
+#: src/Views/EventsDirectoryPage.vala:318
 msgid "%OB"
 msgstr "%OB"
 
@@ -2713,31 +2708,31 @@ msgstr "%OB"
 msgid "Flagged"
 msgstr "Senyalat"
 
-#: src/Views/ImportPage.vala:464
+#: src/Views/ImportPage.vala:478
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "No s'ha pogut desmuntar la càmera. Intenteu desmuntar-la des del gestor de "
 "fitxers."
 
-#: src/Views/ImportPage.vala:783
+#: src/Views/ImportPage.vala:797
 msgid "Hide photos already imported"
 msgstr "Amaga les fotografies que ja s'hagin importat"
 
-#: src/Views/ImportPage.vala:786
+#: src/Views/ImportPage.vala:800
 msgid "Only display photos that have not been imported"
 msgstr "Mostra només les fotografies que no s'hagin importat"
 
-#: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
+#: src/Views/ImportPage.vala:855 src/Views/ImportPage.vala:955
+#: src/Views/MediaPage.vala:62 src/Views/MediaPage.vala:228
 msgid "_Titles"
 msgstr "_Títols"
 
-#: src/Views/ImportPage.vala:909 src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:968
 msgid "Import _Selected"
 msgstr "Importa les _seleccionades"
 
-#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:969
+#: src/Views/ImportPage.vala:917 src/Views/ImportPage.vala:972
 msgid "Import _All"
 msgstr "Importa-les _totes"
 
@@ -2745,47 +2740,47 @@ msgstr "Importa-les _totes"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:933
+#: src/Views/ImportPage.vala:936
 msgid "Starting import, please wait…"
 msgstr "S'inicia la importació, espereu…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
+#: src/Views/ImportPage.vala:956 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
 msgstr "Mostra el títol de cada fotografia"
 
-#: src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:968
 msgid "Import the selected photos into your library"
 msgstr "Importa les fotografies seleccionades a la biblioteca"
 
-#: src/Views/ImportPage.vala:970
+#: src/Views/ImportPage.vala:973
 msgid "Import all the photos into your library"
 msgstr "Importa totes les fotografies a la biblioteca"
 
-#: src/Views/ImportPage.vala:1090
+#: src/Views/ImportPage.vala:1093
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr "No es pot accedir a la càmera mentre estigui muntada."
 
-#: src/Views/ImportPage.vala:1091
+#: src/Views/ImportPage.vala:1094
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Cal que el Fotografies desmunti la càmera del sistema de fitxers per poder-"
 "hi accedir."
 
-#: src/Views/ImportPage.vala:1097
+#: src/Views/ImportPage.vala:1100
 msgid "_Unmount"
 msgstr "_Desmunta-la"
 
-#: src/Views/ImportPage.vala:1103
+#: src/Views/ImportPage.vala:1106
 msgid "Please unmount the camera."
 msgstr "Desmunteu la càmera."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1113
 msgid "The Camera Is Locked By Another Application"
 msgstr "La càmera està bloquejada per una altra aplicació."
 
-#: src/Views/ImportPage.vala:1111
+#: src/Views/ImportPage.vala:1114
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
@@ -2793,11 +2788,11 @@ msgstr ""
 "El Fotografies només pot accedir a la càmera quan no està blocada. Tanqueu "
 "qualsevol altra aplicació que l'estigui utilitzant i torneu-ho a intentar."
 
-#: src/Views/ImportPage.vala:1118
+#: src/Views/ImportPage.vala:1121
 msgid "Please close any other application using the camera."
 msgstr "Tanqueu qualsevol altra aplicació que estigui utilitzant la càmera."
 
-#: src/Views/ImportPage.vala:1123
+#: src/Views/ImportPage.vala:1126
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2806,65 +2801,65 @@ msgstr ""
 "No es poden obtenir previsualitzacions de la càmera:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1140
+#: src/Views/ImportPage.vala:1143
 msgid "Unmounting…"
 msgstr "Es desmunta…"
 
-#: src/Views/ImportPage.vala:1246
+#: src/Views/ImportPage.vala:1249
 msgid "Fetching photo information"
 msgstr "Es recull la informació de les fotografies"
 
-#: src/Views/ImportPage.vala:1598
+#: src/Views/ImportPage.vala:1597
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Es recull la previsualització de %s"
 
-#: src/Views/ImportPage.vala:1717
+#: src/Views/ImportPage.vala:1710
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "No es pot blocar la càmera: %s"
 
-#: src/Views/ImportPage.vala:1802
+#: src/Views/ImportPage.vala:1795
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] "Voleu suprimir aquesta fotografia de la càmera?"
 msgstr[1] "Voleu suprimir aquestes %d fotografies de la càmera?"
 
-#: src/Views/ImportPage.vala:1805
+#: src/Views/ImportPage.vala:1798
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] "Voleu suprimir aquest vídeo de la càmera?"
 msgstr[1] "Voleu suprimir aquests %d vídeos de la càmera?"
 
-#: src/Views/ImportPage.vala:1808
+#: src/Views/ImportPage.vala:1801
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] "Voleu suprimir aquesta fotografia/vídeo de la càmera?"
 msgstr[1] "Voleu suprimir aquestes %d fotografies/vídeos de la càmera?"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1804
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] "Voleu suprimir aquest fitxer de la càmera?"
 msgstr[1] "Voleu suprimir aquests %d fitxers de la càmera?"
 
-#: src/Views/ImportPage.vala:1819 src/Views/TrashPage.vala:284
+#: src/Views/ImportPage.vala:1812 src/Views/TrashPage.vala:273
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: src/Views/ImportPage.vala:1819
+#: src/Views/ImportPage.vala:1812
 msgid "_Keep"
 msgstr "_Mantén"
 
-#: src/Views/ImportPage.vala:1838
+#: src/Views/ImportPage.vala:1831
 msgid "Removing photos/videos from camera"
 msgstr "Se suprimeixen les fotografies / vídeos de la càmera"
 
-#: src/Views/ImportPage.vala:1842
+#: src/Views/ImportPage.vala:1835
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2907,52 +2902,52 @@ msgstr "No s'ha pogut exportar %s: %s"
 msgid "Missing Files"
 msgstr "Manquen fitxers"
 
-#: src/Views/OfflinePage.vala:194
+#: src/Views/OfflinePage.vala:183
 msgid "Deleting…"
 msgstr "Se suprimeix…"
 
-#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
+#: src/Views/MediaPage.vala:70 src/Views/MediaPage.vala:240
 msgid "Ta_gs"
 msgstr "Eti_quetes"
 
-#: src/Views/MediaPage.vala:85
+#: src/Views/MediaPage.vala:74
 msgid "Sort _Photos"
 msgstr "Ordena les _fotografies"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:257
 msgid "By _Title"
 msgstr "Per _títol"
 
-#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
+#: src/Views/MediaPage.vala:85 src/Views/MediaPage.vala:262
 msgid "By Exposure _Date"
 msgstr "Per _data d'exposició"
 
-#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+#: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
 msgstr "Per l'hora de modificació del _fitxer"
 
-#: src/Views/MediaPage.vala:249
+#: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
 msgstr "Mostra el comentari de cada fotografia"
 
-#: src/Views/MediaPage.vala:255
+#: src/Views/MediaPage.vala:241
 msgid "Display each photo's tags"
 msgstr "Mostra les etiquetes de cada fotografia"
 
-#: src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:257
 msgid "Sort photos by title"
 msgstr "Ordena les fotografies per títol"
 
-#: src/Views/MediaPage.vala:277
+#: src/Views/MediaPage.vala:263
 msgid "Sort photos by exposure date"
 msgstr "Ordena les fotografies per data d'exposició"
 
-#: src/Views/MediaPage.vala:282
+#: src/Views/MediaPage.vala:268
 msgid "Sort photos by import timestamp"
 msgstr "Ordena les fotografies per la data d'importació"
 
-#: src/Views/MediaPage.vala:429
+#: src/Views/MediaPage.vala:415
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3023,29 +3018,29 @@ msgid "Trash"
 msgstr "Paperera"
 
 #: src/Views/TrashPage.vala:82 src/Views/TrashPage.vala:126
-#: src/Views/TrashPage.vala:201 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:190 src/Views/TrashPage.vala:214
 msgid "_Empty Trash"
 msgstr "Buida la pap_erera"
 
-#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:214
 msgid "Delete all photos in the trash"
 msgstr "Suprimeix totes les fotografies de la paperera"
 
-#: src/Views/TrashPage.vala:279 src/Views/TrashPage.vala:280
+#: src/Views/TrashPage.vala:268 src/Views/TrashPage.vala:269
 msgid "Trash is empty"
 msgstr "La paperera està buida"
 
-#: src/Views/TrashPage.vala:285
+#: src/Views/TrashPage.vala:274
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "Se suprimeix una fotografia"
 msgstr[1] "Se suprimeixen fotografies"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Empty Trash"
 msgstr "Buida la paperera"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Emptying Trash…"
 msgstr "Es buida la paperera…"
 
@@ -3945,6 +3940,9 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Display the sidebar"
+#~ msgstr "Mostra la barra lateral"
 
 #~ msgid "Adjust the size of the thumbnails"
 #~ msgstr "Ajusta la mida de les miniatures"

@@ -119,8 +119,10 @@ public class StraightenTool : EditingTool {
          * @param container The application's main window.
          */
         public StraightenToolWindow (Gtk.Window container) {
-            base (container);
+            Object (transient_for: container);
+        }
 
+        construct {
             angle_slider.set_size_request (MIN_SLIDER_SIZE, -1);
             angle_slider.set_value (0.0);
             angle_slider.set_draw_value (false);

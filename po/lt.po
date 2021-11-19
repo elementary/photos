@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"POT-Creation-Date: 2021-10-26 18:32+0000\n"
 "PO-Revision-Date: 2019-08-15 19:22+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -1070,7 +1070,7 @@ msgid "Cameras"
 msgstr "Fotoaparatai"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
+#: src/Views/ImportPage.vala:739 src/Views/ImportPage.vala:755
 msgid "Camera"
 msgstr "Fotoaparatas"
 
@@ -1924,7 +1924,7 @@ msgstr "šiuos kriterijus:"
 msgid "Add rule"
 msgstr "Pridėti taisyklę"
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr "Atsisakyti"
@@ -2136,85 +2136,84 @@ msgstr[2] "%d nuotraukų"
 msgid "All Photos"
 msgstr "Visos nuotraukos"
 
-#: src/library/LibraryWindow.vala:163
+#: src/library/LibraryWindow.vala:162
 msgid "_Import From Folder…"
 msgstr "_Importuoti iš aplanko…"
 
-#: src/library/LibraryWindow.vala:168
+#: src/library/LibraryWindow.vala:174
+#, fuzzy
+#| msgid "S_idebar"
+msgid "Toggle Sidebar"
+msgstr "Šoninė _juosta"
+
+#: src/library/LibraryWindow.vala:180
+#, fuzzy
+#| msgid "Edit Photo In_fo"
+msgid "Toggle Photo Info"
+msgstr "Taisyti nuotraukos in_formaciją"
+
+#: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
 msgstr "_Nuostatos"
 
-#: src/library/LibraryWindow.vala:179
+#: src/library/LibraryWindow.vala:204
 msgid "Settings"
 msgstr "Nustatymai"
 
-#: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
-#: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
+#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:126
+#: src/Views/ImportPage.vala:859 src/Views/OfflinePage.vala:94
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:147
 msgid "Sort _Events"
 msgstr "Rikiuoti į_vykius"
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr "Rodyti šios nuotraukos į_vykį"
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
-#: src/sidebar/Tree.vala:877
+#: src/library/LibraryWindow.vala:393 src/searches/Branch.vala:87
+#: src/sidebar/Tree.vala:881
 msgid "New Smart Album…"
 msgstr "Naujas išmanusis albumas…"
 
-#: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
-#: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
-msgid "S_idebar"
-msgstr "Šoninė _juosta"
-
-#: src/library/LibraryWindow.vala:380
-msgid "Display the sidebar"
-msgstr "Rodyti šoninę juostą"
-
-#: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
-#: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
-#: src/Views/TrashPage.vala:151
+#: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
+#: src/Views/CollectionPage.vala:111 src/Views/LibraryPhotoPage.vala:478
 msgid "Edit Photo In_fo"
 msgstr "Taisyti nuotraukos in_formaciją"
 
-#: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
-#: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
-#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
+#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:128
+#: src/Views/ImportPage.vala:861 src/Views/OfflinePage.vala:96
+#: src/Views/MediaPage.vala:103 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:278 src/Views/TrashPage.vala:149
 msgid "_Ascending"
 msgstr "_Didėjimo tvarka"
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
+#: src/library/LibraryWindow.vala:433 src/Views/MediaPage.vala:278
 msgid "Sort photos in an ascending order"
 msgstr "Rikiuoti nuotraukas didėjimo tvarka"
 
-#: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
-#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
+#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:137
+#: src/Views/ImportPage.vala:870 src/Views/OfflinePage.vala:105
+#: src/Views/MediaPage.vala:112 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:283 src/Views/TrashPage.vala:158
 msgid "D_escending"
 msgstr "_Mažėjimo tvarka"
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
+#: src/library/LibraryWindow.vala:439 src/Views/MediaPage.vala:283
 msgid "Sort photos in a descending order"
 msgstr "Rikiuoti nuotraukas mažėjimo tvarka"
 
-#: src/library/LibraryWindow.vala:624
+#: src/library/LibraryWindow.vala:661
 msgid "Import From Folder"
 msgstr "Importuoti iš aplanko"
 
-#: src/library/LibraryWindow.vala:627
+#: src/library/LibraryWindow.vala:664
 msgid "Import"
 msgstr "Importuoti"
 
-#: src/library/LibraryWindow.vala:790
+#: src/library/LibraryWindow.vala:827
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2228,48 +2227,48 @@ msgstr ""
 "span>.\n"
 "Ar norite tęsti nuotraukų importavimą?"
 
-#: src/library/LibraryWindow.vala:794
+#: src/library/LibraryWindow.vala:831
 msgid "_Import"
 msgstr "_Importuoti"
 
-#: src/library/LibraryWindow.vala:795
+#: src/library/LibraryWindow.vala:832
 msgid "Library Location"
 msgstr "Bibliotekos vieta"
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:809
+#: src/library/LibraryWindow.vala:846
 msgid "Photos cannot be imported from this directory."
 msgstr "Nuotraukos negali būti importuotos iš šio katalogo."
 
-#: src/library/LibraryWindow.vala:1036 src/library/LibraryWindow.vala:1047
+#: src/library/LibraryWindow.vala:1073 src/library/LibraryWindow.vala:1084
 msgid "Updating library…"
 msgstr "Atnaujinama biblioteka…"
 
-#: src/library/LibraryWindow.vala:1053
+#: src/library/LibraryWindow.vala:1090
 msgid "Preparing to auto-import photos…"
 msgstr "Ruošiamasi automatiškai importuoti nuotraukas…"
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1095
 msgid "Auto-importing photos…"
 msgstr "Automatiškai importuojamos nuotraukos…"
 
-#: src/library/LibraryWindow.vala:1066
+#: src/library/LibraryWindow.vala:1103
 msgid "Writing metadata to files…"
 msgstr "Rašoma metaduomenis į failus…"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Import Photos"
 msgstr "Importuoti nuotraukas"
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Copy photos from a folder or external device."
 msgstr "Kopijuokite nuotraukas iš aplanko ar išorinio įrenginio."
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Change Library Folder"
 msgstr "Keisti bibliotekos aplanką"
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Choose where to keep your photos."
 msgstr "Pasirinkite kur laikyti savo nuotraukas."
 
@@ -2475,11 +2474,11 @@ msgstr "Nuotraukos būsena"
 msgid "Date"
 msgstr "Data"
 
-#: src/sidebar/Tree.vala:880
+#: src/sidebar/Tree.vala:884
 msgid "New _Tag…"
 msgstr "Nauja ž_ymė…"
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr "Neapdorota+JPEG"
 
@@ -2731,40 +2730,40 @@ msgstr "Jokio įvykio"
 msgid "Merge events"
 msgstr "Sujungti įvykius"
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
+#: src/Views/EventsDirectoryPage.vala:151 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
 msgstr "_Visas ekranas"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
-#: src/Views/MediaPage.vala:248
+#: src/Views/EventsDirectoryPage.vala:213 src/Views/MediaPage.vala:66
+#: src/Views/MediaPage.vala:234
 msgid "_Comments"
 msgstr "_Komentarai"
 
-#: src/Views/EventsDirectoryPage.vala:225
+#: src/Views/EventsDirectoryPage.vala:214
 msgid "Display the comment of each event"
 msgstr "Rodyti kiekvieno įvykio komentarą"
 
-#: src/Views/EventsDirectoryPage.vala:249
+#: src/Views/EventsDirectoryPage.vala:238
 msgid "No events"
 msgstr "Įvykių nėra"
 
-#: src/Views/EventsDirectoryPage.vala:253
+#: src/Views/EventsDirectoryPage.vala:242
 msgid "No events found"
 msgstr "Jokių įvykių nerasta"
 
-#: src/Views/EventsDirectoryPage.vala:313
+#: src/Views/EventsDirectoryPage.vala:302
 msgid "Events"
 msgstr "Įvykiai"
 
-#: src/Views/EventsDirectoryPage.vala:327
+#: src/Views/EventsDirectoryPage.vala:316
 msgid "Undated"
 msgstr "Be datos"
 
-#: src/Views/EventsDirectoryPage.vala:328
+#: src/Views/EventsDirectoryPage.vala:317
 msgid "%Y"
 msgstr "%Y"
 
-#: src/Views/EventsDirectoryPage.vala:329
+#: src/Views/EventsDirectoryPage.vala:318
 msgid "%OB"
 msgstr "%OB"
 
@@ -2772,30 +2771,30 @@ msgstr "%OB"
 msgid "Flagged"
 msgstr "Pažymėtos"
 
-#: src/Views/ImportPage.vala:464
+#: src/Views/ImportPage.vala:478
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 "Nepavyko atjungti fotoaparato. Pabandykite jį atjungti failų tvarkytuvėje."
 
-#: src/Views/ImportPage.vala:783
+#: src/Views/ImportPage.vala:797
 msgid "Hide photos already imported"
 msgstr "Slėpti jau importuotas nuotraukas"
 
-#: src/Views/ImportPage.vala:786
+#: src/Views/ImportPage.vala:800
 msgid "Only display photos that have not been imported"
 msgstr "Rodyti tik neimportuotas nuotraukas"
 
-#: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
+#: src/Views/ImportPage.vala:855 src/Views/ImportPage.vala:955
+#: src/Views/MediaPage.vala:62 src/Views/MediaPage.vala:228
 msgid "_Titles"
 msgstr "_Pavadinimai"
 
-#: src/Views/ImportPage.vala:909 src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:968
 msgid "Import _Selected"
 msgstr "Importuoti _pasirinktas"
 
-#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:969
+#: src/Views/ImportPage.vala:917 src/Views/ImportPage.vala:972
 msgid "Import _All"
 msgstr "Importuoti _visas"
 
@@ -2803,47 +2802,47 @@ msgstr "Importuoti _visas"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:933
+#: src/Views/ImportPage.vala:936
 msgid "Starting import, please wait…"
 msgstr "Pradedamas importavimas, prašome palaukti…"
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
+#: src/Views/ImportPage.vala:956 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
 msgstr "Rodyti kiekvienos nuotraukos pavadinimą"
 
-#: src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:968
 msgid "Import the selected photos into your library"
 msgstr "Importuoti pasirinktas nuotraukas į jūsų biblioteką"
 
-#: src/Views/ImportPage.vala:970
+#: src/Views/ImportPage.vala:973
 msgid "Import all the photos into your library"
 msgstr "Importuoti visas nuotraukas į jūsų biblioteką"
 
-#: src/Views/ImportPage.vala:1090
+#: src/Views/ImportPage.vala:1093
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr "Negalima gauti prieigos prie šio fotoaparato, kol jis yra prijungtas"
 
-#: src/Views/ImportPage.vala:1091
+#: src/Views/ImportPage.vala:1094
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Norint suteikti Nuotraukoms prieigą prie fotoaparato, reikia atjungti "
 "fotoaparatą nuo failų sistemos."
 
-#: src/Views/ImportPage.vala:1097
+#: src/Views/ImportPage.vala:1100
 msgid "_Unmount"
 msgstr "_Atjungti"
 
-#: src/Views/ImportPage.vala:1103
+#: src/Views/ImportPage.vala:1106
 msgid "Please unmount the camera."
 msgstr "Prašome atjungti fotoaparatą."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1113
 msgid "The Camera Is Locked By Another Application"
 msgstr "Kita programa užrakino fotoaparatą"
 
-#: src/Views/ImportPage.vala:1111
+#: src/Views/ImportPage.vala:1114
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
@@ -2852,11 +2851,11 @@ msgstr ""
 "Užverkite visas kitas programas, naudojančias fotoaparatą ir bandykite dar "
 "kartą."
 
-#: src/Views/ImportPage.vala:1118
+#: src/Views/ImportPage.vala:1121
 msgid "Please close any other application using the camera."
 msgstr "Užverkite visas kitas fotoaparatą naudojančias programas."
 
-#: src/Views/ImportPage.vala:1123
+#: src/Views/ImportPage.vala:1126
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2865,25 +2864,25 @@ msgstr ""
 "Nepavyko gauti peržiūrų iš fotoaparato:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1140
+#: src/Views/ImportPage.vala:1143
 msgid "Unmounting…"
 msgstr "Atjungiama…"
 
-#: src/Views/ImportPage.vala:1246
+#: src/Views/ImportPage.vala:1249
 msgid "Fetching photo information"
 msgstr "Gaunama nuotraukų informacija"
 
-#: src/Views/ImportPage.vala:1598
+#: src/Views/ImportPage.vala:1597
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Gaunama %s peržiūra"
 
-#: src/Views/ImportPage.vala:1717
+#: src/Views/ImportPage.vala:1710
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Nepavyko užrakinti fotoaparato: %s"
 
-#: src/Views/ImportPage.vala:1802
+#: src/Views/ImportPage.vala:1795
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
@@ -2891,7 +2890,7 @@ msgstr[0] "Ištrinti šią %d nuotrauką iš fotoaparato?"
 msgstr[1] "Ištrinti šias %d nuotraukas iš fotoaparato?"
 msgstr[2] "Ištrinti šias %d nuotraukų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1805
+#: src/Views/ImportPage.vala:1798
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
@@ -2899,7 +2898,7 @@ msgstr[0] "Ištrinti šį %d vaizdo įrašą iš fotoaparato?"
 msgstr[1] "Ištrinti šiuos %d vaizdo įrašus iš fotoaparato?"
 msgstr[2] "Ištrinti šiuos %d vaizdo įrašų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1808
+#: src/Views/ImportPage.vala:1801
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
@@ -2907,7 +2906,7 @@ msgstr[0] "Ištrinti šią %d nuotrauką ar vaizdo įrašą iš fotoaparato?"
 msgstr[1] "Ištrinti šias %d nuotraukas ar vaizdo įrašus iš fotoaparato?"
 msgstr[2] "Ištrinti šias %d nuotraukų ar vaizdo įrašų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1804
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
@@ -2915,19 +2914,19 @@ msgstr[0] "Ištrinti šį %d failą iš fotoaparato?"
 msgstr[1] "Ištrinti šiuos %d failus iš fotoaparato?"
 msgstr[2] "Ištrinti šiuos %d failų iš fotoaparato?"
 
-#: src/Views/ImportPage.vala:1819 src/Views/TrashPage.vala:284
+#: src/Views/ImportPage.vala:1812 src/Views/TrashPage.vala:273
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: src/Views/ImportPage.vala:1819
+#: src/Views/ImportPage.vala:1812
 msgid "_Keep"
 msgstr "_Palikti"
 
-#: src/Views/ImportPage.vala:1838
+#: src/Views/ImportPage.vala:1831
 msgid "Removing photos/videos from camera"
 msgstr "Šalinamos nuotraukos ir vaizdo įrašai iš fotoaparato"
 
-#: src/Views/ImportPage.vala:1842
+#: src/Views/ImportPage.vala:1835
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2972,54 +2971,54 @@ msgstr "Nepavyko eksportuoti %s: %s"
 msgid "Missing Files"
 msgstr "Trūkstami failai"
 
-#: src/Views/OfflinePage.vala:194
+#: src/Views/OfflinePage.vala:183
 msgid "Deleting…"
 msgstr "Ištrinama…"
 
-#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
+#: src/Views/MediaPage.vala:70 src/Views/MediaPage.vala:240
 msgid "Ta_gs"
 msgstr "Ž_ymės"
 
-#: src/Views/MediaPage.vala:85
+#: src/Views/MediaPage.vala:74
 msgid "Sort _Photos"
 msgstr "Rikiuoti _nuotraukas"
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:257
 msgid "By _Title"
 msgstr "Pagal _pavadinimą"
 
-#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
+#: src/Views/MediaPage.vala:85 src/Views/MediaPage.vala:262
 msgid "By Exposure _Date"
 msgstr "Pagal ekspozicijos _datą"
 
-#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+#: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
 msgstr ""
 
-#: src/Views/MediaPage.vala:249
+#: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
 msgstr "Rodyti kiekvienos nuotraukos komentarą"
 
-#: src/Views/MediaPage.vala:255
+#: src/Views/MediaPage.vala:241
 msgid "Display each photo's tags"
 msgstr "Rodyti kiekvienos nuotraukos žymes"
 
-#: src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:257
 msgid "Sort photos by title"
 msgstr "Rikiuoti nuotraukas pagal pavadinimą"
 
-#: src/Views/MediaPage.vala:277
+#: src/Views/MediaPage.vala:263
 msgid "Sort photos by exposure date"
 msgstr "Rikiuoti nuotraukas pagal ekspozicijos datą"
 
-#: src/Views/MediaPage.vala:282
+#: src/Views/MediaPage.vala:268
 #, fuzzy
 #| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
 msgstr "Rikiuoti nuotraukas pagal ekspozicijos datą"
 
-#: src/Views/MediaPage.vala:429
+#: src/Views/MediaPage.vala:415
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -3090,30 +3089,30 @@ msgid "Trash"
 msgstr "Šiukšlinė"
 
 #: src/Views/TrashPage.vala:82 src/Views/TrashPage.vala:126
-#: src/Views/TrashPage.vala:201 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:190 src/Views/TrashPage.vala:214
 msgid "_Empty Trash"
 msgstr "_Išvalyti šiukšlinę"
 
-#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:214
 msgid "Delete all photos in the trash"
 msgstr "Ištrinti visas šiukšlinėje esančias nuotraukas"
 
-#: src/Views/TrashPage.vala:279 src/Views/TrashPage.vala:280
+#: src/Views/TrashPage.vala:268 src/Views/TrashPage.vala:269
 msgid "Trash is empty"
 msgstr "Šiukšlinė yra tuščia"
 
-#: src/Views/TrashPage.vala:285
+#: src/Views/TrashPage.vala:274
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] "Ištrinama nuotrauka"
 msgstr[1] "Ištrinamos nuotraukos"
 msgstr[2] "Ištrinamos nuotraukos"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Empty Trash"
 msgstr "Išvalyti šiukšlinę"
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Emptying Trash…"
 msgstr "Ištuštinama šiukšlinė…"
 
@@ -4023,6 +4022,9 @@ msgstr "Šachmatai"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Langinės"
+
+#~ msgid "Display the sidebar"
+#~ msgstr "Rodyti šoninę juostą"
 
 #~ msgid "Adjust the size of the thumbnails"
 #~ msgstr "Reguliuoti miniatiūrų dydį"
