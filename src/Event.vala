@@ -584,23 +584,22 @@ public class Event : EventSource, ContainerSource, Proxyable, Indexable {
         // media sources are stored in ViewCollection from earliest to latest
         MediaSource earliest_media = (MediaSource) ((DataView) view.get_at (0)).source;
         var earliest_tm = new DateTime.from_unix_local (earliest_media.get_exposure_time ());
+        var start_boundary_dt = new DateTime.local (
+            earliest_tm.get_year (),
+            earliest_tm.get_month (),
+            earliest_tm.get_day_of_month (),
+            EVENT_BOUNDARY_HOUR,
+            0,
+            0.0
+        );
 
-        // use earliest to generate the boundary hour for that day
-        Time start_boundary_tm = Time ();
-        start_boundary_tm.second = 0;
-        start_boundary_tm.minute = 0;
-        start_boundary_tm.hour = EVENT_BOUNDARY_HOUR;
-        start_boundary_tm.day = earliest_tm.get_day_of_month ();
-        start_boundary_tm.month = earliest_tm.get_month ();
-        start_boundary_tm.year = earliest_tm.get_year ();
-        start_boundary_tm.isdst = -1;
-
-        int64 start_boundary = start_boundary_tm.mktime ();
+        int64 start_boundary = start_boundary_dt.to_unix ();
 
         // if the earliest's exposure time was on the day but *before* the boundary hour,
         // step it back a day to the prior day's boundary
-        if (earliest_tm.get_hour () < EVENT_BOUNDARY_HOUR)
+        if (earliest_tm.get_hour () < EVENT_BOUNDARY_HOUR) {
             start_boundary -= SECONDS_PER_DAY;
+        }
 
         int64 end_boundary = (start_boundary + SECONDS_PER_DAY - 1);
 
