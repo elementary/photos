@@ -339,7 +339,7 @@ public abstract class AppWindow : PageWindow {
         }
 
         if (desc != null) {
-            button.tooltip_text = "%s %s".printf (default_explanation, desc.name);
+            button.tooltip_text = "%s %s".printf (default_explanation, desc.get_command_name ());
             action.set_enabled (true);
         } else {
             button.tooltip_text = default_explanation;
