@@ -18,9 +18,9 @@
 */
 
 public interface CommandDescription : Object {
-    public abstract string name { get; construct; }
+    public abstract string get_command_name ();
 
-    public abstract string explanation { get; construct; }
+    public abstract string get_command_explanation ();
 }
 
 // Command's overrideable action calls are guaranteed to be called in this order:
@@ -38,8 +38,8 @@ public interface CommandDescription : Object {
 //
 // redo ()'s default implementation is to call execute, which in many cases is appropriate.
 public abstract class Command : Object, CommandDescription {
-    public virtual string name { get; construct; }
-    public virtual string explanation { get; construct; }
+    public string name { get; construct; }
+    public string explanation { get; construct; }
     private weak CommandManager manager = null;
 
     protected Command (string name, string explanation) {
@@ -53,6 +53,14 @@ public abstract class Command : Object, CommandDescription {
 #if TRACE_DTORS
         debug ("DTOR: Command %s (%s)", name, explanation);
 #endif
+    }
+
+    public virtual string get_command_name () {
+        return name;
+    }
+
+    public virtual string get_command_explanation () {
+        return explanation;
     }
 
     public virtual void prepare () {
