@@ -447,7 +447,7 @@ private class AVIMetadataLoader {
             return 0;
         }
 
-        Date date = Date ();
+        DateTime dt;
         uint seconds = 0;
         int year, month, day, hour, min, sec;
         char weekday[4];
@@ -464,7 +464,15 @@ private class AVIMetadataLoader {
             if (result < 5) {
                 return 0;
             }
-            date.set_dmy ((DateDay) day, (DateMonth) month, (DateYear) year);
+
+            dt = new DateTime.local (
+                year,
+                month,
+                day,
+                hour,
+                min,
+                (double)sec
+            );
             seconds = sec + min * 60 + hour * 3600;
         } else {
             // Format is: Mon Mar  3 09:44:56 2008
@@ -472,23 +480,27 @@ private class AVIMetadataLoader {
                                   out min, out sec, out year)) {
                 return 0; // Error
             }
-            date.set_dmy ((DateDay) day, month_from_string ((string) monthstr), (DateYear) year);
+
+            dt = new DateTime.local (
+                year,
+                month_from_string ((string) monthstr),
+                day,
+                hour,
+                min,
+                (double)sec
+            );
             seconds = sec + min * 60 + hour * 3600;
         }
 
-        Time time = Time ();
-        date.to_time (out time);
-
         // watch for overflow (happens on quasi-bogus dates, like Year 200)
-        int64 tm = time.mktime ();
+        int64 tm = dt.to_unix ();
         int64 result = tm + seconds;
         if (result < tm) {
             debug ("Overflow for timestamp in video file %s", file.get_path ());
-
             return 0;
         }
 
-        return result;
+        return tm;
     }
 
     private DateMonth month_from_string (string s) {
