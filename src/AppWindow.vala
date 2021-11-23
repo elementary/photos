@@ -82,7 +82,7 @@ public abstract class AppWindow : PageWindow {
         header = new Hdy.HeaderBar ();
         header.show_close_button = true;
 
-        icon_name = "multimedia-photo-manager";
+        icon_name = "io.elementary.photos";
         title = _(Resources.APP_TITLE);
 
         add_action_entries (ACTION_ENTRIES, this);
