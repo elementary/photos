@@ -835,8 +835,6 @@ internal class WebAuthenticationPane : Spit.Publishing.DialogPane, Object {
         webview_frame.expand = true;
 
         webview = new WebKit.WebView ();
-        webview.get_settings ().enable_plugins = false;
-
         webview.load_changed.connect ((load_event) => {
             if (load_event == WebKit.LoadEvent.STARTED) {
                 on_load_started ();
@@ -1393,7 +1391,7 @@ internal class GraphSession {
             unowned uint8[] payload = (uint8[]) mapped_file.get_contents ();
             payload.length = (int) mapped_file.get_length ();
 
-            Soup.Buffer image_data = new Soup.Buffer (Soup.MemoryUse.TEMPORARY, payload);
+            Soup.Buffer image_data = new Soup.Buffer.take (payload);
 
             Soup.Multipart mp_envelope = new Soup.Multipart ("multipart/form-data");
 
