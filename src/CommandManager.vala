@@ -16,11 +16,6 @@
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301 USA
 */
-
-public interface CommandDescription : Object {
-    public abstract string get_command_name ();
-
-    public abstract string get_command_explanation ();
 }
 
 // Command's overrideable action calls are guaranteed to be called in this order:
@@ -37,7 +32,7 @@ public interface CommandDescription : Object {
 //   * redo () ...
 //
 // redo ()'s default implementation is to call execute, which in many cases is appropriate.
-public abstract class Command : Object, CommandDescription {
+public abstract class Command : Object {
     public string name { get; construct; }
     public string explanation { get; construct; }
     private weak CommandManager manager = null;
@@ -53,14 +48,6 @@ public abstract class Command : Object, CommandDescription {
 #if TRACE_DTORS
         debug ("DTOR: Command %s (%s)", name, explanation);
 #endif
-    }
-
-    public virtual string get_command_name () {
-        return name;
-    }
-
-    public virtual string get_command_explanation () {
-        return explanation;
     }
 
     public virtual void prepare () {
@@ -142,7 +129,7 @@ public class CommandManager {
         return undo_stack.size > 0;
     }
 
-    public CommandDescription? get_undo_description () {
+    public Command? get_undo_command () {
         return top (undo_stack);
     }
 
@@ -168,7 +155,7 @@ public class CommandManager {
         return redo_stack.size > 0;
     }
 
-    public CommandDescription? get_redo_description () {
+    public Command? get_redo_command () {
         return top (redo_stack);
     }
 
