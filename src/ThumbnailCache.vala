@@ -413,8 +413,13 @@ public class ThumbnailCache : Object {
         } catch (Error err) {
             if (err is FileError) {
                 try {
-                    Photo photo = source as Photo;
-                    Video video = source as Video;
+                    Photo? photo = null;
+                    Video? video = null;
+                    if (source is Photo) {
+                        photo = source as Photo;
+                    } else if (source is Video) {
+                        video = source as Video;
+                    }
 
                     if (photo != null) {
                         pixbuf = photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true));

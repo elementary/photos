@@ -612,7 +612,11 @@ public class SearchConditionModified : SearchCondition {
     // Determines whether the source is included.
     public override bool predicate (MediaSource source) {
         // check against state and the given search context.
-        Photo? photo = source as Photo;
+        Photo? photo = null;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         if (photo == null)
             return false;
 

@@ -41,7 +41,11 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
 
         total++;
 
-        Photo? photo = source as Photo;
+        Photo? photo = null;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         if (photo != null) {
             if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
                 raw++;

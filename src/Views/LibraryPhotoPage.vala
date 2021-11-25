@@ -250,7 +250,12 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected ().get (0).source as Photo;
+        Photo? photo = null;
+        DataSource? source = get_view ().get_selected ().get (0).source;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         if (photo == null || rd.is_equivalent (photo.get_raw_developer ()))
             return;
 
@@ -588,7 +593,12 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.show_all ();
         }
 
-        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
+        Photo? photo = null;
+        DataSource? source = get_view ().get_selected_at (0).source;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         if (photo != null) {
             unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
             populate_external_app_menu (open_menu, photo_file_format, false);

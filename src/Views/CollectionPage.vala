@@ -233,7 +233,12 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.show_all ();
         }
 
-        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
+        Photo? photo = null;
+        DataSource? source = get_view ().get_selected_at (0).source;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         if (photo != null) {
             unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
             populate_external_app_menu (open_menu, photo_file_format, false);
@@ -360,7 +365,12 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected_at (0).source as Photo;
+        Photo? photo = null;
+        DataSource? source = get_view ().get_selected_at (0).source;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+
         try {
             AppWindow.get_instance ().set_busy_cursor ();
             photo.open_with_external_editor (app);
@@ -375,8 +385,13 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo photo = (Photo) get_view ().get_selected_at (0).source;
-        if (photo.get_master_file_format () != PhotoFileFormat.RAW)
+        Photo? photo = null;
+        DataSource? source = get_view ().get_selected_at (0).source;
+        if (source is Photo) {
+            photo = source as Photo;
+        }
+        // Photo photo = (Photo) get_view ().get_selected_at (0).source;
+        if (photo == null || photo.get_master_file_format () != PhotoFileFormat.RAW)
             return;
 
         try {
@@ -478,7 +493,11 @@ public abstract class CollectionPage : MediaPage {
     private void update_enhance_toggled () {
         bool toggled = false;
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.source as Photo;
+            Photo? photo = null;
+            if (view.source is Photo) {
+                photo = view.source as Photo;
+            }
+
             if (photo != null && !photo.is_enhanced ()) {
                 toggled = false;
                 break;
@@ -735,8 +754,10 @@ public abstract class CollectionPage : MediaPage {
     }
 
     public void on_copy_adjustments () {
-        if (get_view ().get_selected_count () != 1)
+        if (get_view ().get_selected_count () != 1 || !(get_view ().get_selected_at (0).source is Photo)) {
             return;
+        }
+
         Photo photo = (Photo) get_view ().get_selected_at (0).source;
         PixelTransformationBundle.set_copied_color_adjustments (photo.get_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", true);
@@ -763,7 +784,11 @@ public abstract class CollectionPage : MediaPage {
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.source as Photo;
+            Photo? photo = null;
+            if (view.source is Photo) {
+                photo = view.source as Photo;
+            }
+
             if (photo != null && !photo.is_enhanced ())
                 unenhanced_list.add (view);
             else if (photo != null)
@@ -783,7 +808,11 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.source as Photo;
+                Photo? photo = null;
+                if (view.source is Photo) {
+                    photo = view.source as Photo;
+                }
+
                 photo.set_enhanced (false);
             }
         } else {
@@ -796,7 +825,11 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.source as Photo;
+                Photo? photo = null;
+                if (view.source is Photo) {
+                    photo = view.source as Photo;
+                }
+
                 photo.set_enhanced (true);
             }
         }
