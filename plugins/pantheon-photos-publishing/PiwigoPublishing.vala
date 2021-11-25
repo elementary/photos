@@ -1006,11 +1006,10 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
         FAILED_RETRY_USER
     }
     private static string intro_message = _ ("Enter the URL of your Piwigo photo library as well as the username and password associated with your Piwigo account for that library.");
-    private static string failed_retry_url_message = _ ("Shotwell cannot contact your Piwigo photo library. Please verify the URL you entered");
+    private static string failed_retry_url_message = _ ("Photos cannot contact your Piwigo photo library. Please verify the URL you entered");
     private static string failed_retry_user_message = _ ("Username and/or password invalid. Please try again");
 
     private Gtk.Box pane_widget = null;
-    private Gtk.Builder builder;
     private Gtk.Entry url_entry;
     private Gtk.Entry username_entry;
     private Gtk.Entry password_entry;
@@ -1020,62 +1019,106 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
     public signal void login (string url, string user, string password, bool remember_password);
 
     public AuthenticationPane (PiwigoPublisher publisher, Mode mode = Mode.INTRO) {
-        this.pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-        try {
-            builder = new Gtk.Builder ();
-            builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_authentication_pane.ui");
-            builder.connect_signals (null);
-            Gtk.Alignment align = builder.get_object ("alignment") as Gtk.Alignment;
-
-            Gtk.Label message_label = builder.get_object ("message_label") as Gtk.Label;
-            switch (mode) {
+        var message_label = new Gtk.Label (null) {
+            expand = true,
+            wrap = true,
+            use_markup = true
+        };
+        switch (mode) {
             case Mode.INTRO:
-                message_label.set_text (intro_message);
+                message_label.label = intro_message;
                 break;
 
             case Mode.FAILED_RETRY_URL:
-                message_label.set_markup ("<b>%s</b>\n\n%s".printf (_ (
-                                              "Invalid URL"), failed_retry_url_message));
+                message_label.label = "<b>%s</b>\n\n%s".printf (
+                    _ ("Invalid URL"), failed_retry_url_message
+                );
                 break;
 
             case Mode.FAILED_RETRY_USER:
-                message_label.set_markup ("<b>%s</b>\n\n%s".printf (_ (
-                                              "Invalid User Name or Password"), failed_retry_user_message));
+                message_label.label = "<b>%s</b>\n\n%s".printf (
+                    _ ("Invalid User Name or Password"), failed_retry_user_message
+                );
                 break;
-            }
-
-            url_entry = builder.get_object ("url_entry") as Gtk.Entry;
-            string? persistent_url = publisher.get_persistent_url ();
-            if (persistent_url != null) {
-                url_entry.set_text (persistent_url);
-            }
-            username_entry = builder.get_object ("username_entry") as Gtk.Entry;
-            string? persistent_username = publisher.get_persistent_username ();
-            if (persistent_username != null) {
-                username_entry.set_text (persistent_username);
-            }
-            password_entry = builder.get_object ("password_entry") as Gtk.Entry;
-            string? persistent_password = publisher.get_persistent_password ();
-            if (persistent_password != null) {
-                password_entry.set_text (persistent_password);
-            }
-            remember_password_checkbutton =
-                builder.get_object ("remember_password_checkbutton") as Gtk.CheckButton;
-            remember_password_checkbutton.set_active (publisher.get_remember_password ());
-
-            login_button = builder.get_object ("login_button") as Gtk.Button;
-
-            username_entry.changed.connect (on_user_changed);
-            url_entry.changed.connect (on_url_changed);
-            password_entry.changed.connect (on_password_changed);
-            login_button.clicked.connect (on_login_button_clicked);
-
-            align.reparent (pane_widget);
-            publisher.get_host ().set_dialog_default_widget (login_button);
-        } catch (Error e) {
-            warning ("Could not load UI: %s", e.message);
         }
+
+        var url_label = new Gtk.Label (_("URL of your Piwigo photo library:")) {
+            expand = true,
+            halign = Gtk.Align.END
+        };
+        url_entry = new Gtk.Entry () {
+            expand = true
+        };
+        string? persistent_url = publisher.get_persistent_url ();
+        if (persistent_url != null) {
+            url_entry.text = persistent_url;
+        }
+
+        var username_label = new Gtk.Label (_("Username:")) {
+            expand = true,
+            halign = Gtk.Align.END
+        };
+        username_entry = new Gtk.Entry () {
+            expand = true
+        };
+        string? persistent_username = publisher.get_persistent_username ();
+        if (persistent_username != null) {
+            username_entry.text = persistent_username;
+        }
+
+        var password_label = new Gtk.Label (_("Password:")) {
+            expand = true,
+            halign = Gtk.Align.END
+        };
+        password_entry = new Gtk.Entry () {
+            expand = true,
+            visibility = false
+        };
+        string? persistent_password = publisher.get_persistent_password ();
+        if (persistent_password != null) {
+            password_entry.text = persistent_password;
+        }
+
+        remember_password_checkbutton = new Gtk.CheckButton.with_label (_("Remember Password")) {
+            active = publisher.get_remember_password ()
+        };
+
+        login_button = new Gtk.Button.with_label (_("Login")) {
+            receives_default = true
+        };
+
+        username_entry.changed.connect (update_login_button_sensitivity);
+        url_entry.changed.connect (update_login_button_sensitivity);
+        password_entry.changed.connect (update_login_button_sensitivity);
+        login_button.clicked.connect (on_login_button_clicked);
+
+        var field_grid = new Gtk.Grid () {
+            column_spacing = 8,
+            row_spacing = 2,
+            expand = true
+        };
+        field_grid.attach (url_label, 0, 1, 1, 1);
+        field_grid.attach (url_entry, 1, 1, 1, 1);
+        field_grid.attach (username_label, 0, 2, 1, 1);
+        field_grid.attach (username_entry, 1, 2, 1, 1);
+        field_grid.attach (password_label, 0, 3, 1, 1);
+        field_grid.attach (password_entry, 1, 3, 1, 1);
+
+        var buttonbox = new Gtk.ButtonBox (Gtk.Orientation.VERTICAL);
+        buttonbox.pack_start (login_button, false, false);
+
+        pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            margin_left = 30,
+            margin_right = 30,
+            hexpand = true,
+            spacing = 8
+        };
+        pane_widget.pack_start (message_label, false, true);
+        pane_widget.pack_start (field_grid, true, true);
+        pane_widget.pack_start (remember_password_checkbutton, true, true);
+        pane_widget.pack_start (buttonbox, true, true);
+
+        publisher.get_host ().set_dialog_default_widget (login_button);
     }
 
     public Gtk.Widget get_default_widget () {
@@ -1083,27 +1126,14 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
     }
 
     private void on_login_button_clicked () {
-        login (url_entry.get_text (), username_entry.get_text (),
-               password_entry.get_text (), remember_password_checkbutton.get_active ());
-    }
-
-    private void on_url_changed () {
-        update_login_button_sensitivity ();
-    }
-
-    private void on_user_changed () {
-        update_login_button_sensitivity ();
-    }
-
-    private void on_password_changed () {
-        update_login_button_sensitivity ();
+        login (url_entry.text, username_entry.text, password_entry.text, remember_password_checkbutton.active);
     }
 
     private void update_login_button_sensitivity () {
-        login_button.set_sensitive (
-            !is_string_empty (url_entry.get_text ()) &&
-            !is_string_empty (username_entry.get_text ()) &&
-            !is_string_empty (password_entry.get_text ())
+        login_button.sensitive = (
+            !is_string_empty (url_entry.text) &&
+            !is_string_empty (username_entry.text) &&
+            !is_string_empty (password_entry.text)
         );
     }
 
@@ -1117,7 +1147,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
 
     public void on_pane_installed () {
         url_entry.grab_focus ();
-        password_entry.set_activates_default (true);
+        password_entry.activates_default = true;
         login_button.can_default = true;
         update_login_button_sensitivity ();
     }
