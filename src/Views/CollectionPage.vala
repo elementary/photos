@@ -234,18 +234,27 @@ public abstract class CollectionPage : MediaPage {
         }
 
         Photo? photo = null;
+        Video? video = null;
         DataSource? source = get_view ().get_selected_at (0).source;
         if (source is Photo) {
             photo = source as Photo;
+        } else {
+            video = source as Video;
         }
 
+        int n_items = 0;
         if (photo != null) {
             unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
-            populate_external_app_menu (open_menu, photo_file_format, false);
-
+            n_items = populate_external_app_menu (open_menu, photo_file_format.get_mime_types (), false);
+            open_menu.sensitive = n_items > 0;
             if (photo_file_format == PhotoFileFormat.RAW) {
-                populate_external_app_menu (open_raw_menu, PhotoFileFormat.RAW, true);
+                n_items = populate_external_app_menu (open_raw_menu, {}, true);
+                open_raw_menu.sensitive = n_items > 0;
             }
+        } else if (video != null) {
+            var mime_type = ContentType.guess (video.get_master_file ().get_basename (), null, null);
+            n_items = populate_external_app_menu (open_menu, {mime_type}, false);
+            open_menu.sensitive = n_items > 0;
         }
 
         open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
@@ -305,17 +314,13 @@ public abstract class CollectionPage : MediaPage {
         action.sensitive = sensitive;
     }
 
-    private void populate_external_app_menu (Gtk.Menu menu, PhotoFileFormat file_format, bool raw) {
+    private int populate_external_app_menu (Gtk.Menu menu, string[] mime_types, bool raw) {
         SortedList<AppInfo> external_apps;
-        string[] mime_types;
-
         foreach (Gtk.Widget item in menu.get_children ()) {
             menu.remove (item);
         }
 
-        // get list of all applications for the given mime types
-        mime_types = file_format.get_mime_types ();
-
+        var n_items = 0;
         if (!raw) {
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
 
@@ -334,31 +339,35 @@ public abstract class CollectionPage : MediaPage {
             jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             menu.add (jump_menu_item);
+            n_items++;
         }
 
-        assert (mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+        if (mime_types.length > 0) {
+            external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
 
-        foreach (AppInfo app in external_apps) {
-            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
-            menu_item_icon.pixel_size = 16;
+            foreach (AppInfo app in external_apps) {
+                var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+                menu_item_icon.pixel_size = 16;
 
-            var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (menu_item_icon);
-            menuitem_grid.add (new Gtk.Label (app.get_name ()));
+                var menuitem_grid = new Gtk.Grid ();
+                menuitem_grid.add (menu_item_icon);
+                menuitem_grid.add (new Gtk.Label (app.get_name ()));
 
-            var item_app = new Gtk.MenuItem ();
-            item_app.add (menuitem_grid);
+                var item_app = new Gtk.MenuItem ();
+                item_app.add (menuitem_grid);
 
-            item_app.activate.connect (() => {
-                if (raw)
-                    on_open_with_raw (app.get_commandline ());
-                else
-                    on_open_with (app.get_commandline ());
-            });
-            menu.add (item_app);
+                item_app.activate.connect (() => {
+                    if (raw)
+                        on_open_with_raw (app.get_commandline ());
+                    else
+                        on_open_with (app.get_commandline ());
+                });
+                menu.add (item_app);
+                n_items++;
+            }
         }
         menu.show_all ();
+        return n_items;
     }
 
     private void on_open_with (string app) {
@@ -366,14 +375,22 @@ public abstract class CollectionPage : MediaPage {
             return;
 
         Photo? photo = null;
+        Video? video = null;
         DataSource? source = get_view ().get_selected_at (0).source;
         if (source is Photo) {
             photo = source as Photo;
+        } else if (source is Video) {
+            video = source as Video;
         }
 
         try {
             AppWindow.get_instance ().set_busy_cursor ();
-            photo.open_with_external_editor (app);
+            if (photo != null) {
+                photo.open_with_external_editor (app);
+            } else if (video != null) {
+                open_video_with (AppInfo.create_from_commandline (app, null, AppInfoCreateFlags.NONE));
+            }
+
             AppWindow.get_instance ().set_normal_cursor ();
         } catch (Error err) {
             AppWindow.get_instance ().set_normal_cursor ();
@@ -390,7 +407,7 @@ public abstract class CollectionPage : MediaPage {
         if (source is Photo) {
             photo = source as Photo;
         }
-        // Photo photo = (Photo) get_view ().get_selected_at (0).source;
+
         if (photo == null || photo.get_master_file_format () != PhotoFileFormat.RAW)
             return;
 

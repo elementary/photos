@@ -417,6 +417,24 @@ public abstract class MediaPage : CheckerboardPage {
         }
     }
 
+    public void open_video_with (AppInfo app) {
+        if (get_view ().get_selected_count () != 1 || !(get_view ().get_selected_at (0).source is Video))
+            return;
+
+        Video? video = get_view ().get_selected_at (0).source as Video;
+        if (video == null)
+            return;
+
+        try {
+            List<string> videos = null;
+            videos.append (video.get_file ().get_uri ());
+            app.launch_uris (videos, null);
+        } catch (Error e) {
+            AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
+                                         e.message));
+        }
+    }
+
     protected override bool on_app_key_pressed (Gdk.EventKey event) {
         bool handled = true;
         switch (Gdk.keyval_name (event.keyval)) {
