@@ -439,7 +439,7 @@ public class UploadTransaction : Transaction {
 
         int payload_part_num = message_parts.get_length ();
 
-        Soup.Buffer bindable_data = new Soup.Buffer (Soup.MemoryUse.COPY, payload.data[0:payload_length]);
+        Soup.Buffer bindable_data = new Soup.Buffer.take (payload.data[0:payload_length]);
         message_parts.append_form_file ("", publishable.get_serialized_file ().get_path (), mime_type,
         bindable_data);
 
@@ -754,7 +754,6 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
             webview_frame.expand = true;
 
             webview = new WebKit.WebView ();
-            webview.get_settings ().enable_plugins = false;
             webview.load_changed.connect ((load_event) => {
                 if (load_event == WebKit.LoadEvent.STARTED) {
                     on_load_started ();
