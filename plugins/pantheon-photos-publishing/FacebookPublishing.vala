@@ -68,11 +68,11 @@ namespace Publishing.Facebook {
 public const string SERVICE_NAME = "facebook";
 internal const string USER_VISIBLE_NAME = "Facebook";
 internal const string APPLICATION_ID = "162702932093";
-internal const string DEFAULT_ALBUM_NAME = _ ("Shotwell Connect");
+internal const string DEFAULT_ALBUM_NAME = _ ("Photos Connect");
 internal const string SERVICE_WELCOME_MESSAGE =
-    _ ("You are not currently logged into Facebook.\n\nIf you don't yet have a Facebook account, you can create one during the login process. During login, Shotwell Connect may ask you for permission to upload photos and publish to your feed. These permissions are required for Shotwell Connect to function.");
+    _ ("You are not currently logged into Facebook.\n\nIf you don't yet have a Facebook account, you can create one during the login process. During login, Photos Connect may ask you for permission to upload photos and publish to your feed. These permissions are required for Photos Connect to function.");
 internal const string RESTART_ERROR_MESSAGE =
-    _ ("You have already logged in and out of Facebook during this Shotwell session.\nTo continue publishing to Facebook, quit and restart Shotwell, then try publishing again.");
+    _ ("You have already logged in and out of Facebook during this Photos session.\nTo continue publishing to Facebook, quit and restart Photos, then try publishing again.");
 internal const string USER_AGENT = "Java/1.6.0_16";
 internal const int EXPIRED_SESSION_STATUS_CODE = 400;
 
