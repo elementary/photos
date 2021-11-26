@@ -27,7 +27,7 @@ private class ShotwellPublishingExtraServices : Object, Spit.Module {
     }
 
     public unowned string get_module_name () {
-        return _ ("Shotwell Extra Publishing Services");
+        return _ ("Photos Extra Publishing Services");
     }
 
     public unowned string get_version () {
