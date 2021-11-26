@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"POT-Creation-Date: 2021-11-26 07:38+0000\n"
 "PO-Revision-Date: 2021-11-07 18:10+0000\n"
 "Last-Translator: Kiran Chauhan <kiranchauhan68@gmail.com>\n"
 "Language-Team: Gujarati <https://l10n.elementary.io/projects/photos/photos/"
@@ -327,7 +327,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "%s ને મોનિટર કરવાનું અસમર્થ: ડિરેક્ટરી નથી (%s)"
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr "ઘટના %s"
@@ -3261,7 +3261,7 @@ msgstr "કૉર પ્રકાશિત સેવાઓ"
 msgid "A temporary file needed for publishing is unavailable"
 msgstr "પ્રકાશિત કરવા માટે જરૂરી કામચલાઉ ફાઇલ બિનઉપલબ્ધ નથી"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3270,8 +3270,8 @@ msgid ""
 msgstr ""
 "તમે આ સત્ર દરમિયાન પહેલેથી જ Google સેવામાંથી લૉગ ઇન અને આઉટ થઈ ગયા છો.\n"
 "\n"
-"Google સેવાઓ પર પ્રકાશન ચાલુ રાખવા માટે, આ સૉફ્ટવેર છોડો અને ફરીથી પ્રારંભ "
-"કરો, પછી ફરીથી પ્રકાશિત કરવાનો પ્રયાસ કરો."
+"Google સેવાઓ પર પ્રકાશન ચાલુ રાખવા માટે, આ સૉફ્ટવેર છોડો અને ફરીથી પ્રારંભ કરો, પછી "
+"ફરીથી પ્રકાશિત કરવાનો પ્રયાસ કરો."
 
 #: plugins/pantheon-photos-publishing/Resources.vala:22
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:22
@@ -3310,8 +3310,12 @@ msgstr ""
 "તમારી Piwigo ફોટો લાઇબ્રેરી ની URL ને દાખલ કરો."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
+#, fuzzy
+#| msgid ""
+#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#| "you entered"
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 "Shotwell એ તમારી ફોટો લાઇબ્રેરીને સંપર્ક કરી શકતુ નથી. મહેરબાની કરીને URL ને ચકાસો તમે "
@@ -3333,12 +3337,14 @@ msgstr "અયોગ્ય વપરાશકર્તા નામ અથવા
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
+#, fuzzy
+#| msgid "Shotwell Connect"
+msgid "Photos Connect"
 msgstr "Shotwell જોડાણ"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "બધા"
 
@@ -3389,9 +3395,8 @@ msgid ""
 msgstr ""
 "તમે હાલમાં Google Photosમાં લૉગ ઇન નથી.\n"
 "\n"
-"તમારા વેબ બ્રાઉઝરમાં Google Photosમાં લૉગ ઇન કરવા માટે લૉગિન પર ક્લિક કરો. "
-"તમારે તમારા Google Photos એકાઉન્ટ સાથે લિંક કરવા માટે elementary OSને અધિકૃત "
-"કરવું પડશે."
+"તમારા વેબ બ્રાઉઝરમાં Google Photosમાં લૉગ ઇન કરવા માટે લૉગિન પર ક્લિક કરો. તમારે "
+"તમારા Google Photos એકાઉન્ટ સાથે લિંક કરવા માટે elementary OSને અધિકૃત કરવું પડશે."
 
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
 msgid ""
@@ -3429,7 +3434,7 @@ msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 "તમે હાલમાં Flickr માં પ્રવેશેલ છે\n"
 "\n"
@@ -3437,9 +3442,15 @@ msgstr ""
 "Flickr માં કડી કરવા માટે Shotwell જોડાણને સત્તા કરવી જ પડશે."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Flickr during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "તમે પહેલેથી આ Shotwell સત્ર દરમ્યાન Flickr માં પ્રવેશેલ અને બંધ કરેલ છે.\n"
@@ -3512,18 +3523,26 @@ msgid "Friends only"
 msgstr "ફક્ત મિત્રો"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr "ફક્ત હું"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You are not currently logged into Facebook.\n"
+#| "\n"
+#| "If you don't yet have a Facebook account, you can create one during the "
+#| "login process. During login, Shotwell Connect may ask you for permission "
+#| "to upload photos and publish to your feed. These permissions are required "
+#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 "તમે હાલમાં Facebook માં પ્રવેશેલ છે.\n"
 "\n"
@@ -3532,10 +3551,15 @@ msgstr ""
 "પરવાનગીઓ કાર્ય કરવા માટે Shotwell જોડાણ માટે જરૂરિયાત છે."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Facebook during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "તમે પહેલેથી આ Shotwell સત્ર દરમ્યાન Facebook માં પ્રવેશેલ અને બંધ કરેલ છે.\n"
@@ -3572,7 +3596,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "સર્વર રીડાયરેક્ટ URLમાં કોઈ ઍક્સેસ ટોકન નથી"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3581,16 +3605,16 @@ msgstr ""
 "તમે %s તરીકે Facebook માં પ્રવેશેલ છે.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr "ક્યાં તમે પસંદ થયેલ ફોટાને પ્રકાશિત કરવા માંગો છો?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "માપ અપલોડ કરો (_s):"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "મિત્રો"
@@ -3767,7 +3791,7 @@ msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Yandex.Fotki વેબ સાઇટની મુલાકાત લો"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "તમે અત્યારે Yandex.Fotki માં પ્રવેશેલ નથી."
 
@@ -3812,16 +3836,25 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
+#, fuzzy
+#| msgid "Shotwell Extra Publishing Services"
+msgid "Photos Extra Publishing Services"
 msgstr "Shotwell વધારાની પ્રકાશન સેવાઓ"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of a Google service during this "
+#| "Shotwell session.\n"
+#| "\n"
+#| "To continue publishing to Google services, quit and restart Shotwell, "
+#| "then try publishing again."
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 "તમે પહેલેથી આ Shotwell  સત્ર દરમ્યાન Google સેવામાં પ્રવેશેલ અને બહાર નીકળેલ છે.\n"
 "\n"
@@ -3882,8 +3915,7 @@ msgstr "કોર તકતીપૂર્વદર્શન અનુવાદ"
 
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
-msgstr ""
-"મુદ્રણાધિકાર ૨૦૧૦ Maxim Kartashev, મુદ્રણાધિકાર ૨૦૧૧-૨૦૧૩ Yorba Foundation"
+msgstr "મુદ્રણાધિકાર ૨૦૧૦ Maxim Kartashev, મુદ્રણાધિકાર ૨૦૧૧-૨૦૧૩ Yorba Foundation"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
