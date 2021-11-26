@@ -27,7 +27,7 @@
     </child>
     <child>
       <!-- n-columns=2 n-rows=3 -->
-      <object class="GtkGrid">
+      <object class="GtkGrid" id="field_grid">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="row-spacing">6</property>
@@ -112,7 +112,7 @@
         </child>
       </object>
       <packing>
-        <property name="expand">False</property>
+        <property name="expand">True</property>
         <property name="fill">True</property>
         <property name="position">1</property>
       </packing>
@@ -138,8 +138,6 @@
       <object class="GtkButtonBox" id="hbuttonbox1">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="layout-style">start</property>
         <child>
           <object class="GtkButton" id="login_button">
             <property name="label" translatable="yes">Login</property>
@@ -156,7 +154,7 @@
         </child>
       </object>
       <packing>
-        <property name="expand">False</property>
+        <property name="expand">True</property>
         <property name="fill">True</property>
         <property name="position">3</property>
       </packing>
