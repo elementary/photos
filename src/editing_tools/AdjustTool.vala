@@ -418,26 +418,26 @@ public class EditingTools.AdjustTool : EditingTool {
         adjust_tool_window.highlights_slider.set_value (highlights_trans.get_parameter ());
 
         /* set up temperature & tint */
-        TemperatureTransformation temp_trans = (TemperatureTransformation)
+        var temp_trans = (TemperatureTransformation)
                                                transformations.get_transformation (
                                                PixelTransformationType.TEMPERATURE);
         histogram_transformer.attach_transformation (temp_trans);
         adjust_tool_window.temperature_slider.set_value (temp_trans.get_parameter ());
 
-        TintTransformation tint_trans = (TintTransformation)
+        var tint_trans = (TintTransformation)
                                         transformations.get_transformation (PixelTransformationType.TINT);
         histogram_transformer.attach_transformation (tint_trans);
         adjust_tool_window.tint_slider.set_value (tint_trans.get_parameter ());
 
         /* set up saturation */
-        SaturationTransformation sat_trans = (SaturationTransformation)
+        var sat_trans = (SaturationTransformation)
                                              transformations.get_transformation (
                                              PixelTransformationType.SATURATION);
         histogram_transformer.attach_transformation (sat_trans);
         adjust_tool_window.saturation_slider.set_value (sat_trans.get_parameter ());
 
         /* set up exposure */
-        ExposureTransformation exposure_trans = (ExposureTransformation)
+        var exposure_trans = (ExposureTransformation)
                                                 transformations.get_transformation (
                                                 PixelTransformationType.EXPOSURE);
         histogram_transformer.attach_transformation (exposure_trans);
@@ -474,7 +474,7 @@ public class EditingTools.AdjustTool : EditingTool {
             owner.items_altered.connect (on_photos_altered);
         }
 
-        activate (canvas);
+        base.activate (canvas);
     }
 
     public override EditingToolWindow? get_tool_window () {
@@ -501,7 +501,7 @@ public class EditingTools.AdjustTool : EditingTool {
         draw_to_pixbuf = null;
         fp_pixel_cache = null;
 
-        deactivate ();
+        base.deactivate ();
     }
 
     public override void paint (Cairo.Context ctx) {
