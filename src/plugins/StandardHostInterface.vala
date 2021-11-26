@@ -45,6 +45,9 @@ public class StandardHostInterface : Object, Spit.HostInterface {
         case "io.elementary.photos.publishing.flickr":
             return "flickr";
 
+        case "io.elementary.photos.publishing.piwigo":
+            return "piwigo";
+
         case "io.elementary.photos.publishing.youtube":
             return "youtube";
 

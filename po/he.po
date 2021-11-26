@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"POT-Creation-Date: 2021-11-26 07:38+0000\n"
 "PO-Revision-Date: 2021-10-26 18:32+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/photos/photos/he/"
@@ -330,7 +330,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "לא ניתן לעקוב אחר %s: לא תיקייה (%s)"
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr "האירוע %s"
@@ -3211,7 +3211,7 @@ msgstr "שירותי פרסום של הליבה"
 msgid "A temporary file needed for publishing is unavailable"
 msgstr "קובץ זמני הדרוש לפרסום אינו זמין"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3258,8 +3258,12 @@ msgstr ""
 "לגישה לחשבון -Piwigo שלך עבור ספריה זו."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
+#, fuzzy
+#| msgid ""
+#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#| "you entered"
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 "Shotwell אינו יכול להתחבר לספריית התמונות Piwigo. אנא בדוק את כתובת האתר "
@@ -3281,12 +3285,14 @@ msgstr "שם משתמש או ססמה שגויים"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
+#, fuzzy
+#| msgid "Shotwell Connect"
+msgid "Photos Connect"
 msgstr "Shotwell Connect"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "כולם"
 
@@ -3370,11 +3376,17 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 פיקסלים)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
+#, fuzzy
+#| msgid ""
+#| "You are not currently logged into Flickr.\n"
+#| "\n"
+#| "Click Login to log into Flickr in your Web browser. You will have to "
+#| "authorize Shotwell Connect to link to your Flickr account."
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 "לא נכנסת ל־Flickr.\n"
 "\n"
@@ -3382,9 +3394,15 @@ msgstr ""
 "Connect כדי לקשר אל חשבון ה־Flickr שלך."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Flickr during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "כבר נכנסת ויצאת מ־Flick במהלך הפעלה זו של Shotwell.\n"
@@ -3454,18 +3472,26 @@ msgid "Friends only"
 msgstr "רק חברים"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr "רק לי"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You are not currently logged into Facebook.\n"
+#| "\n"
+#| "If you don't yet have a Facebook account, you can create one during the "
+#| "login process. During login, Shotwell Connect may ask you for permission "
+#| "to upload photos and publish to your feed. These permissions are required "
+#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 "נכון לעכשיו לא ביצעת כניסה לחשבון ה־Facebook שלך.\n"
 "\n"
@@ -3474,10 +3500,15 @@ msgstr ""
 "שלך. הרשאות אלו נחוצות כדי ש־Shotwell Connect יוכל לתפקד."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Facebook during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "כבר יצאת מ־Facebook במהלך הפעלה זו של Shotwell.\n"
@@ -3511,7 +3542,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "כתובת ההפניה של השרת לא הכילה אסימון גישה"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3520,16 +3551,16 @@ msgstr ""
 "נכנסת ל־Facebook בשם %s.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr "להיכן ברצונך לפרסם את התמונות הנבחרות?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "גודל הה_עלאה:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "חברים"
@@ -3706,7 +3737,7 @@ msgstr "כל הזכויות שמורות 2010+ ל־Evgeniy Polyakov‏ <zbr@iore
 msgid "Visit the Yandex.Fotki web site"
 msgstr "ביקור באתר Yandex.Fotki"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "לא נכנסת לשירות Yandex.Fotki."
 
@@ -3751,16 +3782,25 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
+#, fuzzy
+#| msgid "Shotwell Extra Publishing Services"
+msgid "Photos Extra Publishing Services"
 msgstr "שירותי פרסום נוספים של Shotwell"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of a Google service during this "
+#| "Shotwell session.\n"
+#| "\n"
+#| "To continue publishing to Google services, quit and restart Shotwell, "
+#| "then try publishing again."
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 "כבר נכנסת ויצאת מהחשבון שלך ב־Google במהלך ההפעלה הזאת של Shotwell.\n"
 "\n"

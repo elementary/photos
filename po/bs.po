@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"POT-Creation-Date: 2021-11-26 07:38+0000\n"
 "PO-Revision-Date: 2018-11-12 22:52+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/photos/photos/"
@@ -328,7 +328,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Nemoguće pratiti %s: nije direktorij (%s)"
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr "Događaj %s"
@@ -3335,7 +3335,7 @@ msgstr "Standardni servisi za objavljivanje"
 msgid "A temporary file needed for publishing is unavailable"
 msgstr "Privremena datoteka koja je potrebna za objavu je nedostupna"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3381,8 +3381,12 @@ msgstr ""
 "Vašeg Piwigo računa za dotičnu fototeku."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
+#, fuzzy
+#| msgid ""
+#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#| "you entered"
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 "Fotografije ne mogu stupiti u kontakt s Vašom Piwigo fototekom. Molimo da "
@@ -3404,12 +3408,14 @@ msgstr "Neispravno korisničko ime ili lozinka"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
+#, fuzzy
+#| msgid "Shotwell Connect"
+msgid "Photos Connect"
 msgstr "Shotwell povezivanje"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "Svima"
 
@@ -3500,7 +3506,7 @@ msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 "Trenutno niste prijavljeni na Flickr.\n"
 "\n"
@@ -3509,9 +3515,15 @@ msgstr ""
 "Flickr računom."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Flickr during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Već ste se prijavili i odjavili na Flickr tokom ove Shotwell sesije.\n"
@@ -3583,18 +3595,26 @@ msgid "Friends only"
 msgstr "Samo prijatelji"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr "Samo meni"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You are not currently logged into Facebook.\n"
+#| "\n"
+#| "If you don't yet have a Facebook account, you can create one during the "
+#| "login process. During login, Shotwell Connect may ask you for permission "
+#| "to upload photos and publish to your feed. These permissions are required "
+#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 "Trenutno niste prijavljeni na Facebook.\n"
 "\n"
@@ -3604,10 +3624,15 @@ msgstr ""
 "Shotwell povezivanje funkcioniralo."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Facebook during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Već ste se prijavili i odjavili na Facebook tokom ove Shotwell sesije.\n"
@@ -3642,7 +3667,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "Preusmjeravajući URL servera nije sadržavao token za pristup"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3651,16 +3676,16 @@ msgstr ""
 "Prijavili ste se na Facebook kao %s.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr "Gdje želite objaviti odabrane fotografije?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "Veličina _dodavanja:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "Prijateljima"
@@ -3841,7 +3866,7 @@ msgstr "Autorska prava 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Posjetite internetsku stranicu Yandex.Fotki"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "Trenutno niste prijavljeni na Yandex.Fotki."
 
@@ -3886,16 +3911,25 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
+#, fuzzy
+#| msgid "Shotwell Extra Publishing Services"
+msgid "Photos Extra Publishing Services"
 msgstr "Shotwell dodatne usluge objavljivanja"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of a Google service during this "
+#| "Shotwell session.\n"
+#| "\n"
+#| "To continue publishing to Google services, quit and restart Shotwell, "
+#| "then try publishing again."
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 "Već ste ste prijavili i odjavili na Google servis u toku ove sesije.\n"
 "\n"

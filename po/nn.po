@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 18:32+0000\n"
+"POT-Creation-Date: 2021-11-26 07:38+0000\n"
 "PO-Revision-Date: 2020-07-25 17:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/photos/"
@@ -324,7 +324,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "Kan ikkje overvake %s: dette er ikkje ei mappe (%s)"
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr "Hending %s"
@@ -3262,7 +3262,7 @@ msgid "A temporary file needed for publishing is unavailable"
 msgstr ""
 "Ei mellombels fil som er naudsynt for å publisere er ikkje tilgjengeleg"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3310,8 +3310,12 @@ msgstr ""
 "brukarnamn og passord til din Piwigo-konto."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
+#, fuzzy
+#| msgid ""
+#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#| "you entered"
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 "Shotwell kan ikkje kontakte ditt Piwigo biletbibliotek. Ver venleg og sjekk "
@@ -3333,12 +3337,14 @@ msgstr "Ugyldig brukarnamn eller passord"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
+#, fuzzy
+#| msgid "Shotwell Connect"
+msgid "Photos Connect"
 msgstr "Shotwell-tilkopling"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "Alle"
 
@@ -3428,7 +3434,7 @@ msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 "Du er ikkje innlogga på Flickr.\n"
 "\n"
@@ -3436,9 +3442,15 @@ msgstr ""
 "tilgjenge til at Shotwell Connect peikar på Flickr-kontoen din."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Flickr during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Du har allereie logga inn og ut av Flickr i denne Shotwell-økta.\n"
@@ -3510,18 +3522,26 @@ msgid "Friends only"
 msgstr "Berre vennar"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr "Berre meg sjølv"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
+#, fuzzy
+#| msgid ""
+#| "You are not currently logged into Facebook.\n"
+#| "\n"
+#| "If you don't yet have a Facebook account, you can create one during the "
+#| "login process. During login, Shotwell Connect may ask you for permission "
+#| "to upload photos and publish to your feed. These permissions are required "
+#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 "Det er no ikkje logga inn på Facebook.\n"
 "\n"
@@ -3531,10 +3551,15 @@ msgstr ""
 "Desse løyva er naudsynte for at Shotwell Connector skal fungere."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of Facebook during this Shotwell "
+#| "session.\n"
+#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#| "publishing again."
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Du har allereie logga inn og ut av Facebook under denne Shotwell-økta.\n"
@@ -3569,7 +3594,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "Tenaren si vidaresendingsadresse inneheld ikkje ein tilgangsnøkkel"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3578,16 +3603,16 @@ msgstr ""
 "Du er logga inn på Facebook som %s.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr "Kvar vil du publisere dei utvalde bileta?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "Opplastinsstorleik:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "Vennar"
@@ -3768,7 +3793,7 @@ msgstr "Opphavsrett 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Sjå nettsida Yandex.Fotki"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "Du er ikkje logga inn på Yandex.Fotki."
 
@@ -3813,16 +3838,25 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
+#, fuzzy
+#| msgid "Shotwell Extra Publishing Services"
+msgid "Photos Extra Publishing Services"
 msgstr "Shotwell ekstra publiseringstjenester"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
+#, fuzzy
+#| msgid ""
+#| "You have already logged in and out of a Google service during this "
+#| "Shotwell session.\n"
+#| "\n"
+#| "To continue publishing to Google services, quit and restart Shotwell, "
+#| "then try publishing again."
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 "Du har allereie logga inn og ut av ei Google-tjeneste i denne økta.\n"
 "For å forsette å publisere til Google-tjenester må du avslutte og starte "
