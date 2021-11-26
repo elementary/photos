@@ -1006,7 +1006,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
         FAILED_RETRY_USER
     }
     private static string intro_message = _ ("Enter the URL of your Piwigo photo library as well as the username and password associated with your Piwigo account for that library.");
-    private static string failed_retry_url_message = _ ("Shotwell cannot contact your Piwigo photo library. Please verify the URL you entered");
+    private static string failed_retry_url_message = _ ("Photos cannot contact your Piwigo photo library. Please verify the URL you entered");
     private static string failed_retry_user_message = _ ("Username and/or password invalid. Please try again");
 
     private Gtk.Box pane_widget = null;
@@ -1128,7 +1128,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
  */
 internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
 
-    private static string default_category_name = _ ("Shotwell Connect");
+    private static string default_category_name = _ ("Photos Connect");
 
     private Gtk.Box pane_widget = null;
     private Gtk.Builder builder;
