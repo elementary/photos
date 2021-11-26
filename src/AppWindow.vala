@@ -328,18 +328,18 @@ public abstract class AppWindow : PageWindow {
     }
 
     private void on_command_manager_altered () {
-        decorate_command_manager_action (ACTION_UNDO, undo_btn, _("Undo"), get_command_manager ().get_undo_description ());
-        decorate_command_manager_action (ACTION_REDO, redo_btn, _("Redo"), get_command_manager ().get_redo_description ());
+        decorate_command_manager_action (ACTION_UNDO, undo_btn, _("Undo"), get_command_manager ().get_undo_command ());
+        decorate_command_manager_action (ACTION_REDO, redo_btn, _("Redo"), get_command_manager ().get_redo_command ());
     }
 
-    private void decorate_command_manager_action (string name, Gtk.Button button, string default_explanation, CommandDescription? desc) {
+    private void decorate_command_manager_action (string name, Gtk.Button button, string default_explanation, Command? command) {
         var action = ((SimpleAction) lookup_action (name));
         if (action == null) {
             return;
         }
 
-        if (desc != null) {
-            button.tooltip_text = "%s %s".printf (default_explanation, desc.get_name ());
+        if (command != null) {
+            button.tooltip_text = "%s %s".printf (default_explanation, command.name);
             action.set_enabled (true);
         } else {
             button.tooltip_text = default_explanation;
