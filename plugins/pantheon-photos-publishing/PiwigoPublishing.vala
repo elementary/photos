@@ -1023,7 +1023,6 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
         try {
             builder = new Gtk.Builder ();
             builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_authentication_pane.ui");
-            builder.connect_signals (null);
             pane_widget = builder.get_object ("box") as Gtk.Box;
 
             Gtk.Label message_label = builder.get_object ("message_label") as Gtk.Label;
@@ -1175,7 +1174,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
         try {
             builder = new Gtk.Builder ();
             builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_publishing_options_pane.ui");
-            builder.connect_signals (null);
             pane_widget = builder.get_object ("box") as Gtk.Box;
 
             use_existing_radio = builder.get_object ("use_existing_radio") as Gtk.RadioButton;
