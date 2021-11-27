@@ -278,7 +278,7 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            SliderAdjustmentCommand slider_adjustment = (SliderAdjustmentCommand) command;
+            var slider_adjustment = (SliderAdjustmentCommand) command;
             if (slider_adjustment == null) {
                 return false;
             }
@@ -335,9 +335,9 @@ public class EditingTools.AdjustTool : EditingTool {
 
         public override bool compress (Command command) {
             // can compress both normal enhance and one with the adjust tool running
-            EnhanceSingleCommand enhance_single = (EnhanceSingleCommand) command;
+            var enhance_single = (EnhanceSingleCommand) command;
             if (enhance_single != null) {
-                Photo photo = (Photo) enhance_single.get_source ();
+                var photo = (Photo) enhance_single.get_source ();
 
                 // multiple successive enhances are as good as a single, as long as it's on the
                 // same photo
@@ -399,7 +399,7 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up expansion */
         ExpansionTransformation expansion_trans = (ExpansionTransformation)
-                transformations.get_transformation (PixelTransformationType.TONE_EXPANSION);
+            transformations.get_transformation (PixelTransformationType.TONE_EXPANSION);
         adjust_tool_window.histogram_manipulator.set_left_nub_position (
             expansion_trans.get_black_point ());
         adjust_tool_window.histogram_manipulator.set_right_nub_position (
@@ -407,13 +407,13 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up shadows */
         ShadowDetailTransformation shadows_trans = (ShadowDetailTransformation)
-                transformations.get_transformation (PixelTransformationType.SHADOWS);
+            transformations.get_transformation (PixelTransformationType.SHADOWS);
         histogram_transformer.attach_transformation (shadows_trans);
         adjust_tool_window.shadows_slider.set_value (shadows_trans.get_parameter ());
 
         /* set up highlights */
         HighlightDetailTransformation highlights_trans = (HighlightDetailTransformation)
-                transformations.get_transformation (PixelTransformationType.HIGHLIGHTS);
+            transformations.get_transformation (PixelTransformationType.HIGHLIGHTS);
         histogram_transformer.attach_transformation (highlights_trans);
         adjust_tool_window.highlights_slider.set_value (highlights_trans.get_parameter ());
 
@@ -582,7 +582,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_temperature_adjustment () {
-        TemperatureTransformation new_temp_trans = new TemperatureTransformation (
+        var new_temp_trans = new TemperatureTransformation (
             (float) adjust_tool_window.temperature_slider.get_value ());
         slider_updated (new_temp_trans, _ ("Temperature"));
     }
@@ -596,7 +596,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_tint_adjustment () {
-        TintTransformation new_tint_trans = new TintTransformation (
+        var new_tint_trans = new TintTransformation (
             (float) adjust_tool_window.tint_slider.get_value ());
         slider_updated (new_tint_trans, _ ("Tint"));
     }
@@ -610,7 +610,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_saturation_adjustment () {
-        SaturationTransformation new_sat_trans = new SaturationTransformation (
+        var new_sat_trans = new SaturationTransformation (
             (float) adjust_tool_window.saturation_slider.get_value ());
         slider_updated (new_sat_trans, _ ("Saturation"));
     }
@@ -624,7 +624,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_exposure_adjustment () {
-        ExposureTransformation new_exp_trans = new ExposureTransformation (
+        var new_exp_trans = new ExposureTransformation (
             (float) adjust_tool_window.exposure_slider.get_value ());
         slider_updated (new_exp_trans, _ ("Exposure"));
     }
@@ -638,7 +638,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_shadows_adjustment () {
-        ShadowDetailTransformation new_shadows_trans = new ShadowDetailTransformation (
+        var new_shadows_trans = new ShadowDetailTransformation (
             (float) adjust_tool_window.shadows_slider.get_value ());
         slider_updated (new_shadows_trans, _ ("Shadows"));
     }
@@ -652,7 +652,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_delayed_highlights_adjustment () {
-        HighlightDetailTransformation new_highlights_trans = new HighlightDetailTransformation (
+        var new_highlights_trans = new HighlightDetailTransformation (
             (float) adjust_tool_window.highlights_slider.get_value ());
         slider_updated (new_highlights_trans, _ ("Highlights"));
     }
@@ -662,8 +662,8 @@ public class EditingTools.AdjustTool : EditingTool {
             adjust_tool_window.histogram_manipulator.get_left_nub_position ();
         int expansion_white_point =
             adjust_tool_window.histogram_manipulator.get_right_nub_position ();
-        ExpansionTransformation new_exp_trans =
-            new ExpansionTransformation.from_extrema (expansion_black_point, expansion_white_point);
+        var new_exp_trans = new ExpansionTransformation.from_extrema (
+            expansion_black_point, expansion_white_point);
         slider_updated (new_exp_trans, _ ("Contrast Expansion"));
     }
 
@@ -673,7 +673,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private bool on_hscale_reset (Gtk.Widget widget, Gdk.EventButton event) {
-        Gtk.Scale source = (Gtk.Scale) widget;
+        var source = (Gtk.Scale) widget;
 
         if (event.button == 1 && event.type == Gdk.EventType.BUTTON_PRESS
                 && has_only_key_modifier (event.state, Gdk.ModifierType.CONTROL_MASK)) {
@@ -735,7 +735,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     public bool enhance () {
-        AdjustEnhanceCommand command = new AdjustEnhanceCommand (this, canvas.photo);
+        var command = new AdjustEnhanceCommand (this, canvas.photo);
         AppWindow.get_command_manager ().execute (command);
 
         return true;
@@ -768,7 +768,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private void update_slider (PixelTransformation transformation) {
         switch (transformation.get_transformation_type ()) {
         case PixelTransformationType.TONE_EXPANSION:
-            ExpansionTransformation expansion = (ExpansionTransformation) transformation;
+            var expansion = (ExpansionTransformation) transformation;
 
             if (!disable_histogram_refresh) {
                 adjust_tool_window.histogram_manipulator.set_left_nub_position (
