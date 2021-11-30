@@ -918,7 +918,7 @@ public class EditingTools.CropTool : EditingTool {
             case BoxLocation.LEFT_SIDE:
                 left = x;
                 if (get_constraint_aspect_ratio () != ANY_ASPECT_RATIO) {
-                    float new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
+                    var new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
                     bottom = top + ((int) new_height);
                 }
                 break;
