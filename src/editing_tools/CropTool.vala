@@ -1005,7 +1005,7 @@ public class EditingTools.CropTool : EditingTool {
                 } else {
                     if (y < eval_radial_line (center_x, center_y, right, bottom, x)) {
                         right = x;
-                        float new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
+                        var new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
                         bottom = top + ((int) new_height);
                     } else {
                         bottom = y;
