@@ -26,12 +26,12 @@
  * the preconfigure () method, implement it, and ensure in init () that it's been called.
  */
 
-public abstract class EditingTools.EditingTool {
+public abstract class EditingTools.EditingTool : Object {
     public PhotoCanvas canvas = null;
 
     private EditingToolWindow tool_window = null;
     protected Cairo.Surface surface;
-    public string name;
+    public string name { get; construct; }
 
     [CCode (has_target = false)]
     public delegate EditingTool Factory ();
@@ -48,7 +48,9 @@ public abstract class EditingTools.EditingTool {
     public signal void aborted ();
 
     protected EditingTool (string name) {
-        this.name = name;
+        Object (
+            name: name
+        );
     }
 
     // base.activate () should always be called by an overriding member to ensure the base class
@@ -63,8 +65,9 @@ public abstract class EditingTools.EditingTool {
         this.canvas = canvas;
 
         tool_window = get_tool_window ();
-        if (tool_window != null)
+        if (tool_window != null) {
             tool_window.key_press_event.connect (on_keypress);
+        }
 
         activated ();
     }
@@ -72,8 +75,9 @@ public abstract class EditingTools.EditingTool {
     // Like activate (), this should always be called from an overriding subclass.
     public virtual void deactivate () {
         // multiple deactivates are tolerated
-        if (canvas == null && tool_window == null)
+        if (canvas == null && tool_window == null) {
             return;
+        }
 
         canvas = null;
 
