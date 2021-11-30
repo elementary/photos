@@ -41,8 +41,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 18:32+0000\n"
-"PO-Revision-Date: 2021-10-27 01:52+0000\n"
+"POT-Creation-Date: 2021-11-26 07:38+0000\n"
+"PO-Revision-Date: 2021-11-27 14:29+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/photos/photos/de/>"
 "\n"
@@ -360,7 +360,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr "%s kann nicht überwacht werden: Kein Ordner (%s)"
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr "Ereignis %s"
@@ -3311,7 +3311,7 @@ msgstr ""
 "Eine temporäre Datei, die für das Veröffentlichen benötigt wird, ist nicht "
 "verfügbar"
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3369,7 +3369,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 "Fotos kann keinen Kontakt zu Ihrer Piwigo-Fotosammlung herstellen. Bitte "
@@ -3391,12 +3391,12 @@ msgstr "Ungültiger Benutzername oder Passwort"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
-msgstr "Shotwell Connect"
+msgid "Photos Connect"
+msgstr "Fotos Connect"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "Alle"
 
@@ -3486,23 +3486,23 @@ msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 "Sie sind im Moment nicht bei Flickr angemeldet.\n"
 "\n"
 "Mit einem Klick auf »Anmelden«können Sie sich über Ihren Internet-Browser "
-"bei Flickr anmelden. Sie müssen »Shotwell Connect« erlauben, eine Verbindung "
-"zu Ihrem Flickr-Konto aufzubauen."
+"bei Flickr anmelden. Sie müssen »Fotos Connect« erlauben, eine Verbindung zu "
+"Ihrem Flickr-Konto aufzubauen."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Sie haben sich in dieser Sitzung bereits bei Flickr an- und abgemeldet.\n"
-"Um weiterhin auf Flickr zu publizieren zu können, beenden Sie Shotwell, "
-"starten Sie es nochmals und versuchen es dann erneut."
+"Um weiterhin auf Flickr zu publizieren zu können, beenden Sie Fotos, starten "
+"Sie es nochmals und versuchen es dann erneut."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3569,7 +3569,7 @@ msgid "Friends only"
 msgstr "Nur Freunde"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr "Nur mich"
 
@@ -3578,23 +3578,22 @@ msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 "Sie sind gerade nicht bei Facebook angemeldet.\n"
 "\n"
 "Falls Sie noch kein Facebook-Konto besitzen, können Sie während des "
 "Anmeldevorgangs eines erstellen. Während der Anmeldung werden Sie "
-"möglicherweise nach der Berechtigung gefragt, Fotos hochzuladen und in Ihrem "
-"Feed freizugeben. Diese Berechtigungen sind notwendig, damit Photos sich mit "
-"Facebook verbinden kann."
+"möglicherweise von »Fotos Connect« nach der Erlaubnis gefragt, Fotos "
+"hochzuladen und in Ihrem Feed freizugeben. Diese Berechtigungen sind "
+"notwendig, damit Fotos sich mit Facebook verbinden kann."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 "Sie haben sich in dieser Sitzung bereits bei Facebook an- und wieder "
@@ -3630,7 +3629,7 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr "Die Umleitungsadresse des Servers enthielt kein Zugriffs-Token"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
@@ -3639,16 +3638,16 @@ msgstr ""
 "Sie sind bei Facebook als %s angemeldet.\n"
 "\n"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr "Wo möchten Sie die ausgewählten Fotos veröffentlichen?"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr "_Größe zum Hochladen:"
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr "Freunde"
@@ -3825,7 +3824,7 @@ msgstr "Urheberrecht 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
 msgid "Visit the Yandex.Fotki web site"
 msgstr "Yandex.Fotkis Internetseite besuchen"
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr "Sie sind im Moment nicht bei Yandex.Fotki angemeldet."
 
@@ -3871,22 +3870,22 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
-msgstr "Shotwell Zusätzliche Veröffentlichungsdienste"
+msgid "Photos Extra Publishing Services"
+msgstr "Fotos Zusätzliche Veröffentlichungsdienste"
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 "Sie haben sich während dieser Sitzung bereits bei einem Google-Service an- "
 "und abgemeldet.\n"
 "\n"
-"Um mehr bei Google-Diensten zu veröffentlichen, müssen Sie diese Anwendung "
-"schließen und erneut starten. Versuchen Sie danach erneut zu veröffentlichen."
+"Um mehr bei Google-Diensten zu veröffentlichen, müssen Sie Fotos schließen "
+"und erneut starten. Versuchen Sie danach erneut zu veröffentlichen."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
