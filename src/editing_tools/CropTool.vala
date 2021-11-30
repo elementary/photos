@@ -1009,7 +1009,7 @@ public class EditingTools.CropTool : EditingTool {
                         bottom = top + ((int) new_height);
                     } else {
                         bottom = y;
-                        float new_width = ((float) (bottom - top)) * get_constraint_aspect_ratio ();
+                        var new_width = ((float) (bottom - top)) * get_constraint_aspect_ratio ();
                         right = left + ((int) new_width);
                     }
                 }
