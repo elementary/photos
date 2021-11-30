@@ -1110,8 +1110,8 @@ public class EditingTools.CropTool : EditingTool {
                     if (width < CROP_MIN_SIZE) {
                         right = left + CROP_MIN_SIZE;
                     }
-                    break;
 
+                    break;
                 default:
                     break;
             }
