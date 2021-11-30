@@ -208,9 +208,7 @@ public class EditingTools.CropTool : EditingTool {
     private GLib.Settings crop_settings;
 
     private CropTool () {
-        Object (
-            name: "CropTool"
-        );
+        Object (name: "CropTool");
 
     }
 

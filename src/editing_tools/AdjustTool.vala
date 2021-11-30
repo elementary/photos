@@ -376,9 +376,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private OneShotScheduler? highlights_scheduler = null;
 
     private AdjustTool () {
-        Object (
-            name: "AdjustTool"
-        );
+        Object (name: "AdjustTool");
     }
 
     public static AdjustTool factory () {
