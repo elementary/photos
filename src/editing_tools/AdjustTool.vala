@@ -216,7 +216,7 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            AdjustResetCommand reset_command = command as AdjustResetCommand;
+            var reset_command = (AdjustResetCommand) command;
             if (reset_command == null) {
                 return false;
             }
@@ -468,6 +468,7 @@ public class EditingTools.AdjustTool : EditingTool {
         } else {
             histogram_pixbuf = draw_to_pixbuf.copy ();
         }
+
         virgin_histogram_pixbuf = histogram_pixbuf.copy ();
 
         DataCollection? owner = canvas.photo.get_membership ();
@@ -532,7 +533,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_reset () {
-        AdjustResetCommand command = new AdjustResetCommand (this, transformations);
+        var command = new AdjustResetCommand (this, transformations);
         AppWindow.get_command_manager ().execute (command);
     }
 
@@ -568,8 +569,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private void slider_updated (PixelTransformation new_transformation, string name) {
         PixelTransformation old_transformation = transformations.get_transformation (
                     new_transformation.get_transformation_type ());
-        SliderAdjustmentCommand command = new SliderAdjustmentCommand (this, old_transformation,
-                new_transformation, name);
+        var command = new SliderAdjustmentCommand (this, old_transformation, new_transformation, name);
         AppWindow.get_command_manager ().execute (command);
     }
 
@@ -767,49 +767,50 @@ public class EditingTools.AdjustTool : EditingTool {
     // if the caller doesn't want the widget's signals to fire with the change.
     private void update_slider (PixelTransformation transformation) {
         switch (transformation.get_transformation_type ()) {
-        case PixelTransformationType.TONE_EXPANSION:
-            var expansion = (ExpansionTransformation) transformation;
+            case PixelTransformationType.TONE_EXPANSION:
+                var expansion = (ExpansionTransformation) transformation;
 
-            if (!disable_histogram_refresh) {
-                adjust_tool_window.histogram_manipulator.set_left_nub_position (
-                    expansion.get_black_point ());
-                adjust_tool_window.histogram_manipulator.set_right_nub_position (
-                    expansion.get_white_point ());
-            }
-            break;
+                if (!disable_histogram_refresh) {
+                    adjust_tool_window.histogram_manipulator.set_left_nub_position (
+                        expansion.get_black_point ());
+                    adjust_tool_window.histogram_manipulator.set_right_nub_position (
+                        expansion.get_white_point ());
+                }
 
-        case PixelTransformationType.SHADOWS:
-            adjust_tool_window.shadows_slider.set_value (
-                ((ShadowDetailTransformation) transformation).get_parameter ());
-            break;
+                break;
 
-        case PixelTransformationType.HIGHLIGHTS:
-            adjust_tool_window.highlights_slider.set_value (
-                ((HighlightDetailTransformation) transformation).get_parameter ());
-            break;
+            case PixelTransformationType.SHADOWS:
+                adjust_tool_window.shadows_slider.set_value (
+                    ((ShadowDetailTransformation) transformation).get_parameter ());
+                break;
 
-        case PixelTransformationType.EXPOSURE:
-            adjust_tool_window.exposure_slider.set_value (
-                ((ExposureTransformation) transformation).get_parameter ());
-            break;
+            case PixelTransformationType.HIGHLIGHTS:
+                adjust_tool_window.highlights_slider.set_value (
+                    ((HighlightDetailTransformation) transformation).get_parameter ());
+                break;
 
-        case PixelTransformationType.SATURATION:
-            adjust_tool_window.saturation_slider.set_value (
-                ((SaturationTransformation) transformation).get_parameter ());
-            break;
+            case PixelTransformationType.EXPOSURE:
+                adjust_tool_window.exposure_slider.set_value (
+                    ((ExposureTransformation) transformation).get_parameter ());
+                break;
 
-        case PixelTransformationType.TINT:
-            adjust_tool_window.tint_slider.set_value (
-                ((TintTransformation) transformation).get_parameter ());
-            break;
+            case PixelTransformationType.SATURATION:
+                adjust_tool_window.saturation_slider.set_value (
+                    ((SaturationTransformation) transformation).get_parameter ());
+                break;
 
-        case PixelTransformationType.TEMPERATURE:
-            adjust_tool_window.temperature_slider.set_value (
-                ((TemperatureTransformation) transformation).get_parameter ());
-            break;
+            case PixelTransformationType.TINT:
+                adjust_tool_window.tint_slider.set_value (
+                    ((TintTransformation) transformation).get_parameter ());
+                break;
 
-        default:
-            error ("Unknown adjustment: %d", (int) transformation.get_transformation_type ());
+            case PixelTransformationType.TEMPERATURE:
+                adjust_tool_window.temperature_slider.set_value (
+                    ((TemperatureTransformation) transformation).get_parameter ());
+                break;
+
+            default:
+                error ("Unknown adjustment: %d", (int) transformation.get_transformation_type ());
         }
     }
 
