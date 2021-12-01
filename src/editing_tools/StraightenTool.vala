@@ -66,27 +66,33 @@ public class StraightenTool : EditingTool {
             double dy = y[1] - y[0];
 
             // minimum radius to consider: discard clicks
-            if (dy * dy + dx * dx < 40)
+            if (dy * dy + dx * dx < 40) {
                 return null;
+            }
 
             // distinguish guides closer to horizontal or vertical
-            if (Math.fabs (dy) > Math.fabs (dx))
+            if (Math.fabs (dy) > Math.fabs (dx)) {
                 return angle0 + Math.atan (dx / dy) / Math.PI * 180;
-            else
+            } else {
                 return angle0 - Math.atan (dy / dx) / Math.PI * 180;
+            }
+
         }
 
         public void draw (Cairo.Context ctx) {
-            if (!is_active)
+            if (!is_active) {
                 return;
+            }
 
             double angle = get_angle () ?? 0.0;
-            if (angle == 0.0)
+            if (angle == 0.0) {
                 return;
+            }
 
             double alpha = 1.0;
-            if (angle < MIN_ANGLE || angle > MAX_ANGLE)
+            if (angle < MIN_ANGLE || angle > MAX_ANGLE) {
                 alpha = 0.35;
+            }
 
             // b&w dashing so it will be more visible on
             // different backgrounds.
@@ -195,7 +201,7 @@ public class StraightenTool : EditingTool {
     private int scale_factor = 1;
 
     private StraightenTool () {
-        base ("StraightenTool");
+        Object (name: "StraightenTool");
     }
 
     public static StraightenTool factory () {
@@ -235,7 +241,7 @@ public class StraightenTool : EditingTool {
     private void high_qual_repaint () {
         use_high_qual = true;
         update_rotated_surface ();
-        this.canvas.repaint ();
+        +canvas.repaint ();
     }
 
     private void on_slider_stopped_delayed () {
@@ -260,14 +266,17 @@ public class StraightenTool : EditingTool {
             window.angle_slider.set_value (a);
             high_qual_repaint ();
         }
+
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
         x *= scale_factor;
         y *= scale_factor;
 
-        if (guide.update (x, y))
+        if (guide.update (x, y)) {
             canvas.repaint ();
+        }
+
     }
 
     public override bool on_keypress (Gdk.EventKey event) {
@@ -289,8 +298,9 @@ public class StraightenTool : EditingTool {
     private void prepare_image () {
         Dimensions canvas_dims = canvas.surface_dim;
         Dimensions viewport = canvas_dims.with_max (TEMP_PIXBUF_SIZE * scale_factor, TEMP_PIXBUF_SIZE * scale_factor);
-        if (viewport == last_viewport)
+        if (viewport == last_viewport) {
             return;     // no change
+        }
 
         last_viewport = viewport;
 
@@ -308,7 +318,7 @@ public class StraightenTool : EditingTool {
 
         // copy image data from photo into a cairo surface.
         photo_surf = new Cairo.ImageSurface (Cairo.Format.ARGB32, low_res_tmp.width, low_res_tmp.height);
-        Cairo.Context ctx = new Cairo.Context (photo_surf);
+        var ctx = new Cairo.Context (photo_surf);
         Gdk.cairo_set_source_pixbuf (ctx, low_res_tmp, 0, 0);
         ctx.rectangle (0, 0, low_res_tmp.width, low_res_tmp.height);
         ctx.fill ();
@@ -444,15 +454,17 @@ public class StraightenTool : EditingTool {
         string tmp = "%2.1f°".printf (window.angle_slider.get_value ());
         window.angle_label.set_text (tmp);
 
-        if (slider_sched == null)
+        if (slider_sched == null) {
             slider_sched = new OneShotScheduler ("straighten", on_slider_stopped_delayed);
+        }
+
         slider_sched.after_timeout (REPAINT_ON_STOP_DELAY_MSEC, true);
 
         use_high_qual = false;
 
         adjust_for_rotation ();
         update_rotated_surface ();
-        this.canvas.repaint ();
+        canvas.repaint ();
     }
 
     /**
