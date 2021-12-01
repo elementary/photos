@@ -37,9 +37,9 @@ public abstract class EditingTools.PhotoCanvas : Object {
     public Dimensions surface_dim { get; set construct; }
     public Gdk.Pixbuf scaled_pixbuf { get; set construct; }
     public Gdk.Rectangle scaled_position { get; set construct; }
-    public Gdk.Window drawing_window { get; set construct; }
-    public Gtk.Window container { get; set construct; }
-    public Photo photo { get; set construct; }
+    public Gdk.Window drawing_window { get; construct; }
+    public Gtk.Window container { get; construct; }
+    public Photo photo { get; construct; }
 
     private Cairo.Surface scaled { get; set; }
 
