@@ -70,7 +70,6 @@ public class EditingTools.RedeyeTool : EditingTool {
 
         public RedeyeToolWindow (Gtk.Window container) {
             Object (transient_for: container);
-
         }
 
         construct {
