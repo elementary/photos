@@ -45,12 +45,11 @@ public struct EditingTools.RedeyeInstance {
     }
 
     public static RedeyeInstance from_bounds_rect (Gdk.Rectangle rect) {
-        var in_rect = rect;
 
         var result = RedeyeInstance ();
-        result.radius = (in_rect.width + in_rect.height) / 4;
-        result.center.x = in_rect.x + result.radius;
-        result.center.y = in_rect.y + result.radius;
+        result.radius = (rect.width + rect.height) / 4;
+        result.center.x = rect.x + result.radius;
+        result.center.y = rect.y + result.radius;
 
         return result;
     }
