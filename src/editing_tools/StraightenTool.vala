@@ -241,7 +241,7 @@ public class StraightenTool : EditingTool {
     private void high_qual_repaint () {
         use_high_qual = true;
         update_rotated_surface ();
-        +canvas.repaint ();
+        canvas.repaint ();
     }
 
     private void on_slider_stopped_delayed () {
