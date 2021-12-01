@@ -36,9 +36,7 @@ public class EditingTools.AdjustTool : EditingTool {
         public RGBHistogramManipulator histogram_manipulator;
 
         public AdjustToolWindow (Gtk.Window container) {
-            Object (
-                transient_for: container
-            );
+            Object (transient_for: container);
         }
 
         construct {
@@ -134,6 +132,7 @@ public class EditingTools.AdjustTool : EditingTool {
             var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
                 margin_top = 12
             };
+
             button_box.add (reset_button);
             button_box.add (cancel_button);
             button_box.add (ok_button);
@@ -142,6 +141,7 @@ public class EditingTools.AdjustTool : EditingTool {
                 column_spacing = 12,
                 row_spacing = 12
             };
+
             grid.attach (histogram_manipulator, 0, 0, 2, 1);
             grid.attach (exposure_label, 0, 1, 1, 1);
             grid.attach (exposure_slider, 1, 1, 1, 1);
@@ -344,7 +344,7 @@ public class EditingTools.AdjustTool : EditingTool {
                 return photo.equals (owner.canvas.photo);
             }
 
-            AdjustEnhanceCommand enhance_command = (AdjustEnhanceCommand) command;
+            var enhance_command = (AdjustEnhanceCommand) command;
             if (enhance_command == null) {
                 return false;
             }
@@ -419,28 +419,24 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up temperature & tint */
         var temp_trans = (TemperatureTransformation) transformations.get_transformation (
-            PixelTransformationType.TEMPERATURE
-        );
+            PixelTransformationType.TEMPERATURE);
         histogram_transformer.attach_transformation (temp_trans);
         adjust_tool_window.temperature_slider.set_value (temp_trans.get_parameter ());
 
         var tint_trans = (TintTransformation) transformations.get_transformation (
-            PixelTransformationType.TINT
-        );
+            PixelTransformationType.TINT);
         histogram_transformer.attach_transformation (tint_trans);
         adjust_tool_window.tint_slider.set_value (tint_trans.get_parameter ());
 
         /* set up saturation */
         var sat_trans = (SaturationTransformation) transformations.get_transformation (
-            PixelTransformationType.SATURATION
-        );
+            PixelTransformationType.SATURATION);
         histogram_transformer.attach_transformation (sat_trans);
         adjust_tool_window.saturation_slider.set_value (sat_trans.get_parameter ());
 
         /* set up exposure */
         var exposure_trans = (ExposureTransformation) transformations.get_transformation (
-            PixelTransformationType.EXPOSURE
-        );
+            PixelTransformationType.EXPOSURE);
         histogram_transformer.attach_transformation (exposure_trans);
         adjust_tool_window.exposure_slider.set_value (exposure_trans.get_parameter ());
 
