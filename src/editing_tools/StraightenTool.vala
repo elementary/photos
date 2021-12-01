@@ -76,7 +76,6 @@ public class StraightenTool : EditingTool {
             } else {
                 return angle0 - Math.atan (dy / dx) / Math.PI * 180;
             }
-
         }
 
         public void draw (Cairo.Context ctx) {
@@ -266,7 +265,6 @@ public class StraightenTool : EditingTool {
             window.angle_slider.set_value (a);
             high_qual_repaint ();
         }
-
     }
 
     public override void on_motion (int x, int y, Gdk.ModifierType mask) {
@@ -276,7 +274,6 @@ public class StraightenTool : EditingTool {
         if (guide.update (x, y)) {
             canvas.repaint ();
         }
-
     }
 
     public override bool on_keypress (Gdk.EventKey event) {
