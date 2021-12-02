@@ -424,19 +424,22 @@ public class EditingTools.AdjustTool : EditingTool {
         adjust_tool_window.temperature_slider.set_value (temp_trans.get_parameter ());
 
         var tint_trans = (TintTransformation) transformations.get_transformation (
-            PixelTransformationType.TINT);
+            PixelTransformationType.TINT
+        );
         histogram_transformer.attach_transformation (tint_trans);
         adjust_tool_window.tint_slider.set_value (tint_trans.get_parameter ());
 
         /* set up saturation */
         var sat_trans = (SaturationTransformation) transformations.get_transformation (
-            PixelTransformationType.SATURATION);
+            PixelTransformationType.SATURATION
+        );
         histogram_transformer.attach_transformation (sat_trans);
         adjust_tool_window.saturation_slider.set_value (sat_trans.get_parameter ());
 
         /* set up exposure */
         var exposure_trans = (ExposureTransformation) transformations.get_transformation (
-            PixelTransformationType.EXPOSURE);
+            PixelTransformationType.EXPOSURE
+        );
         histogram_transformer.attach_transformation (exposure_trans);
         adjust_tool_window.exposure_slider.set_value (exposure_trans.get_parameter ());
 
