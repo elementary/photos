@@ -215,9 +215,6 @@ public class EditingTools.AdjustTool : EditingTool {
 
         public override bool compress (Command command) {
             var reset_command = (AdjustResetCommand) command;
-            if (reset_command == null) {
-                return false;
-            }
 
             if (reset_command.owner != owner) {
                 return false;
@@ -343,9 +340,6 @@ public class EditingTools.AdjustTool : EditingTool {
             }
 
             var enhance_command = (AdjustEnhanceCommand) command;
-            if (enhance_command == null) {
-                return false;
-            }
 
             if (enhance_command.owner != owner) {
                 return false;
