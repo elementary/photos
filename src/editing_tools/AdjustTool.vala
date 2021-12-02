@@ -775,6 +775,7 @@ public class EditingTools.AdjustTool : EditingTool {
                     adjust_tool_window.histogram_manipulator.set_right_nub_position (
                         expansion.get_white_point ());
                 }
+
                 break;
 
             case PixelTransformationType.SHADOWS:
