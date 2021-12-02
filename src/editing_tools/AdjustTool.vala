@@ -132,7 +132,6 @@ public class EditingTools.AdjustTool : EditingTool {
             var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
                 margin_top = 12
             };
-
             button_box.add (reset_button);
             button_box.add (cancel_button);
             button_box.add (ok_button);
@@ -419,7 +418,8 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up temperature & tint */
         var temp_trans = (TemperatureTransformation) transformations.get_transformation (
-            PixelTransformationType.TEMPERATURE);
+            PixelTransformationType.TEMPERATURE
+        );
         histogram_transformer.attach_transformation (temp_trans);
         adjust_tool_window.temperature_slider.set_value (temp_trans.get_parameter ());
 
