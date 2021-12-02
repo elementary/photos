@@ -36,96 +36,112 @@ public class EditingTools.AdjustTool : EditingTool {
         public RGBHistogramManipulator histogram_manipulator;
 
         public AdjustToolWindow (Gtk.Window container) {
-            base (container);
+            Object (
+                transient_for: container
+            );
         }
 
         construct {
             histogram_manipulator = new RGBHistogramManipulator ();
 
-            var exposure_label = new Gtk.Label (_("Exposure:"));
-            exposure_label.halign = Gtk.Align.END;
+            var exposure_label = new Gtk.Label (_("Exposure:")) {
+                halign = Gtk.Align.END
+            };
 
             exposure_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 ExposureTransformation.MIN_PARAMETER,
                 ExposureTransformation.MAX_PARAMETER,
                 1.0
-            );
-            exposure_slider.draw_value = false;
-            exposure_slider.hexpand = true;
+            ) {
+                draw_value = false,
+                hexpand = true
+            };
 
-            var saturation_label = new Gtk.Label (_("Saturation:"));
-            saturation_label.halign = Gtk.Align.END;
+            var saturation_label = new Gtk.Label (_("Saturation:")) {
+                halign = Gtk.Align.END
+            };
 
             saturation_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 SaturationTransformation.MIN_PARAMETER,
                 SaturationTransformation.MAX_PARAMETER,
                 1.0
-            );
-            saturation_slider.draw_value = false;
+            ) {
+                draw_value = false
+            };
 
-            var tint_label = new Gtk.Label (_("Tint:"));
-            tint_label.halign = Gtk.Align.END;
+            var tint_label = new Gtk.Label (_("Tint:")) {
+                halign = Gtk.Align.END
+            };
 
             tint_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 TintTransformation.MIN_PARAMETER,
                 TintTransformation.MAX_PARAMETER,
                 1.0
-            );
-            tint_slider.draw_value = false;
-            tint_slider.has_origin = false;
+            ) {
+                draw_value = false,
+                has_origin = false
+            };
             tint_slider.get_style_context ().add_class ("tint");
 
-            var temperature_label = new Gtk.Label (_("Temperature:"));
-            temperature_label.halign = Gtk.Align.END;
+            var temperature_label = new Gtk.Label (_("Temperature:")) {
+                halign = Gtk.Align.END
+            };
 
             temperature_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 TemperatureTransformation.MIN_PARAMETER,
                 TemperatureTransformation.MAX_PARAMETER,
                 1.0
-            );
-            temperature_slider.draw_value = false;
-            temperature_slider.has_origin = false;
+            ) {
+                draw_value = false,
+                has_origin = false
+            };
             temperature_slider.get_style_context ().add_class ("temperature");
 
-            var shadows_label = new Gtk.Label (_("Shadows:"));
-            shadows_label.halign = Gtk.Align.END;
+            var shadows_label = new Gtk.Label (_("Shadows:")) {
+                halign = Gtk.Align.END
+            };
 
             shadows_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 ShadowDetailTransformation.MIN_PARAMETER,
                 ShadowDetailTransformation.MAX_PARAMETER,
                 1.0
-            );
-            shadows_slider.draw_value = false;
+            ) {
+                draw_value = false
+            };
 
-            var highlights_label = new Gtk.Label (_("Highlights:"));
-            highlights_label.halign = Gtk.Align.END;
+            var highlights_label = new Gtk.Label (_("Highlights:")) {
+                halign = Gtk.Align.END
+            };
 
             highlights_slider = new Gtk.Scale.with_range (
                 Gtk.Orientation.HORIZONTAL,
                 HighlightDetailTransformation.MIN_PARAMETER,
                 HighlightDetailTransformation.MAX_PARAMETER,
                 1.0
-            );
-            highlights_slider.draw_value = false;
+            ) {
+                draw_value = false
+            };
 
             ok_button = new Gtk.Button.with_mnemonic (_("_Apply"));
             reset_button = new Gtk.Button.with_mnemonic (_("_Reset"));
             cancel_button = new Gtk.Button.with_mnemonic (_("_Cancel"));
 
-            var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-            button_box.margin_top = 12;
+            var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
+                margin_top = 12
+            };
             button_box.add (reset_button);
             button_box.add (cancel_button);
             button_box.add (ok_button);
 
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 12;
-            grid.row_spacing = 12;
+            var grid = new Gtk.Grid () {
+                column_spacing = 12,
+                row_spacing = 12
+            };
             grid.attach (histogram_manipulator, 0, 0, 2, 1);
             grid.attach (exposure_label, 0, 1, 1, 1);
             grid.attach (exposure_slider, 1, 1, 1, 1);
@@ -146,18 +162,24 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private abstract class AdjustToolCommand : Command {
-        protected weak AdjustTool owner;
+        public weak AdjustTool owner { get; construct; }
 
         protected AdjustToolCommand (AdjustTool owner, string name, string explanation) {
-            base (name, explanation);
+            Object (
+                name: name,
+                explanation: explanation,
+                owner: owner
+            );
+        }
 
-            this.owner = owner;
+        construct {
             owner.deactivated.connect (on_owner_deactivated);
         }
 
         ~AdjustToolCommand () {
-            if (owner != null)
+            if (owner != null) {
                 owner.deactivated.disconnect (on_owner_deactivated);
+            }
         }
 
         private void on_owner_deactivated () {
@@ -168,13 +190,19 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private class AdjustResetCommand : AdjustToolCommand {
-        private PixelTransformationBundle original;
+        public PixelTransformationBundle original { get; construct; }
         private PixelTransformationBundle reset;
 
         public AdjustResetCommand (AdjustTool owner, PixelTransformationBundle current) {
-            base (owner, _ ("Reset Colors"), _ ("Reset all color adjustments to original"));
+            Object (
+                name: _("Reset Colors"),
+                explanation: _("Reset all color adjustments to original"),
+                owner: owner,
+                original: current.copy ()
+            );
+        }
 
-            original = current.copy ();
+        construct {
             reset = new PixelTransformationBundle ();
             reset.set_to_identity ();
         }
@@ -189,11 +217,13 @@ public class EditingTools.AdjustTool : EditingTool {
 
         public override bool compress (Command command) {
             AdjustResetCommand reset_command = command as AdjustResetCommand;
-            if (reset_command == null)
+            if (reset_command == null) {
                 return false;
+            }
 
-            if (reset_command.owner != owner)
+            if (reset_command.owner != owner) {
                 return false;
+            }
 
             // multiple successive resets on the same photo as good as a single
             return true;
@@ -202,15 +232,21 @@ public class EditingTools.AdjustTool : EditingTool {
 
     private class SliderAdjustmentCommand : AdjustToolCommand {
         private PixelTransformationType transformation_type;
-        private PixelTransformation new_transformation;
-        private PixelTransformation old_transformation;
+        public PixelTransformation new_transformation { get; set construct; }
+        public PixelTransformation old_transformation { get; construct; }
 
         public SliderAdjustmentCommand (AdjustTool owner, PixelTransformation old_transformation,
                                         PixelTransformation new_transformation, string name) {
-            base (owner, name, name);
+            Object (
+                name: name,
+                explanation: name,
+                owner: owner,
+                old_transformation: old_transformation,
+                new_transformation: new_transformation
+            );
+        }
 
-            this.old_transformation = old_transformation;
-            this.new_transformation = new_transformation;
+        construct {
             transformation_type = old_transformation.get_transformation_type ();
             assert (new_transformation.get_transformation_type () == transformation_type);
         }
@@ -242,17 +278,20 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            SliderAdjustmentCommand slider_adjustment = command as SliderAdjustmentCommand;
-            if (slider_adjustment == null)
+            var slider_adjustment = (SliderAdjustmentCommand) command;
+            if (slider_adjustment == null) {
                 return false;
+            }
 
             // same photo
-            if (slider_adjustment.owner != owner)
+            if (slider_adjustment.owner != owner) {
                 return false;
+            }
 
             // same adjustment
-            if (slider_adjustment.transformation_type != transformation_type)
+            if (slider_adjustment.transformation_type != transformation_type) {
                 return false;
+            }
 
             // execute the command
             slider_adjustment.execute ();
@@ -265,20 +304,27 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private class AdjustEnhanceCommand : AdjustToolCommand {
-        private Photo photo;
+        public Photo photo { get; construct; }
         private PixelTransformationBundle original;
         private PixelTransformationBundle enhanced = null;
 
         public AdjustEnhanceCommand (AdjustTool owner, Photo photo) {
-            base (owner, Resources.ENHANCE_LABEL, Resources.ENHANCE_TOOLTIP);
+            Object (
+                name: Resources.ENHANCE_LABEL,
+                explanation: Resources.ENHANCE_TOOLTIP,
+                owner: owner,
+                photo: photo
+            );
+        }
 
-            this.photo = photo;
+        construct {
             original = photo.get_color_adjustments ();
         }
 
         public override void execute () {
-            if (enhanced == null)
+            if (enhanced == null) {
                 enhanced = photo.get_enhance_transformations ();
+            }
 
             owner.set_adjustments (enhanced);
         }
@@ -289,21 +335,23 @@ public class EditingTools.AdjustTool : EditingTool {
 
         public override bool compress (Command command) {
             // can compress both normal enhance and one with the adjust tool running
-            EnhanceSingleCommand enhance_single = command as EnhanceSingleCommand;
+            var enhance_single = (EnhanceSingleCommand) command;
             if (enhance_single != null) {
-                Photo photo = (Photo) enhance_single.get_source ();
+                var photo = (Photo) enhance_single.get_source ();
 
                 // multiple successive enhances are as good as a single, as long as it's on the
                 // same photo
                 return photo.equals (owner.canvas.photo);
             }
 
-            AdjustEnhanceCommand enhance_command = command as AdjustEnhanceCommand;
-            if (enhance_command == null)
+            AdjustEnhanceCommand enhance_command = (AdjustEnhanceCommand) command;
+            if (enhance_command == null) {
                 return false;
+            }
 
-            if (enhance_command.owner != owner)
+            if (enhance_command.owner != owner) {
                 return false;
+            }
 
             // multiple successive as good as a single
             return true;
@@ -328,7 +376,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private OneShotScheduler? highlights_scheduler = null;
 
     private AdjustTool () {
-        base ("AdjustTool");
+        Object (name: "AdjustTool");
     }
 
     public static AdjustTool factory () {
@@ -351,7 +399,7 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up expansion */
         ExpansionTransformation expansion_trans = (ExpansionTransformation)
-                transformations.get_transformation (PixelTransformationType.TONE_EXPANSION);
+            transformations.get_transformation (PixelTransformationType.TONE_EXPANSION);
         adjust_tool_window.histogram_manipulator.set_left_nub_position (
             expansion_trans.get_black_point ());
         adjust_tool_window.histogram_manipulator.set_right_nub_position (
@@ -359,36 +407,40 @@ public class EditingTools.AdjustTool : EditingTool {
 
         /* set up shadows */
         ShadowDetailTransformation shadows_trans = (ShadowDetailTransformation)
-                transformations.get_transformation (PixelTransformationType.SHADOWS);
+            transformations.get_transformation (PixelTransformationType.SHADOWS);
         histogram_transformer.attach_transformation (shadows_trans);
         adjust_tool_window.shadows_slider.set_value (shadows_trans.get_parameter ());
 
         /* set up highlights */
         HighlightDetailTransformation highlights_trans = (HighlightDetailTransformation)
-                transformations.get_transformation (PixelTransformationType.HIGHLIGHTS);
+            transformations.get_transformation (PixelTransformationType.HIGHLIGHTS);
         histogram_transformer.attach_transformation (highlights_trans);
         adjust_tool_window.highlights_slider.set_value (highlights_trans.get_parameter ());
 
         /* set up temperature & tint */
-        TemperatureTransformation temp_trans = (TemperatureTransformation)
-                                               transformations.get_transformation (PixelTransformationType.TEMPERATURE);
+        var temp_trans = (TemperatureTransformation) transformations.get_transformation (
+            PixelTransformationType.TEMPERATURE
+        );
         histogram_transformer.attach_transformation (temp_trans);
         adjust_tool_window.temperature_slider.set_value (temp_trans.get_parameter ());
 
-        TintTransformation tint_trans = (TintTransformation)
-                                        transformations.get_transformation (PixelTransformationType.TINT);
+        var tint_trans = (TintTransformation) transformations.get_transformation (
+            PixelTransformationType.TINT
+        );
         histogram_transformer.attach_transformation (tint_trans);
         adjust_tool_window.tint_slider.set_value (tint_trans.get_parameter ());
 
         /* set up saturation */
-        SaturationTransformation sat_trans = (SaturationTransformation)
-                                             transformations.get_transformation (PixelTransformationType.SATURATION);
+        var sat_trans = (SaturationTransformation) transformations.get_transformation (
+            PixelTransformationType.SATURATION
+        );
         histogram_transformer.attach_transformation (sat_trans);
         adjust_tool_window.saturation_slider.set_value (sat_trans.get_parameter ());
 
         /* set up exposure */
-        ExposureTransformation exposure_trans = (ExposureTransformation)
-                                                transformations.get_transformation (PixelTransformationType.EXPOSURE);
+        var exposure_trans = (ExposureTransformation) transformations.get_transformation (
+            PixelTransformationType.EXPOSURE
+        );
         histogram_transformer.attach_transformation (exposure_trans);
         adjust_tool_window.exposure_slider.set_value (exposure_trans.get_parameter ());
 
@@ -402,8 +454,9 @@ public class EditingTools.AdjustTool : EditingTool {
            histogram, because a histogram for a 1x1 image is meaningless. The histogram shows the
            distribution of color over all the many pixels in an image, but if an image only has
            one pixel, the notion of a "distribution over pixels" makes no sense. */
-        if (draw_to_pixbuf.width == 1 && draw_to_pixbuf.height == 1)
+        if (draw_to_pixbuf.width == 1 && draw_to_pixbuf.height == 1) {
             disable_histogram_refresh = true;
+        }
 
         /* don't sample the original image to create the histogram if the original image is
            sufficiently large -- if it's over 8k pixels, then we'll get pretty much the same
@@ -418,8 +471,9 @@ public class EditingTools.AdjustTool : EditingTool {
         virgin_histogram_pixbuf = histogram_pixbuf.copy ();
 
         DataCollection? owner = canvas.photo.get_membership ();
-        if (owner != null)
+        if (owner != null) {
             owner.items_altered.connect (on_photos_altered);
+        }
 
         base.activate (canvas);
     }
@@ -431,8 +485,9 @@ public class EditingTools.AdjustTool : EditingTool {
     public override void deactivate () {
         if (canvas != null) {
             DataCollection? owner = canvas.photo.get_membership ();
-            if (owner != null)
+            if (owner != null) {
                 owner.items_altered.disconnect (on_photos_altered);
+            }
 
             unbind_canvas_handlers (canvas);
         }
@@ -455,8 +510,9 @@ public class EditingTools.AdjustTool : EditingTool {
             transformer.transform_from_fp (ref fp_pixel_cache, draw_to_pixbuf);
             histogram_transformer.transform_to_other_pixbuf (virgin_histogram_pixbuf,
                     histogram_pixbuf);
-            if (!disable_histogram_refresh)
+            if (!disable_histogram_refresh) {
                 adjust_tool_window.histogram_manipulator.update_histogram (histogram_pixbuf);
+            }
         }
 
         canvas.paint_pixbuf (draw_to_pixbuf);
@@ -486,13 +542,15 @@ public class EditingTools.AdjustTool : EditingTool {
         get_tool_window ().hide ();
 
         applied (new AdjustColorsSingleCommand (canvas.photo, transformations,
-                                                Resources.ADJUST_LABEL, Resources.ADJUST_TOOLTIP), draw_to_pixbuf,
+                                                Resources.ADJUST_LABEL, Resources.ADJUST_TOOLTIP),
+                                                draw_to_pixbuf,
                  canvas.photo.get_dimensions (), false);
     }
 
     private void update_transformations (PixelTransformationBundle new_transformations) {
-        foreach (PixelTransformation transformation in new_transformations.get_transformations ())
+        foreach (PixelTransformation transformation in new_transformations.get_transformations ()) {
             update_transformation (transformation);
+        }
     }
 
     private void update_transformation (PixelTransformation new_transformation) {
@@ -500,8 +558,9 @@ public class EditingTools.AdjustTool : EditingTool {
                     new_transformation.get_transformation_type ());
 
         transformer.replace_transformation (old_transformation, new_transformation);
-        if (new_transformation.get_transformation_type () != PixelTransformationType.TONE_EXPANSION)
+        if (new_transformation.get_transformation_type () != PixelTransformationType.TONE_EXPANSION) {
             histogram_transformer.replace_transformation (old_transformation, new_transformation);
+        }
 
         transformations.set (new_transformation);
     }
@@ -515,79 +574,85 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private void on_temperature_adjustment () {
-        if (temperature_scheduler == null)
+        if (temperature_scheduler == null) {
             temperature_scheduler = new OneShotScheduler ("temperature", on_delayed_temperature_adjustment);
+        }
 
         temperature_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_temperature_adjustment () {
-        TemperatureTransformation new_temp_trans = new TemperatureTransformation (
+        var new_temp_trans = new TemperatureTransformation (
             (float) adjust_tool_window.temperature_slider.get_value ());
         slider_updated (new_temp_trans, _ ("Temperature"));
     }
 
     private void on_tint_adjustment () {
-        if (tint_scheduler == null)
+        if (tint_scheduler == null) {
             tint_scheduler = new OneShotScheduler ("tint", on_delayed_tint_adjustment);
+        }
 
         tint_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_tint_adjustment () {
-        TintTransformation new_tint_trans = new TintTransformation (
+        var new_tint_trans = new TintTransformation (
             (float) adjust_tool_window.tint_slider.get_value ());
         slider_updated (new_tint_trans, _ ("Tint"));
     }
 
     private void on_saturation_adjustment () {
-        if (saturation_scheduler == null)
+        if (saturation_scheduler == null) {
             saturation_scheduler = new OneShotScheduler ("saturation", on_delayed_saturation_adjustment);
+        }
 
         saturation_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_saturation_adjustment () {
-        SaturationTransformation new_sat_trans = new SaturationTransformation (
+        var new_sat_trans = new SaturationTransformation (
             (float) adjust_tool_window.saturation_slider.get_value ());
         slider_updated (new_sat_trans, _ ("Saturation"));
     }
 
     private void on_exposure_adjustment () {
-        if (exposure_scheduler == null)
+        if (exposure_scheduler == null) {
             exposure_scheduler = new OneShotScheduler ("exposure", on_delayed_exposure_adjustment);
+        }
 
         exposure_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_exposure_adjustment () {
-        ExposureTransformation new_exp_trans = new ExposureTransformation (
+        var new_exp_trans = new ExposureTransformation (
             (float) adjust_tool_window.exposure_slider.get_value ());
         slider_updated (new_exp_trans, _ ("Exposure"));
     }
 
     private void on_shadows_adjustment () {
-        if (shadows_scheduler == null)
+        if (shadows_scheduler == null) {
             shadows_scheduler = new OneShotScheduler ("shadows", on_delayed_shadows_adjustment);
+        }
 
         shadows_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_shadows_adjustment () {
-        ShadowDetailTransformation new_shadows_trans = new ShadowDetailTransformation (
+        var new_shadows_trans = new ShadowDetailTransformation (
             (float) adjust_tool_window.shadows_slider.get_value ());
         slider_updated (new_shadows_trans, _ ("Shadows"));
     }
 
     private void on_highlights_adjustment () {
-        if (highlights_scheduler == null)
+        if (highlights_scheduler == null) {
             highlights_scheduler = new OneShotScheduler ("highlights", on_delayed_highlights_adjustment);
+        }
 
         highlights_scheduler.after_timeout (SLIDER_DELAY_MSEC, true);
     }
 
     private void on_delayed_highlights_adjustment () {
-        HighlightDetailTransformation new_highlights_trans = new HighlightDetailTransformation (
+        var new_highlights_trans = new HighlightDetailTransformation (
             (float) adjust_tool_window.highlights_slider.get_value ());
         slider_updated (new_highlights_trans, _ ("Highlights"));
     }
@@ -597,8 +662,8 @@ public class EditingTools.AdjustTool : EditingTool {
             adjust_tool_window.histogram_manipulator.get_left_nub_position ();
         int expansion_white_point =
             adjust_tool_window.histogram_manipulator.get_right_nub_position ();
-        ExpansionTransformation new_exp_trans =
-            new ExpansionTransformation.from_extrema (expansion_black_point, expansion_white_point);
+        var new_exp_trans = new ExpansionTransformation.from_extrema (
+            expansion_black_point, expansion_white_point);
         slider_updated (new_exp_trans, _ ("Contrast Expansion"));
     }
 
@@ -608,7 +673,7 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     private bool on_hscale_reset (Gtk.Widget widget, Gdk.EventButton event) {
-        Gtk.Scale source = (Gtk.Scale) widget;
+        var source = (Gtk.Scale) widget;
 
         if (event.button == 1 && event.type == Gdk.EventType.BUTTON_PRESS
                 && has_only_key_modifier (event.state, Gdk.ModifierType.CONTROL_MASK)) {
@@ -670,15 +735,16 @@ public class EditingTools.AdjustTool : EditingTool {
     }
 
     public bool enhance () {
-        AdjustEnhanceCommand command = new AdjustEnhanceCommand (this, canvas.photo);
+        var command = new AdjustEnhanceCommand (this, canvas.photo);
         AppWindow.get_command_manager ().execute (command);
 
         return true;
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> map) {
-        if (!map.has_key (canvas.photo))
+        if (!map.has_key (canvas.photo)) {
             return;
+        }
 
         PixelTransformationBundle adjustments = canvas.photo.get_color_adjustments ();
         set_adjustments (adjustments);
@@ -689,8 +755,9 @@ public class EditingTools.AdjustTool : EditingTool {
 
         update_transformations (new_adjustments);
 
-        foreach (PixelTransformation adjustment in new_adjustments.get_transformations ())
+        foreach (PixelTransformation adjustment in new_adjustments.get_transformations ()) {
             update_slider (adjustment);
+        }
 
         bind_window_handlers ();
         canvas.repaint ();
@@ -701,7 +768,7 @@ public class EditingTools.AdjustTool : EditingTool {
     private void update_slider (PixelTransformation transformation) {
         switch (transformation.get_transformation_type ()) {
         case PixelTransformationType.TONE_EXPANSION:
-            ExpansionTransformation expansion = (ExpansionTransformation) transformation;
+            var expansion = (ExpansionTransformation) transformation;
 
             if (!disable_histogram_refresh) {
                 adjust_tool_window.histogram_manipulator.set_left_nub_position (

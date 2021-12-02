@@ -35,7 +35,7 @@ public struct EditingTools.RedeyeInstance {
     }
 
     public static Gdk.Rectangle to_bounds_rect (EditingTools.RedeyeInstance inst) {
-        Gdk.Rectangle result = Gdk.Rectangle ();
+        var result = Gdk.Rectangle ();
         result.x = inst.center.x - inst.radius;
         result.y = inst.center.y - inst.radius;
         result.width = 2 * inst.radius;
@@ -45,12 +45,11 @@ public struct EditingTools.RedeyeInstance {
     }
 
     public static RedeyeInstance from_bounds_rect (Gdk.Rectangle rect) {
-        Gdk.Rectangle in_rect = rect;
 
-        RedeyeInstance result = RedeyeInstance ();
-        result.radius = (in_rect.width + in_rect.height) / 4;
-        result.center.x = in_rect.x + result.radius;
-        result.center.y = in_rect.y + result.radius;
+        var result = RedeyeInstance ();
+        result.radius = (rect.width + rect.height) / 4;
+        result.center.x = rect.x + result.radius;
+        result.center.y = rect.y + result.radius;
 
         return result;
     }
@@ -70,8 +69,10 @@ public class EditingTools.RedeyeTool : EditingTool {
                 RedeyeInstance.MIN_RADIUS, RedeyeInstance.MAX_RADIUS, 1.0);
 
         public RedeyeToolWindow (Gtk.Window container) {
-            base (container);
+            Object (transient_for: container);
+        }
 
+        construct {
             slider.set_size_request (80, -1);
             slider.set_draw_value (false);
 
@@ -103,7 +104,7 @@ public class EditingTools.RedeyeTool : EditingTool {
     private int scale_factor = 1;
 
     private RedeyeTool () {
-        base ("RedeyeTool");
+        Object (name: "RedeyeTool");
     }
 
     public static RedeyeTool factory () {
@@ -123,7 +124,7 @@ public class EditingTools.RedeyeTool : EditingTool {
         photo_center.x = photo_bounds.x + (photo_bounds.width / (2 * scale_factor));
         photo_center.y = photo_bounds.y + (photo_bounds.height / (2 * scale_factor));
 
-        RedeyeInstance result = RedeyeInstance ();
+        var result = RedeyeInstance ();
         result.center.x = photo_center.x;
         result.center.y = photo_center.y;
         result.radius = RedeyeInstance.DEFAULT_RADIUS;
@@ -183,14 +184,15 @@ public class EditingTools.RedeyeTool : EditingTool {
         instance_raw.center = derotate_point_arb (instance_raw.center,
                               dimensions.width, dimensions.height, theta);
 
-        RedeyeCommand command = new RedeyeCommand (canvas.photo, instance_raw,
+        var command = new RedeyeCommand (canvas.photo, instance_raw,
                 Resources.RED_EYE_LABEL, Resources.RED_EYE_TOOLTIP);
         AppWindow.get_command_manager ().execute (command);
     }
 
     private void on_photos_altered (Gee.Map<DataObject, Alteration> map) {
-        if (!map.has_key (canvas.photo))
+        if (!map.has_key (canvas.photo)) {
             return;
+        }
 
         try {
             current_pixbuf = canvas.photo.get_pixbuf (canvas.get_scaling ());
@@ -253,8 +255,9 @@ public class EditingTools.RedeyeTool : EditingTool {
         cached_grab_cursor = new Gdk.Cursor.for_display (Gdk.Display.get_default (), Gdk.CursorType.FLEUR);
 
         DataCollection? owner = canvas.photo.get_membership ();
-        if (owner != null)
+        if (owner != null) {
             owner.items_altered.connect (on_photos_altered);
+        }
 
         base.activate (canvas);
     }
@@ -262,8 +265,9 @@ public class EditingTools.RedeyeTool : EditingTool {
     public override void deactivate () {
         if (canvas != null) {
             DataCollection? owner = canvas.photo.get_membership ();
-            if (owner != null)
+            if (owner != null) {
                 owner.items_altered.disconnect (on_photos_altered);
+            }
 
             unbind_canvas_handlers (canvas);
         }

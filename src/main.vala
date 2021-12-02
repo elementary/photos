@@ -344,7 +344,7 @@ void main (string[] args) {
         }
     }
 
-    message ("Shotwell %s %s",
+    message ("Photos %s %s",
              is_string_empty (filename) ? Resources.APP_LIBRARY_ROLE : Resources.APP_DIRECT_ROLE,
              Resources.APP_VERSION);
 

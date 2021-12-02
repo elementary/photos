@@ -439,7 +439,7 @@ public class UploadTransaction : Transaction {
 
         int payload_part_num = message_parts.get_length ();
 
-        Soup.Buffer bindable_data = new Soup.Buffer (Soup.MemoryUse.COPY, payload.data[0:payload_length]);
+        Soup.Buffer bindable_data = new Soup.Buffer.take (payload.data[0:payload_length]);
         message_parts.append_form_file ("", publishable.get_serialized_file ().get_path (), mime_type,
         bindable_data);
 
@@ -754,7 +754,6 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
             webview_frame.expand = true;
 
             webview = new WebKit.WebView ();
-            webview.get_settings ().enable_plugins = false;
             webview.load_changed.connect ((load_event) => {
                 if (load_event == WebKit.LoadEvent.STARTED) {
                     on_load_started ();
@@ -1152,7 +1151,7 @@ public abstract class GooglePublisher : Object, Spit.Publishing.Publisher {
             do_exchange_refresh_token_for_access_token ();
         } else {
             if (WebAuthenticationPane.is_cache_dirty ()) {
-                host.install_static_message_pane (_ ("You have already logged in and out of a Google service during this Shotwell session.\n\nTo continue publishing to Google services, quit and restart Shotwell, then try publishing again."));
+                host.install_static_message_pane (_ ("You have already logged in and out of a Google service during this Photos session.\n\nTo continue publishing to Google services, quit and restart Photos, then try publishing again."));
                 return;
             }
 
