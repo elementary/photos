@@ -140,7 +140,6 @@ public class EditingTools.AdjustTool : EditingTool {
                 column_spacing = 12,
                 row_spacing = 12
             };
-
             grid.attach (histogram_manipulator, 0, 0, 2, 1);
             grid.attach (exposure_label, 0, 1, 1, 1);
             grid.attach (exposure_slider, 1, 1, 1, 1);
