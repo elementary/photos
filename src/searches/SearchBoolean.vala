@@ -630,7 +630,7 @@ public class SearchConditionModified : SearchCondition {
             else
                 return context == Context.HAS_NO;
         }
-            
+
         return false;
     }
 }
