@@ -722,17 +722,12 @@ public class ImportPage : CheckerboardPage {
 
     private Gtk.Menu page_context_menu;
     private Gtk.Menu import_context_menu;
-    private GLib.Settings ui_settings;
 
     public enum RefreshResult {
         OK,
         BUSY,
         LOCKED,
         LIBRARY_ERROR
-    }
-
-    construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
     }
 
     public ImportPage (GPhoto.Camera camera, string uri, string? display_name = null, GLib.Icon? icon = null) {
