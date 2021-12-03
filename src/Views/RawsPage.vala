@@ -42,11 +42,12 @@ public class Library.RawsPage : CollectionPage {
         }
 
         public override bool include_in_view (DataSource source) {
-            Photo? photo = null;
-            if (source is Photo) {
-                photo = source as Photo;
+            if (source != null && source is Photo) {
+                 var photo = (Photo)source;
+                return photo.get_master_file_format () == PhotoFileFormat.RAW;
+            } else {
+                return false;
             }
-            return photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW;
         }
     }
 

@@ -2214,12 +2214,8 @@ public abstract class Photo : PhotoSource, Dateable {
 
     public override bool equals (DataSource? source) {
         // Primary key is where the rubber hits the road
-        Photo? photo = null;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
-
-        if (photo != null) {
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
             PhotoID photo_id = get_photo_id ();
             PhotoID other_photo_id = photo.get_photo_id ();
 

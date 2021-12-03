@@ -173,8 +173,9 @@ public class DirectPhotoPage : EditingHostPage {
 
             context_menu.show_all ();
 
-            Photo? photo = (get_view ().get_selected_at (0).source as Photo);
-            if (photo != null) {
+            var source = get_view ().get_selected_at (0).source;
+            if (source != null && source is Photo) {
+                var photo =  (Photo)source;
                 unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
                 populate_external_app_menu (open_menu, photo_file_format, false);
 

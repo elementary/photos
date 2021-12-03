@@ -325,20 +325,22 @@ public abstract class MediaPage : CheckerboardPage {
         bool avail_camera = false;   // True if camera developer is available.
         bool is_raw = false;    // True if any RAW photos are selected
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo? photo = ((Thumbnail) view).get_media_source () as Photo;
-            if (photo != null && photo.get_master_file_format () == PhotoFileFormat.RAW) {
-                is_raw = true;
+            var source = ((Thumbnail) view).get_media_source ();
+            if (source != null && source is Photo) {
+                var photo = (Photo)source;
+                if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
+                    is_raw = true;
 
-                if (!avail_shotwell && photo.is_raw_developer_available (RawDeveloper.SHOTWELL))
-                    avail_shotwell = true;
+                    if (!avail_shotwell && photo.is_raw_developer_available (RawDeveloper.SHOTWELL))
+                        avail_shotwell = true;
 
-                if (!avail_camera && (photo.is_raw_developer_available (RawDeveloper.CAMERA) ||
-                                      photo.is_raw_developer_available (RawDeveloper.EMBEDDED)))
-                    avail_camera = true;
+                    if (!avail_camera && (photo.is_raw_developer_available (RawDeveloper.CAMERA) ||
+                                          photo.is_raw_developer_available (RawDeveloper.EMBEDDED)))
+                        avail_camera = true;
 
-                if (avail_shotwell && avail_camera)
-                    break; // optimization: break out of loop when all options available
-
+                    if (avail_shotwell && avail_camera)
+                        break; // optimization: break out of loop when all options available
+                }
             }
         }
 
@@ -648,15 +650,14 @@ public abstract class MediaPage : CheckerboardPage {
         // Make a list of all photos that need their developer changed.
         Gee.ArrayList<DataView> to_set = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo? p = null;
-            if (view.source is Photo) {
-                p = view.source as Photo;
-            }
-            if (p != null && (!rd.is_equivalent (p.get_raw_developer ()))) {
-                to_set.add (view);
+            if (view.source != null && view.source is Photo) {
+                var p = (Photo)(view.source);
+                if (!rd.is_equivalent (p.get_raw_developer ())) {
+                    to_set.add (view);
 
-                if (p.has_transformations ()) {
-                    need_warn = true;
+                    if (p.has_transformations ()) {
+                        need_warn = true;
+                    }
                 }
             }
         }

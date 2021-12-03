@@ -146,18 +146,15 @@ public class ThumbnailCache : Object {
             } catch (Error err) {
                 // Is the problem that the thumbnail couldn't be read? If so, it's recoverable;
                 // we'll just create it and leave this.err as null if creation works.
-                if (err is FileError) {
+                if (err is FileError && source != null) {
                     try {
-                        Photo photo = source as Photo;
-                        Video video = source as Video;
-
-                        if (photo != null) {
+                        if (source is Photo) {
+                            var photo = (Photo)source;
                             unscaled = photo.get_pixbuf (Scaling.for_best_fit (dim.width, true));
                             photo.notify_altered (new Alteration ("image", "thumbnail"));
                             return;
-                        }
-
-                        if (video != null) {
+                        } else if (source is Video) {
+                            var video = (Video)source;
                             unscaled = video.create_thumbnail (dim.width);
                             scaled = resize_pixbuf (unscaled, dim, interp);
                             cache.save_thumbnail (cache.get_source_cached_file (source),
@@ -165,7 +162,6 @@ public class ThumbnailCache : Object {
                             replace (source, cache.size, unscaled);
                             return;
                         }
-
                     } catch (Error e) {
                         // Creating the thumbnail failed; tell the rest of the app.
                         this.err = e;
@@ -411,27 +407,18 @@ public class ThumbnailCache : Object {
         try {
             pixbuf = read_pixbuf (source.get_source_id (), source.get_preferred_thumbnail_format ());
         } catch (Error err) {
-            if (err is FileError) {
+            if (err is FileError && source != null) {
                 try {
-                    Photo? photo = null;
-                    Video? video = null;
                     if (source is Photo) {
-                        photo = source as Photo;
-                    } else if (source is Video) {
-                        video = source as Video;
-                    }
-
-                    if (photo != null) {
+                        var photo = (Photo)source;
                         pixbuf = photo.get_pixbuf (Scaling.for_best_fit (size.get_scale () * scale_factor, true));
                         replace (source, size, pixbuf);
                         photo.notify_altered (new Alteration ("image", "thumbnail"));
-                    }
-
-                    if (video != null) {
+                    } else if (source is Video) {
+                        var video = (Video)source;
                         pixbuf = video.create_thumbnail (size.get_scale () * scale_factor);
                         replace (source, size, pixbuf);
                     }
-
                 } catch (Error e) {
                     throw err;
                 }

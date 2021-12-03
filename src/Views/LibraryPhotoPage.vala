@@ -250,23 +250,21 @@ public class LibraryPhotoPage : EditingHostPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = null;
         DataSource? source = get_view ().get_selected ().get (0).source;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
 
-        if (photo == null || rd.is_equivalent (photo.get_raw_developer ()))
-            return;
+            if (rd.is_equivalent (photo.get_raw_developer ())) {
+                return;
+            }
+            // Check if any photo has edits
+            // Display warning only when edits could be destroyed
+            if (!photo.has_transformations () || Dialogs.confirm_warn_developer_changed (1)) {
+                SetRawDeveloperCommand command = new SetRawDeveloperCommand (get_view ().get_selected (),rd);
+                get_command_manager ().execute (command);
 
-        // Check if any photo has edits
-        // Display warning only when edits could be destroyed
-        if (!photo.has_transformations () || Dialogs.confirm_warn_developer_changed (1)) {
-            SetRawDeveloperCommand command = new SetRawDeveloperCommand (get_view ().get_selected (),
-                    rd);
-            get_command_manager ().execute (command);
-
-            update_development_menu_item_sensitivity ();
+                update_development_menu_item_sensitivity ();
+            }
         }
     }
 
@@ -593,13 +591,9 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.show_all ();
         }
 
-        Photo? photo = null;
         DataSource? source = get_view ().get_selected_at (0).source;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
-
-        if (photo != null) {
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
             unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
             populate_external_app_menu (open_menu, photo_file_format, false);
 

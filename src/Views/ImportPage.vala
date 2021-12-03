@@ -633,8 +633,8 @@ public class ImportPage : CheckerboardPage {
 
         public override bool complete (MediaSource source, BatchImportRoll import_roll) throws Error {
             bool ret = false;
-            if (source is Photo) {
-                Photo photo = source as Photo;
+            if (source != null && source is Photo) {
+                var photo = (Photo)source;
 
                 // Associate paired JPEG with RAW photo.
                 if (associated_file != null) {
@@ -645,6 +645,7 @@ public class ImportPage : CheckerboardPage {
                     );
                 }
             }
+
             return ret;
         }
     }

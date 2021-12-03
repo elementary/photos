@@ -1049,12 +1049,9 @@ public class BatchImport : Object {
                 job.ready.batch_result.result = LibraryPhoto.import_create (
                     job.ready.photo_import_params, out source
                 );
-                Photo? photo = null;
-                if (source is Photo) {
-                    photo = source as Photo;
-                }
-
-                if (photo != null) {
+                // Photo? photo = null;
+                if (source != null && source is Photo) {
+                    var photo = (Photo)source;
                     if (job.ready.photo_import_params.final_associated_file != null) {
                         // Associate RAW+JPEG in database.
                         BackingPhotoRow bpr = new BackingPhotoRow ();

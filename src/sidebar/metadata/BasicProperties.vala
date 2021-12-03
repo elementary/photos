@@ -125,7 +125,7 @@ private class BasicProperties : Properties {
                 dimensions = ((PhotoSource) source).get_dimensions ();
 
             if (source is Photo && ((Photo) source).get_master_file_format () == PhotoFileFormat.RAW) {
-                Photo photo = source as Photo;
+                var photo = (Photo)source;
                 raw_developer = photo.get_raw_developer ().get_label ();
                 raw_assoc = photo.is_raw_developer_available (RawDeveloper.CAMERA) ? _ ("RAW+JPEG") : "";
             }

@@ -41,21 +41,18 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
 
         total++;
 
-        Photo? photo = null;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
-
-        if (photo != null) {
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
             if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
                 raw++;
             }
 
             if (photo.get_master_file_format () != PhotoFileFormat.RAW ||
-                    photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
+                photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
+
                 photos++;
             }
-        } else if (source is VideoSource) {
+        } else if (source != null && source is VideoSource) {
             videos++;
         }
 
@@ -77,19 +74,20 @@ public class MediaAccumulator : Object, Core.TrackerAccumulator {
         }
         total--;
 
-        Photo? photo = source as Photo;
-        if (photo != null) {
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
             if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
                 assert (raw > 0);
                 raw--;
             }
 
             if (photo.get_master_file_format () != PhotoFileFormat.RAW ||
-                    photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
+                photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
+
                 assert (photos > 0);
                 photos--;
             }
-        } else if (source is Video) {
+        } else if (source != null && source is Video) {
             assert (videos > 0);
             videos--;
         }

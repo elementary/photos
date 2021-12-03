@@ -63,9 +63,12 @@ private class ExtendedProperties : Properties {
             // as of right now, all extended properties other than filesize, filepath & comment aren't
             // applicable to non-photo media types, so if the current media source isn't a photo,
             // just do a short-circuit return
-            Photo photo = media as Photo;
-            if (photo == null)
+
+            if (media == null || !(media is Photo)) {
                 return;
+            }
+
+            var photo = (Photo)media;
 
             PhotoMetadata? metadata;
 

@@ -1199,14 +1199,13 @@ public class SetRawDeveloperCommand : MultipleDataSourceCommand {
         last_transformation_map = new Gee.HashMap<Photo, PhotoTransformationState> ();
 
         foreach (DataView view in iter) {
-            Photo? photo = null;
-            if (view.source is Photo) {
-                photo = view.source as Photo;
-            }
+            if (view.source != null && view.source is Photo) {
+                var photo = (Photo)(view.source);
 
-            if (is_raw_photo (photo)) {
-                last_developer_map[photo] = photo.get_raw_developer ();
-                last_transformation_map[photo] = photo.save_transformation_state ();
+                if (is_raw_photo (photo)) {
+                    last_developer_map[photo] = photo.get_raw_developer ();
+                    last_transformation_map[photo] = photo.save_transformation_state ();
+                }
             }
         }
     }
@@ -1220,28 +1219,27 @@ public class SetRawDeveloperCommand : MultipleDataSourceCommand {
     }
 
     public override void execute_on_source (DataSource source) {
-        Photo? photo = null;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
-
-        if (is_raw_photo (photo)) {
-            if (new_developer == RawDeveloper.CAMERA && !photo.is_raw_developer_available (RawDeveloper.CAMERA))
-                photo.set_raw_developer (RawDeveloper.EMBEDDED);
-            else
-                photo.set_raw_developer (new_developer);
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
+            if (is_raw_photo (photo)) {
+                if (new_developer == RawDeveloper.CAMERA &&
+                    !photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
+                    photo.set_raw_developer (RawDeveloper.EMBEDDED);
+                } else {
+                    photo.set_raw_developer (new_developer);
+                }
+            }
         }
     }
 
     public override void undo_on_source (DataSource source) {
-        Photo? photo = null;
-        if (source is Photo) {
-            photo = source as Photo;
-        }
-
-        if (is_raw_photo (photo)) {
-            photo.set_raw_developer (last_developer_map[photo]);
-            photo.load_transformation_state (last_transformation_map[photo]);
+        // Photo? photo = null;
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
+            if (is_raw_photo (photo)) {
+                photo.set_raw_developer (last_developer_map[photo]);
+                photo.load_transformation_state (last_transformation_map[photo]);
+            }
         }
     }
 

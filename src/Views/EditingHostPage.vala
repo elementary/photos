@@ -1898,19 +1898,21 @@ public abstract class EditingHostPage : SinglePhotoPage {
         DataView? next = current;
         for (;;) {
             next = get_view ().get_next (next);
-            if (next == null)
+            if (next == null) {
                 break;
+            }
 
-            Photo? next_photo = next.source as Photo;
-            if (next_photo == null)
-                continue;
+            if (next.source != null && next.source is Photo) {
+               var next_photo = (Photo)(next.source);
 
-            if (next_photo == current_photo)
+                if (next_photo == current_photo) {
+                    break;
+                }
+
+                replace_photo (next_photo);
+
                 break;
-
-            replace_photo (next_photo);
-
-            break;
+            }
         }
     }
 
@@ -1934,16 +1936,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
             if (previous == null)
                 break;
 
-            Photo? previous_photo = previous.source as Photo;
-            if (previous_photo == null)
-                continue;
+            if (previous.source != null && previous.source is Photo) {
+                var previous_photo = (Photo)previous.source;
+                if (previous_photo == current_photo) {
+                    break;
+                }
 
-            if (previous_photo == current_photo)
+                replace_photo (previous_photo);
+
                 break;
-
-            replace_photo (previous_photo);
-
-            break;
+            }
         }
     }
 
