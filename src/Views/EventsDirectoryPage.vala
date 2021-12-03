@@ -56,11 +56,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter ();
     private Gtk.Menu page_context_menu;
     private Gtk.Menu item_context_menu;
-    private GLib.Settings ui_settings;
 
     construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-
         var merge_button = new Gtk.Button.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
         merge_button.related_action = get_action ("Merge");
         merge_button.tooltip_text = _("Merge events");
