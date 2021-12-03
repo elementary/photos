@@ -79,10 +79,12 @@ private class VideoMonitor : MediaMonitor {
         base (Video.global, cancellable);
 
         foreach (DataObject obj in Video.global.get_all ()) {
-            Video video = obj as Video;
-            assert (video != null);
-            if (!video.get_is_interpretable ())
-                set_check_interpretable (video, true);
+            if (obj != null && obj is Video) {
+                var video = (Video)obj;
+                if (!video.get_is_interpretable ()) {
+                    set_check_interpretable (video, true);
+                }
+            }
         }
     }
 

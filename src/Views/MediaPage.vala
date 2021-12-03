@@ -404,36 +404,38 @@ public abstract class MediaPage : CheckerboardPage {
     }
 
     protected void on_play_video () {
-        if (get_view ().get_selected_count () != 1 || !(get_view ().get_selected_at (0).source is Video))
+        if (get_view ().get_selected_count () != 1) {
             return;
+        }
 
-        Video? video = get_view ().get_selected_at (0).source as Video;
-        if (video == null)
-            return;
-
-        try {
-            AppInfo.launch_default_for_uri (video.get_file ().get_uri (), null);
-        } catch (Error e) {
-            AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
-                                         e.message));
+        var source = get_view ().get_selected_at (0).source;
+        if (source != null && source is Video) {
+            var video = (Video)source;
+            try {
+                AppInfo.launch_default_for_uri (video.get_file ().get_uri (), null);
+            } catch (Error e) {
+                AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
+                                             e.message));
+            }
         }
     }
 
     public void open_video_with (AppInfo app) {
-        if (get_view ().get_selected_count () != 1 || !(get_view ().get_selected_at (0).source is Video))
+        if (get_view ().get_selected_count () != 1) {
             return;
+        }
 
-        Video? video = get_view ().get_selected_at (0).source as Video;
-        if (video == null)
-            return;
-
-        try {
-            List<string> videos = null;
-            videos.append (video.get_file ().get_uri ());
-            app.launch_uris (videos, null);
-        } catch (Error e) {
-            AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
-                                         e.message));
+        var source = get_view ().get_selected_at (0).source;
+        if (source != null && source is Video) {
+            var video = (Video)source;
+            try {
+                List<string> videos = null;
+                videos.append (video.get_file ().get_uri ());
+                app.launch_uris (videos, null);
+            } catch (Error e) {
+                AppWindow.error_message (_ ("Photos was unable to play the selected video:\n%s").printf (
+                                             e.message));
+            }
         }
     }
 

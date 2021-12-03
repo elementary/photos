@@ -376,7 +376,6 @@ public abstract class CollectionPage : MediaPage {
                     var photo = (Photo)source;
                     photo.open_with_external_editor (app);
                 } else if (source is Video) {
-                    var video = (Video)source;
                     open_video_with (AppInfo.create_from_commandline (app, null, AppInfoCreateFlags.NONE));
                 }
             } catch (Error err) {
