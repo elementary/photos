@@ -79,8 +79,11 @@ private class BasicProperties : Properties {
     protected override void get_single_properties (DataView view) {
         base.get_single_properties (view);
 
-        source = view.source as MediaSource;
+        if (view.source == null || !(view.source is MediaSource)) {
+            return;
+        }
 
+        var source = (MediaSource)(view.source);
         filesize = source.get_master_filesize ();
         title = source.get_name ();
 
