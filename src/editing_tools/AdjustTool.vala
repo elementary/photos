@@ -217,7 +217,7 @@ public class EditingTools.AdjustTool : EditingTool {
             if (command == null || !(command is AdjustResetCommand)) {
                 return false;
             }
-            
+
             var reset_command = (AdjustResetCommand) command;
 
             if (reset_command.owner != owner) {
