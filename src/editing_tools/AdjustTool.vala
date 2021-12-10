@@ -277,7 +277,7 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            if (command == null || !(command is SliderAdjustmentCommand) {
+            if (command == null || !(command is SliderAdjustmentCommand)) {
                 return false;
             }
 
