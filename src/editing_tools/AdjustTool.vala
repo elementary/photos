@@ -277,10 +277,11 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            var slider_adjustment = (SliderAdjustmentCommand) command;
-            if (slider_adjustment == null) {
+            if (command == null || !(command is SliderAdjustmentCommand) {
                 return false;
             }
+
+            var slider_adjustment = (SliderAdjustmentCommand) command;
 
             // same photo
             if (slider_adjustment.owner != owner) {
@@ -341,6 +342,8 @@ public class EditingTools.AdjustTool : EditingTool {
                 // multiple successive enhances are as good as a single, as long as it's on the
                 // same photo
                 return photo.equals (owner.canvas.photo);
+            } else {
+                return false;
             }
 
             var enhance_command = (AdjustEnhanceCommand) command;
