@@ -346,6 +346,10 @@ public class EditingTools.AdjustTool : EditingTool {
                 return false;
             }
 
+            if (command == null || !(command is AdjustEnhanceCommand) {
+                 return false;
+            }
+     
             var enhance_command = (AdjustEnhanceCommand) command;
 
             if (enhance_command.owner != owner) {
