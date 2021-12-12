@@ -349,7 +349,7 @@ public class EditingTools.AdjustTool : EditingTool {
             if (command == null || !(command is AdjustEnhanceCommand) {
                  return false;
             }
-     
+
             var enhance_command = (AdjustEnhanceCommand) command;
 
             if (enhance_command.owner != owner) {
