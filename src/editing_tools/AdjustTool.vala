@@ -214,18 +214,16 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            if (command == null || !(command is AdjustResetCommand)) {
+            if (command is AdjustResetCommand) {
+                var reset_command = (AdjustResetCommand) command;
+                if (reset_command.owner != owner) {
+                    return false;
+                }
+                // multiple successive resets on the same photo as good as a single
+                return true;
+            } else {
                 return false;
             }
-
-            var reset_command = (AdjustResetCommand) command;
-
-            if (reset_command.owner != owner) {
-                return false;
-            }
-
-            // multiple successive resets on the same photo as good as a single
-            return true;
         }
     }
 
@@ -277,29 +275,29 @@ public class EditingTools.AdjustTool : EditingTool {
         }
 
         public override bool compress (Command command) {
-            if (command == null || !(command is SliderAdjustmentCommand)) {
+            if (command is SliderAdjustmentCommand) {
+                var slider_adjustment = (SliderAdjustmentCommand) command;
+
+                // same photo
+                if (slider_adjustment.owner != owner) {
+                    return false;
+                }
+
+                // same adjustment
+                if (slider_adjustment.transformation_type != transformation_type) {
+                    return false;
+                }
+
+                // execute the command
+                slider_adjustment.execute ();
+
+                // save it's transformation as ours
+                new_transformation = slider_adjustment.new_transformation;
+
+                return true;
+            } else {
                 return false;
             }
-
-            var slider_adjustment = (SliderAdjustmentCommand) command;
-
-            // same photo
-            if (slider_adjustment.owner != owner) {
-                return false;
-            }
-
-            // same adjustment
-            if (slider_adjustment.transformation_type != transformation_type) {
-                return false;
-            }
-
-            // execute the command
-            slider_adjustment.execute ();
-
-            // save it's transformation as ours
-            new_transformation = slider_adjustment.new_transformation;
-
-            return true;
         }
     }
 
@@ -335,25 +333,26 @@ public class EditingTools.AdjustTool : EditingTool {
 
         public override bool compress (Command command) {
             // can compress both normal enhance and one with the adjust tool running
-            var enhance_single = (EnhanceSingleCommand) command;
-            if (enhance_single != null) {
+            if (command is EnhanceSingleCommand) {
+                var enhance_single = (EnhanceSingleCommand) command;
                 var photo = (Photo) enhance_single.get_source ();
-
                 // multiple successive enhances are as good as a single, as long as it's on the
                 // same photo
                 return photo.equals (owner.canvas.photo);
+            }
+
+            if (command is AdjustEnhanceCommand) {
+                var enhance_command = (AdjustEnhanceCommand) command;
+
+                if (enhance_command.owner != owner) {
+                    return false;
+                }
+
+                // multiple successive as good as a single
+                return true;
             } else {
                 return false;
             }
-
-            var enhance_command = (AdjustEnhanceCommand) command;
-
-            if (enhance_command.owner != owner) {
-                return false;
-            }
-
-            // multiple successive as good as a single
-            return true;
         }
     }
 
