@@ -346,7 +346,7 @@ public class EditingTools.AdjustTool : EditingTool {
                 return false;
             }
 
-            if (command == null || !(command is AdjustEnhanceCommand) {
+            if (command == null || !(command is AdjustEnhanceCommand)) {
                  return false;
             }
 
