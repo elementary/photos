@@ -133,8 +133,6 @@ internal class WebAuthPane : Spit.Publishing.DialogPane, GLib.Object {
         webview_frame.expand = true;
 
         webview = new WebKit.WebView ();
-        webview.get_settings ().enable_plugins = false;
-
         webview.load_changed.connect ((load_event) => {
             if (load_event == WebKit.LoadEvent.STARTED) {
                 on_load_started ();
@@ -321,7 +319,7 @@ private class UploadTransaction: Transaction {
 
         int image_part_num = message_parts.get_length ();
 
-        Soup.Buffer bindable_data = new Soup.Buffer (Soup.MemoryUse.COPY, photo_data.data[0:data_length]);
+        Soup.Buffer bindable_data = new Soup.Buffer.take (photo_data.data[0:data_length]);
         message_parts.append_form_file ("", photo.get_serialized_file ().get_path (), "image/jpeg", bindable_data);
 
         unowned Soup.MessageHeaders image_part_header;

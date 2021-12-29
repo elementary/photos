@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 21:38+0000\n"
+"POT-Creation-Date: 2021-12-10 17:15+0000\n"
 "PO-Revision-Date: 2016-04-18 04:16+0000\n"
 "Last-Translator: Jim Nelson <jim@yorba.org>\n"
 "Language-Team: Kirgyz (http://www.transifex.com/projects/p/shotwell/language/"
@@ -297,7 +297,7 @@ msgid "Unflag"
 msgstr ""
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1254
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr ""
@@ -321,7 +321,7 @@ msgid "Unable to monitor %s: Not a directory (%s)"
 msgstr ""
 
 #. if no name, pretty up the start time
-#: src/Event.vala:733
+#: src/Event.vala:732
 #, c-format
 msgid "Event %s"
 msgstr ""
@@ -356,8 +356,9 @@ msgstr "_Баарын алмаштыруу"
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
-#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:118
-#: src/editing_tools/CropTool.vala:98 src/editing_tools/StraightenTool.vala:113
+#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:132
+#: src/editing_tools/CropTool.vala:102
+#: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
 #: src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
@@ -486,59 +487,59 @@ msgstr ""
 msgid "32 images per page"
 msgstr ""
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:233
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:240
 msgid "Wallet (2 x 3 in.)"
 msgstr ""
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:234
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:241
 msgid "Notecard (3 x 5 in.)"
 msgstr ""
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:235
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:242
 msgid "4 x 6 in."
 msgstr ""
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:236
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:243
 msgid "5 x 7 in."
 msgstr ""
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:237
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:244
 msgid "8 x 10 in."
 msgstr ""
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:239
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:246
 msgid "11 x 14 in."
 msgstr ""
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:241
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:248
 msgid "16 x 20 in."
 msgstr ""
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:243
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:250
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr ""
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:244
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:251
 msgid "Postcard (10 x 15 cm)"
 msgstr ""
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:245
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:252
 msgid "13 x 18 cm"
 msgstr "13 x 18 см"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:246
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:253
 msgid "18 x 24 cm"
 msgstr "18 x 24 см"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:248
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:255
 msgid "20 x 30 cm"
 msgstr "20 x 30 см"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:249
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:256
 msgid "24 x 40 cm"
 msgstr "24 x 40 см"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:250
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:257
 msgid "30 x 40 cm"
 msgstr "30 x 40 см"
 
@@ -1040,12 +1041,12 @@ msgid "Cameras"
 msgstr ""
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:725 src/Views/ImportPage.vala:741
+#: src/Views/ImportPage.vala:734 src/Views/ImportPage.vala:750
 msgid "Camera"
 msgstr ""
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/editing_tools/AdjustTool.vala:116 src/editing_tools/RedEyeTool.vala:66
+#: src/editing_tools/AdjustTool.vala:130 src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
 msgstr ""
 
@@ -1701,7 +1702,7 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:68
+#: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
 #: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr ""
@@ -1744,7 +1745,7 @@ msgstr ""
 msgid "Add rule"
 msgstr ""
 
-#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:628
+#: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
 #: src/Views/DirectPhotoPage.vala:534
 msgid "Cancel"
 msgstr ""
@@ -1779,143 +1780,143 @@ msgstr ""
 msgid "Save photo with a different name"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:45
+#: src/editing_tools/AdjustTool.vala:47
 msgid "Exposure:"
 msgstr "Экспозиция:"
 
-#: src/editing_tools/AdjustTool.vala:57
+#: src/editing_tools/AdjustTool.vala:61
 msgid "Saturation:"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:68
+#: src/editing_tools/AdjustTool.vala:74
 msgid "Tint:"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:81
+#: src/editing_tools/AdjustTool.vala:89
 msgid "Temperature:"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:94
+#: src/editing_tools/AdjustTool.vala:104
 msgid "Shadows:"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:105
+#: src/editing_tools/AdjustTool.vala:117
 msgid "Highlights:"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:117
-#: src/editing_tools/StraightenTool.vala:114
+#: src/editing_tools/AdjustTool.vala:131
+#: src/editing_tools/StraightenTool.vala:119
 msgid "_Reset"
 msgstr "_Түшүрүү"
 
-#: src/editing_tools/AdjustTool.vala:175
+#: src/editing_tools/AdjustTool.vala:198
 msgid "Reset Colors"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:175
+#: src/editing_tools/AdjustTool.vala:199
 msgid "Reset all color adjustments to original"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:527
+#: src/editing_tools/AdjustTool.vala:587
 msgid "Temperature"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:540
+#: src/editing_tools/AdjustTool.vala:601
 msgid "Tint"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:553
+#: src/editing_tools/AdjustTool.vala:615
 msgid "Saturation"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:566
+#: src/editing_tools/AdjustTool.vala:629
 #: src/sidebar/metadata/BasicProperties.vala:359
 msgid "Exposure"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:579
+#: src/editing_tools/AdjustTool.vala:643
 msgid "Shadows"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:592
+#: src/editing_tools/AdjustTool.vala:657
 msgid "Highlights"
 msgstr ""
 
-#: src/editing_tools/AdjustTool.vala:602
+#: src/editing_tools/AdjustTool.vala:667
 msgid "Contrast Expansion"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:113
+#: src/editing_tools/CropTool.vala:117
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:225
+#: src/editing_tools/CropTool.vala:232
 msgid "Unconstrained"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:226
+#: src/editing_tools/CropTool.vala:233
 msgid "Square"
 msgstr "Чарчы"
 
-#: src/editing_tools/CropTool.vala:227
+#: src/editing_tools/CropTool.vala:234
 msgid "Screen"
 msgstr "Экран"
 
-#: src/editing_tools/CropTool.vala:228
+#: src/editing_tools/CropTool.vala:235
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:229 src/editing_tools/CropTool.vala:232
-#: src/editing_tools/CropTool.vala:242 src/editing_tools/CropTool.vala:252
+#: src/editing_tools/CropTool.vala:236 src/editing_tools/CropTool.vala:239
+#: src/editing_tools/CropTool.vala:249 src/editing_tools/CropTool.vala:259
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:230
+#: src/editing_tools/CropTool.vala:237
 msgid "SD Video (4 : 3)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:231
+#: src/editing_tools/CropTool.vala:238
 msgid "HD Video (16 : 9)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:238
+#: src/editing_tools/CropTool.vala:245
 msgid "Letter (8.5 x 11 in.)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:240
+#: src/editing_tools/CropTool.vala:247
 msgid "Tabloid (11 x 17 in.)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:247
+#: src/editing_tools/CropTool.vala:254
 msgid "A4 (210 x 297 mm)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:251
+#: src/editing_tools/CropTool.vala:258
 msgid "A3 (297 x 420 mm)"
 msgstr ""
 
-#: src/editing_tools/CropTool.vala:253
+#: src/editing_tools/CropTool.vala:260
 msgid "Custom"
 msgstr "Тапшырылма"
 
-#: src/editing_tools/RedEyeTool.vala:63
+#: src/editing_tools/RedEyeTool.vala:62
 msgid "Size:"
 msgstr "Өлчөм:"
 
-#: src/editing_tools/RedEyeTool.vala:78
+#: src/editing_tools/RedEyeTool.vala:79
 msgid "Close the red-eye tool"
 msgstr ""
 
-#: src/editing_tools/RedEyeTool.vala:80
+#: src/editing_tools/RedEyeTool.vala:81
 msgid "Remove any red-eye effects in the selected region"
 msgstr ""
 
-#: src/editing_tools/StraightenTool.vala:111
+#: src/editing_tools/StraightenTool.vala:116
 msgid "Angle:"
 msgstr ""
 
-#: src/editing_tools/StraightenTool.vala:112
+#: src/editing_tools/StraightenTool.vala:117
 msgid "_Straighten"
 msgstr ""
 
@@ -1946,85 +1947,80 @@ msgstr[1] ""
 msgid "All Photos"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:163
+#: src/library/LibraryWindow.vala:162
 msgid "_Import From Folder…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:168
+#: src/library/LibraryWindow.vala:174
+msgid "Toggle Sidebar"
+msgstr ""
+
+#: src/library/LibraryWindow.vala:180
+msgid "Toggle Photo Info"
+msgstr ""
+
+#: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:179
+#: src/library/LibraryWindow.vala:204
 msgid "Settings"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:349 src/Views/EventsDirectoryPage.vala:134
-#: src/Views/ImportPage.vala:853 src/Views/OfflinePage.vala:102
-#: src/Views/MediaPage.vala:141 src/Views/TrashPage.vala:155
+#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:123
+#: src/Views/ImportPage.vala:854 src/Views/OfflinePage.vala:94
+#: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:147
 msgid "Sort _Events"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:351 src/Views/CollectionPage.vala:180
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:180
 #: src/Views/LibraryPhotoPage.vala:537
 msgid "View Eve_nt for Photo"
 msgstr ""
 
 #. add the common action for the FilterPhotos submenu (the submenu contains items from
 #. SearchFilterActions)
-#: src/library/LibraryWindow.vala:357 src/searches/Branch.vala:87
-#: src/sidebar/Tree.vala:877
+#: src/library/LibraryWindow.vala:393 src/searches/Branch.vala:87
+#: src/sidebar/Tree.vala:881
 msgid "New Smart Album…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:379 src/Views/EventsDirectoryPage.vala:126
-#: src/Views/ImportPage.vala:841 src/Views/OfflinePage.vala:94
-#: src/Views/MediaPage.vala:65 src/Views/TrashPage.vala:147
-msgid "S_idebar"
-msgstr ""
-
-#: src/library/LibraryWindow.vala:380
-msgid "Display the sidebar"
-msgstr ""
-
-#: src/library/LibraryWindow.vala:384 src/library/LibraryWindow.vala:385
-#: src/Views/CollectionPage.vala:111 src/Views/EventsDirectoryPage.vala:130
-#: src/Views/ImportPage.vala:845 src/Views/LibraryPhotoPage.vala:478
-#: src/Views/OfflinePage.vala:98 src/Views/MediaPage.vala:69
-#: src/Views/TrashPage.vala:151
+#: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
+#: src/Views/CollectionPage.vala:111 src/Views/LibraryPhotoPage.vala:478
 msgid "Edit Photo In_fo"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:396 src/Views/EventsDirectoryPage.vala:136
-#: src/Views/ImportPage.vala:855 src/Views/OfflinePage.vala:104
-#: src/Views/MediaPage.vala:114 src/Views/MediaPage.vala:143
-#: src/Views/MediaPage.vala:292 src/Views/TrashPage.vala:157
+#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:125
+#: src/Views/ImportPage.vala:856 src/Views/OfflinePage.vala:96
+#: src/Views/MediaPage.vala:103 src/Views/MediaPage.vala:132
+#: src/Views/MediaPage.vala:278 src/Views/TrashPage.vala:149
 msgid "_Ascending"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:396 src/Views/MediaPage.vala:292
+#: src/library/LibraryWindow.vala:433 src/Views/MediaPage.vala:278
 msgid "Sort photos in an ascending order"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:402 src/Views/EventsDirectoryPage.vala:145
-#: src/Views/ImportPage.vala:864 src/Views/OfflinePage.vala:113
-#: src/Views/MediaPage.vala:123 src/Views/MediaPage.vala:152
-#: src/Views/MediaPage.vala:297 src/Views/TrashPage.vala:166
+#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:134
+#: src/Views/ImportPage.vala:865 src/Views/OfflinePage.vala:105
+#: src/Views/MediaPage.vala:112 src/Views/MediaPage.vala:141
+#: src/Views/MediaPage.vala:283 src/Views/TrashPage.vala:158
 msgid "D_escending"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:402 src/Views/MediaPage.vala:297
+#: src/library/LibraryWindow.vala:439 src/Views/MediaPage.vala:283
 msgid "Sort photos in a descending order"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:624
+#: src/library/LibraryWindow.vala:661
 msgid "Import From Folder"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:627
+#: src/library/LibraryWindow.vala:664
 msgid "Import"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:790
+#: src/library/LibraryWindow.vala:827
 #, c-format
 msgid ""
 "Photos is configured to import photos to your home directory.\n"
@@ -2033,48 +2029,48 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:794
+#: src/library/LibraryWindow.vala:831
 msgid "_Import"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:795
+#: src/library/LibraryWindow.vala:832
 msgid "Library Location"
 msgstr ""
 
 #. TODO: Specify which directory/file.
-#: src/library/LibraryWindow.vala:809
+#: src/library/LibraryWindow.vala:846
 msgid "Photos cannot be imported from this directory."
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1036 src/library/LibraryWindow.vala:1047
+#: src/library/LibraryWindow.vala:1073 src/library/LibraryWindow.vala:1084
 msgid "Updating library…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1053
+#: src/library/LibraryWindow.vala:1090
 msgid "Preparing to auto-import photos…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1058
+#: src/library/LibraryWindow.vala:1095
 msgid "Auto-importing photos…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1066
+#: src/library/LibraryWindow.vala:1103
 msgid "Writing metadata to files…"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Import Photos"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1173
+#: src/library/LibraryWindow.vala:1210
 msgid "Copy photos from a folder or external device."
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Change Library Folder"
 msgstr ""
 
-#: src/library/LibraryWindow.vala:1174
+#: src/library/LibraryWindow.vala:1211
 msgid "Choose where to keep your photos."
 msgstr ""
 
@@ -2274,11 +2270,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: src/sidebar/Tree.vala:880
+#: src/sidebar/Tree.vala:884
 msgid "New _Tag…"
 msgstr ""
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:301
+#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr ""
 
@@ -2522,44 +2518,44 @@ msgstr ""
 msgid "No Event"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:66
+#: src/Views/EventsDirectoryPage.vala:63
 msgid "Merge events"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:159 src/Views/MediaPage.vala:166
+#: src/Views/EventsDirectoryPage.vala:148 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
 msgstr "_Толук экран"
 
-#: src/Views/EventsDirectoryPage.vala:224 src/Views/MediaPage.vala:77
-#: src/Views/MediaPage.vala:248
+#: src/Views/EventsDirectoryPage.vala:210 src/Views/MediaPage.vala:66
+#: src/Views/MediaPage.vala:234
 msgid "_Comments"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:225
+#: src/Views/EventsDirectoryPage.vala:211
 msgid "Display the comment of each event"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:249
+#: src/Views/EventsDirectoryPage.vala:235
 msgid "No events"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:253
+#: src/Views/EventsDirectoryPage.vala:239
 msgid "No events found"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:313
+#: src/Views/EventsDirectoryPage.vala:299
 msgid "Events"
 msgstr "Окуялар"
 
-#: src/Views/EventsDirectoryPage.vala:327
+#: src/Views/EventsDirectoryPage.vala:313
 msgid "Undated"
 msgstr ""
 
-#: src/Views/EventsDirectoryPage.vala:328
+#: src/Views/EventsDirectoryPage.vala:314
 msgid "%Y"
 msgstr "%Y"
 
-#: src/Views/EventsDirectoryPage.vala:329
+#: src/Views/EventsDirectoryPage.vala:315
 #, fuzzy
 msgid "%OB"
 msgstr "%B"
@@ -2568,29 +2564,29 @@ msgstr "%B"
 msgid "Flagged"
 msgstr ""
 
-#: src/Views/ImportPage.vala:464
+#: src/Views/ImportPage.vala:478
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
 
-#: src/Views/ImportPage.vala:783
+#: src/Views/ImportPage.vala:792
 msgid "Hide photos already imported"
 msgstr ""
 
-#: src/Views/ImportPage.vala:786
+#: src/Views/ImportPage.vala:795
 msgid "Only display photos that have not been imported"
 msgstr ""
 
-#: src/Views/ImportPage.vala:849 src/Views/ImportPage.vala:952
-#: src/Views/MediaPage.vala:73 src/Views/MediaPage.vala:242
+#: src/Views/ImportPage.vala:850 src/Views/ImportPage.vala:950
+#: src/Views/MediaPage.vala:62 src/Views/MediaPage.vala:228
 msgid "_Titles"
 msgstr ""
 
-#: src/Views/ImportPage.vala:909 src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:907 src/Views/ImportPage.vala:963
 msgid "Import _Selected"
 msgstr ""
 
-#: src/Views/ImportPage.vala:914 src/Views/ImportPage.vala:969
+#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:967
 msgid "Import _All"
 msgstr ""
 
@@ -2598,120 +2594,120 @@ msgstr ""
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:933
+#: src/Views/ImportPage.vala:931
 msgid "Starting import, please wait…"
 msgstr ""
 
-#: src/Views/ImportPage.vala:953 src/Views/MediaPage.vala:243
+#: src/Views/ImportPage.vala:951 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
 msgstr ""
 
-#: src/Views/ImportPage.vala:965
+#: src/Views/ImportPage.vala:963
 msgid "Import the selected photos into your library"
 msgstr ""
 
-#: src/Views/ImportPage.vala:970
+#: src/Views/ImportPage.vala:968
 msgid "Import all the photos into your library"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1090
+#: src/Views/ImportPage.vala:1088
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1091
+#: src/Views/ImportPage.vala:1089
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 
-#: src/Views/ImportPage.vala:1097
+#: src/Views/ImportPage.vala:1095
 msgid "_Unmount"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1103
+#: src/Views/ImportPage.vala:1101
 msgid "Please unmount the camera."
 msgstr ""
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1110
+#: src/Views/ImportPage.vala:1108
 msgid "The Camera Is Locked By Another Application"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1111
+#: src/Views/ImportPage.vala:1109
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
 
-#: src/Views/ImportPage.vala:1118
+#: src/Views/ImportPage.vala:1116
 msgid "Please close any other application using the camera."
 msgstr ""
 
-#: src/Views/ImportPage.vala:1123
+#: src/Views/ImportPage.vala:1121
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
 "%s"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1140
+#: src/Views/ImportPage.vala:1138
 msgid "Unmounting…"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1246
+#: src/Views/ImportPage.vala:1244
 msgid "Fetching photo information"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1598
+#: src/Views/ImportPage.vala:1592
 #, c-format
 msgid "Fetching preview for %s"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1717
+#: src/Views/ImportPage.vala:1705
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1802
+#: src/Views/ImportPage.vala:1790
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Views/ImportPage.vala:1805
+#: src/Views/ImportPage.vala:1793
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Views/ImportPage.vala:1808
+#: src/Views/ImportPage.vala:1796
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Views/ImportPage.vala:1811
+#: src/Views/ImportPage.vala:1799
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Views/ImportPage.vala:1819 src/Views/TrashPage.vala:284
+#: src/Views/ImportPage.vala:1807 src/Views/TrashPage.vala:273
 msgid "Delete"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1819
+#: src/Views/ImportPage.vala:1807
 msgid "_Keep"
 msgstr "_Калтыруу"
 
-#: src/Views/ImportPage.vala:1838
+#: src/Views/ImportPage.vala:1826
 msgid "Removing photos/videos from camera"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1842
+#: src/Views/ImportPage.vala:1830
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -2753,52 +2749,52 @@ msgstr ""
 msgid "Missing Files"
 msgstr ""
 
-#: src/Views/OfflinePage.vala:194
+#: src/Views/OfflinePage.vala:183
 msgid "Deleting…"
 msgstr ""
 
-#: src/Views/MediaPage.vala:81 src/Views/MediaPage.vala:254
+#: src/Views/MediaPage.vala:70 src/Views/MediaPage.vala:240
 msgid "Ta_gs"
 msgstr "_Тегдер"
 
-#: src/Views/MediaPage.vala:85
+#: src/Views/MediaPage.vala:74
 msgid "Sort _Photos"
 msgstr ""
 
 #. Sort criteria.
-#: src/Views/MediaPage.vala:87 src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:76 src/Views/MediaPage.vala:257
 msgid "By _Title"
 msgstr ""
 
-#: src/Views/MediaPage.vala:96 src/Views/MediaPage.vala:276
+#: src/Views/MediaPage.vala:85 src/Views/MediaPage.vala:262
 msgid "By Exposure _Date"
 msgstr ""
 
-#: src/Views/MediaPage.vala:105 src/Views/MediaPage.vala:281
+#: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
 msgstr ""
 
-#: src/Views/MediaPage.vala:249
+#: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
 msgstr ""
 
-#: src/Views/MediaPage.vala:255
+#: src/Views/MediaPage.vala:241
 msgid "Display each photo's tags"
 msgstr ""
 
-#: src/Views/MediaPage.vala:271
+#: src/Views/MediaPage.vala:257
 msgid "Sort photos by title"
 msgstr ""
 
-#: src/Views/MediaPage.vala:277
+#: src/Views/MediaPage.vala:263
 msgid "Sort photos by exposure date"
 msgstr ""
 
-#: src/Views/MediaPage.vala:282
+#: src/Views/MediaPage.vala:268
 msgid "Sort photos by import timestamp"
 msgstr ""
 
-#: src/Views/MediaPage.vala:429
+#: src/Views/MediaPage.vala:415
 #, c-format
 msgid ""
 "Photos was unable to play the selected video:\n"
@@ -2867,29 +2863,29 @@ msgid "Trash"
 msgstr ""
 
 #: src/Views/TrashPage.vala:82 src/Views/TrashPage.vala:126
-#: src/Views/TrashPage.vala:201 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:190 src/Views/TrashPage.vala:214
 msgid "_Empty Trash"
 msgstr ""
 
-#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:225
+#: src/Views/TrashPage.vala:84 src/Views/TrashPage.vala:214
 msgid "Delete all photos in the trash"
 msgstr ""
 
-#: src/Views/TrashPage.vala:279 src/Views/TrashPage.vala:280
+#: src/Views/TrashPage.vala:268 src/Views/TrashPage.vala:269
 msgid "Trash is empty"
 msgstr ""
 
-#: src/Views/TrashPage.vala:285
+#: src/Views/TrashPage.vala:274
 msgid "Deleting a Photo"
 msgid_plural "Deleting Photos"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Empty Trash"
 msgstr ""
 
-#: src/Views/TrashPage.vala:293
+#: src/Views/TrashPage.vala:282
 msgid "Emptying Trash…"
 msgstr ""
 
@@ -3120,7 +3116,7 @@ msgstr ""
 msgid "A temporary file needed for publishing is unavailable"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
 msgid ""
 "You have already logged in and out of a Google service during this session.\n"
 "\n"
@@ -3159,7 +3155,7 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
 msgid ""
-"Shotwell cannot contact your Piwigo photo library. Please verify the URL you "
+"Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
 
@@ -3168,60 +3164,62 @@ msgstr ""
 msgid "Username and/or password invalid. Please try again"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1039
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
 msgid "Invalid URL"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1044
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
 msgid "Invalid User Name or Password"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Shotwell Connect"
-msgstr ""
+#, fuzzy
+#| msgid "Photos"
+msgid "Photos Connect"
+msgstr "Фотографиялар"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1192
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "Баары"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1239
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
 msgid "Admins, Family, Friends, Contacts"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1240
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
 msgid "Admins, Family, Friends"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
 msgid "Admins, Family"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
 msgid "Admins"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1250
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
 msgid "500 x 375 pixels"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1251
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
 msgid "1024 x 768 pixels"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1252
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
 msgid "2048 x 1536 pixels"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1253
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
 msgid "4096 x 3072 pixels"
 msgstr ""
@@ -3267,13 +3265,13 @@ msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Shotwell Connect to link to your Flickr account."
+"authorize Photos Connect to link to your Flickr account."
 msgstr ""
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
 msgid ""
-"You have already logged in and out of Flickr during this Shotwell session.\n"
-"To continue publishing to Flickr, quit and restart Shotwell, then try "
+"You have already logged in and out of Flickr during this Photos session.\n"
+"To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 
@@ -3335,7 +3333,7 @@ msgid "Friends only"
 msgstr ""
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
 msgid "Just me"
 msgstr ""
 
@@ -3344,16 +3342,15 @@ msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
 "If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Shotwell Connect may ask you for permission to "
+"login process. During login, Photos Connect may ask you for permission to "
 "upload photos and publish to your feed. These permissions are required for "
-"Shotwell Connect to function."
+"Photos Connect to function."
 msgstr ""
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
 msgid ""
-"You have already logged in and out of Facebook during this Shotwell "
-"session.\n"
-"To continue publishing to Facebook, quit and restart Shotwell, then try "
+"You have already logged in and out of Facebook during this Photos session.\n"
+"To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
 
@@ -3384,23 +3381,23 @@ msgstr ""
 msgid "Server redirect URL contained no access token"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
 #, c-format
 msgid ""
 "You are logged into Facebook as %s.\n"
 "\n"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1030
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
 msgid "Where would you like to publish the selected photos?"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1031
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
 msgid "Upload _size:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1191
+#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
 msgid "Friends"
 msgstr ""
@@ -3427,35 +3424,35 @@ msgstr ""
 msgid "_Publish"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:24
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
 msgid "Photos will appear in:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:40
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
 msgid "An _existing category:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:52
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
 msgid "A _new album named:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:121
-msgid "Photos will be _visible by:"
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:149
-msgid "Photo size:"
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:176
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
 msgid "within category:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:210
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
 msgid "Album comment:"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:226
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
+msgid "Photos will be _visible by:"
+msgstr ""
+
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
+msgid "Photo size:"
+msgstr ""
+
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
@@ -3463,45 +3460,40 @@ msgid ""
 "_Remove location, camera, and other identifying information before uploading"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:242
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
 msgid "_Do no upload tags"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:278
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
 msgid "Logout"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
 msgid "Publish"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:27
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:49
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
 msgid "_URL of your Piwigo photo library"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:59
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
 msgid "User _name"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:73
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
 msgid "_Password"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:130
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
 msgid "_Remember Password"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:151
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
 msgid "Login"
 msgstr ""
@@ -3569,7 +3561,7 @@ msgstr ""
 msgid "Visit the Yandex.Fotki web site"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:655
+#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
 msgid "You are not currently logged into Yandex.Fotki."
 msgstr ""
 
@@ -3610,16 +3602,16 @@ msgid ""
 msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Shotwell Extra Publishing Services"
+msgid "Photos Extra Publishing Services"
 msgstr ""
 
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1155
+#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
 msgid ""
-"You have already logged in and out of a Google service during this Shotwell "
+"You have already logged in and out of a Google service during this Photos "
 "session.\n"
 "\n"
-"To continue publishing to Google services, quit and restart Shotwell, then "
-"try publishing again."
+"To continue publishing to Google services, quit and restart Photos, then try "
+"publishing again."
 msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
@@ -3652,6 +3644,10 @@ msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
 msgid "Blogs:"
+msgstr ""
+
+#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
+msgid "label"
 msgstr ""
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49

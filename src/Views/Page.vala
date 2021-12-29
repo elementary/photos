@@ -47,6 +47,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private Gtk.ActionGroup[]? common_action_groups = null;
     private GLib.List<Gtk.Widget>? contractor_menu_items = null;
     protected Gtk.Box header_box;
+    protected GLib.Settings ui_settings;
 
     public bool in_view { get; private set; default = false; }
     public string page_name { get; construct set; }
@@ -56,6 +57,9 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     construct {
+        // Need to construct ui_settings before calling init_collect_action_entries ()
+        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
+
         view = new ViewCollection ("ViewCollection for Page %s".printf (page_name));
 
         last_down = { -1, -1 };
@@ -207,7 +211,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     /* Parameters add ability to have a widget inserted (by the parent) before or after the parents actionbar widgets
-     * Otherwise Any widgets packed into the actionbar after getting it from the parent will appear inside the 
+     * Otherwise Any widgets packed into the actionbar after getting it from the parent will appear inside the
      * parent's widgets. */
     public Gtk.ActionBar get_toolbar (Gtk.Widget? add_widget = null,
                                       Gtk.PackType position = Gtk.PackType.START) {
@@ -912,11 +916,15 @@ public abstract class Page : Gtk.ScrolledWindow {
         if (context_menu == null || !on_context_invoked ())
             return false;
 
-        if (event == null) {
-            context_menu.popup (null, null, null, 0, Gtk.get_current_event_time ());
-        } else {
-            context_menu.popup (null, null, null, event.button, event.time);
-        }
+        // `popup_at_pointer (event)` does not work properly with multiple monitors but `popup_at_rect (...)` does
+        var rect = Gdk.Rectangle () {
+            x = (int)event.x,
+            y = (int)event.y,
+            width = 1,
+            height = 1
+        };
+        context_menu.popup_at_rect (get_window (), rect, Gdk.Gravity.NORTH_WEST, Gdk.Gravity.NORTH_WEST, event);
+
 
         return true;
     }

@@ -112,12 +112,12 @@ public class MetadataDateTime {
             }
         }
 
-        // watch for bogosity
-        if (year <= 0 || month <= 0 || day < 0 || hour < 0 || minute < 0 || second < 0) {
+        GLib.DateTime? date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
+
+        if (date_time == null) {
             return false;
         }
 
-        var date_time = new DateTime.local (year, month, day, hour, minute, (double) second);
         timestamp = date_time.to_unix ();
 
         return true;

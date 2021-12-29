@@ -1785,7 +1785,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         if (get_photo ().is_enhanced ()) {
             // Just undo if last on stack was enhance
-            EnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as EnhanceSingleCommand;
+            EnhanceSingleCommand cmd = get_command_manager ().get_undo_command () as EnhanceSingleCommand;
             if (cmd != null && cmd.source == get_photo ())
                 get_command_manager ().undo ();
             else {
@@ -1795,7 +1795,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
             get_photo ().set_enhanced (false);
         } else {
             // Just undo if last on stack was unenhance
-            UnEnhanceSingleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceSingleCommand;
+            UnEnhanceSingleCommand cmd = get_command_manager ().get_undo_command () as UnEnhanceSingleCommand;
             if (cmd != null && cmd.source == get_photo ())
                 get_command_manager ().undo ();
             else {

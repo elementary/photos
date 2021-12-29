@@ -56,11 +56,8 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
     private EventsDirectorySearchViewFilter search_filter = new EventsDirectorySearchViewFilter ();
     private Gtk.Menu page_context_menu;
     private Gtk.Menu item_context_menu;
-    private GLib.Settings ui_settings;
 
     construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-
         var merge_button = new Gtk.Button.from_icon_name (Resources.MERGE, Gtk.IconSize.LARGE_TOOLBAR);
         merge_button.related_action = get_action ("Merge");
         merge_button.tooltip_text = _("Merge events");
@@ -123,14 +120,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
         if (page_context_menu == null) {
             page_context_menu = new Gtk.Menu ();
 
-            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
-            var sidebar_action = get_common_action ("CommonDisplaySidebar");
-            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
-
-            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
-            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
-
             var sort_menu_item = new Gtk.MenuItem.with_mnemonic (_("Sort _Events"));
 
             var ascending_menu_item = new Gtk.RadioMenuItem.with_mnemonic (null, _("_Ascending"));
@@ -168,9 +157,6 @@ public abstract class EventsDirectoryPage : CheckerboardPage {
             select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             select_menu_item.activate.connect (() => select_action.activate (null));
 
-            page_context_menu.add (sidebar_menu_item);
-            page_context_menu.add (metadata_menu_item);
-            page_context_menu.add (new Gtk.SeparatorMenuItem ());
             page_context_menu.add (sort_menu_item);
             page_context_menu.add (new Gtk.SeparatorMenuItem ());
             page_context_menu.add (fullscreen_menu_item);

@@ -34,15 +34,12 @@ public abstract class MediaPage : CheckerboardPage {
     private DragAndDropHandler dnd_handler = null;
     private MediaViewTracker tracker;
     private Gtk.Menu page_context_menu;
-    protected GLib.Settings ui_settings;
 
     protected MediaPage (string page_name) {
         Object (page_name: page_name);
     }
 
     construct {
-        ui_settings = new GLib.Settings (GSettingsConfigurationEngine.UI_PREFS_SCHEMA_NAME);
-
         tracker = new MediaViewTracker (get_view ());
         get_view ().items_altered.connect (on_media_altered);
 
@@ -61,14 +58,6 @@ public abstract class MediaPage : CheckerboardPage {
     public override Gtk.Menu? get_page_context_menu () {
         if (page_context_menu == null) {
             page_context_menu = new Gtk.Menu ();
-
-            var sidebar_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("S_idebar"));
-            var sidebar_action = get_common_action ("CommonDisplaySidebar");
-            sidebar_action.bind_property ("active", sidebar_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
-
-            var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
-            var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
-            metadata_action.bind_property ("active", metadata_menu_item, "active", BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 
             var title_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("_Titles"));
             var title_action = get_action ("ViewTitle");
@@ -175,9 +164,6 @@ public abstract class MediaPage : CheckerboardPage {
             select_action.bind_property ("enabled", select_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             select_menu_item.activate.connect (() => select_action.activate (null));
 
-            page_context_menu.add (sidebar_menu_item);
-            page_context_menu.add (metadata_menu_item);
-            page_context_menu.add (new Gtk.SeparatorMenuItem ());
             page_context_menu.add (title_menu_item);
             page_context_menu.add (comment_menu_item);
             page_context_menu.add (tags_menu_item);

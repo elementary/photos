@@ -984,14 +984,14 @@ public class BackingPhotoRow {
         if (filesize != info.get_size ())
             return false;
 
-        return timestamp == info.get_modification_time ().tv_sec;
+        return timestamp == info.get_modification_date_time ().to_unix ();
     }
 
     public bool is_touched (FileInfo info) {
         if (filesize != info.get_size ())
             return false;
 
-        return timestamp != info.get_modification_time ().tv_sec;
+        return timestamp != info.get_modification_date_time ().to_unix ();
     }
 
     // Copies another backing photo row into this one.

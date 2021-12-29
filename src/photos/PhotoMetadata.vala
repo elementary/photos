@@ -91,16 +91,15 @@ public abstract class PhotoPreview {
         return extension;
     }
 
-    public abstract uint8[] flatten () throws Error;
+    public abstract Bytes flatten () throws Error;
 
     public virtual Gdk.Pixbuf? get_pixbuf () throws Error {
-        uint8[] flattened = flatten ();
+        var flattened = flatten ();
 
         // Need to create from stream or file for decode ... catch decode error and return null,
         // different from an I/O error causing the problem
         try {
-            return new Gdk.Pixbuf.from_stream (new MemoryInputStream.from_data (flattened, null),
-            null);
+            return new Gdk.Pixbuf.from_stream (new MemoryInputStream.from_bytes (flattened));
         } catch (Error err) {
             warning ("Unable to decode thumbnail for %s: %s", name, err.message);
 
@@ -137,11 +136,11 @@ public class PhotoMetadata : MediaMetadata {
             this.number = number;
         }
 
-        public override uint8[] flatten () throws Error {
+        public override Bytes flatten () throws Error {
             unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
             assert (props != null && props.length > number);
 
-            return owner.exiv2.get_preview_image (props[number]).get_data ();
+            return new Bytes (owner.exiv2.get_preview_image (props[number]).get_data ());
         }
     }
 
@@ -174,31 +173,18 @@ public class PhotoMetadata : MediaMetadata {
         exiv2 = new GExiv2.Metadata ();
         exif = null;
 
-#if GEXIV2_0_11
         exiv2.open_buf (buffer[0:length]);
-#else
-        exiv2.open_buf (buffer, length);
-#endif
-        exif = Exif.Data.new_from_data (buffer, length);
+        exif = Exif.Data.new_from_data (buffer[0:length]);
         source_name = "<memory buffer %d bytes>".printf (length);
     }
 
-    public void read_from_app1_segment (uint8[] buffer, int length = 0) throws Error {
-        if (length <= 0)
-            length = buffer.length;
-
-        assert (buffer.length >= length);
-
+    public void read_from_app1_segment (Bytes buffer) throws Error {
         exiv2 = new GExiv2.Metadata ();
         exif = null;
 
-#if GEXIV2_0_11
-        exiv2.from_app1_segment (buffer[0:length]);
-#else
-        exiv2.from_app1_segment (buffer, length);
-#endif
-        exif = Exif.Data.new_from_data (buffer, length);
-        source_name = "<app1 segment %d bytes>".printf (length);
+        exiv2.from_app1_segment (buffer.get_data ());
+        exif = Exif.Data.new_from_data (buffer.get_data ());
+        source_name = "<app1 segment %zu bytes>".printf (buffer.get_size ());
     }
 
     public static MetadataDomain get_tag_domain (string tag) {

@@ -775,7 +775,7 @@ public abstract class CollectionPage : MediaPage {
 
         if (unenhanced_list.size == 0) {
             // Just undo if last on stack was enhance
-            EnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as EnhanceMultipleCommand;
+            EnhanceMultipleCommand cmd = get_command_manager ().get_undo_command () as EnhanceMultipleCommand;
             if (cmd != null && cmd.get_sources () == get_view ().get_selected_sources ())
                 get_command_manager ().undo ();
             else {
@@ -788,7 +788,7 @@ public abstract class CollectionPage : MediaPage {
             }
         } else {
             // Just undo if last on stack was unenhance
-            UnEnhanceMultipleCommand cmd = get_command_manager ().get_undo_description () as UnEnhanceMultipleCommand;
+            UnEnhanceMultipleCommand cmd = get_command_manager ().get_undo_command () as UnEnhanceMultipleCommand;
             if (cmd != null && cmd.get_sources () == get_view ().get_selected_sources ())
                 get_command_manager ().undo ();
             else {

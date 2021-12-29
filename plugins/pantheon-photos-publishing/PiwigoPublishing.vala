@@ -1006,7 +1006,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
         FAILED_RETRY_USER
     }
     private static string intro_message = _ ("Enter the URL of your Piwigo photo library as well as the username and password associated with your Piwigo account for that library.");
-    private static string failed_retry_url_message = _ ("Shotwell cannot contact your Piwigo photo library. Please verify the URL you entered");
+    private static string failed_retry_url_message = _ ("Photos cannot contact your Piwigo photo library. Please verify the URL you entered");
     private static string failed_retry_user_message = _ ("Username and/or password invalid. Please try again");
 
     private Gtk.Box pane_widget = null;
@@ -1020,13 +1020,10 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
     public signal void login (string url, string user, string password, bool remember_password);
 
     public AuthenticationPane (PiwigoPublisher publisher, Mode mode = Mode.INTRO) {
-        this.pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
         try {
             builder = new Gtk.Builder ();
             builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_authentication_pane.ui");
-            builder.connect_signals (null);
-            Gtk.Alignment align = builder.get_object ("alignment") as Gtk.Alignment;
+            pane_widget = builder.get_object ("box") as Gtk.Box;
 
             Gtk.Label message_label = builder.get_object ("message_label") as Gtk.Label;
             switch (mode) {
@@ -1071,7 +1068,6 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
             password_entry.changed.connect (on_password_changed);
             login_button.clicked.connect (on_login_button_clicked);
 
-            align.reparent (pane_widget);
             publisher.get_host ().set_dialog_default_widget (login_button);
         } catch (Error e) {
             warning ("Could not load UI: %s", e.message);
@@ -1131,7 +1127,7 @@ internal class AuthenticationPane : Spit.Publishing.DialogPane, Object {
  */
 internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
 
-    private static string default_category_name = _ ("Shotwell Connect");
+    private static string default_category_name = _ ("Photos Connect");
 
     private Gtk.Box pane_widget = null;
     private Gtk.Builder builder;
@@ -1169,7 +1165,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
         int last_category, int last_permission_level, int last_photo_size,
         bool last_title_as_comment, bool last_no_upload_tags, bool strip_metadata_enabled
     ) {
-        this.pane_widget = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         this.last_category = last_category;
         this.last_permission_level = last_permission_level;
         this.last_photo_size = last_photo_size;
@@ -1179,8 +1174,7 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
         try {
             builder = new Gtk.Builder ();
             builder.add_from_resource ("/io/elementary/photos/plugins/publishing/ui/piwigo_publishing_options_pane.ui");
-            builder.connect_signals (null);
-            Gtk.Alignment align = builder.get_object ("alignment") as Gtk.Alignment;
+            pane_widget = builder.get_object ("box") as Gtk.Box;
 
             use_existing_radio = builder.get_object ("use_existing_radio") as Gtk.RadioButton;
             create_new_radio = builder.get_object ("create_new_radio") as Gtk.RadioButton;
@@ -1215,9 +1209,6 @@ internal class PublishingOptionsPane : Spit.Publishing.DialogPane, Object {
             create_new_radio.clicked.connect (on_create_new_radio_clicked);
             new_category_entry.changed.connect (on_new_category_entry_changed);
             within_existing_combo.changed.connect (on_existing_combo_changed);
-
-            align.reparent (pane_widget);
-            pane_widget.set_child_packing (align, true, true, 0, Gtk.PackType.START);
         } catch (Error e) {
             warning ("Could not load UI: %s", e.message);
         }
