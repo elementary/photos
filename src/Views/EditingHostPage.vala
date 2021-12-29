@@ -28,6 +28,22 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int PIXBUF_CACHE_COUNT = 5;
     public const int ORIGINAL_PIXBUF_CACHE_COUNT = 5;
 
+    private enum TargetType {
+        IMAGE,
+        TEXT_URI_LIST,
+        TEXT
+    }
+
+    private const Gtk.TargetEntry [] COPY_TARGETS = {
+        {"image/png", Gtk.TargetFlags.OTHER_APP, TargetType.IMAGE}, // First parameter name is critical
+        {"text/uri-list", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT_URI_LIST},
+        {"UTF8_STRING", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT} // First parameter name is critical
+    };
+
+    private static Photo? copied_photo = null;
+    private static Scaling? copied_scaling = null;
+    private static Gtk.Clipboard? clipboard = null;
+
     private class EditingHostCanvas : EditingTools.PhotoCanvas {
         private EditingHostPage host_page;
 
@@ -82,6 +98,10 @@ public abstract class EditingHostPage : SinglePhotoPage {
             scale_up_to_viewport: false,
             sources: sources
         );
+    }
+
+    static construct {
+        clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (), Gdk.SELECTION_CLIPBOARD);
     }
 
     construct {
@@ -1607,22 +1627,51 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
+    public static void get_image_data_for_clipboard (Gtk.Clipboard cb, Gtk.SelectionData sd, uint info, void* parent) {
+        if (copied_photo == null || copied_scaling == null) {
+            critical ("Copied data gone");
+            return;
+        }
+
+        switch (info) {
+            case TargetType.IMAGE:
+                try {
+                    Gdk.Pixbuf? pixbuf = copied_photo.get_pixbuf_with_options (copied_scaling);
+                    if (pixbuf != null) {
+                        sd.set_pixbuf (pixbuf); // NB Use pixbuf for PNG image type
+                    }
+                } catch (Error e) {
+                    warning ("Unable to get pixbuf when copying image");
+                    return;
+                }
+
+                break;
+            case TargetType.TEXT_URI_LIST:
+                sd.set_uris ({copied_photo.get_file ().get_uri ()});
+                break;
+            case TargetType.TEXT:
+                sd.set_text (copied_photo.get_file ().get_uri (), -1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void clear_data_for_clipboard (Gtk.Clipboard cb, void* parent) {
+        copied_photo = null;
+        copied_scaling = null;
+    }
+
     public void on_copy_image () {
-        if (!has_photo ())
+        copied_photo = get_photo ();
+        if (copied_photo == null) {
             return;
+        }
 
-        Gdk.Pixbuf? original;
+        copied_scaling = get_canvas_scaling ();
 
-        original =
-            get_photo ().get_original_orientation ().rotate_pixbuf (get_photo ().get_prefetched_copy ());
-
-        if (original == null)
-            return;
-
-        Gdk.Display display = Gdk.Display.get_default ();
-        Gtk.Clipboard clipboard = Gtk.Clipboard.get_for_display (display, Gdk.SELECTION_CLIPBOARD);
-
-        clipboard.set_image (original);
+        clipboard.clear ();
+        clipboard.set_with_owner (COPY_TARGETS, get_image_data_for_clipboard, clear_data_for_clipboard, this);
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
