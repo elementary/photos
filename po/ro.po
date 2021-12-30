@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 07:38+0000\n"
+"POT-Creation-Date: 2021-12-10 17:15+0000\n"
 "PO-Revision-Date: 2021-01-04 21:48+0000\n"
 "Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -310,7 +310,7 @@ msgid "Unflag"
 msgstr "Demarcare"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1254
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Dimensiune originală"
@@ -369,8 +369,9 @@ msgstr "Înlocuiește _tot"
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
-#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:118
-#: src/editing_tools/CropTool.vala:98 src/editing_tools/StraightenTool.vala:113
+#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:132
+#: src/editing_tools/CropTool.vala:102
+#: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
 #: src/Views/DirectPhotoPage.vala:441
 msgid "_Cancel"
@@ -514,59 +515,59 @@ msgstr "16"
 msgid "32 images per page"
 msgstr "32 imagini pe pagină"
 
-#: src/Printing.vala:347 src/editing_tools/CropTool.vala:233
+#: src/Printing.vala:347 src/editing_tools/CropTool.vala:240
 msgid "Wallet (2 x 3 in.)"
 msgstr "Portofel (2 × 3 in.)"
 
-#: src/Printing.vala:350 src/editing_tools/CropTool.vala:234
+#: src/Printing.vala:350 src/editing_tools/CropTool.vala:241
 msgid "Notecard (3 x 5 in.)"
 msgstr "Carnet notițe (3 × 5 in.)"
 
-#: src/Printing.vala:353 src/editing_tools/CropTool.vala:235
+#: src/Printing.vala:353 src/editing_tools/CropTool.vala:242
 msgid "4 x 6 in."
 msgstr "4 × 6 in."
 
-#: src/Printing.vala:356 src/editing_tools/CropTool.vala:236
+#: src/Printing.vala:356 src/editing_tools/CropTool.vala:243
 msgid "5 x 7 in."
 msgstr "5 × 7 in."
 
-#: src/Printing.vala:359 src/editing_tools/CropTool.vala:237
+#: src/Printing.vala:359 src/editing_tools/CropTool.vala:244
 msgid "8 x 10 in."
 msgstr "8 × 10 in."
 
-#: src/Printing.vala:362 src/editing_tools/CropTool.vala:239
+#: src/Printing.vala:362 src/editing_tools/CropTool.vala:246
 msgid "11 x 14 in."
 msgstr "11 × 14 in."
 
-#: src/Printing.vala:365 src/editing_tools/CropTool.vala:241
+#: src/Printing.vala:365 src/editing_tools/CropTool.vala:248
 msgid "16 x 20 in."
 msgstr "16 x 20 in."
 
-#: src/Printing.vala:371 src/editing_tools/CropTool.vala:243
+#: src/Printing.vala:371 src/editing_tools/CropTool.vala:250
 msgid "Metric Wallet (9 x 13 cm)"
 msgstr "Portofel metric (9 × 13 cm)"
 
-#: src/Printing.vala:374 src/editing_tools/CropTool.vala:244
+#: src/Printing.vala:374 src/editing_tools/CropTool.vala:251
 msgid "Postcard (10 x 15 cm)"
 msgstr "Carte poștală (10 × 15 cm)"
 
-#: src/Printing.vala:377 src/editing_tools/CropTool.vala:245
+#: src/Printing.vala:377 src/editing_tools/CropTool.vala:252
 msgid "13 x 18 cm"
 msgstr "13 x 18 cm"
 
-#: src/Printing.vala:380 src/editing_tools/CropTool.vala:246
+#: src/Printing.vala:380 src/editing_tools/CropTool.vala:253
 msgid "18 x 24 cm"
 msgstr "18 x 24 cm"
 
-#: src/Printing.vala:383 src/editing_tools/CropTool.vala:248
+#: src/Printing.vala:383 src/editing_tools/CropTool.vala:255
 msgid "20 x 30 cm"
 msgstr "20 x 30 cm"
 
-#: src/Printing.vala:386 src/editing_tools/CropTool.vala:249
+#: src/Printing.vala:386 src/editing_tools/CropTool.vala:256
 msgid "24 x 40 cm"
 msgstr "24 x 40 cm"
 
-#: src/Printing.vala:389 src/editing_tools/CropTool.vala:250
+#: src/Printing.vala:389 src/editing_tools/CropTool.vala:257
 msgid "30 x 40 cm"
 msgstr "30 x 40 cm"
 
@@ -1090,12 +1091,12 @@ msgid "Cameras"
 msgstr "Aparate foto"
 
 #: src/camera/Branch.vala:110 src/photos/RawSupport.vala:313
-#: src/Views/ImportPage.vala:739 src/Views/ImportPage.vala:755
+#: src/Views/ImportPage.vala:734 src/Views/ImportPage.vala:750
 msgid "Camera"
 msgstr "Aparat foto"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/editing_tools/AdjustTool.vala:116 src/editing_tools/RedEyeTool.vala:66
+#: src/editing_tools/AdjustTool.vala:130 src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
 msgstr "_Aplică"
 
@@ -1944,7 +1945,7 @@ msgstr "Implicit:"
 msgid "Plugins"
 msgstr "Module"
 
-#: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:68
+#: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
 #: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "În_chide"
@@ -2029,143 +2030,143 @@ msgstr "Salvează fotografia"
 msgid "Save photo with a different name"
 msgstr "Salvează fotografia sub un alt nume"
 
-#: src/editing_tools/AdjustTool.vala:45
+#: src/editing_tools/AdjustTool.vala:47
 msgid "Exposure:"
 msgstr "Expunere:"
 
-#: src/editing_tools/AdjustTool.vala:57
+#: src/editing_tools/AdjustTool.vala:61
 msgid "Saturation:"
 msgstr "Culoare:"
 
-#: src/editing_tools/AdjustTool.vala:68
+#: src/editing_tools/AdjustTool.vala:74
 msgid "Tint:"
 msgstr "Nuanță:"
 
-#: src/editing_tools/AdjustTool.vala:81
+#: src/editing_tools/AdjustTool.vala:89
 msgid "Temperature:"
 msgstr "Temperatură:"
 
-#: src/editing_tools/AdjustTool.vala:94
+#: src/editing_tools/AdjustTool.vala:104
 msgid "Shadows:"
 msgstr "Umbre:"
 
-#: src/editing_tools/AdjustTool.vala:105
+#: src/editing_tools/AdjustTool.vala:117
 msgid "Highlights:"
 msgstr "Evidențieri:"
 
-#: src/editing_tools/AdjustTool.vala:117
-#: src/editing_tools/StraightenTool.vala:114
+#: src/editing_tools/AdjustTool.vala:131
+#: src/editing_tools/StraightenTool.vala:119
 msgid "_Reset"
 msgstr "_Restabilește"
 
-#: src/editing_tools/AdjustTool.vala:175
+#: src/editing_tools/AdjustTool.vala:198
 msgid "Reset Colors"
 msgstr "Restabilește culorile"
 
-#: src/editing_tools/AdjustTool.vala:175
+#: src/editing_tools/AdjustTool.vala:199
 msgid "Reset all color adjustments to original"
 msgstr "Restabilește toate modificările culorilor la original"
 
-#: src/editing_tools/AdjustTool.vala:527
+#: src/editing_tools/AdjustTool.vala:587
 msgid "Temperature"
 msgstr "Temperatură"
 
-#: src/editing_tools/AdjustTool.vala:540
+#: src/editing_tools/AdjustTool.vala:601
 msgid "Tint"
 msgstr "Nuanță"
 
-#: src/editing_tools/AdjustTool.vala:553
+#: src/editing_tools/AdjustTool.vala:615
 msgid "Saturation"
 msgstr "Culoare"
 
-#: src/editing_tools/AdjustTool.vala:566
+#: src/editing_tools/AdjustTool.vala:629
 #: src/sidebar/metadata/BasicProperties.vala:359
 msgid "Exposure"
 msgstr "Expunere"
 
-#: src/editing_tools/AdjustTool.vala:579
+#: src/editing_tools/AdjustTool.vala:643
 msgid "Shadows"
 msgstr "Umbre"
 
-#: src/editing_tools/AdjustTool.vala:592
+#: src/editing_tools/AdjustTool.vala:657
 msgid "Highlights"
 msgstr "Evidențieri"
 
-#: src/editing_tools/AdjustTool.vala:602
+#: src/editing_tools/AdjustTool.vala:667
 msgid "Contrast Expansion"
 msgstr "Expansiune contrast"
 
-#: src/editing_tools/CropTool.vala:113
+#: src/editing_tools/CropTool.vala:117
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Rotește aria de selecție între orientările portret și peisaj"
 
-#: src/editing_tools/CropTool.vala:225
+#: src/editing_tools/CropTool.vala:232
 msgid "Unconstrained"
 msgstr "Fără limitări"
 
-#: src/editing_tools/CropTool.vala:226
+#: src/editing_tools/CropTool.vala:233
 msgid "Square"
 msgstr "Pătrat"
 
-#: src/editing_tools/CropTool.vala:227
+#: src/editing_tools/CropTool.vala:234
 msgid "Screen"
 msgstr "Ecran"
 
-#: src/editing_tools/CropTool.vala:228
+#: src/editing_tools/CropTool.vala:235
 #: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Dimensiune originală"
 
-#: src/editing_tools/CropTool.vala:229 src/editing_tools/CropTool.vala:232
-#: src/editing_tools/CropTool.vala:242 src/editing_tools/CropTool.vala:252
+#: src/editing_tools/CropTool.vala:236 src/editing_tools/CropTool.vala:239
+#: src/editing_tools/CropTool.vala:249 src/editing_tools/CropTool.vala:259
 msgid "-"
 msgstr "-"
 
-#: src/editing_tools/CropTool.vala:230
+#: src/editing_tools/CropTool.vala:237
 msgid "SD Video (4 : 3)"
 msgstr "Video SD (4 : 3)"
 
-#: src/editing_tools/CropTool.vala:231
+#: src/editing_tools/CropTool.vala:238
 msgid "HD Video (16 : 9)"
 msgstr "Video HD (16 : 9)"
 
-#: src/editing_tools/CropTool.vala:238
+#: src/editing_tools/CropTool.vala:245
 msgid "Letter (8.5 x 11 in.)"
 msgstr "Scrisoare (215.9 mm × 279.4 mm)"
 
-#: src/editing_tools/CropTool.vala:240
+#: src/editing_tools/CropTool.vala:247
 msgid "Tabloid (11 x 17 in.)"
 msgstr "Tablou (11 x 17 in.)"
 
-#: src/editing_tools/CropTool.vala:247
+#: src/editing_tools/CropTool.vala:254
 msgid "A4 (210 x 297 mm)"
 msgstr "A4 (210 x 297 mm)"
 
-#: src/editing_tools/CropTool.vala:251
+#: src/editing_tools/CropTool.vala:258
 msgid "A3 (297 x 420 mm)"
 msgstr "A3 (297 x 420 mm)"
 
-#: src/editing_tools/CropTool.vala:253
+#: src/editing_tools/CropTool.vala:260
 msgid "Custom"
 msgstr "Personalizat"
 
-#: src/editing_tools/RedEyeTool.vala:63
+#: src/editing_tools/RedEyeTool.vala:62
 msgid "Size:"
 msgstr "Dimensiune:"
 
-#: src/editing_tools/RedEyeTool.vala:78
+#: src/editing_tools/RedEyeTool.vala:79
 msgid "Close the red-eye tool"
 msgstr "Închide utilitarul pentru ochi roșii"
 
-#: src/editing_tools/RedEyeTool.vala:80
+#: src/editing_tools/RedEyeTool.vala:81
 msgid "Remove any red-eye effects in the selected region"
 msgstr "Șterge toate efectele de ochi roșii din selecție"
 
-#: src/editing_tools/StraightenTool.vala:111
+#: src/editing_tools/StraightenTool.vala:116
 msgid "Angle:"
 msgstr "Unghi:"
 
-#: src/editing_tools/StraightenTool.vala:112
+#: src/editing_tools/StraightenTool.vala:117
 msgid "_Straighten"
 msgstr "Î_mbunătățire"
 
@@ -2223,8 +2224,8 @@ msgstr "_Preferințe"
 msgid "Settings"
 msgstr "Opţiuni"
 
-#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:126
-#: src/Views/ImportPage.vala:859 src/Views/OfflinePage.vala:94
+#: src/library/LibraryWindow.vala:385 src/Views/EventsDirectoryPage.vala:123
+#: src/Views/ImportPage.vala:854 src/Views/OfflinePage.vala:94
 #: src/Views/MediaPage.vala:130 src/Views/TrashPage.vala:147
 msgid "Sort _Events"
 msgstr "Sortează _evenimente"
@@ -2246,8 +2247,8 @@ msgstr "Noul Album Inteligent..."
 msgid "Edit Photo In_fo"
 msgstr "Editare fotografiei în _fo"
 
-#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:128
-#: src/Views/ImportPage.vala:861 src/Views/OfflinePage.vala:96
+#: src/library/LibraryWindow.vala:433 src/Views/EventsDirectoryPage.vala:125
+#: src/Views/ImportPage.vala:856 src/Views/OfflinePage.vala:96
 #: src/Views/MediaPage.vala:103 src/Views/MediaPage.vala:132
 #: src/Views/MediaPage.vala:278 src/Views/TrashPage.vala:149
 msgid "_Ascending"
@@ -2257,8 +2258,8 @@ msgstr "_Crescător"
 msgid "Sort photos in an ascending order"
 msgstr "Sortează fotografiile în ordine crescătoare"
 
-#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:137
-#: src/Views/ImportPage.vala:870 src/Views/OfflinePage.vala:105
+#: src/library/LibraryWindow.vala:439 src/Views/EventsDirectoryPage.vala:134
+#: src/Views/ImportPage.vala:865 src/Views/OfflinePage.vala:105
 #: src/Views/MediaPage.vala:112 src/Views/MediaPage.vala:141
 #: src/Views/MediaPage.vala:283 src/Views/TrashPage.vala:158
 msgid "D_escending"
@@ -2792,45 +2793,45 @@ msgstr ""
 msgid "No Event"
 msgstr "Fără eveniment"
 
-#: src/Views/EventsDirectoryPage.vala:66
+#: src/Views/EventsDirectoryPage.vala:63
 #, fuzzy
 msgid "Merge events"
 msgstr "Unește eveni_mentele"
 
-#: src/Views/EventsDirectoryPage.vala:151 src/Views/MediaPage.vala:155
+#: src/Views/EventsDirectoryPage.vala:148 src/Views/MediaPage.vala:155
 msgid "Fulls_creen"
 msgstr "Pe tot e_cranul"
 
-#: src/Views/EventsDirectoryPage.vala:213 src/Views/MediaPage.vala:66
+#: src/Views/EventsDirectoryPage.vala:210 src/Views/MediaPage.vala:66
 #: src/Views/MediaPage.vala:234
 msgid "_Comments"
 msgstr "_Comentarii"
 
-#: src/Views/EventsDirectoryPage.vala:214
+#: src/Views/EventsDirectoryPage.vala:211
 msgid "Display the comment of each event"
 msgstr "Afișează comentariul fiecărui eveniment"
 
-#: src/Views/EventsDirectoryPage.vala:238
+#: src/Views/EventsDirectoryPage.vala:235
 msgid "No events"
 msgstr "Niciun eveniment"
 
-#: src/Views/EventsDirectoryPage.vala:242
+#: src/Views/EventsDirectoryPage.vala:239
 msgid "No events found"
 msgstr "Nu a fost găsit niciun eveniment"
 
-#: src/Views/EventsDirectoryPage.vala:302
+#: src/Views/EventsDirectoryPage.vala:299
 msgid "Events"
 msgstr "Evenimente"
 
-#: src/Views/EventsDirectoryPage.vala:316
+#: src/Views/EventsDirectoryPage.vala:313
 msgid "Undated"
 msgstr "Fără dată"
 
-#: src/Views/EventsDirectoryPage.vala:317
+#: src/Views/EventsDirectoryPage.vala:314
 msgid "%Y"
 msgstr "%Y"
 
-#: src/Views/EventsDirectoryPage.vala:318
+#: src/Views/EventsDirectoryPage.vala:315
 #, fuzzy
 msgid "%OB"
 msgstr "%B"
@@ -2847,24 +2848,24 @@ msgstr ""
 "Aparatul foto nu poate fi demontat. Încercați să demontați dispozitivul din "
 "administratorul de fișiere."
 
-#: src/Views/ImportPage.vala:797
+#: src/Views/ImportPage.vala:792
 msgid "Hide photos already imported"
 msgstr "Ascunde fotografiile importate deja"
 
-#: src/Views/ImportPage.vala:800
+#: src/Views/ImportPage.vala:795
 msgid "Only display photos that have not been imported"
 msgstr "Afișează doar fotografiile care nu au fost importate"
 
-#: src/Views/ImportPage.vala:855 src/Views/ImportPage.vala:955
+#: src/Views/ImportPage.vala:850 src/Views/ImportPage.vala:950
 #: src/Views/MediaPage.vala:62 src/Views/MediaPage.vala:228
 msgid "_Titles"
 msgstr "_Nume"
 
-#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:968
+#: src/Views/ImportPage.vala:907 src/Views/ImportPage.vala:963
 msgid "Import _Selected"
 msgstr "Importă _selecția"
 
-#: src/Views/ImportPage.vala:917 src/Views/ImportPage.vala:972
+#: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:967
 msgid "Import _All"
 msgstr "Importă _tot"
 
@@ -2872,28 +2873,28 @@ msgstr "Importă _tot"
 #. prior to import.
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
-#: src/Views/ImportPage.vala:936
+#: src/Views/ImportPage.vala:931
 #, fuzzy
 msgid "Starting import, please wait…"
 msgstr "Se pornește importarea, așteptați..."
 
-#: src/Views/ImportPage.vala:956 src/Views/MediaPage.vala:229
+#: src/Views/ImportPage.vala:951 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
 msgstr "Afișează numele fiecărei fotografii"
 
-#: src/Views/ImportPage.vala:968
+#: src/Views/ImportPage.vala:963
 msgid "Import the selected photos into your library"
 msgstr "Importați fotografiile selectate în colecția dumneavoastră"
 
-#: src/Views/ImportPage.vala:973
+#: src/Views/ImportPage.vala:968
 msgid "Import all the photos into your library"
 msgstr "Importați toate fotografiile în colecția dumneavoastră"
 
-#: src/Views/ImportPage.vala:1093
+#: src/Views/ImportPage.vala:1088
 msgid "The Camera Cannot Be Accessed While Mounted"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1094
+#: src/Views/ImportPage.vala:1089
 #, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
@@ -2901,20 +2902,20 @@ msgstr ""
 "Shotwell trebuie să demonteze aparatul foto din sistemul de fișiere pentru a-"
 "l accesa. Continuați?"
 
-#: src/Views/ImportPage.vala:1100
+#: src/Views/ImportPage.vala:1095
 msgid "_Unmount"
 msgstr "_Demontează"
 
-#: src/Views/ImportPage.vala:1106
+#: src/Views/ImportPage.vala:1101
 msgid "Please unmount the camera."
 msgstr "Demontați aparatul foto."
 
 #. it's not mounted, so another application must have it locked
-#: src/Views/ImportPage.vala:1113
+#: src/Views/ImportPage.vala:1108
 msgid "The Camera Is Locked By Another Application"
 msgstr ""
 
-#: src/Views/ImportPage.vala:1114
+#: src/Views/ImportPage.vala:1109
 #, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
@@ -2924,11 +2925,11 @@ msgstr ""
 "aparatul foto numai dacă acesta nu este blocat. Închideți orice altă "
 "aplicație care folosește aparatul foto și încercați din nou."
 
-#: src/Views/ImportPage.vala:1121
+#: src/Views/ImportPage.vala:1116
 msgid "Please close any other application using the camera."
 msgstr "Închideți orice aplicație care folosește aparatul foto."
 
-#: src/Views/ImportPage.vala:1126
+#: src/Views/ImportPage.vala:1121
 #, c-format
 msgid ""
 "Unable to fetch previews from the camera:\n"
@@ -2937,26 +2938,26 @@ msgstr ""
 "Nu se poate realiza previzualizarea fotografiilor din aparatul foto:\n"
 "%s"
 
-#: src/Views/ImportPage.vala:1143
+#: src/Views/ImportPage.vala:1138
 #, fuzzy
 msgid "Unmounting…"
 msgstr "Se demontează..."
 
-#: src/Views/ImportPage.vala:1249
+#: src/Views/ImportPage.vala:1244
 msgid "Fetching photo information"
 msgstr "Se aduc informațiile despre fotografii"
 
-#: src/Views/ImportPage.vala:1597
+#: src/Views/ImportPage.vala:1592
 #, c-format
 msgid "Fetching preview for %s"
 msgstr "Previzualizare pentru %s"
 
-#: src/Views/ImportPage.vala:1710
+#: src/Views/ImportPage.vala:1705
 #, c-format
 msgid "Unable to lock camera: %s"
 msgstr "Aparatul foto nu poate fi blocat: %s"
 
-#: src/Views/ImportPage.vala:1795
+#: src/Views/ImportPage.vala:1790
 #, c-format
 msgid "Delete this photo from camera?"
 msgid_plural "Delete these %d photos from camera?"
@@ -2964,7 +2965,7 @@ msgstr[0] "Ștergeți această fotografie din aparatul foto?"
 msgstr[1] "Ștergeți aceste %d fotografii din aparatul foto?"
 msgstr[2] "Ștergeți aceste %d de fotografii din aparatul foto?"
 
-#: src/Views/ImportPage.vala:1798
+#: src/Views/ImportPage.vala:1793
 #, c-format
 msgid "Delete this video from camera?"
 msgid_plural "Delete these %d videos from camera?"
@@ -2972,7 +2973,7 @@ msgstr[0] "Ștergeți acest clip din aparatul foto?"
 msgstr[1] "Ștergeți aceste %d clipuri din aparatul foto?"
 msgstr[2] "Ștergeți aceste %d de clipuri din aparatul foto?"
 
-#: src/Views/ImportPage.vala:1801
+#: src/Views/ImportPage.vala:1796
 #, c-format
 msgid "Delete this photo/video from camera?"
 msgid_plural "Delete these %d photos/videos from camera?"
@@ -2980,7 +2981,7 @@ msgstr[0] "Ștergeți această fotografie/acest clip din aparatul foto?"
 msgstr[1] "Ștergeți aceste %d fotografii/clipuri din aparatul foto?"
 msgstr[2] "Ștergeți aceste %d de fotografii/clipuri din aparatul foto?"
 
-#: src/Views/ImportPage.vala:1804
+#: src/Views/ImportPage.vala:1799
 #, c-format
 msgid "Delete these files from camera?"
 msgid_plural "Delete these %d files from camera?"
@@ -2988,19 +2989,19 @@ msgstr[0] "Ștergeți acest fișier din aparatul foto?"
 msgstr[1] "Ștergeți aceste %d fișiere din aparatul foto?"
 msgstr[2] "Ștergeți aceste %d de fișiere din aparatul foto?"
 
-#: src/Views/ImportPage.vala:1812 src/Views/TrashPage.vala:273
+#: src/Views/ImportPage.vala:1807 src/Views/TrashPage.vala:273
 msgid "Delete"
 msgstr "Şterge"
 
-#: src/Views/ImportPage.vala:1812
+#: src/Views/ImportPage.vala:1807
 msgid "_Keep"
 msgstr "_Păstrează"
 
-#: src/Views/ImportPage.vala:1831
+#: src/Views/ImportPage.vala:1826
 msgid "Removing photos/videos from camera"
 msgstr "Se șterg fotografiile/clipurile din aparatul foto"
 
-#: src/Views/ImportPage.vala:1835
+#: src/Views/ImportPage.vala:1830
 #, c-format
 msgid "Unable to delete %d photo/video from the camera due to errors."
 msgid_plural "Unable to delete %d photos/videos from the camera due to errors."
@@ -3506,62 +3507,62 @@ msgstr ""
 msgid "Username and/or password invalid. Please try again"
 msgstr "Nume utilizator și/sau parolă incorecte. Încercați din nou"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1039
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
 msgid "Invalid URL"
 msgstr "URL invalid"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1044
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
 msgid "Invalid User Name or Password"
 msgstr "Nume utilizator sau parolă incorecte"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1134
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
 #, fuzzy
 #| msgid "Shotwell Connect"
 msgid "Photos Connect"
 msgstr "Shotwell Connect"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1238
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
 msgid "Everyone"
 msgstr "Toți"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1239
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
 msgid "Admins, Family, Friends, Contacts"
 msgstr "Admini, Familie, Prieteni, Contacte"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1240
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
 msgid "Admins, Family, Friends"
 msgstr "Admini, Familie, Prieteni"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
 msgid "Admins, Family"
 msgstr "Admini, Familie"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
 msgid "Admins"
 msgstr "Admini"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1250
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
 msgid "500 x 375 pixels"
 msgstr "500 x 375 pixeli"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1251
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
 msgid "1024 x 768 pixels"
 msgstr "1024 x 768 pixeli"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1252
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
 msgid "2048 x 1536 pixels"
 msgstr "2048 x 1536 pixeli"
 
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1253
+#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
 msgid "4096 x 3072 pixels"
 msgstr "4096 x 3072 pixeli"
@@ -3823,35 +3824,35 @@ msgstr "_Deconectare"
 msgid "_Publish"
 msgstr "Publicare"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:24
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
 msgid "Photos will appear in:"
 msgstr "Fotografiile vor apărea în:"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:40
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
 msgid "An _existing category:"
 msgstr "O categorie _existentă:"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:52
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
 msgid "A _new album named:"
 msgstr "Un album _nou denumit:"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:121
-msgid "Photos will be _visible by:"
-msgstr "Fotografiilr vor fi _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:149
-msgid "Photo size:"
-msgstr "Dimensiune fotografie:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:176
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
 msgid "within category:"
 msgstr "în interiorul categoriei:"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:210
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
 msgid "Album comment:"
 msgstr "Comentariu album:"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:226
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
+msgid "Photos will be _visible by:"
+msgstr "Fotografiilr vor fi _vizibile pentru:"
+
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
+msgid "Photo size:"
+msgstr "Dimensiune fotografie:"
+
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
 #: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
 #: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
 #: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
@@ -3861,46 +3862,41 @@ msgstr ""
 "Elimină locația, tipul camerei sau alte informații care pot fi folosite "
 "pentru identificare, înainte de upload"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:242
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
 msgid "_If a title is set and comment unset, use title as comment"
 msgstr ""
 "Dacă un titlu este setat și comentariul nu, folosește titlul drept comentariu"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
 msgid "_Do no upload tags"
 msgstr "Nu uploada etichete"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:278
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
 msgid "Logout"
 msgstr "Deconectare"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:291
+#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
 msgid "Publish"
 msgstr "Publică"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:27
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "etichetă"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:49
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
 msgid "_URL of your Piwigo photo library"
 msgstr "_URL-ul colecției dumneavoastră Piwigo"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:59
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
 msgid "User _name"
 msgstr "_Nume utilizator"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:73
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
 msgid "_Password"
 msgstr "_Parolă"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:130
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
 msgid "_Remember Password"
 msgstr "_Reține parola"
 
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:151
+#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
 msgid "Login"
 msgstr "Autentificare"
@@ -4079,6 +4075,10 @@ msgstr "Sunteţi conectat pe Tumblr ca (nume)."
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
 msgid "Blogs:"
 msgstr "Bloguri:"
+
+#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
+msgid "label"
+msgstr "etichetă"
 
 #: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
 msgid "_Email address"

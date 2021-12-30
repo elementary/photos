@@ -57,6 +57,7 @@ public class EditingTools.CropTool : EditingTool {
                 is_pivotable: new_pivotable,
                 aspect_ratio: new_aspect_ratio
             );
+
             if (aspect_ratio == COMPUTE_FROM_BASIS) {
                 aspect_ratio = ((float) basis_width) / ((float) basis_height);
             } else {
@@ -209,7 +210,6 @@ public class EditingTools.CropTool : EditingTool {
 
     private CropTool () {
         Object (name: "CropTool");
-
     }
 
     construct {
@@ -263,7 +263,7 @@ public class EditingTools.CropTool : EditingTool {
     }
 
     private static Gtk.ListStore create_constraint_list (ConstraintDescription[] constraint_data) {
-        Gtk.ListStore result = new Gtk.ListStore (1, typeof (string), typeof (string));
+        var result = new Gtk.ListStore (1, typeof (string), typeof (string));
 
         Gtk.TreeIter iter;
         foreach (ConstraintDescription constraint in constraint_data) {
@@ -394,6 +394,7 @@ public class EditingTools.CropTool : EditingTool {
         } else if (result == CUSTOM_ASPECT_RATIO) {
             result = custom_aspect_ratio;
         }
+
         if (reticle_orientation == ReticleOrientation.PORTRAIT) {
             result = 1.0f / result;
         }
@@ -453,6 +454,7 @@ public class EditingTools.CropTool : EditingTool {
             crop_tool_window.custom_width_entry.set_text ("%d".printf (custom_init_height));
             crop_tool_window.custom_height_entry.set_text ("%d".printf (custom_init_width));
         }
+
         custom_aspect_ratio = ((float) custom_init_width) / ((float) custom_init_height);
 
         constraint_mode = ConstraintMode.CUSTOM;
@@ -465,7 +467,7 @@ public class EditingTools.CropTool : EditingTool {
         }
 
         // PHASE 1: Scale to the desired aspect ratio, preserving area and center.
-        float old_area = (float) (crop.get_width () * crop.get_height ());
+        var old_area = (float) (crop.get_width () * crop.get_height ());
         crop.adjust_height ((int) Math.sqrt (old_area / user_aspect_ratio));
         crop.adjust_width ((int) Math.sqrt (old_area * user_aspect_ratio));
 
@@ -505,7 +507,7 @@ public class EditingTools.CropTool : EditingTool {
                                                canvas.scaled_position.width,
                                                canvas.scaled_position.height);
 
-        Cairo.Context ctx = new Cairo.Context (crop_surface);
+        var ctx = new Cairo.Context (crop_surface);
         ctx.set_source_rgba (0.0, 0.0, 0.0, 1.0);
         ctx.paint ();
 
@@ -632,6 +634,7 @@ public class EditingTools.CropTool : EditingTool {
             custom_width = custom_height;
             custom_height = temp;
         }
+
         reticle_orientation = reticle_orientation.toggle ();
         constraint_changed ();
     }
@@ -921,6 +924,7 @@ public class EditingTools.CropTool : EditingTool {
                     var new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
                     bottom = top + ((int) new_height);
                 }
+
                 break;
 
             case BoxLocation.TOP_SIDE:
@@ -929,6 +933,7 @@ public class EditingTools.CropTool : EditingTool {
                     float new_width = ((float) (bottom - top)) * get_constraint_aspect_ratio ();
                     right = left + ((int) new_width);
                 }
+
                 break;
 
             case BoxLocation.RIGHT_SIDE:
@@ -937,6 +942,7 @@ public class EditingTools.CropTool : EditingTool {
                     float new_height = ((float) (right - left)) / get_constraint_aspect_ratio ();
                     bottom = top + ((int) new_height);
                 }
+
                 break;
 
             case BoxLocation.BOTTOM_SIDE:
@@ -945,6 +951,7 @@ public class EditingTools.CropTool : EditingTool {
                     var new_width = ((float) (bottom - top)) * get_constraint_aspect_ratio ();
                     right = left + ((int) new_width);
                 }
+
                 break;
 
             case BoxLocation.TOP_LEFT:
@@ -962,6 +969,7 @@ public class EditingTools.CropTool : EditingTool {
                         top = bottom - ((int) new_height);
                     }
                 }
+
                 break;
 
             case BoxLocation.BOTTOM_LEFT:
@@ -979,6 +987,7 @@ public class EditingTools.CropTool : EditingTool {
                         left = right - ((int) new_width);
                     }
                 }
+
                 break;
 
             case BoxLocation.TOP_RIGHT:
@@ -996,6 +1005,7 @@ public class EditingTools.CropTool : EditingTool {
                         top = bottom - ((int) new_height);
                     }
                 }
+
                 break;
 
             case BoxLocation.BOTTOM_RIGHT:
@@ -1013,6 +1023,7 @@ public class EditingTools.CropTool : EditingTool {
                         right = left + ((int) new_width);
                     }
                 }
+
                 break;
 
             case BoxLocation.INSIDE:
@@ -1069,6 +1080,7 @@ public class EditingTools.CropTool : EditingTool {
                         top = bottom - height + 1;
                     }
                 }
+
                 break;
 
             default:
@@ -1102,6 +1114,7 @@ public class EditingTools.CropTool : EditingTool {
                     if (width < CROP_MIN_SIZE) {
                         left = right - CROP_MIN_SIZE;
                     }
+
                     break;
 
                 case BoxLocation.RIGHT_SIDE:
@@ -1123,6 +1136,7 @@ public class EditingTools.CropTool : EditingTool {
                     if (height < CROP_MIN_SIZE) {
                         top = bottom - CROP_MIN_SIZE;
                     }
+
                     break;
 
                 case BoxLocation.BOTTOM_SIDE:
@@ -1131,6 +1145,7 @@ public class EditingTools.CropTool : EditingTool {
                     if (height < CROP_MIN_SIZE) {
                         bottom = top + CROP_MIN_SIZE;
                     }
+
                     break;
 
                 default:
