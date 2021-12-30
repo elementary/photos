@@ -207,15 +207,18 @@ public class VideoReader {
             Gst.PbUtils.DiscovererInfo info = d.discover_uri (file.get_uri ());
 
             clip_duration = ((double) info.get_duration ()) / 1000000000.0;
-
+            timestamp = new DateTime.now_local ().to_unix (); // Fallback to now
             // Get creation time.
             // TODO: Note that TAG_DATE can be changed to TAG_DATE_TIME in the future
             // (and the corresponding output struct) in order to implement #2836.
-            Date? video_date = null;
-            if (info.get_tags () != null && info.get_tags ().get_date (Gst.Tags.DATE, out video_date)) {
-
-                timestamp = new DateTime.local (video_date.get_year (), video_date.get_month (),
-                video_date.get_day (), 0, 0, 0).to_unix ();
+            Gst.DateTime? video_date = null;
+            if (info.get_tags () != null && info.get_tags ().get_date_time (Gst.Tags.DATE, out video_date)) {
+                if (video_date != null) {
+                    var g_date_time = video_date.to_g_date_time ();
+                    if (g_date_time != null) {
+                        timestamp = g_date_time.to_unix ();
+                    }
+                }
             }
         } catch (Error e) {
             debug ("Video read error: %s", e.message);
