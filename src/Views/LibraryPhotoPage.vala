@@ -537,7 +537,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
             open_menu = new Gtk.Menu ();
 
-            var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_MENU);
+            var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_LABEL);
             var copy_image_action = get_action ("CopyImage");
             copy_image_menu_item.activate.connect (() => copy_image_action.activate ());
 
