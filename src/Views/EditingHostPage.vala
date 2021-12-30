@@ -1628,8 +1628,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     public static void get_image_data_for_clipboard (Gtk.Clipboard cb, Gtk.SelectionData sd, uint info, void* parent) {
-        if (copied_photo == null || copied_scaling == null) {
-            critical ("Copied data gone");
+        if (copied_photo == null || copied_scaling == null) { // Should not happen
+            critical ("Attempt to copy image but data for clipboard is null");
             return;
         }
 
@@ -1650,7 +1650,40 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 sd.set_uris ({copied_photo.get_file ().get_uri ()});
                 break;
             case TargetType.TEXT:
-                sd.set_text (copied_photo.get_file ().get_uri (), -1);
+                var sb = new StringBuilder (copied_photo.get_basename ());
+                var title = copied_photo.get_title ();
+                if (title != null) {
+                    sb.append (copied_photo.get_title () + "\n");
+                }
+                var comment = copied_photo.get_comment ();
+                if (comment != null) {
+                    sb.append (comment + "\n");
+                }
+                var dim = copied_photo.get_raw_dimensions ();
+                sb.append (_("Raw dimensions: %i x %i px").printf (dim.width, dim.height) + "\n");
+                try {
+                    Gdk.Pixbuf? pixbuf = copied_photo.get_pixbuf_with_options (copied_scaling);
+                    sb.append (_("Copied dimensions: %i x %i px").printf (pixbuf.get_width (), pixbuf.get_height ()) + "\n\n");
+                } catch (Error e) {
+                    warning ("Unable to get pixbuf dimensions when copying image metadata");
+                }
+
+                var metadata = copied_photo.get_metadata ();
+                var tags = metadata.get_all_tags ();
+                if (tags != null) {
+                    var ts = new Gee.TreeSet<string> ();
+                    foreach (var s in tags) {
+                        ts.add ("%s: %s".printf (metadata.get_tag_label (s), metadata.get_string_interpreted (s)));
+                    }
+
+                    foreach (var s in ts) {
+                        sb.append (s + "\n");
+                    }
+                } else {
+                    sb.append (_("No metadata found"));
+                }
+
+                sd.set_text (sb.str, -1);
                 break;
             default:
                 break;
@@ -1663,14 +1696,14 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     public void on_copy_image () {
+        clipboard.clear ();
+
         copied_photo = get_photo ();
         if (copied_photo == null) {
             return;
         }
 
         copied_scaling = get_canvas_scaling ();
-
-        clipboard.clear ();
         clipboard.set_with_owner (COPY_TARGETS, get_image_data_for_clipboard, clear_data_for_clipboard, this);
     }
 
