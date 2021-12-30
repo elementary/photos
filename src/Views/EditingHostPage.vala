@@ -29,6 +29,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int ORIGINAL_PIXBUF_CACHE_COUNT = 5;
 
     private enum TargetType {
+        GNOME_COPIED_FILES,
         IMAGE,
         TEXT_URI_LIST,
         TEXT
@@ -36,6 +37,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
     private const Gtk.TargetEntry [] COPY_TARGETS = {
         {"image/png", Gtk.TargetFlags.OTHER_APP, TargetType.IMAGE}, // First parameter name is critical
+        {"x-special/gnome-copied-files", Gtk.TargetFlags.OTHER_APP, TargetType.GNOME_COPIED_FILES},
         {"text/uri-list", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT_URI_LIST},
         {"UTF8_STRING", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT} // First parameter name is critical
     };
@@ -1627,14 +1629,28 @@ public abstract class EditingHostPage : SinglePhotoPage {
         }
     }
 
-    public static void get_image_data_for_clipboard (Gtk.Clipboard cb, Gtk.SelectionData sd, uint info, void* parent) {
+    // Default behaviour for "Copy" action.
+    //TODO Offer other behaviours e.g. copy original image rather than visible, transformed image.
+    public static void get_image_data_for_clipboard (Gtk.Clipboard cb,
+                                                     Gtk.SelectionData sd,
+                                                     uint info,
+                                                     void* parent) {
+
         if (copied_photo == null || copied_scaling == null) { // Should not happen
             critical ("Attempt to copy image but data for clipboard is null");
             return;
         }
 
         switch (info) {
+            case TargetType.GNOME_COPIED_FILES: /* Pasting into a file handler */
+                var sb = new StringBuilder ("copy"); // Only support copying for now
+                // Note the original file will be copied (may not include transformations);
+                sb.append (Uri.escape_string (copied_photo.get_file ().get_uri (), Uri.RESERVED_CHARS_ALLOWED_IN_PATH));
+                sb.append ("\r\n");
+                sd.@set (sd.get_target (), 8, sb.data);
+                break;
             case TargetType.IMAGE:
+                // The actual pixbuf displayed will be copied
                 try {
                     Gdk.Pixbuf? pixbuf = copied_photo.get_pixbuf_with_options (copied_scaling);
                     if (pixbuf != null) {
@@ -1655,10 +1671,12 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 if (title != null) {
                     sb.append (copied_photo.get_title () + "\n");
                 }
+
                 var comment = copied_photo.get_comment ();
                 if (comment != null) {
                     sb.append (comment + "\n");
                 }
+
                 var dim = copied_photo.get_raw_dimensions ();
                 sb.append (_("Raw dimensions: %i x %i px").printf (dim.width, dim.height) + "\n");
                 try {
