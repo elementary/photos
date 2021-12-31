@@ -129,8 +129,8 @@ public const string REVERT_LABEL = _("Revert to Original");
 public const string RENAME_EVENT_MENU = _("Re_name Event…");
 public const string RENAME_EVENT_LABEL = _("Rename Event");
 
-// public const string COPY_IMAGE_MENU = _("Copy");
 public const string COPY_IMAGE_LABEL = _("Copy");
+public const string COPY_METADATA_LABEL = _("Copy Metadata");
 
 public const string MAKE_KEY_PHOTO_MENU = _("Make _Key Photo for Event");
 public const string MAKE_KEY_PHOTO_LABEL = _("Make Key Photo for Event");

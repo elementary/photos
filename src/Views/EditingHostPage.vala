@@ -1630,7 +1630,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     // Default behaviour for "Copy" action.
-    //TODO Offer other behaviours e.g. copy original image rather than visible, transformed image.
     public static void get_image_data_for_clipboard (Gtk.Clipboard cb,
                                                      Gtk.SelectionData sd,
                                                      uint info,
@@ -1643,10 +1642,10 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         switch (info) {
             case TargetType.GNOME_COPIED_FILES: /* Pasting into a file handler */
-                var sb = new StringBuilder ("copy"); // Only support copying for now
+                var sb = new StringBuilder ("copy\n"); // Only support copying for now
                 // Note the original file will be copied (may not include transformations);
                 sb.append (Uri.escape_string (copied_photo.get_file ().get_uri (), Uri.RESERVED_CHARS_ALLOWED_IN_PATH));
-                sb.append ("\r\n");
+                sb.append ("\r\n"); // "\r" needed for pasting into Filezilla and maybe other programs
                 sd.@set (sd.get_target (), 8, sb.data);
                 break;
             case TargetType.IMAGE:
@@ -1665,6 +1664,24 @@ public abstract class EditingHostPage : SinglePhotoPage {
             case TargetType.TEXT_URI_LIST:
                 sd.set_uris ({copied_photo.get_file ().get_uri ()});
                 break;
+            case TargetType.TEXT:
+                sd.set_text (copied_photo.get_file ().get_uri (), -1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void get_metadata_for_clipboard (Gtk.Clipboard cb,
+                                                     Gtk.SelectionData sd,
+                                                     uint info,
+                                                     void* parent) {
+        if (copied_photo == null || copied_scaling == null) { // Should not happen
+            critical ("Attempt to copy image but data for clipboard is null");
+            return;
+        }
+
+        switch (info) {
             case TargetType.TEXT:
                 var sb = new StringBuilder (copied_photo.get_basename ());
                 var title = copied_photo.get_title ();
@@ -1701,7 +1718,7 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     sb.append (_("No metadata found"));
                 }
 
-                sd.set_text (sb.str, -1);
+                sd.set_text (sb.str, (int)sb.len - 1); // Do not want trailing new line when pasting text
                 break;
             default:
                 break;
@@ -1723,6 +1740,21 @@ public abstract class EditingHostPage : SinglePhotoPage {
 
         copied_scaling = get_canvas_scaling ();
         clipboard.set_with_owner (COPY_TARGETS, get_image_data_for_clipboard, clear_data_for_clipboard, this);
+    }
+
+    public void on_copy_metadata () {
+        clipboard.clear ();
+
+        copied_photo = get_photo ();
+        if (copied_photo == null) {
+            return;
+        }
+
+        copied_scaling = get_canvas_scaling ();
+        // Only offer plain text for metadata
+        clipboard.set_with_owner ({{"UTF8_STRING", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT}},
+                                  get_metadata_for_clipboard, clear_data_for_clipboard, this
+        );
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
