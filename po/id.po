@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-10 17:15+0000\n"
-"PO-Revision-Date: 2020-03-28 17:09+0000\n"
-"Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
+"PO-Revision-Date: 2022-01-08 13:26+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/photos/photos/"
 "id/>\n"
 "Language: id\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -1099,10 +1099,9 @@ msgid_plural "_Modify original files"
 msgstr[0] "_Modifikasi berkas asli"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Asli: "
+msgstr "Asli: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1969,16 +1968,12 @@ msgid "_Import From Folder…"
 msgstr "_Impor Dari Folder…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "Bilah S_isi"
+msgstr "Ubah Bilah Sisi"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Sunting In_fo Foto"
+msgstr "Ubah Info Foto"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2800,7 +2795,7 @@ msgstr "Ber_dasarkan Tanggal Pengambilan"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Dengan _Waktu Modifikasi Berkas"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2819,10 +2814,8 @@ msgid "Sort photos by exposure date"
 msgstr "Urutkan foto berdasarkan tanggal pengambilan"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Urutkan foto berdasarkan tanggal pengambilan"
+msgstr "Urutkan foto berdasarkan tanggal impor"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2929,26 +2922,20 @@ msgid "Transition Effect"
 msgstr "Efek Transisi"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "Zum _Keluar"
+msgstr "Perkecil"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Atur"
+msgstr "Sesuaikan Pembesaran"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + Gulir"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
 msgstr "Perbesar"
 
@@ -3208,16 +3195,12 @@ msgstr ""
 "yang terkait dengan akun Piwigo Anda untuk album itu."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell tidak bisa menghubungi album foto Piwigo Anda. Silakan verifikasi "
-"URL yang Anda masukkan"
+"Foto tidak bisa menghubungi pustaka foto Piwigo Anda. Silakan verifikasi URL "
+"yang Anda masukkan"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3235,10 +3218,8 @@ msgstr "Nama Pengguna atau Kata Sandi Tidak Sesuai"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "Sambungan Shotwell"
+msgstr "Foto Menghubungkan"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3328,38 +3309,26 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Flickr.\n"
-#| "\n"
-#| "Click Login to log into Flickr in your Web browser. You will have to "
-#| "authorize Shotwell Connect to link to your Flickr account."
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Photos Connect to link to your Flickr account."
 msgstr ""
-"Anda saat ini tidak masuk ke Flickr.\n"
+"Anda saat ini tidak terlog masuk ke Flickr.\n"
 "\n"
-"Klik Masuk untuk masuk ke Flickr pada peramban Anda. Anda harus "
-"mengotorisasi Shotwell Connect untuk menautkan ke akun Flickr Anda."
+"Klik Log Masuk untuk log kedalam ke Flickr pada peramban Web Anda. Anda "
+"harus mengotorisasi Foto Menghubungkan untuk menautkan ke akun Flickr Anda."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari Flickr selama sesi Shotwell ini.\n"
-"Untuk terus mempublikasikan ke Flickr, berhenti dan nyalakan ulang Shotwell, "
-"lalu coba terbitkan lagi."
+"Anda telah terlog masuk dan keluar dari Flickr selama sesi Foto ini.\n"
+"Untuk terus mempublikasikan ke Flickr, berhenti dan nyalakan ulang Foto, "
+"lalu coba publikasikan kembali."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3432,14 +3401,6 @@ msgid "Just me"
 msgstr "Hanya saya"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3451,25 +3412,19 @@ msgstr ""
 "Anda belum masuk ke Facebook.\n"
 "\n"
 "Jika Anda belum memiliki akun Facebook, Anda bisa membuatnya selama proses "
-"masuk.Selama masuk, Sambungan Shotwell akan meminta izin untuk mengunggah "
-"foto dan mempublikasikan ke umpan Anda. Izin ini diperlukan agar Sambungan "
-"Shotwell berfungsi."
+"masuk. Selama masuk, Foto Menghubungkan akan meminta izin untuk mengunggah "
+"foto dan mempublikasikan ke umpan Anda. Izin ini diperlukan agar Foto "
+"Menghubungkan berfungsi."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari Facebook selama sesi Shotwell ini.\n"
-"Untuk melanjutan publikasi ke Facebook, keluar dan nyalakan ulang Shotwell, "
-"kemudian coba publikasi lagi."
+"Anda telah masuk dan keluar dari Facebook selama sesi Foto ini.\n"
+"Untuk melanjutan publikasi ke Facebook, keluar dan nyalakan ulang Foto, "
+"kemudian coba publikasi kembali."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3738,19 +3693,10 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "Layanan Penerbit Ekstra Shotwell"
+msgstr "Layanan Penerbit Ekstra Foto"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3758,10 +3704,10 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari layanan Google selama sesi Shotwell ini.\n"
+"Anda telah masuk dan keluar dari layanan Google selama sesi Foto ini.\n"
 "\n"
 "Untuk melanjutkan publikasi ke layanan Google, keluar dan nyalakan ulang "
-"Shotwell, kemudian coba publikasi lagi."
+"Foto, kemudian coba publikasikan kembali."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
