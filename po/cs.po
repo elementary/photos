@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-10 17:15+0000\n"
-"PO-Revision-Date: 2022-01-09 22:32+0000\n"
+"PO-Revision-Date: 2022-01-10 18:25+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/photos/photos/cs/>"
 "\n"
@@ -2112,16 +2112,12 @@ msgid "_Import From Folder…"
 msgstr "_Importovat ze složky…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "P_ostranní panel"
+msgstr "Zobraz./nezobraz. postranní panel"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Upravit in_formace fotky"
+msgstr "Zobraz/nezobraz. informace o fotce"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2963,7 +2959,7 @@ msgstr "Podle data _vyfocení"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "_Podle okamžiku změny souboru"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2982,10 +2978,8 @@ msgid "Sort photos by exposure date"
 msgstr "Seřadí fotografie podle data vyfocení"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Seřadí fotografie podle data vyfocení"
+msgstr "Seřadit fotografie podle data importu"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -3094,28 +3088,22 @@ msgid "Transition Effect"
 msgstr "Efekt přechodu"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "Z_menšit"
+msgstr "Oddálit"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Nastavení"
+msgstr "Upravit přiblížení"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + otáčením kolečkem"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "Z_většit"
+msgstr "Přiblížit"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3377,16 +3365,12 @@ msgstr ""
 "a heslo spojené s vaším Piwigo účtem pro danou knihovnu."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell se nemůže připojit do vaší fotogalerie Piwigo. Ověřte prosím adresu "
-"URL, kterou jste zadali"
+"Aplikaci Fotky se nedaří připojit do vaší fotogalerie Piwigo. Ověřte prosím "
+"adresu URL, kterou jste zadali"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3404,10 +3388,8 @@ msgstr "Neplatné uživatelské jméno nebo heslo"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "Shotwell Connect"
+msgstr "Fotky Connect"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3496,12 +3478,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixelů)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Flickr.\n"
-#| "\n"
-#| "Click Login to log into Flickr in your Web browser. You will have to "
-#| "authorize Shotwell Connect to link to your Flickr account."
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3511,22 +3487,16 @@ msgstr ""
 "Nejste přihlášeni ke službě Flickr.\n"
 "\n"
 "Pro přihlášení se na Flickr klikněte na Přihlásit se. Pak musíte povolit "
-"Shotwell Connect ve vašem Flickr účtu."
+"Fotky Connect ve vašem Flickr účtu."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Již jste se přihlásili a odhlásili během spuštění programu Shotwell.\n"
-"Před publikováním na Flickr ukončete a znovu spusťte program Shotwell a pak "
+"Už jste se přihlásili a odhlásili během spuštění aplikace Fotky.\n"
+"Před publikováním na Flickr ukončete a znovu spusťte program Fotky a pak "
 "znovu zvolte Publikovat."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
@@ -3599,14 +3569,6 @@ msgid "Just me"
 msgstr "jen mně"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3622,18 +3584,12 @@ msgstr ""
 "nahrávání fotek. Povolení je pro připojení k Facebooku vyžadováno."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Již jste se přihlásili a odhlásili během spuštění programu Shotwell\n"
+"Již jste se přihlásili a odhlásili během spuštění aplikace Fotky\n"
 "Před publikováním na Facebook ukončete a znovu spusťte program Shotwell a "
 "pak znovu zvolte Publikovat."
 
@@ -3901,19 +3857,10 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "Doplňkové zveřejňovací služby Shotwell"
+msgstr "Doplňkové zveřejňovací služby Fotek"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3921,11 +3868,11 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"V průběhu práce s aplikací Shotwell jste již byli přihlášeni a odhlášeni od "
+"V průběhu práce s aplikací Fotky jste již byli přihlášeni a odhlášeni od "
 "služby Google.\n"
 "\n"
 "Pro pokračování ve zveřejňování na službě Google ukončete a opět spusťte "
-"Shotwell a pak zkuste zveřejnění znovu."
+"Fotky a pak zkuste zveřejnění znovu."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
