@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:46+0000\n"
-"PO-Revision-Date: 2021-03-20 17:40+0000\n"
+"PO-Revision-Date: 2022-05-18 10:37+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/photos/photos/mr/"
 ">\n"
@@ -2007,16 +2007,12 @@ msgid "_Import From Folder…"
 msgstr "(_I)फोल्डरमधून आयात करा …"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "बाजूचीपट्टी (_i)"
+msgstr "बाजूचीपट्टी टॉगल करा"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "(_f)फोटो माहिती संपादित करा"
+msgstr "फोटो माहिती टॉगल करा"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2844,7 +2840,7 @@ msgstr "एक्सपोजर दिनांक प्रमाणे (_D)"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "फाइल मॉडिफिकेशन वेळेनुसार"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2863,10 +2859,8 @@ msgid "Sort photos by exposure date"
 msgstr "एक्सपोजर दिनांक प्रमाणे छायाचित्र क्रमवारित लावा"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "एक्सपोजर दिनांक प्रमाणे छायाचित्र क्रमवारित लावा"
+msgstr "आयात टाइमस्टॅम्पनुसार फोटो क्रमवारी लावा"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2974,28 +2968,22 @@ msgid "Transition Effect"
 msgstr "संक्रमण प्रभाव"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "लहान करा (_O)"
+msgstr "झूम कमी करा"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "सुस्थीत करा"
+msgstr "झूम समायोजित करा"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + स्क्रोल"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "मोठे करा (_I)"
+msgstr "मोठे करा"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3244,16 +3232,12 @@ msgstr ""
 "खात्याचे पासवर्ड द्या."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"शॉटवेल Piwigo छायाचित्र लाइब्ररिसह संपर्क करण्यास अशक्य. कृपया दिलेल्या URLची तपासणी "
-"करा"
+"फोटो तुमच्या Piwigo फोटो लायब्ररीशी संपर्क साधू शकत नाहीत. कृपया दिलेल्या "
+"URLची तपासणी करा"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3271,10 +3255,8 @@ msgstr "अवैध वापरकर्ता नाव किंवा प�
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "शॉटवेल कनेक्ट"
+msgstr "फोटो कनेक्ट"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3361,12 +3343,6 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 पिक्सेल्स्)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Flickr.\n"
-#| "\n"
-#| "Click Login to log into Flickr in your Web browser. You will have to "
-#| "authorize Shotwell Connect to link to your Flickr account."
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
@@ -3375,24 +3351,18 @@ msgid ""
 msgstr ""
 "तुम्ही सध्या फ्लिकरमध्ये प्रवेश केला नाही.\n"
 "\n"
-"वेब ब्राउजरमध्ये फ्लिकरमध्ये प्रवेश करण्यासाठी लॉगिनवर क्लिक करा. फ्लिकर खात्याशी जोडणी "
-"करण्यासाठी तुम्हाला शॉटवेल कनेक्टशी ओळख पटवावी लागेल."
+"वेब ब्राउजरमध्ये फ्लिकरमध्ये प्रवेश करण्यासाठी लॉगिनवर क्लिक करा. फ्लिकर "
+"खात्याशी जोडणी करण्यासाठी तुम्हाला फोटो कनेक्टशी ओळख पटवावी लागेल."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"ह्या शॉटवेल सत्रवेळी तुम्ही अनेकवेळा फ्लिकरमध्ये प्रवेश केला व बाहेर पडले.\n"
-"फ्लिकरवर प्रकाशन सुरू ठेवायचे असल्यास, शॉटवेलमधून बाहेर पडा व पुनः सुरू करा, व त्यानंतर "
-"पुनःप्रकाशनकरीता प्रयत्न करा."
+"ह्या फोटो सत्रवेळी तुम्ही अनेकवेळा फ्लिकरमध्ये प्रवेश केला व बाहेर पडले.\n"
+"फ्लिकरवर प्रकाशन सुरू ठेवायचे असल्यास, फोटोमधून बाहेर पडा व पुनः सुरू करा, व "
+"त्यानंतर पुनःप्रकाशनकरीता प्रयत्न करा."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
