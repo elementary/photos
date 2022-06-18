@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:46+0000\n"
-"PO-Revision-Date: 2021-09-07 19:18+0000\n"
+"PO-Revision-Date: 2022-06-18 22:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/photos/"
 "photos/nb/>\n"
@@ -349,9 +349,9 @@ msgid "Export"
 msgstr "Eksporter"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "filen %s finnes fra før. Overskriv?"
+msgstr "Filen %s finnes fra før. Overskriv?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -2050,16 +2050,12 @@ msgid "_Import From Folder…"
 msgstr "_Importer fra mappe…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "S_idestolpe"
+msgstr "Veksle s_idestolpe"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Rediger foto in_fo"
+msgstr "Veksle bilde-in_fo"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -3297,15 +3293,11 @@ msgstr ""
 "brukernavn og passord for dette biblioteket."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell kan ikke kontakte ditt Piwigo fotobibliotek. Vennligst verifiser "
+"Bilder kan ikke kontakte ditt Piwigo fotobibliotek. Vennligst verifiser "
 "adressen (URL)"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
@@ -3324,10 +3316,8 @@ msgstr "Ugyldig brukernavn eller passord"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "Shotwell - tilkopling"
+msgstr "Bilder-tilkopling"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3429,20 +3419,14 @@ msgstr ""
 "tillatelse til at Shotwell Connect peker til din Flickr-konto."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Du har alerede logget inn og ut av Flickr under denne Shotwell økten.\n"
-"For å fortsette publiseringen til Flickr: Avslutt og start Shotwell. "
-"Deretter kan du forsøke å publisere igjen."
+"Du har allerede logget inn og ut av Flickr i løpet av denne Bilder-økten.\n"
+"For å fortsette å publisere til Facebook må du avslutte og omstarte Bilder, "
+"og så forsøke å publisere igjen."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3514,14 +3498,6 @@ msgid "Just me"
 msgstr "Bare meg selv"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3530,28 +3506,22 @@ msgid ""
 "upload photos and publish to your feed. These permissions are required for "
 "Photos Connect to function."
 msgstr ""
-"Det er nå ikke innlogget på Facebook.\n"
+"Det er ikke innlogget på Facebook.\n"
 "\n"
 "Hvis du ikke har en Facebook-konto, kan du opprette en under "
-"innloggingsprosessen. Under innloggingen, kan Shotwell komme til å spørre "
-"deg om tillatelse til å laste opp bilder og publisere dem i din Facebook-"
-"strøm. Disse tillatelsene er påkrevd for at Shotwell Connector skal fungere."
+"innloggingsprosessen. Under innloggingen, kan Bilder komme til å spørre deg "
+"om tillatelse til å laste opp bilder og publisere dem i din Facebook-strøm. "
+"Disse tillatelsene er påkrevd for at Bilder Connect skal fungere."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Du har allerede logget inn og ut av Facebook under denne Shotwell- økten.\n"
-"For å fortsette å publisere ttil Facebook: Avslutt og restart Shotwell, "
-"deretter forsøk å publiser igjen."
+"Du har allerede logget inn og ut av Facebook i løpet av denne Bilder-økten.\n"
+"For å fortsette å publisere til Facebook må du avslutte og omstarte Bilder, "
+"og så forsøke å publisere igjen."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3822,16 +3792,9 @@ msgstr ""
 #, fuzzy
 #| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "Shotwell Extra publiseringstjenester"
+msgstr "Ekstra publiseringstjenester for Bilder"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3839,11 +3802,11 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Du har allerede logget inn og ut av en Google-tjeneste i denne Shotwell-"
-"økten.\n"
+"Du har allerede logget inn og ut av en Google-tjeneste i løpet av denne "
+"Bilder-økten.\n"
 "\n"
 "For å fortsette å publisere til Google-tjenester må du avslutte og omstarte "
-"Shotwell, og så prøve å publisere igjen."
+"Bilder, og så prøve å publisere igjen."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
