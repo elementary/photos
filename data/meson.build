@@ -11,6 +11,17 @@ foreach i : icon_sizes
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
         rename: meson.project_name() + '.svg'
     )
+
+    install_data(
+        join_paths('icons', i + '-viewer.svg'),
+        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps'),
+        rename: meson.project_name() + '-viewer.svg'
+    )
+    install_data(
+        join_paths('icons', i + '-viewer.svg'),
+        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
+        rename: meson.project_name() + '-viewer.svg'
+    )
 endforeach
 
 install_data(
