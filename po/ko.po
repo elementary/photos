@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:10+0000\n"
-"PO-Revision-Date: 2022-08-05 21:38+0000\n"
+"PO-Revision-Date: 2022-08-05 23:08+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
 "\n"
@@ -1178,7 +1178,6 @@ msgstr "비디오 내보내기"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "사진 내보내기"
@@ -1548,7 +1547,6 @@ msgid "Name:"
 msgstr "이름:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
@@ -1561,7 +1559,6 @@ msgid_plural ""
 msgstr[0] "외부 파일에 적용한 바뀐 내용 %d 개를 모두 취소합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
@@ -1626,7 +1623,6 @@ msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:720
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "사진을 라이브러리에서 제거하는 중"
@@ -2786,7 +2782,7 @@ msgstr "촬영 날짜 순(_D)"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "파일 수정 시간 기준(_F)"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2805,10 +2801,8 @@ msgid "Sort photos by exposure date"
 msgstr "사진을 촬영 날짜 순으로 정렬합니다"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "사진을 촬영 날짜 순으로 정렬합니다"
+msgstr "사진을 촬영 날짜 순으로 정렬하기"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2915,28 +2909,22 @@ msgid "Transition Effect"
 msgstr "전환 효과"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "축소(_O)"
+msgstr "축소"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "조정"
+msgstr "줌 조정"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + 스크롤"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "확대(_I)"
+msgstr "확대"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3188,16 +3176,10 @@ msgstr ""
 "름 및 암호를 입력하십시오."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
-msgstr ""
-"샷웰이 Piwigo 사진 라이브러리에 접근할 수 없습니다. 입력하신 URL 주소를 확인"
-"해주세요"
+msgstr "사진이 Piwigo 사진 라이브러리에 접근할 수 없습니다. 입력하신 URL 주소를 확인해 주세요"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3215,10 +3197,8 @@ msgstr "사용자 이름 또는 암호가 올바르지 않습니다"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "샷웰 접속"
+msgstr "사진 연결"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3307,32 +3287,24 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "구글+(2048 x 1536 픽셀)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Photos Connect to link to your Flickr account."
 msgstr ""
-"플리커 서비스에 로그인하지 않았습니다.\n"
+"플리커에 로그인하지 않았습니다.\n"
 "\n"
-"웹 브라우저로 Flickr 사이트를 여신 후 로그인을 클릭해주십시오. 샷웰이 플리커 "
-"계정 링크에 접근하는 것을 허용해야 합니다."
+"웹 브라우저로 Flickr 사이트를 여신 후 로그인을 클릭해 주세요. 사진이 플리커 계정 링크에 접근하는 것을 허용해야 합니다."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션 사용 중 이미 Flickr에 로그인 후 로그아웃 하셨습니다.\n"
-"계속 플리커로 업로드하시려면, 샷웰을 끝낸 후 다시 시작하여 업로드하십시오."
+"이 사진을 사용하며 이미 Flickr에 로그인 후 로그아웃하셨습니다.\n"
+"계속 플리커에 업로드하시려면, 사진을 끝낸 후 다시 시작하여 업로드하세요."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3403,14 +3375,6 @@ msgid "Just me"
 msgstr "나만"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3421,24 +3385,17 @@ msgid ""
 msgstr ""
 "현재 페이스북에 로그인하지 않았습니다.\n"
 "\n"
-"페이스북 계정이 아직 없는 경우 로그인 과정 중 만드실 수 있습니다. 로그인 중 "
-"샷웰 연결이 사진을 업로드하거나 피드에 업로드할 권한을 요구할 수 있습니다. "
-"이 권한은 샷웰 연결이 동작하는데 필요합니다."
+"페이스북 계정이 아직 없는 경우 로그인 과정 중 만드실 수 있습니다. 로그인 중 사진 연결이 사진을 업로드하거나 피드에 업로드할 권한을 "
+"요구할 수 있습니다. 이 권한은 사진 연결이 동작하는데 필요합니다."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션에서는 이미 페이스북에 로그인과 로그아웃을 하셨습니다.\n"
-"계속 페이스북에 업로드하시려면, 샷웰을 다시 시작한 후 업로드하십시오."
+"이 사진앱을 사용하시는 동안 이미 페이스북에 로그인과 로그아웃을 하셨습니다.\n"
+"계속 페이스북에 업로드하시려면, 사진을 다시 시작한 후 업로드하세요."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3704,10 +3661,8 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "샷웰 추가 업로드 서비스"
+msgstr "사진 추가 업로드 서비스"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
 msgid ""
