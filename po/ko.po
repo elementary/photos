@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:10+0000\n"
-"PO-Revision-Date: 2022-08-05 19:31+0000\n"
+"PO-Revision-Date: 2022-08-05 21:38+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
 "\n"
@@ -1554,12 +1554,11 @@ msgid_plural "Revert External Edits?"
 msgstr[0] "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] ""
-"외부 파일에 적용한 바뀐 내용 %d개를 모두 취소합니다. 계속하시겠습니까?"
+msgstr[0] "외부 파일에 적용한 바뀐 내용 %d 개를 모두 취소합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:807
 #, fuzzy
@@ -1576,10 +1575,10 @@ msgid "Remove Photos From Library"
 msgstr "사진 라이브러리에서 제거"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "라이브러리에서 사진 %d매를 제거합니다. 계속하시겠습니까?"
+msgstr[0] "라이브러리에서 사진 %d 장을 제거합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1692,9 +1691,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "불러온 파일 이름 소문자로 바꾸기:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "파일에 메타데이터 쓰기:"
+msgstr "파일에 메타데이터 쓰기(_M):"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1962,16 +1960,12 @@ msgid "_Import From Folder…"
 msgstr "폴더에서 불러오기(_I)…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "사이드바(_I)"
+msgstr "사이드바 토글"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "사진 정보 편집(_F)"
+msgstr "사진 정보 토글"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2441,7 +2435,6 @@ msgid "Other Actions"
 msgstr "다른 작업"
 
 #: src/Views/CollectionPage.vala:583
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "사진/비디오 내보내기"
@@ -2586,12 +2579,9 @@ msgid "Flagged"
 msgstr "표시함"
 
 #: src/Views/ImportPage.vala:478
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
-msgstr ""
-"카메라를 마운트 해제할 수 없습니다. 카메라를 파일 관리자에서 마운트 해제해 보"
-"십시오."
+msgstr "카메라의 마운트를 해제할 수 없습니다. 카메라를 파일 관리자에서 마운트 해제해 보세요."
 
 #: src/Views/ImportPage.vala:792
 msgid "Hide photos already imported"
