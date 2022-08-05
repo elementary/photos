@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:10+0000\n"
-"PO-Revision-Date: 2022-08-05 13:43+0000\n"
+"PO-Revision-Date: 2022-08-05 18:22+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
 "\n"
@@ -35,7 +35,7 @@ msgstr "캐시 디렉터리 %s을(를) 만들 수 없습니다: %s"
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "데이터 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "데이터 디렉터리를 만들 수 없습니다 %s: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
@@ -45,23 +45,22 @@ msgstr "사진"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "임시 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "임시 디렉터리를 만들 수 없습니다 %s: %s"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "데이터 하위 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "데이터 하위 디렉터리를 만들 수 없습니다 %s: %s"
 
 #: src/AppWindow.vala:162
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"사진 라이브러리에 접근하는 동안 오류가 생겼습니다.  사진을 계속 실행할 수 없"
-"습니다.\n"
+"사진 라이브러리에 접근하는 동안 오류가 생겼습니다. 사진을 계속 실행할 수 없습니다.\n"
 "\n"
 "%s"
 
@@ -152,11 +151,11 @@ msgstr "화질 강화 취소"
 
 #: src/Commands.vala:835
 msgid "UnEnhancing"
-msgstr "강화 해제"
+msgstr "화질 강화 해제"
 
 #: src/Commands.vala:835
 msgid "Undoing UnEnhance"
-msgstr "화질 강화 취소 취소"
+msgstr "화질 강화 해제의 실행 취소"
 
 #: src/Commands.vala:903
 msgid "Applying Color Transformations"
@@ -210,7 +209,7 @@ msgstr "RAW 디벨로퍼 설정"
 
 #: src/Commands.vala:1200
 msgid "Restoring previous RAW developer"
-msgstr "RAW 디벨로퍼  이전 값으로 복원"
+msgstr "RAW 디벨로퍼 이전 값으로 복원"
 
 #: src/Commands.vala:1201
 msgid "Set Developer"
@@ -322,7 +321,7 @@ msgstr "높이"
 #: src/DirectoryMonitor.vala:901
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
-msgstr "%1$s을(를) 감시할 수 없습니다: 디렉터리 아님(%2$s)"
+msgstr "%s 감시할 수 없음: 디렉터리 아님(%s)"
 
 #. if no name, pretty up the start time
 #: src/Event.vala:732
@@ -509,23 +508,23 @@ msgstr "노트 카드(3 x 5 인치)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:242
 msgid "4 x 6 in."
-msgstr "4 x 6 인치"
+msgstr "4 x 6 in."
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:243
 msgid "5 x 7 in."
-msgstr "5 x 7 인치"
+msgstr "5 x 7 in."
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:244
 msgid "8 x 10 in."
-msgstr "8 x 10 인치"
+msgstr "8 x 10 in."
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:246
 msgid "11 x 14 in."
-msgstr "11 x 14 인치"
+msgstr "11 x 14 in."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:248
 msgid "16 x 20 in."
-msgstr "16 x 20 인치"
+msgstr "16 x 20 in."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:250
 msgid "Metric Wallet (9 x 13 cm)"
@@ -926,7 +925,7 @@ msgstr "태그가 이미 존재하기 때문에 태그 이름을 \"%s\"(으)로 
 #: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
-msgstr "검색이 이미 존재하기 때문에 검색  \"%s\"의 이름을 바꿀 수 없습니다."
+msgstr "같은 검색 항목이 있기 때문에 \"%s\"로 바꿔 검색할 수 없습니다."
 
 #: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -947,12 +946,12 @@ msgstr "이름 바꾸기(_N)…"
 #: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
-msgstr "검색  \"%s\"의 이름을  \"%s\"(으)로 바꾸기"
+msgstr "검색 \"%s\"의 이름을 \"%s\"로 바꾸기"
 
 #: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
-msgstr "검색  \"%s\" 삭제"
+msgstr "검색 \"%s\" 삭제"
 
 #: src/Resources.vala:284
 msgid "_Delete Selection"
@@ -1097,10 +1096,9 @@ msgid_plural "_Modify original files"
 msgstr[0] "원본 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "원본: "
+msgstr "원본: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1667,9 +1665,8 @@ msgid "_Scaling constraint:"
 msgstr "크기 조정 제한(_S):"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "정보 패널 감추기(_H)"
+msgstr "픽셀 단위 크기(_S):"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -2161,7 +2158,7 @@ msgstr "업로드 준비 중"
 #: src/publishing/PublishingPluginHost.vala:25
 #, c-format
 msgid "Uploading %d of %d"
-msgstr "전체 %2$d개 가운데 %1$d개 업로드 중"
+msgstr "전체 %d개 가운데 %d개 업로드 중"
 
 #: src/publishing/PublishingPluginHost.vala:94
 #, c-format
@@ -3183,12 +3180,7 @@ msgstr "제작자 웹 사이트 방문"
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
 #: plugins/pantheon-photos-transitions/Resources.vala:41
 msgid "translator-credits"
-msgstr ""
-"Kim, Boram <boramism@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Jung-Kyu Park https://launchpad.net/~bagjunggyu\n"
-"  Kim Boram https://launchpad.net/~boramism"
+msgstr "translator-credits"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
@@ -3730,13 +3722,6 @@ msgid "Photos Extra Publishing Services"
 msgstr "샷웰 추가 업로드 서비스"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3744,9 +3729,9 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션 사용 중 이미 구글 서비스에 로그인 후 로그아웃 하셨습니다.\n"
-"계속 구글 서비스로 업로드하시려면, 샷웰을 끝낸 후 다시 시작한 후업로드하십시"
-"오."
+"Photos를 사용하시는 동안 이미 Google 서비스에 로그인 및 로그아웃했습니다.\n"
+"\n"
+"Google 서비스를 계속 이용하시려면 Photos를 껐다가 다시 시작해서 이용해 보세요."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
