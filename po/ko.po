@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:10+0000\n"
-"PO-Revision-Date: 2022-08-05 18:22+0000\n"
+"PO-Revision-Date: 2022-08-05 19:31+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
 "\n"
@@ -343,9 +343,9 @@ msgid "Export"
 msgstr "내보내기"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "파일 %s(이)가 이미 존재합니다. 바꾸시겠습니까?"
+msgstr "%s 파일이 이미 있습니다. 바꾸시겠습니까?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -900,7 +900,7 @@ msgid "Modify Tags"
 msgstr "태그 수정"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "사진에 \"%s\" 태그를 붙입니다"
@@ -909,10 +909,10 @@ msgstr[0] "사진에 \"%s\" 태그를 붙입니다"
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "사진에서 \"%s\" 태그를 제거합니다"
+msgstr[0] "사진에서 \"%s\" 태그를 제거합니다(_P)"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "사진에서 \"%s\" 태그를 제거합니다"
@@ -1084,13 +1084,11 @@ msgid "Set _all photos/videos to this time"
 msgstr "모든 사진/비디오를 이 시간으로 설정(_A)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:113
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "원본 사진 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:116
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "원본 파일 수정(_M)"
@@ -1147,13 +1145,13 @@ msgid_plural "seconds"
 msgstr[0] "초"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "태그 \"%s\"(을)를 %d장의 사진에서 제거합니다. 계속하시겠습니까?"
+msgstr[0] "\"%s\" 태그를 %d 장의 사진에서 제거합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "이 스마트 앨범을 제거합니다 \"%s\". 계속할까요?"
 
