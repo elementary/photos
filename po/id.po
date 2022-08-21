@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 17:15+0000\n"
-"PO-Revision-Date: 2020-03-28 17:09+0000\n"
-"Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
+"POT-Creation-Date: 2022-07-02 19:10+0000\n"
+"PO-Revision-Date: 2022-01-12 01:32+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/photos/photos/"
 "id/>\n"
 "Language: id\n"
@@ -27,13 +27,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Gagal membuat direktori cache %s: %s"
+msgstr "Gagal membuat direktori tembolok %s: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
@@ -82,15 +82,15 @@ msgstr "Berhasil"
 
 #: src/BatchImport.vala:42
 msgid "File error"
-msgstr "Kesalahan berkas"
+msgstr "Galat berkas"
 
 #: src/BatchImport.vala:45
 msgid "Unable to decode file"
-msgstr "Berkas tidak dapat dibaca"
+msgstr "Gagal mendekode berkas"
 
 #: src/BatchImport.vala:48
 msgid "Database error"
-msgstr "Kesalahan basis data"
+msgstr "Galat basis data"
 
 #: src/BatchImport.vala:51
 msgid "User aborted import"
@@ -98,7 +98,7 @@ msgstr "Pengguna membatalkan impor"
 
 #: src/BatchImport.vala:54
 msgid "Not a file"
-msgstr "Bukan sebah berkas"
+msgstr "Bukan sebuah berkas"
 
 #: src/BatchImport.vala:57
 msgid "File already exists in database"
@@ -110,15 +110,15 @@ msgstr "Format berkas tidak didukung"
 
 #: src/BatchImport.vala:63
 msgid "Not an image file"
-msgstr "Bukan berkas foto"
+msgstr "Bukan berkas gambar"
 
 #: src/BatchImport.vala:66
 msgid "Disk failure"
-msgstr "Kegagalan disk"
+msgstr "Kegagalan diska"
 
 #: src/BatchImport.vala:69
 msgid "Disk full"
-msgstr "Disk penuh"
+msgstr "Diska penuh"
 
 #: src/BatchImport.vala:72
 msgid "Camera error"
@@ -137,169 +137,169 @@ msgstr "Berkas citra rusak"
 msgid "Imported failed (%d)"
 msgstr "Impor yang gagal (%d)"
 
-#: src/Commands.vala:746
+#: src/Commands.vala:751
 msgid "Reverting"
 msgstr "Membalikkan"
 
-#: src/Commands.vala:746
+#: src/Commands.vala:751
 msgid "Undoing Revert"
 msgstr "Batalkan Pembalikan"
 
-#: src/Commands.vala:790
+#: src/Commands.vala:797
 msgid "Enhancing"
 msgstr "Menajamkan Gambar"
 
-#: src/Commands.vala:790
+#: src/Commands.vala:797
 msgid "Undoing Enhance"
 msgstr "Batalkan Penajaman Gambar"
 
-#: src/Commands.vala:826
+#: src/Commands.vala:835
 msgid "UnEnhancing"
 msgstr "Lepaskan Penajaman Gambar"
 
-#: src/Commands.vala:826
+#: src/Commands.vala:835
 msgid "Undoing UnEnhance"
 msgstr "Batalkan Lepas Penajaman Gambar"
 
-#: src/Commands.vala:894
+#: src/Commands.vala:903
 msgid "Applying Color Transformations"
 msgstr "Menerapkan Transformasi Warna"
 
-#: src/Commands.vala:894
+#: src/Commands.vala:903
 msgid "Undoing Color Transformations"
 msgstr "Membatalkan Transformasi Warna"
 
-#: src/Commands.vala:1044
+#: src/Commands.vala:1053
 msgid "Creating New Event"
 msgstr "Buat Acara Baru"
 
-#: src/Commands.vala:1045
+#: src/Commands.vala:1054
 msgid "Removing Event"
 msgstr "Hapus Acara"
 
-#: src/Commands.vala:1054
+#: src/Commands.vala:1063
 msgid "Moving Photos to New Event"
 msgstr "Memindahkan Semua Foto Ini ke Acara Baru"
 
-#: src/Commands.vala:1055
+#: src/Commands.vala:1064
 msgid "Setting Photos to Previous Event"
 msgstr "Mengatur Foto ke Acara Sebelumnya"
 
-#: src/Commands.vala:1112
+#: src/Commands.vala:1121
 msgid "Merging"
 msgstr "Menggabungkan"
 
-#: src/Commands.vala:1113
+#: src/Commands.vala:1122
 msgid "Unmerging"
 msgstr "Membatalkan Penggabungan"
 
-#: src/Commands.vala:1122
+#: src/Commands.vala:1131
 msgid "Duplicating photos"
 msgstr "Gandakan foto"
 
-#: src/Commands.vala:1122
+#: src/Commands.vala:1131
 msgid "Removing duplicated photos"
 msgstr "Hapus foto ganda"
 
-#: src/Commands.vala:1145
+#: src/Commands.vala:1154
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
 msgstr[0] "Tidak dapat menduplikat %d foto karena kesalahan berkas"
 
-#: src/Commands.vala:1191
+#: src/Commands.vala:1200
 msgid "Setting RAW developer"
 msgstr "Atur RAW pengembang"
 
-#: src/Commands.vala:1191
+#: src/Commands.vala:1200
 msgid "Restoring previous RAW developer"
 msgstr "Mengembalikan pengembang RAW sebelumnya"
 
-#: src/Commands.vala:1192
+#: src/Commands.vala:1201
 msgid "Set Developer"
 msgstr "Atur Pengembang"
 
-#: src/Commands.vala:1282
+#: src/Commands.vala:1291
 msgid "Original photo could not be adjusted."
 msgstr "Foto asli tidak dapat diatur."
 
-#: src/Commands.vala:1303
+#: src/Commands.vala:1312
 msgid "Adjusting Date and Time"
 msgstr "Mengatur Tanggal dan Jam"
 
-#: src/Commands.vala:1303
+#: src/Commands.vala:1312
 msgid "Undoing Date and Time Adjustment"
 msgstr "Batalkan Pengaturan Tanggal dan Jam"
 
-#: src/Commands.vala:1333
+#: src/Commands.vala:1342
 msgid "One original photo could not be adjusted."
 msgid_plural "The following original photos could not be adjusted."
 msgstr[0] "Foto asli tidak dapat diatur."
 
-#: src/Commands.vala:1335 src/Commands.vala:1359
+#: src/Commands.vala:1344 src/Commands.vala:1368
 msgid "Time Adjustment Error"
 msgstr "Tidak Dapat Mengatur Jam"
 
-#: src/Commands.vala:1357
+#: src/Commands.vala:1366
 msgid "Time adjustments could not be undone on the following photo file."
 msgid_plural ""
 "Time adjustments could not be undone on the following photo files."
 msgstr[0] "Penyesuaian waktu tidak dapat dibatalkan pada berkas foto berikut."
 
-#: src/Commands.vala:1571 src/Commands.vala:1594
+#: src/Commands.vala:1580 src/Commands.vala:1603
 msgid "Create Tag"
 msgstr "Buat Tanda"
 
-#: src/Commands.vala:1629
+#: src/Commands.vala:1638
 #, c-format
 msgid "Move Tag \"%s\""
-msgstr "Pindahkan Tag \"%s\""
+msgstr "Pindahkan Tanda \"%s\""
 
-#: src/Commands.vala:2279
+#: src/Commands.vala:2288
 msgid "Move Photos to Trash"
 msgstr "Pindahkan Foto ke Tong Sampah"
 
-#: src/Commands.vala:2279
+#: src/Commands.vala:2288
 msgid "Restore Photos from Trash"
 msgstr "Kembalikan Foto dari Tong Sampah"
 
-#: src/Commands.vala:2280
+#: src/Commands.vala:2289
 msgid "Move the photos to the Photos trash"
 msgstr "Pindahkan foto ke tong sampah Foto"
 
-#: src/Commands.vala:2280
+#: src/Commands.vala:2289
 msgid "Restore the photos back to the Photos library"
 msgstr "Pulihkan foto-foto ke pustaka Foto"
 
-#: src/Commands.vala:2299
+#: src/Commands.vala:2308
 msgid "Moving Photos to Trash"
 msgstr "Memindahkan Foto ke Tong Sampah"
 
-#: src/Commands.vala:2299
+#: src/Commands.vala:2308
 msgid "Restoring Photos From Trash"
 msgstr "Mengembalikan Foto dari Tong Sampah"
 
-#: src/Commands.vala:2385
+#: src/Commands.vala:2394
 msgid "Flag selected photos"
 msgstr "Tandai foto terpilih"
 
-#: src/Commands.vala:2386
+#: src/Commands.vala:2395
 msgid "Unflag selected photos"
 msgstr "Hapus tanda foto terpilih"
 
-#: src/Commands.vala:2387
+#: src/Commands.vala:2396
 msgid "Flagging selected photos"
 msgstr "Tandai foto terpilih"
 
-#: src/Commands.vala:2388
+#: src/Commands.vala:2397
 msgid "Unflagging selected photos"
 msgstr "Hapus tanda foto terpilih"
 
-#: src/Commands.vala:2395
+#: src/Commands.vala:2404
 msgid "Flag"
 msgstr "Tanda"
 
-#: src/Commands.vala:2395
+#: src/Commands.vala:2404
 msgid "Unflag"
 msgstr "Lepas Tanda"
 
@@ -363,8 +363,8 @@ msgstr "Ganti Semu_a"
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
-#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:132
-#: src/editing_tools/CropTool.vala:102
+#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
+#: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
 #: src/Views/DirectPhotoPage.vala:441
@@ -439,11 +439,11 @@ msgstr "DIREKTORI"
 
 #: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
-msgstr "Jangan memonitor direktori album saat runtime untuk perubahan"
+msgstr "Jangan pantau direktori album saat runtime untuk perubahan"
 
 #: src/main.vala:279
 msgid "Don't display startup progress meter"
-msgstr "Jangan tampilkan startup progress meter"
+msgstr "Jangan tampilkan pengukur kemajuan stratup"
 
 #: src/main.vala:280
 msgid "Show the application's version"
@@ -451,7 +451,7 @@ msgstr "Tampilkan versi aplikasi"
 
 #: src/main.vala:281
 msgid "Show extra debugging output"
-msgstr "Tampilkan keluaran ekstra debug"
+msgstr "Tampilkan keluaran awakutu ekstra"
 
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:307
@@ -472,11 +472,11 @@ msgstr "Tidak dapat memproses pembaruan pemantauan: %s"
 
 #: src/Photo.vala:3789
 msgid "modified"
-msgstr "berubah"
+msgstr "dimodifikasi"
 
 #: src/Printing.vala:267
 msgid "Fill the entire page"
-msgstr "Sehalaman penuh"
+msgstr "Isi seluruh halaman"
 
 #: src/Printing.vala:268
 msgid "2 images per page"
@@ -532,11 +532,11 @@ msgstr "16 x 20 inci."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:250
 msgid "Metric Wallet (9 x 13 cm)"
-msgstr "Dompet (9 x 13 cm)"
+msgstr "Dompet Metrik (9 x 13 cm)"
 
 #: src/Printing.vala:374 src/editing_tools/CropTool.vala:251
 msgid "Postcard (10 x 15 cm)"
-msgstr "Kartupos (10 x 15 cm)"
+msgstr "Kartu Pos (10 x 15 cm)"
 
 #: src/Printing.vala:377 src/editing_tools/CropTool.vala:252
 msgid "13 x 18 cm"
@@ -653,7 +653,7 @@ msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
-"Secara otomatis memperbaiki tampilan foto\n"
+"Secara otomatis meningkatkan tampilan foto\n"
 "(Menimpa penyesuaian warna sebelumnya)"
 
 #: src/Resources.vala:105
@@ -714,11 +714,11 @@ msgstr "Atur warna dan tonal foto"
 
 #: src/Resources.vala:126
 msgid "Re_vert to Original"
-msgstr "K_embalikan ke Asal"
+msgstr "K_embalikan ke Asli"
 
 #: src/Resources.vala:127
 msgid "Revert to Original"
-msgstr "Kembalikan ke Asal"
+msgstr "Kembalikan ke Asli"
 
 #: src/Resources.vala:129
 msgid "Re_name Event…"
@@ -770,15 +770,15 @@ msgstr "_Saring Foto"
 
 #: src/Resources.vala:147
 msgid "_Duplicate"
-msgstr "_Duplikat"
+msgstr "_Gandakan"
 
 #: src/Resources.vala:148
 msgid "Duplicate"
-msgstr "Duplikat"
+msgstr "Gandakan"
 
 #: src/Resources.vala:149
 msgid "Make a duplicate of the photo"
-msgstr "Gandakan foto-foto ini"
+msgstr "Gandakan foto ini"
 
 #: src/Resources.vala:151
 msgid "_Export…"
@@ -802,7 +802,7 @@ msgstr "Terbitkan…"
 
 #: src/Resources.vala:160
 msgid "Publish to various websites"
-msgstr "Terbitkan ke berbagai situs"
+msgstr "Terbitkan ke berbagai situs web"
 
 #: src/Resources.vala:162
 msgid "Edit Title"
@@ -830,7 +830,7 @@ msgstr "_Buka Dengan Penyunting RAW…"
 
 #: src/Resources.vala:173
 msgid "Find"
-msgstr "Cari"
+msgstr "Temukan"
 
 #: src/Resources.vala:175
 msgid "_Flag"
@@ -901,7 +901,7 @@ msgstr "Modifikasi Tanda…"
 
 #: src/Resources.vala:217
 msgid "Modify Tags"
-msgstr "Ubah Tanda"
+msgstr "Modifikasi Tanda"
 
 #: src/Resources.vala:220
 #, c-format
@@ -980,7 +980,7 @@ msgstr "Kembalikan foto-foto terpilih ke album"
 
 #: src/Resources.vala:291
 msgid "File Mana_ger"
-msgstr "Peramban Berkas"
+msgstr "Pengelola Ber_kas"
 
 #: src/Resources.vala:294
 #, c-format
@@ -1050,7 +1050,7 @@ msgid "untitled"
 msgstr "tanpa judul"
 
 #. multiple videos
-#: src/VideoSupport.vala:512
+#: src/VideoSupport.vala:515
 msgid "Export Videos"
 msgstr "Ekspor Video"
 
@@ -1064,7 +1064,7 @@ msgid "Camera"
 msgstr "Kamera"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/editing_tools/AdjustTool.vala:130 src/editing_tools/RedEyeTool.vala:65
+#: src/editing_tools/AdjustTool.vala:128 src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
 msgstr "Ter_apkan"
 
@@ -1099,10 +1099,9 @@ msgid_plural "_Modify original files"
 msgstr[0] "_Modifikasi berkas asli"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Asli: "
+msgstr "Asli: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1159,7 +1158,7 @@ msgstr[0] "Hal ini akan menghapus tanda \"%s\" dari %d foto. Lanjutkan?"
 #: src/Dialogs/Dialogs.vala:58
 #, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Hal ini akan menghapus album pintar \"%s\".  Lanjutkan?"
+msgstr "Hal ini akan menghapus album pintar \"%s\". Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1174,7 +1173,7 @@ msgstr[0] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr "Apa Anda yakin akan berganti Pengembang?"
+msgstr "Apa Anda Yakin Ingin Beralih Pengembang?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1215,7 +1214,7 @@ msgid ""
 "permission to write to %s."
 msgstr ""
 "Foto tidak dapat membuat berkas untuk menyunting foto ini karena Anda tidak "
-"memiliki izin untuk  mengubah ke %s."
+"memiliki izin untuk mengubah ke %s."
 
 #: src/Dialogs/Dialogs.vala:166
 msgid ""
@@ -1255,7 +1254,7 @@ msgstr "(dan %d buah lagi)\n"
 
 #: src/Dialogs/Dialogs.vala:252
 msgid "Import Results Report"
-msgstr "Impor Laporan Hasil"
+msgstr "Laporan Hasil Impor"
 
 #: src/Dialogs/Dialogs.vala:256
 #, c-format
@@ -1578,17 +1577,17 @@ msgstr[0] "Kembalikan Penyuntingan Eksternal"
 
 #: src/Dialogs/Dialogs.vala:833
 msgid "Remove Photo From Library"
-msgstr "Hapus Foto Dari Album"
+msgstr "Hapus Foto Dari Pustaka"
 
 #: src/Dialogs/Dialogs.vala:834
 msgid "Remove Photos From Library"
-msgstr "Hapus Foto Dari Album"
+msgstr "Hapus Foto Dari Pustaka"
 
 #: src/Dialogs/Dialogs.vala:839
 #, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "Hal ini akan menghapus %d foto dari album.  Lanjutkan?"
+msgstr[0] "Hal ini akan menghapus %d foto dari album. Lanjutkan?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1621,7 +1620,7 @@ msgstr ""
 
 #: src/Dialogs/Dialogs.vala:898
 msgid "Import to Library"
-msgstr "Impor ke Album"
+msgstr "Impor ke Pustaka"
 
 #: src/Dialogs/Dialogs.vala:905
 msgid "Co_py Photos"
@@ -1633,7 +1632,7 @@ msgstr "_Impor di Lokasi"
 
 #: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:720
 msgid "Remove From Library"
-msgstr "Hapus Dari Album"
+msgstr "Hapus Dari Pustaka"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:720
 msgid "Removing Photo From Library"
@@ -1656,7 +1655,7 @@ msgstr "Tidak dimodifikasi"
 
 #: src/Dialogs/ExportDialog.vala:27
 msgid "Current"
-msgstr "Sekarang"
+msgstr "Saat ini"
 
 #: src/Dialogs/ExportDialog.vala:57
 msgid "_Format:"
@@ -1693,7 +1692,7 @@ msgstr "_Impor foto ke:"
 
 #: src/Dialogs/PreferencesDialog.vala:58
 msgid "Watch library for new files:"
-msgstr "Pantu album untuk berkas baru:"
+msgstr "Pantau pustaka untuk berkas baru:"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "R_ename imported files to lowercase:"
@@ -1701,7 +1700,7 @@ msgstr "Ubah n_ama berkas impor ke huruf kecil:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
 msgid "Write _metadata to files:"
-msgstr "Tulis  _metadata pada berkas:"
+msgstr "Tulis _metadata pada berkas:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1800,73 +1799,73 @@ msgstr "Simpan foto"
 msgid "Save photo with a different name"
 msgstr "Simpan foto dengan nama lain"
 
-#: src/editing_tools/AdjustTool.vala:47
+#: src/editing_tools/AdjustTool.vala:45
 msgid "Exposure:"
 msgstr "Bukaan:"
 
-#: src/editing_tools/AdjustTool.vala:61
+#: src/editing_tools/AdjustTool.vala:59
 msgid "Saturation:"
 msgstr "Kejenuhan:"
 
-#: src/editing_tools/AdjustTool.vala:74
+#: src/editing_tools/AdjustTool.vala:72
 msgid "Tint:"
 msgstr "Warna:"
 
-#: src/editing_tools/AdjustTool.vala:89
+#: src/editing_tools/AdjustTool.vala:87
 msgid "Temperature:"
 msgstr "Suhu:"
 
-#: src/editing_tools/AdjustTool.vala:104
+#: src/editing_tools/AdjustTool.vala:102
 msgid "Shadows:"
 msgstr "Kegelapan:"
 
-#: src/editing_tools/AdjustTool.vala:117
+#: src/editing_tools/AdjustTool.vala:115
 msgid "Highlights:"
 msgstr "Highlight:"
 
-#: src/editing_tools/AdjustTool.vala:131
+#: src/editing_tools/AdjustTool.vala:129
 #: src/editing_tools/StraightenTool.vala:119
 msgid "_Reset"
 msgstr "Atu_r Ulang"
 
-#: src/editing_tools/AdjustTool.vala:198
+#: src/editing_tools/AdjustTool.vala:196
 msgid "Reset Colors"
 msgstr "Atur Ulang Warna"
 
-#: src/editing_tools/AdjustTool.vala:199
+#: src/editing_tools/AdjustTool.vala:197
 msgid "Reset all color adjustments to original"
 msgstr "Kembalikan warna ke nilai aslinya"
 
-#: src/editing_tools/AdjustTool.vala:587
+#: src/editing_tools/AdjustTool.vala:586
 msgid "Temperature"
 msgstr "Suhu"
 
-#: src/editing_tools/AdjustTool.vala:601
+#: src/editing_tools/AdjustTool.vala:600
 msgid "Tint"
 msgstr "Warna"
 
-#: src/editing_tools/AdjustTool.vala:615
+#: src/editing_tools/AdjustTool.vala:614
 msgid "Saturation"
 msgstr "Saturasi"
 
-#: src/editing_tools/AdjustTool.vala:629
-#: src/sidebar/metadata/BasicProperties.vala:359
+#: src/editing_tools/AdjustTool.vala:628
+#: src/sidebar/metadata/BasicProperties.vala:362
 msgid "Exposure"
 msgstr "Eksposur"
 
-#: src/editing_tools/AdjustTool.vala:643
+#: src/editing_tools/AdjustTool.vala:642
 msgid "Shadows"
 msgstr "Kegelapan"
 
-#: src/editing_tools/AdjustTool.vala:657
+#: src/editing_tools/AdjustTool.vala:656
 msgid "Highlights"
 msgstr "Highlight"
 
-#: src/editing_tools/AdjustTool.vala:667
+#: src/editing_tools/AdjustTool.vala:666
 msgid "Contrast Expansion"
 msgstr "Kontras Ekspansi"
 
-#: src/editing_tools/CropTool.vala:117
+#: src/editing_tools/CropTool.vala:118
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "Atur kotak pemotongan antara orientasi mendatar dan berdiri"
 
@@ -1947,14 +1946,14 @@ msgid_plural "%d Photos/Videos"
 msgstr[0] "%d Foto/Video"
 
 #: src/events/EventDirectoryItem.vala:98
-#: src/sidebar/metadata/BasicProperties.vala:260
+#: src/sidebar/metadata/BasicProperties.vala:263
 #, c-format
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "%d Video"
 
 #: src/events/EventDirectoryItem.vala:100
-#: src/sidebar/metadata/BasicProperties.vala:256
+#: src/sidebar/metadata/BasicProperties.vala:259
 #, c-format
 msgid "%d Photo"
 msgid_plural "%d Photos"
@@ -1969,16 +1968,12 @@ msgid "_Import From Folder…"
 msgstr "_Impor Dari Folder…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "Bilah S_isi"
+msgstr "Ubah Bilah Sisi"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Sunting In_fo Foto"
+msgstr "Ubah Info Foto"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2060,7 +2055,7 @@ msgstr "_Impor"
 
 #: src/library/LibraryWindow.vala:832
 msgid "Library Location"
-msgstr "Lokasi Album"
+msgstr "Lokasi Pustaka"
 
 #. TODO: Specify which directory/file.
 #: src/library/LibraryWindow.vala:846
@@ -2069,7 +2064,7 @@ msgstr "Foto tidak dapat diimpor dari direktori ini."
 
 #: src/library/LibraryWindow.vala:1073 src/library/LibraryWindow.vala:1084
 msgid "Updating library…"
-msgstr "Memperbarui album…"
+msgstr "Memperbarui pustaka…"
 
 #: src/library/LibraryWindow.vala:1090
 msgid "Preparing to auto-import photos…"
@@ -2093,7 +2088,7 @@ msgstr "Salin foto dari folder atau perangkat eksternal."
 
 #: src/library/LibraryWindow.vala:1211
 msgid "Change Library Folder"
-msgstr "Ubah Folder Album"
+msgstr "Ubah Folder Pustaka"
 
 #: src/library/LibraryWindow.vala:1211
 msgid "Choose where to keep your photos."
@@ -2263,7 +2258,7 @@ msgid "Any text"
 msgstr "Teks manapun"
 
 #: src/searches/SearchBoolean.vala:168
-#: src/sidebar/metadata/BasicProperties.vala:240
+#: src/sidebar/metadata/BasicProperties.vala:243
 msgid "Title"
 msgstr "Judul"
 
@@ -2290,7 +2285,7 @@ msgstr "Tipe media"
 
 #: src/searches/SearchBoolean.vala:186
 msgid "Flag state"
-msgstr "status tanda"
+msgstr "Status tanda"
 
 #: src/searches/SearchBoolean.vala:189
 msgid "Photo state"
@@ -2304,71 +2299,71 @@ msgstr "Tanggal"
 msgid "New _Tag…"
 msgstr "_Tanda Baru…"
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
+#: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: src/sidebar/metadata/BasicProperties.vala:248
+#: src/sidebar/metadata/BasicProperties.vala:251
 msgid "Items:"
 msgstr "Jumlah Foto:"
 
-#: src/sidebar/metadata/BasicProperties.vala:252
+#: src/sidebar/metadata/BasicProperties.vala:255
 #, c-format
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "%d Rangkaian"
 
-#: src/sidebar/metadata/BasicProperties.vala:278
+#: src/sidebar/metadata/BasicProperties.vala:281
 msgid "Date:"
 msgstr "Tanggal:"
 
 #. display time range
 #. display date range
-#: src/sidebar/metadata/BasicProperties.vala:280
-#: src/sidebar/metadata/BasicProperties.vala:285
+#: src/sidebar/metadata/BasicProperties.vala:283
+#: src/sidebar/metadata/BasicProperties.vala:288
 msgid "From:"
 msgstr "Sejak:"
 
-#: src/sidebar/metadata/BasicProperties.vala:281
-#: src/sidebar/metadata/BasicProperties.vala:286
+#: src/sidebar/metadata/BasicProperties.vala:284
+#: src/sidebar/metadata/BasicProperties.vala:289
 msgid "To:"
 msgstr "Hingga:"
 
-#: src/sidebar/metadata/BasicProperties.vala:310
+#: src/sidebar/metadata/BasicProperties.vala:313
 #, c-format
 msgid "%.1f second"
 msgid_plural "%.1f seconds"
 msgstr[0] "%.1f detik"
 
-#: src/sidebar/metadata/BasicProperties.vala:317
+#: src/sidebar/metadata/BasicProperties.vala:320
 #: src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "Pengembang:"
 
-#: src/sidebar/metadata/BasicProperties.vala:349
+#: src/sidebar/metadata/BasicProperties.vala:352
 msgid "Aperture"
 msgstr "Bukaan"
 
-#: src/sidebar/metadata/BasicProperties.vala:354
+#: src/sidebar/metadata/BasicProperties.vala:357
 msgid "Focal length"
 msgstr "Panjang fokus"
 
-#: src/sidebar/metadata/BasicProperties.vala:364
+#: src/sidebar/metadata/BasicProperties.vala:367
 msgid "ISO"
 msgstr "ISO"
 
-#: src/sidebar/metadata/BasicProperties.vala:369
+#: src/sidebar/metadata/BasicProperties.vala:372
 msgid "Exposure bias"
 msgstr "Bias bukaan"
 
-#: src/sidebar/metadata/BasicProperties.vala:374
+#: src/sidebar/metadata/BasicProperties.vala:377
 msgid "Flash"
 msgstr "Lampu Kilat"
 
 #. nothing special to be done for now for Events
 #: src/sidebar/metadata/ExtendedProperties.vala:113
 msgid "Location:"
-msgstr "Letak di sistem:"
+msgstr "Letak:"
 
 #: src/sidebar/metadata/ExtendedProperties.vala:118
 msgid "Exposure date:"
@@ -2380,7 +2375,7 @@ msgstr "Waktu bukaan:"
 
 #: src/sidebar/metadata/ExtendedProperties.vala:124
 msgid "Artist:"
-msgstr "Pengambil gambar:"
+msgstr "Artis:"
 
 #: src/sidebar/metadata/ExtendedProperties.vala:126
 msgid "Copyright:"
@@ -2800,7 +2795,7 @@ msgstr "Ber_dasarkan Tanggal Pengambilan"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Dengan _Waktu Modifikasi Berkas"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2819,10 +2814,8 @@ msgid "Sort photos by exposure date"
 msgstr "Urutkan foto berdasarkan tanggal pengambilan"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Urutkan foto berdasarkan tanggal pengambilan"
+msgstr "Urutkan foto berdasarkan tanggal impor"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2929,26 +2922,20 @@ msgid "Transition Effect"
 msgstr "Efek Transisi"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "Zum _Keluar"
+msgstr "Perkecil"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Atur"
+msgstr "Sesuaikan Pembesaran"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + Gulir"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
 msgstr "Perbesar"
 
@@ -3208,16 +3195,12 @@ msgstr ""
 "yang terkait dengan akun Piwigo Anda untuk album itu."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
 msgstr ""
-"Shotwell tidak bisa menghubungi album foto Piwigo Anda. Silakan verifikasi "
-"URL yang Anda masukkan"
+"Foto tidak bisa menghubungi pustaka foto Piwigo Anda. Silakan verifikasi URL "
+"yang Anda masukkan"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3235,10 +3218,8 @@ msgstr "Nama Pengguna atau Kata Sandi Tidak Sesuai"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "Sambungan Shotwell"
+msgstr "Foto Menghubungkan"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3328,38 +3309,26 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "Google+ (2048 x 1536 pixel)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Flickr.\n"
-#| "\n"
-#| "Click Login to log into Flickr in your Web browser. You will have to "
-#| "authorize Shotwell Connect to link to your Flickr account."
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Photos Connect to link to your Flickr account."
 msgstr ""
-"Anda saat ini tidak masuk ke Flickr.\n"
+"Anda saat ini tidak terlog masuk ke Flickr.\n"
 "\n"
-"Klik Masuk untuk masuk ke Flickr pada peramban Anda. Anda harus "
-"mengotorisasi Shotwell Connect untuk menautkan ke akun Flickr Anda."
+"Klik Log Masuk untuk log kedalam ke Flickr pada peramban Web Anda. Anda "
+"harus mengotorisasi Foto Menghubungkan untuk menautkan ke akun Flickr Anda."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari Flickr selama sesi Shotwell ini.\n"
-"Untuk terus mempublikasikan ke Flickr, berhenti dan nyalakan ulang Shotwell, "
-"lalu coba terbitkan lagi."
+"Anda telah terlog masuk dan keluar dari Flickr selama sesi Foto ini.\n"
+"Untuk terus mempublikasikan ke Flickr, berhenti dan nyalakan ulang Foto, "
+"lalu coba publikasikan kembali."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3432,14 +3401,6 @@ msgid "Just me"
 msgstr "Hanya saya"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3451,25 +3412,19 @@ msgstr ""
 "Anda belum masuk ke Facebook.\n"
 "\n"
 "Jika Anda belum memiliki akun Facebook, Anda bisa membuatnya selama proses "
-"masuk.Selama masuk, Sambungan Shotwell akan meminta izin untuk mengunggah "
-"foto dan mempublikasikan ke umpan Anda. Izin ini diperlukan agar Sambungan "
-"Shotwell berfungsi."
+"masuk. Selama masuk, Foto Menghubungkan akan meminta izin untuk mengunggah "
+"foto dan mempublikasikan ke umpan Anda. Izin ini diperlukan agar Foto "
+"Menghubungkan berfungsi."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari Facebook selama sesi Shotwell ini.\n"
-"Untuk melanjutan publikasi ke Facebook, keluar dan nyalakan ulang Shotwell, "
-"kemudian coba publikasi lagi."
+"Anda telah masuk dan keluar dari Facebook selama sesi Foto ini.\n"
+"Untuk melanjutan publikasi ke Facebook, keluar dan nyalakan ulang Foto, "
+"kemudian coba publikasi kembali."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3738,19 +3693,10 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "Layanan Penerbit Ekstra Shotwell"
+msgstr "Layanan Penerbit Ekstra Foto"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3758,10 +3704,10 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"Anda telah masuk dan keluar dari layanan Google selama sesi Shotwell ini.\n"
+"Anda telah masuk dan keluar dari layanan Google selama sesi Foto ini.\n"
 "\n"
 "Untuk melanjutkan publikasi ke layanan Google, keluar dan nyalakan ulang "
-"Shotwell, kemudian coba publikasi lagi."
+"Foto, kemudian coba publikasikan kembali."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"

@@ -14,17 +14,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 17:15+0000\n"
-"PO-Revision-Date: 2019-05-08 07:32+0000\n"
+"POT-Creation-Date: 2022-07-02 19:10+0000\n"
+"PO-Revision-Date: 2022-08-05 23:08+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/"
-">\n"
+"Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:08+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -35,7 +35,7 @@ msgstr "캐시 디렉터리 %s을(를) 만들 수 없습니다: %s"
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "데이터 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "데이터 디렉터리를 만들 수 없습니다 %s: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
@@ -45,23 +45,22 @@ msgstr "사진"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "임시 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "임시 디렉터리를 만들 수 없습니다 %s: %s"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "데이터 하위 디렉터리 %1$s을(를) 만들 수 없습니다: %2$s"
+msgstr "데이터 하위 디렉터리를 만들 수 없습니다 %s: %s"
 
 #: src/AppWindow.vala:162
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"사진 라이브러리에 접근하는 동안 오류가 생겼습니다.  사진을 계속 실행할 수 없"
-"습니다.\n"
+"사진 라이브러리에 접근하는 동안 오류가 생겼습니다. 사진을 계속 실행할 수 없습니다.\n"
 "\n"
 "%s"
 
@@ -134,169 +133,169 @@ msgstr "문제가 있는 이미지 파일"
 msgid "Imported failed (%d)"
 msgstr "가져오기 실패(%d)"
 
-#: src/Commands.vala:746
+#: src/Commands.vala:751
 msgid "Reverting"
 msgstr "되돌리기"
 
-#: src/Commands.vala:746
+#: src/Commands.vala:751
 msgid "Undoing Revert"
 msgstr "되돌리기 취소"
 
-#: src/Commands.vala:790
+#: src/Commands.vala:797
 msgid "Enhancing"
 msgstr "화질 높이기"
 
-#: src/Commands.vala:790
+#: src/Commands.vala:797
 msgid "Undoing Enhance"
 msgstr "화질 강화 취소"
 
-#: src/Commands.vala:826
+#: src/Commands.vala:835
 msgid "UnEnhancing"
-msgstr "강화 해제"
+msgstr "화질 강화 해제"
 
-#: src/Commands.vala:826
+#: src/Commands.vala:835
 msgid "Undoing UnEnhance"
-msgstr "화질 강화 취소 취소"
+msgstr "화질 강화 해제의 실행 취소"
 
-#: src/Commands.vala:894
+#: src/Commands.vala:903
 msgid "Applying Color Transformations"
 msgstr "색 변환을 적용하는 중"
 
-#: src/Commands.vala:894
+#: src/Commands.vala:903
 msgid "Undoing Color Transformations"
 msgstr "색 전환을 취소하는 중"
 
-#: src/Commands.vala:1044
+#: src/Commands.vala:1053
 msgid "Creating New Event"
 msgstr "새 이벤트 만들기"
 
-#: src/Commands.vala:1045
+#: src/Commands.vala:1054
 msgid "Removing Event"
 msgstr "이벤트 제거"
 
-#: src/Commands.vala:1054
+#: src/Commands.vala:1063
 msgid "Moving Photos to New Event"
 msgstr "사진 새 이벤트로 옮기기"
 
-#: src/Commands.vala:1055
+#: src/Commands.vala:1064
 msgid "Setting Photos to Previous Event"
 msgstr "사진을 이전 이벤트로 설정"
 
-#: src/Commands.vala:1112
+#: src/Commands.vala:1121
 msgid "Merging"
 msgstr "합치기"
 
-#: src/Commands.vala:1113
+#: src/Commands.vala:1122
 msgid "Unmerging"
 msgstr "합치기 취소"
 
-#: src/Commands.vala:1122
+#: src/Commands.vala:1131
 msgid "Duplicating photos"
 msgstr "사진 복제"
 
-#: src/Commands.vala:1122
+#: src/Commands.vala:1131
 msgid "Removing duplicated photos"
 msgstr "복제한 사진 삭제"
 
-#: src/Commands.vala:1145
+#: src/Commands.vala:1154
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
 msgstr[0] "파일 오류로 사진 %d장을 복제할 수 없습니다"
 
-#: src/Commands.vala:1191
+#: src/Commands.vala:1200
 msgid "Setting RAW developer"
 msgstr "RAW 디벨로퍼 설정"
 
-#: src/Commands.vala:1191
+#: src/Commands.vala:1200
 msgid "Restoring previous RAW developer"
-msgstr "RAW 디벨로퍼  이전 값으로 복원"
+msgstr "RAW 디벨로퍼 이전 값으로 복원"
 
-#: src/Commands.vala:1192
+#: src/Commands.vala:1201
 msgid "Set Developer"
 msgstr "편집 프로그램 설정"
 
-#: src/Commands.vala:1282
+#: src/Commands.vala:1291
 msgid "Original photo could not be adjusted."
 msgstr "원본 사진은 조정할 수 없습니다."
 
-#: src/Commands.vala:1303
+#: src/Commands.vala:1312
 msgid "Adjusting Date and Time"
 msgstr "날짜와 시간 조정"
 
-#: src/Commands.vala:1303
+#: src/Commands.vala:1312
 msgid "Undoing Date and Time Adjustment"
 msgstr "날짜 시간 조정 취소"
 
-#: src/Commands.vala:1333
+#: src/Commands.vala:1342
 msgid "One original photo could not be adjusted."
 msgid_plural "The following original photos could not be adjusted."
 msgstr[0] "원본 사진은 조정할 수 없습니다."
 
-#: src/Commands.vala:1335 src/Commands.vala:1359
+#: src/Commands.vala:1344 src/Commands.vala:1368
 msgid "Time Adjustment Error"
 msgstr "시간 조정 오류"
 
-#: src/Commands.vala:1357
+#: src/Commands.vala:1366
 msgid "Time adjustments could not be undone on the following photo file."
 msgid_plural ""
 "Time adjustments could not be undone on the following photo files."
 msgstr[0] "다음 사진 파일에 적용한 시간 조정은 취소할 수 없습니다."
 
-#: src/Commands.vala:1571 src/Commands.vala:1594
+#: src/Commands.vala:1580 src/Commands.vala:1603
 msgid "Create Tag"
 msgstr "태그 만들기"
 
-#: src/Commands.vala:1629
+#: src/Commands.vala:1638
 #, c-format
 msgid "Move Tag \"%s\""
 msgstr "태그 \"%s\" 이동"
 
-#: src/Commands.vala:2279
+#: src/Commands.vala:2288
 msgid "Move Photos to Trash"
 msgstr "사진을 휴지통으로 보내기"
 
-#: src/Commands.vala:2279
+#: src/Commands.vala:2288
 msgid "Restore Photos from Trash"
 msgstr "휴지통에 있는 사진 되살리기"
 
-#: src/Commands.vala:2280
+#: src/Commands.vala:2289
 msgid "Move the photos to the Photos trash"
 msgstr "사진을 사진 휴지통으로 옮깁니다"
 
-#: src/Commands.vala:2280
+#: src/Commands.vala:2289
 msgid "Restore the photos back to the Photos library"
 msgstr "휴지통에 있는 사진을 사진 라이브러리로 다시 가져옵니다"
 
-#: src/Commands.vala:2299
+#: src/Commands.vala:2308
 msgid "Moving Photos to Trash"
 msgstr "사진을 휴지통으로 보내기"
 
-#: src/Commands.vala:2299
+#: src/Commands.vala:2308
 msgid "Restoring Photos From Trash"
 msgstr "휴지통에 있는 사진 되살리기"
 
-#: src/Commands.vala:2385
+#: src/Commands.vala:2394
 msgid "Flag selected photos"
 msgstr "선택한 사진 표시"
 
-#: src/Commands.vala:2386
+#: src/Commands.vala:2395
 msgid "Unflag selected photos"
 msgstr "선택한 사진 표시 제거"
 
-#: src/Commands.vala:2387
+#: src/Commands.vala:2396
 msgid "Flagging selected photos"
 msgstr "선택한 사진 표시"
 
-#: src/Commands.vala:2388
+#: src/Commands.vala:2397
 msgid "Unflagging selected photos"
 msgstr "선택한 사진 표시 제거"
 
-#: src/Commands.vala:2395
+#: src/Commands.vala:2404
 msgid "Flag"
 msgstr "표시"
 
-#: src/Commands.vala:2395
+#: src/Commands.vala:2404
 msgid "Unflag"
 msgstr "표시 제거"
 
@@ -322,7 +321,7 @@ msgstr "높이"
 #: src/DirectoryMonitor.vala:901
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
-msgstr "%1$s을(를) 감시할 수 없습니다: 디렉터리 아님(%2$s)"
+msgstr "%s 감시할 수 없음: 디렉터리 아님(%s)"
 
 #. if no name, pretty up the start time
 #: src/Event.vala:732
@@ -344,9 +343,9 @@ msgid "Export"
 msgstr "내보내기"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "파일 %s(이)가 이미 존재합니다. 바꾸시겠습니까?"
+msgstr "%s 파일이 이미 있습니다. 바꾸시겠습니까?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -360,8 +359,8 @@ msgstr "모두 바꾸기(_A)"
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
 #: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
-#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:132
-#: src/editing_tools/CropTool.vala:102
+#: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
+#: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
 #: src/Views/DirectPhotoPage.vala:441
@@ -509,23 +508,23 @@ msgstr "노트 카드(3 x 5 인치)"
 
 #: src/Printing.vala:353 src/editing_tools/CropTool.vala:242
 msgid "4 x 6 in."
-msgstr "4 x 6 인치"
+msgstr "4 x 6 in."
 
 #: src/Printing.vala:356 src/editing_tools/CropTool.vala:243
 msgid "5 x 7 in."
-msgstr "5 x 7 인치"
+msgstr "5 x 7 in."
 
 #: src/Printing.vala:359 src/editing_tools/CropTool.vala:244
 msgid "8 x 10 in."
-msgstr "8 x 10 인치"
+msgstr "8 x 10 in."
 
 #: src/Printing.vala:362 src/editing_tools/CropTool.vala:246
 msgid "11 x 14 in."
-msgstr "11 x 14 인치"
+msgstr "11 x 14 in."
 
 #: src/Printing.vala:365 src/editing_tools/CropTool.vala:248
 msgid "16 x 20 in."
-msgstr "16 x 20 인치"
+msgstr "16 x 20 in."
 
 #: src/Printing.vala:371 src/editing_tools/CropTool.vala:250
 msgid "Metric Wallet (9 x 13 cm)"
@@ -901,19 +900,19 @@ msgid "Modify Tags"
 msgstr "태그 수정"
 
 #: src/Resources.vala:220
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "사진에 \"%s\" 태그를 붙입니다"
 
 #: src/Resources.vala:224
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "사진에서 \"%s\" 태그를 제거합니다(_P)"
 
 #: src/Resources.vala:228
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "사진에서 \"%s\" 태그를 제거합니다"
@@ -926,7 +925,7 @@ msgstr "태그가 이미 존재하기 때문에 태그 이름을 \"%s\"(으)로 
 #: src/Resources.vala:236
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
-msgstr "검색이 이미 존재하기 때문에 검색  \"%s\"의 이름을 바꿀 수 없습니다."
+msgstr "같은 검색 항목이 있기 때문에 \"%s\"로 바꿔 검색할 수 없습니다."
 
 #: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -947,12 +946,12 @@ msgstr "이름 바꾸기(_N)…"
 #: src/Resources.vala:248
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
-msgstr "검색  \"%s\"의 이름을  \"%s\"(으)로 바꾸기"
+msgstr "검색 \"%s\"의 이름을 \"%s\"로 바꾸기"
 
 #: src/Resources.vala:252
 #, c-format
 msgid "Delete Search \"%s\""
-msgstr "검색  \"%s\" 삭제"
+msgstr "검색 \"%s\" 삭제"
 
 #: src/Resources.vala:284
 msgid "_Delete Selection"
@@ -1046,7 +1045,7 @@ msgid "untitled"
 msgstr "제목 없음"
 
 #. multiple videos
-#: src/VideoSupport.vala:512
+#: src/VideoSupport.vala:515
 msgid "Export Videos"
 msgstr "비디오 내보내기"
 
@@ -1060,7 +1059,7 @@ msgid "Camera"
 msgstr "카메라"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:57
-#: src/editing_tools/AdjustTool.vala:130 src/editing_tools/RedEyeTool.vala:65
+#: src/editing_tools/AdjustTool.vala:128 src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
 msgstr "적용(_A)"
 
@@ -1085,22 +1084,19 @@ msgid "Set _all photos/videos to this time"
 msgstr "모든 사진/비디오를 이 시간으로 설정(_A)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:113
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
 msgstr[0] "원본 사진 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:116
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
 msgstr[0] "원본 파일 수정(_M)"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "원본: "
+msgstr "원본: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1149,13 +1145,13 @@ msgid_plural "seconds"
 msgstr[0] "초"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] "태그 \"%s\"(을)를 %d장의 사진에서 제거합니다. 계속하시겠습니까?"
+msgstr[0] "\"%s\" 태그를 %d 장의 사진에서 제거합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
 msgstr "이 스마트 앨범을 제거합니다 \"%s\". 계속할까요?"
 
@@ -1182,7 +1178,6 @@ msgstr "비디오 내보내기"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
 #: src/Views/LibraryPhotoPage.vala:799
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "사진 내보내기"
@@ -1552,21 +1547,18 @@ msgid "Name:"
 msgstr "이름:"
 
 #: src/Dialogs/Dialogs.vala:800
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "외부 편집 프로그램으로 한 편집을 되돌리시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:802
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] ""
-"외부 파일에 적용한 바뀐 내용 %d개를 모두 취소합니다. 계속하시겠습니까?"
+msgstr[0] "외부 파일에 적용한 바뀐 내용 %d 개를 모두 취소합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:807
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "외부 편집 프로그램으로 한 편집 되돌리기(_V)"
@@ -1580,10 +1572,10 @@ msgid "Remove Photos From Library"
 msgstr "사진 라이브러리에서 제거"
 
 #: src/Dialogs/Dialogs.vala:839
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] "라이브러리에서 사진 %d매를 제거합니다. 계속하시겠습니까?"
+msgstr[0] "라이브러리에서 사진 %d 장을 제거합니다. 계속하시겠습니까?"
 
 #: src/Dialogs/Dialogs.vala:852
 msgid "_Remove"
@@ -1631,7 +1623,6 @@ msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
 #: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:720
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "사진을 라이브러리에서 제거하는 중"
@@ -1667,9 +1658,8 @@ msgid "_Scaling constraint:"
 msgstr "크기 조정 제한(_S):"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "정보 패널 감추기(_H)"
+msgstr "픽셀 단위 크기(_S):"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -1697,9 +1687,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "불러온 파일 이름 소문자로 바꾸기:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "파일에 메타데이터 쓰기:"
+msgstr "파일에 메타데이터 쓰기(_M):"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -1798,73 +1787,73 @@ msgstr "사진 저장"
 msgid "Save photo with a different name"
 msgstr "사진을 다른 이름으로 저장합니다"
 
-#: src/editing_tools/AdjustTool.vala:47
+#: src/editing_tools/AdjustTool.vala:45
 msgid "Exposure:"
 msgstr "노출:"
 
-#: src/editing_tools/AdjustTool.vala:61
+#: src/editing_tools/AdjustTool.vala:59
 msgid "Saturation:"
 msgstr "채도:"
 
-#: src/editing_tools/AdjustTool.vala:74
+#: src/editing_tools/AdjustTool.vala:72
 msgid "Tint:"
 msgstr "색조:"
 
-#: src/editing_tools/AdjustTool.vala:89
+#: src/editing_tools/AdjustTool.vala:87
 msgid "Temperature:"
 msgstr "온도:"
 
-#: src/editing_tools/AdjustTool.vala:104
+#: src/editing_tools/AdjustTool.vala:102
 msgid "Shadows:"
 msgstr "그림자:"
 
-#: src/editing_tools/AdjustTool.vala:117
+#: src/editing_tools/AdjustTool.vala:115
 msgid "Highlights:"
 msgstr "강조:"
 
-#: src/editing_tools/AdjustTool.vala:131
+#: src/editing_tools/AdjustTool.vala:129
 #: src/editing_tools/StraightenTool.vala:119
 msgid "_Reset"
 msgstr "되돌리기(_R)"
 
-#: src/editing_tools/AdjustTool.vala:198
+#: src/editing_tools/AdjustTool.vala:196
 msgid "Reset Colors"
 msgstr "색 되돌리기"
 
-#: src/editing_tools/AdjustTool.vala:199
+#: src/editing_tools/AdjustTool.vala:197
 msgid "Reset all color adjustments to original"
 msgstr "모든 색 조정을 원래대로 되돌립니다"
 
-#: src/editing_tools/AdjustTool.vala:587
+#: src/editing_tools/AdjustTool.vala:586
 msgid "Temperature"
 msgstr "온도"
 
-#: src/editing_tools/AdjustTool.vala:601
+#: src/editing_tools/AdjustTool.vala:600
 msgid "Tint"
 msgstr "색조"
 
-#: src/editing_tools/AdjustTool.vala:615
+#: src/editing_tools/AdjustTool.vala:614
 msgid "Saturation"
 msgstr "채도"
 
-#: src/editing_tools/AdjustTool.vala:629
-#: src/sidebar/metadata/BasicProperties.vala:359
+#: src/editing_tools/AdjustTool.vala:628
+#: src/sidebar/metadata/BasicProperties.vala:362
 msgid "Exposure"
 msgstr "노출"
 
-#: src/editing_tools/AdjustTool.vala:643
+#: src/editing_tools/AdjustTool.vala:642
 msgid "Shadows"
 msgstr "그림자"
 
-#: src/editing_tools/AdjustTool.vala:657
+#: src/editing_tools/AdjustTool.vala:656
 msgid "Highlights"
 msgstr "강조"
 
-#: src/editing_tools/AdjustTool.vala:667
+#: src/editing_tools/AdjustTool.vala:666
 msgid "Contrast Expansion"
 msgstr "대비 확장"
 
-#: src/editing_tools/CropTool.vala:117
+#: src/editing_tools/CropTool.vala:118
 msgid "Pivot the crop rectangle between portrait and landscape orientations"
 msgstr "사진 줄이기 사각형을 가로 세로 방향으로 돌립니다"
 
@@ -1945,14 +1934,14 @@ msgid_plural "%d Photos/Videos"
 msgstr[0] "사진/비디오 %d개"
 
 #: src/events/EventDirectoryItem.vala:98
-#: src/sidebar/metadata/BasicProperties.vala:260
+#: src/sidebar/metadata/BasicProperties.vala:263
 #, c-format
 msgid "%d Video"
 msgid_plural "%d Videos"
 msgstr[0] "비디오 %d편"
 
 #: src/events/EventDirectoryItem.vala:100
-#: src/sidebar/metadata/BasicProperties.vala:256
+#: src/sidebar/metadata/BasicProperties.vala:259
 #, c-format
 msgid "%d Photo"
 msgid_plural "%d Photos"
@@ -1967,16 +1956,12 @@ msgid "_Import From Folder…"
 msgstr "폴더에서 불러오기(_I)…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "사이드바(_I)"
+msgstr "사이드바 토글"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "사진 정보 편집(_F)"
+msgstr "사진 정보 토글"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2161,7 +2146,7 @@ msgstr "업로드 준비 중"
 #: src/publishing/PublishingPluginHost.vala:25
 #, c-format
 msgid "Uploading %d of %d"
-msgstr "전체 %2$d개 가운데 %1$d개 업로드 중"
+msgstr "전체 %d개 가운데 %d개 업로드 중"
 
 #: src/publishing/PublishingPluginHost.vala:94
 #, c-format
@@ -2259,7 +2244,7 @@ msgid "Any text"
 msgstr "모든 텍스트"
 
 #: src/searches/SearchBoolean.vala:168
-#: src/sidebar/metadata/BasicProperties.vala:240
+#: src/sidebar/metadata/BasicProperties.vala:243
 msgid "Title"
 msgstr "제목"
 
@@ -2300,64 +2285,64 @@ msgstr "날짜"
 msgid "New _Tag…"
 msgstr "새 태그(_T)…"
 
-#: src/sidebar/metadata/BasicProperties.vala:130 src/Views/ImportPage.vala:300
+#: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
-#: src/sidebar/metadata/BasicProperties.vala:248
+#: src/sidebar/metadata/BasicProperties.vala:251
 msgid "Items:"
 msgstr "항목:"
 
-#: src/sidebar/metadata/BasicProperties.vala:252
+#: src/sidebar/metadata/BasicProperties.vala:255
 #, c-format
 msgid "%d Event"
 msgid_plural "%d Events"
 msgstr[0] "이벤트 %d개"
 
-#: src/sidebar/metadata/BasicProperties.vala:278
+#: src/sidebar/metadata/BasicProperties.vala:281
 msgid "Date:"
 msgstr "날짜:"
 
 #. display time range
 #. display date range
-#: src/sidebar/metadata/BasicProperties.vala:280
-#: src/sidebar/metadata/BasicProperties.vala:285
+#: src/sidebar/metadata/BasicProperties.vala:283
+#: src/sidebar/metadata/BasicProperties.vala:288
 msgid "From:"
 msgstr "시작:"
 
-#: src/sidebar/metadata/BasicProperties.vala:281
-#: src/sidebar/metadata/BasicProperties.vala:286
+#: src/sidebar/metadata/BasicProperties.vala:284
+#: src/sidebar/metadata/BasicProperties.vala:289
 msgid "To:"
 msgstr "끝:"
 
-#: src/sidebar/metadata/BasicProperties.vala:310
+#: src/sidebar/metadata/BasicProperties.vala:313
 #, c-format
 msgid "%.1f second"
 msgid_plural "%.1f seconds"
 msgstr[0] "%.1f 초"
 
-#: src/sidebar/metadata/BasicProperties.vala:317
+#: src/sidebar/metadata/BasicProperties.vala:320
 #: src/sidebar/metadata/ExtendedProperties.vala:116
 msgid "Developer:"
 msgstr "편집 프로그램:"
 
-#: src/sidebar/metadata/BasicProperties.vala:349
+#: src/sidebar/metadata/BasicProperties.vala:352
 msgid "Aperture"
 msgstr "조리개"
 
-#: src/sidebar/metadata/BasicProperties.vala:354
+#: src/sidebar/metadata/BasicProperties.vala:357
 msgid "Focal length"
 msgstr "초점 거리"
 
-#: src/sidebar/metadata/BasicProperties.vala:364
+#: src/sidebar/metadata/BasicProperties.vala:367
 msgid "ISO"
 msgstr "ISO"
 
-#: src/sidebar/metadata/BasicProperties.vala:369
+#: src/sidebar/metadata/BasicProperties.vala:372
 msgid "Exposure bias"
 msgstr "노출 보정"
 
-#: src/sidebar/metadata/BasicProperties.vala:374
+#: src/sidebar/metadata/BasicProperties.vala:377
 msgid "Flash"
 msgstr "플래시"
 
@@ -2446,7 +2431,6 @@ msgid "Other Actions"
 msgstr "다른 작업"
 
 #: src/Views/CollectionPage.vala:583
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "사진/비디오 내보내기"
@@ -2591,12 +2575,9 @@ msgid "Flagged"
 msgstr "표시함"
 
 #: src/Views/ImportPage.vala:478
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
-msgstr ""
-"카메라를 마운트 해제할 수 없습니다. 카메라를 파일 관리자에서 마운트 해제해 보"
-"십시오."
+msgstr "카메라의 마운트를 해제할 수 없습니다. 카메라를 파일 관리자에서 마운트 해제해 보세요."
 
 #: src/Views/ImportPage.vala:792
 msgid "Hide photos already imported"
@@ -2801,7 +2782,7 @@ msgstr "촬영 날짜 순(_D)"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "파일 수정 시간 기준(_F)"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2820,10 +2801,8 @@ msgid "Sort photos by exposure date"
 msgstr "사진을 촬영 날짜 순으로 정렬합니다"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "사진을 촬영 날짜 순으로 정렬합니다"
+msgstr "사진을 촬영 날짜 순으로 정렬하기"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2930,28 +2909,22 @@ msgid "Transition Effect"
 msgstr "전환 효과"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "축소(_O)"
+msgstr "축소"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "조정"
+msgstr "줌 조정"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + 스크롤"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "확대(_I)"
+msgstr "확대"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3183,12 +3156,7 @@ msgstr "제작자 웹 사이트 방문"
 #: plugins/pantheon-photos-publishing-extras/Resources.vala:41
 #: plugins/pantheon-photos-transitions/Resources.vala:41
 msgid "translator-credits"
-msgstr ""
-"Kim, Boram <boramism@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Jung-Kyu Park https://launchpad.net/~bagjunggyu\n"
-"  Kim Boram https://launchpad.net/~boramism"
+msgstr "translator-credits"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
 #, c-format
@@ -3208,16 +3176,10 @@ msgstr ""
 "름 및 암호를 입력하십시오."
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
 msgid ""
 "Photos cannot contact your Piwigo photo library. Please verify the URL you "
 "entered"
-msgstr ""
-"샷웰이 Piwigo 사진 라이브러리에 접근할 수 없습니다. 입력하신 URL 주소를 확인"
-"해주세요"
+msgstr "사진이 Piwigo 사진 라이브러리에 접근할 수 없습니다. 입력하신 URL 주소를 확인해 주세요"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
 #: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
@@ -3235,10 +3197,8 @@ msgstr "사용자 이름 또는 암호가 올바르지 않습니다"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
 msgid "Photos Connect"
-msgstr "샷웰 접속"
+msgstr "사진 연결"
 
 #: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
@@ -3327,32 +3287,24 @@ msgid "Google+ (2048 x 1536 pixels)"
 msgstr "구글+(2048 x 1536 픽셀)"
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
 msgid ""
 "You are not currently logged into Flickr.\n"
 "\n"
 "Click Login to log into Flickr in your Web browser. You will have to "
 "authorize Photos Connect to link to your Flickr account."
 msgstr ""
-"플리커 서비스에 로그인하지 않았습니다.\n"
+"플리커에 로그인하지 않았습니다.\n"
 "\n"
-"웹 브라우저로 Flickr 사이트를 여신 후 로그인을 클릭해주십시오. 샷웰이 플리커 "
-"계정 링크에 접근하는 것을 허용해야 합니다."
+"웹 브라우저로 Flickr 사이트를 여신 후 로그인을 클릭해 주세요. 사진이 플리커 계정 링크에 접근하는 것을 허용해야 합니다."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Flickr during this Photos session.\n"
 "To continue publishing to Flickr, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션 사용 중 이미 Flickr에 로그인 후 로그아웃 하셨습니다.\n"
-"계속 플리커로 업로드하시려면, 샷웰을 끝낸 후 다시 시작하여 업로드하십시오."
+"이 사진을 사용하며 이미 Flickr에 로그인 후 로그아웃하셨습니다.\n"
+"계속 플리커에 업로드하시려면, 사진을 끝낸 후 다시 시작하여 업로드하세요."
 
 #: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
 msgid "Preparing for login…"
@@ -3423,14 +3375,6 @@ msgid "Just me"
 msgstr "나만"
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
 msgid ""
 "You are not currently logged into Facebook.\n"
 "\n"
@@ -3441,24 +3385,17 @@ msgid ""
 msgstr ""
 "현재 페이스북에 로그인하지 않았습니다.\n"
 "\n"
-"페이스북 계정이 아직 없는 경우 로그인 과정 중 만드실 수 있습니다. 로그인 중 "
-"샷웰 연결이 사진을 업로드하거나 피드에 업로드할 권한을 요구할 수 있습니다. "
-"이 권한은 샷웰 연결이 동작하는데 필요합니다."
+"페이스북 계정이 아직 없는 경우 로그인 과정 중 만드실 수 있습니다. 로그인 중 사진 연결이 사진을 업로드하거나 피드에 업로드할 권한을 "
+"요구할 수 있습니다. 이 권한은 사진 연결이 동작하는데 필요합니다."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
 msgid ""
 "You have already logged in and out of Facebook during this Photos session.\n"
 "To continue publishing to Facebook, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션에서는 이미 페이스북에 로그인과 로그아웃을 하셨습니다.\n"
-"계속 페이스북에 업로드하시려면, 샷웰을 다시 시작한 후 업로드하십시오."
+"이 사진앱을 사용하시는 동안 이미 페이스북에 로그인과 로그아웃을 하셨습니다.\n"
+"계속 페이스북에 업로드하시려면, 사진을 다시 시작한 후 업로드하세요."
 
 #: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
 msgid "Standard (720 pixels)"
@@ -3724,19 +3661,10 @@ msgstr ""
 "\n"
 
 #: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
 msgid "Photos Extra Publishing Services"
-msgstr "샷웰 추가 업로드 서비스"
+msgstr "사진 추가 업로드 서비스"
 
 #: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
 msgid ""
 "You have already logged in and out of a Google service during this Photos "
 "session.\n"
@@ -3744,9 +3672,9 @@ msgid ""
 "To continue publishing to Google services, quit and restart Photos, then try "
 "publishing again."
 msgstr ""
-"이 샷웰 세션 사용 중 이미 구글 서비스에 로그인 후 로그아웃 하셨습니다.\n"
-"계속 구글 서비스로 업로드하시려면, 샷웰을 끝낸 후 다시 시작한 후업로드하십시"
-"오."
+"Photos를 사용하시는 동안 이미 Google 서비스에 로그인 및 로그아웃했습니다.\n"
+"\n"
+"Google 서비스를 계속 이용하시려면 Photos를 껐다가 다시 시작해서 이용해 보세요."
 
 #: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
 msgid "_Albums (or write new):"
