@@ -20,6 +20,19 @@
 public abstract class CollectionPage : MediaPage {
     private const double DESKTOP_SLIDESHOW_TRANSITION_SEC = 2.0;
 
+    private enum TargetType {
+        GNOME_COPIED_FILES,
+        TEXT_URI_LIST
+    }
+
+    private const Gtk.TargetEntry [] COPY_TARGETS = {
+        {"x-special/gnome-copied-files", Gtk.TargetFlags.OTHER_APP, TargetType.GNOME_COPIED_FILES},
+        {"text/uri-list", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT_URI_LIST}
+    };
+
+    private static List<Photo> copied_photos = null;
+    private static Gtk.Clipboard? clipboard = null;
+
     protected class CollectionSearchViewFilter : DefaultSearchViewFilter {
         public override uint get_criteria () {
             return SearchFilterCriteria.TEXT | SearchFilterCriteria.FLAG |
@@ -40,6 +53,10 @@ public abstract class CollectionPage : MediaPage {
 
     protected CollectionPage (string page_name) {
         Object (page_name: page_name);
+    }
+
+    static construct {
+        clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (), Gdk.SELECTION_CLIPBOARD);
     }
 
     construct {
@@ -107,6 +124,10 @@ public abstract class CollectionPage : MediaPage {
     public override Gtk.Menu? get_item_context_menu () {
         if (item_context_menu == null) {
             item_context_menu = new Gtk.Menu ();
+
+            var copy_images_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_LABEL);
+            var copy_images_action = get_action ("CopyImages");
+            copy_images_menu_item.activate.connect (() => copy_images_action.activate ());
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
@@ -209,6 +230,7 @@ public abstract class CollectionPage : MediaPage {
             contractor_menu.add (print_menu_item);
             contractor_menu.add (export_menu_item);
 
+            item_context_menu.add (copy_images_menu_item);
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (duplicate_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -265,8 +287,10 @@ public abstract class CollectionPage : MediaPage {
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
         Gtk.ActionEntry enhance = { "Enhance", null, null, "<Ctrl>E", null, on_enhance };
         Gtk.ActionEntry slideshow = { "Slideshow", null, null, "F5", null, on_slideshow };
+        Gtk.ActionEntry copy = { "CopyImages", null, null, "<Ctrl>C", null, on_copy_images };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
+        actions += copy;
         actions += print;
         actions += publish;
         actions += rotate_right;
@@ -369,6 +393,65 @@ public abstract class CollectionPage : MediaPage {
             AppWindow.get_instance ().set_normal_cursor ();
             open_external_editor_error_dialog (err, photo);
         }
+    }
+
+    // Default behaviour for "Copy" action from Collection (thumbnail) view.
+    public static void get_image_data_for_clipboard (Gtk.Clipboard cb,
+                                                     Gtk.SelectionData sd,
+                                                     uint info,
+                                                     void* parent) {
+warning ("collection get image data");
+        if (copied_photos == null) { // Should not happen
+            critical ("Attempt to copy image but data for clipboard is null");
+            return;
+        }
+
+        switch (info) {
+            case TargetType.GNOME_COPIED_FILES: /* Pasting into a file handler */
+                var sb = new StringBuilder ("copy "); // Only support copying for now
+                // Note the original file will be copied (may not include transformations);
+                foreach (var photo in copied_photos) {
+                    sb.append ("\r\n");
+                    sb.append (photo.get_file ().get_uri ());
+                }
+                sd.@set (sd.get_target (), 8, sb.data);
+                break;
+
+            case TargetType.TEXT_URI_LIST:
+                string[] uris = {};
+                foreach (var photo in copied_photos) {
+                    uris += photo.get_file ().get_uri ();
+                }
+
+                sd.set_uris (uris); // GitHub requests this but only uses the first uri for some reason.
+                break;
+
+            default:
+                warning ("Unknown target type");
+                break;
+        }
+    }
+
+    public static void clear_data_for_clipboard (Gtk.Clipboard cb, void* parent) {
+        copied_photos = null;
+    }
+
+    private void on_copy_images () {
+warning ("on copy images");
+        clipboard.clear ();
+
+        foreach (DataSource source in get_view ().get_selected_sources ()) {
+            Photo? photo = source as Photo;
+            if (photo != null) {
+                copied_photos.append (photo);
+            }
+        }
+
+        if (copied_photos == null) {
+            return;
+        }
+
+        clipboard.set_with_owner (COPY_TARGETS, get_image_data_for_clipboard, clear_data_for_clipboard, this);
     }
 
     private void on_open_with_raw (string app) {
@@ -531,6 +614,15 @@ public abstract class CollectionPage : MediaPage {
 
     protected override bool on_app_key_pressed (Gdk.EventKey event) {
         bool handled = true;
+
+        if (match_keycode (Gdk.Key.c, event.hardware_keycode)) {
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0 &&
+                (event.state & Gdk.ModifierType.SHIFT_MASK) == 0) {
+
+                activate_action ("CopyImages");
+            }
+        }
+
         switch (Gdk.keyval_name (event.keyval)) {
         case "Page_Up":
         case "KP_Page_Up":
