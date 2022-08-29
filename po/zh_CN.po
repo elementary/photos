@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-02 19:10+0000\n"
+"POT-Creation-Date: 2022-08-29 08:24+0000\n"
 "PO-Revision-Date: 2021-12-01 02:09+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -380,7 +380,7 @@ msgstr "全部替换"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:441
+#: src/Views/DirectPhotoPage.vala:456
 msgid "_Cancel"
 msgstr "取消"
 
@@ -737,276 +737,286 @@ msgid "Rename Event"
 msgstr "重命名事件"
 
 #: src/Resources.vala:132
+msgid "Copy"
+msgstr ""
+
+#: src/Resources.vala:133
+#, fuzzy
+#| msgid "Metadata"
+msgid "Copy Metadata"
+msgstr "元数据"
+
+#: src/Resources.vala:135
 msgid "Make _Key Photo for Event"
 msgstr "设为关键照片"
 
-#: src/Resources.vala:133
+#: src/Resources.vala:136
 msgid "Make Key Photo for Event"
 msgstr "创建事件关键照片"
 
-#: src/Resources.vala:135
+#: src/Resources.vala:138
 msgid "_New Event"
 msgstr "新建事件"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:139
 msgid "New Event"
 msgstr "新建事件"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:141
 msgid "Move Photos"
 msgstr "移动照片"
 
-#: src/Resources.vala:139
+#: src/Resources.vala:142
 msgid "Move photos to an event"
 msgstr "将照片移动到一个事件"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:144
 msgid "_Merge Events"
 msgstr "合并事件"
 
-#: src/Resources.vala:142
+#: src/Resources.vala:145
 msgid "Merge"
 msgstr "合并"
 
-#: src/Resources.vala:143
+#: src/Resources.vala:146
 msgid "Combine events into a single event"
 msgstr "将多个事件合并为一个"
 
-#: src/Resources.vala:145
+#: src/Resources.vala:148
 msgid "_Filter Photos"
 msgstr "过滤照片"
 
-#: src/Resources.vala:147
+#: src/Resources.vala:150
 msgid "_Duplicate"
 msgstr "副本"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:151
 msgid "Duplicate"
 msgstr "副本"
 
-#: src/Resources.vala:149
+#: src/Resources.vala:152
 msgid "Make a duplicate of the photo"
 msgstr "创建照片副本"
 
-#: src/Resources.vala:151
+#: src/Resources.vala:154
 msgid "_Export…"
 msgstr "导出…"
 
-#: src/Resources.vala:153
+#: src/Resources.vala:156
 msgid "Show info panel"
 msgstr "显示信息面板"
 
-#: src/Resources.vala:155
+#: src/Resources.vala:158
 msgid "Hide info panel"
 msgstr "隐藏信息面板"
 
-#: src/Resources.vala:157
+#: src/Resources.vala:160
 msgid "_Print…"
 msgstr "打印…"
 
-#: src/Resources.vala:159
+#: src/Resources.vala:162
 msgid "Pu_blish…"
 msgstr "发布…"
 
-#: src/Resources.vala:160
+#: src/Resources.vala:163
 msgid "Publish to various websites"
 msgstr "分享至社交网站"
 
-#: src/Resources.vala:162
+#: src/Resources.vala:165
 msgid "Edit Title"
 msgstr "编辑标题"
 
-#: src/Resources.vala:164
+#: src/Resources.vala:167
 msgid "Edit Comment"
 msgstr "修改备注"
 
-#: src/Resources.vala:166
+#: src/Resources.vala:169
 msgid "_Adjust Date and Time…"
 msgstr "调整日期和时间…"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:170
 msgid "Adjust Date and Time"
 msgstr "修改日期和时间"
 
-#: src/Resources.vala:169
+#: src/Resources.vala:172
 msgid "_Open In"
 msgstr "打开方式"
 
-#: src/Resources.vala:171
+#: src/Resources.vala:174
 msgid "_Open With RAW Editor…"
 msgstr "使用 RAW 编辑器打开…"
 
-#: src/Resources.vala:173
+#: src/Resources.vala:176
 msgid "Find"
 msgstr "查找"
 
-#: src/Resources.vala:175
+#: src/Resources.vala:178
 msgid "_Flag"
 msgstr "标注"
 
-#: src/Resources.vala:176
+#: src/Resources.vala:179
 msgid "Un_flag"
 msgstr "取消标注"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:182
 #, c-format
 msgid "Unable to launch editor: %s"
 msgstr "无法启动编辑器：%s"
 
-#: src/Resources.vala:184
+#: src/Resources.vala:187
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "添加标签 %s"
 
-#: src/Resources.vala:186
+#: src/Resources.vala:189
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "添加标签 %s 和 %s"
 
-#: src/Resources.vala:190
+#: src/Resources.vala:193
 msgid "Add Tags"
 msgstr "添加标签"
 
-#: src/Resources.vala:194
+#: src/Resources.vala:197
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "删除标签 %s"
 
-#: src/Resources.vala:198
+#: src/Resources.vala:201
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "删除标签 %s"
 
-#: src/Resources.vala:201
+#: src/Resources.vala:204
 msgid "Delete Tag"
 msgstr "删除标签"
 
-#: src/Resources.vala:202 src/Resources.vala:243 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "删除"
 
-#: src/Resources.vala:204
+#: src/Resources.vala:207
 msgid "_New"
 msgstr "新建"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:210
 #, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "重命名标签 “%s” …"
 
-#: src/Resources.vala:211
+#: src/Resources.vala:214
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "重命名标签 %s 为 %s"
 
-#: src/Resources.vala:214
+#: src/Resources.vala:217
 msgid "_Rename…"
 msgstr "重命名…"
 
-#: src/Resources.vala:216
+#: src/Resources.vala:219
 msgid "Modif_y Tags…"
 msgstr "修改标签…"
 
-#: src/Resources.vala:217
+#: src/Resources.vala:220
 msgid "Modify Tags"
 msgstr "修改标签"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:223
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "添加标签 “%s”"
 
-#: src/Resources.vala:224
+#: src/Resources.vala:227
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "移除标签 “%s”"
 
-#: src/Resources.vala:228
+#: src/Resources.vala:231
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "移除标签 “%s”"
 
-#: src/Resources.vala:232
+#: src/Resources.vala:235
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "无法重命名标签为 %s，同名标签已存在。"
 
-#: src/Resources.vala:236
+#: src/Resources.vala:239
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "无法重命名搜索为 %s，同名搜索已存在。"
 
-#: src/Resources.vala:239 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "智能相册"
 
-#: src/Resources.vala:241
+#: src/Resources.vala:244
 msgid "Delete Album"
 msgstr "删除相册"
 
-#: src/Resources.vala:244
+#: src/Resources.vala:247
 msgid "_Edit…"
 msgstr "编辑…"
 
-#: src/Resources.vala:245
+#: src/Resources.vala:248
 msgid "Re_name…"
 msgstr "重命名…"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:251
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "重命名搜索 %s 为 %s"
 
-#: src/Resources.vala:252
+#: src/Resources.vala:255
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "删除搜索 %s"
 
-#: src/Resources.vala:284
+#: src/Resources.vala:287
 msgid "_Delete Selection"
 msgstr "删除选中项目"
 
-#: src/Resources.vala:285
+#: src/Resources.vala:288
 msgid "Remove the selected photos from the trash"
 msgstr "从回收站中移除选中照片"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:289
 msgid "Remove the selected photos from the library"
 msgstr "从媒体库移除选定照片"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:291
 msgid "_Restore Selection"
 msgstr "恢复选中项目"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:292
 msgid "Move the selected photos back into the library"
 msgstr "将选定照片移回至媒体库"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:294
 msgid "File Mana_ger"
 msgstr "在文件管理器中显示"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:297
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "无法在文件管理器中打开：%s"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:300
 msgid "R_emove From Library"
 msgstr "从媒体库移除"
 
-#: src/Resources.vala:299
+#: src/Resources.vala:302
 msgid "_Move to Trash"
 msgstr "移至回收站"
 
-#: src/Resources.vala:301
+#: src/Resources.vala:304
 msgid "Select _All"
 msgstr "全部选中"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:305
 msgid "Select all items"
 msgstr "选择全部项目"
 
@@ -1014,20 +1024,20 @@ msgstr "选择全部项目"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:341
+#: src/Resources.vala:344
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:346
+#: src/Resources.vala:349
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:350
+#: src/Resources.vala:353
 msgid "%a %b %d, %Y"
 msgstr "%Y年%m月%d日%A"
 
@@ -1037,14 +1047,14 @@ msgstr "%Y年%m月%d日%A"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:355 src/Resources.vala:365
+#: src/Resources.vala:358 src/Resources.vala:368
 msgid "%a %b %d"
 msgstr "%m月%d日%A"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:360
+#: src/Resources.vala:363
 msgid "%d, %Y"
 msgstr "%Y年%m月%d日"
 
@@ -1188,14 +1198,14 @@ msgstr "切换开发者"
 msgid "Export Video"
 msgstr "导出视频"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:585
-#: src/Views/LibraryPhotoPage.vala:799
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:677
+#: src/Views/LibraryPhotoPage.vala:826
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "导出照片"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:428
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:443
 msgid "_Save"
 msgstr "保存"
 
@@ -1619,11 +1629,11 @@ msgstr "复制照片"
 msgid "_Import in Place"
 msgstr "导入到位置"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:720
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:747
 msgid "Remove From Library"
 msgstr "从媒体库移除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:720
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:747
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "正在从媒体库移除照片"
@@ -1718,7 +1728,7 @@ msgid "Add"
 msgstr "添加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:533
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:548
 msgid "Save"
 msgstr "保存"
 
@@ -1747,7 +1757,7 @@ msgid "Add rule"
 msgstr "添加规则"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:534
+#: src/Views/DirectPhotoPage.vala:549
 msgid "Cancel"
 msgstr "取消"
 
@@ -1978,8 +1988,8 @@ msgstr "设置"
 msgid "Sort _Events"
 msgstr "排列事件"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:180
-#: src/Views/LibraryPhotoPage.vala:537
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
+#: src/Views/LibraryPhotoPage.vala:561
 msgid "View Eve_nt for Photo"
 msgstr "查看照片所属事件"
 
@@ -1991,7 +2001,7 @@ msgid "New Smart Album…"
 msgstr "新建智能相册…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:111 src/Views/LibraryPhotoPage.vala:478
+#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
 msgid "Edit Photo In_fo"
 msgstr "编辑照片信息"
 
@@ -2406,8 +2416,8 @@ msgstr "标签"
 msgid "Photos cannot be exported to this directory."
 msgstr "照片不可以被导出到该文件夹。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:896
-#: src/Views/CollectionPage.vala:897 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:988
+#: src/Views/CollectionPage.vala:989 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "没有照片/视频"
@@ -2416,59 +2426,59 @@ msgstr "没有照片/视频"
 msgid "No photos/videos found"
 msgstr "没有找到照片或视频"
 
-#: src/Views/CollectionPage.vala:54 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
 msgid "Play a slideshow"
 msgstr "播放幻灯片"
 
-#: src/Views/CollectionPage.vala:150 src/Views/LibraryPhotoPage.vala:512
+#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
 msgid "_Developer"
 msgstr "开发人员"
 
-#: src/Views/CollectionPage.vala:195 src/Views/DirectPhotoPage.vala:163
-#: src/Views/LibraryPhotoPage.vala:552
+#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
+#: src/Views/LibraryPhotoPage.vala:576
 msgid "Other Actions"
 msgstr "其他操作"
 
-#: src/Views/CollectionPage.vala:583
+#: src/Views/CollectionPage.vala:675
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "导出照片/视频"
 
-#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
+#: src/Views/CollectionPage.vala:771 src/Views/CollectionPage.vala:787
 msgid "Rotating"
 msgstr "正在旋转"
 
-#: src/Views/CollectionPage.vala:679 src/Views/CollectionPage.vala:695
+#: src/Views/CollectionPage.vala:771 src/Views/CollectionPage.vala:787
 msgid "Undoing Rotate"
 msgstr "正在取消旋转"
 
-#: src/Views/CollectionPage.vala:704
+#: src/Views/CollectionPage.vala:796
 msgid "Flipping Horizontally"
 msgstr "正在水平翻转"
 
-#: src/Views/CollectionPage.vala:705
+#: src/Views/CollectionPage.vala:797
 msgid "Undoing Flip Horizontally"
 msgstr "正在取消水平翻转"
 
-#: src/Views/CollectionPage.vala:714
+#: src/Views/CollectionPage.vala:806
 msgid "Flipping Vertically"
 msgstr "正在垂直翻转"
 
-#: src/Views/CollectionPage.vala:715
+#: src/Views/CollectionPage.vala:807
 msgid "Undoing Flip Vertically"
 msgstr "正在取消垂直翻转"
 
-#: src/Views/DirectPhotoPage.vala:98
+#: src/Views/DirectPhotoPage.vala:102
 #, c-format
 msgid "%s does not exist."
 msgstr "%s 不存在。"
 
-#: src/Views/DirectPhotoPage.vala:100
+#: src/Views/DirectPhotoPage.vala:104
 #, c-format
 msgid "%s is not a file."
 msgstr "%s 不是一个文件。"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:106
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2477,48 +2487,64 @@ msgstr ""
 "%s 不支持文件类型\n"
 "%s。"
 
-#: src/Views/DirectPhotoPage.vala:428
+#: src/Views/DirectPhotoPage.vala:443
 msgid "_Save a Copy"
 msgstr "保存副本"
 
-#: src/Views/DirectPhotoPage.vala:431
+#: src/Views/DirectPhotoPage.vala:446
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "放弃对 %s 的更改？"
 
-#: src/Views/DirectPhotoPage.vala:438
+#: src/Views/DirectPhotoPage.vala:453
 msgid "Close _without Saving"
 msgstr "关闭但不保存"
 
-#: src/Views/DirectPhotoPage.vala:478
+#: src/Views/DirectPhotoPage.vala:493
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "保存 %s 时出错：%s"
 
-#: src/Views/DirectPhotoPage.vala:508 src/Views/DirectPhotoPage.vala:530
+#: src/Views/DirectPhotoPage.vala:523 src/Views/DirectPhotoPage.vala:545
 msgid "Save As"
 msgstr "另存为"
 
-#: src/Views/EditingHostPage.vala:137
+#: src/Views/EditingHostPage.vala:159
 msgid "Zoom to fit page"
 msgstr "缩放以适应页面"
 
-#: src/Views/EditingHostPage.vala:146
+#: src/Views/EditingHostPage.vala:168
 msgid "Zoom 1:1"
 msgstr "缩放 1:1"
 
-#: src/Views/EditingHostPage.vala:166
+#: src/Views/EditingHostPage.vala:188
 msgid "Previous photo"
 msgstr "上一张照片"
 
-#: src/Views/EditingHostPage.vala:170
+#: src/Views/EditingHostPage.vala:192
 msgid "Next photo"
 msgstr "下一张照片"
 
-#: src/Views/EditingHostPage.vala:1485
+#: src/Views/EditingHostPage.vala:1507
 #, c-format
 msgid "Photo source file missing: %s"
 msgstr "照片源文件丢失：%s"
+
+#: src/Views/EditingHostPage.vala:1698
+#, c-format
+msgid "Raw dimensions: %i x %i px"
+msgstr ""
+
+#: src/Views/EditingHostPage.vala:1701
+#, c-format
+msgid "Copied dimensions: %i x %i px"
+msgstr ""
+
+#: src/Views/EditingHostPage.vala:1718
+#, fuzzy
+#| msgid "No events found"
+msgid "No metadata found"
+msgstr "没有找到事件"
 
 #: src/Views/EventPage.vala:136
 msgid "All Events"
@@ -2745,7 +2771,7 @@ msgstr "已导入 %s"
 msgid "Last Import"
 msgstr "最近导入"
 
-#: src/Views/LibraryPhotoPage.vala:819
+#: src/Views/LibraryPhotoPage.vala:846
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "无法导出 %s：%s"
@@ -4519,9 +4545,6 @@ msgstr "百叶窗"
 
 #~ msgid "_Watch library directory for new files"
 #~ msgstr "监视媒体库文件夹中的新文件(_W)"
-
-#~ msgid "Metadata"
-#~ msgstr "元数据"
 
 #~ msgid "Write tags, titles, and other _metadata to photo files"
 #~ msgstr "写入标签、标题和其他元数据到照片文件(_M)"
