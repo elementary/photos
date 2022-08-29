@@ -726,6 +726,26 @@ public abstract class Page : Gtk.ScrolledWindow {
         return on_app_key_released (event);
     }
 
+    /**
+     * Returns true if the code parameter matches the keycode of the keyval parameter for
+     * any keyboard group or level (in order to allow for non-QWERTY keyboards)
+     */
+#if VALA_0_42
+    protected bool match_keycode (uint keyval, uint code) {
+#else
+    protected bool match_keycode (int keyval, uint code) {
+#endif
+        Gdk.KeymapKey [] keys;
+        Gdk.Keymap keymap = Gdk.Keymap.get_default ();
+        if (keymap.get_entries_for_keyval (keyval, out keys)) {
+            foreach (var key in keys) {
+                if (code == key.keycode)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public bool notify_app_focus_in (Gdk.EventFocus event) {
         update_modifiers ();
 
