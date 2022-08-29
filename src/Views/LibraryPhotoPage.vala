@@ -668,7 +668,9 @@ public class LibraryPhotoPage : EditingHostPage {
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
             var files_item_icon = new Gtk.Image.from_gicon (
                 files_appinfo.get_icon (), Gtk.IconSize.MENU
-            );
+            ) {
+                pixel_size = 16
+            };
             var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             menuitem_grid.add (files_item_icon);
             menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
@@ -689,7 +691,9 @@ public class LibraryPhotoPage : EditingHostPage {
                 var menu_item_icon = new Gtk.Image.from_gicon (
                     app.get_icon (),
                     Gtk.IconSize.MENU
-                );
+                ) {
+                    pixel_size = 16
+                };
                 var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
                 menuitem_grid.add (menu_item_icon);
                 menuitem_grid.add (new Gtk.Label (app.get_name ()));
@@ -707,6 +711,7 @@ public class LibraryPhotoPage : EditingHostPage {
                 n_items++;
             }
         }
+
         menu.show_all ();
         return n_items;
     }
