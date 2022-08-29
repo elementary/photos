@@ -48,9 +48,7 @@ public abstract class EditingTools.EditingTool : Object {
     public signal void aborted ();
 
     protected EditingTool (string name) {
-        Object (
-            name: name
-        );
+        Object (name: name);
     }
 
     // base.activate () should always be called by an overriding member to ensure the base class

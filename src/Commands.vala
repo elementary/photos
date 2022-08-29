@@ -261,23 +261,26 @@ public abstract class GenericPhotoTransformationCommand : SingleDataSourceComman
     }
 
     public override bool compress (Command command) {
-        if (!can_compress (command))
+        if (!can_compress (command)) {
             return false;
+        }
 
-        GenericPhotoTransformationCommand generic = command as GenericPhotoTransformationCommand;
-        if (generic == null)
+        if (command is GenericPhotoTransformationCommand) {
+            var generic = (GenericPhotoTransformationCommand)command;
+            if (generic.source != source) {
+                return false;
+            }
+
+            // execute this new (and successive) command
+            generic.execute ();
+
+            // save it's new transformation state as ours
+            transformed_state = generic.transformed_state;
+
+            return true;
+        } else {
             return false;
-
-        if (generic.source != source)
-            return false;
-
-        // execute this new (and successive) command
-        generic.execute ();
-
-        // save it's new transformation state as ours
-        transformed_state = generic.transformed_state;
-
-        return true;
+        }
     }
 
     private void on_state_broken () {
@@ -728,16 +731,18 @@ public class RevertSingleCommand : GenericPhotoTransformationCommand {
     }
 
     public override bool compress (Command command) {
-        RevertSingleCommand revert_single_command = command as RevertSingleCommand;
-        if (revert_single_command == null)
-            return false;
+        if (command is RevertSingleCommand) {
+            var revert_single_command = (RevertSingleCommand)command;
+            if (revert_single_command.source != source) {
+                return false;
+            }
 
-        if (revert_single_command.source != source)
+            // no need to execute anything; multiple successive reverts on the same photo are as good
+            // as one
+            return true;
+        } else {
             return false;
-
-        // no need to execute anything; multiple successive reverts on the same photo are as good
-        // as one
-        return true;
+        }
     }
 }
 
@@ -773,15 +778,17 @@ public class EnhanceSingleCommand : GenericPhotoTransformationCommand {
     }
 
     public override bool compress (Command command) {
-        EnhanceSingleCommand enhance_single_command = command as EnhanceSingleCommand;
-        if (enhance_single_command == null)
-            return false;
+        if (command is EnhanceSingleCommand) {
+            var enhance_single_command = (EnhanceSingleCommand)command;
+            if (enhance_single_command.source != source) {
+                return false;
+            }
 
-        if (enhance_single_command.source != source)
+            // multiple successive enhances on the same photo are as good as a single
+            return true;
+        } else {
             return false;
-
-        // multiple successive enhances on the same photo are as good as a single
-        return true;
+        }
     }
 }
 
@@ -809,15 +816,17 @@ public class UnEnhanceSingleCommand : GenericPhotoTransformationCommand {
     }
 
     public override bool compress (Command command) {
-        UnEnhanceSingleCommand unenhance_single_command = command as UnEnhanceSingleCommand;
-        if (unenhance_single_command == null)
-            return false;
+        if (command is UnEnhanceSingleCommand) {
+            var unenhance_single_command = (UnEnhanceSingleCommand)command;
+            if (unenhance_single_command.source != source) {
+                return false;
+            }
 
-        if (unenhance_single_command.source != source)
+            // multiple successive enhances on the same photo are as good as a single
+            return true;
+        } else {
             return false;
-
-        // multiple successive enhances on the same photo are as good as a single
-        return true;
+        }
     }
 }
 

@@ -131,6 +131,8 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ActionEntry raw_developer = { "RawDeveloper", null, null, null, null, null };
         Gtk.ActionEntry open_with = { "OpenWith", null, null, null, null, null };
         Gtk.ActionEntry open_with_raw = { "OpenWithRaw", null, null, null, null, null };
+        Gtk.ActionEntry copy_image = { "CopyImage", null, null, "<Ctrl>C", null, on_copy_image };
+        Gtk.ActionEntry copy_metadata = { "CopyMetadata", null, null, "<Ctrl><Shift>C", null, on_copy_metadata };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
         actions += export;
@@ -163,6 +165,8 @@ public class LibraryPhotoPage : EditingHostPage {
         actions += raw_developer;
         actions += open_with;
         actions += open_with_raw;
+        actions += copy_image;
+        actions += copy_metadata;
 
         return actions;
     }
@@ -443,6 +447,18 @@ public class LibraryPhotoPage : EditingHostPage {
             activate_action ("Flag");
             break;
 
+        case "c":
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                if ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0) {
+                    activate_action ("CopyMetadata");
+                } else {
+                    activate_action ("CopyImage");
+                }
+            } else {
+                handled = false;
+            }
+            break;
+
         default:
             handled = false;
             break;
@@ -528,6 +544,14 @@ public class LibraryPhotoPage : EditingHostPage {
 
             open_menu = new Gtk.Menu ();
 
+            var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_LABEL);
+            var copy_image_action = get_action ("CopyImage");
+            copy_image_menu_item.activate.connect (() => copy_image_action.activate ());
+
+            var copy_metadata_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_METADATA_LABEL);
+            var copy_metadata_action = get_action ("CopyMetadata");
+            copy_metadata_menu_item.activate.connect (() => copy_metadata_action.activate ());
+
             var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
             open_menu_item.set_submenu (open_menu);
 
@@ -571,7 +595,10 @@ public class LibraryPhotoPage : EditingHostPage {
 
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
+            item_context_menu.add (copy_image_menu_item);
+            item_context_menu.add (copy_metadata_menu_item);
             item_context_menu.add (open_menu_item);
+            item_context_menu.add (new Gtk.SeparatorMenuItem ());
             item_context_menu.add (open_raw_menu_item);
             item_context_menu.add (contractor_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());

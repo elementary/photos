@@ -28,6 +28,24 @@ public abstract class EditingHostPage : SinglePhotoPage {
     public const int PIXBUF_CACHE_COUNT = 5;
     public const int ORIGINAL_PIXBUF_CACHE_COUNT = 5;
 
+    private enum TargetType {
+        GNOME_COPIED_FILES,
+        IMAGE,
+        TEXT_URI_LIST,
+        TEXT
+    }
+
+    private const Gtk.TargetEntry [] COPY_TARGETS = {
+        {"image/png", Gtk.TargetFlags.OTHER_APP, TargetType.IMAGE}, // First parameter name is critical
+        {"x-special/gnome-copied-files", Gtk.TargetFlags.OTHER_APP, TargetType.GNOME_COPIED_FILES},
+        {"text/uri-list", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT_URI_LIST},
+        {"UTF8_STRING", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT} // First parameter name is critical
+    };
+
+    private static Photo? copied_photo = null;
+    private static Scaling? copied_scaling = null;
+    private static Gtk.Clipboard? clipboard = null;
+
     private class EditingHostCanvas : EditingTools.PhotoCanvas {
         private EditingHostPage host_page;
 
@@ -82,6 +100,10 @@ public abstract class EditingHostPage : SinglePhotoPage {
             scale_up_to_viewport: false,
             sources: sources
         );
+    }
+
+    static construct {
+        clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (), Gdk.SELECTION_CLIPBOARD);
     }
 
     construct {
@@ -1605,6 +1627,134 @@ public abstract class EditingHostPage : SinglePhotoPage {
                     time_shift, modify_originals);
             get_command_manager ().execute (command);
         }
+    }
+
+    // Default behaviour for "Copy" action.
+    public static void get_image_data_for_clipboard (Gtk.Clipboard cb,
+                                                     Gtk.SelectionData sd,
+                                                     uint info,
+                                                     void* parent) {
+
+        if (copied_photo == null || copied_scaling == null) { // Should not happen
+            critical ("Attempt to copy image but data for clipboard is null");
+            return;
+        }
+
+        switch (info) {
+            case TargetType.GNOME_COPIED_FILES: /* Pasting into a file handler */
+                var sb = new StringBuilder ("copy\n"); // Only support copying for now
+                // Note the original file will be copied (may not include transformations);
+                sb.append (Uri.escape_string (copied_photo.get_file ().get_uri (), Uri.RESERVED_CHARS_ALLOWED_IN_PATH));
+                sb.append ("\r\n"); // "\r" needed for pasting into Filezilla and maybe other programs
+                sd.@set (sd.get_target (), 8, sb.data);
+                break;
+            case TargetType.IMAGE:
+                // The actual pixbuf displayed will be copied
+                try {
+                    Gdk.Pixbuf? pixbuf = copied_photo.get_pixbuf_with_options (copied_scaling);
+                    if (pixbuf != null) {
+                        sd.set_pixbuf (pixbuf); // NB Use pixbuf for PNG image type
+                    }
+                } catch (Error e) {
+                    warning ("Unable to get pixbuf when copying image");
+                    return;
+                }
+
+                break;
+            case TargetType.TEXT_URI_LIST:
+                sd.set_uris ({copied_photo.get_file ().get_uri ()});
+                break;
+            case TargetType.TEXT:
+                sd.set_text (copied_photo.get_file ().get_uri (), -1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void get_metadata_for_clipboard (Gtk.Clipboard cb,
+                                                     Gtk.SelectionData sd,
+                                                     uint info,
+                                                     void* parent) {
+        if (copied_photo == null || copied_scaling == null) { // Should not happen
+            critical ("Attempt to copy image but data for clipboard is null");
+            return;
+        }
+
+        switch (info) {
+            case TargetType.TEXT:
+                var sb = new StringBuilder (copied_photo.get_basename ());
+                var title = copied_photo.get_title ();
+                if (title != null) {
+                    sb.append (copied_photo.get_title () + "\n");
+                }
+
+                var comment = copied_photo.get_comment ();
+                if (comment != null) {
+                    sb.append (comment + "\n");
+                }
+
+                var dim = copied_photo.get_raw_dimensions ();
+                sb.append (_("Raw dimensions: %i x %i px").printf (dim.width, dim.height) + "\n");
+                try {
+                    Gdk.Pixbuf? pixbuf = copied_photo.get_pixbuf_with_options (copied_scaling);
+                    sb.append (_("Copied dimensions: %i x %i px").printf (pixbuf.get_width (), pixbuf.get_height ()) + "\n\n");
+                } catch (Error e) {
+                    warning ("Unable to get pixbuf dimensions when copying image metadata");
+                }
+
+                var metadata = copied_photo.get_metadata ();
+                var tags = metadata.get_all_tags ();
+                if (tags != null) {
+                    var ts = new Gee.TreeSet<string> ();
+                    foreach (var s in tags) {
+                        ts.add ("%s: %s".printf (metadata.get_tag_label (s), metadata.get_string_interpreted (s)));
+                    }
+
+                    foreach (var s in ts) {
+                        sb.append (s + "\n");
+                    }
+                } else {
+                    sb.append (_("No metadata found"));
+                }
+
+                sd.set_text (sb.str, (int)sb.len - 1); // Do not want trailing new line when pasting text
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void clear_data_for_clipboard (Gtk.Clipboard cb, void* parent) {
+        copied_photo = null;
+        copied_scaling = null;
+    }
+
+    public void on_copy_image () {
+        clipboard.clear ();
+
+        copied_photo = get_photo ();
+        if (copied_photo == null) {
+            return;
+        }
+
+        copied_scaling = get_canvas_scaling ();
+        clipboard.set_with_owner (COPY_TARGETS, get_image_data_for_clipboard, clear_data_for_clipboard, this);
+    }
+
+    public void on_copy_metadata () {
+        clipboard.clear ();
+
+        copied_photo = get_photo ();
+        if (copied_photo == null) {
+            return;
+        }
+
+        copied_scaling = get_canvas_scaling ();
+        // Only offer plain text for metadata
+        clipboard.set_with_owner ({{"UTF8_STRING", Gtk.TargetFlags.OTHER_APP, TargetType.TEXT}},
+                                  get_metadata_for_clipboard, clear_data_for_clipboard, this
+        );
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {

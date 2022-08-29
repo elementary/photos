@@ -70,6 +70,8 @@ public class DirectPhotoPage : EditingHostPage {
         Gtk.ActionEntry best_fit = { "ZoomFit", null, null, "<Ctrl>0", null, snap_zoom_to_min };
         Gtk.ActionEntry actual_size = { "Zoom100", null, null, "<Ctrl>1", null, snap_zoom_to_isomorphic };
         Gtk.ActionEntry max_size = { "Zoom200", null, null, "<Ctrl>2", null, snap_zoom_to_max };
+        Gtk.ActionEntry copy_image = { "CopyImage", null, null, "<Ctrl>C", null, on_copy_image };
+        Gtk.ActionEntry copy_metadata = { "CopyMetadata", null, null, "<Ctrl><Shift>C", null, on_copy_metadata };
 
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
         actions += save;
@@ -89,6 +91,8 @@ public class DirectPhotoPage : EditingHostPage {
         actions += best_fit;
         actions += actual_size;
         actions += max_size;
+        actions += copy_image;
+        actions += copy_metadata;
 
         return actions;
     }
@@ -146,6 +150,14 @@ public class DirectPhotoPage : EditingHostPage {
             if (fullscreen == false) {
                 open_menu = new Gtk.Menu ();
 
+                var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_LABEL);
+                var copy_image_action = get_action ("CopyImage");
+                copy_image_menu_item.activate.connect (() => copy_image_action.activate ());
+
+                var copy_metadata_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_METADATA_LABEL);
+                var copy_metadata_action = get_action ("CopyMetadata");
+                copy_metadata_menu_item.activate.connect (() => copy_metadata_action.activate ());
+
                 var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
                 open_menu_item.set_submenu (open_menu);
 
@@ -165,6 +177,9 @@ public class DirectPhotoPage : EditingHostPage {
                 contractor_menu.add (print_menu_item);
                 contractor_menu_item.set_submenu (contractor_menu);
 
+                context_menu.add (new Gtk.SeparatorMenuItem ());
+                context_menu.add (copy_image_menu_item);
+                context_menu.add (copy_metadata_menu_item);
                 context_menu.add (new Gtk.SeparatorMenuItem ());
                 context_menu.add (open_menu_item);
                 context_menu.add (open_raw_menu_item);
@@ -563,25 +578,6 @@ public class DirectPhotoPage : EditingHostPage {
         do_save_as ();
     }
 
-    /**
-     * Returns true if the code parameter matches the keycode of the keyval parameter for
-     * any keyboard group or level (in order to allow for non-QWERTY keyboards)
-     */
-#if VALA_0_42
-    protected bool match_keycode (uint keyval, uint code) {
-#else
-    protected bool match_keycode (int keyval, uint code) {
-#endif
-        Gdk.KeymapKey [] keys;
-        Gdk.Keymap keymap = Gdk.Keymap.get_default ();
-        if (keymap.get_entries_for_keyval (keyval, out keys)) {
-            foreach (var key in keys) {
-                if (code == key.keycode)
-                    return true;
-            }
-        }
-        return false;
-    }
 
     protected override bool on_app_key_pressed (Gdk.EventKey event) {
         uint keycode = event.hardware_keycode;
@@ -593,6 +589,18 @@ public class DirectPhotoPage : EditingHostPage {
                 } else {
                     on_save ();
                 }
+                return true;
+            }
+        }
+
+        if (match_keycode (Gdk.Key.c, keycode)) {
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                if ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0) {
+                    activate_action ("CopyMetadata");
+                } else {
+                    activate_action ("CopyImage");
+                }
+
                 return true;
             }
         }
