@@ -412,7 +412,6 @@ public abstract class CollectionPage : MediaPage {
                                                      Gtk.SelectionData sd,
                                                      uint info,
                                                      void* parent) {
-warning ("collection get image data");
         if (copied_photos == null) { // Should not happen
             critical ("Attempt to copy image but data for clipboard is null");
             return;
@@ -449,7 +448,6 @@ warning ("collection get image data");
     }
 
     private void on_copy_images () {
-warning ("on copy images");
         clipboard.clear ();
 
         foreach (DataSource source in get_view ().get_selected_sources ()) {
