@@ -612,24 +612,26 @@ public class SearchConditionModified : SearchCondition {
     // Determines whether the source is included.
     public override bool predicate (MediaSource source) {
         // check against state and the given search context.
-        Photo? photo = source as Photo;
-        if (photo == null)
-            return false;
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
 
-        bool match;
-        if (state == State.MODIFIED)
-            match = photo.has_transformations () || photo.has_editable ();
-        else if (state == State.INTERNAL_CHANGES)
-            match = photo.has_transformations ();
-        else if (state == State.EXTERNAL_CHANGES)
-            match = photo.has_editable ();
-        else
-            error ("unrecognized modified search state");
+            bool match;
+            if (state == State.MODIFIED)
+                match = photo.has_transformations () || photo.has_editable ();
+            else if (state == State.INTERNAL_CHANGES)
+                match = photo.has_transformations ();
+            else if (state == State.EXTERNAL_CHANGES)
+                match = photo.has_editable ();
+            else
+                error ("unrecognized modified search state");
 
-        if (match)
-            return context == Context.HAS;
-        else
-            return context == Context.HAS_NO;
+            if (match)
+                return context == Context.HAS;
+            else
+                return context == Context.HAS_NO;
+        }
+
+        return false;
     }
 }
 

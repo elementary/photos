@@ -104,9 +104,15 @@ public abstract class Page : Gtk.ScrolledWindow {
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
             var selected = get_view ().get_selected_sources ();
-            foreach (var item in selected)
-                files += (((Photo)item).get_file ());
-            contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
+            foreach (var item in selected) {
+                if (item is Photo) {
+                    files += (((Photo)item).get_file ());
+                }
+            }
+
+            if (files.length > 0) {
+                contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
+            }
         } catch (Error e) {
             warning (e.message);
         }
@@ -116,14 +122,17 @@ public abstract class Page : Gtk.ScrolledWindow {
         });
 
         //and replace it with menu_item from contractor
-        for (int i = 0; i < contracts.size; i++) {
-            var contract = contracts.get (i);
-            Gtk.MenuItem menu_item;
+        if (contracts != null) {
+            for (int i = 0; i < contracts.size; i++) {
+                var contract = contracts.get (i);
+                Gtk.MenuItem menu_item;
 
-            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
-            menu.append (menu_item);
-            contractor_menu_items.append (menu_item);
+                menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
+                menu.append (menu_item);
+                contractor_menu_items.append (menu_item);
+            }
         }
+
         menu.show_all ();
     }
 

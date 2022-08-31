@@ -315,7 +315,7 @@ public class PixbufCache : Object {
 
     private void on_sources_removed (Gee.Iterable<DataObject> removed) {
         foreach (DataObject object in removed) {
-            Photo photo = object as Photo;
+            var photo = (Photo)object;
             assert (photo != null);
 
             decache (photo);

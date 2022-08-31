@@ -1046,33 +1046,36 @@ public class BatchImport : Object {
                 job.ready.batch_result.result = Video.import_create (job.ready.video_import_params,
                                                 out source);
             } else {
-                job.ready.batch_result.result = LibraryPhoto.import_create (job.ready.photo_import_params,
-                                                out source);
-                Photo photo = source as Photo;
-
-                if (job.ready.photo_import_params.final_associated_file != null) {
-                    // Associate RAW+JPEG in database.
-                    BackingPhotoRow bpr = new BackingPhotoRow ();
-                    bpr.file_format = PhotoFileFormat.JFIF;
-                    bpr.filepath = job.ready.photo_import_params.final_associated_file.get_path ();
-                    debug ("Associating %s with sibling %s", ((Photo) source).get_file ().get_path (),
-                           bpr.filepath);
-                    try {
-                        ((Photo) source).add_backing_photo_for_development (RawDeveloper.CAMERA, bpr);
-                    } catch (Error e) {
-                        warning ("Unable to associate JPEG with RAW. File: %s Error: %s",
-                                 bpr.filepath, e.message);
+                job.ready.batch_result.result = LibraryPhoto.import_create (
+                    job.ready.photo_import_params, out source
+                );
+                // Photo? photo = null;
+                if (source != null && source is Photo) {
+                    var photo = (Photo)source;
+                    if (job.ready.photo_import_params.final_associated_file != null) {
+                        // Associate RAW+JPEG in database.
+                        BackingPhotoRow bpr = new BackingPhotoRow ();
+                        bpr.file_format = PhotoFileFormat.JFIF;
+                        bpr.filepath = job.ready.photo_import_params.final_associated_file.get_path ();
+                        debug ("Associating %s with sibling %s", photo.get_file ().get_path (),
+                               bpr.filepath);
+                        try {
+                            photo.add_backing_photo_for_development (RawDeveloper.CAMERA, bpr);
+                        } catch (Error e) {
+                            warning ("Unable to associate JPEG with RAW. File: %s Error: %s",
+                                     bpr.filepath, e.message);
+                        }
                     }
-                }
 
-                // Set the default developer for raw photos
-                if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
-                    var d = RawDeveloper.from_string (file_settings.get_string ("raw-developer-default"));
-                    if (d == RawDeveloper.CAMERA && !photo.is_raw_developer_available (d))
-                        d = RawDeveloper.EMBEDDED;
+                    // Set the default developer for raw photos
+                    if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
+                        var d = RawDeveloper.from_string (file_settings.get_string ("raw-developer-default"));
+                        if (d == RawDeveloper.CAMERA && !photo.is_raw_developer_available (d))
+                            d = RawDeveloper.EMBEDDED;
 
-                    photo.set_default_raw_developer (d);
-                    photo.set_raw_developer (d);
+                        photo.set_default_raw_developer (d);
+                        photo.set_raw_developer (d);
+                    }
                 }
             }
 

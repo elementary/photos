@@ -42,8 +42,12 @@ public class Library.PhotosPage : CollectionPage {
         }
 
         public override bool include_in_view (DataSource source) {
+            if (!(source is Photo)) {
+                return false;
+            }
+
             Photo photo = (Photo) source;
-            return source is Photo && photo != null && photo.get_master_file_format () != PhotoFileFormat.RAW;
+            return photo != null && photo.get_master_file_format () != PhotoFileFormat.RAW;
         }
     }
 

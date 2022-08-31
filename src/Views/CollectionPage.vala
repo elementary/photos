@@ -255,14 +255,22 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.show_all ();
         }
 
-        Photo? photo = (get_view ().get_selected_at (0).source as Photo);
-        if (photo != null) {
+        int n_items = 0;
+        var source = get_view ().get_selected_at (0).source;
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
             unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
-            populate_external_app_menu (open_menu, photo_file_format, false);
-
+            n_items = populate_external_app_menu (open_menu, photo_file_format.get_mime_types (), false);
+            open_menu.sensitive = n_items > 0;
             if (photo_file_format == PhotoFileFormat.RAW) {
-                populate_external_app_menu (open_raw_menu, PhotoFileFormat.RAW, true);
+                n_items = populate_external_app_menu (open_raw_menu, {}, true);
+                open_raw_menu.sensitive = n_items > 0;
             }
+        } else if (source != null && source is Video) {
+            var video = (Video)source;
+            var mime_type = ContentType.guess (video.get_master_file ().get_basename (), null, null);
+            n_items = populate_external_app_menu (open_menu, {mime_type}, false);
+            open_menu.sensitive = n_items > 0;
         }
 
         open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
@@ -324,17 +332,13 @@ public abstract class CollectionPage : MediaPage {
         action.sensitive = sensitive;
     }
 
-    private void populate_external_app_menu (Gtk.Menu menu, PhotoFileFormat file_format, bool raw) {
+    private int populate_external_app_menu (Gtk.Menu menu, string[] mime_types, bool raw) {
         SortedList<AppInfo> external_apps;
-        string[] mime_types;
-
         foreach (Gtk.Widget item in menu.get_children ()) {
             menu.remove (item);
         }
 
-        // get list of all applications for the given mime types
-        mime_types = file_format.get_mime_types ();
-
+        var n_items = 0;
         if (!raw) {
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
 
@@ -353,45 +357,56 @@ public abstract class CollectionPage : MediaPage {
             jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
 
             menu.add (jump_menu_item);
+            n_items++;
         }
 
-        assert (mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+        if (mime_types.length > 0) {
+            external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
 
-        foreach (AppInfo app in external_apps) {
-            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
-            menu_item_icon.pixel_size = 16;
+            foreach (AppInfo app in external_apps) {
+                var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
+                menu_item_icon.pixel_size = 16;
 
-            var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (menu_item_icon);
-            menuitem_grid.add (new Gtk.Label (app.get_name ()));
+                var menuitem_grid = new Gtk.Grid ();
+                menuitem_grid.add (menu_item_icon);
+                menuitem_grid.add (new Gtk.Label (app.get_name ()));
 
-            var item_app = new Gtk.MenuItem ();
-            item_app.add (menuitem_grid);
+                var item_app = new Gtk.MenuItem ();
+                item_app.add (menuitem_grid);
 
-            item_app.activate.connect (() => {
-                if (raw)
-                    on_open_with_raw (app.get_commandline ());
-                else
-                    on_open_with (app.get_commandline ());
-            });
-            menu.add (item_app);
+                item_app.activate.connect (() => {
+                    if (raw)
+                        on_open_with_raw (app.get_commandline ());
+                    else
+                        on_open_with (app.get_commandline ());
+                });
+                menu.add (item_app);
+                n_items++;
+            }
         }
         menu.show_all ();
+        return n_items;
     }
 
     private void on_open_with (string app) {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo? photo = get_view ().get_selected_at (0).source as Photo;
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            photo.open_with_external_editor (app);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            open_external_editor_error_dialog (err, photo);
+        var source = get_view ().get_selected_at (0).source;
+        if (source != null && source is MediaSource) {
+            try {
+                AppWindow.get_instance ().set_busy_cursor ();
+                if (source is Photo) {
+                    var photo = (Photo)source;
+                    photo.open_with_external_editor (app);
+                } else if (source is Video) {
+                    open_video_with (AppInfo.create_from_commandline (app, null, AppInfoCreateFlags.NONE));
+                }
+            } catch (Error err) {
+                open_external_editor_error_dialog (err, (MediaSource)source);
+            } finally {
+                 AppWindow.get_instance ().set_normal_cursor ();
+            }
         }
     }
 
@@ -456,17 +471,21 @@ public abstract class CollectionPage : MediaPage {
         if (get_view ().get_selected_count () != 1)
             return;
 
-        Photo photo = (Photo) get_view ().get_selected_at (0).source;
-        if (photo.get_master_file_format () != PhotoFileFormat.RAW)
-            return;
+        DataSource? source = get_view ().get_selected_at (0).source;
+        if (source != null && source is Photo) {
+            var photo = (Photo)source;
+            if (photo == null || photo.get_master_file_format () != PhotoFileFormat.RAW) {
+                return;
+            }
 
-        try {
             AppWindow.get_instance ().set_busy_cursor ();
-            photo.open_with_raw_external_editor (app);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            AppWindow.error_message (Resources.launch_editor_failed (err));
+            try {
+                photo.open_with_raw_external_editor (app);
+            } catch (Error err) {
+                AppWindow.error_message (Resources.launch_editor_failed (err));
+            } finally {
+                AppWindow.get_instance ().set_normal_cursor ();
+            }
         }
     }
 
@@ -559,13 +578,15 @@ public abstract class CollectionPage : MediaPage {
     private void update_enhance_toggled () {
         bool toggled = false;
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.source as Photo;
-            if (photo != null && !photo.is_enhanced ()) {
-                toggled = false;
-                break;
+            if (view.source != null && view.source is Photo) {
+                var photo = (Photo)(view.source);
+                if (!photo.is_enhanced ()) {
+                    toggled = false;
+                    break;
+                } else {
+                    toggled = true;
+                }
             }
-            else if (photo != null)
-                toggled = true;
         }
 
         enhance_button.clicked.disconnect (on_enhance);
@@ -825,8 +846,10 @@ public abstract class CollectionPage : MediaPage {
     }
 
     public void on_copy_adjustments () {
-        if (get_view ().get_selected_count () != 1)
+        if (get_view ().get_selected_count () != 1 || !(get_view ().get_selected_at (0).source is Photo)) {
             return;
+        }
+
         Photo photo = (Photo) get_view ().get_selected_at (0).source;
         PixelTransformationBundle.set_copied_color_adjustments (photo.get_color_adjustments ());
         set_action_sensitive ("PasteColorAdjustments", true);
@@ -853,11 +876,15 @@ public abstract class CollectionPage : MediaPage {
         Gee.ArrayList<DataView> unenhanced_list = new Gee.ArrayList<DataView> ();
         Gee.ArrayList<DataView> enhanced_list = new Gee.ArrayList<DataView> ();
         foreach (DataView view in get_view ().get_selected ()) {
-            Photo photo = view.source as Photo;
-            if (photo != null && !photo.is_enhanced ())
-                unenhanced_list.add (view);
-            else if (photo != null)
-                enhanced_list.add (view);
+            if (view.source != null && view.source is Photo) {
+                var photo = (Photo)view.source;
+
+                if (!photo.is_enhanced ()) {
+                    unenhanced_list.add (view);
+                } else {
+                    enhanced_list.add (view);
+                }
+            }
         }
 
         if (enhanced_list.size == 0 && unenhanced_list.size == 0)
@@ -873,8 +900,10 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.source as Photo;
-                photo.set_enhanced (false);
+                if (view.source != null && view.source is Photo) {
+                    var photo = (Photo)view.source;
+                    photo.set_enhanced (false);
+                }
             }
         } else {
             // Just undo if last on stack was unenhance
@@ -886,8 +915,10 @@ public abstract class CollectionPage : MediaPage {
                 get_command_manager ().execute (command);
             }
             foreach (DataView view in enhanced_list) {
-                Photo photo = view.source as Photo;
-                photo.set_enhanced (true);
+                if (view.source != null && view.source is Photo) {
+                    var photo = (Photo)view.source;
+                    photo.set_enhanced (true);
+                }
             }
         }
         update_enhance_toggled ();

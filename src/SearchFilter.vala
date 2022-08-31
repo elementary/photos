@@ -112,7 +112,7 @@ public abstract class DefaultSearchViewFilter : SearchViewFilter {
                 if (!show_media_video)
                     return false;
             } else if (source is Photo) {
-                Photo photo = source as Photo;
+                var photo = (Photo)source;
                 if (photo.get_master_file_format () == PhotoFileFormat.RAW) {
                     if (photo.is_raw_developer_available (RawDeveloper.CAMERA)) {
                         if (!show_media_photos && !show_media_raw)
