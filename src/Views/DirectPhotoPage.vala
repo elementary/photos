@@ -184,21 +184,29 @@ public class DirectPhotoPage : EditingHostPage {
                 context_menu.add (open_menu_item);
                 context_menu.add (open_raw_menu_item);
                 context_menu.add (contractor_menu_item);
+
+                int n_items = 0;
+                var source = get_view ().get_selected_at (0).source;
+                if (source != null && source is Photo) {
+                    unowned var photo_file_format = ((Photo)source).get_master_file_format ();
+                    n_items = populate_external_app_menu (
+                        open_menu,
+                        photo_file_format.get_mime_types (),
+                        false
+                    );
+                    open_menu_item.sensitive = n_items > 0;
+                    if (photo_file_format == PhotoFileFormat.RAW) {
+                        n_items = populate_external_app_menu (open_raw_menu, {}, true);
+                        open_raw_menu_item.sensitive = n_items > 0;
+                    }
+                }
+
+                open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
             }
 
             context_menu.show_all ();
 
-            Photo? photo = (get_view ().get_selected_at (0).source as Photo);
-            if (photo != null) {
-                unowned PhotoFileFormat photo_file_format = photo.get_master_file_format ();
-                populate_external_app_menu (open_menu, photo_file_format, false);
 
-                if (photo_file_format == PhotoFileFormat.RAW) {
-                    populate_external_app_menu (open_raw_menu, PhotoFileFormat.RAW, true);
-                }
-            }
-
-            open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
         }
 
         populate_contractor_menu (contractor_menu);
@@ -207,24 +215,23 @@ public class DirectPhotoPage : EditingHostPage {
         return true;
     }
 
-    private void populate_external_app_menu (Gtk.Menu menu, PhotoFileFormat file_format, bool raw) {
+    private int populate_external_app_menu (Gtk.Menu menu, string[] mime_types, bool raw) {
         SortedList<AppInfo> external_apps;
-        string[] mime_types;
+        int n_items = 0;
 
-        foreach (weak Gtk.Widget item in menu.get_children ()) {
+        foreach (Gtk.Widget item in menu.get_children ()) {
             menu.remove (item);
         }
 
-        // get list of all applications for the given mime types
-        mime_types = file_format.get_mime_types ();
-
         if (!raw) {
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+            var files_item_icon = new Gtk.Image.from_gicon (
+                files_appinfo.get_icon (), Gtk.IconSize.MENU
+            ) {
+                pixel_size = 16
+            };
 
-            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
-            files_item_icon.pixel_size = 16;
-
-            var menuitem_grid = new Gtk.Grid ();
+            var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             menuitem_grid.add (files_item_icon);
             menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
 
@@ -238,30 +245,35 @@ public class DirectPhotoPage : EditingHostPage {
             menu.add (jump_menu_item);
         }
 
-        assert (mime_types.length != 0);
-        external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+        if (mime_types.length > 0) {
+            external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
+            foreach (AppInfo app in external_apps) {
+                var menu_item_icon = new Gtk.Image.from_gicon (
+                    app.get_icon (),
+                    Gtk.IconSize.MENU
+                ) {
+                    pixel_size = 16
+                };
+                var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                menuitem_grid.add (menu_item_icon);
+                menuitem_grid.add (new Gtk.Label (app.get_name ()));
 
-        foreach (AppInfo app in external_apps) {
-            var menu_item_icon = new Gtk.Image.from_gicon (app.get_icon (), Gtk.IconSize.MENU);
-            menu_item_icon.pixel_size = 16;
+                var item_app = new Gtk.MenuItem ();
+                item_app.add (menuitem_grid);
 
-            var menuitem_grid = new Gtk.Grid ();
-            menuitem_grid.add (menu_item_icon);
-            menuitem_grid.add (new Gtk.Label (app.get_name ()));
-
-            var item_app = new Gtk.MenuItem ();
-            item_app.add (menuitem_grid);
-
-            item_app.activate.connect (() => {
-                if (raw) {
-                    on_open_with_raw (app);
-                } else {
-                    on_open_with (app);
-                }
-            });
-            menu.add (item_app);
+                item_app.activate.connect (() => {
+                    if (raw)
+                        on_open_with_raw (app);
+                    else
+                        on_open_with (app);
+                });
+                menu.add (item_app);
+                n_items++;
+            }
         }
+
         menu.show_all ();
+        return n_items;
     }
 
     private void on_open_with (AppInfo app) {
