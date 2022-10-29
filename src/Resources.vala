@@ -65,9 +65,9 @@ public const string ICON_SELECTION_ADD = "selection-add";
 public const string ICON_SELECTION_REMOVE = "selection-remove";
 
 public const string ICON_CAMERAS = "camera-photo";
-public const string ICON_EVENTS = "office-calendar";
-public const string ICON_ONE_EVENT = "office-calendar";
-public const string ICON_NO_EVENT = "office-calendar";
+public const string ICON_EVENTS = "x-office-calendar";
+public const string ICON_ONE_EVENT = "x-office-calendar";
+public const string ICON_NO_EVENT = "x-office-calendar";
 public const string ICON_ONE_TAG = "folder-tag";
 public const string ICON_TAGS = "folder-tag";
 public const string ICON_FOLDER_CLOSED = "folder";
