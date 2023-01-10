@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-29 16:56+0000\n"
+"POT-Creation-Date: 2023-01-10 19:52+0000\n"
 "PO-Revision-Date: 2022-08-29 13:00+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/photos/photos/fr/"
@@ -386,7 +386,7 @@ msgstr "_Tout remplacer"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:456
+#: src/Views/DirectPhotoPage.vala:468
 msgid "_Cancel"
 msgstr "_Annuler"
 
@@ -1231,15 +1231,15 @@ msgstr "_Changer de développeur"
 msgid "Export Video"
 msgstr "Exporter la vidéo"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:675
-#: src/Views/LibraryPhotoPage.vala:826
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
+#: src/Views/LibraryPhotoPage.vala:843
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporter la photo"
 msgstr[1] "Exporter les photos"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:443
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
 msgid "_Save"
 msgstr "_Enregistrer"
 
@@ -1771,11 +1771,11 @@ msgstr "Co_pier les photos"
 msgid "_Import in Place"
 msgstr "_Importer sans copier"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
 msgid "Remove From Library"
 msgstr "Enlever de la photothèque"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Suppression de la photo de la bibliothèque"
@@ -1872,7 +1872,7 @@ msgid "Add"
 msgstr "Ajouter"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:548
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -1901,7 +1901,7 @@ msgid "Add rule"
 msgstr "Ajouter une règle"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:549
+#: src/Views/DirectPhotoPage.vala:561
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2575,8 +2575,8 @@ msgstr "Étiquettes"
 msgid "Photos cannot be exported to this directory."
 msgstr "Les photos ne peuvent pas être exportées dans ce dossier."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:986
-#: src/Views/CollectionPage.vala:987 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
+#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Aucune photo/vidéo"
@@ -2598,33 +2598,33 @@ msgstr "_Révélateur"
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/Views/CollectionPage.vala:673
+#: src/Views/CollectionPage.vala:690
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporter la photo/vidéo"
 msgstr[1] "Exporter les photos/vidéos"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Rotating"
 msgstr "Rotation"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Undoing Rotate"
 msgstr "Annuler la rotation"
 
-#: src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:811
 msgid "Flipping Horizontally"
 msgstr "Miroir horizontal"
 
-#: src/Views/CollectionPage.vala:795
+#: src/Views/CollectionPage.vala:812
 msgid "Undoing Flip Horizontally"
 msgstr "Annuler le miroir horizontal"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Vertically"
 msgstr "Miroir vertical"
 
-#: src/Views/CollectionPage.vala:805
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Vertically"
 msgstr "Annuler le miroir vertical"
 
@@ -2647,25 +2647,25 @@ msgstr ""
 "%s ne prend pas en charge le format du fichier\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:443
+#: src/Views/DirectPhotoPage.vala:455
 msgid "_Save a Copy"
 msgstr "_Enregistrer une copie"
 
-#: src/Views/DirectPhotoPage.vala:446
+#: src/Views/DirectPhotoPage.vala:458
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Perdre les modifications apportées à %s ?"
 
-#: src/Views/DirectPhotoPage.vala:453
+#: src/Views/DirectPhotoPage.vala:465
 msgid "Close _without Saving"
 msgstr "Fermer _sans enregistrer"
 
-#: src/Views/DirectPhotoPage.vala:493
+#: src/Views/DirectPhotoPage.vala:505
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Erreur lors de l'enregistrement de %s : %s"
 
-#: src/Views/DirectPhotoPage.vala:523 src/Views/DirectPhotoPage.vala:545
+#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
 msgid "Save As"
 msgstr "Enregistrer sous"
 
@@ -2945,7 +2945,7 @@ msgstr "%s importé"
 msgid "Last Import"
 msgstr "Dernière importation"
 
-#: src/Views/LibraryPhotoPage.vala:846
+#: src/Views/LibraryPhotoPage.vala:863
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Impossible d'exporter %s : %s"

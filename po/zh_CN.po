@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-29 16:56+0000\n"
+"POT-Creation-Date: 2023-01-10 19:52+0000\n"
 "PO-Revision-Date: 2022-10-13 14:45+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -380,7 +380,7 @@ msgstr "全部替换"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:456
+#: src/Views/DirectPhotoPage.vala:468
 msgid "_Cancel"
 msgstr "取消"
 
@@ -1196,14 +1196,14 @@ msgstr "切换开发者"
 msgid "Export Video"
 msgstr "导出视频"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:675
-#: src/Views/LibraryPhotoPage.vala:826
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
+#: src/Views/LibraryPhotoPage.vala:843
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "导出照片"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:443
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
 msgid "_Save"
 msgstr "保存"
 
@@ -1627,11 +1627,11 @@ msgstr "复制照片"
 msgid "_Import in Place"
 msgstr "导入到位置"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
 msgid "Remove From Library"
 msgstr "从媒体库移除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "正在从媒体库移除照片"
@@ -1726,7 +1726,7 @@ msgid "Add"
 msgstr "添加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:548
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
 msgid "Save"
 msgstr "保存"
 
@@ -1755,7 +1755,7 @@ msgid "Add rule"
 msgstr "添加规则"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:549
+#: src/Views/DirectPhotoPage.vala:561
 msgid "Cancel"
 msgstr "取消"
 
@@ -2414,8 +2414,8 @@ msgstr "标签"
 msgid "Photos cannot be exported to this directory."
 msgstr "照片不可以被导出到该文件夹。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:986
-#: src/Views/CollectionPage.vala:987 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
+#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "没有照片/视频"
@@ -2437,32 +2437,32 @@ msgstr "开发人员"
 msgid "Other Actions"
 msgstr "其他操作"
 
-#: src/Views/CollectionPage.vala:673
+#: src/Views/CollectionPage.vala:690
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "导出照片/视频"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Rotating"
 msgstr "正在旋转"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Undoing Rotate"
 msgstr "正在取消旋转"
 
-#: src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:811
 msgid "Flipping Horizontally"
 msgstr "正在水平翻转"
 
-#: src/Views/CollectionPage.vala:795
+#: src/Views/CollectionPage.vala:812
 msgid "Undoing Flip Horizontally"
 msgstr "正在取消水平翻转"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Vertically"
 msgstr "正在垂直翻转"
 
-#: src/Views/CollectionPage.vala:805
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Vertically"
 msgstr "正在取消垂直翻转"
 
@@ -2485,25 +2485,25 @@ msgstr ""
 "%s 不支持文件类型\n"
 "%s。"
 
-#: src/Views/DirectPhotoPage.vala:443
+#: src/Views/DirectPhotoPage.vala:455
 msgid "_Save a Copy"
 msgstr "保存副本"
 
-#: src/Views/DirectPhotoPage.vala:446
+#: src/Views/DirectPhotoPage.vala:458
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "放弃对 %s 的更改？"
 
-#: src/Views/DirectPhotoPage.vala:453
+#: src/Views/DirectPhotoPage.vala:465
 msgid "Close _without Saving"
 msgstr "关闭但不保存"
 
-#: src/Views/DirectPhotoPage.vala:493
+#: src/Views/DirectPhotoPage.vala:505
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "保存 %s 时出错：%s"
 
-#: src/Views/DirectPhotoPage.vala:523 src/Views/DirectPhotoPage.vala:545
+#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
 msgid "Save As"
 msgstr "另存为"
 
@@ -2767,7 +2767,7 @@ msgstr "已导入 %s"
 msgid "Last Import"
 msgstr "最近导入"
 
-#: src/Views/LibraryPhotoPage.vala:846
+#: src/Views/LibraryPhotoPage.vala:863
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "无法导出 %s：%s"

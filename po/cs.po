@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-29 16:56+0000\n"
+"POT-Creation-Date: 2023-01-10 19:52+0000\n"
 "PO-Revision-Date: 2022-01-10 18:25+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/photos/photos/cs/"
@@ -373,7 +373,7 @@ msgstr "Přepsat _vše"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:456
+#: src/Views/DirectPhotoPage.vala:468
 msgid "_Cancel"
 msgstr "_Storno"
 
@@ -1222,8 +1222,8 @@ msgstr "_Přepnout vývojáře"
 msgid "Export Video"
 msgstr "Exportovat Video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:675
-#: src/Views/LibraryPhotoPage.vala:826
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
+#: src/Views/LibraryPhotoPage.vala:843
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exportovat fotku"
@@ -1231,7 +1231,7 @@ msgstr[1] "Exportovat fotky"
 msgstr[2] "Exportovat fotky"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:443
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
 msgid "_Save"
 msgstr "_Uložit"
 
@@ -1774,11 +1774,11 @@ msgstr "Ko_pírovat fotografie"
 msgid "_Import in Place"
 msgstr "_Importovat bez kopírování"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
 msgid "Remove From Library"
 msgstr "Odstranit z knihovny"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:747
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Probíhá odstraňování fotografie z knihovny"
@@ -1877,7 +1877,7 @@ msgid "Add"
 msgstr "Přidat"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:548
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
 msgid "Save"
 msgstr "Uložit"
 
@@ -1906,7 +1906,7 @@ msgid "Add rule"
 msgstr "Přidat pravidlo"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:549
+#: src/Views/DirectPhotoPage.vala:561
 msgid "Cancel"
 msgstr "Storno"
 
@@ -2578,8 +2578,8 @@ msgstr "Nálepky"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemohou být exportovány do této složky."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:986
-#: src/Views/CollectionPage.vala:987 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
+#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Žádné video, ani fotografie"
@@ -2601,34 +2601,34 @@ msgstr "_Vývojka"
 msgid "Other Actions"
 msgstr "Další akce"
 
-#: src/Views/CollectionPage.vala:673
+#: src/Views/CollectionPage.vala:690
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exportovat fotografii/video"
 msgstr[1] "Exportovat fotografie/videa"
 msgstr[2] "Exportovat fotografie/videa"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Rotating"
 msgstr "Rotace"
 
-#: src/Views/CollectionPage.vala:769 src/Views/CollectionPage.vala:785
+#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
 msgid "Undoing Rotate"
 msgstr "Zpět rotace"
 
-#: src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:811
 msgid "Flipping Horizontally"
 msgstr "Překlopit horizontálně"
 
-#: src/Views/CollectionPage.vala:795
+#: src/Views/CollectionPage.vala:812
 msgid "Undoing Flip Horizontally"
 msgstr "Zpět horizontální překlopení"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Vertically"
 msgstr "Překlopit vertikálně"
 
-#: src/Views/CollectionPage.vala:805
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Vertically"
 msgstr "Zpět vertikální překlopení"
 
@@ -2649,25 +2649,25 @@ msgid ""
 "%s."
 msgstr "%s nepodporuje formát souboru %s."
 
-#: src/Views/DirectPhotoPage.vala:443
+#: src/Views/DirectPhotoPage.vala:455
 msgid "_Save a Copy"
 msgstr "Uložit _kopii"
 
-#: src/Views/DirectPhotoPage.vala:446
+#: src/Views/DirectPhotoPage.vala:458
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Zahodit změny v %s?"
 
-#: src/Views/DirectPhotoPage.vala:453
+#: src/Views/DirectPhotoPage.vala:465
 msgid "Close _without Saving"
 msgstr "Zavřít _bez uložení"
 
-#: src/Views/DirectPhotoPage.vala:493
+#: src/Views/DirectPhotoPage.vala:505
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Chyba při ukládání %s. %s"
 
-#: src/Views/DirectPhotoPage.vala:523 src/Views/DirectPhotoPage.vala:545
+#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
 msgid "Save As"
 msgstr "Uložit jako"
 
@@ -2953,7 +2953,7 @@ msgstr "Importováno %s"
 msgid "Last Import"
 msgstr "Poslední import"
 
-#: src/Views/LibraryPhotoPage.vala:846
+#: src/Views/LibraryPhotoPage.vala:863
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Nepodařil se export %s: %s"
