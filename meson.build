@@ -75,9 +75,12 @@ linux_dep = meson.get_compiler('vala').find_library('linux')
 
 geocode_glib_dep = dependency('geocode-glib-2.0', required : false)
 if geocode_glib_dep.found()
-    geocode_glib_dep = dependency('geocode-glib-2.0')
+    geocode_glib_deps = [
+        dependency('geocode-glib-2.0'),
+        dependency('rest-0.7')
+    ]
 else
-    geocode_glib_dep = dependency('geocode-glib-1.0')
+    geocode_glib_deps = [dependency('geocode-glib-1.0')]
 endif
 
 vapi_include = include_directories('./vapi')
@@ -87,7 +90,7 @@ dependencies = [
     gio_unix_dep,
     gee_dep,
     gexiv2_dep,
-    geocode_glib_dep,
+    geocode_glib_deps,
     gmodule_dep,
     gstreamer_dep,
     gstreamer_base_dep,
