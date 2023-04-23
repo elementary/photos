@@ -67,7 +67,15 @@ public abstract class Session {
             return;
 
         soup_session.request_unqueued.connect (notify_wire_message_unqueued);
+#if HAS_SOUP_3
+        try {
+            soup_session.send (message);
+        } catch (Error e) {
+            warning ("Could not send message: %s", e.message);
+        }
+#else
         soup_session.send_message (message);
+#endif
 
         soup_session.request_unqueued.disconnect (notify_wire_message_unqueued);
     }
@@ -162,7 +170,11 @@ public class Transaction {
         message = new Soup.Message (method.to_string (), endpoint_url);
     }
 
+#if HAS_SOUP_3
+    private void on_wrote_body_data (uint chunk_size) {
+#else
     private void on_wrote_body_data (Soup.Buffer written_data) {
+#endif
         bytes_written += (int) written_data.length;
         chunk_transmitted (bytes_written, (int) message.request_body.length);
     }
@@ -439,12 +451,20 @@ public class UploadTransaction : Transaction {
 
         int payload_part_num = message_parts.get_length ();
 
+#if HAS_SOUP_3
+        Bytes bindable_data = new Bytes.take (payload.data[0:payload_length]);
+#else
         Soup.Buffer bindable_data = new Soup.Buffer.take (payload.data[0:payload_length]);
+#endif
         message_parts.append_form_file ("", publishable.get_serialized_file ().get_path (), mime_type,
         bindable_data);
 
         unowned Soup.MessageHeaders image_part_header;
+#if HAS_SOUP_3
+        unowned Bytes image_part_body;
+#else
         unowned Soup.Buffer image_part_body;
+#endif
         message_parts.get_part (payload_part_num, out image_part_header, out image_part_body);
         image_part_header.set_content_disposition ("form-data", binary_disposition_table);
 

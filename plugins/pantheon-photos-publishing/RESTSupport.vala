@@ -162,7 +162,11 @@ public class Transaction {
         message = new Soup.Message (method.to_string (), endpoint_url);
     }
 
+#if HAS_SOUP_3
+    private void on_wrote_body_data (Bytes written_data) {
+#else
     private void on_wrote_body_data (Soup.Buffer written_data) {
+#endif
         bytes_written += (int) written_data.length;
         chunk_transmitted (bytes_written, (int) message.request_body.length);
     }
@@ -439,7 +443,11 @@ public class UploadTransaction : Transaction {
 
         int payload_part_num = message_parts.get_length ();
 
+#if HAS_SOUP_3
+        Bytes bindable_data = new Bytes.take (payload.data[0:payload_length]);
+#else
         Soup.Buffer bindable_data = new Soup.Buffer.take (payload.data[0:payload_length]);
+#endif
         message_parts.append_form_file ("", publishable.get_serialized_file ().get_path (), mime_type,
         bindable_data);
 

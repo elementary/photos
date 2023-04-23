@@ -336,7 +336,11 @@ internal class UploadTransaction :
         string metadata = METADATA_TEMPLATE.printf (Publishing.RESTSupport.decimal_entity_encode (
                               publishable.get_param_string (Spit.Publishing.Publishable.PARAM_STRING_BASENAME)),
                           summary, keywords_string);
+#if HAS_SOUP_3
+        Bytes metadata_buffer = new Bytes.take (metadata.data);
+#else
         Soup.Buffer metadata_buffer = new Soup.Buffer.take (metadata.data);
+#endif
         message_parts.append_form_file ("", "", "application/atom+xml", metadata_buffer);
 
         // attempt to map the binary image data from disk into memory
@@ -355,7 +359,11 @@ internal class UploadTransaction :
         // bind the binary image data read from disk into a Soup.Buffer object so that we
         // can attach it to the multipart request, then actaully append the buffer
         // to the multipart request. Then, set the MIME type for this part.
+#if HAS_SOUP_3
+        Bytes bindable_data = new Bytes.take (photo_data);
+#else
         Soup.Buffer bindable_data = new Soup.Buffer.take (photo_data);
+#endif
 
         message_parts.append_form_file ("", publishable.get_serialized_file ().get_path (), mime_type,
         bindable_data);

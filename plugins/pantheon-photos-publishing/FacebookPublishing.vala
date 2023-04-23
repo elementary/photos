@@ -1330,7 +1330,11 @@ internal class GraphSession {
             return (string) soup_message.response_body.data;
         }
 
+#if HAS_SOUP_3
+        public void on_wrote_body_data (Bytes chunk) {
+#else
         public void on_wrote_body_data (Soup.Buffer chunk) {
+#endif
             bytes_so_far += (int) chunk.length;
 
             data_transmitted (bytes_so_far, (int) soup_message.request_body.length);
@@ -1342,7 +1346,11 @@ internal class GraphSession {
                                   string access_token) {
             base (host_session, Publishing.RESTSupport.HttpMethod.GET, relative_uri, access_token);
 
+#if HAS_SOUP_3
+            var desination_uri = GLib.Uri.parse (uri + "?access_token=" + access_token, GLib.UriFlags.NONE);
+#else
             Soup.URI destination_uri = new Soup.URI (uri + "?access_token=" + access_token);
+#endif
             soup_message = new Soup.Message.from_uri (method.to_string (), destination_uri);
             soup_message.wrote_body_data.connect (on_wrote_body_data);
         }
@@ -1391,7 +1399,11 @@ internal class GraphSession {
             unowned uint8[] payload = (uint8[]) mapped_file.get_contents ();
             payload.length = (int) mapped_file.get_length ();
 
+#if HAS_SOUP_3
+            Bytes image_data = new Bytes.take (payload);
+#else
             Soup.Buffer image_data = new Soup.Buffer.take (payload);
+#endif
 
             Soup.Multipart mp_envelope = new Soup.Multipart ("multipart/form-data");
 

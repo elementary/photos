@@ -319,11 +319,19 @@ private class UploadTransaction: Transaction {
 
         int image_part_num = message_parts.get_length ();
 
+#if HAS_SOUP_3
+        Bytes bindable_data = new Bytes.take (photo_data.data[0:data_length]);
+#else
         Soup.Buffer bindable_data = new Soup.Buffer.take (photo_data.data[0:data_length]);
+#endif
         message_parts.append_form_file ("", photo.get_serialized_file ().get_path (), "image/jpeg", bindable_data);
 
         unowned Soup.MessageHeaders image_part_header;
+#if HAS_SOUP_3
+        unowned Bytes image_part_body;
+#else
         unowned Soup.Buffer image_part_body;
+#endif
         message_parts.get_part (image_part_num, out image_part_header, out image_part_body);
 
         GLib.HashTable<string, string> result = new GLib.HashTable<string, string> (GLib.str_hash, GLib.str_equal);

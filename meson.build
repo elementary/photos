@@ -63,24 +63,25 @@ libexif_dep = dependency('libexif', version: '>=0.6.16')
 gphoto2_dep = dependency('libgphoto2', version: '>=2.4.2')
 libraw_dep = dependency('libraw', version: '>=0.13.2')
 libwebp_dep = dependency('libwebp', version: '>=0.4.4')
-libsoup_dep = dependency('libsoup-2.4', version: '>=2.26.0')
 libxml_dep = dependency('libxml-2.0', version: '>=2.6.32')
-rest_dep = dependency('rest-0.7', version: '>=0.7')
 sqlite3_dep = dependency('sqlite3', version: '>=3.5.9')
-webkit2gtk_dep = dependency('webkit2gtk-4.0', version: '>=2.0.0')
 gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer-base-1.0')
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 linux_dep = meson.get_compiler('vala').find_library('linux')
 
-geocode_glib_dep = dependency('geocode-glib-2.0', required : false)
-if geocode_glib_dep.found()
-    geocode_glib_deps = [
-        dependency('geocode-glib-2.0'),
-        dependency('rest-0.7')
-    ]
+libsoup_dep = dependency('libsoup-3.0', required : false)
+if libsoup_dep.found()
+    add_project_arguments('--define', 'HAS_SOUP_3', language: 'vala')
+    libsoup_dep = dependency('libsoup-3.0')
+    webkit2gtk_dep = dependency('webkit2gtk-4.1')
+    geocode_glib_dep = dependency('geocode-glib-2.0')
+    rest_dep = dependency('rest-1.0')
 else
-    geocode_glib_deps = [dependency('geocode-glib-1.0')]
+    libsoup_dep = dependency('libsoup-2.4', version: '>=2.26.0')
+    webkit2gtk_dep = dependency('webkit2gtk-4.0', version: '>=2.0.0')
+    geocode_glib_dep = dependency('geocode-glib-1.0')
+    rest_dep = dependency('rest-0.7', version: '>=0.7')
 endif
 
 vapi_include = include_directories('./vapi')
@@ -90,7 +91,7 @@ dependencies = [
     gio_unix_dep,
     gee_dep,
     gexiv2_dep,
-    geocode_glib_deps,
+    geocode_glib_dep,
     gmodule_dep,
     gstreamer_dep,
     gstreamer_base_dep,
