@@ -18,8 +18,9 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-10 19:52+0000\n"
-"PO-Revision-Date: 2022-01-12 01:32+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@gmail.com>\n"
+"PO-Revision-Date: 2023-05-17 23:06+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/photos/photos/"
 "id/>\n"
 "Language: id\n"
@@ -27,18 +28,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:07+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
 #, c-format
 msgid "Unable to create cache directory %s: %s"
-msgstr "Gagal membuat direktori tembolok %s: %s"
+msgstr "Tidak dapat membuat direktori tembolok %s: %s"
 
 #: src/AppDirs.vala:71 src/AppDirs.vala:101
 #, c-format
 msgid "Unable to create data directory %s: %s"
-msgstr "Gagal membuat direktori data %s: %s"
+msgstr "Tidak dapat membuat direktori data %s: %s"
 
 #. If XDG yarfed, use ~/Pictures
 #: src/AppDirs.vala:165
@@ -48,12 +49,12 @@ msgstr "Gambar"
 #: src/AppDirs.vala:198
 #, c-format
 msgid "Unable to create temporary directory %s: %s"
-msgstr "Gagal membuat direktori temporer %s: %s"
+msgstr "Tidak dapat membuat direktori temporer %s: %s"
 
 #: src/AppDirs.vala:215 src/AppDirs.vala:231
 #, c-format
 msgid "Unable to create data subdirectory %s: %s"
-msgstr "Gagal membuat subdirektori data %s: %s"
+msgstr "Tidak dapat membuat sub direktori data %s: %s"
 
 #: src/AppWindow.vala:162
 #, c-format
@@ -70,11 +71,11 @@ msgstr ""
 
 #: src/AppWindow.vala:331
 msgid "Undo"
-msgstr "Tak Jadi"
+msgstr "Batal"
 
 #: src/AppWindow.vala:332
 msgid "Redo"
-msgstr "Jadi Lagi"
+msgstr "Ulang"
 
 #: src/BatchImport.vala:39
 msgid "Success"
@@ -82,15 +83,15 @@ msgstr "Berhasil"
 
 #: src/BatchImport.vala:42
 msgid "File error"
-msgstr "Galat berkas"
+msgstr "Kesalahan berkas"
 
 #: src/BatchImport.vala:45
 msgid "Unable to decode file"
-msgstr "Gagal mendekode berkas"
+msgstr "Tidak dapat mendekode berkas"
 
 #: src/BatchImport.vala:48
 msgid "Database error"
-msgstr "Galat basis data"
+msgstr "Kesalahan basis data"
 
 #: src/BatchImport.vala:51
 msgid "User aborted import"
@@ -179,11 +180,11 @@ msgstr "Hapus Acara"
 
 #: src/Commands.vala:1063
 msgid "Moving Photos to New Event"
-msgstr "Memindahkan Semua Foto Ini ke Acara Baru"
+msgstr "Memindahkan Foto ke Acara Baru"
 
 #: src/Commands.vala:1064
 msgid "Setting Photos to Previous Event"
-msgstr "Mengatur Foto ke Acara Sebelumnya"
+msgstr "Menetapkan Foto ke Acara Sebelumnya"
 
 #: src/Commands.vala:1121
 msgid "Merging"
@@ -191,54 +192,54 @@ msgstr "Menggabungkan"
 
 #: src/Commands.vala:1122
 msgid "Unmerging"
-msgstr "Membatalkan Penggabungan"
+msgstr "Melepaskan Gabungan"
 
 #: src/Commands.vala:1131
 msgid "Duplicating photos"
-msgstr "Gandakan foto"
+msgstr "Menggandakan foto"
 
 #: src/Commands.vala:1131
 msgid "Removing duplicated photos"
-msgstr "Hapus foto ganda"
+msgstr "Menghapus foto duplikat"
 
 #: src/Commands.vala:1154
 #, c-format
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
-msgstr[0] "Tidak dapat menduplikat %d foto karena kesalahan berkas"
+msgstr[0] "Tidak dapat menggandakan %d foto karena kesalahan berkas"
 
 #: src/Commands.vala:1200
 msgid "Setting RAW developer"
-msgstr "Atur RAW pengembang"
+msgstr "Atur pengembang RAW"
 
 #: src/Commands.vala:1200
 msgid "Restoring previous RAW developer"
-msgstr "Mengembalikan pengembang RAW sebelumnya"
+msgstr "Memulihkan pengembang RAW sebelumnya"
 
 #: src/Commands.vala:1201
 msgid "Set Developer"
-msgstr "Atur Pengembang"
+msgstr "Tetapkan Pengembang"
 
 #: src/Commands.vala:1291
 msgid "Original photo could not be adjusted."
-msgstr "Foto asli tidak dapat diatur."
+msgstr "Foto asli tidak dapat disesuaikan."
 
 #: src/Commands.vala:1312
 msgid "Adjusting Date and Time"
-msgstr "Mengatur Tanggal dan Jam"
+msgstr "Menyesuaikan Tanggal dan Jam"
 
 #: src/Commands.vala:1312
 msgid "Undoing Date and Time Adjustment"
-msgstr "Batalkan Pengaturan Tanggal dan Jam"
+msgstr "Batalkan Penyesuaian Tanggal dan Jam"
 
 #: src/Commands.vala:1342
 msgid "One original photo could not be adjusted."
 msgid_plural "The following original photos could not be adjusted."
-msgstr[0] "Foto asli tidak dapat diatur."
+msgstr[0] "Foto asli tidak dapat sesuaikan."
 
 #: src/Commands.vala:1344 src/Commands.vala:1368
 msgid "Time Adjustment Error"
-msgstr "Tidak Dapat Mengatur Jam"
+msgstr "Kesalahan Penyesuaian Waktu"
 
 #: src/Commands.vala:1366
 msgid "Time adjustments could not be undone on the following photo file."
@@ -257,27 +258,27 @@ msgstr "Pindahkan Tanda \"%s\""
 
 #: src/Commands.vala:2288
 msgid "Move Photos to Trash"
-msgstr "Pindahkan Foto ke Tong Sampah"
+msgstr "Pindahkan Foto ke Keranjang Sampah"
 
 #: src/Commands.vala:2288
 msgid "Restore Photos from Trash"
-msgstr "Kembalikan Foto dari Tong Sampah"
+msgstr "Pulihkan Foto dari Keranjang Sampah"
 
 #: src/Commands.vala:2289
 msgid "Move the photos to the Photos trash"
-msgstr "Pindahkan foto ke tong sampah Foto"
+msgstr "Pindahkan foto ke Keranjang Sampah Foto"
 
 #: src/Commands.vala:2289
 msgid "Restore the photos back to the Photos library"
-msgstr "Pulihkan foto-foto ke pustaka Foto"
+msgstr "Pulihkan foto kembali ke pustaka Foto"
 
 #: src/Commands.vala:2308
 msgid "Moving Photos to Trash"
-msgstr "Memindahkan Foto ke Tong Sampah"
+msgstr "Memindahkan Foto ke Keranjang Sampah"
 
 #: src/Commands.vala:2308
 msgid "Restoring Photos From Trash"
-msgstr "Mengembalikan Foto dari Tong Sampah"
+msgstr "Memulihkan Foto dari Keranjang Sampah"
 
 #: src/Commands.vala:2394
 msgid "Flag selected photos"
@@ -289,11 +290,11 @@ msgstr "Hapus tanda foto terpilih"
 
 #: src/Commands.vala:2396
 msgid "Flagging selected photos"
-msgstr "Tandai foto terpilih"
+msgstr "Menandai foto terpilih"
 
 #: src/Commands.vala:2397
 msgid "Unflagging selected photos"
-msgstr "Hapus tanda foto terpilih"
+msgstr "Melapaskan tanda foto terpilih"
 
 #: src/Commands.vala:2404
 msgid "Flag"
@@ -325,13 +326,13 @@ msgstr "Tinggi"
 #: src/DirectoryMonitor.vala:901
 #, c-format
 msgid "Unable to monitor %s: Not a directory (%s)"
-msgstr "Gagal memantau %s: Bukan direktori (%s)"
+msgstr "Tidak dapat memantau %s: Bukan direktori (%s)"
 
 #. if no name, pretty up the start time
 #: src/Event.vala:732
 #, c-format
 msgid "Event %s"
-msgstr "Rangkaian %s"
+msgstr "Acara %s"
 
 #: src/Exporter.vala:244
 #, c-format
@@ -385,7 +386,7 @@ msgstr "Tinggalkan layar penuh"
 
 #: src/main.vala:68 src/main.vala:76
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr "Pustakan Foto Anda tidak kompatibel dengan versi Foto ini"
+msgstr "Pustaka Foto Anda Tidak Kompatibel Dengan Versi Foto Ini"
 
 #: src/main.vala:69
 #, c-format
@@ -393,8 +394,8 @@ msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Tampaknya dibuat oleh %s (skema %d) Foto. Versi saat ini adalah %s (skema "
-"%d). Harap gunakan versi Foto terbaru."
+"Tampaknya dibuat oleh Foto %s (skema %d). Versi saat ini adalah %s (skema %d)"
+". Harap gunakan versi Foto terbaru."
 
 #: src/main.vala:72
 #, c-format
@@ -402,8 +403,8 @@ msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Foto gagal meningkatkan pustaka Foto Anda dari versi %s (skema %d) ke %s "
-"(skema %d)"
+"Foto Tidak Dapat Memperbarui Pustaka Foto Anda Dari Versi %s (Skema %d) ke "
+"%s (Skema %d)"
 
 #: src/main.vala:73
 #, c-format
@@ -419,11 +420,12 @@ msgid ""
 msgstr ""
 "Tampaknya dibuat oleh Foto %s (skema %d). Versi ini adalah %s (skema %d). "
 "Silakan bersihkan pustaka Anda dengan cara menghapus %s dan mengimpor ulang "
-"foto-foto Anda."
+"foto Anda."
 
 #: src/main.vala:80
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Galat tidak diketahui mencoba untuk verifikasi basis data Foto"
+msgstr ""
+"Kesalahan Yang Tidak Diketahui Mencoba Untuk Memverifikasi Basis Data Foto"
 
 #: src/main.vala:115
 msgid "Loading Photos"
@@ -431,7 +433,7 @@ msgstr "Memuat Foto"
 
 #: src/main.vala:277
 msgid "Path to Photos' private data"
-msgstr "Arahkan ke data Foto pribadi"
+msgstr "Jalurkan ke data Foto pribadi"
 
 #: src/main.vala:277
 msgid "DIRECTORY"
@@ -439,11 +441,11 @@ msgstr "DIREKTORI"
 
 #: src/main.vala:278
 msgid "Do not monitor library directory at runtime for changes"
-msgstr "Jangan pantau direktori album saat runtime untuk perubahan"
+msgstr "Jangan pantau direktori pustaka saat berjalan untuk perubahan"
 
 #: src/main.vala:279
 msgid "Don't display startup progress meter"
-msgstr "Jangan tampilkan pengukur kemajuan stratup"
+msgstr "Jangan tampilkan pengukur kemajuan startup"
 
 #: src/main.vala:280
 msgid "Show the application's version"
@@ -462,21 +464,21 @@ msgstr "[FILE]"
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Jalankan dengan perintah '%s --help' untuk melihat daftar opsi yang bisa "
-"digunakan.\n"
+"Jalankan '%s --help' untuk melihat daftar lengkap opsi baris perintah yang "
+"tersedia.\n"
 
 #: src/MediaMonitor.vala:413
 #, c-format
 msgid "Unable to process monitoring updates: %s"
-msgstr "Tidak dapat memproses pembaruan pemantauan: %s"
+msgstr "Tidak dapat memroses pemantauan pembaruan: %s"
 
 #: src/Photo.vala:3789
 msgid "modified"
-msgstr "dimodifikasi"
+msgstr "diubah"
 
 #: src/Printing.vala:267
 msgid "Fill the entire page"
-msgstr "Isi seluruh halaman"
+msgstr "Penuhi seluruh halaman"
 
 #: src/Printing.vala:268
 msgid "2 images per page"
@@ -666,19 +668,19 @@ msgstr "Kembalikan Penajaman"
 
 #: src/Resources.vala:108
 msgid "_Copy Color Adjustments"
-msgstr "Salin Penyetelan _Warna"
+msgstr "Salin Penyesuaian _Warna"
 
 #: src/Resources.vala:110
 msgid "_Paste Color Adjustments"
-msgstr "Tem_pel Penyetelan Warna"
+msgstr "Tem_pel Penyesuaian Warna"
 
 #: src/Resources.vala:111
 msgid "Paste Color Adjustments"
-msgstr "Tempel Penyetelan Warna"
+msgstr "Tempel Penyesuaian Warna"
 
 #: src/Resources.vala:112
 msgid "Apply copied color adjustments to the selected photos"
-msgstr "Terapkan penyetelan warna yang disalin ke foto yang dipilih"
+msgstr "Terapkan penyesuaian warna yang disalin ke foto yang dipilih"
 
 #: src/Resources.vala:114
 msgid "Crop"
@@ -702,7 +704,7 @@ msgstr "Mata-merah"
 
 #: src/Resources.vala:121
 msgid "Reduce or eliminate any red-eye effects in the photo"
-msgstr "Hilangkan efek mata merah pada foto"
+msgstr "Kurangi atau hilangkan efek mata merah pada foto"
 
 #: src/Resources.vala:123
 msgid "Adjust"
@@ -722,7 +724,7 @@ msgstr "Kembalikan ke Asli"
 
 #: src/Resources.vala:129
 msgid "Re_name Event…"
-msgstr "Beri nama baru Kegiatan…"
+msgstr "Beri nama baru Acara…"
 
 #: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
 msgid "Rename Event"
@@ -730,21 +732,19 @@ msgstr "Ubah Nama Acara"
 
 #: src/Resources.vala:132
 msgid "Copy"
-msgstr ""
+msgstr "Salin"
 
 #: src/Resources.vala:133
-#, fuzzy
-#| msgid "Export metadata"
 msgid "Copy Metadata"
-msgstr "Ekspor metadata"
+msgstr "Salin Metadata"
 
 #: src/Resources.vala:135
 msgid "Make _Key Photo for Event"
-msgstr "Jadi_kan Foto Utama Untuk Acara Ini"
+msgstr "Jadikan Foto _Kunci untuk Acara"
 
 #: src/Resources.vala:136
 msgid "Make Key Photo for Event"
-msgstr "Jadikan Foto Utama Untuk Acara Ini"
+msgstr "Jadikan Foto Kunci untuk Acara"
 
 #: src/Resources.vala:138
 msgid "_New Event"
@@ -772,7 +772,7 @@ msgstr "Gabung"
 
 #: src/Resources.vala:146
 msgid "Combine events into a single event"
-msgstr "Gabungkan acara menjadi satu acara"
+msgstr "Gabungkan acara-acara menjadi acara tunggal"
 
 #: src/Resources.vala:148
 msgid "_Filter Photos"
@@ -788,7 +788,7 @@ msgstr "Gandakan"
 
 #: src/Resources.vala:152
 msgid "Make a duplicate of the photo"
-msgstr "Gandakan foto ini"
+msgstr "Buat duplikat foto"
 
 #: src/Resources.vala:154
 msgid "_Export…"
@@ -824,11 +824,11 @@ msgstr "Sunting Komentar"
 
 #: src/Resources.vala:169
 msgid "_Adjust Date and Time…"
-msgstr "_Atur Tanggal dan Waktu…"
+msgstr "_Sesuaikan Tanggal dan Waktu…"
 
 #: src/Resources.vala:170
 msgid "Adjust Date and Time"
-msgstr "Atur Jam dan Tanggal"
+msgstr "Sesuaikan Jam dan Tanggal"
 
 #: src/Resources.vala:172
 msgid "_Open In"
@@ -858,16 +858,16 @@ msgstr "Tidak dapat meluncurkan penyunting: %s"
 #: src/Resources.vala:187
 #, c-format
 msgid "Add Tag \"%s\""
-msgstr "Beri Tanda \"%s\""
+msgstr "Tambah Tanda \"%s\""
 
 #: src/Resources.vala:189
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
-msgstr "Beri Tanda \"%s\" dan \"%s\""
+msgstr "Tambah Tanda \"%s\" dan \"%s\""
 
 #: src/Resources.vala:193
 msgid "Add Tags"
-msgstr "Beri Tanda"
+msgstr "Tambah Tanda"
 
 #: src/Resources.vala:197
 #, c-format
@@ -894,7 +894,7 @@ msgstr "_Baru"
 #: src/Resources.vala:210
 #, c-format
 msgid "Re_name Tag \"%s\"…"
-msgstr "Beri nama baru Tanda \"%s\"…"
+msgstr "Ganti _nama Tanda \"%s\"…"
 
 #: src/Resources.vala:214
 #, c-format
@@ -903,11 +903,11 @@ msgstr "Ganti Nama Tanda \"%s\" menjadi \"%s\""
 
 #: src/Resources.vala:217
 msgid "_Rename…"
-msgstr "_Beri nama baru…"
+msgstr "_Ganti nama…"
 
 #: src/Resources.vala:219
 msgid "Modif_y Tags…"
-msgstr "Modifikasi Tanda…"
+msgstr "Modifikas_i Tanda…"
 
 #: src/Resources.vala:220
 msgid "Modify Tags"
@@ -934,13 +934,12 @@ msgstr[0] "Hapus Tanda \"%s\" Dari Foto"
 #: src/Resources.vala:235
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
-msgstr "Tidak dapat mengganti tanda menjadi \"% s\" karena sudah ada."
+msgstr "Tidak dapat mengganti tanda menjadi \"%s\" karena sudah ada."
 
 #: src/Resources.vala:239
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
-msgstr ""
-"Tidak dapat mengganti tanda pencarian menjadi \"% s\" karena sudah ada."
+msgstr "Tidak dapat mengganti nama pencarian menjadi \"%s\" karena sudah ada."
 
 #: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
@@ -956,12 +955,12 @@ msgstr "_Sunting…"
 
 #: src/Resources.vala:248
 msgid "Re_name…"
-msgstr "Beri nama baru…"
+msgstr "Ganti _nama…"
 
 #: src/Resources.vala:251
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
-msgstr "Ubah Nama Pencarian \"%s\" ke \"%s\""
+msgstr "Ganti Nama Pencarian \"%s\" ke \"%s\""
 
 #: src/Resources.vala:255
 #, c-format
@@ -970,44 +969,44 @@ msgstr "Hapus Pencarian \"%s\""
 
 #: src/Resources.vala:287
 msgid "_Delete Selection"
-msgstr "Hapus yang dipilih"
+msgstr "Hapus Seleksi"
 
 #: src/Resources.vala:288
 msgid "Remove the selected photos from the trash"
-msgstr "Hapus foto-foto terpilih dari tong sampah"
+msgstr "Hapus foto terpilih dari keranjang sampah"
 
 #: src/Resources.vala:289
 msgid "Remove the selected photos from the library"
-msgstr "Hapus foto-foto terpilih dari album"
+msgstr "Hapus foto terpilih dari pustaka"
 
 #: src/Resources.vala:291
 msgid "_Restore Selection"
-msgstr "Kembalikan Pi_lihan"
+msgstr "_Pulihkan Seleksi"
 
 #: src/Resources.vala:292
 msgid "Move the selected photos back into the library"
-msgstr "Kembalikan foto-foto terpilih ke album"
+msgstr "Pindahkan foto terpilih kembali ke pustaka"
 
 #: src/Resources.vala:294
 msgid "File Mana_ger"
-msgstr "Pengelola Ber_kas"
+msgstr "Pengelo_la Berkas"
 
 #: src/Resources.vala:297
 #, c-format
 msgid "Unable to open in file manager: %s"
-msgstr "Tidak dapat membuka peramban berkas: %s"
+msgstr "Tidak dapat membuka pengelola berkas: %s"
 
 #: src/Resources.vala:300
 msgid "R_emove From Library"
-msgstr "Hapus _Dari Album"
+msgstr "H_apus Dari Pustaka"
 
 #: src/Resources.vala:302
 msgid "_Move to Trash"
-msgstr "Pindahkan ke Tong Sa_mpah"
+msgstr "_Pindahkan ke Keranjang Sampah"
 
 #: src/Resources.vala:304
 msgid "Select _All"
-msgstr "Pilih Semu_a"
+msgstr "Pilih _Semua"
 
 #: src/Resources.vala:305
 msgid "Select all items"
@@ -1076,7 +1075,7 @@ msgstr "Kamera"
 #: src/Dialogs/AdjustDateTimeDialog.vala:57
 #: src/editing_tools/AdjustTool.vala:128 src/editing_tools/RedEyeTool.vala:65
 msgid "_Apply"
-msgstr "Ter_apkan"
+msgstr "_Terapkan"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:95
 msgid "AM"
@@ -2548,18 +2547,16 @@ msgstr "File sumber foto hilang: %s"
 #: src/Views/EditingHostPage.vala:1698
 #, c-format
 msgid "Raw dimensions: %i x %i px"
-msgstr ""
+msgstr "Dimensi mentah: %i x %i px"
 
 #: src/Views/EditingHostPage.vala:1701
 #, c-format
 msgid "Copied dimensions: %i x %i px"
-msgstr ""
+msgstr "Dimensi tersalin: %i x %i px"
 
 #: src/Views/EditingHostPage.vala:1718
-#, fuzzy
-#| msgid "No events found"
 msgid "No metadata found"
-msgstr "Tidak ada acara ditemukan"
+msgstr "Tidak ada metadata ditemukan"
 
 #: src/Views/EventPage.vala:136
 msgid "All Events"
