@@ -21,6 +21,7 @@ basic_command = [
     '--pkg', 'json-glib-1.0',
     '--pkg', 'libexif',
     '--pkg', 'libgphoto2',
+    '--pkg', 'libhandy-1',
     '--pkg', 'libraw',
     '--pkg', 'libwebp',
     '--pkg', 'libxml-2.0',
