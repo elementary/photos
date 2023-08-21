@@ -7,7 +7,7 @@ basic_command = [
     '--package-name',meson.project_name(),
     '--package-version', meson.project_version(),
     '--driver', meson.get_compiler('vala').version(),
-    '--pkg', 'geocode-glib-1.0',
+    '--pkg', geocode_glib_dep.name(),
     '--pkg', 'gexiv2',
     '--pkg', 'gtk+-3.0',
     '--pkg', 'gee-0.8',
