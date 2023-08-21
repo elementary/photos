@@ -59,16 +59,11 @@ granite_dep = dependency('granite', version: '>=6.0.0')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 gudev_dep = dependency('gudev-1.0', version: '>=145')
 handy = dependency('libhandy-1')
-json_glib_dep = dependency('json-glib-1.0')
 libexif_dep = dependency('libexif', version: '>=0.6.16')
 gphoto2_dep = dependency('libgphoto2', version: '>=2.4.2')
 libraw_dep = dependency('libraw', version: '>=0.13.2')
 libwebp_dep = dependency('libwebp', version: '>=0.4.4')
-libsoup_dep = dependency('libsoup-2.4', version: '>=2.26.0')
-libxml_dep = dependency('libxml-2.0', version: '>=2.6.32')
-rest_dep = dependency('rest-0.7', version: '>=0.7')
 sqlite3_dep = dependency('sqlite3', version: '>=3.5.9')
-webkit2gtk_dep = dependency('webkit2gtk-4.0', version: '>=2.0.0')
 gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer-base-1.0')
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
@@ -91,16 +86,11 @@ dependencies = [
     gtk_dep,
     gudev_dep,
     handy,
-    json_glib_dep,
     libexif_dep,
     gphoto2_dep,
     libraw_dep,
     libwebp_dep,
-    libsoup_dep,
-    libxml_dep,
-    rest_dep,
     sqlite3_dep,
-    webkit2gtk_dep,
     lconv_dep,
     linux_dep,
 ]

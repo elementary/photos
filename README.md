@@ -9,7 +9,6 @@
 You'll need the following dependencies:
 * desktop-file-utils
 * intltool
-* libaccounts-glib-dev
 * libexif-dev
 * libgee-0.8-dev
 * libgeocode-glib-dev
@@ -22,15 +21,9 @@ You'll need the following dependencies:
 * libgtk-3-dev
 * libgudev-1.0-dev
 * libhandy-1-dev
-* libjson-glib-dev
 * libraw-dev
-* librest-dev
-* libsignon-glib-dev
-* libsoup2.4-dev
 * libsqlite3-dev
-* libwebkit2gtk-4.0-dev
 * libwebp-dev
-* libxml2
 * meson
 * valac >= 0.40
 
