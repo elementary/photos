@@ -126,12 +126,6 @@ transitions_gresource = gnome.compile_resources(
     source_dir: 'plugins/pantheon-photos-transitions'
 )
 
-publishing_gresource = gnome.compile_resources(
-    'gresource_plugin_publishing',
-    'plugins/pantheon-photos-publishing/io.elementary.photos.plugins.publishing.gresource.xml',
-    source_dir: 'plugins/pantheon-photos-publishing'
-)
-
 subdir('data')
 subdir('src')
 subdir('thumbnailer')
