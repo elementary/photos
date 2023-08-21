@@ -49,7 +49,7 @@ gexiv2_dep = dependency('gexiv2', version: '>=0.4.90')
 if gexiv2_dep.version().version_compare('>= 0.11')
   add_global_arguments(['--define=GEXIV2_0_11'], language : 'vala')
 endif
-geocode_glib_dep = dependency('geocode-glib-1.0')
+geocode_glib_dep = dependency('geocode-glib-2.0', 'geocode-glib-1.0')
 gmodule_dep = dependency('gmodule-2.0', version: '>=2.24.0')
 gstreamer_dep = dependency('gstreamer-1.0', version: '>=1.0.0')
 gstreamer_base_dep = dependency('gstreamer-base-1.0', version: '>=1.0.0')
