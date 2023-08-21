@@ -132,12 +132,6 @@ publishing_gresource = gnome.compile_resources(
     source_dir: 'plugins/pantheon-photos-publishing'
 )
 
-publishing_extras_gresource = gnome.compile_resources(
-    'gresource_plugin_publishing_extras',
-    'plugins/pantheon-photos-publishing-extras/io.elementary.photos.plugins.publishing-extras.gresource.xml',
-    source_dir: 'plugins/pantheon-photos-publishing-extras'
-)
-
 subdir('data')
 subdir('src')
 subdir('thumbnailer')
