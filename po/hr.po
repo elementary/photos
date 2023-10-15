@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2017-08-16 12:05+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/photos/"
@@ -313,8 +313,6 @@ msgid "Unflag"
 msgstr "Odznači"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Izvorna veličina"
 
@@ -1303,7 +1301,6 @@ msgstr ""
 "Želite li nastaviti s izvozom?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "_Nastavi"
 
@@ -2059,7 +2056,6 @@ msgid "Screen"
 msgstr "Zaslon"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Orginalna veličina"
 
@@ -3341,714 +3337,6 @@ msgstr "_Izlaz slike na:"
 msgid "pixels per inch"
 msgstr "piksela po inču"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Autorsko pravo 2009-2013 Yorba fondacija"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Trenutno niste prijavljeni u YouTube\n"
-"\n"
-"Za korištenje YouTube servisa morate imati Google korisnički račun koji je "
-"podešen za korištenje istog. Za podešavanje računa, prijavite se barem "
-"jednom na YouTube servis sa svojim Google korisničkim računom."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Datoteka potrebna za objavljivanje je nedostupna. Objava na Youtube se ne "
-"može nastaviti."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Prijavljeni ste u YouTube kao %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "Video snimke će se prikazati u '%s'"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Javno izlistan"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Javno, ali bez izlista"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Privatno"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Core servisi za objavu"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "Privremena datoteka potrebna za objavu je nedostupna"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Već ste se prijavili i odjavili iz Google usluga tijekom ove sesije.\n"
-"\n"
-"Za nastavak objavljivanja na Google uslugama, zatvorite i ponovno pokrenite "
-"ovaj softver, zatim pokušajte ponovno objaviti."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Posjetite Yorba web stranicu"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Krešo Kunjas <deresh@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Ivan Vrljić https://launchpad.net/~vrlja92\n"
-"  Jim Nelson https://launchpad.net/~yorba-jim\n"
-"  Nino Korent https://launchpad.net/~korent91\n"
-"  gogo https://launchpad.net/~trebelnik-stefina"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
-msgid "Creating album %s…"
-msgstr "Stvaranje albuma %s..."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "Nastala je greška prilikom prijave na Piwigo. Pokušajte ponovno.."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Upišite URL vaše Piwigo fototeke kao i korisničko ime i lozinku vašeg Piwigo "
-"računa za tu fototeku."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"Shotwell se ne može povezati na Piwigo fototeku. Provjerite URL koji ste "
-"upisali"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "Korisničko ime/lozinka nisu ispravni. Pokušajte ponovno"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "Nevažeći URL"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Neispravno korisničko ime ili lozinka"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
-msgid "Photos Connect"
-msgstr "Shotwell povezivanje"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Svima"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Administratori, Obitelj, Prijatelji, Kontakti"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Administratori, prijatelji, obitelj"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Administratori, obitelj"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Administratori"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 piksela"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 piksela"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 piksela"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 piksela"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"Trenutno niste prijavljeni u Google fotografije.\n"
-"\n"
-"Kliknite na Prijavi za prijavljivanje u Google fotografije u vašem web "
-"pregledniku. Trebate ovlastiti elementary OS da se može povezati s računom "
-"Google fotografija."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Datoteka potrebna za objavljivanje je nedostupna. Objava na Picasu se ne "
-"može nastaviti."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Prijavljeni ste u Picasa Web album kao %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Mala ( 640 x 480 piksela)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Srednje (1024 x 768 piksela)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Preporučeno ( 1600 x 1200 piksela )"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 piksela)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Trenutno niste prijavljeni u Flickr.\n"
-"\n"
-"Kliknite na \"Prijava\" kako biste se prijavili u Flickr putem web "
-"preglednika. Morati ćete ovlastiti Shotwell Connect kako biste se povezali "
-"na vaš Flickr račun."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Već ste se prijavili i odjavili s Flickr-a tjekom korištenja Shotwella.\n"
-" Za nastavak korištelja Flickr servisa, ponovno pokrenite Shotwell."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
-msgid "Preparing for login…"
-msgstr "Pripremanje za prijavu..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Datoteka potrebna za objavljivanje je nedostupna. Objava na Flickru se ne "
-"može nastaviti."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
-msgid "Verifying authorization…"
-msgstr "Potvrđivanje ovlasti..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Prijavljeni ste u Flickr kao %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"Vaš Flickr korisnički račun ima mjesečno ograničenje količine fotografija "
-"koje možete poslati.\n"
-" Ovaj mjesec vam je preostalo %d Mb za korištenje."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "Vaš Flickr Pro korisnički račun nema ograničenja."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Fotografije _vidljive:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Video snimke _vidljive:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Fotografije i video snimke _vidljivi:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Samo prijatelji i obitelj"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Samo obitelj"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Samo prijatelji"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Samo meni"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Trenutno niste prijavljenu u Facebook.\n"
-"\n"
-"Ukoliko nemafe Facebook korisnički račun možete ga stvoriti kroz proces "
-"prijave. Kod prijave, Shotwell Connect vas može tražiti dopuštenja za slanje "
-"fotografija i objavu u vašim Novostima. Ta dopuštenja su nužna za "
-"funkcioniranje Shotwell Connecta."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Već ste se prijavili i odjavili s Facebooka tijekom ove prijave Shotwella.\n"
-" Za nastavak objave na Facebooku, zatvorite i ponovno pokrenite Shotwell, te "
-"pokušajte ponovno objaviti."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Standardno ( 720 piksela )"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Veliko ( 2048 piksela )"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
-msgid "Testing connection to Facebook…"
-msgstr "Provjera povezivanje s Facebookom..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
-msgid "Creating album…"
-msgstr "Stvaranje albuma..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Datoteka potrebna za objavljivanje je nedostupna. Objava na Facebooku se ne "
-"može nastaviti."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "Poslužitellj je preusmejrio URL je ne sadrži pristupni token"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Prijavljeni ste u Facebook kao %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Želite li objaviti odabrane fotografije?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "Veličina uploada:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Prijatelji"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "Postavke _privatnosti video snimki:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Odjava"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "O_bjavi"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "Fotografije će se vidjeti u:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "_Postojećoj kategoriji:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "_Novi album je nazvan:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "unutar kategorije:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Komentar albuma:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Fotografije će biti vidljive:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Veličina fotografije:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"_Ukloni lokaciju, kameru, i ostale informacije identifikacije prije slanja"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr "_Ako je naslov postavljen a komentar nije, koristi naslov kao komentar"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_Ne šalji oznake"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Odjava"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Objavi"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_URL vaše Piwigo fototeke slika"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "Korisničko _ime"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Lozinka"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Zapamti lozinku"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Prijava"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"Prijavljeni ste kao $name'\n"
-"(prikazano u kôdu aplikacije)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Predodređene veličine fotografija:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Prijavljeni ste u Flickr kao (name).\n"
-"\n"
-"(ovaj naslov je prikazan ipostavljen unutar kôda, \n"
-"stoga promjene načinjene ovdje neće biti vidljive)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_vidljivost naslova (vidljivo u kôdu)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_Veličina fotografija:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Unesite potvrdni broj koji se javi nakon što se prijavite u Flickr putem "
-"vašeg web preglednika."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Broj ovlasti:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (tekst ovisi o fb korisničkom imenu i promijenjen je u aplikaciji - \n"
-"bilo što upisano u ovo polje neće biti vidljivo)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Objavi u _postojeći album:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Stvori _novi album:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Video snimke i novi albumi s fotografijama su vidljivi:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Sva prava pridržana 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Posjeti Yandex.Fotki internet stranicu"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Trenutno niste prijavljeni u Yandex.Fotki."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Autorsko pravo 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 piksela"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "'%s' nije valjani odgovor na OAuth zahtjev ovjere"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start(): je nemoguće pokrenuti; ovaj izdavač se ne može "
-"ponovno pokrenuti."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr "Upišite korisničko ime i lozinku povezanu s Tumblr računom."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "Neuspješno učitavanje korisničkog sučelja: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Prijavljeni ste na Tumblr kao %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
-msgid "Photos Extra Publishing Services"
-msgstr "Shotwell dodatne usluge objave"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Već ste se prijavili i odjavili iz Googlove usluge tijekom ove Shotwell "
-"sesije.\n"
-"Za nastavak objavljivanja u Googlove usluge, ponovno pokrenite Shotwell i "
-"pokušajte ponovno objaviti."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_Albumi ( ili napravi novi):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "Način pristu_pa:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Onemogući komentare"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "Zabrani preuzimanje izvorne fotografije"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Javni"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Prijavljeni ste na Tumblr kao (ime).\n"
-"\n"
-"(ova oznaka je zapisana unutar kôda, \n"
-"te učinjene promjene neće biti vidljive)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Blogovi:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "label"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_Adresa e-pošte"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Trake"
@@ -4069,6 +3357,21 @@ msgstr "Jezgra prezentacijskog prijelaza"
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
 "Autorsko pravo 2010 Maxim Kartashev, autorsko pravo 2011-2014 Yorba fondacija"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Posjetite Yorba web stranicu"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Krešo Kunjas <deresh@gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Ivan Vrljić https://launchpad.net/~vrlja92\n"
+"  Jim Nelson https://launchpad.net/~yorba-jim\n"
+"  Nino Korent https://launchpad.net/~korent91\n"
+"  gogo https://launchpad.net/~trebelnik-stefina"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -4097,6 +3400,546 @@ msgstr "Šah"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Zastor"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Autorsko pravo 2009-2013 Yorba fondacija"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Trenutno niste prijavljeni u YouTube\n"
+#~ "\n"
+#~ "Za korištenje YouTube servisa morate imati Google korisnički račun koji "
+#~ "je podešen za korištenje istog. Za podešavanje računa, prijavite se barem "
+#~ "jednom na YouTube servis sa svojim Google korisničkim računom."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Datoteka potrebna za objavljivanje je nedostupna. Objava na Youtube se ne "
+#~ "može nastaviti."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Prijavljeni ste u YouTube kao %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "Video snimke će se prikazati u '%s'"
+
+#~ msgid "Public listed"
+#~ msgstr "Javno izlistan"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Javno, ali bez izlista"
+
+#~ msgid "Private"
+#~ msgstr "Privatno"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Core servisi za objavu"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "Privremena datoteka potrebna za objavu je nedostupna"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Već ste se prijavili i odjavili iz Google usluga tijekom ove sesije.\n"
+#~ "\n"
+#~ "Za nastavak objavljivanja na Google uslugama, zatvorite i ponovno "
+#~ "pokrenite ovaj softver, zatim pokušajte ponovno objaviti."
+
+#, fuzzy, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "Stvaranje albuma %s..."
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "Nastala je greška prilikom prijave na Piwigo. Pokušajte ponovno.."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Upišite URL vaše Piwigo fototeke kao i korisničko ime i lozinku vašeg "
+#~ "Piwigo računa za tu fototeku."
+
+#, fuzzy
+#~| msgid ""
+#~| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#~| "you entered"
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Shotwell se ne može povezati na Piwigo fototeku. Provjerite URL koji ste "
+#~ "upisali"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "Korisničko ime/lozinka nisu ispravni. Pokušajte ponovno"
+
+#~ msgid "Invalid URL"
+#~ msgstr "Nevažeći URL"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Neispravno korisničko ime ili lozinka"
+
+#, fuzzy
+#~| msgid "Shotwell Connect"
+#~ msgid "Photos Connect"
+#~ msgstr "Shotwell povezivanje"
+
+#~ msgid "Everyone"
+#~ msgstr "Svima"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Administratori, Obitelj, Prijatelji, Kontakti"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Administratori, prijatelji, obitelj"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Administratori, obitelj"
+
+#~ msgid "Admins"
+#~ msgstr "Administratori"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 piksela"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 piksela"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 piksela"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 piksela"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "Trenutno niste prijavljeni u Google fotografije.\n"
+#~ "\n"
+#~ "Kliknite na Prijavi za prijavljivanje u Google fotografije u vašem web "
+#~ "pregledniku. Trebate ovlastiti elementary OS da se može povezati s "
+#~ "računom Google fotografija."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Datoteka potrebna za objavljivanje je nedostupna. Objava na Picasu se ne "
+#~ "može nastaviti."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Prijavljeni ste u Picasa Web album kao %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Mala ( 640 x 480 piksela)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Srednje (1024 x 768 piksela)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Preporučeno ( 1600 x 1200 piksela )"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 piksela)"
+
+#, fuzzy
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Trenutno niste prijavljeni u Flickr.\n"
+#~ "\n"
+#~ "Kliknite na \"Prijava\" kako biste se prijavili u Flickr putem web "
+#~ "preglednika. Morati ćete ovlastiti Shotwell Connect kako biste se "
+#~ "povezali na vaš Flickr račun."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Flickr during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Već ste se prijavili i odjavili s Flickr-a tjekom korištenja Shotwella.\n"
+#~ " Za nastavak korištelja Flickr servisa, ponovno pokrenite Shotwell."
+
+#, fuzzy
+#~ msgid "Preparing for login…"
+#~ msgstr "Pripremanje za prijavu..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Datoteka potrebna za objavljivanje je nedostupna. Objava na Flickru se ne "
+#~ "može nastaviti."
+
+#, fuzzy
+#~ msgid "Verifying authorization…"
+#~ msgstr "Potvrđivanje ovlasti..."
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Prijavljeni ste u Flickr kao %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "Vaš Flickr korisnički račun ima mjesečno ograničenje količine fotografija "
+#~ "koje možete poslati.\n"
+#~ " Ovaj mjesec vam je preostalo %d Mb za korištenje."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "Vaš Flickr Pro korisnički račun nema ograničenja."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Fotografije _vidljive:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Video snimke _vidljive:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Fotografije i video snimke _vidljivi:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Samo prijatelji i obitelj"
+
+#~ msgid "Family only"
+#~ msgstr "Samo obitelj"
+
+#~ msgid "Friends only"
+#~ msgstr "Samo prijatelji"
+
+#~ msgid "Just me"
+#~ msgstr "Samo meni"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are not currently logged into Facebook.\n"
+#~| "\n"
+#~| "If you don't yet have a Facebook account, you can create one during the "
+#~| "login process. During login, Shotwell Connect may ask you for permission "
+#~| "to upload photos and publish to your feed. These permissions are "
+#~| "required for Shotwell Connect to function."
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Trenutno niste prijavljenu u Facebook.\n"
+#~ "\n"
+#~ "Ukoliko nemafe Facebook korisnički račun možete ga stvoriti kroz proces "
+#~ "prijave. Kod prijave, Shotwell Connect vas može tražiti dopuštenja za "
+#~ "slanje fotografija i objavu u vašim Novostima. Ta dopuštenja su nužna za "
+#~ "funkcioniranje Shotwell Connecta."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Facebook during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Već ste se prijavili i odjavili s Facebooka tijekom ove prijave "
+#~ "Shotwella.\n"
+#~ " Za nastavak objave na Facebooku, zatvorite i ponovno pokrenite Shotwell, "
+#~ "te pokušajte ponovno objaviti."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Standardno ( 720 piksela )"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Veliko ( 2048 piksela )"
+
+#, fuzzy
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Provjera povezivanje s Facebookom..."
+
+#, fuzzy
+#~ msgid "Creating album…"
+#~ msgstr "Stvaranje albuma..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Datoteka potrebna za objavljivanje je nedostupna. Objava na Facebooku se "
+#~ "ne može nastaviti."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "Poslužitellj je preusmejrio URL je ne sadrži pristupni token"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Prijavljeni ste u Facebook kao %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Želite li objaviti odabrane fotografije?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "Veličina uploada:"
+
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "Postavke _privatnosti video snimki:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Odjava"
+
+#~ msgid "_Publish"
+#~ msgstr "O_bjavi"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "Fotografije će se vidjeti u:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "_Postojećoj kategoriji:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "_Novi album je nazvan:"
+
+#~ msgid "within category:"
+#~ msgstr "unutar kategorije:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Komentar albuma:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Fotografije će biti vidljive:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Veličina fotografije:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "_Ukloni lokaciju, kameru, i ostale informacije identifikacije prije slanja"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "_Ako je naslov postavljen a komentar nije, koristi naslov kao komentar"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_Ne šalji oznake"
+
+#~ msgid "Logout"
+#~ msgstr "Odjava"
+
+#~ msgid "Publish"
+#~ msgstr "Objavi"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_URL vaše Piwigo fototeke slika"
+
+#~ msgid "User _name"
+#~ msgstr "Korisničko _ime"
+
+#~ msgid "_Password"
+#~ msgstr "_Lozinka"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Zapamti lozinku"
+
+#~ msgid "Login"
+#~ msgstr "Prijava"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "Prijavljeni ste kao $name'\n"
+#~ "(prikazano u kôdu aplikacije)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Predodređene veličine fotografija:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Prijavljeni ste u Flickr kao (name).\n"
+#~ "\n"
+#~ "(ovaj naslov je prikazan ipostavljen unutar kôda, \n"
+#~ "stoga promjene načinjene ovdje neće biti vidljive)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_vidljivost naslova (vidljivo u kôdu)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_Veličina fotografija:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Unesite potvrdni broj koji se javi nakon što se prijavite u Flickr putem "
+#~ "vašeg web preglednika."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Broj ovlasti:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (tekst ovisi o fb korisničkom imenu i promijenjen je u aplikaciji - \n"
+#~ "bilo što upisano u ovo polje neće biti vidljivo)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Objavi u _postojeći album:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Stvori _novi album:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Video snimke i novi albumi s fotografijama su vidljivi:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Sva prava pridržana 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Posjeti Yandex.Fotki internet stranicu"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Trenutno niste prijavljeni u Yandex.Fotki."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Autorsko pravo 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 piksela"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "'%s' nije valjani odgovor na OAuth zahtjev ovjere"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start(): je nemoguće pokrenuti; ovaj izdavač se ne može "
+#~ "ponovno pokrenuti."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr "Upišite korisničko ime i lozinku povezanu s Tumblr računom."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "Neuspješno učitavanje korisničkog sučelja: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Prijavljeni ste na Tumblr kao %s.\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid "Shotwell Extra Publishing Services"
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Shotwell dodatne usluge objave"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of a Google service during this "
+#~| "Shotwell session.\n"
+#~| "\n"
+#~| "To continue publishing to Google services, quit and restart Shotwell, "
+#~| "then try publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "Već ste se prijavili i odjavili iz Googlove usluge tijekom ove Shotwell "
+#~ "sesije.\n"
+#~ "Za nastavak objavljivanja u Googlove usluge, ponovno pokrenite Shotwell i "
+#~ "pokušajte ponovno objaviti."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_Albumi ( ili napravi novi):"
+
+#~ msgid "Access _type:"
+#~ msgstr "Način pristu_pa:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Onemogući komentare"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "Zabrani preuzimanje izvorne fotografije"
+
+#~ msgid "Public"
+#~ msgstr "Javni"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Prijavljeni ste na Tumblr kao (ime).\n"
+#~ "\n"
+#~ "(ova oznaka je zapisana unutar kôda, \n"
+#~ "te učinjene promjene neće biti vidljive)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Blogovi:"
+
+#~ msgid "label"
+#~ msgstr "label"
+
+#~ msgid "_Email address"
+#~ msgstr "_Adresa e-pošte"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Prikaži bočnu traku"

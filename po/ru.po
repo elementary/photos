@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2023-03-20 17:59+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/photos/photos/ru/"
@@ -41,8 +41,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.16.4\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:11+0000\n"
 
@@ -329,8 +329,6 @@ msgid "Unflag"
 msgstr "Снять отметку"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Оригинальный размер"
 
@@ -1299,7 +1297,6 @@ msgstr ""
 "Хотите продолжить экспортирование?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "_Продолжить"
 
@@ -2072,7 +2069,6 @@ msgid "Screen"
 msgstr "Экран"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Размер изображения"
 
@@ -3316,685 +3312,6 @@ msgstr "_Сохранить фото в:"
 msgid "pixels per inch"
 msgstr "пикселей на дюйм"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Все права защищены 2009-2013 Yorba Foundation"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Вы не вошли на YouTube.\n"
-"\n"
-"Чтобы продолжить, вам необходима учётная запись Google, имеющая привязку к "
-"YouTube. Можно связать учётные записи после первого входа на сайт YouTube в "
-"браузере."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Файл, необходимый для публикации недоступен. Публикация на Youtube "
-"невозможна."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Вы зашли на YouTube как %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "Видео появятся в «%s»"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Общедоступное"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Не общедоступное"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Личное"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Основные сервисы публикации"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "Временный файл, необходимый для публикации, недоступен"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Вы уже вошли и вышли из cервисов Google в течение этого сеанса.\n"
-"\n"
-"Для продолжения публикации в сервисах Google перезапустите это приложение, "
-"после чего попробуйте опубликовать снова."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Посетить сайт Yorba"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Oleg Koptev <koptev.oleg AT gmail.com>\n"
-"Yulia Poyarko <ypoyarko AT redhat.com>\n"
-"Misha Shnurapet <shnurapet AT fedoraproject.org>\n"
-"Марк Коренберг <socketpair AT gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
-"  Binali Rustamov https://launchpad.net/~binali-rustamov\n"
-"  JTux https://launchpad.net/~juliette-tux\n"
-"  Kirill Romanov https://launchpad.net/~djaler1\n"
-"  Maxim Taranov https://launchpad.net/~png2378\n"
-"  Yuly Nesterov https://launchpad.net/~inpr1se"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "Создание альбома %s…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "Ошибка публикации в Piwigo. Попробуйте ещё раз."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Введите URL-адрес вашей фотобиблиотеки Piwigo, а также имя пользователя и "
-"пароль, связанные с вашей учётной записью на Piwigo."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"Фотографиям не удаётся связаться с Piwigo. Проверьте правильность введённого "
-"URL-адреса"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "Имя пользователя и/или пароль неверны. Пожалуйста, попробуйте снова"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "Недействительный URL-адрес"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Недопустимое имя пользователя или пароль"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Менеджер соединений фотографий"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Всем"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Администраторы, семья, друзья, контакты"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Администраторы, семья, друзья"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Администраторы, семья"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Администраторы"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 пикселей"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 пикселей"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 пикселей"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 пикселей"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"Вы не вошли в Google Фото.\n"
-"\n"
-"Нажмите «Вход» для входа в Google Фото в вашем веб-браузере. Вы должны "
-"авторизовать elementary OS в вашем аккаунте Google Фото."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Файл, необходимый для публикации недоступен. Публикация в Picasa невозможна."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Вы вошли в альбомы Picasa как %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Маленький (640х480 пикселей)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Средний (1024х768 пикселей)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Рекомендуемый (1600х1200 пикселей)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 пикселей)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Вы не авторизованы в Flickr.\n"
-"\n"
-"Нажмите кнопку «Войти» для входа в Flickr с помощью веб-браузера. Вам нужно "
-"будет разрешить подключение Фотографий для дальнейшей связи с вашей учётной "
-"записью Flickr."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Вы уже входили в Flickr во время этой сессии Фотографий.\n"
-"Для продолжения публикации на Flickr, перезапустите приложение Фотографии и "
-"попробуйте снова."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "Подготовка к авторизации…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Файл, необходимый для публикации недоступен. Публикация в Flickr невозможна."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "Проверка авторизации…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Вы зашли на Flickr как %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"Бесплатный аккаунт Flickr имеет ограничение по количеству выгрузок\n"
-"в месяц. На этот месяце у вас имеется квота в %d мегабайт."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr ""
-"Ваш аккаунт Flickr Pro позволяет вам делать неограниченное количество "
-"выгрузок."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Снимки _видимы для:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Видео _видимы для:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Фотографии и видео _видимы для:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Только друзья и семья"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Только семья"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Только друзья"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Только мне"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Вы не авторизовались в Facebook.\n"
-"\n"
-"Если у вас ещё нет учётной записи Facebook, вы сможете создать её в процессе "
-"авторизации. Во время авторизации приложение может запросить разрешение на "
-"выгрузку фото и публикацию их в вашей галерее. Это необходимо для "
-"подключения."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Вы уже выполнили вход и выход из службы Facebook во время сеанса работы в "
-"Фотографиях.\n"
-"Чтобы продолжить публикацию в службах Facebook, выйдите из приложения и "
-"запустите его снова, затем повторите попытку публикации."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Стандартный (720 пикселей)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Большой (2048 пикселей)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "Проверка соединения с Facebook…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "Создание альбома…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Файл, необходимый для публикации, недоступен. Публикация в Facebook "
-"невозможна."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "URL-адрес перенаправления сервера не содержит ключа доступа"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Вы зашли в Facebook как %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Где бы вы хотели опубликовать выбранные фотографии?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "_Размеры выгруженного:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Друзья"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "_Установки конфиденциальности видео:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Выйти"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "_Опубликовать"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "Фотографии будут расположены в:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "_Существующая категория:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "Новый _альбом:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "в категории:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Комментарий к альбому:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Фотографии будут _видимы для:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Размер фотографии:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"_Удалите местоположение, информацию о камере и другую идентифицирующую "
-"информацию перед публикацией"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"Если заголовок задан, а комментарий нет, использовать заголовок в качестве "
-"комментария"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_Не публиковать теги"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Выйти"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Опубликовать"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_URL-адрес Вашей коллекции фотографий на Piwigo"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_Имя пользователя"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Пароль"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Напомнить пароль"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Войти"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"«вы вошли как $name»\n"
-"(заполняется в коде приложения)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "_Предустановки размера фотографии:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Вы вошли в Flickr как (name).\n"
-"\n"
-"(эта строка установлена и находится в коде приложения, \n"
-"поэтому изменения, сделанные здесь, не будут показаны)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_метка видимости (заполняется в коде)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_Размер фотографии:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Введите номер подтверждения, который появится после того, как вы зайдёте в "
-"Flickr в веб-браузере."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Номер подтверждения:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (этот текст зависит от имени пользователя в Facebook и изменяется в "
-"приложении - \n"
-"все, что написано в этом поле, не будет отображаться)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Опубликовать в _альбоме:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Создать _новый альбом:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Видео и новые фотоальбомы _видимы для:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Все права защищены 2010+ Евгений Поляков <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Перейти на сайт Яндекс.Фотки"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Вы не вошли в Яндекс.Фотки."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Все права защищены 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 пикселя"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "«%s» не является верным ответом на запрос аутентификации OAuth"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): запуск невозможен; этот публикатор не имеет "
-"возможности перезапуска."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Введите имя пользователя и пароль, связанный с вашей учётной записью Tumblr."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "Невозможно загрузить интерфейс пользователя: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Выполнен вход в Tumblr от имени %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "Дополнительные службы публикации фотографий"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Вы уже выполнили вход и выход из службы Google во время сеанса работы в "
-"Фотографиях.\n"
-"\n"
-"Чтобы продолжить публикацию в службах Google, выйдите из приложения и "
-"запустите его снова, затем попробуйте повторить публикацию."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_Альбомы (или создать новый):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "_Способ доступа:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Отключить _комментарии"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_Запретить загрузку оригинала"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Общий"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Вы вошли в Tumblr как (имя).\n"
-"\n"
-"(эта строка установлена и находится в коде приложения, \n"
-"поэтому изменения, сделанные здесь, не будут показаны)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Блоги:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "ярлык"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_Адрес эл. почты"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Полоски"
@@ -4014,6 +3331,26 @@ msgstr "Основные эффекты переходов"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "Авторские права 2010 Максим Карташёв, 2011-2013 Yorba Foundation"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Посетить сайт Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Oleg Koptev <koptev.oleg AT gmail.com>\n"
+"Yulia Poyarko <ypoyarko AT redhat.com>\n"
+"Misha Shnurapet <shnurapet AT fedoraproject.org>\n"
+"Марк Коренберг <socketpair AT gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
+"  Binali Rustamov https://launchpad.net/~binali-rustamov\n"
+"  JTux https://launchpad.net/~juliette-tux\n"
+"  Kirill Romanov https://launchpad.net/~djaler1\n"
+"  Maxim Taranov https://launchpad.net/~png2378\n"
+"  Yuly Nesterov https://launchpad.net/~inpr1se"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -4042,6 +3379,513 @@ msgstr "Шахматы"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Жалюзи"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Все права защищены 2009-2013 Yorba Foundation"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Вы не вошли на YouTube.\n"
+#~ "\n"
+#~ "Чтобы продолжить, вам необходима учётная запись Google, имеющая привязку "
+#~ "к YouTube. Можно связать учётные записи после первого входа на сайт "
+#~ "YouTube в браузере."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Файл, необходимый для публикации недоступен. Публикация на Youtube "
+#~ "невозможна."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Вы зашли на YouTube как %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "Видео появятся в «%s»"
+
+#~ msgid "Public listed"
+#~ msgstr "Общедоступное"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Не общедоступное"
+
+#~ msgid "Private"
+#~ msgstr "Личное"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Основные сервисы публикации"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "Временный файл, необходимый для публикации, недоступен"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Вы уже вошли и вышли из cервисов Google в течение этого сеанса.\n"
+#~ "\n"
+#~ "Для продолжения публикации в сервисах Google перезапустите это "
+#~ "приложение, после чего попробуйте опубликовать снова."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "Создание альбома %s…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "Ошибка публикации в Piwigo. Попробуйте ещё раз."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Введите URL-адрес вашей фотобиблиотеки Piwigo, а также имя пользователя и "
+#~ "пароль, связанные с вашей учётной записью на Piwigo."
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Фотографиям не удаётся связаться с Piwigo. Проверьте правильность "
+#~ "введённого URL-адреса"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "Имя пользователя и/или пароль неверны. Пожалуйста, попробуйте снова"
+
+#~ msgid "Invalid URL"
+#~ msgstr "Недействительный URL-адрес"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Недопустимое имя пользователя или пароль"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Менеджер соединений фотографий"
+
+#~ msgid "Everyone"
+#~ msgstr "Всем"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Администраторы, семья, друзья, контакты"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Администраторы, семья, друзья"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Администраторы, семья"
+
+#~ msgid "Admins"
+#~ msgstr "Администраторы"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 пикселей"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 пикселей"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 пикселей"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 пикселей"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "Вы не вошли в Google Фото.\n"
+#~ "\n"
+#~ "Нажмите «Вход» для входа в Google Фото в вашем веб-браузере. Вы должны "
+#~ "авторизовать elementary OS в вашем аккаунте Google Фото."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Файл, необходимый для публикации недоступен. Публикация в Picasa "
+#~ "невозможна."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Вы вошли в альбомы Picasa как %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Маленький (640х480 пикселей)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Средний (1024х768 пикселей)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Рекомендуемый (1600х1200 пикселей)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 пикселей)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Вы не авторизованы в Flickr.\n"
+#~ "\n"
+#~ "Нажмите кнопку «Войти» для входа в Flickr с помощью веб-браузера. Вам "
+#~ "нужно будет разрешить подключение Фотографий для дальнейшей связи с вашей "
+#~ "учётной записью Flickr."
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Вы уже входили в Flickr во время этой сессии Фотографий.\n"
+#~ "Для продолжения публикации на Flickr, перезапустите приложение Фотографии "
+#~ "и попробуйте снова."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "Подготовка к авторизации…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Файл, необходимый для публикации недоступен. Публикация в Flickr "
+#~ "невозможна."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "Проверка авторизации…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Вы зашли на Flickr как %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "Бесплатный аккаунт Flickr имеет ограничение по количеству выгрузок\n"
+#~ "в месяц. На этот месяце у вас имеется квота в %d мегабайт."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr ""
+#~ "Ваш аккаунт Flickr Pro позволяет вам делать неограниченное количество "
+#~ "выгрузок."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Снимки _видимы для:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Видео _видимы для:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Фотографии и видео _видимы для:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Только друзья и семья"
+
+#~ msgid "Family only"
+#~ msgstr "Только семья"
+
+#~ msgid "Friends only"
+#~ msgstr "Только друзья"
+
+#~ msgid "Just me"
+#~ msgstr "Только мне"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Вы не авторизовались в Facebook.\n"
+#~ "\n"
+#~ "Если у вас ещё нет учётной записи Facebook, вы сможете создать её в "
+#~ "процессе авторизации. Во время авторизации приложение может запросить "
+#~ "разрешение на выгрузку фото и публикацию их в вашей галерее. Это "
+#~ "необходимо для подключения."
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Вы уже выполнили вход и выход из службы Facebook во время сеанса работы в "
+#~ "Фотографиях.\n"
+#~ "Чтобы продолжить публикацию в службах Facebook, выйдите из приложения и "
+#~ "запустите его снова, затем повторите попытку публикации."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Стандартный (720 пикселей)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Большой (2048 пикселей)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Проверка соединения с Facebook…"
+
+#~ msgid "Creating album…"
+#~ msgstr "Создание альбома…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Файл, необходимый для публикации, недоступен. Публикация в Facebook "
+#~ "невозможна."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "URL-адрес перенаправления сервера не содержит ключа доступа"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Вы зашли в Facebook как %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Где бы вы хотели опубликовать выбранные фотографии?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "_Размеры выгруженного:"
+
+#~ msgid "Friends"
+#~ msgstr "Друзья"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "_Установки конфиденциальности видео:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Выйти"
+
+#~ msgid "_Publish"
+#~ msgstr "_Опубликовать"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "Фотографии будут расположены в:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "_Существующая категория:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "Новый _альбом:"
+
+#~ msgid "within category:"
+#~ msgstr "в категории:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Комментарий к альбому:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Фотографии будут _видимы для:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Размер фотографии:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "_Удалите местоположение, информацию о камере и другую идентифицирующую "
+#~ "информацию перед публикацией"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "Если заголовок задан, а комментарий нет, использовать заголовок в "
+#~ "качестве комментария"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_Не публиковать теги"
+
+#~ msgid "Logout"
+#~ msgstr "Выйти"
+
+#~ msgid "Publish"
+#~ msgstr "Опубликовать"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_URL-адрес Вашей коллекции фотографий на Piwigo"
+
+#~ msgid "User _name"
+#~ msgstr "_Имя пользователя"
+
+#~ msgid "_Password"
+#~ msgstr "_Пароль"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Напомнить пароль"
+
+#~ msgid "Login"
+#~ msgstr "Войти"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "«вы вошли как $name»\n"
+#~ "(заполняется в коде приложения)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "_Предустановки размера фотографии:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Вы вошли в Flickr как (name).\n"
+#~ "\n"
+#~ "(эта строка установлена и находится в коде приложения, \n"
+#~ "поэтому изменения, сделанные здесь, не будут показаны)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_метка видимости (заполняется в коде)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_Размер фотографии:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Введите номер подтверждения, который появится после того, как вы зайдёте "
+#~ "в Flickr в веб-браузере."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Номер подтверждения:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (этот текст зависит от имени пользователя в Facebook и изменяется в "
+#~ "приложении - \n"
+#~ "все, что написано в этом поле, не будет отображаться)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Опубликовать в _альбоме:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Создать _новый альбом:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Видео и новые фотоальбомы _видимы для:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Все права защищены 2010+ Евгений Поляков <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Перейти на сайт Яндекс.Фотки"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Вы не вошли в Яндекс.Фотки."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Все права защищены 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 пикселя"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "«%s» не является верным ответом на запрос аутентификации OAuth"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): запуск невозможен; этот публикатор не имеет "
+#~ "возможности перезапуска."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Введите имя пользователя и пароль, связанный с вашей учётной записью "
+#~ "Tumblr."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "Невозможно загрузить интерфейс пользователя: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Выполнен вход в Tumblr от имени %s.\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Дополнительные службы публикации фотографий"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "Вы уже выполнили вход и выход из службы Google во время сеанса работы в "
+#~ "Фотографиях.\n"
+#~ "\n"
+#~ "Чтобы продолжить публикацию в службах Google, выйдите из приложения и "
+#~ "запустите его снова, затем попробуйте повторить публикацию."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_Альбомы (или создать новый):"
+
+#~ msgid "Access _type:"
+#~ msgstr "_Способ доступа:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Отключить _комментарии"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_Запретить загрузку оригинала"
+
+#~ msgid "Public"
+#~ msgstr "Общий"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Вы вошли в Tumblr как (имя).\n"
+#~ "\n"
+#~ "(эта строка установлена и находится в коде приложения, \n"
+#~ "поэтому изменения, сделанные здесь, не будут показаны)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Блоги:"
+
+#~ msgid "label"
+#~ msgstr "ярлык"
+
+#~ msgid "_Email address"
+#~ msgstr "_Адрес эл. почты"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Показывать боковую панель"

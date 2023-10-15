@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -300,8 +300,6 @@ msgid "Unflag"
 msgstr "移除旗幟"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "原始大小"
 
@@ -1254,7 +1252,6 @@ msgstr ""
 "您想要繼續匯出嗎？"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "繼續(_T)"
 
@@ -1896,7 +1893,6 @@ msgid "Screen"
 msgstr "螢幕畫面"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "原始比例"
 
@@ -3144,688 +3140,6 @@ msgstr "輸出相片於(_O)："
 msgid "pixels per inch"
 msgstr "每英吋畫素"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "著作權 2009-2013 Yorba Foundation"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"您目前尚未登入 YouTube。\n"
-"\n"
-"您必須已經註冊 Google 帳號並將它設定好可以使用 YouTube 才能繼續。對大多數的帳"
-"號來說，您都可以使用瀏覽器登入 YouTube 至少一次來將它設定好。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Youtube。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "您正在以 %s 身分登入 YouTube。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "視訊將「 %s」內顯現"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "公開且列出"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "公開但不列出"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "私人"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "核心發布服務"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "發布所需的某暫存檔無法使用"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"您在本次作業階段已經登入 Google 服務又登出。\n"
-"\n"
-"若要繼續發佈至 Google 服務，請退出並重新啟動本軟體，接著再試著發佈一次。"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "造訪 Yorba 網站"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Cheng-Chia Tseng https://launchpad.net/~zerng07"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
-msgid "Creating album %s…"
-msgstr "正在建立 %s 相簿..."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "當發布至 Piwigo 時得到錯誤訊息。請重試。"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"輸入您 Piwigo 相片珍藏館的網址，以及與該珍藏館相關聯的 Piwigo 帳戶其使用者名"
-"稱、密碼。"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr "Shotwell 無法聯絡您的 Piwigo 相片珍藏館。請驗證您輸入的網址是否正確。"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "使用者名稱與/或密碼無效。請重試"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "無效的網址"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "無效的使用者名稱或密碼"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
-msgid "Photos Connect"
-msgstr "Shotwell 連線"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "每個人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "管理員、家人、朋友、聯絡人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "管理員、家人、朋友"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "管理員、家人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "管理員"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 畫素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 畫素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 畫素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 畫素"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"您目前尚未登入 Google Photos。\n"
-"\n"
-"請點按「登入」使用您的網頁瀏覽器登入 Google Photos。該網頁會要求您授權 "
-"elementary OS 以連結至您的 Google Photos 帳號。"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Picasa。"
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "您已經以 %s 的身份登入 Picasa 網路相簿。"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "小 (640 x 480 畫素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "中 (1024 x 768 畫素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "建議 (1600 x 1200 畫素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 畫素)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"您目前尚未登入 Flickr。\n"
-"\n"
-"點擊「登入」來從您的網路瀏覽器中登入 Flickr。您必須授權 Shotwell Connect 可以"
-"連結至您的 Flickr 帳號。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"您已經在此 Shotwell 作業階段內登入過並接著登出 Flickr。\n"
-"若要繼續發布至 Flickr，請退出並重新啟動 Shotwell，接著再次嘗試發布。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
-msgid "Preparing for login…"
-msgstr "正在準備登入..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Flickr。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
-msgid "Verifying authorization…"
-msgstr "正在驗證授權..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"您正在以 %s 身分登入 Flickr。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"您的免費 Flickr 帳號限制您每月只能上傳某個量的資料。\n"
-"這個月，您的上傳配額剩餘 %d MB。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "您的 Flickr Pro 帳號賦予您無限制的上傳量。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "誰能看見這些相片(_V)："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "誰能看見這些視訊(_V)："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "誰能看見這些相片與視訊(_V)："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "僅朋友與家人"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "僅家人"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "僅朋友"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "只有我"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"您目前尚未登入 Facebook。\n"
-"\n"
-"若您尚未擁有 Facebook 帳號，您可以在登入程序內建立一份帳號。在登入期間，"
-"Shotwell Connect 可能會詢問您上傳相片並且發布至您饋流的許可。Shotwell "
-"Connect 需要取得這些許可權限才能運作。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"您已經在此 Shotwell 作業階段內登入過並接著登出 Facebook。\n"
-"若要繼續發布至 Facebook，請退出並重新啟動 Shotwell，接著再次嘗試發布。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "標準 (720 畫素)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "大 (2048 畫素)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
-msgid "Testing connection to Facebook…"
-msgstr "正在測試至 Facebook 的連線..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
-msgid "Creating album…"
-msgstr "正在建立相簿..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Facebook。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "伺服器的重新導引 URL 未包含存取代符"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"您正在以 %s 身分登入 Facebook。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "您想要在何處發布所選的相片？"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "上傳大小(_S)："
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "朋友"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "視訊隱私設定值(_S)："
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "登出(_L)"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "發布(_P)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "相片將顯現於："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "現有的分類(_E)："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "新相簿名為(_N)："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "類別："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "相簿評註："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "相片會出現於(_V)："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "相片大小："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr "上傳前先移除地理位置、相機、以及其他可供辨識的資訊(_R)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr "如果有設定標題但未設定評註，則使用標題作為評註(_I)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "不要上傳標籤(_D)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "登出"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "發布"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "您 Piwigo 相片庫的網址(_U)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "使用者名稱(_N)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "密碼(_P)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "記住密碼(_R)"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "登入"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'您正以 $name 身份登入'\n"
-" (於應用程式碼內取出)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "相片大小預先設定(_S)："
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"您正以 (name) 身份登入 Flickr。\n"
-"\n"
-"(此標籤的字串會被抽出，並在程式碼內部設定，\n"
-"所以此處的更動不會顯示出來)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "可見標籤(_V) (於程式碼內取出)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "相片大小(_S)："
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr "請輸入您登入 Flickr 後在您瀏覽器中出現的確認號碼。"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "授權號碼(_N)："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (文字取決於 fb 使用者名稱，且會在程式中修改 - \n"
-"任何置於此欄位的東西都不會顯示)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "發布至現存相簿(_X)："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "建立新相簿並命名為："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "誰能看見這些視訊與新的相簿(_V)："
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "著作權 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "造訪 Yandex.Fotki 網站"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "您目前尚未登入 Yandex.Fotki。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "著作權 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 畫素"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "「%s」不是個對 OAuth 驗證請求的有效回應"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr "TumblrPublisher: start( )：無法啟動；此發布器不能重新啟動。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr "請輸入與您 Tumblr 帳戶相關聯的使用者名稱與密碼。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "無法載入使用者介面：%s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"您正以 %s 的身份登入 Tumblr。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
-msgid "Photos Extra Publishing Services"
-msgstr "Shotwell 額外發布服務"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"您已在 Shotwell 工作階段中登入並登出 Google 服務。\n"
-"\n"
-"若要繼續發布至 Google 服務，請先退出 Shotwell 並重新啟動，接著再重試發布。."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "相簿 (或寫入新的)(_A)："
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "存取類型(_T)："
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "停用評論(_C)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "禁止下載原始相片(_F)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "發布"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"您正以 (name) 身份登入 Tumblr。\n"
-"\n"
-"(此標籤的字串會被抽出，並在程式內部設定，\n"
-"所以此處的更動不會顯示出來)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "網誌："
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "標籤"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "電子郵件位址(_E)"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "條帶"
@@ -3845,6 +3159,18 @@ msgstr "核心投影秀轉場"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "著作權 2010 Maxim Kartashev，著作權 2011-2013 Yorba Foundation"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "造訪 Yorba 網站"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Cheng-Chia Tseng https://launchpad.net/~zerng07"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3873,6 +3199,523 @@ msgstr "棋盤"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "百葉窗"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "著作權 2009-2013 Yorba Foundation"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "您目前尚未登入 YouTube。\n"
+#~ "\n"
+#~ "您必須已經註冊 Google 帳號並將它設定好可以使用 YouTube 才能繼續。對大多數"
+#~ "的帳號來說，您都可以使用瀏覽器登入 YouTube 至少一次來將它設定好。"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Youtube。"
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "您正在以 %s 身分登入 YouTube。"
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "視訊將「 %s」內顯現"
+
+#~ msgid "Public listed"
+#~ msgstr "公開且列出"
+
+#~ msgid "Public unlisted"
+#~ msgstr "公開但不列出"
+
+#~ msgid "Private"
+#~ msgstr "私人"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "核心發布服務"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "發布所需的某暫存檔無法使用"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "您在本次作業階段已經登入 Google 服務又登出。\n"
+#~ "\n"
+#~ "若要繼續發佈至 Google 服務，請退出並重新啟動本軟體，接著再試著發佈一次。"
+
+#, fuzzy, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "正在建立 %s 相簿..."
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "當發布至 Piwigo 時得到錯誤訊息。請重試。"
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "輸入您 Piwigo 相片珍藏館的網址，以及與該珍藏館相關聯的 Piwigo 帳戶其使用者"
+#~ "名稱、密碼。"
+
+#, fuzzy
+#~| msgid ""
+#~| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#~| "you entered"
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Shotwell 無法聯絡您的 Piwigo 相片珍藏館。請驗證您輸入的網址是否正確。"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "使用者名稱與/或密碼無效。請重試"
+
+#~ msgid "Invalid URL"
+#~ msgstr "無效的網址"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "無效的使用者名稱或密碼"
+
+#, fuzzy
+#~| msgid "Shotwell Connect"
+#~ msgid "Photos Connect"
+#~ msgstr "Shotwell 連線"
+
+#~ msgid "Everyone"
+#~ msgstr "每個人"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "管理員、家人、朋友、聯絡人"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "管理員、家人、朋友"
+
+#~ msgid "Admins, Family"
+#~ msgstr "管理員、家人"
+
+#~ msgid "Admins"
+#~ msgstr "管理員"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 畫素"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 畫素"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 畫素"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 畫素"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "您目前尚未登入 Google Photos。\n"
+#~ "\n"
+#~ "請點按「登入」使用您的網頁瀏覽器登入 Google Photos。該網頁會要求您授權 "
+#~ "elementary OS 以連結至您的 Google Photos 帳號。"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Picasa。"
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "您已經以 %s 的身份登入 Picasa 網路相簿。"
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "小 (640 x 480 畫素)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "中 (1024 x 768 畫素)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "建議 (1600 x 1200 畫素)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 畫素)"
+
+#, fuzzy
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "您目前尚未登入 Flickr。\n"
+#~ "\n"
+#~ "點擊「登入」來從您的網路瀏覽器中登入 Flickr。您必須授權 Shotwell Connect "
+#~ "可以連結至您的 Flickr 帳號。"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Flickr during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "您已經在此 Shotwell 作業階段內登入過並接著登出 Flickr。\n"
+#~ "若要繼續發布至 Flickr，請退出並重新啟動 Shotwell，接著再次嘗試發布。"
+
+#, fuzzy
+#~ msgid "Preparing for login…"
+#~ msgstr "正在準備登入..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Flickr。"
+
+#, fuzzy
+#~ msgid "Verifying authorization…"
+#~ msgstr "正在驗證授權..."
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您正在以 %s 身分登入 Flickr。\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "您的免費 Flickr 帳號限制您每月只能上傳某個量的資料。\n"
+#~ "這個月，您的上傳配額剩餘 %d MB。"
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "您的 Flickr Pro 帳號賦予您無限制的上傳量。"
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "誰能看見這些相片(_V)："
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "誰能看見這些視訊(_V)："
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "誰能看見這些相片與視訊(_V)："
+
+#~ msgid "Friends & family only"
+#~ msgstr "僅朋友與家人"
+
+#~ msgid "Family only"
+#~ msgstr "僅家人"
+
+#~ msgid "Friends only"
+#~ msgstr "僅朋友"
+
+#~ msgid "Just me"
+#~ msgstr "只有我"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are not currently logged into Facebook.\n"
+#~| "\n"
+#~| "If you don't yet have a Facebook account, you can create one during the "
+#~| "login process. During login, Shotwell Connect may ask you for permission "
+#~| "to upload photos and publish to your feed. These permissions are "
+#~| "required for Shotwell Connect to function."
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "您目前尚未登入 Facebook。\n"
+#~ "\n"
+#~ "若您尚未擁有 Facebook 帳號，您可以在登入程序內建立一份帳號。在登入期間，"
+#~ "Shotwell Connect 可能會詢問您上傳相片並且發布至您饋流的許可。Shotwell "
+#~ "Connect 需要取得這些許可權限才能運作。"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Facebook during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "您已經在此 Shotwell 作業階段內登入過並接著登出 Facebook。\n"
+#~ "若要繼續發布至 Facebook，請退出並重新啟動 Shotwell，接著再次嘗試發布。"
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "標準 (720 畫素)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "大 (2048 畫素)"
+
+#, fuzzy
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "正在測試至 Facebook 的連線..."
+
+#, fuzzy
+#~ msgid "Creating album…"
+#~ msgstr "正在建立相簿..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr "發布所需的某個檔案無法使用。無法繼續發布至 Facebook。"
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "伺服器的重新導引 URL 未包含存取代符"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您正在以 %s 身分登入 Facebook。\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "您想要在何處發布所選的相片？"
+
+#~ msgid "Upload _size:"
+#~ msgstr "上傳大小(_S)："
+
+#~ msgid "Friends"
+#~ msgstr "朋友"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "視訊隱私設定值(_S)："
+
+#~ msgid "_Logout"
+#~ msgstr "登出(_L)"
+
+#~ msgid "_Publish"
+#~ msgstr "發布(_P)"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "相片將顯現於："
+
+#~ msgid "An _existing category:"
+#~ msgstr "現有的分類(_E)："
+
+#~ msgid "A _new album named:"
+#~ msgstr "新相簿名為(_N)："
+
+#~ msgid "within category:"
+#~ msgstr "類別："
+
+#~ msgid "Album comment:"
+#~ msgstr "相簿評註："
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "相片會出現於(_V)："
+
+#~ msgid "Photo size:"
+#~ msgstr "相片大小："
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr "上傳前先移除地理位置、相機、以及其他可供辨識的資訊(_R)"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr "如果有設定標題但未設定評註，則使用標題作為評註(_I)"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "不要上傳標籤(_D)"
+
+#~ msgid "Logout"
+#~ msgstr "登出"
+
+#~ msgid "Publish"
+#~ msgstr "發布"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "您 Piwigo 相片庫的網址(_U)"
+
+#~ msgid "User _name"
+#~ msgstr "使用者名稱(_N)"
+
+#~ msgid "_Password"
+#~ msgstr "密碼(_P)"
+
+#~ msgid "_Remember Password"
+#~ msgstr "記住密碼(_R)"
+
+#~ msgid "Login"
+#~ msgstr "登入"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'您正以 $name 身份登入'\n"
+#~ " (於應用程式碼內取出)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "相片大小預先設定(_S)："
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "您正以 (name) 身份登入 Flickr。\n"
+#~ "\n"
+#~ "(此標籤的字串會被抽出，並在程式碼內部設定，\n"
+#~ "所以此處的更動不會顯示出來)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "可見標籤(_V) (於程式碼內取出)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "相片大小(_S)："
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr "請輸入您登入 Flickr 後在您瀏覽器中出現的確認號碼。"
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "授權號碼(_N)："
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (文字取決於 fb 使用者名稱，且會在程式中修改 - \n"
+#~ "任何置於此欄位的東西都不會顯示)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "發布至現存相簿(_X)："
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "建立新相簿並命名為："
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "誰能看見這些視訊與新的相簿(_V)："
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "著作權 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "造訪 Yandex.Fotki 網站"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "您目前尚未登入 Yandex.Fotki。"
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "著作權 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 畫素"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "「%s」不是個對 OAuth 驗證請求的有效回應"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr "TumblrPublisher: start( )：無法啟動；此發布器不能重新啟動。"
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr "請輸入與您 Tumblr 帳戶相關聯的使用者名稱與密碼。"
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "無法載入使用者介面：%s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您正以 %s 的身份登入 Tumblr。\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid "Shotwell Extra Publishing Services"
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Shotwell 額外發布服務"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of a Google service during this "
+#~| "Shotwell session.\n"
+#~| "\n"
+#~| "To continue publishing to Google services, quit and restart Shotwell, "
+#~| "then try publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "您已在 Shotwell 工作階段中登入並登出 Google 服務。\n"
+#~ "\n"
+#~ "若要繼續發布至 Google 服務，請先退出 Shotwell 並重新啟動，接著再重試發"
+#~ "布。."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "相簿 (或寫入新的)(_A)："
+
+#~ msgid "Access _type:"
+#~ msgstr "存取類型(_T)："
+
+#~ msgid "Disable _comments"
+#~ msgstr "停用評論(_C)"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "禁止下載原始相片(_F)"
+
+#~ msgid "Public"
+#~ msgstr "發布"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "您正以 (name) 身份登入 Tumblr。\n"
+#~ "\n"
+#~ "(此標籤的字串會被抽出，並在程式內部設定，\n"
+#~ "所以此處的更動不會顯示出來)"
+
+#~ msgid "Blogs:"
+#~ msgstr "網誌："
+
+#~ msgid "label"
+#~ msgstr "標籤"
+
+#~ msgid "_Email address"
+#~ msgstr "電子郵件位址(_E)"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "顯示側邊欄"

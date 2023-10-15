@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2022-08-29 13:00+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/photos/photos/he/"
@@ -306,8 +306,6 @@ msgid "Unflag"
 msgstr "ביטול הדגל"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "הגודל המקורי"
 
@@ -1253,7 +1251,6 @@ msgstr ""
 "האם ברצונך להמשיך ביצוא?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "המ_שך"
 
@@ -1947,7 +1944,6 @@ msgid "Screen"
 msgstr "מסך"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "הגודל המקורי"
 
@@ -3172,662 +3168,6 @@ msgstr "_פלט התמונה תחת:"
 msgid "pixels per inch"
 msgstr "פיקסלים לאינטש"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "כל הזכויות שמורות 2009‏-2013 Yorba Foundation"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"נכון לעכשיו לא נכנסת לשירות YouTube.\n"
-"\n"
-"כדי להמשיך אמור להיות ברשותך חשבון Google המוגדר לשימוש בשילוב YouTube. ניתן "
-"להגדיר את רוב החשבונות על ידי שימוש בדפדפן האינטרנט שלך כדי להיכנס ל־YouTube "
-"לפחות פעם אחת."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל־Youtube לא תוכל להתבצע."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "נכנסת ל־YouTube בשם %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "קטעי הווידאו יופיעו בתוך '%s'"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "הצגה ציבורית"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "לא מוצג לכלל הציבור"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "פרטי"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "שירותי פרסום של הליבה"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "קובץ זמני הדרוש לפרסום אינו זמין"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"כבר נכנסת ויצאת מחשבון ה־Google שלך במהלך הפעלה זו.\n"
-"\n"
-"כדי להמשיך לפרסם לשירותי Google, עליך לצאת ולהפעיל מחדש תכנית זו ואז לנסות "
-"לפרסם שוב."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "ביקור באתר של Yorba"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"ירון שהרבני <sh.yaron@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Yosef Or Boczko https://launchpad.net/~yoseforb\n"
-"  brigazvi https://launchpad.net/~brigazvi148"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "האלבום %s נוצר…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "אירעה שגיאה בעת הפרסום לפיוויגו. נא לנסות שוב."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"הזן את כתובת האתר של ספריית התמונות Piwigo שלך וכן את שם המשתמש והסיסמה "
-"לגישה לחשבון -Piwigo שלך עבור ספריה זו."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"היישום תמונות לא יכול להתחבר לספריית התמונות Piwigo. אנא בדוק את כתובת האתר "
-"שהזנת"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "השם המשתמש ו/או הססמה שגויים. נא לנסות שוב מאוחר יותר"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "כתובת אתר לא תקינה"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "שם משתמש או ססמה שגויים"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Photos Connect"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "כולם"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "מנהלי מערכת, משפחה, חברים, אנשי קשר"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "מנהלי מערכת, משפחה, חברים"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "מנהלי מערכת, משפחה"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "מנהלי מערכת"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 × 375 פיקסלים"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 × 768 פיקסלים"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x‏ 1536 פיקסלים"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x‏ 3072 פיקסלים"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"לא נכנסת לשירות Google Photos.\n"
-"\n"
-"יש ללחוץ על כניסה כדי להיכנס ל־Google Photos עם הדפדפן שלך. יהיה עליך לאשר ל־"
-"elementary OS להיקשר אל החשבון שלך ב־Google Photos."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Picasa לא תוכל להתבצע."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "נכנסת ל־Picasa Web Albums בשם %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "קטנה (640 x‏ 480 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "בינונית (1024 x‏ 768 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "מומלצת (1600 x‏ 1200 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"לא נכנסת ל־Flickr.\n"
-"\n"
-"יש ללחוץ על כניסה כדי להיכנס ל־Flickr בדפדפן שלך. יהיה עליך לאמת את Photos "
-"Connect כדי לקשר אל חשבון ה־Flickr שלך."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"כבר נכנסת ויצאת מ־Flick במהלך הפעלה זו של Photos.\n"
-"כדי להמשיך לפרסם ל־Flickr, עליך לצאת ולהפעיל מחדש את Photos ואז לנסות לפרסם "
-"שוב."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "בהכנות לכניסה…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Flickr לא תוכל להתבצע."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "מתבצע וידוא של האימות…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"נכנסת ל־Flickr בשם %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"חשבונך הפטור מתשלום ב־Flickr מגביל את כמות המידע שניתן להעלות בחודש.\n"
-"החודש, נותרו לך %d מגה בתים במכסת ההעלאה שלך."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "חשבון ה־Flickr Pro שלך מזכה אותך בכמויות העלאה בלתי מוגבלות."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "התמונות _גלויות לעיני:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "קטעי הווי_דאו גלוים לעיני:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "הת_מונות וקטעי הווידאו גלויים לעיני:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "חברים ומשפחה בלבד"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "רק משפחה"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "רק חברים"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "רק לי"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"נכון לעכשיו לא ביצעת כניסה לחשבון ה־Facebook שלך.\n"
-"\n"
-"אם עדיין אין לך חשבון Facebook, באפשרותך ליצור אחד במהלך הכניסה. במשך תהליך "
-"הכניסה, Photos Connect עלול לבקש את רשותך להעלות תמונות ולפרסם אותן בהזנה "
-"שלך. הרשאות אלו נחוצות כדי ש־Photos Connect יוכל לתפקד."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"כבר יצאת מ־Facebook במהלך הפעלה זו של Photos.\n"
-"כדי להמשיך לפרסם ל־Facebook, עליך לצאת ולהפעיל מחדש את Photos ואז לנסות "
-"לפרסם שוב."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "רגיל (720 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "גדול (2048 פיקסלים)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "החיבור ל־Facebook נבדק…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "אלבום נוצר…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Facebook לא תוכל להתבצע."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "כתובת ההפניה של השרת לא הכילה אסימון גישה"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"נכנסת ל־Facebook בשם %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "להיכן ברצונך לפרסם את התמונות הנבחרות?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "גודל הה_עלאה:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "חברים"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "הגדרות ה_פרטיות של הווידאו:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "י_ציאה"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "_פרסום"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "התמונות יופיעו תחת:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "_קטגוריה קיימת:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "_אלבום חדש בשם:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "בתוך הקטגוריה:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "הערה על אלבום:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "התמונות יהיו זמינות _עד:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "גודל התמונה:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr "ה_סרת מיקום, מצלמה ופרטים מזהים אחרים בטרם ההעלאה"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr "_אם מוגדרת כותרת ואין הערה, יש להשתמש בכותרת כהערה"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_לא להעלות תגיות"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "התנתקות"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "פרסום"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_כתובת של ספריית התמונות שלך ב־Piwigo"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_שם משתמש"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_סיסמה"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_זכור ססמה"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "כניסה"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'נכנסת בתור $name'\n"
-"(מופיע בקוד היישום)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "ערכת _גודל התמונה:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"נכנסת ל־Flickr בשם (name).\n"
-"\n"
-"(המחרוזת של התווית הזאת מאוכלסת ומוגדרת בתוך הקוד,\n"
-"לכן, שינויים שיערכו כאן לא יופיעו)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_תווית הצגה (מופיע בקוד)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_גודל תמונה:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr "נא להזין את מספר האימות שמופיע לאחר הכניסה ל־Flickr בדפדפן שלך."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "מספר ה_אימות:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (הטקסט תלוי בשם המשתמש בפייסבוק והוא משתנה בתוך היישום - \n"
-"כל מה שיוכנס לשדה זה, לא יופיע)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "פרסום לאלבום _קיים:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "יצירת אלבום _חדש בשם:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "קטעי הווידאו והתמונות החדשים _גלויים לעיני:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "כל הזכויות שמורות 2010+ ל־Evgeniy Polyakov‏ <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "ביקור באתר Yandex.Fotki"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "לא נכנסת לשירות Yandex.Fotki."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "כל הזכויות שמורות 2012 ל־BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280‎ × 853 פיקסלים"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "'%s' אינו פלט תקין לבקשת אימות מסוג OAuth"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( )‎: אינו ניתן לאתחול, כיוון שמנשק זה אינו ניתן לאתחול "
-"מחדש."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr "נא להזין את שם המשתמש והססמה של חשבון ה־Tumblr שלך."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "טעינת המנשק נכשלה: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"נכנסת לחשבונך ב־Tumblr בשם %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "שירותי פרסום נוספים של Photos"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"כבר נכנסת ויצאת מהחשבון שלך ב־Google במהלך ההפעלה הזאת של Photos.\n"
-"\n"
-"כדי להמשיך ולפרסם לשירותי Google, עליך לצאת ולהפעיל מחדש את Photos ואז לנסות "
-"ולפרסם לשירות שוב."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_אלבומים (או כתיבת חדש):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "_סוג הגישה:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "נטרול הה_ערות"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_איסור הורדת התמונה המקורית"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "ציבורי"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"נכנסת ל־Tumblr בשם (name).\n"
-"\n"
-"(המחרוזת של התווית הזאת מאוכלסת ומוגדרת בתוך הקוד,\n"
-"לכן, שינויים שיערכו כאן לא יופיעו)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "בלוגים:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "תווית"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_כתובת דוא״ל"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "פסים"
@@ -3849,6 +3189,19 @@ msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
 "כל הזכויות שמורות 2010 לידי Maxim Kartashev, כל הזכויות שמורות 2011‏-2013 "
 "לידי Yorba Foundation"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "ביקור באתר של Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"ירון שהרבני <sh.yaron@gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Yosef Or Boczko https://launchpad.net/~yoseforb\n"
+"  brigazvi https://launchpad.net/~brigazvi148"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3877,6 +3230,494 @@ msgstr "שח מט"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "תריסים"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "כל הזכויות שמורות 2009‏-2013 Yorba Foundation"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "נכון לעכשיו לא נכנסת לשירות YouTube.\n"
+#~ "\n"
+#~ "כדי להמשיך אמור להיות ברשותך חשבון Google המוגדר לשימוש בשילוב YouTube. "
+#~ "ניתן להגדיר את רוב החשבונות על ידי שימוש בדפדפן האינטרנט שלך כדי להיכנס ל־"
+#~ "YouTube לפחות פעם אחת."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל־Youtube לא תוכל להתבצע."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "נכנסת ל־YouTube בשם %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "קטעי הווידאו יופיעו בתוך '%s'"
+
+#~ msgid "Public listed"
+#~ msgstr "הצגה ציבורית"
+
+#~ msgid "Public unlisted"
+#~ msgstr "לא מוצג לכלל הציבור"
+
+#~ msgid "Private"
+#~ msgstr "פרטי"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "שירותי פרסום של הליבה"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "קובץ זמני הדרוש לפרסום אינו זמין"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "כבר נכנסת ויצאת מחשבון ה־Google שלך במהלך הפעלה זו.\n"
+#~ "\n"
+#~ "כדי להמשיך לפרסם לשירותי Google, עליך לצאת ולהפעיל מחדש תכנית זו ואז "
+#~ "לנסות לפרסם שוב."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "האלבום %s נוצר…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "אירעה שגיאה בעת הפרסום לפיוויגו. נא לנסות שוב."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "הזן את כתובת האתר של ספריית התמונות Piwigo שלך וכן את שם המשתמש והסיסמה "
+#~ "לגישה לחשבון -Piwigo שלך עבור ספריה זו."
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "היישום תמונות לא יכול להתחבר לספריית התמונות Piwigo. אנא בדוק את כתובת "
+#~ "האתר שהזנת"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "השם המשתמש ו/או הססמה שגויים. נא לנסות שוב מאוחר יותר"
+
+#~ msgid "Invalid URL"
+#~ msgstr "כתובת אתר לא תקינה"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "שם משתמש או ססמה שגויים"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Photos Connect"
+
+#~ msgid "Everyone"
+#~ msgstr "כולם"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "מנהלי מערכת, משפחה, חברים, אנשי קשר"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "מנהלי מערכת, משפחה, חברים"
+
+#~ msgid "Admins, Family"
+#~ msgstr "מנהלי מערכת, משפחה"
+
+#~ msgid "Admins"
+#~ msgstr "מנהלי מערכת"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 × 375 פיקסלים"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 × 768 פיקסלים"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x‏ 1536 פיקסלים"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x‏ 3072 פיקסלים"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "לא נכנסת לשירות Google Photos.\n"
+#~ "\n"
+#~ "יש ללחוץ על כניסה כדי להיכנס ל־Google Photos עם הדפדפן שלך. יהיה עליך "
+#~ "לאשר ל־elementary OS להיקשר אל החשבון שלך ב־Google Photos."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Picasa לא תוכל להתבצע."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "נכנסת ל־Picasa Web Albums בשם %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "קטנה (640 x‏ 480 פיקסלים)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "בינונית (1024 x‏ 768 פיקסלים)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "מומלצת (1600 x‏ 1200 פיקסלים)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 פיקסלים)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "לא נכנסת ל־Flickr.\n"
+#~ "\n"
+#~ "יש ללחוץ על כניסה כדי להיכנס ל־Flickr בדפדפן שלך. יהיה עליך לאמת את "
+#~ "Photos Connect כדי לקשר אל חשבון ה־Flickr שלך."
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "כבר נכנסת ויצאת מ־Flick במהלך הפעלה זו של Photos.\n"
+#~ "כדי להמשיך לפרסם ל־Flickr, עליך לצאת ולהפעיל מחדש את Photos ואז לנסות "
+#~ "לפרסם שוב."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "בהכנות לכניסה…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Flickr לא תוכל להתבצע."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "מתבצע וידוא של האימות…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "נכנסת ל־Flickr בשם %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "חשבונך הפטור מתשלום ב־Flickr מגביל את כמות המידע שניתן להעלות בחודש.\n"
+#~ "החודש, נותרו לך %d מגה בתים במכסת ההעלאה שלך."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "חשבון ה־Flickr Pro שלך מזכה אותך בכמויות העלאה בלתי מוגבלות."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "התמונות _גלויות לעיני:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "קטעי הווי_דאו גלוים לעיני:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "הת_מונות וקטעי הווידאו גלויים לעיני:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "חברים ומשפחה בלבד"
+
+#~ msgid "Family only"
+#~ msgstr "רק משפחה"
+
+#~ msgid "Friends only"
+#~ msgstr "רק חברים"
+
+#~ msgid "Just me"
+#~ msgstr "רק לי"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "נכון לעכשיו לא ביצעת כניסה לחשבון ה־Facebook שלך.\n"
+#~ "\n"
+#~ "אם עדיין אין לך חשבון Facebook, באפשרותך ליצור אחד במהלך הכניסה. במשך "
+#~ "תהליך הכניסה, Photos Connect עלול לבקש את רשותך להעלות תמונות ולפרסם אותן "
+#~ "בהזנה שלך. הרשאות אלו נחוצות כדי ש־Photos Connect יוכל לתפקד."
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "כבר יצאת מ־Facebook במהלך הפעלה זו של Photos.\n"
+#~ "כדי להמשיך לפרסם ל־Facebook, עליך לצאת ולהפעיל מחדש את Photos ואז לנסות "
+#~ "לפרסם שוב."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "רגיל (720 פיקסלים)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "גדול (2048 פיקסלים)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "החיבור ל־Facebook נבדק…"
+
+#~ msgid "Creating album…"
+#~ msgstr "אלבום נוצר…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "קובץ הנדרש להעלאת התוכן אינו זמין. העלאת התוכן ל-Facebook לא תוכל להתבצע."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "כתובת ההפניה של השרת לא הכילה אסימון גישה"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "נכנסת ל־Facebook בשם %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "להיכן ברצונך לפרסם את התמונות הנבחרות?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "גודל הה_עלאה:"
+
+#~ msgid "Friends"
+#~ msgstr "חברים"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "הגדרות ה_פרטיות של הווידאו:"
+
+#~ msgid "_Logout"
+#~ msgstr "י_ציאה"
+
+#~ msgid "_Publish"
+#~ msgstr "_פרסום"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "התמונות יופיעו תחת:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "_קטגוריה קיימת:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "_אלבום חדש בשם:"
+
+#~ msgid "within category:"
+#~ msgstr "בתוך הקטגוריה:"
+
+#~ msgid "Album comment:"
+#~ msgstr "הערה על אלבום:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "התמונות יהיו זמינות _עד:"
+
+#~ msgid "Photo size:"
+#~ msgstr "גודל התמונה:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr "ה_סרת מיקום, מצלמה ופרטים מזהים אחרים בטרם ההעלאה"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr "_אם מוגדרת כותרת ואין הערה, יש להשתמש בכותרת כהערה"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_לא להעלות תגיות"
+
+#~ msgid "Logout"
+#~ msgstr "התנתקות"
+
+#~ msgid "Publish"
+#~ msgstr "פרסום"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_כתובת של ספריית התמונות שלך ב־Piwigo"
+
+#~ msgid "User _name"
+#~ msgstr "_שם משתמש"
+
+#~ msgid "_Password"
+#~ msgstr "_סיסמה"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_זכור ססמה"
+
+#~ msgid "Login"
+#~ msgstr "כניסה"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'נכנסת בתור $name'\n"
+#~ "(מופיע בקוד היישום)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "ערכת _גודל התמונה:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "נכנסת ל־Flickr בשם (name).\n"
+#~ "\n"
+#~ "(המחרוזת של התווית הזאת מאוכלסת ומוגדרת בתוך הקוד,\n"
+#~ "לכן, שינויים שיערכו כאן לא יופיעו)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_תווית הצגה (מופיע בקוד)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_גודל תמונה:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr "נא להזין את מספר האימות שמופיע לאחר הכניסה ל־Flickr בדפדפן שלך."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "מספר ה_אימות:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (הטקסט תלוי בשם המשתמש בפייסבוק והוא משתנה בתוך היישום - \n"
+#~ "כל מה שיוכנס לשדה זה, לא יופיע)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "פרסום לאלבום _קיים:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "יצירת אלבום _חדש בשם:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "קטעי הווידאו והתמונות החדשים _גלויים לעיני:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "כל הזכויות שמורות 2010+ ל־Evgeniy Polyakov‏ <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "ביקור באתר Yandex.Fotki"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "לא נכנסת לשירות Yandex.Fotki."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "כל הזכויות שמורות 2012 ל־BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280‎ × 853 פיקסלים"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "'%s' אינו פלט תקין לבקשת אימות מסוג OAuth"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( )‎: אינו ניתן לאתחול, כיוון שמנשק זה אינו ניתן "
+#~ "לאתחול מחדש."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr "נא להזין את שם המשתמש והססמה של חשבון ה־Tumblr שלך."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "טעינת המנשק נכשלה: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "נכנסת לחשבונך ב־Tumblr בשם %s.\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "שירותי פרסום נוספים של Photos"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "כבר נכנסת ויצאת מהחשבון שלך ב־Google במהלך ההפעלה הזאת של Photos.\n"
+#~ "\n"
+#~ "כדי להמשיך ולפרסם לשירותי Google, עליך לצאת ולהפעיל מחדש את Photos ואז "
+#~ "לנסות ולפרסם לשירות שוב."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_אלבומים (או כתיבת חדש):"
+
+#~ msgid "Access _type:"
+#~ msgstr "_סוג הגישה:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "נטרול הה_ערות"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_איסור הורדת התמונה המקורית"
+
+#~ msgid "Public"
+#~ msgstr "ציבורי"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "נכנסת ל־Tumblr בשם (name).\n"
+#~ "\n"
+#~ "(המחרוזת של התווית הזאת מאוכלסת ומוגדרת בתוך הקוד,\n"
+#~ "לכן, שינויים שיערכו כאן לא יופיעו)"
+
+#~ msgid "Blogs:"
+#~ msgstr "בלוגים:"
+
+#~ msgid "label"
+#~ msgstr "תווית"
+
+#~ msgid "_Email address"
+#~ msgstr "_כתובת דוא״ל"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "הצגת סרגל הצד"

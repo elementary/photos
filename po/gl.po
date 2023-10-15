@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2019-10-10 14:23+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/photos/photos/"
@@ -311,8 +311,6 @@ msgid "Unflag"
 msgstr "Desmarcar"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Tamaño orixinal"
 
@@ -1267,7 +1265,6 @@ msgstr ""
 "Quere continuar coa exportación?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Con_tinuar"
 
@@ -1983,7 +1980,6 @@ msgid "Screen"
 msgstr "Pantalla"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Tamaño orixinal"
 
@@ -3227,724 +3223,6 @@ msgstr "_Saída da foto en:"
 msgid "pixels per inch"
 msgstr "píxeles por polgada"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Copyright 2009-2013 Yorba Foundation"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Actualmente non está conectado ao Youtube.\n"
-"\n"
-"Para continuar debe dispoñer dunha conta de Google e configurala para usar "
-"con Youtube. Pode configurar a maioría das contas usando o navegador para "
-"acceder cando menos unha vez ."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Non está dispoñíbel un ficheiro necesario para a publicación. A publicación "
-"en Youtube non pode continuar."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Está conectado a YouTube como %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "Os vídeos aparecerán en «%s»"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Listado publicamente"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Retirado da lista pública"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Privado"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Núcleo dos servizos de publicación"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "Non está dispoñíbel o ficheiro temporal necesario para a publicación"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Xa iniciou e cerrou sesión nun servizo de Google durante esta sesión.\n"
-"\n"
-"Para continuar publicando con servizos de Google, reinicia este software. A "
-"continuación, intente publicar de novo."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Visitar o sitio web de Yorba"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
-"Fran Diéguez <frandieguez@gnome.org>\n"
-"Antón Méixome <meixome@certima.net>\n"
-"Laura Linares <lauralinaresfernandez@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Fran Diéguez https://launchpad.net/~frandieguez\n"
-"  Miguel Anxo Bouzada https://launchpad.net/~mbouzada"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "Creando o álbum %s…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "Produciuse unha mensaxe de erro ao publicar en Piwigo. Ténteo de novo."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Escriba o URL da fototeca Piwigo, así como o nome de usuario e o contrasinal "
-"asociado coa súa conta en Piwigo para esa fototeca."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"Shotwell non é quen de conectar coa súa fototeca en Piwigo. Comprobe o URL "
-"que escribiu"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "O nome de usuario e/ou o contrasinal é incorrecto. Ténteo de novo"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "URL incorrecto"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Nome de usuario ou contrasinal incorrecto"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
-msgid "Photos Connect"
-msgstr "Shotwell Connect"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Todos"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Administradores, Familia, Amigos, Contactos"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Administradores, Familia, Amigos"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Administradores, Familia"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Administradores"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 píxeles"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 × 768 píxeles"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 píxeles"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 píxeles"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"Non iniciou sesión en Google Fotos.\n"
-"\n"
-"Faga clic en Iniciar Sesión para iniciar sesión en Google Fotos empregando o "
-"seu navegador web. Para iso, terá que autorizar a vinculación de elementary "
-"OS coa súa conta de Google Fotos."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Non está dispoñíbel un ficheiro necesario para a publicación. A publicación "
-"en Picasa non pode continuar."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Vostede está conectado a Picasa Web Albums como %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Pequeno (640 x 480 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Mediano (1024 x 768 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Recomendado (1600 x 1200 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 pixels)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Flickr.\n"
-#| "\n"
-#| "Click Login to log into Flickr in your Web browser. You will have to "
-#| "authorize Shotwell Connect to link to your Flickr account."
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Non iniciou sesión en Flickr.\n"
-"\n"
-"Prema en Acceso para acceder ao Flickr co seu Navegador web. Deberá "
-"autorizar a Fotos para conectarse á súa conta de Flickr."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Xa se iniciou e pechou unha sesión de Flickr durante esta sesión de "
-"Shotwell.\n"
-"Para continuar publicando no Flickr, peche e reinicie o Shotwell e tente "
-"publicar de novo."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "Preparando para iniciar sesión…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Non está dispoñíbel un ficheiro necesario para a publicación. A publicación "
-"en Flickr non pode continuar."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "Verificando autorización…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Vostede está conectado ao Flickr como %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"A súa conta de Flickr de balde limita a cantidade de datos que pode enviar "
-"por mes.\n"
-"Este mes vostede ten %d megabytes dispoñíbeis para enviar."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "A súa conta do Flickr Pro permítelle envíos sen límites."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Fotos _visíbeis para:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Vídeos _visíbeis para:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Fotos e vídeos _visíbeis para:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Só amigos e familia"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Só a familia"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Só os amigos"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Só para min"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Non está conectado ao Facebook.\n"
-"\n"
-"Se non ten unha conta de Facebook pode creala durante o proceso de acceso. "
-"Shotwell Connect pediralle permiso para enviar fotos e publicar no seu muro. "
-"Estes permisos son necesarios para que Shotwell Connect funcione."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Xa se iniciou e pechou unha sesión de Facebook durante esta sesión de "
-"Shotwell.\n"
-"Para continuar publicando no Facebook, peche e reinicie Shotwell e tente "
-"publicar de novo."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Estándar (720 píxeles)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Grande (2048 píxeles)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "Comprobando a conexión a Facebook…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "Creando álbum…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Non está dispoñíbel un ficheiro necesario para a publicación. A publicación "
-"en Facebook non pode continuar."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "O URL de redirección do servidor non contiña ningún token de acceso"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Vostede está conectado ao Facebook como %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Desexa publicar as fotos seleccionadas?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "_Tamaño do envío:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Amigos"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "Configuración _sobre intimidade do vídeo:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Saír da sesión"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "_Publicar"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "As fotos aparecen en:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "Unha categoría _existente:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "Un _novo álbum co nome:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "na categoría:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Comentario do álbum:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "As fotos serán _visíbeis  por:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Tamaño da foto:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"_Eliminar localización, cámara e outra información de identificación antes "
-"de subir"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"_Se se estabelece un título e quita un comentario, usarase o título como "
-"comentario"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_Non subir as etiquetas"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Saír da sesión"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Publicar"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_URL da súa fototeca Piwigo"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_Nome de usuario"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Contrasinal"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Lembrar contrasinal"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Acceso"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'iniciou sesión como $name'\n"
-"(datos ingresados no código da aplicación)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Tamaño de _foto prestabelecido:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Iniciou sesión en Flickr como (nome).\n"
-"\n"
-"(o texto desta etiqueta cúbrese e insírese no código,\n"
-"polo que os cambios realizados aquí non se amosarán)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_etiqueta de visibilidade (cuberta no código)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_Tamaño da foto:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Escriba o número de confirmación que aparece despois de que inicie a sesión "
-"en Flickr desde o seu navegador web."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Número de autorización:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (o texto depende do nome de usuario de Facebook e modifícase na aplicación "
-"- \n"
-"calquera cousa introducida neste campo non se amosará)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Publicar nun álbum e_xistente:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Crear un _novo álbum con nome:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Os novos albumes de fotos e vídeos están _visíbeis para:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Dereitos de autoría 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Visite o sitio web Yandex.Fotki"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Vostede non está rexistrado actualmente en Yandex.Fotki."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Dereitos de autoría 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 × 853 píxeles"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr ""
-"«%s» non é unha resposta aceptábel a unha petición de autenticación OAuth"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): non se pode iniciar, este editor non é "
-"reiniciábel."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Escriba o nome de usuario e o contrasinal asociados coa súa conta de Tumblr."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "Non é posíbel cargar a interface de usuario: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Accedeu a Tumblr como %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
-msgid "Photos Extra Publishing Services"
-msgstr "Servizos adicionais de publicación de Shotwell"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Xa se iniciou e pechou unha sesión de Google durante esta sesión de "
-"Shotwell.\n"
-"\n"
-"Para continuar publicando nos servizos de Google, peche e reinicie Shotwell "
-"e tente publicar de novo."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "Ál_bums (ou escribir novo):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "Tipo de _acceso:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Desactivar os _comentarios"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_Impedir descargar a foto orixinal"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Público"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Iniciou sesión en Tumblr como (nome).\n"
-"\n"
-"(o texto desta etiqueta cúbrese e insírese no código,\n"
-"polo que os cambios realizados aquí non se amosarán)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Blogs:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "etiqueta"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_Enderezo de correo"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Segmentos"
@@ -3964,6 +3242,22 @@ msgstr "Núcleo de transicións de diaporama"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "Copyright 2010 Maxim Kartashev, Copyright 2011–2013 Yorba Foundation"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Visitar o sitio web de Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Fran Diéguez <frandieguez@gnome.org>\n"
+"Antón Méixome <meixome@certima.net>\n"
+"Laura Linares <lauralinaresfernandez@gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Fran Diéguez https://launchpad.net/~frandieguez\n"
+"  Miguel Anxo Bouzada https://launchpad.net/~mbouzada"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3992,6 +3286,557 @@ msgstr "Xadrez"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianas"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Copyright 2009-2013 Yorba Foundation"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Actualmente non está conectado ao Youtube.\n"
+#~ "\n"
+#~ "Para continuar debe dispoñer dunha conta de Google e configurala para "
+#~ "usar con Youtube. Pode configurar a maioría das contas usando o navegador "
+#~ "para acceder cando menos unha vez ."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Non está dispoñíbel un ficheiro necesario para a publicación. A "
+#~ "publicación en Youtube non pode continuar."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Está conectado a YouTube como %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "Os vídeos aparecerán en «%s»"
+
+#~ msgid "Public listed"
+#~ msgstr "Listado publicamente"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Retirado da lista pública"
+
+#~ msgid "Private"
+#~ msgstr "Privado"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Núcleo dos servizos de publicación"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr ""
+#~ "Non está dispoñíbel o ficheiro temporal necesario para a publicación"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Xa iniciou e cerrou sesión nun servizo de Google durante esta sesión.\n"
+#~ "\n"
+#~ "Para continuar publicando con servizos de Google, reinicia este software. "
+#~ "A continuación, intente publicar de novo."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "Creando o álbum %s…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr ""
+#~ "Produciuse unha mensaxe de erro ao publicar en Piwigo. Ténteo de novo."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Escriba o URL da fototeca Piwigo, así como o nome de usuario e o "
+#~ "contrasinal asociado coa súa conta en Piwigo para esa fototeca."
+
+#, fuzzy
+#~| msgid ""
+#~| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#~| "you entered"
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Shotwell non é quen de conectar coa súa fototeca en Piwigo. Comprobe o "
+#~ "URL que escribiu"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "O nome de usuario e/ou o contrasinal é incorrecto. Ténteo de novo"
+
+#~ msgid "Invalid URL"
+#~ msgstr "URL incorrecto"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Nome de usuario ou contrasinal incorrecto"
+
+#, fuzzy
+#~| msgid "Shotwell Connect"
+#~ msgid "Photos Connect"
+#~ msgstr "Shotwell Connect"
+
+#~ msgid "Everyone"
+#~ msgstr "Todos"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Administradores, Familia, Amigos, Contactos"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Administradores, Familia, Amigos"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Administradores, Familia"
+
+#~ msgid "Admins"
+#~ msgstr "Administradores"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 píxeles"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 × 768 píxeles"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 píxeles"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 píxeles"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "Non iniciou sesión en Google Fotos.\n"
+#~ "\n"
+#~ "Faga clic en Iniciar Sesión para iniciar sesión en Google Fotos "
+#~ "empregando o seu navegador web. Para iso, terá que autorizar a "
+#~ "vinculación de elementary OS coa súa conta de Google Fotos."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Non está dispoñíbel un ficheiro necesario para a publicación. A "
+#~ "publicación en Picasa non pode continuar."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Vostede está conectado a Picasa Web Albums como %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Pequeno (640 x 480 píxels)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Mediano (1024 x 768 píxels)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Recomendado (1600 x 1200 píxels)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 pixels)"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are not currently logged into Flickr.\n"
+#~| "\n"
+#~| "Click Login to log into Flickr in your Web browser. You will have to "
+#~| "authorize Shotwell Connect to link to your Flickr account."
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Non iniciou sesión en Flickr.\n"
+#~ "\n"
+#~ "Prema en Acceso para acceder ao Flickr co seu Navegador web. Deberá "
+#~ "autorizar a Fotos para conectarse á súa conta de Flickr."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Flickr during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Xa se iniciou e pechou unha sesión de Flickr durante esta sesión de "
+#~ "Shotwell.\n"
+#~ "Para continuar publicando no Flickr, peche e reinicie o Shotwell e tente "
+#~ "publicar de novo."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "Preparando para iniciar sesión…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Non está dispoñíbel un ficheiro necesario para a publicación. A "
+#~ "publicación en Flickr non pode continuar."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "Verificando autorización…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Vostede está conectado ao Flickr como %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "A súa conta de Flickr de balde limita a cantidade de datos que pode "
+#~ "enviar por mes.\n"
+#~ "Este mes vostede ten %d megabytes dispoñíbeis para enviar."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "A súa conta do Flickr Pro permítelle envíos sen límites."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Fotos _visíbeis para:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Vídeos _visíbeis para:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Fotos e vídeos _visíbeis para:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Só amigos e familia"
+
+#~ msgid "Family only"
+#~ msgstr "Só a familia"
+
+#~ msgid "Friends only"
+#~ msgstr "Só os amigos"
+
+#~ msgid "Just me"
+#~ msgstr "Só para min"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are not currently logged into Facebook.\n"
+#~| "\n"
+#~| "If you don't yet have a Facebook account, you can create one during the "
+#~| "login process. During login, Shotwell Connect may ask you for permission "
+#~| "to upload photos and publish to your feed. These permissions are "
+#~| "required for Shotwell Connect to function."
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Non está conectado ao Facebook.\n"
+#~ "\n"
+#~ "Se non ten unha conta de Facebook pode creala durante o proceso de "
+#~ "acceso. Shotwell Connect pediralle permiso para enviar fotos e publicar "
+#~ "no seu muro. Estes permisos son necesarios para que Shotwell Connect "
+#~ "funcione."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Facebook during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Xa se iniciou e pechou unha sesión de Facebook durante esta sesión de "
+#~ "Shotwell.\n"
+#~ "Para continuar publicando no Facebook, peche e reinicie Shotwell e tente "
+#~ "publicar de novo."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Estándar (720 píxeles)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Grande (2048 píxeles)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Comprobando a conexión a Facebook…"
+
+#~ msgid "Creating album…"
+#~ msgstr "Creando álbum…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Non está dispoñíbel un ficheiro necesario para a publicación. A "
+#~ "publicación en Facebook non pode continuar."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "O URL de redirección do servidor non contiña ningún token de acceso"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Vostede está conectado ao Facebook como %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Desexa publicar as fotos seleccionadas?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "_Tamaño do envío:"
+
+#~ msgid "Friends"
+#~ msgstr "Amigos"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "Configuración _sobre intimidade do vídeo:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Saír da sesión"
+
+#~ msgid "_Publish"
+#~ msgstr "_Publicar"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "As fotos aparecen en:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "Unha categoría _existente:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "Un _novo álbum co nome:"
+
+#~ msgid "within category:"
+#~ msgstr "na categoría:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Comentario do álbum:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "As fotos serán _visíbeis  por:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Tamaño da foto:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "_Eliminar localización, cámara e outra información de identificación "
+#~ "antes de subir"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "_Se se estabelece un título e quita un comentario, usarase o título como "
+#~ "comentario"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_Non subir as etiquetas"
+
+#~ msgid "Logout"
+#~ msgstr "Saír da sesión"
+
+#~ msgid "Publish"
+#~ msgstr "Publicar"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_URL da súa fototeca Piwigo"
+
+#~ msgid "User _name"
+#~ msgstr "_Nome de usuario"
+
+#~ msgid "_Password"
+#~ msgstr "_Contrasinal"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Lembrar contrasinal"
+
+#~ msgid "Login"
+#~ msgstr "Acceso"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'iniciou sesión como $name'\n"
+#~ "(datos ingresados no código da aplicación)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Tamaño de _foto prestabelecido:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Iniciou sesión en Flickr como (nome).\n"
+#~ "\n"
+#~ "(o texto desta etiqueta cúbrese e insírese no código,\n"
+#~ "polo que os cambios realizados aquí non se amosarán)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_etiqueta de visibilidade (cuberta no código)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_Tamaño da foto:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Escriba o número de confirmación que aparece despois de que inicie a "
+#~ "sesión en Flickr desde o seu navegador web."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Número de autorización:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (o texto depende do nome de usuario de Facebook e modifícase na "
+#~ "aplicación - \n"
+#~ "calquera cousa introducida neste campo non se amosará)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Publicar nun álbum e_xistente:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Crear un _novo álbum con nome:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Os novos albumes de fotos e vídeos están _visíbeis para:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Dereitos de autoría 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Visite o sitio web Yandex.Fotki"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Vostede non está rexistrado actualmente en Yandex.Fotki."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Dereitos de autoría 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 × 853 píxeles"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr ""
+#~ "«%s» non é unha resposta aceptábel a unha petición de autenticación OAuth"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): non se pode iniciar, este editor non é "
+#~ "reiniciábel."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Escriba o nome de usuario e o contrasinal asociados coa súa conta de "
+#~ "Tumblr."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "Non é posíbel cargar a interface de usuario: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Accedeu a Tumblr como %s.\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid "Shotwell Extra Publishing Services"
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Servizos adicionais de publicación de Shotwell"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of a Google service during this "
+#~| "Shotwell session.\n"
+#~| "\n"
+#~| "To continue publishing to Google services, quit and restart Shotwell, "
+#~| "then try publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "Xa se iniciou e pechou unha sesión de Google durante esta sesión de "
+#~ "Shotwell.\n"
+#~ "\n"
+#~ "Para continuar publicando nos servizos de Google, peche e reinicie "
+#~ "Shotwell e tente publicar de novo."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "Ál_bums (ou escribir novo):"
+
+#~ msgid "Access _type:"
+#~ msgstr "Tipo de _acceso:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Desactivar os _comentarios"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_Impedir descargar a foto orixinal"
+
+#~ msgid "Public"
+#~ msgstr "Público"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Iniciou sesión en Tumblr como (nome).\n"
+#~ "\n"
+#~ "(o texto desta etiqueta cúbrese e insírese no código,\n"
+#~ "polo que os cambios realizados aquí non se amosarán)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Blogs:"
+
+#~ msgid "label"
+#~ msgstr "etiqueta"
+
+#~ msgid "_Email address"
+#~ msgstr "_Enderezo de correo"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Amosar a barra lateral"

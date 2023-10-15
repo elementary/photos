@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2022-09-08 17:28+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
@@ -312,8 +312,6 @@ msgid "Unflag"
 msgstr "Treu el senyalador"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Mida original"
 
@@ -1274,7 +1272,6 @@ msgstr ""
 "Voleu continuar exportant?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Con_tinua"
 
@@ -2003,7 +2000,6 @@ msgid "Screen"
 msgstr "Pantalla"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Mida original"
 
@@ -3238,683 +3234,6 @@ msgstr "_Imprimeix la fotografia en:"
 msgid "pixels per inch"
 msgstr "píxels per polzada"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Copyright 2009-2013 Fundació Yorba"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Actualment no esteu connectat al YouTube.\n"
-"\n"
-"Per continuar heu de tenir un compte al Google i configurar-lo per poder "
-"utilitzar-lo amb el YoutTube. Podeu configurar la majoria de comtes "
-"utilitzant el navegador i entrant almenys un cop al lloc YouTube."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"No hi ha disponible un fitxer necessari per publicar. No es pot continuar la "
-"publicació al Youtube."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Actualment esteu connectat al YouTube com a %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "Els vídeos apareixeran a «%s»"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Llistat públicament"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Sense llistar públicament"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Privat"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Serveis de publicació principals"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "No està disponible un fitxer temporal que cal per publicar"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Ja heu iniciat i tancat sessió d'un servei de Google durant aquesta sessió.\n"
-"\n"
-"Per continuar la publicació als serveis de Google, tanqueu i reinicieu "
-"aquest programari. Després, torneu-ho a intentar."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Ves al lloc web d'en Yorba"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Credits de la traducció\n"
-"\n"
-"Davidmp, <opensusecatala@gmail.com>\n"
-"Adolfo Jayme https://launchpad.net/~fitojb\n"
-"elementary Apps team https://launchpad.net/~elementary-apps"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "Es crea l'àlbum %s…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "S'ha produït un error en publicar a Piwigo. Torneu-ho a intentar."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Introduïu un URL de la vostra biblioteca de fotografies de Piwigo i també el "
-"nom d'usuari i la contrasenya associats al compte del Piwigo d'aquesta "
-"biblioteca."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"El Fotografies no pot contactar amb la biblioteca de Piwigo. Si us plau, "
-"verifiqueu l'URL que heu introduït."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "El nom d'usuari o la contrasenya no són vàlids. Torneu-ho a provar."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "Adreça incorrecta"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Nom d'usuari o contrasenya incorrectes"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Fotografies Connecta"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Tothom"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Administradors, família, amics, contactes"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Administradors, família, amics"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Administradors, família"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Administradors"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 × 375 píxels"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 × 768 píxels"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 píxels"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 píxels"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"No s'ha iniciat la sessió a Google Fotos.\n"
-"\n"
-"Feu clic a Inici de sessió per accedir a les fotos de Google des del "
-"navegador web. Haureu d'autoritzar l'Elementary per vincular-hi el compte de "
-"Google Fotos."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Un fitxer necessari per la publicació no està disponible. No es pot dur a "
-"terme la publicació cap a Picasa."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Heu entrant als àlbums web del Picasa com a %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Petita (640 x 480 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Mitjana (1024 x 768 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Recomanada (1600 x 1200 píxels)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 pixels)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Actualment no esteu connectat al Flickr.\n"
-"\n"
-"Feu clic a Inicia sessió per iniciar sessió a Flickr al navegador web. "
-"Haureu d'autoritzar Fotografies Connecta perquè l'enllaçi al compte de "
-"Flickr."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Ja heu iniciat i tancat sessió de Flickr durant aquesta sessió de "
-"Fotografies.\n"
-"Per continuar publicant a Flickr, sortiu i reinicieu el Fotografies i, a "
-"continuació, torneu a provar de publicar."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "Es prepara l'entrada…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"No hi ha disponible un fitxer necessari per publicar. No es pot continuar la "
-"publicació al Flickr."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "Es verifica l'autorització…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Heu entrat al Flickr com a %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"El vostre compte gratuït del Flickr restringeix la quantitat de dades que "
-"podeu pujar cada mes.\n"
-"Aquest mes, us queden %d megabytes de quota de pujada."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "El vostre compte del Flickr Pro us permet pujades il·limitades."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Les fotografies són _visibles per:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Els vídeos són _visibles per:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Les fotografies i els vídeos són _visibles per:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Només els amics i la família"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Només família"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Només amics"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Només jo"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Actualment no esteu connectat a Facebook.\n"
-"\n"
-"Si encara no teniu cap compte de Facebook, podeu crear-ne un durant el "
-"procés d'inici de sessió. Durant l'inici de sessió, Fotografies Connecta pot "
-"demanar permís per penjar fotografies i publicar-les al vostre canal. "
-"Aquests permisos són necessaris perquè Fotografies Connecta funcioni."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Ja heu iniciat i tancat la sessió de Facebook durant aquesta sessió de "
-"Fotografies.\n"
-"Per continuar publicant a Facebook, sortiu i reinicieu el Fotografies i, a "
-"continuació, torneu a provar de publicar."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Estàndard (720 píxels)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Gran (2048 píxels)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "Es comprova la connexió amb el Facebook…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "Es crea l'àlbum…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"No hi ha disponible un fitxer necessari per publicar. No es pot continuar la "
-"publicació al Facebook."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr ""
-"L'URL de redireccionament del servidor no contenia cap testimoni d'accés"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Actualment esteu connectat al Facebook com a %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "On us agradaria publicar les fotografies seleccionades?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "Mida de _pujada:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Amics"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "_Paràmetres de la privacitat dels vídeos:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Surt"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "_Publica"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "Les fotografies apareixeran a:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "Una categoria _existent:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "Un àlbum _nou anomenat:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "dins la categoria:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Comentari de l'àlbum:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Les fotografies seran _visibles per a:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Mida de la fotografia:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"Sup_rimeix la informació d'ubicació, de la càmera i altra informació "
-"d'identificació abans de carregar-ho"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"S_i s'ha establert un títol i no s'ha establert un comentari, usa el títol "
-"com a comentari"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_No carreguis les etiquetes"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Surt"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Publica"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_URL de la biblioteca de fotografies Piwigo"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_Nom d'usuari"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Contrasenya"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Recorda la contrasenya"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Entra"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'Heu entrat com a $name'\n"
-"(Omplert al codi de l'aplicació)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Mida p_redeterminada de les fotografies:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Heu iniciat sessió a Flickr com a (nom).\n"
-"\n"
-"(La cadena d'aquesta etiqueta s'omple i s'estableix al codi;\n"
-"per tant, els canvis fets aquí no es mostraran)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "etiqueta de _visibilitat (omplerta al codi)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_Mida de la fotografia:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Introduïu el número de confirmació que apareix després que us connecteu al "
-"Flickr en el navegador web."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Número d'autorització:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (El text depèn del nom d'usuari fb i es modifica a l'aplicació -\n"
-"no es mostrarà res posat en aquest camp.)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Public_a a un àlbum existent:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Crea un àlbum _nou anomenat:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Els vídeos i els àlbums de fotografies nous són _visibles per a:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Ves al lloc web d'en Yandex.Fotki"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Actualment no esteu connectat a Yandex.Fotki."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Copyright 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 × 853 píxels"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "«%s» no és una resposta vàlida a una sol·licitud d'autenticació OAuth"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): no es pot iniciar, aquest publicador no es pot "
-"reiniciar."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Introduïu el nom d'usuari i la contrasenya associats amb el vostre compte "
-"del Tumblr."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "No s'ha pogut carregar la interfície d'usuari: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Esteu connectat al Tumblr com a %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "Serveis de publicació extra del Fotografies"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Ja heu iniciat i tancat sessió a Google durant aquesta sessió de "
-"Fotografies.\n"
-"\n"
-"Per continuar publicant als serveis de Google, sortiu i reinicieu el "
-"Fotografies i, a continuació, torneu a provar de publicar."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "À_lbums (o escriviu-ne un de nou):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "_Tipus d'accés:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Inhabilita els _comentaris"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_Prohibeix baixar la fotografia original"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Públic"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Esteu connectat al Tumblr com a (name).\n"
-"\n"
-"(Aquesta etiqueta s'omple i s'estableix dins del codi, \n"
-"de manera que els canvis fets aquí no es mostraran.)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Blogs:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "etiqueta"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "Adreça _electrònica"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Ratlles"
@@ -3934,6 +3253,19 @@ msgstr "Transicions principals de la projecció de diapositives"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "Copyright 2010, Maxim Kartashev; Copyright 2011-2013, Fundació Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Ves al lloc web d'en Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Credits de la traducció\n"
+"\n"
+"Davidmp, <opensusecatala@gmail.com>\n"
+"Adolfo Jayme https://launchpad.net/~fitojb\n"
+"elementary Apps team https://launchpad.net/~elementary-apps"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3962,6 +3294,517 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Copyright 2009-2013 Fundació Yorba"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Actualment no esteu connectat al YouTube.\n"
+#~ "\n"
+#~ "Per continuar heu de tenir un compte al Google i configurar-lo per poder "
+#~ "utilitzar-lo amb el YoutTube. Podeu configurar la majoria de comtes "
+#~ "utilitzant el navegador i entrant almenys un cop al lloc YouTube."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "No hi ha disponible un fitxer necessari per publicar. No es pot continuar "
+#~ "la publicació al Youtube."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Actualment esteu connectat al YouTube com a %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "Els vídeos apareixeran a «%s»"
+
+#~ msgid "Public listed"
+#~ msgstr "Llistat públicament"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Sense llistar públicament"
+
+#~ msgid "Private"
+#~ msgstr "Privat"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Serveis de publicació principals"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "No està disponible un fitxer temporal que cal per publicar"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Ja heu iniciat i tancat sessió d'un servei de Google durant aquesta "
+#~ "sessió.\n"
+#~ "\n"
+#~ "Per continuar la publicació als serveis de Google, tanqueu i reinicieu "
+#~ "aquest programari. Després, torneu-ho a intentar."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "Es crea l'àlbum %s…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "S'ha produït un error en publicar a Piwigo. Torneu-ho a intentar."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Introduïu un URL de la vostra biblioteca de fotografies de Piwigo i també "
+#~ "el nom d'usuari i la contrasenya associats al compte del Piwigo d'aquesta "
+#~ "biblioteca."
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "El Fotografies no pot contactar amb la biblioteca de Piwigo. Si us plau, "
+#~ "verifiqueu l'URL que heu introduït."
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "El nom d'usuari o la contrasenya no són vàlids. Torneu-ho a provar."
+
+#~ msgid "Invalid URL"
+#~ msgstr "Adreça incorrecta"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Nom d'usuari o contrasenya incorrectes"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Fotografies Connecta"
+
+#~ msgid "Everyone"
+#~ msgstr "Tothom"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Administradors, família, amics, contactes"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Administradors, família, amics"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Administradors, família"
+
+#~ msgid "Admins"
+#~ msgstr "Administradors"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 × 375 píxels"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 × 768 píxels"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 píxels"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 píxels"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "No s'ha iniciat la sessió a Google Fotos.\n"
+#~ "\n"
+#~ "Feu clic a Inici de sessió per accedir a les fotos de Google des del "
+#~ "navegador web. Haureu d'autoritzar l'Elementary per vincular-hi el compte "
+#~ "de Google Fotos."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Un fitxer necessari per la publicació no està disponible. No es pot dur a "
+#~ "terme la publicació cap a Picasa."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Heu entrant als àlbums web del Picasa com a %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Petita (640 x 480 píxels)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Mitjana (1024 x 768 píxels)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Recomanada (1600 x 1200 píxels)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 pixels)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Actualment no esteu connectat al Flickr.\n"
+#~ "\n"
+#~ "Feu clic a Inicia sessió per iniciar sessió a Flickr al navegador web. "
+#~ "Haureu d'autoritzar Fotografies Connecta perquè l'enllaçi al compte de "
+#~ "Flickr."
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Ja heu iniciat i tancat sessió de Flickr durant aquesta sessió de "
+#~ "Fotografies.\n"
+#~ "Per continuar publicant a Flickr, sortiu i reinicieu el Fotografies i, a "
+#~ "continuació, torneu a provar de publicar."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "Es prepara l'entrada…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "No hi ha disponible un fitxer necessari per publicar. No es pot continuar "
+#~ "la publicació al Flickr."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "Es verifica l'autorització…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Heu entrat al Flickr com a %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "El vostre compte gratuït del Flickr restringeix la quantitat de dades que "
+#~ "podeu pujar cada mes.\n"
+#~ "Aquest mes, us queden %d megabytes de quota de pujada."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "El vostre compte del Flickr Pro us permet pujades il·limitades."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Les fotografies són _visibles per:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Els vídeos són _visibles per:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Les fotografies i els vídeos són _visibles per:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Només els amics i la família"
+
+#~ msgid "Family only"
+#~ msgstr "Només família"
+
+#~ msgid "Friends only"
+#~ msgstr "Només amics"
+
+#~ msgid "Just me"
+#~ msgstr "Només jo"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Actualment no esteu connectat a Facebook.\n"
+#~ "\n"
+#~ "Si encara no teniu cap compte de Facebook, podeu crear-ne un durant el "
+#~ "procés d'inici de sessió. Durant l'inici de sessió, Fotografies Connecta "
+#~ "pot demanar permís per penjar fotografies i publicar-les al vostre canal. "
+#~ "Aquests permisos són necessaris perquè Fotografies Connecta funcioni."
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Ja heu iniciat i tancat la sessió de Facebook durant aquesta sessió de "
+#~ "Fotografies.\n"
+#~ "Per continuar publicant a Facebook, sortiu i reinicieu el Fotografies i, "
+#~ "a continuació, torneu a provar de publicar."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Estàndard (720 píxels)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Gran (2048 píxels)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Es comprova la connexió amb el Facebook…"
+
+#~ msgid "Creating album…"
+#~ msgstr "Es crea l'àlbum…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "No hi ha disponible un fitxer necessari per publicar. No es pot continuar "
+#~ "la publicació al Facebook."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr ""
+#~ "L'URL de redireccionament del servidor no contenia cap testimoni d'accés"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Actualment esteu connectat al Facebook com a %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "On us agradaria publicar les fotografies seleccionades?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "Mida de _pujada:"
+
+#~ msgid "Friends"
+#~ msgstr "Amics"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "_Paràmetres de la privacitat dels vídeos:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Surt"
+
+#~ msgid "_Publish"
+#~ msgstr "_Publica"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "Les fotografies apareixeran a:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "Una categoria _existent:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "Un àlbum _nou anomenat:"
+
+#~ msgid "within category:"
+#~ msgstr "dins la categoria:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Comentari de l'àlbum:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Les fotografies seran _visibles per a:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Mida de la fotografia:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "Sup_rimeix la informació d'ubicació, de la càmera i altra informació "
+#~ "d'identificació abans de carregar-ho"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "S_i s'ha establert un títol i no s'ha establert un comentari, usa el "
+#~ "títol com a comentari"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_No carreguis les etiquetes"
+
+#~ msgid "Logout"
+#~ msgstr "Surt"
+
+#~ msgid "Publish"
+#~ msgstr "Publica"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_URL de la biblioteca de fotografies Piwigo"
+
+#~ msgid "User _name"
+#~ msgstr "_Nom d'usuari"
+
+#~ msgid "_Password"
+#~ msgstr "_Contrasenya"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Recorda la contrasenya"
+
+#~ msgid "Login"
+#~ msgstr "Entra"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'Heu entrat com a $name'\n"
+#~ "(Omplert al codi de l'aplicació)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Mida p_redeterminada de les fotografies:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Heu iniciat sessió a Flickr com a (nom).\n"
+#~ "\n"
+#~ "(La cadena d'aquesta etiqueta s'omple i s'estableix al codi;\n"
+#~ "per tant, els canvis fets aquí no es mostraran)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "etiqueta de _visibilitat (omplerta al codi)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_Mida de la fotografia:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Introduïu el número de confirmació que apareix després que us connecteu "
+#~ "al Flickr en el navegador web."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Número d'autorització:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (El text depèn del nom d'usuari fb i es modifica a l'aplicació -\n"
+#~ "no es mostrarà res posat en aquest camp.)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Public_a a un àlbum existent:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Crea un àlbum _nou anomenat:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Els vídeos i els àlbums de fotografies nous són _visibles per a:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Ves al lloc web d'en Yandex.Fotki"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Actualment no esteu connectat a Yandex.Fotki."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Copyright 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 × 853 píxels"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr ""
+#~ "«%s» no és una resposta vàlida a una sol·licitud d'autenticació OAuth"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): no es pot iniciar, aquest publicador no es pot "
+#~ "reiniciar."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Introduïu el nom d'usuari i la contrasenya associats amb el vostre compte "
+#~ "del Tumblr."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "No s'ha pogut carregar la interfície d'usuari: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Esteu connectat al Tumblr com a %s.\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Serveis de publicació extra del Fotografies"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "Ja heu iniciat i tancat sessió a Google durant aquesta sessió de "
+#~ "Fotografies.\n"
+#~ "\n"
+#~ "Per continuar publicant als serveis de Google, sortiu i reinicieu el "
+#~ "Fotografies i, a continuació, torneu a provar de publicar."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "À_lbums (o escriviu-ne un de nou):"
+
+#~ msgid "Access _type:"
+#~ msgstr "_Tipus d'accés:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Inhabilita els _comentaris"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_Prohibeix baixar la fotografia original"
+
+#~ msgid "Public"
+#~ msgstr "Públic"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Esteu connectat al Tumblr com a (name).\n"
+#~ "\n"
+#~ "(Aquesta etiqueta s'omple i s'estableix dins del codi, \n"
+#~ "de manera que els canvis fets aquí no es mostraran.)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Blogs:"
+
+#~ msgid "label"
+#~ msgstr "etiqueta"
+
+#~ msgid "_Email address"
+#~ msgstr "Adreça _electrònica"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Mostra la barra lateral"

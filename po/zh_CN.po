@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2022-10-13 14:45+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -317,8 +317,6 @@ msgid "Unflag"
 msgstr "取消标注"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "原始尺寸"
 
@@ -1246,7 +1244,6 @@ msgstr ""
 "您想要继续导出吗?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "继续"
 
@@ -1879,7 +1876,6 @@ msgid "Screen"
 msgstr "屏幕"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "原始尺寸"
 
@@ -3088,641 +3084,6 @@ msgstr "输出照片为："
 msgid "pixels per inch"
 msgstr "每英寸像素数"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "版权所有 2009-2013 Yorba 基金会"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"您尚未登录 YouTube。\n"
-"\n"
-"您必须已经注册了一个 Google 帐号并设置为使用 YouTube 才能继续。您可以通过浏览"
-"器设置绝大多数帐号并至少登录 YouTube 一次。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr "一个发布所需要的文件不存在。无法继续发布至 YouTube。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "您已经作为 %s 登入 YouTube。"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "视频将出现在“%s”"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "公开已列出"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "公开未列出"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "私人"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "主要上传服务"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "发布所需的临时文件不可用"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"您在此次会话中登录和注销了 Google 服务。\n"
-"\n"
-"要继续发布内容到 Google 服务，请重新启动此软件后重试。"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "访问 Yorba 网站"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr "翻译人员"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "正在创建相册 %s…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "在发布至 Piwigo 时发生了错误，请重试。"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr "输入您 Piwigo 照片库地址以及对应的 Piwigo 用户名和密码。"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr "Photos 无法连接至您的 Piwigo 照片库，请验证您输入的网址"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "用户名或密码无效，请重试"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "无效的 URL"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "无效的用户名或密码"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Photos 连接"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "所有人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "管理员，家人，朋友，联系人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "管理员，家人，朋友"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "管理员，家人"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "管理员"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 像素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 像素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 像素"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 像素"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"您尚未登入 Google Photos 。\n"
-"\n"
-"点击登录在浏览器中登录 Google Photos 账户。您需要授予 elementary OS 访问 "
-"Google Photos 账户的权限。"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr "一个发布所需要的文件不存在。无法继续发布至 Picasa。"
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "您已经作为 %s 登录 Picasa 网络相册。"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "较小 (640 x 480 像素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "中等 (1024 x 768 像素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "推荐 (1600 x 1200 像素)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 像素)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"您目前尚未登录 Flickr。\n"
-"\n"
-"点击“登录”后通过浏览器登录 Flickr。您必须授权 Photos 连接到您的 Flickr 帐号。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"在本次 Photos 会话中您登录了 Flickr 服务然后退出了。\n"
-"要继续发布到 Flickr，请退出并重新启动 Photos，然后再尝试发布。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "准备登录…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr "发布所需的某个文件不可用。无法继续发布至 Flickr。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "验证授权…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"您已以 %s 的身份登录至 Flickr。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"您的 Flickr 免费帐号限制了您每月可以上传的数据。\n"
-"本月您的流量限额还剩 %d MB。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "您拥有 Flickr Pro 账户，可以无限上传。"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "照片可见于："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "视频可见于："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "照片和视频可见于："
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "仅朋友和家人"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "仅限家人"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "仅限朋友"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "仅自己"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"您尚未登录 Facebook 。\n"
-"\n"
-"如果您没有 Facebook 帐号，可以在登录过程中创建一个。登录时， Photos Connect "
-"将请求您上传照片和发布到订阅列表的权限。这些权限对于 “Photos 连接” 功能来说不"
-"可或缺。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"您已经登录了 Facebook 但并不在当前 Photos 进程中。\n"
-"继续在 Facebook 上发布，退出并重新启动，然后再次尝试发布。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "标准（720 像素）"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "较大（2048 像素）"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "正在测试连接 Facebook…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "正在创建相册…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr "发布所需的某个文件不可用。无法继续发布至 Facebook。"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "服务器重定向链接未包含访问令牌"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"您已经以 %s 的身份登录至 Facebook。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "您想将选中的照片发布到何处？"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "上传大小："
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "好友"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "视频隐私设置："
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "注销"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "发布"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "照片将出现在："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "已有分类："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "新相册："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "在以下分类中:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "相册备注:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "照片可见："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "照片尺寸："
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr "上传之前移除照片的地理位置、相机型号和其他标识信息"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr "如果有标题而没有备注，将标题作为备注"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "不上传标签"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "注销"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "发布"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "您的 Piwigo 照片库链接"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "用户名"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "密码"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "记住密码"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "登录"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'您已登录为 $name'\n"
-"(位于程序代码中)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "预置照片尺寸："
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"您已登录到 Flickr 的 (name) 用户。\n"
-"\n"
-"(这个标签串设定于代码中\n"
-"在此的改变不会被显示)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "可见度标签(位于代码中)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "照片尺寸："
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr "输入您使用网页浏览器登录 Flickr 后出现的验证码。"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "验证码："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (文本取决于 FB 用户名，程序会自动修改 -\n"
-"在此处输入的所有内容均不会显示)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "发布到已有相册："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "创建一个新相册名为："
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "视频和新照片相册可见于："
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "版权所有 2010 + Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "访问 Yandex.Fotki 网站"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "您当前未登录 Yandex.Fotki 账号。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "版权所有 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 像素"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "'%s' 不是有效的 OAuth 授权请求"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr "TumblrPublisher: start( ): 无法启动；无法重启此发布器。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr "输入您的 Tumblr 账户。"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "无法加载 UI：%s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"您已以 %s 的身份登录至 Tumblr 。\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "Photos 外部发布服务"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"在本次 Photos 会话中您登录 Google 服务之后已经注销了。\n"
-"\n"
-"要继续发布到 Google，请退出并重新启动 Photos，然后再尝试发布。"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "相册（或新建）："
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "访问类型："
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "禁用评论"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "禁止下载原始照片"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "公开"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"您已以 (name) 的身份登录至 Tumblr。\n"
-"\n"
-"（此标签的词条是内嵌在代码内的\n"
-"所以在此处所做的的变更不会显示）"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "博客："
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "标签"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "邮箱地址"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "条纹"
@@ -3742,6 +3103,14 @@ msgstr "主要幻灯片变换"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "版权所有 2010 Maxim Kartashev，2011-2013 Yorba 基金会"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "访问 Yorba 网站"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr "翻译人员"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3770,6 +3139,479 @@ msgstr "茄子"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "百叶窗"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "版权所有 2009-2013 Yorba 基金会"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "您尚未登录 YouTube。\n"
+#~ "\n"
+#~ "您必须已经注册了一个 Google 帐号并设置为使用 YouTube 才能继续。您可以通过"
+#~ "浏览器设置绝大多数帐号并至少登录 YouTube 一次。"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr "一个发布所需要的文件不存在。无法继续发布至 YouTube。"
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "您已经作为 %s 登入 YouTube。"
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "视频将出现在“%s”"
+
+#~ msgid "Public listed"
+#~ msgstr "公开已列出"
+
+#~ msgid "Public unlisted"
+#~ msgstr "公开未列出"
+
+#~ msgid "Private"
+#~ msgstr "私人"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "主要上传服务"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "发布所需的临时文件不可用"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "您在此次会话中登录和注销了 Google 服务。\n"
+#~ "\n"
+#~ "要继续发布内容到 Google 服务，请重新启动此软件后重试。"
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "正在创建相册 %s…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "在发布至 Piwigo 时发生了错误，请重试。"
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr "输入您 Piwigo 照片库地址以及对应的 Piwigo 用户名和密码。"
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr "Photos 无法连接至您的 Piwigo 照片库，请验证您输入的网址"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "用户名或密码无效，请重试"
+
+#~ msgid "Invalid URL"
+#~ msgstr "无效的 URL"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "无效的用户名或密码"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Photos 连接"
+
+#~ msgid "Everyone"
+#~ msgstr "所有人"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "管理员，家人，朋友，联系人"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "管理员，家人，朋友"
+
+#~ msgid "Admins, Family"
+#~ msgstr "管理员，家人"
+
+#~ msgid "Admins"
+#~ msgstr "管理员"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 像素"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 像素"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 像素"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 像素"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "您尚未登入 Google Photos 。\n"
+#~ "\n"
+#~ "点击登录在浏览器中登录 Google Photos 账户。您需要授予 elementary OS 访问 "
+#~ "Google Photos 账户的权限。"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr "一个发布所需要的文件不存在。无法继续发布至 Picasa。"
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "您已经作为 %s 登录 Picasa 网络相册。"
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "较小 (640 x 480 像素)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "中等 (1024 x 768 像素)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "推荐 (1600 x 1200 像素)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 像素)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "您目前尚未登录 Flickr。\n"
+#~ "\n"
+#~ "点击“登录”后通过浏览器登录 Flickr。您必须授权 Photos 连接到您的 Flickr 帐"
+#~ "号。"
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "在本次 Photos 会话中您登录了 Flickr 服务然后退出了。\n"
+#~ "要继续发布到 Flickr，请退出并重新启动 Photos，然后再尝试发布。"
+
+#~ msgid "Preparing for login…"
+#~ msgstr "准备登录…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr "发布所需的某个文件不可用。无法继续发布至 Flickr。"
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "验证授权…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您已以 %s 的身份登录至 Flickr。\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "您的 Flickr 免费帐号限制了您每月可以上传的数据。\n"
+#~ "本月您的流量限额还剩 %d MB。"
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "您拥有 Flickr Pro 账户，可以无限上传。"
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "照片可见于："
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "视频可见于："
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "照片和视频可见于："
+
+#~ msgid "Friends & family only"
+#~ msgstr "仅朋友和家人"
+
+#~ msgid "Family only"
+#~ msgstr "仅限家人"
+
+#~ msgid "Friends only"
+#~ msgstr "仅限朋友"
+
+#~ msgid "Just me"
+#~ msgstr "仅自己"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "您尚未登录 Facebook 。\n"
+#~ "\n"
+#~ "如果您没有 Facebook 帐号，可以在登录过程中创建一个。登录时， Photos "
+#~ "Connect 将请求您上传照片和发布到订阅列表的权限。这些权限对于 “Photos 连"
+#~ "接” 功能来说不可或缺。"
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "您已经登录了 Facebook 但并不在当前 Photos 进程中。\n"
+#~ "继续在 Facebook 上发布，退出并重新启动，然后再次尝试发布。"
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "标准（720 像素）"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "较大（2048 像素）"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "正在测试连接 Facebook…"
+
+#~ msgid "Creating album…"
+#~ msgstr "正在创建相册…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr "发布所需的某个文件不可用。无法继续发布至 Facebook。"
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "服务器重定向链接未包含访问令牌"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您已经以 %s 的身份登录至 Facebook。\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "您想将选中的照片发布到何处？"
+
+#~ msgid "Upload _size:"
+#~ msgstr "上传大小："
+
+#~ msgid "Friends"
+#~ msgstr "好友"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "视频隐私设置："
+
+#~ msgid "_Logout"
+#~ msgstr "注销"
+
+#~ msgid "_Publish"
+#~ msgstr "发布"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "照片将出现在："
+
+#~ msgid "An _existing category:"
+#~ msgstr "已有分类："
+
+#~ msgid "A _new album named:"
+#~ msgstr "新相册："
+
+#~ msgid "within category:"
+#~ msgstr "在以下分类中:"
+
+#~ msgid "Album comment:"
+#~ msgstr "相册备注:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "照片可见："
+
+#~ msgid "Photo size:"
+#~ msgstr "照片尺寸："
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr "上传之前移除照片的地理位置、相机型号和其他标识信息"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr "如果有标题而没有备注，将标题作为备注"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "不上传标签"
+
+#~ msgid "Logout"
+#~ msgstr "注销"
+
+#~ msgid "Publish"
+#~ msgstr "发布"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "您的 Piwigo 照片库链接"
+
+#~ msgid "User _name"
+#~ msgstr "用户名"
+
+#~ msgid "_Password"
+#~ msgstr "密码"
+
+#~ msgid "_Remember Password"
+#~ msgstr "记住密码"
+
+#~ msgid "Login"
+#~ msgstr "登录"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'您已登录为 $name'\n"
+#~ "(位于程序代码中)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "预置照片尺寸："
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "您已登录到 Flickr 的 (name) 用户。\n"
+#~ "\n"
+#~ "(这个标签串设定于代码中\n"
+#~ "在此的改变不会被显示)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "可见度标签(位于代码中)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "照片尺寸："
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr "输入您使用网页浏览器登录 Flickr 后出现的验证码。"
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "验证码："
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (文本取决于 FB 用户名，程序会自动修改 -\n"
+#~ "在此处输入的所有内容均不会显示)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "发布到已有相册："
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "创建一个新相册名为："
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "视频和新照片相册可见于："
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "版权所有 2010 + Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "访问 Yandex.Fotki 网站"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "您当前未登录 Yandex.Fotki 账号。"
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "版权所有 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 像素"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "'%s' 不是有效的 OAuth 授权请求"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr "TumblrPublisher: start( ): 无法启动；无法重启此发布器。"
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr "输入您的 Tumblr 账户。"
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "无法加载 UI：%s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "您已以 %s 的身份登录至 Tumblr 。\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Photos 外部发布服务"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "在本次 Photos 会话中您登录 Google 服务之后已经注销了。\n"
+#~ "\n"
+#~ "要继续发布到 Google，请退出并重新启动 Photos，然后再尝试发布。"
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "相册（或新建）："
+
+#~ msgid "Access _type:"
+#~ msgstr "访问类型："
+
+#~ msgid "Disable _comments"
+#~ msgstr "禁用评论"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "禁止下载原始照片"
+
+#~ msgid "Public"
+#~ msgstr "公开"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "您已以 (name) 的身份登录至 Tumblr。\n"
+#~ "\n"
+#~ "（此标签的词条是内嵌在代码内的\n"
+#~ "所以在此处所做的的变更不会显示）"
+
+#~ msgid "Blogs:"
+#~ msgstr "博客："
+
+#~ msgid "label"
+#~ msgstr "标签"
+
+#~ msgid "_Email address"
+#~ msgstr "邮箱地址"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "显示侧边栏"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2023-05-02 07:06+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
@@ -306,8 +306,6 @@ msgid "Unflag"
 msgstr "Jelölés törlése"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Eredeti méret"
 
@@ -1259,7 +1257,6 @@ msgstr ""
 "Szeretné folytatni az exportálást?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Foly_tatás"
 
@@ -1964,7 +1961,6 @@ msgid "Screen"
 msgstr "Képernyő"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Eredeti méret"
 
@@ -3196,688 +3192,6 @@ msgstr "_Kimeneti fénykép:"
 msgid "pixels per inch"
 msgstr "képpont hüvelykenként"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Szerzői jogok: 2009-2013 Yorba Alapítvány"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Nincs bejelentkezve a YouTube-ra.\n"
-"\n"
-"A folytatáshoz rendelkeznie kell egy Google-fiókkal, és be kell állítania a "
-"YouTube használatához. A legtöbb fiókot a böngészőből is beállíthatja, ha "
-"bejelentkezik a YouTube-ba legalább egyszer."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a Youtube-ra "
-"nem folytatódhat."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Bejelentkezett a YouTube-ra %s néven."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "A videók itt jelennek meg: '%s'"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Nyilvános, felsorolt"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Nyilvános, felsorolatlan"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Magánjellegű"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Alap közzétételi szolgáltatások"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "A közzétételhez szükséges ideiglenes fájl nem érhető el"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Már be- és kijelentkezett egy Google szolgáltatásból ebben a munkamenetben.\n"
-"\n"
-"Hogy folytathassa a publikálást, indítsa újra az alkalmazást, majd próbálja "
-"újra."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Keresse fel a Yorba weboldalát"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Peter Bojtos <ptr at ulx dot hu>\n"
-"Nikolas Slivka <snicore at gmail dot com>\n"
-"Laszlo Csordas <csola48 at gmail dot com>\n"
-"Kelemen Gábor <kelemeng at gnome dot hu>\n"
-"Kökéndy Ákos https://launchpad.net/~kokendy-akos\n"
-"Robert Roth https://launchpad.net/~evfool\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Dono https://launchpad.net/~laszlo-bence-27\n"
-"  Gabor Kelemen https://launchpad.net/~kelemeng-0\n"
-"  Mark Lutring https://launchpad.net/~marcus-elitemail\n"
-"\n"
-"Weblate Contributions: \n"
-"  TomiOhl https://github.com/TomiOhl"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "A(z) %s album létrehozása…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "Hibaüzenet érkezett a Piwigon való közzététel során. Próbálja újra."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Adja meg a Piwigo fotógyűjteményének URL-címét, valamint az ahhoz tartozó "
-"Piwigo fiókjának felhasználónevét és jelszavát."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"A Fotók nem tud kapcsolódni a Piwigo képgyűjteményhez. Ellenőrizze az URL-"
-"címet"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "A felhasználónév és/vagy jelszó érvénytelen. Próbálja újra"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "Érvénytelen URL"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Érvénytelen felhasználónév vagy jelszó"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Fotók Kapcsolat"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Mindenki"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Adminok, család, barátok, partnerek"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Adminok, család, barátok"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Adminok, család"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Adminok"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 képpont"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 képpont"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 képpont"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 képpont"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"Nincs bejelentkezve a Google Fotók szolgáltatásba.\n"
-"\n"
-"A bejelentkezéshez kattintson a Bejelentkezés gombra a böngészőjében. "
-"Engedélyeznie kell az elementary Os-nek, hogy kapcsolódhasson a Google Fotók "
-"szolgáltatáshoz."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a Picasara "
-"nem folytatódhat."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Bejelentkezett a Picasa Webalbumokba %s néven."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Kicsi (640 x 480 képpont)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Közepes (1024 x 768 képpont)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Ajánlott (1600 x 1200 képpont)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 képpont)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Jelenleg nincs bejelentkezve Flickr-re.\n"
-"\n"
-"Kattintson a Bejelentkezés gombra a Flickr-fiókjába való bejelentkezéshez a "
-"böngészőből. A bejelentkezés során jogosultságot kell adnia a Fotóknak, hogy "
-"hozzáférjen a Flickr-fiókjához."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"A Fotók használata közben már bejelentkezett a Flickr-re, és kijelentkezett "
-"onnan.\n"
-"A Flickr-re való feltöltés folytatásához indítsa újra a Fotókat és próbálja "
-"újra a feltöltést."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "Felkészülés a bejelentkezésre…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a Flickrre "
-"nem folytatódhat."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "Felhatalmazás ellenőrzése…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Bejelentkezett a Flickr-re %s néven.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"Az ingyenes Flickr fiókja korlátozza a havonta feltölthető adatmennyiséget.\n"
-"Ebben a hónapban még %d MB feltöltésére van lehetősége."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "Az Ön Flickr Pro fiókja korlátlan feltöltést engedélyez."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "A _fényképeket láthatja:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "A _videókat láthatja:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "A _fényképeket/videókat láthatja:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Csak barátok és család"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Csak család"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Csak barátok"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Csak én"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Jelenleg nincs bejelentkezve a Facebookra.\n"
-"\n"
-"Ha nincs még Facebook-fiókja, a bejelentkezés során létrehozhat egyet. "
-"Engedélyeznie kell a fényképek feltöltését és az idővonalon való "
-"közzétételét. Ezek az engedélyek szükségesek a Fotók Kapcsolat működéséhez."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"A Fotók használata közben már bejelentkezett a Facebookra, és kijelentkezett "
-"onnan.\n"
-"A Facebookra való feltöltés folytatásához indítsa újra a Fotókat és próbálja "
-"újra a feltöltést."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Szabványos (720 képpont)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Nagy (2048 képpont)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "Facebook-kapcsolat tesztelése…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "Album létrehozása…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a Facebookra "
-"nem folytatódhat."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "A szerver átirányítási URL nem tartalmazott hozzáférési jelet"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Bejelentkezett a Facebookra %s néven.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Hová szeretné feltölteni a kijelölt fényképeket?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "Feltöltés _mérete:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Barátok"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "Videók láthatósági _beállítása:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Kijelentkezés"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "Közzé_tétel"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "A fényképek itt jelennek meg:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "Egy létező _kategória:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "Új _album, a neve:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "kategóriában:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Albummegjegyzés:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Fényképek lát_hatók lesznek számukra:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Fénykép mérete:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"_Eltávolítja a tartózkodási hely, a fényképezőgép és egyebek azonosításra "
-"alkalmas adatait a feltöltés előtt"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"Ha be van állítva _cím, de megjegyzés nincs, akkor a cím használata "
-"megjegyzésként"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "_Címkék ne legyenek feltöltve"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Kijelentkezés"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Közzététel"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "Piwigo fotógyűjtemény URL-címe"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_Felhasználónév"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Jelszó"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Jelszó megjegyzése"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Bejelentkezés"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'be van jelentkezve, mint $name'\n"
-"(alkalmazás kódjában elhelyezve)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Fénykép_méret előbeállítása:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Nem vagy bejelentkezve a Flicker szolgáltatásba mint (név).\n"
-"\n"
-"(ez a címke sztring a kódon belül volt elhelyezve,\n"
-"szóval az itt eszközölt változtatások nem fognak megjelenni)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_láthatósági címke (kódban elhelyezve)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "Fénykép _mérete:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Írja be a megerősítési számot, amely a Flickr-be való bejelentkezés után "
-"jelenik meg a böngészőjében."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Hitelesítési szám:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (a szöveg a Facebook felhasználónévtől függ, és az alkalmazásban "
-"módosításra kerül -\n"
-"ebben a mezőben semmi nem jelenik meg)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Közzététel _meglévő albumban:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Új _album létrehozása ezen a néven:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "A _videókat és új fényképalbumokat láthatja:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Szerzői jogok: 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "A Yandex.Fotki weboldal felkeresése"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Jelenleg nincs bejelentkezve a Yandex.Fotki oldalra."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Copyright: 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 pixel"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "A(z) '%s' nem érvényes válasz egy OAuth hitelesítési kérésre"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): nem lehet elindítani, ez a közzétevő nem "
-"indítható újra."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Adja meg a felhasználó nevet és a jelszót a társított Tumblr fiókjához."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "A felület nem tölthető be: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Bejelentkezett a Tumblr-re %s néven.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "Fotók extra közzétételi szolgáltatások"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"A Fotók használata közben már bejelentkezett a Google szolgáltatásokba, és "
-"kijelentkezett onnan.\n"
-"\n"
-"A Google szolgáltatásokba való feltöltés folytatásához indítsa újra a "
-"Fotókat és próbálja újra a feltöltést."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_Albumok (vagy új írása):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "Hozzáférés típusa:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "H_ozzászólások letiltása"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_Eredeti kép letöltésének megtiltása"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Nyilvános"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Bejelentkezett a Tumblr-re, mint (name).\n"
-"\n"
-"(ez a szöveg a kódon belül van meghatározva,\n"
-"úgyhogy a módosítások nem lesznek megjelenítve)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Blogok:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "címke"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_E-mail-cím"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Csíkok"
@@ -3899,6 +3213,28 @@ msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
 "Szerzői jogok: 2010 Maxim Kartashev, szerzői jogok: 2011-2013 Yorba "
 "Alapítvány"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Keresse fel a Yorba weboldalát"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Peter Bojtos <ptr at ulx dot hu>\n"
+"Nikolas Slivka <snicore at gmail dot com>\n"
+"Laszlo Csordas <csola48 at gmail dot com>\n"
+"Kelemen Gábor <kelemeng at gnome dot hu>\n"
+"Kökéndy Ákos https://launchpad.net/~kokendy-akos\n"
+"Robert Roth https://launchpad.net/~evfool\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Dono https://launchpad.net/~laszlo-bence-27\n"
+"  Gabor Kelemen https://launchpad.net/~kelemeng-0\n"
+"  Mark Lutring https://launchpad.net/~marcus-elitemail\n"
+"\n"
+"Weblate Contributions: \n"
+"  TomiOhl https://github.com/TomiOhl"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3927,6 +3263,514 @@ msgstr "Sakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellák"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Szerzői jogok: 2009-2013 Yorba Alapítvány"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Nincs bejelentkezve a YouTube-ra.\n"
+#~ "\n"
+#~ "A folytatáshoz rendelkeznie kell egy Google-fiókkal, és be kell állítania "
+#~ "a YouTube használatához. A legtöbb fiókot a böngészőből is beállíthatja, "
+#~ "ha bejelentkezik a YouTube-ba legalább egyszer."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a Youtube-"
+#~ "ra nem folytatódhat."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Bejelentkezett a YouTube-ra %s néven."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "A videók itt jelennek meg: '%s'"
+
+#~ msgid "Public listed"
+#~ msgstr "Nyilvános, felsorolt"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Nyilvános, felsorolatlan"
+
+#~ msgid "Private"
+#~ msgstr "Magánjellegű"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Alap közzétételi szolgáltatások"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "A közzétételhez szükséges ideiglenes fájl nem érhető el"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Már be- és kijelentkezett egy Google szolgáltatásból ebben a "
+#~ "munkamenetben.\n"
+#~ "\n"
+#~ "Hogy folytathassa a publikálást, indítsa újra az alkalmazást, majd "
+#~ "próbálja újra."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "A(z) %s album létrehozása…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr "Hibaüzenet érkezett a Piwigon való közzététel során. Próbálja újra."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Adja meg a Piwigo fotógyűjteményének URL-címét, valamint az ahhoz tartozó "
+#~ "Piwigo fiókjának felhasználónevét és jelszavát."
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "A Fotók nem tud kapcsolódni a Piwigo képgyűjteményhez. Ellenőrizze az URL-"
+#~ "címet"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "A felhasználónév és/vagy jelszó érvénytelen. Próbálja újra"
+
+#~ msgid "Invalid URL"
+#~ msgstr "Érvénytelen URL"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Érvénytelen felhasználónév vagy jelszó"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Fotók Kapcsolat"
+
+#~ msgid "Everyone"
+#~ msgstr "Mindenki"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Adminok, család, barátok, partnerek"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Adminok, család, barátok"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Adminok, család"
+
+#~ msgid "Admins"
+#~ msgstr "Adminok"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 képpont"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 képpont"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 képpont"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 képpont"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "Nincs bejelentkezve a Google Fotók szolgáltatásba.\n"
+#~ "\n"
+#~ "A bejelentkezéshez kattintson a Bejelentkezés gombra a böngészőjében. "
+#~ "Engedélyeznie kell az elementary Os-nek, hogy kapcsolódhasson a Google "
+#~ "Fotók szolgáltatáshoz."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a "
+#~ "Picasara nem folytatódhat."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Bejelentkezett a Picasa Webalbumokba %s néven."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Kicsi (640 x 480 képpont)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Közepes (1024 x 768 képpont)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Ajánlott (1600 x 1200 képpont)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 képpont)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Jelenleg nincs bejelentkezve Flickr-re.\n"
+#~ "\n"
+#~ "Kattintson a Bejelentkezés gombra a Flickr-fiókjába való bejelentkezéshez "
+#~ "a böngészőből. A bejelentkezés során jogosultságot kell adnia a Fotóknak, "
+#~ "hogy hozzáférjen a Flickr-fiókjához."
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "A Fotók használata közben már bejelentkezett a Flickr-re, és "
+#~ "kijelentkezett onnan.\n"
+#~ "A Flickr-re való feltöltés folytatásához indítsa újra a Fotókat és "
+#~ "próbálja újra a feltöltést."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "Felkészülés a bejelentkezésre…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a "
+#~ "Flickrre nem folytatódhat."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "Felhatalmazás ellenőrzése…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Bejelentkezett a Flickr-re %s néven.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "Az ingyenes Flickr fiókja korlátozza a havonta feltölthető "
+#~ "adatmennyiséget.\n"
+#~ "Ebben a hónapban még %d MB feltöltésére van lehetősége."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr "Az Ön Flickr Pro fiókja korlátlan feltöltést engedélyez."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "A _fényképeket láthatja:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "A _videókat láthatja:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "A _fényképeket/videókat láthatja:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Csak barátok és család"
+
+#~ msgid "Family only"
+#~ msgstr "Csak család"
+
+#~ msgid "Friends only"
+#~ msgstr "Csak barátok"
+
+#~ msgid "Just me"
+#~ msgstr "Csak én"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Jelenleg nincs bejelentkezve a Facebookra.\n"
+#~ "\n"
+#~ "Ha nincs még Facebook-fiókja, a bejelentkezés során létrehozhat egyet. "
+#~ "Engedélyeznie kell a fényképek feltöltését és az idővonalon való "
+#~ "közzétételét. Ezek az engedélyek szükségesek a Fotók Kapcsolat "
+#~ "működéséhez."
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "A Fotók használata közben már bejelentkezett a Facebookra, és "
+#~ "kijelentkezett onnan.\n"
+#~ "A Facebookra való feltöltés folytatásához indítsa újra a Fotókat és "
+#~ "próbálja újra a feltöltést."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Szabványos (720 képpont)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Nagy (2048 képpont)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Facebook-kapcsolat tesztelése…"
+
+#~ msgid "Creating album…"
+#~ msgstr "Album létrehozása…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Egy, a közzétételhez szükséges fájl nem érhető el. A közzététel a "
+#~ "Facebookra nem folytatódhat."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "A szerver átirányítási URL nem tartalmazott hozzáférési jelet"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Bejelentkezett a Facebookra %s néven.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Hová szeretné feltölteni a kijelölt fényképeket?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "Feltöltés _mérete:"
+
+#~ msgid "Friends"
+#~ msgstr "Barátok"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "Videók láthatósági _beállítása:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Kijelentkezés"
+
+#~ msgid "_Publish"
+#~ msgstr "Közzé_tétel"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "A fényképek itt jelennek meg:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "Egy létező _kategória:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "Új _album, a neve:"
+
+#~ msgid "within category:"
+#~ msgstr "kategóriában:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Albummegjegyzés:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Fényképek lát_hatók lesznek számukra:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Fénykép mérete:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "_Eltávolítja a tartózkodási hely, a fényképezőgép és egyebek azonosításra "
+#~ "alkalmas adatait a feltöltés előtt"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "Ha be van állítva _cím, de megjegyzés nincs, akkor a cím használata "
+#~ "megjegyzésként"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "_Címkék ne legyenek feltöltve"
+
+#~ msgid "Logout"
+#~ msgstr "Kijelentkezés"
+
+#~ msgid "Publish"
+#~ msgstr "Közzététel"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "Piwigo fotógyűjtemény URL-címe"
+
+#~ msgid "User _name"
+#~ msgstr "_Felhasználónév"
+
+#~ msgid "_Password"
+#~ msgstr "_Jelszó"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Jelszó megjegyzése"
+
+#~ msgid "Login"
+#~ msgstr "Bejelentkezés"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'be van jelentkezve, mint $name'\n"
+#~ "(alkalmazás kódjában elhelyezve)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Fénykép_méret előbeállítása:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Nem vagy bejelentkezve a Flicker szolgáltatásba mint (név).\n"
+#~ "\n"
+#~ "(ez a címke sztring a kódon belül volt elhelyezve,\n"
+#~ "szóval az itt eszközölt változtatások nem fognak megjelenni)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_láthatósági címke (kódban elhelyezve)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "Fénykép _mérete:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Írja be a megerősítési számot, amely a Flickr-be való bejelentkezés után "
+#~ "jelenik meg a böngészőjében."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Hitelesítési szám:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (a szöveg a Facebook felhasználónévtől függ, és az alkalmazásban "
+#~ "módosításra kerül -\n"
+#~ "ebben a mezőben semmi nem jelenik meg)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Közzététel _meglévő albumban:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Új _album létrehozása ezen a néven:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "A _videókat és új fényképalbumokat láthatja:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Szerzői jogok: 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "A Yandex.Fotki weboldal felkeresése"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Jelenleg nincs bejelentkezve a Yandex.Fotki oldalra."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Copyright: 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 pixel"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr "A(z) '%s' nem érvényes válasz egy OAuth hitelesítési kérésre"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): nem lehet elindítani, ez a közzétevő nem "
+#~ "indítható újra."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Adja meg a felhasználó nevet és a jelszót a társított Tumblr fiókjához."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "A felület nem tölthető be: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Bejelentkezett a Tumblr-re %s néven.\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Fotók extra közzétételi szolgáltatások"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "A Fotók használata közben már bejelentkezett a Google szolgáltatásokba, "
+#~ "és kijelentkezett onnan.\n"
+#~ "\n"
+#~ "A Google szolgáltatásokba való feltöltés folytatásához indítsa újra a "
+#~ "Fotókat és próbálja újra a feltöltést."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_Albumok (vagy új írása):"
+
+#~ msgid "Access _type:"
+#~ msgstr "Hozzáférés típusa:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "H_ozzászólások letiltása"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_Eredeti kép letöltésének megtiltása"
+
+#~ msgid "Public"
+#~ msgstr "Nyilvános"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Bejelentkezett a Tumblr-re, mint (name).\n"
+#~ "\n"
+#~ "(ez a szöveg a kódon belül van meghatározva,\n"
+#~ "úgyhogy a módosítások nem lesznek megjelenítve)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Blogok:"
+
+#~ msgid "label"
+#~ msgstr "címke"
+
+#~ msgid "_Email address"
+#~ msgstr "_E-mail-cím"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Az oldalsáv megjelenítése"

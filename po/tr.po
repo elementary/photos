@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2022-08-29 13:00+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/photos/photos/tr/"
@@ -307,8 +307,6 @@ msgid "Unflag"
 msgstr "İşareti kaldır"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Özgün boyut"
 
@@ -1265,7 +1263,6 @@ msgstr ""
 "Dışa aktarmaya devam etmek istiyor musunuz?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Devam _Et"
 
@@ -1976,7 +1973,6 @@ msgid "Screen"
 msgstr "Ekran"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Özgün Boyut"
 
@@ -3207,685 +3203,6 @@ msgstr "Dosya çıktısı _konumu:"
 msgid "pixels per inch"
 msgstr "inç başına benek miktarı"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Telif Hakkı 2009-2015 Yorba Vakfı"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Şu anda YouTube'da oturum açmış bulunmuyorsunuz.\n"
-"\n"
-"Devam etmek için YouTube'la birlikte kullanabilecek şekilde ayarlanmış bir "
-"Google hesabınız olmalı. Tarayıcınızı kullanıp en az bir kez YouTube "
-"sitesinde oturum açarak pek çok hesap kurabilirsiniz."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Yayımlama için gerekli bir dosya kullanılamıyor. YouTube'da yayımlama devam "
-"edemiyor."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "YouTube'a %s olarak oturum açtınız."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "Videolar '%s' içinde görülecek"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Genel listelenmiş"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Genel listelenmemiş"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Özel"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Çekirdek Yayımlama Hizmetleri"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "Yayımlama için gerekli geçici bir dosya kullanılamıyor"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-"Bu oturum sırasında bir Google hizmetine zaten giriş yapmışsın.\n"
-"\n"
-"Google hizmetlerine yayınlamaya devam etmek için, çıkış yapıp bu yazılımı "
-"yeniden başlattıktan sonra tekrar yayınlamayı deneyin."
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Yorba web sitesini ziyaret edin"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Yiğit Ateş <yigitates52@gmail.com>\n"
-"Hüseyin Demirtaş <h.demirtas.l10n@gmail.com>\n"
-"Ferhat Tunçtan <ferhattnctn19@yahoo.com.tr>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Bilal https://launchpad.net/~kira-gazerock\n"
-"  Deniz CAN https://launchpad.net/~denizcan72\n"
-"  Ferhat TUNÇTAN https://launchpad.net/~ferhattnctn66\n"
-"  Mehmet https://launchpad.net/~darkmehmet3\n"
-"  Melih Güçlü https://launchpad.net/~melihguclu\n"
-"  Sadık Poyraz https://launchpad.net/~sadikpoyraz01\n"
-"  Salih https://launchpad.net/~hernandomtoto\n"
-"  Uğur Sönmezocak https://launchpad.net/~ugur-sonmezocak\n"
-"  elementary Apps team https://launchpad.net/~elementary-apps\n"
-"  geronimo https://launchpad.net/~catchxxii\n"
-"  İbrahim Ethem Göl https://launchpad.net/~ethem578"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, c-format
-msgid "Creating album %s…"
-msgstr "%s albümü oluşturuluyor…"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr "Piwigo'da yayınlanırken bir hata meydana geldi. Lütfen tekrar deneyin."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Piwigo fotoğraf kitaplığınızın URL'sinin yanı sıra bu kütüphane için Piwigo "
-"hesabınızla ilişkili kullanıcı adınızı ve şifrenizi giriniz."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"Fotoğraflar, Piwigo fotoğraf kitaplığınızla bağlantı kuramıyor. Lüften "
-"girdiğiniz URL'yi kontrol edin"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "Kullanıcı adı ve/veya şifre geçersiz. Lütfen tekrar deneyin"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "Geçersiz URL"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Geçersiz Kullanıcı Adı veya Şifre"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-msgid "Photos Connect"
-msgstr "Fotoğraflar Bağlantısı"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Herkes"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Yöneticiler, Aile, Arkadaşlar, Bağlantılar"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Yöneticiler, Aile, Arkadaşlar"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Yöneticiler, Aile"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Yöneticiler"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 piksel"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 piksel"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 benek"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 benek"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-"Şu anda Google Fotoğraflar'da oturum açmadınız.\n"
-"\n"
-"Google Fotoğraflar'a giriş yapmak için Web tarayıcınızda Giriş'e tıklayın. "
-"Google Fotoğraflar hesabınıza bağlanmak için Elementary Os'u "
-"yetkilendirmeniz gerekecek."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Yayımlama için gerekli bir dosya kullanılamıyor. Picasa'ya yayımlama devam "
-"edemiyor."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Picasa Web Albümleri'nde %s olarak oturum açtınız."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Küçük (640 x 480 benek)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Orta (1024 x 768 benek)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Önerilen (1600 x 1200 benek)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 piksel)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Şu anda Flickr'da oturum açmadınız.\n"
-"\n"
-"Flickr'a giriş yapmak için web tarayıcınızda Oturum Aç'a tıklayın. Flickr "
-"hesabınıza Fotoğraflar Bağlantısını bağlamak için yetki vermeniz gerekiyor."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Bu Fotoğraflar oturumu süresince zaten Flickr'da oturum açıp kapattınız.\n"
-"Flickr'da yayımlamaya devam etmek için, Fotoğrafları kapatın ve yeniden "
-"başlatın, daha sonra tekrar yayımlamayı deneyin."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-msgid "Preparing for login…"
-msgstr "Giriş için hazırlanıyor…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Yayımlama için gerekli bir dosya kullanılamıyor. Flickr'da yayımlama devam "
-"edemiyor."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-msgid "Verifying authorization…"
-msgstr "Yetkilendirme doğrulanıyor…"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Flickr'da %s olarak oturum açtınız.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"Ücretsiz Flickr hesabınızla aylık olarak karşıya yükleyebileceğiniz veri "
-"miktarı sınırlıdır.\n"
-"Bu ay, %d megabyte karşıya yükleme kotanız kaldı."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr "Flickr Pro hesabınız, sınırsız karşıya yükleme yapmanıza olanak tanır."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Fotoğrafları _görebilecekler:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Videolar şunlara _görülebilir:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Fotoğraflar ve videolar _şunlara görülebilir:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Yalnızca aile ve arkadaşlar"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Aileye özel"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Arkadaşlara özel"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Yalnızca ben"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Facebook'ta oturum açmadınız.\n"
-"\n"
-"Henüz bir Facebook hesabınız yoksa, oturum açma sürecinde bir tane "
-"oluşturabilirsiniz. Oturum açma sırasında, Fotoğraflar Bağlantısı "
-"fotoğraflarınızı karşıya yüklemek ve beslemelerinizde yayımlamak için izin "
-"isteyebilir. Fotoğraflar Bağlantısı'nın işlevini yerine getirmesi için bu "
-"izinler gereklidir."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Bu Fotoğraflar oturumu süresince zaten Facebook'ta oturum açıp kapattınız.\n"
-"Facebook'ta yayımlamaya devam etmek için, Fotoğrafları kapatın ve yeniden "
-"başlatın, daha sonra tekrar yayımlamayı deneyin."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Standart (720 piksel)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Geniş (2048 piksel)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-msgid "Testing connection to Facebook…"
-msgstr "Facebook bağlantısı sınanıyor…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-msgid "Creating album…"
-msgstr "Albüm oluşturuluyor…"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Yayımlama için gerekli bir dosya kullanılamıyor. Facebook'ta yayımlama devam "
-"edemiyor."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr "Sunucu yönlendirme URL 'si erişim bilgisi içermiyor."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Facebook'a %s olarak giriş yaptınız.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Seçilen fotoğrafları nerede yayımlamak istersiniz?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "Yükleme _boyutu:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Arkadaşlar"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "Video gizlilik _ayarı:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Çıkış"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "_Yayımla"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "Fotoğrafların görüneceği yer:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "_Varolan bir kategori:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "_Yeni bir albüm adlandırıldı:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "Kategorisi:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Albüm Yorumu:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Fotoğraflar bu _kişiler tarafından görülebilir:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Fotoğraf boyutu:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr "_Yüklemeden önce yer, kamera ve diğer tanımlayıcı bilgileri çıkarın"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"_Bir başlık ayarlıysa ve yorum ayarlanmamışsa başlığı yorum olarak kullan"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "Etiketleri _Yükleme"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Çıkış Yap"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Yayımla"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "Piwigo fotoğraf kitaplığı _URL'si"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "Kullanıcı _adı"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Şifre"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "Parolayı _Anımsa"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Giriş"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"'$name olarak giriş yaptınız'\n"
-"(Uygulama kaynak kodu tarafından üretildi.)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Fotoğraf _boyutu varsayılanı:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"Flickr'da (name) olarak oturum açtınız.\n"
-"\n"
-"(bu etiketin ismi rastgele üretilip kaynak kod içerisine "
-"yerleştirilmiştir, \n"
-"dolayısıyla burada yaptığınız değişiklikler görüntülenmeyecek)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_görünürlük etiketi (kaynak kod içinde üretilmiştir)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "Fotoğraf _boyutu:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Ağ tarayıcınızda Flickr'a girdikten sonra görünen doğrulama numarasını girin."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "Yetkilendirme _Numarası:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (fb kullanıcı adına bağlı yazı, uygulama içerisinde düzenlendi - \n"
-"bu alana girilenler görüntülenmeyecek)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "_Varolan bir albümde yayımla:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Şu ada sahip _yeni bir albüm oluştur:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Videolar ve yeni fotoğraf albümleri şunlar için _görüntülebilir:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Telif Hakkı 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Yandex.Fotki web sitesini ziyaret edin"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Şu anda Yandex.Fotki için oturum açmış değilsiniz."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Telif Hakkı 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 piksel"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr "'%s' bir OAuth kimlik doğrulama isteği için geçerli bir yanıt değildir"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): başlatılamıyor; bu yayımcı yeniden başlatılabilir "
-"değildir."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Lütfen Tumblr hesabınızla ilişkili kullanıcı adınızı ve şifrenizi giriniz."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "Kullanıcı arayüzü yüklenemedi: %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Tumblr'da %s olarak oturum açtınız.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-msgid "Photos Extra Publishing Services"
-msgstr "Fotoğraflar Ek Yayınlama Servisleri"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"Bu Fotoğraflar oturumu esnasında bir Google hizmetine giriş yapıp çıktınız.\n"
-"\n"
-"Bu hizmette yayınlamaya sürdürmek için Fotoğraflar'dan çıkın ve tekrar "
-"başlatın, sonra da tekrar yayınlamayı deneyin."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_Albümler (ya da yeni bir tane yaz):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "Erişim _türü:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Yorumları devre _dışı bırak"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "_Özgün fotoğrafı indirmeyi yasakla"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Herkese Açık"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr ""
-"(isim) olarak Tumblr'a giriş yaptınız.\n"
-"\n"
-"(bu etiketin bağı yerleşiktir ve kodun içine ayarlıdır, \n"
-"yani burada yapılan değişiklikler gösterilmeyecek)"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Web günlükleri:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "etiket"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "_E-posta adresi"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Çizgiler"
@@ -3905,6 +3222,30 @@ msgstr "Çekirdek Slayt Gösterisi Geçişleri"
 #: plugins/pantheon-photos-transitions/shotwell-transitions.vala:84
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr "Telif Hakkı 2010 Maxim Kartashev, Telif Hakkı 2011-2012 Yorba Kuruluşu"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Yorba web sitesini ziyaret edin"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Yiğit Ateş <yigitates52@gmail.com>\n"
+"Hüseyin Demirtaş <h.demirtas.l10n@gmail.com>\n"
+"Ferhat Tunçtan <ferhattnctn19@yahoo.com.tr>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  Bilal https://launchpad.net/~kira-gazerock\n"
+"  Deniz CAN https://launchpad.net/~denizcan72\n"
+"  Ferhat TUNÇTAN https://launchpad.net/~ferhattnctn66\n"
+"  Mehmet https://launchpad.net/~darkmehmet3\n"
+"  Melih Güçlü https://launchpad.net/~melihguclu\n"
+"  Sadık Poyraz https://launchpad.net/~sadikpoyraz01\n"
+"  Salih https://launchpad.net/~hernandomtoto\n"
+"  Uğur Sönmezocak https://launchpad.net/~ugur-sonmezocak\n"
+"  elementary Apps team https://launchpad.net/~elementary-apps\n"
+"  geronimo https://launchpad.net/~catchxxii\n"
+"  İbrahim Ethem Göl https://launchpad.net/~ethem578"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -3933,6 +3274,513 @@ msgstr "Satranç"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Kesitler"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Telif Hakkı 2009-2015 Yorba Vakfı"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Şu anda YouTube'da oturum açmış bulunmuyorsunuz.\n"
+#~ "\n"
+#~ "Devam etmek için YouTube'la birlikte kullanabilecek şekilde ayarlanmış "
+#~ "bir Google hesabınız olmalı. Tarayıcınızı kullanıp en az bir kez YouTube "
+#~ "sitesinde oturum açarak pek çok hesap kurabilirsiniz."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Yayımlama için gerekli bir dosya kullanılamıyor. YouTube'da yayımlama "
+#~ "devam edemiyor."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "YouTube'a %s olarak oturum açtınız."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "Videolar '%s' içinde görülecek"
+
+#~ msgid "Public listed"
+#~ msgstr "Genel listelenmiş"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Genel listelenmemiş"
+
+#~ msgid "Private"
+#~ msgstr "Özel"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Çekirdek Yayımlama Hizmetleri"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "Yayımlama için gerekli geçici bir dosya kullanılamıyor"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart this "
+#~ "software, then try publishing again."
+#~ msgstr ""
+#~ "Bu oturum sırasında bir Google hizmetine zaten giriş yapmışsın.\n"
+#~ "\n"
+#~ "Google hizmetlerine yayınlamaya devam etmek için, çıkış yapıp bu yazılımı "
+#~ "yeniden başlattıktan sonra tekrar yayınlamayı deneyin."
+
+#, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "%s albümü oluşturuluyor…"
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr ""
+#~ "Piwigo'da yayınlanırken bir hata meydana geldi. Lütfen tekrar deneyin."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Piwigo fotoğraf kitaplığınızın URL'sinin yanı sıra bu kütüphane için "
+#~ "Piwigo hesabınızla ilişkili kullanıcı adınızı ve şifrenizi giriniz."
+
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Fotoğraflar, Piwigo fotoğraf kitaplığınızla bağlantı kuramıyor. Lüften "
+#~ "girdiğiniz URL'yi kontrol edin"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "Kullanıcı adı ve/veya şifre geçersiz. Lütfen tekrar deneyin"
+
+#~ msgid "Invalid URL"
+#~ msgstr "Geçersiz URL"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Geçersiz Kullanıcı Adı veya Şifre"
+
+#~ msgid "Photos Connect"
+#~ msgstr "Fotoğraflar Bağlantısı"
+
+#~ msgid "Everyone"
+#~ msgstr "Herkes"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Yöneticiler, Aile, Arkadaşlar, Bağlantılar"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Yöneticiler, Aile, Arkadaşlar"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Yöneticiler, Aile"
+
+#~ msgid "Admins"
+#~ msgstr "Yöneticiler"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 piksel"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 piksel"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 benek"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 benek"
+
+#~ msgid ""
+#~ "You are not currently logged into Google Photos.\n"
+#~ "\n"
+#~ "Click Login to log into Google Photos in your Web browser. You will have "
+#~ "to authorize elementary OS to link to your Google Photos account."
+#~ msgstr ""
+#~ "Şu anda Google Fotoğraflar'da oturum açmadınız.\n"
+#~ "\n"
+#~ "Google Fotoğraflar'a giriş yapmak için Web tarayıcınızda Giriş'e "
+#~ "tıklayın. Google Fotoğraflar hesabınıza bağlanmak için Elementary Os'u "
+#~ "yetkilendirmeniz gerekecek."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Yayımlama için gerekli bir dosya kullanılamıyor. Picasa'ya yayımlama "
+#~ "devam edemiyor."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Picasa Web Albümleri'nde %s olarak oturum açtınız."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Küçük (640 x 480 benek)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Orta (1024 x 768 benek)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Önerilen (1600 x 1200 benek)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 piksel)"
+
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Şu anda Flickr'da oturum açmadınız.\n"
+#~ "\n"
+#~ "Flickr'a giriş yapmak için web tarayıcınızda Oturum Aç'a tıklayın. Flickr "
+#~ "hesabınıza Fotoğraflar Bağlantısını bağlamak için yetki vermeniz "
+#~ "gerekiyor."
+
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Bu Fotoğraflar oturumu süresince zaten Flickr'da oturum açıp kapattınız.\n"
+#~ "Flickr'da yayımlamaya devam etmek için, Fotoğrafları kapatın ve yeniden "
+#~ "başlatın, daha sonra tekrar yayımlamayı deneyin."
+
+#~ msgid "Preparing for login…"
+#~ msgstr "Giriş için hazırlanıyor…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Yayımlama için gerekli bir dosya kullanılamıyor. Flickr'da yayımlama "
+#~ "devam edemiyor."
+
+#~ msgid "Verifying authorization…"
+#~ msgstr "Yetkilendirme doğrulanıyor…"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Flickr'da %s olarak oturum açtınız.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "Ücretsiz Flickr hesabınızla aylık olarak karşıya yükleyebileceğiniz veri "
+#~ "miktarı sınırlıdır.\n"
+#~ "Bu ay, %d megabyte karşıya yükleme kotanız kaldı."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr ""
+#~ "Flickr Pro hesabınız, sınırsız karşıya yükleme yapmanıza olanak tanır."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Fotoğrafları _görebilecekler:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Videolar şunlara _görülebilir:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Fotoğraflar ve videolar _şunlara görülebilir:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Yalnızca aile ve arkadaşlar"
+
+#~ msgid "Family only"
+#~ msgstr "Aileye özel"
+
+#~ msgid "Friends only"
+#~ msgstr "Arkadaşlara özel"
+
+#~ msgid "Just me"
+#~ msgstr "Yalnızca ben"
+
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Facebook'ta oturum açmadınız.\n"
+#~ "\n"
+#~ "Henüz bir Facebook hesabınız yoksa, oturum açma sürecinde bir tane "
+#~ "oluşturabilirsiniz. Oturum açma sırasında, Fotoğraflar Bağlantısı "
+#~ "fotoğraflarınızı karşıya yüklemek ve beslemelerinizde yayımlamak için "
+#~ "izin isteyebilir. Fotoğraflar Bağlantısı'nın işlevini yerine getirmesi "
+#~ "için bu izinler gereklidir."
+
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "Bu Fotoğraflar oturumu süresince zaten Facebook'ta oturum açıp "
+#~ "kapattınız.\n"
+#~ "Facebook'ta yayımlamaya devam etmek için, Fotoğrafları kapatın ve yeniden "
+#~ "başlatın, daha sonra tekrar yayımlamayı deneyin."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Standart (720 piksel)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Geniş (2048 piksel)"
+
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Facebook bağlantısı sınanıyor…"
+
+#~ msgid "Creating album…"
+#~ msgstr "Albüm oluşturuluyor…"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Yayımlama için gerekli bir dosya kullanılamıyor. Facebook'ta yayımlama "
+#~ "devam edemiyor."
+
+#~ msgid "Server redirect URL contained no access token"
+#~ msgstr "Sunucu yönlendirme URL 'si erişim bilgisi içermiyor."
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Facebook'a %s olarak giriş yaptınız.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Seçilen fotoğrafları nerede yayımlamak istersiniz?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "Yükleme _boyutu:"
+
+#~ msgid "Friends"
+#~ msgstr "Arkadaşlar"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "Video gizlilik _ayarı:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Çıkış"
+
+#~ msgid "_Publish"
+#~ msgstr "_Yayımla"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "Fotoğrafların görüneceği yer:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "_Varolan bir kategori:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "_Yeni bir albüm adlandırıldı:"
+
+#~ msgid "within category:"
+#~ msgstr "Kategorisi:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Albüm Yorumu:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Fotoğraflar bu _kişiler tarafından görülebilir:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Fotoğraf boyutu:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr "_Yüklemeden önce yer, kamera ve diğer tanımlayıcı bilgileri çıkarın"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "_Bir başlık ayarlıysa ve yorum ayarlanmamışsa başlığı yorum olarak kullan"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "Etiketleri _Yükleme"
+
+#~ msgid "Logout"
+#~ msgstr "Çıkış Yap"
+
+#~ msgid "Publish"
+#~ msgstr "Yayımla"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "Piwigo fotoğraf kitaplığı _URL'si"
+
+#~ msgid "User _name"
+#~ msgstr "Kullanıcı _adı"
+
+#~ msgid "_Password"
+#~ msgstr "_Şifre"
+
+#~ msgid "_Remember Password"
+#~ msgstr "Parolayı _Anımsa"
+
+#~ msgid "Login"
+#~ msgstr "Giriş"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "'$name olarak giriş yaptınız'\n"
+#~ "(Uygulama kaynak kodu tarafından üretildi.)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Fotoğraf _boyutu varsayılanı:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "Flickr'da (name) olarak oturum açtınız.\n"
+#~ "\n"
+#~ "(bu etiketin ismi rastgele üretilip kaynak kod içerisine "
+#~ "yerleştirilmiştir, \n"
+#~ "dolayısıyla burada yaptığınız değişiklikler görüntülenmeyecek)"
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_görünürlük etiketi (kaynak kod içinde üretilmiştir)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "Fotoğraf _boyutu:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Ağ tarayıcınızda Flickr'a girdikten sonra görünen doğrulama numarasını "
+#~ "girin."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "Yetkilendirme _Numarası:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (fb kullanıcı adına bağlı yazı, uygulama içerisinde düzenlendi - \n"
+#~ "bu alana girilenler görüntülenmeyecek)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "_Varolan bir albümde yayımla:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Şu ada sahip _yeni bir albüm oluştur:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Videolar ve yeni fotoğraf albümleri şunlar için _görüntülebilir:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Telif Hakkı 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Yandex.Fotki web sitesini ziyaret edin"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Şu anda Yandex.Fotki için oturum açmış değilsiniz."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Telif Hakkı 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 piksel"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr ""
+#~ "'%s' bir OAuth kimlik doğrulama isteği için geçerli bir yanıt değildir"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): başlatılamıyor; bu yayımcı yeniden "
+#~ "başlatılabilir değildir."
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Lütfen Tumblr hesabınızla ilişkili kullanıcı adınızı ve şifrenizi giriniz."
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "Kullanıcı arayüzü yüklenemedi: %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Tumblr'da %s olarak oturum açtınız.\n"
+#~ "\n"
+
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Fotoğraflar Ek Yayınlama Servisleri"
+
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "Bu Fotoğraflar oturumu esnasında bir Google hizmetine giriş yapıp "
+#~ "çıktınız.\n"
+#~ "\n"
+#~ "Bu hizmette yayınlamaya sürdürmek için Fotoğraflar'dan çıkın ve tekrar "
+#~ "başlatın, sonra da tekrar yayınlamayı deneyin."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_Albümler (ya da yeni bir tane yaz):"
+
+#~ msgid "Access _type:"
+#~ msgstr "Erişim _türü:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Yorumları devre _dışı bırak"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "_Özgün fotoğrafı indirmeyi yasakla"
+
+#~ msgid "Public"
+#~ msgstr "Herkese Açık"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr ""
+#~ "(isim) olarak Tumblr'a giriş yaptınız.\n"
+#~ "\n"
+#~ "(bu etiketin bağı yerleşiktir ve kodun içine ayarlıdır, \n"
+#~ "yani burada yapılan değişiklikler gösterilmeyecek)"
+
+#~ msgid "Blogs:"
+#~ msgstr "Web günlükleri:"
+
+#~ msgid "label"
+#~ msgstr "etiket"
+
+#~ msgid "_Email address"
+#~ msgstr "_E-posta adresi"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Kenar çubuğunu görüntüle"

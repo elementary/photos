@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 19:52+0000\n"
+"POT-Creation-Date: 2023-10-15 07:13+0000\n"
 "PO-Revision-Date: 2021-01-04 21:48+0000\n"
 "Last-Translator: Silviu Popescu <teodorspopescu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/photos/photos/"
@@ -310,8 +310,6 @@ msgid "Unflag"
 msgstr "Demarcare"
 
 #: src/Dimensions.vala:30
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1245
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1238
 msgid "Original size"
 msgstr "Dimensiune originală"
 
@@ -1307,7 +1305,6 @@ msgstr ""
 "Doriți continuarea exportării?"
 
 #: src/Dialogs/Dialogs.vala:173
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:83
 msgid "Con_tinue"
 msgstr "Con_tinuă"
 
@@ -2123,7 +2120,6 @@ msgid "Screen"
 msgstr "Ecran"
 
 #: src/editing_tools/CropTool.vala:235
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:467
 msgid "Original Size"
 msgstr "Dimensiune originală"
 
@@ -3408,708 +3404,6 @@ msgstr "Adu f_otografia la:"
 msgid "pixels per inch"
 msgstr "pixeli pe inch"
 
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:42
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:42
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:42
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:44
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:42
-msgid "Copyright 2009-2013 Yorba Foundation"
-msgstr "Drepturi de autor 2009-2013 Yorba Foundation"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:67
-msgid ""
-"You are not currently logged into YouTube.\n"
-"\n"
-"You must have already signed up for a Google account and set it up for use "
-"with YouTube to continue. You can set up most accounts by using your browser "
-"to log into the YouTube site at least once."
-msgstr ""
-"Nu sunteți autentificat pe YouTube.\n"
-"\n"
-"Trebuie să aveți un cont Google configurat deja pentru a fi utilizat cu "
-"YouTube pentru a continua. Puteți configura conturile utilizând navigatorul "
-"de Internet, autentificându-vă apoi pe YouTube."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:371
-msgid ""
-"A file required for publishing is unavailable. Publishing to Youtube can't "
-"continue."
-msgstr ""
-"Un fișier necesar pentru publicare este indisponibil. Publicare către "
-"Youtube nu poate continua."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:470
-#, c-format
-msgid "You are logged into YouTube as %s."
-msgstr "Sunteți autentificat pe YouTube ca %s."
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:472
-#, c-format
-msgid "Videos will appear in '%s'"
-msgstr "'%s'"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:504
-msgid "Public listed"
-msgstr "Listare publică"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:505
-msgid "Public unlisted"
-msgstr "Delistare publică"
-
-#: plugins/pantheon-photos-publishing/YouTubePublishing.vala:506
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:165
-msgid "Private"
-msgstr "Privat"
-
-#: plugins/pantheon-photos-publishing/shotwell-publishing.vala:38
-msgid "Core Publishing Services"
-msgstr "Servicii de bază pentru publicare"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:437
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:972
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:437
-msgid "A temporary file needed for publishing is unavailable"
-msgstr "Fișierul temporar necesar pentru publicare nu este disponibil"
-
-#: plugins/pantheon-photos-publishing/RESTSupport.vala:1154
-msgid ""
-"You have already logged in and out of a Google service during this session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart this software, "
-"then try publishing again."
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/Resources.vala:22
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:22
-#: plugins/pantheon-photos-transitions/Resources.vala:22
-msgid "Visit the Yorba web site"
-msgstr "Vizitați site-ul web Yorba"
-
-#: plugins/pantheon-photos-publishing/Resources.vala:41
-#: plugins/pantheon-photos-publishing-extras/Resources.vala:41
-#: plugins/pantheon-photos-transitions/Resources.vala:41
-msgid "translator-credits"
-msgstr ""
-"Marian Vasile <marianvasile@upcmail.ro>, Corneliu Dascălu <corneliu."
-"dascalu@gmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  AbsoluteVasilii https://launchpad.net/~basil-russu\n"
-"  Corneliu Dascălu https://launchpad.net/~corneliu-dascalu"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:756
-#, fuzzy, c-format
-msgid "Creating album %s…"
-msgstr "Se creează albumul %s..."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:927
-msgid "An error message occurred when publishing to Piwigo. Please try again."
-msgstr ""
-"A fost întâmpinată o problemă încercând publicarea către Piwigo. Vă rugăm să "
-"încercați din nou."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1008
-msgid ""
-"Enter the URL of your Piwigo photo library as well as the username and "
-"password associated with your Piwigo account for that library."
-msgstr ""
-"Introdu URL-ul librăriei foto Piwigo, precum si username-ul și parola "
-"asociate cu contul Piwigo pentru această librărie."
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1009
-#, fuzzy
-#| msgid ""
-#| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
-#| "you entered"
-msgid ""
-"Photos cannot contact your Piwigo photo library. Please verify the URL you "
-"entered"
-msgstr ""
-"Shotwell nu poate contacta librăria ta foto Piwigo. Te rog verifică URL-ul "
-"pe care l-ai introdus"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1010
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:597
-msgid "Username and/or password invalid. Please try again"
-msgstr "Nume utilizator și/sau parolă incorecte. Încercați din nou"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1036
-msgid "Invalid URL"
-msgstr "URL invalid"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1041
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:624
-msgid "Invalid User Name or Password"
-msgstr "Nume utilizator sau parolă incorecte"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1130
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:71
-#, fuzzy
-#| msgid "Shotwell Connect"
-msgid "Photos Connect"
-msgstr "Shotwell Connect"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1229
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1212
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1190
-msgid "Everyone"
-msgstr "Toți"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1230
-msgid "Admins, Family, Friends, Contacts"
-msgstr "Admini, Familie, Prieteni, Contacte"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1231
-msgid "Admins, Family, Friends"
-msgstr "Admini, Familie, Prieteni"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1232
-msgid "Admins, Family"
-msgstr "Admini, Familie"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1233
-msgid "Admins"
-msgstr "Admini"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1241
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1234
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:114
-msgid "500 x 375 pixels"
-msgstr "500 x 375 pixeli"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1242
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1235
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:115
-msgid "1024 x 768 pixels"
-msgstr "1024 x 768 pixeli"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1243
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1236
-msgid "2048 x 1536 pixels"
-msgstr "2048 x 1536 pixeli"
-
-#: plugins/pantheon-photos-publishing/PiwigoPublishing.vala:1244
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1237
-msgid "4096 x 3072 pixels"
-msgstr "4096 x 3072 pixeli"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:68
-msgid ""
-"You are not currently logged into Google Photos.\n"
-"\n"
-"Click Login to log into Google Photos in your Web browser. You will have to "
-"authorize elementary OS to link to your Google Photos account."
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:202
-msgid ""
-"A file required for publishing is unavailable. Publishing to Picasa can't "
-"continue."
-msgstr ""
-"Un fișier necesar pentru publicare este indisponibil. Publicare către Picasa "
-"nu poate continua."
-
-#. populate any widgets whose contents are programmatically-generated.
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:421
-#, c-format
-msgid "You are logged into Picasa Web Albums as %s."
-msgstr "Sunteți autentificat pe Picasa Web Album ca %s."
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:463
-msgid "Small (640 x 480 pixels)"
-msgstr "Mică (640 x 480 pixeli)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:464
-msgid "Medium (1024 x 768 pixels)"
-msgstr "Medie (1024 x 768 pixeli)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:465
-msgid "Recommended (1600 x 1200 pixels)"
-msgstr "Recomandată (1600 x 1200 pixeli)"
-
-#: plugins/pantheon-photos-publishing/PicasaPublishing.vala:466
-msgid "Google+ (2048 x 1536 pixels)"
-msgstr "Google+ (2048 x 1536 pixels)"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:71
-#, fuzzy
-msgid ""
-"You are not currently logged into Flickr.\n"
-"\n"
-"Click Login to log into Flickr in your Web browser. You will have to "
-"authorize Photos Connect to link to your Flickr account."
-msgstr ""
-"Acum nu sunteți autentificat pe Flickr.\n"
-"\n"
-"Efectuați clic pe Flickr pentru a vă autentifica în navigatorul de Internet. "
-"Va trebui să autorizați Shotwell pentru a se conecta la contul dumneavoastră "
-"Flickr."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Flickr during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Flickr, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Flickr during this Photos session.\n"
-"To continue publishing to Flickr, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"V-ați autentificat și ați ieșit din Flickr deja pe parcursul acestei "
-"sesiuni\n"
-"Pentru a continua publicarea pe Flickr, ieșiți din Shotwell și reporniți "
-"programul, apoi încercați din nou să publicați."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:385
-#, fuzzy
-msgid "Preparing for login…"
-msgstr "Pregătire pentru autentificare..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:454
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:601
-msgid ""
-"A file required for publishing is unavailable. Publishing to Flickr can't "
-"continue."
-msgstr ""
-"Un fișier necesar pentru publicare este indisponibil. Publicare către Flickr "
-"nu poate continua."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:467
-#, fuzzy
-msgid "Verifying authorization…"
-msgstr "Se verifică autorizarea..."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1158
-#, c-format
-msgid ""
-"You are logged into Flickr as %s.\n"
-"\n"
-msgstr ""
-"Sunteți autentificat pe Flickr ca %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1160
-#, c-format
-msgid ""
-"Your free Flickr account limits how much data you can upload per month.\n"
-"This month, you have %d megabytes remaining in your upload quota."
-msgstr ""
-"Contul gratuit Flickr limitează cantitatea de date pe care o puteți "
-"încărca.\n"
-"Pentru această lună mai aveți la dispoziție %d MO."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1162
-msgid "Your Flickr Pro account entitles you to unlimited uploads."
-msgstr ""
-"Contul Flickr Pro vă permite încărcarea a cât de multe fotografii doriți."
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1167
-msgid "Photos _visible to:"
-msgstr "Fotografii _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1169
-msgid "Videos _visible to:"
-msgstr "Clipuri _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1172
-msgid "Photos and videos _visible to:"
-msgstr "Fotografiile și clipurile _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1213
-msgid "Friends & family only"
-msgstr "Numai pentru familie și prieteni"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1214
-msgid "Family only"
-msgstr "Doar familia"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1215
-msgid "Friends only"
-msgstr "Doar prietenii"
-
-#: plugins/pantheon-photos-publishing/FlickrPublishing.vala:1216
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1188
-msgid "Just me"
-msgstr "Numai pentru mine"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:73
-#, fuzzy
-#| msgid ""
-#| "You are not currently logged into Facebook.\n"
-#| "\n"
-#| "If you don't yet have a Facebook account, you can create one during the "
-#| "login process. During login, Shotwell Connect may ask you for permission "
-#| "to upload photos and publish to your feed. These permissions are required "
-#| "for Shotwell Connect to function."
-msgid ""
-"You are not currently logged into Facebook.\n"
-"\n"
-"If you don't yet have a Facebook account, you can create one during the "
-"login process. During login, Photos Connect may ask you for permission to "
-"upload photos and publish to your feed. These permissions are required for "
-"Photos Connect to function."
-msgstr ""
-"Acum nu sunteți autentificat pe Facebook.\n"
-"\n"
-"Dacă nu aveți un cont Facebook, puteți crea unul în timpul procesului de "
-"autentificare. La conectare, Shotwell Connect poate cere permisiunea de a "
-"publica fotografiile. Permisiunea este necesară pentru funcționarea Shotwell "
-"Connect."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:75
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of Facebook during this Shotwell "
-#| "session.\n"
-#| "To continue publishing to Facebook, quit and restart Shotwell, then try "
-#| "publishing again."
-msgid ""
-"You have already logged in and out of Facebook during this Photos session.\n"
-"To continue publishing to Facebook, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"V-ați autentificat și ați ieșit din Facebook deja pe parcursul acestei "
-"sesiuni Shotwell.\n"
-"Pentru a continua publicarea pe Facebook, ieșiți din Shotwell și reporniți "
-"programul, apoi încercați din nou să publicați."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:96
-msgid "Standard (720 pixels)"
-msgstr "Standard (720 pixeli)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:99
-msgid "Large (2048 pixels)"
-msgstr "Mare (2048 pixeli)"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:264
-#, fuzzy
-msgid "Testing connection to Facebook…"
-msgstr "Se testează conexiunea la Facebook..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:357
-#, fuzzy
-msgid "Creating album…"
-msgstr "Se creează album..."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:380
-msgid ""
-"A file required for publishing is unavailable. Publishing to Facebook can't "
-"continue."
-msgstr ""
-"Un fișier necesar pentru publicare este indisponibil. Publicare către "
-"Facebook nu poate continua."
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:448
-msgid "Server redirect URL contained no access token"
-msgstr ""
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1027
-#, c-format
-msgid ""
-"You are logged into Facebook as %s.\n"
-"\n"
-msgstr ""
-"Sunteți autentificat pe Flickr ca %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1028
-msgid "Where would you like to publish the selected photos?"
-msgstr "Unde doriți să publicați fotografiile selectate?"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1029
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:108
-msgid "Upload _size:"
-msgstr "Dimen_siune încărcare:"
-
-#: plugins/pantheon-photos-publishing/FacebookPublishing.vala:1189
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:162
-msgid "Friends"
-msgstr "Prieteni"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:55
-msgid "Video privacy _setting:"
-msgstr "Configurări acce_s pentru clipuri:"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:99
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:96
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:137
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:197
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:115
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:116
-msgid "_Logout"
-msgstr "_Deconectare"
-
-#: plugins/pantheon-photos-publishing/ui/youtube_publishing_options_pane.ui:115
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:111
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:153
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:212
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:129
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:134
-msgid "_Publish"
-msgstr "Publicare"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:15
-msgid "Photos will appear in:"
-msgstr "Fotografiile vor apărea în:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:32
-msgid "An _existing category:"
-msgstr "O categorie _existentă:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:58
-msgid "A _new album named:"
-msgstr "Un album _nou denumit:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:88
-msgid "within category:"
-msgstr "în interiorul categoriei:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:111
-msgid "Album comment:"
-msgstr "Comentariu album:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:154
-msgid "Photos will be _visible by:"
-msgstr "Fotografiilr vor fi _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:179
-msgid "Photo size:"
-msgstr "Dimensiune fotografie:"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:206
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:41
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:102
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:175
-msgid ""
-"_Remove location, camera, and other identifying information before uploading"
-msgstr ""
-"Elimină locația, tipul camerei sau alte informații care pot fi folosite "
-"pentru identificare, înainte de upload"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:222
-msgid "_If a title is set and comment unset, use title as comment"
-msgstr ""
-"Dacă un titlu este setat și comentariul nu, folosește titlul drept comentariu"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:238
-msgid "_Do no upload tags"
-msgstr "Nu uploada etichete"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:258
-msgid "Logout"
-msgstr "Deconectare"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_publishing_options_pane.ui:271
-msgid "Publish"
-msgstr "Publică"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:40
-msgid "_URL of your Piwigo photo library"
-msgstr "_URL-ul colecției dumneavoastră Piwigo"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:54
-msgid "User _name"
-msgstr "_Nume utilizator"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:68
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:59
-msgid "_Password"
-msgstr "_Parolă"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:119
-msgid "_Remember Password"
-msgstr "_Reține parola"
-
-#: plugins/pantheon-photos-publishing/ui/piwigo_authentication_pane.ui:140
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:107
-msgid "Login"
-msgstr "Autentificare"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:20
-msgid ""
-"'you are logged in as $name'\n"
-"(populated in the application code)"
-msgstr ""
-"Sunteţi conectat ca $nume'\n"
-"(completat în codul aplicaţiei)"
-
-#: plugins/pantheon-photos-publishing/ui/picasa_publishing_options_pane.ui:71
-msgid "Photo _size preset:"
-msgstr "Dimen_siune prestabilită:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Flickr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr "Sunteţi conectat pe Flickr ca (nume)."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:44
-msgid "_visibility label (populated in the code)"
-msgstr "_vizibilitate etichetă (completat în cod)"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_publishing_options_pane.ui:61
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:60
-msgid "Photo _size:"
-msgstr "_Dimensiune imagine:"
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:16
-msgid ""
-"Enter the confirmation number which appears after you log into Flickr in "
-"your Web browser."
-msgstr ""
-"Introduceți numărul de confirmare care apare imediat după autentificarea pe "
-"Flicker în navigatorul de Internet."
-
-#: plugins/pantheon-photos-publishing/ui/flickr_pin_entry_pane.ui:37
-msgid "Authorization _Number:"
-msgstr "_Număr autorizare:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:21
-msgid ""
-" (text depends on fb username and is modified in the app - \n"
-"anything put into this field won't display)"
-msgstr ""
-" (textul depinde de username-ul fb și este modificat în aplicație - \n"
-"orice puneți în acest câmp nu va fi afișat)"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:39
-msgid "Publish to an e_xisting album:"
-msgstr "Publică într-un album e_xistent:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:57
-msgid "Create a _new album named:"
-msgstr "Creează un album _nou numit:"
-
-#: plugins/pantheon-photos-publishing/ui/facebook_publishing_options_pane.ui:139
-msgid "Videos and new photo albums _visible to:"
-msgstr "Albumele noi cu fotografii și clipuri _vizibile pentru:"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:35
-msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-msgstr "Drepturi de autor 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:38
-msgid "Visit the Yandex.Fotki web site"
-msgstr "Vizitați site-ul web Yandex.Fotki"
-
-#: plugins/pantheon-photos-publishing-extras/YandexPublishing.vala:653
-msgid "You are not currently logged into Yandex.Fotki."
-msgstr "Nu sunteți autentificat pe Yandex.Fotki."
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:45
-msgid "Copyright 2012 BJA Electronics"
-msgstr "Drepturi de autor 2012 BJA Electronics"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:116
-msgid "1280 x 853 pixels"
-msgstr "1280 x 853 pixeli"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:320
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:330
-#, c-format
-msgid "'%s' isn't a valid response to an OAuth authentication request"
-msgstr ""
-"'%s' nu este un răspuns valabil  pentru o solicitare de autentificare de la "
-"OAuth"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:568
-msgid ""
-"TumblrPublisher: start( ): can't start; this publisher is not restartable."
-msgstr ""
-"TumblrPublisher: start( ): nu se poate porni; acest publisher nu poate fi "
-"repornit"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:596
-msgid "Enter the username and password associated with your Tumblr account."
-msgstr ""
-"Introduceți nume utilizator și parola asociate cu contul dumneavoastră Tumblr"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:643
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:762
-#, c-format
-msgid "Could not load UI: %s"
-msgstr "Eroare încărcare interfaţa utilizatorului:  %s"
-
-#: plugins/pantheon-photos-publishing-extras/TumblrPublishing.vala:744
-#, c-format
-msgid ""
-"You are logged into Tumblr as %s.\n"
-"\n"
-msgstr ""
-"Sunteți conectat pe Tumblr ca %s.\n"
-"\n"
-
-#: plugins/pantheon-photos-publishing-extras/shotwell-publishing-extras.vala:30
-#, fuzzy
-#| msgid "Shotwell Extra Publishing Services"
-msgid "Photos Extra Publishing Services"
-msgstr "Servicii  suplimentare de publicare  Shotwell"
-
-#: plugins/pantheon-photos-publishing-extras/RESTSupport.vala:1154
-#, fuzzy
-#| msgid ""
-#| "You have already logged in and out of a Google service during this "
-#| "Shotwell session.\n"
-#| "\n"
-#| "To continue publishing to Google services, quit and restart Shotwell, "
-#| "then try publishing again."
-msgid ""
-"You have already logged in and out of a Google service during this Photos "
-"session.\n"
-"\n"
-"To continue publishing to Google services, quit and restart Photos, then try "
-"publishing again."
-msgstr ""
-"V-ați autentificat și ați ieșit deja dintr-un serviciu Google pe parcursul "
-"acestei sesiuni\n"
-"\n"
-"Pentru a continua publicarea pe serviciile Google, ieșiți din Shotwell și "
-"reporniți programul, apoi încercați din nou să publicați."
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:24
-msgid "_Albums (or write new):"
-msgstr "_Albume (sau scrieți nou):"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:38
-msgid "Access _type:"
-msgstr "_Tip de acces:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:81
-msgid "Disable _comments"
-msgstr "Dezactivează _comentarii"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:96
-msgid "_Forbid downloading original photo"
-msgstr "Interzice descărcarea _fotografiilor originale"
-
-#: plugins/pantheon-photos-publishing-extras/ui/yandex_publish_model.ui:159
-msgid "Public"
-msgstr "Public"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:19
-msgid ""
-"You are logged into Tumblr as (name).\n"
-"\n"
-"(this label's string is populated and set inside the code, \n"
-"so changes made here will not display)"
-msgstr "Sunteţi conectat pe Tumblr ca (nume)."
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_publishing_options_pane.ui:43
-msgid "Blogs:"
-msgstr "Bloguri:"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:27
-msgid "label"
-msgstr "etichetă"
-
-#: plugins/pantheon-photos-publishing-extras/ui/tumblr_authentication_pane.ui:49
-msgid "_Email address"
-msgstr "Adresă _email"
-
 #: plugins/pantheon-photos-transitions/StripesEffect.vala:33
 msgid "Stripes"
 msgstr "Dungi"
@@ -4130,6 +3424,20 @@ msgstr "Tranziție principală pentru prezentare diapozitive"
 msgid "Copyright 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
 msgstr ""
 "Drepturi de autor 2010 Maxim Kartashev, Copyright 2011-2013 Yorba Foundation"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:22
+msgid "Visit the Yorba web site"
+msgstr "Vizitați site-ul web Yorba"
+
+#: plugins/pantheon-photos-transitions/Resources.vala:41
+msgid "translator-credits"
+msgstr ""
+"Marian Vasile <marianvasile@upcmail.ro>, Corneliu Dascălu <corneliu."
+"dascalu@gmail.com>\n"
+"\n"
+"Launchpad Contributions:\n"
+"  AbsoluteVasilii https://launchpad.net/~basil-russu\n"
+"  Corneliu Dascălu https://launchpad.net/~corneliu-dascalu"
 
 #: plugins/pantheon-photos-transitions/FadeEffect.vala:33
 msgid "Fade"
@@ -4158,6 +3466,523 @@ msgstr "Șah"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Jaluzele"
+
+#~ msgid "Copyright 2009-2013 Yorba Foundation"
+#~ msgstr "Drepturi de autor 2009-2013 Yorba Foundation"
+
+#~ msgid ""
+#~ "You are not currently logged into YouTube.\n"
+#~ "\n"
+#~ "You must have already signed up for a Google account and set it up for "
+#~ "use with YouTube to continue. You can set up most accounts by using your "
+#~ "browser to log into the YouTube site at least once."
+#~ msgstr ""
+#~ "Nu sunteți autentificat pe YouTube.\n"
+#~ "\n"
+#~ "Trebuie să aveți un cont Google configurat deja pentru a fi utilizat cu "
+#~ "YouTube pentru a continua. Puteți configura conturile utilizând "
+#~ "navigatorul de Internet, autentificându-vă apoi pe YouTube."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Youtube "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Un fișier necesar pentru publicare este indisponibil. Publicare către "
+#~ "Youtube nu poate continua."
+
+#, c-format
+#~ msgid "You are logged into YouTube as %s."
+#~ msgstr "Sunteți autentificat pe YouTube ca %s."
+
+#, c-format
+#~ msgid "Videos will appear in '%s'"
+#~ msgstr "'%s'"
+
+#~ msgid "Public listed"
+#~ msgstr "Listare publică"
+
+#~ msgid "Public unlisted"
+#~ msgstr "Delistare publică"
+
+#~ msgid "Private"
+#~ msgstr "Privat"
+
+#~ msgid "Core Publishing Services"
+#~ msgstr "Servicii de bază pentru publicare"
+
+#~ msgid "A temporary file needed for publishing is unavailable"
+#~ msgstr "Fișierul temporar necesar pentru publicare nu este disponibil"
+
+#, fuzzy, c-format
+#~ msgid "Creating album %s…"
+#~ msgstr "Se creează albumul %s..."
+
+#~ msgid ""
+#~ "An error message occurred when publishing to Piwigo. Please try again."
+#~ msgstr ""
+#~ "A fost întâmpinată o problemă încercând publicarea către Piwigo. Vă rugăm "
+#~ "să încercați din nou."
+
+#~ msgid ""
+#~ "Enter the URL of your Piwigo photo library as well as the username and "
+#~ "password associated with your Piwigo account for that library."
+#~ msgstr ""
+#~ "Introdu URL-ul librăriei foto Piwigo, precum si username-ul și parola "
+#~ "asociate cu contul Piwigo pentru această librărie."
+
+#, fuzzy
+#~| msgid ""
+#~| "Shotwell cannot contact your Piwigo photo library. Please verify the URL "
+#~| "you entered"
+#~ msgid ""
+#~ "Photos cannot contact your Piwigo photo library. Please verify the URL "
+#~ "you entered"
+#~ msgstr ""
+#~ "Shotwell nu poate contacta librăria ta foto Piwigo. Te rog verifică URL-"
+#~ "ul pe care l-ai introdus"
+
+#~ msgid "Username and/or password invalid. Please try again"
+#~ msgstr "Nume utilizator și/sau parolă incorecte. Încercați din nou"
+
+#~ msgid "Invalid URL"
+#~ msgstr "URL invalid"
+
+#~ msgid "Invalid User Name or Password"
+#~ msgstr "Nume utilizator sau parolă incorecte"
+
+#, fuzzy
+#~| msgid "Shotwell Connect"
+#~ msgid "Photos Connect"
+#~ msgstr "Shotwell Connect"
+
+#~ msgid "Everyone"
+#~ msgstr "Toți"
+
+#~ msgid "Admins, Family, Friends, Contacts"
+#~ msgstr "Admini, Familie, Prieteni, Contacte"
+
+#~ msgid "Admins, Family, Friends"
+#~ msgstr "Admini, Familie, Prieteni"
+
+#~ msgid "Admins, Family"
+#~ msgstr "Admini, Familie"
+
+#~ msgid "Admins"
+#~ msgstr "Admini"
+
+#~ msgid "500 x 375 pixels"
+#~ msgstr "500 x 375 pixeli"
+
+#~ msgid "1024 x 768 pixels"
+#~ msgstr "1024 x 768 pixeli"
+
+#~ msgid "2048 x 1536 pixels"
+#~ msgstr "2048 x 1536 pixeli"
+
+#~ msgid "4096 x 3072 pixels"
+#~ msgstr "4096 x 3072 pixeli"
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Picasa can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Un fișier necesar pentru publicare este indisponibil. Publicare către "
+#~ "Picasa nu poate continua."
+
+#, c-format
+#~ msgid "You are logged into Picasa Web Albums as %s."
+#~ msgstr "Sunteți autentificat pe Picasa Web Album ca %s."
+
+#~ msgid "Small (640 x 480 pixels)"
+#~ msgstr "Mică (640 x 480 pixeli)"
+
+#~ msgid "Medium (1024 x 768 pixels)"
+#~ msgstr "Medie (1024 x 768 pixeli)"
+
+#~ msgid "Recommended (1600 x 1200 pixels)"
+#~ msgstr "Recomandată (1600 x 1200 pixeli)"
+
+#~ msgid "Google+ (2048 x 1536 pixels)"
+#~ msgstr "Google+ (2048 x 1536 pixels)"
+
+#, fuzzy
+#~ msgid ""
+#~ "You are not currently logged into Flickr.\n"
+#~ "\n"
+#~ "Click Login to log into Flickr in your Web browser. You will have to "
+#~ "authorize Photos Connect to link to your Flickr account."
+#~ msgstr ""
+#~ "Acum nu sunteți autentificat pe Flickr.\n"
+#~ "\n"
+#~ "Efectuați clic pe Flickr pentru a vă autentifica în navigatorul de "
+#~ "Internet. Va trebui să autorizați Shotwell pentru a se conecta la contul "
+#~ "dumneavoastră Flickr."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Flickr during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Flickr, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Flickr during this Photos session.\n"
+#~ "To continue publishing to Flickr, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "V-ați autentificat și ați ieșit din Flickr deja pe parcursul acestei "
+#~ "sesiuni\n"
+#~ "Pentru a continua publicarea pe Flickr, ieșiți din Shotwell și reporniți "
+#~ "programul, apoi încercați din nou să publicați."
+
+#, fuzzy
+#~ msgid "Preparing for login…"
+#~ msgstr "Pregătire pentru autentificare..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Flickr can't "
+#~ "continue."
+#~ msgstr ""
+#~ "Un fișier necesar pentru publicare este indisponibil. Publicare către "
+#~ "Flickr nu poate continua."
+
+#, fuzzy
+#~ msgid "Verifying authorization…"
+#~ msgstr "Se verifică autorizarea..."
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Flickr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Sunteți autentificat pe Flickr ca %s.\n"
+#~ "\n"
+
+#, c-format
+#~ msgid ""
+#~ "Your free Flickr account limits how much data you can upload per month.\n"
+#~ "This month, you have %d megabytes remaining in your upload quota."
+#~ msgstr ""
+#~ "Contul gratuit Flickr limitează cantitatea de date pe care o puteți "
+#~ "încărca.\n"
+#~ "Pentru această lună mai aveți la dispoziție %d MO."
+
+#~ msgid "Your Flickr Pro account entitles you to unlimited uploads."
+#~ msgstr ""
+#~ "Contul Flickr Pro vă permite încărcarea a cât de multe fotografii doriți."
+
+#~ msgid "Photos _visible to:"
+#~ msgstr "Fotografii _vizibile pentru:"
+
+#~ msgid "Videos _visible to:"
+#~ msgstr "Clipuri _vizibile pentru:"
+
+#~ msgid "Photos and videos _visible to:"
+#~ msgstr "Fotografiile și clipurile _vizibile pentru:"
+
+#~ msgid "Friends & family only"
+#~ msgstr "Numai pentru familie și prieteni"
+
+#~ msgid "Family only"
+#~ msgstr "Doar familia"
+
+#~ msgid "Friends only"
+#~ msgstr "Doar prietenii"
+
+#~ msgid "Just me"
+#~ msgstr "Numai pentru mine"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are not currently logged into Facebook.\n"
+#~| "\n"
+#~| "If you don't yet have a Facebook account, you can create one during the "
+#~| "login process. During login, Shotwell Connect may ask you for permission "
+#~| "to upload photos and publish to your feed. These permissions are "
+#~| "required for Shotwell Connect to function."
+#~ msgid ""
+#~ "You are not currently logged into Facebook.\n"
+#~ "\n"
+#~ "If you don't yet have a Facebook account, you can create one during the "
+#~ "login process. During login, Photos Connect may ask you for permission to "
+#~ "upload photos and publish to your feed. These permissions are required "
+#~ "for Photos Connect to function."
+#~ msgstr ""
+#~ "Acum nu sunteți autentificat pe Facebook.\n"
+#~ "\n"
+#~ "Dacă nu aveți un cont Facebook, puteți crea unul în timpul procesului de "
+#~ "autentificare. La conectare, Shotwell Connect poate cere permisiunea de a "
+#~ "publica fotografiile. Permisiunea este necesară pentru funcționarea "
+#~ "Shotwell Connect."
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of Facebook during this Shotwell "
+#~| "session.\n"
+#~| "To continue publishing to Facebook, quit and restart Shotwell, then try "
+#~| "publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of Facebook during this Photos "
+#~ "session.\n"
+#~ "To continue publishing to Facebook, quit and restart Photos, then try "
+#~ "publishing again."
+#~ msgstr ""
+#~ "V-ați autentificat și ați ieșit din Facebook deja pe parcursul acestei "
+#~ "sesiuni Shotwell.\n"
+#~ "Pentru a continua publicarea pe Facebook, ieșiți din Shotwell și "
+#~ "reporniți programul, apoi încercați din nou să publicați."
+
+#~ msgid "Standard (720 pixels)"
+#~ msgstr "Standard (720 pixeli)"
+
+#~ msgid "Large (2048 pixels)"
+#~ msgstr "Mare (2048 pixeli)"
+
+#, fuzzy
+#~ msgid "Testing connection to Facebook…"
+#~ msgstr "Se testează conexiunea la Facebook..."
+
+#, fuzzy
+#~ msgid "Creating album…"
+#~ msgstr "Se creează album..."
+
+#~ msgid ""
+#~ "A file required for publishing is unavailable. Publishing to Facebook "
+#~ "can't continue."
+#~ msgstr ""
+#~ "Un fișier necesar pentru publicare este indisponibil. Publicare către "
+#~ "Facebook nu poate continua."
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Facebook as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Sunteți autentificat pe Flickr ca %s.\n"
+#~ "\n"
+
+#~ msgid "Where would you like to publish the selected photos?"
+#~ msgstr "Unde doriți să publicați fotografiile selectate?"
+
+#~ msgid "Upload _size:"
+#~ msgstr "Dimen_siune încărcare:"
+
+#~ msgid "Friends"
+#~ msgstr "Prieteni"
+
+#~ msgid "Video privacy _setting:"
+#~ msgstr "Configurări acce_s pentru clipuri:"
+
+#~ msgid "_Logout"
+#~ msgstr "_Deconectare"
+
+#~ msgid "_Publish"
+#~ msgstr "Publicare"
+
+#~ msgid "Photos will appear in:"
+#~ msgstr "Fotografiile vor apărea în:"
+
+#~ msgid "An _existing category:"
+#~ msgstr "O categorie _existentă:"
+
+#~ msgid "A _new album named:"
+#~ msgstr "Un album _nou denumit:"
+
+#~ msgid "within category:"
+#~ msgstr "în interiorul categoriei:"
+
+#~ msgid "Album comment:"
+#~ msgstr "Comentariu album:"
+
+#~ msgid "Photos will be _visible by:"
+#~ msgstr "Fotografiilr vor fi _vizibile pentru:"
+
+#~ msgid "Photo size:"
+#~ msgstr "Dimensiune fotografie:"
+
+#~ msgid ""
+#~ "_Remove location, camera, and other identifying information before "
+#~ "uploading"
+#~ msgstr ""
+#~ "Elimină locația, tipul camerei sau alte informații care pot fi folosite "
+#~ "pentru identificare, înainte de upload"
+
+#~ msgid "_If a title is set and comment unset, use title as comment"
+#~ msgstr ""
+#~ "Dacă un titlu este setat și comentariul nu, folosește titlul drept "
+#~ "comentariu"
+
+#~ msgid "_Do no upload tags"
+#~ msgstr "Nu uploada etichete"
+
+#~ msgid "Logout"
+#~ msgstr "Deconectare"
+
+#~ msgid "Publish"
+#~ msgstr "Publică"
+
+#~ msgid "_URL of your Piwigo photo library"
+#~ msgstr "_URL-ul colecției dumneavoastră Piwigo"
+
+#~ msgid "User _name"
+#~ msgstr "_Nume utilizator"
+
+#~ msgid "_Password"
+#~ msgstr "_Parolă"
+
+#~ msgid "_Remember Password"
+#~ msgstr "_Reține parola"
+
+#~ msgid "Login"
+#~ msgstr "Autentificare"
+
+#~ msgid ""
+#~ "'you are logged in as $name'\n"
+#~ "(populated in the application code)"
+#~ msgstr ""
+#~ "Sunteţi conectat ca $nume'\n"
+#~ "(completat în codul aplicaţiei)"
+
+#~ msgid "Photo _size preset:"
+#~ msgstr "Dimen_siune prestabilită:"
+
+#~ msgid ""
+#~ "You are logged into Flickr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr "Sunteţi conectat pe Flickr ca (nume)."
+
+#~ msgid "_visibility label (populated in the code)"
+#~ msgstr "_vizibilitate etichetă (completat în cod)"
+
+#~ msgid "Photo _size:"
+#~ msgstr "_Dimensiune imagine:"
+
+#~ msgid ""
+#~ "Enter the confirmation number which appears after you log into Flickr in "
+#~ "your Web browser."
+#~ msgstr ""
+#~ "Introduceți numărul de confirmare care apare imediat după autentificarea "
+#~ "pe Flicker în navigatorul de Internet."
+
+#~ msgid "Authorization _Number:"
+#~ msgstr "_Număr autorizare:"
+
+#~ msgid ""
+#~ " (text depends on fb username and is modified in the app - \n"
+#~ "anything put into this field won't display)"
+#~ msgstr ""
+#~ " (textul depinde de username-ul fb și este modificat în aplicație - \n"
+#~ "orice puneți în acest câmp nu va fi afișat)"
+
+#~ msgid "Publish to an e_xisting album:"
+#~ msgstr "Publică într-un album e_xistent:"
+
+#~ msgid "Create a _new album named:"
+#~ msgstr "Creează un album _nou numit:"
+
+#~ msgid "Videos and new photo albums _visible to:"
+#~ msgstr "Albumele noi cu fotografii și clipuri _vizibile pentru:"
+
+#~ msgid "Copyright 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+#~ msgstr "Drepturi de autor 2010+ Evgeniy Polyakov <zbr@ioremap.net>"
+
+#~ msgid "Visit the Yandex.Fotki web site"
+#~ msgstr "Vizitați site-ul web Yandex.Fotki"
+
+#~ msgid "You are not currently logged into Yandex.Fotki."
+#~ msgstr "Nu sunteți autentificat pe Yandex.Fotki."
+
+#~ msgid "Copyright 2012 BJA Electronics"
+#~ msgstr "Drepturi de autor 2012 BJA Electronics"
+
+#~ msgid "1280 x 853 pixels"
+#~ msgstr "1280 x 853 pixeli"
+
+#, c-format
+#~ msgid "'%s' isn't a valid response to an OAuth authentication request"
+#~ msgstr ""
+#~ "'%s' nu este un răspuns valabil  pentru o solicitare de autentificare de "
+#~ "la OAuth"
+
+#~ msgid ""
+#~ "TumblrPublisher: start( ): can't start; this publisher is not restartable."
+#~ msgstr ""
+#~ "TumblrPublisher: start( ): nu se poate porni; acest publisher nu poate fi "
+#~ "repornit"
+
+#~ msgid "Enter the username and password associated with your Tumblr account."
+#~ msgstr ""
+#~ "Introduceți nume utilizator și parola asociate cu contul dumneavoastră "
+#~ "Tumblr"
+
+#, c-format
+#~ msgid "Could not load UI: %s"
+#~ msgstr "Eroare încărcare interfaţa utilizatorului:  %s"
+
+#, c-format
+#~ msgid ""
+#~ "You are logged into Tumblr as %s.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Sunteți conectat pe Tumblr ca %s.\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid "Shotwell Extra Publishing Services"
+#~ msgid "Photos Extra Publishing Services"
+#~ msgstr "Servicii  suplimentare de publicare  Shotwell"
+
+#, fuzzy
+#~| msgid ""
+#~| "You have already logged in and out of a Google service during this "
+#~| "Shotwell session.\n"
+#~| "\n"
+#~| "To continue publishing to Google services, quit and restart Shotwell, "
+#~| "then try publishing again."
+#~ msgid ""
+#~ "You have already logged in and out of a Google service during this Photos "
+#~ "session.\n"
+#~ "\n"
+#~ "To continue publishing to Google services, quit and restart Photos, then "
+#~ "try publishing again."
+#~ msgstr ""
+#~ "V-ați autentificat și ați ieșit deja dintr-un serviciu Google pe "
+#~ "parcursul acestei sesiuni\n"
+#~ "\n"
+#~ "Pentru a continua publicarea pe serviciile Google, ieșiți din Shotwell și "
+#~ "reporniți programul, apoi încercați din nou să publicați."
+
+#~ msgid "_Albums (or write new):"
+#~ msgstr "_Albume (sau scrieți nou):"
+
+#~ msgid "Access _type:"
+#~ msgstr "_Tip de acces:"
+
+#~ msgid "Disable _comments"
+#~ msgstr "Dezactivează _comentarii"
+
+#~ msgid "_Forbid downloading original photo"
+#~ msgstr "Interzice descărcarea _fotografiilor originale"
+
+#~ msgid "Public"
+#~ msgstr "Public"
+
+#~ msgid ""
+#~ "You are logged into Tumblr as (name).\n"
+#~ "\n"
+#~ "(this label's string is populated and set inside the code, \n"
+#~ "so changes made here will not display)"
+#~ msgstr "Sunteţi conectat pe Tumblr ca (nume)."
+
+#~ msgid "Blogs:"
+#~ msgstr "Bloguri:"
+
+#~ msgid "label"
+#~ msgstr "etichetă"
+
+#~ msgid "_Email address"
+#~ msgstr "Adresă _email"
 
 #~ msgid "Display the sidebar"
 #~ msgstr "Afișează bara laterală"
