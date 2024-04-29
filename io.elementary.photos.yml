@@ -91,7 +91,7 @@ modules:
     buildsystem: meson
     config-opts:
       - '-Ddocs=false'
-      - "-Dbackends=['gtk3']"
+      - "-Dbackend-gtk3=true"
     sources:
       - type: archive
         url: https://github.com/flatpak/libportal/releases/download/0.7.1/libportal-0.7.1.tar.xz
