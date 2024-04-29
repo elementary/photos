@@ -90,8 +90,11 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
+      - '-Dbackend-gtk3=enabled'
+      - '-Dbackend-gtk4=disabled'
+      - '-Dbackend-qt5=disabled'
+      - '-Dintrospection=false'
       - '-Ddocs=false'
-      - "-Dbackend-gtk3=true"
     sources:
       - type: archive
         url: https://github.com/flatpak/libportal/releases/download/0.7.1/libportal-0.7.1.tar.xz
