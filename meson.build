@@ -63,6 +63,8 @@ libexif_dep = dependency('libexif', version: '>=0.6.16')
 gphoto2_dep = dependency('libgphoto2', version: '>=2.4.2')
 libraw_dep = dependency('libraw', version: '>=0.13.2')
 libwebp_dep = dependency('libwebp', version: '>=0.4.4')
+portal_dep = dependency('libportal')
+portal_gtk3_dep = dependency('libportal-gtk3')
 sqlite3_dep = dependency('sqlite3', version: '>=3.5.9')
 gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer-base-1.0')
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
@@ -93,6 +95,8 @@ dependencies = [
     sqlite3_dep,
     lconv_dep,
     linux_dep,
+    portal_dep,
+    portal_gtk3_dep
 ]
 
 add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')

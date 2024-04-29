@@ -51,6 +51,7 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_SELECT_ALL = "action_select_all";
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
+    public const string ACTION_SET_WALLPAPER = "set-wallpaper";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_FULLSCREEN, on_fullscreen },
@@ -59,7 +60,8 @@ public abstract class AppWindow : PageWindow {
         { ACTION_REDO, on_redo },
         { ACTION_SELECT_ALL, on_select_all },
         { ACTION_SELECT_NONE, on_select_none },
-        { ACTION_UNDO, on_undo }
+        { ACTION_UNDO, on_undo },
+        { ACTION_SET_WALLPAPER, action_set_wallpaper, "s" }
     };
 
     protected AppWindow () {
@@ -345,6 +347,13 @@ public abstract class AppWindow : PageWindow {
             button.tooltip_text = default_explanation;
             action.set_enabled (false);
         }
+    }
+
+    private void action_set_wallpaper (GLib.SimpleAction action, GLib.Variant? param) {
+        Xdp.Parent? parent = Xdp.parent_new_gtk (this);
+
+        var portal = new Xdp.Portal ();
+        portal.set_wallpaper.begin (parent, param.get_string (), NONE, null);
     }
 
     private void on_undo () {
