@@ -21,6 +21,8 @@ You'll need the following dependencies:
 * libgtk-3-dev
 * libgudev-1.0-dev
 * libhandy-1-dev
+* libportal
+* libportal-gtk3
 * libraw-dev
 * libsqlite3-dev
 * libwebp-dev

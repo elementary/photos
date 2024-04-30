@@ -131,7 +131,9 @@ public class DirectPhotoPage : EditingHostPage {
 
     protected override bool on_context_buttonpress (Gdk.EventButton event) {
         if (context_menu == null) {
-            context_menu = new Gtk.Menu ();
+            context_menu = new Gtk.Menu () {
+                attach_widget = this
+            };
 
             var revert_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REVERT_MENU);
             var revert_action = get_action ("Revert");
@@ -172,9 +174,14 @@ public class DirectPhotoPage : EditingHostPage {
                 print_action.bind_property ("sensitive", print_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
                 print_menu_item.activate.connect (() => print_action.activate ());
 
+                var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                    action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
+                };
+
                 var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
                 contractor_menu = new Gtk.Menu ();
                 contractor_menu.add (print_menu_item);
+                contractor_menu.add (wallpaper_menuitem);
                 contractor_menu_item.set_submenu (contractor_menu);
 
                 context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -199,6 +206,9 @@ public class DirectPhotoPage : EditingHostPage {
                         n_items = populate_external_app_menu (open_raw_menu, {}, true);
                         open_raw_menu_item.sensitive = n_items > 0;
                     }
+
+                    var file = get_photo ().get_file ();
+                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
                 }
 
                 open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;

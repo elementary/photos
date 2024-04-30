@@ -489,7 +489,9 @@ public class LibraryPhotoPage : EditingHostPage {
 
     private Gtk.Menu get_context_menu () {
         if (item_context_menu == null) {
-            item_context_menu = new Gtk.Menu ();
+            item_context_menu = new Gtk.Menu () {
+                attach_widget = this
+            };
 
             var metadata_menu_item = new Gtk.CheckMenuItem.with_mnemonic (_("Edit Photo In_fo"));
             var metadata_action = get_common_action ("CommonDisplayMetadataSidebar");
@@ -573,6 +575,10 @@ public class LibraryPhotoPage : EditingHostPage {
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate ());
 
+            var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
+            };
+
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
             contractor_menu = new Gtk.Menu ();
             contractor_menu_item.set_submenu (contractor_menu);
@@ -589,6 +595,7 @@ public class LibraryPhotoPage : EditingHostPage {
 
             contractor_menu.add (print_menu_item);
             contractor_menu.add (export_menu_item);
+            contractor_menu.add (wallpaper_menuitem);
 
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -625,6 +632,9 @@ public class LibraryPhotoPage : EditingHostPage {
                 );
 
                 open_menu_item.sensitive = n_items > 0;
+
+                var file = get_photo ().get_file ();
+                wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
 
                 if (photo_file_format == PhotoFileFormat.RAW) {
                     n_items = populate_external_app_menu (
