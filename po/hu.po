@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2023-05-02 07:06+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
@@ -54,7 +54,7 @@ msgstr "Nem hozható létre az ideiglenes könyvtár (%s): %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Nem hozható létre az adatalkönyvtár (%s): %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -67,11 +67,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "Újra"
 
@@ -367,7 +367,7 @@ msgstr "Öss_zes cseréje"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -1204,15 +1204,15 @@ msgstr "_Előhívó váltása"
 msgid "Export Video"
 msgstr "Videó exportálása"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Fénykép exportálása"
 msgstr[1] "Fényképek exportálása"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "M_entés"
 
@@ -1705,11 +1705,11 @@ msgstr "Fény_képek másolása"
 msgid "_Import in Place"
 msgstr "_Importálás"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "Eltávolítás a gyűjteményből"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Fénykép eltávolítása a gyűjteményből"
@@ -1806,7 +1806,7 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr "Mentés"
 
@@ -1835,7 +1835,7 @@ msgid "Add rule"
 msgstr "Szabály hozzáadása"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -2070,8 +2070,8 @@ msgstr "Beállítások"
 msgid "Sort _Events"
 msgstr "_Események rendezése"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "Fénykép _eseményének megjelenítése"
 
@@ -2083,7 +2083,7 @@ msgid "New Smart Album…"
 msgstr "Új okosalbum…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr "Fényképin_formációk szerkesztése"
 
@@ -2504,8 +2504,8 @@ msgstr "Címkék"
 msgid "Photos cannot be exported to this directory."
 msgstr "Nem exportálhatók fényképek ebbe a könyvtárba."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nincsenek fényképek/videók"
@@ -2518,42 +2518,47 @@ msgstr "Nem találhatók fényképek/videók"
 msgid "Play a slideshow"
 msgstr "Diavetítés indítása"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "_Előhívó"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr "További műveletek"
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Fénykép/videó exportálása"
 msgstr[1] "Fényképek/videók exportálása"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "Forgatás"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "Forgatás visszavonása"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "Tükrözés vízszintesen"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "Vízszintes tükrözés visszavonása"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "Tükrözés függőlegesen"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "Függőleges tükrözés visszavonása"
 
@@ -2576,25 +2581,25 @@ msgstr ""
 "A(z) %s nem támogatja a fájlformátumát ennek:\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "_Másolat mentése"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Eldobja a(z) %s változtatásait?"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "Bezárás mentés _nélkül"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Hiba a(z) %s helyre mentéskor: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "Mentés másként"
 
@@ -2870,7 +2875,7 @@ msgstr "%s importálva"
 msgid "Last Import"
 msgstr "Utolsó importálás"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "A(z) %s exportálása sikertelen: %s"

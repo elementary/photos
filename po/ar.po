@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2021-04-26 13:58+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/photos/photos/ar/"
@@ -57,7 +57,7 @@ msgstr "تعذّر إنشاء مجلد مؤقت %s: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "تعذّر إنشاء مجلد بيانات فرعي %s: %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -69,11 +69,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "تراجع عن"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "أعِد"
 
@@ -381,7 +381,7 @@ msgstr "استبدل ال_كل"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "أ_لغِ"
 
@@ -1273,8 +1273,8 @@ msgstr ""
 msgid "Export Video"
 msgstr "صدّر فيديو"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1286,7 +1286,7 @@ msgstr[4] "صدّر صورة"
 msgstr[5] "صدّر صورة"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "ا_حفظ"
 
@@ -1897,11 +1897,11 @@ msgstr "ا_نسخ الصور"
 msgid "_Import in Place"
 msgstr "ا_ستورد في المكان"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "أزِل من المكتبة"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -2008,7 +2008,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr ""
 
@@ -2037,7 +2037,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "الإعدادات"
 msgid "Sort _Events"
 msgstr "رتّب الأ_حداث"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "اعرض ال_حدث للصورة"
 
@@ -2299,7 +2299,7 @@ msgid "New Smart Album…"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr "تحرير معلومات الصورة"
 
@@ -2721,8 +2721,8 @@ msgstr "الوسوم"
 msgid "Photos cannot be exported to this directory."
 msgstr "لا يمكن تصدير الصور إلى هذا المجلد."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "لا صور/فيديوهات"
@@ -2735,16 +2735,21 @@ msgstr "لم يُعثر على صور/فيديوهات"
 msgid "Play a slideshow"
 msgstr "شغّل عرض شرائح"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "ال_مطوّر"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr "خيارات اخرى"
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2755,27 +2760,27 @@ msgstr[3] "صدّر صورة/فيديو"
 msgstr[4] "صدّر صورة/فيديو"
 msgstr[5] "صدّر صورة/فيديو"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "تدوير"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "تراجع عن التدوير"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "قلب أفقي"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "تراجع عن القلب الأفقي"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "قلب رأسي"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "تراجع عن القلب الرأسي"
 
@@ -2798,25 +2803,25 @@ msgstr ""
 "%s لا يدعم صيغة الملف لـ\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "ا_حفظ نسخة"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "هل ترغب بفقدان التغيرات على %s؟"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "أغلق _دون حفظ"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "حال خطأ دون الحفظ في %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "احفظ كـ"
 
@@ -3118,7 +3123,7 @@ msgstr "تم استيراد %s"
 msgid "Last Import"
 msgstr "آخر استيراد"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "تعذّر تصدير %s: %s"

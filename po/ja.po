@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2024-02-19 06:41+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/photos/photos/"
@@ -59,7 +59,7 @@ msgstr "一時ディレクトリ %s を作成できません: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "データサブディレクトリ %s を作成できません: %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -72,11 +72,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "元に戻す"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "やり直す"
 
@@ -369,7 +369,7 @@ msgstr "すべて置換(_A)"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -1192,14 +1192,14 @@ msgstr "現像を変更(_S)"
 msgid "Export Video"
 msgstr "動画をエクスポート"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "写真をエクスポート"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "保存(_S)"
 
@@ -1587,7 +1587,8 @@ msgstr[0] "外部での編集を元に戻しますか?"
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
-msgstr[0] "この操作は%d個の外部ファイルに対して行ったすべての変更点を破棄します。続行し"
+msgstr[0] ""
+"この操作は%d個の外部ファイルに対して行ったすべての変更点を破棄します。続行し"
 "ますか?"
 
 #: src/Dialogs/Dialogs.vala:807
@@ -1650,11 +1651,11 @@ msgstr "写真をコピー(_P)"
 msgid "_Import in Place"
 msgstr "元の場所でインポート(_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "ライブラリから削除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "ライブラリから写真を削除しています"
@@ -1749,7 +1750,7 @@ msgid "Add"
 msgstr "追加"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr "保存"
 
@@ -1778,7 +1779,7 @@ msgid "Add rule"
 msgstr "ルールを追加"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -2008,8 +2009,8 @@ msgstr "設定"
 msgid "Sort _Events"
 msgstr "イベントを並べ替え(_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "写真のイベントを表示(_N)"
 
@@ -2021,7 +2022,7 @@ msgid "New Smart Album…"
 msgstr "新しいスマートアルバム…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr "画像情報を編集(_F)"
 
@@ -2064,8 +2065,8 @@ msgid ""
 "Do you want to continue importing photos?"
 msgstr ""
 "“フォト”はホームディレクトリに写真をインポートする設定になっています。\n"
-"<span weight=\"bold\">設定 %s "
-"編集</span>からこの設定を変更することを推奨します。\n"
+"<span weight=\"bold\">設定 %s 編集</span>からこの設定を変更することを推奨しま"
+"す。\n"
 "写真のインポートを続行してもよろしいですか?"
 
 #: src/library/LibraryWindow.vala:831
@@ -2438,8 +2439,8 @@ msgstr "タグ"
 msgid "Photos cannot be exported to this directory."
 msgstr "写真をこのディレクトリにエクスポートできません。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "写真や動画がありません"
@@ -2452,41 +2453,46 @@ msgstr "写真や動画が見つかりませんでした"
 msgid "Play a slideshow"
 msgstr "スライドショーを開始します"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "現像(_D)"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr "ほかの操作"
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "写真や動画をエクスポート"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "回転"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "回転を元に戻す"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "左右反転"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "左右反転を元に戻す"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "上下反転"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "上下反転を元に戻す"
 
@@ -2507,25 +2513,25 @@ msgid ""
 "%s."
 msgstr "%s は %s のファイル形式に対応していません。"
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "コピーを保存(_S)"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s への変更を破棄しますか?"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "保存せずに閉じる(_W)"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s への保存中にエラーが発生しました: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "名前を付けて保存"
 
@@ -2795,7 +2801,7 @@ msgstr "%s をインポートしました"
 msgid "Last Import"
 msgstr "最後にインポートされたもの"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s をエクスポートできません: %s"

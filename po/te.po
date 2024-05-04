@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2016-04-18 04:25+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/shotwell/language/"
@@ -51,7 +51,7 @@ msgstr "తాత్కాలిక డైరెక్టరీ %s సృష్�
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "డేటా సబ్‌డైరెక్టరీ %s ని సృష్టించలేకపోతోంది: %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, fuzzy, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -63,11 +63,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "చేసినదానిని రద్దుచేయి"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "మళ్ళీచేయి"
 
@@ -365,7 +365,7 @@ msgstr "అన్నిటిని పునఃస్థాపించు(_A)"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "రద్దుచేయి (_C)"
 
@@ -1217,8 +1217,8 @@ msgstr "అభివృద్దికారి మార్చు (_S)"
 msgid "Export Video"
 msgstr "వీడియో ఎగుమతిచేయి"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1226,7 +1226,7 @@ msgstr[0] "ఫొటో ఎగుమతిచేయి"
 msgstr[1] "ఫొటో ఎగుమతిచేయి"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "దాచు (_S)"
 
@@ -1693,11 +1693,11 @@ msgstr "ఫోటోలను నకలుతీయి(_p)"
 msgid "_Import in Place"
 msgstr "అదే స్థానంలో దిగుమతి (_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "లైబ్రరీ నుండి తొలగించు"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1797,7 +1797,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr ""
 
@@ -1826,7 +1826,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr ""
 
@@ -2062,8 +2062,8 @@ msgstr "అమరికలు"
 msgid "Sort _Events"
 msgstr "కార్యక్రమాలను క్రమబద్దీకరించు(_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "ఫొటో కోసం కార్యక్రమాలను చూడు(_n)"
 
@@ -2075,7 +2075,7 @@ msgid "New Smart Album…"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr ""
 
@@ -2493,8 +2493,8 @@ msgstr "ట్యాగులు"
 msgid "Photos cannot be exported to this directory."
 msgstr "ఈ డైరెక్టరీకి ఫొటోలను ఎగుమతి చేయడం వీలుకాదు."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ఫొటోలు/వీడియోలు లేవు"
@@ -2507,43 +2507,48 @@ msgstr "ఫొటోలు/వీడియోలు కనబడలేదు"
 msgid "Play a slideshow"
 msgstr "పలకప్రదర్శనను ఆడించు"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "అభివృద్ధికారుడు (_D)"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "ఫొటోలు/వీడియోలు ఎగుమతిచేయి"
 msgstr[1] "ఫొటోలు/వీడియోలు ఎగుమతిచేయి"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "తిప్పినదానిని రద్దుచేస్తోంది"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "అడ్డముగా తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "అడ్డంగా తిప్పినదానిని రద్దుచేయి"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "నిలువుగా తిప్పబడుతోంది"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "నిలువుగా తిప్పినదానిని రద్దుచేయి"
 
@@ -2566,25 +2571,25 @@ msgstr ""
 "%s  తోడ్పాటు లేదు : ఫైల్ ఫార్మాట్\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "ఒక నకలు దాచు(_S)"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s మార్పులు వదలివేయాలా?"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "దాచకుండానే మూసివేయి(_w)"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s కి భద్రపరుస్తుండగా దోషం: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "ఇలా దాచు"
 
@@ -2867,7 +2872,7 @@ msgstr "%s దిగుమతిచేయబడినవి"
 msgid "Last Import"
 msgstr "ఆఖరి దిగుమతి"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ఎగుమతిచేయలేకపోతోంది: %s"

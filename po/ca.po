@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2022-09-08 17:28+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
@@ -55,7 +55,7 @@ msgstr "No s'ha pogut crear el directori temporal %s: %s"
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "No s'ha pogut crear el subdirectori de dades %s: %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -68,11 +68,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "Desfés"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "Refés"
 
@@ -373,7 +373,7 @@ msgstr "Reempl_aça'ls tots"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -1219,15 +1219,15 @@ msgstr "_Commuta el revelador"
 msgid "Export Video"
 msgstr "Exporta vídeos"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporta la fotografia"
 msgstr[1] "Exporta les fotografies"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "De_sa"
 
@@ -1743,11 +1743,11 @@ msgstr "Co_pia les fotografies"
 msgid "_Import in Place"
 msgstr "_Importa-les a la ubicació"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Se suprimeix la fotografia de la biblioteca"
@@ -1844,7 +1844,7 @@ msgid "Add"
 msgstr "Afegeix"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr "Desa"
 
@@ -1873,7 +1873,7 @@ msgid "Add rule"
 msgstr "Afegeix una regla"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -2109,8 +2109,8 @@ msgstr "Configuració"
 msgid "Sort _Events"
 msgstr "Ordena els es_deveniments"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "Visualitza l'_esdeveniment de la fotografia"
 
@@ -2122,7 +2122,7 @@ msgid "New Smart Album…"
 msgstr "Àlbum intel·ligent nou…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr "Edita la in_formació de la fotografia"
 
@@ -2545,8 +2545,8 @@ msgstr "Etiquetes"
 msgid "Photos cannot be exported to this directory."
 msgstr "No es poden exportar fotografies a aquest directori."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Cap fotografia/vídeo"
@@ -2559,42 +2559,47 @@ msgstr "No s'ha trobat cap fotografia/vídeo"
 msgid "Play a slideshow"
 msgstr "Reprodueix una presentació de diapositives"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "Revela_dor"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporta la fotografia / vídeo"
 msgstr[1] "Exporta fotografies / vídeos"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "Es gira"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "Es desfà la rotació"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "Es gira horitzontalment"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "Es desfà el gir horitzontal"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "Es gira verticalment"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "Es desfà el gir vertical"
 
@@ -2617,25 +2622,25 @@ msgstr ""
 "%s no és compatible amb el format de fitxer de\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "De_sa'n una còpia"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Voleu descartar els canvis a %s?"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "Tanca _sense desar"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "S'ha produït un error en desar a %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "Anomena i desa"
 
@@ -2912,7 +2917,7 @@ msgstr "S'ha importat %s"
 msgid "Last Import"
 msgstr "Darrera importació"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "No s'ha pogut exportar %s: %s"

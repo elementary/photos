@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 07:13+0000\n"
+"POT-Creation-Date: 2024-05-04 06:40+0000\n"
 "PO-Revision-Date: 2017-08-31 21:13+0000\n"
 "Last-Translator: Grammatopoulos Athanasios-Vasi <darkthanos.gr@gmail.com>\n"
 "Language-Team: Greek <https://weblate.elementary.io/projects/photos/photos/"
@@ -56,7 +56,7 @@ msgstr "Αδυναμία δημιουργίας προσωρινού φακέλ�
 msgid "Unable to create data subdirectory %s: %s"
 msgstr "Αδυναμία δημιουργίας υποφακέλου %s: %s"
 
-#: src/AppWindow.vala:162
+#: src/AppWindow.vala:164
 #, fuzzy, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
@@ -69,11 +69,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/AppWindow.vala:331
+#: src/AppWindow.vala:333
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: src/AppWindow.vala:332
+#: src/AppWindow.vala:334
 msgid "Redo"
 msgstr "Ακύρωση αναίρεσης"
 
@@ -377,7 +377,7 @@ msgstr "Αντικατάσταση ό_λων"
 #: src/editing_tools/CropTool.vala:103
 #: src/editing_tools/StraightenTool.vala:118
 #: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:478
 msgid "_Cancel"
 msgstr "Α_κύρωση"
 
@@ -1250,8 +1250,8 @@ msgstr "_Εναλλαγή Εμφανιστηρίου"
 msgid "Export Video"
 msgstr "Εξαγωγή βίντεο"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:692
-#: src/Views/LibraryPhotoPage.vala:843
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
+#: src/Views/LibraryPhotoPage.vala:853
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1259,7 +1259,7 @@ msgstr[0] "Εξαγωγή φωτογραφιών"
 msgstr[1] "Εξαγωγή φωτογραφιών"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:455
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
@@ -1783,11 +1783,11 @@ msgstr "_Αντιγραφή φωτογραφιών"
 msgid "_Import in Place"
 msgstr "_Εισαγωγή σε φάκελο"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
 msgid "Remove From Library"
 msgstr "Αφαίρεση από τη βιβλιοθήκη"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:764
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1887,7 +1887,7 @@ msgid "Add"
 msgstr "Προσθήκη"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:560
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -1916,7 +1916,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:561
+#: src/Views/DirectPhotoPage.vala:571
 msgid "Cancel"
 msgstr "Ακύρωση"
 
@@ -2156,8 +2156,8 @@ msgstr "Ρυθμίσεις"
 msgid "Sort _Events"
 msgstr "_Ταξινόμηση συμβάντων"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:201
-#: src/Views/LibraryPhotoPage.vala:561
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
+#: src/Views/LibraryPhotoPage.vala:563
 msgid "View Eve_nt for Photo"
 msgstr "Προβολή _συμβάντος φωτογραφίας"
 
@@ -2169,7 +2169,7 @@ msgid "New Smart Album…"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:132 src/Views/LibraryPhotoPage.vala:494
+#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
 msgid "Edit Photo In_fo"
 msgstr ""
 
@@ -2596,8 +2596,8 @@ msgstr "Ετικέτες"
 msgid "Photos cannot be exported to this directory."
 msgstr "Δεν είναι δυνατή η εξαγωγή των φωτογραφιών σ' αυτόν τον φάκελο."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1003
-#: src/Views/CollectionPage.vala:1004 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
+#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Καμία φωτογραφία/βίντεο"
@@ -2610,43 +2610,48 @@ msgstr "Δεν βρέθηκαν φωτογραφίες/βίντεο"
 msgid "Play a slideshow"
 msgstr "Αναπαραγωγή προβολής διαφανειών"
 
-#: src/Views/CollectionPage.vala:171 src/Views/LibraryPhotoPage.vala:528
+#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
 msgid "_Developer"
 msgstr "_Επεξεργασία RAW"
 
-#: src/Views/CollectionPage.vala:216 src/Views/DirectPhotoPage.vala:175
-#: src/Views/LibraryPhotoPage.vala:576
+#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:578
+msgid "Set as Wallpaper"
+msgstr ""
+
+#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:582
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:690
+#: src/Views/CollectionPage.vala:700
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Εξαγωγή φωτογραφιών/βίντεο"
 msgstr[1] "Εξαγωγή φωτογραφιών/βίντεο"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Rotating"
 msgstr "Περιστροφή"
 
-#: src/Views/CollectionPage.vala:786 src/Views/CollectionPage.vala:802
+#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
 msgid "Undoing Rotate"
 msgstr "Αναίρεση περιστροφής"
 
-#: src/Views/CollectionPage.vala:811
+#: src/Views/CollectionPage.vala:821
 msgid "Flipping Horizontally"
 msgstr "Οριζόντιος κατοπτρισμός"
 
-#: src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:822
 msgid "Undoing Flip Horizontally"
 msgstr "Αναίρεση οριζόντιου κατοπτρισμού"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:831
 msgid "Flipping Vertically"
 msgstr "Κατακόρυφος κατοπτρισμός"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:832
 msgid "Undoing Flip Vertically"
 msgstr "Αναίρεση κατακόρυφου κατοπτρισμού"
 
@@ -2669,25 +2674,25 @@ msgstr ""
 "Το %s δεν υποστηρίζει τη μορφή αρχείου του\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:455
+#: src/Views/DirectPhotoPage.vala:465
 msgid "_Save a Copy"
 msgstr "_Αποθήκευση αντιγράφου"
 
-#: src/Views/DirectPhotoPage.vala:458
+#: src/Views/DirectPhotoPage.vala:468
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Απόρριψη αλλαγών του %s;"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:475
 msgid "Close _without Saving"
 msgstr "Κλείσιμο _χωρίς αποθήκευση"
 
-#: src/Views/DirectPhotoPage.vala:505
+#: src/Views/DirectPhotoPage.vala:515
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Σφάλμα κατά την αποθήκευση στο %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:535 src/Views/DirectPhotoPage.vala:557
+#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
 msgid "Save As"
 msgstr "Αποθήκευση ως"
 
@@ -2977,7 +2982,7 @@ msgstr "Εισήχθησαν %s"
 msgid "Last Import"
 msgstr "Τελευταία Εισαγωγή"
 
-#: src/Views/LibraryPhotoPage.vala:863
+#: src/Views/LibraryPhotoPage.vala:873
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Αδυναμία εξαγωγής %s: %s"
@@ -4468,10 +4473,11 @@ msgstr "Γρίλλιες"
 #~ "have at least one data imports plugin enabled. Plugins can be enabled in "
 #~ "the Preferences dialog."
 #~ msgstr ""
-#~ "Δεν έχετε ενεργοποιήσει τις πρόσθετες λειτουργίας εισαγωγής δεδομένων. \\n"
-#~ "\\n. Για να χρησιμοποιήσετε τη λειτουργία Εισαγωγής από Εφαρμογή, πρέπει "
-#~ "να έχετε ενεργοποιήσει τουλάχιστο μια πρόσθετη λειτουργία εισαγωγής. "
-#~ "Μπορείτε να ενεργοποιήσετε τις πρόσθετες λειτουργίες στις Ρυθμίσεις."
+#~ "Δεν έχετε ενεργοποιήσει τις πρόσθετες λειτουργίας εισαγωγής δεδομένων. "
+#~ "\\n\\n. Για να χρησιμοποιήσετε τη λειτουργία Εισαγωγής από Εφαρμογή, "
+#~ "πρέπει να έχετε ενεργοποιήσει τουλάχιστο μια πρόσθετη λειτουργία "
+#~ "εισαγωγής. Μπορείτε να ενεργοποιήσετε τις πρόσθετες λειτουργίες στις "
+#~ "Ρυθμίσεις."
 
 #~ msgid "Database file:"
 #~ msgstr "Αρχείο βάσης δεδομένων:"
