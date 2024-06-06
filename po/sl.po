@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2020-01-08 00:07+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/photos/photos/"
@@ -375,9 +375,7 @@ msgstr "Zamenjaj _vse"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -1246,8 +1244,8 @@ msgstr "_Zamenjaj razvijalca"
 msgid "Export Video"
 msgstr "Izvozi videoposnetek"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Izvozi fotografijo"
@@ -1256,7 +1254,7 @@ msgstr[2] "Izvozi fotografije"
 msgstr[3] "Izvozi fotografije"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "_Shrani"
 
@@ -1879,11 +1877,11 @@ msgstr "_Kopiraj fotografije"
 msgid "_Import in Place"
 msgstr "_Uvozi na mesto"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Odstrani iz knjižnice"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1973,7 +1971,6 @@ msgid "Plugins"
 msgstr "Vstavki"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Zapri"
 
@@ -1987,7 +1984,7 @@ msgid "Add"
 msgstr "Dodaj"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Shrani"
 
@@ -2016,7 +2013,7 @@ msgid "Add rule"
 msgstr "Dodaj pravilo"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -2262,8 +2259,8 @@ msgstr "Nastavitve"
 msgid "Sort _Events"
 msgstr "Razvrsti _dogodke"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Oglej si dogo_dek za fotografijo"
 
@@ -2275,7 +2272,7 @@ msgid "New Smart Album…"
 msgstr "Nov pametni album…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Uredi informacije v sliki"
 
@@ -2423,106 +2420,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "O programu"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Pripravljanje na pošiljanje"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "Pošiljanje %d od %d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "Objavljanja na %s ni mogoče nadaljevati, ker je prišlo do napake:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"Poskusite objaviti na drugo storitev, ki jo izberete iz zgornjega menija."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_Prijava"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "Izbrane fotografije/videoposnetki so bili uspešno objavljeni."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "Izbrani videoposnetki so bili uspešno objavljeni."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "Izbrane fotografije so bile uspešno objavljene."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "Izbrani video je bil uspešno objavljen."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "Izbrana fotografija je bila uspešno objavljena."
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "Pridobivanje podrobnosti računa ..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "Prijavljanje ..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Objavi fotografije"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Objavi fotografije _na:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Objavi videoposnetke"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Objavi videoposnetke _na"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Objavi fotografije in videoposnetke"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Objavi fotografije in videoposnetke _na"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Ni mogoče objaviti"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Fotografije ne more objaviti izbranih elementov, ker nima vključenega "
-"združljivega vtičnika za objavljanje. To popravite tako, da izberete "
-"<b>Uredi %s nastavitve</b> in vključite enega ali več vtičnikov za "
-"objavljanje v zavihku <b>Vtičniki</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Objavljanje"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2703,8 +2600,8 @@ msgstr "Oznake"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografij ni mogoče izvoziti v to mapo."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ni fotografij/videov"
@@ -2717,21 +2614,21 @@ msgstr "Ni najdenih fotografij/videov"
 msgid "Play a slideshow"
 msgstr "Predvaja diapredstavitev"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Razvijalec"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "Druge možnosti"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2740,27 +2637,27 @@ msgstr[1] "Izvozi fotografijo ali videoposnetek"
 msgstr[2] "Izvozi fotografijo ali videoposnetek"
 msgstr[3] "Izvozi fotografijo ali videoposnetek"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Vrtenje"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Razveljavljanje vrtenja"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Zrcaljenje vodoravno"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Razveljavljanje vodoravnega zrcaljenja"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Zrcaljenje navpično"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Razveljavljanje navpičnega zrcaljenja"
 
@@ -2783,25 +2680,25 @@ msgstr ""
 "%s ne podpira vrste datoteke\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_Shrani kopijo"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Zavrzi spremembe %s?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Zapri _brez shranjevanja"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Napaka med shranjevanjem v: %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Shrani kot"
 
@@ -3101,7 +2998,7 @@ msgstr "Uvoženo %s"
 msgid "Last Import"
 msgstr "Zadnji uvoz"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ni mogoče izvoziti: %s"
@@ -3500,6 +3397,84 @@ msgstr "Šah"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Roleta"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Pripravljanje na pošiljanje"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "Pošiljanje %d od %d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "Objavljanja na %s ni mogoče nadaljevati, ker je prišlo do napake:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "Poskusite objaviti na drugo storitev, ki jo izberete iz zgornjega menija."
+
+#~ msgid "_Login"
+#~ msgstr "_Prijava"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "Izbrane fotografije/videoposnetki so bili uspešno objavljeni."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "Izbrani videoposnetki so bili uspešno objavljeni."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "Izbrane fotografije so bile uspešno objavljene."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "Izbrani video je bil uspešno objavljen."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "Izbrana fotografija je bila uspešno objavljena."
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "Pridobivanje podrobnosti računa ..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "Prijavljanje ..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "Objavi fotografije"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Objavi fotografije _na:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Objavi videoposnetke"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Objavi videoposnetke _na"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Objavi fotografije in videoposnetke"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Objavi fotografije in videoposnetke _na"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Ni mogoče objaviti"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Fotografije ne more objaviti izbranih elementov, ker nima vključenega "
+#~ "združljivega vtičnika za objavljanje. To popravite tako, da izberete "
+#~ "<b>Uredi %s nastavitve</b> in vključite enega ali več vtičnikov za "
+#~ "objavljanje v zavihku <b>Vtičniki</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Objavljanje"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Avtorske pravice 2009-2013 Yorba Foundation"

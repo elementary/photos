@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2021-11-07 18:10+0000\n"
 "Last-Translator: Kiran Chauhan <kiranchauhan68@gmail.com>\n"
 "Language-Team: Gujarati <https://l10n.elementary.io/projects/photos/photos/"
@@ -362,9 +362,7 @@ msgstr "બધુ બદલો (_A)"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "રદ કરો (_C)"
 
@@ -1216,8 +1214,8 @@ msgstr "ડેવલપરને બદલો (_S)"
 msgid "Export Video"
 msgstr "વિડિયો નિકાસ કરો"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1225,7 +1223,7 @@ msgstr[0] "ફોટોની નિકાસ કરો"
 msgstr[1] "ફોટોની નિકાસ કરો"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "સંગ્રહો (_S)"
 
@@ -1705,11 +1703,11 @@ msgstr "ફોટાની નકલ કરો (_p)"
 msgid "_Import in Place"
 msgstr "સ્થાનમાં આયાત કરો (_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "લાઇબ્રેરીમાંથી દૂર કરો"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1795,7 +1793,6 @@ msgid "Plugins"
 msgstr "પ્લગઇન"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "બંધ કરો (_C)"
 
@@ -1809,7 +1806,7 @@ msgid "Add"
 msgstr "ઉમેરો"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "સાચવો"
 
@@ -1838,7 +1835,7 @@ msgid "Add rule"
 msgstr "નિયમ ઉમેરો"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "માંડી વાળો"
 
@@ -2073,8 +2070,8 @@ msgstr "સુયોજનો"
 msgid "Sort _Events"
 msgstr "ઘટનાઓને ક્રમમાં કરો (_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "ફોટો માટે ઘટનાને દર્શાવો (_n)"
 
@@ -2086,7 +2083,7 @@ msgid "New Smart Album…"
 msgstr "નવો સ્માર્ટ આલ્બમ…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "ચિત્રની માહિતીમાં ફેરફાર કરો(_F)"
 
@@ -2230,104 +2227,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "વિશે"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "અપલોડ કરવા માટે તૈયારી કરી રહ્યા છે"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "%d નાં %d ને અપલોડ કરી રહ્યા છે"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "%s ને પ્રકાશિત કરવાનું ચાલુ રાખી શકાતુ નથી કારણ કે ભૂલ ઉદ્ભવી:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr "બીજી સેવામાં પ્રકાશિત કરવાનું પ્રયત્ન કરવા માટે, ઉપર મેનુંમાંથી એકને પસંદ કરો."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "પ્રવેશ (_L)"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "પસંદ થયેલ ફોટા/વિડિયોને સફળતાપૂર્વક પ્રકાશિત કરેલ હતુ."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "પસંદ થયેલ વિડિયો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "પસંદ થયેલ ફોટા સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "પસંદ થયેલ વિડિયો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "પસંદ થયેલ ફોટો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "ખાતા જાણકારીને લાવી રહ્યા છે..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "પ્રવેશી રહ્યા છે..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "ફોટાને પ્રકાશિત કરો"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "તેમાં ફોટાને પ્રકાશિત કરો (_t):"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "વિડિયોને પ્રકાશિત કરો"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "તેમાં વિડિયોને પ્રકાશિત કરો (_t)"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "ફોટા અને વિડિયોને પ્રકાશિત કરો"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "તેમાં ફોટા અને વિડિયોને પ્રકાશિત કરો (_t)"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "પ્રકાશિત કરવાનું અસમર્થ"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Shotwell પસંદ થયેલ વસ્તુઓને પ્રકાશિત કરી શકતુ નથી કારણ કે તમારી પાસે સક્રિય થયેલ સુસંગત "
-"પ્રકાશિત પ્લગઇન નથી. આને સુધારવા માટે, <b>ફેરફાર %s પસંદગીઓ</b> ને પસંદ કરો અને "
-"<b>પ્લગઇન</b> ટૅબ પર પ્રકાશિત પ્લગઇનનાં એક અથવા વધારેને સક્રિય કરો.."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "પ્રકાશિત કરી રહ્યા છે"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2504,8 +2403,8 @@ msgstr "ટૅગ"
 msgid "Photos cannot be exported to this directory."
 msgstr "ફોટા આ ડિરેક્ટરીમાં નિકાસ કરી શકાતા નથી."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ફોટો/વિડિયો નથી"
@@ -2518,48 +2417,48 @@ msgstr "ફોટો/વિડિયો મળ્યો નથી"
 msgid "Play a slideshow"
 msgstr "તકતી પૂર્વદર્શન ચલાવો"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "ડેવલપર (_D)"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "અન્ય ક્રિયાઓ"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "ફોટા/વિડિયોને નિકાસ કરો"
 msgstr[1] "ફોટા/વિડિયોને નિકાસ કરો"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "ફેરવી રહ્યા છે"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "ફેરવવાનું કરી રહ્યા નથી"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "આડુ ફ્લિપ કરી રહ્યા છે"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "આડુ ફ્લિપ કરી રહ્યા નથી"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "ઊભુ ફ્લિપ કરી રહ્યા છે"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "ઊભુ ફ્લિપ કરી રહ્યા નથી"
 
@@ -2582,25 +2481,25 @@ msgstr ""
 "%s ફાઇલ બંધારને આધાર આપતુ નથી\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "નકલને સંગ્રહો (_S)"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "શું %s પર બદલાવોને ગુમાવવા માંગો છો?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "સંગ્રહ કર્યા વગર બંધ કરો (_w)"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "ભૂલ જ્યારે %s માં સંગ્રહી રહ્યા હોય: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "આ તરીકે સંગ્રહો"
 
@@ -2887,7 +2786,7 @@ msgstr "આયાત થયેલ %s"
 msgid "Last Import"
 msgstr "છેલ્લે આયત કરેલુ"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s નું નિકાસ કરવાનુ અસમર્થ: %s"
@@ -3286,6 +3185,82 @@ msgstr "ચેસ"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "બ્લાઇન્ડ"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "અપલોડ કરવા માટે તૈયારી કરી રહ્યા છે"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "%d નાં %d ને અપલોડ કરી રહ્યા છે"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "%s ને પ્રકાશિત કરવાનું ચાલુ રાખી શકાતુ નથી કારણ કે ભૂલ ઉદ્ભવી:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr "બીજી સેવામાં પ્રકાશિત કરવાનું પ્રયત્ન કરવા માટે, ઉપર મેનુંમાંથી એકને પસંદ કરો."
+
+#~ msgid "_Login"
+#~ msgstr "પ્રવેશ (_L)"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "પસંદ થયેલ ફોટા/વિડિયોને સફળતાપૂર્વક પ્રકાશિત કરેલ હતુ."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "પસંદ થયેલ વિડિયો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "પસંદ થયેલ ફોટા સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "પસંદ થયેલ વિડિયો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "પસંદ થયેલ ફોટો સફળતાપૂર્વક પ્રકાશિત થયેલ છે."
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "ખાતા જાણકારીને લાવી રહ્યા છે..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "પ્રવેશી રહ્યા છે..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "ફોટાને પ્રકાશિત કરો"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "તેમાં ફોટાને પ્રકાશિત કરો (_t):"
+
+#~ msgid "Publish Videos"
+#~ msgstr "વિડિયોને પ્રકાશિત કરો"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "તેમાં વિડિયોને પ્રકાશિત કરો (_t)"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "ફોટા અને વિડિયોને પ્રકાશિત કરો"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "તેમાં ફોટા અને વિડિયોને પ્રકાશિત કરો (_t)"
+
+#~ msgid "Unable to publish"
+#~ msgstr "પ્રકાશિત કરવાનું અસમર્થ"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Shotwell પસંદ થયેલ વસ્તુઓને પ્રકાશિત કરી શકતુ નથી કારણ કે તમારી પાસે સક્રિય થયેલ "
+#~ "સુસંગત પ્રકાશિત પ્લગઇન નથી. આને સુધારવા માટે, <b>ફેરફાર %s પસંદગીઓ</b> ને પસંદ કરો "
+#~ "અને <b>પ્લગઇન</b> ટૅબ પર પ્રકાશિત પ્લગઇનનાં એક અથવા વધારેને સક્રિય કરો.."
+
+#~ msgid "Publishing"
+#~ msgstr "પ્રકાશિત કરી રહ્યા છે"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "મુદ્રણાધિકાર ૨૦૦૯-૨૦૧૩ Yorba Foundation"

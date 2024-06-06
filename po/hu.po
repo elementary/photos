@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2024-05-09 19:13+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
@@ -365,9 +365,7 @@ msgstr "Öss_zes cseréje"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -1204,15 +1202,15 @@ msgstr "_Előhívó váltása"
 msgid "Export Video"
 msgstr "Videó exportálása"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Fénykép exportálása"
 msgstr[1] "Fényképek exportálása"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "M_entés"
 
@@ -1705,11 +1703,11 @@ msgstr "Fény_képek másolása"
 msgid "_Import in Place"
 msgstr "_Importálás"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Eltávolítás a gyűjteményből"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Fénykép eltávolítása a gyűjteményből"
@@ -1792,7 +1790,6 @@ msgid "Plugins"
 msgstr "Bővítmények"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Bezárás"
 
@@ -1806,7 +1803,7 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Mentés"
 
@@ -1835,7 +1832,7 @@ msgid "Add rule"
 msgstr "Szabály hozzáadása"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -2070,8 +2067,8 @@ msgstr "Beállítások"
 msgid "Sort _Events"
 msgstr "_Események rendezése"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Fénykép _eseményének megjelenítése"
 
@@ -2083,7 +2080,7 @@ msgid "New Smart Album…"
 msgstr "Új okosalbum…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Fényképin_formációk szerkesztése"
 
@@ -2231,104 +2228,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "Névjegy"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Előkészítés a feltöltéshez"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "%d/%d feltöltése"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "A közzététel egy hiba miatt nem folytatódhat erre: %s:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"Próbálja másik szolgáltatáson közzétenni, válasszon egyet a fenti menüből."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "Bejele_ntkezés"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "A kijelölt fényképek/videók sikeresen közzétéve."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "A kijelölt videók sikeresen közzétéve."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "A kijelölt fényképek sikeresen közzétéve."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "A kijelölt videó sikeresen közzétéve."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "A kijelölt fénykép sikeresen közzétéve."
-
-#: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information…"
-msgstr "Fiókinformációk lekérése…"
-
-#: src/publishing/PublishingUI.vala:153
-msgid "Logging in…"
-msgstr "Bejelentkezés…"
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Fényképek közzététele"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "_Fényképek közzététele itt:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Videók közzététele"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Videók közzététele _itt"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Fényképek és videók közzététele"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Fényképek és videók közzététele _itt"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Nem sikerült közzétenni"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"A Fotók nem képes közzétenni a kijelölt elemeket, mert nincs engedélyezve a "
-"megfelelő közzétételi bővítmény. Ennek javításához válassza a <b>%s "
-"beállításainak szerkesztése</b> menüpontot és engedélyezze az egyik "
-"közzétételi bővítményt a <b>Bővítmények</b> lapon."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Közzététel"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2504,8 +2403,8 @@ msgstr "Címkék"
 msgid "Photos cannot be exported to this directory."
 msgstr "Nem exportálhatók fényképek ebbe a könyvtárba."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Nincsenek fényképek/videók"
@@ -2518,47 +2417,47 @@ msgstr "Nem találhatók fényképek/videók"
 msgid "Play a slideshow"
 msgstr "Diavetítés indítása"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Előhívó"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr "Beállítás háttérképként"
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "További műveletek"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Fénykép/videó exportálása"
 msgstr[1] "Fényképek/videók exportálása"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Forgatás"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Forgatás visszavonása"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Tükrözés vízszintesen"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Vízszintes tükrözés visszavonása"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Tükrözés függőlegesen"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Függőleges tükrözés visszavonása"
 
@@ -2581,25 +2480,25 @@ msgstr ""
 "A(z) %s nem támogatja a fájlformátumát ennek:\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_Másolat mentése"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Eldobja a(z) %s változtatásait?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Bezárás mentés _nélkül"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Hiba a(z) %s helyre mentéskor: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Mentés másként"
 
@@ -2875,7 +2774,7 @@ msgstr "%s importálva"
 msgid "Last Import"
 msgstr "Utolsó importálás"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "A(z) %s exportálása sikertelen: %s"
@@ -3268,6 +3167,82 @@ msgstr "Sakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellák"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Előkészítés a feltöltéshez"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "%d/%d feltöltése"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "A közzététel egy hiba miatt nem folytatódhat erre: %s:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "Próbálja másik szolgáltatáson közzétenni, válasszon egyet a fenti menüből."
+
+#~ msgid "_Login"
+#~ msgstr "Bejele_ntkezés"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "A kijelölt fényképek/videók sikeresen közzétéve."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "A kijelölt videók sikeresen közzétéve."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "A kijelölt fényképek sikeresen közzétéve."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "A kijelölt videó sikeresen közzétéve."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "A kijelölt fénykép sikeresen közzétéve."
+
+#~ msgid "Fetching account information…"
+#~ msgstr "Fiókinformációk lekérése…"
+
+#~ msgid "Logging in…"
+#~ msgstr "Bejelentkezés…"
+
+#~ msgid "Publish Photos"
+#~ msgstr "Fényképek közzététele"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "_Fényképek közzététele itt:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Videók közzététele"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Videók közzététele _itt"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Fényképek és videók közzététele"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Fényképek és videók közzététele _itt"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Nem sikerült közzétenni"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "A Fotók nem képes közzétenni a kijelölt elemeket, mert nincs engedélyezve "
+#~ "a megfelelő közzétételi bővítmény. Ennek javításához válassza a <b>%s "
+#~ "beállításainak szerkesztése</b> menüpontot és engedélyezze az egyik "
+#~ "közzétételi bővítményt a <b>Bővítmények</b> lapon."
+
+#~ msgid "Publishing"
+#~ msgstr "Közzététel"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Szerzői jogok: 2009-2013 Yorba Alapítvány"

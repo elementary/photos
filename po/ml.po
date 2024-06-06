@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2016-04-18 04:18+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/shotwell/"
@@ -362,9 +362,7 @@ msgstr "_എല്ലാം മാറ്റിയെഴുതുക"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_റദ്ദാക്കുക"
 
@@ -1221,8 +1219,8 @@ msgstr "_ഡെവലപ്പര്‍ മാറ്റുക"
 msgid "Export Video"
 msgstr "ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1230,7 +1228,7 @@ msgstr[0] "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
 msgstr[1] "ഫോട്ടോ കയറ്റുമതി ചെയ്യുക"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "_സൂക്ഷിയ്ക്കുക"
 
@@ -1720,11 +1718,11 @@ msgstr "ഫോട്ടോകളുടെ പകര്‍പ്പു_കള്�
 msgid "_Import in Place"
 msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1810,7 +1808,6 @@ msgid "Plugins"
 msgstr "സംയോജകങ്ങള്‍"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_അടക്കുക"
 
@@ -1824,7 +1821,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr ""
 
@@ -1853,7 +1850,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr ""
 
@@ -2088,8 +2085,8 @@ msgstr "സജ്ജീകരണങ്ങള്‍"
 msgid "Sort _Events"
 msgstr "_ഇവന്റുകള്‍ ക്രമീകരിക്കുക"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "ഫോട്ടോയുടെ ഇവന്റ് കാ_ണുക"
 
@@ -2101,7 +2098,7 @@ msgid "New Smart Album…"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr ""
 
@@ -2245,105 +2242,6 @@ msgstr ""
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr ""
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "അപ്പ്‌‌ലോഡ് ചെയ്യാന്‍ തയാറെടുക്കുന്നു."
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "%d എണ്ണത്തില്‍ %d എണ്ണം  അപ്പ്ലോഡ് ചെയ്യുന്നു"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "ഒരു പിഴവു സംഭവിച്ചതിനാല്‍ %s ലേക്ക്  പ്രസിദ്ധീകരിക്കാന്‍ സാധ്യമല്ല"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"മറ്റൊരു സേവനത്തിലേക്ക് പ്രസിദ്ധീകരിക്കാനായി മുകളിലെ മെനുവില്‍ നിന്ന് ഒരെണ്ണം  തിരഞ്ഞെടുക്കുക."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_പ്രവേശിക്കുക"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍/വീഡിയോകള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "തിരഞ്ഞെടുത്ത ചലച്ചിത്രങ്ങള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr ".തിരഞ്ഞെടുത്ത ചലച്ചിത്രം  വിജയകരമായി പ്രസിദ്ധീകരിച്ചു"
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "അക്കൗണ്ട് വിവരങ്ങള്‍ ശേഖരിക്കുന്നു..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "പ്രവേശിക്കുക..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "ഫോട്ടോകള്‍ പ്രസിദ്ധീകരിക്കുക"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "ഫോട്ടോകള്‍ ഇങ്ങോ_ട്ട് പ്രസിദ്ധീകരിക്കുക :"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "ചലച്ചിത്രങ്ങള്‍ പ്രസിദ്ധീകരിക്കുക"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "ചലച്ചിത്ര_ങ്ങള്‍ ഇങ്ങോട്ട് പ്രസിദ്ധീകരിക്കുക"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "ഫോട്ടോകളും  ചലച്ചിത്രങ്ങളും  പ്രസിദ്ധീകരിക്കുക"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "ഫോട്ടോകളും  ചലച്ചിത്രങ്ങളും  ഇവിടേക്ക് _പ്രസിദ്ധീകരിക്കുക"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "പ്രസിദ്ധീകരിക്കാന്‍ കഴിഞ്ഞില്ല"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"അനുയോജ്യമായ ഒരു പ്രസിദ്ധീകരണ സംയോജകം  ഇല്ലാത്തതിനാല്‍ തിരഞ്ഞെടുത്ത ഇനങ്ങള്‍ പ്രസിദ്ധീകരിക്കാന്‍ "
-"ഷോട്ട്‌‌വെല്ലിനു കഴിയില്ല. ഇതു ശരിയാക്കാന്‍ <b>Edit %s Preferences </b> തിരഞ്ഞെടുത്തതിനു "
-"ശേഷം <b> Plugins </b> ടാബില്‍ നിന്നും ആവശ്യമായ പ്ലഗ്ഗിനുകള്‍ തിരഞ്ഞെടുക്കുക"
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "പ്രസിദ്ധീകരിക്കുന്നു"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2520,8 +2418,8 @@ msgstr "ടാഗുകള്‍"
 msgid "Photos cannot be exported to this directory."
 msgstr "ഈ ഡയറക്റ്ററിയിലേക്ക് ഫോട്ടോകള്‍ കയറ്റുമതി ചെയ്യാന്‍ കഴിയില്ല"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ഒരു ഫോട്ടോയും/വീഡിയോയും  ഇല്ല"
@@ -2534,48 +2432,48 @@ msgstr "ഒരു ഫോട്ടോയും/വീഡിയോയും കണ
 msgid "Play a slideshow"
 msgstr "ഒരു സ്ലൈഡ്ഷോ പ്രവര്‍ത്തിപ്പിക്കുക"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_ഡെവെലപ്പര്‍"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "ഫോട്ടോ/ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 msgstr[1] "ഫോട്ടോ/ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "കറക്കുക"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "കറക്കല്‍ നിരാകരിക്കുക"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "വിലങ്ങനെ അകമ്പുറം  മറിക്കുക"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "വിലങ്ങനെ അകമ്പുറം  മറിച്ചത് നിരാകരിക്കുക"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "കുത്തനെ അകമ്പുറം  മറിക്കുക"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "കൂത്തനെ അകമ്പുറം  മറിച്ചത് നിരാകരിക്കുക"
 
@@ -2596,25 +2494,25 @@ msgid ""
 "%s."
 msgstr "%s %s എന്ന ഫയല്‍ഫോര്‍മാറ്റ് സപ്പോര്‍ട്ട് ചെയ്യുന്നില്ല."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_ഒരു പതിപ്പ് സൂക്ഷിച്ചുവെക്കുക"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%s നുശേഷമുള്ള മാറ്റങ്ങള്‍ നശിപ്പിക്കട്ടെ?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "സംരക്ഷിക്കാതെ _അടക്കുക"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s ലേക്ക് സൂക്ഷിക്കുന്നതില്‍ പിഴവ് : %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "ഇങ്ങനെ സംരക്ഷിക്കുക"
 
@@ -2905,7 +2803,7 @@ msgstr "ഇറക്കുമതി ചെയ്തു %s"
 msgid "Last Import"
 msgstr "അവസാനത്തെ ഇറക്കുമതി"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s കയറ്റുമതി ചെയ്യാന്‍ കഴിഞ്ഞില്ല : %s"
@@ -3304,6 +3202,84 @@ msgstr "ചെസ്സ്"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ബ്ലൈന്‍ഡുകള്‍"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "അപ്പ്‌‌ലോഡ് ചെയ്യാന്‍ തയാറെടുക്കുന്നു."
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "%d എണ്ണത്തില്‍ %d എണ്ണം  അപ്പ്ലോഡ് ചെയ്യുന്നു"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "ഒരു പിഴവു സംഭവിച്ചതിനാല്‍ %s ലേക്ക്  പ്രസിദ്ധീകരിക്കാന്‍ സാധ്യമല്ല"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "മറ്റൊരു സേവനത്തിലേക്ക് പ്രസിദ്ധീകരിക്കാനായി മുകളിലെ മെനുവില്‍ നിന്ന് ഒരെണ്ണം  തിരഞ്ഞെടുക്കുക."
+
+#~ msgid "_Login"
+#~ msgstr "_പ്രവേശിക്കുക"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍/വീഡിയോകള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "തിരഞ്ഞെടുത്ത ചലച്ചിത്രങ്ങള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr ".തിരഞ്ഞെടുത്ത ചലച്ചിത്രം  വിജയകരമായി പ്രസിദ്ധീകരിച്ചു"
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോ വിജയകരമായി പ്രസിദ്ധീകരിച്ചു."
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "അക്കൗണ്ട് വിവരങ്ങള്‍ ശേഖരിക്കുന്നു..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "പ്രവേശിക്കുക..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "ഫോട്ടോകള്‍ പ്രസിദ്ധീകരിക്കുക"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "ഫോട്ടോകള്‍ ഇങ്ങോ_ട്ട് പ്രസിദ്ധീകരിക്കുക :"
+
+#~ msgid "Publish Videos"
+#~ msgstr "ചലച്ചിത്രങ്ങള്‍ പ്രസിദ്ധീകരിക്കുക"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "ചലച്ചിത്ര_ങ്ങള്‍ ഇങ്ങോട്ട് പ്രസിദ്ധീകരിക്കുക"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "ഫോട്ടോകളും  ചലച്ചിത്രങ്ങളും  പ്രസിദ്ധീകരിക്കുക"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "ഫോട്ടോകളും  ചലച്ചിത്രങ്ങളും  ഇവിടേക്ക് _പ്രസിദ്ധീകരിക്കുക"
+
+#~ msgid "Unable to publish"
+#~ msgstr "പ്രസിദ്ധീകരിക്കാന്‍ കഴിഞ്ഞില്ല"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "അനുയോജ്യമായ ഒരു പ്രസിദ്ധീകരണ സംയോജകം  ഇല്ലാത്തതിനാല്‍ തിരഞ്ഞെടുത്ത ഇനങ്ങള്‍ "
+#~ "പ്രസിദ്ധീകരിക്കാന്‍ ഷോട്ട്‌‌വെല്ലിനു കഴിയില്ല. ഇതു ശരിയാക്കാന്‍ <b>Edit %s Preferences </"
+#~ "b> തിരഞ്ഞെടുത്തതിനു ശേഷം <b> Plugins </b> ടാബില്‍ നിന്നും ആവശ്യമായ പ്ലഗ്ഗിനുകള്‍ "
+#~ "തിരഞ്ഞെടുക്കുക"
+
+#~ msgid "Publishing"
+#~ msgstr "പ്രസിദ്ധീകരിക്കുന്നു"
 
 #~ msgid ""
 #~ "You are not currently logged into YouTube.\n"

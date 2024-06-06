@@ -1,5 +1,4 @@
 library_files = files(
-    'plugins/PublishingInterfaces.vala',
     'plugins/SpitInterfaces.vala',
     'plugins/TransitionsInterfaces.vala'
 )
@@ -141,11 +140,6 @@ photos_files = files(
     'plugins/Plugins.vala',
     'plugins/StandardHostInterface.vala',
     'plugins/ManifestWidget.vala',
-
-    'publishing/APIGlue.vala',
-    'publishing/PublishingPluginHost.vala',
-    'publishing/PublishingUI.vala',
-    'publishing/Publishing.vala',
 
     'searches/Branch.vala',
     'searches/SearchBoolean.vala',
