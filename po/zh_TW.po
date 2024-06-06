@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -359,9 +359,7 @@ msgstr "全部取代(_A)"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -1201,15 +1199,15 @@ msgstr "切換顯影器(_S)"
 msgid "Export Video"
 msgstr "匯出視訊"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "匯出相片"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "儲存(_S)"
 
@@ -1638,11 +1636,11 @@ msgstr "複製相片(_P)"
 msgid "_Import in Place"
 msgstr "匯入位置(_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "從珍藏館移除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1726,7 +1724,6 @@ msgid "Plugins"
 msgstr "插件"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "關閉(_C)"
 
@@ -1740,7 +1737,7 @@ msgid "Add"
 msgstr "加入"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "儲存"
 
@@ -1769,7 +1766,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "取消"
 
@@ -2003,8 +2000,8 @@ msgstr "設定值"
 msgid "Sort _Events"
 msgstr "排序事件(_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "檢視相片的事件(_N)"
 
@@ -2016,7 +2013,7 @@ msgid "New Smart Album…"
 msgstr "新增智慧相簿…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "編輯相片資訊(_F)"
 
@@ -2163,103 +2160,6 @@ msgstr ""
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr ""
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "正在準備上傳"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "正在上傳 %d/%d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "因為遭遇錯誤，無法繼續發布至 %s："
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr "若要嘗試發布至其它服務，請從上方選單選擇。"
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "登入(_L)"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "所選的相片/視訊已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "所選的視訊已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "所選的相片已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "所選的視訊已成功發布。"
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "所選的相片已成功發布。"
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "正在擷取帳號資訊..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "正在登入..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "發布相片"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "將相片發布至(_T)："
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "發布視訊"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "將視訊發布至(_T)"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "發布相片與視訊"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "將相片與視訊發布至(_T)"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "無法發布"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Shotwell 無法發布所選的項目，因為您尚未啟用相容的發布插件。若要修正此問題，請"
-"選擇 <b>編輯 %s 偏好設定</b> 並在 <b>插件</b> 分頁啟用一項或多項發布用插件。"
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "發布"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2434,8 +2334,8 @@ msgstr "標籤"
 msgid "Photos cannot be exported to this directory."
 msgstr "無法匯出相片至此目錄。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "無相片/視訊"
@@ -2448,47 +2348,47 @@ msgstr "找不到相片或視訊"
 msgid "Play a slideshow"
 msgstr "播放投影秀"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "顯影器(_D)"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "匯出相片/視訊"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "正在旋轉"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "正在復原旋轉"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "正在水平翻轉"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "正在復原水平翻轉"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "正在垂直翻轉"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "正在復原垂直翻轉"
 
@@ -2511,25 +2411,25 @@ msgstr ""
 "%s 不支援檔案格式\n"
 "%s。"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "儲存複本(_S)"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "放棄對 %s 所作出的變更？"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "關閉而不儲存(_W)"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "當儲存至 %s 時發生錯誤：%s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "另存新檔"
 
@@ -2807,7 +2707,7 @@ msgstr "已匯入 %s"
 msgid "Last Import"
 msgstr "上次匯入"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "無法匯出 %s：%s"
@@ -3204,6 +3104,82 @@ msgstr "棋盤"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "百葉窗"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "正在準備上傳"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "正在上傳 %d/%d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "因為遭遇錯誤，無法繼續發布至 %s："
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr "若要嘗試發布至其它服務，請從上方選單選擇。"
+
+#~ msgid "_Login"
+#~ msgstr "登入(_L)"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "所選的相片/視訊已經成功發布。"
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "所選的視訊已經成功發布。"
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "所選的相片已經成功發布。"
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "所選的視訊已成功發布。"
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "所選的相片已成功發布。"
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "正在擷取帳號資訊..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "正在登入..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "發布相片"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "將相片發布至(_T)："
+
+#~ msgid "Publish Videos"
+#~ msgstr "發布視訊"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "將視訊發布至(_T)"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "發布相片與視訊"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "將相片與視訊發布至(_T)"
+
+#~ msgid "Unable to publish"
+#~ msgstr "無法發布"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Shotwell 無法發布所選的項目，因為您尚未啟用相容的發布插件。若要修正此問"
+#~ "題，請選擇 <b>編輯 %s 偏好設定</b> 並在 <b>插件</b> 分頁啟用一項或多項發布"
+#~ "用插件。"
+
+#~ msgid "Publishing"
+#~ msgstr "發布"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "著作權 2009-2013 Yorba Foundation"

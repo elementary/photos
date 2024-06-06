@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2023-05-30 03:07+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/"
@@ -368,9 +368,7 @@ msgstr "_Alles vervangen"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Annuleren"
 
@@ -1210,15 +1208,15 @@ msgstr "Ontwikkelaar _wisselen"
 msgid "Export Video"
 msgstr "Exporteer video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporteer foto"
 msgstr[1] "Exporteer foto’s"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "Op_slaan"
 
@@ -1714,11 +1712,11 @@ msgstr "Foto's ko_piëren"
 msgid "_Import in Place"
 msgstr "_Importeren naar locatie"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Verwijder uit bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Foto wordt verwijderd uit bibliotheek"
@@ -1801,7 +1799,6 @@ msgid "Plugins"
 msgstr "Plug-ins"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Sluiten"
 
@@ -1815,7 +1812,7 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Opslaan"
 
@@ -1844,7 +1841,7 @@ msgid "Add rule"
 msgstr "Voeg regel toe"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Annuleer"
 
@@ -2077,8 +2074,8 @@ msgstr "Instellingen"
 msgid "Sort _Events"
 msgstr "G_ebeurtenissen sorteren"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Gebeurte_nis van foto bekijken"
 
@@ -2090,7 +2087,7 @@ msgid "New Smart Album…"
 msgstr "Nieuw Smart Album…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Edit Foto In_fo"
 
@@ -2238,106 +2235,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "Over"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Voorbereiden van het uploaden"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "%d van %d uploaden"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr ""
-"Het publiceren naar %s kan niet doorgaan omdat er een fout is opgetreden:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"Indien u wilt publiceren naar een andere dienst, dan kunt u deze selecteren "
-"in het bovenstaande menu."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "In_loggen"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "De geselecteerde foto's/video's zijn succesvol gepubliceerd."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "De geselecteerde video's zijn succesvol gepubliceerd."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "De geselecteerde foto's zijn succesvol gepubliceerd."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "De geselecteerde video is succesvol gepubliceerd."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "De geselecteerde foto is succesvol gepubliceerd."
-
-#: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information…"
-msgstr "Accountinformatie wordt opgehaald…"
-
-#: src/publishing/PublishingUI.vala:153
-msgid "Logging in…"
-msgstr "Bezig met inloggen…"
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Publiceer foto's"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Publiceer foto's _naar:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Publiceer video's"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Publiceer video's _naar"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Publiceer foto's en video's"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Publiceer foto's en video's _naar"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Kon niet publiceren"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Foto's kan de geselecteerde items niet publiceren, omdat u geen compatibele "
-"publicatieplug-in ingeschakeld heeft. Om dit te corrigeren, selecteert u "
-"<b>Bewerken %s Voorkeuren</b> en schakelt u één of meer publicatieplug-ins "
-"in in het tabblad <b>Plug-in</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Publiceren"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2513,8 +2410,8 @@ msgstr "Labels"
 msgid "Photos cannot be exported to this directory."
 msgstr "Foto's kunnen niet worden geëxporteerd naar deze map."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Geen foto's/video's"
@@ -2527,47 +2424,47 @@ msgstr "Geen foto's/video's gevonden"
 msgid "Play a slideshow"
 msgstr "Diavoorstelling afspelen"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Ontwikkelaar"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "Andere acties"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporteer foto/video"
 msgstr[1] "Exporteer foto’s/video’s"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Aan het draaien"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Draaien aan het ongedaan maken"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Bezig met horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Ongedaan maken van horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Verticaal spiegelen"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Verticaal spiegelen ongedaan maken"
 
@@ -2590,25 +2487,25 @@ msgstr ""
 "%s ondersteunt het bestandsformaat van\n"
 "%s niet."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "Een kopie op_slaan"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Wijzigingen aan %s niet opslaan?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Sluiten _zonder op te slaan"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Fout bij het opslaan in %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Opslaan als"
 
@@ -2887,7 +2784,7 @@ msgstr "%s geïmporteerd"
 msgid "Last Import"
 msgstr "Laatste import"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Kon %s niet exporteren: %s"
@@ -3264,6 +3161,84 @@ msgstr "Schaakbord"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellen"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Voorbereiden van het uploaden"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "%d van %d uploaden"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr ""
+#~ "Het publiceren naar %s kan niet doorgaan omdat er een fout is opgetreden:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "Indien u wilt publiceren naar een andere dienst, dan kunt u deze "
+#~ "selecteren in het bovenstaande menu."
+
+#~ msgid "_Login"
+#~ msgstr "In_loggen"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "De geselecteerde foto's/video's zijn succesvol gepubliceerd."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "De geselecteerde video's zijn succesvol gepubliceerd."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "De geselecteerde foto's zijn succesvol gepubliceerd."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "De geselecteerde video is succesvol gepubliceerd."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "De geselecteerde foto is succesvol gepubliceerd."
+
+#~ msgid "Fetching account information…"
+#~ msgstr "Accountinformatie wordt opgehaald…"
+
+#~ msgid "Logging in…"
+#~ msgstr "Bezig met inloggen…"
+
+#~ msgid "Publish Photos"
+#~ msgstr "Publiceer foto's"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Publiceer foto's _naar:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Publiceer video's"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Publiceer video's _naar"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Publiceer foto's en video's"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Publiceer foto's en video's _naar"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Kon niet publiceren"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Foto's kan de geselecteerde items niet publiceren, omdat u geen "
+#~ "compatibele publicatieplug-in ingeschakeld heeft. Om dit te corrigeren, "
+#~ "selecteert u <b>Bewerken %s Voorkeuren</b> en schakelt u één of meer "
+#~ "publicatieplug-ins in in het tabblad <b>Plug-in</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Publiceren"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Copyright 2009-2013 Yorba Foundation"

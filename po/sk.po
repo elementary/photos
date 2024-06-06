@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2017-04-09 18:51+0000\n"
 "Last-Translator: Roman <xmitarai@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/shotwell/language/"
@@ -374,9 +374,7 @@ msgstr "Nahradiť _všetko"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -1257,8 +1255,8 @@ msgstr "_Prepnúť vývojára"
 msgid "Export Video"
 msgstr "Exportovať video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1267,7 +1265,7 @@ msgstr[1] "Exportovať fotografiu"
 msgstr[2] "Exportovať fotografiu"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "_Uložiť"
 
@@ -1836,11 +1834,11 @@ msgstr "Ko_pírovať fotografie"
 msgid "_Import in Place"
 msgstr "_Importovať na mieste"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Odstrániť z knižnice"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1928,7 +1926,6 @@ msgid "Plugins"
 msgstr "Zásuvné moduly"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "Za_vrieť"
 
@@ -1942,7 +1939,7 @@ msgid "Add"
 msgstr "Pridať"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Uložiť"
 
@@ -1971,7 +1968,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -2211,8 +2208,8 @@ msgstr "Nastavenia"
 msgid "Sort _Events"
 msgstr "Zora_diť udalosti"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Zobraziť u_dalosť fotografie"
 
@@ -2224,7 +2221,7 @@ msgid "New Smart Album…"
 msgstr "Nové chytré album..."
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Editovať info_rmáciu fotografie"
 
@@ -2372,107 +2369,6 @@ msgstr ""
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr ""
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Pripravuje sa nahrávanie"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "Nahráva sa %d z %d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "Uverejňovanie na %s nemôže pokračovať, pretože sa vyskytla chyba:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"Aby ste mohli uverejniť vaše fotografie na inej službe, zvoľte si ju z "
-"ponuky hore."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_Prihlásiť sa"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "Vybrané fotografie/videá boli úspešne uverejnené."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "Vybrané videá boli úspešne uverejnené."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "Zvolené fotografie boli úspešne uverejnené."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "Vybrané video bolo úspešne uverejnené."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "Vybraná fotografia bola úspešne uverejnená."
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "Získavajú sa informácie o účte..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "Prihlasuje sa..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Uverejniť fotografie"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Uverejniť fotografie _na:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Uverejniť videá"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Uverejniť videá _na"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Uverejniť fotografie a videá"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Uverejniť fotografie a videá _na"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Nepodarilo sa uverejniť"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Shotwell nemôže uverejniť zvolené položky, pretože nemáte kompatibilný "
-"uverejňovací zásuvný modul. Na opravenie tohoto problému, zvoľte <b>Upraviť "
-"%s predvoľby</b> a povoľte jeden alebo viacero uverejňovacích zásuvných "
-"modulov v záložke <b>Zásuvné moduly</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Uverejňovanie"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2651,8 +2547,8 @@ msgstr "Značky"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemôžu byť exportované do tohoto adresára."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Žiadne fotografie/videá"
@@ -2665,21 +2561,21 @@ msgstr "Neboli nájdené žiadne fotografie/videá"
 msgid "Play a slideshow"
 msgstr "Spustiť prezentáciu"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Vývojár"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2687,27 +2583,27 @@ msgstr[0] "Exportovať fotografiu/video"
 msgstr[1] "Exportovať fotografiu/video"
 msgstr[2] "Exportovať fotografiu/video"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Otáča sa"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Vracia sa spať otáčanie"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Prevracia sa horizontálne"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Vracia sa prevrátenie horizontálne"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Prevracia sa vertikálne"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Vracia sa prevrátenie vertikálne"
 
@@ -2730,25 +2626,25 @@ msgstr ""
 "%s nepodporuje súborový formát\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_Uložiť kópiu"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Zahodiť zmeny vo %s?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Zavrieť _bez uloženia"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Chyba počas ukladania do %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Uložiť ako"
 
@@ -3044,7 +2940,7 @@ msgstr "Importovaný súbor „%s“"
 msgid "Last Import"
 msgstr "Posledné importovanie"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Nepodarilo sa exportovať %s: %s"
@@ -3454,6 +3350,85 @@ msgstr "Šachovnica"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Oslepenie"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Pripravuje sa nahrávanie"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "Nahráva sa %d z %d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "Uverejňovanie na %s nemôže pokračovať, pretože sa vyskytla chyba:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "Aby ste mohli uverejniť vaše fotografie na inej službe, zvoľte si ju z "
+#~ "ponuky hore."
+
+#~ msgid "_Login"
+#~ msgstr "_Prihlásiť sa"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "Vybrané fotografie/videá boli úspešne uverejnené."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "Vybrané videá boli úspešne uverejnené."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "Zvolené fotografie boli úspešne uverejnené."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "Vybrané video bolo úspešne uverejnené."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "Vybraná fotografia bola úspešne uverejnená."
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "Získavajú sa informácie o účte..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "Prihlasuje sa..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "Uverejniť fotografie"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Uverejniť fotografie _na:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Uverejniť videá"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Uverejniť videá _na"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Uverejniť fotografie a videá"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Uverejniť fotografie a videá _na"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Nepodarilo sa uverejniť"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Shotwell nemôže uverejniť zvolené položky, pretože nemáte kompatibilný "
+#~ "uverejňovací zásuvný modul. Na opravenie tohoto problému, zvoľte "
+#~ "<b>Upraviť %s predvoľby</b> a povoľte jeden alebo viacero uverejňovacích "
+#~ "zásuvných modulov v záložke <b>Zásuvné moduly</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Uverejňovanie"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Copyright 2009-2013 Yorba Foundation, všetky práva vyhradené."

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2022-08-05 23:08+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/photos/photos/ko/"
@@ -360,9 +360,7 @@ msgstr "모두 바꾸기(_A)"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -1185,14 +1183,14 @@ msgstr "편집 프로그램 전환(_S)"
 msgid "Export Video"
 msgstr "비디오 내보내기"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "사진 내보내기"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "저장(_S)"
 
@@ -1627,11 +1625,11 @@ msgstr "사진 복사(_P)"
 msgid "_Import in Place"
 msgstr "복사하지 않고 가져오기(_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "라이브러리에서 제거"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "사진을 라이브러리에서 제거하는 중"
@@ -1712,7 +1710,6 @@ msgid "Plugins"
 msgstr "플러그인"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "닫기(_C)"
 
@@ -1726,7 +1723,7 @@ msgid "Add"
 msgstr "추가하기"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "저장하기"
 
@@ -1755,7 +1752,7 @@ msgid "Add rule"
 msgstr "규칙 추가"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "취소"
 
@@ -1985,8 +1982,8 @@ msgstr "설정"
 msgid "Sort _Events"
 msgstr "이벤트 정렬(_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "사진 이벤트 보기(_N)"
 
@@ -1998,7 +1995,7 @@ msgid "New Smart Album…"
 msgstr "새 스마트 앨범…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "사진 정보 편집(_F)"
 
@@ -2146,102 +2143,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "소개"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "업로드 준비 중"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "전체 %d개 가운데 %d개 업로드 중"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "오류가 생겨서 %s에 올릴 수 없습니다:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr "위 메뉴에서, 다른 서비스를 하나 선택해 시도해보세요."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "로그인(_L)"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "선택하신 사진/비디오를 성공적으로 업로드했습니다."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "선택하신 비디오를 성공적으로 업로드했습니다."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "선택하신 사진을 성공적으로 업로드했습니다."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "선택하신 비디오를 성공적으로 업로드했습니다."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "선택하신 사진을 성공적으로 업로드했습니다."
-
-#: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information…"
-msgstr "계정 정보 가져오는 중…"
-
-#: src/publishing/PublishingUI.vala:153
-msgid "Logging in…"
-msgstr "로그인 중…"
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "사진 업로드"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "사진을 올릴 곳(_T):"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "비디오 업로드"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "비디오 업로드(_T)"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "사진과 비디오 업로드"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "다음에 사진과 비디오 업로드(_T)"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "사진을 올릴 수 없음"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"알맞은 업로드 플러그인을 사용하고 있지 않아 선택한 항목을 업로드할 수 없습니"
-"다. 이 문제를 해결하려면 <b>편집 %s 기본 설정</b>을 선택한 뒤 <b>플러그인</"
-"b> 탭에서 사용하실 플러그인을 선택해주십시오."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "공유"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2415,8 +2316,8 @@ msgstr "태그"
 msgid "Photos cannot be exported to this directory."
 msgstr "사진을 이 디렉터리로 내보낼 수 없습니다."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "사진/비디오가 없음"
@@ -2429,46 +2330,46 @@ msgstr "사진/비디오를 찾을 수 없습니다"
 msgid "Play a slideshow"
 msgstr "슬라이드 쇼 시작"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "편집 프로그램(_D)"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "다른 작업"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "사진/비디오 내보내기"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "회전"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "회전 취소"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "좌우로 뒤집기"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "좌우로 뒤집기 취소"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "상하 뒤집기"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "상하로 뒤집기 취소"
 
@@ -2491,25 +2392,25 @@ msgstr ""
 "%s(이)가 다음의 파일 형식을 지원하지 않습니다\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "사본 저장(_S)"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "%sd에 바뀐 점을 버리시겠습니까?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "저장하지 않고 닫기(_W)"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s(으)로 저장하는 중 오류 발생: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "다른 이름으로 저장"
 
@@ -2781,7 +2682,7 @@ msgstr "%s 가져옴"
 msgid "Last Import"
 msgstr "최근 가져온 항목"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s(을)를 내보낼 수 없습니다: %s"
@@ -3157,6 +3058,80 @@ msgstr "체스판 무늬"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "블라인드"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "업로드 준비 중"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "전체 %d개 가운데 %d개 업로드 중"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "오류가 생겨서 %s에 올릴 수 없습니다:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr "위 메뉴에서, 다른 서비스를 하나 선택해 시도해보세요."
+
+#~ msgid "_Login"
+#~ msgstr "로그인(_L)"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "선택하신 사진/비디오를 성공적으로 업로드했습니다."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "선택하신 비디오를 성공적으로 업로드했습니다."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "선택하신 사진을 성공적으로 업로드했습니다."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "선택하신 비디오를 성공적으로 업로드했습니다."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "선택하신 사진을 성공적으로 업로드했습니다."
+
+#~ msgid "Fetching account information…"
+#~ msgstr "계정 정보 가져오는 중…"
+
+#~ msgid "Logging in…"
+#~ msgstr "로그인 중…"
+
+#~ msgid "Publish Photos"
+#~ msgstr "사진 업로드"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "사진을 올릴 곳(_T):"
+
+#~ msgid "Publish Videos"
+#~ msgstr "비디오 업로드"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "비디오 업로드(_T)"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "사진과 비디오 업로드"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "다음에 사진과 비디오 업로드(_T)"
+
+#~ msgid "Unable to publish"
+#~ msgstr "사진을 올릴 수 없음"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "알맞은 업로드 플러그인을 사용하고 있지 않아 선택한 항목을 업로드할 수 없습"
+#~ "니다. 이 문제를 해결하려면 <b>편집 %s 기본 설정</b>을 선택한 뒤 <b>플러그"
+#~ "인</b> 탭에서 사용하실 플러그인을 선택해주십시오."
+
+#~ msgid "Publishing"
+#~ msgstr "공유"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Copyright 2009-2013 Yorba Foundation"
