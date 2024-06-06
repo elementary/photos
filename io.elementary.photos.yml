@@ -4,10 +4,14 @@ runtime-version: '8'
 sdk: io.elementary.Sdk
 command: io.elementary.photos
 finish-args:
-  - '--filesystem=home'
+  - '--filesystem=xdg-pictures'
+
+  # External media
+  - '--filesystem=/media'
+  - '--filesystem=/run/media'
+  - '--filesystem=/mnt'
 
   - '--share=ipc'
-  - '--share=network'
   - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--device=dri'
