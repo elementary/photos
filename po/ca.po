@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2024-05-07 05:13+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/photos/photos/ca/"
@@ -371,9 +371,7 @@ msgstr "Reempl_aça'ls tots"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -1219,15 +1217,15 @@ msgstr "_Commuta el revelador"
 msgid "Export Video"
 msgstr "Exporta vídeos"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporta la fotografia"
 msgstr[1] "Exporta les fotografies"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "De_sa"
 
@@ -1743,11 +1741,11 @@ msgstr "Co_pia les fotografies"
 msgid "_Import in Place"
 msgstr "_Importa-les a la ubicació"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Suprimeix de la biblioteca"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Se suprimeix la fotografia de la biblioteca"
@@ -1830,7 +1828,6 @@ msgid "Plugins"
 msgstr "Connectors"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Tanca"
 
@@ -1844,7 +1841,7 @@ msgid "Add"
 msgstr "Afegeix"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Desa"
 
@@ -1873,7 +1870,7 @@ msgid "Add rule"
 msgstr "Afegeix una regla"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -2109,8 +2106,8 @@ msgstr "Configuració"
 msgid "Sort _Events"
 msgstr "Ordena els es_deveniments"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Visualitza l'_esdeveniment de la fotografia"
 
@@ -2122,7 +2119,7 @@ msgid "New Smart Album…"
 msgstr "Àlbum intel·ligent nou…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Edita la in_formació de la fotografia"
 
@@ -2271,105 +2268,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "Quant a"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Es prepara per pujar"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "Es puja: %d de %d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "La publicació a %s no pot continuar perquè s'ha produït un error:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"Si voleu intentar publicar les fotografies a un altre servei, seleccioneu-ne "
-"un del menú de sobre."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_Connecta"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "S'han publicat correctament les fotografies/vídeos seleccionats."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "S'han publicat correctament els vídeos seleccionats."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "S'han publicat correctament les fotografies seleccionades."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "S'ha publicat correctament el vídeo seleccionat."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "S'ha publicat correctament la fotografia seleccionada."
-
-#: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information…"
-msgstr "Es recull la informació del compte…"
-
-#: src/publishing/PublishingUI.vala:153
-msgid "Logging in…"
-msgstr "S'entra…"
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Publica les fotografies"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Publica les fotografies _a:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Publica vídeos"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Publica vídeos _a..."
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Publica fotografies i vídeos"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Publica fotografies i vídeos _a"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "No s'ha pogut publicar"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Fotografies no pot publicar els elements seleccionats perquè no teniu un "
-"connector de publicació compatible habilitat. Per corregir-ho, trieu "
-"<b>Edita les preferències de %s</b> i habiliteu un connector de publicació, "
-"o més d'un, a la pestanya <b>Connectors</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Es publica"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2545,8 +2443,8 @@ msgstr "Etiquetes"
 msgid "Photos cannot be exported to this directory."
 msgstr "No es poden exportar fotografies a aquest directori."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Cap fotografia/vídeo"
@@ -2559,47 +2457,47 @@ msgstr "No s'ha trobat cap fotografia/vídeo"
 msgid "Play a slideshow"
 msgstr "Reprodueix una presentació de diapositives"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "Revela_dor"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr "Estableix com a fons de pantalla"
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporta la fotografia / vídeo"
 msgstr[1] "Exporta fotografies / vídeos"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Es gira"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Es desfà la rotació"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Es gira horitzontalment"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Es desfà el gir horitzontal"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Es gira verticalment"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Es desfà el gir vertical"
 
@@ -2622,25 +2520,25 @@ msgstr ""
 "%s no és compatible amb el format de fitxer de\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "De_sa'n una còpia"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Voleu descartar els canvis a %s?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Tanca _sense desar"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "S'ha produït un error en desar a %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Anomena i desa"
 
@@ -2917,7 +2815,7 @@ msgstr "S'ha importat %s"
 msgid "Last Import"
 msgstr "Darrera importació"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "No s'ha pogut exportar %s: %s"
@@ -3299,6 +3197,83 @@ msgstr "Escacs"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persianes"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Es prepara per pujar"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "Es puja: %d de %d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "La publicació a %s no pot continuar perquè s'ha produït un error:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "Si voleu intentar publicar les fotografies a un altre servei, seleccioneu-"
+#~ "ne un del menú de sobre."
+
+#~ msgid "_Login"
+#~ msgstr "_Connecta"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "S'han publicat correctament les fotografies/vídeos seleccionats."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "S'han publicat correctament els vídeos seleccionats."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "S'han publicat correctament les fotografies seleccionades."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "S'ha publicat correctament el vídeo seleccionat."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "S'ha publicat correctament la fotografia seleccionada."
+
+#~ msgid "Fetching account information…"
+#~ msgstr "Es recull la informació del compte…"
+
+#~ msgid "Logging in…"
+#~ msgstr "S'entra…"
+
+#~ msgid "Publish Photos"
+#~ msgstr "Publica les fotografies"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Publica les fotografies _a:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Publica vídeos"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Publica vídeos _a..."
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Publica fotografies i vídeos"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Publica fotografies i vídeos _a"
+
+#~ msgid "Unable to publish"
+#~ msgstr "No s'ha pogut publicar"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Fotografies no pot publicar els elements seleccionats perquè no teniu un "
+#~ "connector de publicació compatible habilitat. Per corregir-ho, trieu "
+#~ "<b>Edita les preferències de %s</b> i habiliteu un connector de "
+#~ "publicació, o més d'un, a la pestanya <b>Connectors</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Es publica"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Copyright 2009-2013 Fundació Yorba"

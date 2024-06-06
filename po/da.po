@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2020-05-25 15:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/photos/photos/da/"
@@ -365,9 +365,7 @@ msgstr "Overskriv _alle"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Afbryd"
 
@@ -1208,15 +1206,15 @@ msgstr "_Skift udvikler"
 msgid "Export Video"
 msgstr "Eksporter Video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksporter billede"
 msgstr[1] "Eksporter billeder"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "_Gem"
 
@@ -1701,11 +1699,11 @@ msgstr "Ko_pier billeder"
 msgid "_Import in Place"
 msgstr "_Importer uden at kopiere"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Fjern fra biblioteket"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Fjerner billede fra bibliotek"
@@ -1788,7 +1786,6 @@ msgid "Plugins"
 msgstr "Plugins"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Luk"
 
@@ -1802,7 +1799,7 @@ msgid "Add"
 msgstr "Tilføj"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Gem"
 
@@ -1831,7 +1828,7 @@ msgid "Add rule"
 msgstr "Tilføj regel"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -2066,8 +2063,8 @@ msgstr "Opsætning"
 msgid "Sort _Events"
 msgstr "Sorter _hændelser"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Se begive_nhed for billede"
 
@@ -2079,7 +2076,7 @@ msgid "New Smart Album…"
 msgstr "Nyt smartalbum…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Rediger billed_info"
 
@@ -2227,105 +2224,6 @@ msgstr "WebP"
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr "Om"
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Forbereder til upload"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "Uploader %d af %d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "Udgivelse til %s kan ikke fortsætte, da fejl opstod:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr ""
-"For at forsøge udgivelse til en anden tjeneste, vælges en fra ovenstående "
-"menu."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_Log ind"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "De valgte billeder/videoer blev udgivet succesfuldt."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "De valgte videoer blev udgivet succesfuldt."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "De valgte billeder blev udgivet."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "Den valgte video blev udgivet med succes."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "Det valgte foto blev udgivet med succes."
-
-#: src/publishing/PublishingUI.vala:147
-msgid "Fetching account information…"
-msgstr "Henter kontoinformation…"
-
-#: src/publishing/PublishingUI.vala:153
-msgid "Logging in…"
-msgstr "Logger ind…"
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Udgiv billeder"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Udgiv billeder _til:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Udgiv videoer"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Udgiv videoer _til"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Udgiv billeder og videoer"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Udgiv billeder og videoer _til"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Kunne ikke udgive"
-
-#: src/publishing/PublishingUI.vala:407
-#, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Fotos kan ikke udgive de valgte elementer, da du ikke har aktiveret plugin "
-"som er kompatible. For at rette dette, så vælg <b>Redigér indstillinger for "
-"%s</b> og aktivér én eller flere af udgivelsepluginene i fanebladet "
-"<b>Plugins</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Udgivelse"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2501,8 +2399,8 @@ msgstr "Mærkater"
 msgid "Photos cannot be exported to this directory."
 msgstr "Billeder kan ikke blive eksporteret til denne mappe."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Ingen fotos/videoer"
@@ -2515,47 +2413,47 @@ msgstr "Fandt ingen fotos/videoer"
 msgid "Play a slideshow"
 msgstr "Afspil et diasshow"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Udvikler"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksporter billede/video"
 msgstr[1] "Eksporter billeder/videoer"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Roterer"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Fortryder rotering"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Vender vandret"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Fortryder vandret vending"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Vender lodret"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Fortryder lodret vending"
 
@@ -2578,25 +2476,25 @@ msgstr ""
 "%s understøtter ikke filformatet for\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_Gem en kopi"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Mist ændringer til %s?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Luk _uden at gemme"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Fejl under gemning til %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Gem som"
 
@@ -2872,7 +2770,7 @@ msgstr "Importerede %s"
 msgid "Last Import"
 msgstr "Sidste import"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Kunne ikke eksportere %s: %s"
@@ -3266,6 +3164,83 @@ msgstr "Skak"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Persienner"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Forbereder til upload"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "Uploader %d af %d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "Udgivelse til %s kan ikke fortsætte, da fejl opstod:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr ""
+#~ "For at forsøge udgivelse til en anden tjeneste, vælges en fra ovenstående "
+#~ "menu."
+
+#~ msgid "_Login"
+#~ msgstr "_Log ind"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "De valgte billeder/videoer blev udgivet succesfuldt."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "De valgte videoer blev udgivet succesfuldt."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "De valgte billeder blev udgivet."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "Den valgte video blev udgivet med succes."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "Det valgte foto blev udgivet med succes."
+
+#~ msgid "Fetching account information…"
+#~ msgstr "Henter kontoinformation…"
+
+#~ msgid "Logging in…"
+#~ msgstr "Logger ind…"
+
+#~ msgid "Publish Photos"
+#~ msgstr "Udgiv billeder"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Udgiv billeder _til:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Udgiv videoer"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Udgiv videoer _til"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Udgiv billeder og videoer"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Udgiv billeder og videoer _til"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Kunne ikke udgive"
+
+#, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Fotos kan ikke udgive de valgte elementer, da du ikke har aktiveret "
+#~ "plugin som er kompatible. For at rette dette, så vælg <b>Redigér "
+#~ "indstillinger for %s</b> og aktivér én eller flere af udgivelsepluginene "
+#~ "i fanebladet <b>Plugins</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Udgivelse"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Ophavsret 2009-2013 Yorba Foundation"

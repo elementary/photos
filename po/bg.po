@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-06 19:30+0000\n"
 "PO-Revision-Date: 2017-04-09 19:13+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/shotwell/"
@@ -362,9 +362,7 @@ msgstr "Замяна на _всички"
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
 msgid "_Cancel"
 msgstr "_Отказ"
 
@@ -1228,8 +1226,8 @@ msgstr "_Смени Разработчика"
 msgid "Export Video"
 msgstr "Изнасяне на видео"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
+#: src/Views/LibraryPhotoPage.vala:850
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1237,7 +1235,7 @@ msgstr[0] "Изнасяне на снимка"
 msgstr[1] "Изнасяне на снимка"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
 msgid "_Save"
 msgstr "_Запазване"
 
@@ -1744,11 +1742,11 @@ msgstr "_Преписване на снимките"
 msgid "_Import in Place"
 msgstr "_Внасяне на място"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
 msgid "Remove From Library"
 msgstr "Премахване от библиотеката"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1834,7 +1832,6 @@ msgid "Plugins"
 msgstr "Плъгини"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "_Затваряне"
 
@@ -1848,7 +1845,7 @@ msgid "Add"
 msgstr "Добавяне"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
 msgid "Save"
 msgstr "Запазване"
 
@@ -1877,7 +1874,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:570
 msgid "Cancel"
 msgstr "Отказ"
 
@@ -2114,8 +2111,8 @@ msgstr "Настройки"
 msgid "Sort _Events"
 msgstr "Сортиране на _събития"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
+#: src/Views/LibraryPhotoPage.vala:560
 msgid "View Eve_nt for Photo"
 msgstr "Преглед на _събитие за снимката"
 
@@ -2127,7 +2124,7 @@ msgid "New Smart Album…"
 msgstr "Нов Умен Албум..."
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
 msgid "Edit Photo In_fo"
 msgstr "Редактирай ин_формацията за снимката"
 
@@ -2275,105 +2272,6 @@ msgstr ""
 #: src/plugins/ManifestWidget.vala:38
 msgid "About"
 msgstr ""
-
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "Подготовка за качване на файловете"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "Качване на %d от %d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "Публикуването в %s не може да продължи поради възникнала грешка:"
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr "За да публикувате в друга услуга, изберете една от горното меню."
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "_Вписване"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "Избраните снимки/видеа бяха публикувани успешно."
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "Избраните видеа бяха публикувани успешно."
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "Избраните снимки са публикувани успешно."
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "Избраното видео беше публикувано успешно."
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "Избраната снимка  беше публикувана успешно."
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "Получаване на информация за профила..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "Вписване..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "Публикуване на снимки"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "Публикуване на снимки _в:"
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "Издадени видеа"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "Издадени видеа _в"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "Издай Снимки и Видеа"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "Издаване на снимки и видеа _в"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "Не може да се издаде"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Шотуелл не може да издаде избраните неща, защото нямате включена съвместима "
-"издателска приставка. За да поправите това, изберете <b>Промени %s "
-"Настройки</b> и включете една или повече от издателските добавки от раздела "
-"<b>Приставки</b>."
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "Издателство"
 
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
@@ -2550,8 +2448,8 @@ msgstr "Етикети"
 msgid "Photos cannot be exported to this directory."
 msgstr "Снимките не могат да бъдат изнесени в тази папка."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
+#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Няма снимки/видео"
@@ -2564,48 +2462,48 @@ msgstr "Не са открити снимки/видеа"
 msgid "Play a slideshow"
 msgstr "Стартиране на прожекция"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
 msgid "_Developer"
 msgstr "_Разработчик"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
+#: src/Views/LibraryPhotoPage.vala:575
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
+#: src/Views/LibraryPhotoPage.vala:579
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:688
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Изнасяне на Снимка/Видео"
 msgstr[1] "Изнасяне на Снимка/Видео"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Rotating"
 msgstr "Завъртане"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
 msgid "Undoing Rotate"
 msgstr "Отмяна на завъртане"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:803
 msgid "Flipping Horizontally"
 msgstr "Хоризонтално обръщане"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:804
 msgid "Undoing Flip Horizontally"
 msgstr "Отмяна на хоризонтално обръщане"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:813
 msgid "Flipping Vertically"
 msgstr "Вертикално обръщане"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:814
 msgid "Undoing Flip Vertically"
 msgstr "Отмяна на вертикално обръщане"
 
@@ -2628,25 +2526,25 @@ msgstr ""
 "%s не поддържа файловия формат на\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:464
 msgid "_Save a Copy"
 msgstr "_Запазване на копие"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:467
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Загуба на промените на %s?"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:474
 msgid "Close _without Saving"
 msgstr "Затваряне без _запазване"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:514
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Грешка при запазване на %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
 msgid "Save As"
 msgstr "Запазване като"
 
@@ -2935,7 +2833,7 @@ msgstr "Внесени %s"
 msgid "Last Import"
 msgstr "Последно внасяне"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:870
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Невъзможност за изнасяне на %s: %s"
@@ -3342,6 +3240,83 @@ msgstr "Шах"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Щори"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "Подготовка за качване на файловете"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "Качване на %d от %d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "Публикуването в %s не може да продължи поради възникнала грешка:"
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr "За да публикувате в друга услуга, изберете една от горното меню."
+
+#~ msgid "_Login"
+#~ msgstr "_Вписване"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "Избраните снимки/видеа бяха публикувани успешно."
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "Избраните видеа бяха публикувани успешно."
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "Избраните снимки са публикувани успешно."
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "Избраното видео беше публикувано успешно."
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "Избраната снимка  беше публикувана успешно."
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "Получаване на информация за профила..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "Вписване..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "Публикуване на снимки"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "Публикуване на снимки _в:"
+
+#~ msgid "Publish Videos"
+#~ msgstr "Издадени видеа"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "Издадени видеа _в"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "Издай Снимки и Видеа"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "Издаване на снимки и видеа _в"
+
+#~ msgid "Unable to publish"
+#~ msgstr "Не може да се издаде"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Шотуелл не може да издаде избраните неща, защото нямате включена "
+#~ "съвместима издателска приставка. За да поправите това, изберете "
+#~ "<b>Промени %s Настройки</b> и включете една или повече от издателските "
+#~ "добавки от раздела <b>Приставки</b>."
+
+#~ msgid "Publishing"
+#~ msgstr "Издателство"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "Авторско Право 2009-2013 Фондацията Йорба"
