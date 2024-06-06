@@ -39,7 +39,6 @@ public void app_init () throws Error {
     Plugins.init ();
     Slideshow.init ();
     PhotoFileFormat.init_supported ();
-    Publishing.init ();
     assert (initial_file != null);
 
     DirectPhoto.init (initial_file);

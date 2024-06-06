@@ -101,7 +101,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry export = { "Export", null, null, "<Ctrl><Shift>E", null, on_export };
         Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
-        Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
         Gtk.ActionEntry remove_from_library = { "RemoveFromLibrary", null, null, "<Shift>Delete", null, on_remove_from_library };
         Gtk.ActionEntry move_to_trash = { "MoveToTrash", null, null, "Delete", null, on_move_to_trash };
         Gtk.ActionEntry prev = { "PrevPhoto", null, null, null, null, on_previous_photo };
@@ -137,7 +136,6 @@ public class LibraryPhotoPage : EditingHostPage {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
         actions += export;
         actions += print;
-        actions += publish;
         actions += remove_from_library;
         actions += move_to_trash;
         actions += prev;
@@ -369,7 +367,6 @@ public class LibraryPhotoPage : EditingHostPage {
     protected override void update_ui (bool missing) {
         bool sensitivity = !missing;
 
-        set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
@@ -872,12 +869,6 @@ public class LibraryPhotoPage : EditingHostPage {
         } catch (Error err) {
             AppWindow.error_message (_ ("Unable to export %s: %s").printf (save_as.get_path (), err.message));
         }
-    }
-
-    private void on_publish () {
-        if (get_view ().get_count () > 0)
-            PublishingUI.PublishingDialog.go (
-                (Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
 
     private void update_development_menu_item_sensitivity () {
