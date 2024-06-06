@@ -174,10 +174,6 @@ public const string FIND_LABEL = _("Find");
 public const string FLAG_MENU = _("_Flag");
 public const string UNFLAG_MENU = _("Un_flag");
 
-public string launch_editor_failed (Error err) {
-    return _("Unable to launch editor: %s").printf (err.message);
-}
-
 public string add_tags_label (string[] names) {
     if (names.length == 1)
         return _("Add Tag \"%s\"").printf (HierarchicalTagUtilities.get_basename (names[0]));
