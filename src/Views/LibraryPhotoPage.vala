@@ -28,9 +28,6 @@ public class LibraryPhotoPage : EditingHostPage {
     private CollectionPage? return_page = null;
     private bool return_to_collection_on_release = false;
     private LibraryPhotoPageViewFilter filter = new LibraryPhotoPageViewFilter ();
-    private Gtk.Menu open_menu;
-    private Gtk.Menu open_raw_menu;
-    private Gtk.MenuItem open_raw_menu_item;
     private Gtk.Menu contractor_menu;
     private Gtk.Menu item_context_menu;
 
@@ -530,7 +527,7 @@ public class LibraryPhotoPage : EditingHostPage {
             var raw_developer_menu_item = new Gtk.MenuItem.with_mnemonic (_("_Developer"));
             var raw_developer_action = get_action ("RawDeveloper");
             raw_developer_action.bind_property ("sensitive", raw_developer_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            open_menu = new Gtk.Menu ();
+
             var raw_developer_menu = new Gtk.Menu ();
             raw_developer_menu.add (raw_developer_app_menu_item);
             raw_developer_menu.add (raw_developer_camera_menu_item);
@@ -541,8 +538,6 @@ public class LibraryPhotoPage : EditingHostPage {
             adjust_datetime_action.bind_property ("sensitive", adjust_datetime_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             adjust_datetime_menu_item.activate.connect (() => adjust_datetime_action.activate ());
 
-            open_menu = new Gtk.Menu ();
-
             var copy_image_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.COPY_IMAGE_LABEL);
             var copy_image_action = get_action ("CopyImage");
             copy_image_menu_item.activate.connect (() => copy_image_action.activate ());
@@ -551,14 +546,9 @@ public class LibraryPhotoPage : EditingHostPage {
             var copy_metadata_action = get_action ("CopyMetadata");
             copy_metadata_menu_item.activate.connect (() => copy_metadata_action.activate ());
 
-            var open_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_MENU);
-            open_menu_item.set_submenu (open_menu);
-
-            open_raw_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.OPEN_WITH_RAW_MENU);
-            var open_raw_action = get_action ("OpenWithRaw");
-            open_raw_action.bind_property ("sensitive", open_raw_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            open_raw_menu = new Gtk.Menu ();
-            open_raw_menu_item.set_submenu (open_raw_menu);
+            var open_menu_item = new Gtk.MenuItem.with_label (_("Show in Files")) {
+                action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_JUMP_TO_FILE
+            };
 
             var jump_event_menu_item = new Gtk.MenuItem.with_mnemonic (_("View Eve_nt for Photo"));
             var jump_event_action = get_common_action ("CommonJumpToEvent");
@@ -603,7 +593,6 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.add (copy_metadata_menu_item);
             item_context_menu.add (open_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
-            item_context_menu.add (open_raw_menu_item);
             item_context_menu.add (contractor_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
             item_context_menu.add (copy_color_menu_item);
@@ -621,33 +610,11 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.add (trash_menu_item);
             item_context_menu.show_all ();
 
-             int n_items = 0;
-             var source = get_view ().get_selected_at (0).source;
-             if (source != null && source is Photo) {
-                unowned var photo_file_format = ((Photo)source).get_master_file_format ();
-                n_items = populate_external_app_menu (
-                    open_menu,
-                    photo_file_format.get_mime_types (),
-                    false
-                );
-
-                open_menu_item.sensitive = n_items > 0;
-
+            var source = get_view ().get_selected_at (0).source;
+            if (source != null && source is Photo) {
                 var file = get_photo ().get_file ();
                 wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
-
-                if (photo_file_format == PhotoFileFormat.RAW) {
-                    n_items = populate_external_app_menu (
-                        open_raw_menu,
-                        {},
-                        true
-                    );
-                }
-
-                open_raw_menu_item.sensitive = n_items > 0;
             }
-
-            open_raw_menu_item.visible = get_action ("OpenWithRaw").sensitive;
         }
 
         populate_contractor_menu (contractor_menu);
@@ -664,97 +631,6 @@ public class LibraryPhotoPage : EditingHostPage {
         popup_context_menu (get_context_menu ());
 
         return true;
-    }
-
-    private int populate_external_app_menu (Gtk.Menu menu, string[] mime_types, bool raw) {
-        SortedList<AppInfo> external_apps;
-        int n_items = 0;
-
-        foreach (Gtk.Widget item in menu.get_children ()) {
-            menu.remove (item);
-        }
-
-        if (!raw) {
-            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-            var files_item_icon = new Gtk.Image.from_gicon (
-                files_appinfo.get_icon (), Gtk.IconSize.MENU
-            ) {
-                pixel_size = 16
-            };
-            var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            menuitem_grid.add (files_item_icon);
-            menuitem_grid.add (new Gtk.Label (files_appinfo.get_name ()));
-
-            var jump_menu_item = new Gtk.MenuItem ();
-            jump_menu_item.add (menuitem_grid);
-
-            var jump_menu_action = AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE);
-            jump_menu_action.bind_property ("enabled", jump_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
-            jump_menu_item.activate.connect (() => jump_menu_action.activate (null));
-
-            menu.add (jump_menu_item);
-        }
-
-        if (mime_types.length > 0) {
-            external_apps = DesktopIntegration.get_apps_for_mime_types (mime_types);
-            foreach (AppInfo app in external_apps) {
-                var menu_item_icon = new Gtk.Image.from_gicon (
-                    app.get_icon (),
-                    Gtk.IconSize.MENU
-                ) {
-                    pixel_size = 16
-                };
-                var menuitem_grid = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-                menuitem_grid.add (menu_item_icon);
-                menuitem_grid.add (new Gtk.Label (app.get_name ()));
-
-                var item_app = new Gtk.MenuItem ();
-                item_app.add (menuitem_grid);
-
-                item_app.activate.connect (() => {
-                    if (raw)
-                        on_open_with_raw (app.get_commandline ());
-                    else
-                        on_open_with (app.get_commandline ());
-                });
-                menu.add (item_app);
-                n_items++;
-            }
-        }
-
-        menu.show_all ();
-        return n_items;
-    }
-
-    private void on_open_with (string app) {
-        if (!has_photo ())
-            return;
-
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_external_editor (app);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            open_external_editor_error_dialog (err, get_photo ());
-        }
-    }
-
-    private void on_open_with_raw (string app) {
-        if (!has_photo ())
-            return;
-
-        if (get_photo ().get_master_file_format () != PhotoFileFormat.RAW)
-            return;
-
-        try {
-            AppWindow.get_instance ().set_busy_cursor ();
-            get_photo ().open_with_raw_external_editor (app);
-            AppWindow.get_instance ().set_normal_cursor ();
-        } catch (Error err) {
-            AppWindow.get_instance ().set_normal_cursor ();
-            AppWindow.error_message (Resources.launch_editor_failed (err));
-        }
     }
 
     private void return_to_collection () {
