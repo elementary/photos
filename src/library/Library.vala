@@ -24,7 +24,6 @@ public void app_init () throws Error {
     Plugins.init ();
     Slideshow.init ();
     PhotoFileFormat.init_supported ();
-    Publishing.init ();
     Library.TrashSidebarEntry.init ();
     Photo.develop_raw_photos_to_files = true;
 }
