@@ -384,7 +384,6 @@ public class DirectPhotoPage : EditingHostPage {
         bool sensitivity = !missing;
         set_action_sensitive ("Save", sensitivity);
         set_action_sensitive ("SaveAs", sensitivity);
-        set_action_sensitive ("Publish", sensitivity);
         set_action_sensitive ("Print", sensitivity);
         ((SimpleAction) AppWindow.get_instance ().lookup_action (AppWindow.ACTION_JUMP_TO_FILE)).set_enabled (sensitivity);
 
