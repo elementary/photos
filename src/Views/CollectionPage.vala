@@ -82,13 +82,6 @@ public abstract class CollectionPage : MediaPage {
         var flip_action = get_action ("FlipHorizontally");
         flip_action.bind_property ("sensitive", flip_button, "sensitive", BindingFlags.SYNC_CREATE);
 
-        var publish_button = new Gtk.Button.from_icon_name (Resources.PUBLISH, Gtk.IconSize.LARGE_TOOLBAR);
-        publish_button.tooltip_text = Resources.PUBLISH_TOOLTIP;
-        publish_button.clicked.connect (on_publish);
-
-        var publish_action = get_action ("Publish");
-        publish_action.bind_property ("sensitive", publish_button, "sensitive", BindingFlags.SYNC_CREATE);
-
         enhance_button = new Gtk.ToggleButton ();
         enhance_button.image = new Gtk.Image.from_icon_name (Resources.ENHANCE, Gtk.IconSize.LARGE_TOOLBAR);
         enhance_button.tooltip_text = Resources.ENHANCE_TOOLTIP;
@@ -106,8 +99,6 @@ public abstract class CollectionPage : MediaPage {
         toolbar.pack_start (slideshow_button);
         toolbar.pack_start (rotate_button);
         toolbar.pack_start (flip_button);
-        toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-        toolbar.pack_start (publish_button);
         toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         toolbar.pack_start (enhance_button);
         toolbar.pack_end (show_sidebar_button);
@@ -263,7 +254,6 @@ public abstract class CollectionPage : MediaPage {
 
     protected override Gtk.ActionEntry[] init_collect_action_entries () {
         Gtk.ActionEntry print = { "Print", null, null, "<Ctrl>P", null, on_print };
-        Gtk.ActionEntry publish = { "Publish", null, null, "<Ctrl><Shift>P", null, on_publish };
         Gtk.ActionEntry rotate_right = { "RotateClockwise", null, null, "<Ctrl>R", null, on_rotate_clockwise };
         Gtk.ActionEntry rotate_left = { "RotateCounterclockwise", null, null, "<Ctrl><Shift>R", null, on_rotate_counterclockwise };
         Gtk.ActionEntry hflip = { "FlipHorizontally", null, null, null, null, on_flip_horizontally };
@@ -282,7 +272,6 @@ public abstract class CollectionPage : MediaPage {
         Gtk.ActionEntry[] actions = base.init_collect_action_entries ();
         actions += copy;
         actions += print;
-        actions += publish;
         actions += rotate_right;
         actions += rotate_left;
         actions += hflip;
@@ -428,7 +417,6 @@ public abstract class CollectionPage : MediaPage {
         set_action_sensitive ("NewEvent", has_selected);
         set_action_sensitive ("Slideshow", page_has_photos && (!primary_is_video));
         set_action_sensitive ("Print", (!selection_has_videos) && has_selected);
-        set_action_sensitive ("Publish", has_selected);
         if (enhance_button != null) {
             enhance_button.sensitive = (!selection_has_videos) && has_selected;
             update_enhance_toggled ();
@@ -669,12 +657,6 @@ public abstract class CollectionPage : MediaPage {
                 Rotation.CLOCKWISE, Resources.ROTATE_CW_FULL_LABEL, Resources.ROTATE_CW_TOOLTIP,
                 _ ("Rotating"), _ ("Undoing Rotate"));
         get_command_manager ().execute (command);
-    }
-
-    private void on_publish () {
-        if (get_view ().get_selected_count () > 0)
-            PublishingUI.PublishingDialog.go (
-                (Gee.Collection<MediaSource>) get_view ().get_selected_sources ());
     }
 
     private void on_rotate_counterclockwise () {

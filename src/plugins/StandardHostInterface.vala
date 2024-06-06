@@ -27,33 +27,8 @@ public class StandardHostInterface : Object, Spit.HostInterface {
 
     public StandardHostInterface (Spit.Pluggable pluggable, string config_domain) {
         this.config_domain = config_domain;
-        config_id = parse_key (pluggable.get_id ());
         module_file = get_pluggable_module_file (pluggable);
         pluggable.get_info (ref info);
-    }
-
-    private static string parse_key (string id) {
-        // special case: legacy plugins (Web publishers moved into SPIT) have special names
-        // new plugins will use their full ID
-        switch (id) {
-        case "io.elementary.photos.publishing.facebook":
-            return "facebook";
-
-        case "io.elementary.photos.publishing.picasa":
-            return "picasa";
-
-        case "io.elementary.photos.publishing.flickr":
-            return "flickr";
-
-        case "io.elementary.photos.publishing.piwigo":
-            return "piwigo";
-
-        case "io.elementary.photos.publishing.youtube":
-            return "youtube";
-
-        default:
-            return id;
-        }
     }
 
     public File get_module_file () {
