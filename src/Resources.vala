@@ -169,18 +169,10 @@ public const string EDIT_COMMENT_LABEL = _("Edit Comment");
 public const string ADJUST_DATE_TIME_MENU = _("_Adjust Date and Time…");
 public const string ADJUST_DATE_TIME_LABEL = _("Adjust Date and Time");
 
-public const string OPEN_WITH_MENU = _("_Open In");
-
-public const string OPEN_WITH_RAW_MENU = _("_Open With RAW Editor…");
-
 public const string FIND_LABEL = _("Find");
 
 public const string FLAG_MENU = _("_Flag");
 public const string UNFLAG_MENU = _("Un_flag");
-
-public string launch_editor_failed (Error err) {
-    return _("Unable to launch editor: %s").printf (err.message);
-}
 
 public string add_tags_label (string[] names) {
     if (names.length == 1)
