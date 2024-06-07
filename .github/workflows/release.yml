@@ -57,7 +57,7 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: Photos.flatpak
-          manifest-path: io.elementary.photos.yml
+          manifest-path: io.elementary.photos.json
           run-tests: true
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo

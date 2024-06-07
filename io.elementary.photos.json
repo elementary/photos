@@ -1,0 +1,161 @@
+{
+    "app-id": "io.elementary.photos",
+    "runtime": "io.elementary.Platform",
+    "runtime-version": "8",
+    "sdk": "io.elementary.Sdk",
+    "command": "io.elementary.photos",
+    "finish-args": [
+        "--filesystem=xdg-pictures",
+        # External Media
+        "--filesystem=/media",
+        "--filesystem=/run/media",
+        "--filesystem=/mnt",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--talk-name=org.elementary.Contractor",
+        "--metadata=X-Dconf=migrate-path=/io/elementary/photos/"
+    ],
+    "cleanup": [
+        "/include",
+        "/doc",
+        "/lib/pkgconfig",
+        "/lib/girepository-10",
+        "/share/man",
+        "/share/vala",
+        "/share/gir-1.0",
+        "*.a",
+        "*.la"
+    ],
+    "modules": [
+        {
+            "name": "exif",
+            "config-opts": [
+                "--disable-docs"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz",
+                    "sha256": "5048f1c8fc509cc636c2f97f4b40c293338b6041a5652082d5ee2cf54b530c56"
+                }
+            ]
+        },
+        {
+            "name": "geocode-glib",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Denable-installed-tests=false",
+                "-Denable-gtk-doc=false",
+                "-Dsoup2=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/geocode-glib.git",
+                    "tag": "3.26.4"
+                }
+            ]
+        },
+        {
+            "name": "gexiv2",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dtools=false",
+                "-Dpython2_girdir=no",
+                "-Dpython3_girdir=no"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/gexiv2.git",
+                    "tag": "gexiv2-0.12.1"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "exiv2",
+                    "cleanup": [
+                        "/lib/cmake"
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                        "-DEXIV2_BUILD_EXIV2_COMMAND=OFF",
+                        "-DEXIV2_BUILD_SAMPLES=OFF"
+                    ],
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url": "https://github.com/Exiv2/exiv2.git",
+                            "tag": "v0.27.3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "gphoto2",
+            "cleanup": [
+                "/share/libgphoto2",
+                "/share/libgphoto2_port"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/gphoto/libgphoto2/releases/download/v2.5.26/libgphoto2-2.5.26.tar.gz",
+                    "sha256": "3f99ca5cf12a8376e7e17d60e41fe1df90ffb08fbec68450d9beec2452262948"
+                }
+            ]
+        },
+        {
+            "name": "gudev",
+            "config-opts": [
+                "--disable-umockdev",
+                "--disable-gtk-doc"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libgudev.git",
+                    "tag": "234"
+                }
+            ]
+        },
+        {
+            "name": "raw",
+            "cleanup": [
+                "/share/doc"
+            ],
+            "config-opts": [
+                "--disable-examples",
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/LibRaw/LibRaw.git",
+                    "tag": "0.20.2"
+                },
+                {
+                    "type": "script",
+                    "commands": [
+                        "autoreconf -vfi"
+                    ],
+                    "dest-filename": "autogen.sh"
+                }
+            ]
+        },
+        {
+            "name": "photos",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}
