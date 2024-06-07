@@ -6,7 +6,6 @@
     "command": "io.elementary.photos",
     "finish-args": [
         "--filesystem=xdg-pictures",
-        # External Media
         "--filesystem=/media",
         "--filesystem=/run/media",
         "--filesystem=/mnt",
@@ -43,70 +42,103 @@
             ]
         },
         {
-            "name": "geocode-glib",
+            "name": "geocode-glib-2.0",
             "buildsystem": "meson",
             "config-opts": [
-                "-Denable-installed-tests=false",
                 "-Denable-gtk-doc=false",
+                "-Denable-installed-tests=false",
                 "-Dsoup2=false"
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/geocode-glib.git",
-                    "tag": "3.26.4"
+                    "url": "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.4.tar.xz",
+                    "sha256": "2d9a6826d158470449a173871221596da0f83ebdcff98b90c7049089056a37aa",
+                    "type": "archive",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "geocode-glib"
+                    }
                 }
             ]
         },
         {
             "name": "gexiv2",
             "buildsystem": "meson",
-            "config-opts": [
-                "-Dtools=false",
-                "-Dpython2_girdir=no",
-                "-Dpython3_girdir=no"
+            "cleanup": [
+                "/lib/girepository-1.0",
+                "/share/gir-1.0"
             ],
+            "config-opts": [
+                "-Dpython3=false",
+                "-Dtools=false"
+            ],
+            "build-options": {
+                "env": {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+                }
+            },
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gexiv2.git",
-                    "tag": "gexiv2-0.12.1"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.2.tar.xz",
+                    "sha256": "2a0c9cf48fbe8b3435008866ffd40b8eddb0667d2212b42396fdf688e93ce0be",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "gexiv2"
+                    },
                 }
             ],
             "modules": [
                 {
                     "name": "exiv2",
                     "cleanup": [
-                        "/lib/cmake"
+                        "/bin"
                     ],
                     "buildsystem": "cmake-ninja",
                     "config-opts": [
-                        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                        "-DCMAKE_BUILD_TYPE=Release",
                         "-DEXIV2_BUILD_EXIV2_COMMAND=OFF",
-                        "-DEXIV2_BUILD_SAMPLES=OFF"
+                        "-DEXIV2_BUILD_SAMPLES=OFF",
+                        "-DEXIV2_ENABLE_BMFF=On"
                     ],
                     "sources": [
                         {
-                            "type": "git",
-                            "url": "https://github.com/Exiv2/exiv2.git",
-                            "tag": "v0.27.3"
+                            "type": "archive",
+                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.2.tar.gz",
+                            "sha256": "543bead934135f20f438e0b6d8858c55c5fcb7ff80f5d1d55489965f1aad58b9",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 769,
+                                "url-template": "https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz"
+                            }
                         }
                     ]
-                }
+                },
             ]
         },
         {
-            "name": "gphoto2",
+            "name": "libghoto2",
             "cleanup": [
-                "/share/libgphoto2",
-                "/share/libgphoto2_port"
+                "/bin",
+                "/lib/udev",
+                "/share/doc"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/gphoto/libgphoto2/releases/download/v2.5.26/libgphoto2-2.5.26.tar.gz",
-                    "sha256": "3f99ca5cf12a8376e7e17d60e41fe1df90ffb08fbec68450d9beec2452262948"
+                    "url": "https://sourceforge.net/projects/gphoto/files/libgphoto/2.5.31/libgphoto2-2.5.31.tar.xz",
+                    "sha256": "8fc7bf40f979459509b87dd4ff1aae9b6c1c2b4724d37db576081eec15406ace",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 12558,
+                        "url-template": "https://sourceforge.net/projects/gphoto/files/libgphoto/$version/libgphoto2-$version.tar.xz"
+                    }
                 }
+            ],
+            "config-opts": [
+                "--disable-introspection",
+                "--disable-docs"
             ]
         },
         {
