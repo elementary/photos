@@ -14,7 +14,6 @@ photos_files = files(
     'CommandManager.vala',
     'Commands.vala',
     'CustomComponents.vala',
-    'DesktopIntegration.vala',
     'Dimensions.vala',
     'DirectoryMonitor.vala',
     'Event.vala',

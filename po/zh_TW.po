@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 16:22+0000\n"
+"POT-Creation-Date: 2024-06-07 23:11+0000\n"
 "PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -355,13 +355,11 @@ msgstr "全部取代(_A)"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:56
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:617
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118
-#: src/publishing/PublishingUI.vala:296 src/publishing/PublishingUI.vala:515
-#: src/Views/DirectPhotoPage.vala:478
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:352
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -721,7 +719,7 @@ msgstr "還原至原始"
 msgid "Re_name Event…"
 msgstr "重新命名事件"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "重新命名事件"
 
@@ -832,190 +830,176 @@ msgid "Adjust Date and Time"
 msgstr "調整日期與時間"
 
 #: src/Resources.vala:172
-msgid "_Open In"
-msgstr ""
-
-#: src/Resources.vala:174
-#, fuzzy
-msgid "_Open With RAW Editor…"
-msgstr "以 RA_W 編輯器開啟"
-
-#: src/Resources.vala:176
 msgid "Find"
 msgstr "尋找"
 
-#: src/Resources.vala:178
+#: src/Resources.vala:174
 msgid "_Flag"
 msgstr "加上旗幟(_F)"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:175
 msgid "Un_flag"
 msgstr "移除旗幟(_F)"
 
-#: src/Resources.vala:182
-#, c-format
-msgid "Unable to launch editor: %s"
-msgstr "無法開啟編輯器：%s"
-
-#: src/Resources.vala:187
+#: src/Resources.vala:179
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "加入標籤「%s」"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:181
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "加入標籤「%s」與「%s」"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:185
 msgid "Add Tags"
 msgstr "加入標籤"
 
-#: src/Resources.vala:197
+#: src/Resources.vala:189
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "刪除「%s」標籤(_D)"
 
-#: src/Resources.vala:201
+#: src/Resources.vala:193
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "刪除「%s」標籤"
 
-#: src/Resources.vala:204
+#: src/Resources.vala:196
 msgid "Delete Tag"
 msgstr "刪除標籤"
 
-#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "刪除(_D)"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:199
 msgid "_New"
 msgstr "新增(_N)"
 
-#: src/Resources.vala:210
+#: src/Resources.vala:202
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "刪除標籤「%s」..."
 
-#: src/Resources.vala:214
+#: src/Resources.vala:206
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "重新命名標籤「%s」為「%s」"
 
-#: src/Resources.vala:217
+#: src/Resources.vala:209
 #, fuzzy
 msgid "_Rename…"
 msgstr "重新命名(_R)..."
 
-#: src/Resources.vala:219
+#: src/Resources.vala:211
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "修改標籤"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:212
 msgid "Modify Tags"
 msgstr "修改標籤"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:215
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "將相片加上「%s」標籤"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:219
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "從相片移除「%s」標籤(_P)"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:223
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "從相片移除「%s」標籤"
 
-#: src/Resources.vala:235
+#: src/Resources.vala:227
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "「%s」標籤已存在，因而無法重新命名標籤。"
 
-#: src/Resources.vala:239
+#: src/Resources.vala:231
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "因為該搜尋已經存在，無法重新命名搜尋為「%s」。"
 
-#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "智慧相簿"
 
-#: src/Resources.vala:244
+#: src/Resources.vala:236
 msgid "Delete Album"
 msgstr "刪除相簿"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:239
 #, fuzzy
 msgid "_Edit…"
 msgstr "編輯(_E)"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:240
 #, fuzzy
 msgid "Re_name…"
 msgstr "重新命名(_N)..."
 
-#: src/Resources.vala:251
+#: src/Resources.vala:243
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "重新命名「%s」搜尋為「%s」"
 
-#: src/Resources.vala:255
+#: src/Resources.vala:247
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "刪除「%s」搜尋"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:279
 msgid "_Delete Selection"
 msgstr "刪除選取項目(_D)"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:280
 msgid "Remove the selected photos from the trash"
 msgstr "從回收筒移除所選的相片"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:281
 msgid "Remove the selected photos from the library"
 msgstr "從珍藏館移除所選的相片"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:283
 msgid "_Restore Selection"
 msgstr "還原選取項目(_R)"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:284
 msgid "Move the selected photos back into the library"
 msgstr "將所選的相片移回珍藏館"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:286
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "以檔案管理員開啟(_G)"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:289
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "無法於檔案管理員內開啟：%s"
 
-#: src/Resources.vala:300
+#: src/Resources.vala:292
 msgid "R_emove From Library"
 msgstr "從珍藏館移除(_E)"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:294
 msgid "_Move to Trash"
 msgstr "移至回收筒(_M)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:296
 msgid "Select _All"
 msgstr "全選(_A)"
 
-#: src/Resources.vala:305
+#: src/Resources.vala:297
 msgid "Select all items"
 msgstr "選取全部項目"
 
@@ -1023,20 +1007,20 @@ msgstr "選取全部項目"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:344
+#: src/Resources.vala:336
 msgid "%-I:%M %p"
 msgstr "%p%-I:%M"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:349
+#: src/Resources.vala:341
 msgid "%-I:%M:%S %p"
 msgstr "%p%-I:%M:%S"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:353
+#: src/Resources.vala:345
 msgid "%a %b %d, %Y"
 msgstr "%Y年%b%d日(%a)"
 
@@ -1046,14 +1030,15 @@ msgstr "%Y年%b%d日(%a)"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:358 src/Resources.vala:368
+#: src/Resources.vala:350 src/Resources.vala:360
+#, c-format
 msgid "%a %b %d"
 msgstr "%Y年%b%d日(%a)"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:363
+#: src/Resources.vala:355
 msgid "%d, %Y"
 msgstr "%d日"
 
@@ -1201,15 +1186,15 @@ msgstr "切換顯影器(_S)"
 msgid "Export Video"
 msgstr "匯出視訊"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:702
-#: src/Views/LibraryPhotoPage.vala:853
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
+#: src/Views/LibraryPhotoPage.vala:726
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "匯出相片"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:465
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
 msgid "_Save"
 msgstr "儲存(_S)"
 
@@ -1221,19 +1206,7 @@ msgstr "匯出相片"
 msgid "_Select"
 msgstr "選取(_S)"
 
-#. Ticket #3023
-#. Attempt to replace the system error with something friendlier
-#. if we can't copy an image over for editing in an external tool.
-#. Did we fail because we can't write to this directory?
-#. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
-msgid ""
-"Photos couldn't create a file for editing this photo because you do not have "
-"permission to write to %s."
-msgstr "因為您尚未獲取寫入 %s 的授權，Shotwell 無法建立檔案以供此相片編輯。"
-
-#: src/Dialogs/Dialogs.vala:166
+#: src/Dialogs/Dialogs.vala:150
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1241,7 +1214,7 @@ msgstr ""
 "由於檔案錯誤，無法匯出下列相片。\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:172
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "\n"
 "\n"
@@ -1251,35 +1224,35 @@ msgstr ""
 "\n"
 "您想要繼續匯出嗎？"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:157
 msgid "Con_tinue"
 msgstr "繼續(_T)"
 
-#: src/Dialogs/Dialogs.vala:183
+#: src/Dialogs/Dialogs.vala:167
 #, fuzzy
 msgid "Save Details…"
 msgstr "儲存細節"
 
-#: src/Dialogs/Dialogs.vala:184
+#: src/Dialogs/Dialogs.vala:168
 msgid "Save Details"
 msgstr "儲存細節"
 
-#: src/Dialogs/Dialogs.vala:199
+#: src/Dialogs/Dialogs.vala:183
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(還有 %d 項)\n"
 
-#: src/Dialogs/Dialogs.vala:252
+#: src/Dialogs/Dialogs.vala:236
 msgid "Import Results Report"
 msgstr "匯入成果報告"
 
-#: src/Dialogs/Dialogs.vala:256
+#: src/Dialogs/Dialogs.vala:240
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "試圖匯入 %d 份檔案。"
 
-#: src/Dialogs/Dialogs.vala:259
+#: src/Dialogs/Dialogs.vala:243
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1288,38 +1261,38 @@ msgstr[0] "其中有 %d 份檔案已成功匯入。"
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:255
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "重複的相片/視訊並未匯入："
 
-#: src/Dialogs/Dialogs.vala:275
+#: src/Dialogs/Dialogs.vala:259
 msgid "duplicates existing media item"
 msgstr "媒體項目與既有媒體重複"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:270
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "相片/視訊因相機錯誤而未匯入："
 
-#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
-#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
-#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
+#: src/Dialogs/Dialogs.vala:273 src/Dialogs/Dialogs.vala:288
+#: src/Dialogs/Dialogs.vala:303 src/Dialogs/Dialogs.vala:319
+#: src/Dialogs/Dialogs.vala:334 src/Dialogs/Dialogs.vala:348
 msgid "error message:"
 msgstr "錯誤訊息："
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:300
+#: src/Dialogs/Dialogs.vala:284
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr "檔案因無法辨識出是相片或視訊而未匯入："
 
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:315
+#: src/Dialogs/Dialogs.vala:299
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1329,14 +1302,14 @@ msgstr "相片/視訊因格式並非 Shotwell 所能認識而未匯入："
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:330
+#: src/Dialogs/Dialogs.vala:314
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
 msgstr "相片/視訊因 Shotwell 無法將它們複製到珍藏館中而未匯入："
 
-#: src/Dialogs/Dialogs.vala:334
+#: src/Dialogs/Dialogs.vala:318
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1348,61 +1321,61 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:346
+#: src/Dialogs/Dialogs.vala:330
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "相片/視訊因檔案損毀而未匯入："
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:361
+#: src/Dialogs/Dialogs.vala:345
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "相片/視訊因其他原因而未匯入："
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:365
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "%d 份相片複本未被匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:384
+#: src/Dialogs/Dialogs.vala:368
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "%d 份視訊複本未被匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:387
+#: src/Dialogs/Dialogs.vala:371
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "%d 份相片/視訊複本未被匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:385
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
 msgstr[0] "由於檔案或硬體錯誤，%d 張相片匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:388
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
 msgstr[0] "由於檔案或硬體錯誤，%d 份視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:407
+#: src/Dialogs/Dialogs.vala:391
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
 "%d photos/videos failed to import due to a file or hardware error:\n"
 msgstr[0] "由於檔案或硬體錯誤，%d 份相片/視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:410
+#: src/Dialogs/Dialogs.vala:394
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] "由於檔案或硬體錯誤，%d 份檔案未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:408
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1411,7 +1384,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "因為相片珍藏館資料夾無法寫入，%d 份視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:411
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1420,7 +1393,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "因為相片珍藏館資料夾無法寫入，%d 份視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:430
+#: src/Dialogs/Dialogs.vala:414
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1430,7 +1403,7 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "因為相片珍藏館資料夾無法寫入，%d 份相片/視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:433
+#: src/Dialogs/Dialogs.vala:417
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1439,49 +1412,49 @@ msgid_plural ""
 "writable:\n"
 msgstr[0] "因為相片珍藏館資料夾無法寫入，%d 份檔案未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:431
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "由於相機錯誤，%d 張相片匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:434
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "由於相機錯誤，%d 份視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:453
+#: src/Dialogs/Dialogs.vala:437
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] "由於相機錯誤，%d 份相片/視訊匯入失敗：\n"
 
-#: src/Dialogs/Dialogs.vala:456
+#: src/Dialogs/Dialogs.vala:440
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "%d 份檔案因相機錯誤而未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:470
+#: src/Dialogs/Dialogs.vala:454
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "%d 張相片因相片損毀而未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:473
+#: src/Dialogs/Dialogs.vala:457
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "%d 份視訊因視訊損毀而未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:476
+#: src/Dialogs/Dialogs.vala:460
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] "%d 份相片/視訊因損毀而未能匯入：\n"
 
-#: src/Dialogs/Dialogs.vala:479
+#: src/Dialogs/Dialogs.vala:463
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1491,7 +1464,7 @@ msgstr[0] "%d 份檔案因損毀而未能匯入：\n"
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:480
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1499,49 +1472,49 @@ msgstr[0] "已略過 %d 張未支援相片：\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:511
+#: src/Dialogs/Dialogs.vala:495
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "已略過 %d 份非影像檔案。\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:506
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "由於使用者取消，已略過 %d 張相片：\n"
 
-#: src/Dialogs/Dialogs.vala:525
+#: src/Dialogs/Dialogs.vala:509
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "由於使用者取消，已略過 %d 份視訊：\n"
 
-#: src/Dialogs/Dialogs.vala:528
+#: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "由於使用者取消，已略過 %d 份相片/視訊：\n"
 
-#: src/Dialogs/Dialogs.vala:531
+#: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "%d 檔案已略過，因為使用者取消：\n"
 
-#: src/Dialogs/Dialogs.vala:545
+#: src/Dialogs/Dialogs.vala:529
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "已成功匯入 %d 張相片。\n"
 
-#: src/Dialogs/Dialogs.vala:548
+#: src/Dialogs/Dialogs.vala:532
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "已成功匯入 %d 份視訊。\n"
 
-#: src/Dialogs/Dialogs.vala:551
+#: src/Dialogs/Dialogs.vala:535
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1549,60 +1522,60 @@ msgstr[0] "已成功匯入 %d 份相片/視訊。\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:567
+#: src/Dialogs/Dialogs.vala:551
 msgid "No photos or videos imported.\n"
 msgstr "沒有匯入相片或視訊。\n"
 
-#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
+#: src/Dialogs/Dialogs.vala:557 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "完成匯入"
 
-#: src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:567
 msgid "_Done"
 msgstr "完成(_D)"
 
-#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:766 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "名稱："
 
-#: src/Dialogs/Dialogs.vala:800
+#: src/Dialogs/Dialogs.vala:784
 #, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "是否還原外部編輯？"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:786
 #, fuzzy, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] "這會破壞 %d 份外部檔案的所有變更。要繼續嗎？"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:791
 #, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "還原外部編輯(_V)"
 
-#: src/Dialogs/Dialogs.vala:833
+#: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
 msgstr "從珍藏館移除相片"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:818
 msgid "Remove Photos From Library"
 msgstr "從珍藏館移除相片"
 
-#: src/Dialogs/Dialogs.vala:839
+#: src/Dialogs/Dialogs.vala:823
 #, fuzzy, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "這會從珍藏館移除 %d 張相片。要繼續嗎？"
 
-#: src/Dialogs/Dialogs.vala:852
+#: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
 msgstr "移除(_R)"
 
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:856
 #, c-format
 msgid ""
 "\n"
@@ -1619,37 +1592,37 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:879
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
 msgstr "Shotwell 可以複製相片至您的珍藏館，或是直接將它們匯入而不必複製。"
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "匯入至珍藏館"
 
-#: src/Dialogs/Dialogs.vala:905
+#: src/Dialogs/Dialogs.vala:889
 msgid "Co_py Photos"
 msgstr "複製相片(_P)"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:890
 msgid "_Import in Place"
 msgstr "匯入位置(_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
 msgid "Remove From Library"
 msgstr "從珍藏館移除"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:774
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "正在從珍藏館移除相片"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:953
+#: src/Dialogs/Dialogs.vala:937
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1726,7 +1699,6 @@ msgid "Plugins"
 msgstr "插件"
 
 #: src/Dialogs/PreferencesDialog.vala:127 src/editing_tools/RedEyeTool.vala:67
-#: src/publishing/PublishingUI.vala:510
 msgid "_Close"
 msgstr "關閉(_C)"
 
@@ -1740,7 +1712,7 @@ msgid "Add"
 msgstr "加入"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:570
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:444
 msgid "Save"
 msgstr "儲存"
 
@@ -1769,7 +1741,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:571
+#: src/Views/DirectPhotoPage.vala:445
 msgid "Cancel"
 msgstr "取消"
 
@@ -2003,8 +1975,8 @@ msgstr "設定值"
 msgid "Sort _Events"
 msgstr "排序事件(_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:203
-#: src/Views/LibraryPhotoPage.vala:563
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:184
+#: src/Views/LibraryPhotoPage.vala:550
 msgid "View Eve_nt for Photo"
 msgstr "檢視相片的事件(_N)"
 
@@ -2016,7 +1988,7 @@ msgid "New Smart Album…"
 msgstr "新增智慧相簿…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:134 src/Views/LibraryPhotoPage.vala:496
+#: src/Views/CollectionPage.vala:122 src/Views/LibraryPhotoPage.vala:490
 msgid "Edit Photo In_fo"
 msgstr "編輯相片資訊(_F)"
 
@@ -2164,103 +2136,6 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/publishing/PublishingPluginHost.vala:24
-msgid "Preparing for upload"
-msgstr "正在準備上傳"
-
-#: src/publishing/PublishingPluginHost.vala:25
-#, c-format
-msgid "Uploading %d of %d"
-msgstr "正在上傳 %d/%d"
-
-#: src/publishing/PublishingPluginHost.vala:94
-#, c-format
-msgid "Publishing to %s can't continue because an error occurred:"
-msgstr "因為遭遇錯誤，無法繼續發布至 %s："
-
-#: src/publishing/PublishingPluginHost.vala:97
-msgid "To try publishing to another service, select one from the above menu."
-msgstr "若要嘗試發布至其它服務，請從上方選單選擇。"
-
-#: src/publishing/PublishingUI.vala:71
-msgid "_Login"
-msgstr "登入(_L)"
-
-#: src/publishing/PublishingUI.vala:130
-msgid "The selected photos/videos were successfully published."
-msgstr "所選的相片/視訊已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:132
-msgid "The selected videos were successfully published."
-msgstr "所選的視訊已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:134
-msgid "The selected photos were successfully published."
-msgstr "所選的相片已經成功發布。"
-
-#: src/publishing/PublishingUI.vala:137
-msgid "The selected video was successfully published."
-msgstr "所選的視訊已成功發布。"
-
-#: src/publishing/PublishingUI.vala:139
-msgid "The selected photo was successfully published."
-msgstr "所選的相片已成功發布。"
-
-#: src/publishing/PublishingUI.vala:147
-#, fuzzy
-msgid "Fetching account information…"
-msgstr "正在擷取帳號資訊..."
-
-#: src/publishing/PublishingUI.vala:153
-#, fuzzy
-msgid "Logging in…"
-msgstr "正在登入..."
-
-#: src/publishing/PublishingUI.vala:213
-msgid "Publish Photos"
-msgstr "發布相片"
-
-#: src/publishing/PublishingUI.vala:214
-msgid "Publish photos _to:"
-msgstr "將相片發布至(_T)："
-
-#: src/publishing/PublishingUI.vala:216
-msgid "Publish Videos"
-msgstr "發布視訊"
-
-#: src/publishing/PublishingUI.vala:217
-msgid "Publish videos _to"
-msgstr "將視訊發布至(_T)"
-
-#: src/publishing/PublishingUI.vala:219
-msgid "Publish Photos and Videos"
-msgstr "發布相片與視訊"
-
-#: src/publishing/PublishingUI.vala:220
-msgid "Publish photos and videos _to"
-msgstr "將相片與視訊發布至(_T)"
-
-#. There are no enabled publishing services that accept this media type,
-#. warn the user.
-#: src/publishing/PublishingUI.vala:406
-msgid "Unable to publish"
-msgstr "無法發布"
-
-#: src/publishing/PublishingUI.vala:407
-#, fuzzy, c-format
-msgid ""
-"Photos cannot publish the selected items because you do not have a "
-"compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
-"Preferences</b> and enable one or more of the publishing plugins on the "
-"<b>Plugins</b> tab."
-msgstr ""
-"Shotwell 無法發布所選的項目，因為您尚未啟用相容的發布插件。若要修正此問題，請"
-"選擇 <b>編輯 %s 偏好設定</b> 並在 <b>插件</b> 分頁啟用一項或多項發布用插件。"
-
-#: src/publishing/Publishing.vala:29
-msgid "Publishing"
-msgstr "發布"
-
 #: src/searches/Branch.vala:80
 msgid "Smart Albums"
 msgstr "智慧相簿"
@@ -2313,6 +2188,7 @@ msgid "New _Tag…"
 msgstr "新增標籤(_T)..."
 
 #: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
+#, c-format
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
@@ -2434,8 +2310,8 @@ msgstr "標籤"
 msgid "Photos cannot be exported to this directory."
 msgstr "無法匯出相片至此目錄。"
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:1013
-#: src/Views/CollectionPage.vala:1014 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:869
+#: src/Views/CollectionPage.vala:870 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "無相片/視訊"
@@ -2444,65 +2320,71 @@ msgstr "無相片/視訊"
 msgid "No photos/videos found"
 msgstr "找不到相片或視訊"
 
-#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:68 src/Views/LibraryPhotoPage.vala:57
 msgid "Play a slideshow"
 msgstr "播放投影秀"
 
-#: src/Views/CollectionPage.vala:173 src/Views/LibraryPhotoPage.vala:530
+#: src/Views/CollectionPage.vala:161 src/Views/LibraryPhotoPage.vala:524
 msgid "_Developer"
 msgstr "顯影器(_D)"
 
-#: src/Views/CollectionPage.vala:218 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:578
+#: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
+#: src/Views/LibraryPhotoPage.vala:546
+#, fuzzy
+msgid "Show in Files"
+msgstr "顯示標題(_I)"
+
+#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:565
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:222 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:582
+#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
+#: src/Views/LibraryPhotoPage.vala:569
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:700
+#: src/Views/CollectionPage.vala:562
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "匯出相片/視訊"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
 msgstr "正在旋轉"
 
-#: src/Views/CollectionPage.vala:796 src/Views/CollectionPage.vala:812
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Undoing Rotate"
 msgstr "正在復原旋轉"
 
-#: src/Views/CollectionPage.vala:821
+#: src/Views/CollectionPage.vala:677
 msgid "Flipping Horizontally"
 msgstr "正在水平翻轉"
 
-#: src/Views/CollectionPage.vala:822
+#: src/Views/CollectionPage.vala:678
 msgid "Undoing Flip Horizontally"
 msgstr "正在復原水平翻轉"
 
-#: src/Views/CollectionPage.vala:831
+#: src/Views/CollectionPage.vala:687
 msgid "Flipping Vertically"
 msgstr "正在垂直翻轉"
 
-#: src/Views/CollectionPage.vala:832
+#: src/Views/CollectionPage.vala:688
 msgid "Undoing Flip Vertically"
 msgstr "正在復原垂直翻轉"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:99
 #, c-format
 msgid "%s does not exist."
 msgstr "%s 不存在。"
 
-#: src/Views/DirectPhotoPage.vala:104
+#: src/Views/DirectPhotoPage.vala:101
 #, c-format
 msgid "%s is not a file."
 msgstr "%s 不是檔案。"
 
-#: src/Views/DirectPhotoPage.vala:106
+#: src/Views/DirectPhotoPage.vala:103
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2511,25 +2393,25 @@ msgstr ""
 "%s 不支援檔案格式\n"
 "%s。"
 
-#: src/Views/DirectPhotoPage.vala:465
+#: src/Views/DirectPhotoPage.vala:339
 msgid "_Save a Copy"
 msgstr "儲存複本(_S)"
 
-#: src/Views/DirectPhotoPage.vala:468
+#: src/Views/DirectPhotoPage.vala:342
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "放棄對 %s 所作出的變更？"
 
-#: src/Views/DirectPhotoPage.vala:475
+#: src/Views/DirectPhotoPage.vala:349
 msgid "Close _without Saving"
 msgstr "關閉而不儲存(_W)"
 
-#: src/Views/DirectPhotoPage.vala:515
+#: src/Views/DirectPhotoPage.vala:389
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "當儲存至 %s 時發生錯誤：%s"
 
-#: src/Views/DirectPhotoPage.vala:545 src/Views/DirectPhotoPage.vala:567
+#: src/Views/DirectPhotoPage.vala:419 src/Views/DirectPhotoPage.vala:441
 msgid "Save As"
 msgstr "另存新檔"
 
@@ -2807,7 +2689,7 @@ msgstr "已匯入 %s"
 msgid "Last Import"
 msgstr "上次匯入"
 
-#: src/Views/LibraryPhotoPage.vala:873
+#: src/Views/LibraryPhotoPage.vala:746
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "無法匯出 %s：%s"
@@ -3204,6 +3086,96 @@ msgstr "棋盤"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "百葉窗"
+
+#, fuzzy
+#~ msgid "_Open With RAW Editor…"
+#~ msgstr "以 RA_W 編輯器開啟"
+
+#, c-format
+#~ msgid "Unable to launch editor: %s"
+#~ msgstr "無法開啟編輯器：%s"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos couldn't create a file for editing this photo because you do not "
+#~ "have permission to write to %s."
+#~ msgstr "因為您尚未獲取寫入 %s 的授權，Shotwell 無法建立檔案以供此相片編輯。"
+
+#~ msgid "Preparing for upload"
+#~ msgstr "正在準備上傳"
+
+#, c-format
+#~ msgid "Uploading %d of %d"
+#~ msgstr "正在上傳 %d/%d"
+
+#, c-format
+#~ msgid "Publishing to %s can't continue because an error occurred:"
+#~ msgstr "因為遭遇錯誤，無法繼續發布至 %s："
+
+#~ msgid ""
+#~ "To try publishing to another service, select one from the above menu."
+#~ msgstr "若要嘗試發布至其它服務，請從上方選單選擇。"
+
+#~ msgid "_Login"
+#~ msgstr "登入(_L)"
+
+#~ msgid "The selected photos/videos were successfully published."
+#~ msgstr "所選的相片/視訊已經成功發布。"
+
+#~ msgid "The selected videos were successfully published."
+#~ msgstr "所選的視訊已經成功發布。"
+
+#~ msgid "The selected photos were successfully published."
+#~ msgstr "所選的相片已經成功發布。"
+
+#~ msgid "The selected video was successfully published."
+#~ msgstr "所選的視訊已成功發布。"
+
+#~ msgid "The selected photo was successfully published."
+#~ msgstr "所選的相片已成功發布。"
+
+#, fuzzy
+#~ msgid "Fetching account information…"
+#~ msgstr "正在擷取帳號資訊..."
+
+#, fuzzy
+#~ msgid "Logging in…"
+#~ msgstr "正在登入..."
+
+#~ msgid "Publish Photos"
+#~ msgstr "發布相片"
+
+#~ msgid "Publish photos _to:"
+#~ msgstr "將相片發布至(_T)："
+
+#~ msgid "Publish Videos"
+#~ msgstr "發布視訊"
+
+#~ msgid "Publish videos _to"
+#~ msgstr "將視訊發布至(_T)"
+
+#~ msgid "Publish Photos and Videos"
+#~ msgstr "發布相片與視訊"
+
+#~ msgid "Publish photos and videos _to"
+#~ msgstr "將相片與視訊發布至(_T)"
+
+#~ msgid "Unable to publish"
+#~ msgstr "無法發布"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos cannot publish the selected items because you do not have a "
+#~ "compatible publishing plugin enabled. To correct this, choose <b>Edit %s "
+#~ "Preferences</b> and enable one or more of the publishing plugins on the "
+#~ "<b>Plugins</b> tab."
+#~ msgstr ""
+#~ "Shotwell 無法發布所選的項目，因為您尚未啟用相容的發布插件。若要修正此問"
+#~ "題，請選擇 <b>編輯 %s 偏好設定</b> 並在 <b>插件</b> 分頁啟用一項或多項發布"
+#~ "用插件。"
+
+#~ msgid "Publishing"
+#~ msgstr "發布"
 
 #~ msgid "Copyright 2009-2013 Yorba Foundation"
 #~ msgstr "著作權 2009-2013 Yorba Foundation"
