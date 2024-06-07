@@ -1,3 +1,5 @@
+---
+
 name: CI
 
 on:
@@ -8,57 +10,52 @@ on:
       - synchronize
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        version: [stable, unstable, development-target]
-    container:
-      image: ghcr.io/elementary/docker:${{ matrix.version }}
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Dependencies
-        run: |
-          apt update
-          apt install -y desktop-file-utils gettext libexif-dev libgee-0.8-dev libgeocode-glib-dev libgexiv2-dev libglib2.0-dev libgphoto2-dev libgranite-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk-3-dev libgudev-1.0-dev libhandy-1-dev libjson-glib-dev libportal-gtk3-dev libraw-dev libsqlite3-dev libwebp-dev libxml2-utils meson valac
-      - name: Build
-        run: |
-          meson build
-          ninja -C build
-          ninja -C build install
-
   flatpak:
     name: Flatpak
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        arch: [x86_64, aarch64]
+      # Don't fail the whole workflow if one architecture fails
+      fail-fast: false
+
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:daily
+      image: ghcr.io/elementary/flatpak-platform/runtime:8-${{ matrix.arch }}
       options: --privileged
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up QEMU for aarch64 emulation
+        if: ${{ matrix.arch != 'x86_64' }}
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
       - name: Build
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
-          bundle: photos.flatpak
+          bundle: Photos.flatpak
           manifest-path: io.elementary.photos.yml
           run-tests: true
           repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
+          branch: daily
+          arch: ${{ matrix.arch }}
 
   lint:
+    name: Lint
     runs-on: ubuntu-latest
 
     container:
       image: valalang/lint
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Lint
         run: io.elementary.vala-lint -d .
