@@ -113,6 +113,25 @@
                                 "url-template": "https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz"
                             }
                         }
+                    ],
+                    "modules": [
+                        {
+                            "name": "inih",
+                            "buildsystem": "meson",
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url": "https://github.com/benhoyt/inih",
+                                    "commit": "5cc5e2c24642513aaa5b19126aad42d0e4e0923e",
+                                    "tag": "r58",
+                                    "x-checker-data": {
+                                        "type": "anitya",
+                                        "project-id": 11600,
+                                        "tag-template": "r$version"
+                                    }
+                                }
+                            ]
+                        }
                     ]
                 }
             ]
