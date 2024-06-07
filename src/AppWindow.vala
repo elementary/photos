@@ -198,10 +198,10 @@ public abstract class AppWindow : PageWindow {
     }
 
     private void show_file_uri (File file) throws Error {
-        AppInfo app_info = AppInfo.get_default_for_type ("inode/directory", true);
-        var file_list = new List<File> ();
-        file_list.append (file);
-        app_info.launch (file_list, get_window ().get_screen ().get_display ().get_app_launch_context ());
+        Xdp.Parent? parent = Xdp.parent_new_gtk (this);
+
+        var portal = new Xdp.Portal ();
+        portal.open_directory.begin (parent, file.get_uri (), NONE, null);
     }
 
     protected virtual Gtk.ActionGroup[] create_common_action_groups () {
