@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 19:30+0000\n"
+"POT-Creation-Date: 2024-06-07 22:50+0000\n"
 "PO-Revision-Date: 2017-04-09 18:51+0000\n"
 "Last-Translator: Roman <xmitarai@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/shotwell/language/"
@@ -370,11 +370,11 @@ msgstr "Nahradiť _všetko"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:56
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:617
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:352
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -741,7 +741,7 @@ msgstr "Vrátiť do pôvodného stavu"
 msgid "Re_name Event…"
 msgstr "Premenovať udalosť"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "Premenovať udalosť"
 
@@ -852,92 +852,78 @@ msgid "Adjust Date and Time"
 msgstr "Upraviť dátum a čas"
 
 #: src/Resources.vala:172
-msgid "_Open In"
-msgstr ""
-
-#: src/Resources.vala:174
-#, fuzzy
-msgid "_Open With RAW Editor…"
-msgstr "Otvoriť pomocou RA_W editora"
-
-#: src/Resources.vala:176
 msgid "Find"
 msgstr "Nájsť"
 
-#: src/Resources.vala:178
+#: src/Resources.vala:174
 msgid "_Flag"
 msgstr "_Označiť"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:175
 msgid "Un_flag"
 msgstr "Odz_načiť"
 
-#: src/Resources.vala:182
-#, c-format
-msgid "Unable to launch editor: %s"
-msgstr "Nie je možné spustiť editor: %s"
-
-#: src/Resources.vala:187
+#: src/Resources.vala:179
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "Pridať značku \"%s\""
 
-#: src/Resources.vala:189
+#: src/Resources.vala:181
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "Pridať značky \"%s\" a \"%s\""
 
-#: src/Resources.vala:193
+#: src/Resources.vala:185
 msgid "Add Tags"
 msgstr "Pridať značky"
 
-#: src/Resources.vala:197
+#: src/Resources.vala:189
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "O_dstrániť značku \"%s\""
 
-#: src/Resources.vala:201
+#: src/Resources.vala:193
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "Odstrániť značku \"%s\""
 
-#: src/Resources.vala:204
+#: src/Resources.vala:196
 msgid "Delete Tag"
 msgstr "Odstrániť značku"
 
-#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "O_dstrániť"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:199
 msgid "_New"
 msgstr "_Nová"
 
-#: src/Resources.vala:210
+#: src/Resources.vala:202
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "Pre_menovať značku \"%s\"..."
 
-#: src/Resources.vala:214
+#: src/Resources.vala:206
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Premenovať značku \"%s\" na \"%s\""
 
-#: src/Resources.vala:217
+#: src/Resources.vala:209
 #, fuzzy
 msgid "_Rename…"
 msgstr "_Premenovať..."
 
-#: src/Resources.vala:219
+#: src/Resources.vala:211
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "Upraviť značky"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:212
 msgid "Modify Tags"
 msgstr "Upraviť značky"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:215
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
@@ -945,7 +931,7 @@ msgstr[0] "Označiť fotografie ako \"%s\""
 msgstr[1] "Označiť fotografie ako \"%s\""
 msgstr[2] "Označiť fotografie ako \"%s\""
 
-#: src/Resources.vala:227
+#: src/Resources.vala:219
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
@@ -953,7 +939,7 @@ msgstr[0] "Odstrániť značku \"%s\" z _fotografií"
 msgstr[1] "Odstrániť značku \"%s\" z _fotografií"
 msgstr[2] "Odstrániť značku \"%s\" z _fotografií"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:223
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
@@ -961,90 +947,90 @@ msgstr[0] "Odstrániť značku \"%s\" z fotografií"
 msgstr[1] "Odstrániť značku \"%s\" z fotografií"
 msgstr[2] "Odstrániť značku \"%s\" z fotografií"
 
-#: src/Resources.vala:235
+#: src/Resources.vala:227
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "Nie je možné premenovať značku na \"%s\", lebo táto značka už existuje."
 
-#: src/Resources.vala:239
+#: src/Resources.vala:231
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "Nepodarilo sa premenovať vyhľadávanie na „%s“, lebo takéto vyhľadávanie už "
 "existuje."
 
-#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Chytré album"
 
-#: src/Resources.vala:244
+#: src/Resources.vala:236
 msgid "Delete Album"
 msgstr "Vymazať album"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:239
 #, fuzzy
 msgid "_Edit…"
 msgstr "_Upraviť"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:240
 #, fuzzy
 msgid "Re_name…"
 msgstr "_Premenovať..."
 
-#: src/Resources.vala:251
+#: src/Resources.vala:243
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Premenovať vyhľadávanie „%s“ na „%s“"
 
-#: src/Resources.vala:255
+#: src/Resources.vala:247
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "O_dstrániť vyhľadávanie „%s“"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:279
 msgid "_Delete Selection"
 msgstr "_Zmazať výber"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:280
 msgid "Remove the selected photos from the trash"
 msgstr "Odstrániť vybrané fotografie z koša"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:281
 msgid "Remove the selected photos from the library"
 msgstr "Odstrániť vybrané fotografie z knižnice"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:283
 msgid "_Restore Selection"
 msgstr "_Obnoviť vybrané"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:284
 msgid "Move the selected photos back into the library"
 msgstr "Presunúť vybrané fotografie naspäť do knižnice"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:286
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "Zobraziť v správcovi sú_borov"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:289
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Nie je možné otvoriť v správcovi súborov: %s"
 
-#: src/Resources.vala:300
+#: src/Resources.vala:292
 msgid "R_emove From Library"
 msgstr "_Odstrániť z knižnice"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:294
 msgid "_Move to Trash"
 msgstr "Presunúť do _Koša"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:296
 msgid "Select _All"
 msgstr "Ozn_ačiť všetko"
 
-#: src/Resources.vala:305
+#: src/Resources.vala:297
 msgid "Select all items"
 msgstr "Vybrať všetky položky"
 
@@ -1052,20 +1038,20 @@ msgstr "Vybrať všetky položky"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:344
+#: src/Resources.vala:336
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:349
+#: src/Resources.vala:341
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:353
+#: src/Resources.vala:345
 msgid "%a %b %d, %Y"
 msgstr "%a %d. %b, %Y"
 
@@ -1075,14 +1061,14 @@ msgstr "%a %d. %b, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:358 src/Resources.vala:368
+#: src/Resources.vala:350 src/Resources.vala:360
 msgid "%a %b %d"
 msgstr "%a %d. %b"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:363
+#: src/Resources.vala:355
 msgid "%d, %Y"
 msgstr "%d. %b, %Y"
 
@@ -1255,8 +1241,8 @@ msgstr "_Prepnúť vývojára"
 msgid "Export Video"
 msgstr "Exportovať video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
-#: src/Views/LibraryPhotoPage.vala:850
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
+#: src/Views/LibraryPhotoPage.vala:726
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1264,8 +1250,8 @@ msgstr[0] "Exportovať fotografiu"
 msgstr[1] "Exportovať fotografiu"
 msgstr[2] "Exportovať fotografiu"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
 msgid "_Save"
 msgstr "_Uložiť"
 
@@ -1277,21 +1263,7 @@ msgstr "Exportovať fotografie"
 msgid "_Select"
 msgstr "_Vybrať"
 
-#. Ticket #3023
-#. Attempt to replace the system error with something friendlier
-#. if we can't copy an image over for editing in an external tool.
-#. Did we fail because we can't write to this directory?
-#. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
-msgid ""
-"Photos couldn't create a file for editing this photo because you do not have "
-"permission to write to %s."
-msgstr ""
-"Shotwell nemohol vytvoriť súbor na úpravu tejto fotografie, pretože nemáte "
-"právo zápisu do %s."
-
-#: src/Dialogs/Dialogs.vala:166
+#: src/Dialogs/Dialogs.vala:150
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1299,7 +1271,7 @@ msgstr ""
 "Nie je možné exportovať následujúcu fotografiu kvôli súborovej chybe.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:172
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "\n"
 "\n"
@@ -1309,29 +1281,29 @@ msgstr ""
 "\n"
 "Chcete pokračovať v exporte?"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:157
 msgid "Con_tinue"
 msgstr "_Pokračovať"
 
-#: src/Dialogs/Dialogs.vala:183
+#: src/Dialogs/Dialogs.vala:167
 #, fuzzy
 msgid "Save Details…"
 msgstr "Uložiť podrobnosti"
 
-#: src/Dialogs/Dialogs.vala:184
+#: src/Dialogs/Dialogs.vala:168
 msgid "Save Details"
 msgstr "Uložiť podrobnosti"
 
-#: src/Dialogs/Dialogs.vala:199
+#: src/Dialogs/Dialogs.vala:183
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(a %d naviac)\n"
 
-#: src/Dialogs/Dialogs.vala:252
+#: src/Dialogs/Dialogs.vala:236
 msgid "Import Results Report"
 msgstr "Importovať výsledky reportu"
 
-#: src/Dialogs/Dialogs.vala:256
+#: src/Dialogs/Dialogs.vala:240
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
@@ -1339,7 +1311,7 @@ msgstr[0] "Pokúsilo sa importovať %d súborov."
 msgstr[1] "Pokúsilo sa importovať jeden súbor."
 msgstr[2] "Pokúsilo sa importovať %d súborov."
 
-#: src/Dialogs/Dialogs.vala:259
+#: src/Dialogs/Dialogs.vala:243
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1350,31 +1322,31 @@ msgstr[2] "Z týchto súborov boli úspešne importované %d."
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:255
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Zdvojené Fotky/Videá neimportované:"
 
-#: src/Dialogs/Dialogs.vala:275
+#: src/Dialogs/Dialogs.vala:259
 msgid "duplicates existing media item"
 msgstr "Zdvojené existujúce mediálne položky"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:270
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Fotografie/videá neboli importované kvôli problémom s fotoaparátom:"
 
-#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
-#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
-#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
+#: src/Dialogs/Dialogs.vala:273 src/Dialogs/Dialogs.vala:288
+#: src/Dialogs/Dialogs.vala:303 src/Dialogs/Dialogs.vala:319
+#: src/Dialogs/Dialogs.vala:334 src/Dialogs/Dialogs.vala:348
 msgid "error message:"
 msgstr "Správa o chybe:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:300
+#: src/Dialogs/Dialogs.vala:284
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Súbory neboli importované, pretože neboli rozpoznané ako fotografie alebo "
@@ -1383,7 +1355,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:315
+#: src/Dialogs/Dialogs.vala:299
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1395,7 +1367,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:330
+#: src/Dialogs/Dialogs.vala:314
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1404,7 +1376,7 @@ msgstr ""
 "Fotografie/videá neboli importované, pretože program Shotwell ich nedokáže "
 "skopírovať do svojej knižnice:"
 
-#: src/Dialogs/Dialogs.vala:334
+#: src/Dialogs/Dialogs.vala:318
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1416,18 +1388,18 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:346
+#: src/Dialogs/Dialogs.vala:330
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Fotky/Videá Neimportované z dôvodu porušených súborov:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:361
+#: src/Dialogs/Dialogs.vala:345
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Fotky/Videá Neimportované z iných dôvodov:"
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:365
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
@@ -1435,7 +1407,7 @@ msgstr[0] "%d duplikátne fotografie neboli importované:\n"
 msgstr[1] "%d duplikátnych fotografií nebolo importovaných:\n"
 msgstr[2] "1 duplikátna fotografia nebola importovaná:\n"
 
-#: src/Dialogs/Dialogs.vala:384
+#: src/Dialogs/Dialogs.vala:368
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
@@ -1443,7 +1415,7 @@ msgstr[0] "%d duplicitné videá neboli importované:\n"
 msgstr[1] "%d duplicitných videí nebolo importovaných:\n"
 msgstr[2] "1 duplicitné video nebolo importované:\n"
 
-#: src/Dialogs/Dialogs.vala:387
+#: src/Dialogs/Dialogs.vala:371
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
@@ -1451,7 +1423,7 @@ msgstr[0] "%d duplicitné fotografie/videá neboli importované:\n"
 msgstr[1] "%d duplicitných fotografií/videí nebolo importovaných:\n"
 msgstr[2] "1 duplicitná fotografia/video nebola importovaná:\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:385
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
@@ -1465,7 +1437,7 @@ msgstr[2] ""
 "1 fotografiu sa nepodarilo importovať kvôli súborovej alebo hardvérovej "
 "chybe:\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:388
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -1476,7 +1448,7 @@ msgstr[1] ""
 msgstr[2] ""
 "1 video sa nepodarilo importovať kvôli súborovej alebo hardvérovej chybe:\n"
 
-#: src/Dialogs/Dialogs.vala:407
+#: src/Dialogs/Dialogs.vala:391
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1491,7 +1463,7 @@ msgstr[2] ""
 "1 fotografiu/video sa nepodarilo importovať kvôli súborovej alebo "
 "hardvérovej chybe:\n"
 
-#: src/Dialogs/Dialogs.vala:410
+#: src/Dialogs/Dialogs.vala:394
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
@@ -1503,7 +1475,7 @@ msgstr[1] ""
 msgstr[2] ""
 "1 súbor sa nepodarilo importovať kvôli súborovej alebo hardvérovej chybe:\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:408
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1520,7 +1492,7 @@ msgstr[2] ""
 "1 fotografiu sa nepodarilo importovať, pretože do priečinka s knižnicou "
 "fotografií sa nedá zapisovať:\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:411
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1537,7 +1509,7 @@ msgstr[2] ""
 "1 video sa nepodarilo importovať, pretože do priečinka s knižnicou "
 "fotografií sa nedá zapisovať:\n"
 
-#: src/Dialogs/Dialogs.vala:430
+#: src/Dialogs/Dialogs.vala:414
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1555,7 +1527,7 @@ msgstr[2] ""
 "1 fotografiu/video sa nepodarilo importovať, pretože do priečinka s "
 "knižnicou fotografií sa nedá zapisovať:\n"
 
-#: src/Dialogs/Dialogs.vala:433
+#: src/Dialogs/Dialogs.vala:417
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1572,7 +1544,7 @@ msgstr[2] ""
 "1 súbor sa nepodarilo importovať, pretože do priečinka s knižnicou "
 "fotografií sa nedá zapisovať:\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:431
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
@@ -1580,7 +1552,7 @@ msgstr[0] "%d fotografie sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[1] "%d fotografií sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[2] "1 fotografiu sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:434
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
@@ -1588,7 +1560,7 @@ msgstr[0] "%d videá sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[1] "%d videí sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[2] "1 video sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 
-#: src/Dialogs/Dialogs.vala:453
+#: src/Dialogs/Dialogs.vala:437
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
@@ -1599,7 +1571,7 @@ msgstr[1] ""
 msgstr[2] ""
 "1 fotografiu/video sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 
-#: src/Dialogs/Dialogs.vala:456
+#: src/Dialogs/Dialogs.vala:440
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
@@ -1607,7 +1579,7 @@ msgstr[0] "%d súbory sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[1] "%d súborov sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 msgstr[2] "1 súbor sa nepodarilo importovať kvôli chybe fotoaparátu:\n"
 
-#: src/Dialogs/Dialogs.vala:470
+#: src/Dialogs/Dialogs.vala:454
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
@@ -1615,7 +1587,7 @@ msgstr[0] "Importovanie %d fotografií zlyhalo, pretože boli poškodené:\n"
 msgstr[1] "Importovanie jednej fotografie zlyhalo, pretože bola poškodená:\n"
 msgstr[2] "Importovanie %d fotografií zlyhalo, pretože boli poškodené:\n"
 
-#: src/Dialogs/Dialogs.vala:473
+#: src/Dialogs/Dialogs.vala:457
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
@@ -1623,7 +1595,7 @@ msgstr[0] "Importovanie %d videí zlyhalo, pretože boli poškodené:\n"
 msgstr[1] "Importovanie jedného videa zlyhalo, pretože bolo poškodené:\n"
 msgstr[2] "Importovanie %d videí zlyhalo, pretože boli poškodené:\n"
 
-#: src/Dialogs/Dialogs.vala:476
+#: src/Dialogs/Dialogs.vala:460
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
@@ -1632,7 +1604,7 @@ msgstr[1] ""
 "Importovanie jednej fotografie/videa zlyhalo, pretože bolo poškodené:\n"
 msgstr[2] "Importovanie %d fotografií/videí zlyhalo, pretože boli poškodené:\n"
 
-#: src/Dialogs/Dialogs.vala:479
+#: src/Dialogs/Dialogs.vala:463
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1644,7 +1616,7 @@ msgstr[2] "Importovanie %d súborov zlyhalo, pretože boli poškodené:\n"
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:480
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1654,7 +1626,7 @@ msgstr[2] "1 nepodporovaná fotografia bola preskočená:\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:511
+#: src/Dialogs/Dialogs.vala:495
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
@@ -1662,7 +1634,7 @@ msgstr[0] "%d súbory, ktorý nie sú obrázkami, boli preskočené.\n"
 msgstr[1] "%d súborov, ktoré nie sú obrázkami, bolo preskočených.\n"
 msgstr[2] "1 súbor, ktorý nie je obrázok, bol preskočený.\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:506
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
@@ -1670,7 +1642,7 @@ msgstr[0] "%d fotografie boli preskočené kvôli prerušeniu používateľom:\n
 msgstr[1] "%d fotografií bolo preskočených kvôli prerušeniu používateľom:\n"
 msgstr[2] "1 fotografia bola preskočená kvôli prerušeniu používateľom:\n"
 
-#: src/Dialogs/Dialogs.vala:525
+#: src/Dialogs/Dialogs.vala:509
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
@@ -1678,7 +1650,7 @@ msgstr[0] "%d videá bolí preskočené kvôli prerušeniu používateľom:\n"
 msgstr[1] "%d videí bolo preskočených kvôli prerušeniu používateľom:\n"
 msgstr[2] "%d video bolo preskočené kvôli prerušeniu používateľom:\n"
 
-#: src/Dialogs/Dialogs.vala:528
+#: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
@@ -1688,7 +1660,7 @@ msgstr[1] ""
 "%d fotografií/videí bolo preskočených kvôli prerušeniu používateľom:\n"
 msgstr[2] "1 fotografia/video bolo preskočené kvôli prerušeniu používateľom:\n"
 
-#: src/Dialogs/Dialogs.vala:531
+#: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
@@ -1696,7 +1668,7 @@ msgstr[0] "%d súbory boli preskočené kvôli prerušeniu používateľom:\n"
 msgstr[1] "%d súborov bolo preskočených kvôli prerušeniu používateľom:\n"
 msgstr[2] "1 súbor bol preskočený kvôli prerušeniu používateľom:\n"
 
-#: src/Dialogs/Dialogs.vala:545
+#: src/Dialogs/Dialogs.vala:529
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
@@ -1704,7 +1676,7 @@ msgstr[0] "%d fotografie boli úspešne importované.\n"
 msgstr[1] "%d fotografií bolo úspešne importovaných.\n"
 msgstr[2] "1 fotografia bola úspešne importovaná.\n"
 
-#: src/Dialogs/Dialogs.vala:548
+#: src/Dialogs/Dialogs.vala:532
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
@@ -1712,7 +1684,7 @@ msgstr[0] "%d videá bolo úspešne importované.\n"
 msgstr[1] "%d videí bolo úspešne importovaných.\n"
 msgstr[2] "1 video bolo úspešne importované.\n"
 
-#: src/Dialogs/Dialogs.vala:551
+#: src/Dialogs/Dialogs.vala:535
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1722,23 +1694,23 @@ msgstr[2] "1 fotografia/video bolo úspešne importované.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:567
+#: src/Dialogs/Dialogs.vala:551
 msgid "No photos or videos imported.\n"
 msgstr "Žiadne fotografie ani videá neboli importované.\n"
 
-#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
+#: src/Dialogs/Dialogs.vala:557 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "Import dokončený"
 
-#: src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:567
 msgid "_Done"
 msgstr "_Dokončiť"
 
-#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:766 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Názov:"
 
-#: src/Dialogs/Dialogs.vala:800
+#: src/Dialogs/Dialogs.vala:784
 #, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
@@ -1746,7 +1718,7 @@ msgstr[0] "Vrátiť externú úpravu?"
 msgstr[1] "Vrátiť externú úpravu?"
 msgstr[2] "Vrátiť externú úpravu?"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:786
 #, fuzzy, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
@@ -1760,7 +1732,7 @@ msgstr[1] ""
 msgstr[2] ""
 "Táto operácia zničí všetky zmeny vykonané na externom súbore. Pokračovať?"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:791
 #, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
@@ -1768,15 +1740,15 @@ msgstr[0] "V_rátiť externé úpravy"
 msgstr[1] "V_rátiť externé úpravy"
 msgstr[2] "V_rátiť externé úpravy"
 
-#: src/Dialogs/Dialogs.vala:833
+#: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
 msgstr "Odstrániť fotografie z knižnice"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:818
 msgid "Remove Photos From Library"
 msgstr "Odstrániť fotografie z knižnice"
 
-#: src/Dialogs/Dialogs.vala:839
+#: src/Dialogs/Dialogs.vala:823
 #, fuzzy, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
@@ -1784,11 +1756,11 @@ msgstr[0] "Táto operácia odstráni %d fotografie z knižnice. Chcete pokračov
 msgstr[1] "Táto operácia odstráni %d fotografií z knižnice. Chcete pokračovať?"
 msgstr[2] "Táto operácia odstráni fotografiu z knižnice. Chcete pokračovať?"
 
-#: src/Dialogs/Dialogs.vala:852
+#: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
 msgstr "O_dstrániť"
 
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:856
 #, c-format
 msgid ""
 "\n"
@@ -1813,7 +1785,7 @@ msgstr[2] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:879
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1822,23 +1794,23 @@ msgstr ""
 "Shotwell môže skopírovať fotografie do vášho priečinka s knižnicou alebo ich "
 "importovať bez kopírovania."
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "Importovať do knižnice"
 
-#: src/Dialogs/Dialogs.vala:905
+#: src/Dialogs/Dialogs.vala:889
 msgid "Co_py Photos"
 msgstr "Ko_pírovať fotografie"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:890
 msgid "_Import in Place"
 msgstr "_Importovať na mieste"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
 msgid "Remove From Library"
 msgstr "Odstrániť z knižnice"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1847,7 +1819,7 @@ msgstr[1] "Odstraňuje sa fotografia z knižnice"
 msgstr[2] "Odstraňuje sa fotografia z knižnice"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:953
+#: src/Dialogs/Dialogs.vala:937
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1939,7 +1911,7 @@ msgid "Add"
 msgstr "Pridať"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:444
 msgid "Save"
 msgstr "Uložiť"
 
@@ -1968,7 +1940,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:570
+#: src/Views/DirectPhotoPage.vala:445
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -2208,8 +2180,8 @@ msgstr "Nastavenia"
 msgid "Sort _Events"
 msgstr "Zora_diť udalosti"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
-#: src/Views/LibraryPhotoPage.vala:560
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:184
+#: src/Views/LibraryPhotoPage.vala:550
 msgid "View Eve_nt for Photo"
 msgstr "Zobraziť u_dalosť fotografie"
 
@@ -2221,7 +2193,7 @@ msgid "New Smart Album…"
 msgstr "Nové chytré album..."
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
+#: src/Views/CollectionPage.vala:122 src/Views/LibraryPhotoPage.vala:490
 msgid "Edit Photo In_fo"
 msgstr "Editovať info_rmáciu fotografie"
 
@@ -2547,8 +2519,8 @@ msgstr "Značky"
 msgid "Photos cannot be exported to this directory."
 msgstr "Fotografie nemôžu byť exportované do tohoto adresára."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
-#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:869
+#: src/Views/CollectionPage.vala:870 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Žiadne fotografie/videá"
@@ -2557,25 +2529,31 @@ msgstr "Žiadne fotografie/videá"
 msgid "No photos/videos found"
 msgstr "Neboli nájdené žiadne fotografie/videá"
 
-#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:68 src/Views/LibraryPhotoPage.vala:57
 msgid "Play a slideshow"
 msgstr "Spustiť prezentáciu"
 
-#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
+#: src/Views/CollectionPage.vala:161 src/Views/LibraryPhotoPage.vala:524
 msgid "_Developer"
 msgstr "_Vývojár"
 
-#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:575
+#: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
+#: src/Views/LibraryPhotoPage.vala:546
+#, fuzzy
+msgid "Show in Files"
+msgstr "Zobraziť ná_zov"
+
+#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:565
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:579
+#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
+#: src/Views/LibraryPhotoPage.vala:569
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:688
+#: src/Views/CollectionPage.vala:562
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
@@ -2583,41 +2561,41 @@ msgstr[0] "Exportovať fotografiu/video"
 msgstr[1] "Exportovať fotografiu/video"
 msgstr[2] "Exportovať fotografiu/video"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
 msgstr "Otáča sa"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Undoing Rotate"
 msgstr "Vracia sa spať otáčanie"
 
-#: src/Views/CollectionPage.vala:803
+#: src/Views/CollectionPage.vala:677
 msgid "Flipping Horizontally"
 msgstr "Prevracia sa horizontálne"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:678
 msgid "Undoing Flip Horizontally"
 msgstr "Vracia sa prevrátenie horizontálne"
 
-#: src/Views/CollectionPage.vala:813
+#: src/Views/CollectionPage.vala:687
 msgid "Flipping Vertically"
 msgstr "Prevracia sa vertikálne"
 
-#: src/Views/CollectionPage.vala:814
+#: src/Views/CollectionPage.vala:688
 msgid "Undoing Flip Vertically"
 msgstr "Vracia sa prevrátenie vertikálne"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:99
 #, c-format
 msgid "%s does not exist."
 msgstr "%s neexistuje."
 
-#: src/Views/DirectPhotoPage.vala:104
+#: src/Views/DirectPhotoPage.vala:101
 #, c-format
 msgid "%s is not a file."
 msgstr "%s nie je súbor."
 
-#: src/Views/DirectPhotoPage.vala:106
+#: src/Views/DirectPhotoPage.vala:103
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2626,25 +2604,25 @@ msgstr ""
 "%s nepodporuje súborový formát\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:464
+#: src/Views/DirectPhotoPage.vala:339
 msgid "_Save a Copy"
 msgstr "_Uložiť kópiu"
 
-#: src/Views/DirectPhotoPage.vala:467
+#: src/Views/DirectPhotoPage.vala:342
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Zahodiť zmeny vo %s?"
 
-#: src/Views/DirectPhotoPage.vala:474
+#: src/Views/DirectPhotoPage.vala:349
 msgid "Close _without Saving"
 msgstr "Zavrieť _bez uloženia"
 
-#: src/Views/DirectPhotoPage.vala:514
+#: src/Views/DirectPhotoPage.vala:389
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Chyba počas ukladania do %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
+#: src/Views/DirectPhotoPage.vala:419 src/Views/DirectPhotoPage.vala:441
 msgid "Save As"
 msgstr "Uložiť ako"
 
@@ -2940,7 +2918,7 @@ msgstr "Importovaný súbor „%s“"
 msgid "Last Import"
 msgstr "Posledné importovanie"
 
-#: src/Views/LibraryPhotoPage.vala:870
+#: src/Views/LibraryPhotoPage.vala:746
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Nepodarilo sa exportovať %s: %s"
@@ -3350,6 +3328,22 @@ msgstr "Šachovnica"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Oslepenie"
+
+#, fuzzy
+#~ msgid "_Open With RAW Editor…"
+#~ msgstr "Otvoriť pomocou RA_W editora"
+
+#, c-format
+#~ msgid "Unable to launch editor: %s"
+#~ msgstr "Nie je možné spustiť editor: %s"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos couldn't create a file for editing this photo because you do not "
+#~ "have permission to write to %s."
+#~ msgstr ""
+#~ "Shotwell nemohol vytvoriť súbor na úpravu tejto fotografie, pretože "
+#~ "nemáte právo zápisu do %s."
 
 #~ msgid "Preparing for upload"
 #~ msgstr "Pripravuje sa nahrávanie"

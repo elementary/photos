@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-photos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 19:30+0000\n"
+"POT-Creation-Date: 2024-06-07 22:50+0000\n"
 "PO-Revision-Date: 2017-09-08 13:12+0000\n"
 "Last-Translator: M Aiman <m.aimanismail@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/photos/photos/"
@@ -354,11 +354,11 @@ msgstr "Ganti Semu_a"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:56
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:617
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:352
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -723,7 +723,7 @@ msgstr "Kembali Semula ke Asal"
 msgid "Re_name Event…"
 msgstr "Nama Semula Peristiwa"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "Nama Semula Peristiwa"
 
@@ -834,193 +834,179 @@ msgid "Adjust Date and Time"
 msgstr "Laras Masa dan Tarikh"
 
 #: src/Resources.vala:172
-msgid "_Open In"
-msgstr ""
-
-#: src/Resources.vala:174
-#, fuzzy
-msgid "_Open With RAW Editor…"
-msgstr "Buka Dengan Penyunting RA_W"
-
-#: src/Resources.vala:176
 msgid "Find"
 msgstr "Cari"
 
-#: src/Resources.vala:178
+#: src/Resources.vala:174
 msgid "_Flag"
 msgstr "_Bendera"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:175
 msgid "Un_flag"
 msgstr "N_yahbendera"
 
-#: src/Resources.vala:182
-#, c-format
-msgid "Unable to launch editor: %s"
-msgstr "Tidak boleh lancar penyunting: %s"
-
-#: src/Resources.vala:187
+#: src/Resources.vala:179
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "Tambah Tag \"%s\""
 
-#: src/Resources.vala:189
+#: src/Resources.vala:181
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "Tambah Tag \"%s\" dan \"%s\""
 
-#: src/Resources.vala:193
+#: src/Resources.vala:185
 msgid "Add Tags"
 msgstr "Tambah Tag"
 
-#: src/Resources.vala:197
+#: src/Resources.vala:189
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "_Padam Tag \"%s\""
 
-#: src/Resources.vala:201
+#: src/Resources.vala:193
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "_Padam Tag \"%s\""
 
-#: src/Resources.vala:204
+#: src/Resources.vala:196
 msgid "Delete Tag"
 msgstr "_Padam Tag"
 
-#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "Pa_dam"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:199
 msgid "_New"
 msgstr "_Baharu"
 
-#: src/Resources.vala:210
+#: src/Resources.vala:202
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "_Nama Semula Tag \"%s\"..."
 
-#: src/Resources.vala:214
+#: src/Resources.vala:206
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Namakan semula \"%s\" ke \"%s\""
 
-#: src/Resources.vala:217
+#: src/Resources.vala:209
 #, fuzzy
 msgid "_Rename…"
 msgstr "_Nama semula..."
 
-#: src/Resources.vala:219
+#: src/Resources.vala:211
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "Ubahsuai Tag"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:212
 msgid "Modify Tags"
 msgstr "Ubahsuai Tag"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:215
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Tag Foto sebagai \"%s\""
 
-#: src/Resources.vala:227
+#: src/Resources.vala:219
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Buang Tag \"%s\" Dari _Foto"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:223
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Buang Tag \"%s\" Dari Foto"
 
-#: src/Resources.vala:235
+#: src/Resources.vala:227
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "Tidak boleh menamakan semula tag ke \"%s\" kerana tag tersebut sudah wujud."
 
-#: src/Resources.vala:239
+#: src/Resources.vala:231
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "Tidak boleh menamakan semula gelintar ke \"%s\" kerana penggelintaran "
 "tersebut sudah wujud."
 
-#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Album Pintar"
 
-#: src/Resources.vala:244
+#: src/Resources.vala:236
 msgid "Delete Album"
 msgstr "Padam Album"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:239
 #, fuzzy
 msgid "_Edit…"
 msgstr "_Sunting"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:240
 #, fuzzy
 msgid "Re_name…"
 msgstr "Na_makan Semula..."
 
-#: src/Resources.vala:251
+#: src/Resources.vala:243
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Namakan Semula Gelintar \"%s\" ke \"%s\""
 
-#: src/Resources.vala:255
+#: src/Resources.vala:247
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Padam Gelintar \"%s\""
 
-#: src/Resources.vala:287
+#: src/Resources.vala:279
 msgid "_Delete Selection"
 msgstr "Pa_dam Pemilihan"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:280
 msgid "Remove the selected photos from the trash"
 msgstr "Buang foto pilihan dari tong sampah"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:281
 msgid "Remove the selected photos from the library"
 msgstr "Buang foto pilihan dari pustaka"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:283
 msgid "_Restore Selection"
 msgstr "_Pulih Pemilihan"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:284
 msgid "Move the selected photos back into the library"
 msgstr "Alih foto pilihan kembali ke pustaka"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:286
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "Tunjuk dalam Pengurus Fail"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:289
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Tidak boleh buka melalui pengurus fail: %s"
 
-#: src/Resources.vala:300
+#: src/Resources.vala:292
 msgid "R_emove From Library"
 msgstr "B_uang dari Pustaka"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:294
 msgid "_Move to Trash"
 msgstr "_Alih ke Tong Sampah"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:296
 msgid "Select _All"
 msgstr "Pilih Semu_a"
 
-#: src/Resources.vala:305
+#: src/Resources.vala:297
 msgid "Select all items"
 msgstr "Pilih semua item"
 
@@ -1028,20 +1014,20 @@ msgstr "Pilih semua item"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:344
+#: src/Resources.vala:336
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:349
+#: src/Resources.vala:341
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:353
+#: src/Resources.vala:345
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1051,14 +1037,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:358 src/Resources.vala:368
+#: src/Resources.vala:350 src/Resources.vala:360
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:363
+#: src/Resources.vala:355
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1216,15 +1202,15 @@ msgstr "_Tukar Pembangun"
 msgid "Export Video"
 msgstr "Eksport Video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
-#: src/Views/LibraryPhotoPage.vala:850
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
+#: src/Views/LibraryPhotoPage.vala:726
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Eksport Foto"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
 msgid "_Save"
 msgstr "_Simpan"
 
@@ -1236,21 +1222,7 @@ msgstr "Eksport Foto"
 msgid "_Select"
 msgstr "Pi_lih"
 
-#. Ticket #3023
-#. Attempt to replace the system error with something friendlier
-#. if we can't copy an image over for editing in an external tool.
-#. Did we fail because we can't write to this directory?
-#. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
-msgid ""
-"Photos couldn't create a file for editing this photo because you do not have "
-"permission to write to %s."
-msgstr ""
-"Shotwell tidak dapat mencipta fail untuk penyuntingan foto ini kerana anda "
-"tidak mempunyai kebenaran menulis ke %s."
-
-#: src/Dialogs/Dialogs.vala:166
+#: src/Dialogs/Dialogs.vala:150
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1258,7 +1230,7 @@ msgstr ""
 "Tidak boleh mengeksport foto berikut kerana ralat fail.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:172
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "\n"
 "\n"
@@ -1268,36 +1240,36 @@ msgstr ""
 "\n"
 "Adakah anda ingin meneruskan proses mengimport?"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:157
 msgid "Con_tinue"
 msgstr "Te_ruskan"
 
-#: src/Dialogs/Dialogs.vala:183
+#: src/Dialogs/Dialogs.vala:167
 #, fuzzy
 msgid "Save Details…"
 msgstr "Simpan Perincian"
 
-#: src/Dialogs/Dialogs.vala:184
+#: src/Dialogs/Dialogs.vala:168
 msgid "Save Details"
 msgstr "Simpan Perincian"
 
-#: src/Dialogs/Dialogs.vala:199
+#: src/Dialogs/Dialogs.vala:183
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(dan %d lagi)\n"
 
-#: src/Dialogs/Dialogs.vala:252
+#: src/Dialogs/Dialogs.vala:236
 msgid "Import Results Report"
 msgstr "Import Laporan Keputusan"
 
-#: src/Dialogs/Dialogs.vala:256
+#: src/Dialogs/Dialogs.vala:240
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "Cuba mengimport %d fail."
 msgstr[1] "Cuba mengimport %d fail."
 
-#: src/Dialogs/Dialogs.vala:259
+#: src/Dialogs/Dialogs.vala:243
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1307,31 +1279,31 @@ msgstr[1] "%d fail berjaya diimport."
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:255
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Foto/Video Pendua Tidak Diimport:"
 
-#: src/Dialogs/Dialogs.vala:275
+#: src/Dialogs/Dialogs.vala:259
 msgid "duplicates existing media item"
 msgstr "duplikasikan item media pendua"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:270
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Foto/Video Tidak Diimport Kerana Ralat Kamera:"
 
-#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
-#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
-#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
+#: src/Dialogs/Dialogs.vala:273 src/Dialogs/Dialogs.vala:288
+#: src/Dialogs/Dialogs.vala:303 src/Dialogs/Dialogs.vala:319
+#: src/Dialogs/Dialogs.vala:334 src/Dialogs/Dialogs.vala:348
 msgid "error message:"
 msgstr "mesej ralat:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:300
+#: src/Dialogs/Dialogs.vala:284
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Fail Tidak Diimport Kerana Ia Tidak Dikenalpasti sebagai Foto atau Video:"
@@ -1339,7 +1311,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:315
+#: src/Dialogs/Dialogs.vala:299
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1350,7 +1322,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:330
+#: src/Dialogs/Dialogs.vala:314
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1359,7 +1331,7 @@ msgstr ""
 "Foto/Video Tidak Diimport Kerana Shotwell Tidak Dapat Menyalinnya ke dalam "
 "Pustaka:"
 
-#: src/Dialogs/Dialogs.vala:334
+#: src/Dialogs/Dialogs.vala:318
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1371,53 +1343,53 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:346
+#: src/Dialogs/Dialogs.vala:330
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Foto/Video Tidak Diimport Kerana Fail Telah Rosak:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:361
+#: src/Dialogs/Dialogs.vala:345
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Foto/Video Tidak Diimport atas Sebab Lain:"
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:365
 #, fuzzy, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "1 foto pendua tidak diimport:\n"
 msgstr[1] "%d foto pendua tidak diimport:\n"
 
-#: src/Dialogs/Dialogs.vala:384
+#: src/Dialogs/Dialogs.vala:368
 #, fuzzy, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "1 video pendua tidak diimport:\n"
 msgstr[1] "%d video pendua tidak diimport:\n"
 
-#: src/Dialogs/Dialogs.vala:387
+#: src/Dialogs/Dialogs.vala:371
 #, fuzzy, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "1 foto/video pendua tidak diimport:\n"
 msgstr[1] "%d foto/video pendua tidak diimport:\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:385
 #, fuzzy, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
 msgstr[0] "1 foto gagal diimport kerana ralat fail atau ralat perkakasan:\n"
 msgstr[1] "%d foto gagal diimport kerana ralat fail atau ralat perkakasan:\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:388
 #, fuzzy, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
 msgstr[0] "1 video gagal diimport kerana ralat fail atau perkakasan:\n"
 msgstr[1] "%d video gagal diimport kerana ralat fail atau perkakasan:\n"
 
-#: src/Dialogs/Dialogs.vala:407
+#: src/Dialogs/Dialogs.vala:391
 #, fuzzy, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1425,14 +1397,14 @@ msgid_plural ""
 msgstr[0] "1 foto/video gagal diimport kerana ralat fail atau perkakasan:\n"
 msgstr[1] "%d foto/video gagal diimport kerana ralat fail atau perkakasan:\n"
 
-#: src/Dialogs/Dialogs.vala:410
+#: src/Dialogs/Dialogs.vala:394
 #, fuzzy, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] "1 fail gagal diimport kerana ralat perkakasan atau fail:\n"
 msgstr[1] "%d fail gagal diimport kerana ralat perkakasan atau fail:\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:408
 #, fuzzy, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1444,7 +1416,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d foto gagal diimport kerana folder pustaka foto tidak boleh-tulis:\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:411
 #, fuzzy, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1456,7 +1428,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d video gagal diimport kerana folder pustaka foto tidak boleh-tulis:\n"
 
-#: src/Dialogs/Dialogs.vala:430
+#: src/Dialogs/Dialogs.vala:414
 #, fuzzy, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1469,7 +1441,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d foto/video gagal diimport kerana folder pustaka foto tidak boleh-tulis:\n"
 
-#: src/Dialogs/Dialogs.vala:433
+#: src/Dialogs/Dialogs.vala:417
 #, fuzzy, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1481,56 +1453,56 @@ msgstr[0] ""
 msgstr[1] ""
 "%d fail gagal diimport kerana folder pustaka foto tidak boleh ditulis:\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:431
 #, fuzzy, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "1 foto gagal diimport kerana ralat kamera\n"
 msgstr[1] "%d foto gagal diimport kerana ralat kamera\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:434
 #, fuzzy, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "1 video gagal diimport kerana ralat kamera:\n"
 msgstr[1] "%d video gagal diimport kerana ralat kamera:\n"
 
-#: src/Dialogs/Dialogs.vala:453
+#: src/Dialogs/Dialogs.vala:437
 #, fuzzy, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] "1 foto/video gagal diimport kerana ralat kamera:\n"
 msgstr[1] "%d foto/video gagal diimport kerana ralat kamera:\n"
 
-#: src/Dialogs/Dialogs.vala:456
+#: src/Dialogs/Dialogs.vala:440
 #, fuzzy, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "1 fail gagal diimport kerana ralat kamera:\n"
 msgstr[1] "%d fail gagal diimport kerana ralat kamera:\n"
 
-#: src/Dialogs/Dialogs.vala:470
+#: src/Dialogs/Dialogs.vala:454
 #, fuzzy, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "1 foto gagal diimport kerana telah rosak:\n"
 msgstr[1] "%d foto gagal diimport kerana telah rosak:\n"
 
-#: src/Dialogs/Dialogs.vala:473
+#: src/Dialogs/Dialogs.vala:457
 #, fuzzy, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "1 video gagal diimport kerana telah rosak:\n"
 msgstr[1] "%d video gagal diimport kerana telah rosak:\n"
 
-#: src/Dialogs/Dialogs.vala:476
+#: src/Dialogs/Dialogs.vala:460
 #, fuzzy, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] "1 foto/video gagal diimport kerana telah rosak:\n"
 msgstr[1] "%d foto/video gagal diimport kerana telah rosak:\n"
 
-#: src/Dialogs/Dialogs.vala:479
+#: src/Dialogs/Dialogs.vala:463
 #, fuzzy, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1541,7 +1513,7 @@ msgstr[1] "%d fail gagal diimport kerana telah rosak:\n"
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:480
 #, fuzzy, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1550,56 +1522,56 @@ msgstr[1] "%d foto yang tidak disokong telah dilangkau:\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:511
+#: src/Dialogs/Dialogs.vala:495
 #, fuzzy, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "1 fail bukan-imej dilangkau.\n"
 msgstr[1] "%d fail bukan-imej dilangkau.\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:506
 #, fuzzy, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "1 foto dilangkau kerana pengguna membatalkannya:\n"
 msgstr[1] "%d foto dilangkau kerana pengguna membatalkannya:\n"
 
-#: src/Dialogs/Dialogs.vala:525
+#: src/Dialogs/Dialogs.vala:509
 #, fuzzy, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "1 video dilangkau kerana dibatalkan oleh pengguna:\n"
 msgstr[1] "%d video dilangkau kerana dibatalkan oleh pengguna:\n"
 
-#: src/Dialogs/Dialogs.vala:528
+#: src/Dialogs/Dialogs.vala:512
 #, fuzzy, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "1 foto/video dilangkau kerana dibatalkan oleh pengguna:\n"
 msgstr[1] "%d foto/video dilangkaui kerana dibatalkan oleh pengguna:\n"
 
-#: src/Dialogs/Dialogs.vala:531
+#: src/Dialogs/Dialogs.vala:515
 #, fuzzy, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "1 fail dilangkau kerana pengguna membatalkannya:\n"
 msgstr[1] "%d fail dilangkau kerana pengguna membatalkannya:\n"
 
-#: src/Dialogs/Dialogs.vala:545
+#: src/Dialogs/Dialogs.vala:529
 #, fuzzy, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 foto berjaya diimport.\n"
 msgstr[1] "%d foto berjaya diimport.\n"
 
-#: src/Dialogs/Dialogs.vala:548
+#: src/Dialogs/Dialogs.vala:532
 #, fuzzy, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "1 video berjaya diimport.\n"
 msgstr[1] "%d video berjaya diimport.\n"
 
-#: src/Dialogs/Dialogs.vala:551
+#: src/Dialogs/Dialogs.vala:535
 #, fuzzy, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1608,29 +1580,29 @@ msgstr[1] "%d foto/video berjaya diimport.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:567
+#: src/Dialogs/Dialogs.vala:551
 msgid "No photos or videos imported.\n"
 msgstr "Tiada foto atau video diimport.\n"
 
-#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
+#: src/Dialogs/Dialogs.vala:557 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "Proses Mengimport Selesai"
 
-#: src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:567
 msgid "_Done"
 msgstr "_Selesai"
 
-#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:766 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Nama:"
 
-#: src/Dialogs/Dialogs.vala:800
+#: src/Dialogs/Dialogs.vala:784
 #, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Kembali Suntingan Dalaman?"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:786
 #, fuzzy, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
@@ -1642,32 +1614,32 @@ msgstr[1] ""
 "Tindakan ini akan membatalkan semua perubahan yang telah dibuat pada %d fail "
 "luaran. Teruskannya?"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:791
 #, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "Kem_bali Penyunting Luaran"
 
-#: src/Dialogs/Dialogs.vala:833
+#: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
 msgstr "Buang Foto Dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:818
 msgid "Remove Photos From Library"
 msgstr "Buang Foto Dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:839
+#: src/Dialogs/Dialogs.vala:823
 #, fuzzy, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Tindakan ini akan membuang foto dari pustaka. Teruskannya?"
 msgstr[1] "Tindakan ini akan membuang %d foto dari pustaka. Teruskannya?"
 
-#: src/Dialogs/Dialogs.vala:852
+#: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
 msgstr "_Buang"
 
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:856
 #, c-format
 msgid ""
 "\n"
@@ -1688,7 +1660,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:879
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1697,30 +1669,30 @@ msgstr ""
 "Shotwell tidak boleh menyalin foto kedalam folder pustaka anda atau ia boleh "
 "mengimportnya tanpa menyalin."
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "Import ke Pustaka"
 
-#: src/Dialogs/Dialogs.vala:905
+#: src/Dialogs/Dialogs.vala:889
 msgid "Co_py Photos"
 msgstr "Sa_lin Foto"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:890
 msgid "_Import in Place"
 msgstr "_Import di Tempat"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
 msgid "Remove From Library"
 msgstr "Buang dari Pustaka"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Membuang Foto Dari Pustaka"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:953
+#: src/Dialogs/Dialogs.vala:937
 #, fuzzy, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1811,7 +1783,7 @@ msgid "Add"
 msgstr "Tambah"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:444
 msgid "Save"
 msgstr "Simpan"
 
@@ -1840,7 +1812,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:570
+#: src/Views/DirectPhotoPage.vala:445
 msgid "Cancel"
 msgstr "Batal"
 
@@ -2077,8 +2049,8 @@ msgstr "Tetapan"
 msgid "Sort _Events"
 msgstr "Isih _Peristiwa"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
-#: src/Views/LibraryPhotoPage.vala:560
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:184
+#: src/Views/LibraryPhotoPage.vala:550
 msgid "View Eve_nt for Photo"
 msgstr "Lihat Pe_ristiwa untuk Foto"
 
@@ -2090,7 +2062,7 @@ msgid "New Smart Album…"
 msgstr "Album Pintar Baharu…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
+#: src/Views/CollectionPage.vala:122 src/Views/LibraryPhotoPage.vala:490
 msgid "Edit Photo In_fo"
 msgstr "Sunting _Maklumat Foto"
 
@@ -2413,8 +2385,8 @@ msgstr "Tag"
 msgid "Photos cannot be exported to this directory."
 msgstr "Foto tidak boleh dieksport kedalam direktori ini."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
-#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:869
+#: src/Views/CollectionPage.vala:870 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Tiada foto/video"
@@ -2423,65 +2395,71 @@ msgstr "Tiada foto/video"
 msgid "No photos/videos found"
 msgstr "Tiada foto/video ditemui"
 
-#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:68 src/Views/LibraryPhotoPage.vala:57
 msgid "Play a slideshow"
 msgstr "Mainkan paparan slaid"
 
-#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
+#: src/Views/CollectionPage.vala:161 src/Views/LibraryPhotoPage.vala:524
 msgid "_Developer"
 msgstr "Pem_bangun"
 
-#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:575
+#: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
+#: src/Views/LibraryPhotoPage.vala:546
+#, fuzzy
+msgid "Show in Files"
+msgstr "Tunjuk ta_juk"
+
+#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:565
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:579
+#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
+#: src/Views/LibraryPhotoPage.vala:569
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:688
+#: src/Views/CollectionPage.vala:562
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Eksport Foto/Videos"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
 msgstr "Pemutaran"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Undoing Rotate"
 msgstr "Batalkan Putaran"
 
-#: src/Views/CollectionPage.vala:803
+#: src/Views/CollectionPage.vala:677
 msgid "Flipping Horizontally"
 msgstr "Kalih Secara Mendatar"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:678
 msgid "Undoing Flip Horizontally"
 msgstr "Buat Asal Kalihan Secara Mendatar"
 
-#: src/Views/CollectionPage.vala:813
+#: src/Views/CollectionPage.vala:687
 msgid "Flipping Vertically"
 msgstr "Kalih Secara Menegak"
 
-#: src/Views/CollectionPage.vala:814
+#: src/Views/CollectionPage.vala:688
 msgid "Undoing Flip Vertically"
 msgstr "Buat Asal Kalihan Secara Menegak"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:99
 #, c-format
 msgid "%s does not exist."
 msgstr "%s tidak wujud."
 
-#: src/Views/DirectPhotoPage.vala:104
+#: src/Views/DirectPhotoPage.vala:101
 #, c-format
 msgid "%s is not a file."
 msgstr "%s bukan fail."
 
-#: src/Views/DirectPhotoPage.vala:106
+#: src/Views/DirectPhotoPage.vala:103
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2490,25 +2468,25 @@ msgstr ""
 "%s tidak menyokong format fail dari\n"
 "%s."
 
-#: src/Views/DirectPhotoPage.vala:464
+#: src/Views/DirectPhotoPage.vala:339
 msgid "_Save a Copy"
 msgstr "_Simpan Salinan"
 
-#: src/Views/DirectPhotoPage.vala:467
+#: src/Views/DirectPhotoPage.vala:342
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Batalkan perubahan ke %s?"
 
-#: src/Views/DirectPhotoPage.vala:474
+#: src/Views/DirectPhotoPage.vala:349
 msgid "Close _without Saving"
 msgstr "Tutup tan_pa Menyimpan"
 
-#: src/Views/DirectPhotoPage.vala:514
+#: src/Views/DirectPhotoPage.vala:389
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Ralat semasa menyimpan ke %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
+#: src/Views/DirectPhotoPage.vala:419 src/Views/DirectPhotoPage.vala:441
 msgid "Save As"
 msgstr "Simpan Sebagai"
 
@@ -2797,7 +2775,7 @@ msgstr "Diimport %s"
 msgid "Last Import"
 msgstr "Import Terakhir"
 
-#: src/Views/LibraryPhotoPage.vala:870
+#: src/Views/LibraryPhotoPage.vala:746
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Tidak boleh mengeksport %s: %s"
@@ -3196,6 +3174,22 @@ msgstr "Catur"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Bidai"
+
+#, fuzzy
+#~ msgid "_Open With RAW Editor…"
+#~ msgstr "Buka Dengan Penyunting RA_W"
+
+#, c-format
+#~ msgid "Unable to launch editor: %s"
+#~ msgstr "Tidak boleh lancar penyunting: %s"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos couldn't create a file for editing this photo because you do not "
+#~ "have permission to write to %s."
+#~ msgstr ""
+#~ "Shotwell tidak dapat mencipta fail untuk penyuntingan foto ini kerana "
+#~ "anda tidak mempunyai kebenaran menulis ke %s."
 
 #~ msgid "Preparing for upload"
 #~ msgstr "Bersedia untuk muat naik"

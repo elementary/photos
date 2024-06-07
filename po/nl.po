@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 19:30+0000\n"
+"POT-Creation-Date: 2024-06-07 22:50+0000\n"
 "PO-Revision-Date: 2023-05-30 03:07+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/photos/photos/nl/"
@@ -364,11 +364,11 @@ msgstr "_Alles vervangen"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:56
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:617
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:352
 msgid "_Cancel"
 msgstr "_Annuleren"
 
@@ -727,7 +727,7 @@ msgstr "Herstellen naar origineel"
 msgid "Re_name Event…"
 msgstr "Her_noem Gebeurtenis…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "Hernoem Gebeurtenis"
 
@@ -832,189 +832,176 @@ msgid "Adjust Date and Time"
 msgstr "Datum en tijd aanpassen"
 
 #: src/Resources.vala:172
-msgid "_Open In"
-msgstr "_Openen in"
-
-#: src/Resources.vala:174
-msgid "_Open With RAW Editor…"
-msgstr "Met RA_W-bewerker openen…"
-
-#: src/Resources.vala:176
 msgid "Find"
 msgstr "Zoeken"
 
-#: src/Resources.vala:178
+#: src/Resources.vala:174
 msgid "_Flag"
 msgstr "_Markeer"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:175
 msgid "Un_flag"
 msgstr "De_markeer"
 
-#: src/Resources.vala:182
-#, c-format
-msgid "Unable to launch editor: %s"
-msgstr "Kon bewerker niet starten: %s"
-
-#: src/Resources.vala:187
+#: src/Resources.vala:179
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "Label \"%s\" toevoegen"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:181
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "Labels \"%s\" en \"%s\" toevoegen"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:185
 msgid "Add Tags"
 msgstr "Labels toevoegen"
 
-#: src/Resources.vala:197
+#: src/Resources.vala:189
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "Label \"%s\" verwij_deren"
 
-#: src/Resources.vala:201
+#: src/Resources.vala:193
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "Label \"%s\" verwijderen"
 
-#: src/Resources.vala:204
+#: src/Resources.vala:196
 msgid "Delete Tag"
 msgstr "Label verwijderen"
 
-#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "Verwij_deren"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:199
 msgid "_New"
 msgstr "_Nieuw"
 
-#: src/Resources.vala:210
+#: src/Resources.vala:202
 #, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "Label \"%s\" her_noemen…"
 
-#: src/Resources.vala:214
+#: src/Resources.vala:206
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "Hernoem label \"%s\" naar \"%s\""
 
-#: src/Resources.vala:217
+#: src/Resources.vala:209
 msgid "_Rename…"
 msgstr "_Hernoemen…"
 
-#: src/Resources.vala:219
+#: src/Resources.vala:211
 msgid "Modif_y Tags…"
 msgstr "Labels aan_passen…"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:212
 msgid "Modify Tags"
 msgstr "Labels aanpassen"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:215
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Foto labelen als \"%s\""
 msgstr[1] "Foto's labelen als \"%s\""
 
-#: src/Resources.vala:227
+#: src/Resources.vala:219
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "Label \"%s\" van _foto verwijderen"
 msgstr[1] "Label \"%s\" van _fotos verwijderen"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:223
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "Label \"%s\" van foto verwijderen"
 msgstr[1] "Label \"%s\" van foto’s verwijderen"
 
-#: src/Resources.vala:235
+#: src/Resources.vala:227
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "Kon label niet hernoemen naar \"%s\" omdat dit label al bestaat."
 
-#: src/Resources.vala:239
+#: src/Resources.vala:231
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "Kon zoekopdracht niet hernoemen naar \"%s\" omdat deze zoekopdracht al "
 "bestaat."
 
-#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Slim album"
 
-#: src/Resources.vala:244
+#: src/Resources.vala:236
 msgid "Delete Album"
 msgstr "Album verwijderen"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:239
 msgid "_Edit…"
 msgstr "Be_werken…"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:240
 msgid "Re_name…"
 msgstr "_Hernoemen…"
 
-#: src/Resources.vala:251
+#: src/Resources.vala:243
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "Hernoem zoekopdracht \"%s\" naar \"%s\""
 
-#: src/Resources.vala:255
+#: src/Resources.vala:247
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "Zoekopdracht \"%s\" verwijderen"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:279
 msgid "_Delete Selection"
 msgstr "_Selectie verwijderen"
 
-#: src/Resources.vala:288
+#: src/Resources.vala:280
 msgid "Remove the selected photos from the trash"
 msgstr "Geselecteerde foto's uit de Shotwell-prullenbak verwijderen"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:281
 msgid "Remove the selected photos from the library"
 msgstr "Geselecteerde foto's uit de bibliotheek verwijderen"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:283
 msgid "_Restore Selection"
 msgstr "_Herstel Selectie"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:284
 msgid "Move the selected photos back into the library"
 msgstr "Geselecteerde foto's herstellen naar de bibliotheek"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:286
 msgid "File Mana_ger"
 msgstr "Bestands_beheerder"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:289
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Kon niet geopend worden in bestandsbeheerder: %s"
 
-#: src/Resources.vala:300
+#: src/Resources.vala:292
 msgid "R_emove From Library"
 msgstr "V_erwijder uit bibliotheek"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:294
 msgid "_Move to Trash"
 msgstr "Naar prullenbak _verplaatsen"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:296
 msgid "Select _All"
 msgstr "_Selecteer alles"
 
-#: src/Resources.vala:305
+#: src/Resources.vala:297
 msgid "Select all items"
 msgstr "Selecteer alle items"
 
@@ -1022,20 +1009,20 @@ msgstr "Selecteer alle items"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:344
+#: src/Resources.vala:336
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:349
+#: src/Resources.vala:341
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:353
+#: src/Resources.vala:345
 msgid "%a %b %d, %Y"
 msgstr "%a %d. %b, %Y"
 
@@ -1045,14 +1032,14 @@ msgstr "%a %d. %b, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:358 src/Resources.vala:368
+#: src/Resources.vala:350 src/Resources.vala:360
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:363
+#: src/Resources.vala:355
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1208,15 +1195,15 @@ msgstr "Ontwikkelaar _wisselen"
 msgid "Export Video"
 msgstr "Exporteer video"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
-#: src/Views/LibraryPhotoPage.vala:850
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
+#: src/Views/LibraryPhotoPage.vala:726
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "Exporteer foto"
 msgstr[1] "Exporteer foto’s"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
 msgid "_Save"
 msgstr "Op_slaan"
 
@@ -1228,21 +1215,7 @@ msgstr "Exporteer foto's"
 msgid "_Select"
 msgstr "_Selecteer"
 
-#. Ticket #3023
-#. Attempt to replace the system error with something friendlier
-#. if we can't copy an image over for editing in an external tool.
-#. Did we fail because we can't write to this directory?
-#. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:157
-#, c-format
-msgid ""
-"Photos couldn't create a file for editing this photo because you do not have "
-"permission to write to %s."
-msgstr ""
-"Foto's kon geen bestand aanmaken voor het bewerken van deze foto omdat u "
-"geen schrijfrechten hebt voor %s."
-
-#: src/Dialogs/Dialogs.vala:166
+#: src/Dialogs/Dialogs.vala:150
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1250,7 +1223,7 @@ msgstr ""
 "Kan de volgende foto niet exporteren door een bestandsfout.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:172
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "\n"
 "\n"
@@ -1260,35 +1233,35 @@ msgstr ""
 "\n"
 "Wilt u doorgaan met exporteren?"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:157
 msgid "Con_tinue"
 msgstr "_Doorgaan"
 
-#: src/Dialogs/Dialogs.vala:183
+#: src/Dialogs/Dialogs.vala:167
 msgid "Save Details…"
 msgstr "Details opslaan…"
 
-#: src/Dialogs/Dialogs.vala:184
+#: src/Dialogs/Dialogs.vala:168
 msgid "Save Details"
 msgstr "Details opslaan"
 
-#: src/Dialogs/Dialogs.vala:199
+#: src/Dialogs/Dialogs.vala:183
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(en %d andere)\n"
 
-#: src/Dialogs/Dialogs.vala:252
+#: src/Dialogs/Dialogs.vala:236
 msgid "Import Results Report"
 msgstr "Importresultatenrapport"
 
-#: src/Dialogs/Dialogs.vala:256
+#: src/Dialogs/Dialogs.vala:240
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "Geprobeerd om %d bestand te importeren."
 msgstr[1] "Geprobeerd om %d bestanden te importeren."
 
-#: src/Dialogs/Dialogs.vala:259
+#: src/Dialogs/Dialogs.vala:243
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1298,31 +1271,31 @@ msgstr[1] "Hiervan werden %d bestanden succesvol geïmporteerd."
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:255
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "Duplicaatfoto's/-video's die niet werden geïmporteerd:"
 
-#: src/Dialogs/Dialogs.vala:275
+#: src/Dialogs/Dialogs.vala:259
 msgid "duplicates existing media item"
 msgstr "dupliceert bestaand media-item"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:270
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "Foto's/video's niet geïmporteerd door camerafouten:"
 
-#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
-#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
-#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
+#: src/Dialogs/Dialogs.vala:273 src/Dialogs/Dialogs.vala:288
+#: src/Dialogs/Dialogs.vala:303 src/Dialogs/Dialogs.vala:319
+#: src/Dialogs/Dialogs.vala:334 src/Dialogs/Dialogs.vala:348
 msgid "error message:"
 msgstr "foutbericht:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:300
+#: src/Dialogs/Dialogs.vala:284
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "Bestanden niet geïmporteerd omdat ze niet herkend werden als foto's of "
@@ -1331,7 +1304,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:315
+#: src/Dialogs/Dialogs.vala:299
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
 "Understands:"
@@ -1342,7 +1315,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:330
+#: src/Dialogs/Dialogs.vala:314
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
 "Library:"
@@ -1350,7 +1323,7 @@ msgstr ""
 "Foto's/video's niet geïmporteerd omdat Foto's ze niet kon kopiëren naar de "
 "bibliotheek:"
 
-#: src/Dialogs/Dialogs.vala:334
+#: src/Dialogs/Dialogs.vala:318
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1362,39 +1335,39 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:346
+#: src/Dialogs/Dialogs.vala:330
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "Foto's/video's niet geïmporteerd omdat de bestanden beschadigd zijn:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:361
+#: src/Dialogs/Dialogs.vala:345
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "Foto's/video's niet geïmporteerd om andere redenen:"
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:365
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "1 duplicaatfoto is niet geïmporteerd:\n"
 msgstr[1] "%d duplicaatfoto's zijn niet geïmporteerd:\n"
 
-#: src/Dialogs/Dialogs.vala:384
+#: src/Dialogs/Dialogs.vala:368
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "1 duplicaatvideo is niet geïmporteerd:\n"
 msgstr[1] "%d duplicaatvideo's zijn niet geïmporteerd:\n"
 
-#: src/Dialogs/Dialogs.vala:387
+#: src/Dialogs/Dialogs.vala:371
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "1 duplicaatfoto/video is niet geïmporteerd:\n"
 msgstr[1] "%d duplicaatfoto's/video's zijn niet geïmporteerd:\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:385
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
@@ -1403,7 +1376,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Kon %d foto's niet importeren wegens een bestands- of hardwareprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:388
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -1412,7 +1385,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Kon %d video's niet importeren wegens een bestands- of hardwareprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:407
+#: src/Dialogs/Dialogs.vala:391
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1423,7 +1396,7 @@ msgstr[1] ""
 "Kon %d foto's/video's niet importeren wegens een bestands- of "
 "hardwareprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:410
+#: src/Dialogs/Dialogs.vala:394
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
@@ -1432,7 +1405,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Kon %d bestanden niet importeren wegens een bestands- of hardwareprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:408
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1444,7 +1417,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Kon %d foto's niet importeren omdat de fotobibliotheek niet schrijfbaar is:\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:411
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1457,7 +1430,7 @@ msgstr[1] ""
 "Kon %d video's niet importeren omdat de fotobibliotheek niet schrijfbaar "
 "is:\n"
 
-#: src/Dialogs/Dialogs.vala:430
+#: src/Dialogs/Dialogs.vala:414
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1472,7 +1445,7 @@ msgstr[1] ""
 "Kon %d foto's/video's niet importeren omdat de fotobibliotheek niet "
 "schrijfbaar is:\n"
 
-#: src/Dialogs/Dialogs.vala:433
+#: src/Dialogs/Dialogs.vala:417
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1485,56 +1458,56 @@ msgstr[1] ""
 "Kon %d bestanden niet importeren omdat de fotobibliotheek niet schrijfbaar "
 "is:\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:431
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] "Kon 1 foto niet importeren wegens een cameraprobleem:\n"
 msgstr[1] "Kon %d foto's niet importeren wegens een cameraprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:434
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] "Kon 1 video niet importeren wegens een cameraprobleem:\n"
 msgstr[1] "Kon %d video's niet importeren wegens een cameraprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:453
+#: src/Dialogs/Dialogs.vala:437
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] "Kon 1 foto/video niet importeren wegens een cameraprobleem:\n"
 msgstr[1] "Kon %d foto's/video's niet importeren wegens een cameraprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:456
+#: src/Dialogs/Dialogs.vala:440
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] "Kon 1 bestand niet importeren wegens een cameraprobleem:\n"
 msgstr[1] "Kon %d bestanden niet importeren wegens een cameraprobleem:\n"
 
-#: src/Dialogs/Dialogs.vala:470
+#: src/Dialogs/Dialogs.vala:454
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "Kon 1 foto niet importeren omdat deze beschadigd is:\n"
 msgstr[1] "Kon %d foto's niet importeren omdat deze beschadigd zijn:\n"
 
-#: src/Dialogs/Dialogs.vala:473
+#: src/Dialogs/Dialogs.vala:457
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "Kon 1 video niet importeren omdat deze beschadigd is:\n"
 msgstr[1] "Kon %d video's niet importeren omdat deze beschadigd zijn:\n"
 
-#: src/Dialogs/Dialogs.vala:476
+#: src/Dialogs/Dialogs.vala:460
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] "Kon 1 foto/video niet importeren omdat deze beschadigd is:\n"
 msgstr[1] "Kon %d foto's/video's niet importeren omdat deze beschadigd zijn:\n"
 
-#: src/Dialogs/Dialogs.vala:479
+#: src/Dialogs/Dialogs.vala:463
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1546,7 +1519,7 @@ msgstr[1] ""
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:480
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1555,28 +1528,28 @@ msgstr[1] "%d foto's overgeslagen die niet ondersteund worden:\n"
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:511
+#: src/Dialogs/Dialogs.vala:495
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "1 bestand overgeslagen dat geen afbeelding is.\n"
 msgstr[1] "%d bestanden overgeslagen die geen afbeeldingen zijn.\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:506
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "1 foto overgeslagen wegens het annuleren door de gebruiker:\n"
 msgstr[1] "%d foto's overgeslagen wegens het annuleren door de gebruiker:\n"
 
-#: src/Dialogs/Dialogs.vala:525
+#: src/Dialogs/Dialogs.vala:509
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "1 video overgeslagen wegens het annuleren door de gebruiker:\n"
 msgstr[1] "%d video's overgeslagen wegens het annuleren door de gebruiker:\n"
 
-#: src/Dialogs/Dialogs.vala:528
+#: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
@@ -1584,28 +1557,28 @@ msgstr[0] "1 foto/video overgeslagen wegens het annuleren door de gebruiker:\n"
 msgstr[1] ""
 "%d foto's/video's overgeslagen wegens het annuleren door de gebruiker:\n"
 
-#: src/Dialogs/Dialogs.vala:531
+#: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "1 bestand overgeslagen wegens het annuleren door de gebruiker:\n"
 msgstr[1] "%d bestanden overgeslagen wegens het annuleren door de gebruiker:\n"
 
-#: src/Dialogs/Dialogs.vala:545
+#: src/Dialogs/Dialogs.vala:529
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "1 foto succesvol geïmporteerd.\n"
 msgstr[1] "%d foto's succesvol geïmporteerd.\n"
 
-#: src/Dialogs/Dialogs.vala:548
+#: src/Dialogs/Dialogs.vala:532
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "1 video succesvol geïmporteerd.\n"
 msgstr[1] "%d video's succesvol geïmporteerd.\n"
 
-#: src/Dialogs/Dialogs.vala:551
+#: src/Dialogs/Dialogs.vala:535
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1614,29 +1587,29 @@ msgstr[1] "%d foto's/video's succesvol geïmporteerd.\n"
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:567
+#: src/Dialogs/Dialogs.vala:551
 msgid "No photos or videos imported.\n"
 msgstr "Geen foto's of video's geïmporteerd.\n"
 
-#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
+#: src/Dialogs/Dialogs.vala:557 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "Importeren voltooid"
 
-#: src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:567
 msgid "_Done"
 msgstr "_Voltooid"
 
-#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:766 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "Naam:"
 
-#: src/Dialogs/Dialogs.vala:800
+#: src/Dialogs/Dialogs.vala:784
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "Externe verandering herstellen?"
 msgstr[1] "Externe veranderingen herstellen?"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:786
 #, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
@@ -1646,32 +1619,32 @@ msgstr[0] ""
 msgstr[1] ""
 "Dit zal alle wijzigingen aan %d externe bestanden ongedaan maken. Doorgaan?"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:791
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "Externe _verandering ongedaan maken"
 msgstr[1] "Externe _veranderingen ongedaan maken"
 
-#: src/Dialogs/Dialogs.vala:833
+#: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
 msgstr "Foto uit bibliotheek verwijderen"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:818
 msgid "Remove Photos From Library"
 msgstr "Foto's uit bibliotheek verwijderen"
 
-#: src/Dialogs/Dialogs.vala:839
+#: src/Dialogs/Dialogs.vala:823
 #, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "Dit zal de foto uit de bibliotheek verwijderen. Doorgaan?"
 msgstr[1] "Dit zal %d foto's uit de bibliotheek verwijderen. Doorgaan?"
 
-#: src/Dialogs/Dialogs.vala:852
+#: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
 msgstr "Ve_rwijderen"
 
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:856
 #, c-format
 msgid ""
 "\n"
@@ -1692,7 +1665,7 @@ msgstr[1] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:879
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
 "without copying."
@@ -1700,30 +1673,30 @@ msgstr ""
 "Foto's kan foto's kopiëren naar uw bibliotheek of kan ze importeren zonder "
 "ze te kopiëren."
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "Importeren naar bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:905
+#: src/Dialogs/Dialogs.vala:889
 msgid "Co_py Photos"
 msgstr "Foto's ko_piëren"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:890
 msgid "_Import in Place"
 msgstr "_Importeren naar locatie"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
 msgid "Remove From Library"
 msgstr "Verwijder uit bibliotheek"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Foto wordt verwijderd uit bibliotheek"
 msgstr[1] "Foto’s worden verwijderd uit bibliotheek"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:953
+#: src/Dialogs/Dialogs.vala:937
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1812,7 +1785,7 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:444
 msgid "Save"
 msgstr "Opslaan"
 
@@ -1841,7 +1814,7 @@ msgid "Add rule"
 msgstr "Voeg regel toe"
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:570
+#: src/Views/DirectPhotoPage.vala:445
 msgid "Cancel"
 msgstr "Annuleer"
 
@@ -2074,8 +2047,8 @@ msgstr "Instellingen"
 msgid "Sort _Events"
 msgstr "G_ebeurtenissen sorteren"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
-#: src/Views/LibraryPhotoPage.vala:560
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:184
+#: src/Views/LibraryPhotoPage.vala:550
 msgid "View Eve_nt for Photo"
 msgstr "Gebeurte_nis van foto bekijken"
 
@@ -2087,7 +2060,7 @@ msgid "New Smart Album…"
 msgstr "Nieuw Smart Album…"
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
+#: src/Views/CollectionPage.vala:122 src/Views/LibraryPhotoPage.vala:490
 msgid "Edit Photo In_fo"
 msgstr "Edit Foto In_fo"
 
@@ -2410,8 +2383,8 @@ msgstr "Labels"
 msgid "Photos cannot be exported to this directory."
 msgstr "Foto's kunnen niet worden geëxporteerd naar deze map."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
-#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:869
+#: src/Views/CollectionPage.vala:870 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "Geen foto's/video's"
@@ -2420,65 +2393,72 @@ msgstr "Geen foto's/video's"
 msgid "No photos/videos found"
 msgstr "Geen foto's/video's gevonden"
 
-#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:68 src/Views/LibraryPhotoPage.vala:57
 msgid "Play a slideshow"
 msgstr "Diavoorstelling afspelen"
 
-#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
+#: src/Views/CollectionPage.vala:161 src/Views/LibraryPhotoPage.vala:524
 msgid "_Developer"
 msgstr "_Ontwikkelaar"
 
-#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:575
+#: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
+#: src/Views/LibraryPhotoPage.vala:546
+#, fuzzy
+#| msgid "Show Photo Titles"
+msgid "Show in Files"
+msgstr "Titels tonen"
+
+#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:565
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:579
+#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
+#: src/Views/LibraryPhotoPage.vala:569
 msgid "Other Actions"
 msgstr "Andere acties"
 
-#: src/Views/CollectionPage.vala:688
+#: src/Views/CollectionPage.vala:562
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "Exporteer foto/video"
 msgstr[1] "Exporteer foto’s/video’s"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
 msgstr "Aan het draaien"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Undoing Rotate"
 msgstr "Draaien aan het ongedaan maken"
 
-#: src/Views/CollectionPage.vala:803
+#: src/Views/CollectionPage.vala:677
 msgid "Flipping Horizontally"
 msgstr "Bezig met horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:678
 msgid "Undoing Flip Horizontally"
 msgstr "Ongedaan maken van horizontaal spiegelen"
 
-#: src/Views/CollectionPage.vala:813
+#: src/Views/CollectionPage.vala:687
 msgid "Flipping Vertically"
 msgstr "Verticaal spiegelen"
 
-#: src/Views/CollectionPage.vala:814
+#: src/Views/CollectionPage.vala:688
 msgid "Undoing Flip Vertically"
 msgstr "Verticaal spiegelen ongedaan maken"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:99
 #, c-format
 msgid "%s does not exist."
 msgstr "%s bestaat niet."
 
-#: src/Views/DirectPhotoPage.vala:104
+#: src/Views/DirectPhotoPage.vala:101
 #, c-format
 msgid "%s is not a file."
 msgstr "%s is geen bestand."
 
-#: src/Views/DirectPhotoPage.vala:106
+#: src/Views/DirectPhotoPage.vala:103
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2487,25 +2467,25 @@ msgstr ""
 "%s ondersteunt het bestandsformaat van\n"
 "%s niet."
 
-#: src/Views/DirectPhotoPage.vala:464
+#: src/Views/DirectPhotoPage.vala:339
 msgid "_Save a Copy"
 msgstr "Een kopie op_slaan"
 
-#: src/Views/DirectPhotoPage.vala:467
+#: src/Views/DirectPhotoPage.vala:342
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "Wijzigingen aan %s niet opslaan?"
 
-#: src/Views/DirectPhotoPage.vala:474
+#: src/Views/DirectPhotoPage.vala:349
 msgid "Close _without Saving"
 msgstr "Sluiten _zonder op te slaan"
 
-#: src/Views/DirectPhotoPage.vala:514
+#: src/Views/DirectPhotoPage.vala:389
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "Fout bij het opslaan in %s: %s"
 
-#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
+#: src/Views/DirectPhotoPage.vala:419 src/Views/DirectPhotoPage.vala:441
 msgid "Save As"
 msgstr "Opslaan als"
 
@@ -2784,7 +2764,7 @@ msgstr "%s geïmporteerd"
 msgid "Last Import"
 msgstr "Laatste import"
 
-#: src/Views/LibraryPhotoPage.vala:870
+#: src/Views/LibraryPhotoPage.vala:746
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "Kon %s niet exporteren: %s"
@@ -3161,6 +3141,24 @@ msgstr "Schaakbord"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellen"
+
+#~ msgid "_Open In"
+#~ msgstr "_Openen in"
+
+#~ msgid "_Open With RAW Editor…"
+#~ msgstr "Met RA_W-bewerker openen…"
+
+#, c-format
+#~ msgid "Unable to launch editor: %s"
+#~ msgstr "Kon bewerker niet starten: %s"
+
+#, c-format
+#~ msgid ""
+#~ "Photos couldn't create a file for editing this photo because you do not "
+#~ "have permission to write to %s."
+#~ msgstr ""
+#~ "Foto's kon geen bestand aanmaken voor het bewerken van deze foto omdat u "
+#~ "geen schrijfrechten hebt voor %s."
 
 #~ msgid "Preparing for upload"
 #~ msgstr "Voorbereiden van het uploaden"

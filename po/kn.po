@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 19:30+0000\n"
+"POT-Creation-Date: 2024-06-07 22:50+0000\n"
 "PO-Revision-Date: 2016-04-18 04:16+0000\n"
 "Last-Translator: shankar <prasad.mvs@gmail.com>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/shotwell/"
@@ -356,11 +356,11 @@ msgstr "ಎಲ್ಲವನ್ನೂ ಬದಲಿಸು (_A)"
 
 #: src/Exporter.vala:340 src/Dialogs/AdjustDateTimeDialog.vala:56
 #: src/Dialogs/Dialogs.vala:33 src/Dialogs/Dialogs.vala:102
-#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:633
+#: src/Dialogs/Dialogs.vala:132 src/Dialogs/Dialogs.vala:617
 #: src/Dialogs/ExportDialog.vala:134 src/Dialogs/ProgressDialog.vala:60
 #: src/Dialogs/TextEntryDialog.vala:74 src/editing_tools/AdjustTool.vala:130
 #: src/editing_tools/CropTool.vala:103
-#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:477
+#: src/editing_tools/StraightenTool.vala:118 src/Views/DirectPhotoPage.vala:352
 msgid "_Cancel"
 msgstr "ರದ್ದುಮಾಡು (_C)"
 
@@ -723,7 +723,7 @@ msgstr "ಮೂಲಕ್ಕೆ  ಮರಳಿಸು"
 msgid "Re_name Event…"
 msgstr "ಸಂದರ್ಭವನ್ನು ಮರುಹೆಸರಿಸು"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:782
+#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "ಸಂದರ್ಭವನ್ನು ಮರುಹೆಸರಿಸು"
 
@@ -834,197 +834,183 @@ msgid "Adjust Date and Time"
 msgstr "ದಿನಾಂಕ ಹಾಗು ಸಮಯವನ್ನು ಹೊಂದಿಸು"
 
 #: src/Resources.vala:172
-msgid "_Open In"
-msgstr ""
-
-#: src/Resources.vala:174
-#, fuzzy
-msgid "_Open With RAW Editor…"
-msgstr "RA_W ಸಂಪಾದಕದೊಂದಿಗೆ ತೆರೆ"
-
-#: src/Resources.vala:176
 msgid "Find"
 msgstr "ಹುಡುಕು"
 
-#: src/Resources.vala:178
+#: src/Resources.vala:174
 msgid "_Flag"
 msgstr "ಫ್ಲ್ಯಾಗ್‌ ಮಾಡು (_F)"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:175
 msgid "Un_flag"
 msgstr "ಫ್ಲ್ಯಾಗ್‌ ರದ್ದುಮಾಡು (_f)"
 
-#: src/Resources.vala:182
-#, c-format
-msgid "Unable to launch editor: %s"
-msgstr "ಸಂಪಾದಕವನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
-
-#: src/Resources.vala:187
+#: src/Resources.vala:179
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "\"%s\" ಎನ್ನುವ ಟ್ಯಾಗ್ ಅನ್ನು ಸೇರಿಸು"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:181
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "\"%s\" \"%s\" ಎನ್ನುವ ಟ್ಯಾಗ್‌ಗಳನ್ನು ಸೇರಿಸು"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:185
 msgid "Add Tags"
 msgstr "ಟ್ಯಾಗ್‌ಗಳನ್ನು ಸೇರಿಸು"
 
-#: src/Resources.vala:197
+#: src/Resources.vala:189
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "\"%s\" ಎನ್ನುವ ಟ್ಯಾಗ್ ಅನ್ನು ಅಳಿಸು (_D)"
 
-#: src/Resources.vala:201
+#: src/Resources.vala:193
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "\"%s\" ಎನ್ನುವ ಟ್ಯಾಗ್ ಅನ್ನು ಅಳಿಸು"
 
-#: src/Resources.vala:204
+#: src/Resources.vala:196
 msgid "Delete Tag"
 msgstr "ಟ್ಯಾಗ್ ಅನ್ನು ಅಳಿಸು"
 
-#: src/Resources.vala:205 src/Resources.vala:246 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "ಅಳಿಸಿ ಹಾಕು (_D)"
 
-#: src/Resources.vala:207
+#: src/Resources.vala:199
 msgid "_New"
 msgstr "ಹೊಸ (_N)"
 
-#: src/Resources.vala:210
+#: src/Resources.vala:202
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "\"%s\" ಟ್ಯಾಗ್ ಅನ್ನು ಮರುಹೆಸರಿಸು (_n)..."
 
-#: src/Resources.vala:214
+#: src/Resources.vala:206
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "\"%s\" ಟ್ಯಾಗ್‌ ಅನ್ನು \"%s\" ಎನ್ನುವುದಕ್ಕೆ ಮರುಹೆಸರಿಸು"
 
-#: src/Resources.vala:217
+#: src/Resources.vala:209
 #, fuzzy
 msgid "_Rename…"
 msgstr "ಮರುಹೆಸರಿಸು (_R)..."
 
-#: src/Resources.vala:219
+#: src/Resources.vala:211
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "ಟ್ಯಾಗ್‌ಗಳನ್ನು ಮಾರ್ಪಡಿಸು"
 
-#: src/Resources.vala:220
+#: src/Resources.vala:212
 msgid "Modify Tags"
 msgstr "ಟ್ಯಾಗ್‌ಗಳನ್ನು ಮಾರ್ಪಡಿಸು"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:215
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "ಫೋಟೊವನ್ನು \"%s\" ಎಂದು ಟ್ಯಾಗ್‌ ಮಾಡು"
 msgstr[1] "ಫೋಟೊವನ್ನು \"%s\" ಎಂದು ಟ್ಯಾಗ್‌ ಮಾಡು"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:219
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "ಫೋಟೊದಿಂದ \"%s\" ಎಂಬ ಟ್ಯಾಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕು (_P)"
 msgstr[1] "ಫೋಟೊದಿಂದ \"%s\" ಎಂಬ ಟ್ಯಾಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕು (_P)"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:223
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "ಫೋಟೊದಿಂದ \"%s\" ಎಂಬ ಟ್ಯಾಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕು"
 msgstr[1] "ಫೋಟೊದಿಂದ \"%s\" ಎಂಬ ಟ್ಯಾಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕು"
 
-#: src/Resources.vala:235
+#: src/Resources.vala:227
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "ಟ್ಯಾಗ್ ಅನ್ನು \"%s\" ಎಂಬುದಕ್ಕೆ ಮರುಹೆಸರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ, ಏಕೆಂದರೆ ಈ ಟ್ಯಾಗ್‌ ಈಗಾಗಲೆ "
 "ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ."
 
-#: src/Resources.vala:239
+#: src/Resources.vala:231
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "ಹುಡುಕಾಟವನ್ನು \"%s\" ಎಂಬುದಕ್ಕೆ ಮರುಹೆಸರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ, ಏಕೆಂದರೆ ಈ ಹುಡುಕಾಟವು "
 "ಈಗಾಗಲೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ."
 
-#: src/Resources.vala:242 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:244
+#: src/Resources.vala:236
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:247
+#: src/Resources.vala:239
 #, fuzzy
 msgid "_Edit…"
 msgstr "ಸಂಪಾದನೆ (_E)"
 
-#: src/Resources.vala:248
+#: src/Resources.vala:240
 #, fuzzy
 msgid "Re_name…"
 msgstr "ಮರುಹೆಸರಿಸು (_n)..."
 
-#: src/Resources.vala:251
+#: src/Resources.vala:243
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "\"%s\" ಹುಡುಕಾಟವನ್ನು \"%s\" ಎನ್ನುವುದಕ್ಕೆ ಮರುಹೆಸರಿಸು"
 
-#: src/Resources.vala:255
+#: src/Resources.vala:247
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" ಹುಡುಕಾಟವನ್ನು ಅಳಿಸು"
 
-#: src/Resources.vala:287
+#: src/Resources.vala:279
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:288
+#: src/Resources.vala:280
 msgid "Remove the selected photos from the trash"
 msgstr "ಆರಿಸಲಾದ ಫೋಟೊಗಳನ್ನು ಕಸದಬುಟ್ಟಿಯಿಂದ ತೆಗೆದು ಹಾಕು"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:281
 msgid "Remove the selected photos from the library"
 msgstr "ಆರಿಸಲಾದ ಫೋಟೊಗಳನ್ನು ಲೈಬ್ರರಿಯಿಂದ ತೆಗೆದು ಹಾಕು"
 
-#: src/Resources.vala:291
+#: src/Resources.vala:283
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:292
+#: src/Resources.vala:284
 msgid "Move the selected photos back into the library"
 msgstr "ಆಯ್ಕೆ ಮಾಡಿದ ಫೋಟೊಗಳನ್ನು ಲೈಬ್ರರಿಗೆ ಸ್ಥಳಾಂತರಿಸು"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:286
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ಕಡತ ವ್ಯವಸ್ಥಾಪಕವನ್ನು ತೋರಿಸು (_g)"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:289
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ಕಡತ ವ್ಯವಸ್ಥಾಪಕವನ್ನು ತೆರೆಯಲಾಗಿಲ್ಲ: %s"
 
-#: src/Resources.vala:300
+#: src/Resources.vala:292
 msgid "R_emove From Library"
 msgstr "ಲೈಬ್ರರಿಯಿಂದ ತೆಗೆದುಹಾಕು (_e)"
 
-#: src/Resources.vala:302
+#: src/Resources.vala:294
 msgid "_Move to Trash"
 msgstr "ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸು (_M)"
 
-#: src/Resources.vala:304
+#: src/Resources.vala:296
 msgid "Select _All"
 msgstr "ಎಲ್ಲವನ್ನೂ ಆರಿಸು (_A)"
 
-#: src/Resources.vala:305
+#: src/Resources.vala:297
 msgid "Select all items"
 msgstr "ಎಲ್ಲಾ ಅಂಶಗಳನ್ನು ಆರಿಸು"
 
@@ -1032,20 +1018,20 @@ msgstr "ಎಲ್ಲಾ ಅಂಶಗಳನ್ನು ಆರಿಸು"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:344
+#: src/Resources.vala:336
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:349
+#: src/Resources.vala:341
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:353
+#: src/Resources.vala:345
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1055,14 +1041,14 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:358 src/Resources.vala:368
+#: src/Resources.vala:350 src/Resources.vala:360
 msgid "%a %b %d"
 msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:363
+#: src/Resources.vala:355
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1216,16 +1202,16 @@ msgstr "ವಿಕಸನೆಗಾರನನ್ನು ಬದಲಾಯಿಸು (_S)
 msgid "Export Video"
 msgstr "ವೀಡಿಯೊವನ್ನು ರಫ್ತು ಮಾಡು"
 
-#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:690
-#: src/Views/LibraryPhotoPage.vala:850
+#: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
+#: src/Views/LibraryPhotoPage.vala:726
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
 msgstr[0] "ಫೋಟೊವನ್ನು ರಫ್ತು ಮಾಡು"
 msgstr[1] "ಫೋಟೊವನ್ನು ರಫ್ತು ಮಾಡು"
 
-#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:632
-#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:464
+#: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
+#: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
 msgid "_Save"
 msgstr "ಉಳಿಸು (_S)"
 
@@ -1237,21 +1223,7 @@ msgstr "ಫೋಟೊಗಳನ್ನು ರಫ್ತು ಮಾಡು"
 msgid "_Select"
 msgstr ""
 
-#. Ticket #3023
-#. Attempt to replace the system error with something friendlier
-#. if we can't copy an image over for editing in an external tool.
-#. Did we fail because we can't write to this directory?
-#. Yes - display an alternate error message here.
-#: src/Dialogs/Dialogs.vala:157
-#, fuzzy, c-format
-msgid ""
-"Photos couldn't create a file for editing this photo because you do not have "
-"permission to write to %s."
-msgstr ""
-"ಈ ಫೋಟೊವನ್ನು ಸಂಪಾದಿಸಲು Shotwell ನಿಂದ ಒಂದು ಕಡತವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ %s "
-"ಗೆ ಬರೆಯುವ ಅನುಮತಿಯನ್ನು ನೀವು ಹೊಂದಿಲ್ಲ."
-
-#: src/Dialogs/Dialogs.vala:166
+#: src/Dialogs/Dialogs.vala:150
 msgid ""
 "Unable to export the following photo due to a file error.\n"
 "\n"
@@ -1259,7 +1231,7 @@ msgstr ""
 "ಕಡತದ ದೋಷದ ಕಾರಣದಿಂದಾಗಿ ಈ ಕೆಳಗಿನ ಫೋಟೊವನ್ನು ರಫ್ತು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ.\n"
 "\n"
 
-#: src/Dialogs/Dialogs.vala:172
+#: src/Dialogs/Dialogs.vala:156
 msgid ""
 "\n"
 "\n"
@@ -1269,35 +1241,35 @@ msgstr ""
 "\n"
 "ರಫ್ತು ಮಾಡುವುದನ್ನು ಮುಂದುವರೆಸಲು ಬಯಸುವಿರಾ?"
 
-#: src/Dialogs/Dialogs.vala:173
+#: src/Dialogs/Dialogs.vala:157
 msgid "Con_tinue"
 msgstr "ಮುಂದುವರೆ (_t)"
 
-#: src/Dialogs/Dialogs.vala:183
+#: src/Dialogs/Dialogs.vala:167
 #, fuzzy
 msgid "Save Details…"
 msgstr "ವಿವರಗಳನ್ನು ಉಳಿಸು"
 
-#: src/Dialogs/Dialogs.vala:184
+#: src/Dialogs/Dialogs.vala:168
 msgid "Save Details"
 msgstr "ವಿವರಗಳನ್ನು ಉಳಿಸು"
 
-#: src/Dialogs/Dialogs.vala:199
+#: src/Dialogs/Dialogs.vala:183
 #, c-format
 msgid "(and %d more)\n"
 msgstr "(ಹಾಗು ಇನ್ನೂ %d)\n"
 
-#: src/Dialogs/Dialogs.vala:252
+#: src/Dialogs/Dialogs.vala:236
 msgid "Import Results Report"
 msgstr "ಫಲಿತಾಂಶಗಳ ವರದಿಯನ್ನು ಆಮದು ಮಾಡು"
 
-#: src/Dialogs/Dialogs.vala:256
+#: src/Dialogs/Dialogs.vala:240
 #, c-format
 msgid "Attempted to import %d file."
 msgid_plural "Attempted to import %d files."
 msgstr[0] "%d ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡಲು ಪ್ರಯತ್ನಿಸಲಾಗಿದೆ."
 
-#: src/Dialogs/Dialogs.vala:259
+#: src/Dialogs/Dialogs.vala:243
 #, c-format
 msgid "Of these, %d file was successfully imported."
 msgid_plural "Of these, %d files were successfully imported."
@@ -1306,31 +1278,31 @@ msgstr[0] "ಇವುಗಳಲ್ಲಿ, %d ಕಡತಗಳನ್ನು ಯಶಸ
 #.
 #. Duplicates
 #.
-#: src/Dialogs/Dialogs.vala:271
+#: src/Dialogs/Dialogs.vala:255
 msgid "Duplicate Photos/Videos Not Imported:"
 msgstr "ನಕಲು ಪ್ರತಿ ಮಾಡಲಾದ ಫೋಟೊಗಳನ್ನು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:"
 
-#: src/Dialogs/Dialogs.vala:275
+#: src/Dialogs/Dialogs.vala:259
 msgid "duplicates existing media item"
 msgstr "ಈಗಿರುವ ಮಾಧ್ಯಮ ಅಂಶವನ್ನು ನಕಲು ಪ್ರತಿ ಮಾಡುತ್ತದೆ"
 
 #.
 #. Files Not Imported Due to Camera Errors
 #.
-#: src/Dialogs/Dialogs.vala:286
+#: src/Dialogs/Dialogs.vala:270
 msgid "Photos/Videos Not Imported Due to Camera Errors:"
 msgstr "ಕ್ಯಾಮರಾ ದೋಷಗಳ ಕಾರಣಗಳಿಂದಾಗಿ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:"
 
-#: src/Dialogs/Dialogs.vala:289 src/Dialogs/Dialogs.vala:304
-#: src/Dialogs/Dialogs.vala:319 src/Dialogs/Dialogs.vala:335
-#: src/Dialogs/Dialogs.vala:350 src/Dialogs/Dialogs.vala:364
+#: src/Dialogs/Dialogs.vala:273 src/Dialogs/Dialogs.vala:288
+#: src/Dialogs/Dialogs.vala:303 src/Dialogs/Dialogs.vala:319
+#: src/Dialogs/Dialogs.vala:334 src/Dialogs/Dialogs.vala:348
 msgid "error message:"
 msgstr "ದೋಷ ಸಂದೇಶ:"
 
 #.
 #. Files Not Imported Because They Weren't Recognized as Photos or Videos
 #.
-#: src/Dialogs/Dialogs.vala:300
+#: src/Dialogs/Dialogs.vala:284
 msgid "Files Not Imported Because They Weren't Recognized as Photos or Videos:"
 msgstr ""
 "ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಅವುಗಳನ್ನು ಫೋಟೊಗಳು ಅಥವ ವೀಡಿಯೊಗಳೆಂದು "
@@ -1340,7 +1312,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because They Weren't in a Format Photos Understands
 #.
-#: src/Dialogs/Dialogs.vala:315
+#: src/Dialogs/Dialogs.vala:299
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because They Weren't in a Format Photos "
@@ -1352,7 +1324,7 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because Photos Couldn't Copy Them into its Library
 #.
-#: src/Dialogs/Dialogs.vala:330
+#: src/Dialogs/Dialogs.vala:314
 #, fuzzy
 msgid ""
 "Photos/Videos Not Imported Because Photos Couldn't Copy Them into its "
@@ -1361,7 +1333,7 @@ msgstr ""
 "Shotwell ನಿಂದ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳನ್ನು ಪ್ರತಿ ಮಾಡಲಾಗದೆ ಇರದ ಕಾರಣ ಅದನ್ನು ಅದರ ಲೈಬ್ರರಿಗೆ "
 "ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:"
 
-#: src/Dialogs/Dialogs.vala:334
+#: src/Dialogs/Dialogs.vala:318
 #, c-format
 msgid ""
 "couldn't copy %s\n"
@@ -1373,43 +1345,43 @@ msgstr ""
 #.
 #. Photos/Videos Not Imported Because GDK Pixbuf Library Identified them as Corrupt
 #.
-#: src/Dialogs/Dialogs.vala:346
+#: src/Dialogs/Dialogs.vala:330
 msgid "Photos/Videos Not Imported Because Files Are Corrupt:"
 msgstr "ಫೋಟೊಗಳನ್ನು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಕಡತಗಳು ಹಾಳಾಗಿವೆ:"
 
 #.
 #. Photos/Videos Not Imported for Other Reasons
 #.
-#: src/Dialogs/Dialogs.vala:361
+#: src/Dialogs/Dialogs.vala:345
 msgid "Photos/Videos Not Imported for Other Reasons:"
 msgstr "ಬೇರೆ ಕಾರಣಗಳಿಂದಾಗಿ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:"
 
-#: src/Dialogs/Dialogs.vala:381
+#: src/Dialogs/Dialogs.vala:365
 #, c-format
 msgid "1 duplicate photo was not imported:\n"
 msgid_plural "%d duplicate photos were not imported:\n"
 msgstr[0] "ನಕಲು ಪ್ರತಿ ಮಾಡಲಾದ %d ಫೋಟೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:384
+#: src/Dialogs/Dialogs.vala:368
 #, c-format
 msgid "1 duplicate video was not imported:\n"
 msgid_plural "%d duplicate videos were not imported:\n"
 msgstr[0] "ನಕಲು ಪ್ರತಿ ಮಾಡಲಾದ %d ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:387
+#: src/Dialogs/Dialogs.vala:371
 #, c-format
 msgid "1 duplicate photo/video was not imported:\n"
 msgid_plural "%d duplicate photos/videos were not imported:\n"
 msgstr[0] "ನಕಲು ಪ್ರತಿ ಮಾಡಲಾದ %d ಫೋಟೊಗಳನ್ನು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:401
+#: src/Dialogs/Dialogs.vala:385
 #, c-format
 msgid "1 photo failed to import due to a file or hardware error:\n"
 msgid_plural "%d photos failed to import due to a file or hardware error:\n"
 msgstr[0] ""
 "ಕಡತ ಅಥವ ಯಂತ್ರಾಂಶದ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಫೋಟೊವನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:404
+#: src/Dialogs/Dialogs.vala:388
 #, c-format
 msgid "1 video failed to import due to a file or hardware error:\n"
 msgid_plural "%d videos failed to import due to a file or hardware error:\n"
@@ -1417,7 +1389,7 @@ msgstr[0] ""
 "ಕಡತ ಅಥವ ಯಂತ್ರಾಂಶದ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ "
 "ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:407
+#: src/Dialogs/Dialogs.vala:391
 #, c-format
 msgid "1 photo/video failed to import due to a file or hardware error:\n"
 msgid_plural ""
@@ -1426,14 +1398,14 @@ msgstr[0] ""
 "ಕಡತ ಅಥವ ಯಂತ್ರಾಂಶದ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಫೋಟೊ/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ "
 "ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:410
+#: src/Dialogs/Dialogs.vala:394
 #, c-format
 msgid "1 file failed to import due to a file or hardware error:\n"
 msgid_plural "%d files failed to import due to a file or hardware error:\n"
 msgstr[0] ""
 "ಕಡತ ಅಥವ ಯಂತ್ರಾಂಶದ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:424
+#: src/Dialogs/Dialogs.vala:408
 #, c-format
 msgid ""
 "1 photo failed to import because the photo library folder was not writable:\n"
@@ -1443,7 +1415,7 @@ msgid_plural ""
 msgstr[0] ""
 "%d ಫೋಟೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಫೋಟೊ ಲೈಬ್ರರಿಗೆ ಬರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:427
+#: src/Dialogs/Dialogs.vala:411
 #, c-format
 msgid ""
 "1 video failed to import because the photo library folder was not writable:\n"
@@ -1453,7 +1425,7 @@ msgid_plural ""
 msgstr[0] ""
 "%d ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಫೋಟೊ ಲೈಬ್ರರಿಗೆ ಬರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:430
+#: src/Dialogs/Dialogs.vala:414
 #, c-format
 msgid ""
 "1 photo/video failed to import because the photo library folder was not "
@@ -1465,7 +1437,7 @@ msgstr[0] ""
 "%d ಫೋಟೊ/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಫೋಟೊ ಲೈಬ್ರರಿಗೆ ಬರೆಯಲು "
 "ಸಾಧ್ಯವಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:433
+#: src/Dialogs/Dialogs.vala:417
 #, c-format
 msgid ""
 "1 file failed to import because the photo library folder was not writable:\n"
@@ -1475,54 +1447,54 @@ msgid_plural ""
 msgstr[0] ""
 "%d ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ ಫೋಟೊ ಲೈಬ್ರರಿಗೆ ಬರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ:\n"
 
-#: src/Dialogs/Dialogs.vala:447
+#: src/Dialogs/Dialogs.vala:431
 #, c-format
 msgid "1 photo failed to import due to a camera error:\n"
 msgid_plural "%d photos failed to import due to a camera error:\n"
 msgstr[0] ""
 "ಕ್ಯಾಮೆರಾ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಫೋಟೊಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:450
+#: src/Dialogs/Dialogs.vala:434
 #, c-format
 msgid "1 video failed to import due to a camera error:\n"
 msgid_plural "%d videos failed to import due to a camera error:\n"
 msgstr[0] ""
 "ಕ್ಯಾಮೆರಾ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:453
+#: src/Dialogs/Dialogs.vala:437
 #, c-format
 msgid "1 photo/video failed to import due to a camera error:\n"
 msgid_plural "%d photos/videos failed to import due to a camera error:\n"
 msgstr[0] ""
 "ಕ್ಯಾಮೆರಾ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಫೋಟೊ/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:456
+#: src/Dialogs/Dialogs.vala:440
 #, c-format
 msgid "1 file failed to import due to a camera error:\n"
 msgid_plural "%d files failed to import due to a camera error:\n"
 msgstr[0] ""
 "ಕ್ಯಾಮೆರಾ ತೊಂದರೆಯ ಕಾರಣದಿಂದಾಗಿ %d ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:470
+#: src/Dialogs/Dialogs.vala:454
 #, c-format
 msgid "1 photo failed to import because it was corrupt:\n"
 msgid_plural "%d photos failed to import because they were corrupt:\n"
 msgstr[0] "%d ಫೋಟೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ ಏಕೆಂದರೆ ಅವುಗಳು ಹಾಳಾಗಿವೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:473
+#: src/Dialogs/Dialogs.vala:457
 #, c-format
 msgid "1 video failed to import because it was corrupt:\n"
 msgid_plural "%d videos failed to import because they were corrupt:\n"
 msgstr[0] "%d ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ ಏಕೆಂದರೆ ಅವುಗಳು ಹಾಳಾಗಿವೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:476
+#: src/Dialogs/Dialogs.vala:460
 #, c-format
 msgid "1 photo/video failed to import because it was corrupt:\n"
 msgid_plural "%d photos/videos failed to import because they were corrupt:\n"
 msgstr[0] ""
 "%d ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ ಏಕೆಂದರೆ ಅವುಗಳು ಹಾಳಾಗಿವೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:479
+#: src/Dialogs/Dialogs.vala:463
 #, c-format
 msgid "1 file failed to import because it was corrupt:\n"
 msgid_plural "%d files failed to import because it was corrupt:\n"
@@ -1532,7 +1504,7 @@ msgstr[0] "%d ಕಡತಗಳನ್ನು ಆಮದು ಮಾಡಲು ವಿಫ
 #. standard container formats are supported, it's just that the streams in them
 #. might or might not be interpretable), so this message does not need to be
 #. media specific
-#: src/Dialogs/Dialogs.vala:496
+#: src/Dialogs/Dialogs.vala:480
 #, c-format
 msgid "1 unsupported photo skipped:\n"
 msgid_plural "%d unsupported photos skipped:\n"
@@ -1540,49 +1512,49 @@ msgstr[0] "ಬೆಂಬಲವಿಲ್ಲದ %d ಫೋಟೊಗಳನ್ನು �
 
 #. we have no notion of "non-video" video files right now in Photos, so this
 #. message doesn't need to be media specific
-#: src/Dialogs/Dialogs.vala:511
+#: src/Dialogs/Dialogs.vala:495
 #, c-format
 msgid "1 non-image file skipped.\n"
 msgid_plural "%d non-image files skipped.\n"
 msgstr[0] "%d ಫೋಟೊವಲ್ಲದ ಕಡತವನ್ನು ಕಡೆಗಣಿಸಲಾಗಿದೆ.\n"
 
-#: src/Dialogs/Dialogs.vala:522
+#: src/Dialogs/Dialogs.vala:506
 #, c-format
 msgid "1 photo skipped due to user cancel:\n"
 msgid_plural "%d photos skipped due to user cancel:\n"
 msgstr[0] "ಬಳಕೆದಾರರು ರದ್ದುಗೊಳಿಸಿದ ಕಾರಣದಿಂದ %d ಫೋಟೊಗಳನ್ನು ಕಡೆಗಣಿಸಲಾಗಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:525
+#: src/Dialogs/Dialogs.vala:509
 #, c-format
 msgid "1 video skipped due to user cancel:\n"
 msgid_plural "%d videos skipped due to user cancel:\n"
 msgstr[0] "ಬಳಕೆದಾರರು ರದ್ದುಗೊಳಿಸಿದ ಕಾರಣದಿಂದ %d ವೀಡಿಯೊಗಳನ್ನು ಕಡೆಗಣಿಸಲಾಗಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:528
+#: src/Dialogs/Dialogs.vala:512
 #, c-format
 msgid "1 photo/video skipped due to user cancel:\n"
 msgid_plural "%d photos/videos skipped due to user cancel:\n"
 msgstr[0] "ಬಳಕೆದಾರರು ರದ್ದುಗೊಳಿಸಿದ ಕಾರಣದಿಂದ %d ಫೋಟೊ/ವೀಡಿಯೊಗಳನ್ನು ಕಡೆಗಣಿಸಲಾಗಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:531
+#: src/Dialogs/Dialogs.vala:515
 #, c-format
 msgid "1 file skipped due to user cancel:\n"
 msgid_plural "%d file skipped due to user cancel:\n"
 msgstr[0] "ಬಳಕೆದಾರರು ರದ್ದುಗೊಳಿಸಿದ ಕಾರಣದಿಂದ %d ಕಡತವನ್ನು ಕಡೆಗಣಿಸಲಾಗಿದೆ:\n"
 
-#: src/Dialogs/Dialogs.vala:545
+#: src/Dialogs/Dialogs.vala:529
 #, c-format
 msgid "1 photo successfully imported.\n"
 msgid_plural "%d photos successfully imported.\n"
 msgstr[0] "%d ಫೋಟೊಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಆಮದು ಮಾಡಲಾಗಿದೆ.\n"
 
-#: src/Dialogs/Dialogs.vala:548
+#: src/Dialogs/Dialogs.vala:532
 #, c-format
 msgid "1 video successfully imported.\n"
 msgid_plural "%d videos successfully imported.\n"
 msgstr[0] "%d ವೀಡಿಯೊಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಆಮದು ಮಾಡಲಾಗಿದೆ.\n"
 
-#: src/Dialogs/Dialogs.vala:551
+#: src/Dialogs/Dialogs.vala:535
 #, c-format
 msgid "1 photo/video successfully imported.\n"
 msgid_plural "%d photos/videos successfully imported.\n"
@@ -1590,30 +1562,30 @@ msgstr[0] "%d ಫೋಟೊ/ವೀಡಿಯೊಗಳನ್ನು ಯಶಸ್ವ�
 
 #. if no media items were imported at all (i.e. an empty directory attempted), need to at least
 #. report that nothing was imported
-#: src/Dialogs/Dialogs.vala:567
+#: src/Dialogs/Dialogs.vala:551
 msgid "No photos or videos imported.\n"
 msgstr "ಯಾವುದೆ ಫೋಟೊಗಳನ್ನು ಅಥವ ವೀಡಿಯೊಗಳನ್ನು ಆಮದು ಮಾಡಲಾಗಿಲ್ಲ.\n"
 
-#: src/Dialogs/Dialogs.vala:573 src/Dialogs/Dialogs.vala:599
+#: src/Dialogs/Dialogs.vala:557 src/Dialogs/Dialogs.vala:583
 msgid "Import Complete"
 msgstr "ಆಮದು ಪೂರ್ಣಗೊಂಡಿದೆ"
 
-#: src/Dialogs/Dialogs.vala:583
+#: src/Dialogs/Dialogs.vala:567
 msgid "_Done"
 msgstr ""
 
-#: src/Dialogs/Dialogs.vala:782 src/Dialogs/SavedSearchDialog.vala:81
+#: src/Dialogs/Dialogs.vala:766 src/Dialogs/SavedSearchDialog.vala:81
 msgid "Name:"
 msgstr "ಹೆಸರು:"
 
-#: src/Dialogs/Dialogs.vala:800
+#: src/Dialogs/Dialogs.vala:784
 #, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
 msgstr[0] "ಬಾಹ್ಯ ಸಂಪಾದನೆಯನ್ನು ಹಿಮ್ಮರಳಿಸಬೇಕೆ ?"
 msgstr[1] "ಬಾಹ್ಯ ಸಂಪಾದನೆಯನ್ನು ಹಿಮ್ಮರಳಿಸಬೇಕೆ ?"
 
-#: src/Dialogs/Dialogs.vala:802
+#: src/Dialogs/Dialogs.vala:786
 #, fuzzy, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
@@ -1621,32 +1593,32 @@ msgid_plural ""
 msgstr[0] ""
 "ಇದು %d ಹೊರಗಿನ ಕಡತಗಳಿಗೆ ಮಾಡಲಾದ ಎಲ್ಲಾ ಬದಲಾವಣೆಗಳು ನಾಶಗೊಳ್ಳುತ್ತದೆ. ಮುಂದುವರೆಯಬೇಕೆ?"
 
-#: src/Dialogs/Dialogs.vala:807
+#: src/Dialogs/Dialogs.vala:791
 #, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
 msgstr[0] "ಬಾಹ್ಯ ಸಂಪಾದನೆಯನ್ನು ಹಿಮ್ಮರಳಿಸು (_v)"
 msgstr[1] "ಬಾಹ್ಯ ಸಂಪಾದನೆಯನ್ನು ಹಿಮ್ಮರಳಿಸು (_v)"
 
-#: src/Dialogs/Dialogs.vala:833
+#: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
 msgstr "ಲೈಬ್ರರಿಯಿಂದ ಫೋಟೊವನ್ನು ತೆಗೆದುಹಾಕು"
 
-#: src/Dialogs/Dialogs.vala:834
+#: src/Dialogs/Dialogs.vala:818
 msgid "Remove Photos From Library"
 msgstr "ಲೈಬ್ರರಿಯಿಂದ ಫೋಟೊಗಳನ್ನು ತೆಗೆದುಹಾಕು"
 
-#: src/Dialogs/Dialogs.vala:839
+#: src/Dialogs/Dialogs.vala:823
 #, fuzzy, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
 msgstr[0] "ಇದು ಲೈಬ್ರರಿಯಿಂದ %d ಫೋಟೊಗಳನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ.  ಮುಂದುವರೆಯಬೇಕೆ?"
 
-#: src/Dialogs/Dialogs.vala:852
+#: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
 msgstr "ತೆಗೆದು ಹಾಕು (_R)"
 
-#: src/Dialogs/Dialogs.vala:872
+#: src/Dialogs/Dialogs.vala:856
 #, c-format
 msgid ""
 "\n"
@@ -1663,7 +1635,7 @@ msgstr[0] ""
 
 #. This function is used to determine whether or not files should be copied or linked when imported.
 #. Returns ACCEPT for copy, REJECT for link, and CANCEL for (drum-roll) cancel.
-#: src/Dialogs/Dialogs.vala:895
+#: src/Dialogs/Dialogs.vala:879
 #, fuzzy
 msgid ""
 "Photos can copy the photos into your library folder or it can import them "
@@ -1672,23 +1644,23 @@ msgstr ""
 "Shotwell ನಿಮ್ಮ ಲೈಬ್ರರಿ ಕಡತಕೋಶಕ್ಕೆ ಫೋಟೊಗಳನ್ನು ಪ್ರತಿ ಮಾಡಬಲ್ಲದು ಅಥವ ಪ್ರತಿ ಮಾಡದೆ ಕೇವಲ "
 "ಆಮದು ಮಾಡಬಲ್ಲದು."
 
-#: src/Dialogs/Dialogs.vala:898
+#: src/Dialogs/Dialogs.vala:882
 msgid "Import to Library"
 msgstr "ಲೈಬ್ರರಿಗೆ ಆಮದು ಮಾಡು"
 
-#: src/Dialogs/Dialogs.vala:905
+#: src/Dialogs/Dialogs.vala:889
 msgid "Co_py Photos"
 msgstr "ಫೋಟೊಗಳನ್ನು ಪ್ರತಿ ಮಾಡು (_p)"
 
-#: src/Dialogs/Dialogs.vala:906
+#: src/Dialogs/Dialogs.vala:890
 msgid "_Import in Place"
 msgstr "ಸ್ಥಳಕ್ಕೆ ಆಮದು ಮಾಡು (_I)"
 
-#: src/Dialogs/Dialogs.vala:916 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
 msgid "Remove From Library"
 msgstr "ಲೈಬ್ರರಿಯಿಂದ ತೆಗೆದುಹಾಕು"
 
-#: src/Dialogs/Dialogs.vala:917 src/Views/LibraryPhotoPage.vala:771
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -1696,7 +1668,7 @@ msgstr[0] "ಫೋಟೊವನ್ನು ಲೈಬ್ರರಿಯಿಂದ ತೆ�
 msgstr[1] "ಫೋಟೊವನ್ನು ಲೈಬ್ರರಿಯಿಂದ ತೆಗೆದು ಹಾಕು"
 
 #. Alert the user that the files were not removed.
-#: src/Dialogs/Dialogs.vala:953
+#: src/Dialogs/Dialogs.vala:937
 #, c-format
 msgid "The photo or video cannot be deleted."
 msgid_plural "%d photos/videos cannot be deleted."
@@ -1786,7 +1758,7 @@ msgid "Add"
 msgstr ""
 
 #. Add close button.
-#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:569
+#: src/Dialogs/SavedSearchDialog.vala:56 src/Views/DirectPhotoPage.vala:444
 msgid "Save"
 msgstr ""
 
@@ -1815,7 +1787,7 @@ msgid "Add rule"
 msgstr ""
 
 #: src/Dialogs/SavedSearchDialog.vala:131 src/library/LibraryWindow.vala:665
-#: src/Views/DirectPhotoPage.vala:570
+#: src/Views/DirectPhotoPage.vala:445
 msgid "Cancel"
 msgstr ""
 
@@ -2047,8 +2019,8 @@ msgstr "ಸಿದ್ಧತೆಗಳು"
 msgid "Sort _Events"
 msgstr "ಸಂದರ್ಭಗಳನ್ನು ಜೋಡಿಸು (_E)"
 
-#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:194
-#: src/Views/LibraryPhotoPage.vala:560
+#: src/library/LibraryWindow.vala:387 src/Views/CollectionPage.vala:184
+#: src/Views/LibraryPhotoPage.vala:550
 msgid "View Eve_nt for Photo"
 msgstr "ಫೋಟೊಕ್ಕಾಗಿನ ಹೊಸ ಸಂದರ್ಭ (_n)"
 
@@ -2060,7 +2032,7 @@ msgid "New Smart Album…"
 msgstr ""
 
 #: src/library/LibraryWindow.vala:421 src/library/LibraryWindow.vala:422
-#: src/Views/CollectionPage.vala:125 src/Views/LibraryPhotoPage.vala:493
+#: src/Views/CollectionPage.vala:122 src/Views/LibraryPhotoPage.vala:490
 msgid "Edit Photo In_fo"
 msgstr ""
 
@@ -2379,8 +2351,8 @@ msgstr "ಟ್ಯಾಗ್‌ಗಳು"
 msgid "Photos cannot be exported to this directory."
 msgstr "ಈ ಕೋಶಕ್ಕೆ ಫೋಟೊಗಳನ್ನು ಆಮದು ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:995
-#: src/Views/CollectionPage.vala:996 src/Views/PhotosPage.vala:67
+#: src/Views/CheckerboardPage.vala:91 src/Views/CollectionPage.vala:869
+#: src/Views/CollectionPage.vala:870 src/Views/PhotosPage.vala:67
 #: src/Views/RawsPage.vala:64
 msgid "No photos/videos"
 msgstr "ಯಾವುದೆ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳು ಇಲ್ಲ"
@@ -2389,66 +2361,72 @@ msgstr "ಯಾವುದೆ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳು ಇ
 msgid "No photos/videos found"
 msgstr "ಯಾವುದೆ ಫೋಟೊಗಳು/ವೀಡಿಯೊಗಳು ಕಂಡುಬಂದಿಲ್ಲ"
 
-#: src/Views/CollectionPage.vala:71 src/Views/LibraryPhotoPage.vala:60
+#: src/Views/CollectionPage.vala:68 src/Views/LibraryPhotoPage.vala:57
 msgid "Play a slideshow"
 msgstr "ಜಾರುಫಲಕ ಪ್ರದರ್ಶನವನ್ನು ಚಲಾಯಿಸು"
 
-#: src/Views/CollectionPage.vala:164 src/Views/LibraryPhotoPage.vala:527
+#: src/Views/CollectionPage.vala:161 src/Views/LibraryPhotoPage.vala:524
 msgid "_Developer"
 msgstr "ವಿಕಸನಗಾರ (_D)"
 
-#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:177
-#: src/Views/LibraryPhotoPage.vala:575
+#: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
+#: src/Views/LibraryPhotoPage.vala:546
+#, fuzzy
+msgid "Show in Files"
+msgstr "ಶೀರ್ಷಿಕೆಯನ್ನು ತೋರಿಸು (_i)"
+
+#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:565
 msgid "Set as Wallpaper"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:213 src/Views/DirectPhotoPage.vala:181
-#: src/Views/LibraryPhotoPage.vala:579
+#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
+#: src/Views/LibraryPhotoPage.vala:569
 msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:688
+#: src/Views/CollectionPage.vala:562
 #, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
 msgstr[0] "ಫೋಟೊವನ್ನು/ವೀಡಿಯೊವನ್ನು ರಫ್ತು ಮಾಡು"
 msgstr[1] "ಫೋಟೊವನ್ನು/ವೀಡಿಯೊವನ್ನು ರಫ್ತು ಮಾಡು"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
 msgstr "ತಿರುಗಿಸುವಿಕೆ"
 
-#: src/Views/CollectionPage.vala:784 src/Views/CollectionPage.vala:794
+#: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Undoing Rotate"
 msgstr "ತಿರುಗಿಸುವಿಕೆಯನ್ನು ರದ್ದು ಮಾಡು"
 
-#: src/Views/CollectionPage.vala:803
+#: src/Views/CollectionPage.vala:677
 msgid "Flipping Horizontally"
 msgstr "ಅಡ್ಡವಾಗಿ ಮಗುಚುವಿಕೆ"
 
-#: src/Views/CollectionPage.vala:804
+#: src/Views/CollectionPage.vala:678
 msgid "Undoing Flip Horizontally"
 msgstr "ಅಡ್ಡವಾಗಿ ಮಗುಚಿದ್ದನ್ನು ರದ್ದುಗೊಳಿಸು"
 
-#: src/Views/CollectionPage.vala:813
+#: src/Views/CollectionPage.vala:687
 msgid "Flipping Vertically"
 msgstr "ಲಂಬವಾಗಿ ಮಗುಚುವಿಕೆ"
 
-#: src/Views/CollectionPage.vala:814
+#: src/Views/CollectionPage.vala:688
 msgid "Undoing Flip Vertically"
 msgstr "ಲಂಬವಾಗಿ ಮಗುಚಿದ್ದನ್ನು ರದ್ದುಗೊಳಿಸು"
 
-#: src/Views/DirectPhotoPage.vala:102
+#: src/Views/DirectPhotoPage.vala:99
 #, c-format
 msgid "%s does not exist."
 msgstr "'%s' ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ."
 
-#: src/Views/DirectPhotoPage.vala:104
+#: src/Views/DirectPhotoPage.vala:101
 #, c-format
 msgid "%s is not a file."
 msgstr "%s ವಸ್ತುವು ಒಂದು ಕಡತವಾಗಿಲ್ಲ."
 
-#: src/Views/DirectPhotoPage.vala:106
+#: src/Views/DirectPhotoPage.vala:103
 #, c-format
 msgid ""
 "%s does not support the file format of\n"
@@ -2457,25 +2435,25 @@ msgstr ""
 "%s ಎನ್ನುವುದು %s ಬಗೆಯ ಕಡತ ವಿನ್ಯಾಸವನ್ನು \n"
 "ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
 
-#: src/Views/DirectPhotoPage.vala:464
+#: src/Views/DirectPhotoPage.vala:339
 msgid "_Save a Copy"
 msgstr "ಒಂದು ಪ್ರತಿಯನ್ನು ಉಳಿಸು (_S)"
 
-#: src/Views/DirectPhotoPage.vala:467
+#: src/Views/DirectPhotoPage.vala:342
 #, c-format
 msgid "Lose changes to %s?"
 msgstr "ಬದಲಾವನೆಗಳನ್ನು %s ಗೆ ಕಳೆದುಕೊಳ್ಳಬೇಕೆ?"
 
-#: src/Views/DirectPhotoPage.vala:474
+#: src/Views/DirectPhotoPage.vala:349
 msgid "Close _without Saving"
 msgstr "ಉಳಿಸದೆ ಮುಚ್ಚು (_W)"
 
-#: src/Views/DirectPhotoPage.vala:514
+#: src/Views/DirectPhotoPage.vala:389
 #, c-format
 msgid "Error while saving to %s: %s"
 msgstr "%s ಗೆ ಉಳಿಸುವಲ್ಲಿ ದೋಷ: %s"
 
-#: src/Views/DirectPhotoPage.vala:544 src/Views/DirectPhotoPage.vala:566
+#: src/Views/DirectPhotoPage.vala:419 src/Views/DirectPhotoPage.vala:441
 msgid "Save As"
 msgstr "ಹೀಗೆ ಉಳಿಸು"
 
@@ -2757,7 +2735,7 @@ msgstr "%s ಆಮದು ಮಾಡಲಾಗಿದೆ"
 msgid "Last Import"
 msgstr "ಕೊನೆಯ ಆಮದು"
 
-#: src/Views/LibraryPhotoPage.vala:870
+#: src/Views/LibraryPhotoPage.vala:746
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s ಗೆ ರಫ್ತು ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
@@ -3155,6 +3133,22 @@ msgstr "ಚೆಸ್"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ಪರದೆಗಳು"
+
+#, fuzzy
+#~ msgid "_Open With RAW Editor…"
+#~ msgstr "RA_W ಸಂಪಾದಕದೊಂದಿಗೆ ತೆರೆ"
+
+#, c-format
+#~ msgid "Unable to launch editor: %s"
+#~ msgstr "ಸಂಪಾದಕವನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "Photos couldn't create a file for editing this photo because you do not "
+#~ "have permission to write to %s."
+#~ msgstr ""
+#~ "ಈ ಫೋಟೊವನ್ನು ಸಂಪಾದಿಸಲು Shotwell ನಿಂದ ಒಂದು ಕಡತವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ ಏಕೆಂದರೆ "
+#~ "%s ಗೆ ಬರೆಯುವ ಅನುಮತಿಯನ್ನು ನೀವು ಹೊಂದಿಲ್ಲ."
 
 #~ msgid "Preparing for upload"
 #~ msgstr "ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಸಿದ್ಧಗೊಳಿಸಲಾಗುತ್ತಿದೆ"
