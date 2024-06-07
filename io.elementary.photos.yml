@@ -1,13 +1,17 @@
 app-id: io.elementary.photos
 runtime: io.elementary.Platform
-runtime-version: 'daily'
+runtime-version: '8'
 sdk: io.elementary.Sdk
 command: io.elementary.photos
 finish-args:
-  - '--filesystem=home'
+  - '--filesystem=xdg-pictures'
+
+  # External media
+  - '--filesystem=/media'
+  - '--filesystem=/run/media'
+  - '--filesystem=/mnt'
 
   - '--share=ipc'
-  - '--share=network'
   - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--device=dri'
@@ -86,18 +90,6 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libgudev.git
         tag: '234'
-
-  - name: libportal
-    buildsystem: meson
-    config-opts:
-      - '-Dbackend-gtk3=enabled'
-      - '-Dbackend-gtk4=disabled'
-      - '-Dbackend-qt5=disabled'
-      - '-Ddocs=false'
-    sources:
-      - type: archive
-        url: https://github.com/flatpak/libportal/releases/download/0.7.1/libportal-0.7.1.tar.xz
-        sha256: 297b90b263fad22190a26b8c7e8ea938fe6b18fb936265e588927179920d3805
 
   - name: raw
     cleanup:
