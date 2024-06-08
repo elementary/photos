@@ -1,1 +1,0 @@
-subdir('pantheon-photos-transitions')

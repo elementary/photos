@@ -1,0 +1,26 @@
+{
+    "id": "io.elementary.photos",
+    "runtime": "io.elementary.Platform",
+    "runtime-version": "8",
+    "sdk": "io.elementary.Sdk",
+    "command": "io.elementary.photos",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--filesystem=xdg-pictures"
+    ],
+    "modules": [
+        {
+            "name": "photos",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}

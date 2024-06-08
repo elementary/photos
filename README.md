@@ -7,35 +7,18 @@
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
-* desktop-file-utils
-* intltool
-* libexif-dev
-* libgee-0.8-dev
-* libgeocode-glib-dev
-* libgexiv2-dev
-* libglib2.0-dev
-* libgphoto2-dev
-* libgranite-dev >= 6.0.0
-* libgstreamer1.0-dev
-* libgstreamer-plugins-base1.0-dev
-* libgtk-3-dev
-* libgudev-1.0-dev
-* libhandy-1-dev
-* libportal
-* libportal-gtk3
-* libraw-dev
-* libsqlite3-dev
-* libwebp-dev
+* gtk4
+* granite7
 * meson
-* valac >= 0.40
+* valac
 
-Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
+Run `flatpak-builder` to configure the build environment, download dependencies, build, and install
 
-    meson build --prefix=/usr
-    cd build
-    ninja
+```bash
+    flatpak-builder build io.elementary.videos.yml --user --install --force-clean --install-deps-from=appcenter
+```
 
-To install, use `ninja install`, then execute with `io.elementary.photos`
+Then execute with
 
-    sudo ninja install
-    io.elementary.photos
+```bash
+    flatpak run io.elementary.videos
