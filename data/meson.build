@@ -15,12 +15,12 @@ foreach i : icon_sizes
     install_data(
         join_paths('icons', i + '-viewer.svg'),
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps'),
-        rename: meson.project_name() + '-viewer.svg'
+        rename: meson.project_name() + '.viewer.svg'
     )
     install_data(
         join_paths('icons', i + '-viewer.svg'),
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
-        rename: meson.project_name() + '-viewer.svg'
+        rename: meson.project_name() + '.viewer.svg'
     )
 endforeach
 
@@ -34,14 +34,14 @@ config_data.set('EXEC_NAME', meson.project_name())
 
 # Set the executable name and translate the desktop files
 viewer_desktop_in_file = configure_file(
-    input: meson.project_name() + '-viewer.desktop.in.in',
+    input: 'viewer.desktop.in.in',
     output: '@BASENAME@',
     configuration: config_data
 )
 
 viewer_desktop_file = i18n.merge_file(
     input: viewer_desktop_in_file,
-    output: meson.project_name() + '-viewer.desktop',
+    output: meson.project_name() + '.viewer.desktop',
     po_dir: join_paths(meson.source_root (), 'po', 'extra'),
     type: 'desktop',
     install_dir: join_paths(get_option('datadir'), 'applications'),
