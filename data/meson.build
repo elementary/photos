@@ -1,9 +1,3 @@
-gresource = gnome.compile_resources(
-    'music-resources',
-    'photos.gresource.xml',
-    source_dir: join_paths(meson.project_source_root(), 'data')
-)
-
 install_data(
     'photos.gschema.xml',
     install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',

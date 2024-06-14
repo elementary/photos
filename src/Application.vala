@@ -80,6 +80,14 @@ public class Photos.Application : Gtk.Application {
         settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
+        if (settings.get_int("window-width") == -1 || settings.get_int("window-height") == -1) {
+            var monitor = (Gdk.Monitor) main_window.get_display ().get_monitors ().get_item (0);
+            var geometry = monitor.get_geometry ();
+
+            main_window.default_width = geometry.width * 2 / 3;
+            main_window.default_height = geometry.height * 3 / 4;
+        }
+
         if (settings.get_boolean ("window-maximized")) {
             main_window.maximize ();
         }

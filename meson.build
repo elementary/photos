@@ -19,10 +19,12 @@ config_file = configure_file(
     configuration: config_data
 )
 
+adw_dep = dependency('libadwaita-1')
 granite_dep = dependency('granite-7')
 gtk_dep = dependency('gtk4')
 
 dependencies = [
+    adw_dep,
     granite_dep,
     gtk_dep,
 ]

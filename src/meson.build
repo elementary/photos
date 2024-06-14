@@ -5,7 +5,6 @@ sources = [
 
 executable(
     meson.project_name(),
-    gresource,
     sources,
     config_file,
     dependencies: dependencies,
