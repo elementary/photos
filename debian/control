@@ -2,8 +2,10 @@ Source: pantheon-photos
 Section: gnome
 Priority: optional
 Maintainer: elementary, Inc. <builds@elementary.io>
-Build-Depends: debhelper (>= 10.5.1),
+Build-Depends: debhelper-compat (= 13),
                desktop-file-utils,
+               dh-exec,
+               dh-sequence-gir,
                gettext,
                libexif-dev (>= 0.6.16),
                libgee-0.8-dev (>= 0.8.0),
@@ -31,19 +33,9 @@ Homepage: https://github.com/elementary/photos
 Package: pantheon-photos
 Architecture: any
 Depends: flatpak, ${misc:Depends}, ${shlibs:Depends}
-Conflicts: pantheon-photos-common
-Replaces: pantheon-photos-common
 Description: digital photo organizer
  Photos is a digital photo organizer designed for the Pantheon desktop
  environment. It allows you to import photos from disk or camera, organize
  them in various ways, view them in full-window or fullscreen mode, and
  export them to share with others. It is able to manage a lot of different
  image formats, also including raw CR2 files.
-
-Package: pantheon-photos-common
-Section: oldlibs
-Priority: optional
-Architecture: any
-Depends: pantheon-photos, ${misc:Depends}
-Description: Dummy transitional package
- Dummy transitional package, safe to remove.
