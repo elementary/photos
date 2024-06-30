@@ -238,7 +238,7 @@ class AppDirs {
     public static File get_lib_dir () {
         File? install_dir = get_install_dir ();
 
-        return (install_dir != null) ? install_dir.get_child (Resources.LIB).get_child (PROJECT_NAME)
+        return (install_dir != null) ? File.new_for_path (Resources.LIB).get_child (PROJECT_NAME)
                : get_exec_dir ();
     }
 
