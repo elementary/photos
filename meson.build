@@ -2,7 +2,7 @@ project(
     'io.elementary.photos',
     'vala', 'c',
     version: '8.0.0',
-    meson_version: '>=0.46.0'
+    meson_version: '>=0.57.0'
 )
 
 add_project_arguments([
@@ -131,4 +131,7 @@ if get_option('documentation')
     subdir('docs')
 endif
 
-meson.add_install_script('meson/post_install.py')
+gnome.post_install(
+    glib_compile_schemas: true,
+    gtk_update_icon_cache: true
+)
