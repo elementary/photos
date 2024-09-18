@@ -1,13 +1,18 @@
 [Desktop Entry]
+Version=1.5
+Type=Application
+
 Name=Photos
 Comment=Organize your photos
-Exec=@EXEC_NAME@ %U
-Icon=io.elementary.photos
-GenericName=Photo Manager
-Keywords=album;cameras;crop;edit;enhance;export;gallery;images;import;organize;photographs;photos;pictures;photography;print;publish;rotate;share;tags;video;
-Terminal=false
-Type=Application
-StartupNotify=true
-MimeType=x-content/image-dcf;
 Categories=Graphics;Photography;GNOME;GTK;
+Keywords=album;cameras;crop;edit;enhance;export;gallery;images;import;organize;photographs;photos;pictures;photography;print;publish;rotate;share;tags;video;
+
+Icon=io.elementary.photos
+Exec=io.elementary.photos %U
+SingleMainWindow=true
+StartupNotify=true
+Terminal=false
+
+MimeType=x-content/image-dcf;
+
 X-GNOME-UsesNotifications=false
