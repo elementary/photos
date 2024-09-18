@@ -29,37 +29,21 @@ install_data(
     install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'glib-2.0', 'schemas')
 )
 
-config_data = configuration_data()
-config_data.set('EXEC_NAME', meson.project_name())
-
-# Set the executable name and translate the desktop files
-viewer_desktop_in_file = configure_file(
-    input: 'viewer.desktop.in.in',
-    output: '@BASENAME@',
-    configuration: config_data
-)
-
-viewer_desktop_file = i18n.merge_file(
-    input: viewer_desktop_in_file,
+i18n.merge_file(
+    input: 'viewer.desktop.in',
     output: meson.project_name() + '.viewer.desktop',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    install_dir: get_option('datadir') / 'applications',
     install: true
 )
 
-app_desktop_in_file = configure_file(
-    input: meson.project_name() + '.desktop.in.in',
-    output: '@BASENAME@',
-    configuration: config_data
-)
-
-app_desktop_file = i18n.merge_file(
-    input: app_desktop_in_file,
+i18n.merge_file(
+    input: 'photos.desktop.in',
     output: meson.project_name() + '.desktop',
-    po_dir: join_paths(meson.source_root (), 'po', 'extra'),
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    install_dir: get_option('datadir') / 'applications',
     install: true
 )
 
