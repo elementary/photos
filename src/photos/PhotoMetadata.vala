@@ -1098,17 +1098,19 @@ public class PhotoMetadata : MediaMetadata {
 
     public bool get_gps (out double longitude, out string long_ref, out double latitude, out string lat_ref,
                          out double altitude) {
-        if (!exiv2.get_gps_info (out longitude, out latitude, out altitude)) {
-            long_ref = null;
-            lat_ref = null;
 
-            return false;
-        }
+        long_ref = null;
+        lat_ref = null;
+        try {
+            if (exiv2.try_get_gps_info (out longitude, out latitude, out altitude)) {
+                long_ref = get_string ("Exif.GPSInfo.GPSLongitudeRef");
+                lat_ref = get_string ("Exif.GPSInfo.GPSLatitudeRef");
 
-        long_ref = get_string ("Exif.GPSInfo.GPSLongitudeRef");
-        lat_ref = get_string ("Exif.GPSInfo.GPSLatitudeRef");
+                return true;
+            }
+        } catch (Error e) {}
 
-        return true;
+        return false;
     }
 
     public bool get_exposure (out MetadataRational exposure) {
