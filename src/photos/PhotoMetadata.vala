@@ -143,11 +143,7 @@ public class PhotoMetadata : MediaMetadata {
         }
 
         public override Bytes flatten () throws Error {
-            if (owner.exiv2 == null) {
-                critical ("InternalPhotoPreview.flatten () called with null owner.exiv2");
-                throw new PhotoMetadataError.MISSING_DATA ("exiv2 data missing");
-            }
-
+            // owner and exiv2 are initialized on construction so can be assumed non-null
             unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
             // assert (props != null && props.length > number);
             if (props == null) {
