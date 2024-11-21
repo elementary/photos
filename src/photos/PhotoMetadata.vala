@@ -156,7 +156,7 @@ public class PhotoMetadata : MediaMetadata {
                 throw new PhotoMetadataError.MISSING_DATA ("Too few preview properties. Expected > %u, got %u", number, props.length);
             }
 
-            // FIXME GExiv2.MetaData.get_preview_image is deprecated since 014
+            // GExiv2.MetaData.get_preview_image is deprecated since 014
             var preview_image = owner.exiv2.try_get_preview_image (props[number]).get_data (); // Throws Error
             return new Bytes (preview_image);
         }
@@ -343,11 +343,25 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public string? get_string (string tag, PrepareInputTextOptions options = PREPARE_STRING_OPTIONS) {
-        return prepare_input_text (exiv2.get_tag_string (tag), options, DEFAULT_USER_TEXT_INPUT_LENGTH);
+        try {
+            var tag_s = exiv2.try_get_tag_string (tag);
+            return prepare_input_text (tag_s, options, DEFAULT_USER_TEXT_INPUT_LENGTH);
+        } catch (Error e) {
+            warning ("Error getting tag string from source %s. %s", source_name, e.message);
+        }
+
+        return null;
     }
 
     public string? get_string_interpreted (string tag, PrepareInputTextOptions options = PREPARE_STRING_OPTIONS) {
-        return prepare_input_text (exiv2.get_tag_interpreted_string (tag), options, DEFAULT_USER_TEXT_INPUT_LENGTH);
+        try {
+            var tag_s = exiv2.try_get_tag_interpreted_string (tag);
+            return prepare_input_text (tag_s, options, DEFAULT_USER_TEXT_INPUT_LENGTH);
+        } catch (Error e) {
+            warning ("Error getting tag interpreted string from source %s. %s", source_name, e.message);
+        }
+
+        return null;
     }
 
     public string? get_first_string (string[] tags) {
@@ -377,9 +391,17 @@ public class PhotoMetadata : MediaMetadata {
     // (there or here), don't use this function to access EXIF.  See:
     // http://trac.yorba.org/ticket/2966
     public Gee.List<string>? get_string_multiple (string tag) {
-        string[] values = exiv2.get_tag_multiple (tag);
-        if (values == null || values.length == 0)
+        string[] values;
+        try {
+            values = exiv2.try_get_tag_multiple (tag);
+        } catch (Error e) {
+            warning ("Error getting tag multiple from source %s, %s", source_name, e.message);
             return null;
+        }
+
+        if (values == null || values.length == 0) {
+            return null;
+        }
 
         Gee.List<string> list = new Gee.ArrayList<string> ();
 
@@ -421,8 +443,11 @@ public class PhotoMetadata : MediaMetadata {
             return;
         }
 
-        if (!exiv2.set_tag_string (tag, prepped))
-            warning ("Unable to set tag %s to string %s from source %s", tag, value, source_name);
+        try {
+            exiv2.set_tag_string (tag, prepped);
+        } catch (Error e) {
+            warning ("Unable to set tag %s to string %s from source %s - %s", tag, value, source_name, e.message);
+        }
     }
 
     private delegate void SetGenericValue (string tag);
