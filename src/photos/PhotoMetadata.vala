@@ -41,6 +41,12 @@ public enum MetadataDomain {
     IPTC
 }
 
+public errordomain PhotoMetadataError {
+    MISSING_DATA,
+    UNKNOWN_ERROR
+}
+
+
 public class HierarchicalKeywordField {
     public string field_name;
     public string path_separator;
@@ -137,10 +143,26 @@ public class PhotoMetadata : MediaMetadata {
         }
 
         public override Bytes flatten () throws Error {
-            unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
-            assert (props != null && props.length > number);
+            if (owner.exiv2 == null) {
+                critical ("InternalPhotoPreview.flatten () called with null owner.exiv2");
+                throw new PhotoMetadataError.MISSING_DATA ("exiv2 data missing");
+            }
 
-            return new Bytes (owner.exiv2.get_preview_image (props[number]).get_data ());
+            unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
+            // assert (props != null && props.length > number);
+            if (props == null) {
+                critical ("InternalPhotoPreview.flatten () - null preview properties");
+                throw new PhotoMetadataError.MISSING_DATA ("preview properties missing");
+            }
+
+            if (props.length <= number) {
+                critical ("InternalPhotoPreview.flatten () - too few preview properties");
+                throw new PhotoMetadataError.MISSING_DATA ("Too few preview properties. Expected > %u, got %u", number, props.length);
+            }
+
+            // FIXME GExiv2.MetaData.get_preview_image is deprecated since 014
+            var preview_image = owner.exiv2.try_get_preview_image (props[number]).get_data (); // Throws Error
+            return new Bytes (preview_image);
         }
     }
 
