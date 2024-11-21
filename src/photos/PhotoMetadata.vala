@@ -277,7 +277,11 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public bool has_tag (string tag) {
-        return exiv2.has_tag (tag);
+        try {
+            return exiv2.try_has_tag (tag);
+        } catch (Error e) {}
+
+        return false;
     }
 
     private Gee.Set<string> create_string_set (owned CompareDataFunc<string>? compare_func) {
@@ -444,7 +448,7 @@ public class PhotoMetadata : MediaMetadata {
         }
 
         try {
-            exiv2.set_tag_string (tag, prepped);
+            exiv2.try_set_tag_string (tag, prepped);
         } catch (Error e) {
             warning ("Unable to set tag %s to string %s from source %s - %s", tag, value, source_name, e.message);
         }
@@ -500,8 +504,13 @@ public class PhotoMetadata : MediaMetadata {
         // seen in the Flickr Connector as a result of the former bug.
         values += null;
 
-        if (!exiv2.set_tag_multiple (tag, values))
-            warning ("Unable to set %d strings to tag %s from source %s", values.length, tag, source_name);
+        try {
+            if (!exiv2.try_set_tag_multiple (tag, values)) {
+                warning ("Unable to set %d strings to tag %s from source %s", values.length, tag, source_name);
+            }
+        } catch (Error e) {
+                warning ("Error setting tag multiple on %s. %s", source_name, e.message);
+        }
     }
 
     public void set_all_string_multiple (string[] tags, Gee.Collection<string> values, SetOption option) {
@@ -584,7 +593,7 @@ public class PhotoMetadata : MediaMetadata {
     public void set_rational (string tag, MetadataRational rational) {
         try {
             if (!exiv2.try_set_exif_tag_rational (tag, rational.numerator, rational.denominator)) {
-                warning ("Unable to set tag %s to rational %s from source %s", tag, rational.to_string (),source_name);
+                warning ("Unable to set tag %s to rational %s from source %s", tag, rational.to_string (), source_name);
             }
         } catch (Error e) {
             warning ("Error on setting tag %s rational in source %s. %s", tag, source_name, e.message);
