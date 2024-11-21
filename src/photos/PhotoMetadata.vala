@@ -511,13 +511,17 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public bool get_long (string tag, out long value) {
-        if (!has_tag (tag)) {
-            value = 0;
+        value = 0;
+        try {
+            if (!has_tag (tag)) {
+                return false;
+            }
 
+            value = exiv2.try_get_tag_long (tag);
+        } catch (Error e) {
+            warning ("Failed to get tag long from source %s. %s", source_name, e.message);
             return false;
         }
-
-        value = exiv2.get_tag_long (tag);
 
         return true;
     }
@@ -534,8 +538,13 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public void set_long (string tag, long value) {
-        if (!exiv2.set_tag_long (tag, value))
+        try {
+        if (!exiv2.try_set_tag_long (tag, value)) {
             warning ("Unable to set tag %s to long %ld from source %s", tag, value, source_name);
+        }
+        } catch (Error e) {
+            warning ("Error on setting tag %s long in source %s. %s", tag, source_name, e.message);
+        }
     }
 
     public void set_all_long (string[] tags, long value, SetOption option) {
