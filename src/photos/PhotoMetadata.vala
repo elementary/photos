@@ -555,28 +555,39 @@ public class PhotoMetadata : MediaMetadata {
 
     public bool get_rational (string tag, out MetadataRational rational) {
         int numerator, denominator;
-        bool result = exiv2.get_exif_tag_rational (tag, out numerator, out denominator);
+        bool result = false;
+        rational = MetadataRational (0, 0);
 
-        rational = MetadataRational (numerator, denominator);
+        try {
+            if (exiv2.try_get_exif_tag_rational (tag, out numerator, out denominator)) {
+                rational = MetadataRational (numerator, denominator);
+                result = true;
+            }
+        } catch (Error e) {
+            warning ("Error on getting tag %s rational in source %s. %s", tag, source_name, e.message);
+        }
 
         return result;
     }
 
     public bool get_first_rational (string[] tags, out MetadataRational rational) {
         foreach (string tag in tags) {
-            if (get_rational (tag, out rational))
+            if (get_rational (tag, out rational)) {
                 return true;
+            }
         }
 
         rational = MetadataRational (0, 0);
-
         return false;
     }
 
     public void set_rational (string tag, MetadataRational rational) {
-        if (!exiv2.set_exif_tag_rational (tag, rational.numerator, rational.denominator)) {
-            warning ("Unable to set tag %s to rational %s from source %s", tag, rational.to_string (),
-                     source_name);
+        try {
+            if (!exiv2.try_set_exif_tag_rational (tag, rational.numerator, rational.denominator)) {
+                warning ("Unable to set tag %s to rational %s from source %s", tag, rational.to_string (),source_name);
+            }
+        } catch (Error e) {
+            warning ("Error on setting tag %s rational in source %s. %s", tag, source_name, e.message);
         }
     }
 
