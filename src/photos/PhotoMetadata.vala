@@ -1067,18 +1067,6 @@ public class PhotoMetadata : MediaMetadata {
         return h_keywords;
     }
 
-    // Returns whether the image has orientation information in the metadata
-    public bool has_orientation () {
-        try {
-            var result = exiv2.try_get_orientation ();
-            return result != GExiv2.Orientation.UNSPECIFIED;
-        } catch (Error e) {
-            warning ("Exiv2 error getting has orientation from source %s. %s", source_name, e.message);
-        }
-
-        return false;
-    }
-
     // If not present, returns Orientation.TOP_LEFT.
     public Orientation get_orientation () {
         // GExiv2.Orientation is the same value-wise as Orientation, with one exception:
