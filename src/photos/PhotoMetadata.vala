@@ -714,7 +714,10 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public void remove_exif_thumbnail () {
-        exiv2.erase_exif_thumbnail ();
+        try {
+            exiv2.try_erase_exif_thumbnail ();
+        } catch (Error e) {}
+
         if (exif != null) {
             Exif.Mem.new_default ().free (exif.data);
             exif.data = null;
@@ -723,7 +726,11 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public void remove_tag (string tag) {
-        exiv2.clear_tag (tag);
+        try {
+            exiv2.try_clear_tag (tag);
+        } catch (Error e) {
+            warning ("Error clearing tag %s from source %s. %s", tag, source_name, e.message);
+        }
     }
 
     public void remove_tags (string[] tags) {
@@ -1051,25 +1058,42 @@ public class PhotoMetadata : MediaMetadata {
         return h_keywords;
     }
 
+    // Returns whether the image has orientation information in the metadata
     public bool has_orientation () {
-        return exiv2.get_orientation () == GExiv2.Orientation.UNSPECIFIED;
+        try {
+            var result = exiv2.try_get_orientation ();
+            return result != GExiv2.Orientation.UNSPECIFIED;
+        } catch (Error e) {
+            warning ("Exiv2 error getting has orientation from source %s. %s", source_name, e.message);
+        }
+
+        return false;
     }
 
     // If not present, returns Orientation.TOP_LEFT.
     public Orientation get_orientation () {
         // GExiv2.Orientation is the same value-wise as Orientation, with one exception:
         // GExiv2.Orientation.UNSPECIFIED must be handled
-        GExiv2.Orientation orientation = exiv2.get_orientation ();
-        if (orientation == GExiv2.Orientation.UNSPECIFIED || orientation < Orientation.MIN ||
-                orientation > Orientation.MAX)
-            return Orientation.TOP_LEFT;
-        else
-            return (Orientation) orientation;
+        try {
+            var orientation = exiv2.try_get_orientation ();
+            if (orientation != GExiv2.Orientation.UNSPECIFIED &&
+                orientation >= Orientation.MIN &&
+                 orientation <= Orientation.MAX) {
+
+                 return (Orientation) orientation;
+            }
+        } catch (Error e) {}
+
+        return Orientation.TOP_LEFT;
     }
 
     public void set_orientation (Orientation orientation) {
         // GExiv2.Orientation is the same value-wise as Orientation
-        exiv2.set_orientation ((GExiv2.Orientation) orientation);
+        try {
+            exiv2.try_set_orientation ((GExiv2.Orientation) orientation);
+        } catch (Error e) {
+            warning ("Exiv2 error setting has orientation from source %s. %s", source_name, e.message);
+        }
     }
 
     public bool get_gps (out double longitude, out string long_ref, out double latitude, out string lat_ref,
