@@ -652,8 +652,7 @@ public class BatchImport : Object {
             report_completed ("completed preparing files, all outstanding imports completed");
     }
 
-    public void schedule () {
-        assert (scheduled == false);
+    public void schedule () requires (scheduled == false) {
         scheduled = true;
 
         starting ();
@@ -674,9 +673,7 @@ public class BatchImport : Object {
         return true;
     }
 
-    private void on_work_sniffed_out (BackgroundJob j) {
-        assert (!completed);
-
+    private void on_work_sniffed_out (BackgroundJob j) requires (!completed) {
         WorkSniffer sniffer = (WorkSniffer) j;
 
         log_status ("on_work_sniffed_out");
@@ -705,9 +702,7 @@ public class BatchImport : Object {
         }
     }
 
-    private void on_sniffer_cancelled (BackgroundJob j) {
-        assert (!completed);
-
+    private void on_sniffer_cancelled (BackgroundJob j) requires (!completed) {
         WorkSniffer sniffer = (WorkSniffer) j;
 
         log_status ("on_sniffer_cancelled");
@@ -760,9 +755,7 @@ public class BatchImport : Object {
     }
 
     // Called when a cluster of files are located and deemed proper for import by PrepareFiledJob
-    private void on_file_prepared (BackgroundJob j, NotificationObject? user) {
-        assert (!completed);
-
+    private void on_file_prepared (BackgroundJob j, NotificationObject? user) requires (!completed) {
         PreparedFileCluster cluster = (PreparedFileCluster) user;
 
         log_status ("on_file_prepared (%d files)".printf (cluster.list.size));
@@ -977,9 +970,7 @@ public class BatchImport : Object {
         flush_import_jobs ();
     }
 
-    private void done_preparing_files (BackgroundJob j, string caller) {
-        assert (!completed);
-
+    private void done_preparing_files (BackgroundJob j, string caller) requires (!completed) {
         PrepareFilesJob prepare_files_job = (PrepareFilesJob) j;
 
         report_failures (prepare_files_job);
@@ -1013,19 +1004,22 @@ public class BatchImport : Object {
     // Files ready for import stage
     //
 
-    private void on_import_files_completed (BackgroundJob j) {
-        assert (!completed);
-
+    private void on_import_files_completed (BackgroundJob j) requires (
+                                                                !completed &&
+                                                                ((PreparedFileImportJob) j).not_ready == null) {
         PreparedFileImportJob job = (PreparedFileImportJob) j;
 
         log_status ("on_import_files_completed");
 
-        // should be ready in some form
-        assert (job.not_ready == null);
+        // // should be ready in some form
+        // assert (job.not_ready == null);
 
         // mark failed photo
         if (job.failed != null) {
-            assert (job.failed.result != ImportResult.SUCCESS);
+            // assert (job.failed.result != ImportResult.SUCCESS);
+            if (job.failed.result == ImportResult.SUCCESS) {
+                critical ("Import job failed with unexpected failed result SUCCESS");
+            }
 
             report_failure (job.failed);
             file_import_complete ();
@@ -1034,7 +1028,10 @@ public class BatchImport : Object {
         // resurrect ready photos before adding to database and rest of system ... this is more
         // efficient than doing them one at a time
         if (job.ready != null) {
-            assert (job.ready.batch_result.result == ImportResult.SUCCESS);
+            // assert (job.ready.batch_result.result == ImportResult.SUCCESS);
+            if (job.ready.batch_result.result != ImportResult.SUCCESS) {
+                critical ("Import job ready with unexpected result not SUCCESS");
+            }
 
             Tombstone? tombstone = Tombstone.global.locate (job.ready.final_file);
             if (tombstone != null)
@@ -1090,8 +1087,8 @@ public class BatchImport : Object {
         flush_import_jobs ();
     }
 
-    private void on_import_files_cancelled (BackgroundJob j) {
-        assert (!completed);
+    private void on_import_files_cancelled (BackgroundJob j) requires (!completed) {
+        // assert (!completed);
 
         PreparedFileImportJob job = (PreparedFileImportJob) j;
 
@@ -1124,8 +1121,8 @@ public class BatchImport : Object {
     // destroy the LibraryPhoto.
     //
 
-    private void on_thumbnail_writer_completed (BackgroundJob j) {
-        assert (!completed);
+    private void on_thumbnail_writer_completed (BackgroundJob j) requires (!completed) {
+        // assert (!completed);
 
         ThumbnailWriterJob job = (ThumbnailWriterJob) j;
         CompletedImportObject completed = job.completed_import_source;
@@ -1153,7 +1150,7 @@ public class BatchImport : Object {
         flush_import_jobs ();
     }
 
-    private void on_thumbnail_writer_cancelled (BackgroundJob j) {
+    private void on_thumbnail_writer_cancelled (BackgroundJob j) requires (!completed) {
         assert (!completed);
 
         ThumbnailWriterJob job = (ThumbnailWriterJob) j;
@@ -1305,16 +1302,16 @@ public class DuplicatedFile : Object {
         this.file = null;
     }
 
-    public static DuplicatedFile create_from_photo_id (PhotoID photo_id) {
-        assert (photo_id.is_valid ());
+    public static DuplicatedFile create_from_photo_id (PhotoID photo_id) requires (photo_id.is_valid ()) {
+        // assert (photo_id.is_valid ());
 
         DuplicatedFile result = new DuplicatedFile ();
         result.photo_id = photo_id;
         return result;
     }
 
-    public static DuplicatedFile create_from_video_id (VideoID video_id) {
-        assert (video_id.is_valid ());
+    public static DuplicatedFile create_from_video_id (VideoID video_id) requires (video_id.is_valid ()) {
+        // assert (video_id.is_valid ());
 
         DuplicatedFile result = new DuplicatedFile ();
         result.video_id = video_id;
@@ -1341,7 +1338,8 @@ public class DuplicatedFile : Object {
             file = video_object.get_master_file ();
             return file;
         } else {
-            assert_not_reached ();
+            // Should not reach here because public constructors should always set file non-null
+            error ("Duplicated file used with null file");
         }
     }
 }

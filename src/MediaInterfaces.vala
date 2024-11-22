@@ -61,6 +61,8 @@
 //
 // The object is thread-safe.  There is no guarantee that the underlying persistent store is,
 // however.
+
+// Just one subclass in MediaDataRepresentation used in Photo and VidepSupport
 public abstract class TransactionController {
     private int count = 0;
 
