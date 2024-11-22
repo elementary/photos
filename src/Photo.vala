@@ -2692,7 +2692,19 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
         }
 
-        master_reader.create_metadata_writer ().write_metadata (metadata);
+        File? master_file = get_master_file ();
+        LibraryMonitor.blacklist_file (master_file, "MetadataWriter.commit_master");
+        try {
+            master_reader.create_metadata_writer ().write_metadata (metadata);
+        } catch (Error e) {
+            warning (
+                "Error persisting master metadata %s. %s",
+                master_file != null ? master_file.get_uri () : "null",
+                e.message
+            );
+        } finally {
+            LibraryMonitor.unblacklist_file (photo.get_master_file ());
+        }
 
         if (!prepare_for_reimport_master (out state)) {
             return false;

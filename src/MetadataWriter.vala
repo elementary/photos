@@ -58,24 +58,16 @@ public class MetadataWriter : Object {
             // otherwise, we'll end up ruining the original, and as such, breaking the
             // ability to revert to it.
             bool skip_orientation = photo.has_editable ();
-
-            if (!photo.get_master_file_format ().can_write_metadata ())
-                return;
-
             PhotoMetadata metadata = photo.get_master_metadata ();
             if (update_metadata (metadata, skip_orientation)) {
-                LibraryMonitor.blacklist_file (photo.get_master_file (), "MetadataWriter.commit_master");
-                try {
-                    photo.persist_master_metadata (metadata, out reimport_master_state);
-                } finally {
-                    LibraryMonitor.unblacklist_file (photo.get_master_file ());
-                }
+                // Photo does necessary checks and may throw error
+                photo.persist_master_metadata (metadata, out reimport_master_state);
             }
         }
 
         private void commit_editable () throws Error {
             PhotoMetadata? metadata = photo.get_editable_metadata ();
-            if (update_metadata (metadata)) { // null safe
+            if (update_metadata (metadata)) {
                 // Photo does necessary checks and may throw error
                 photo.persist_editable_metadata (metadata, out reimport_editable_state);
             }
