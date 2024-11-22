@@ -248,7 +248,7 @@ public abstract class Photo : PhotoSource, Dateable {
     private PixelTransformer transformer = null;
     private PixelTransformationBundle adjustments = null;
     // because file_title is determined by data in row, it should only be accessed when row is locked
-    private string file_title = null;
+    private string file_title = "";
     private FileMonitor editable_monitor = null;
     private OneShotScheduler reimport_editable_scheduler = null;
     private OneShotScheduler update_editable_attributes_scheduler = null;
