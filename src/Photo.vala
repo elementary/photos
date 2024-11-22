@@ -1336,7 +1336,7 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // This method is thread-safe.  If returns false the photo should be marked offline (in the
     // main UI thread).
-    public bool prepare_for_reimport_master (out ReimportMasterState reimport_state) throws Error {
+    public bool prepare_for_reimport_master (out ReimportMasterState? reimport_state) throws Error {
         reimport_state = null;
 
         File file = get_master_reader ().get_file ();
@@ -1418,7 +1418,12 @@ public abstract class Photo : PhotoSource, Dateable {
     protected abstract void apply_user_metadata_for_reimport (PhotoMetadata metadata);
 
     // This method is not thread-safe and should be called in the main thread.
-    public void finish_reimport_master (ReimportMasterState state) throws DatabaseError {
+    public void finish_reimport_master (ReimportMasterState? state) throws DatabaseError {
+        if (state == null) {
+            warning ("finish_reimport_state called with null state - ignoring");
+            return;
+        }
+
         ReimportMasterStateImpl reimport_state = (ReimportMasterStateImpl) state;
 
         PhotoTable.get_instance ().reimport (reimport_state.row);
@@ -1460,9 +1465,10 @@ public abstract class Photo : PhotoSource, Dateable {
         }
     }
 
-    // Verifies a file for reimport.  Returns the file's detected photo info.
+    // Verifies a (non null) file for reimport.  Returns the file's detected photo info.
     private bool verify_file_for_reimport (File file, out BackingPhotoRow backing,
                                            out DetectedPhotoInformation detected) throws Error {
+
         backing = query_backing_photo_row (file, PhotoFileSniffer.Options.NO_MD5,
         out detected);
         if (backing == null) {
@@ -1504,7 +1510,7 @@ public abstract class Photo : PhotoSource, Dateable {
     // This method is not thread-safe.  It should be called by the main thread.
     public void finish_reimport_editable (ReimportEditableState state) throws DatabaseError {
         BackingPhotoID editable_id = get_editable_id ();
-        if (editable_id.is_invalid ()) {
+        if (state == null || editable_id.is_invalid ()) {
             return;
         }
 

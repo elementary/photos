@@ -33,8 +33,8 @@ public class MetadataWriter : Object {
     private class CommitJob : BackgroundJob {
         public LibraryPhoto photo;
         public Gee.Set<string>? current_keywords;
-        public Photo.ReimportMasterState reimport_master_state = null;
-        public Photo.ReimportEditableState reimport_editable_state = null;
+        public Photo.ReimportMasterState? reimport_master_state = null;
+        public Photo.ReimportEditableState? reimport_editable_state = null;
         public Error? err = null;
 
         public CommitJob (MetadataWriter owner, LibraryPhoto photo, Gee.Set<string>? keywords) {
