@@ -2703,7 +2703,7 @@ public abstract class Photo : PhotoSource, Dateable {
                 e.message
             );
         } finally {
-            LibraryMonitor.unblacklist_file (photo.get_master_file ());
+            LibraryMonitor.unblacklist_file (master_file);
         }
 
         if (!prepare_for_reimport_master (out state)) {
