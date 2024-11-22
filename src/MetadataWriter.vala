@@ -551,7 +551,6 @@ public class MetadataWriter : Object {
         foreach (LibraryPhoto photo in photos) {
             if (photo.is_master_metadata_dirty ()) {
                 bool enqueued = dirty.enqueue (photo);
-                // assert (enqueued);
                 if (!enqueued) {
                     critical ("Failed to enqueue photo %s", photo.get_basename ());
                 } else {
@@ -585,9 +584,10 @@ public class MetadataWriter : Object {
 
         if (dirty.contains (photo)) {
             bool removed = dirty.remove_first (photo);
-            assert (removed);
-
-            assert (!dirty.contains (photo));
+            if (!removed || dirty.contains (photo)) {
+                // Either queue did not contain photo or there was more than one entry. Doesn't seem fatal?
+                critical ("Cancel job: failed to remove photo from dirty HashTimedQueue");
+            }
 
             count_cancelled_work (1, false);
             cancelled = true;
@@ -646,7 +646,6 @@ public class MetadataWriter : Object {
         if (job.reimport_master_state != null || job.reimport_editable_state != null) {
             // finish_update_*_metadata are going to issue an "altered" signal, and we want to
             // ignore it
-            // assert (ignore_photo_alteration == null);
             if (ignore_photo_alteration != null) {
                 critical ("ignore_photo_alteration is not null ");
                 ///TODO If this happens in practice then we need a way of pausing the job and calling this function later
@@ -688,7 +687,6 @@ public class MetadataWriter : Object {
         if (!removed) {
             critical ("Failed to remove photo from pending on update cancelled");
         }
-        // assert (removed);
 
         count_cancelled_work (1, true);
     }
