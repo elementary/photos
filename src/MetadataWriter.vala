@@ -74,23 +74,18 @@ public class MetadataWriter : Object {
         }
 
         private void commit_editable () throws Error {
-            if (!photo.has_editable () || !photo.get_editable_file_format ().can_write_metadata ())
-                return;
-
             PhotoMetadata? metadata = photo.get_editable_metadata ();
-            assert (metadata != null);
-
-            if (update_metadata (metadata)) {
-                LibraryMonitor.blacklist_file (photo.get_editable_file (), "MetadataWriter.commit_editable");
-                try {
-                    photo.persist_editable_metadata (metadata, out reimport_editable_state);
-                } finally {
-                    LibraryMonitor.unblacklist_file (photo.get_editable_file ());
-                }
+            if (update_metadata (metadata)) { // null safe
+                // Photo does necessary checks and may throw error
+                photo.persist_editable_metadata (metadata, out reimport_editable_state);
             }
         }
 
-        private bool update_metadata (PhotoMetadata metadata, bool skip_orientation = false) {
+        private bool update_metadata (PhotoMetadata? metadata, bool skip_orientation = false) {
+            if (metadata == null) {
+                return false;
+            }
+
             bool changed = false;
 
             // title (caption)

@@ -2707,6 +2707,7 @@ public abstract class Photo : PhotoSource, Dateable {
         finish_reimport_master (state);
     }
 
+    // Only one caller - in MetadataWriter  TODO move there
     public bool persist_editable_metadata (PhotoMetadata metadata, out ReimportEditableState state)
     throws Error {
         state = null;
@@ -2720,7 +2721,20 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
         }
 
-        editable_reader.create_metadata_writer ().write_metadata (metadata);
+        File? editable_file = get_editable_file ();
+        LibraryMonitor.blacklist_file (editable_file, "MetadataWriter.commit_editable");
+        try {
+            editable_reader.create_metadata_writer ().write_metadata (metadata);
+        } catch (Error e) {
+            warning (
+                "Error writing metadata to %s. %s",
+                editable_file != null ? editable_file.get_uri () : "null",
+                e.message
+            );
+            throw e;
+        } finally {
+            LibraryMonitor.unblacklist_file (editable_file);
+        }
 
         if (!prepare_for_reimport_editable (out state)) {
             return false;
@@ -3609,7 +3623,7 @@ public abstract class Photo : PhotoSource, Dateable {
         // Build a destination file with the caller's name but the appropriate extension
         File dest_file = format_properties.convert_file_extension (file);
 
-        // Create a PhotoFileMetadataWriter that matches the PhotoFileReader's file format
+        // Create a PhotoFileMetadataWriter that matches the PhotoFileReader's file format (may throw error)
         PhotoFileMetadataWriter writer = export_reader.get_file_format ().create_metadata_writer (
                                              dest_file.get_path ());
 
