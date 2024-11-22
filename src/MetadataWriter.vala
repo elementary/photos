@@ -521,19 +521,21 @@ public class MetadataWriter : Object {
 
         // mark all the photos as dirty
         if (!already_marked) {
-            try {
-                LibraryPhoto.global.transaction_controller.begin ();
-
-                foreach (LibraryPhoto photo in photos)
+            // Ensure transaction committed by moving outside try/catch
+            LibraryPhoto.global.transaction_controller.begin ();
+            foreach (LibraryPhoto photo in photos) {
+                try {
                     photo.set_master_metadata_dirty (true);
-
-                LibraryPhoto.global.transaction_controller.commit ();
-            } catch (Error err) {
-                if (err is DatabaseError)
-                    AppWindow.database_error ((DatabaseError) err);
-                else
-                    error ("Unable to mark metadata as dirty: %s", err.message);
+                } catch (Error err) {
+                    if (err is DatabaseError) {
+                        AppWindow.database_error ((DatabaseError) err); // Causes panic
+                    } else {
+                        critical ("Unable to mark metadata as dirty: %s", err.message);
+                    }
+                }
             }
+
+            LibraryPhoto.global.transaction_controller.commit ();
         }
 
         // ok to drop this on the floor, now that they're marked dirty (will attempt to write them
@@ -545,12 +547,20 @@ public class MetadataWriter : Object {
         debug ("[%s] adding %d photos to dirty list", reason, photos.size);
 #endif
 
+        int queued = 0;
         foreach (LibraryPhoto photo in photos) {
-            bool enqueued = dirty.enqueue (photo);
-            assert (enqueued);
+            if (photo.is_master_metadata_dirty ()) {
+                bool enqueued = dirty.enqueue (photo);
+                // assert (enqueued);
+                if (!enqueued) {
+                    critical ("Failed to enqueue photo %s", photo.get_basename ());
+                } else {
+                    queued++;
+                }
+            }
         }
 
-        count_enqueued_work (photos.size, true);
+        count_enqueued_work (queued, true);
     }
 
     private void cancel_all (bool wait) {
@@ -613,6 +623,9 @@ public class MetadataWriter : Object {
 
     private void on_update_completed (BackgroundJob j) {
         CommitJob job = (CommitJob) j;
+        if (ignore_photo_alteration == job.photo) { // Guard against re-entering
+            return;
+        }
 
         if (job.err != null)
             warning ("Unable to update metadata for %s: %s", job.photo.to_string (), job.err.message);
@@ -620,7 +633,11 @@ public class MetadataWriter : Object {
             message ("Completed writing metadata for %s", job.photo.to_string ());
 
         bool removed = pending.unset (job.photo);
-        assert (removed);
+        if (!removed) {
+            critical ("Photo was not in pending - ignore update completed");
+            // Do we need to return or continue or terminate? Presumably the photo was not in the queue?
+            // Other errors continued so do same for now;
+        }
 
         // since there's potentially multiple state-change operations here, use the transaction
         // controller
@@ -629,7 +646,13 @@ public class MetadataWriter : Object {
         if (job.reimport_master_state != null || job.reimport_editable_state != null) {
             // finish_update_*_metadata are going to issue an "altered" signal, and we want to
             // ignore it
-            assert (ignore_photo_alteration == null);
+            // assert (ignore_photo_alteration == null);
+            if (ignore_photo_alteration != null) {
+                critical ("ignore_photo_alteration is not null ");
+                ///TODO If this happens in practice then we need a way of pausing the job and calling this function later
+                // when ignore_photo_alteration becomes null
+            }
+
             ignore_photo_alteration = job.photo;
             try {
                 if (job.reimport_master_state != null)
@@ -638,10 +661,8 @@ public class MetadataWriter : Object {
                 if (job.reimport_editable_state != null)
                     job.photo.finish_update_editable_metadata (job.reimport_editable_state);
             } catch (DatabaseError err) {
-                AppWindow.database_error (err);
+                AppWindow.database_error (err); // Causes panic
             } finally {
-                // this assertion guards against reentrancy
-                assert (ignore_photo_alteration == job.photo);
                 ignore_photo_alteration = null;
             }
         } else {
@@ -664,7 +685,10 @@ public class MetadataWriter : Object {
 
     private void on_update_cancelled (BackgroundJob j) {
         bool removed = pending.unset (((CommitJob) j).photo);
-        assert (removed);
+        if (!removed) {
+            critical ("Failed to remove photo from pending on update cancelled");
+        }
+        // assert (removed);
 
         count_cancelled_work (1, true);
     }
