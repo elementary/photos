@@ -742,14 +742,22 @@ public class LibraryMonitor : DirectoryMonitor {
     //
     // Use of this method should be avoided at all costs (otherwise the point of the real-time
     // monitor is negated).
-    public static void blacklist_file (File file, string reason) {
+    public static void blacklist_file (File? file, string reason) {
+        if (file == null) {
+            return;
+        }
+
         mdbg ("[%s] Blacklisting %s".printf (reason, file.get_path ()));
         lock (blacklist) {
             blacklist.add (file);
         }
     }
 
-    public static void unblacklist_file (File file) {
+    public static void unblacklist_file (File? file) {
+        if (file == null) {
+            return;
+        }
+
         // don't want to immediately remove the blacklisted file because the monitoring events
         // can come in much later
         lock (blacklist) {
