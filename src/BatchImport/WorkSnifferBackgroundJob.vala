@@ -18,6 +18,7 @@
 */
 
 private class WorkSniffer : BackgroundImportJob {
+    const uint MIN_SIZE = 64; // minimum file size to consider a photo
     public Gee.List<FileToPrepare> files_to_prepare = new Gee.ArrayList<FileToPrepare> ();
     public uint64 total_bytes = 0;
 
@@ -117,13 +118,15 @@ private class WorkSniffer : BackgroundImportJob {
     }
 
     private void sniff_job (BatchImportJob job) throws Error {
-        uint64 size;
-        File file_or_dir;
+        // Only called by BatchImport
+        // May receive either FileImportJob or CameraImportJob
+        uint64 size = 0;
+        File? file_or_dir = null;
         bool determined_size = job.determine_file_size (out size, out file_or_dir);
-        if (determined_size)
-            total_bytes += size;
+        // file_dir is always null for a CameraImportJob but FileImportJob has associated file
+        // size is always zero for FileImportJob but CameraImportJob has file_size
 
-        if (job.is_directory ()) {
+        if (job.is_directory ()) { // false for CameraImportJob
             // safe to call job.prepare without it invoking extra I/O; this is merely a directory
             // to search
             File dir;
@@ -134,8 +137,8 @@ private class WorkSniffer : BackgroundImportJob {
 
                 return;
             }
-            assert (query_is_directory (dir));
 
+            // search_dir () will throw error if dir not directory
             try {
                 search_dir (job, dir, copy_to_library);
             } catch (Error err) {
@@ -143,9 +146,15 @@ private class WorkSniffer : BackgroundImportJob {
                               ImportResult.FILE_ERROR);
             }
         } else {
-            // if did not get the file size, do so now
-            if (!determined_size)
-                total_bytes += query_total_file_size (file_or_dir, get_cancellable ());
+            // if did not get the file size (FileImportJob), do so now
+            if (!determined_size) {
+                size = query_total_file_size (file_or_dir, get_cancellable ());
+            }
+
+            if (size < MIN_SIZE) {
+                return;
+            }
+            total_bytes += size;
 
             // job is a direct file, so no need to search, prepare it directly
             if ((file_or_dir != null) && skipset != null && skipset.contains (file_or_dir))

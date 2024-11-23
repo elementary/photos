@@ -45,6 +45,7 @@
 // the file (if required), examining it, and generating a pixbuf for preview and thumbnails.
 //
 
+// May be working on FileImportJobs (from LibraryMonitor or main.vala) or CameraImportJobs (from ImportPage)
 public class BatchImport : Object {
     private const int WORK_SNIFFER_THROBBER_MSEC = 125;
 
