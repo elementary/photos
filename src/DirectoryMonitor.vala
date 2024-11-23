@@ -925,7 +925,7 @@ public class DirectoryMonitor : Object {
                 foreach (FileInfo info in infos) {
                     // we don't deal with hidden files or directories
                     if (info.get_is_hidden ()) {
-                        warning ("Skipping hidden file/directory %s",
+                        debug ("Skipping hidden file/directory %s",
                                  dir.get_child (info.get_name ()).get_path ());
 
                         continue;
