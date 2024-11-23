@@ -1151,19 +1151,19 @@ public class BatchImport : Object {
     }
 
     private void on_thumbnail_writer_cancelled (BackgroundJob j) requires (!completed) {
-        assert (!completed);
+        // assert (!completed);
 
         ThumbnailWriterJob job = (ThumbnailWriterJob) j;
-        CompletedImportObject completed = job.completed_import_source;
+        CompletedImportObject completed_import_source = job.completed_import_source;
 
         log_status ("on_thumbnail_writer_cancelled");
 
-        if (completed.source is LibraryPhoto)
-            LibraryPhoto.import_failed (completed.source as LibraryPhoto);
-        else if (completed.source is Video)
-            Video.import_failed (completed.source as Video);
+        if (completed_import_source.source is LibraryPhoto)
+            LibraryPhoto.import_failed (completed_import_source.source as LibraryPhoto);
+        else if (completed_import_source.source is Video)
+            Video.import_failed (completed_import_source.source as Video);
 
-        report_failure (completed.batch_result);
+        report_failure (completed_import_source.batch_result);
         file_import_complete ();
 
         flush_import_jobs ();
