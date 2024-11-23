@@ -30,8 +30,8 @@ public class ImportManifest {
     public Gee.List<BatchImportResult> corrupt_files = new Gee.ArrayList<BatchImportResult> ();
     public Gee.List<BatchImportResult> all = new Gee.ArrayList<BatchImportResult> ();
 
-    public ImportManifest (Gee.List<BatchImportJob> prefailed = null,
-                           Gee.List<BatchImportJob> pre_already_imported = null) {
+    public ImportManifest (Gee.List<BatchImportJob>? prefailed = null,
+                           Gee.List<BatchImportJob>? pre_already_imported = null) {
         if (prefailed != null) {
             foreach (BatchImportJob job in prefailed) {
                 BatchImportResult batch_result = new BatchImportResult (job, null,
