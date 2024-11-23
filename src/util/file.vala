@@ -86,7 +86,7 @@ public void disassemble_filename (string basename, out string name, out string e
     }
 }
 
-// This function is thread-safe.
+// This function is thread-safe.  Recurses directory
 public uint64 query_total_file_size (File file_or_dir, Cancellable? cancellable = null) throws Error {
     FileType type = file_or_dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
     if (type == FileType.REGULAR) {

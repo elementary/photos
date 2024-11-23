@@ -17,7 +17,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-
+// @file can be null if job related to a directory (which is searched not imported)
 private class FileToPrepare : Object {
     public BatchImportJob job { get; construct; }
     public File? file { get; construct; }

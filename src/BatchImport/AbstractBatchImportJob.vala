@@ -24,6 +24,9 @@
 // NOTE: All methods may be called from the context of a background thread or the main GTK thread.
 // Implementations should be able to handle either situation.  The prepare method will always be
 // called by the same thread context.
+
+// Implemented by BatchImport/FileImportJob, ImportPage.CameraImportJob
+
 public abstract class BatchImportJob {
     public abstract string get_dest_identifier ();
 
