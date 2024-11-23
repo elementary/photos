@@ -18,16 +18,18 @@
 */
 
 
-private class FileToPrepare {
-    public BatchImportJob job;
-    public File? file;
-    public bool copy_to_library;
+private class FileToPrepare : Object {
+    public BatchImportJob job { get; construct; }
+    public File? file { get; construct; }
+    public bool copy_to_library { get; construct; }
     public FileToPrepare? associated = null;
 
-    public FileToPrepare (BatchImportJob job, File? file = null, bool copy_to_library = true) {
-        this.job = job;
-        this.file = file;
-        this.copy_to_library = copy_to_library;
+    public FileToPrepare (BatchImportJob _job, File? _file = null, bool _copy_to_library = true) {
+        Object (
+            job: job,
+            file: file,
+            copy_to_library: copy_to_library
+        );
     }
 
     public void set_associated (FileToPrepare? a) {
