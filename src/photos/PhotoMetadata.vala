@@ -183,10 +183,9 @@ public class PhotoMetadata : MediaMetadata {
     }
 
     public void read_from_buffer (uint8[] buffer, int length = 0) throws Error {
-        if (length <= 0)
+        if (length <= 0 || length > buffer.length) {
             length = buffer.length;
-
-        assert (buffer.length >= length);
+        }
 
         exiv2 = new GExiv2.Metadata ();
         exif = null;
