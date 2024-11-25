@@ -318,7 +318,7 @@ public class PhotoMetadata : MediaMetadata {
         return collection;
     }
 
-    public Gee.Collection<string> get_all_tags (
+    public Gee.Collection<string>? get_all_tags (
         owned CompareDataFunc<string>? compare_func = null) {
         Gee.Collection<string> all_tags = create_string_set ((owned) compare_func);
 
