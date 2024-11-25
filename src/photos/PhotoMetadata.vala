@@ -569,13 +569,12 @@ public class PhotoMetadata : MediaMetadata {
         try {
             if (exiv2.try_get_exif_tag_rational (tag, out numerator, out denominator)) {
                 rational = MetadataRational (numerator, denominator);
-                result = true;
             }
         } catch (Error e) {
             warning ("Error on getting tag %s rational in source %s. %s", tag, source_name, e.message);
         }
 
-        return result;
+        return rational.is_valid ();
     }
 
     public bool get_first_rational (string[] tags, out MetadataRational rational) {
