@@ -102,12 +102,12 @@ public class MetadataDateTime {
         int second = 0;
 
         if (date_time_s.scanf ("%d:%d:%d %d:%d:%d",
-                             &year, &month, &day, &hour, &minute, &second) != 6) {
+                             out year, out month, out day, out hour, out minute, out second) != 6) {
             // Fallback in a more generic format
             string tmp = date_time_s.dup ();
             tmp.canon ("0123456789", ' ');
             if (tmp.scanf ("%4d%2d%2d%2d%2d%2d",
-                           year, month, day, hour, minute, second) != 6) {
+                           out year, out month, out day, out hour, out minute, out second) != 6) {
                 return false;
             }
         }
