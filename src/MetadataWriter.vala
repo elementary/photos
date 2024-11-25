@@ -73,11 +73,8 @@ public class MetadataWriter : Object {
             }
         }
 
-        private bool update_metadata (PhotoMetadata? metadata, bool skip_orientation = false) {
-            if (metadata == null) {
-                return false;
-            }
-
+        // Vala compiler returns false if metadata null
+        private bool update_metadata (PhotoMetadata metadata, bool skip_orientation = false) {
             bool changed = false;
 
             // title (caption)
