@@ -145,7 +145,6 @@ public class PhotoMetadata : MediaMetadata {
         public override Bytes flatten () throws Error {
             // owner and exiv2 are initialized on construction so can be assumed non-null
             unowned GExiv2.PreviewProperties?[] props = owner.exiv2.get_preview_properties ();
-            // assert (props != null && props.length > number);
             if (props == null) {
                 critical ("InternalPhotoPreview.flatten () - null preview properties");
                 throw new PhotoMetadataError.MISSING_DATA ("preview properties missing");
@@ -156,7 +155,6 @@ public class PhotoMetadata : MediaMetadata {
                 throw new PhotoMetadataError.MISSING_DATA ("Too few preview properties. Expected > %u, got %u", number, props.length);
             }
 
-            // GExiv2.MetaData.get_preview_image is deprecated since 014
             var preview_image = owner.exiv2.try_get_preview_image (props[number]).get_data (); // Throws Error
             return new Bytes (preview_image);
         }
