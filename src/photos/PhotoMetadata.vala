@@ -588,7 +588,7 @@ public class PhotoMetadata : MediaMetadata {
         return false;
     }
 
-    public void set_rational (string tag, MetadataRational rational) {
+    public void set_rational (string tag, MetadataRational rational) requires (rational.is_valid ()) {
         try {
             if (!exiv2.try_set_exif_tag_rational (tag, rational.numerator, rational.denominator)) {
                 warning ("Unable to set tag %s to rational %s from source %s", tag, rational.to_string (), source_name);
@@ -598,7 +598,7 @@ public class PhotoMetadata : MediaMetadata {
         }
     }
 
-    public void set_all_rational (string[] tags, MetadataRational rational, SetOption option) {
+    public void set_all_rational (string[] tags, MetadataRational rational, SetOption option) requires (rational.is_valid ()) {
         set_all_generic (tags, option, (tag) => {
             set_rational (tag, rational);
         });
