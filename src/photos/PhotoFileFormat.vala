@@ -112,6 +112,7 @@ public enum PhotoFileFormat {
             return UNKNOWN;
 
         foreach (PhotoFileFormat file_format in get_supported ()) {
+            // Supported formats must have driver with properties
             if (file_format.get_driver ().get_properties ().is_recognized_extension (ext))
                 return file_format;
         }
@@ -399,7 +400,7 @@ public abstract class PhotoFileFormatDriver {
 
     public abstract PhotoFileWriter? create_writer (string filepath);
 
-    public abstract PhotoFileMetadataWriter? create_metadata_writer (string filepath);
+    public abstract PhotoFileMetadataWriter? create_metadata_writer (string filepath);  // Note can be null
 
     public abstract PhotoFileSniffer create_sniffer (File file, PhotoFileSniffer.Options options);
 }

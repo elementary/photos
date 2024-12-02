@@ -248,7 +248,7 @@ public abstract class Photo : PhotoSource, Dateable {
     private PixelTransformer transformer = null;
     private PixelTransformationBundle adjustments = null;
     // because file_title is determined by data in row, it should only be accessed when row is locked
-    private string file_title = null;
+    private string file_title = "";
     private FileMonitor editable_monitor = null;
     private OneShotScheduler reimport_editable_scheduler = null;
     private OneShotScheduler update_editable_attributes_scheduler = null;
@@ -1336,7 +1336,7 @@ public abstract class Photo : PhotoSource, Dateable {
 
     // This method is thread-safe.  If returns false the photo should be marked offline (in the
     // main UI thread).
-    public bool prepare_for_reimport_master (out ReimportMasterState reimport_state) throws Error {
+    public bool prepare_for_reimport_master (out ReimportMasterState? reimport_state) throws Error {
         reimport_state = null;
 
         File file = get_master_reader ().get_file ();
@@ -1418,7 +1418,12 @@ public abstract class Photo : PhotoSource, Dateable {
     protected abstract void apply_user_metadata_for_reimport (PhotoMetadata metadata);
 
     // This method is not thread-safe and should be called in the main thread.
-    public void finish_reimport_master (ReimportMasterState state) throws DatabaseError {
+    public void finish_reimport_master (ReimportMasterState? state) throws DatabaseError {
+        if (state == null) {
+            warning ("finish_reimport_state called with null state - ignoring");
+            return;
+        }
+
         ReimportMasterStateImpl reimport_state = (ReimportMasterStateImpl) state;
 
         PhotoTable.get_instance ().reimport (reimport_state.row);
@@ -1460,9 +1465,10 @@ public abstract class Photo : PhotoSource, Dateable {
         }
     }
 
-    // Verifies a file for reimport.  Returns the file's detected photo info.
+    // Verifies a (non null) file for reimport.  Returns the file's detected photo info.
     private bool verify_file_for_reimport (File file, out BackingPhotoRow backing,
                                            out DetectedPhotoInformation detected) throws Error {
+
         backing = query_backing_photo_row (file, PhotoFileSniffer.Options.NO_MD5,
         out detected);
         if (backing == null) {
@@ -1504,7 +1510,7 @@ public abstract class Photo : PhotoSource, Dateable {
     // This method is not thread-safe.  It should be called by the main thread.
     public void finish_reimport_editable (ReimportEditableState state) throws DatabaseError {
         BackingPhotoID editable_id = get_editable_id ();
-        if (editable_id.is_invalid ()) {
+        if (state == null || editable_id.is_invalid ()) {
             return;
         }
 
@@ -2692,7 +2698,19 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
         }
 
-        master_reader.create_metadata_writer ().write_metadata (metadata);
+        File? master_file = get_master_file ();
+        LibraryMonitor.blacklist_file (master_file, "MetadataWriter.commit_master");
+        try {
+            master_reader.create_metadata_writer ().write_metadata (metadata);
+        } catch (Error e) {
+            warning (
+                "Error persisting master metadata %s. %s",
+                master_file != null ? master_file.get_uri () : "null",
+                e.message
+            );
+        } finally {
+            LibraryMonitor.unblacklist_file (master_file);
+        }
 
         if (!prepare_for_reimport_master (out state)) {
             return false;
@@ -2707,6 +2725,7 @@ public abstract class Photo : PhotoSource, Dateable {
         finish_reimport_master (state);
     }
 
+    // Only one caller - in MetadataWriter  TODO move there
     public bool persist_editable_metadata (PhotoMetadata metadata, out ReimportEditableState state)
     throws Error {
         state = null;
@@ -2720,7 +2739,20 @@ public abstract class Photo : PhotoSource, Dateable {
             return false;
         }
 
-        editable_reader.create_metadata_writer ().write_metadata (metadata);
+        File? editable_file = get_editable_file ();
+        LibraryMonitor.blacklist_file (editable_file, "MetadataWriter.commit_editable");
+        try {
+            editable_reader.create_metadata_writer ().write_metadata (metadata);
+        } catch (Error e) {
+            warning (
+                "Error writing metadata to %s. %s",
+                editable_file != null ? editable_file.get_uri () : "null",
+                e.message
+            );
+            throw e;
+        } finally {
+            LibraryMonitor.unblacklist_file (editable_file);
+        }
 
         if (!prepare_for_reimport_editable (out state)) {
             return false;
@@ -3609,7 +3641,7 @@ public abstract class Photo : PhotoSource, Dateable {
         // Build a destination file with the caller's name but the appropriate extension
         File dest_file = format_properties.convert_file_extension (file);
 
-        // Create a PhotoFileMetadataWriter that matches the PhotoFileReader's file format
+        // Create a PhotoFileMetadataWriter that matches the PhotoFileReader's file format (may throw error)
         PhotoFileMetadataWriter writer = export_reader.get_file_format ().create_metadata_writer (
                                              dest_file.get_path ());
 

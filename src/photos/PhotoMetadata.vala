@@ -41,6 +41,11 @@ public enum MetadataDomain {
     IPTC
 }
 
+errordomain PhotoMetadataError {
+    MISSING_DATA,
+    UNKNOWN_ERROR
+}
+
 public class HierarchicalKeywordField {
     public string field_name;
     public string path_separator;
