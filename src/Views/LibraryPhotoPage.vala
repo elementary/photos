@@ -563,7 +563,6 @@ public class LibraryPhotoPage : EditingHostPage {
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate ());
 
-            var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper"));
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
             contractor_menu = new Gtk.Menu ();
             contractor_menu_item.set_submenu (contractor_menu);
@@ -580,7 +579,6 @@ public class LibraryPhotoPage : EditingHostPage {
 
             contractor_menu.add (print_menu_item);
             contractor_menu.add (export_menu_item);
-            contractor_menu.add (wallpaper_menuitem);
 
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -605,14 +603,15 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.add (trash_menu_item);
             item_context_menu.show_all ();
 
-            warning ("setting wallpaper item");
             var source = get_view ().get_selected_at (0).source;
             if (source != null && source is Photo) { // Cannot set other media as wallpaper
                 var file = ((Photo)source).get_file ();
                 if (file != null) {
-                    warning ("photo file is %s", file.get_uri ());
-                    wallpaper_menuitem.action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER;
-                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
+                        action_target = new Variant.string (file.get_uri ())
+                    };
+                    contractor_menu.add (wallpaper_menuitem);
                 } else {
                     critical ("Failed to get source file from Photo");
                 }

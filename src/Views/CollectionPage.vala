@@ -196,13 +196,8 @@ public abstract class CollectionPage : MediaPage {
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate ());
 
-            var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
-            };
 
-            var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
-            contractor_submenu = new Gtk.Menu ();
-            contractor_menu_item.set_submenu (contractor_submenu);
+
 
             var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
             var remove_action = get_action ("RemoveFromLibrary");
@@ -214,9 +209,12 @@ public abstract class CollectionPage : MediaPage {
             trash_action.bind_property ("sensitive", trash_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             trash_menu_item.activate.connect (() => trash_action.activate ());
 
-            contractor_submenu.add (print_menu_item);
+            var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
+            contractor_submenu = new Gtk.Menu ();
+            contractor_menu_item.set_submenu (contractor_submenu);
+            contractor_submenu.add (print_menu_item); // Not actually contractor?
             contractor_submenu.add (export_menu_item);
-            // contractor_menu.add (wallpaper_menuitem);
+
 
             item_context_menu.add (copy_images_menu_item);
             item_context_menu.add (adjust_datetime_menu_item);
@@ -242,12 +240,14 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.show_all ();
 
             var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is MediaSource) {
-                var file = (((MediaSource) source).get_file ());
+            if (source != null && source is Photo) {
+                var file = ((Photo) source).get_file ();
                 if (file != null) {
-                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
-                } else {
-                    critical ("Null file associated with MediaSource");
+                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
+                        action_target = new Variant.string (file.get_uri ())
+                    };
+                    contractor_submenu.add (wallpaper_menuitem);
                 }
             }
         }
