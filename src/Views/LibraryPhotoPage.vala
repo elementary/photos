@@ -28,7 +28,7 @@ public class LibraryPhotoPage : EditingHostPage {
     private CollectionPage? return_page = null;
     private bool return_to_collection_on_release = false;
     private LibraryPhotoPageViewFilter filter = new LibraryPhotoPageViewFilter ();
-    private Gtk.Menu contractor_menu;
+    private Gtk.Menu contractor_submenu;
     private Gtk.Menu item_context_menu;
 
     public LibraryPhotoPage () {
@@ -563,9 +563,21 @@ public class LibraryPhotoPage : EditingHostPage {
             export_menu_item.activate.connect (() => export_action.activate ());
 
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
-            contractor_menu = new Gtk.Menu ();
-            contractor_menu_item.set_submenu (contractor_menu);
-
+            contractor_submenu = new Gtk.Menu ();
+            contractor_menu_item.set_submenu (contractor_submenu);
+            contractor_submenu.add (print_menu_item);
+            contractor_submenu.add (export_menu_item);
+            var source = get_view ().get_selected_at (0).source;
+            if (source != null && source is Photo) { // Cannot set other media as wallpaper
+                var file = ((Photo)source).get_file ();
+                if (file != null) {
+                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
+                        action_target = new Variant.string (file.get_uri ())
+                    };
+                    contractor_submenu.add (wallpaper_menuitem);
+                }
+            }
             var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
             var remove_action = get_action ("RemoveFromLibrary");
             remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
@@ -575,9 +587,6 @@ public class LibraryPhotoPage : EditingHostPage {
             var trash_action = get_action ("MoveToTrash");
             trash_action.bind_property ("sensitive", trash_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             trash_menu_item.activate.connect (() => trash_action.activate ());
-
-            contractor_menu.add (print_menu_item);
-            contractor_menu.add (export_menu_item);
 
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -601,21 +610,9 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.add (remove_menu_item);
             item_context_menu.add (trash_menu_item);
             item_context_menu.show_all ();
-
-            var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is Photo) { // Cannot set other media as wallpaper
-                var file = ((Photo)source).get_file ();
-                if (file != null) {
-                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
-                        action_target = new Variant.string (file.get_uri ())
-                    };
-                    contractor_menu.add (wallpaper_menuitem);
-                }
-            }
         }
 
-        populate_contractor_menu (contractor_menu);
+        populate_contractor_menu (contractor_submenu);
         return item_context_menu;
     }
 

@@ -212,6 +212,18 @@ public abstract class CollectionPage : MediaPage {
             contractor_submenu.add (print_menu_item);
             contractor_submenu.add (export_menu_item);
 
+            var source = get_view ().get_selected_at (0).source;
+            if (source != null && source is Photo) {
+                var file = ((Photo) source).get_file ();
+                if (file != null) {
+                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
+                        action_target = new Variant.string (file.get_uri ())
+                    };
+                    contractor_submenu.add (wallpaper_menuitem);
+                }
+            }
+
             item_context_menu.add (copy_images_menu_item);
             item_context_menu.add (adjust_datetime_menu_item);
             item_context_menu.add (duplicate_menu_item);
@@ -234,18 +246,6 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.add (remove_menu_item);
             item_context_menu.add (trash_menu_item);
             item_context_menu.show_all ();
-
-            var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is Photo) {
-                var file = ((Photo) source).get_file ();
-                if (file != null) {
-                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
-                        action_target = new Variant.string (file.get_uri ())
-                    };
-                    contractor_submenu.add (wallpaper_menuitem);
-                }
-            }
         }
 
         populate_contractor_menu (contractor_submenu);
