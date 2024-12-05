@@ -101,7 +101,6 @@ public abstract class Page : Gtk.ScrolledWindow {
     }
 
     protected void populate_contractor_menu (Gtk.Menu menu) {
-warning ("populate contractor menu");
         File[] files = {};
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
@@ -135,7 +134,6 @@ warning ("populate contractor menu");
             }
         }
 
-        warning ("donw");
         menu.show_all ();
     }
 

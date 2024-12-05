@@ -482,7 +482,6 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private Gtk.Menu get_context_menu () {
-    warning ("LibraryPhotoPage get context menu");
         if (item_context_menu == null) {
             item_context_menu = new Gtk.Menu () {
                 attach_widget = this
@@ -612,12 +611,8 @@ public class LibraryPhotoPage : EditingHostPage {
                         action_target = new Variant.string (file.get_uri ())
                     };
                     contractor_menu.add (wallpaper_menuitem);
-                } else {
-                    critical ("Failed to get source file from Photo");
                 }
             }
-
-            warning ("created context menu");
         }
 
         populate_contractor_menu (contractor_menu);
