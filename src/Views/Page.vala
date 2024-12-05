@@ -23,7 +23,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.ActionBar? toolbar = null;
     protected Gtk.Button? show_sidebar_button = null;
 
-    private ViewCollection view = null;
+    private ViewCollection view;
     private Gtk.Window container = null;
     private Gdk.Rectangle last_position = Gdk.Rectangle ();
     private Gtk.Widget event_source = null;
@@ -45,7 +45,7 @@ public abstract class Page : Gtk.ScrolledWindow {
     private OneShotScheduler? update_actions_scheduler = null;
     private Gtk.ActionGroup? action_group = null;
     private Gtk.ActionGroup[]? common_action_groups = null;
-    private GLib.List<Gtk.Widget>? contractor_menu_items = null;
+    private GLib.List<Gtk.Widget> contractor_menu_items;
     protected Gtk.Box header_box;
     protected GLib.Settings ui_settings;
 
@@ -90,6 +90,7 @@ public abstract class Page : Gtk.ScrolledWindow {
         // Get global (common) action groups from the application window
         common_action_groups = AppWindow.get_instance ().get_common_action_groups ();
 
+        contractor_menu_items = new GLib.List<Gtk.Widget> ();
         realize.connect (attach_view_signals);
     }
 
@@ -104,15 +105,20 @@ public abstract class Page : Gtk.ScrolledWindow {
         Gee.List<Granite.Services.Contract> contracts = null;
         try {
             var selected = get_view ().get_selected_sources ();
-            foreach (var item in selected)
-                files += (((Photo)item).get_file ());
+            foreach (var item in selected) {
+                if (item is MediaSource) {
+                    files += ((MediaSource)item).get_file ();
+                }
+            }
+
             contracts = Granite.Services.ContractorProxy.get_contracts_for_files (files);
         } catch (Error e) {
             warning (e.message);
         }
         // Remove old contracts
         contractor_menu_items.foreach ((item) => {
-            if (item != null && item is ContractMenuItem) item.destroy ();
+            // Contractor items only added here below so cannot be null
+            item.destroy ();
         });
 
         //and replace it with menu_item from contractor
@@ -120,10 +126,14 @@ public abstract class Page : Gtk.ScrolledWindow {
             var contract = contracts.get (i);
             Gtk.MenuItem menu_item;
 
-            menu_item = new ContractMenuItem (contract, get_view ().get_selected_sources ());
-            menu.append (menu_item);
-            contractor_menu_items.append (menu_item);
+            var sources = view.get_selected_sources (); // Maybe empty list?
+            if (sources.size > 0) {
+                menu_item = new ContractMenuItem (contract, sources);
+                menu.append (menu_item);
+                contractor_menu_items.append (menu_item);
+            }
         }
+
         menu.show_all ();
     }
 
