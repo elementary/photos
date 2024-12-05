@@ -44,7 +44,7 @@ public abstract class CollectionPage : MediaPage {
     private CollectionSearchViewFilter search_filter = new CollectionSearchViewFilter ();
     private Gtk.ToggleButton? enhance_button = null;
     private Gtk.Menu item_context_menu;
-    private Gtk.Menu contractor_menu;
+    private Gtk.Menu contractor_submenu;
     private Gtk.Button rotate_button;
     private Gtk.Button flip_button;
 
@@ -201,8 +201,8 @@ public abstract class CollectionPage : MediaPage {
             };
 
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
-            contractor_menu = new Gtk.Menu ();
-            contractor_menu_item.set_submenu (contractor_menu);
+            contractor_submenu = new Gtk.Menu ();
+            contractor_menu_item.set_submenu (contractor_submenu);
 
             var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
             var remove_action = get_action ("RemoveFromLibrary");
@@ -214,9 +214,9 @@ public abstract class CollectionPage : MediaPage {
             trash_action.bind_property ("sensitive", trash_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             trash_menu_item.activate.connect (() => trash_action.activate ());
 
-            contractor_menu.add (print_menu_item);
-            contractor_menu.add (export_menu_item);
-            contractor_menu.add (wallpaper_menuitem);
+            contractor_submenu.add (print_menu_item);
+            contractor_submenu.add (export_menu_item);
+            // contractor_menu.add (wallpaper_menuitem);
 
             item_context_menu.add (copy_images_menu_item);
             item_context_menu.add (adjust_datetime_menu_item);
@@ -242,13 +242,18 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.show_all ();
 
             var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is Photo) {
-                var file = (((Photo) source).get_file ());
-                wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+            if (source != null && source is MediaSource) {
+                var file = (((MediaSource) source).get_file ());
+                if (file != null) {
+                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                } else {
+                    critical ("Null file associated with MediaSource");
+                }
             }
         }
 
-        populate_contractor_menu (contractor_menu);
+        // Applicable contracts may change
+        populate_contractor_menu (contractor_submenu);
         return item_context_menu;
     }
 

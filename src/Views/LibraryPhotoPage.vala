@@ -482,6 +482,7 @@ public class LibraryPhotoPage : EditingHostPage {
     }
 
     private Gtk.Menu get_context_menu () {
+    warning ("LibraryPhotoPage get context menu");
         if (item_context_menu == null) {
             item_context_menu = new Gtk.Menu () {
                 attach_widget = this
@@ -562,10 +563,7 @@ public class LibraryPhotoPage : EditingHostPage {
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate ());
 
-            var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
-            };
-
+            var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper"));
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
             contractor_menu = new Gtk.Menu ();
             contractor_menu_item.set_submenu (contractor_menu);
@@ -607,11 +605,20 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.add (trash_menu_item);
             item_context_menu.show_all ();
 
+            warning ("setting wallpaper item");
             var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is Photo) {
-                var file = get_photo ().get_file ();
-                wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+            if (source != null && source is Photo) { // Cannot set other media as wallpaper
+                var file = ((Photo)source).get_file ();
+                if (file != null) {
+                    warning ("photo file is %s", file.get_uri ());
+                    wallpaper_menuitem.action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER;
+                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                } else {
+                    critical ("Failed to get source file from Photo");
+                }
             }
+            
+            warning ("created context menu");
         }
 
         populate_contractor_menu (contractor_menu);
