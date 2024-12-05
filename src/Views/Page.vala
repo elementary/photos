@@ -134,7 +134,7 @@ warning ("populate contractor menu");
                 contractor_menu_items.append (menu_item);
             }
         }
-        
+
         warning ("donw");
         menu.show_all ();
     }

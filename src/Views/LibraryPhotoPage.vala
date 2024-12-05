@@ -616,7 +616,7 @@ public class LibraryPhotoPage : EditingHostPage {
                     critical ("Failed to get source file from Photo");
                 }
             }
-            
+
             warning ("created context menu");
         }
 
