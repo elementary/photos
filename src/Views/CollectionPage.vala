@@ -196,9 +196,6 @@ public abstract class CollectionPage : MediaPage {
             export_action.bind_property ("sensitive", export_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
             export_menu_item.activate.connect (() => export_action.activate ());
 
-
-
-
             var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
             var remove_action = get_action ("RemoveFromLibrary");
             remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
@@ -212,9 +209,8 @@ public abstract class CollectionPage : MediaPage {
             var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
             contractor_submenu = new Gtk.Menu ();
             contractor_menu_item.set_submenu (contractor_submenu);
-            contractor_submenu.add (print_menu_item); // Not actually contractor?
+            contractor_submenu.add (print_menu_item);
             contractor_submenu.add (export_menu_item);
-
 
             item_context_menu.add (copy_images_menu_item);
             item_context_menu.add (adjust_datetime_menu_item);
@@ -252,7 +248,6 @@ public abstract class CollectionPage : MediaPage {
             }
         }
 
-        // Applicable contracts may change
         populate_contractor_menu (contractor_submenu);
         return item_context_menu;
     }

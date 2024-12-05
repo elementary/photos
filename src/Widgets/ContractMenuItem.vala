@@ -38,7 +38,6 @@ public class ContractMenuItem : Gtk.MenuItem {
             File[] modified_files = null;
             foreach (var source in sources) {
                 assert (source is Photo);
-                // Only support contractors for Photos not Videos?
                 var photo_source = (Photo)source;
                 if (photo_source.get_file_format () == PhotoFileFormat.RAW ||
                     !photo_source.has_alterations ()) {
@@ -48,7 +47,7 @@ public class ContractMenuItem : Gtk.MenuItem {
                     modified_files += photo_source.get_modified_file ();
                 }
             }
-warning ("execute_with_files");
+
             contract.execute_with_files (modified_files);
         } catch (Error err) {
             warning (err.message);
