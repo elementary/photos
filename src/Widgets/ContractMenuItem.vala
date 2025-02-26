@@ -37,12 +37,18 @@ public class ContractMenuItem : Gtk.MenuItem {
         try {
             File[] modified_files = null;
             foreach (var source in sources) {
-                Photo modified_file = (Photo)source;
-                if (modified_file.get_file_format () == PhotoFileFormat.RAW || !modified_file.has_alterations ())
-                    modified_files += modified_file.get_file ();
-                else
-                    modified_files += modified_file.get_modified_file ();
+                if (source is Photo) {
+                    var photo_source = (Photo)source;
+                    if (photo_source.get_file_format () == PhotoFileFormat.RAW ||
+                        !photo_source.has_alterations ()) {
+
+                        modified_files += photo_source.get_file ();
+                    } else {
+                        modified_files += photo_source.get_modified_file ();
+                    }
+                }
             }
+
             contract.execute_with_files (modified_files);
         } catch (Error err) {
             warning (err.message);
