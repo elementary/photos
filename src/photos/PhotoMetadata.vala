@@ -339,8 +339,8 @@ public class PhotoMetadata : MediaMetadata {
         return GExiv2.Metadata.get_tag_label (tag);
     }
 
-    public string? get_tag_description (string tag) {
-        return GExiv2.Metadata.get_tag_description (tag);
+    public string? try_get_tag_description (string tag) throws Error {
+        return GExiv2.Metadata.try_get_tag_description (tag);
     }
 
     public string? get_string (string tag, PrepareInputTextOptions options = PREPARE_STRING_OPTIONS) {
