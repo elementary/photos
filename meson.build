@@ -45,9 +45,10 @@ i18n = import('i18n')
 glib_dep = dependency('glib-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
-gexiv2_dep = dependency('gexiv2', version: '>=0.4.90')
-if gexiv2_dep.version().version_compare('>= 0.11')
-  add_global_arguments(['--define=GEXIV2_0_11'], language : 'vala')
+# gexiv2 adopts API versioning since 0.15.0
+gexiv2_dep = dependency('gexiv2-0.16', required: false)
+if not gexiv2_dep.found()
+    gexiv2_dep = dependency('gexiv2', version: '>=0.12.2')
 endif
 geocode_glib_dep = dependency('geocode-glib-2.0', 'geocode-glib-1.0')
 gmodule_dep = dependency('gmodule-2.0', version: '>=2.24.0')
