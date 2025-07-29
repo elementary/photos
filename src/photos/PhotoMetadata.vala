@@ -335,8 +335,8 @@ public class PhotoMetadata : MediaMetadata {
         return all_tags.size > 0 ? all_tags : null;
     }
 
-    public string? get_tag_label (string tag) {
-        return GExiv2.Metadata.get_tag_label (tag);
+    public string? try_get_tag_label (string tag) throws Error {
+        return GExiv2.Metadata.try_get_tag_label (tag);
     }
 
     public string? try_get_tag_description (string tag) throws Error {
