@@ -38,7 +38,7 @@ public class ImportQueuePage : SinglePhotoPage {
 
     }
 
-    public virtual void add_toolbar_widgets (Gtk.ActionBar toolbar) {
+    public override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
         var progress_item = new Gtk.ToolItem ();
         progress_item.set_expand (true);
         progress_item.add (progress_bar);
@@ -124,7 +124,7 @@ public class ImportQueuePage : SinglePhotoPage {
         progress_bar.set_fraction (pct);
 
         //UnityProgressBar: set progress
-        Granite.Services.Application.set_progress (pct);
+        Granite.Services.Application.set_progress.begin (pct);
     }
 
     private void on_imported (ThumbnailSource source, Gdk.Pixbuf pixbuf, int to_follow) {
