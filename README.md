@@ -12,8 +12,8 @@ You'll need the following dependencies:
 * libexif-dev
 * libgee-0.8-dev
 * libgeocode-glib-dev
-* libgexiv2-dev
-* libglib2.0-dev
+* libgexiv2-dev >= 0.12.2
+* libglib2.0-dev >= 2.76.0
 * libgphoto2-dev
 * libgranite-dev >= 6.0.0
 * libgstreamer1.0-dev
@@ -26,7 +26,7 @@ You'll need the following dependencies:
 * libraw-dev
 * libsqlite3-dev
 * libwebp-dev
-* meson >= 0.57.0
+* meson >= 0.60.0
 * valac >= 0.40
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build

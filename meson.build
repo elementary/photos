@@ -2,7 +2,7 @@ project(
     'io.elementary.photos',
     'vala', 'c',
     version: '8.0.1',
-    meson_version: '>=0.57.0'
+    meson_version: '>=0.60.0'
 )
 
 add_project_arguments([
@@ -46,12 +46,9 @@ glib_dep = dependency('glib-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 # gexiv2 adopts API versioning since 0.15.0
-gexiv2_dep = dependency('gexiv2-0.16', required: false)
-if not gexiv2_dep.found()
-    gexiv2_dep = dependency('gexiv2', version: '>=0.12.2')
-endif
+gexiv2_dep = dependency('gexiv2-0.16', 'gexiv2', version: '>=0.12.2')
 geocode_glib_dep = dependency('geocode-glib-2.0', 'geocode-glib-1.0')
-gmodule_dep = dependency('gmodule-2.0', version: '>=2.24.0')
+gmodule_dep = dependency('gmodule-2.0', version: '>=2.76.0')
 gstreamer_dep = dependency('gstreamer-1.0', version: '>=1.0.0')
 gstreamer_base_dep = dependency('gstreamer-base-1.0', version: '>=1.0.0')
 gstreamer_plugins_base_dep = dependency('gstreamer-plugins-base-1.0', version: '>=1.0.0')
