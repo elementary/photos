@@ -204,10 +204,12 @@ public string remove_diacritics (string istring) {
         case UnicodeType.FORMAT:
         case UnicodeType.UNASSIGNED:
         case UnicodeType.NON_SPACING_MARK:
-        case UnicodeType.COMBINING_MARK:
+        case UnicodeType.SPACING_MARK:
         case UnicodeType.ENCLOSING_MARK:
             // Ignore those
             continue;
+        default:
+            break;
         }
         builder.append_unichar (ch);
     }
