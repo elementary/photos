@@ -205,6 +205,7 @@ public class VideoReader {
         try {
             Gst.PbUtils.Discoverer d = new Gst.PbUtils.Discoverer ((Gst.ClockTime) (Gst.SECOND * 5));
             Gst.PbUtils.DiscovererInfo info = d.discover_uri (file.get_uri ());
+            Gst.PbUtils.DiscovererStreamInfo stream_info = info.get_stream_info ();
 
             clip_duration = ((double) info.get_duration ()) / 1000000000.0;
             timestamp = new DateTime.now_local ().to_unix (); // Fallback to now
@@ -212,7 +213,7 @@ public class VideoReader {
             // TODO: Note that TAG_DATE can be changed to TAG_DATE_TIME in the future
             // (and the corresponding output struct) in order to implement #2836.
             Gst.DateTime? video_date = null;
-            if (info.get_tags () != null && info.get_tags ().get_date_time (Gst.Tags.DATE, out video_date)) {
+            if (stream_info.get_tags () != null && stream_info.get_tags ().get_date_time (Gst.Tags.DATE, out video_date)) {
                 if (video_date != null) {
                     var g_date_time = video_date.to_g_date_time ();
                     if (g_date_time != null) {
