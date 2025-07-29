@@ -304,6 +304,11 @@ public class PhotoMetadata : MediaMetadata {
         case MetadataDomain.IPTC:
             tags = exiv2.get_iptc_tags ();
             break;
+
+        case MetadataDomain.UNKNOWN:
+        default:
+            warning ("Invalid MetadataDomain. domain=%d", domain);
+            break;
         }
 
         if (tags == null || tags.length == 0)
@@ -561,7 +566,6 @@ public class PhotoMetadata : MediaMetadata {
 
     public bool get_rational (string tag, out MetadataRational rational) {
         int numerator, denominator;
-        bool result = false;
         rational = MetadataRational (0, 0);
 
         try {
@@ -755,6 +759,11 @@ public class PhotoMetadata : MediaMetadata {
 
         case MetadataDomain.IPTC:
             exiv2.clear_iptc ();
+            break;
+
+        case MetadataDomain.UNKNOWN:
+        default:
+            warning ("Invalid MetadataDomain. domain=%d", domain);
             break;
         }
     }
