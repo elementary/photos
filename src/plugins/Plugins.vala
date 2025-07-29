@@ -60,7 +60,7 @@ private class ModuleRep {
 
     private ModuleRep (File file) {
         this.file = file;
-        module = Module.open (file.get_path (), ModuleFlags.BIND_LAZY);
+        module = Module.open (file.get_path (), ModuleFlags.LAZY);
     }
 
     ~ModuleRep () {
@@ -347,16 +347,15 @@ public int compare_extension_point_names (ExtensionPoint a, ExtensionPoint b) {
 }
 
 private bool is_shared_library (File file) {
-    var basename = file.get_basename ();
-    if (basename == null) {
+    // Module.open() searches the filesystem for combinations of possible
+    // suffixes and prefixes and fails if the given file is not a shared library
+    Module? module = Module.open (file.get_path (), ModuleFlags.LAZY);
+    if (module == null) {
         return false;
     }
 
-    if (GLib.Module.SUFFIX in basename) {
-        return true;
-    }
-
-    return false;
+    module.close ();
+    return true;
 }
 
 private void search_for_plugins (File dir) throws Error {
