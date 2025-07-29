@@ -304,6 +304,11 @@ public class PhotoMetadata : MediaMetadata {
         case MetadataDomain.IPTC:
             tags = exiv2.get_iptc_tags ();
             break;
+
+        case MetadataDomain.UNKNOWN:
+        default:
+            warning ("Invalid MetadataDomain. domain=%d", domain);
+            break;
         }
 
         if (tags == null || tags.length == 0)
@@ -335,8 +340,8 @@ public class PhotoMetadata : MediaMetadata {
         return all_tags.size > 0 ? all_tags : null;
     }
 
-    public string? get_tag_label (string tag) {
-        return GExiv2.Metadata.get_tag_label (tag);
+    public string? try_get_tag_label (string tag) throws Error {
+        return GExiv2.Metadata.try_get_tag_label (tag);
     }
 
     public string? try_get_tag_description (string tag) throws Error {
@@ -561,7 +566,6 @@ public class PhotoMetadata : MediaMetadata {
 
     public bool get_rational (string tag, out MetadataRational rational) {
         int numerator, denominator;
-        bool result = false;
         rational = MetadataRational (0, 0);
 
         try {
@@ -755,6 +759,11 @@ public class PhotoMetadata : MediaMetadata {
 
         case MetadataDomain.IPTC:
             exiv2.clear_iptc ();
+            break;
+
+        case MetadataDomain.UNKNOWN:
+        default:
+            warning ("Invalid MetadataDomain. domain=%d", domain);
             break;
         }
     }
