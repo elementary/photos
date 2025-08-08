@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 20:01+0000\n"
+"POT-Creation-Date: 2025-08-08 13:38+0000\n"
 "PO-Revision-Date: 2021-04-26 13:58+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/photos/photos/ar/"
@@ -395,11 +395,11 @@ msgstr "ثبّت شريط الأدوات ليبقى ظاهرا"
 msgid "Leave fullscreen"
 msgstr "غادر ملء الشاشة"
 
-#: src/main.vala:68 src/main.vala:76
+#: src/main.vala:63 src/main.vala:71
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
-#: src/main.vala:69
+#: src/main.vala:64
 #, fuzzy, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -409,7 +409,7 @@ msgstr ""
 "الصور %s (رقم %d). هذه النسخة هيا %s (رقم %d). يرجى استخدام أحدث إصدار من "
 "البرنامج."
 
-#: src/main.vala:72
+#: src/main.vala:67
 #, fuzzy, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
@@ -418,12 +418,12 @@ msgstr ""
 "تعذر على الصور ترقية مكتبة الصور من الإصدار%s (مخطط %d) إلى %s (مخطط %d).  "
 "لمزيد من المعلومات ، يرجى الاطلاع على Photos Wiki على %s"
 
-#: src/main.vala:73
+#: src/main.vala:68
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
 
-#: src/main.vala:77
+#: src/main.vala:72
 #, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -434,46 +434,42 @@ msgstr ""
 "الصور %s (مخطط %d). هذا الإصدار هو %s (مخطط %d). يرجى مسح مكتبتك عن طريق حذف "
 "%s وإعادة استيراد صورك."
 
-#: src/main.vala:80
+#: src/main.vala:75
 #, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "خطأ غير معروف أثناء محاولة التحقق من قاعدة بيانات الصور: %s"
 
-#: src/main.vala:115
+#: src/main.vala:110
 msgid "Loading Photos"
 msgstr "يتم الان تحميل الصور"
 
-#: src/main.vala:277
+#: src/main.vala:235
 msgid "Path to Photos' private data"
 msgstr "مسار البيانات الخاصة بالصور"
 
-#: src/main.vala:277
+#: src/main.vala:235
 #, fuzzy
 msgid "DIRECTORY"
 msgstr "الدليل"
 
-#: src/main.vala:278
+#: src/main.vala:236
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "لا تراقب مجلد المكتبة في وقت التشغيل للتغييرات"
 
-#: src/main.vala:279
+#: src/main.vala:237
 msgid "Don't display startup progress meter"
 msgstr "لا تعرض شريط تحميل التشغيل"
 
-#: src/main.vala:280
+#: src/main.vala:238
 msgid "Show the application's version"
 msgstr "عرض إصدار التطبيق"
 
-#: src/main.vala:281
-msgid "Show extra debugging output"
-msgstr "أظهر معلومات التصحيح الإضافية"
-
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:307
+#: src/main.vala:264
 msgid "[FILE]"
 msgstr "[ملف]"
 
-#: src/main.vala:311
+#: src/main.vala:268
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -606,320 +602,320 @@ msgstr "مدير الصور"
 msgid "Photo Viewer"
 msgstr "عارض الصور"
 
-#: src/Resources.vala:85
+#: src/Resources.vala:79
 msgid "Rotate _Right"
 msgstr "دوّر ي_مينا"
 
-#: src/Resources.vala:86
+#: src/Resources.vala:80
 msgid "Rotate Right"
 msgstr "دوّر يمينا"
 
-#: src/Resources.vala:87
+#: src/Resources.vala:81
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "دوّر الصور إلى اليمين (اضغط Ctrl لتدويرها إلى اليسار)"
 
-#: src/Resources.vala:89
+#: src/Resources.vala:83
 msgid "Rotate _Left"
 msgstr "دوّر ي_سارا"
 
-#: src/Resources.vala:90
+#: src/Resources.vala:84
 msgid "Rotate Left"
 msgstr "دوّر يسارا"
 
-#: src/Resources.vala:91
+#: src/Resources.vala:85
 msgid "Rotate the photos left"
 msgstr "دوّر الصور إلى اليسار"
 
-#: src/Resources.vala:93
+#: src/Resources.vala:87
 msgid "Flip Hori_zontally"
 msgstr "اقلب أف_قيا"
 
-#: src/Resources.vala:94
+#: src/Resources.vala:88
 msgid "Flip Horizontally"
 msgstr "اقلب أفقيا"
 
-#: src/Resources.vala:95
+#: src/Resources.vala:89
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr "إقلب الصورة بشكل افقي (إضغط زر كونترول للقلب بشكل عامودي)"
 
-#: src/Resources.vala:97
+#: src/Resources.vala:91
 msgid "Flip Verti_cally"
 msgstr "اقلب رأ_سيا"
 
-#: src/Resources.vala:98
+#: src/Resources.vala:92
 msgid "Flip Vertically"
 msgstr "اقلب رأسيا"
 
-#: src/Resources.vala:99
+#: src/Resources.vala:93
 msgid "Flip the image vertically"
 msgstr "إقلب الصورة بشكل عامودي"
 
-#: src/Resources.vala:101
+#: src/Resources.vala:95
 msgid "_Enhance"
 msgstr "_حسّن"
 
-#: src/Resources.vala:102
+#: src/Resources.vala:96
 msgid "Enhance"
 msgstr "حسّن"
 
-#: src/Resources.vala:103
+#: src/Resources.vala:97
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
 
-#: src/Resources.vala:105
+#: src/Resources.vala:99
 msgid "Revert _Enhancement"
 msgstr ""
 
-#: src/Resources.vala:106
+#: src/Resources.vala:100
 msgid "Revert Enhancement"
 msgstr ""
 
-#: src/Resources.vala:108
+#: src/Resources.vala:102
 msgid "_Copy Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:110
+#: src/Resources.vala:104
 msgid "_Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:111
+#: src/Resources.vala:105
 msgid "Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:112
+#: src/Resources.vala:106
 msgid "Apply copied color adjustments to the selected photos"
 msgstr ""
 
-#: src/Resources.vala:114
+#: src/Resources.vala:108
 msgid "Crop"
 msgstr "اقتص"
 
-#: src/Resources.vala:115
+#: src/Resources.vala:109
 msgid "Crop the photo's size"
 msgstr "اقتص من الصورة"
 
-#: src/Resources.vala:117
+#: src/Resources.vala:111
 msgid "Straighten"
 msgstr "اعتدل"
 
-#: src/Resources.vala:118
+#: src/Resources.vala:112
 msgid "Straighten the photo"
 msgstr "اعتدل الصورة"
 
-#: src/Resources.vala:120
+#: src/Resources.vala:114
 msgid "Red-eye"
 msgstr "أزل احمرار العين"
 
-#: src/Resources.vala:121
+#: src/Resources.vala:115
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "خفّض أو أزِل تأثير احمرار العين من الصورة"
 
-#: src/Resources.vala:123
+#: src/Resources.vala:117
 msgid "Adjust"
 msgstr "اضبط"
 
-#: src/Resources.vala:124
+#: src/Resources.vala:118
 msgid "Adjust the photo's color and tone"
 msgstr "اضبط ألوان الصورة وتناغمها"
 
-#: src/Resources.vala:126
+#: src/Resources.vala:120
 msgid "Re_vert to Original"
 msgstr "ا_سترجع إلى الأصل"
 
-#: src/Resources.vala:127
+#: src/Resources.vala:121
 msgid "Revert to Original"
 msgstr "استرجع إلى الأصل"
 
-#: src/Resources.vala:129
+#: src/Resources.vala:123
 #, fuzzy
 msgid "Re_name Event…"
 msgstr "تغيير تسمية الحدث"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
+#: src/Resources.vala:124 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "تغيير تسمية الحدث"
 
-#: src/Resources.vala:132
+#: src/Resources.vala:126
 msgid "Copy"
 msgstr ""
 
-#: src/Resources.vala:133
+#: src/Resources.vala:127
 #, fuzzy
 #| msgid "Metadata"
 msgid "Copy Metadata"
 msgstr "البيانات الوصفية"
 
-#: src/Resources.vala:135
+#: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
 msgstr "اجعلها صورة ال_غلاف للحدث"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:130
 msgid "Make Key Photo for Event"
 msgstr "اجعلها صورة الغلاف للحدث"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:132
 msgid "_New Event"
 msgstr "حدث _جديد"
 
-#: src/Resources.vala:139
+#: src/Resources.vala:133
 msgid "New Event"
 msgstr "حدث جديد"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:135
 msgid "Move Photos"
 msgstr "انقل الصور"
 
-#: src/Resources.vala:142
+#: src/Resources.vala:136
 msgid "Move photos to an event"
 msgstr "انقل الصور إلى حدث"
 
-#: src/Resources.vala:144
+#: src/Resources.vala:138
 msgid "_Merge Events"
 msgstr "ا_دمج الأحداث"
 
-#: src/Resources.vala:145
+#: src/Resources.vala:139
 msgid "Merge"
 msgstr "الدمج"
 
-#: src/Resources.vala:146
+#: src/Resources.vala:140
 msgid "Combine events into a single event"
 msgstr "ادمج الأحداث داخل حدث واحد"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:142
 msgid "_Filter Photos"
 msgstr "ت_رشّيح الصور"
 
-#: src/Resources.vala:150
+#: src/Resources.vala:144
 msgid "_Duplicate"
 msgstr "_كرّر"
 
-#: src/Resources.vala:151
+#: src/Resources.vala:145
 msgid "Duplicate"
 msgstr "كرّر"
 
-#: src/Resources.vala:152
+#: src/Resources.vala:146
 msgid "Make a duplicate of the photo"
 msgstr "كرّر الصورة"
 
-#: src/Resources.vala:154
+#: src/Resources.vala:148
 #, fuzzy
 msgid "_Export…"
 msgstr "صدّر"
 
-#: src/Resources.vala:156
+#: src/Resources.vala:150
 msgid "Show info panel"
 msgstr ""
 
-#: src/Resources.vala:158
+#: src/Resources.vala:152
 msgid "Hide info panel"
 msgstr ""
 
-#: src/Resources.vala:160
+#: src/Resources.vala:154
 #, fuzzy
 msgid "_Print…"
 msgstr "ا_طبع..."
 
-#: src/Resources.vala:162
+#: src/Resources.vala:156
 #, fuzzy
 msgid "Pu_blish…"
 msgstr "انشر"
 
-#: src/Resources.vala:163
+#: src/Resources.vala:157
 msgid "Publish to various websites"
 msgstr "أنشر إلى عدة مواقع وِب"
 
-#: src/Resources.vala:165
+#: src/Resources.vala:159
 msgid "Edit Title"
 msgstr "تعديل العنوان"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:161
 msgid "Edit Comment"
 msgstr "تعديل التعليق"
 
-#: src/Resources.vala:169
+#: src/Resources.vala:163
 #, fuzzy
 msgid "_Adjust Date and Time…"
 msgstr "تعديل الوقت والتاريخ"
 
-#: src/Resources.vala:170
+#: src/Resources.vala:164
 msgid "Adjust Date and Time"
 msgstr "تعديل الوقت والتاريخ"
 
-#: src/Resources.vala:172
+#: src/Resources.vala:166
 msgid "Find"
 msgstr "ابحث"
 
-#: src/Resources.vala:174
+#: src/Resources.vala:168
 msgid "_Flag"
 msgstr "_علّم"
 
-#: src/Resources.vala:175
+#: src/Resources.vala:169
 msgid "Un_flag"
 msgstr "أ_زل العلامة"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:173
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "أضف الوسم \"%s\""
 
-#: src/Resources.vala:181
+#: src/Resources.vala:175
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "أضف وسمي \"%s\" و \"%s\""
 
-#: src/Resources.vala:185
+#: src/Resources.vala:179
 msgid "Add Tags"
 msgstr "إضافة وسوم"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:183
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "ا_حذف الوسم \"%s\""
 
-#: src/Resources.vala:193
+#: src/Resources.vala:187
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "احذف الوسم \"%s\""
 
-#: src/Resources.vala:196
+#: src/Resources.vala:190
 msgid "Delete Tag"
 msgstr "احذف الوسم"
 
-#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:191 src/Resources.vala:232 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "ا_حذف"
 
-#: src/Resources.vala:199
+#: src/Resources.vala:193
 msgid "_New"
 msgstr "_جديد"
 
-#: src/Resources.vala:202
+#: src/Resources.vala:196
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "_غيّر تسمية الوسم \"%s\"..."
 
-#: src/Resources.vala:206
+#: src/Resources.vala:200
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "غيّر تسمية الوسم \"%s\" إلى \"%s\""
 
-#: src/Resources.vala:209
+#: src/Resources.vala:203
 #, fuzzy
 msgid "_Rename…"
 msgstr "_غيّر التسمية..."
 
-#: src/Resources.vala:211
+#: src/Resources.vala:205
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "تعديل الوسوم"
 
-#: src/Resources.vala:212
+#: src/Resources.vala:206
 msgid "Modify Tags"
 msgstr "تعديل الوسوم"
 
-#: src/Resources.vala:215
+#: src/Resources.vala:209
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
@@ -930,7 +926,7 @@ msgstr[3] "اوسم الصورة بـ \"%s\""
 msgstr[4] "اوسم الصورة بـ \"%s\""
 msgstr[5] "اوسم الصورة بـ \"%s\""
 
-#: src/Resources.vala:219
+#: src/Resources.vala:213
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
@@ -941,7 +937,7 @@ msgstr[3] "أزِل الوسم \"%s\" من ال_صورة"
 msgstr[4] "أزِل الوسم \"%s\" من ال_صورة"
 msgstr[5] "أزِل الوسم \"%s\" من ال_صورة"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:217
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
@@ -952,87 +948,87 @@ msgstr[3] "أزل الوسم \"%s\" من الصورة"
 msgstr[4] "أزل الوسم \"%s\" من الصورة"
 msgstr[5] "أزل الوسم \"%s\" من الصورة"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:221
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "تعذّر تغيير تسمية الوسم إلى \"%s\" بسبب وجود وسم آخر بهذا الاسم."
 
-#: src/Resources.vala:231
+#: src/Resources.vala:225
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "تعذّر تغيير تسمية البحث إلى \"%s\" بسبب وجود بحث بهذا الاسم."
 
-#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:228 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:236
+#: src/Resources.vala:230
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:239
+#: src/Resources.vala:233
 #, fuzzy
 msgid "_Edit…"
 msgstr "ت_حرير"
 
-#: src/Resources.vala:240
+#: src/Resources.vala:234
 #, fuzzy
 msgid "Re_name…"
 msgstr "غيّر ال_تسمية..."
 
-#: src/Resources.vala:243
+#: src/Resources.vala:237
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "غيّر تسمية البحث \"%s\" إلى \"%s\""
 
-#: src/Resources.vala:247
+#: src/Resources.vala:241
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "احذف البحث \"%s\""
 
-#: src/Resources.vala:279
+#: src/Resources.vala:273
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:280
+#: src/Resources.vala:274
 msgid "Remove the selected photos from the trash"
 msgstr "أزِل الصور المختارة من المهملات"
 
-#: src/Resources.vala:281
+#: src/Resources.vala:275
 msgid "Remove the selected photos from the library"
 msgstr "احذف الصور المختارة من المكتبة"
 
-#: src/Resources.vala:283
+#: src/Resources.vala:277
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:284
+#: src/Resources.vala:278
 msgid "Move the selected photos back into the library"
 msgstr "انقل الصور المختارة إلى المكتبة من جديد"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:280
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "اعرض في _مدير الملفّات"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:283
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "تعذّر الفتح في مدير الملفات: %s"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:286
 msgid "R_emove From Library"
 msgstr "أ_زل من المكتبة"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:288
 msgid "_Move to Trash"
 msgstr "ا_نقل إلى المهملات"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:290
 msgid "Select _All"
 msgstr "اختر ال_كل"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:291
 msgid "Select all items"
 msgstr "اختر كل العناصر"
 
@@ -1040,20 +1036,20 @@ msgstr "اختر كل العناصر"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:336
+#: src/Resources.vala:330
 msgid "%-I:%M %p"
 msgstr ""
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:341
+#: src/Resources.vala:335
 msgid "%-I:%M:%S %p"
 msgstr ""
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:345
+#: src/Resources.vala:339
 msgid "%a %b %d, %Y"
 msgstr "%a %d %b %Y"
 
@@ -1063,7 +1059,7 @@ msgstr "%a %d %b %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:350 src/Resources.vala:360
+#: src/Resources.vala:344 src/Resources.vala:354
 #, c-format
 msgid "%a %b %d"
 msgstr "%a %d %b"
@@ -1071,7 +1067,7 @@ msgstr "%a %d %b"
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:355
+#: src/Resources.vala:349
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1084,7 +1080,7 @@ msgid "untitled"
 msgstr "دون عنوان"
 
 #. multiple videos
-#: src/VideoSupport.vala:515
+#: src/VideoSupport.vala:516
 msgid "Export Videos"
 msgstr "صدّر الفيديوهات"
 
@@ -2734,7 +2730,7 @@ msgstr ""
 msgid "Copied dimensions: %i x %i px"
 msgstr ""
 
-#: src/Views/EditingHostPage.vala:1718
+#: src/Views/EditingHostPage.vala:1727
 #, fuzzy
 #| msgid "No events found"
 msgid "No metadata found"
@@ -3394,6 +3390,9 @@ msgstr "لوح شطرنج"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "ستائر"
+
+#~ msgid "Show extra debugging output"
+#~ msgstr "أظهر معلومات التصحيح الإضافية"
 
 #, fuzzy
 #~ msgid "_Open With RAW Editor…"

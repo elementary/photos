@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-27 20:01+0000\n"
+"POT-Creation-Date: 2025-08-08 13:38+0000\n"
 "PO-Revision-Date: 2024-06-10 23:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/photos/photos/"
@@ -381,11 +381,11 @@ msgstr "Eszköztár rögzítése nyitva"
 msgid "Leave fullscreen"
 msgstr "Teljes képernyő elhagyása"
 
-#: src/main.vala:68 src/main.vala:76
+#: src/main.vala:63 src/main.vala:71
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr "Az ön Fotók könyvtára nem kompatibilis az alkalmazás ezen verziójával"
 
-#: src/main.vala:69
+#: src/main.vala:64
 #, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -395,7 +395,7 @@ msgstr ""
 "jelenlegi verzió: %s (séma %d). Használja a Fotók alkalmazás legfrissebb "
 "verzióját."
 
-#: src/main.vala:72
+#: src/main.vala:67
 #, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
@@ -404,12 +404,12 @@ msgstr ""
 "A Fotók alkalmazás nem volt képes frissíteni az ön fényképgyűjteményét a(z) "
 "%s verzióról (%d. séma) %s verzióra (%d. séma)"
 
-#: src/main.vala:73
+#: src/main.vala:68
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr "További információért látogasson el a Fotók Wikijére: %s"
 
-#: src/main.vala:77
+#: src/main.vala:72
 #, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -420,44 +420,40 @@ msgstr ""
 "jelenlegi verzió: %s (séma %d). Ürítse ki a könyvtárat a(z) %s törlésével, "
 "és importálja újra a fényképeit."
 
-#: src/main.vala:80
+#: src/main.vala:75
 msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "Ismeretlen hiba a Fotók adatbázisának ellenőrzésekor"
 
-#: src/main.vala:115
+#: src/main.vala:110
 msgid "Loading Photos"
 msgstr "A Fotók betöltése"
 
-#: src/main.vala:277
+#: src/main.vala:235
 msgid "Path to Photos' private data"
 msgstr "Útvonal a Fotók privát adataihoz"
 
-#: src/main.vala:277
+#: src/main.vala:235
 msgid "DIRECTORY"
 msgstr "KÖNYVTÁR"
 
-#: src/main.vala:278
+#: src/main.vala:236
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "Ne figyelje a változásokat a gyűjteménykönyvtárban futás közben"
 
-#: src/main.vala:279
+#: src/main.vala:237
 msgid "Don't display startup progress meter"
 msgstr "Ne jelenítse meg az indítási folyamatjelzőt"
 
-#: src/main.vala:280
+#: src/main.vala:238
 msgid "Show the application's version"
 msgstr "Az alkalmazás verziószámának megjelenítése"
 
-#: src/main.vala:281
-msgid "Show extra debugging output"
-msgstr "További hibakeresési kimenet megjelenítése"
-
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:307
+#: src/main.vala:264
 msgid "[FILE]"
 msgstr "[FÁJL]"
 
-#: src/main.vala:311
+#: src/main.vala:268
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -591,63 +587,63 @@ msgstr "Fotókezelő"
 msgid "Photo Viewer"
 msgstr "Fotómegjelenítő"
 
-#: src/Resources.vala:85
+#: src/Resources.vala:79
 msgid "Rotate _Right"
 msgstr "Forgatás j_obbra"
 
-#: src/Resources.vala:86
+#: src/Resources.vala:80
 msgid "Rotate Right"
 msgstr "Forgatás jobbra"
 
-#: src/Resources.vala:87
+#: src/Resources.vala:81
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "Fényképek forgatása jobbra (Ctrl a balra forgatáshoz)"
 
-#: src/Resources.vala:89
+#: src/Resources.vala:83
 msgid "Rotate _Left"
 msgstr "Forgatás _balra"
 
-#: src/Resources.vala:90
+#: src/Resources.vala:84
 msgid "Rotate Left"
 msgstr "Forgatás balra"
 
-#: src/Resources.vala:91
+#: src/Resources.vala:85
 msgid "Rotate the photos left"
 msgstr "Fényképek forgatása balra"
 
-#: src/Resources.vala:93
+#: src/Resources.vala:87
 msgid "Flip Hori_zontally"
 msgstr "_Vízszintes tükrözés"
 
-#: src/Resources.vala:94
+#: src/Resources.vala:88
 msgid "Flip Horizontally"
 msgstr "Tükrözés vízszintesen"
 
-#: src/Resources.vala:95
+#: src/Resources.vala:89
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr "Kép vízszintes tükrözése (Ctrl a függőleges tükrözéshez)"
 
-#: src/Resources.vala:97
+#: src/Resources.vala:91
 msgid "Flip Verti_cally"
 msgstr "_Függőleges tükrözés"
 
-#: src/Resources.vala:98
+#: src/Resources.vala:92
 msgid "Flip Vertically"
 msgstr "Tükrözés függőlegesen"
 
-#: src/Resources.vala:99
+#: src/Resources.vala:93
 msgid "Flip the image vertically"
 msgstr "Kép függőleges tükrözése"
 
-#: src/Resources.vala:101
+#: src/Resources.vala:95
 msgid "_Enhance"
 msgstr "_Feljavítás"
 
-#: src/Resources.vala:102
+#: src/Resources.vala:96
 msgid "Enhance"
 msgstr "Feljavítás"
 
-#: src/Resources.vala:103
+#: src/Resources.vala:97
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
@@ -655,347 +651,347 @@ msgstr ""
 "Automatikusan javítja a fotók kinézetét\n"
 "(Felülírja a színbeállítás korábbi módosításait)"
 
-#: src/Resources.vala:105
+#: src/Resources.vala:99
 msgid "Revert _Enhancement"
 msgstr "_Kiemelés visszavonása"
 
-#: src/Resources.vala:106
+#: src/Resources.vala:100
 msgid "Revert Enhancement"
 msgstr "Kiemelés visszavonása"
 
-#: src/Resources.vala:108
+#: src/Resources.vala:102
 msgid "_Copy Color Adjustments"
 msgstr "_Színbeállítások másolása"
 
-#: src/Resources.vala:110
+#: src/Resources.vala:104
 msgid "_Paste Color Adjustments"
 msgstr "_Színbeállítások beillesztése"
 
-#: src/Resources.vala:111
+#: src/Resources.vala:105
 msgid "Paste Color Adjustments"
 msgstr "Színbeállítások beillesztése"
 
-#: src/Resources.vala:112
+#: src/Resources.vala:106
 msgid "Apply copied color adjustments to the selected photos"
 msgstr "A másolt színbeállítások alkalmazása a kijelölt fényképekre"
 
-#: src/Resources.vala:114
+#: src/Resources.vala:108
 msgid "Crop"
 msgstr "Levágás"
 
-#: src/Resources.vala:115
+#: src/Resources.vala:109
 msgid "Crop the photo's size"
 msgstr "Levágás a fénykép méretéből"
 
-#: src/Resources.vala:117
+#: src/Resources.vala:111
 msgid "Straighten"
 msgstr "Kiegyenesítés"
 
-#: src/Resources.vala:118
+#: src/Resources.vala:112
 msgid "Straighten the photo"
 msgstr "A fénykép kiegyenesítése"
 
-#: src/Resources.vala:120
+#: src/Resources.vala:114
 msgid "Red-eye"
 msgstr "Vörösszem-hatás"
 
-#: src/Resources.vala:121
+#: src/Resources.vala:115
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "Vörösszem-hatás csökkentése vagy eltávolítása a fényképről"
 
-#: src/Resources.vala:123
+#: src/Resources.vala:117
 msgid "Adjust"
 msgstr "Módosítás"
 
-#: src/Resources.vala:124
+#: src/Resources.vala:118
 msgid "Adjust the photo's color and tone"
 msgstr "Fénykép színének és tónusának módosítása"
 
-#: src/Resources.vala:126
+#: src/Resources.vala:120
 msgid "Re_vert to Original"
 msgstr "_Vissza az eredetihez"
 
-#: src/Resources.vala:127
+#: src/Resources.vala:121
 msgid "Revert to Original"
 msgstr "Vissza az eredetihez"
 
-#: src/Resources.vala:129
+#: src/Resources.vala:123
 msgid "Re_name Event…"
 msgstr "Esemény át_nevezése…"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
+#: src/Resources.vala:124 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "Esemény átnevezése"
 
-#: src/Resources.vala:132
+#: src/Resources.vala:126
 msgid "Copy"
 msgstr "Másolás"
 
-#: src/Resources.vala:133
+#: src/Resources.vala:127
 msgid "Copy Metadata"
 msgstr "Metaadatok másolása"
 
-#: src/Resources.vala:135
+#: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
 msgstr "_Esemény kulcsképévé tétel"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:130
 msgid "Make Key Photo for Event"
 msgstr "Esemény kulcsképévé tétel"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:132
 msgid "_New Event"
 msgstr "Új esemé_ny"
 
-#: src/Resources.vala:139
+#: src/Resources.vala:133
 msgid "New Event"
 msgstr "Új esemény"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:135
 msgid "Move Photos"
 msgstr "Fényképek áthelyezése"
 
-#: src/Resources.vala:142
+#: src/Resources.vala:136
 msgid "Move photos to an event"
 msgstr "Fényképek áthelyezése eseménybe"
 
-#: src/Resources.vala:144
+#: src/Resources.vala:138
 msgid "_Merge Events"
 msgstr "_Események egyesítése"
 
-#: src/Resources.vala:145
+#: src/Resources.vala:139
 msgid "Merge"
 msgstr "Egyesítés"
 
-#: src/Resources.vala:146
+#: src/Resources.vala:140
 msgid "Combine events into a single event"
 msgstr "Események egyesítése egyetlen eseménnyé"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:142
 msgid "_Filter Photos"
 msgstr "_Fényképek szűrése"
 
-#: src/Resources.vala:150
+#: src/Resources.vala:144
 msgid "_Duplicate"
 msgstr "Meg_kettőzés"
 
-#: src/Resources.vala:151
+#: src/Resources.vala:145
 msgid "Duplicate"
 msgstr "Megkettőzés"
 
-#: src/Resources.vala:152
+#: src/Resources.vala:146
 msgid "Make a duplicate of the photo"
 msgstr "Másolat készítése a fényképről"
 
-#: src/Resources.vala:154
+#: src/Resources.vala:148
 msgid "_Export…"
 msgstr "_Exportálás…"
 
-#: src/Resources.vala:156
+#: src/Resources.vala:150
 msgid "Show info panel"
 msgstr "Infópanel megjelenítése"
 
-#: src/Resources.vala:158
+#: src/Resources.vala:152
 msgid "Hide info panel"
 msgstr "Infópanel elrejtése"
 
-#: src/Resources.vala:160
+#: src/Resources.vala:154
 msgid "_Print…"
 msgstr "_Nyomtatás…"
 
-#: src/Resources.vala:162
+#: src/Resources.vala:156
 msgid "Pu_blish…"
 msgstr "Közzé_tétel…"
 
-#: src/Resources.vala:163
+#: src/Resources.vala:157
 msgid "Publish to various websites"
 msgstr "Közzététel különböző weboldalakon"
 
-#: src/Resources.vala:165
+#: src/Resources.vala:159
 msgid "Edit Title"
 msgstr "Cím szerkesztése"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:161
 msgid "Edit Comment"
 msgstr "A megjegyzés szerkesztése"
 
-#: src/Resources.vala:169
+#: src/Resources.vala:163
 msgid "_Adjust Date and Time…"
 msgstr "Dátum és idő _módosítása…"
 
-#: src/Resources.vala:170
+#: src/Resources.vala:164
 msgid "Adjust Date and Time"
 msgstr "Dátum és idő módosítása"
 
-#: src/Resources.vala:172
+#: src/Resources.vala:166
 msgid "Find"
 msgstr "Keresés"
 
-#: src/Resources.vala:174
+#: src/Resources.vala:168
 msgid "_Flag"
 msgstr "_Megjelölés"
 
-#: src/Resources.vala:175
+#: src/Resources.vala:169
 msgid "Un_flag"
 msgstr "Megjelölés _törlése"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:173
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "A(z) \"%s\" címke hozzáadása"
 
-#: src/Resources.vala:181
+#: src/Resources.vala:175
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "A(z) \"%s\" és \"%s\" címke hozzáadása"
 
-#: src/Resources.vala:185
+#: src/Resources.vala:179
 msgid "Add Tags"
 msgstr "Címkék hozzáadása"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:183
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "A(z) \"%s\" címke _törlése"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:187
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "A(z) \"%s\" címke törlése"
 
-#: src/Resources.vala:196
+#: src/Resources.vala:190
 msgid "Delete Tag"
 msgstr "Címke törlése"
 
-#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:191 src/Resources.vala:232 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_Törlés"
 
-#: src/Resources.vala:199
+#: src/Resources.vala:193
 msgid "_New"
 msgstr "Ú_j"
 
-#: src/Resources.vala:202
+#: src/Resources.vala:196
 #, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "A(z) \"%s\" címke át_nevezése…"
 
-#: src/Resources.vala:206
+#: src/Resources.vala:200
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "A(z) \"%s\" címke átnevezése erre: \"%s\""
 
-#: src/Resources.vala:209
+#: src/Resources.vala:203
 msgid "_Rename…"
 msgstr "Át_nevezés…"
 
-#: src/Resources.vala:211
+#: src/Resources.vala:205
 msgid "Modif_y Tags…"
 msgstr "_Címkék módosítása…"
 
-#: src/Resources.vala:212
+#: src/Resources.vala:206
 msgid "Modify Tags"
 msgstr "Címkék módosítása"
 
-#: src/Resources.vala:215
+#: src/Resources.vala:209
 #, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "Fénykép címkézése ezzel: „%s”"
 msgstr[1] "Fényképek címkézése ezzel: „%s”"
 
-#: src/Resources.vala:219
+#: src/Resources.vala:213
 #, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "A(z) \"%s\" címke _eltávolítása a fényképről"
 msgstr[1] "A(z) \"%s\" címke _eltávolítása a fényképekről"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:217
 #, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "A(z) \"%s\" címke eltávolítása a fényképről"
 msgstr[1] "A(z) \"%s\" címke eltávolítása a fényképekről"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:221
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "A címke nem nevezhető át erre: „%s”, mert a címke már létezik."
 
-#: src/Resources.vala:231
+#: src/Resources.vala:225
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr "Nem lehet átnevezni a keresést erre: „%s”, mert a keresés már létezik."
 
-#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:228 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr "Okosalbum"
 
-#: src/Resources.vala:236
+#: src/Resources.vala:230
 msgid "Delete Album"
 msgstr "Album törlése"
 
-#: src/Resources.vala:239
+#: src/Resources.vala:233
 msgid "_Edit…"
 msgstr "_Szerkesztés…"
 
-#: src/Resources.vala:240
+#: src/Resources.vala:234
 msgid "Re_name…"
 msgstr "Át_nevezés…"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:237
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "„%s” keresés átnevezése erre: „%s”"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:241
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "„%s” keresés törlése"
 
-#: src/Resources.vala:279
+#: src/Resources.vala:273
 msgid "_Delete Selection"
 msgstr "Kijelölés _törlése"
 
-#: src/Resources.vala:280
+#: src/Resources.vala:274
 msgid "Remove the selected photos from the trash"
 msgstr "Kijelölt fényképek eltávolítása a Kukából"
 
-#: src/Resources.vala:281
+#: src/Resources.vala:275
 msgid "Remove the selected photos from the library"
 msgstr "Kijelölt fényképek eltávolítása a könyvtárból"
 
-#: src/Resources.vala:283
+#: src/Resources.vala:277
 msgid "_Restore Selection"
 msgstr "Kijelölés _visszaállítása"
 
-#: src/Resources.vala:284
+#: src/Resources.vala:278
 msgid "Move the selected photos back into the library"
 msgstr "Kijelölt fényképek visszaállítása a könyvtárba"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:280
 msgid "File Mana_ger"
 msgstr "_Megjelenítés a fájlkezelőben"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:283
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "Nem nyitható meg a fájlkezelőben: %s"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:286
 msgid "R_emove From Library"
 msgstr "_Eltávolítás a könyvtárból"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:288
 msgid "_Move to Trash"
 msgstr "Á_thelyezés a Kukába"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:290
 msgid "Select _All"
 msgstr "Összes _kijelölése"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:291
 msgid "Select all items"
 msgstr "Minden elem kijelölése"
 
@@ -1003,20 +999,20 @@ msgstr "Minden elem kijelölése"
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:336
+#: src/Resources.vala:330
 msgid "%-I:%M %p"
 msgstr "%H:%M"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:341
+#: src/Resources.vala:335
 msgid "%-I:%M:%S %p"
 msgstr "%H:%M:%S"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:345
+#: src/Resources.vala:339
 msgid "%a %b %d, %Y"
 msgstr "%Y. %b. %d., %a"
 
@@ -1026,7 +1022,7 @@ msgstr "%Y. %b. %d., %a"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:350 src/Resources.vala:360
+#: src/Resources.vala:344 src/Resources.vala:354
 #, c-format
 msgid "%a %b %d"
 msgstr "%b. %d., %a"
@@ -1034,7 +1030,7 @@ msgstr "%b. %d., %a"
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:355
+#: src/Resources.vala:349
 msgid "%d, %Y"
 msgstr "%Y. %d."
 
@@ -1047,7 +1043,7 @@ msgid "untitled"
 msgstr "névtelen"
 
 #. multiple videos
-#: src/VideoSupport.vala:515
+#: src/VideoSupport.vala:516
 msgid "Export Videos"
 msgstr "Videók exportálása"
 
@@ -2512,7 +2508,7 @@ msgstr "Nyers méretek: %i x %i px"
 msgid "Copied dimensions: %i x %i px"
 msgstr "Másolt méretek: %i x %i px"
 
-#: src/Views/EditingHostPage.vala:1718
+#: src/Views/EditingHostPage.vala:1727
 msgid "No metadata found"
 msgstr "Nem találhatók metaadatok"
 
@@ -3146,6 +3142,9 @@ msgstr "Sakk"
 #: plugins/pantheon-photos-transitions/BlindsEffect.vala:33
 msgid "Blinds"
 msgstr "Lamellák"
+
+#~ msgid "Show extra debugging output"
+#~ msgstr "További hibakeresési kimenet megjelenítése"
 
 #~ msgid "_Open In"
 #~ msgstr "_Megnyitás ebben"
