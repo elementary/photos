@@ -170,7 +170,7 @@ public class Sidebar.Branch : Object {
         }
 
         public void reorder_children (bool recursive, ChildrenReorderedCallback cb) {
-            if (children == null)
+            if (children == null || children.size <= 1)
                 return;
 
             Gee.SortedSet<Node> reordered = new Gee.TreeSet<Node> (comparator_wrapper);
