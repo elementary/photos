@@ -17,16 +17,16 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-08 13:38+0000\n"
-"PO-Revision-Date: 2018-10-23 14:30+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
-"Language-Team: Swedish <https://weblate.elementary.io/projects/photos/photos/"
+"PO-Revision-Date: 2025-10-22 10:00+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/photos/photos/"
 "sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:12+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -55,15 +55,15 @@ msgid "Unable to create data subdirectory %s: %s"
 msgstr "Kunde inte skapa den underliggande datakatalogen %s: %s"
 
 #: src/AppWindow.vala:164
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "A fatal error occurred when accessing Photos' library. Photos cannot "
 "continue.\n"
 "\n"
 "%s"
 msgstr ""
-"Ett allvarligt fel inträffade vid åtkomsten till Bilder-biblioteket. Bilder "
-"kan inte fortsätta.\n"
+"Ett allvarligt fel inträffade vid åtkomst till Fotos bibliotek. Bilder kan "
+"inte fortsätta.\n"
 "\n"
 "%s"
 
@@ -205,7 +205,7 @@ msgstr "Raderar kopior på bilderna"
 msgid "Unable to duplicate one photo due to a file error"
 msgid_plural "Unable to duplicate %d photos due to file errors"
 msgstr[0] "Kunde inte kopiera en bild på grund av en felaktig fil"
-msgstr[1] "Det gick inte kopiera %d bilderna på grund av  felaktiga filer"
+msgstr[1] "Det gick inte kopiera %d bilderna på grund av felaktiga filer"
 
 #: src/Commands.vala:1200
 msgid "Setting RAW developer"
@@ -347,9 +347,9 @@ msgid "Export"
 msgstr "Exportera"
 
 #: src/Exporter.vala:332
-#, fuzzy, c-format
+#, c-format
 msgid "File %s already exists. Replace?"
-msgstr "Filen %s finns redan.  Vill du ersätta den?"
+msgstr "Filen %s finns redan. Ersätta?"
 
 #: src/Exporter.vala:338
 msgid "_Skip"
@@ -383,49 +383,45 @@ msgstr "Avsluta helskärmsläge"
 
 #: src/main.vala:63 src/main.vala:71
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
-msgstr ""
+msgstr "Ditt fotobibliotek är inte kompatibelt med den här versionen av Photos"
 
 #: src/main.vala:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please use the latest version of Photos."
 msgstr ""
-"Ditt bildbibliotek är inte kompatibelt med denna version av Bilder.  Det "
-"verkar som det skapades med Bilder %s (schema %d).  Denna version är %s "
-"(schema %d).  Använd den senaste versionen av Bilder."
+"Det verkar som om den skapades av Photos %s (schema %d). Den här versionen "
+"är %s (schema %d). Vänligen använd den senaste versionen av Photos."
 
 #: src/main.vala:67
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
 "to %s (Schema %d)"
 msgstr ""
-"Bilder kunde inte uppgradera din bildbibliotek från version %s (schema %d) "
-"till %s (schema %d).  För ytterligare information, läs Bilders wiki-sida på "
-"%s"
+"Bilder kunde inte uppgradera ditt fotobibliotek från version %s (Schema %d) "
+"till %s (Schema %d)"
 
 #: src/main.vala:68
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
-msgstr ""
+msgstr "För mer information, se Photos Wiki på %s"
 
 #: src/main.vala:72
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
 "(schema %d). Please clear your library by deleting %s and re-import your "
 "photos."
 msgstr ""
-"Ditt bildbibliotek är inte kompatibelt med denna version av Bilder.  Det "
-"verkar som om det skapades med Bilder %s (schema %d).  Denna version är %s "
-"(schema %d).  Töm ditt bibliotek genom att ta bort %s och importera dina "
-"bilder igen."
+"Det verkar som om den skapades av Photos %s (schema %d). Den här versionen "
+"är %s (schema %d). Rensa ditt bibliotek genom att ta bort %s och importera "
+"dina foton igen."
 
 #: src/main.vala:75
-#, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
-msgstr "Okänt fel vid försök att verifiera Bilders databas: %s"
+msgstr "Okänt fel vid försök att verifiera fotodatabasen"
 
 #: src/main.vala:110
 msgid "Loading Photos"
@@ -454,7 +450,7 @@ msgstr "Visa programversion"
 #. init GTK (valac has already called g_threads_init ())
 #: src/main.vala:264
 msgid "[FILE]"
-msgstr "[FILE]"
+msgstr "[FIL]"
 
 #: src/main.vala:268
 #, c-format
@@ -728,13 +724,11 @@ msgstr "Byt namn på händelse"
 
 #: src/Resources.vala:126
 msgid "Copy"
-msgstr ""
+msgstr "Kopiera"
 
 #: src/Resources.vala:127
-#, fuzzy
-#| msgid "Metadata"
 msgid "Copy Metadata"
-msgstr "Metadata"
+msgstr "Kopiera metadata"
 
 #: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
@@ -899,25 +893,25 @@ msgid "Modify Tags"
 msgstr "Ändra taggar"
 
 #: src/Resources.vala:209
-#, fuzzy, c-format
+#, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
-msgstr[0] "Lägg till taggen ”%s” till bilden"
-msgstr[1] "Lägg till taggen ”%s” till bilden"
+msgstr[0] "Tagga foto som \"%s\""
+msgstr[1] "Tagga foton som \"%s\""
 
 #: src/Resources.vala:213
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
-msgstr[0] "_Ta bort taggen ”%s” från bild"
-msgstr[1] "_Ta bort taggen ”%s” från bild"
+msgstr[0] "Ta bort tagg \"%s\" Från _Foto"
+msgstr[1] "Ta bort tagg \"%s\" Från _Photos"
 
 #: src/Resources.vala:217
-#, fuzzy, c-format
+#, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
-msgstr[0] "Ta bort taggen ”%s” från bilden"
-msgstr[1] "Ta bort taggen ”%s” från bilden"
+msgstr[0] "Ta bort tagg \"%s\" Från foto"
+msgstr[1] "Ta bort tagg \"%s\" Från foton"
 
 #: src/Resources.vala:221
 #, c-format
@@ -1031,7 +1025,7 @@ msgstr "%a %d %b, %Y"
 #: src/Resources.vala:344 src/Resources.vala:354
 #, c-format
 msgid "%a %b %d"
-msgstr "%a %d %b"
+msgstr "%a %b %d"
 
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
@@ -1088,24 +1082,21 @@ msgid "Set _all photos/videos to this time"
 msgstr "Ställ in _alla bilder/filmer till denna tid"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:113
-#, fuzzy
 msgid "_Modify original photo file"
 msgid_plural "_Modify original photo files"
-msgstr[0] "_Modifiera originalbilden"
-msgstr[1] "_Modifiera originalbilden"
+msgstr[0] "_Modifiera den ursprungliga fotofilen"
+msgstr[1] "_Modifiera ursprungliga fotofiler"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:116
-#, fuzzy
 msgid "_Modify original file"
 msgid_plural "_Modify original files"
-msgstr[0] "Än_dra originalfiler"
-msgstr[1] "Än_dra originalfiler"
+msgstr[0] "_Modifiera originalfilen"
+msgstr[1] "_Modifiera originalfiler"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Original: "
+msgstr "Orginal: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1158,18 +1149,16 @@ msgstr[0] "sekund"
 msgstr[1] "sekunder"
 
 #: src/Dialogs/Dialogs.vala:50
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the tag \"%s\" from one photo. Continue?"
 msgid_plural "This will remove the tag \"%s\" from %d photos. Continue?"
-msgstr[0] ""
-"Det här kommer att ta bort taggen \"%s\" från bilden. Vill du fortsätta?"
-msgstr[1] ""
-"Det här kommer att ta bort taggen \"%s\" från %d bilder. Vill du fortsätta?"
+msgstr[0] "Detta kommer att ta bort taggen \"%s\" från ett foto. Fortsätta?"
+msgstr[1] "Detta kommer att ta bort taggen \"%s\" från %d foton. Fortsätta?"
 
 #: src/Dialogs/Dialogs.vala:58
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the smart album \"%s\". Continue?"
-msgstr "Detta kommer att ta bort smart albumet \"%s\". Fortsätt?"
+msgstr "Detta kommer att ta bort det smarta albumet \"%s\". Fortsätta?"
 
 #: src/Dialogs/Dialogs.vala:66
 msgid ""
@@ -1187,7 +1176,7 @@ msgstr[1] ""
 
 #: src/Dialogs/Dialogs.vala:72
 msgid "Are You Sure You Want to Switch Developers?"
-msgstr ""
+msgstr "Är du säker på att du vill byta utvecklare?"
 
 #: src/Dialogs/Dialogs.vala:79
 msgid "_Switch Developer"
@@ -1199,11 +1188,10 @@ msgstr "Exportera film"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
 #: src/Views/LibraryPhotoPage.vala:724
-#, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
-msgstr[0] "Exportera bilder"
-msgstr[1] "Exportera bilder"
+msgstr[0] "Exportera foto"
+msgstr[1] "Exportera foton"
 
 #: src/Dialogs/Dialogs.vala:101 src/Dialogs/Dialogs.vala:616
 #: src/Dialogs/TextEntryDialog.vala:75 src/Views/DirectPhotoPage.vala:339
@@ -1615,30 +1603,28 @@ msgid "Name:"
 msgstr "Namn:"
 
 #: src/Dialogs/Dialogs.vala:784
-#, fuzzy
 msgid "Revert External Edit?"
 msgid_plural "Revert External Edits?"
-msgstr[0] "Återställ externa redigeringar?"
-msgstr[1] "Återställ externa redigeringar?"
+msgstr[0] "Återgå extern redigering?"
+msgstr[1] "Återställa externa redigeringar?"
 
 #: src/Dialogs/Dialogs.vala:786
-#, fuzzy, c-format
+#, c-format
 msgid "This will destroy all changes made to the external file. Continue?"
 msgid_plural ""
 "This will destroy all changes made to %d external files. Continue?"
 msgstr[0] ""
-"Det här kommer att förstöra alla ändringar som gjorts i den externa filen.  "
-"Vill du fortsätta?"
+"Detta kommer att förstöra alla ändringar som gjorts i den externa filen. "
+"Fortsätta?"
 msgstr[1] ""
-"Det här kommer att förstöra alla ändringar som gjorts i de %d externa "
-"filerna.  Vill du fortsätta?"
+"Detta kommer att förstöra alla ändringar som gjorts i %d external files. "
+"Fortsätter du?"
 
 #: src/Dialogs/Dialogs.vala:791
-#, fuzzy
 msgid "Re_vert External Edit"
 msgid_plural "Re_vert External Edits"
-msgstr[0] "Återställ externa redigeringar"
-msgstr[1] "Återställ externa redigeringar"
+msgstr[0] "Å_terställ extern redigering"
+msgstr[1] "Å_terställ externa redigeringar"
 
 #: src/Dialogs/Dialogs.vala:817
 msgid "Remove Photo From Library"
@@ -1649,13 +1635,11 @@ msgid "Remove Photos From Library"
 msgstr "Ta bort bilder från bibliotek"
 
 #: src/Dialogs/Dialogs.vala:823
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] ""
-"Det här kommer att radera bilden från biblioteket. Vill du fortsätta?"
-msgstr[1] ""
-"Det här kommer att radera %d bilder från biblioteket. Vill du fortsätta?"
+msgstr[0] "Detta tar bort fotot från biblioteket. Fortsätta?"
+msgstr[1] "Detta kommer att ta bort %d foton från biblioteket. Fortsättning?"
 
 #: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
@@ -1707,11 +1691,10 @@ msgid "Remove From Library"
 msgstr "Ta bort från biblioteket"
 
 #: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:645
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
-msgstr[0] "Tar bort bilder från bibliotek"
-msgstr[1] "Tar bort bilder från bibliotek"
+msgstr[0] "Ta bort foto från bibliotek"
+msgstr[1] "Ta bort foton från biblioteket"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:937
@@ -1745,9 +1728,8 @@ msgid "_Scaling constraint:"
 msgstr "_Skalningsbegränsning:"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "_Göm info-panel"
+msgstr "_Storlek i pixlar:"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -1775,9 +1757,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "_Ändra importerade filnamn till gemener:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Skriv _metadata till filer:"
+msgstr "Skriva _metadata till filer:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2046,16 +2027,12 @@ msgid "_Import From Folder…"
 msgstr "_Importera från mapp…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
-msgstr "S_idofält"
+msgstr "Växla Sidofältet"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Redigera bild In_fo"
+msgstr "Växla fotoinformation"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2427,10 +2404,8 @@ msgstr "_Utvecklare"
 
 #: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
 #: src/Views/LibraryPhotoPage.vala:546
-#, fuzzy
-#| msgid "Show Photo Titles"
 msgid "Show in Files"
-msgstr "Visa bildtitlar"
+msgstr "Visa i filer"
 
 #: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:171
 #: src/Views/LibraryPhotoPage.vala:565
@@ -2440,14 +2415,13 @@ msgstr "Andra åtgärder"
 #: src/Views/CollectionPage.vala:219 src/Views/DirectPhotoPage.vala:167
 #: src/Views/LibraryPhotoPage.vala:574
 msgid "Set as Wallpaper"
-msgstr ""
+msgstr "Ställ in som bakgrundsbild"
 
 #: src/Views/CollectionPage.vala:562
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Exportera bilder/filmer"
-msgstr[1] "Exportera bilder/filmer"
+msgstr[0] "Exportera foto/video"
+msgstr[1] "Exportera foton/videor"
 
 #: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
@@ -2538,18 +2512,16 @@ msgstr "Källfilen för bilden saknas: %s"
 #: src/Views/EditingHostPage.vala:1698
 #, c-format
 msgid "Raw dimensions: %i x %i px"
-msgstr ""
+msgstr "Råa dimensioner: %i x %i px"
 
 #: src/Views/EditingHostPage.vala:1701
 #, c-format
 msgid "Copied dimensions: %i x %i px"
-msgstr ""
+msgstr "Kopierade dimensioner: %i x %i px"
 
 #: src/Views/EditingHostPage.vala:1727
-#, fuzzy
-#| msgid "No events found"
 msgid "No metadata found"
-msgstr "Inga händelser hittades"
+msgstr "Inga metadata hittades"
 
 #: src/Views/EventPage.vala:136
 msgid "All Events"
@@ -2605,11 +2577,10 @@ msgid "Flagged"
 msgstr "Flaggad"
 
 #: src/Views/ImportPage.vala:478
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
-"Kunde inte avmontera kameran.  Försök att avmontera kameran från "
+"Det går inte att avmontera kameran. Försök att avmontera kameran från "
 "filhanteraren."
 
 #: src/Views/ImportPage.vala:792
@@ -2627,7 +2598,7 @@ msgstr "_Titlar"
 
 #: src/Views/ImportPage.vala:907 src/Views/ImportPage.vala:963
 msgid "Import _Selected"
-msgstr "Importera  _markerade"
+msgstr "Importera _markerade"
 
 #: src/Views/ImportPage.vala:912 src/Views/ImportPage.vala:967
 msgid "Import _All"
@@ -2655,15 +2626,13 @@ msgstr "Importera alla bilder till ditt bibliotek"
 
 #: src/Views/ImportPage.vala:1088
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Det går inte att komma åt kameran när den är monterad"
 
 #: src/Views/ImportPage.vala:1089
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
-"Bilder behöver avmontera kameran från filsystemet för att kunna komma åt "
-"den. Vill du fortsätta?"
+"Photos måste avmontera kameran från filsystemet för att kunna komma åt den."
 
 #: src/Views/ImportPage.vala:1095
 msgid "_Unmount"
@@ -2676,17 +2645,15 @@ msgstr "Avmontera kameran."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1108
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Kameran är låst av en annan applikation"
 
 #: src/Views/ImportPage.vala:1109
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
 msgstr ""
-"Kameran är låst av ett annat program.  Bilder kan endast komma åt kameran "
-"när den är olåst.  Stäng alla andra program som använder kameran och försök "
-"igen."
+"Foton kan bara komma åt kameran när den är upplåst. Stäng alla andra program "
+"som använder kameran och försök igen."
 
 #: src/Views/ImportPage.vala:1116
 msgid "Please close any other application using the camera."
@@ -2825,7 +2792,7 @@ msgstr "Efter exponerings_ögonblick"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Genom _Filändringstid"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -2844,10 +2811,8 @@ msgid "Sort photos by exposure date"
 msgstr "Sortera bilder efter exponeringsögonblick"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Sortera bilder efter exponeringsögonblick"
+msgstr "Sortera foton efter tidsstämpel för import"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -2955,28 +2920,22 @@ msgid "Transition Effect"
 msgstr "Övergångseffekt"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "_Förminska"
+msgstr "Zooma ut"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Justera"
+msgstr "Justera zoom"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + Bläddra"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "_Förstora"
+msgstr "Zooma in"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
