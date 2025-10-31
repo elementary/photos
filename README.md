@@ -29,6 +29,11 @@ You'll need the following dependencies:
 * meson >= 0.60.0
 * valac >= 0.40
 
+```
+apt install \
+ intltool libexif-dev libgee-0.8-dev libgeocode-glib-dev libgexiv2-dev libgphoto2-dev libgranite-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgtk-3-dev libgudev-1.0-dev libhandy-1-dev libportal-gtk3-dev libraw-dev libsqlite3-dev libwebp-dev meson valac
+```
+
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja` to build
 
     meson build --prefix=/usr
