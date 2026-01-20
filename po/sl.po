@@ -16,17 +16,17 @@ msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-08 13:38+0000\n"
-"PO-Revision-Date: 2020-01-08 00:07+0000\n"
+"PO-Revision-Date: 2026-01-21 17:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/photos/photos/"
-"sl/>\n"
+"Language-Team: Slovenian <https://l10n.elementaryos.org/projects/photos/"
+"photos/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-01-31 06:11+0000\n"
 
 #: src/AppDirs.vala:61 src/AppDirs.vala:112
@@ -734,13 +734,11 @@ msgstr "Preimenuj dogodek"
 
 #: src/Resources.vala:126
 msgid "Copy"
-msgstr ""
+msgstr "Kopiraj"
 
 #: src/Resources.vala:127
-#, fuzzy
-#| msgid "Metadata"
 msgid "Copy Metadata"
-msgstr "Metapodatki"
+msgstr "Kopiraj metapodatke"
 
 #: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
@@ -1115,10 +1113,9 @@ msgstr[2] "_Spremeni izvirne datoteke"
 msgstr[3] "_Spremeni izvirne datoteke"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:203
-#, fuzzy, c-format
-#| msgid "Original: "
+#, c-format
 msgid "Original: %s"
-msgstr "Izvirno: "
+msgstr "Izvirno: %s"
 
 #: src/Dialogs/AdjustDateTimeDialog.vala:205
 msgid "%m/%d/%Y, %H:%M:%S"
@@ -1782,17 +1779,13 @@ msgid "Remove Photos From Library"
 msgstr "Odstrani fotografije iz knjižnice"
 
 #: src/Dialogs/Dialogs.vala:823
-#, fuzzy, c-format
+#, c-format
 msgid "This will remove the photo from the library. Continue?"
 msgid_plural "This will remove %d photos from the library. Continue?"
-msgstr[0] ""
-"To bo odstranilo %d fotografije iz knjižnice. Ali naj program nadaljuje?"
-msgstr[1] ""
-"To bo odstranilo %d fotografij iz knjižnice. Ali naj program nadaljuje?"
-msgstr[2] ""
-"To bo odstranilo %d fotografijo iz knjižnice. Ali naj program nadaljuje?"
-msgstr[3] ""
-"To bo odstranilo %d fotografiji iz knjižnice. Ali naj program nadaljuje?"
+msgstr[0] "To bo odstranilo %d fotografijo s knjižnice. Nadaljujem?"
+msgstr[1] "To bo odstranilo %d fotografiji s knjižnice. Nadaljujem?"
+msgstr[2] "To bo odstranilo %d fotografije s knjižnice. Nadaljujem?"
+msgstr[3] "To bo odstranilo %d fotografij s knjižnice. Nadaljujem?"
 
 #: src/Dialogs/Dialogs.vala:836
 msgid "_Remove"
@@ -1852,13 +1845,12 @@ msgid "Remove From Library"
 msgstr "Odstrani iz knjižnice"
 
 #: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:645
-#, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
 msgstr[0] "Odstranjevanje fotografije iz knjižnice"
-msgstr[1] "Odstranjevanje fotografije iz knjižnice"
-msgstr[2] "Odstranjevanje fotografije iz knjižnice"
-msgstr[3] "Odstranjevanje fotografije iz knjižnice"
+msgstr[1] "Odstranjevanje fotografij iz knjižnice"
+msgstr[2] "Odstranjevanje fotografij iz knjižnice"
+msgstr[3] "Odstranjevanje fotografij iz knjižnice"
 
 #. Alert the user that the files were not removed.
 #: src/Dialogs/Dialogs.vala:937
@@ -1894,9 +1886,8 @@ msgid "_Scaling constraint:"
 msgstr "Omejitev _spremembe velikosti:"
 
 #: src/Dialogs/ExportDialog.vala:106
-#, fuzzy
 msgid "_Size in pixels:"
-msgstr "Skrij informacije"
+msgstr "Veliko_st v pikslih:"
 
 #: src/Dialogs/ExportDialog.vala:112
 msgid "Export metadata"
@@ -1924,9 +1915,8 @@ msgid "R_ename imported files to lowercase:"
 msgstr "Ob uvozu preimenuj datoteke v imena s samo malimi črkami:"
 
 #: src/Dialogs/PreferencesDialog.vala:74
-#, fuzzy
 msgid "Write _metadata to files:"
-msgstr "Shrani metapodatke v datoteke:"
+msgstr "Shrani _metapodatke v datoteke:"
 
 #: src/Dialogs/PreferencesDialog.vala:78
 msgid "RAW Developer"
@@ -2204,16 +2194,12 @@ msgid "_Import From Folder…"
 msgstr "_Uvozi z mape…"
 
 #: src/library/LibraryWindow.vala:174
-#, fuzzy
-#| msgid "S_idebar"
 msgid "Toggle Sidebar"
 msgstr "Stranska vrstica"
 
 #: src/library/LibraryWindow.vala:180
-#, fuzzy
-#| msgid "Edit Photo In_fo"
 msgid "Toggle Photo Info"
-msgstr "Uredi informacije v sliki"
+msgstr "Podatki o sliki"
 
 #: src/library/LibraryWindow.vala:184
 msgid "_Preferences"
@@ -2438,9 +2424,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: src/sidebar/Tree.vala:884
-#, fuzzy
 msgid "New _Tag…"
-msgstr "Nova _oznaka ..."
+msgstr "Nova _oznaka…"
 
 #: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
 msgid "RAW+JPEG"
@@ -2590,10 +2575,8 @@ msgstr "_Razvijalec"
 
 #: src/Views/CollectionPage.vala:175 src/Views/DirectPhotoPage.vala:158
 #: src/Views/LibraryPhotoPage.vala:546
-#, fuzzy
-#| msgid "Show Photo Titles"
 msgid "Show in Files"
-msgstr "Pokaži _naslove"
+msgstr "Pokaži v Datotekah"
 
 #: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:171
 #: src/Views/LibraryPhotoPage.vala:565
@@ -2603,16 +2586,15 @@ msgstr "Druge možnosti"
 #: src/Views/CollectionPage.vala:219 src/Views/DirectPhotoPage.vala:167
 #: src/Views/LibraryPhotoPage.vala:574
 msgid "Set as Wallpaper"
-msgstr ""
+msgstr "Nastavi za ozadje"
 
 #: src/Views/CollectionPage.vala:562
-#, fuzzy
 msgid "Export Photo/Video"
 msgid_plural "Export Photos/Videos"
-msgstr[0] "Izvozi fotografijo ali videoposnetek"
-msgstr[1] "Izvozi fotografijo ali videoposnetek"
-msgstr[2] "Izvozi fotografijo ali videoposnetek"
-msgstr[3] "Izvozi fotografijo ali videoposnetek"
+msgstr[0] "Izvozi fotografijo/videoposnetek"
+msgstr[1] "Izvozi fotografiji/videoposnetka"
+msgstr[2] "Izvozi fotografije/videoposnetke"
+msgstr[3] "Izvozi fotografije/videoposnetke"
 
 #: src/Views/CollectionPage.vala:658 src/Views/CollectionPage.vala:668
 msgid "Rotating"
@@ -2681,7 +2663,7 @@ msgstr "Shrani kot"
 
 #: src/Views/EditingHostPage.vala:159
 msgid "Zoom to fit page"
-msgstr ""
+msgstr "Povečava do velikosti strani"
 
 #: src/Views/EditingHostPage.vala:168
 msgid "Zoom 1:1"
@@ -2703,18 +2685,16 @@ msgstr "Izvirna datoteka fotografije manjka: %s"
 #: src/Views/EditingHostPage.vala:1698
 #, c-format
 msgid "Raw dimensions: %i x %i px"
-msgstr ""
+msgstr "Originalna velikost: %i x %i pikslov"
 
 #: src/Views/EditingHostPage.vala:1701
 #, c-format
 msgid "Copied dimensions: %i x %i px"
-msgstr ""
+msgstr "Kopirana velikost: %i x %i pikslov"
 
 #: src/Views/EditingHostPage.vala:1727
-#, fuzzy
-#| msgid "No events found"
 msgid "No metadata found"
-msgstr "Ni najdenih dogodkov"
+msgstr "Ni najdenih metapodatkov"
 
 #: src/Views/EventPage.vala:136
 msgid "All Events"
@@ -2762,16 +2742,14 @@ msgid "%Y"
 msgstr "%Y"
 
 #: src/Views/EventsDirectoryPage.vala:315
-#, fuzzy
 msgid "%OB"
-msgstr "%B"
+msgstr "%OB"
 
 #: src/Views/FlaggedPage.vala:21
 msgid "Flagged"
 msgstr "Z zastavico"
 
 #: src/Views/ImportPage.vala:478
-#, fuzzy
 msgid ""
 "Unable to unmount camera. Try unmounting the camera from the file manager."
 msgstr ""
@@ -2804,9 +2782,8 @@ msgstr "Uvozi _vse"
 #. TODO: replace this with approved text for "talking to camera,
 #. please wait" once new strings are being accepted.
 #: src/Views/ImportPage.vala:931
-#, fuzzy
 msgid "Starting import, please wait…"
-msgstr "Začenjanje uvoza, prosimo počakajte ..."
+msgstr "Začenjanje uvoza, prosimo počakajte …"
 
 #: src/Views/ImportPage.vala:951 src/Views/MediaPage.vala:229
 msgid "Display the title of each photo"
@@ -2822,15 +2799,14 @@ msgstr "Uvozi vse fotografije v vašo knjižnico"
 
 #: src/Views/ImportPage.vala:1088
 msgid "The Camera Cannot Be Accessed While Mounted"
-msgstr ""
+msgstr "Kamere ni mogoče uporabljati dokler je priklopljena"
 
 #: src/Views/ImportPage.vala:1089
-#, fuzzy
 msgid ""
 "Photos needs to unmount the camera from the filesystem in order to access it."
 msgstr ""
 "Za dostop do fotoaparata je treba napravo najprej odklopiti iz datotečnega "
-"sistema. Ali želite nadaljevati?"
+"sistema."
 
 #: src/Views/ImportPage.vala:1095
 msgid "_Unmount"
@@ -2843,10 +2819,9 @@ msgstr "Odklopite fotoaparat."
 #. it's not mounted, so another application must have it locked
 #: src/Views/ImportPage.vala:1108
 msgid "The Camera Is Locked By Another Application"
-msgstr ""
+msgstr "Druga aplikacija uporablja kamero"
 
 #: src/Views/ImportPage.vala:1109
-#, fuzzy
 msgid ""
 "Photos can only access the camera when it's unlocked. Please close any other "
 "application using the camera and try again."
@@ -2869,9 +2844,8 @@ msgstr ""
 "%s"
 
 #: src/Views/ImportPage.vala:1138
-#, fuzzy
 msgid "Unmounting…"
-msgstr "Odklapljanje ..."
+msgstr "Odklapljanje …"
 
 #: src/Views/ImportPage.vala:1244
 msgid "Fetching photo information"
@@ -2949,9 +2923,8 @@ msgstr[3] ""
 "Zaradi napak iz fotoaparata ni mogoče izbrisati %d fotografij/videoposnetkov."
 
 #: src/Views/ImportQueuePage.vala:21
-#, fuzzy
 msgid "Importing…"
-msgstr "Uvažanje"
+msgstr "Uvažanje…"
 
 #: src/Views/ImportQueuePage.vala:59
 msgid "_Stop Import"
@@ -2962,9 +2935,8 @@ msgid "Stop importing photos"
 msgstr "Zaustavi uvažanje fotografij"
 
 #: src/Views/ImportQueuePage.vala:117
-#, fuzzy
 msgid "Preparing to import…"
-msgstr "Pripravljanje na uvoz ..."
+msgstr "Pripravljanje na uvoz …"
 
 #: src/Views/ImportQueuePage.vala:143
 #, c-format
@@ -2985,9 +2957,8 @@ msgid "Missing Files"
 msgstr "Manjkajoče datoteke"
 
 #: src/Views/OfflinePage.vala:183
-#, fuzzy
 msgid "Deleting…"
-msgstr "Brisanje ..."
+msgstr "Brisanje …"
 
 #: src/Views/MediaPage.vala:70 src/Views/MediaPage.vala:240
 msgid "Ta_gs"
@@ -3008,7 +2979,7 @@ msgstr "Po _datumu zajema"
 
 #: src/Views/MediaPage.vala:94 src/Views/MediaPage.vala:267
 msgid "By _File Modification Time"
-msgstr ""
+msgstr "Po datumu _spremembe"
 
 #: src/Views/MediaPage.vala:235
 msgid "Display the comment of each photo"
@@ -3027,10 +2998,8 @@ msgid "Sort photos by exposure date"
 msgstr "Razvrsti fotografije po datumu zajema"
 
 #: src/Views/MediaPage.vala:268
-#, fuzzy
-#| msgid "Sort photos by exposure date"
 msgid "Sort photos by import timestamp"
-msgstr "Razvrsti fotografije po datumu zajema"
+msgstr "Razvrsti fotografije po datumu uvoza"
 
 #: src/Views/MediaPage.vala:415
 #, c-format
@@ -3140,28 +3109,22 @@ msgid "Transition Effect"
 msgstr "Učinek prehoda"
 
 #: src/Widgets/SliderAssembly.vala:55
-#, fuzzy
-#| msgid "Zoom _Out"
 msgid "Zoom Out"
-msgstr "O_ddalji"
+msgstr "Oddalji"
 
 #. Cannot use Granite.markup_accel_tooltip here since "<Control>Scroll" is not parsable by Gtk.accelerator_parse ()
 #: src/Widgets/SliderAssembly.vala:72
-#, fuzzy
-#| msgid "Adjust"
 msgid "Adjust Zoom"
-msgstr "Prilagodi"
+msgstr "Prilagodi povečavo"
 
 #: src/Widgets/SliderAssembly.vala:73
 #, c-format
 msgid "%s + Scroll"
-msgstr ""
+msgstr "%s + drsenje"
 
 #: src/Widgets/SliderAssembly.vala:87
-#, fuzzy
-#| msgid "Zoom _In"
 msgid "Zoom In"
-msgstr "_Približaj"
+msgstr "Približaj"
 
 #: src/Widgets/SearchRowContainer.vala:63
 msgid "Remove rule"
@@ -3261,9 +3224,8 @@ msgid "does not contain"
 msgstr "ne vsebuje"
 
 #: src/Widgets/CustomPrintTab.vala:48
-#, fuzzy
 msgid "Printed Image Size"
-msgstr "<b>Natisnjena velikost slike</b>"
+msgstr "Natisnjena velikost slike"
 
 #: src/Widgets/CustomPrintTab.vala:52
 msgid "Use a _standard size:"
@@ -3290,18 +3252,16 @@ msgid "_Match photo aspect ratio"
 msgstr "_Ujemanje razmerja stranic fotografije"
 
 #: src/Widgets/CustomPrintTab.vala:108
-#, fuzzy
 msgid "Titles"
-msgstr "_Naslovi"
+msgstr "Naslovi"
 
 #: src/Widgets/CustomPrintTab.vala:112
 msgid "Print image _title"
 msgstr "Natisni _naslov slike"
 
 #: src/Widgets/CustomPrintTab.vala:118
-#, fuzzy
 msgid "Pixel Resolution"
-msgstr "<b>Ločljivost v pikslih</b>"
+msgstr "Ločljivost v pikslih"
 
 #: src/Widgets/CustomPrintTab.vala:125
 msgid "_Output photo at:"
