@@ -320,7 +320,8 @@ public class DirectPhotoPage : EditingHostPage {
         }
 
         base.update_actions (selected_count, count);
-        rotate_button.sensitive = rotate_possible;
+        rotate_left_button.sensitive = rotate_possible;
+        rotate_right_button.sensitive = rotate_possible;
     }
 
     private bool check_ok_to_close_photo (Photo photo) {

@@ -69,7 +69,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     private ViewCollection? parent_view = null;
     private Gdk.Pixbuf swapped = null;
     private bool pixbuf_dirty = true;
-    protected Gtk.Button? rotate_button = null;
+    protected Gtk.Button? rotate_left_button = null;
+    protected Gtk.Button? rotate_right_button = null;
     private Gtk.Button? flip_button = null;
     private Gtk.ToggleButton? crop_button = null;
     private Gtk.ToggleButton? redeye_button = null;
@@ -122,9 +123,13 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override void add_toolbar_widgets (Gtk.ActionBar toolbar) {
-        rotate_button = new Gtk.Button.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR);
-        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
-        rotate_button.clicked.connect (on_rotate_clockwise);
+        rotate_left_button = new Gtk.Button.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_left_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP;
+        rotate_left_button.clicked.connect (on_rotate_counterclockwise);
+
+        rotate_right_button = new Gtk.Button.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_right_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
+        rotate_right_button.clicked.connect (on_rotate_clockwise);
 
         flip_button = new Gtk.Button.from_icon_name ("object-flip-horizontal", Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
@@ -195,7 +200,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         toolbar.pack_start (prev_button);
         toolbar.pack_start (next_button);
         toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-        toolbar.pack_start (rotate_button);
+        toolbar.pack_start (rotate_left_button);
+        toolbar.pack_start (rotate_right_button);
         toolbar.pack_start (flip_button);
         toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         toolbar.pack_start (crop_button);
@@ -580,7 +586,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected void enable_rotate (bool should_enable) {
-        rotate_button.set_sensitive (should_enable);
+        rotate_left_button.set_sensitive (should_enable);
+        rotate_right_button.set_sensitive (should_enable);
     }
 
     // This function should be called if the viewport has changed and the pixbuf cache needs to be
@@ -762,7 +769,8 @@ public abstract class EditingHostPage : SinglePhotoPage {
         bool sensitivity = !missing;
 
         flip_button.sensitive = sensitivity;
-        rotate_button.sensitive = sensitivity;
+        rotate_left_button.sensitive = sensitivity;
+        rotate_right_button.sensitive = sensitivity;
         crop_button.sensitive = sensitivity;
         straighten_button.sensitive = sensitivity;
         redeye_button.sensitive = sensitivity;
@@ -1021,7 +1029,9 @@ public abstract class EditingHostPage : SinglePhotoPage {
         Photo? photo = get_photo ();
         Scaling scaling = get_canvas_scaling ();
 
-        rotate_button.sensitive = ((photo != null) && (!photo_missing) && photo.check_can_rotate ()) ?
+        rotate_left_button.sensitive = ((photo != null) && (!photo_missing) && photo.check_can_rotate ()) ?
+                                  is_rotate_available (photo) : false;
+        rotate_right_button.sensitive = ((photo != null) && (!photo_missing) && photo.check_can_rotate ()) ?
                                   is_rotate_available (photo) : false;
         crop_button.sensitive = ((photo != null) && (!photo_missing)) ?
                                 EditingTools.CropTool.is_available (photo, scaling) : false;
@@ -1767,12 +1777,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
-        rotate_button.image = (new Gtk.Image.from_icon_name ("object-rotate-left", Gtk.IconSize.LARGE_TOOLBAR));
-        rotate_button.set_tooltip_text (Resources.ROTATE_CCW_TOOLTIP);
-        rotate_button.show_all ();
-        rotate_button.clicked.disconnect (on_rotate_clockwise);
-        rotate_button.clicked.connect (on_rotate_counterclockwise);
-
         flip_button.image = new Gtk.Image.from_icon_name (Resources.VFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.set_tooltip_text (Resources.VFLIP_TOOLTIP);
         flip_button.clicked.disconnect (on_flip_horizontally);
@@ -1785,12 +1789,6 @@ public abstract class EditingHostPage : SinglePhotoPage {
     }
 
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
-        rotate_button.image = new Gtk.Image.from_icon_name ("object-rotate-right", Gtk.IconSize.LARGE_TOOLBAR);
-        rotate_button.set_tooltip_text (Resources.ROTATE_CW_TOOLTIP);
-        rotate_button.show_all ();
-        rotate_button.clicked.disconnect (on_rotate_counterclockwise);
-        rotate_button.clicked.connect (on_rotate_clockwise);
-
         flip_button.image = new Gtk.Image.from_icon_name (Resources.HFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.set_tooltip_text (Resources.HFLIP_TOOLTIP);
         flip_button.clicked.disconnect (on_flip_vertically);

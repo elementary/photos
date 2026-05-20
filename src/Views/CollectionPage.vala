@@ -45,7 +45,8 @@ public abstract class CollectionPage : MediaPage {
     private Gtk.ToggleButton? enhance_button = null;
     private Gtk.Menu item_context_menu;
     private Gtk.Menu contractor_submenu;
-    private Gtk.Button rotate_button;
+    private Gtk.Button rotate_left_button;
+    private Gtk.Button rotate_right_button;
     private Gtk.Button flip_button;
 
     protected CollectionPage (string page_name) {
@@ -68,12 +69,19 @@ public abstract class CollectionPage : MediaPage {
         slideshow_button.tooltip_text = _("Play a slideshow");
         slideshow_button.clicked.connect (on_slideshow);
 
-        rotate_button = new Gtk.Button.from_icon_name (Resources.CLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
-        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP; // Will be used be screen reader if no label
-        rotate_button.clicked.connect (on_rotate_clockwise);
+        rotate_left_button = new Gtk.Button.from_icon_name (Resources.COUNTERCLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_left_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP; // Will be used be screen reader if no label
+        rotate_left_button.clicked.connect (on_rotate_counterclockwise);
 
-        var rotate_action = get_action ("RotateClockwise");
-        rotate_action.bind_property ("sensitive", rotate_button, "sensitive", BindingFlags.SYNC_CREATE);
+        var rotate_left_action = get_action ("RotateCounterclockwise");
+        rotate_left_action.bind_property ("sensitive", rotate_left_button, "sensitive", BindingFlags.SYNC_CREATE);
+
+        rotate_right_button = new Gtk.Button.from_icon_name (Resources.CLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
+        rotate_right_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP; // Will be used be screen reader if no label
+        rotate_right_button.clicked.connect (on_rotate_clockwise);
+
+        var rotate_right_action = get_action ("RotateClockwise");
+        rotate_right_action.bind_property ("sensitive", rotate_right_button, "sensitive", BindingFlags.SYNC_CREATE);
 
         flip_button = new Gtk.Button.from_icon_name (Resources.HFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
@@ -97,7 +105,8 @@ public abstract class CollectionPage : MediaPage {
         show_sidebar_button.clicked.connect (on_show_sidebar);
 
         toolbar.pack_start (slideshow_button);
-        toolbar.pack_start (rotate_button);
+        toolbar.pack_start (rotate_left_button);
+        toolbar.pack_start (rotate_right_button);
         toolbar.pack_start (flip_button);
         toolbar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         toolbar.pack_start (enhance_button);
@@ -839,12 +848,8 @@ public abstract class CollectionPage : MediaPage {
     protected override bool on_ctrl_pressed (Gdk.EventKey? event) {
         flip_button.image = new Gtk.Image.from_icon_name (Resources.VFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.VFLIP_TOOLTIP;
-        rotate_button.image = new Gtk.Image.from_icon_name (Resources.COUNTERCLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
-        rotate_button.tooltip_text = Resources.ROTATE_CCW_TOOLTIP;
         flip_button.clicked.disconnect (on_flip_horizontally);
         flip_button.clicked.connect (on_flip_vertically);
-        rotate_button.clicked.disconnect (on_rotate_clockwise);
-        rotate_button.clicked.connect (on_rotate_counterclockwise);
 
         return base.on_ctrl_pressed (event);
     }
@@ -852,12 +857,8 @@ public abstract class CollectionPage : MediaPage {
     protected override bool on_ctrl_released (Gdk.EventKey? event) {
         flip_button.image = new Gtk.Image.from_icon_name (Resources.HFLIP, Gtk.IconSize.LARGE_TOOLBAR);
         flip_button.tooltip_text = Resources.HFLIP_TOOLTIP;
-        rotate_button.image = new Gtk.Image.from_icon_name (Resources.CLOCKWISE, Gtk.IconSize.LARGE_TOOLBAR);
-        rotate_button.tooltip_text = Resources.ROTATE_CW_TOOLTIP;
         flip_button.clicked.disconnect (on_flip_vertically);
         flip_button.clicked.connect (on_flip_horizontally);
-        rotate_button.clicked.disconnect (on_rotate_counterclockwise);
-        rotate_button.clicked.connect (on_rotate_clockwise);
 
         return base.on_ctrl_released (event);
     }
