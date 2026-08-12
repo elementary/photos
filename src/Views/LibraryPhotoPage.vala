@@ -571,7 +571,7 @@ public class LibraryPhotoPage : EditingHostPage {
             var sources = get_view ().get_selected_sources ();
 
             if (sources.size == 1) {
-                var source = sources.get(0);
+                var source = sources.get (0);
                 if (source != null && source is Photo) {
                     var file = ((Photo) source).get_file ();
                     if (file != null) {
