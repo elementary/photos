@@ -168,10 +168,15 @@ public class DirectPhotoPage : EditingHostPage {
                     action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
                 };
 
+                var email_menuitem = new Gtk.MenuItem.with_label (_("Send via Email")) {
+                    action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SEND_EMAIL
+                };
+
                 var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
                 contractor_menu = new Gtk.Menu ();
                 contractor_menu.add (print_menu_item);
                 contractor_menu.add (wallpaper_menuitem);
+                contractor_menu.add (email_menuitem);
                 contractor_menu_item.set_submenu (contractor_menu);
 
                 context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -185,6 +190,7 @@ public class DirectPhotoPage : EditingHostPage {
                 if (source != null && source is Photo) {
                     var file = get_photo ().get_file ();
                     wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                    email_menuitem.action_target = new Variant.strv ({ file.get_path () });
                 }
             }
 
