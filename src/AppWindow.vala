@@ -365,7 +365,7 @@ public abstract class AppWindow : PageWindow {
         try {
             portal.compose_email (parent, null, null, null, null, null, param.get_strv (), NONE, null);
         } catch (Error error) {
-            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name ("Could not send selected photos", error.message, "dialog-error");
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Could not send selected photos"), error.message, "dialog-error");
             message_dialog.run ();
             message_dialog.destroy ();
         }
