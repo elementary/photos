@@ -362,7 +362,13 @@ public abstract class AppWindow : PageWindow {
         Xdp.Parent? parent = Xdp.parent_new_gtk (this);
 
         var portal = new Xdp.Portal ();
-        portal.compose_email (parent, null, null, null, null, null, param.get_strv (), NONE, null);
+        try {
+            portal.compose_email (parent, null, null, null, null, null, param.get_strv (), NONE, null);
+        } catch (Error error) {
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name ("Could not send selected photos", error.message, "dialog-error");
+            message_dialog.run ();
+            message_dialog.destroy ();
+        }
     }
 
     private void on_undo () {
