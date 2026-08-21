@@ -567,17 +567,7 @@ public class LibraryPhotoPage : EditingHostPage {
             contractor_menu_item.set_submenu (contractor_submenu);
             contractor_submenu.add (print_menu_item);
             contractor_submenu.add (export_menu_item);
-            var source = get_view ().get_selected_at (0).source;
-            if (source != null && source is Photo) { // Cannot set other media as wallpaper
-                var file = ((Photo)source).get_file ();
-                if (file != null) {
-                    var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                        action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
-                        action_target = new Variant.string (file.get_uri ())
-                    };
-                    contractor_submenu.add (wallpaper_menuitem);
-                }
-            }
+
             var remove_menu_item = new Gtk.MenuItem.with_mnemonic (Resources.REMOVE_FROM_LIBRARY_MENU);
             var remove_action = get_action ("RemoveFromLibrary");
             remove_action.bind_property ("sensitive", remove_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
@@ -612,6 +602,7 @@ public class LibraryPhotoPage : EditingHostPage {
             item_context_menu.show_all ();
         }
 
+        populate_portal_menu_items (contractor_submenu);
         populate_contractor_menu (contractor_submenu);
         return item_context_menu;
     }
