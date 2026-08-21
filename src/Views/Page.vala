@@ -19,6 +19,7 @@
 
 public abstract class Page : Gtk.ScrolledWindow {
     private const int CONSIDER_CONFIGURE_HALTED_MSEC = 400;
+    private const int64 MAX_EMAIL_ATTACH_SIZE = 10485760; // 10MB in bytes, typical email limit
 
     protected Gtk.ActionBar? toolbar = null;
     protected Gtk.Button? show_sidebar_button = null;
@@ -128,17 +129,24 @@ public abstract class Page : Gtk.ScrolledWindow {
         }
 
         string[] source_uris = new string[sources.size];
+        int64 total_size = 0;
         for (int i = 0; i < sources.size; i++) {
             var source = sources.get (i);
             if (source != null) {
                 var file = ((Photo) source).get_file ();
+                var file_info = file.query_info ("standard::size", FileQueryInfoFlags.NONE);
+                total_size += file_info.get_size ();
+
                 if (file != null) {
                     source_uris[i] = file.get_path ();
                 }
             }
         }
-        if (source_uris.length > 0) {
+        if (source_uris.length > 0 && total_size < MAX_EMAIL_ATTACH_SIZE) {
             email_menuitem.action_target = new Variant.strv (source_uris);
+        }
+        else {
+            email_menuitem.action_target = null;
         }
     }
 
