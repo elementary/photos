@@ -49,6 +49,9 @@ public abstract class Page : Gtk.ScrolledWindow {
     protected Gtk.Box header_box;
     protected GLib.Settings ui_settings;
 
+    protected Gtk.MenuItem wallpaper_menuitem;
+    protected Gtk.MenuItem email_menuitem;
+
     public bool in_view { get; private set; default = false; }
     public string page_name { get; construct set; }
 
@@ -92,12 +95,51 @@ public abstract class Page : Gtk.ScrolledWindow {
 
         contractor_menu_items = new GLib.List<Gtk.Widget> ();
         realize.connect (attach_view_signals);
+
+        wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
+            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
+        };
+
+        email_menuitem = new Gtk.MenuItem.with_label (_("Send via Email")) {
+            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SEND_EMAIL
+        };
     }
 
     ~Page () {
 #if TRACE_DTORS
         debug ("DTOR: Page %s", page_name);
 #endif
+    }
+
+    protected void populate_portal_menu_items (Gtk.Menu menu) {
+        var sources = get_view ().get_selected_sources_of_type (typeof (Photo));
+
+        if (sources.size == 1) {
+            var source = sources.get (0);
+            if (source != null) {
+                var file = ((Photo) source).get_file ();
+                if (file != null) {
+                        wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                }
+            }
+        }
+        else {
+            wallpaper_menuitem.action_target = null;
+        }
+
+        string[] source_uris = new string[sources.size];
+        for (int i = 0; i < sources.size; i++) {
+            var source = sources.get (i);
+            if (source != null) {
+                var file = ((Photo) source).get_file ();
+                if (file != null) {
+                    source_uris[i] = file.get_path ();
+                }
+            }
+        }
+        if (source_uris.length > 0) {
+            email_menuitem.action_target = new Variant.strv (source_uris);
+        }
     }
 
     protected void populate_contractor_menu (Gtk.Menu menu) {

@@ -211,37 +211,7 @@ public abstract class CollectionPage : MediaPage {
             contractor_menu_item.set_submenu (contractor_submenu);
             contractor_submenu.add (print_menu_item);
             contractor_submenu.add (export_menu_item);
-
-            var sources = get_view ().get_selected_sources ();
-
-            if (sources.size == 1) {
-                var source = sources.get (0);
-                if (source != null && source is Photo) {
-                    var file = ((Photo) source).get_file ();
-                    if (file != null) {
-                        var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
-                            action_target = new Variant.string (file.get_uri ())
-                        };
-                        contractor_submenu.add (wallpaper_menuitem);
-                    }
-                }
-            }
-
-            string[] source_uris = new string[sources.size];
-            for (int i = 0; i < sources.size; i++) {
-                var source = sources.get (i);
-                if (source != null && source is Photo) {
-                    var file = ((Photo) source).get_file ();
-                    if (file != null) {
-                        source_uris[i] = file.get_path ();
-                    }
-                }
-            }
-            var email_menuitem = new Gtk.MenuItem.with_label (_("Send via Email")) {
-                action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SEND_EMAIL,
-                action_target = new Variant.strv (source_uris)
-            };
+            contractor_submenu.add (wallpaper_menuitem);
             contractor_submenu.add (email_menuitem);
 
             item_context_menu.add (copy_images_menu_item);
@@ -268,6 +238,7 @@ public abstract class CollectionPage : MediaPage {
             item_context_menu.show_all ();
         }
 
+        populate_portal_menu_items (contractor_submenu);
         populate_contractor_menu (contractor_submenu);
         return item_context_menu;
     }
