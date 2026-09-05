@@ -164,14 +164,9 @@ public class DirectPhotoPage : EditingHostPage {
                 print_action.bind_property ("sensitive", print_menu_item, "sensitive", BindingFlags.SYNC_CREATE);
                 print_menu_item.activate.connect (() => print_action.activate ());
 
-                var wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-                    action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
-                };
-
                 var contractor_menu_item = new Gtk.MenuItem.with_mnemonic (_("Other Actions"));
                 contractor_menu = new Gtk.Menu ();
                 contractor_menu.add (print_menu_item);
-                contractor_menu.add (wallpaper_menuitem);
                 contractor_menu_item.set_submenu (contractor_menu);
 
                 context_menu.add (new Gtk.SeparatorMenuItem ());
@@ -180,17 +175,12 @@ public class DirectPhotoPage : EditingHostPage {
                 context_menu.add (new Gtk.SeparatorMenuItem ());
                 context_menu.add (open_menu_item);
                 context_menu.add (contractor_menu_item);
-
-                var source = get_view ().get_selected_at (0).source;
-                if (source != null && source is Photo) {
-                    var file = get_photo ().get_file ();
-                    wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
-                }
             }
 
             context_menu.show_all ();
         }
 
+        populate_portal_menu_items (contractor_menu);
         populate_contractor_menu (contractor_menu);
         popup_context_menu (context_menu, event);
 

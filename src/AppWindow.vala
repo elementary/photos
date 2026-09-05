@@ -52,6 +52,7 @@ public abstract class AppWindow : PageWindow {
     public const string ACTION_SELECT_NONE = "action_select_none";
     public const string ACTION_UNDO = "action_undo";
     public const string ACTION_SET_WALLPAPER = "set-wallpaper";
+    public const string ACTION_SEND_EMAIL = "send-email";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_FULLSCREEN, on_fullscreen },
@@ -61,7 +62,8 @@ public abstract class AppWindow : PageWindow {
         { ACTION_SELECT_ALL, on_select_all },
         { ACTION_SELECT_NONE, on_select_none },
         { ACTION_UNDO, on_undo },
-        { ACTION_SET_WALLPAPER, action_set_wallpaper, "s" }
+        { ACTION_SET_WALLPAPER, action_set_wallpaper, "s" },
+        { ACTION_SEND_EMAIL, action_send_email, "as" }
     };
 
     protected AppWindow () {
@@ -354,6 +356,23 @@ public abstract class AppWindow : PageWindow {
 
         var portal = new Xdp.Portal ();
         portal.set_wallpaper.begin (parent, param.get_string (), NONE, null);
+    }
+
+    private void action_send_email (GLib.SimpleAction action, GLib.Variant? param) {
+        Xdp.Parent? parent = Xdp.parent_new_gtk (this);
+
+        var portal = new Xdp.Portal ();
+        try {
+            portal.compose_email (parent, null, null, null, null, null, param.get_strv (), NONE, null);
+        } catch (Error error) {
+            var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                _("Could not send selected photos"), error.message, "dialog-error"
+            ) {
+                transient_for = this
+            };
+            message_dialog.response.connect (message_dialog.destroy);
+            message_dialog.run ();
+        }
     }
 
     private void on_undo () {
