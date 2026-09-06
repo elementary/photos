@@ -141,10 +141,10 @@ public abstract class Page : Gtk.ScrolledWindow {
                 }
             }
         }
+
         if (source_uris.length > 0 && total_size < MAX_EMAIL_ATTACH_SIZE) {
             email_menuitem.action_target = new Variant.strv (source_uris);
-        }
-        else {
+        } else {
             email_menuitem.action_target = null;
         }
     }
