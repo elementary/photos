@@ -124,7 +124,7 @@ public abstract class Page : Gtk.ScrolledWindow {
                 }
             }
         } else {
-            wallpaper_menuitem.action_target = null;
+            wallpaper_menuitem.set_action_target_value (null);
         }
 
         string[] source_uris = new string[sources.size];
@@ -145,8 +145,13 @@ public abstract class Page : Gtk.ScrolledWindow {
             email_menuitem.action_target = new Variant.strv (source_uris);
         }
         else {
-            email_menuitem.action_target = null;
+            email_menuitem.set_action_target_value (null);
         }
+
+        menu.add (wallpaper_menuitem);
+        menu.add (email_menuitem);
+
+        menu.show_all ();
     }
 
     protected void populate_contractor_menu (Gtk.Menu menu) {
