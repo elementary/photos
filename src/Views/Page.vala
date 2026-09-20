@@ -98,11 +98,13 @@ public abstract class Page : Gtk.ScrolledWindow {
         realize.connect (attach_view_signals);
 
         wallpaper_menuitem = new Gtk.MenuItem.with_label (_("Set as Wallpaper")) {
-            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER
+            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SET_WALLPAPER,
+            action_target = new Variant.string ("")
         };
 
         email_menuitem = new Gtk.MenuItem.with_label (_("Send via Email")) {
-            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SEND_EMAIL
+            action_name = AppWindow.ACTION_PREFIX + AppWindow.ACTION_SEND_EMAIL,
+            action_target = new Variant.strv ({""})
         };
     }
 
@@ -121,10 +123,12 @@ public abstract class Page : Gtk.ScrolledWindow {
                 var file = ((Photo) source).get_file ();
                 if (file != null) {
                     wallpaper_menuitem.action_target = new Variant.string (file.get_uri ());
+                    wallpaper_menuitem.set_sensitive (true);
                 }
             }
         } else {
-            wallpaper_menuitem.set_action_target_value (null);
+            wallpaper_menuitem.action_target = new Variant.string ("");
+            wallpaper_menuitem.set_sensitive (false);
         }
 
         string[] source_uris = new string[sources.size];
@@ -141,14 +145,20 @@ public abstract class Page : Gtk.ScrolledWindow {
                 }
             }
         }
+
         if (source_uris.length > 0 && total_size < MAX_EMAIL_ATTACH_SIZE) {
             email_menuitem.action_target = new Variant.strv (source_uris);
+            email_menuitem.set_sensitive (true);
         } else {
-            email_menuitem.set_action_target_value (null);
+            email_menuitem.action_target = new Variant.strv ({""});
+            email_menuitem.set_sensitive (false);
         }
 
-        menu.add (wallpaper_menuitem);
-        menu.add (email_menuitem);
+        if (menu.get_children ().index (wallpaper_menuitem) == -1)
+        {
+            menu.add (wallpaper_menuitem);
+            menu.add (email_menuitem);
+        }
 
         menu.show_all ();
     }
