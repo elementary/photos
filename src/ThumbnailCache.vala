@@ -336,6 +336,9 @@ public class ThumbnailCache : Object {
             // just propagate it up to the caller
             largest_thumbnail = reader.unscaled_read ();
         }
+        if (largest_thumbnail == null) {
+            throw new IOError.FAILED ("Unable to decode image");
+        }
         largest_thumbnail = orientation.rotate_pixbuf (largest_thumbnail);
         Dimensions largest_thumb_dimensions = Dimensions.for_pixbuf (largest_thumbnail);
 
