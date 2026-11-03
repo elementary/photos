@@ -166,8 +166,8 @@ public class WebPReader : PhotoFileReader {
         result.save_to_buffer (out png_data, "png");
         var loader = new Gdk.PixbufLoader ();
         loader.write (png_data);
-        result = loader.get_pixbuf ();
         loader.close ();
+        result = loader.get_pixbuf ();
 
         return result;
     }
