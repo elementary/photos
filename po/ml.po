@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 00:21+0000\n"
+"POT-Creation-Date: 2026-08-04 22:08+0000\n"
 "PO-Revision-Date: 2016-04-18 04:18+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/shotwell/"
@@ -378,11 +378,11 @@ msgstr "ടൂള്‍ബാര്‍ തുറന്ന നിലയില്�
 msgid "Leave fullscreen"
 msgstr "പൂര്‍ണ്ണസ്ക്രീനില്‍ നിന്നും പുറത്ത് കടക്കുക"
 
-#: src/main.vala:68 src/main.vala:76
+#: src/main.vala:63 src/main.vala:71
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
-#: src/main.vala:69
+#: src/main.vala:64
 #, fuzzy, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -392,7 +392,7 @@ msgstr ""
 "%d) ഉപയോഗിച്ച് നിര്‍മിച്ചതാണ്. ഈ പതിപ്പ് %s (സ്കീമ %d) ആണ്. ദയവായി ഷോട്ട്‌‌വെലിന്റെ പുതിയ "
 "പതിപ്പ് ഉപയോഗിക്കുക"
 
-#: src/main.vala:72
+#: src/main.vala:67
 #, fuzzy, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
@@ -401,12 +401,12 @@ msgstr ""
 "നിങ്ങളുടെ ഫോട്ടൊ ലൈബ്രറി വേര്‍ഷന്‍ %s (സ്കീമ %d)യില്‍ നിന്നും  %s(സ്കീമ %d)യിലേക്ക് ഉയര്‍ത്താന്‍ "
 "ഷോട്ട്‌‌വെലിനു സാധിച്ചില്ല. കൂടൂതല്‍ വിവരങ്ങള്‍ക്ക്  ഷോട്ട്‌‌വെല്‍ വിക്കി %s കാണുക"
 
-#: src/main.vala:73
+#: src/main.vala:68
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
 
-#: src/main.vala:77
+#: src/main.vala:72
 #, fuzzy, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -417,47 +417,43 @@ msgstr ""
 "സ്കീമ ) ഉപയോഗിച്ച് സൃഷ്ടിച്ചതായി കാണുന്നു. ഈ പതിപ്പ്  %s (%d സ്കീമ )ആണ്. ദയവായി %s "
 "മാച്ച്കളഞ്ഞ് നിങ്ങളുടെ ലൈബ്രറി വെടിപ്പാക്കുക , അതിനു ശേഷം  ഫോട്ടോകള്‍ വീണ്ടും  ഇറക്കുമതി ചെയ്യുക"
 
-#: src/main.vala:80
+#: src/main.vala:75
 #, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "ഷോട്ട്‌വെല്‍ ഡാറ്റാബേസ് ഉറപ്പുവരുത്തുന്നതില്‍ പിഴവ് :%s"
 
-#: src/main.vala:115
+#: src/main.vala:110
 #, fuzzy
 msgid "Loading Photos"
 msgstr "ഷോട്ട്‌‌വെല്‍ ലോഡ് ചെയ്യുന്നു..."
 
-#: src/main.vala:277
+#: src/main.vala:235
 #, fuzzy
 msgid "Path to Photos' private data"
 msgstr "ഷോട്ട്‌വെല്ലിന്റെ സ്വകാര്യ ഡേറ്റയിലേക്കുള്ള വഴി"
 
-#: src/main.vala:277
+#: src/main.vala:235
 msgid "DIRECTORY"
 msgstr "DIRECTORY"
 
-#: src/main.vala:278
+#: src/main.vala:236
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "മാറ്റങ്ങള്‍ക്കായി പ്രവര്‍ത്തന സമയത്തു് ലൈബ്രറി ഡയറക്ടറി നിരീക്ഷിക്കേണ്ടതില്ല"
 
-#: src/main.vala:279
+#: src/main.vala:237
 msgid "Don't display startup progress meter"
 msgstr "പ്രാരംഭത്തിലുള്ള പുരോഗതി കാണിയ്ക്കുന്ന മീറ്റര്‍ കാണിയ്ക്കരുതു്"
 
-#: src/main.vala:280
+#: src/main.vala:238
 msgid "Show the application's version"
 msgstr "പ്രയോഗത്തിന്റെ പതിപ്പു് കാണിയ്ക്കുക"
 
-#: src/main.vala:281
-msgid "Show extra debugging output"
-msgstr ""
-
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:307
+#: src/main.vala:264
 msgid "[FILE]"
 msgstr "[ഫയല്‍]"
 
-#: src/main.vala:311
+#: src/main.vala:268
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr "'%s --help' ഉപയോഗിച്ച് ലഭ്യമായ കമാന്റ് ലൈന്‍ ഓപ്ഷനുകള്‍ കാണാവുന്നതാണ് .\n"
@@ -590,424 +586,424 @@ msgstr "ചിത്ര പാലകന്‍"
 msgid "Photo Viewer"
 msgstr "ചിത്രദര്‍ശിനി"
 
-#: src/Resources.vala:85
+#: src/Resources.vala:79
 msgid "Rotate _Right"
 msgstr "വലത്തോട്ട് _തിരിക്കുക"
 
-#: src/Resources.vala:86
+#: src/Resources.vala:80
 msgid "Rotate Right"
 msgstr "വലത്തോട്ട് തിരിക്കുക"
 
-#: src/Resources.vala:87
+#: src/Resources.vala:81
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "കഫോട്ടോകള്‍ വലത്തോട്ട് കറക്കുക (ഇടത്തോട്ട് കറക്കാന്‍ Cntrl ഞെക്കുക)"
 
-#: src/Resources.vala:89
+#: src/Resources.vala:83
 msgid "Rotate _Left"
 msgstr "_ഇടത്തേക്ക് തിരിയ്ക്കുക"
 
-#: src/Resources.vala:90
+#: src/Resources.vala:84
 msgid "Rotate Left"
 msgstr "ഇടത്തേക്ക് തിരിയ്ക്കുക"
 
-#: src/Resources.vala:91
+#: src/Resources.vala:85
 msgid "Rotate the photos left"
 msgstr "ഫോട്ടോകള്‍ ഇടത്തോട്ട് കറക്കുക"
 
-#: src/Resources.vala:93
+#: src/Resources.vala:87
 msgid "Flip Hori_zontally"
 msgstr "വിലങ്ങനെ അക_മ്പുറം മറിക്കുക"
 
-#: src/Resources.vala:94
+#: src/Resources.vala:88
 msgid "Flip Horizontally"
 msgstr "വിലങ്ങനെ അകമ്പുറം മറിക്കുക"
 
-#: src/Resources.vala:95
+#: src/Resources.vala:89
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr ""
 
-#: src/Resources.vala:97
+#: src/Resources.vala:91
 msgid "Flip Verti_cally"
 msgstr "വിലങ്ങനെ അകമ്പുറം  _മറിക്കുക"
 
-#: src/Resources.vala:98
+#: src/Resources.vala:92
 msgid "Flip Vertically"
 msgstr "കുത്തനെ അകമ്പുറം മറിക്കുക"
 
-#: src/Resources.vala:99
+#: src/Resources.vala:93
 msgid "Flip the image vertically"
 msgstr ""
 
-#: src/Resources.vala:101
+#: src/Resources.vala:95
 msgid "_Enhance"
 msgstr "_മെച്ചപ്പെടുത്തുക"
 
-#: src/Resources.vala:102
+#: src/Resources.vala:96
 msgid "Enhance"
 msgstr "മെച്ചപ്പെടുത്തുക"
 
-#: src/Resources.vala:103
+#: src/Resources.vala:97
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
 
-#: src/Resources.vala:105
+#: src/Resources.vala:99
 msgid "Revert _Enhancement"
 msgstr ""
 
-#: src/Resources.vala:106
+#: src/Resources.vala:100
 msgid "Revert Enhancement"
 msgstr ""
 
-#: src/Resources.vala:108
+#: src/Resources.vala:102
 msgid "_Copy Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:110
+#: src/Resources.vala:104
 msgid "_Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:111
+#: src/Resources.vala:105
 msgid "Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:112
+#: src/Resources.vala:106
 msgid "Apply copied color adjustments to the selected photos"
 msgstr ""
 
-#: src/Resources.vala:114
+#: src/Resources.vala:108
 msgid "Crop"
 msgstr "മുറിക്കുക"
 
-#: src/Resources.vala:115
+#: src/Resources.vala:109
 msgid "Crop the photo's size"
 msgstr "ഫോട്ടോയുടെ വലുപ്പം  ക്രോപ്പ് ചെയ്യുക"
 
-#: src/Resources.vala:117
+#: src/Resources.vala:111
 msgid "Straighten"
 msgstr "കനേരെയാക്കു"
 
-#: src/Resources.vala:118
+#: src/Resources.vala:112
 msgid "Straighten the photo"
 msgstr "കഈ ഫോട്ടോ നേരെയാക്കു"
 
-#: src/Resources.vala:120
+#: src/Resources.vala:114
 msgid "Red-eye"
 msgstr "ചെങ്കണ്ണ്"
 
-#: src/Resources.vala:121
+#: src/Resources.vala:115
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "കഈ ഫോട്ടോയിലുള്ള ചെങ്കണ്ണ് പ്രതീതി കുറക്കുകയോ ഇല്ലാതാക്കുകയോ ചെയ്യുക"
 
-#: src/Resources.vala:123
+#: src/Resources.vala:117
 msgid "Adjust"
 msgstr "കക്രമീകരിക്കു"
 
-#: src/Resources.vala:124
+#: src/Resources.vala:118
 msgid "Adjust the photo's color and tone"
 msgstr "കഫോട്ടോയുടെ നിറവും  നിറഭേദവും  ക്രമീകരിക്കു"
 
-#: src/Resources.vala:126
+#: src/Resources.vala:120
 msgid "Re_vert to Original"
 msgstr "_നിലവിലുള്ളതാക്കുക"
 
-#: src/Resources.vala:127
+#: src/Resources.vala:121
 msgid "Revert to Original"
 msgstr "നിലവിലുള്ളതാക്കുക"
 
-#: src/Resources.vala:129
+#: src/Resources.vala:123
 #, fuzzy
 msgid "Re_name Event…"
 msgstr "ഇവന്റിന്റെ പേരു മാറ്റുക"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
+#: src/Resources.vala:124 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "ഇവന്റിന്റെ പേരു മാറ്റുക"
 
-#: src/Resources.vala:132
+#: src/Resources.vala:126
 msgid "Copy"
 msgstr ""
 
-#: src/Resources.vala:133
+#: src/Resources.vala:127
 #, fuzzy
 #| msgid "Metadata"
 msgid "Copy Metadata"
 msgstr "ചിത്രത്തെക്കുറിച്ചുള്ള വിവരങ്ങള്‍(മെറ്റാഡാറ്റ)"
 
-#: src/Resources.vala:135
+#: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
 msgstr "ഇവന്റിന്റെ _പ്രധാന ഫോട്ടോ ആക്കി മാറ്റുക"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:130
 msgid "Make Key Photo for Event"
 msgstr "ഇവന്റിന്റെ പ്രധാന ഫോട്ടോ ആക്കി മാറ്റുക"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:132
 msgid "_New Event"
 msgstr "പുതിയ _ഇവന്റ്"
 
-#: src/Resources.vala:139
+#: src/Resources.vala:133
 msgid "New Event"
 msgstr "പുതിയ ഇവന്റ്"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:135
 msgid "Move Photos"
 msgstr "ഫോട്ടോകള്‍ നീക്കുക"
 
-#: src/Resources.vala:142
+#: src/Resources.vala:136
 msgid "Move photos to an event"
 msgstr "ഫോട്ടോകള്‍ ഒരു ഇവന്റിലേക്ക് നീക്കുക"
 
-#: src/Resources.vala:144
+#: src/Resources.vala:138
 msgid "_Merge Events"
 msgstr "ഇവന്റുകളെ _ഒന്നിച്ചു ചേര്‍ക്കുക"
 
-#: src/Resources.vala:145
+#: src/Resources.vala:139
 msgid "Merge"
 msgstr "ഒന്നിച്ചു ചേര്‍ക്കുക"
 
-#: src/Resources.vala:146
+#: src/Resources.vala:140
 msgid "Combine events into a single event"
 msgstr "പല ഇവന്റുകള്‍ ചേര്‍ത്ത് ഒരൊറ്റ ഇവന്റു നി‌‌ര്‍മിക്കുക"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:142
 msgid "_Filter Photos"
 msgstr "ഫോട്ടോകള്‍ _ഫില്‍ട്ടര്‍ ചെയ്യുക"
 
-#: src/Resources.vala:150
+#: src/Resources.vala:144
 msgid "_Duplicate"
 msgstr "_പകര്‍പ്പ്"
 
-#: src/Resources.vala:151
+#: src/Resources.vala:145
 msgid "Duplicate"
 msgstr "പകര്‍പ്പ്"
 
-#: src/Resources.vala:152
+#: src/Resources.vala:146
 msgid "Make a duplicate of the photo"
 msgstr "ഫോട്ടോയുടെ ഒരു പകര്‍പ്പ് സൃഷ്ടിക്കുക"
 
-#: src/Resources.vala:154
+#: src/Resources.vala:148
 #, fuzzy
 msgid "_Export…"
 msgstr "കയറ്റുമതി"
 
-#: src/Resources.vala:156
+#: src/Resources.vala:150
 msgid "Show info panel"
 msgstr ""
 
-#: src/Resources.vala:158
+#: src/Resources.vala:152
 msgid "Hide info panel"
 msgstr ""
 
-#: src/Resources.vala:160
+#: src/Resources.vala:154
 #, fuzzy
 msgid "_Print…"
 msgstr "_പ്രിന്റ്"
 
-#: src/Resources.vala:162
+#: src/Resources.vala:156
 #, fuzzy
 msgid "Pu_blish…"
 msgstr "പ്രസിദ്ധീകരിക്കുക"
 
-#: src/Resources.vala:163
+#: src/Resources.vala:157
 msgid "Publish to various websites"
 msgstr "വിവിധ വെബ് സൈറ്റുകളിലേക്ക് പ്രസിദ്ധീകരിക്കുക"
 
-#: src/Resources.vala:165
+#: src/Resources.vala:159
 msgid "Edit Title"
 msgstr "തലക്കെട്ടു തിരുത്തുക"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:161
 msgid "Edit Comment"
 msgstr "അഭിപ്രായം ചിട്ടപ്പെടുത്തുക"
 
-#: src/Resources.vala:169
+#: src/Resources.vala:163
 #, fuzzy
 msgid "_Adjust Date and Time…"
 msgstr "സമയവും  തിയ്യതിയും  ക്രമീകരിക്കുക"
 
-#: src/Resources.vala:170
+#: src/Resources.vala:164
 msgid "Adjust Date and Time"
 msgstr "സമയവും  തിയ്യതിയും  ക്രമീകരിക്കുക"
 
-#: src/Resources.vala:172
+#: src/Resources.vala:166
 msgid "Find"
 msgstr "തിരയുക"
 
-#: src/Resources.vala:174
+#: src/Resources.vala:168
 msgid "_Flag"
 msgstr "‌‌_മുദ്രവെക്കുക"
 
-#: src/Resources.vala:175
+#: src/Resources.vala:169
 msgid "Un_flag"
 msgstr "‌_‌‌_മുദ്ര കളയുക"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:173
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "\"%s\" എന്ന ടാഗ് ചേര്‍ക്കുക"
 
-#: src/Resources.vala:181
+#: src/Resources.vala:175
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "\"%s\" , \"%s\" എന്നീ ടാഗുകള്‍ ചേര്‍ക്കുക"
 
-#: src/Resources.vala:185
+#: src/Resources.vala:179
 msgid "Add Tags"
 msgstr "ടാഗുകള്‍ ചേര്‍ക്കുക"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:183
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "\"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:187
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "\"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:196
+#: src/Resources.vala:190
 msgid "Delete Tag"
 msgstr "ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:191 src/Resources.vala:232 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "_നീക്കം ചെയ്യുക"
 
-#: src/Resources.vala:199
+#: src/Resources.vala:193
 msgid "_New"
 msgstr "_പുതിയ"
 
-#: src/Resources.vala:202
+#: src/Resources.vala:196
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "\"%s\" എന്ന ടാഗിന്റെ പേരു _മാറ്റുക"
 
-#: src/Resources.vala:206
+#: src/Resources.vala:200
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "`%s' എന്ന ടാഗ് `%s' ആയി പേര് മാറ്റുക"
 
-#: src/Resources.vala:209
+#: src/Resources.vala:203
 #, fuzzy
 msgid "_Rename…"
 msgstr "പേരു് _മാറ്റുക..."
 
-#: src/Resources.vala:211
+#: src/Resources.vala:205
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "ടാഗുകള്‍ തിരുത്തുക"
 
-#: src/Resources.vala:212
+#: src/Resources.vala:206
 msgid "Modify Tags"
 msgstr "ടാഗുകള്‍ തിരുത്തുക"
 
-#: src/Resources.vala:215
+#: src/Resources.vala:209
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "ഫോട്ടോ \"%s\" ആയി ടാഗ് ചെയ്യുക"
 msgstr[1] "ഫോട്ടോ \"%s\" ആയി ടാഗ് ചെയ്യുക"
 
-#: src/Resources.vala:219
+#: src/Resources.vala:213
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "_ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 msgstr[1] "_ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:217
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 msgstr[1] "ഫോട്ടോയില്‍ നിന്ന് \"%s\" എന്ന ടാഗ് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:221
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr ""
 "\"%s\" എന്ന് ടാഗിനെ പേരുമാറ്റാന്‍ കഴിയില്ല കാരണം  ആ പേരില്‍ ഒരു ടാഗ് ആദ്യമേ നിലവിലുണ്ട്."
 
-#: src/Resources.vala:231
+#: src/Resources.vala:225
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "തിരച്ചിലിന്  \"%s\" എന്നു പേരുമാറ്റാന്‍ സാധ്യമല്ല  കാരണം  ആ പേരില്‍ ഒരു തിരച്ചില്‍ ആദ്യമേ "
 "നിലവിലുണ്ട്"
 
-#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:228 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:236
+#: src/Resources.vala:230
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:239
+#: src/Resources.vala:233
 #, fuzzy
 msgid "_Edit…"
 msgstr "‌_തിരുത്തുക"
 
-#: src/Resources.vala:240
+#: src/Resources.vala:234
 #, fuzzy
 msgid "Re_name…"
 msgstr "പേര് _മാറ്റുക"
 
-#: src/Resources.vala:243
+#: src/Resources.vala:237
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "\"%s\" എന്ന തിരച്ചില്‍ \"%s\" എന്ന പേരിലാക്കുക"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:241
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "\"%s\" എന്ന തിരച്ചില്‍ മായ്ച് കളയുക"
 
-#: src/Resources.vala:279
+#: src/Resources.vala:273
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:280
+#: src/Resources.vala:274
 msgid "Remove the selected photos from the trash"
 msgstr "തിരഞ്ഞെടുത്ത ഫോട്ടോകള്‍ ചവറ്റുകുട്ടയില്‍ നിന്നും  നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:281
+#: src/Resources.vala:275
 msgid "Remove the selected photos from the library"
 msgstr "തിരഞ്ഞെടുത്ത ചിത്രങ്ങള്‍ ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:283
+#: src/Resources.vala:277
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:284
+#: src/Resources.vala:278
 msgid "Move the selected photos back into the library"
 msgstr "തിരഞ്ഞെടുത്ത ചിത്രങ്ങള്‍ ലൈബ്രറിയിലേക്ക് തിരിച്ചെടുക്കുക"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:280
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ഫയല്‍ മാനേ_ജറില്‍ കാണിക്കുക"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:283
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ഫയല്‍ മാനേജര്‍ തുറക്കാന്‍ കഴിഞ്ഞില്ല :%s"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:286
 msgid "R_emove From Library"
 msgstr "ലൈബ്രറിയില്‍ _നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:288
 msgid "_Move to Trash"
 msgstr "_ചവറ്റുകുട്ടയിലേക്ക് നീക്കുക"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:290
 msgid "Select _All"
 msgstr "എല്ലാം  _തിരഞ്ഞെടുക്കുക"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:291
 msgid "Select all items"
 msgstr "എല്ലാ ഇനങ്ങളൂം  തിരഞ്ഞെടുക്കുക"
 
@@ -1015,20 +1011,20 @@ msgstr "എല്ലാ ഇനങ്ങളൂം  തിരഞ്ഞെടുക
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:336
+#: src/Resources.vala:330
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:341
+#: src/Resources.vala:335
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:345
+#: src/Resources.vala:339
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1038,7 +1034,7 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:350 src/Resources.vala:360
+#: src/Resources.vala:344 src/Resources.vala:354
 #, c-format
 msgid "%a %b %d"
 msgstr "%a %b %d"
@@ -1046,7 +1042,7 @@ msgstr "%a %b %d"
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:355
+#: src/Resources.vala:349
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1059,7 +1055,7 @@ msgid "untitled"
 msgstr "തലക്കെട്ടില്ലാത്ത"
 
 #. multiple videos
-#: src/VideoSupport.vala:515
+#: src/VideoSupport.vala:516
 msgid "Export Videos"
 msgstr "ചലച്ചിത്രങ്ങള്‍ കയറ്റുമതി ചെയ്യുക"
 
@@ -1207,7 +1203,7 @@ msgid "Export Video"
 msgstr "ചലച്ചിത്രം  കയറ്റുമതി ചെയ്യുക"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
-#: src/Views/LibraryPhotoPage.vala:726
+#: src/Views/LibraryPhotoPage.vala:724
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1691,11 +1687,11 @@ msgstr "ഫോട്ടോകളുടെ പകര്‍പ്പു_കള്�
 msgid "_Import in Place"
 msgstr "_ഇനി പറയുന്ന സ്ഥലത്തേക്ക് ഇറക്കുമതി ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:645
 msgid "Remove From Library"
 msgstr "ലൈബ്രറിയില്‍ നിന്ന് നീക്കം  ചെയ്യുക"
 
-#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:645
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -2268,7 +2264,6 @@ msgid "New _Tag…"
 msgstr "പുതിയ ടാ_ഗ്..."
 
 #: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
-#, c-format
 msgid "RAW+JPEG"
 msgstr "അസംസ്കൃതം : ജേപെഗ്"
 
@@ -2416,14 +2411,14 @@ msgstr "_ഡെവെലപ്പര്‍"
 msgid "Show in Files"
 msgstr "അവതരണത്തിന്റെ തലക്കെട്ട്"
 
-#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:171
 #: src/Views/LibraryPhotoPage.vala:565
-msgid "Set as Wallpaper"
+msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
-#: src/Views/LibraryPhotoPage.vala:569
-msgid "Other Actions"
+#: src/Views/CollectionPage.vala:219 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:574
+msgid "Set as Wallpaper"
 msgstr ""
 
 #: src/Views/CollectionPage.vala:562
@@ -2528,7 +2523,7 @@ msgstr ""
 msgid "Copied dimensions: %i x %i px"
 msgstr ""
 
-#: src/Views/EditingHostPage.vala:1718
+#: src/Views/EditingHostPage.vala:1727
 #, fuzzy
 #| msgid "No events found"
 msgid "No metadata found"
@@ -2783,7 +2778,7 @@ msgstr "ഇറക്കുമതി ചെയ്തു %s"
 msgid "Last Import"
 msgstr "അവസാനത്തെ ഇറക്കുമതി"
 
-#: src/Views/LibraryPhotoPage.vala:746
+#: src/Views/LibraryPhotoPage.vala:744
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s കയറ്റുമതി ചെയ്യാന്‍ കഴിഞ്ഞില്ല : %s"

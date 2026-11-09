@@ -25,12 +25,6 @@ public const string APP_LIBRARY_ROLE = _("Photo Manager");
 public const string APP_DIRECT_ROLE = _("Photo Viewer");
 public const string APP_VERSION = _VERSION;
 
-#if _GITVERSION
-public const string? GIT_VERSION = _GIT_VERSION;
-#else
-public const string? GIT_VERSION = null;
-#endif
-
 public const string APP_GETTEXT_PACKAGE = GETTEXT_PACKAGE;
 
 public const string WIKI_URL = "https://wiki.gnome.org/Apps/Shotwell";

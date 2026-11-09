@@ -151,6 +151,7 @@ public abstract class SinglePhotoPage : Page {
         canvas_ctx.set_source_surface (pixmap, 0, 0);
         canvas_ctx.paint ();
         canvas_ctx.restore ();
+        queue_draw ();
     }
 
     protected virtual bool is_zoom_supported () {

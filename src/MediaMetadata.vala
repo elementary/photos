@@ -44,7 +44,7 @@ public struct MetadataRational {
     }
 
     public bool is_valid () {
-        return (is_component_valid (numerator) && is_component_valid (denominator));
+        return (denominator > 0 && is_component_valid (numerator) && is_component_valid (denominator));
     }
 
     public string to_string () {

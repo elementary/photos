@@ -17,11 +17,6 @@
 * Boston, MA 02110-1301 USA
 */
 
-enum ShotwellCommand {
-    // user-defined commands must be positive ints
-    MOUNTED_CAMERA = 1
-}
-
 private Timer startup_timer = null;
 private bool was_already_running = false;
 public const string TRANSLATABLE = "translatable";
@@ -181,12 +176,6 @@ void library_exec (string[] mounts) {
         foreach (WelcomeServiceEntry entry in selected_import_entries)
             entry.execute ();
     }
-    if (do_system_pictures_import) {
-        /*  Do the system import even if other plugins have run as some plugins may not
-            as some plugins may not import pictures from the system folder.
-         */
-        run_system_pictures_import ();
-    }
 
     debug ("%lf seconds to Gtk.main ()", startup_timer.elapsed ());
 
@@ -203,37 +192,7 @@ void library_exec (string[] mounts) {
     Library.app_terminate ();
 }
 
-private bool do_system_pictures_import = false;
 private bool do_external_import = false;
-
-public void run_system_pictures_import (ImportManifest? external_exclusion_manifest = null) {
-    if (!do_system_pictures_import)
-        return;
-
-    Gee.ArrayList<FileImportJob> jobs = new Gee.ArrayList<FileImportJob> ();
-    jobs.add (new FileImportJob (AppDirs.get_import_dir (), false));
-
-    LibraryWindow library_window = (LibraryWindow) AppWindow.get_instance ();
-
-    BatchImport batch_import = new BatchImport (jobs, "startup_import",
-            report_system_pictures_import, null, null, null, null, external_exclusion_manifest);
-    library_window.enqueue_batch_import (batch_import, true);
-
-    library_window.switch_to_import_queue_page ();
-}
-
-private void report_system_pictures_import (ImportManifest manifest, BatchImportRoll import_roll) {
-    /* Don't report the manifest to the user if exteral import was done and the entire manifest
-       is empty. An empty manifest in this case results from files that were already imported
-       in the external import phase being skipped. Note that we are testing against manifest.all,
-       not manifest.success; manifest.all is zero when no files were enqueued for import in the
-       first place and the only way this happens is if all files were skipped -- even failed
-       files are counted in manifest.all */
-    if (do_external_import && (manifest.all.size == 0))
-        return;
-
-    ImportUI.report_manifest (manifest, true);
-}
 
 void editing_exec (string filename) {
     File initial_file = File.new_for_commandline_arg (filename);
@@ -271,14 +230,12 @@ namespace CommandlineOptions {
     bool no_runtime_monitoring = false;
     bool no_startup_progress = false;
     bool show_version = false;
-    bool debug_enabled = false;
 
     const OptionEntry[] APP_OPTIONS = {
         { "datadir", 'd', 0, OptionArg.FILENAME, out data_dir, N_("Path to Photos' private data"), N_("DIRECTORY")},
         { "no-runtime-monitoring", 0, 0, OptionArg.NONE, out no_runtime_monitoring, N_("Do not monitor library directory at runtime for changes"), null},
         { "no-startup-progress", 0, 0, OptionArg.NONE, out no_startup_progress, N_("Don't display startup progress meter"), null},
         { "version", 'v', 0, OptionArg.NONE, out show_version, N_("Show the application's version"), null},
-        { "debug", 'D', 0, OptionArg.NONE, out debug_enabled, N_("Show extra debugging output"), null},
         { null }
     };
 }
@@ -314,10 +271,7 @@ void main (string[] args) {
     }
 
     if (CommandlineOptions.show_version) {
-        if (Resources.GIT_VERSION != null)
-            print ("%s %s (%s)\n", _ (Resources.APP_TITLE), Resources.APP_VERSION, Resources.GIT_VERSION);
-        else
-            print ("%s %s\n", _ (Resources.APP_TITLE), Resources.APP_VERSION);
+        print ("%s %s\n", _ (Resources.APP_TITLE), Resources.APP_VERSION);
 
         AppDirs.terminate ();
 

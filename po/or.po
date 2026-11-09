@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shotwell-0.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 00:21+0000\n"
+"POT-Creation-Date: 2026-08-04 22:08+0000\n"
 "PO-Revision-Date: 2016-04-18 04:21+0000\n"
 "Last-Translator: elementary Apps team <Unknown>\n"
 "Language-Team: Oriya (http://www.transifex.com/projects/p/shotwell/language/"
@@ -377,11 +377,11 @@ msgstr "ସାଧନ ପଟି ଖୋଲିବାରେ ପିନ ଲଗାନ�
 msgid "Leave fullscreen"
 msgstr "ସମ୍ପୁର୍ଣ୍ଣ ପରଦା ଛାଡ଼ି ଦିଅନ୍ତୁ"
 
-#: src/main.vala:68 src/main.vala:76
+#: src/main.vala:63 src/main.vala:71
 msgid "Your Photo Library Is Not Compatible With This Version of Photos"
 msgstr ""
 
-#: src/main.vala:69
+#: src/main.vala:64
 #, fuzzy, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -391,7 +391,7 @@ msgstr ""
 "(ଯୋଜନା %d) ଦ୍ୱାରା ଦୃଶ୍ୟମାନ ହୋଇଥାଏ।  ଏହି ସଂସ୍କରଣଟି ହେଉଛି %s (ଯୋଜନା %d)। ଦୟାକରି "
 "Shotwell ର ନୂତନତମ ସଂସ୍କରଣକୁ ବ୍ୟବହାର କରନ୍ତୁ।"
 
-#: src/main.vala:72
+#: src/main.vala:67
 #, fuzzy, c-format
 msgid ""
 "Photos Was Unable To Upgrade Your Photo Library From Version %s (Schema %d) "
@@ -400,12 +400,12 @@ msgstr ""
 "Shotwell ଆପଣଙ୍କର ଫୋଟୋ ଲାଇବ୍ରେରୀକୁ ସଂସ୍କରଣ %s ରୁ ଉନ୍ନୟନ କରିବାରେ ଅସମର୍ଥ (ଯୋଜନା %d) ରୁ "
 "%s (ଯୋଜନା %d)କୁ। ଅଧିକ ସୂଚନା ପାଇଁ ଦୟାକରି Shotwell ୱିକିକୁ%s ରେ ଯାଞ୍ଚ କରନ୍ତୁ"
 
-#: src/main.vala:73
+#: src/main.vala:68
 #, c-format
 msgid "For more information please check the Photos Wiki at %s"
 msgstr ""
 
-#: src/main.vala:77
+#: src/main.vala:72
 #, fuzzy, c-format
 msgid ""
 "It appears it was created by Photos %s (schema %d). This version is %s "
@@ -417,47 +417,43 @@ msgstr ""
 "ଦୟାକରି ଆପଣଙ୍କର %s କୁ ଅପସାରଣ କରି ଲାଇବ୍ରେରୀକୁ ସଫା କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କର ଫୋଟୋଗୁଡ଼ିକୁ ପୁଣି ଭରଣ "
 "କରନ୍ତୁ।"
 
-#: src/main.vala:80
+#: src/main.vala:75
 #, fuzzy
 msgid "Unknown Error Attempting To Verify Photos' Database"
 msgstr "Shotwell ର ତଥ୍ୟାଧାରକୁ ଯାଞ୍ଚ କରିବା ସମୟରେ ଅଜଣା ତ୍ରୁଟି: %s"
 
-#: src/main.vala:115
+#: src/main.vala:110
 #, fuzzy
 msgid "Loading Photos"
 msgstr "Shotwell କୁ ଧାରଣ କରୁଅଛି"
 
-#: src/main.vala:277
+#: src/main.vala:235
 #, fuzzy
 msgid "Path to Photos' private data"
 msgstr "Shotwell ର ବ୍ୟକ୍ତିଗତ ତଥ୍ୟ"
 
-#: src/main.vala:277
+#: src/main.vala:235
 msgid "DIRECTORY"
 msgstr "ଡିରେକ୍ଟୋରି"
 
-#: src/main.vala:278
+#: src/main.vala:236
 msgid "Do not monitor library directory at runtime for changes"
 msgstr "ପରିବର୍ତ୍ତନ ପାଇଁ ଚାଲୁଥିବା ସମୟରେ ଲାଇବ୍ରେରୀ ଡିରେକ୍ଟୋରୀକୁ ନିରୀକ୍ଷଣ କରନ୍ତୁ ନାହିଁ"
 
-#: src/main.vala:279
+#: src/main.vala:237
 msgid "Don't display startup progress meter"
 msgstr "ପ୍ରାରମ୍ଭିକ ଉନ୍ନତି ମିଟରକୁ ଦର୍ଶାନ୍ତୁ ନାହିଁ"
 
-#: src/main.vala:280
+#: src/main.vala:238
 msgid "Show the application's version"
 msgstr "ପ୍ରୟୋଗର ସଂସ୍କରଣକୁ ଦର୍ଶାନ୍ତୁ"
 
-#: src/main.vala:281
-msgid "Show extra debugging output"
-msgstr ""
-
 #. init GTK (valac has already called g_threads_init ())
-#: src/main.vala:307
+#: src/main.vala:264
 msgid "[FILE]"
 msgstr "[FILE]"
 
-#: src/main.vala:311
+#: src/main.vala:268
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr "ଉପଲବ୍ଧ ପାଠ୍ଯ ନିର୍ଦ୍ଦେଶ ବିକଳ୍ପର ସମ୍ପୂର୍ଣ୍ଣ ତାଲିକା ପାଇଁ '%s --help' ଚଳାନ୍ତୁ.\n"
@@ -590,422 +586,422 @@ msgstr "ଫୋଟୋ ପରିଚାଳକ"
 msgid "Photo Viewer"
 msgstr "ଫୋଟୋ ପ୍ରଦର୍ଶିକା"
 
-#: src/Resources.vala:85
+#: src/Resources.vala:79
 msgid "Rotate _Right"
 msgstr "ଡାହାଣକୁ ଘୂରାନ୍ତୁ (_R)"
 
-#: src/Resources.vala:86
+#: src/Resources.vala:80
 msgid "Rotate Right"
 msgstr "ଡ଼ାହାଣକୁ ଘୁରାନ୍ତୁ"
 
-#: src/Resources.vala:87
+#: src/Resources.vala:81
 msgid "Rotate the photos right (press Ctrl to rotate left)"
 msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ଡ଼ାହାଣକୁ ଘୁରାନ୍ତୁ (ବାମକୁ ବୁଲାଇବା ପାଇଁ Ctrl ଦବାନ୍ତୁ)"
 
-#: src/Resources.vala:89
+#: src/Resources.vala:83
 msgid "Rotate _Left"
 msgstr "ବାମକୁ ଘୂରାନ୍ତୁ (_L)"
 
-#: src/Resources.vala:90
+#: src/Resources.vala:84
 msgid "Rotate Left"
 msgstr "ବାମକୁ ଘୂରାନ୍ତୁ"
 
-#: src/Resources.vala:91
+#: src/Resources.vala:85
 msgid "Rotate the photos left"
 msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ବାମକୁ ଘୂରାନ୍ତୁ"
 
-#: src/Resources.vala:93
+#: src/Resources.vala:87
 msgid "Flip Hori_zontally"
 msgstr "ଭୂ-ସମାନ୍ତରାଳ ଭାବରେ ପଲଟାନ୍ତୁ (_z)"
 
-#: src/Resources.vala:94
+#: src/Resources.vala:88
 msgid "Flip Horizontally"
 msgstr "ଭୂ-ସମାନ୍ତରାଳ ଭାବରେ ପଲଟାନ୍ତୁ"
 
-#: src/Resources.vala:95
+#: src/Resources.vala:89
 msgid "Flip the image horizontally (press Ctrl to flip vertically)"
 msgstr ""
 
-#: src/Resources.vala:97
+#: src/Resources.vala:91
 msgid "Flip Verti_cally"
 msgstr "ଭୂ-ଲମ୍ବ ଭାବରେ ପଲଟାନ୍ତୁ (_c)"
 
-#: src/Resources.vala:98
+#: src/Resources.vala:92
 msgid "Flip Vertically"
 msgstr "ଭୂ-ଲମ୍ବ ଭାବରେ ପଲଟାନ୍ତୁ"
 
-#: src/Resources.vala:99
+#: src/Resources.vala:93
 msgid "Flip the image vertically"
 msgstr ""
 
-#: src/Resources.vala:101
+#: src/Resources.vala:95
 msgid "_Enhance"
 msgstr "ଉନ୍ନତତର କରନ୍ତୁ (_E)"
 
-#: src/Resources.vala:102
+#: src/Resources.vala:96
 msgid "Enhance"
 msgstr "ଉନ୍ନତତର କରନ୍ତୁ"
 
-#: src/Resources.vala:103
+#: src/Resources.vala:97
 msgid ""
 "Automatically improve the photo's appearance \n"
 "(Overwrites previous color adjustments)"
 msgstr ""
 
-#: src/Resources.vala:105
+#: src/Resources.vala:99
 msgid "Revert _Enhancement"
 msgstr ""
 
-#: src/Resources.vala:106
+#: src/Resources.vala:100
 msgid "Revert Enhancement"
 msgstr ""
 
-#: src/Resources.vala:108
+#: src/Resources.vala:102
 msgid "_Copy Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:110
+#: src/Resources.vala:104
 msgid "_Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:111
+#: src/Resources.vala:105
 msgid "Paste Color Adjustments"
 msgstr ""
 
-#: src/Resources.vala:112
+#: src/Resources.vala:106
 msgid "Apply copied color adjustments to the selected photos"
 msgstr ""
 
-#: src/Resources.vala:114
+#: src/Resources.vala:108
 msgid "Crop"
 msgstr "କାଟିକରି ଛୋଟ କରନ୍ତୁ"
 
-#: src/Resources.vala:115
+#: src/Resources.vala:109
 msgid "Crop the photo's size"
 msgstr "ଫୋଟୋର ଆକାରକୁ କାଟିକରି ଛୋଟ କରନ୍ତୁ"
 
-#: src/Resources.vala:117
+#: src/Resources.vala:111
 msgid "Straighten"
 msgstr "ସିଧା କରନ୍ତୁ"
 
-#: src/Resources.vala:118
+#: src/Resources.vala:112
 msgid "Straighten the photo"
 msgstr "ଫୋଟୋକୁ ସିଧା କରନ୍ତୁ"
 
-#: src/Resources.vala:120
+#: src/Resources.vala:114
 msgid "Red-eye"
 msgstr "ଲାଲି ଆଖି"
 
-#: src/Resources.vala:121
+#: src/Resources.vala:115
 msgid "Reduce or eliminate any red-eye effects in the photo"
 msgstr "ଲାଲି ଆଖି ପ୍ରଭାବକୁ ଫୋଟୋରୁ କମ କରନ୍ତୁ କିମ୍ବା ଲିଭାଇ ଦିଅନ୍ତୁ"
 
-#: src/Resources.vala:123
+#: src/Resources.vala:117
 msgid "Adjust"
 msgstr "ସଜାଡ଼ନ୍ତୁ"
 
-#: src/Resources.vala:124
+#: src/Resources.vala:118
 msgid "Adjust the photo's color and tone"
 msgstr "ଫୋଟୋର ରଙ୍ଗ ଏବଂ ଗାଢ଼ତାକୁ ସଜାଡ଼ନ୍ତୁ"
 
-#: src/Resources.vala:126
+#: src/Resources.vala:120
 msgid "Re_vert to Original"
 msgstr "ପ୍ରକୃତ ରୂପକୁ ପ୍ରତ୍ଯାବ୍ରୁତ କରନ୍ତୁ (_v)"
 
-#: src/Resources.vala:127
+#: src/Resources.vala:121
 msgid "Revert to Original"
 msgstr "ପ୍ରକୃତ ରୂପକୁ ପ୍ରତ୍ଯାବ୍ରୁତ କରନ୍ତୁ"
 
-#: src/Resources.vala:129
+#: src/Resources.vala:123
 #, fuzzy
 msgid "Re_name Event…"
 msgstr "ଘଟଣାର ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:130 src/Dialogs/Dialogs.vala:766
+#: src/Resources.vala:124 src/Dialogs/Dialogs.vala:766
 msgid "Rename Event"
 msgstr "ଘଟଣାର ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:132
+#: src/Resources.vala:126
 msgid "Copy"
 msgstr ""
 
-#: src/Resources.vala:133
+#: src/Resources.vala:127
 #, fuzzy
 #| msgid "Metadata"
 msgid "Copy Metadata"
 msgstr "ଅଧିତଥ୍ୟ"
 
-#: src/Resources.vala:135
+#: src/Resources.vala:129
 msgid "Make _Key Photo for Event"
 msgstr "ଘଟଣା ପାଇଁ ମୂଖ୍ୟ ଫୋଟୋ ପ୍ରସ୍ତୁତ କରନ୍ତୁ (_K)"
 
-#: src/Resources.vala:136
+#: src/Resources.vala:130
 msgid "Make Key Photo for Event"
 msgstr "ଘଟଣା ପାଇଁ ମୂଖ୍ୟ ଫୋଟୋ ପ୍ରସ୍ତୁତ କରନ୍ତୁ"
 
-#: src/Resources.vala:138
+#: src/Resources.vala:132
 msgid "_New Event"
 msgstr "ନୂତନ ଘଟଣା (_N)"
 
-#: src/Resources.vala:139
+#: src/Resources.vala:133
 msgid "New Event"
 msgstr "ନୂଆ ଘଟଣା"
 
-#: src/Resources.vala:141
+#: src/Resources.vala:135
 msgid "Move Photos"
 msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ଘୁଞ୍ଚାନ୍ତୁ"
 
-#: src/Resources.vala:142
+#: src/Resources.vala:136
 msgid "Move photos to an event"
 msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ଏକ ଘଟଣାକୁ ଘୁଞ୍ଚାନ୍ତୁ"
 
-#: src/Resources.vala:144
+#: src/Resources.vala:138
 msgid "_Merge Events"
 msgstr "ଘଟଣାଗୁଡିକୁ ମିଶାନ୍ତୁ (_M)"
 
-#: src/Resources.vala:145
+#: src/Resources.vala:139
 msgid "Merge"
 msgstr "ମିଶ୍ରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:146
+#: src/Resources.vala:140
 msgid "Combine events into a single event"
 msgstr "ସମସ୍ତ ଘଟଣାଗୁଡ଼ିକୁ ଏକ ଘଟଣା ମଧ୍ଯରେ ଏକତ୍ରିତ କରନ୍ତୁ"
 
-#: src/Resources.vala:148
+#: src/Resources.vala:142
 msgid "_Filter Photos"
 msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ଛାଣନ୍ତୁ (_F)"
 
-#: src/Resources.vala:150
+#: src/Resources.vala:144
 msgid "_Duplicate"
 msgstr "ନକଲି (_D)"
 
-#: src/Resources.vala:151
+#: src/Resources.vala:145
 msgid "Duplicate"
 msgstr "ନକଲି"
 
-#: src/Resources.vala:152
+#: src/Resources.vala:146
 msgid "Make a duplicate of the photo"
 msgstr "ଏହି ଫୋଟୋର ଏକ ନକଲ କରନ୍ତୁ"
 
-#: src/Resources.vala:154
+#: src/Resources.vala:148
 #, fuzzy
 msgid "_Export…"
 msgstr "ରତ୍ପାନୀ କର"
 
-#: src/Resources.vala:156
+#: src/Resources.vala:150
 msgid "Show info panel"
 msgstr ""
 
-#: src/Resources.vala:158
+#: src/Resources.vala:152
 msgid "Hide info panel"
 msgstr ""
 
-#: src/Resources.vala:160
+#: src/Resources.vala:154
 #, fuzzy
 msgid "_Print…"
 msgstr "ମୂଦ୍ରଣ କରନ୍ତୁ (_P) ..."
 
-#: src/Resources.vala:162
+#: src/Resources.vala:156
 #, fuzzy
 msgid "Pu_blish…"
 msgstr "ପ୍ରକାଶନ କରନ୍ତୁ"
 
-#: src/Resources.vala:163
+#: src/Resources.vala:157
 msgid "Publish to various websites"
 msgstr "ବିଭିନ୍ନ ୱେବସାଇଟରେ ପ୍ରକାଶନ କରନ୍ତୁ"
 
-#: src/Resources.vala:165
+#: src/Resources.vala:159
 msgid "Edit Title"
 msgstr "ଶୀର୍ଷକକୁ ସମ୍ପାଦନ କରନ୍ତୁ"
 
-#: src/Resources.vala:167
+#: src/Resources.vala:161
 msgid "Edit Comment"
 msgstr "ମନ୍ତବ୍ଯ ସଂପାଦନ କରନ୍ତୁ"
 
-#: src/Resources.vala:169
+#: src/Resources.vala:163
 #, fuzzy
 msgid "_Adjust Date and Time…"
 msgstr "ତାରିଖ ଏବଂ ସମୟକୁ ମେଳାନ୍ତୁ"
 
-#: src/Resources.vala:170
+#: src/Resources.vala:164
 msgid "Adjust Date and Time"
 msgstr "ତାରିଖ ଏବଂ ସମୟକୁ ମେଳାନ୍ତୁ"
 
-#: src/Resources.vala:172
+#: src/Resources.vala:166
 msgid "Find"
 msgstr "ଖୋଜନ୍ତୁ"
 
-#: src/Resources.vala:174
+#: src/Resources.vala:168
 msgid "_Flag"
 msgstr "ସୂଚକ ଚିହ୍ନ (_F)"
 
-#: src/Resources.vala:175
+#: src/Resources.vala:169
 msgid "Un_flag"
 msgstr "ସୂଚକ ହୀନ (_ f)"
 
-#: src/Resources.vala:179
+#: src/Resources.vala:173
 #, c-format
 msgid "Add Tag \"%s\""
 msgstr "ଟ୍ୟାଗ \"%s\" କୁ ଯୋଗ କରନ୍ତୁ"
 
-#: src/Resources.vala:181
+#: src/Resources.vala:175
 #, c-format
 msgid "Add Tags \"%s\" and \"%s\""
 msgstr "ଟ୍ୟାଗ \"%s\" ଏବଂ \"%s\" କୁ ଯୋଗ କରନ୍ତୁ"
 
-#: src/Resources.vala:185
+#: src/Resources.vala:179
 msgid "Add Tags"
 msgstr "ଟ୍ୟାଗଗୁଡ଼ିକୁ ଯୋଗକରନ୍ତୁ"
 
-#: src/Resources.vala:189
+#: src/Resources.vala:183
 #, c-format
 msgid "_Delete Tag \"%s\""
 msgstr "ଟ୍ୟାଗ \"%s\" କୁ ଅପସାରଣ କରନ୍ତୁ  (_D)"
 
-#: src/Resources.vala:193
+#: src/Resources.vala:187
 #, c-format
 msgid "Delete Tag \"%s\""
 msgstr "ଟ୍ୟାଗ \"%s\" କୁ ଅପସାରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:196
+#: src/Resources.vala:190
 msgid "Delete Tag"
 msgstr "ଟ୍ୟାଗକୁ ଅପସାରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:197 src/Resources.vala:238 src/Dialogs/Dialogs.vala:35
+#: src/Resources.vala:191 src/Resources.vala:232 src/Dialogs/Dialogs.vala:35
 msgid "_Delete"
 msgstr "ଅପସାରଣ କରନ୍ତୁ (_D)"
 
-#: src/Resources.vala:199
+#: src/Resources.vala:193
 msgid "_New"
 msgstr "ନୂତନ (_N)"
 
-#: src/Resources.vala:202
+#: src/Resources.vala:196
 #, fuzzy, c-format
 msgid "Re_name Tag \"%s\"…"
 msgstr "ଟ୍ୟାଗ \"%s\" ର ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ (_n)..."
 
-#: src/Resources.vala:206
+#: src/Resources.vala:200
 #, c-format
 msgid "Rename Tag \"%s\" to \"%s\""
 msgstr "ଟ୍ୟାଗ \"%s\" ର ନାମକୁ \"%s\" କୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:209
+#: src/Resources.vala:203
 #, fuzzy
 msgid "_Rename…"
 msgstr "ନାମ ବଦଳାନ୍ତୁ (_R)..."
 
-#: src/Resources.vala:211
+#: src/Resources.vala:205
 #, fuzzy
 msgid "Modif_y Tags…"
 msgstr "ଟ୍ଯାଗଗୁଡ଼ିକୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:212
+#: src/Resources.vala:206
 msgid "Modify Tags"
 msgstr "ଟ୍ଯାଗଗୁଡ଼ିକୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:215
+#: src/Resources.vala:209
 #, fuzzy, c-format
 msgid "Tag Photo as \"%s\""
 msgid_plural "Tag Photos as \"%s\""
 msgstr[0] "ଫୋଟୋକୁ \"%s\" ଭାବରେ ଟ୍ୟାଗ କରନ୍ତୁ"
 msgstr[1] "ଫୋଟୋକୁ \"%s\" ଭାବରେ ଟ୍ୟାଗ କରନ୍ତୁ"
 
-#: src/Resources.vala:219
+#: src/Resources.vala:213
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From _Photo"
 msgid_plural "Remove Tag \"%s\" From _Photos"
 msgstr[0] "ଫୋଟୋରୁ ଟ୍ୟାଗ \"%s\" କୁ କାଢ଼ି ଦିଅନ୍ତୁ (_P)"
 msgstr[1] "ଫୋଟୋରୁ ଟ୍ୟାଗ \"%s\" କୁ କାଢ଼ି ଦିଅନ୍ତୁ (_P)"
 
-#: src/Resources.vala:223
+#: src/Resources.vala:217
 #, fuzzy, c-format
 msgid "Remove Tag \"%s\" From Photo"
 msgid_plural "Remove Tag \"%s\" From Photos"
 msgstr[0] "ଫୋଟୋରୁ ଟ୍ୟାଗ \"%s\" କୁ କାଢ଼ି ଦିଅନ୍ତୁ"
 msgstr[1] "ଫୋଟୋରୁ ଟ୍ୟାଗ \"%s\" କୁ କାଢ଼ି ଦିଅନ୍ତୁ"
 
-#: src/Resources.vala:227
+#: src/Resources.vala:221
 #, c-format
 msgid "Unable to rename tag to \"%s\" because the tag already exists."
 msgstr "ଟ୍ୟାଗକୁ \"%s\" ରେ ପୁନଃ ନାମକରଣ କରିବାରେ ଅସମର୍ଥ କାରଣ ସେହି ଟ୍ୟାଗଟି ପୂର୍ବରୁ ଅବସ୍ଥିତ ଅଛି।"
 
-#: src/Resources.vala:231
+#: src/Resources.vala:225
 #, c-format
 msgid "Unable to rename search to \"%s\" because the search already exists."
 msgstr ""
 "ସନ୍ଧାନକୁ \"%s\" ରେ ପୁନଃ ନାମକରଣ କରିବାରେ ଅସମର୍ଥ କାରଣ ସେହି ସନ୍ଧାନଟି ପୂର୍ବରୁ ଅବସ୍ଥିତ ଅଛି।"
 
-#: src/Resources.vala:234 src/Dialogs/SavedSearchDialog.vala:123
+#: src/Resources.vala:228 src/Dialogs/SavedSearchDialog.vala:123
 msgid "Smart Album"
 msgstr ""
 
-#: src/Resources.vala:236
+#: src/Resources.vala:230
 msgid "Delete Album"
 msgstr ""
 
-#: src/Resources.vala:239
+#: src/Resources.vala:233
 #, fuzzy
 msgid "_Edit…"
 msgstr "ସମ୍ପାଦନ କରନ୍ତୁ (_E)"
 
-#: src/Resources.vala:240
+#: src/Resources.vala:234
 #, fuzzy
 msgid "Re_name…"
 msgstr "ନାମ ବଦଳାନ୍ତୁ ‍‌(_n)..."
 
-#: src/Resources.vala:243
+#: src/Resources.vala:237
 #, c-format
 msgid "Rename Search \"%s\" to \"%s\""
 msgstr "ସନ୍ଧାନ \"%s\" କୁ \"%s\" କୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: src/Resources.vala:247
+#: src/Resources.vala:241
 #, c-format
 msgid "Delete Search \"%s\""
 msgstr "ସନ୍ଧାନ \"%s\"କୁ ଅପସାରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:279
+#: src/Resources.vala:273
 msgid "_Delete Selection"
 msgstr ""
 
-#: src/Resources.vala:280
+#: src/Resources.vala:274
 msgid "Remove the selected photos from the trash"
 msgstr "ଆବର୍ଜନା ପାତ୍ରରୁ ବଚ୍ଛିତ ଫୋଟୋଗୁଡ଼ିକୁ ଅପସାରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:281
+#: src/Resources.vala:275
 msgid "Remove the selected photos from the library"
 msgstr "ଲାଇବ୍ରେରୀରୁ ବଚ୍ଛିତ ଫୋଟୋଗୁଡ଼ିକୁ ଅପସାରଣ କରନ୍ତୁ"
 
-#: src/Resources.vala:283
+#: src/Resources.vala:277
 msgid "_Restore Selection"
 msgstr ""
 
-#: src/Resources.vala:284
+#: src/Resources.vala:278
 msgid "Move the selected photos back into the library"
 msgstr "ବଚ୍ଛିତ ଫୋଟୋଗୁଡ଼ିକୁ ଲାଇବ୍ରେରୀ ମଧ୍ଯକୁ ପଠାନ୍ତୁ"
 
-#: src/Resources.vala:286
+#: src/Resources.vala:280
 #, fuzzy
 msgid "File Mana_ger"
 msgstr "ଫାଇଲ ପରିଚାଳକରେ ଦର୍ଶାନ୍ତୁ (_g)"
 
-#: src/Resources.vala:289
+#: src/Resources.vala:283
 #, c-format
 msgid "Unable to open in file manager: %s"
 msgstr "ଫାଇଲ ପରିଚାଳକରେ ଖୋଲିବାରେ ଅସମର୍ଥ: %s"
 
-#: src/Resources.vala:292
+#: src/Resources.vala:286
 msgid "R_emove From Library"
 msgstr "ଲାଇବ୍ରେରୀରୁ ବାହାର କରନ୍ତୁ (_e)"
 
-#: src/Resources.vala:294
+#: src/Resources.vala:288
 msgid "_Move to Trash"
 msgstr "ଆବର୍ଜନାପାତ୍ର ମଧ୍ଯକୁ ଅପସାରଣ କରନ୍ତୁ (_M)"
 
-#: src/Resources.vala:296
+#: src/Resources.vala:290
 msgid "Select _All"
 msgstr "ସବୁକିଛି ଚୟନ କରନ୍ତୁ (_A)"
 
-#: src/Resources.vala:297
+#: src/Resources.vala:291
 msgid "Select all items"
 msgstr "ସମସ୍ତ ବସ୍ତୁଗୁଡ଼ିକୁ ବାଛନ୍ତୁ"
 
@@ -1013,20 +1009,20 @@ msgstr "ସମସ୍ତ ବସ୍ତୁଗୁଡ଼ିକୁ ବାଛନ୍ତ�
 #. / Locale-specific time format for 12-hour time, i.e. 8:31 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:336
+#: src/Resources.vala:330
 msgid "%-I:%M %p"
 msgstr "%-I:%M %p"
 
 #. / Locale-specific time format for 12-hour time with seconds, i.e. 8:31:42 PM
 #. / Precede modifier with a dash ("-") to pad with spaces, otherwise will pad with zeroes
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:341
+#: src/Resources.vala:335
 msgid "%-I:%M:%S %p"
 msgstr "%-I:%M:%S %p"
 
 #. / Locale-specific calendar date format, i.e. "Tue Mar 08, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:345
+#: src/Resources.vala:339
 msgid "%a %b %d, %Y"
 msgstr "%a %b %d, %Y"
 
@@ -1036,7 +1032,7 @@ msgstr "%a %b %d, %Y"
 #. / Locale-specific calendar date format for multi-month strings,
 #. / i.e. the "Tue Mar 08" in "Tue Mar 08 to Mon Apr 06, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:350 src/Resources.vala:360
+#: src/Resources.vala:344 src/Resources.vala:354
 #, c-format
 msgid "%a %b %d"
 msgstr "%a %b %d"
@@ -1044,7 +1040,7 @@ msgstr "%a %b %d"
 #. / Locale-specific ending date format for multi-date strings,
 #. / i.e. the "10, 2006" in "Tue Mar 08 - 10, 2006"
 #. / See http://developer.gnome.org/glib/2.32/glib-GDateTime.html#g-date-time-format
-#: src/Resources.vala:355
+#: src/Resources.vala:349
 msgid "%d, %Y"
 msgstr "%d, %Y"
 
@@ -1057,7 +1053,7 @@ msgid "untitled"
 msgstr "ଶୀର୍ଷକ-ରହିତ"
 
 #. multiple videos
-#: src/VideoSupport.vala:515
+#: src/VideoSupport.vala:516
 msgid "Export Videos"
 msgstr "ଭିଡ଼ଓଗୁଡ଼ିକୁ ପଠାନ୍ତୁ"
 
@@ -1205,7 +1201,7 @@ msgid "Export Video"
 msgstr "ଭିଡ଼ିଓ ରତ୍ପାନୀ କରନ୍ତୁ"
 
 #: src/Dialogs/Dialogs.vala:98 src/Views/CollectionPage.vala:564
-#: src/Views/LibraryPhotoPage.vala:726
+#: src/Views/LibraryPhotoPage.vala:724
 #, fuzzy
 msgid "Export Photo"
 msgid_plural "Export Photos"
@@ -1678,11 +1674,11 @@ msgstr "ଫୋଟୋଗୁଡ଼ିକୁ ନକଲ କରନ୍ତୁ (_p)"
 msgid "_Import in Place"
 msgstr "ଆମଦାନୀ ଚାଲିଛି (_I)"
 
-#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:647
+#: src/Dialogs/Dialogs.vala:900 src/Views/LibraryPhotoPage.vala:645
 msgid "Remove From Library"
 msgstr "ଲାଇବ୍ରେରୀରୁ ବାହାର କରନ୍ତୁ"
 
-#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:647
+#: src/Dialogs/Dialogs.vala:901 src/Views/LibraryPhotoPage.vala:645
 #, fuzzy
 msgid "Removing Photo From Library"
 msgid_plural "Removing Photos From Library"
@@ -2255,7 +2251,6 @@ msgid "New _Tag…"
 msgstr "ନୂତନ ଟ୍ୟାଗ (_T)..."
 
 #: src/sidebar/metadata/BasicProperties.vala:133 src/Views/ImportPage.vala:300
-#, c-format
 msgid "RAW+JPEG"
 msgstr "RAW+JPEG"
 
@@ -2403,14 +2398,14 @@ msgstr "ବିକାଶକାରୀ (_D)"
 msgid "Show in Files"
 msgstr "ଶୀର୍ଷକ ଦର୍ଶାନ୍ତୁ (_i)"
 
-#: src/Views/CollectionPage.vala:199 src/Views/DirectPhotoPage.vala:167
+#: src/Views/CollectionPage.vala:209 src/Views/DirectPhotoPage.vala:171
 #: src/Views/LibraryPhotoPage.vala:565
-msgid "Set as Wallpaper"
+msgid "Other Actions"
 msgstr ""
 
-#: src/Views/CollectionPage.vala:203 src/Views/DirectPhotoPage.vala:171
-#: src/Views/LibraryPhotoPage.vala:569
-msgid "Other Actions"
+#: src/Views/CollectionPage.vala:219 src/Views/DirectPhotoPage.vala:167
+#: src/Views/LibraryPhotoPage.vala:574
+msgid "Set as Wallpaper"
 msgstr ""
 
 #: src/Views/CollectionPage.vala:562
@@ -2517,7 +2512,7 @@ msgstr ""
 msgid "Copied dimensions: %i x %i px"
 msgstr ""
 
-#: src/Views/EditingHostPage.vala:1718
+#: src/Views/EditingHostPage.vala:1727
 #, fuzzy
 #| msgid "No events found"
 msgid "No metadata found"
@@ -2769,7 +2764,7 @@ msgstr "ଆମଦାନୀ କରାଯାଇଥିବା %s"
 msgid "Last Import"
 msgstr "ଶେଷ ଆମଦାନୀ"
 
-#: src/Views/LibraryPhotoPage.vala:746
+#: src/Views/LibraryPhotoPage.vala:744
 #, c-format
 msgid "Unable to export %s: %s"
 msgstr "%s କୁ ପଠାଇବାରେ ଅସମର୍ଥ: %s"

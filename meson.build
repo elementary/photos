@@ -1,8 +1,8 @@
 project(
     'io.elementary.photos',
     'vala', 'c',
-    version: '8.0.1',
-    meson_version: '>=0.57.0'
+    version: '8.0.2',
+    meson_version: '>=0.60.0'
 )
 
 add_project_arguments([
@@ -45,12 +45,10 @@ i18n = import('i18n')
 glib_dep = dependency('glib-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
-gexiv2_dep = dependency('gexiv2', version: '>=0.4.90')
-if gexiv2_dep.version().version_compare('>= 0.11')
-  add_global_arguments(['--define=GEXIV2_0_11'], language : 'vala')
-endif
+# gexiv2 adopts API versioning since 0.15.0
+gexiv2_dep = dependency('gexiv2-0.16', 'gexiv2', version: '>=0.12.2')
 geocode_glib_dep = dependency('geocode-glib-2.0', 'geocode-glib-1.0')
-gmodule_dep = dependency('gmodule-2.0', version: '>=2.24.0')
+gmodule_dep = dependency('gmodule-2.0', version: '>=2.76.0')
 gstreamer_dep = dependency('gstreamer-1.0', version: '>=1.0.0')
 gstreamer_base_dep = dependency('gstreamer-base-1.0', version: '>=1.0.0')
 gstreamer_plugins_base_dep = dependency('gstreamer-plugins-base-1.0', version: '>=1.0.0')
@@ -70,10 +68,12 @@ gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 linux_dep = meson.get_compiler('vala').find_library('linux')
+m_dep = meson.get_compiler('c').find_library('m')
 
 vapi_include = include_directories('./vapi')
 
 dependencies = [
+    m_dep,
     glib_dep,
     gio_unix_dep,
     gee_dep,

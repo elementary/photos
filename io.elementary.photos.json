@@ -1,7 +1,7 @@
 {
     "id": "io.elementary.photos",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "8",
+    "runtime-version": "9.1",
     "sdk": "io.elementary.Sdk",
     "command": "io.elementary.photos",
     "finish-args": [
@@ -27,6 +27,9 @@
         "*.a",
         "*.la"
     ],
+    "build-options": {
+        "libdir": "/app/lib"
+    },
     "modules": [
         {
             "name": "exif",
@@ -81,8 +84,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.2.tar.xz",
-                    "sha256": "2a0c9cf48fbe8b3435008866ffd40b8eddb0667d2212b42396fdf688e93ce0be",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.16/gexiv2-0.16.2.tar.xz",
+                    "sha256": "aad9e240fdffbe85e390f46ee0a567e251baea5c29c3d8690260388683dc8d0a",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gexiv2"
@@ -105,8 +108,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.2.tar.gz",
-                            "sha256": "543bead934135f20f438e0b6d8858c55c5fcb7ff80f5d1d55489965f1aad58b9",
+                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.9.tar.gz",
+                            "sha256": "700b76b97695b2fab4ef8c79619c68ae57d09e0c130724791cafbd39e0eb4aef",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -122,8 +125,8 @@
                                 {
                                     "type": "git",
                                     "url": "https://github.com/benhoyt/inih",
-                                    "commit": "5cc5e2c24642513aaa5b19126aad42d0e4e0923e",
-                                    "tag": "r58",
+                                    "commit": "611ab51f8dd7ec583543815b0de693495045fbf8",
+                                    "tag": "r63",
                                     "x-checker-data": {
                                         "type": "anitya",
                                         "project-id": 11600,
@@ -146,8 +149,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://sourceforge.net/projects/gphoto/files/libgphoto/2.5.31/libgphoto2-2.5.31.tar.xz",
-                    "sha256": "8fc7bf40f979459509b87dd4ff1aae9b6c1c2b4724d37db576081eec15406ace",
+                    "url": "https://sourceforge.net/projects/gphoto/files/libgphoto/2.5.34/libgphoto2-2.5.34.tar.xz",
+                    "sha256": "51993f5d9bfb6b4e5925cbbe5883085791bff6f81bcacb8ffe1b783ce76d586a",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 12558,
@@ -195,6 +198,25 @@
                         "autoreconf -vfi"
                     ],
                     "dest-filename": "autogen.sh"
+                }
+            ]
+        },
+        {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dtests=false",
+                "-Dexamples=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz",
+                    "sha256": "05b497229073ff557f10b326e074c5066f8743a302d4820ab97bcb5cd2dab087",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libhandy"
+                    }
                 }
             ]
         },

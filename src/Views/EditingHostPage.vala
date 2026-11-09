@@ -1708,7 +1708,16 @@ public abstract class EditingHostPage : SinglePhotoPage {
                 if (tags != null) {
                     var ts = new Gee.TreeSet<string> ();
                     foreach (var s in tags) {
-                        ts.add ("%s: %s".printf (metadata.get_tag_label (s), metadata.get_string_interpreted (s)));
+                        string tag_label;
+
+                        try {
+                            tag_label = metadata.try_get_tag_label (s);
+                        } catch (Error err) {
+                            warning ("Failed to get tag label: tag=%s", s);
+                            continue;
+                        }
+
+                        ts.add ("%s: %s".printf (tag_label, metadata.get_string_interpreted (s)));
                     }
 
                     foreach (var s in ts) {
