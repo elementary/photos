@@ -68,10 +68,12 @@ gstreamer_plugins_base_vapi = meson.get_compiler('vala').find_library('gstreamer
 gstreamer_plugins_base_dep = declare_dependency(dependencies: [gstreamer_plugins_base_vapi])
 lconv_dep = meson.get_compiler('vala').find_library('LConv', dirs: join_paths(meson.current_source_dir(), 'vapi'))
 linux_dep = meson.get_compiler('vala').find_library('linux')
+m_dep = meson.get_compiler('c').find_library('m')
 
 vapi_include = include_directories('./vapi')
 
 dependencies = [
+    m_dep,
     glib_dep,
     gio_unix_dep,
     gee_dep,

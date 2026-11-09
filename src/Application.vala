@@ -80,7 +80,16 @@ public class Photos.Application : Gtk.Application {
             command_line.connect (on_command_line);
         }
 
-        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+        Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_icon_theme_name = "elementary";
+
+        if (!gtk_settings.gtk_theme_name.has_prefix ("io.elementary")) {
+            gtk_settings.gtk_theme_name = "io.elementary.stylesheet.blueberry";
+        }
+
+        gtk_settings.gtk_application_prefer_dark_theme = true;
+
         activate.connect (on_activated);
         startup.connect (on_activated);
     }
