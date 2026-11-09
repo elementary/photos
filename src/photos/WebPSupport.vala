@@ -172,8 +172,11 @@ public class WebPReader : PhotoFileReader {
         return result;
     }
 
-    public override PhotoMetadata read_metadata () {
-        return new PhotoMetadata ();
+    public override PhotoMetadata read_metadata () throws Error {
+        PhotoMetadata metadata = new PhotoMetadata ();
+        metadata.read_from_file (get_file ());
+
+        return metadata;
     }
 }
 
